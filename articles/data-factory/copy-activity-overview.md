@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
 ms.openlocfilehash: d52a0bba5fddaa865b8fad74b778ba7a3838b2a4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387896"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
@@ -70,7 +70,7 @@ Em geral, para usar a atividade de cópia no Azure Data Factory, você precisa:
 2. **Crie conjuntos de valores para a origem e o coletor.** Consulte as seções "Propriedades do conjunto de dados" dos artigos do conector de origem e do coletor para obter informações de configuração e propriedades com suporte.
 3. **Crie um pipeline com a atividade de cópia.** A próxima seção fornece um exemplo.
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 O modelo a seguir de uma atividade de cópia contém uma lista completa de propriedades com suporte. Especifique as adequadas para o seu cenário.
 
@@ -124,7 +124,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
-| tipo | Para uma atividade de cópia, defina como `Copy` | Sim |
+| type | Para uma atividade de cópia, defina como `Copy` | Sim |
 | entradas | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
 | typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
@@ -194,7 +194,7 @@ Você pode encontrar a seguinte configuração na guia origem da atividade de c�
 
 Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade em sua fonte de atividade de cópia:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **`$$COLUMN:<source_column_name>`** -um padrão de variável reservada indica a duplicação da coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
 

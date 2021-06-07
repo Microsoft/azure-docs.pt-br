@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92330488"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de Esquema do Azure nos Hubs de Eventos (versão prévia)
@@ -18,7 +18,7 @@ O **Registro de Esquema do Azure** é um recurso dos Hubs de Eventos que funcion
 
 > [!NOTE]
 > - O recurso de **Registro de Esquema** está em **versão prévia** no momento e não é recomendado para cargas de trabalho de produção.
-> - O recurso está disponível somente nas camadas de serviço **Standard** e **Dedicado** , e não na **Básica** .
+> - O recurso está disponível somente nas camadas de serviço **Standard** e **Dedicado**, e não na **Básica**.
 
 Com estruturas de serialização controladas por esquema, como o Apache Avro, externalizar os metadados de serialização em esquemas compartilhados também pode ajudar a reduzir drasticamente a sobrecarga por mensagem de informações de tipo e nomes de campo incluídos em cada conjunto de dados. Esse é o caso dos formatos marcados, como o JSON. Ter esquemas armazenados junto com os eventos e dentro da infraestrutura de eventos garante que os metadados necessários para serialização/desserialização sempre estejam ao alcance e os esquemas não sejam colocados no lugar incorreto. 
 

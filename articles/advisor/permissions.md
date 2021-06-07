@@ -4,10 +4,10 @@ description: As permissões do Advisor e como elas podem bloquear sua capacidade
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91712929"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões no Azure Advisor
@@ -49,5 +49,5 @@ Se você receber um erro ao tentar adiar ou descartar uma recomendação, talvez
 
 Este artigo deu uma visão geral de como o Advisor usa o RBAC do Azure para controlar as permissões de usuário e como resolver problemas comuns. Para saber mais sobre o Assistente, consulte:
 
-- [O que é o Azure Advisor?](./advisor-overview.md)
+- [O que é o Assistente do Azure?](./advisor-overview.md)
 - [Introdução ao Azure Advisor](./advisor-get-started.md)

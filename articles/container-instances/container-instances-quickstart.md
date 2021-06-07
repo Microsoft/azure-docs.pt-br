@@ -9,12 +9,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2027bdc4e77fefe2219b22671494b6d4f4b0ccb8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100177"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763947"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando a CLI do Azure
 
@@ -66,7 +66,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Se o `ProvisioningState` do contêiner for **Êxito** , vá até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
+Se o `ProvisioningState` do contêiner for **Êxito**, vá até o FQDN dele no seu navegador. Se você encontrar uma página da Web semelhante à seguinte, parabéns! Você implantou com êxito um aplicativo em execução em um contêiner do Docker no Azure.
 
 ![Exibir um aplicativo implantado nas Instâncias de Contêiner do Azure no navegador][aci-app-browser]
 
@@ -86,7 +86,7 @@ A saída exibe os logs para o contêiner e deve mostrar as solicitações HTTP G
 
 ```output
 listening on port 80
-::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
+::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1&quot; 304 - &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ```
@@ -128,7 +128,7 @@ Quando você conclui o contêiner, remova-o usando o comando [az container delet
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-Para verificar se o contêiner foi excluído, execute o comando [az container list](/cli/azure/container#az-container-list):
+Para verificar se o contêiner foi excluído, execute o comando [az container list](/cli/azure/container#az_container_list):
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -160,13 +160,13 @@ Para experimentar as opções para contêineres em execução em um sistema de o
 [node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-container-list]: /cli/azure/container#az-container-list
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-container-list]: /cli/azure/container#az_container_list
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md

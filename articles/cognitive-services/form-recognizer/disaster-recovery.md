@@ -2,19 +2,19 @@
 title: Diretrizes de recuperação de desastre para o reconhecedor do Azure Form
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar a API de modelo de cópia para fazer backup dos recursos do reconhecedor de formulário.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 05/27/2020
-ms.author: pafarley
-ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808242"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466908"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Fazer backup e recuperar seus modelos de reconhecedor de formulário
 
@@ -28,7 +28,7 @@ Se seu aplicativo ou negócio depende do uso de um modelo personalizado do recon
 
 ##  <a name="prerequisites"></a>Pré-requisitos
 
-1. Dois formulários reconhecedor recursos do Azure em diferentes regiões do Azure. Se você não os tiver, vá para a portal do Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso reconhecedor de formulário " target="_blank"> criar um novo recurso reconhecedor de formulário <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Dois formulários reconhecedor recursos do Azure em diferentes regiões do Azure. Se você não os tiver, vá para a portal do Azure e <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" crie um novo recurso reconhecedor de formulário " target="_blank"> criar um novo recurso reconhecedor de formulário </a> .
 1. A chave de assinatura, a URL de ponto de extremidade e a ID de assinatura do recurso de reconhecimento de formulário. Você pode encontrar esses valores na guia **visão geral** do recurso na portal do Azure.
 
 
@@ -39,9 +39,6 @@ O processo para copiar um modelo personalizado consiste nas seguintes etapas:
 1. Primeiro, você emite uma solicitação de cópia de autorização para o recurso de destino &mdash; que é, o recurso que receberá o modelo copiado. Você obtém novamente a URL do modelo de destino recém-criado, que receberá os dados copiados.
 1. Em seguida, você envia a solicitação de cópia para o recurso &mdash; de origem o recurso que contém o modelo a ser copiado. Você obterá uma URL que pode consultar para acompanhar o progresso da operação.
 1. Você usará suas credenciais de recurso de origem para consultar a URL de progresso até que a operação seja bem-sucedida. Você também pode consultar a nova ID do modelo no recurso de destino para obter o status do novo modelo.
-
-> [!CAUTION]
-> Atualmente, a API de cópia não dá suporte a IDs de modelo para [modelos personalizados compostos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/Compose). A composição de modelo é um recurso de visualização na visualização v 2.1-Preview. 2. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar solicitação de autorização de cópia
 
@@ -165,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste guia, você aprendeu a usar a API de cópia para fazer backup de seus modelos personalizados em um recurso de reconhecedor de formulário secundário. Em seguida, explore os documentos de referência da API para ver o que mais você pode fazer com o reconhecedor de formulário.
-* [Documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
+* [Documentação de referência da API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

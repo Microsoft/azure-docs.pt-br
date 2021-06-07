@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 304ad51bc40c8165c2dc11bb70287491e3d6dfb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91444040"
 ---
 # <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Conectar o Excel a um banco de dados no banco de dados SQL do Azure ou Azure SQL Instância Gerenciada e criar um relatório
@@ -87,7 +87,7 @@ Para salvar os detalhes de conexão permanentemente, você pode criar um arquivo
 
       ![Assistente de conexão de dados](./media/connect-excel/data-connection-wizard.png)
 
-3. Selecione o local do arquivo, o **Nome de arquivo**e o **Nome amigável** na próxima tela do Assistente de Conexão de dados. Também é possível salvar a senha no arquivo, embora isso pode expor seus dados para acesso não desejado. Selecione **Concluir** quando estiver pronto.
+3. Selecione o local do arquivo, o **Nome de arquivo** e o **Nome amigável** na próxima tela do Assistente de Conexão de dados. Também é possível salvar a senha no arquivo, embora isso pode expor seus dados para acesso não desejado. Selecione **Concluir** quando estiver pronto.
 
     ![Salvar Conexão de dados](./media/connect-excel/save-data-connection.png)
 

@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 346b790c6970abc8670661e1ec180662957af47d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458518"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102503367"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -21,7 +21,7 @@ Embora alguns cenários de aplicativos possam resultar na baixa utilização por
 As ações recomendadas são desligadas ou redimensionadas, específicas ao recurso que está sendo avaliado.
 
 O modelo de avaliação avançada do Advisor considera o desligamento de máquinas virtuais quando todas essas instruções são verdadeiras: 
-- P95th do máximo do valor máximo da utilização da CPU é inferior a 3%. 
+- P95th do valor máximo da utilização da CPU é inferior a 3%. 
 - A utilização da rede é inferior a 2% em um período de sete dias.
 - A pressão de memória é inferior aos valores de limite
 

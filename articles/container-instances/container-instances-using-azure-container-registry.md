@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736732"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
@@ -18,9 +18,9 @@ O [Registro de Contêiner do Azure](../container-registry/container-registry-int
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-**Registro de contêiner do Azure** : você precisa de um registro de contêiner do Azure – e pelo menos uma imagem de contêiner no registro – para concluir as etapas neste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e pelo menos uma imagem de contêiner no registro – para concluir as etapas neste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**CLI do Azure** : os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para shell de Bash. Você pode [instalar a CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure Cloud Shell][cloud-shell-bash].
+**CLI do Azure**: os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para shell de Bash. Você pode [instalar a CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Limitações
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull* , que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush* .
+O argumento `--role` no comando anterior configura a entidade de serviço com a função *acrpull*, que permite a ela acesso somente de pull ao Registro. Para permitir acesso de push e pull, altere o argumento `--role` para *acrpush*.
 
 Em seguida, armazene o *AppID* da entidade de serviço no cofre, que é o **nome de usuário** que você passa para o registro de contêiner do Azure para autenticação.
 
@@ -147,9 +147,9 @@ Se você mantiver as imagens de contêiner no Registro de Contêiner do Azure, v
 
 1. No Portal do Azure, navegue até o registro de contêiner.
 
-1. Para confirmar que a conta de administrador é habilitada, selecione **Chaves de acesso** e, em **Usuário administrador** selecione **Habilitar** .
+1. Para confirmar que a conta de administrador é habilitada, selecione **Chaves de acesso** e, em **Usuário administrador** selecione **Habilitar**.
 
-1. Selecione **Repositórios** e, em seguida, selecione o repositório do qual deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **Executar instância** .
+1. Selecione **Repositórios** e, em seguida, selecione o repositório do qual deseja implantar, clique com o botão direito do mouse na marca da imagem de contêiner que deseja implantar e selecione **Executar instância**.
 
     !["Executar instância" no Registro de Contêiner do Azure no portal do Azure][acr-runinstance-contextmenu]
 

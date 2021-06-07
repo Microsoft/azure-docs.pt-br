@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a8bd22629bf0aa269125187a77710f6dc9fd93e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5a80acd1261211fe3efaefa6a4b6025a321e2d65
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931295"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774171"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importação para um repositório de configurações de aplicativo do Azure
 
@@ -33,7 +33,7 @@ Este script de exemplo importa configurações de pares chave-valor para um repo
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --format json --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
@@ -44,7 +44,7 @@ Esse script usa os comandos a seguir para importar para um repositório de Confi
 
 | Comando | Observações |
 |---|---|
-| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Importa para um recurso do repositório de Configuração de Aplicativos. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az_appconfig_kv_import) | Importa para um recurso do repositório de Configuração de Aplicativos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

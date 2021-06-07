@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91258601"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
@@ -60,7 +60,7 @@ A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativ
 |                     | SharePoint                                  | Associação antecipada |
 | PowerApps           | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 |                     | Windows Azure Active Directory              | Associação antecipada |
-| Projeto             | Dynamics CRM                                | Associação antecipada |
+| Project             | Dynamics CRM                                | Associação antecipada |
 | Skype for Business  | Exchange                                    | Associação antecipada |
 | Visual Studio       | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 | Microsoft Forms     | Exchange                                    | Associação antecipada |

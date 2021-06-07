@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6dce717e6622d7b322756c239d5728c6fe813ba0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97670019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Microsoft Azure Active Directory ao CS Stars
@@ -193,4 +193,4 @@ Ao clicar no bloco do CS Stars no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

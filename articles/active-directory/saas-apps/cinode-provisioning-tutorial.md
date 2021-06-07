@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
 ms.openlocfilehash: dbed4eaabda34c1f35c21b8fe69db72c07f6d03f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96180104"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cinode para provisionamento automático de usuário
@@ -38,7 +38,7 @@ Este tutorial descreve as etapas que você precisa executar no Cinode e no Azure
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma conta de usuário no Cinode com direitos de administrador.
 

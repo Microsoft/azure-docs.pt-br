@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f9e0816a3533008a01f26ca7c0e712abfa23e8e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 648003c042d4c8118af566a6c985d2fd6e26b04e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946248"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563031"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Etapa 3-configurar para migrar para a API REST V3 ou o SDK do cliente
 
@@ -50,8 +50,8 @@ Siga as etapas de início rápido para [configurar seu ambiente](how-to-set-azur
 
 ## <a name="download-client-sdk-of-your-choice-and-set-up-your-environment"></a>Baixe o SDK do cliente de sua escolha e configure seu ambiente
 
-- SDKs disponíveis para [.net](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true), .NET Core, [Node.js](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management?view=azure-node-latest&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices/management?view=azure-java-stable&preserve-view=true), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)e [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest&preserve-view=true)   integração para suporte a scripts simples.
+- SDKs disponíveis para [.net](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media)e [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- [CLI do Azure](/cli/azure/ams)   integração para suporte a scripts simples.
 
 > [!NOTE]
 > Um SDK da comunidade PHP não está mais disponível para os serviços de mídia do Azure na v3. Se você estiver usando PHP na v2, deverá migrar para a API REST diretamente no seu código.
@@ -66,8 +66,8 @@ Siga as etapas de início rápido para [configurar seu ambiente](how-to-set-azur
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Usar o [postmaster](https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman) para chamadas da API REST dos serviços de mídia v3.
-Leia as [páginas de referência da API REST](https://docs.microsoft.com/rest/api/media/).
+Usar o [postmaster](./media-rest-apis-with-postman.md) para chamadas da API REST dos serviços de mídia v3.
+Leia as [páginas de referência da API REST](/rest/api/media/).
 
 Você deve usar a cadeia de caracteres da versão 2020-05-01 na coleção do postmaster.
 
@@ -143,7 +143,3 @@ Leia o artigo [conectar-se ao API dos serviços de mídia do Azure v3-Node.js](c
 Baixe o SDK [go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media) .
 
 ---
-
-## <a name="next-steps"></a>Próximas etapas
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

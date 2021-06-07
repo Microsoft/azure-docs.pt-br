@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a8b285ca0b8d0dae88bfe8dd19ac7e1bc8372e32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965112"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102099192"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planejamento e operações
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que pretendem usar a Central de Segurança do Azure.
@@ -135,7 +135,7 @@ A Central de Segurança do Azure usa o agente do Log Analytics. Esse é o mesmo 
 
 ### <a name="agent"></a>Agente
 
-Quando o provisionamento automático é habilitado na política de segurança, o agente do Log Analytics (para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) é instalado em todas as VMs do Azure compatíveis e nas que vierem a ser criadas. Se a VM ou o computador já tiver o agente do Log Analytics instalado, a Central de Segurança do Azure aproveitará o agente instalado atual. O processo do agente foi projetado para não ser invasivo e ter um impacto mínimo sobre o desempenho da VM.
+Quando o provisionamento automático é habilitado na política de segurança, o agente do Log Analytics (para [Windows](../azure-monitor/agents/agent-windows.md) ou [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) é instalado em todas as VMs do Azure compatíveis e nas que vierem a ser criadas. Se a VM ou o computador já tiver o agente do Log Analytics instalado, a Central de Segurança do Azure aproveitará o agente instalado atual. O processo do agente foi projetado para não ser invasivo e ter um impacto mínimo sobre o desempenho da VM.
 
 O agente do Log Analytics para Windows exige o uso da porta TCP 443. Confira o [artigo de solução de problemas](security-center-troubleshooting-guide.md) para obter mais detalhes.
 
@@ -232,7 +232,6 @@ No vídeo [Como utilizar a Central de Segurança do Azure e o Microsoft Operatio
 Neste documento, você aprendeu a planejar a adoção da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](./security-center-partner-integration.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](faq-general.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](/archive/blogs/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

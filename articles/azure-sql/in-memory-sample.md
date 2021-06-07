@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92786574"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
@@ -74,7 +74,7 @@ Um resultado **0** significa que não há suporte para In-Memory e **1** signifi
 
 ### <a name="about-the-created-memory-optimized-items"></a>Sobre os itens criados com otimização de memória
 
-**Tabelas** : o exemplo contém as seguintes tabelas com otimização de memória:
+**Tabelas**: o exemplo contém as seguintes tabelas com otimização de memória:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -82,7 +82,7 @@ Um resultado **0** significa que não há suporte para In-Memory e **1** signifi
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** no SSMS. Clique com o botão direito do mouse em **Tabelas** > **Filtro** > **Configurações do Filtro** > **Com otimização de memória** . O valor é igual a 1.
+Você pode inspecionar as tabelas com otimização de memória por meio do **Pesquisador de Objetos** no SSMS. Clique com o botão direito do mouse em **Tabelas** > **Filtro** > **Configurações do Filtro** > **Com otimização de memória**. O valor é igual a 1.
 
 Ou então, você pode consultar as exibições do catálogo, tal como:
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procedimento armazenado compilado nativamente** : você pode inspecionar SalesLT.usp_InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
+**Procedimento armazenado compilado nativamente**: você pode inspecionar SalesLT.usp_InsertSalesOrder_inmem por meio de uma consulta de exibição de catálogo:
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Para criar a versão *_ondisk* do script T-SQL anterior para ostress.exe, substitua as duas ocorrências da subcadeia de caracteres *_inmem* por *_ondisk* . Essas substituições afetam os nomes de tabelas e os procedimentos armazenados.
+Para criar a versão *_ondisk* do script T-SQL anterior para ostress.exe, substitua as duas ocorrências da subcadeia de caracteres *_inmem* por *_ondisk*. Essas substituições afetam os nomes de tabelas e os procedimentos armazenados.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e `ostress`
 
@@ -207,7 +207,7 @@ Quando o `ostress.exe` é concluído, ele grava a duração da execução como s
 
 #### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefinir, editar *_ondisk* e executar novamente
 
-Depois de obter o resultado da execução do *_inmem* , realize as seguintes etapas para a execução de *_ondisk* :
+Depois de obter o resultado da execução do *_inmem*, realize as seguintes etapas para a execução de *_ondisk*:
 
 1. Redefina o banco de dados executando o seguinte comando no SSMS para excluir todos os dados inseridos pela execução anterior:
 
@@ -215,7 +215,7 @@ Depois de obter o resultado da execução do *_inmem* , realize as seguintes eta
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Edite a linha de comando do ostress.exe para substituir todos os *_inmem* por *_ondisk* .
+2. Edite a linha de comando do ostress.exe para substituir todos os *_inmem* por *_ondisk*.
 
 3. Execute novamente o ostress.exe pela segunda vez e capture o resultado da duração.
 
@@ -254,9 +254,9 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tabelas chave e índices de columnstore
 
-- dbo.FactResellerSalesXL_CCI é uma tabela com um índice columnstore clusterizado, que tem compactação avançada no nível de *dados* .
+- dbo.FactResellerSalesXL_CCI é uma tabela com um índice columnstore clusterizado, que tem compactação avançada no nível de *dados*.
 
-- dbo.FactResellerSalesXL_PageCompressed é uma tabela com um índice clusterizado regular equivalente, compactado somente no nível de *página* .
+- dbo.FactResellerSalesXL_PageCompressed é uma tabela com um índice clusterizado regular equivalente, compactado somente no nível de *página*.
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Consultas chave para comparar o índice columnstore
 

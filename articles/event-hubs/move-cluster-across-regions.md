@@ -4,10 +4,10 @@ description: Este artigo mostra como mover um cluster dedicado de hubs de evento
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89380578"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Mover um cluster dedicado de hubs de eventos do Azure para outra região
@@ -23,7 +23,7 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** e, em seguida, selecione o cluster de hubs de eventos dedicado.
-3. Selecione **configurações**de >  >  **modelo de exportação**.
+3. Selecione **configurações** de >  >  **modelo de exportação**.
 4. Escolha **baixar** na página **Exportar modelo** .
 
     :::image type="content" source="./media/move-cluster-across-regions/download-template.png" alt-text="Baixar modelo do Resource Manager" lightbox="./media/move-cluster-across-regions/download-template.png":::
@@ -37,33 +37,33 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 Implante o modelo para criar um cluster de hubs de eventos dedicado na região de destino. 
 
 
-1. Na portal do Azure, selecione **criar um recurso**.
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e selecione **implantação de modelo (implantar usando modelos personalizados)**.
+1. No portal do Azure, selecione **Criar um recurso**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e selecione **implantação de modelo (implantar usando modelos personalizados)**.
 5. Selecione **Criar seu próprio modelo no editor**.
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 1. Atualize o valor da `location` propriedade para apontar para a nova região. Para obter códigos de localização, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
 1. Selecione **salvar** para salvar o modelo. 
 1. Na página **implantação personalizada** , siga estas etapas: 
-    1. Selecione uma **assinatura**do Azure. 
+    1. Selecione uma **assinatura** do Azure. 
     2. Selecione um **grupo de recursos** existente ou crie um. 
     3. Selecione o **local** ou a região de destino. Se você selecionou um grupo de recursos existente, essa configuração será somente leitura. 
     4. Na seção **configurações** , execute as seguintes etapas:    
         1. Insira o nome do novo **cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Baixar modelo do Resource Manager":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Implantar modelo do Resource Manager":::
     5. Selecione **Revisar + criar** na parte inferior da página. 
     1. Na página **revisar + criar** , examine as configurações e, em seguida, selecione **criar**.  
 
 ## <a name="discard-or-clean-up"></a>Descartar ou limpar
-Após a implantação, se você quiser começar novamente, poderá excluir o **cluster dedicado de hubs de eventos de destino**e repetir as etapas descritas nas seções [preparar](#prepare) e [mover](#move) deste artigo.
+Após a implantação, se você quiser começar novamente, poderá excluir o **cluster dedicado de hubs de eventos de destino** e repetir as etapas descritas nas seções [preparar](#prepare) e [mover](#move) deste artigo.
 
 Para confirmar as alterações e concluir a movimentação de um cluster de hubs de eventos, exclua o **cluster de hubs de eventos** na região original. 
 
 Para excluir um cluster de hubs de eventos (origem ou destino) usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **clusters de hubs de eventos**e selecione **clusters de hubs de eventos** nos resultados da pesquisa. Você verá o cluster de hubs de eventos em uma lista.
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **clusters de hubs de eventos** e selecione **clusters de hubs de eventos** nos resultados da pesquisa. Você verá o cluster de hubs de eventos em uma lista.
 2. Selecione o cluster a ser excluído e selecione **excluir** na barra de ferramentas. 
-3. Na página **excluir cluster** , confirme a exclusão digitando o **nome do cluster**e, em seguida, selecione **excluir**. 
+3. Na página **excluir cluster** , confirme a exclusão digitando o **nome do cluster** e, em seguida, selecione **excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a mover um cluster de hubs de eventos dedicado de uma região para outra. 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578236"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
 
@@ -95,6 +95,16 @@ Em nosso início rápido do Java, o botão entrar está localizado no arquivo [m
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+No guia de início rápido do Node.js, não há nenhum botão de conexão. O code-behind solicita automaticamente que o usuário entre quando está atingindo a raiz do aplicativo Web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 No início rápido do Python, não há nenhum botão de conexão. O code-behind solicita automaticamente que o usuário entre quando está atingindo a raiz do aplicativo Web. Consulte [app. py # L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -113,7 +123,7 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-No ASP.NET, a seleção do botão de **entrada** no aplicativo Web dispara a `SignIn` ação no `AccountController` controlador. Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi inserido com o aplicativo Web. Esse não é mais o caso porque o controlador agora faz parte do pacote NuGet **Microsoft. Identity. Web. UI** . Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obter detalhes.
+No ASP.NET, a seleção do botão de **entrada** no aplicativo Web dispara a `SignIn` ação no `AccountController` controlador. Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi inserido com o aplicativo Web. Esse não é mais o caso porque o controlador agora faz parte do pacote NuGet **Microsoft. Identity. Web. UI** . Consulte [AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obter detalhes.
 
 Esse controlador também lida com os aplicativos Azure AD B2C.
 
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Ao contrário de outras plataformas, o nó MSAL cuida de permitir que o usuário entre na página de logon.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Durante o registro do aplicativo, você registra uma URL de logout de front-Chan
 Durante o registro do aplicativo, você não precisa registrar uma URL extra de logoff de front-Channel. O aplicativo será chamado de volta em sua URL principal. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+Nenhuma URL de logoff de front-Channel é necessária no registro do aplicativo.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Nenhuma URL de logoff de front-Channel é necessária no registro do aplicativo.
 
@@ -305,6 +356,10 @@ Em nosso início rápido do Java, o botão de saída está localizado no arquivo
 ...
 ```
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Este aplicativo de exemplo não implementa a saída.
+
 # <a name="python"></a>[Python](#tab/python)
 
 No início rápido do Python, o botão de saída está localizado no arquivo [templates/index.html # L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) .
@@ -330,13 +385,13 @@ No início rápido do Python, o botão de saída está localizado no arquivo [te
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi inserido com o aplicativo Web. Esse não é mais o caso porque o controlador agora faz parte do pacote NuGet **Microsoft. Identity. Web. UI** . Consulte [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obter detalhes.
+Nas versões anteriores dos modelos do ASP.NET Core, o `Account` controlador foi inserido com o aplicativo Web. Esse não é mais o caso porque o controlador agora faz parte do pacote NuGet **Microsoft. Identity. Web. UI** . Consulte [AccountController. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) para obter detalhes.
 
 - Define um URI de redirecionamento de OpenID para para `/Account/SignedOut` que o controlador seja chamado de volta quando o Azure ad tiver concluído a saída.
 - Chamadas `Signout()` , que permitem ao middleware OpenID Connect contatar o ponto de extremidade da plataforma Microsoft Identity `logout` . Em seguida, o ponto de extremidade:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama novamente o URI de redirecionamento pós-logout. Por padrão, o URI de redirecionamento pós-logout exibe a página de exibição desconectada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Essa página também é fornecida como parte do Microsoft. Identity. Web.
+  - Chama novamente o URI de redirecionamento pós-logout. Por padrão, o URI de redirecionamento pós-logout exibe a página de exibição desconectada [. cshtml. cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Essa página também é fornecida como parte do Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -376,6 +431,10 @@ Em Java, a saída é tratada chamando o ponto de extremidade da plataforma Micro
                 URLEncoder.encode(redirectUrl, "UTF-8"));
     }
 ```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Este aplicativo de exemplo não implementa a saída.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 No início rápido do Java, o URI de redirecionamento pós-Logout apenas exibe a página index.html.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Este aplicativo de exemplo não implementa a saída.
 
 # <a name="python"></a>[Python](#tab/python)
 

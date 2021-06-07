@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316156"
 ---
 # <a name="design-for-querying"></a>Design para consulta
@@ -41,18 +41,18 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | **RowKey** (ID do funcionário) |String |
 | **Nome** |String |
 | **Sobrenome** |String |
-| **Age** |Integer |
+| **Age** |Inteiro |
 | **EmailAddress** |String |
 
 O artigo [Visão geral do armazenamento de Tabela do Azure](table-storage-overview.md) descreve alguns dos principais recursos do serviço Tabela do Azure que têm uma influência direta no design para consulta. Isso resulta nas seguintes diretrizes gerais para a criação de consultas do serviço Tabela. Observe que a sintaxe de filtro usada nos exemplos a seguir é proveniente da API REST do serviço Tabela. Para obter mais informações, veja [Query Entities](/rest/api/storageservices/Query-Entities) (Consultar entidades).  
 
-* Uma consulta do * **Point** _ é a pesquisa mais eficiente a ser usada e é recomendável usá-la para pesquisas de alto volume ou pesquisas que exigem menor latência. Essa consulta pode usar os índices para localizar uma entidade individual com muita eficiência, especificando os valores _ *PartitionKey* * e **RowKey** . Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
-* O segundo melhor é uma **consulta de intervalo** * que usa o _ *PartitionKey* * e os filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor de **PartitionKey** identifica uma partição específica e os valores de **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
-* A terceira melhor é uma * **verificação de partição** _ que usa o _ *PartitionKey* * e os filtros em outra propriedade que não seja de chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
-* Uma * **verificação de tabela** _ não inclui o _ *PartitionKey* * e é muito ineficiente porque pesquisa todas as partições que compõem sua tabela por vez para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo: $filter=LastName eq 'Dias'  
+* Uma consulta do ***Point** _ é a pesquisa mais eficiente a ser usada e é recomendável usá-la para pesquisas de alto volume ou pesquisas que exigem menor latência. Essa consulta pode usar os índices para localizar uma entidade individual com muita eficiência, especificando os valores _ *PartitionKey** e **RowKey** . Por exemplo: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
+* O segundo melhor é uma **consulta de intervalo*** que usa o _ *PartitionKey** e os filtros em um intervalo de valores de **RowKey** para retornar mais de uma entidade. O valor de **PartitionKey** identifica uma partição específica e os valores de **RowKey** identificam um subconjunto das entidades na partição. Por exemplo: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+* A terceira melhor é uma ***verificação de partição** _ que usa o _ *PartitionKey** e os filtros em outra propriedade que não seja de chave e que pode retornar mais de uma entidade. O valor **PartitionKey** identifica uma partição específica e os valores de propriedades selecionados para um subconjunto das entidades nessa partição. Por exemplo: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+* Uma ***verificação de tabela** _ não inclui o _ *PartitionKey** e é muito ineficiente porque pesquisa todas as partições que compõem sua tabela por vez para qualquer entidade correspondente. A verificação da tabela será realizada, independentemente de o filtro usar ou não a **RowKey**. Por exemplo: $filter=LastName eq 'Dias'  
 * As consultas que retornam várias entidades as retornam classificadas na ordem **PartitionKey** e **RowKey**. Para evitar reclassificar as entidades no cliente, escolha uma **RowKey** que define a ordem de classificação mais comum.  
 
-Observe que o uso de um operador " **or** " para especificar um filtro com base em valores de **RowKey** resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, você deve evitar consultas que usam filtros, como: $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+Observe que o uso de um operador "**or**" para especificar um filtro com base em valores de **RowKey** resulta em uma verificação de partição, e não é tratado como uma consulta de intervalo. Portanto, você deve evitar consultas que usam filtros, como: $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
 Para obter exemplos de código de cliente que usam a Biblioteca de Cliente de Armazenamento para executar consultas eficientes, consulte:  
 

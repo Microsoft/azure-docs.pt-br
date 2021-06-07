@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ms.openlocfilehash: 1368a3174af08f557b6d08f298fba015601d568c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96030825"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
@@ -125,7 +125,7 @@ O API do Cassandra simplifica o planejamento de capacidade e a resposta às dema
 
 O Azure Cosmos DB fornece distribuição global pronta para uso por motivos de baixa latência e disponibilidade. Você não precisa configurar réplicas ou outras coisas. As gravações são sempre o quorum permanentemente confirmado em qualquer região em que você escreve, ao mesmo tempo em que fornece garantias de desempenho.
 
-### <a name="what-happens-with-various-settings-for-table-metadata"></a>O que acontece com várias configurações para metadados de tabela?
+### <a name="what-happens-with-various-settings-for-table-metadata"></a>O que acontece com as diferentes configurações para metadados de tabela?
 
 Azure Cosmos DB fornece garantias de desempenho para leituras, gravações e taxa de transferência. Portanto, você não precisa se preocupar em tocar em qualquer um dos parâmetros de configuração e manipulá-los acidentalmente. Essas configurações incluem filtro de flor, cache, chance de reparo de leitura, gc_grace e memtable_flush_period de compactação.
 
@@ -133,7 +133,7 @@ Azure Cosmos DB fornece garantias de desempenho para leituras, gravações e tax
 
 Sim, há suporte para TTL.
 
-### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Como posso monitorar a infraestrutura junto com a taxa de transferência?
+### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>Como posso monitorar a infraestrutura em conjunto com a taxa de transferência?
 
 O Azure Cosmos DB é um serviço de plataforma que ajuda a aumentar a produtividade e não se preocupar com o gerenciamento e monitoramento da infraestrutura. Por exemplo, você não precisa monitorar OS parâmetros status do nó, status da réplica, GC e so anteriormente com várias ferramentas. Você só precisa cuidar da taxa de transferência disponível nas métricas do portal para ver se você está ficando limitado e, em seguida, aumentar ou diminuir essa taxa de transferência. Você pode:
 

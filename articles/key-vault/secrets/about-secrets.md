@@ -3,19 +3,18 @@ title: Sobre os segredos do Azure Key Vault – Azure Key Vault
 description: Visão geral dos segredos do Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786032"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752418"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Azure Key Vault
 
@@ -74,7 +73,7 @@ Guias de instruções para controlar o acesso no Key Vault:
 - [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
 - [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Key Vault oferece suporte a até 15 marcas, cada uma delas pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -124,7 +123,7 @@ Guias de instruções para controlar o acesso no Key Vault:
 - [Atribuir uma política de acesso do Key Vault usando a CLI](../general/assign-access-policy-cli.md)
 - [Atribuir uma política de acesso do Key Vault usando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -133,5 +132,5 @@ Guias de instruções para controlar o acesso no Key Vault:
 - [Sobre chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
 - [Sobre as chaves](../keys/about-keys.md)
 - [Sobre certificados](../certificates/about-certificates.md)
-- [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- [Proteger o acesso a um cofre de chaves](../general/security-overview.md)
 - [Guia do Desenvolvedor do Cofre de Chaves](../general/developers-guide.md)

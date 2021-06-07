@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
 ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602515"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada-banco de dados SQL do Azure & SQL Instância Gerenciada
@@ -57,7 +57,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
     
     | Campo      | Descrição|
     |------------|--------------|
-    |Assinatura|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
+    |Subscription|A assinatura usada para pagar pela reserva de capacidade. São cobrados os custos iniciais para a reserva à forma de pagamento na assinatura. O tipo de assinatura deve ser um Enterprise Agreement (número da oferta MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (número da oferta MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura corporativa, os encargos são deduzidos do saldo do Pagamento antecipado do Azure do registro (chamado anteriormente de compromisso monetário) ou cobrados como excedente. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.|
     |Escopo       |O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar <br/><br/>**Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados ou instância gerenciada em execução em qualquer assinatura no contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.<br/><br/>**Assinatura única**, o desconto de reserva vCore é aplicado aos bancos de dados ou instâncias gerenciadas nesta assinatura. <br/><br/>**Um grupo de recursos único**, o desconto de reserva é aplicado às instâncias de bancos de dados ou instâncias gerenciadas na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.|
     |Região      |A região do Azure que é coberta pela reserva de capacidade.|
     |Tipo de implantação|O tipo de recurso de SQL para o qual você deseja comprar a reserva.|

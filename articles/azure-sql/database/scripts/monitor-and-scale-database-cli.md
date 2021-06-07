@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 0a72bea08052e5cd17502a21a98b41cb5582a3b9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bd982ab6dc66674e705f080511282bcfeb909872
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493603"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787153"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Usar a CLI do Azure para monitorar e dimensionar um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -43,7 +43,7 @@ az account set -s $subscription # ...or use 'az login'
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
 
 > [!TIP]
-> Use [az sql db op list](/cli/azure/sql/db/op?#az-sql-db-op-list) para obter uma lista das operações executadas no banco de dados, e use [az sql db op cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) para cancelar uma operação de atualização no banco de dados.
+> Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) para obter uma lista das operações executadas no banco de dados, e use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) para cancelar uma operação de atualização no banco de dados.
 
 ### <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -60,7 +60,7 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 | Script | Descrição |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos de servidor. |
-| [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Mostra as informações de uso do tamanho de um banco de dados. |
+| [az sql db show-usage](/cli/azure/sql#az_sql_show_usage) | Mostra as informações de uso do tamanho de um banco de dados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

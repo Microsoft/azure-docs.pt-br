@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624752"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561950"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -125,6 +125,140 @@ Use a extensão de [implantação do espaço de trabalho Synapse](https://market
 Depois de salvar todas as alterações, você pode selecionar **criar versão** para criar uma versão manualmente. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selecionar Criar versão](media/release-creation-manually.png)
+
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Usar parâmetros personalizados do modelo de espaço de trabalho 
+
+Você usa CI/CD automatizado e deseja alterar algumas propriedades durante a implantação, mas as propriedades não são parametrizadas por padrão. Nesse caso, você pode substituir o modelo de parâmetro padrão.
+
+Para substituir o modelo de parâmetro padrão, você precisa criar um modelo de parâmetro personalizado, um arquivo chamado **template-parameters-definition.js** no na pasta raiz do seu Branch de colaboração do git. Você deve usar esse nome de arquivo exato. Ao publicar a partir da ramificação de colaboração, o espaço de trabalho Synapse lerá esse arquivo e usará sua configuração para gerar os parâmetros. Se nenhum arquivo for encontrado, o modelo de parâmetro padrão será usado.
+
+### <a name="custom-parameter-syntax"></a>Sintaxe do parâmetro personalizado
+
+Veja a seguir algumas diretrizes para criar o arquivo de parâmetros personalizados:
+
+* Insira o caminho da propriedade sob o tipo de entidade relevante.
+* Definir um nome de propriedade para `*` indicar que você deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
+* Definir o valor de uma propriedade como uma cadeia de caracteres indica que você deseja parametrizar a propriedade. Use o formato `<action>:<name>:<stype>`.
+   *  `<action>` pode ser um destes caracteres:
+      * `=` significa manter o valor atual como o valor padrão para o parâmetro.
+      * `-` significa que não mantenha o valor padrão para o parâmetro.
+      * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, será usado o nome da propriedade. Se o valor começar com um caractere `-`, o nome será abreviado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria abreviado como `AzureStorage1_connectionString`.
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão será `string` . Valores com suporte:,,,, `string` `securestring` `int` `bool` `object` `secureobject` e `array` .
+* A especificação de uma matriz no arquivo indica que a propriedade correspondente no modelo é uma matriz. Synapse faz a iteração por todos os objetos na matriz usando a definição especificada. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
+* Uma definição não pode ser específica a uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
+* Por padrão, todas as cadeias de caracteres seguras, como segredos do Key Vault, e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
+
+### <a name="parameter-template-definition-samples"></a>Exemplos de definição de modelo de parâmetro 
+
+Veja um exemplo de como é a definição de modelo de parâmetro:
+
+```json
+{
+"Microsoft.Synapse/workspaces/notebooks": {
+        "properties":{
+            "bigDataPool":{
+                "referenceName": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/sqlscripts": {
+     "properties": {
+         "content":{
+             "currentConnection":{
+                    "*":"-"
+                 }
+            } 
+        }
+    },
+    "Microsoft.Synapse/workspaces/pipelines": {
+        "properties": {
+            "activities": [{
+                 "typeProperties": {
+                    "waitTimeInSeconds": "-::int",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.Synapse/workspaces/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:int",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                     "*": "="
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.Synapse/workspaces/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
+Esta é uma explicação de como o modelo anterior é construído, dividido por tipo de recurso.
+
+#### <a name="notebooks"></a>Notebooks 
+
+* Qualquer propriedade no caminho `properties/bigDataPool/referenceName` é parametrizada com seu valor padrão. Você pode parametrizar o pool do Spark anexado para cada arquivo de bloco de anotações. 
+
+#### <a name="sql-scripts"></a>Scripts SQL 
+
+* As propriedades (PoolName e databaseName) no caminho `properties/content/currentConnection` são parametrizadas como cadeias de caracteres sem os valores padrão no modelo. 
+
+#### <a name="pipelines"></a>Pipelines
+
+* Qualquer propriedade no caminho `activities/typeProperties/waitTimeInSeconds` é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a atividade `Wait`) é parametrizada como um número, com um nome padrão. Mas ela não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Resource Manager.
+* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma `Web` atividade) é parametrizada com tipo `object` (objeto). Ela tem um valor padrão, que é o mesmo valor do alocador de origem.
+
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
+
+* Todas as propriedades no caminho `typeProperties` são parametrizadas com os respectivos valores padrão. Por exemplo, há duas propriedades nas propriedades do tipo `IntegrationRuntimes`: `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com os respectivos valores e tipos padrão (Object).
+
+#### <a name="triggers"></a>Gatilhos
+
+* Em `typeProperties`, duas propriedades são parametrizadas. A primeira é `maxConcurrency`, que é especificada para ter um valor padrão e é do tipo`string`. Ela tem o nome de parâmetro padrão `<entityName>_properties_typeProperties_maxConcurrency`.
+* A propriedade `recurrence` também é parametrizada. Nela, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, parametrizada como tipo `int`. O nome do parâmetro tem sufixo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é abreviado e sufixado. Por exemplo, `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer uma personalização específica de tipo. Neste exemplo, para todos os serviços vinculados do tipo `AzureDataLakeStore`, um modelo específico será aplicado. Para todos os outros (por meio de `*`), um modelo diferente será aplicado.
+* A propriedade `connectionString` será parametrizada como um valor `securestring`. Ela não terá um valor padrão. Ele terá um nome de parâmetro abreviado com o sufixo `connectionString`.
+* A propriedade `secretAccessKey` é uma `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado do Amazon S3). Ela é parametrizada automaticamente como um segredo do Azure Key Vault e buscada do cofre de chaves configurada. Você também pode parametrizar o cofre de chaves em si.
+
+#### <a name="datasets"></a>Conjunto de dados
+
+* Embora a personalização específica de tipo esteja disponível para conjuntos de dados, você pode fornecer uma configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de conjunto de dados em `typeProperties` são parametrizadas.
+
 
 ## <a name="best-practices-for-cicd"></a>Práticas recomendadas para CI/CD
 

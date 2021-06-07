@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3a2854f4124a570de4fb467eb6a5d49a3214742e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1a52b2fec6155959a570f2438a59c14d9f79f368
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341814"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101701953"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Perguntas frequentes para clientes que já estão usando logs de Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -34,7 +34,7 @@ Uma solução da central de segurança é instalada no espaço de trabalho selec
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>A Central de Segurança instala soluções em meus workspaces existentes do Log Analytics? Quais são as implicações de cobrança?
 Quando a central de segurança identifica que uma VM já está conectada a um espaço de trabalho que você criou, a central de segurança habilita soluções nesse espaço de trabalho de acordo com sua configuração de preço. As soluções são aplicadas apenas às VMs do Azure relevantes, por meio do [direcionamento de solução](../azure-monitor/insights/solution-targeting.md), portanto, a cobrança permanece igual.
 
-- **Azure defender desativado** – a central de segurança instala a solução ' SecurityCenterFree ' no espaço de trabalho. Você não será cobrado.
+- **Azure defender desativado** – a central de segurança instala a solução "SecurityCenterFree" no espaço de trabalho. Você não será cobrado.
 - **Azure defender on** – central de segurança instala a solução ' Security ' no espaço de trabalho.
 
    ![Soluções no workspace padrão](./media/security-center-platform-migration-faq/solutions.png)

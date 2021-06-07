@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592627"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
@@ -70,7 +70,7 @@ Se os dados de origem forem alterados, você poderá atualizar o conjunto de dad
 
     ![importação-dados-visualização](media/module/import-data.png)
 
-1. A caixa de seleção, **regenerar saída** , decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
+1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
 
     Ele é, por padrão, desmarcado, o que significa que, se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
 

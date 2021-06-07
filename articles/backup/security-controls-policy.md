@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Backup do Azure
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para o Backup do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: sample
-author: dcurwin
-ms.author: dacurwin
+author: v-amallick
+ms.author: v-amallick
 ms.service: backup
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 31c8c267b633decb5c8128a46a713219f204a1ef
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f5376e03361f977cb0d79fd7968d0f40867cf08c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092088"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501886"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-backup"></a>Controles de Conformidade Regulatória do Azure Policy para o Backup do Azure
 

@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791708"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de solução de problemas de desempenho de hiperescala do SQL
@@ -97,7 +97,7 @@ Uma taxa de leituras feitas em RBPEX para leituras agregadas feitas em todos os 
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>E/s de dados nas estatísticas de utilização de recursos
 
-Em um banco de dados que não é de hiperescala, os IOPS de leitura e gravação combinados em relação aos arquivos de dado, em relação ao limite de IOPS de dados de [governança de recursos](./resource-limits-logical-server.md#resource-governance) , são relatados nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) na `avg_data_io_percent` coluna. O mesmo valor é relatado no portal do Azure como _porcentagem de e/s de dados_ .
+Em um banco de dados que não é de hiperescala, os IOPS de leitura e gravação combinados em relação aos arquivos de dado, em relação ao limite de IOPS de dados de [governança de recursos](./resource-limits-logical-server.md#resource-governance) , são relatados nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) na `avg_data_io_percent` coluna. O mesmo valor é relatado no portal do Azure como _porcentagem de e/s de dados_.
 
 Em um banco de dados de hiperescala, essa coluna relata a utilização de IOPS de dados em relação ao limite do armazenamento local somente na réplica de computação, especificamente a e/s em relação a RBPEX e `tempdb` . Um valor de 100% nessa coluna indica que a governança de recursos está limitando o IOPS de armazenamento local. Se isso estiver correlacionado a um problema de desempenho, ajuste a carga de trabalho para gerar menos e/s ou aumente o objetivo do serviço de banco de dados para aumentar o [limite](resource-limits-vcore-single-databases.md) _máximo de IOPS de data_ de governança de recursos. Para a governança de recursos de leituras e gravações de RBPEX, o sistema conta o IOs de 8 KB individual, em vez de um IOs maior que pode ser emitido pelo mecanismo de banco de dados SQL Server.
 

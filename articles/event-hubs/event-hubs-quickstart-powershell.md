@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Criar um hub de eventos usando o PowerShell – Hubs de Eventos do Azure'
+title: 'Guia de início rápido: criar um hub de eventos usando o PowerShell – Hubs de Eventos do Azure'
 description: Este início rápido descreve como criar um hub de eventos usando o Azure PowerShell e, em seguida, enviar e receber eventos usando o SDK do .NET Standard.
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 1c81024a9195e463eeaaf384d5cbbd1e0054c485
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88933946"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: Criar um hub de eventos usando o Azure PowerShell
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Início Rápido: criar um hub de eventos usando o Azure PowerShell
 
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
@@ -40,7 +40,7 @@ O exemplo a seguir cria um grupo de recursos na região Leste dos EUA. Substitua
 New-AzResourceGroup –Name myResourceGroup –Location eastus
 ```
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 
 Após o seu grupo de recursos ser criado, crie um namespace de Hubs de Eventos dentro deste mesmo grupo de recursos. Um namespace de Hubs de Eventos fornece um nome de domínio exclusivo totalmente qualificado no qual você pode criar seu hub de eventos. Substitua `namespace_name` por um nome exclusivo para o seu namespace:
 

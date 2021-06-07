@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4077146292db1266d5dbc51cc577f952b2bff191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85357504"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Alterando a senha da conta do AD DS
@@ -29,7 +29,7 @@ A conta do AD DS refere-se à conta de usuário usada pelo Azure AD Connect para
 
 * No Synchronization Service Manager, qualquer operação de importação ou de exportação com o AD local falha com o erro **no-start-credentials**.
 
-* No Windows Visualizador de Eventos, o log de eventos do aplicativo contém um erro com a **ID de evento 6000** e **a mensagem ' o agente de gerenciamento "contoso.com" falhou ao ser executado porque as credenciais eram inválidas '**.
+* No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID do evento 6000** e com a mensagem **'O agente de gerenciamento "contoso.com" falhou, porque as credenciais eram inválidas'** .
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Como atualizar o Synchronization Service com a nova senha de conta do AD DS
@@ -42,7 +42,7 @@ Para atualizar o Synchronization Service com a nova senha:
 
 3. Selecione o **Conector AD** que corresponde à conta do AD DS para a qual a sua senha foi alterada.
 
-4. Em **ações**, selecione **Propriedades**.
+4. Em **Ações**, selecione **Propriedades**.
 
 5. Na caixa de diálogo pop-up, selecione **Conectar-se à floresta do Active Directory**:
 

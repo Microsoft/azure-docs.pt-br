@@ -3,7 +3,7 @@ title: Copiar blobs de uma conta de armazenamento para um ativo dos Serviços de
 description: Este tópico mostra como copiar um blob existente para um Ativo dos Serviços de Mídia. O exemplo usa Extensões do SDK do .NET dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8eee17e5ed819365f30cf1b1e0eb2e9ab1557e9d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
-ms.translationtype: MT
+ms.openlocfilehash: 6ee6af8726dbd0a7b564b442242572afec670f4d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695900"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103016739"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes para um ativo dos Serviços de Mídia
 

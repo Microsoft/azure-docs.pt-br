@@ -3,19 +3,18 @@ title: Email quando o status do Key Vault do segredo é alterado
 description: Guia para usar Aplicativos Lógicos para responder a alterações de segredo do Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e6ec06e3df87e0ad0e50efca24439435d655f6a1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013982"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752094"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 

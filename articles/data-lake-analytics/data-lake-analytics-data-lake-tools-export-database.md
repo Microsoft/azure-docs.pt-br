@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.openlocfilehash: 0a768990a33f0d60a3222bd3ad323edcc53c9ec0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219081"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL

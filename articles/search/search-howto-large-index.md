@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358385"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados no Azure Pesquisa Cognitiva
@@ -45,7 +45,7 @@ Quando estiver satisfeito com a camada, a próxima etapa poderá ser aumentar o 
 
 ### <a name="review-index-schema"></a>Examinar esquema de índice
 
-O esquema do índice desempenha um papel importante na indexação de dados. Quanto mais campos você tiver, e quanto mais propriedades você definir (como *pesquisável* , *facetable* ou *filtráveis* ), todos contribuem para o maior tempo de indexação. Em geral, você só deve criar e especificar os campos que realmente precisa em um índice de pesquisa.
+O esquema do índice desempenha um papel importante na indexação de dados. Quanto mais campos você tiver, e quanto mais propriedades você definir (como *pesquisável*, *facetable* ou *filtráveis*), todos contribuem para o maior tempo de indexação. Em geral, você só deve criar e especificar os campos que realmente precisa em um índice de pesquisa.
 
 > [!NOTE]
 > Para manter o tamanho do documento inativo, evite adicionar dados não consultáveis a um índice. Imagens e outros dados binários não podem ser diretamente consultados e não devem ser armazenados no índice. Para integrar dados que não podem ser consultados aos resultados da pesquisa, defina um campo não pesquisável que armazene uma referência uma URL para o recurso.
@@ -142,7 +142,7 @@ Para os indexadores, a capacidade de processamento geralmente é baseada em um s
 
 1. No [portal do Azure](https://portal.azure.com), na página **Visão geral** do painel do serviço de pesquisa, verifique o **Tipo de preço** para confirmar se ele permite a indexação paralela. Os níveis Básico e Standard oferecem várias réplicas.
 
-2. Você pode executar tantos indexadores em paralelo como o número de unidades de pesquisa em seu serviço. Em **configurações**  >  **escala** , [aumente réplicas](search-capacity-planning.md) ou partições para processamento paralelo: uma réplica ou partição adicional para cada carga de trabalho do indexador. Deixe um número suficiente para o volume de consulta existente. Não é vantajoso sacrificar as cargas de trabalho de consulta para indexação.
+2. Você pode executar tantos indexadores em paralelo como o número de unidades de pesquisa em seu serviço. Em **configurações**  >  **escala**, [aumente réplicas](search-capacity-planning.md) ou partições para processamento paralelo: uma réplica ou partição adicional para cada carga de trabalho do indexador. Deixe um número suficiente para o volume de consulta existente. Não é vantajoso sacrificar as cargas de trabalho de consulta para indexação.
 
 3. Distribua dados em vários contêineres em um nível que os indexadores do Azure Pesquisa Cognitiva podem alcançar. Podem ser várias tabelas no Banco de Dados SQL do Azure, vários contêineres no Armazenamento de Blobs do Azure ou várias coleções. Defina um objeto de fonte de dados para cada tabela ou contêiner.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98685713"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB

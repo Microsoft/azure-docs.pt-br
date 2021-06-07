@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233977"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574794"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -63,7 +63,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 Para os serviços de aplicativos que são executados no Windows, consulte a saída do `tzutil /L` comando do Windows. Use o valor da segunda linha de cada entrada. Por exemplo: "hora padrão de Tonga". Alguns desses valores também estão listados na coluna **timezone** em [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones).
 
@@ -292,7 +292,7 @@ Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Por que o dimensionamento automático não está funcionando conforme o esperado?
 
-Se o dimensionamento automático do Azure não aumentou ou diminuiu a instância de aplicativo Web conforme o esperado, você pode estar executando em um cenário no qual escolhemos intencionalmente por não dimensionar para evitar um loop infinito devido a "oscilações." Isso geralmente acontece quando não há uma margem suficiente entre os limites de escalabilidade horizontal e escala. Para saber como evitar "oscilações" e ler sobre outras práticas recomendadas de dimensionamento automático, consulte [Práticas recomendadas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Se o dimensionamento automático do Azure não aumentou ou diminuiu a instância de aplicativo Web conforme o esperado, você pode estar executando em um cenário no qual escolhemos intencionalmente por não dimensionar para evitar um loop infinito devido a "oscilações." Isso geralmente acontece quando não há uma margem suficiente entre os limites de escalabilidade horizontal e escala. Para saber como evitar "oscilações" e ler sobre outras práticas recomendadas de dimensionamento automático, consulte [Práticas recomendadas de dimensionamento automático](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que o dimensionamento automático, às vezes, dimensiona apenas parcialmente?
 

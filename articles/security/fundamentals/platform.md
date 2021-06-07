@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 4755bc19a645d196487f0b8e0f4d1ef2120723ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557543"
 ---
 # <a name="platform-integrity-and-security-overview"></a>Visão geral da integridade e da segurança da plataforma
@@ -24,7 +24,7 @@ Esta série de artigos descreve como a Microsoft garante a integridade e a segur
 - [Segurança do firmware](firmware.md)
 - [Inicialização segura da UEFI](secure-boot.md)
 - [Atestado de inicialização e host medidos](measured-boot-host-attestation.md)
-- [O Cerberus do projeto](project-cerberus.md)
+- [Projeto Cerberus](project-cerberus.md)
 - [Criptografia em repouso](encryption-atrest.md)
 - [Segurança do hipervisor](hypervisor.md)
  

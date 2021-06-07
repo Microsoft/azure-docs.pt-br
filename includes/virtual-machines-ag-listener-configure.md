@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91400948"
 ---
 O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
@@ -41,7 +41,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
 1. <a name="congroup"></a>Configurar o recurso de IP do grupo de disponibilidade.
 
-    a. Clique na guia **Recursos**e expanda o ponto de acesso para cliente que você acabou de criar.  
+    a. Clique na guia **Recursos** e expanda o ponto de acesso para cliente que você acabou de criar.  
     O ponto de acesso para cliente está offline.
 
    ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
@@ -81,7 +81,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Você pode validar se as dependências estão configuradas corretamente. No Gerenciador de Cluster de Failover, vá para funções, clique no grupo de disponibilidade, clique em **Mais Ações**e clique em **Mostrar Relatório de Dependências**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade é dependente do nome da rede e o nome da rede depende do endereço IP. 
+    >Você pode validar se as dependências estão configuradas corretamente. No Gerenciador de Cluster de Failover, vá para funções, clique no grupo de disponibilidade, clique em **Mais Ações** e clique em **Mostrar Relatório de Dependências**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade é dependente do nome da rede e o nome da rede depende do endereço IP. 
 
 
 1. <a name="setparam"></a>Definir os parâmetros do cluster no PowerShell.

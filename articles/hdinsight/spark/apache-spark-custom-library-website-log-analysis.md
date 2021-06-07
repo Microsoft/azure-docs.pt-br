@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940297"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866311"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise logs do site usando uma biblioteca Python personalizada com cluster do Apache Spark no HDInsight
 
@@ -30,11 +30,11 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
 
 1. Crie um novo bloco de anotações. Selecione **novo** e, em seguida, **PySpark**.
 
-    ![Criar um novo Apache Jupyter Notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Criar um novo Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Criar um novo Apache Jupyter Notebook" border="true"::: Notebook "border =" true ":::
 
 1. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Selecione o nome do bloco de anotações na parte superior e insira um nome amigável.
 
-    ![Fornecer um nome para o bloco de anotações](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fornecer um nome para o bloco de anotações")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Forneça um nome para o bloco de anotações" border="true":::tebook "border =" true ":::
 
 1. Como você criou um bloco de anotações usando o kernel PySpark, não precisa criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos que são obrigatórios para este cenário. Cole o trecho a seguir em uma célula vazia e pressione **Shift + Enter**.
 
@@ -173,7 +173,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
 
    Você deverá ver uma saída semelhante à imagem a seguir:
 
-   ![saída de consulta SQL do hdinsight jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Saída da consulta SQL")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="jupyter de saída de consulta SQL do hdinsight" border="true":::yter saída de consulta SQL "border =" true ":::
 
    Para obter mais informações sobre a palavra mágica `%%sql`, consulte [Parâmetros com suporte na palavra mágica %%sql](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -191,7 +191,7 @@ Depois que os dados forem salvos como uma tabela Apache Hive, na próxima seçã
 
    Você deverá ver uma saída semelhante à imagem a seguir:
 
-   ![gráfico de análise de log da Web do Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Saída de Matplotlib")
+   análise de log :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="da Web do Apache Spark plotar" border="true":::EB log Analysis plotar "border =" true ":::
 
 1. Depois de concluir a execução do aplicativo, você deve encerrar o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Esta ação será desligada e fechará o bloco de anotações.
 

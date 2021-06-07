@@ -4,10 +4,10 @@ description: Saiba mais sobre o mecanismo de atualização de uma atribuição d
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: c383ebedaf83b3a52062c91f98b816c3baf6618e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919386"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
@@ -42,7 +42,7 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece com os recursos já implantados. A alteração solicitada e o tipo de artefato de recurso que está sendo implantado ou atualizado determinam quais ações são executadas.
 
-- Atribuições de função
+- Atribuições de Funções
   - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. A atribuição de função já implantada permanece em vigor.
 - Atribuições de Políticas
   - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.

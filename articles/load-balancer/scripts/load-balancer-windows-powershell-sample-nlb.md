@@ -14,10 +14,10 @@ ms.date: 04/20/2018
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a485ff81deb2cbf9a18395520bd6e8579c311646
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94696448"
 ---
 # <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do Azure PowerShell: balancear a carga do tráfego para VMs para alta disponibilidade

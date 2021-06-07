@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: tilarso
+ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705479"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952242"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a classificação de segurança de identidade no Azure Active Directory?
 
@@ -24,7 +24,7 @@ Quão seguro é seu locatário do Azure AD? Se você não souber como responder 
 
 ## <a name="what-is-an-identity-secure-score"></a>O que é uma classificação de segurança de identidade?
 
-A pontuação segura de identidade é o número entre 1 e 223 que funciona como um indicador de quão alinhado você é com as práticas recomendadas da Microsoft para segurança. Cada ação de aprimoramento na pontuação de segurança de identidade é adaptada para sua configuração específica.  
+A pontuação de segurança de identidade é o percentual que funciona como um indicador de quão alinhado você é com as práticas recomendadas da Microsoft para segurança. Cada ação de aprimoramento na pontuação de segurança de identidade é adaptada para sua configuração específica.  
 
 ![Classificação de segurança](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -48,7 +48,7 @@ Ao seguir as ações de melhoria, você pode:
 
 ## <a name="how-do-i-get-my-secure-score"></a>Como faço para obter minha classificação de segurança?
 
-A pontuação de segurança de identidade está disponível em todas as edições do Azure AD. As organizações podem acessar sua pontuação segura de identidade do **portal do Azure**  >  **Azure Active Directory**  >  **Security**  >  **Pontuação segura de identidade**de segurança.
+A pontuação de segurança de identidade está disponível em todas as edições do Azure AD. As organizações podem acessar sua pontuação segura de identidade do **portal do Azure**  >  **Azure Active Directory**  >    >  **Pontuação segura de identidade** de segurança.
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
@@ -78,7 +78,7 @@ A classificação de segurança de identidade pode ser usada pelas funções a s
 
 ### <a name="how-are-controls-scored"></a>Como os controles são pontuados?
 
-Os controles podem ser classificados de duas maneiras. Algumas são pontuadas de maneira binária – você obtém 100% da Pontuação se tiver o recurso ou a configuração configurada com base em nossa recomendação. Outras pontuações são calculadas como uma porcentagem da configuração total. Por exemplo, se a recomendação de melhoria indicar que você obterá 30 pontos se proteger todos os usuários com MFA e tiver apenas 5 de 100 total de usuários protegidos, você receberia uma pontuação parcial em cerca de 2 pontos (5 protegidos/100 total * 30 máximo de pts = 2 pt de Pontuação parcial).
+Os controles podem ser classificados de duas maneiras. Algumas são pontuadas de maneira binária – você obtém 100% da Pontuação se tiver o recurso ou a configuração configurada com base em nossa recomendação. Outras pontuações são calculadas como uma porcentagem da configuração total. Por exemplo, se a recomendação de aperfeiçoamento indicar que você obterá um máximo de 10,71% se você proteger todos os usuários com MFA e tiver apenas 5 de 100 total de usuários protegidos, você receberá uma pontuação parcial cerca de 0,53% (5 protegidos/100 total * 10,71% Maximum = 0,53% Pontuação parcial).
 
 ### <a name="what-does-not-scored-mean"></a>O que [Não Pontuado] significa?
 
@@ -98,7 +98,7 @@ Em breve, não. A pontuação segura não expressa uma medida absoluta de quão 
 
 ### <a name="how-should-i-interpret-my-score"></a>Como devo interpretar a minha classificação?
 
-Você recebe pontos para configuração recursos de segurança recomendados ou realizar tarefas relacionadas a segurança (como a leitura de relatórios). Algumas ações são pontuadas para conclusão parcial, como habilitar MFA (autenticação multifator) para seus usuários. Sua pontuação segura é um representante direto dos serviços de segurança da Microsoft que você usa. Lembre-se de que a segurança deve ser equilibrada com usabilidade. Todos os controles de segurança têm um componente de impacto ao usuário. Controles com baixo impacto ao usuário devem ter pouco ou nenhum efeito sobre as operações diárias dos usuários.
+Sua pontuação melhora a configuração de recursos de segurança recomendados ou a execução de tarefas relacionadas à segurança (como a leitura de relatórios). Algumas ações são pontuadas para conclusão parcial, como habilitar MFA (autenticação multifator) para seus usuários. Sua pontuação segura é um representante direto dos serviços de segurança da Microsoft que você usa. Lembre-se de que a segurança deve ser equilibrada com usabilidade. Todos os controles de segurança têm um componente de impacto ao usuário. Controles com baixo impacto ao usuário devem ter pouco ou nenhum efeito sobre as operações diárias dos usuários.
 
 Para ver seu histórico de pontuação, acesse a [central de segurança do Microsoft 365](https://security.microsoft.com/) e examine sua pontuação de segurança geral da Microsoft. Você pode examinar as alterações em sua pontuação de segurança geral clicando em Exibir histórico. Escolha uma data específica para ver quais controles foram habilitados para aquele dia e que pontos você ganhou para cada um.
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ff5adf3ec974cc922d73cf5993a78722ca1b591
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388015"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101723802"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -160,7 +160,7 @@ Se você estiver tentando acessar recursos em outra assinatura, siga estas etapa
 
 1. Copiar o nome da assinatura.
 
-1. Agora você pode usar o seguinte código de runbook para testar as permissões de sua conta de Automação para a outra assinatura. Substitua `"\<CertificateThumbprint\>"` pelo valor copiado na etapa 1. Substitua `"\<SubscriptionName\>"` pelo valor copiado na etapa 4.
+1. Agora você pode usar o seguinte código de runbook para testar as permissões de sua conta de Automação para a outra assinatura. Substitua `<CertificateThumbprint>` pelo valor copiado na etapa 1. Substitua `"<SubscriptionName>"` pelo valor copiado na etapa 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection

@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358619"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Conectar e indexar conteúdo SQL do Azure usando um indexador Pesquisa Cognitiva do Azure
@@ -320,7 +320,7 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – use a represen
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
+| BIGINT |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
 | smallmoney, numérico decimal dinheiro |Edm.String |O Azure Pesquisa Cognitiva não dá suporte à conversão de tipos decimais em EDM. Double porque isso perderia a precisão |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Uma cadeia de caracteres SQL poderá ser usada para preencher um campo Collection(Edm.String) se a cadeia de caracteres representar uma matriz JSON de cadeias de caracteres: `["red", "white", "blue"]` |

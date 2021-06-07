@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 60f4e4998e1077ca373f47a0cdf35c9d7a064605
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946621"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866668"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -39,7 +39,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 1. No menu **Arquivo**, clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
 1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal**. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
 
-    ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    :::image type="content" source="./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png" alt-text="início normal do VirtualBox Manager" border="true":::
 
 1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888` ).
 

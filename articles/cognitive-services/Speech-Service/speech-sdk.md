@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 597a7c3954912a3a86b5db9f92ba75e8aaee63f6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601820"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608078"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -58,25 +58,26 @@ A **conversão de texto em fala (TTS)** está disponível nas seguintes platafor
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
+Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que você crie interfaces de conversação naturais e humanas para seus aplicativos e experiências. O SDK de fala fornece uma interação rápida e confiável que inclui a conversão de fala em texto, conversão de texto em fala e dados de conversação em uma única conexão. Sua implementação pode usar o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
 
-Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
+O suporte ao **Assistente de voz** está disponível nas seguintes plataformas:
 
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (SDK de dispositivos de fala)
+  - Go
 
-#### <a name="keyword-spotting"></a>Palavra-chave parando
+#### <a name="keyword-recognition"></a>Reconhecimento de palavra-chave
 
-O conceito de decepções de [palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
+O conceito de [reconhecimento de palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. Reconhecimento de palavra-chave é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
 
-A **palavra-chave (KWs)** está disponível nas seguintes plataformas:
+O **reconhecimento de palavra-chave** está disponível nas seguintes plataformas:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (SDK de dispositivos de fala)
-  - A funcionalidade de KWS (palavra-chave) pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala
+  - A funcionalidade de reconhecimento de palavra-chave pode funcionar com qualquer tipo de microfone, o suporte a reconhecimento de palavra-chave oficial, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos
 
 ### <a name="meeting-scenarios"></a>Cenários de reunião
 
@@ -113,7 +114,7 @@ A **transcrição do Call Center** está disponível por meio do serviço de fal
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada por codec
 
-Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos <span class="docon docon-navigate-external x-hidden-focus"></span> de entrada de áudio compactados </a>.
+Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos de entrada de áudio compactados </a>.
 
 A **entrada de áudio compactada por codec** está disponível nas seguintes plataformas:
 

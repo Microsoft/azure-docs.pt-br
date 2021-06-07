@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/24/2021
 ms.author: mjbrown
-ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7163658024d150a7c5d75c3b3ac0b6b6b29cd3cb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340593"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037301"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos do Azure Resource Manager para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,6 +27,7 @@ Este artigo mostra apenas exemplos de modelo do Azure Resource Manager para cont
 |[Criar conta do Azure Cosmos, banco de dados e contêiner com armazenamento analítico](manage-with-templates.md#create-analytical-store) | Este modelo cria uma conta de API do Core (SQL) em uma região com um contêiner configurado com o TTL analítico habilitado e a opção de usar taxa de transferência manual ou de dimensionamento ou automático. |
 |[Criar conta do Azure Cosmos, banco de dados e contêiner com taxa de transferência padrão (manual)](manage-with-templates.md#create-manual) | Este modelo cria uma conta de API do Core (SQL) em duas regiões, um banco de dados e um contêiner com taxa de transferência padrão. |
 |[Criar conta do Azure Cosmos, banco de dados e contêiner com procedimento armazenado, gatilho e UDF (função definida pelo usuário)](manage-with-templates.md#create-sproc) | Este modelo cria uma conta de API do Core (SQL) em duas regiões com um procedimento armazenado, um gatilho e uma UDF (função definida pelo usuário) para um contêiner. |
+|[Criar uma conta do Azure cosmos com a identidade do Azure AD, definições de função e atribuição de função](manage-with-templates.md#create-rbac) | Este modelo cria uma conta de API básica (SQL) com identidade do Azure AD, definições de função e atribuição de função em uma entidade de serviço. |
 |[Criar um ponto de extremidade privado para uma conta já existente do Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Este modelo cria um ponto de extremidade privado para uma conta já existente da API do Core (SQL) do Azure Cosmos em uma rede virtual existente. |
 |[Criar uma conta de camada gratuita do Azure Cosmos](manage-with-templates.md#free-tier) |  Este modelo cria uma conta de API do Core (SQL) do Azure Cosmos DB na camada gratuita. |
 

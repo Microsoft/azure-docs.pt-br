@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830712"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543951"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planejar a configuração do Azure Active Directory meus aplicativos
 
@@ -74,31 +74,19 @@ Os administradores podem configurar:
 
 ## <a name="plan-consent-configuration"></a>Configuração do consentimento do plano
 
-Há dois tipos de consentimento: consentimento do usuário e consentimento para aplicativos que acessam dados.
-
-![Captura de tela de configuração de consentimento](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Consentimento do usuário para aplicativos 
 
-Os usuários ou administradores devem consentir os termos de uso e as políticas de privacidade do aplicativo. Você deve decidir se os usuários ou somente administradores podem consentir com os aplicativos. **Recomendamos que, se as regras de negócio permitirem, você use o consentimento do administrador para manter o controle dos aplicativos em seu locatário**.
+Antes que um usuário possa entrar em um aplicativo e o aplicativo possa acessar os dados da sua organização, um usuário ou um administrador deve conceder as permissões do aplicativo. Você pode configurar se o consentimento do usuário é permitido e sob quais condições. **A Microsoft recomenda que você permita apenas o consentimento do usuário para aplicativos de editores verificados.**
 
-Para usar o consentimento do administrador, você deve ser um administrador global da organização e os aplicativos devem ser:
-
-* Registrado em sua organização.
-
-* Registrado em outra organização do Azure AD e consentiu anteriormente por pelo menos um usuário.
-
-Se você quiser permitir que os usuários consentim, deverá decidir se deseja que eles consentissem em qualquer aplicativo ou somente em circunstâncias específicas.
-
-Para obter mais informações, consulte [Configurar a maneira como os usuários finais concordam com um aplicativo no Azure Active Directory.](../manage-apps/configure-user-consent.md)
+Para obter mais informações, consulte [configurar como os usuários finais concordam com os aplicativos](../manage-apps/configure-user-consent.md)
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentimento do proprietário do grupo para aplicativos que acessam dados
 
-Determine se os proprietários dos grupos de segurança ou grupos de M365 do Azure AD podem dar consentimento aos aplicativos para acessar os dados para os grupos que eles possuem. Você pode proibir, permitir todos os proprietários do grupo ou permitir apenas um subconjunto de proprietários do grupo.
+Os proprietários de grupos e equipes podem autorizar aplicativos, como aplicativos publicados por fornecedores terceirizados, para acessar os dados da sua organização associados a um grupo. Consulte [consentimento específico de recursos no Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) para saber mais. 
+
+Você pode configurar se deseja permitir ou desabilitar esse recurso.
 
 Para obter mais informações, consulte [configurar permissões de consentimento de grupo](../manage-apps/configure-user-consent-groups.md).
-
-Em seguida, defina [as configurações de consentimento do proprietário do usuário e do grupo](https://portal.azure.com/) no portal do Azure.
 
 ### <a name="plan-communications"></a>Planejar comunicações
 
@@ -143,7 +131,7 @@ Se você precisar integrar esses aplicativos, defina um mecanismo para implantar
 
 * [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager para o Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager para o Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 A extensão permite que os usuários iniciem qualquer aplicativo de sua barra de pesquisa, localizando acesso a aplicativos usados recentemente e tendo um link para a página meus aplicativos.
 
@@ -271,4 +259,3 @@ Você pode usar [Privileged Identity Management](../privileged-identity-manageme
 
 [Planejar uma implantação do Proxy de Aplicativo](application-proxy-deployment-plan.md)
 
- 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70229fabe4331adb7740cf09cf2bf8f3e3e4617
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 9b74e7d312133c24daad448e029a3c3d4cbdce79
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587512"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773055"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando chamadas da API REST
 
@@ -49,13 +49,13 @@ Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenc
 
 Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema habilitada, a conta precisará da atribuição de função [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Nenhuma atribuição adicional de função de diretório do Azure Active Directory é necessária.
 
-1. Criar um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implantação de VM e seus recursos relacionados usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
+1. Criar um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implantação de VM e seus recursos relacionados usando [az group create](/cli/azure/group/#az_group_create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Crie um [adaptador de rede](/cli/azure/network/nic#az-network-nic-create) para a VM:
+2. Crie um [adaptador de rede](/cli/azure/network/nic#az_network_nic_create) para a VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -309,7 +309,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    az account get-access-token
    ```
 
-2. Crie um [adaptador de rede](/cli/azure/network/nic#az-network-nic-create) para a VM:
+2. Crie um [adaptador de rede](/cli/azure/network/nic#az_network_nic_create) para a VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89083041"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Mover domínios da grade de eventos do Azure para outra região
@@ -32,15 +32,15 @@ Aqui estão as etapas de alto nível abordadas neste artigo:
 Para começar, exporte um modelo do Resource Manager para o domínio. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na barra de pesquisa, digite **domínios de grade de eventos**e selecione **domínios de grade de eventos** na lista de resultados. 
+2. Na barra de pesquisa, digite **domínios de grade de eventos** e selecione **domínios de grade de eventos** na lista de resultados. 
 
     :::image type="content" source="./media/move-domains-across-regions/search-domains.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::
 3. Selecione o **domínio** que você deseja exportar para um modelo do Resource Manager. 
 
-    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::   
+    :::image type="content" source="./media/move-domains-across-regions/select-domain.png" alt-text="Selecionar o domínio":::   
 4. Na página **domínio da grade de eventos** , selecione **Exportar modelo** em **configurações** no menu à esquerda e, em seguida, selecione **baixar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Pesquisar e selecionar domínios de grade de eventos" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
+    :::image type="content" source="./media/move-domains-across-regions/export-template-download.png" alt-text="Exportar modelo-download de >" lightbox="./media/move-domains-across-regions/export-template-download.png":::   
 
     > [!IMPORTANT]
     > Os tópicos de domínio e domínio são exportados. As assinaturas para tópicos de domínio não são exportadas. Portanto, você precisa criar assinaturas para tópicos de domínio depois de mover tópicos de domínio. 
@@ -59,21 +59,21 @@ Para começar, exporte um modelo do Resource Manager para o domínio.
 ## <a name="recreate"></a>Recriar 
 Implante o modelo para criar os tópicos de domínio e domínio na região de destino. 
 
-1. Na portal do Azure, selecione **criar um recurso**.
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+1. No portal do Azure, selecione **Criar um recurso**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
 3. Selecione **implantação de modelo**.
 4. Selecione **Criar**.
 5. Selecione **Criar seu próprio modelo no editor**.
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 7. Selecione **salvar** para salvar o modelo. 
 8. Na página **implantação personalizada** , siga estas etapas:
-    1. Selecione uma **assinatura**do Azure. 
+    1. Selecione uma **assinatura** do Azure. 
     1. Selecione um **grupo de recursos** existente na região de destino ou crie um. 
     1. Para **região**, selecione a região de destino. Se você selecionou um grupo de recursos existente, essa configuração será somente leitura. 
     1. Para o **nome de domínio**, insira um novo nome para o domínio. 
     1. Selecione **Examinar + criar**. 
     
-        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Pesquisar e selecionar domínios de grade de eventos":::        
+        :::image type="content" source="./media/move-domains-across-regions/deploy-template.png" alt-text="Implantar modelo":::        
     1. Depois que a validação do modelo for realizada com sucesso, selecione **criar** na parte inferior da página para implantar o recurso. 
     1. Depois que a implantação for realizada com sucesso, selecione **ir para o grupo de recursos** para navegar até a página do grupo de recursos. Confirme se há um domínio no grupo de recursos. Selecione o domínio. Confirme se há tópicos de domínio no domínio. 
 
@@ -84,13 +84,13 @@ Se você quiser recomeçar, exclua o domínio na região de destino e repita as 
 
 Para excluir um domínio usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **domínios de grade de eventos**e selecione **domínios de grade de eventos** nos resultados da pesquisa. 
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **domínios de grade de eventos** e selecione **domínios de grade de eventos** nos resultados da pesquisa. 
 2. Selecione o domínio a ser excluído e selecione **excluir** na barra de ferramentas. 
 3. Na página confirmação, insira o nome do grupo de recursos e selecione **excluir**.  
 
 Para excluir o grupo de recursos que contém o domínio usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **grupos de recursos**e selecione **grupos de recursos** nos resultados da pesquisa. 
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **grupos de recursos** e selecione **grupos de recursos** nos resultados da pesquisa. 
 2. Selecione o grupo de recursos a ser excluído e selecione **excluir** na barra de ferramentas. 
 3. Na página confirmação, insira o nome do grupo de recursos e selecione **excluir**.  
 

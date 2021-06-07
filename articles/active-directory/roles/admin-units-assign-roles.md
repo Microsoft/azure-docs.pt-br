@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1fc0c4bf9f71a8fe7e8cf49b83d32ac594dbe062
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740390"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103011368"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções a uma unidade administrativa
 
@@ -50,7 +50,7 @@ As entidades de segurança a seguir podem ser atribuídas a uma função com um 
 
 Você pode atribuir uma função com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -72,23 +72,27 @@ Você pode atribuir uma função com escopo usando o portal do Azure, o PowerShe
 ### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
-$AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
-$Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-$RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
-$RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+$adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
+$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$roleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
+$roleMember.ObjectId = $adminUser.ObjectId
+Add-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId -RoleObjectId $role.ObjectId -RoleMemberInfo $roleMember
 ```
 
 Você pode alterar a seção realçada conforme necessário para o ambiente específico.
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
+Solicitação
+
 ```http
-Http request
-POST /directory/administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
     
-Request body
+Corpo
+
+```http
 {
   "roleId": "roleId-value",
   "roleMemberInfo": {
@@ -101,7 +105,7 @@ Request body
 
 Você pode exibir uma lista de administradores com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Você pode exibir todas as atribuições de função criadas com um escopo de unidade administrativa na [seção unidades administrativas do Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
@@ -114,18 +118,23 @@ Você pode exibir todas as atribuições de função criadas com um escopo de un
 ### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $adminUnitObj.ObjectId | fl *
 ```
 
 Você pode alterar a seção realçada conforme necessário para seu ambiente específico.
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
+Solicitação
+
 ```http
-Http request
-GET /directory/administrativeUnits/{id}/scopedRoleMembers
-Request body
+GET /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
+
+Corpo
+
+```http
 {}
 ```
 

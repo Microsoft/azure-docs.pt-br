@@ -3,12 +3,12 @@ title: Como projetar sua implantação do Application Insights – Um vs. muitos
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536346"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102424658"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos do Application Insights devo implantar?
 
@@ -32,6 +32,9 @@ Cada recurso do Application Insights vem com métricas que estão disponíveis p
 -   Se não for necessário gerenciar cobrança/cotas de maneira diferente entre os componentes.
 -   Tenha o mesmo acesso aos dados de todos os componentes se não tiver problema em ter uma chave de API. 10 chaves de API são suficientes para as necessidades em todas elas.
 -   Se não tiver problema em ter as mesmas configurações de detecção inteligente e de integração de itens de trabalho em todas as funções.
+
+> [!NOTE]
+> Se você quiser consolidar vários recursos de Application Insights, poderá apontar seus componentes de aplicativo existentes para um novo recurso de Application Insights consolidado. A telemetria armazenada no recurso antigo não será transferida para o novo recurso, portanto, exclua apenas o recurso antigo quando você tiver telemetria suficiente no novo recurso para continuidade dos negócios.
 
 ### <a name="other-things-to-keep-in-mind"></a>Outras coisas a ter em mente
 
@@ -86,7 +89,7 @@ Você precisará das chaves de instrumentação de todos os recursos aos quais s
 ## <a name="filter-on-build-number"></a>Filtrar por número de compilação
 Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
 
-Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
+Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md).
 
 Há vários métodos diferentes de definir a propriedade de Versão do aplicativo.
 
@@ -132,7 +135,7 @@ Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é g
 </PropertyGroup>
 ```
 
-Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou ao [explorar métricas](../../azure-monitor/platform/metrics-charts.md).
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou ao [explorar métricas](../../azure-monitor/essentials/metrics-charts.md).
 
 No entanto, observe que o número de versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação de desenvolvedor do Visual Studio.
 

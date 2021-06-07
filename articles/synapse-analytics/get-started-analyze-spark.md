@@ -9,69 +9,67 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 2feabda5ea3f0c0748b92de9fcb7ef05abbdcf4c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.date: 03/24/2021
+ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209433"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108325"
 ---
 # <a name="analyze-with-apache-spark"></a>Análise com o Apache Spark
 
 Neste tutorial, você conhecerá as etapas básicas usadas para carregar e analisar dados com o Apache Spark para o Azure Synapse.
 
+## <a name="create-a-serverless-apache-spark-pool"></a>Criar um Pool do Apache Spark sem servidor
+
+1. No Synapse Studio, no painel do lado esquerdo, selecione **Gerenciar** > **Pools do Apache Spark**.
+1. Selecione **Novo** 
+1. Em **Nome do Pool do Apache Spark**, insira **Spark1**.
+1. Em **Tamanho do nó**, insira **Pequeno**.
+1. Em **Número de nós**, defina o mínimo como 3 e o máximo como 3
+1. Selecione **Examinar + criar** > **Criar**. Seu Pool do Apache Spark estará pronto em alguns segundos.
+
+## <a name="understanding-serverless-apache-spark-pools"></a>Noções básicas sobre pools do Apache Spark sem servidor
+
+Um Pool do Spark sem servidor é uma forma de indicar como um usuário deseja trabalhar com o Spark. Quando você começa a usar um pool, uma sessão do Spark é criada, se necessário. O pool controla quantos recursos do Spark serão usados por essa sessão e por quanto tempo a sessão permaneceu antes de ser colocada em pausa automaticamente. Você paga pelos recursos do Spark usados durante essa sessão, não pelo próprio pool. Dessa forma, um Pool do Spark permite que você trabalhe com o Spark, sem precisar se preocupar com o gerenciamento de clusters. Isso é semelhante a como funciona um pool de SQL sem servidor.
+
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analisar os dados de Táxi de Nova York no armazenamento de blobs usando o Spark
 
-1. No hub **Dados**, clique no botão **+** para **Adicionar um novo recurso** e clique em >> **Procurar na galeria**. 
-1. Encontre **Comissão de Táxi e Limusines de Nova York – registros de viagem de táxi amarelo** e clique nele. 
-1. Na parte inferior da página, clique em **Continuar** e **Adicionar conjunto de dados**. 
-1. Após alguns instantes, no hub **Dados** em **Vinculado**, clique com o botão direito do mouse em **Armazenamento de Blobs do Azure >> Conjuntos de Dados de Exemplo >> nyc_tlc_yellow** e selecione **Novo notebook** e **Carregar no Quadro de Dados**.
-1. Isso criará um Notebook com o seguinte código:
-    ```
-
+1. No Synapse Studio, acesse o hub **Desenvolver**
+2. Crie um Notebook com a linguagem padrão definida como **PySpark (Python)** .
+3. Crie uma célula de código e cole o código a seguir nela.
+    ```py
+    %%pyspark
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
-    data_df = data.to_spark_dataframe()
+    df = data.to_spark_dataframe()
     # Display 10 rows
-    display(data_df.limit(10))
+    display(df.limit(10))
     ```
 1. No notebook, no menu **Anexar a**, escolha o Pool do Spark sem servidor **Spark1** que criamos anteriormente.
-1. Selecione **Executar** na célula
+1. Selecione **Executar** na célula. O Azure Synapse iniciará uma nova sessão do Spark para executar essa célula, se necessário. Se uma nova sessão do Spark for necessária, inicialmente, levará cerca de dois segundos para que ela seja criada. 
 1. Se você quiser ver apenas o esquema do dataframe, execute uma célula com o seguinte código:
-    ```
 
-    data_df.printSchema()
+    ```py
+    df.printSchema()
     ```
 
 ## <a name="load-the-nyc-taxi-data-into-the-spark-nyctaxi-database"></a>Carregar os dados de táxi de Nova York no banco de dados nyctaxi do Spark
 
-Os dados estão disponíveis em uma tabela no **SQLPOOL1**. Carregue-os em um banco de dados do Spark chamado **nyctaxi**.
+Os dados ficam disponíveis por meio do dataframe chamado **data**. Carregue-os em um banco de dados do Spark chamado **nyctaxi**.
 
-1. No Synapse Studio, acesse o hub **Desenvolver**.
-1. Selecione **+**  > **Notebook**.
-1. Na parte superior do notebook, defina o valor **Anexar a** como **Spark1**.
-1. Na primeira célula de código do novo notebook, insira o seguinte código:
+1. Adicione um novo ao notebook e insira o seguinte código:
 
-
-    ```scala
-    %%spark
+    ```py
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
-
-
-1. Execute o script. Isso poderá levar de 2 a 3 minutos.
-1. No hub **Dados**, na guia **Workspace**, clique com o botão direito do mouse em **Bancos de Dados** e selecione **Atualizar**. Agora você verá o banco de dados **nyctaxi (Spark)** na lista.
-
-
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analisar os dados de táxi de NYC usando Spark e notebooks
 
 1. Retorne ao notebook.
 1. Crie uma célula de código e insira o código a seguir. 
-
 
    ```py
    %%pyspark
@@ -80,17 +78,16 @@ Os dados estão disponíveis em uma tabela no **SQLPOOL1**. Carregue-os em um ba
    ```
 
 1. Execute a célula para mostrar os dados de Táxis de Nova York que carregamos no banco de dados **nyctaxi** do Spark.
-1. Crie uma célula de código e insira o código a seguir. Depois, execute a célula para realizar a mesma análise que fizemos anteriormente com o pool de SQL dedicado **SQLPOOL1**. Esse código salva e exibe os resultados da análise em uma tabela chamada **nyctaxi.passengercountstats**.
-
+1. Crie uma célula de código e insira o código a seguir. Analisaremos esses dados e salvaremos os resultados em uma tabela chamada **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark
    df = spark.sql("""
       SELECT PassengerCount,
-          SUM(TripDistanceMiles) as SumTripDistance,
-          AVG(TripDistanceMiles) as AvgTripDistance
+          SUM(TripDistance) as SumTripDistance,
+          AVG(TripDistance) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
+      WHERE TripDistance > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
    """) 
@@ -100,19 +97,8 @@ Os dados estão disponíveis em uma tabela no **SQLPOOL1**. Carregue-os em um ba
 
 1. Nos resultados da célula, selecione **Gráfico** para visualizar os dados exibidos.
 
-## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Carregar dados de uma tabela do Spark em uma tabela do pool de SQL dedicado
-
-Anteriormente, copiamos dados da tabela do pool de SQL dedicado **SQLPOOL1.dbo.Trip** na tabela do Spark **nyctaxi.trip**. Em seguida, você agregou os dados na tabela do Spark **nyctaxi.passengercountstats**. Agora, você copiará os dados de **nyctaxi.passengercountstats** para uma tabela do pool de SQL dedicado chamada **SQLPOOL1.dbo.PassengerCountStats**.
-
-1. Crie uma célula de código e insira o código a seguir. Execute a célula no notebook. Ela copia a tabela do Spark agregada de volta na tabela do pool de SQL dedicado.
-
-```scala
-%%spark
-val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Analisar dados com o pool de SQL sem servidor](get-started-analyze-sql-on-demand.md)
+> [Analisar dados com um pool de SQL dedicado](get-started-analyze-sql-pool.md)

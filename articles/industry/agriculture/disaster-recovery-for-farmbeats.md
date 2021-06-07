@@ -4,13 +4,13 @@ description: Este artigo descreve como a recuperação de dados protege contra a
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
-ms.author: v-umha
-ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 9ece624546cab1b8b6fab8c19f4401bd050f6267
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164203"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102179877"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastre para FarmBeats
 

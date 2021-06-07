@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754332"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Elemento de interface do usuário Microsoft. Storage. StorageBlobSelector
@@ -22,21 +22,21 @@ O usuário recebe a opção de procurar por blobs de armazenamento disponíveis.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-browse.png" alt-text="Microsoft. Storage. StorageBlobSelector-procurar":::
 
-Depois de selecionar **procurar** , o usuário pode selecionar uma conta de armazenamento.
+Depois de selecionar **procurar**, o usuário pode selecionar uma conta de armazenamento.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft. Storage. StorageBlobSelector-procurar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Armazenamento Microsoft. Storage. StorageBlobSelector-Select":::
 
 O usuário vê os contêineres na conta de armazenamento e pode selecionar um.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. Storage. StorageBlobSelector-procurar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft. Storage. StorageBlobSelector-selecionar contêiner":::
 
 No contêiner, o usuário pode selecionar um arquivo.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. Storage. StorageBlobSelector-procurar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. Storage. StorageBlobSelector-File":::
 
 O controle é atualizado para exibir o nome de arquivo selecionado.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. Storage. StorageBlobSelector-procurar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft. Storage. StorageBlobSelector-mostrar Selecionar arquivo":::
 
 ## <a name="schema"></a>Esquema
 

@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 87b1f4ab7b7091970d7bb76ae1e00b06549fb0b4
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 3eb5ea468a234aea228539c2390ab6cae9352948
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152717"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105630097"
 ---
-**Os destinos de computação podem ser reutilizados pelos trabalhos de treinamento.** Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos. Para pipelines de machine learning, use a [etapa do pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) apropriada para cada destino de computação.
+**Os destinos de computação podem ser reutilizados pelos trabalhos de treinamento.** Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos. Para pipelines de machine learning, use a [etapa do pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) apropriada para cada destino de computação.
 
 Você pode usar qualquer um dos recursos a seguir para um destino de computação de treinamento para a maioria dos trabalhos. Nem todos os recursos podem ser usados para machine learning automatizado, pipelines de machine learning ou designer.
 
@@ -30,3 +30,6 @@ Você pode usar qualquer um dos recursos a seguir para um destino de computaçã
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Sim | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Sim | &nbsp; |
 |[Lote do Azure](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Sim | &nbsp; |
+
+> [!TIP]
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, [use o terminal](../articles/machine-learning/how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de [parar ou reiniciar](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) a instância de computação.

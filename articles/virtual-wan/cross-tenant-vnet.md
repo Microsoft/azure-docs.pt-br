@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: c49a85c71c9b877be7e143f5caf27dc307fe0c12
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 82a5e90221a77b891df78984c7fddfd63b6532aa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381262"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585410"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Conectar VNets de locatário cruzado a um hub de WAN virtual
 
@@ -90,7 +90,7 @@ Nas etapas a seguir, você alternará entre o contexto das duas assinaturas ao v
 1. Conecte a VNet ao Hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
 1. Você pode exibir a nova conexão no PowerShell ou no portal do Azure.

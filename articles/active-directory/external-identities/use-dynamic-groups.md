@@ -12,27 +12,27 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441548"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e Colaboração do Azure Active Directory B2B
 
 ## <a name="what-are-dynamic-groups"></a>O que são grupos dinâmicos?
-A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para popular os grupos que são criados no Azure AD com base em atributos de usuário (por exemplo, usuário, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
+A configuração dinâmica da associação de grupo de segurança para o Azure AD (Azure Active Directory) está disponível [no portal do Azure](https://portal.azure.com). Os administradores podem definir regras para preencher os grupos criados no Azure AD com base nos atributos do usuário (como UserType, departamento ou país/região). Os membros podem ser adicionados ou removidos automaticamente de um grupo de segurança com base nas alterações de seus atributos. Esses grupos podem fornecer acesso a aplicativos ou a recursos de nuvem (como sites e documentos do SharePoint) e para atribuir licenças a membros. Leia mais sobre grupos dinâmicos em [Grupos dedicados no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
-O [licenciamento do Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e usar grupos dinâmicos. Saiba mais no artigo [Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+O [licenciamento Azure ad Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) apropriado é necessário para criar e usar grupos dinâmicos. Saiba mais no artigo [Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## <a name="creating-an-all-users-dynamic-group"></a>Criando um grupo dinâmico "todos os usuários"
 Você pode criar um grupo contendo todos os usuários dentro de um locatário usando uma regra de associação. Quando os usuários são adicionados ou removidos do locatário no futuro, a associação do grupo é ajustada automaticamente.
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que é atribuída à função administrador global ou administrador de usuários no locatário.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que é atribuída à função de administrador da empresa ou de administrador de usuários no locatário.
 1. Selecione **Azure Active Directory**.
-2. Em **gerenciar**, selecione **grupos**e, em seguida, selecione **novo grupo**.
+2. Em **Gerenciar**, selecione **Grupos** e, em seguida, selecione **Novo grupo**.
 1. Na página **novo grupo** , em **tipo de grupo**, selecione **segurança**. Insira o **Nome do grupo** e a **Descrição do grupo** para o novo grupo. 
-2. Em **tipo de associação**, selecione **usuário dinâmico**e, em seguida, selecione **Adicionar consulta dinâmica**. 
+2. Em **tipo de associação**, selecione **usuário dinâmico** e, em seguida, selecione **Adicionar consulta dinâmica**. 
 4. Acima da caixa de texto **sintaxe da regra** , selecione **Editar**. Na página **sintaxe de editar regra** , digite a seguinte expressão na caixa de texto:
 
    ```
@@ -42,7 +42,7 @@ Você pode criar um grupo contendo todos os usuários dentro de um locatário us
 
    ![Sintaxe de regra para todos os usuários grupo dinâmico](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-1.  Selecione **Salvar**. O novo grupo dinâmico agora incluirá usuários convidados B2B, bem como usuários membros.
+1.  Clique em **Salvar**. O novo grupo dinâmico agora incluirá usuários convidados B2B, assim como usuários membros.
 
 
 1. Selecione **criar** na página **novo grupo** para criar o grupo.

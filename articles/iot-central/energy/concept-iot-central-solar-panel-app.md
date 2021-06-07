@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 1efb693e1ad9b9e9bfdbeafa27e9cc75c645baf4
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99834282"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central – arquitetura de aplicativo do painel solar

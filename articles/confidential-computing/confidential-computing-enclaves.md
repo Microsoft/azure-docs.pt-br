@@ -4,17 +4,17 @@ description: Saiba mais sobre o hardware de SGX Intel para habilitar suas cargas
 services: virtual-machines
 author: JenCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
-ms.openlocfilehash: 565f4971fffde1cbeb2234b43aaad5cce73b5404
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 554260b2a2760380d3bb2d91ee25b4a03bf2f1ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564371"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102551361"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Visão geral das VMs (máquinas virtuais) de computação confidencial do Azure
 

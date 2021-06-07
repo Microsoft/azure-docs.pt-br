@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363316"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para os Serviços Cognitivos do Azure
@@ -34,7 +34,7 @@ Você pode obter sua chave de assinatura do [portal do Azure](cognitive-services
 
 Vamos analisar rapidamente os cabeçalhos de autenticação disponíveis para uso com os Serviços Cognitivos do Azure.
 
-| Cabeçalho | Descrição |
+| parâmetro | Descrição |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Use esse cabeçalho para autenticar com uma chave de assinatura para um serviço específico ou uma chave de assinatura para vários serviços. |
 | Ocp-Apim-Subscription-Region | Esse cabeçalho só é necessário ao usar uma chave de assinatura de vários serviços com o [serviço do tradutor](./Translator/reference/v3-0-reference.md). Use esse cabeçalho para especificar a região da assinatura. |
@@ -175,7 +175,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [O que são Serviços Cognitivos?](./what-are-cognitive-services.md)
 * [Preço dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)

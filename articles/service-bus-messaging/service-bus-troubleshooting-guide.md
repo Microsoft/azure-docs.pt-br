@@ -2,13 +2,13 @@
 title: Guia de solução de problemas do barramento de serviço do Azure | Microsoft Docs
 description: Saiba mais sobre dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/03/2021
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881207"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031283"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de solução de problemas do barramento de serviço do Azure
 Este artigo fornece dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure. 
@@ -52,6 +52,8 @@ As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certi
     ```
     Você pode usar comandos equivalentes se estiver usando outras ferramentas, como `tnc` , `ping` e assim por diante. 
 - Obtenha um rastreamento de rede se as etapas anteriores não ajudarem e a analisarem usando ferramentas como o [Wireshark](https://www.wireshark.org/). Entre em contato com [suporte da Microsoft](https://support.microsoft.com/) se necessário. 
+- Para localizar os endereços IP certos para adicionar àlist de permissão para suas conexões, consulte [quais endereços IP preciso adicionar àlist de permissão](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações/reinicializações de serviço
 
@@ -96,6 +98,25 @@ Há um limite para o número de tokens que são usados para enviar e receber men
 
 ### <a name="resolution"></a>Resolução
 Abra uma nova conexão com o namespace do barramento de serviço para enviar mais mensagens.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>Falha ao adicionar regra de rede virtual usando o PowerShell
+
+### <a name="symptoms"></a>Sintomas
+Você configurou duas sub-redes de uma única rede virtual em uma regra de rede virtual. Quando você tenta remover uma sub-rede usando o cmdlet [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) , ela não remove a sub-rede da regra de rede virtual. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Causa
+A ID de Azure Resource Manager que você especificou para a sub-rede pode ser inválida. Isso pode acontecer quando a rede virtual está em um grupo de recursos diferente daquele que tem o namespace do barramento de serviço. Se você não especificar explicitamente o grupo de recursos da rede virtual, o comando da CLI construirá a ID de Azure Resource Manager usando o grupo de recursos do namespace do barramento de serviço. Portanto, ele não remove a sub-rede da regra de rede. 
+
+### <a name="resolution"></a>Resolução
+Especifique a ID de Azure Resource Manager completa da sub-rede que inclui o nome do grupo de recursos que tem a rede virtual. Por exemplo:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir: 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c83a6ec364865eb3478112c9f33add22a5c09d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782987"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643263"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar o banco de dados SQL do Azure ou fazer failover para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,11 +62,11 @@ A operação de recuperação afeta o aplicativo. Ela exige a alteração da cad
 
 Dependendo da tolerância a tempo de inatividade de seu aplicativo e possível responsabilidade comercial, você pode considerar as opções de recuperação a seguir.
 
-Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ) para obter o ponto de restauração com replicação geográfica mais recente.
+Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) para obter o ponto de restauração com replicação geográfica mais recente.
 
 ## <a name="wait-for-service-recovery"></a>Aguarde a recuperação de serviço
 
-As equipes do Azure trabalham cuidadosamente para restaurar a disponibilidade do serviço o mais rapidamente possível, mas dependendo da causa raiz, isso pode levar horas ou dias.  Se seu aplicativo pode tolerar tempo de inatividade significativo, você pode simplesmente esperar a conclusão da recuperação. Nesse caso, nenhuma ação sua é necessária. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/). Após a recuperação da região, a disponibilidade do aplicativo será restaurada.
+As equipes do Azure trabalham cuidadosamente para restaurar a disponibilidade do serviço o mais rapidamente possível, mas dependendo da causa raiz, isso pode levar horas ou dias.  Se seu aplicativo pode tolerar tempo de inatividade significativo, você pode simplesmente esperar a conclusão da recuperação. Nesse caso, nenhuma ação sua é necessária. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/). Após a recuperação da região, a disponibilidade do aplicativo é restaurada.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Fazer failover para servidor secundário replicado geograficamente no grupo de failover
 
@@ -78,7 +78,7 @@ Use um dos guias a seguir para fazer failover para um banco de dados secundário
 
 - [Fazer failover para um servidor secundário replicado geograficamente usando o portal do Azure](active-geo-replication-configure-portal.md)
 - [Failover para o servidor secundário usando o PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Fazer failover para um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Fazer failover para um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperação usando a restauração geográfica
 
@@ -90,7 +90,7 @@ Se estiver usando a restauração geográfica para se recuperar de uma interrup�
 
 ### <a name="update-connection-strings"></a>Atualizar cadeias de conexão
 
-Já que o banco de dados recuperado residirá em um servidor diferente, você precisa atualizar a cadeia de conexão do seu aplicativo para apontar para esse servidor.
+Como o banco de dados recuperado reside em um servidor diferente, você precisa atualizar a cadeia de conexão do aplicativo para apontar para esse servidor.
 
 Para saber mais sobre como alterar as cadeias de conexão, confira a linguagem de desenvolvimento apropriada para sua [biblioteca de conexão](connect-query-content-reference-guide.md#libraries).
 
@@ -109,7 +109,7 @@ Você deve verificar se todos os logons usados pelo aplicativo existem no servid
 
 Você precisa certificar-se de que as configurações de regra de alerta existentes sejam atualizadas para mapear para o banco de dados recuperado e para o outro servidor.
 
-Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../../azure-monitor/platform/alerts-overview.md) e [Acompanhar a integridade do serviço](../../service-health/service-notifications.md).
+Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../../azure-monitor/alerts/alerts-overview.md) e [Acompanhar a integridade do serviço](../../service-health/service-notifications.md).
 
 ### <a name="enable-auditing"></a>Habilitar a auditoria
 

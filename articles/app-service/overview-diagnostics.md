@@ -8,10 +8,10 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962801"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure
@@ -26,7 +26,7 @@ O diagnóstico do Serviço de Aplicativo funciona não para apenas o aplicativo 
 
 Para acessar o diagnóstico do serviço de aplicativo, navegue até o aplicativo Web do serviço de aplicativo ou Ambiente do Serviço de Aplicativo na [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
-Para Azure Functions, navegue até seu aplicativo de funções e, na barra de navegação superior, clique em **recursos da plataforma**e selecione **diagnosticar e resolver problemas** na seção **Gerenciamento de recursos** .
+Para Azure Functions, navegue até seu aplicativo de funções e, na barra de navegação superior, clique em **recursos da plataforma** e selecione **diagnosticar e resolver problemas** na seção **Gerenciamento de recursos** .
 
 Na home page do diagnóstico do serviço de aplicativo, você pode escolher a categoria que melhor descreve o problema com seu aplicativo usando as palavras-chave em cada bloco de página inicial. Além disso, essa página é onde você pode encontrar **ferramentas de diagnóstico** para aplicativos do Windows. Consulte [ferramentas de diagnóstico (somente para o aplicativo do Windows)](#diagnostic-tools-only-for-windows-app).
 

@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd07c09c4ed5be311bf5a485b9bff938c976a2f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5611088b76d8acf785fc0951100dcd4a2f439250
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659226"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104593162"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos do Azure usando a CLI do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando a CLI do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos dos Arquivos do Azure dão suporte ao protocolo SMB padrão e ao protocolo NFS (Network File System – versão prévia) e habilita o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -83,7 +83,6 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $shareName \
     --quota 1024 \
-    --enabled-protocols SMB \
     --output none
 ```
 
@@ -175,7 +174,6 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $otherShareName \
     --quota 1024 \
-    --enabled-protocols SMB \
     --output none
 
 az storage directory create \

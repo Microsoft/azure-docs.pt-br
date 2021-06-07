@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d99f1bd97c8199de1bda12f28f3fcb31b697946f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97931714"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031487"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -23,7 +23,7 @@ Atualmente, as Durable Functions dão suporte às seguintes linguagens:
 
 * **C#**: [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
 * **JavaScript**: compatível apenas com a versão 2.x do Azure Functions Runtime. Exige a versão 1.7.0 da extensão das Durable Functions ou uma versão posterior. 
-* **Python**: requer a versão 2.3.1 ou posterior da extensão das Durable Functions. No momento, o suporte das Durable Functions está em versão prévia pública.
+* **Python**: requer a versão 2.3.1 ou posterior da extensão das Durable Functions.
 * **F#**: bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
 * **PowerShell**: atualmente, o suporte das Durable Functions está em versão prévia pública. Compatível apenas com a versão 3.x do Azure Functions Runtime e o PowerShell 7. Exige a versão 2.2.2 da extensão das Durable Functions ou uma versão posterior. No momento, há suporte apenas para os seguintes padrões: [Encadeamento de funções](#chaining), [Fan-out/fan-in](#fan-in-out) e [APIs HTTP assíncronas](#async-http).
 
@@ -633,7 +633,31 @@ module.exports = df.entity(function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Atualmente, as entidades duráveis não são compatíveis com o Python.
+```python
+import logging
+import json
+
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableOrchestrationContext):
+
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+        context.set_result(current_value)
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    
+    context.set_state(current_value)
+
+main = df.Entity.create(entity_function)
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -649,7 +673,7 @@ Os clientes podem enfileirar *operações* de uma função de entidade (também 
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [DurableClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableEntityClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -677,7 +701,17 @@ module.exports = async function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Atualmente, as entidades duráveis não são compatíveis com o Python.
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -685,7 +719,7 @@ Atualmente, as entidades duráveis não são compatíveis com o PowerShell.
 
 ---
 
-As funções de entidade estão disponíveis nas [Durable Functions 2.0](durable-functions-versions.md) e superior para C# e JavaScript.
+As funções de entidade estão disponíveis nas [Durable Functions 2.0](durable-functions-versions.md) e posteriores para C#, JavaScript e Python.
 
 ## <a name="the-technology"></a>A tecnologia
 

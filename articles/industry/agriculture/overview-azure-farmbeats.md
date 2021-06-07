@@ -4,13 +4,13 @@ description: Fornece uma visão geral do Azure FarmBeats
 author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: b08013e9d015d3c987c0032761bebccd4b57ec72
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: v-ummehabiba
+ms.openlocfilehash: f173dfb055f3d9c75ee63570cd413276ffb6ba37
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678034"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182818"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Visão geral do Azure FarmBeats (versão prévia)
 

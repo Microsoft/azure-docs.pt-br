@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: a3cc4c3d6936a51ca2010209ce23e4d82c9333eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 58dccf56cd493782a422b0ddf0386e31d4d87daf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016331"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765981"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure
 
@@ -29,7 +29,7 @@ Neste guia de início rápido, você usa a CLI do Azure para definir um trabalho
 
 - Crie um grupos de recursos. Todos os recursos do Azure devem ser implantados em um grupo de recursos. Os grupos de recursos facilitam organizar e gerenciar os recursos relacionados ao Azure.
 
-   Para este início rápido, crie um grupo de recursos chamado *streamanalyticsrg* na localização *eastus* com o seguinte comando [az group create](/cli/azure/group#az-group-create):
+   Para este início rápido, crie um grupo de recursos chamado *streamanalyticsrg* na localização *eastus* com o seguinte comando [az group create](/cli/azure/group#az_group_create):
 
    ```azurecli
    az group create --name streamanalyticsrg --location eastus

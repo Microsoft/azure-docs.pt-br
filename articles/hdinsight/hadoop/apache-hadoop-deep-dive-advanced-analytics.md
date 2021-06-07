@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946673"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866719"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -20,7 +20,7 @@ O HDInsight fornece a capacidade de obter insights valiosos de grandes quantidad
 
 ## <a name="advanced-analytics-process"></a>Processo de análise Avançada
 
-![Fluxo de processo de análise avançada](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="Fluxo de processo de análise avançada" border="false":::
 
 Depois de identificar o problema de negócios e começar a coletar e processar seus dados, você precisa criar um modelo que representa a pergunta que deseja prever. O modelo usará um ou mais algoritmos de aprendizado de máquina para fazer o tipo de previsão que melhor atenda às suas necessidades de negócios.  A maioria dos dados deve ser usada para treinar seu modelo, e o restante usado para testá-lo ou avaliá-lo.
 
@@ -30,7 +30,7 @@ Depois de criar, carregar, testar e avaliar o seu modelo, a próxima etapa é im
 
 Soluções de análise avançada fornecem um conjunto de algoritmos de aprendizado de máquina. Aqui está um resumo das categorias de algoritmos e casos de uso de negócios comuns associados.
 
-![Resumos de categoria de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Resumos de categoria de Machine Learning" border="false":::
 
 Além de selecionar os algoritmos mais adequados, você precisa considerar se precisa ou não fornecer dados para treinamento. Algoritmos de aprendizado de máquina são categorizados da seguinte maneira:
 
@@ -92,20 +92,20 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 
-![Machine Learning imagens de exemplo](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Machine Learning imagens de exemplo" border="false":::
 
 Para saber mais sobre o conjunto de dados, confira Alex Krizhevsky [aprendendo várias camadas de recursos de imagens pequenas](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
 O conjunto de dados foi particionado em um conjunto de treinamento de 50.000 imagens e um conjunto de teste de 10.000 imagens. O primeiro conjunto foi usado para treinar um modelo de rede residual (ResNet) convolucional com vinte camadas de profundidade usando o Kit de Ferramentas Cognitivas da Microsoft seguindo [este tutorial](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet) do repositório GitHub do Kit de Ferramentas Cognitivas. As 10.000 imagens restantes foram usadas para testar a precisão do modelo. É aí que a computação distribuída entra em cena: a tarefa de pré-processamento e pontuação das imagens é altamente paralelizável. Com o modelo treinado salvo em mãos, usamos:
 
-* PySpark para distribuir as imagens e o modelo treinado para nós de trabalho do cluster.
+* PySpark para distribuir as imagens e o modelo treinado para os nós de trabalho do cluster.
 * Python para pré-processar as imagens em cada nó do cluster HDInsight Spark.
 * Kit de Ferramentas Cognitivas para carregar o modelo e a pontuação de imagens pré-processadas em cada nó.
 * Jupyter Notebooks para executar o script PySpark, agregar os resultados e usar [Matplotlib](https://matplotlib.org/) para visualizar o desempenho do modelo.
 
 Todo o pré-processamento/pontuação das 10.000 imagens leva menos de um minuto em um cluster com 4 nós de trabalho. O modelo prevê com precisão os rótulos de ~ 9.100 (91%) imagens. Uma matriz de confusão ilustra os erros mais comuns de classificação. Por exemplo, a matriz mostra que a classificação errada de cachorros como gatos e vice-versa ocorre mais frequentemente que em outros pares de rótulos.
 
-![Machine Learning gráfico de resultados](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Machine Learning gráfico de resultados" border="false":::
 
 ### <a name="try-it-out"></a>Experimente!
 

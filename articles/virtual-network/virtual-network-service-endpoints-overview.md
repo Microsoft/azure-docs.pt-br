@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576660"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de Rede Virtual
@@ -42,7 +42,7 @@ Esse recurso está disponível para os seguintes serviços e regiões do Azure. 
 - **[Serviço de Azure app](../app-service/app-service-ip-restrictions.md)** (*Microsoft. Web*): geralmente disponível em todas as regiões do Azure em que o serviço de aplicativo está disponível.
 - **[Serviços cognitivas do Azure](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft. cognitivaservices*): geralmente disponíveis em todas as regiões do Azure em que os serviços cognitivas estão disponíveis.
 
-**Visualização pública**
+**Versão prévia pública**
 
 - **[Registro de contêiner do Azure](../container-registry/container-registry-vnet.md)** (*Microsoft. ContainerRegistry*): visualização disponível em regiões do Azure limitadas em que o registro de contêiner do Azure está disponível.
 

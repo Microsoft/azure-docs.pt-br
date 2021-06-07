@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
 ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99550414"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Tutorial: configurar a nuvem de alteração de Forts para o provisionamento automático de usuário
@@ -60,7 +60,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-fortes-change-cloud-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar Forts de alteração na nuvem da Galeria de aplicativos do Azure AD
 
-Adicione a nuvem de alteração de Forts da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para as Forts de alteração na nuvem. Se você tiver configurado anteriormente a nuvem de alteração de Fort para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione a nuvem de alteração de Forts da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para as Forts de alteração na nuvem. Se você tiver configurado anteriormente a nuvem de alteração de Fort para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -116,7 +116,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |name.familyName|String|
    |name.formatted|String|
    |externalId|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: FCC: 2.0: usuário: administrador|Booliano|
+   |urn: IETF: params: SCIM: esquemas: extensão: FCC: 2.0: usuário: administrador|Boolean|
    |urn: IETF: params: SCIM: schemas: Extension: FCC: 2.0: User: loginDisabled|Boolean|
 
   

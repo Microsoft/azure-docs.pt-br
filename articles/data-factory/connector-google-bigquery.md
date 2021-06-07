@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: e3fcaa6c1542578d983461623da743724a3114d9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389681"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory
@@ -55,7 +55,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Google BigQuery.
 
 Defina a propriedade "authenticationType" para **UserAuthentication** e especifique as propriedades a seguir juntamente com as propriedades genéricas descritas na seção anterior:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | clientId | ID do aplicativo usado para gerar o token de atualização. | Não |
 | clientSecret | Segredo do aplicativo usado para gerar o token de atualização. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
@@ -91,7 +91,7 @@ Defina a propriedade "authenticationType" para **UserAuthentication** e especifi
 
 Defina a propriedade "authenticationType" para **ServiceAuthentication** e especifique as propriedades a seguir juntamente com as propriedades genéricas descritas na seção anterior. Esse tipo de autenticação pode ser usado somente no Integration Runtime auto-hospedado.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | email | A ID de e-mail da conta de serviço que é usada para ServiceAuthentication. Só pode ser usado em Integration Runtime auto-hospedado.  | Não |
 | keyFilePath | O caminho completo para o arquivo chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço. | Não |

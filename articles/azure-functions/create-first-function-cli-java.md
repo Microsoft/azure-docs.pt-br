@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-java-uiex
+ms.openlocfilehash: 1a1571e83e33ee0aec40df4cf68b3d01b6ef5f04
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755163"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787495"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função Java no Azure da linha de comando
 
@@ -148,11 +152,7 @@ O arquétipo também gera um teste de unidade para sua função. Ao alterar sua 
     > [!NOTE]  
     > Se HttpExample não aparece conforme mostrado acima, é provável que você tenha iniciado o host fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
 
-1. Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<YOUR_NAME>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve exibir uma mensagem como `Hello Functions`:
-
-    ![Resultado da execução local da função no navegador](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-    
-    O terminal em que você iniciou seu projeto também mostra a saída do log conforme você faz solicitações.
+1. Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<YOUR_NAME>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador exibirá uma mensagem que retorna o valor da cadeia de consulta. O terminal em que você iniciou seu projeto também mostra a saída do log conforme você faz solicitações.
 
 1. Quando você concluir, use **Ctrl**+**C** e escolha `y` para interromper o host de funções.
 
@@ -170,7 +170,7 @@ Um aplicativo de funções e os recursos relacionados são criados no Azure quan
     az login
     ```
 
-    O comando [az login](/cli/azure/reference-index#az-login) conecta você à conta do Azure.
+    O comando [az login](/cli/azure/reference-index#az_login) conecta você à conta do Azure.
 
     # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell) 
     ```azurepowershell

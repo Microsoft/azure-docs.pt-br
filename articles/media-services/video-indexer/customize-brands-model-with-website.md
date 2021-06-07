@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/15/2019
 ms.author: kumud
 ms.openlocfilehash: a2de9dbb479f43d6b646cd9f6cf604d6a08c8b6a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586085"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizar um modelo de marcas com o site do Video Indexer
@@ -36,7 +36,7 @@ Você pode usar o site do Video Indexer para criar, usar e editar modelos person
 
 ## <a name="edit-brands-model-settings"></a>Editar configurações de modelo de marcas
 
-Você tem a opção de definir se deseja que as marcas do banco de dados de marcas do Bing sejam detectadas ou não. Para definir essa opção, você precisa editar as configurações do modelo de marcas. Execute estas etapas:
+Você tem a opção de definir se deseja que as marcas do banco de dados de marcas do Bing sejam detectadas ou não. Para definir essa opção, você precisa editar as configurações do modelo de marcas. Siga estas etapas:
 
 1. Acesse o site [Video indexer](https://www.videoindexer.ai/) e entre.
 1. Para personalizar um modelo em sua conta, selecione o botão **personalização do modelo de conteúdo** à esquerda da página.

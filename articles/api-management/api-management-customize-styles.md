@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93145762"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do portal do desenvolvedor
@@ -45,8 +45,8 @@ Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas 
 
 ## <a name="customize-the-developer-portal"></a>Personalizar o portal do desenvolvedor
 
-1. Selecione **Visão geral** .
-2. Clique no botão **Portal do desenvolvedor (herdado)** na parte superior da janela **Visão geral** .
+1. Selecione **Visão geral**.
+2. Clique no botão **Portal do desenvolvedor (herdado)** na parte superior da janela **Visão geral**.
 3. No canto superior esquerdo da tela, você verá um ícone composto de dois pincéis. Passe o mouse sobre esse ícone para abrir o menu de personalização do portal.
 
     ![Captura de tela que realça o ícone com dois pincéis.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -59,7 +59,7 @@ Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas 
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo da variável **\@cor do cabeçalho** . 
+6. Clique no campo da variável **\@cor do cabeçalho**. 
     
     A lista suspensa do seletor de cores é aberta.
 7. Selecione uma nova cor na lista suspensa do seletor de cores.

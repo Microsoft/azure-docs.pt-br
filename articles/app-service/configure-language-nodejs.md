@@ -6,14 +6,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696006"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101095205"
 ---
-# <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o serviço Azure App
+# <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo Node.js para o Serviço de Aplicativo do Azure
 
 Node.js aplicativos devem ser implantados com todas as dependências de NPM necessárias. O mecanismo de implantação do serviço de aplicativo é executado automaticamente `npm install --production` quando você implanta um [repositório git](deploy-local-git.md)ou um [pacote zip](deploy-zip.md) com a automação de compilação habilitada. No entanto, se você implantar seus arquivos usando [FTP/S](deploy-ftp.md), será necessário carregar os pacotes necessários manualmente.
 
@@ -29,7 +29,7 @@ Para mostrar a versão atual do Node.js, execute o seguinte comando no [Cloud Sh
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-Para mostrar todas as versões de Node.js com suporte, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para mostrar todas as versões compatíveis do Node.js, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -45,7 +45,7 @@ Para mostrar a versão atual do Node.js, execute o seguinte comando no [Cloud Sh
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Para mostrar todas as versões de Node.js com suporte, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+Para mostrar todas as versões compatíveis do Node.js, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep NODE
@@ -342,6 +342,19 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## <a name="monitor-with-application-insights"></a>Monitorar com Application Insights
+
+Application Insights permite monitorar o desempenho, as exceções e o uso do seu aplicativo sem fazer nenhuma alteração de código. Para anexar o agente do App insights, acesse seu aplicativo Web no portal e selecione **Application insights** em **configurações** e selecione **Ativar Application insights**. Em seguida, selecione um recurso de informações do aplicativo existente ou crie um novo. Por fim, selecione **aplicar** na parte inferior. Para instrumentar seu aplicativo Web usando o PowerShell, confira [estas instruções](../azure-monitor/app/azure-web-apps.md?tabs=netcore#enabling-through-powershell)
+
+Este agente monitorará o aplicativo Node.js no lado do servidor. Para monitorar o JavaScript do lado do cliente, [adicione o SDK do JavaScript ao seu projeto](../azure-monitor/app/javascript.md). 
+
+Para obter mais informações, consulte as [notas de versão da extensão de Application insights](../azure-monitor/app/web-app-extension-release-notes.md).
+
+::: zone-end
+
 ## <a name="troubleshooting"></a>Solução de problemas
 
 Quando um aplicativo Node.js funcionando se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
@@ -370,4 +383,3 @@ Quando um aplicativo Node.js funcionando se comporta de forma diferente no servi
 > [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1775ec2c337dba0a618f9e7d186af9ed11a0e303
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362430"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559376"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -24,7 +24,7 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede, incluindo aqueles usados pelo backup do Azure para armazenamento. Esse número pode ser maior (até 25) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
-- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
+- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará [desabilitar as políticas de rede](../private-link/disable-private-endpoint-network-policy.md) antes de continuar.
 - Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e selecione **registrar novamente**.
 - Não há suporte para a [restauração entre regiões](backup-create-rs-vault.md#set-cross-region-restore) para SQL e SAP Hana backups de banco de dados se o cofre tiver pontos de extremidade privados habilitados.
 - Ao mover um cofre dos serviços de recuperação que já usa pontos de extremidade privados para um novo locatário, você precisará atualizar o cofre dos serviços de recuperação para recriar e reconfigurar a identidade gerenciada do cofre e criar novos pontos de extremidade privados, conforme necessário (o que deve estar no novo locatário). Se isso não for feito, as operações de backup e restauração começarão a falhar. Além disso, qualquer permissão de RBAC (controle de acesso baseado em função) configurada na assinatura precisará ser reconfigurada.
@@ -170,9 +170,9 @@ Se você estiver usando seus servidores DNS personalizados, será necessário cr
     > No texto acima, `<geo>` refere-se ao código de região (por exemplo, *eus* e *ne* para leste dos EUA e Europa setentrional respectivamente). Consulte as seguintes listas para códigos de regiões:
     >
     > - [Todas as nuvens públicas](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
-    > - [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-    > - [Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-    > - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+    > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
+    > - [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 1. Em seguida, precisamos adicionar os registros DNS necessários. Para exibir os registros que precisam ser adicionados à zona DNS de backup, navegue até o ponto de extremidade privado que você criou acima e vá para a opção **configuração de DNS** na barra de navegação à esquerda.
 
@@ -296,6 +296,10 @@ Ao usar os grupos de disponibilidade do SQL (AG), você precisará provisionar o
 Ao usar o agente MARS para fazer backup de seus recursos locais, verifique se sua rede local (contendo seus recursos de backup) está emparelhada com a VNet do Azure que contém um ponto de extremidade privado para o cofre, para que você possa usá-lo. Em seguida, você pode continuar a instalar o agente MARS e configurar o backup conforme detalhado aqui. No entanto, você deve garantir que toda a comunicação para o backup ocorra somente por meio da rede emparelhada.
 
 Mas se você remover pontos de extremidade privados para o cofre depois que um agente MARS tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+
+## <a name="deleting-private-endpoints"></a>Excluindo pontos de extremidade privados
+
+Consulte [esta seção](/rest/api/virtualnetwork/privateendpoints/delete) para saber como excluir pontos de extremidade privados.
 
 ## <a name="additional-topics"></a>Tópicos adicionais
 
@@ -554,4 +558,4 @@ a. Depois de seguir o processo detalhado neste artigo, você não precisa fazer 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md)
+- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md).

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928944"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788950"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Início Rápido: Configurar o DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT com o modelo do ARM
 
@@ -136,13 +136,13 @@ Entre na sua conta do Azure e selecione sua assinatura.
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
-1. Para verificar a implantação, execute o seguinte [comando para listar recursos](/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) e procure pelo novo serviço de provisionamento e pelo hub IoT na saída:
+1. Para verificar a implantação, execute o seguinte [comando para listar recursos](/cli/azure/resource#az_resource_list) e procure pelo novo serviço de provisionamento e pelo hub IoT na saída:
 
     ```azurecli
      az resource list -g "${projectName}rg"
     ```
 
-2. Para verificar se o hub já está vinculado ao recurso de DPS, execute o [comando DPS extension show](/cli/azure/iot/dps?view=azure-cli-latest#az_iot_dps_show&preserve-view=true) a seguir.
+2. Para verificar se o hub já está vinculado ao recurso de DPS, execute o [comando DPS extension show](/cli/azure/iot/dps#az_iot_dps_show) a seguir.
 
     ```azurecli
      az iot dps show --name <Your provisioningServiceName>
@@ -171,4 +171,3 @@ Neste Início Rápido, você implantou um Hub IoT e uma instância do Serviço d
 
 > [!div class="nextstepaction"]
 > [Início rápido para provisionar um dispositivo](./quick-create-simulated-device-symm-key.md)
-

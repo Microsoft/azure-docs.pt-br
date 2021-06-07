@@ -13,13 +13,13 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97615704"
 ---
-# <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização em uma política de acesso condicional 
+# <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usar a condição de localização em uma política de Acesso condicional 
 
 Conforme explicado no [artigo de visão geral](overview.md) , as políticas de acesso condicional estão no seu mais básico uma instrução if-then que combina sinais, para tomar decisões e impor políticas da organização. Um desses sinais que podem ser incorporados ao processo de tomada de decisão é o local de rede.
 

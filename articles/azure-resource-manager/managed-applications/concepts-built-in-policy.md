@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650936"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Implantar associações para um aplicativo gerenciado usando Azure Policy
@@ -43,7 +43,7 @@ Se você tiver dúvidas sobre o desenvolvimento de provedores de recursos person
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprenderá a usar a política interna para implantar associações. Consulte estes artigos para saber mais:
+Neste artigo, você aprenderá a usar a política interna para implantar associações. Confira estes artigos para saber mais:
 
 - [Conceitos: integração de recursos de provedores personalizados do Azure](../custom-providers/concepts-resource-onboarding.md)
 - [Tutorial: integração de recursos com provedores personalizados](../custom-providers/tutorial-resource-onboarding.md)

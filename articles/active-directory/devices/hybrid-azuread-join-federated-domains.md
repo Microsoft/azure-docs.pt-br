@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2f7d3ce5f8329038fea4ecbb5242015fb3fd0d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 221b7bdbb8ab5d0121e9c8032be8f18d8ae60d1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860126"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578049"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios federados
 
@@ -86,6 +86,9 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 
 A partir do Windows 10 1803, se o ingresso instantâneo no Azure AD híbrido para o ambiente federado do AD FS falhar, dependeremos do Azure AD Connect para sincronizar o objeto de computador no Azure AD que será usado posteriormente para concluir o registro do dispositivo para ingresso no Azure AD híbrido. Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a unidades organizacionais (OUs) específicas, você também deverá configurar as OUs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, veja como [configurar a filtragem usando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
+> [!NOTE]
+> Para que a junção de sincronização de registro de dispositivo tenha sucesso, como parte da configuração de registro de dispositivo, não exclua os atributos de dispositivo padrão da configuração de sincronização do Azure AD Connect. Para saber mais sobre os atributos de dispositivo padrão sincronizados com o AAD, confira [Atributos sincronizados pelo Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+
 Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se você não usa a WPAD e precisa configurar as definições de proxy no computador, é possível fazer isso a partir do Windows 10 1709. Para obter mais informações, veja como [definir as configurações de WinHTTP usando um Objeto de Política de Grupo (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
@@ -95,7 +98,7 @@ Se você não usa a WPAD e precisa configurar as definições de proxy no comput
 
 Se a organização exigir acesso à Internet por meio de um proxy de saída autenticado, será preciso garantir que os computadores com Windows 10 possam ser autenticados com êxito no proxy de saída. Como computadores com Windows 10 executam o registro de dispositivos usando o contexto do computador, será preciso configurar a autenticação de proxy de saída usando o contexto do computador. Acompanhe com o provedor de proxy de saída nos requisitos de configuração.
 
-Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0).
+Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar ingresso no Azure AD híbrido
 

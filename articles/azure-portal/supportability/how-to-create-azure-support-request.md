@@ -3,17 +3,17 @@ title: Como criar uma solicitação de suporte do Azure
 description: Os clientes que precisam de assistência podem usar o portal do Azure para encontrar soluções de autoatendimento e para criar e gerenciar solicitações de suporte.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745580"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774857"
 ---
 # <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
-O Azure permite que você crie e gerencie solicitações de suporte, também conhecidas como tíquetes de suporte. Você pode criar e gerenciar solicitações no [portal do Azure](https://portal.azure.com), que é abordado neste artigo. Você também pode criar e gerenciar solicitações programaticamente, usando a [API REST do tíquete de suporte do Azure](/rest/api/support).
+O Azure permite que você crie e gerencie solicitações de suporte, também conhecidas como tíquetes de suporte. Você pode criar e gerenciar solicitações no [portal do Azure](https://portal.azure.com), que é abordado neste artigo. Você também pode criar e gerenciar solicitações programaticamente, usando a [API REST do tíquete de suporte do Azure](/rest/api/support)ou usando [CLI do Azure](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > A URL do portal do Azure é específica para a nuvem do Azure onde sua organização está implantada.
@@ -42,7 +42,7 @@ Para criar uma solicitação de suporte, você deverá ser um [Proprietário](..
 
 Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
-1. Selecione o **?** no cabeçalho global. Em seguida, selecione **Ajuda + suporte**.
+1. Selecione o **?** no cabeçalho global, selecione **ajuda + suporte**.
 
    ![Ajuda e Suporte](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +52,7 @@ Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>Ir para Ajuda + suporte em um menu de recursos
 
-Para iniciar uma solicitação de suporte no contexto do recurso no qual você está trabalhando atualmente:
+Para iniciar uma solicitação de suporte no contexto do recurso com o qual você está trabalhando no momento:
 
 1. No menu de recursos, na seção **Suporte + Solução de problemas** e selecione **Nova solicitação de suporte**.
 
@@ -94,7 +94,7 @@ Em seguida, coletamos detalhes adicionais sobre o problema. Fornecer informaçõ
 
 Conclua todas as informações necessárias em cada guia e, em seguida, selecione **Examinar + criar**. Verifique os detalhes que você enviará para dar suporte. Volte para qualquer guia para fazer uma alteração, se for necessário. Quando estiver satisfeito, a solicitação de suporte será concluída, selecione **Criar**.
 
-Um engenheiro de suporte entrará em contato com você usando o método que você indicou. Para obter informações sobre os tempos de resposta iniciais, consulte [escopo de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
+Um engenheiro de suporte vai entrar em contato com você usando o método indicado. Para obter informações sobre os tempos de resposta iniciais, confira [Escopo de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

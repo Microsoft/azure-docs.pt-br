@@ -3,12 +3,12 @@ title: Como... no Azure Application Insights | Microsoft Docs
 description: Perguntas Frequentes no Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 134089f4df8f80147182835ca8746322c1de7e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319245"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100584160"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -16,7 +16,7 @@ ms.locfileid: "87319245"
 Definir um [teste da Web de disponibilidade](./monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Enviar emails de meu site estiver sobrecarregado
-Definir um [alerta](../platform/alerts-log.md) para **Tempo de resposta do servidor**. Um limite entre 1 e 2 segundos deve funcionar.
+Definir um [alerta](../alerts/alerts-log.md) para **Tempo de resposta do servidor**. Um limite entre 1 e 2 segundos deve funcionar.
 
 ![Captura de tela que mostra como definir um alerta no tempo de resposta do servidor.](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Se definir um alerta para **Exceções do servidor**, talvez você precise fazer
 
 ### <a name="email-on-exceptions"></a>Exceções de email
 1. [Configurar monitoramento de exceção](./asp-net-exceptions.md)
-2. [Definir um alerta](../platform/alerts-log.md) na métrica de contagem de exceção
+2. [Definir um alerta](../alerts/alerts-log.md) na métrica de contagem de exceção
 
 ### <a name="email-on-an-event-in-my-app"></a>Enviar emails sobre um evento em meu aplicativo
-Vamos supor que você gostaria de receber um email quando ocorrer um evento específico. O Application Insights não oferece esse recurso diretamente, mas pode [enviar um alerta quando uma métrica ultrapassar um limite](../platform/alerts-log.md).
+Vamos supor que você gostaria de receber um email quando ocorrer um evento específico. O Application Insights não oferece esse recurso diretamente, mas pode [enviar um alerta quando uma métrica ultrapassar um limite](../alerts/alerts-log.md).
 
 Alertas podem ser definidos com base em [métricas personalizadas](./api-custom-events-metrics.md#trackmetric), mas não em eventos personalizados. Escreva algum código para aumentar uma métrica quando o evento ocorre:
 
@@ -51,13 +51,13 @@ Como os alertas têm dois estados, você precisa enviar um valor baixo quando co
 telemetry.TrackMetric("Alarm", 0.5);
 ```
 
-Crie um gráfico no [Metrics Explorer](../platform/metrics-charts.md) para ver o alarme:
+Crie um gráfico no [Metrics Explorer](../essentials/metrics-charts.md) para ver o alarme:
 
-![Captura de tela que mostra como criar um gráfico no Metrics Explorer para ver seu alarme.](./media/how-do-i/010-alarm.png)
+![Captura de tela que mostra como criar um gráfico no gerenciador de métricas para ver seu alarme.](./media/how-do-i/010-alarm.png)
 
 Agora defina um alerta para ser disparado quando a métrica ultrapassar um valor médio por um curto período:
 
-![Captura de tela que mostra como definir um alerta para ser acionado quando a métrica ultrapassa o valor médio por um curto período.](./media/how-do-i/020-threshold.png)
+![Captura de tela que mostra como definir um alerta para ser disparado quando a métrica ultrapassar um valor médio por um curto período.](./media/how-do-i/020-threshold.png)
 
 Defina o período de média como o mínimo.
 
@@ -65,17 +65,17 @@ Quando a métrica ficar acima e abaixo do limite, você receberá emails.
 
 Considere o seguinte:
 
-* Um alerta tem dois estados ("alerta" e "íntegro"). O estado é avaliado somente quando uma métrica é recebida.
+* Um alerta tem dois estados ("alerta&quot; e &quot;íntegro"). O estado é avaliado somente quando uma métrica é recebida.
 * Um email é enviado apenas quando o estado é alterado. Por isso você precisa enviar métricas de valor alto e baixo.
 * Para avaliar o alerta, a média é calculada com base dos valores recebidos no período anterior. Isso ocorre sempre que uma métrica é recebida, para que emails podem ser enviados com mais frequência do que o período definido.
 * Uma vez que os emails são enviados tanto para "alerta" quanto para "íntegro", convém passar a pensar em seu único como uma condição de dois estados. Por exemplo, em vez de um evento de "trabalho concluído", tenha uma condição de "trabalho em andamento", na qual você recebe emails no início e no final de um trabalho.
 
 ### <a name="set-up-alerts-automatically"></a>Configurar alertas automaticamente
-[Usar o PowerShell para criar novos alertas](../platform/alerts-log.md)
+[Usar o PowerShell para criar novos alertas](../alerts/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Usar o PowerShell para gerenciar o Application Insights
 * [Criar novos recursos](./create-new-resource.md#creating-a-resource-automatically)
-* [Criar novos alertas](../platform/alerts-log.md)
+* [Criar novos alertas](../alerts/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
@@ -88,7 +88,7 @@ Considere o seguinte:
 
 ## <a name="visualize-data"></a>Visualizar dados
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Painel com métricas de vários aplicativos
-* No [Gerenciador de métricas](../platform/metrics-charts.md), personalize seu gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
+* No [gerenciador de métricas](../essentials/metrics-charts.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Painel com dados de outras fontes e Application Insights
 * [Exportar telemetria para o Power BI](./export-power-bi.md).
@@ -110,7 +110,7 @@ Em seguida, você pode:
 
 * Filtrar métricas para usuários anônimos ou autenticados
 
-![Captura de tela que mostra a filtragem de metrixs para usuários anônimos ou autenticados.](./media/how-do-i/115-metrics.png)
+![Captura de tela que mostra a filtragem de métricas para usuários anônimos ou autenticados.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>Modificar valores ou nomes de propriedade
 Crie um [filtro](./api-filtering-sampling.md#filtering). Isso permite modificar ou filtrar a telemetria antes que ela seja enviada do seu aplicativo para o Application Insights.
@@ -165,6 +165,6 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * **Servidor Unix** - [Instalar collectd](./java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
-* Primeiro, [adicione um novo gráfico](../platform/metrics-charts.md) e veja se o contador está no conjunto básico que oferecemos.
+* Primeiro, [adicione um novo gráfico](../essentials/metrics-charts.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](./performance-counters.md).
 

@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93394825"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Mover VMs para outra região do Azure
@@ -97,12 +97,12 @@ As etapas a seguir mostram como preparar a máquina virtual para a movimentaçã
 1. Entre no [Portal do Azure](https://portal.azure.com)
 1. Em pesquisa, digite Serviços de Recuperação > clique em cofres dos Serviços de Recuperação
 1. No menu dos cofre dos Serviços de Recuperação, clique em +Adicionar.
-1. Em **Nome** , especifique o nome amigável **ContosoVMVault**. Se você tiver mais de uma assinatura, selecione uma delas.
+1. Em **Nome**, especifique o nome amigável **ContosoVMVault**. Se você tiver mais de uma assinatura, selecione uma delas.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Especifique uma região do Azure. Para verificar as regiões com suporte, consulte a disponibilidade geográfica em [detalhes de preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Em **Cofres dos Serviços de Recuperação** , selecione **ContosoVMVault** > **Itens replicados** >  **+Replicar**.
+1. Em **Cofres dos Serviços de Recuperação**, selecione **ContosoVMVault** > **Itens replicados** >  **+Replicar**.
 1. No menu suspenso, selecione **Máquinas Virtuais do Azure**.
-1. Em **Local de origem** , selecione a fonte de região do Azure em que suas VMs estão sendo executados.
+1. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
 1. Selecione o modelo de implantação do Gerenciador de Recursos. Em seguida, selecione a **Assinatura de origem** e o **Grupo de recursos de origem**.
 1. Selecione **OK** para salvar as configurações.
 
@@ -111,8 +111,8 @@ As etapas a seguir mostram como preparar a máquina virtual para a movimentaçã
 O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo de recursos.
 
 1. Na próxima etapa, selecione a VM que você quer mover e selecione **OK**.
-1. Em **Configurações** , selecione **Recuperação de desastre**.
-1. Em **Configurar recuperação de desastre** > **Região de destino** , selecione a região de destino para a qual será replicada.
+1. Em **Configurações**, selecione **Recuperação de desastre**.
+1. Em **Configurar recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual será replicada.
 1. Para este tutorial, aceite as outras configurações padrão.
 1. Selecione **Habilitar replicação**. Esta etapa inicia um trabalho para habilitar a replicação da VM.
 
@@ -122,20 +122,20 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
 As etapas a seguir mostram como executar a movimentação para a região de destino.
 
-1. Vá para o cofre. Em **Configurações** > **Itens replicados** , selecione a VM e, em seguida, selecione **Failover**.
-2. Em **Failover** , selecione **Mais recente**.
+1. Vá para o cofre. Em **Configurações** > **Itens replicados**, selecione a VM e, em seguida, selecione **Failover**.
+2. Em **Failover**, selecione **Mais recente**.
 3. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tenta desligar a VM de origem antes de acionar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 4. Depois que o trabalho for concluído, verifique se a VM será exibida na região de destino do Azure conforme esperado.
 
 
 ## <a name="discard"></a>Descartar 
 
-Caso você tenha marcado a VM movida e precise fazer alterações no ponto de failover ou deseje voltar a um ponto anterior, nos **Itens replicados** , selecione a VM com o botão direito do mouse > **Alterar ponto de recuperação**. Esta etapa fornece a opção de especificar outro ponto de recuperação e failover para aquele. 
+Caso você tenha marcado a VM movida e precise fazer alterações no ponto de failover ou deseje voltar a um ponto anterior, nos **Itens replicados**, selecione a VM com o botão direito do mouse > **Alterar ponto de recuperação**. Esta etapa fornece a opção de especificar outro ponto de recuperação e failover para aquele. 
 
 
 ## <a name="commit"></a>Commit 
 
-Depois de marcar a VM movida e estiver pronto para confirmar a alteração, nos **Itens replicados** , selecione a VM com o botão direito do mouse > **Confirmar**. Essa etapa conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
+Depois de marcar a VM movida e estiver pronto para confirmar a alteração, nos **Itens replicados**, selecione a VM com o botão direito do mouse > **Confirmar**. Essa etapa conclui o processo de movimentação para a região de destino. Aguarde até que o trabalho de confirmação seja concluído.
 
 ## <a name="clean-up"></a>Limpar
 

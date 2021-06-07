@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fd9a811fd1c19d115f3ff15194b7e632114140df
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790246"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625615"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de DTU – banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ As tabelas a seguir mostram os recursos disponíveis para um único banco de dad
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central e Alemanha nordeste. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
-> Para `tempdb` limites, consulte [limites de tempdb](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Para `tempdb` limites, consulte [limites de tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Próximas etapas
 

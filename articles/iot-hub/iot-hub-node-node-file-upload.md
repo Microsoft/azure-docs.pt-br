@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: db4f78e14696c421adaedd16b0b3f8d598f12846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91251891"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Fazer upload de arquivos do seu dispositivo na nuvem com o Hub IoT (Node.js)

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 06923d7c198edc324d85b726cf91694d8cf7e1ca
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94748158"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961346"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Conectar-se à API de Serviços de Mídia v3 – Java
 
@@ -37,7 +37,7 @@ Neste artigo, o Visual Studio Code é usado para desenvolver o aplicativo de exe
    - Apache Maven
    - Pacote de Extensão Java
 - Lembre-se de definir as variáveis de ambiente `JAVA_HOME` e `PATH`.
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se do nome do grupo de recursos e da conta dos Serviços de Mídia.
+- [Crie uma conta de Serviços de Mídia](./account-create-how-to.md). Lembre-se do nome do grupo de recursos e da conta dos Serviços de Mídia.
 - Siga as etapas descritas no tópico [APIs de acesso](./access-api-howto.md). Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID do locatário que você precisará em uma etapa posterior.
 
 Examine também:

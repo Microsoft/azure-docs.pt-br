@@ -4,10 +4,10 @@ description: O Azure Service Fabric Explorer é um aplicativo para inspecionar e
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: a45aff305f97610cb2660c2e3f4b4427b905d7d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574048"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizando o cluster com o Service Fabric Explorer

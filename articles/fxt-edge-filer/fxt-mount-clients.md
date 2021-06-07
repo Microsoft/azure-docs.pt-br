@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92340505"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Montar o cluster

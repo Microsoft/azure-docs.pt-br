@@ -3,12 +3,12 @@ title: Como usar a funcionalidade de IP público na solução VMware do Azure
 description: Este artigo explica como usar a funcionalidade de IP público na WAN virtual do Azure.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 794e24e531d464adf58d5a06b5a411ada18c4a60
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581373"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023649"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como usar a funcionalidade de IP público na solução VMware do Azure
 
@@ -47,6 +47,9 @@ O servidor Web recebe a solicitação e responde com as informações ou a pági
 
 ## <a name="test-case"></a>Caso de teste
 Nesse cenário, você publicará o servidor webiis na Internet. Use o recurso IP público na solução VMware do Azure para publicar o site em um endereço IP público.  Você também configurará as regras de NAT no firewall e acessará o recurso de solução do Azure VMware (VMs com um servidor Web) com o IP público.
+
+>[!TIP]
+>Para habilitar o tráfego de saída, você deve definir a configuração de segurança > tráfego de Internet para o **Firewall do Azure**.
 
 ## <a name="deploy-virtual-wan"></a>Implantar uma WAN Virtual
 
@@ -122,7 +125,7 @@ Depois que todos os componentes forem implantados, você poderá vê-los no grup
 
 1. Selecione **Adicionar uma coleção de regras**, forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, **Avançar: inteligência contra ameaças**.
 
-   -  Nome
+   -  Name
    -  Tipo de coleção de regras-DNAT
    -  Prioridade
    -  Ação de coleção de regras – permitir
@@ -152,7 +155,7 @@ Depois que todos os componentes forem implantados, você poderá vê-los no grup
 
 ## <a name="limitations"></a>Limitações
 
-Você pode ter 100 IPs públicos por SDDCs.
+Você pode ter 100 IPs públicos por nuvem privada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

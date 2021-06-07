@@ -3,13 +3,13 @@ title: Gerenciar backups com o controle de acesso baseado em função do Azure
 description: Use o controle de acesso baseado em função do Azure para gerenciar o acesso às operações de gerenciamento de backup no cofre dos serviços de recuperação.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090872"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613435"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usar o controle de acesso baseado em função do Azure para gerenciar pontos de recuperação do backup do Azure
 
@@ -28,26 +28,29 @@ Se você estiver procurando definir suas próprias funções para obter ainda ma
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapeando funções internas de backup para ações de gerenciamento de backups
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Requisitos mínimos de função para o backup de VM do Azure
+
 A tabela a seguir captura as ações de gerenciamento de backup e a função mínima do Azure correspondente necessária para executar essa operação.
 
-| Operação de gerenciamento | Função mínima do Azure necessária | Escopo exigido |
-| --- | --- | --- |
-| Criar cofre de Serviços de Recuperação | Colaborador de Backup | Grupo de recursos contendo o cofre |
-| Habilitar backup de VMs do Azure | Operador de Backup | Grupo de recursos contendo o cofre |
-| | Colaborador de Máquina Virtual | Recurso de VM |
-| Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Colaborador | Grupo de recursos no qual a VM será implantada |
-| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
+| Operação de gerenciamento | Função mínima do Azure necessária | Escopo exigido | Alternativa |
+| --- | --- | --- | --- |
+| Criar cofre de Serviços de Recuperação | Colaborador de Backup | Grupo de recursos contendo o cofre |   |
+| Habilitar backup de VMs do Azure | Operador de Backup | Grupo de recursos contendo o cofre |   |
+| | Colaborador de Máquina Virtual | Recurso de VM |  Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |   |
+| Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |   |
+| | Colaborador | Grupo de recursos no qual a VM será implantada |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/sub-redes/junção/ação |
+| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
 | Restaurar backup de VM de discos não gerenciados | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
-| | Colaborador da Conta de Armazenamento | Recurso de conta de armazenamento no qual os discos serão restaurados |
+| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| | Colaborador da Conta de Armazenamento | Recurso de conta de armazenamento no qual os discos serão restaurados |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Storage/storageAccounts/Write |
 | Restaurar discos gerenciados do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
-| | Colaborador da Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte da restauração para manter dados do cofre antes de convertê-los em discos gerenciados |
-| | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado |
+| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |    Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| | Colaborador da Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte da restauração para manter dados do cofre antes de convertê-los em discos gerenciados |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Storage/storageAccounts/Write |
+| | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Resources/subscriptions/resourceGroups/Write|
 | Restaurar arquivos individuais do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
+| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| Restauração entre regiões | Operador de Backup | Assinatura do cofre dos serviços de recuperação | Isso é uma adição das permissões de restauração mencionadas acima. Especificamente para CRR, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: "Microsoft. Recoveryservices/Locations/backupAadProperties/Read" "Microsoft. Recoveryservices/Locations/backupCrrJobs/Action" "Microsoft. Recoveryservices/Locations/backupCrrJob/Action" "Microsoft. Recoveryservices/Locations/backupCrossRegionRestore/Action" "Microsoft. Recoveryservices/Locations/backupCrrOperationResults/Read" "Microsoft. Recoveryservices/Locations/backupCrrOperationsStatus/Read" |
 | Criar política de backup para backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | Modificar a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | Excluir a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
@@ -58,7 +61,25 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função mí
 > [!IMPORTANT]
 > Se você especificar colaborador de VM em um escopo de recurso de VM e selecionar **backup** como parte das configurações de VM, ele abrirá a tela **habilitar backup** , mesmo que a VM já tenha sido submetida a backup. Isso ocorre porque a chamada para verificar o status do backup funciona apenas no nível da assinatura. Para evitar isso, vá para o cofre e abra a exibição do item de backup da VM ou especifique a função de colaborador de VM em um nível de assinatura.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup do compartilhamento de arquivos do Azure
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Requisitos mínimos de função para backups de carga de trabalho do Azure (backups de BD SQL e HANA)
+
+A tabela a seguir captura as ações de gerenciamento de backup e a função mínima do Azure correspondente necessária para executar essa operação.
+
+| Operação de gerenciamento | Função mínima do Azure necessária | Escopo exigido | Alternativa |
+| --- | --- | --- | --- |
+| Criar cofre de Serviços de Recuperação | Colaborador de Backup | Grupo de recursos contendo o cofre |   |
+| Habilitar o backup de bancos de dados SQL e/ou HANA | Operador de Backup | Grupo de recursos contendo o cofre |   |
+| | Colaborador de Máquina Virtual | Recurso de VM onde o BD está instalado |  Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| Backup sob demanda do BD | Operador de Backup | Cofre dos Serviços de Recuperação |   |
+| Restaurar banco de dados ou restaurar como arquivos | Operador de Backup | Cofre dos Serviços de Recuperação |   |
+| | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| | Colaborador de Máquina Virtual | VM de destino na qual o BD será restaurado ou os arquivos são criados |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| Criar política de backup para backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Modificar a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Excluir a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Interromper o backup (com retenção de dados ou exclusão de dados) no backup da VM | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup do compartilhamento de arquivos do Azure
 
 A tabela a seguir captura as ações de gerenciamento de backup e a função correspondente necessária para executar a operação de compartilhamento de arquivos do Azure.
 

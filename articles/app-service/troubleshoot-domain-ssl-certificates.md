@@ -9,10 +9,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607602"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e TLS/certificado SSL no serviço Azure App
@@ -261,7 +261,7 @@ Esse problema ocorre por um dos seguintes motivos:
 
     |Tipo de registro|Host|Apontar para|
     |------|------|-----|
-    |Um|@|Endereço IP para um aplicativo|
+    |A|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 

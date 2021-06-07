@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897944"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
@@ -39,7 +39,7 @@ Para que um treinamento tenha sucesso, a tabela a seguir mostra o número mínim
 | Treinamento   | 10.000                                     | Nenhum limite superior                 |
 | Ajuste     | 500                                      | 2\.500       |
 | Testando    | 500                                      | 2\.500  |
-| Dictionary | 0                                          | Nenhum limite superior                 |
+| Dicionário | 0                                          | Nenhum limite superior                 |
 
 > [!NOTE]
 > - O treinamento não será iniciado e falhará se a contagem mínima de sentenças 10.000 para treinamento não for atendida. 

@@ -2,22 +2,22 @@
 title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft Docs
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.date: 02/25/2021
+ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131977"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602597"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
 
-* **[Logs de atividade](../azure-monitor/platform/platform-logs-overview.md)** : Esses logs contém informações sobre as operações feitas em um trabalho. Os logs estão sempre habilitados. Você pode ver as entradas do log de atividades selecionando **Log de atividades** no painel esquerdo do seu namespace do hub de eventos no portal do Azure. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar hub de eventos".
+* **[Logs de atividade](../azure-monitor/essentials/platform-logs-overview.md)** : Esses logs contém informações sobre as operações feitas em um trabalho. Os logs estão sempre habilitados. Você pode ver as entradas do log de atividades selecionando **Log de atividades** no painel esquerdo do seu namespace do hub de eventos no portal do Azure. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar hub de eventos".
 
     ![Log de atividades para um namespace de Hubs de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : Os logs de diagnóstico fornecem informações mais detalhadas sobre operações e ações que são conduzidas no seu namespace usando a API, ou através de clientes de gerenciamento no SDK de linguagem. 
+* **[Logs de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)** : Os logs de diagnóstico fornecem informações mais detalhadas sobre operações e ações que são conduzidas no seu namespace usando a API, ou através de clientes de gerenciamento no SDK de linguagem. 
     
     A seção a seguir mostra como habilitar os logs de diagnóstico para um namespace de Hubs de Eventos.
 
@@ -36,7 +36,7 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de
 
     As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-    Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 
@@ -131,7 +131,7 @@ O nome do evento é preenchido como tipo de operação + tipo de recurso das enu
 
 | Tipo de operação | Tipo de recurso | 
 | -------------- | ------------- | 
-| <ul><li>Criar</li><li>Atualizar</li><li>Excluir</li><li>Recuperar</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Fila</li><li>Tópico</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regra</li>ConsumerGroup</li> |
+| <ul><li>Criar</li><li>Atualizar</li><li>Excluir</li><li>Recuperar</li><li>Desconhecido</li></ul> | <ul><li>Namespace</li><li>Fila</li><li>Tópico</li><li>Assinatura</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regra</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Esquema dos logs de dimensionamento automático
 O JSON do log de dimensionamento automático incluem os elementos listados na seguinte tabela:
@@ -207,7 +207,7 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 | `Count` | Número de ocorrências para a ação especificada |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
 
-Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda desejar obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. Habilite a filtragem de IP e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de IPv6. 
+Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda desejar obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. [Habilite a filtragem de IP](event-hubs-ip-filtering.md)e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). A filtragem de IP dos hubs de eventos não dá suporte a intervalos de IPv6. Observe que você pode ver endereços de ponto de extremidade privados no formato IPv6 no log. 
 
 ### <a name="example"></a>Exemplo
 
@@ -247,4 +247,4 @@ O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados n
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)

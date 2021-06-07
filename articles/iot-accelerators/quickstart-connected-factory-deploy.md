@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dbb49d990581c6b38d0eff32b01dd9b115e6794c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "62127456"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057812"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: experimentar uma solução baseada em nuvem para gerenciar meus dispositivos IoT industriais
 
@@ -114,11 +114,11 @@ Um painel **Locais de fábricas** que mostra o status, o local e a configuraçã
 
 [![Exibir consumo de energia](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
-### <a name="map"></a>Mapeamento
+### <a name="map"></a>Map
 
 Se sua assinatura tiver acesso à [API do Bing Maps](iot-accelerators-faq-cf.md), o mapa de *Fábricas* mostrará a localização geográfica e o status de todas as fábricas na solução. Para analisar os detalhes de local, clique nos locais exibidos no mapa.
 
-[![Mapa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Map](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmes
 
@@ -139,7 +139,7 @@ Para analisar melhor os dados de alarme, clique no grafo no painel de alarme.
 
 Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração do acelerador de solução. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou os valores de nó de OPC UA ultrapassam um limite. Você pode definir esse valor de limite.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Caso planeje explorar ainda mais, mantenha implantado o acelerador de solução da Fábrica Conectada.
 

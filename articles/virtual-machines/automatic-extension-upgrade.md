@@ -3,16 +3,17 @@ title: Atualização de extensão automática para VMs e conjuntos de dimensiona
 description: Saiba como habilitar a atualização de extensão automática para suas máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais no Azure.
 author: mayanknayar
 ms.service: virtual-machines
+ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: manayar
-ms.openlocfilehash: acc014785105d14c3109cfa420f0e9402ca3f534
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa4fa1c43ab9d31b879bdec8e724e896bd16e14c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416929"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102123881"
 ---
 # <a name="preview-automatic-extension-upgrade-for-vms-and-scale-sets-in-azure"></a>Visualização: atualização de extensão automática para VMs e conjuntos de dimensionamento no Azure
 
@@ -21,7 +22,7 @@ A atualização de extensão automática está disponível em versão prévia pa
  A atualização automática de extensão tem os seguintes recursos:
 - Com suporte para VMs do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure. No momento, não há suporte para conjuntos de dimensionamento de máquinas virtuais Service Fabric.
 - As atualizações são aplicadas em um modelo de implantação de primeira disponibilidade (detalhado abaixo).
-- Quando aplicado a um conjunto de dimensionamento de máquinas virtuais, não mais do que 20% das máquinas virtuais de conjuntos de dimensionamento de máquinas virtuais serão atualizadas em um único lote (sujeito a um mínimo de uma máquina virtual por lote).
+- Para um conjunto de dimensionamento de máquinas virtuais, não mais do que 20% das máquinas virtuais do conjunto de dimensionamento serão atualizadas em um único lote. O tamanho mínimo do lote é uma máquina virtual.
 - Funciona para todos os tamanhos de VM e para extensões do Windows e Linux.
 - Você pode recusar atualizações automáticas a qualquer momento.
 - A atualização de extensão automática pode ser habilitada em um conjunto de dimensionamento de máquinas virtuais de qualquer tamanho.
@@ -36,24 +37,9 @@ A atualização de extensão automática está disponível em versão prévia pa
 
 
 ## <a name="how-does-automatic-extension-upgrade-work"></a>Como funciona a atualização de extensão automática?
-O processo de atualização de extensão funciona substituindo a versão de extensão existente em uma VM pela nova versão de extensão publicada pelo editor de extensão. A integridade da VM é monitorada após a instalação da nova extensão. Se a VM não estiver em um estado íntegro dentro de 5 minutos após a conclusão da atualização, a nova versão de extensão será revertida para a versão anterior.
+O processo de atualização de extensão substitui a versão de extensão existente em uma VM com uma nova versão da mesma extensão quando publicada pelo editor de extensão. A integridade da VM é monitorada após a instalação da nova extensão. Se a VM não estiver em um estado íntegro dentro de 5 minutos após a conclusão da atualização, a versão da extensão será revertida para a versão anterior.
 
 Uma falha na atualização da extensão é repetida automaticamente. Uma nova tentativa é feita automaticamente A cada poucos dias, sem a intervenção do usuário.
-
-
-## <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processo de atualização para conjuntos de dimensionamento de máquinas virtuais
-1. Antes de iniciar o processo de atualização, o orquestrador garantirá que no máximo 20% das VMs em todo o conjunto de dimensionamento não estejam íntegros (por qualquer motivo).
-
-2. O orquestrador de atualização identifica o lote de instâncias de VM a serem atualizadas, com qualquer lote com um máximo de 20% da contagem total de VMs, sujeito a um tamanho de lote mínimo de uma máquina virtual.
-
-3. Para conjuntos de dimensionamento com investigações de integridade de aplicativo configuradas ou extensão de integridade de aplicativos, a atualização aguarda até 5 minutos (ou a configuração de investigação de integridade definida) para que a VM se torne íntegra, antes de prosseguir para atualizar o próximo lote. Se uma VM não recuperar sua integridade após uma atualização, por padrão, a versão de extensão anterior para a VM será reinstalada.
-
-4. O orquestrador de atualização também controla a porcentagem de VMs que se tornam não íntegras após uma atualização. A atualização será interrompida se mais de 20% das instâncias atualizadas se tornarem não íntegras durante o processo de atualização.
-
-O processo acima continua até todas as instâncias no conjunto de dimensionamento serem atualizadas.
-
-O orquestrador de atualização do conjunto de dimensionamento verifica a integridade geral do conjunto de dimensionamento antes de atualizar cada lote. Durante a atualização de um lote, pode haver outras atividades de manutenção planejadas ou não planejadas simultâneas que poderiam afetar a integridade das máquinas virtuais do conjunto de dimensionamento. Nesses casos, se mais de 20% das instâncias do conjunto de dimensionamento se tornarem não íntegros, a atualização do conjunto de dimensionamento será interrompida no final do lote atual.
-
 
 ### <a name="availability-first-updates"></a>Disponibilidade-primeiras atualizações
 O modelo de disponibilidade-primeiro para atualizações orquestradas de plataforma garantirá que as configurações de disponibilidade no Azure sejam respeitadas em vários níveis de disponibilidade.
@@ -62,9 +48,9 @@ Para um grupo de máquinas virtuais que passa por uma atualização, a plataform
 
 **Entre regiões:**
 - Uma atualização será movida no Azure globalmente de forma em fases para evitar falhas de implantação em todo o Azure.
-- Uma "fase" pode constituir uma ou mais regiões e uma atualização se moverá entre as fases somente se as VMs qualificadas em uma fase forem atualizadas com êxito.
+- Uma "fase" pode ter uma ou mais regiões e uma atualização será movida entre as fases somente se as VMs qualificadas na fase anterior forem atualizadas com êxito.
 - As regiões emparelhadas geograficamente não serão atualizadas simultaneamente e não poderão estar na mesma fase regional.
-- O sucesso de uma atualização é medido rastreando a integridade de uma atualização de VM. A integridade da VM é controlada por meio de indicadores de integridade da plataforma para a VM. No caso de conjuntos de dimensionamento de máquinas virtuais, a integridade da VM é controlada por meio de investigações de integridade do aplicativo ou da extensão de integridade do aplicativo, se aplicada ao conjunto de dimensionamento.
+- O sucesso de uma atualização é medido rastreando a integridade de uma atualização de VM. A integridade da VM é controlada por meio de indicadores de integridade da plataforma para a VM. Para conjuntos de dimensionamento de máquinas virtuais, a integridade da VM é controlada por meio de investigações de integridade do aplicativo ou da extensão de integridade do aplicativo, se aplicada ao conjunto de dimensionamento.
 
 **Dentro de uma região:**
 - As VMs em diferentes Zonas de Disponibilidade não são atualizadas simultaneamente.
@@ -75,6 +61,18 @@ Para um grupo de máquinas virtuais que passa por uma atualização, a plataform
 - As VMs em um conjunto de disponibilidade comum são atualizadas em limites de domínio de atualização e as VMs em vários domínios de atualização não são atualizadas simultaneamente.  
 - As VMs em um conjunto de dimensionamento de máquinas virtuais comum são agrupadas em lotes e atualizadas em limites de domínio de atualização.
 
+### <a name="upgrade-process-for-virtual-machine-scale-sets"></a>Processo de atualização para conjuntos de dimensionamento de máquinas virtuais
+1. Antes de iniciar o processo de atualização, o orquestrador garantirá que no máximo 20% das VMs em todo o conjunto de dimensionamento não estejam íntegros (por qualquer motivo).
+
+2. O orquestrador de atualização identifica o lote de instâncias de VM a serem atualizadas. Um lote de atualização pode ter um máximo de 20% da contagem total de VMs, sujeito a um tamanho mínimo de lote de uma máquina virtual.
+
+3. Para conjuntos de dimensionamento com investigações de integridade de aplicativo configuradas ou extensão de integridade de aplicativos, a atualização aguarda até 5 minutos (ou a configuração de investigação de integridade definida) para que a VM se torne íntegra antes de atualizar o próximo lote. Se uma VM não recuperar sua integridade após uma atualização, por padrão, a versão de extensão anterior na VM será reinstalada.
+
+4. O orquestrador de atualização também controla a porcentagem de VMs que se tornam não íntegras após uma atualização. A atualização será interrompida se mais de 20% das instâncias atualizadas se tornarem não íntegras durante o processo de atualização.
+
+O processo acima continua até todas as instâncias no conjunto de dimensionamento serem atualizadas.
+
+O orquestrador de atualização do conjunto de dimensionamento verifica a integridade geral do conjunto de dimensionamento antes de atualizar cada lote. Durante a atualização de um lote, pode haver outras atividades de manutenção planejadas ou não planejadas simultâneas que poderiam afetar a integridade das máquinas virtuais do conjunto de dimensionamento. Nesses casos, se mais de 20% das instâncias do conjunto de dimensionamento se tornarem não íntegros, a atualização do conjunto de dimensionamento será interrompida no final do lote atual.
 
 ## <a name="supported-extensions"></a>Extensões com suporte
 A visualização da atualização de extensão automática dá suporte às seguintes extensões (e mais são adicionadas periodicamente):
@@ -258,13 +256,13 @@ az vmss extension set \
 
 ## <a name="extension-upgrades-with-multiple-extensions"></a>Atualizações de extensão com várias extensões
 
-Um conjunto de dimensionamento de máquinas virtuais ou VM pode ter várias extensões com a atualização de extensão automática habilitada, além de outras extensões sem atualizações de extensão automáticas.  
+Um conjunto de dimensionamento de máquinas virtuais ou VM pode ter várias extensões com a atualização de extensão automática habilitada. A mesma VM ou conjunto de dimensionamento também pode ter outras extensões sem a atualização de extensão automática habilitada.  
 
-Se várias atualizações de extensão estiverem disponíveis para uma máquina virtual, as atualizações poderão ser agrupadas em lote. No entanto, cada atualização de extensão é aplicada individualmente em uma máquina virtual. Uma falha em uma extensão não afeta as outras extensões que podem estar sendo atualizadas. Por exemplo, se duas extensões estiverem agendadas para uma atualização e a primeira atualização de extensão falhar, a segunda extensão ainda será atualizada.
+Se várias atualizações de extensão estiverem disponíveis para uma máquina virtual, as atualizações poderão ser agrupadas em lote, mas cada atualização de extensão será aplicada individualmente em uma máquina virtual. Uma falha em uma extensão não afeta as outras extensões que podem estar sendo atualizadas. Por exemplo, se duas extensões estiverem agendadas para uma atualização e a primeira atualização de extensão falhar, a segunda extensão ainda será atualizada.
 
-As atualizações de extensão automática também podem ser aplicadas quando um conjunto de dimensionamento de máquinas virtuais ou VM tem várias extensões configuradas com o [sequenciamento de extensão](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). O sequenciamento de extensão é aplicável para a primeira implantação da VM, e quaisquer atualizações de extensão subsequentes em uma extensão são aplicadas de forma independente.
+As atualizações de extensão automática também podem ser aplicadas quando um conjunto de dimensionamento de máquinas virtuais ou VM tem várias extensões configuradas com o [sequenciamento de extensão](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). O sequenciamento de extensão é aplicável para a primeira implantação da VM e qualquer atualização de extensão futura em uma extensão é aplicada de forma independente.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a extensão de integridade do aplicativo](./windows/automatic-vm-guest-patching.md)
+> [Saiba mais sobre a extensão de integridade do aplicativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)

@@ -2,17 +2,19 @@
 title: Criar um cluster do Service Fabric usando o modelo do Azure Resource Manager
 description: Neste guia de início rápido, você criará um cluster de teste do Azure Service Fabric usando um modelo do Azure Resource Manager.
 author: erikadoyle
-ms.service: service-fabric
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
-ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: service-fabric
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: cb3758ae837dc03789371d00f768b257a9ef295d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87460296"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535307"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Início Rápido: Criar um cluster do Service Fabric usando um modelo do Resource Manager
 

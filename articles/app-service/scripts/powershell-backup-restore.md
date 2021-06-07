@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Restaurar um backup de aplicativo'
+title: 'PowerShell: restaurar um backup de aplicativo'
 description: Saiba como usar o Azure PowerShell para automatizar a implantação e o gerenciamento do Serviço de Aplicativo. Esta amostra descreve como restaurar um aplicativo de um backup.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f5e36122ef1362672e5cdee4f742b98354f0bc75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075882"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar um aplicativo Web de um backup usando o Azure PowerShell

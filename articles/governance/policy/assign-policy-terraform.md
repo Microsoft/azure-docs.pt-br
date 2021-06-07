@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com o Terraform'
 description: Neste início rápido, você usará o Terraform e a sintaxe HCL para criar uma atribuição de política para identificar recursos que não estão em conformidade.
-ms.date: 10/27/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6c1a43010c48f71872d935a8fb52f608b479da8a
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93104892"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092329"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Início Rápido: Criar uma atribuição de política para identificar um recurso que não está em conformidade usando o Terraform
 

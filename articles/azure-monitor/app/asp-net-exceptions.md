@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936496"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
@@ -76,7 +76,7 @@ Você tem várias opções:
 * [TrackException()](#exceptions) envia rastreamentos de pilha. [Mais sobre exceções](#exceptions).
 * Se você já usa uma estrutura de registros, como Log4Net ou NLog poderá [capturar esses logs](asp-net-trace-logs.md) e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
 
-Para ver esses eventos, abra [Pesquisar](./diagnostic-search.md) no menu à esquerda, selecione os **tipos de evento**de menu suspenso e, em seguida, escolha evento personalizado, rastreamento ou exceção.
+Para ver esses eventos, abra [Pesquisar](./diagnostic-search.md) no menu à esquerda, selecione os **tipos de evento** de menu suspenso e, em seguida, escolha evento personalizado, rastreamento ou exceção.
 
 ![Detalhamento](./media/asp-net-exceptions/customevents.png)
 

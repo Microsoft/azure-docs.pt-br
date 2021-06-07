@@ -5,12 +5,16 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: c9ddd6e74e25d8de415e24038e99da9d21dab867
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
+ms.openlocfilehash: d691ee60f624f75c89e44e905e5343bf9c71fd4d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96014458"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101701376"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Início Rápido: Criar sua primeira função no Azure usando o Visual Studio
 

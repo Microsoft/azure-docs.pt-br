@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
 ms.openlocfilehash: 5723e8d9fc7b0a72393dda1b225ca073a6474a0a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534306"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.5 em sua StorSimple Virtual Array
@@ -94,7 +94,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![Captura de tela mostra a atualização de software selecionada no menu manutenção.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. Em **Caminho de arquivo de atualização** , digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
+2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
    
     ![Captura de tela mostra a caixa de texto atualizar caminho do arquivo na página atualização de software.](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
@@ -113,7 +113,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![Captura de tela mostra a página de atualização de software com a versão atual do software.](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
-6. A próxima etapa é atualizar o agente de MDS. Na página **Atualização de Software** , vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
+6. A próxima etapa é atualizar o agente de MDS. Na página **Atualização de Software**, vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
 
 A atualização está concluída.
 

@@ -3,7 +3,7 @@ title: Transmissão ao vivo com codificadores locais que criam fluxos com múlti
 description: Este tópico descreve como configurar um canal que recebe um fluxo ao vivo com múltiplas taxas de bits de um codificador local.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269617"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103014835"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 

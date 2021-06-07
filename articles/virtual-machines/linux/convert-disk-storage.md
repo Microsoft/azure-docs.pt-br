@@ -2,17 +2,18 @@
 title: Converter o armazenamento de discos gerenciados entre diferentes tipos de disco usando CLI do Azure
 description: Como converter o Azure Managed disks entre os diferentes tipos de discos usando o CLI do Azure.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
 ms.subservice: disks
-ms.openlocfilehash: ec6d5b10b4c2336ba7fd221b43a7dbf43ed5cee1
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 35ba681ae35e60d7cd275c9e649b2463d2dc30a0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516814"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102558450"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard
 

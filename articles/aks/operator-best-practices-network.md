@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para rede 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2bd332dbf9412f5c42e77b14ada3aab67ec8b66a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366561"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508581"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -43,11 +43,11 @@ A Interface de Rede do Contêiner (CNI) é um protocolo de fornecedor que permit
 
 Um benefício notável da rede CNI do Azure para produção é que o modelo de rede permite a separação do controle e do gerenciamento de recursos. De uma perspectiva de segurança, você geralmente deseja diferentes equipes para gerenciar e proteger esses recursos. A rede do CNI do Azure permite que você se conecte a recursos existentes do Azure, a recursos locais ou a outros serviços diretamente por meio de endereços IP atribuídos a cada pod.
 
-Quando você usa a rede do CNI do Azure, o recurso de rede virtual fica em um grupo de recursos separado para o cluster do AKS. Delegar permissões para a entidade de serviço AKS para acessar e gerenciar esses recursos. A entidade de serviço usada pelo cluster do AKS deve ter pelo menos permissões de [Colaborador de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede na rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
+Quando você usa a rede do CNI do Azure, o recurso de rede virtual fica em um grupo de recursos separado para o cluster do AKS. Delegue permissões para a identidade do cluster AKS para acessar e gerenciar esses recursos. A identidade do cluster usada pelo cluster AKS deve ter pelo menos permissões de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para obter mais informações sobre a delegação de entidade de serviço AKS, consulte [Delegar acesso a outros recursos do Azure][sp-delegation]. Em vez de uma entidade de serviço, você também pode usar a identidade gerenciada atribuída ao sistema para permissões. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
+Por padrão, o AKS usa uma identidade gerenciada para sua identidade de cluster, mas você tem a opção de usar uma entidade de serviço em vez disso. Para obter mais informações sobre a delegação de entidade de serviço AKS, consulte [Delegar acesso a outros recursos do Azure][sp-delegation]. Para obter mais informações sobre identidades gerenciadas, consulte [usar identidades gerenciadas](use-managed-identity.md).
 
 Como cada nó e pod recebe seu próprio endereço IP, planeje os intervalos de endereços para as sub-redes do AKS. A sub-rede deve ser grande o suficiente para fornecer endereços IP para cada nó, pods e recursos de rede que você implanta. Cada cluster do AKS deve ser colocado em sua própria sub-rede. Para permitir a conectividade para redes emparelhadas ou locais no Azure, não use os intervalos de endereços IP que se sobrepõem com os recursos de rede existente. Há limites padrão ao número de pods que cada nó executa com a rede kubenet e a do CNI do Azure. Para lidar com eventos de expansão ou atualizações de cluster, você também precisa de endereços IP extras disponíveis para uso na sub-rede atribuída. Esse espaço de endereço extra é especialmente importante se você usar contêineres do Windows Server, pois esses pools de nós exigem uma atualização para aplicar os patches de segurança mais recentes. Para obter mais informações sobre nós do Windows Server, consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
 

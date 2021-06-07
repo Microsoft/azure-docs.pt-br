@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920543"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
@@ -34,7 +34,7 @@ Para obter uma matriz de valores de cadeia de caracteres delimitada por um valor
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-## <a name="array"></a>matriz
+## <a name="array"></a>array
 
 `array(convertToArray)`
 
@@ -46,7 +46,7 @@ Converte o valor em uma matriz.
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sim |int, string, array ou object |O valor a ser convertido em uma matriz. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz .
 
@@ -136,7 +136,7 @@ Combina várias matrizes e retorna a matriz concatenada, ou combina vários valo
 
 Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros. No entanto, você não pode fornecer matrizes e cadeias de caracteres para parâmetros. As matrizes são concatenadas apenas com outras matrizes.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma cadeia de caracteres ou matriz de valores concatenados.
 
@@ -244,7 +244,7 @@ A saída do exemplo anterior com os valores padrão é:
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>contém
 
 `contains(container, itemToFind)`
 
@@ -257,7 +257,7 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 **True** se o item for encontrado; caso contrário, **False**.
 
@@ -368,7 +368,7 @@ Cria uma matriz de parâmetros. A `createArray` função não é suportada pelo 
 |:--- |:--- |:--- |:--- |
 | args |Não |String, Inteiro, Matriz ou Objeto |Os valores na matriz. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz . Quando nenhum parâmetro é fornecido, ele retorna uma matriz vazia.
 
@@ -452,7 +452,7 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o valor é vazio; caso contrário, **False**.
 
@@ -533,7 +533,7 @@ Retorna o primeiro elemento da matriz ou o primeiro caractere da cadeia de carac
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matriz ou o primeiro caractere de uma cadeia de caracteres.
 
@@ -604,7 +604,7 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
 | argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto com os elementos comuns.
 
@@ -710,7 +710,7 @@ Retorna o último elemento da matriz ou o último caractere da cadeia de caracte
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz ou o último caractere de uma cadeia de caracteres.
 
@@ -779,7 +779,7 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro.
 
@@ -903,7 +903,7 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o valor máximo.
 
@@ -961,7 +961,7 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 
 `min(arg1)`
 
@@ -973,7 +973,7 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o valor mínimo.
 
@@ -1044,7 +1044,7 @@ Cria uma matriz de inteiros a partir de um inteiro inicial e contendo um número
 | startIndex |Sim |INT |O primeiro inteiro na matriz. A soma de startIndex e Count não deve ser maior que 2147483647. |
 | count |Sim |INT |O número de inteiros na matriz. Deve ser um inteiro não negativo de até 10000. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz de inteiros.
 
@@ -1108,7 +1108,7 @@ Retorna uma matriz com todos os elementos após o número especificado na matriz
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
 | numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou cadeia de caracteres.
 
@@ -1196,7 +1196,7 @@ Retorna uma matriz com o número especificado de elementos desde o início da ma
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
 | numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou cadeia de caracteres.
 
@@ -1285,7 +1285,7 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
 | argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto.
 

@@ -1,7 +1,7 @@
 ---
 title: Tamanhos de VM do Azure – armazenamento | Microsoft Docs
 description: Lista os diferentes tamanhos otimizados para armazenamento disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho nessa série.
-ms.subservice: sizes
+ms.subservice: vm-sizes-storage
 documentationcenter: ''
 author: sasha-melamed
 ms.service: virtual-machines
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 5af7b3373993dce1939ecd7534140e58db688579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d97fe6cda1134d45468e257965fd5e28fe170e6f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835571"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561017"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais otimizados para armazenamento
 

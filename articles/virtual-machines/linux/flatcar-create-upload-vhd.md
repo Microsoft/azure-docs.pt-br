@@ -3,17 +3,18 @@ title: Criar e carregar um VHD do Linux de contêiner flatcar para uso no Azure
 description: Aprenda a criar e carregar um VHD que contém um sistema operacional Linux de contêiner flatcar.
 author: marga-kinvolk
 ms.author: danis
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 555e53899ed78a5200009d04659e974f8157057e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d8be9493b7a312270301e3520f301f797fe2167
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87268232"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102565284"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Usando uma imagem flatcar predefinida para o Azure
 
@@ -21,7 +22,7 @@ Você pode baixar imagens de disco rígido virtual do Azure predefinidas do cont
 
 - [estável](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [Beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [Alfa](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [perímetro](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 Esta imagem já está totalmente configurada e otimizada para ser executada no Azure. Você só precisa descompactá-lo.

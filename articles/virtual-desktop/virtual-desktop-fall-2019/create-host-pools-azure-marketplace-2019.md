@@ -3,15 +3,15 @@ title: Pool de host da Área de Trabalho Virtual do Windows (clássica) no Azure
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows (clássica) usando o Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: fa271ba87f68d46452633d2b426c7fd805f8566b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008586"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445152"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um pool de host na Área de Trabalho Virtual do Windows (clássica)
 
@@ -80,10 +80,10 @@ Para a guia **Configurar máquinas virtuais**:
 1. Aceite os padrões ou personalize o número e tamanho das máquinas virtuais.
 
     >[!NOTE]
-    >Se o tamanho específico da máquina virtual que você procura não aparece no seletor de tamanho, é porque ainda não o integramos à ferramenta Azure Marketplace. Para solicitar um tamanho, crie uma solicitação ou atualize uma solicitação existente no [fórum UserVoice da Área de Trabalho Virtual do Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se o tamanho específico da máquina virtual que você procura não aparece no seletor de tamanho, é porque ainda não o integramos à ferramenta Azure Marketplace.
 
-1. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o nome *prefixo*, as máquinas virtuais serão chamadas de **prefixo-0,** **prefixo-1** e assim por diante.
-1. Selecione **Avançar: Configurações da máquina virtual**.
+2. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o nome *prefixo*, as máquinas virtuais serão chamadas de **prefixo-0,** **prefixo-1** e assim por diante.
+3. Selecione **Avançar: Configurações da máquina virtual**.
 
 ### <a name="virtual-machine-settings"></a>Configurações da máquina virtual
 

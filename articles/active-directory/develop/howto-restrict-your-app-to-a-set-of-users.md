@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 71cfe08da42b8eec9ddbd0e4246ba1b72f895414
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104138"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199593"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -87,6 +87,6 @@ Após configurar seu aplicativo para habilitar a atribuição de usuários, pros
 
 - [Como: adicionar funções de aplicativo em seu aplicativo](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo do Azure Active Directory](./reference-app-manifest.md)

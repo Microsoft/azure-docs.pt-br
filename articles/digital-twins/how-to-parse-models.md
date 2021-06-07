@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 44cee2b47ae8f96e2852dfdb5aefe73a7af67ed6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 155566a125485fda326f9f5e02d4aead0ffe30e3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731327"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100560746"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analisar e validar modelos com a biblioteca do analisador DTDL
 
@@ -87,4 +87,4 @@ O código a seguir mostra um exemplo de como usar a biblioteca do analisador par
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando terminar de escrever seus modelos, consulte como carregá-los (e outras operações de gerenciamento) com as APIs DigitalTwinsModels:
-* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
+* [*Como: gerenciar modelos de DTDL*](how-to-manage-model.md)

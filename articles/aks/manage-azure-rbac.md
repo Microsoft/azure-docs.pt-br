@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: aa1693ba2b17c344475b96db42fa55514cf6b4db
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ce8bc71139b52d690893734435e6bfee090062d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380569"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102184365"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
@@ -159,12 +159,12 @@ Copie o JSON abaixo em um arquivo chamado `deploy-view.json` .
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"  
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
     "assignableScopes": [
         "/subscriptions/<YOUR SUBSCRIPTION ID>"
-    ]   
+    ]
 }
 ```
 
@@ -245,7 +245,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 
@@ -284,5 +284,5 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-provider-register]: /cli/azure/provider#az-provider-register

@@ -7,13 +7,12 @@ ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: derekol
-Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service.
-ms.openlocfilehash: abbe69ebbaed56ed416f85fafa7b77a1740fabe7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6bd00b314c94e1edf094599bdb43c70376a18550
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022489"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065371"
 ---
 # <a name="tutorial-measure-peering-service-connection-telemetry"></a>Tutorial: Medir telemetria da conexão do Serviço de Emparelhamento
 

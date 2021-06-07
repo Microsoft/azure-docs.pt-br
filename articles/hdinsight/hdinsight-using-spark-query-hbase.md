@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
 ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931225"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usar o Apache Spark para ler e gravar dados do Apache HBase
@@ -48,13 +48,13 @@ Nesta etapa, você cria e preenche uma tabela no Apache HBase que você pode con
     hbase shell
     ```
 
-3. Use o `create` comando para criar uma tabela do HBase com famílias de duas colunas. Digite o seguinte comando:
+3. Use o `create` comando para criar uma tabela do HBase com famílias de duas colunas. Insira o seguinte comando:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Use o `put` comando para inserir valores em uma coluna especificada em uma linha especificada em uma tabela específica. Digite o seguinte comando:
+4. Use o `put` comando para inserir valores em uma coluna especificada em uma linha especificada em uma tabela específica. Insira o seguinte comando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -67,7 +67,7 @@ Nesta etapa, você cria e preenche uma tabela no Apache HBase que você pode con
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. Use o `exit` comando para interromper o shell interativo do HBase. Digite o seguinte comando:
+5. Use o `exit` comando para interromper o shell interativo do HBase. Insira o seguinte comando:
 
     ```hbase
     exit
@@ -93,7 +93,7 @@ __Observação__: antes de continuar, verifique se você adicionou a conta de ar
     |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
     |Tipo(s) de nó|Região|
     |Parâmetros|`-s SECONDARYS_STORAGE_URL`|
-    |Persistente|yes|
+    |Persistente|sim|
 
     * `SECONDARYS_STORAGE_URL` é a URL do armazenamento padrão do lado do Spark. Exemplo de parâmetro: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
@@ -105,7 +105,7 @@ __Observação__: antes de continuar, verifique se você adicionou a conta de ar
     |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Tipo(s) de nó|Cabeçalho, trabalho, Zookeeper|
     |Parâmetros|`-s "SPARK-CRON-SCHEDULE"` (opcional) `-h "HBASE-CRON-SCHEDULE"` adicional|
-    |Persistente|yes|
+    |Persistente|sim|
 
 
     * Você pode especificar a frequência com que deseja que esse cluster verifique automaticamente se atualizar. Padrão:-s "*/1 * * * *"-h 0 (neste exemplo, o Spark cron é executado a cada minuto, enquanto o HBase cron não é executado)

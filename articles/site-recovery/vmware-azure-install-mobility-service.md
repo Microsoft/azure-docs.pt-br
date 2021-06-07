@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90524990"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar o computador de origem para a instalação por push do agente de mobilidade
@@ -53,7 +53,7 @@ Em cada máquina Linux que você deseja proteger, faça o seguinte:
 4. Habilitar a autenticação de senha e subsistema SFTP no arquivo sshd_config. Para fazer isso, entre como **raiz**.
 5. No arquivo **/etc/ssh/sshd_config** , localize a linha que começa com **PasswordAuthentication**.
 6. Remova a marca de comentário da linha e altere o valor para **yes**.
-7. Localize a linha que começa com **subsistema**e remova a marca de comentário da linha.
+7. Localize a linha que começa com **subsistema** e remova a marca de comentário da linha.
 
       ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 

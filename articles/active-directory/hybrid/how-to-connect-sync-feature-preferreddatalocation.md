@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972752"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronização de Azure Active Directory Connect: configurar o local de dados preferencial para recursos de Microsoft 365
@@ -32,7 +32,7 @@ Por padrão, Microsoft 365 recursos para os usuários estão localizados na mesm
 Com a configuração do atributo **preferredDataLocation**, a área geográfica do usuário poderá ser definida. Você pode ter os recursos de Microsoft 365 do usuário, como a caixa de correio e o OneDrive, na mesma área geográfica que o usuário, e ainda ter um locatário para toda a organização.
 
 > [!IMPORTANT]
-> Várias regiões geográficas estão disponíveis atualmente para clientes com um Enterprise Agreement ativo e um mínimo de 250 assinaturas de serviços de Microsoft 365. Converse com seu representante Microsoft para obter detalhes.
+> Várias regiões geográficas estão disponíveis atualmente para clientes com um Contrato Enterprise ativo e um mínimo de 250 assinaturas de serviços de Microsoft 365. Converse com seu representante Microsoft para obter detalhes.
 >
 >
 
@@ -143,7 +143,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | Nome | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
-    | Description | *Forneça uma descrição personalizada* |  |
+    | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema Conectado | *Selecione o Active Directory Connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
     | Tipo de Objeto de Metaverso | **Person** |  |

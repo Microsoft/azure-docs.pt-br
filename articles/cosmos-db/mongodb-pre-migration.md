@@ -1,21 +1,31 @@
 ---
 title: Etapas de pré-migração para a migração de dados para a API do Azure Cosmos DB para o MongoDB
 description: Este documento fornece uma visão geral dos pré-requisitos para uma migração de dados do MongoDB para o Azure Cosmos DB.
-author: christopheranderson
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.author: chrande
-ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 03/02/2021
+ms.author: anfeldma
+ms.openlocfilehash: cdc5dc9cee3520d9a3f22ff710dfa193e6ef4fed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349411"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102553282"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para a migração de dados do MongoDB para a API do Azure Cosmos DB para o MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Este guia de pré-migração do MongoDB é o primeiro de uma série sobre a migração do MongoDB para Azure Cosmos DB a API do Mongo em escala. Os clientes que licenciam e implantam o MongoDB em infraestrutura autogerenciada talvez queiram reduzir e gerenciar o custo de seu espaço de dados migrando para um serviço de nuvem gerenciado como Azure Cosmos DB com preço pago conforme o uso e escalabilidade elástica. O objetivo desta série é orientar o cliente pelo processo de migração:
+>
+> 1. [Pré-migração](mongodb-pre-migration.md) – inventariar o espaço de dados do MongoDB existente, a migração do plano e escolher as ferramentas de migração apropriadas.
+> 2. Execução – migre do MongoDB para Azure Cosmos DB usando os [tutoriais]()fornecidos.
+> 3. [Pós-migração](mongodb-post-migration.md) – atualize e otimize os aplicativos existentes para serem executados em seu novo Azure Cosmos DB de dados.
+>
+
+Um plano de pré-migração sólido pode ter um impacto de alto tamanho sobre a linha do tempo e o sucesso da migração da sua equipe. Uma boa analogia para a pré-migração é iniciar um novo projeto-você pode começar definindo os requisitos e, em seguida, consumindo as tarefas envolvidas e também priorizar as maiores tarefas a serem solucionadas primeiro. Isso ajuda a tornar o cronograma do projeto previsível, mas é claro que requisitos inesperados podem surgir e complicar o cronograma do projeto. Voltando à migração-a criação de um plano de execução abrangente na fase de pré-migração minimiza a chance de você descobrir tarefas de migração inesperadas no final do processo, economizando tempo durante a migração e ajudando a garantir que as metas sejam atendidas.
 
 Antes de migrar seus dados do MongoDB (local ou na nuvem) para a API do Azure Cosmos DB para o MongoDB, você deve:
 
@@ -71,7 +81,7 @@ Esse comando produzirá um documento JSON semelhante ao seguinte:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Você também pode usar [as configurações de diagnóstico](cosmosdb-monitor-resource-logs.md) para entender a frequência e os padrões das consultas executadas em relação ao Azure Cosmos DB. Os resultados dos logs de diagnóstico podem ser enviados para uma conta de armazenamento, uma instância do EventHub ou ao [Log Analytics do Azure](../azure-monitor/log-query/log-analytics-tutorial.md).  
+Você também pode usar [as configurações de diagnóstico](cosmosdb-monitor-resource-logs.md) para entender a frequência e os padrões das consultas executadas em relação ao Azure Cosmos DB. Os resultados dos logs de diagnóstico podem ser enviados para uma conta de armazenamento, uma instância do EventHub ou ao [Log Analytics do Azure](../azure-monitor/logs/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Escolha sua chave de partição
 O particionamento, também conhecido como fragmentação, é um ponto-chave de consideração antes da migração de dados. O Azure Cosmos DB usa o particionamento totalmente gerenciado para aumentar a capacidade em um banco de dados para atender aos requisitos de armazenamento e de taxa de transferência. Esse recurso não precisa da hospedagem nem da configuração de servidores de roteamento.   
@@ -80,7 +90,7 @@ De maneira parecida, o recurso de particionamento adiciona a capacidade automati
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexar os dados
 
-A API do Azure Cosmos DB para o servidor MongoDB versão 3,6 indexa automaticamente o `_id` campo somente. Este campo não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Para indexar campos adicionais, você aplica os comandos de gerenciamento de índice do MongoDB. Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
+A API do Azure Cosmos DB para o servidor MongoDB versões 3,6 e superiores indexa automaticamente o `_id` campo. Este campo não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Para indexar campos adicionais, aplique os [comandos de gerenciamento de índice do MongoDB](mongodb-indexing.md). Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
 
 Os recursos de indexação fornecidos pelo Azure Cosmos DB incluem a adição de índices compostos, índices exclusivos e índices TTL (vida útil). A interface de gerenciamento de índice é mapeada para o comando `createIndex()`. Saiba mais na [indexação no artigo API do Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 

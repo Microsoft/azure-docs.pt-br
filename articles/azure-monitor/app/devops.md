@@ -3,12 +3,12 @@ title: Monitoramento de desempenho de aplicativo Web-insights de Aplicativo Azur
 description: Como o Application Insights se encaixa no ciclo do devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc897cc0259894964e0b6164219b1e5459e824b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579570"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detalhados para aplicativos Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que eu preciso do Application Insights?
@@ -110,7 +110,7 @@ O mapa de aplicativo detecta automaticamente a topologia do aplicativo, colocand
 ![Mapa de aplicativo](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Análise do Application Insights
-Com a [Análise](../log-query/log-query-overview.md), você pode escrever consultas arbitrárias em uma poderosa linguagem semelhante a SQL.  O diagnóstico em toda a pilha do aplicativo fica fácil, conforme várias perspectivas são conectadas e você pode fazer as perguntas certas para correlacionar o desempenho do serviço às métricas de negócios e à experiência do cliente. 
+Com a [Análise](../logs/log-query-overview.md), você pode escrever consultas arbitrárias em uma poderosa linguagem semelhante a SQL.  O diagnóstico em toda a pilha do aplicativo fica fácil, conforme várias perspectivas são conectadas e você pode fazer as perguntas certas para correlacionar o desempenho do serviço às métricas de negócios e à experiência do cliente. 
 
 Você pode consultar todos os dados brutos de métrica e instância de telemetria armazenados no portal. A linguagem inclui as operações de filtragem, adição, agregação e outras. Você pode calcular campos e realizar a análise estatística. Há visualizações de tabela e gráficas.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103213"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
@@ -38,7 +38,7 @@ Conectar uma rede virtual a outra rede virtual (VNet a VNet) no modelo de implan
 
 As VNets que você conecta podem estar em regiões e assinaturas diferentes. Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagrama mostrando a arquitetura de VNet para VNet clássica":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagrama mostrando conexões":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>Por que conectar redes virtuais?
 

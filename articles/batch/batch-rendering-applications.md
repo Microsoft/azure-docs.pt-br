@@ -1,26 +1,29 @@
 ---
 title: Aplicativos de renderização
 description: É possível usar qualquer aplicativo de renderização com o Lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos pré-instalados comuns.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c98e2e0a81051dad47c201de9eda9f89cc311cf2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362226"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496636"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicativos pré-instalados no processamento em lote de imagens de VM
 
 É possível usar qualquer aplicativo de renderização com o Lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos pré-instalados comuns.
 
-Onde aplicável, o licenciamento de pagamento por uso está disponível para os aplicativos pré-instalados de renderização. Quando um pool do Lote é criado, os aplicativos necessários podem ser especificados e o custo da VM e dos aplicativos será cobrado por minuto. Os preços dos aplicativos estão listados na [Página de preços do Lote do Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+Quando aplicável, o licenciamento de pagamento por uso está disponível para os aplicativos de renderização pré-instalados. Quando um pool do Lote é criado, os aplicativos necessários podem ser especificados e o custo da VM e dos aplicativos será cobrado por minuto. Os preços dos aplicativos estão listados na [Página de preços do Lote do Azure](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Alguns aplicativos dão suporte apenas para Windows, mas a maioria tem suporte no Windows e Linux.
 
+> [!IMPORTANT]
+> As imagens de renderização da VM e o licenciamento de pagamento por uso foram [preteridos e serão desativados em 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar o lote para renderização, [uma imagem de VM personalizada e o licenciamento de aplicativo padrão devem ser usados.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicativos na imagem de renderização mais recente do CentOS 7
 
-A lista a seguir aplica-se à imagem de renderização CentOS, versão 1.1.7.
+A lista a seguir aplica-se à imagem de renderização CentOS, versão 1.2.0.
 
 * Autodesk Maya atualização de e/s 2020 4,6
 * Autodesk Arnold para Maya 2020 (Arnold versão 6.2.0.0) MtoA-4.2.0-2020

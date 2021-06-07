@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 80458d99ed6ad19c8a837f0989798d4dcc156b61
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219523"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Estabelecer conexões de rede e fornecer alimentação para o nó do Azure FXT Edge Filer
@@ -166,4 +166,4 @@ O botão de energia pode ser usado para desligar o sistema durante o teste e ant
 
 Depois de concluir o cabeamento do hardware, ligue cada um dos nós e inicialize-os definindo suas senhas raiz.
 > [!div class="nextstepaction"]
-> [Definir senhas iniciais](fxt-node-password.md)
+> [Definir senhas inicias](fxt-node-password.md)

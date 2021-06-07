@@ -7,10 +7,10 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: bd6ed2e5c848b39ad946209d5ea92fcf6ce3b438
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625357"
 ---
 # <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>Adicionando a JVM ARG-Azure Monitor Application Insights para Java

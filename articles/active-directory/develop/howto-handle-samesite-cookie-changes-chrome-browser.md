@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c4f054259aa7c3f2a9fdfaeeadd64f26dd9bea
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116964"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "94444904"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Manipular alterações de cookie SameSite no navegador Chrome
 
@@ -81,11 +81,8 @@ para obter detalhes sobre como lidar com cookies SameSite em ASP.NET e ASP.NET C
 
 Saiba mais sobre o SameSite e o cenário do aplicativo Web:
 
-> [!div class="nextstepaction"]
-> [Perguntas frequentes sobre o Google Chrome no SameSite](https://www.chromium.org/updates/same-site/faq)
+- [Perguntas frequentes sobre o Google Chrome no SameSite](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Página Chromium SameSite](https://www.chromium.org/updates/same-site)
+- [Página Chromium SameSite](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)
+- [Cenário: Aplicativo Web que conecta usuários](scenario-web-app-sign-user-overview.md)

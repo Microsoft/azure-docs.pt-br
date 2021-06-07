@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89440279"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
@@ -35,7 +35,7 @@ A figura a seguir ilustra um fluxo de trabalho típico de planejamento de Sprint
 
 ##  <a name="work-item-types"></a><a name='Terminology-1'></a>Tipos de item de trabalho
 
-Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabalho* usados com frequência: *recursos*, *histórias de usuários*, *tarefas*e *bugs*. A pendência de todos os itens de trabalho está no nível do projeto, não no nível do repositório git. 
+Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabalho* usados com frequência: *recursos*, *histórias de usuários*, *tarefas* e *bugs*. A pendência de todos os itens de trabalho está no nível do projeto, não no nível do repositório git. 
 
 Aqui estão as definições para os tipos de item de trabalho:
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre o planejamento do Sprint em Azure Boards, co
 
 Depois que o projeto e o repositório de código do projeto forem criados, você poderá adicionar um recurso à lista de pendências para representar o trabalho do seu projeto.
 
-1. Na página do seu projeto, selecione **quadros**  >  de**pendências** na navegação à esquerda. 
+1. Na página do seu projeto, selecione **quadros**  >  de **pendências** na navegação à esquerda. 
    
 1. Na guia lista de **pendências** , se o tipo de item de trabalho na barra superior for **histórias**, menu suspenso e selecione **recursos**. Em seguida, selecione **novo item de trabalho.**
    
@@ -132,17 +132,17 @@ Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil
    
 1. Nas **configurações da organização** navegação à esquerda, em **placas**, selecione **processar**. 
    
-1. No painel **todos os processos** , selecione **...** ao lado de **Agile**e, em seguida, selecione **criar processo herdado**.
+1. No painel **todos os processos** , selecione **...** ao lado de **Agile** e, em seguida, selecione **criar processo herdado**.
    
    ![Criar processo herdado do Agile](./media/agile-development/10-settings.png) 
    
-1. Na caixa de diálogo **criar processo herdado do Agile** , digite o nome *AgileDataScienceProcess*e selecione **criar processo**.
+1. Na caixa de diálogo **criar processo herdado do Agile** , digite o nome *AgileDataScienceProcess* e selecione **criar processo**.
    
    ![Criar processo AgileDataScienceProcess](./media/agile-development/11-agileds.png)
    
 1. Em **todos os processos**, selecione o novo **AgileDataScienceProcess**. 
    
-1. Na guia **tipos de item de trabalho** , desabilite **Epic**, **recurso**, **história de usuário**e **tarefa** selecionando o **...** ao lado de cada item e, em seguida, selecionando **desabilitar**. 
+1. Na guia **tipos de item de trabalho** , desabilite **Epic**, **recurso**, **história de usuário** e **tarefa** selecionando o **...** ao lado de cada item e, em seguida, selecionando **desabilitar**. 
    
    ![Desabilitar tipos de item de trabalho](./media/agile-development/12-disable.png)
    
@@ -150,22 +150,22 @@ Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil
    
 1. Na caixa de diálogo **Editar nível de registro posterior** :
    1. Em **nome**, substitua **Epic** por *projetos TDSP*. 
-   1. Em **tipos de item de trabalho neste nível de registro posterior**, selecione **novo tipo de item de trabalho**, insira *projeto TDSP*e selecione **Adicionar**. 
+   1. Em **tipos de item de trabalho neste nível de registro posterior**, selecione **novo tipo de item de trabalho**, insira *projeto TDSP* e selecione **Adicionar**. 
    1. Em **tipo de item de trabalho padrão**, menu suspenso e selecione **projeto TDSP**. 
    1. Selecione **Salvar**.
    
    ![Definir nível de pendência de portfólio](./media/agile-development/13-rename.png)  
    
-1. Siga as mesmas etapas para renomear **recursos** para *estágios TDSP*e adicione os seguintes novos tipos de item de trabalho:
+1. Siga as mesmas etapas para renomear **recursos** para *estágios TDSP* e adicione os seguintes novos tipos de item de trabalho:
    
    - *Noções básicas sobre negócios*
    - *Aquisição de dados*
    - *Modelagem*
    - *Implantação*
    
-1. Em **pendências de requisito**, renomeie as **histórias** para *subestágios TDSP*, adicione o novo *subestágio TDSP*do tipo de item de trabalho e defina o tipo de item de trabalho padrão como **subestágio TDSP**.
+1. Em **pendências de requisito**, renomeie as **histórias** para *subestágios TDSP*, adicione o novo *subestágio TDSP* do tipo de item de trabalho e defina o tipo de item de trabalho padrão como **subestágio TDSP**.
    
-1. Em **pendências de iteração**, adicione um novo tipo de item de trabalho *TDSP tarefa*e defina-o como o tipo de item de trabalho padrão. 
+1. Em **pendências de iteração**, adicione um novo tipo de item de trabalho *TDSP tarefa* e defina-o como o tipo de item de trabalho padrão. 
    
 Depois de concluir as etapas, os níveis de pendências devem ter esta aparência:
    
@@ -179,11 +179,11 @@ Você pode usar o modelo de processo de ciência de dados para criar projetos do
    
 1. Na caixa de diálogo **criar novo projeto** , dê um nome ao projeto e selecione **avançado**. 
    
-1. Em **processo de item de trabalho**, menu suspenso e selecione **AgileDataScienceProcess**e, em seguida, selecione **criar**.
+1. Em **processo de item de trabalho**, menu suspenso e selecione **AgileDataScienceProcess** e, em seguida, selecione **criar**.
    
    ![Criar um projeto TDSP](./media/agile-development/15-newproject.png)
    
-1. No projeto recém-criado, selecione **quadros**  >  de**pendências** na navegação à esquerda.
+1. No projeto recém-criado, selecione **quadros**  >  de **pendências** na navegação à esquerda.
    
 1. Para tornar os projetos do TDSP visíveis, selecione o ícone **definir configurações da equipe** . Na tela **configurações** , marque a caixa de seleção **projetos TDSP** e, em seguida, selecione **salvar e fechar**.
    

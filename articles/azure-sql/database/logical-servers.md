@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 09e8ef85b6df48b6b442351135d4ae4ed55e9b45
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445384"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641072"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um SQL Server lógico no banco de dados SQL do Azure e o Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -147,10 +147,10 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com o Transact-SQ
 
 | Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria um banco de dados no Banco de Dados SQL do Azure. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Cria um novo banco de dados data warehouse no Azure Synapse. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica o banco de dados ou o pool elástico. |
-|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica um banco de dados data warehouse no Azure Synapse.|
+|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) | Cria um banco de dados no Banco de Dados SQL do Azure. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Cria um novo banco de dados data warehouse no Azure Synapse. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+| [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica o banco de dados ou o pool elástico. |
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=sqlpool)|Modifica um banco de dados data warehouse no Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Exclui um banco de dados.|
 |[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (camada de serviço), o objetivo de serviço (tipo de preço) e o nome do pool elástico, se houver, para um banco de dados. Se estiver conectado ao banco de dados mestre de um servidor, o retornará informações sobre todos os bancos. Para o Azure Synapse, você deve estar conectado ao banco de dados mestre.|
 |[sys.dm_db_resource_stats (Banco de Dados SQL do Azure)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retorna CPU, e/s e consumo de memória para um banco de dados no banco de dados SQL do Azure. Existe uma linha para cada 15 segundos, mesmo se não houver nenhuma atividade no banco de dados.|

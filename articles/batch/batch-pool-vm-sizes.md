@@ -2,25 +2,20 @@
 title: Escolher tamanhos e imagens de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis e as versões de so para nós de computação em pools do lote do Azure
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576694"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027373"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho e uma imagem da VM para nós de computação em um pool do lote do Azure
 
 Ao selecionar um tamanho de nó para um pool de Lote do Azure, você pode escolher dentre quase todos os tamanhos de VM disponíveis no Azure. O Azure oferece uma variedade de tamanhos para VMs do Linux e do Windows para diferentes cargas de trabalho.
 
 ## <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
-
-Há algumas exceções e limitações para escolher um tamanho de VM para seu pool do lote:
-
-- Não há suporte no Lote para algumas séries de VM ou tamanhos de VM.
-- Alguns tamanhos de VM são restritos e precisam ser especificamente habilitados antes de serem alocados.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools na configuração de Máquina Virtual
 
@@ -32,16 +27,14 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | Um | Todos os tamanhos, *exceto* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Todos os tamanhos |
 | B | Sem suporte |
-| DC | Sem suporte |
+| DCsv2 | Todos os tamanhos |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
-| Dav4 | Todos os tamanhos |
-| Dasv4 | Todos os tamanhos |
+| Dav4, Dasv4 | Todos os tamanhos |
 | Ddv4, Ddsv4 |  Todos os tamanhos |
 | Dv4, Dsv4 | Sem suporte |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 |
-| Eav4 | Todos os tamanhos |
-| Easv4 | Todos os tamanhos |
+| Eav4, Easv4 | Todos os tamanhos |
 | Edv4, Edsv4 |  Todos os tamanhos |
 | Ev4, Esv4 | Sem suporte |
 | F, Fs | Todos os tamanhos |
@@ -50,6 +43,7 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | H | Todos os tamanhos |
 | HB | Todos os tamanhos |
 | HBv2 | Todos os tamanhos |
+| HBv3 | Standard_HB120rs_v3 (outros tamanhos ainda não disponíveis) |
 | HC | Todos os tamanhos |
 | Ls | Todos os tamanhos |
 | Lsv2 | Todos os tamanhos |
@@ -58,7 +52,7 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | NC | Todos os tamanhos |
 | NCv2 | Todos os tamanhos |
 | NCv3 | Todos os tamanhos |
-| NCasT4_v3 | Nenhum - ainda não disponível |
+| NCasT4_v3 | Todos os tamanhos |
 | ND | Todos os tamanhos |
 | NDv2 | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
@@ -102,6 +96,8 @@ Use uma das APIs a seguir para retornar uma lista de imagens de VM do Windows e 
 - API REST do serviço de lote: [listar imagens com suporte](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - CLI do Azure: [AZ batch pool com suporte-imagens](/cli/azure/batch/pool/supported-images)
+
+É altamente recomendável evitar imagens com datas de fim da vida útil (EOL) de suporte do lote iminente. Essas datas podem ser descobertas por meio da [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), do [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)ou do [CLI do Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Consulte o [Guia de práticas recomendadas do lote](best-practices.md) para obter mais informações sobre a seleção de imagem de VM do pool do lote.
 
 ## <a name="next-steps"></a>Próximas etapas
 

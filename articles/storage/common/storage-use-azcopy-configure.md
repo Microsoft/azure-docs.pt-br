@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881037"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543441"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -49,7 +49,7 @@ Se você estiver executando o AzCopy no Windows e quiser dizer que ele _não usa
 
 Em outros sistemas operacionais, basta deixar a variável de HTTPS_PROXY desdefinida se você quiser usar nenhum proxy.
 
-## <a name="optimize-performance"></a>Otimizar desempenho
+## <a name="optimize-performance"></a>Otimizar o desempenho
 
 Você pode obter o desempenho do benchmark e, em seguida, usar comandos e variáveis de ambiente para encontrar uma compensação ideal entre o consumo de recursos e o desempenho.
 
@@ -103,14 +103,16 @@ Antes de definir essa variável, recomendamos que você execute um teste de par�
 
 ### <a name="optimize-memory-use"></a>Otimizar o uso de memória
 
-Defina a `AZCOPY_BUFFER_GB` variável de ambiente para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use ao baixar e carregar arquivos.
-Expresse esse valor em gigabytes (GB).
+Defina a `AZCOPY_BUFFER_GB` variável de ambiente para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use para o armazenamento em buffer ao baixar e carregar arquivos. Expresse esse valor em gigabytes (GB).
 
 | Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> O acompanhamento de trabalhos sempre incorre em sobrecarga adicional no uso de memória. A quantidade varia de acordo com o número de transferências em um trabalho. Buffers são o maior componente de uso de memória. Você pode ajudar a controlar a sobrecarga usando `AZCOPY_BUFFER_GB` o para atender aproximadamente às suas necessidades, mas nenhum sinalizador para limitar o uso geral da memória está disponível.
 
 ### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de arquivos
 
@@ -183,7 +185,7 @@ Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabal
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
 
-Por padrão, os arquivos de plano e de log estão localizados no `%USERPROFILE%\.azcopy` diretório no Windows ou no `$HOME$\.azcopy` diretório no Mac e no Linux. Você pode alterar esse local.
+Por padrão, os arquivos de plano e de log estão localizados no `%USERPROFILE%\.azcopy` diretório no Windows ou no `$HOME/.azcopy` diretório no Mac e no Linux. Você pode alterar esse local.
 
 ### <a name="change-the-location-of-plan-files"></a>Alterar o local dos arquivos de plano
 

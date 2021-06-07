@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 62bf154c1dbf1a0d3f12e2cef916b37059ce985b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 869f46207b940521ee0b66b5afa9c6e2718ab04f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594471"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um volume ou um pool de capacidade
 Você pode alterar o tamanho de um pool de capacidade ou de um volume, conforme necessário. 
@@ -39,6 +39,21 @@ Você pode alterar o tamanho de um volume conforme necessário. O consumo de cap
 1. Na folha Gerenciar Conta do NetApp, clique em **Volumes**. 
 2. Clique com o botão direito do mouse no nome do volume que você deseja redimensionar ou clique no ícone "..." no final da linha do volume para exibir o menu de contexto.
 3. Use as opções de menu de contexto para redimensionar ou excluir o volume.
+
+## <a name="resize-a-cross-region-replication-destination-volume"></a>Redimensionar um volume de destino de replicação entre regiões 
+
+Em uma relação de [replicação entre regiões](cross-region-replication-introduction.md) , um volume de destino é redimensionado automaticamente com base no tamanho do volume de origem. Assim, você não precisa redimensionar o volume de destino separadamente. Esse comportamento de redimensionamento automático é aplicável quando os volumes estão em uma relação de replicação ativa ou quando o emparelhamento de replicação é interrompido com a [operação de ressincronização](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+
+A tabela a seguir descreve o comportamento de redimensionamento do volume de destino com base no [estado do espelho](cross-region-replication-display-health-status.md):
+
+|  Estado do espelho  | Comportamento de redimensionamento de volume de destino |
+|-|-|
+| *Espelhado* | Quando o volume de destino foi inicializado e está pronto para receber atualizações de espelhamento, o redimensionamento do volume de origem redimensiona automaticamente os volumes de destino. |
+| *Ininterrupta* | Quando você redimensiona o volume de origem e o estado do espelho é *interrompido*, o volume de destino é redimensionado automaticamente com a [operação de ressincronização](cross-region-replication-manage-disaster-recovery.md#resync-replication).  |
+| *Não Inicializado* | Quando você redimensiona o volume de origem e o estado do espelho ainda não foi *inicializado*, o redimensionamento do volume de destino precisa ser feito manualmente. Como tal, é recomendável aguardar a conclusão da inicialização (ou seja, quando o estado do espelho se torna *espelhado*) para redimensionar o volume de origem. | 
+
+> [!IMPORTANT]
+> Verifique se você tem espaço suficiente nos pools de capacidade para os volumes de origem e de destino da replicação entre regiões. Quando você redimensiona o volume de origem, o volume de destino é redimensionado automaticamente. Mas se o pool de capacidade que hospeda o volume de destino não tiver espaço suficiente, o redimensionamento dos volumes de origem e de destino falhará.
 
 ## <a name="next-steps"></a>Próximas etapas
 

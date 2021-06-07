@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: 0e7275ee92431e791fec7bd2c9ec07dd623b0f9e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4cc89c1ad94ae738b25e4ea18d5fe687880969c1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696001"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101648196"
 ---
 # <a name="tutorial-configure-templafy-saml2-for-automatic-user-provisioning"></a>Tutorial: Configurar o Templafy SAML2 para o provisionamento automático de usuário
 
@@ -37,9 +37,9 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 * Uma conta de usuário no Templafy com permissões de Administrador.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
-1. Saiba mais sobre [como funciona o serviço de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem estará no [escopo de provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais dados serão [mapeados entre o Azure AD e o Templafy SAML2](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
+2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine quais dados serão [mapeados entre o Azure AD e o Templafy SAML2](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="assigning-users-to-templafy-saml2"></a>Como atribuir usuários ao Templafy SAML2
 
@@ -186,9 +186,9 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 ## <a name="step-5-monitor-your-deployment"></a>Etapa 5. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-* Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-* Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
-* Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
+* Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+* Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

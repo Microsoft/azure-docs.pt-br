@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: d52430c87d99f8837c78fcff89d8b214e45350ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934947"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerenciar endereços IP públicos
@@ -84,7 +84,7 @@ Para obter detalhes adicionais sobre os atributos específicos de um endereço I
 |Operação|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
 |Visualizar | Na seção **visão geral** de um IP público |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um objeto de endereço IP público e exibir suas configurações| [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show) para mostrar as configurações|
-|List | Na categoria **endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP público e exibir suas configurações|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
+|Lista | Na categoria **endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP público e exibir suas configurações|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
 |Modificar | Para um IP dissociado, selecione **configuração** para modificar o tempo limite de ociosidade, rótulo de nome DNS ou alterar a atribuição de IP básico de estático para dinâmico  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para atualizar as configurações |[AZ Network Public-IP Update](/cli/azure/network/public-ip#az-network-public-ip-update) para atualizar |
 
    - **Excluir**: a exclusão de IPS públicos requer que o objeto IP público não seja associado a nenhuma configuração de IP ou NIC de máquina virtual. Consulte a tabela abaixo para obter mais detalhes.

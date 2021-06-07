@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 539d11205ffead52d7f40526f2c712e8cf8b5cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97d63598f6a9cca199779e56cc211b9622117301
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501433"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048826"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Exemplos de CLI do Azure para rede virtual
 
@@ -35,4 +35,4 @@ A tabela a seguir inclui links para bash scripts com comandos de CLI do Azure:
 | [Filtrar o tráfego de entrada e saída de rede da VM](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Cria uma rede virtual com sub-redes de front-end e back-end. O tráfego de rede de entrada para a sub-rede de front-end é limitado a HTTP, HTTPS e SSH. O tráfego de saída para a Internet da sub-rede de back-end não é permitido. |
 |[Configurar rede virtual de pilha dupla IPv4 + IPv6 com o Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Implanta a rede virtual de pilha dual (IPv4 + IPv6) com duas VMs e um Azure Load Balancer básico com endereços IP públicos do IPv4 e IPv6. |
 |[Configurar rede virtual de pilha dupla IPv4 + IPv6 com o Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Implanta a rede virtual de pilha dual (IPv4 + IPv6) com duas VMs e um Azure Standard Load Balancer com endereços IP públicos do IPv4 e IPv6. |
-|[Tutorial: Criar e testar um Gateway da NAT – CLI do Azure](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|Crie e valide um Gateway da NAT usando uma máquina virtual de origem e de destino. |
+|[Tutorial: Criar e testar um Gateway da NAT – CLI do Azure](./tutorial-create-nat-gateway-cli.md)|Crie e valide um Gateway da NAT usando uma máquina virtual de origem e de destino. |

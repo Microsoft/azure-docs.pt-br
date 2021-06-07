@@ -6,10 +6,10 @@ ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93126032"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure
@@ -31,7 +31,7 @@ Para seguir este guia de instruções, é necessário ter:
 
 No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
-No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL** e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)** .
+No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL** e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)**.
 
 Localize o certificado que você deseja usar e copie a impressão digital.
 
@@ -148,7 +148,7 @@ Os nomes de arquivo de certificado são as impressões digitais do certificado.
 > O serviço de aplicativo injeta os caminhos de certificado em contêineres do Windows como as variáveis de ambiente a seguir `WEBSITE_PRIVATE_CERTS_PATH` ,, `WEBSITE_INTERMEDIATE_CERTS_PATH` `WEBSITE_PUBLIC_CERTS_PATH` e `WEBSITE_ROOT_CERTS_PATH` . É melhor fazer referência ao caminho do certificado com as variáveis de ambiente em vez de codificar o caminho do certificado, caso os caminhos do certificado sejam alterados no futuro.
 >
 
-Além disso, os [contêineres do Windows Server Core](configure-custom-container.md#supported-parent-images) carregam os certificados no repositório de certificados automaticamente, em **LocalMachine\My** . Para carregar os certificados, siga o mesmo padrão que [carregar certificado em aplicativos do Windows](#load-certificate-in-windows-apps). Para contêineres baseados no Windows nano, use os caminhos de arquivo fornecidos acima para [carregar o certificado diretamente do arquivo](#load-certificate-from-file).
+Além disso, os [contêineres do Windows Server Core](configure-custom-container.md#supported-parent-images) carregam os certificados no repositório de certificados automaticamente, em **LocalMachine\My**. Para carregar os certificados, siga o mesmo padrão que [carregar certificado em aplicativos do Windows](#load-certificate-in-windows-apps). Para contêineres baseados no Windows nano, use os caminhos de arquivo fornecidos acima para [carregar o certificado diretamente do arquivo](#load-certificate-from-file).
 
 O código C# a seguir mostra como carregar um certificado público em um aplicativo Linux.
 

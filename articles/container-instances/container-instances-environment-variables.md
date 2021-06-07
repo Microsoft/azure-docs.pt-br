@@ -4,10 +4,10 @@ description: Saiba como definir variáveis de ambiente nos contêineres que voc�
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169758"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
@@ -149,7 +149,7 @@ Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure,
 
 ![Página do portal mostrando a variável de ambiente Habilitar botão e caixas de texto][portal-env-vars-01]
 
-Para exibir os logs do contêiner, em **configurações** , selecione **contêineres**e **logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
+Para exibir os logs do contêiner, em **configurações** , selecione **contêineres** e **logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
 
 ![Portal mostrando a saída do log de contêiner][portal-env-vars-02]
 

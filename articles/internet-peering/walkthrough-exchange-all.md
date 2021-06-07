@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: prmitiki
 ms.openlocfilehash: 97430d86cba1107ef67264a181925d2a4d7c12c3
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586815"
 ---
 # <a name="exchange-peering-walkthrough"></a>Passo a passo do emparelhamento do Exchange

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 414b7107d02f78676970ecda6ca9373ac3b8db4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7a8880512fa2f22208ad98aa4c53d3a5c568e840
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101163"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595661"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de Tabela do Azure Cosmos DB para Node.js: Notas sobre a versão e recursos
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "93101163"
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**Baixe o SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**Documentação da API**|[Documentação de referência da API do Node.js](https://azure.github.io/azure-storage-node/)|

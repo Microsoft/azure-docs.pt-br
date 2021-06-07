@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 03/02/2021
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 88ef081c75a64b5cb7517ba6994834b3a64a0e6f
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5302cb7bb3f4683d200f6f9ea106991bb934fc17
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340882"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101659895"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solucionar problemas de consulta ao usar a API de Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ Se você reduzir a carga de RU de uma consulta, normalmente diminuirá a latênc
 Este artigo fornece exemplos que você pode recriar usando o conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> Este artigo pressupõe que você esteja usando a versão 3,6 do Azure Cosmos DB "s API para MongoDB. Algumas consultas que executam insatisfatoriamente na versão 3,2 têm melhorias significativas na versão 3,6. Atualize para a versão 3,6 ao arquivar uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Este artigo pressupõe que você esteja usando a API do Azure Cosmos DB para contas do MongoDB com a versão 3,6 e superior. Algumas consultas que executam insatisfatoriamente na versão 3,2 têm melhorias significativas nas versões 3.6 +. Atualize para a versão 3,6 ao arquivar uma [solicitação de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="use-explain-command-to-get-metrics"></a>Use $explain comando para obter métricas
 
@@ -264,7 +264,7 @@ Você pode adicionar novos índices a qualquer momento, sem nenhum efeito na dis
 
 Na maioria dos casos, as operações de agregação na API do Azure Cosmos DB para o MongoDB usarão os índices parcialmente. Normalmente, o mecanismo de consulta aplicará primeiro os filtros de igualdade e de intervalo e usará índices. Depois de aplicar esses filtros, o mecanismo de consulta poderá avaliar filtros adicionais e recorrer ao carregamento de documentos restantes para computar a agregação, se necessário. 
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```
 db.coll.aggregate( [

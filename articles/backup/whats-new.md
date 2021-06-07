@@ -3,12 +3,12 @@ title: Novidades no Backup do Azure
 description: Saiba mais sobre os novos recursos no backup do Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762376"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612476"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades no Backup do Azure
 
@@ -18,6 +18,12 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
 
 ## <a name="updates-summary"></a>Resumo de atualizações
 
+- Março de 2021
+  - [O backup em disco do Azure já está disponível para o público geral](#azure-disk-backup-is-now-generally-available)
+  - [O centro de backup já está disponível para o público geral](#backup-center-is-now-generally-available)
+  - [Suporte de camada de arquivo para backup do Azure (em versão prévia)](#archive-tier-support-for-azure-backup-in-preview)
+- Fevereiro de 2021
+  - [Backup para BLOBs do Azure (em versão prévia)](#backup-for-azure-blobs-in-preview)
 - Janeiro de 2021
   - [Backup em disco do Azure (em versão prévia)](#azure-disk-backup-in-preview)
   - [Criptografia em repouso usando chaves gerenciadas pelo cliente (disponibilidade geral)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +40,32 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
   - [SAP HANA de backup em máquinas virtuais RHEL do Azure (em versão prévia)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [ZRS (armazenamento com redundância de zona) para dados de backup (em versão prévia)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Exclusão reversível para cargas de trabalho de SQL Server e SAP HANA em VMs do Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>O backup em disco do Azure já está disponível para o público geral
+
+O backup do Azure oferece gerenciamento de ciclo de vida de instantâneo para o Azure Managed Disks automatizando a criação periódica de instantâneos e retendo-os para durações configuradas usando a política de backup.
+
+Para obter mais informações, consulte [visão geral do backup de disco do Azure](disk-backup-overview.md).
+
+## <a name="backup-center-is-now-generally-available"></a>O centro de backup já está disponível para o público geral
+
+O centro de backup simplifica o gerenciamento de proteção de dados em escala, permitindo que você descubra, controle, monitore, opere e otimize o gerenciamento de backup de um único console central.
+
+Para obter mais informações, consulte [visão geral do centro de backup](backup-center-overview.md).
+
+## <a name="archive-tier-support-for-azure-backup-in-preview"></a>Suporte de camada de arquivo para backup do Azure (em versão prévia)
+
+O backup do Azure agora permite que você reduza o custo de backups de retenção de longo prazo com a disponibilidade da camada de arquivamento para máquinas virtuais do Azure e SQL Server em máquinas virtuais do Azure.
+
+Para obter mais informações, consulte [suporte à camada de arquivo morto (versão prévia)](archive-tier-support.md).
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Backup para BLOBs do Azure (em versão prévia)
+
+O backup operacional para BLOBs é uma solução de proteção de dados local gerenciada que permite proteger seus blobs de blocos de vários cenários de perda de dados, como corrupções, exclusões de BLOB e exclusão acidental da conta de armazenamento. Os dados são armazenados localmente na própria conta de armazenamento de origem e podem ser recuperados para um momento determinado, sempre que necessário. Portanto, ele fornece um meio simples, seguro e econômico para proteger seus BLOBs.
+
+O backup operacional para BLOBs integra-se ao centro de backup, entre outros recursos de gerenciamento de backup, para fornecer um único painel de vidro que pode ajudá-lo a controlar, monitorar, operar e analisar backups em escala.
+
+Para obter mais informações, consulte [visão geral do backup operacional para BLOBs do Azure (em versão prévia)](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup em disco do Azure (em versão prévia)
 

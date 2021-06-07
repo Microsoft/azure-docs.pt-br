@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 940d4c465acb5e8478d2b204ab5b9b18c79254f0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321321"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de recursos no TDSP (Processo de Ciência de Dados de Equipe)
@@ -23,8 +23,8 @@ Este artigo explica as finalidades da seleção de recursos e fornece exemplos d
 
 A engenharia e a seleção de recursos faz parte do Processo de Ciência de Dados de Equipe (TDSP) descrito no artigo [O que é o Processo de Ciência de Dados de Equipe?](overview.md). A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
 
-* **engenharia de recursos** : esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
-* **seleção de recursos** : este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
+* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+* **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção de recursos** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 

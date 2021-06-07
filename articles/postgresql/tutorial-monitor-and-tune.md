@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336972"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
@@ -27,7 +27,7 @@ Banco de Dados do Azure para PostgreSQL tem recursos que ajudam você a compreen
 Você precisa de um Banco de Dados do Azure para PostgreSQL versão 9.6 ou 10. Você pode seguir as etapas no [Tutorial de criação ](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
-> **Repositório de Consultas** , **Análise de Desempenho de Consultas** , e **Recomendação de Desempenho** estão em Visualização Pública.
+> **Repositório de Consultas**, **Análise de Desempenho de Consultas**, e **Recomendação de Desempenho** estão em Visualização Pública.
 
 ## <a name="enabling-data-collection"></a>Habilitar coleta de dados
 O [Repositório de Consultas](concepts-query-store.md) captura um histórico das consultas e estatísticas de espera em seu servidor e os armazena no banco de dados **azure_sys** em seu servidor. É um recurso opcional. Para habilitá-lo:
@@ -83,7 +83,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 4. A janela **Recomendações de Desempenho** Mostrará uma lista de recomendações, caso seja encontrada. 
 
-5. Uma recomendação mostrará informações sobre os relevantes **banco de dados** , **tabela** , **coluna** , e **tamanho de índice**.
+5. Uma recomendação mostrará informações sobre os relevantes **banco de dados**, **tabela**, **coluna**, e **tamanho de índice**.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Recomendações de Desempenho":::
 

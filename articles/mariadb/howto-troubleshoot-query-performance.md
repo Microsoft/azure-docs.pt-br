@@ -3,14 +3,14 @@ title: Solucionar problemas de desempenho de consultas – Banco de Dados do Azu
 description: Saiba como usar o EXPLAIN para solucionar problemas de desempenho de consulta no Banco de Dados do Azure para MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 8c996520a77a107017aecad30c221da9ec69137c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
-ms.translationtype: MT
+ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664708"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho da consulta no Banco de Dados do Azure para MariaDB
@@ -166,4 +166,4 @@ O EXPLAIN agora mostra que o MariaDB é capaz de usar o índice combinado para e
 O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que o MariaDB seja capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite a [Página de P e R da Microsoft](/answers/topics/azure-database-mariadb.html) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Para encontrar respostas de pares para suas perguntas mais preocupantes ou postar uma nova pergunta/resposta, visite a[página de perguntas frequentes da Microsoft](/answers/topics/azure-database-mariadb.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

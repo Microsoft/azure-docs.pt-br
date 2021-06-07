@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325172"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Requisitos de largura de banda de protocolo RDP (RDP)
@@ -75,7 +75,7 @@ A tabela abaixo guia a estimativa dos dados usados pelos diferentes cenários gr
 
 | Cenário | Modo padrão | Modo H. 264/AVC 444 | Thumbnail | Descrição do cenário |
 |:---|---:|---:|---|---|
-| Idle | 0,3 kbps | 0,3 kbps |:::image type="content" source="media/idle.png" alt-text="Captura de tela da conexão ociosa":::| O usuário está em pausa no trabalho e não há atualizações de tela ativas |
+| Ocioso | 0,3 kbps | 0,3 kbps |:::image type="content" source="media/idle.png" alt-text="Captura de tela da conexão ociosa":::| O usuário está em pausa no trabalho e não há atualizações de tela ativas |
 | Microsoft Word | 100-150 kbps | 200-300 kbps |:::image type="content" source="media/word.gif" alt-text="Animação do Microsoft Word":::| O usuário está trabalhando ativamente com o Microsoft Word, digitando, colando elementos gráficos e alternando entre documentos |
 | Microsoft Excel | 150-200 Kbps | 400-500 kbps |:::image type="content" source="media/excel.gif" alt-text="Animação do Microsoft Excel":::| O usuário está trabalhando ativamente com o Microsoft Excel, várias células com fórmulas e gráficos são atualizados simultaneamente |
 | Microsoft PowerPoint | 4 a 4,5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animação do Microsoft PowerPoint":::| O usuário está trabalhando ativamente com o Microsoft PowerPoint, digitando e colando. O usuário também está modificando gráficos avançados e usando efeitos de transição de slides |

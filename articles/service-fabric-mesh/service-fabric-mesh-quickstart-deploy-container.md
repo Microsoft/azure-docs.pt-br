@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: c81b53b68c689f4b890d2ff628f38b734aea63dc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c89cc1972a554cac85ce2a258873f6c810e45167
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499876"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102217713"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 A [Malha do Service Fabric](service-fabric-mesh-overview.md) torna mais fácil criar e gerenciar aplicativos de microsserviços no Azure, sem a necessidade de provisionar máquinas virtuais. Neste início rápido, você criará um aplicativo Olá, Mundo no Azure e o exporá à internet. Essa operação é concluída com um único comando. Em apenas alguns minutos, você verá este modo de exibição em seu navegador:
 
@@ -116,4 +121,4 @@ Para saber mais sobre como criar e implantar aplicativos da Malha do Service Fab
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli

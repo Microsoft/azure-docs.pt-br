@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240759"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauração no banco de dados do Azure para servidor flexível MySQL (versão prévia)
@@ -68,8 +68,8 @@ A Restauração pontual é útil em vários cenários. Alguns dos casos de uso c
 
 Você pode escolher entre um ponto de restauração mais recente e um ponto de restauração personalizado por meio de [portal do Azure](how-to-restore-server-portal.md).
 
--   **Ponto de restauração mais recente** : o ponto de restauração mais recente ajuda a restaurar o servidor para o último backup realizado no servidor de origem. O carimbo de data/hora para restauração também será exibido no Portal. Essa opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
--   **Ponto de restauração personalizado** : isso permitirá que você escolha um ponto no tempo dentro do período de retenção definido para esse servidor flexível. Essa opção é útil para restaurar o servidor no momento exato para recuperar-se de um erro do usuário.
+-   **Ponto de restauração mais recente**: o ponto de restauração mais recente ajuda a restaurar o servidor para o último backup realizado no servidor de origem. O carimbo de data/hora para restauração também será exibido no Portal. Essa opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
+-   **Ponto de restauração personalizado**: isso permitirá que você escolha um ponto no tempo dentro do período de retenção definido para esse servidor flexível. Essa opção é útil para restaurar o servidor no momento exato para recuperar-se de um erro do usuário.
 
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos do banco de dados, o tamanho do backup do log de transações, o tamanho da computação da SKU e a hora da restauração também. A recuperação do log de transações é a parte que consome mais tempo do processo de restauração. Se o tempo de restauração for escolhido mais próximo do agendamento de backup de instantâneo completo ou diferencial, as restaurações serão mais rápidas, pois o aplicativo de log de transações é mínimo. Para estimar o tempo de recuperação preciso para seu servidor, é altamente recomendável testá-lo em seu ambiente, pois ele tem muitas variáveis específicas de ambiente.
 

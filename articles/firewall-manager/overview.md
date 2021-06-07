@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/29/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6725bea562d3e7841b5ab82acc0a54f91f0488b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132436"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732917"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -66,7 +66,7 @@ Encaminhe facilmente o tráfego para o hub seguro para filtragem e registro, sem
 
 Esse recurso está disponível somente com implantações de hub virtual seguro.
 
-Você pode usar provedores de terceiros para filtrar o tráfego de Branch para Internet (B2I), lado a lado com o Firewall do Azure para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). Use também provedores de terceiros para filtrar o tráfego V2I, desde que o Firewall do Azure não seja necessário para B2V ou V2V. 
+Você pode usar provedores de terceiros para filtrar o tráfego de Branch para Internet (B2I), lado a lado com o Firewall do Azure para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
@@ -88,7 +88,6 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |Não há suporte à Proteção contra DDoS Standard com hubs virtuais seguros|A Proteção contra DDoS Standard não está integrada aos vWANs.|Investigando|
 |Logs de atividade sem suporte completo|Atualmente, a política de firewall não dá suporte a logs de atividade.|Investigando|
-|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando|
 |Algumas configurações de firewall não são migradas quando o firewall é migrado para usar a Política de Firewall|Os endereços privados de SNAT e Zonas de Disponibilidade não são migrados quando você faz a migração para a Política de Firewall do Azure.|Investigando| 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951708"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508735"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: pré-requisitos para a criação de grupos de disponibilidade em SQL Server em máquinas virtuais do Azure
 
@@ -145,7 +145,7 @@ A tabela a seguir resume as definições de configuração de rede:
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
-Antes de criar máquinas virtuais, você precisará criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planejados ou não. Um conjunto de disponibilidade do Azure é um grupo lógico de recursos que o Azure coloca em domínios de falha física e em domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade terão recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não serão desativados para manutenção ao mesmo tempo. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de criar máquinas virtuais, você precisará criar conjuntos de disponibilidade. Os conjuntos de disponibilidade reduzem o tempo de inatividade para eventos de manutenção planejados ou não. Um conjunto de disponibilidade do Azure é um grupo lógico de recursos que o Azure coloca em domínios de falha física e em domínios de atualização. Um domínio de falha garante que os membros do conjunto de disponibilidade terão recursos de energia e rede separados. Um domínio de atualização garante que os membros do conjunto de disponibilidade não serão desativados para manutenção ao mesmo tempo. Para saber mais, veja [Gerenciar a disponibilidade de máquinas virtuais](../../../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Você precisará de dois conjuntos de disponibilidade. Um é para os controladores de domínio. A segunda é para as VMs do SQL Server.
 
@@ -172,7 +172,7 @@ Para criar e configurar os controladores de domínio, retorne para o grupo de re
 
 1. Selecione **Adicionar**. 
 2. Digite **Windows Server 2016 Datacenter**.
-3. Selecione **Windows Server 2016 datacenter**. No **Windows Server 2016 datacenter**, verifique se o modelo de implantação é **Resource Manager** e, em seguida, selecione **criar**. 
+3. Selecione **Windows Server 2016 Datacenter**. No **Windows Server 2016 datacenter**, verifique se o modelo de implantação é **Resource Manager** e, em seguida, selecione **criar**. 
 
 Repita as etapas anteriores para criar duas máquinas virtuais. Nomeie as duas máquinas virtuais:
 
@@ -205,7 +205,7 @@ A tabela a seguir mostra as configurações para esses dois computadores:
 | **Conta de armazenamento de diagnóstico** |*Criada automaticamente* |
 
    >[!IMPORTANT]
-   >Você só pode colocar uma VM em um conjunto de disponibilidade ao criá-la. Não é possível alterar o conjunto de disponibilidade após a criação da VM. Consulte [Gerenciar a disponibilidade das máquinas virtuais](../../../virtual-machines/manage-availability.md).
+   >Você só pode colocar uma VM em um conjunto de disponibilidade ao criá-la. Não é possível alterar o conjunto de disponibilidade após a criação da VM. Consulte [Gerenciar a disponibilidade das máquinas virtuais](../../../virtual-machines/availability.md).
 
 O Azure cria as máquinas virtuais.
 
@@ -279,7 +279,7 @@ Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro
 
 3. Selecione **personalizado** e digite o endereço IP privado do controlador de domínio primário.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 
@@ -383,7 +383,7 @@ Antes de prosseguir, considere as seguintes decisões design.
 
 * **Armazenamento – Azure Managed Disks**
 
-   Para o armazenamento da máquina virtual, use o Azure Managed Disks. A Microsoft recomenda Managed Disks para máquinas virtuais do SQL Server. O Managed Disks lida com o armazenamento nos bastidores. Além disso, quando as máquinas virtuais com Managed Disks estão no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância apropriada. Para obter informações adicionais, consulte [Visão geral do Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obter informações específicas sobre discos gerenciados em um conjunto de disponibilidade, consulte [Usar discos gerenciados para VMs no conjunto de disponibilidade](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para o armazenamento da máquina virtual, use o Azure Managed Disks. A Microsoft recomenda Managed Disks para máquinas virtuais do SQL Server. O Managed Disks lida com o armazenamento nos bastidores. Além disso, quando as máquinas virtuais com Managed Disks estão no mesmo conjunto de disponibilidade, o Azure distribui os recursos de armazenamento para fornecer a redundância apropriada. Para obter informações adicionais, consulte [Visão geral do Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obter informações específicas sobre discos gerenciados em um conjunto de disponibilidade, consulte [Usar discos gerenciados para VMs no conjunto de disponibilidade](../../../virtual-machines/availability.md).
 
 * **Rede – Endereços IP privados em produção**
 

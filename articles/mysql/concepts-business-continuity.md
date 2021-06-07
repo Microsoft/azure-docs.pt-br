@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 15fde6e7558c685537d36f45bcc7e3ff341544ff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542486"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Entender a continuidade dos negócios no banco de dados do Azure para MySQL
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para MySQL fornece recursos de continuidade dos negóc
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Funcionalidade** | **Basic** | **Uso Geral** | **Memória otimizada** |
+| **Recurso** | **Basic** | **Uso Geral** | **Otimizado para memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |

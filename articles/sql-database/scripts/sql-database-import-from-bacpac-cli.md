@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: a8c544f1d3b7d1255cf5a0e6d05975ea5f5ec203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a76a2e72533068f37613d801e39f9451098b89e5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503796"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786595"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Usar a CLI para importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure
 
@@ -49,7 +49,7 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | Comando | Descrição |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos de servidor. |
-| [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Comando de importação do banco de dados. |
+| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | Comando de importação do banco de dados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

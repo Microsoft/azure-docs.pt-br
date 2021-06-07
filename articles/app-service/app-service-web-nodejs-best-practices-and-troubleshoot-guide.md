@@ -1,6 +1,6 @@
 ---
-title: Node.js práticas recomendadas e solução de problemas
-description: Conheça as práticas recomendadas e as etapas de solução de problemas para Node.js aplicativos executados no serviço Azure App.
+title: Melhores práticas e solução de problemas do Node.js
+description: Conheça as melhores práticas e as etapas de solução de problemas para aplicativos Node.js em execução no Serviço de Aplicativo do Azure.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: MT
+ms.openlocfilehash: bfbd93cc3d4e67c8a96a1413221fdd7190c4f0b6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060153"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100572633"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
-Neste artigo, você aprenderá as práticas recomendadas e as etapas de solução de problemas para [aplicativos do Windows Node.js](quickstart-nodejs.md?pivots=platform-windows) em execução no serviço Azure app (com [iisnode](https://github.com/azure/iisnode)).
+Neste artigo, você conhecerá as melhores práticas e as etapas de solução de problemas para [aplicativos Windows Node.js](quickstart-nodejs.md?pivots=platform-windows) em execução no Serviço de Aplicativo do Azure (com [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Tenha cuidado ao usar as etapas de solução de problemas no site de produção. A recomendação é solucionar problemas do aplicativo em uma configuração que não seja de produção (por exemplo, o slot de preparo) e, quando o problema for corrigido, trocar o slot de preparo pelo slot de produção.
@@ -121,9 +121,9 @@ Leia [Depurar aplicativos node.js no Windows](https://tomasz.janczuk.org/2011/11
 
 Muitos aplicativos desejam fazer conexões de saída como parte de suas operações normais. Por exemplo, quando uma solicitação chega, o aplicativo de nó deseja contatar uma API REST em outro lugar e obter algumas informações para processar a solicitação. Convém usar um agente keep alive ao fazer chamadas http ou https. Você poderia usar o módulo agentkeepalive como o agente keep alive ao fazer essas chamadas de saída.
 
-O módulo agentkeepalive garante que os soquetes sejam reutilizados na VM do WebApp do Azure. Criar um novo soquete em cada solicitação de saída adiciona sobrecarga ao aplicativo. O aplicativo reutilizar soquetes para solicitações de saída garante que o aplicativo não exceda os maxSockets alocados por VM. A recomendação no serviço de Azure App é definir o valor de maxSockets de agentKeepAlive para um total de (4 instâncias de node.exe \* 32 maxSockets/Instance) 128 soquetes por VM.
+O módulo agentkeepalive garante que os soquetes sejam reutilizados na VM do WebApp do Azure. Criar um novo soquete em cada solicitação de saída adiciona sobrecarga ao aplicativo. O aplicativo reutilizar soquetes para solicitações de saída garante que o aplicativo não exceda os maxSockets alocados por VM. A recomendação no Serviço de Aplicativo do Azure é definir o valor de maxSockets do agentKeepAlive como um total de (4 instâncias de node.exe \* 32 maxSockets/instância) 128 soquetes por VM.
 
-Exemplo de configuração de [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
+Exemplo de configuração [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>O aplicativo de nó está consumindo muita CPU
 
-Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso da CPU no [painel de portal do Azure](../azure-monitor/platform/metrics-charts.md), verifique os valores máximos da CPU para que você não perca os valores de pico.
+Você pode receber uma recomendação do Serviço de Aplicativo do Azure no portal sobre o alto consumo de CPU. Você também pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao conferir o uso de CPU no [Painel do portal do Azure](../azure-monitor/essentials/metrics-charts.md), verifique os valores MAX de CPU para que você não deixe de ver os valores de pico.
 Se você achar que o aplicativo está consumindo muita CPU e não consegue determinar o motivo, você poderá analisar o aplicativo de nó para descobrir.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Criar o perfil do aplicativo de nó no Serviço de Aplicativo do Azure com o V8-Profiler
@@ -203,17 +203,17 @@ http.createServer(function (req, res) {
 
 As alterações anteriores criarão o perfil da função WriteConsoleLog e gravarão a saída do perfil no arquivo 'profile.cpuprofile' no site wwwroot. Envie uma solicitação para o aplicativo. Você verá um arquivo 'profile.cpuprofile' criado no site wwwroot.
 
-![Captura de tela que mostra o arquivo Profile. cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Captura de tela que mostra o arquivo profile.cpuprofile.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **perfis** . Escolha o botão **carregar** . Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
+Fazer o download do arquivo e abri-lo com as ferramentas do Chrome F12. Pressione F12 no Chrome e escolha a guia **Perfis**. Escolha o botão **Carregar**. Selecione o arquivo profile.cpuprofile que você baixou. Clique no perfil que você acabou de carregar.
 
-![Captura de tela que mostra o arquivo Profile. cpuprofile que você carregou.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![Captura de tela que mostra o arquivo profile.cpuprofile que você carregou.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 Você verá que 95% do tempo foi consumido pela função WriteConsoleLog. A saída também mostra os números de linha e os arquivos de origem exatos que causaram o problema.
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Meu aplicativo de nó está consumindo muita memória
 
-Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao verificar o uso de memória no [painel portal do Azure](../azure-monitor/platform/metrics-charts.md), certifique-se de verificar os valores máximos de memória para que você não perca os valores de pico.
+Se o seu aplicativo estiver consumindo muita memória, você verá um aviso do Serviço de Aplicativo do Azure em seu portal sobre o alto consumo de memória. Você pode configurar monitores para observar determinadas [métricas](web-sites-monitor.md). Ao conferir o uso de memória no [Painel do portal do Azure](../azure-monitor/essentials/metrics-charts.md), verifique os valores MAX de CPU para a memória de modo que você não deixe de ver os valores de pico.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detecção de vazamento e Comparação de Heap para node.js
 

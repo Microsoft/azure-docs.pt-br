@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1d5fc097be188c820f9be15594f4bb382754b849
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754207"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103224921"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>Início rápido: Conectar e obter um token de acesso em um SPA Angular usando o fluxo de código de autenticação
 
@@ -26,6 +26,9 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL Angular 1.x com o fluxo implícito, confira [Início Rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-angular.md).
+
+> [!IMPORTANT]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +42,7 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1 (Expresso): Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 > 1. Insira um nome para seu aplicativo.
 > 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Selecione **Registrar**.
@@ -49,7 +52,7 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 >
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -65,7 +68,7 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para tornar o exemplo de código neste trabalho de início rápido, você precisa adicionar um `redirectUri` como `http://localhost:4200/`.
+> Para que o exemplo de código deste guia de início rápido funcione, adicione um **URI de Redirecionamento** igual a `http://localhost:4200/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >
@@ -114,12 +117,18 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 > Modifique os valores na seção `auth` conforme descrito aqui:
 >
 > - `Enter_the_Application_Id_Here` é a **ID do aplicativo (cliente)** que você registrou.
+>
+>    Para encontrar os valores de **ID do aplicativo (cliente)** , ID de diretório (locatário), acesse a página **Visão Geral** do aplicativo no portal do Azure.
 > - `Enter_the_Cloud_Instance_Id_Here` é a instância da nuvem do Azure. Para a nuvem principal ou global do Azure, insira `https://login.microsoftonline.com/`. Para nuvens **nacionais** (por exemplo, China), confira [Nuvens nacionais](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` é definido como uma das seguintes opções:
 >   - Se o aplicativo tem suporte para *contas neste diretório organizacional*, substitua esse valor pela **ID do locatário** ou pelo **Nome do locatário**. Por exemplo, `contoso.microsoft.com`.
+>
+>    Para encontrar o valor da **ID do Aplicativo (locatário)** , acesse a página **Visão Geral** do registro do aplicativo no portal do Azure.
 >   - Se o aplicativo tem suporte para *contas em qualquer diretório organizacional*, substitua esse valor por `organizations`.
 >   - Se o seu aplicativo tem suporte para *contas em qualquer diretório organizacional e contas pessoais Microsoft*, substitua esse valor por `common`. **Para este início rápido**, use `common`.
 >   - Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por `consumers`.
+>
+>    Para encontrar o valor dos **Tipos de conta com suporte**, acesse a página **Visão Geral** do registro de aplicativo no portal do Azure.
 > - `Enter_the_Redirect_Uri_Here` é `http://localhost:4200/`.
 >
 > O valor `authority` em *app.module.ts* deverá ser semelhante ao seguinte se você estiver usando a nuvem principal (global) do Azure:
@@ -128,8 +137,6 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do registro do aplicativo no portal do Azure.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
@@ -139,7 +146,7 @@ Este início rápido usa o MSAL Angular v2 com o fluxo de código de autorizaç�
 >
 > Role para baixo no mesmo arquivo e atualize o `graphMeEndpoint`. 
 > - Substitua a cadeia de caracteres `Enter_the_Graph_Endpoint_Herev1.0/me` por `https://graph.microsoft.com/v1.0/me`
-> - `Enter_the_Graph_Endpoint_Herev1.0/me` é o ponto de extremidade no qual as chamadas à API serão feitas. Para o serviço da API do Microsoft Graph principal (global), insira `https://graph.microsoft.com/` (inclua a barra à direita). Para obter mais informações, confira a [documentação](https://docs.microsoft.com/graph/deployments).
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` é o ponto de extremidade no qual as chamadas à API serão feitas. Para o serviço da API do Microsoft Graph principal (global), insira `https://graph.microsoft.com/` (inclua a barra à direita). Para obter mais informações, confira a [documentação](/graph/deployments).
 >
 >
 > ```javascript

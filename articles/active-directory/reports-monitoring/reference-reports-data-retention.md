@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093631"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Por quanto tempo o Azure AD armazena dados de relatório?
@@ -74,7 +74,7 @@ Para sinais de segurança, o processo de coleção é iniciado quando você acei
 | Relatório         | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
 | Usuários em risco  | 7 dias        | 30 dias             | 90 dias             |
-| Entradas suspeitas | 7 dias        | 30 dias             | 90 dias             |
+| Entradas de risco | 7 dias        | 30 dias             | 90 dias             |
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Airstack | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Airstack | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Airstack.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318944"
 ---
 # <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutorial: Integrar o Airstack ao Azure Active Directory
@@ -128,7 +128,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 ### <a name="create-airstack-test-user"></a>Criar usuário de teste do Airstack
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Airstack. Trabalhe com a [equipe de suporte do Airstack](mailto:jsinger@lenovo.com) para adicionar os usuários na plataforma do Airstack. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Airstack. Trabalhe com a [equipe de suporte do Airstack](mailto:jsinger@lenovo.com) para adicionar os usuários na plataforma do Airstack. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-sso"></a>Testar o SSO
 

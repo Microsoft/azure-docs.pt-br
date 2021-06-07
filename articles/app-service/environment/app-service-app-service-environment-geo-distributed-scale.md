@@ -8,10 +8,10 @@ ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18, references_regions
 ms.openlocfilehash: 004b32118521f72c5b59ad7bab2d4e41244b85c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85833597"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuída geograficamente com ambientes de Serviço de Aplicativo

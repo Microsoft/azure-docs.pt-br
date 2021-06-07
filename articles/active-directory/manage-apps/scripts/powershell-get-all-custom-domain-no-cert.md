@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – aplicativos do Proxy de Aplicativo sem certific
 description: Exemplo do PowerShell que lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que estão usando domínios personalizados, mas que não têm um certificado TLS/SSL válido carregado.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b197206529ca27a2e22cddd64755a9cfee97d44f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 00c2aa65c727bc614441b59c0021846855fcaf68
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253655"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377116"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Obter todos os aplicativos do Proxy de Aplicativo do Azure AD publicados sem nenhum certificado carregado
+# <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>Obter todos os aplicativos do Proxy de Aplicativo publicados sem certificado carregado
 
 Este exemplo de script do PowerShell lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que estão usando domínios personalizados, mas que não têm um certificado TLS/SSL válido carregado.
 
@@ -28,7 +28,7 @@ Este exemplo de script do PowerShell lista todos os aplicativos do Proxy de Apli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 

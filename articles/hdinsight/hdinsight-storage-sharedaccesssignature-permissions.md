@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931719"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usar assinaturas de acesso compartilhado do armazenamento de BLOBs do Azure para restringir o acesso a dados no HDInsight
@@ -83,7 +83,7 @@ Salve o token SAS que é produzido no final de cada método. O token será semel
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 Substitua `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` pelos valores apropriados para seu contêiner de armazenamento existente. Altere o diretório para `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` ou revise o `-File` parâmetro para que ele contenha o caminho absoluto para `Set-AzStorageblobcontent` . Insira o seguinte comando do PowerShell:
 

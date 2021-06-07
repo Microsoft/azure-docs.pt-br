@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308780"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
@@ -37,7 +37,7 @@ A verificação do editor fornece os seguintes benefícios:
 
 - **Melhoria da identidade visual** - um selo "verificado" é exibido na [solicitação de consentimento](application-consent-experience.md) do Azure AD, na página de aplicativos empresariais e nas superfícies de UX adicionais usadas pelos usuários finais e administradores. 
 
-- **Adoção de empresa mais suave** -os administradores podem configurar [políticas de consentimento do usuário](../manage-apps/configure-user-consent.md), com o status de verificação do Publicador como um dos critérios de política primária.
+- **Adoção de empresa mais suave**-os administradores podem configurar [políticas de consentimento do usuário](../manage-apps/configure-user-consent.md), com o status de verificação do Publicador como um dos critérios de política primária.
 
 > [!NOTE]
 > A partir de novembro de 2020, os usuários finais não poderão mais conceder consentimento para os aplicativos multilocatários registrados recentemente, sem os Publicadores verificados. Isso se aplicará a aplicativos registrados após 8 de novembro de 2020, usar o OAuth 2.0 para solicitar permissões além da entrada básica e ler o perfil do usuário e solicitar consentimento de usuários em locatários diferentes daquele em que o aplicativo está registrado. Um aviso será exibido na tela de consentimento informando aos usuários que esses aplicativos são arriscados e que são de Publicadores não verificados.    

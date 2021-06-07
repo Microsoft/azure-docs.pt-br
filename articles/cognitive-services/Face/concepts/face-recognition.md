@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518799"
 ---
 # <a name="face-recognition-concepts"></a>Conceitos de reconhecimento facial
@@ -45,7 +45,7 @@ A operação de [verificação](https://westus.dev.cognitive.microsoft.com/docs/
 
 A operação [Localizar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) usa uma ID de face de DetectedFace ou PersistedFace e uma facelist ou uma matriz de outras IDs de face. Com uma Facelist, ele retorna uma face de rostos menor que é semelhante à face fornecida. Com uma matriz de IDs de face, ela retorna, de forma semelhante, uma matriz menor.
 
-### <a name="group"></a>Grupo
+### <a name="group"></a>Agrupar
 
 A operação de [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) usa uma matriz de IDs de face asclassificadas de DetectedFace ou PersistedFace e retorna as mesmas IDs agrupadas em várias matrizes menores. Cada matriz de "grupos" contém IDs de face que parecem semelhantes. Uma única matriz "bagunça" contém IDs de face para as quais nenhuma semelhança foi encontrada.
 

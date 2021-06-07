@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 9/01/2020
-  ms.openlocfilehash: b69cc5b8d9b8ae14dddc33f69e96b5fd6e2f63d8
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: af32e4ebc08811ed5d4e9a583173f45368ba1148
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100516151"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107504945"
 landingContent:
 - title: Sobre o serviço de Detecção Facial
   linkLists:
@@ -66,12 +66,10 @@ landingContent:
       url: Face-API-How-to-Topics/specify-recognition-model.md
 - title: Usar retângulos faciais
   linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Exibir dados faciais em um aplicativo do WPF
-      url: Tutorials/FaceAPIinCSharpTutorial.md
   - linkListType: how-to-guide
     links:
+    - text: Detectar e analisar rostos
+      url: Face-API-How-to-Topics/howtodetectfacesinimage.md
     - text: Usar o atributo HeadPose
       url: Face-API-How-to-Topics/how-to-use-headpose.md
 - title: Usar contêineres
@@ -93,13 +91,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/face/
+      url: /rest/api/face/
     - text: SDK .NET
-      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - text: SDK do Python
-      url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-face/
     - text: Java SDK
-      url: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/faceapi
     - text: SDK do Node.js
       url: /javascript/api/@azure/cognitiveservices-face
     - text: SDK do Go
@@ -107,7 +105,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

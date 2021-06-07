@@ -7,10 +7,10 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230034"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente iOS
@@ -18,7 +18,7 @@ ms.locfileid: "89230034"
 > Aplica-se a: iOS 13,0 ou posterior. Compatível com iPhone, iPad e iPod Touch.
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-ios-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-ios-2019.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo iOS com nosso cliente baixável. Este guia lhe dirá como configurar o cliente iOS.
 

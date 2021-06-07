@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 2a02dc94c0dc0939e6c1eef624fc6fe65fb98ac6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3529361cacf0890b7c4752bbd745a9240020b4f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147007"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102217815"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Fazer upload de arquivos do seu dispositivo para a nuvem com o Hub IoT (Java)
 
@@ -52,7 +52,7 @@ No final deste tutorial, você executará dois aplicativos do console Java:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/). Certifique-se de selecionar **Java 8** em **Suporte de longo prazo** para obter downloads do JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 

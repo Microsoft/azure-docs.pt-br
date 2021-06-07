@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a7e33f950bc5f13372962694abc8e3e40d8ad5c0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753235"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578287"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicativo Web que conecta usuários
 
@@ -43,6 +43,12 @@ Se você for um desenvolvedor de Java, tente o início rápido a seguir:
 
 [Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Se você for um desenvolvedor Node.js, tente o início rápido a seguir:
+
+[Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Node.js](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Se você desenvolver com Python, experimente o início rápido a seguir:
@@ -55,14 +61,14 @@ Se você desenvolver com Python, experimente o início rápido a seguir:
 
 Você adiciona autenticação ao seu aplicativo Web para que ele possa conectar usuários. A adição de autenticação permite que seu aplicativo Web acesse informações de perfil limitadas para personalizar a experiência para os usuários.
 
-Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure Active Directory (Azure AD). O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. A entrada de usuários aproveita o protocolo padrão do [Open ID Connect](./v2-protocols-oidc.md) , simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)de middleware.
+Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure Active Directory (Azure AD). O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. A entrada de usuários aproveita o protocolo padrão do [Open ID Connect](./v2-protocols-oidc.md) , simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps)de middleware.
 
 ![O aplicativo Web conecta usuários](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 
 Como uma segunda fase, você pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário conectado. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo Web que chama APIs da Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de  **middleware** fazem. No caso do .NET, esse cenário ainda não requer a MSAL (biblioteca de autenticação da Microsoft), que é sobre a aquisição de um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de acompanhamento, quando o aplicativo Web precisar chamar APIs da Web.
+> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de  **middleware** fazem. No caso do .NET, esse cenário ainda não requer a MSAL (biblioteca de autenticação da Microsoft), que é sobre a aquisição de um token para chamar APIs protegidas. As bibliotecas de autenticação para .NET serão introduzidas no cenário de acompanhamento, quando o aplicativo Web precisar chamar APIs da Web.
 
 ## <a name="specifics"></a>Especificações
 
@@ -87,6 +93,10 @@ Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-w
 # <a name="java"></a>[Java](#tab/java)
 
 Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Vá para o próximo artigo neste cenário, registro de [aplicativo](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

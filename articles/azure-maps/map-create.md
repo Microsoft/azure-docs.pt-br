@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 833b6413cc5dfde1129075a286e5fe93a06e159f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890914"
 ---
 # <a name="create-a-map"></a>Criar um mapa
@@ -171,7 +171,7 @@ var map = new atlas.Map('myMap', {
 
 ## <a name="try-out-the-code"></a>Experimentar o código
 
-Examine os exemplos de código. Você pode editar o código JavaScript dentro da **guia js** e ver as alterações na exibição do mapa na **guia resultado** . Você também pode clicar em **Editar em CodePen** , no canto superior direito, e modificar o código em CodePen.
+Examine os exemplos de código. Você pode editar o código JavaScript dentro da **guia js** e ver as alterações na exibição do mapa na **guia resultado**. Você também pode clicar em **Editar em CodePen**, no canto superior direito, e modificar o código em CodePen.
 
 <a id="relatedReference"></a>
 

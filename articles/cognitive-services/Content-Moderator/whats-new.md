@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
-ms.openlocfilehash: 86cbd1e1d51af3a2f9a594e7e87a7896e70d6635
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 8bbb6033fd4045664a20df7e2b2c14b8a8837214
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758586"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725036"
 ---
 # <a name="whats-new-in-content-moderator"></a>Novidades do Content Moderator
 
-Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
+Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
 
 ## <a name="august-2020"></a>Agosto de 2020
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804981"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574422"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de base de segurança do Azure para observador de rede
 
 A linha de base de segurança do Azure para o observador de rede contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -118,9 +118,9 @@ O Observador de Rede deve ser habilitado
 
 **Orientação**: Use o log de atividades do Azure para monitorar as alterações feitas no observador de rede do Azure. Você pode criar alertas no Azure Monitor que serão disparados quando ocorrerem alterações.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -142,7 +142,7 @@ O Observador de Rede deve ser habilitado
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações e detectar alterações para as instâncias do observador de rede do Azure. Além do plano de controle (por exemplo, portal do Azure), o observador de rede em si não gera logs relacionados ao tráfego de rede. O observador de rede fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Entender o observador de rede](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ O Observador de Rede deve ser habilitado
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações e detectar alterações para as instâncias do observador de rede do Azure. Além do plano de controle (por exemplo, portal do Azure), o observador de rede em si não gera logs de auditoria. O observador de rede fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Entender o observador de rede](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ O Observador de Rede deve ser habilitado
 
 **Diretrizes**: em Azure monitor, defina o período de retenção de log para espaços de trabalho de log Analytics associados ao observador de rede do Azure de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -184,7 +184,7 @@ O Observador de Rede deve ser habilitado
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações e detectar alterações para as instâncias do observador de rede do Azure. Além do plano de controle (por exemplo, portal do Azure), o observador de rede em si não gera logs relacionados ao tráfego de rede. O observador de rede fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Entender o observador de rede](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Para usar os recursos do observador de rede, a conta que você faz logon no Azur
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem no observador de rede do Azure e outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

@@ -3,17 +3,18 @@ title: 'Início Rápido: Criar um workspace do Azure Synapse com um modelo do Az
 description: Saiba como criar um workspace do Synapse usando um modelo do Azure Resource Manager (Modelo do ARM).
 services: azure-resource-manager
 author: julieMSFT
-ms.service: azure-resource-manager
+ms.service: synapse-analytics
+ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7317b7f51c6d0f9d72e3aad81794a569276d2145
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740369"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566113"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Início Rápido: Criar um workspace do Azure Synapse usando um modelo do ARM
 
@@ -48,15 +49,15 @@ O modelo define dois recursos:
 
 1. Insira ou atualize os seguintes valores:
 
-   - **Assinatura** : Selecione uma assinatura do Azure.
-   - **Grupo de recursos** : Selecione **Criar** e insira um nome exclusivo para o grupo de recursos e selecione **OK**. Um novo grupo de recursos facilitará a limpeza de recursos.
-   - **Região** : Selecione uma região.  Por exemplo, **Centro dos EUA**.
-   - **Name** : insira um nome para o workspace.
-   - **Logon de Administrador** : insira o nome de usuário do administrador do SQL Server.
-   - **Senha do administrador do SQL** : insira a senha de administrador para o SQL Server.
-   - **Valores das Marcas** : Aceite o padrão.
-   - **Examinar e criar** : selecione.
-   - **Criar** : selecione.
+   - **Assinatura**: Selecione uma assinatura do Azure.
+   - **Grupo de recursos**: Selecione **Criar** e insira um nome exclusivo para o grupo de recursos e selecione **OK**. Um novo grupo de recursos facilitará a limpeza de recursos.
+   - **Região**: Selecione uma região.  Por exemplo, **Centro dos EUA**.
+   - **Name**: insira um nome para o workspace.
+   - **Logon de Administrador**: insira o nome de usuário do administrador do SQL Server.
+   - **Senha do administrador do SQL**: insira a senha de administrador para o SQL Server.
+   - **Valores das Marcas**: Aceite o padrão.
+   - **Examinar e criar**: selecione.
+   - **Criar**: selecione.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90708199"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>'Início Rápido: Criar uma instância de serviço do Gerenciamento de API do Azure usando o portal do Azure
@@ -41,9 +41,9 @@ Entre no [portal do Azure](https://portal.azure.com).
    
 1. Na página **Serviço de Gerenciamento de API**, insira as configurações.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Criar um Recurso":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="Nova instância":::
    
-   | Configuração                 | DESCRIPTION   |                                                                     
+   | Configuração                 | Descrição   |                                                                     
    |-------------------------|-----------------------------------------------|
    | nome - **                | Um nome exclusivo para o serviço de Gerenciamento de API. O nome não poderá ser alterado posteriormente. O nome do serviço refere-se ao serviço e ao recurso do Azure correspondente. <br/> O nome do serviço é usado para gerar um nome de domínio padrão: *\<name\>.azure-api.net.* Se você quiser usar um nome de domínio personalizado, consulte [Configurar um domínio personalizado](configure-custom-domain.md). |
    | **--subscription**:          | A assinatura sob a qual essa nova instância de serviço será criada.   |
@@ -72,11 +72,11 @@ Quando não for mais necessário, você poderá remover o grupo de recursos e to
 
 1. No portal do Azure, procure por **Grupos de recursos** e selecione essa opção. Você também pode selecionar **Grupos de recursos** na **Página Inicial**. 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Criar um Recurso":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="Navegação de grupo de recursos":::
 
 1. Na página **Grupos de recursos**, selecione seu grupo de recursos.
 
-   Selecione :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Criar um Recurso":::.
+   Selecione :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="Grupo de Recursos":::.
 
 1. Na página Grupo de recursos, selecione **Excluir grupo de recursos**. 
    

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519398"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100572778"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -100,9 +100,9 @@ Usando `containerd` o para nós AKs, a latência de inicialização de Pod melho
 * Para `containerd` o, é recomendável usar [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como uma CLI de substituição em vez da CLI do Docker para **solucionar problemas** de pods, contêineres e imagens de contêiner em nós kubernetes (por exemplo, `crictl ps` ). 
    * Ele não fornece a funcionalidade completa da CLI do Docker. Ele destina-se apenas à solução de problemas.
    * `crictl` oferece uma visão mais kubernetes dos contêineres, com conceitos como pods, etc. sendo presentes.
-* `Containerd` configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* `Containerd` configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * Você não pode mais acessar o mecanismo do Docker, `/var/run/docker.sock` ou usar o Docker-in-Docker (DinD).
-  * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
+  * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/containers/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
   * Mesmo ao usar o Moby/Docker, a criação de imagens e o aproveitamento direto do mecanismo do Docker por meio dos métodos acima é fortemente desencorajada. O kubernetes não está totalmente ciente desses recursos consumidos, e essas abordagens apresentam vários problemas detalhados [aqui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e [aqui](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por exemplo.
 * Criando imagens – você pode continuar a usar o fluxo de trabalho de Build do Docker atual normalmente, a menos que esteja criando imagens dentro do cluster AKS. Nesse caso, considere a possibilidade de alternar para a abordagem recomendada para criar imagens usando [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md)ou uma opção mais segura no cluster, como [Docker buildx](https://github.com/docker/buildx).
 

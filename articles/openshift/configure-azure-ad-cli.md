@@ -1,23 +1,23 @@
 ---
 title: Azure Red Hat OpenShift executando OpenShift 4-configurar a autenticação Azure Active Directory usando a linha de comando
 description: Saiba como configurar a autenticação Azure Active Directory para um cluster do Azure Red Hat OpenShift executando o OpenShift 4 usando a linha de comando
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0d69fa10408618fb188b42e1dd8f7b9d02820cc3
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 06f7bfea9a88627733eb9ce9166e05d05790e23a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862404"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102213055"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (CLI)
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 Recupere as URLs específicas do cluster que serão usadas para configurar o aplicativo Azure Active Directory.
 

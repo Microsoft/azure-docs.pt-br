@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 47f0ea34fa650371d39252ce6b0ee6a15f3124d6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946019"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871173"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -61,7 +61,7 @@ Sim. Para instalar componentes adicionais ou personalizar a configuração do cl
 
 - [Plataforma de aplicativo HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) para instalar aplicativos.
 
-Para obter uma lista de componentes com suporte [, consulte Quais são os componentes Apache Hadoop e as versões disponíveis com o HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Para obter uma lista de componentes com suporte [, consulte Quais são os componentes Apache Hadoop e as versões disponíveis com o HDInsight?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Posso atualizar os componentes individuais que estão pré-instalados no cluster?
 
@@ -78,11 +78,11 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo cluster HD
 1. Abra a interface do usuário da Web do amAmbari em `https://CLUSTERNAME.azurehdinsight.net` , em que ClusterName é o nome do cluster.
 2. No canto superior direito, selecione Admin | Configurações. 
 
-   ![Configurações de Ambari](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Configurações de Ambari":::
 
 3. Na janela Configurações do usuário, selecione o fuso horário novo na lista suspensa fuso horário e clique em salvar.
 
-   ![Configurações de usuário do Ambari](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Configurações de usuário do Ambari":::
 
 ## <a name="metastore"></a>Metastore
 
@@ -234,7 +234,7 @@ Execute uma dessas ações:
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>Como posso configurar a auditoria para minha conta de armazenamento de BLOBs?
 
-Para auditar contas de armazenamento de BLOBs, configure o monitoramento usando o procedimento em [monitorar uma conta de armazenamento no portal do Azure](../storage/common/storage-monitor-storage-account.md). Um log HDFS-Audit fornece apenas informações de auditoria somente para o sistema de arquivos do HDFS local (hdfs://mycluster).  Ele não inclui operações que são feitas no armazenamento remoto.
+Para auditar contas de armazenamento de BLOBs, configure o monitoramento usando o procedimento em [monitorar uma conta de armazenamento no portal do Azure](../storage/common/manage-storage-analytics-logs.md). Um log HDFS-Audit fornece apenas informações de auditoria somente para o sistema de arquivos do HDFS local (hdfs://mycluster).  Ele não inclui operações que são feitas no armazenamento remoto.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Como posso transferir arquivos entre um contêiner de BLOB e um nó principal do HDInsight?
 

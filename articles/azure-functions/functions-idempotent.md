@@ -6,10 +6,10 @@ ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
 ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74226867"
 ---
 # <a name="designing-azure-functions-for-identical-input"></a>Criando Azure Functions para entrada idêntica

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b7fdf6d4893a6f6a970223671b28fdae6db3ef3d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016719"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762975"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de autoescala
 
-Para habilitar o dimensionamento automático em um conjunto de dimensionamento, primeiro você define um perfil de dimensionamento automático. Esse perfil define a capacidade padrão, mínima e máxima do conjunto de dimensionamento. Esses limites permitem controlar o custo ao não criar instâncias de VM de forma contínua e equilibra o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de redução. Crie um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo a seguir define a capacidade padrão e mínima de *2* instâncias de VM, bem como um máximo de *10*:
+Para habilitar o dimensionamento automático em um conjunto de dimensionamento, primeiro você define um perfil de dimensionamento automático. Esse perfil define a capacidade padrão, mínima e máxima do conjunto de dimensionamento. Esses limites permitem controlar o custo ao não criar instâncias de VM de forma contínua e equilibra o desempenho aceitável com um número mínimo de instâncias que permanecem em um evento de redução. Crie um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az_monitor_autoscale_create). O exemplo a seguir define a capacidade padrão e mínima de *2* instâncias de VM, bem como um máximo de *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -72,7 +72,7 @@ az monitor autoscale create \
 
 Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou disco, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
-Vamos criar uma regra com [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) que aumenta o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média for maior que 70% por um período de 5 minutos. Quando a regra é disparada, a quantidade de instâncias de VM aumenta por três.
+Vamos criar uma regra com [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) que aumenta o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média for maior que 70% por um período de 5 minutos. Quando a regra é disparada, a quantidade de instâncias de VM aumenta por três.
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -86,7 +86,7 @@ az monitor autoscale rule create \
 
 À noite ou durante o fim de semana, a demanda do seu aplicativo pode diminuir. Se essa diminuição de carga for consistente durante determinado período, configure as regras de dimensionamento automático para reduzir o número de instâncias de VM no conjunto de dimensionamento. Esta ação de redução diminui o custo para executar seu conjunto de dimensionamento, visto que apenas o número de instâncias necessárias para atender à demanda atual é executado.
 
-Crie outra regra com [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) que diminua o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média ficar abaixo de 30% por um período de 5 minutos. O exemplo a seguir define a regra para reduzir o número de instâncias de VM em um:
+Crie outra regra com [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) que diminua o número de instâncias de VM em um conjunto de dimensionamento definido quando a carga da CPU média ficar abaixo de 30% por um período de 5 minutos. O exemplo a seguir define a regra para reduzir o número de instâncias de VM em um:
 
 ```azurecli-interactive
 az monitor autoscale rule create \

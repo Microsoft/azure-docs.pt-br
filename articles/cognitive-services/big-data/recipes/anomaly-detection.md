@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 5a583d74ae0bf421a7a863a65442d250489a2f8f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366274"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775384"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: manutenção preditiva com os serviços cognitivas para Big data
 
@@ -33,11 +33,11 @@ Pode haver exceções nos dados em frequência aleatória. Nessas situações, o
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Espaço de trabalho do Azure Synapse](../../../synapse-analytics/quickstart-create-workspace.md) configurado com um [pool de Apache Spark sem servidor](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 ### <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detector de Anomalias
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o tradutor usando o [portal do Azure](../../cognitive-services-apis-create-account.md) ou [CLI do Azure](../../cognitive-services-apis-create-account-cli.md). Também é possível:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o tradutor usando o [portal do Azure](../../cognitive-services-apis-create-account.md) ou [CLI do Azure](../../cognitive-services-apis-create-account-cli.md). Você também pode:
 
 - Exiba um recurso existente no  [portal do Azure](https://portal.azure.com/).
 
@@ -60,7 +60,7 @@ assert (location is not None)
 Em seguida, vamos ler o arquivo IoTSignals em um dataframe. Abra um novo bloco de anotações em seu espaço de trabalho Synapse e crie um dataframe a partir do arquivo.
 
 ```python
-df_device_info = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
+df_signals = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
 ### <a name="run-anomaly-detection-using-cognitive-services-on-spark"></a>Executar a detecção de anomalias usando serviços cognitivas no Spark

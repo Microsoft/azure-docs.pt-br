@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 750bc2f4f535238dbb757afc8b615fa71063d74d
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613072"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Entender o esquema do AD do Azure
@@ -254,4 +254,4 @@ Para exibir o esquema e verificá-lo, siga estas etapas.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)

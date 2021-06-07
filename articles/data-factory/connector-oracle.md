@@ -4,14 +4,14 @@ description: Saiba como copiar dados de armazenamentos de origem com suporte par
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9e6be88af13d5dd7ddceba32ec08cab54ca5e3a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381334"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587263"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 
@@ -263,6 +263,7 @@ Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge `writeBatchSize` .<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
 | writeBatchTimeout | O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são período. Um exemplo é 00:30:00 (30 minutos). | Não |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no Oracle em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo:**
 
@@ -356,18 +357,19 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e superior) |
 | CHAR |String |
 | CLOB |String |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, cadeia de caracteres (se precisão > 28) |
+| NUMBER (p,s) |Decimal, Cadeia de caracteres (se p > 28) |
+| NÚMERO sem precisão e escala |Double |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |String |
 | TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |Número |

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526945"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrar da política de acesso do cofre para um modelo de permissão de controle de acesso baseado em função do Azure
@@ -67,7 +67,7 @@ Modelos de permissão predefinidos de políticas de acesso:
 - BYOK de informações do Azure
 
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Modelos de políticas de acesso para mapeamento de funções do Azure
-| Modelo de política de acesso | Operações | Função do Azure |
+| Modelo de política de acesso | Operations | Função do Azure |
 | --- | --- | --- |
 | Chave, segredo, gerenciamento de certificados | Chaves: todas as operações <br>Certificados: todas as operações<br>Segredos: todas as operações | Administrador de Key Vault |
 | Gerenciamento de segredos de & chave | Chaves: todas as operações <br>Segredos: todas as operações| Key Vault o analista de criptografia <br> Diretor de segredos Key Vault |
@@ -87,8 +87,8 @@ Modelos de permissão predefinidos de políticas de acesso:
 
 O RBAC do Azure para Key Vault permite a atribuição de funções nos seguintes escopos:
 - Grupo de gerenciamento
-- Assinatura
-- Grupo de recursos
+- Subscription
+- Resource group
 - Key Vault recurso
 - Chave, segredo e certificado individuais
 

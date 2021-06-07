@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793323"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo SaaS usando um Banco de Dados SQL do Azure multilocatário e fragmentado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo aborda o provisionamento e a catalogação de novos locatários, em um modelo ou padrão de *banco de dados fragmentado multilocatário* .
+Este artigo aborda o provisionamento e a catalogação de novos locatários, em um modelo ou padrão de *banco de dados fragmentado multilocatário*.
 
 Este artigo tem duas partes principais:
 
@@ -70,7 +70,7 @@ O catálogo também pode ser usado para habilitar relatórios entre locatários,
 
 ### <a name="elastic-database-client-library"></a>Biblioteca de cliente do Banco de Dados Elástico
 
-Em Wingtip, o catálogo é implementado no banco de dados *tenantcatalog* . O *tenantcatalog* é criado usando os recursos de gerenciamento de fragmento da [EDCL (Biblioteca de Clientes do Banco de Dados Elástico)](elastic-database-client-library.md). A biblioteca permite que um aplicativo crie, gerencie e use um *mapa de fragmentos* que é armazenado em um banco de dados. Um mapa de fragmentos cruza referências da chave de locatário com seu fragmento, o que significa seu banco de dados fragmentado.
+Em Wingtip, o catálogo é implementado no banco de dados *tenantcatalog*. O *tenantcatalog* é criado usando os recursos de gerenciamento de fragmento da [EDCL (Biblioteca de Clientes do Banco de Dados Elástico)](elastic-database-client-library.md). A biblioteca permite que um aplicativo crie, gerencie e use um *mapa de fragmentos* que é armazenado em um banco de dados. Um mapa de fragmentos cruza referências da chave de locatário com seu fragmento, o que significa seu banco de dados fragmentado.
 
 Durante o provisionamento de locatários, as funções EDCL podem ser usadas em aplicativos ou em scripts do PowerShell para criar as entradas no mapa de fragmentos. Mais tarde, as funções EDCL podem ser usadas para conectar-se ao banco de dados correto. O EDCL armazena as informações de conexão em cache para minimizar o tráfego no banco de dados do catálogo e acelerar o processo de conexão.
 
@@ -109,7 +109,7 @@ Os scripts de provisionamento de locatário neste tutorial são compatíveis com
 - O provisionamento de um locatário em um banco de dados existente compartilhado com outros locatários.
 - O provisionamento de um locatário em seu próprio banco de dados.
 
-Os dados de locatário são inicializados e registrados no mapa de fragmentos de catálogo. No aplicativo de exemplo, os bancos de dados que contêm vários locatários recebem um nome genérico, como *tenants1* ou *tenants2* . Os bancos de dados que contêm um único locatário recebem o nome do locatário. As convenções de nomenclatura específicas usadas no exemplo não são uma parte crítica do padrão, uma vez que o uso de um catálogo permite que qualquer nome seja atribuído ao banco de dados.
+Os dados de locatário são inicializados e registrados no mapa de fragmentos de catálogo. No aplicativo de exemplo, os bancos de dados que contêm vários locatários recebem um nome genérico, como *tenants1* ou *tenants2*. Os bancos de dados que contêm um único locatário recebem o nome do locatário. As convenções de nomenclatura específicas usadas no exemplo não são uma parte crítica do padrão, uma vez que o uso de um catálogo permite que qualquer nome seja atribuído ao banco de dados.
 
 <a name="goto_1_tutorial"></a>
 
@@ -143,12 +143,12 @@ Nesta seção, você verá uma lista das principais ações de provisionamento q
 
 A seguir, estão os principais elementos do fluxo de trabalho de provisionamento que você percorrerá:
 
-- **Calcular a nova chave do locatário** : uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
-- **Verificar se a chave do locatário já existe** : o catálogo é verificado para garantir que a chave ainda não foi registrada.
-- **Inicializar o locatário no banco de dados de locatário padrão** : o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
-- **Registrar o locatário no catálogo** : o mapeamento entre a nova chave do locatário e o banco de dados tenants1 existente é adicionado ao catálogo.
-- **Adicionar o nome do locatário em uma tabela de extensão de catálogo** : o nome do local é adicionado à tabela Locatários no catálogo.  Essa adição mostra como o banco de dados de catálogo pode ser estendido para permitir dados específicos do aplicativo adicionais.
-- **Abrir a página de eventos para o novo locatário** : a página de eventos *Bushwillow Blues* é aberta no navegador.
+- **Calcular a nova chave do locatário**: uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
+- **Verificar se a chave do locatário já existe**: o catálogo é verificado para garantir que a chave ainda não foi registrada.
+- **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
+- **Registrar o locatário no catálogo**: o mapeamento entre a nova chave do locatário e o banco de dados tenants1 existente é adicionado ao catálogo.
+- **Adicionar o nome do locatário em uma tabela de extensão de catálogo**: o nome do local é adicionado à tabela Locatários no catálogo.  Essa adição mostra como o banco de dados de catálogo pode ser estendido para permitir dados específicos do aplicativo adicionais.
+- **Abrir a página de eventos para o novo locatário**: a página de eventos *Bushwillow Blues* é aberta no navegador.
 
    ![Captura de tela que mostra a página Eventos para um novo locatário.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -156,22 +156,22 @@ A seguir, estão os principais elementos do fluxo de trabalho de provisionamento
 
 Para entender como o aplicativo Wingtip implementa o provisionamento do novo locatário em um banco de dados compartilhado, adicione um ponto de interrupção e percorra o fluxo de trabalho:
 
-1. No *ISE do PowerShell* , abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e defina estes parâmetros:
-   - **$TenantName** = **Bushwillow Blues** , o nome de um novo local.
-   - **$VenueType** = **blues** , um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (letras minúsculas, sem espaços).
-   - **$DemoScenario** = **1** , para provisionar um locatário em um banco de dados compartilhado com outros locatários.
+1. No *ISE do PowerShell*, abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e defina estes parâmetros:
+   - **$TenantName** = **Bushwillow Blues**, o nome de um novo local.
+   - **$VenueType** = **blues**, um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (letras minúsculas, sem espaços).
+   - **$DemoScenario** = **1**, para provisionar um locatário em um banco de dados compartilhado com outros locatários.
 
-2. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 38, que contém: *New-Tenant `* e pressione **F9** .
+2. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 38, que contém: *New-Tenant `* e pressione **F9**.
 
    ![Captura de tela que realça a linha que inclui Novo Locatário.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
-3. Execute o script pressionando **F5** .
+3. Execute o script pressionando **F5**.
 
 4. Depois que a execução do script for interrompida no ponto de interrupção, pressione **F11** para intervir no código.
 
    ![Captura de tela mostra a ISE do Windows PowerShell com o menu "Depurar" aberto e a opção "Intervir" selecionada.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
-5. Rastreie a execução do script usando as opções de menu **Depurar** , **F10** e **F11** para contornar ou intervir nas funções chamadas.
+5. Rastreie a execução do script usando as opções de menu **Depurar**, **F10** e **F11** para contornar ou intervir nas funções chamadas.
 
 Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
@@ -181,14 +181,14 @@ Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre c
 
 A seguir, estão os principais elementos do fluxo de trabalho que você percorrerá ao rastrear o script:
 
-- **Calcular a nova chave do locatário** : uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
-- **Verificar se a chave do locatário já existe** : o catálogo é verificado para garantir que a chave ainda não foi registrada.
-- **Criar um novo banco de dados de locatário** : o banco de dados é criado, copiando o banco de dados *basetenantdb* usando um modelo do Resource Manager.  O nome do novo banco de dados é baseado no nome do locatário.
-- **Adicionar banco de dados ao catálogo** : o novo banco de dados de locatário é registrado como um fragmento no catálogo.
-- **Inicializar o locatário no banco de dados de locatário padrão** : o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
-- **Registrar o locatário no catálogo** : o mapeamento entre a nova chave do locatário e o banco de dados *sequoiasoccer* é adicionado ao catálogo.
-- **O nome do locatário é adicionado ao catálogo** : o nome do local é adicionado à tabela de extensão Locatários no catálogo.
-- **Abrir página de eventos para o novo locatário** : a página de eventos *Sequoia Soccer* é aberta no navegador.
+- **Calcular a nova chave do locatário**: uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
+- **Verificar se a chave do locatário já existe**: o catálogo é verificado para garantir que a chave ainda não foi registrada.
+- **Criar um novo banco de dados de locatário**: o banco de dados é criado, copiando o banco de dados *basetenantdb* usando um modelo do Resource Manager.  O nome do novo banco de dados é baseado no nome do locatário.
+- **Adicionar banco de dados ao catálogo**: o novo banco de dados de locatário é registrado como um fragmento no catálogo.
+- **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
+- **Registrar o locatário no catálogo**: o mapeamento entre a nova chave do locatário e o banco de dados *sequoiasoccer* é adicionado ao catálogo.
+- **O nome do locatário é adicionado ao catálogo**: o nome do local é adicionado à tabela de extensão Locatários no catálogo.
+- **Abrir página de eventos para o novo locatário**: a página de eventos *Sequoia Soccer* é aberta no navegador.
 
    ![events](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -196,16 +196,16 @@ A seguir, estão os principais elementos do fluxo de trabalho que você percorre
 
 Agora, percorra o processo de script ao criar um locatário em seu próprio banco de dados:
 
-1. Ainda em ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* , defina estes parâmetros:
-   - **$TenantName** = **Sequoia Soccer** , o nome de um novo local.
-   - **$VenueType** = **soccer** , um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (em minúsculas, sem espaços).
-   - **$DemoScenario** = **2** , para provisionar um locatário em seu próprio banco de dados.
+1. Ainda em ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, defina estes parâmetros:
+   - **$TenantName** = **Sequoia Soccer**, o nome de um novo local.
+   - **$VenueType** = **soccer**, um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (em minúsculas, sem espaços).
+   - **$DemoScenario** = **2**, para provisionar um locatário em seu próprio banco de dados.
 
-2. Adicione um novo ponto de interrupção posicionando seu cursor em qualquer lugar na linha 57, que diz: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e pressione **F9** .
+2. Adicione um novo ponto de interrupção posicionando seu cursor em qualquer lugar na linha 57, que diz: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e pressione **F9**.
 
    ![ponto de interrupção](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
-3. Execute o script pressionando **F5** .
+3. Execute o script pressionando **F5**.
 
 4. Depois que a execução do script for interrompida no ponto de interrupção, pressione **F11** para entrar no código.  Use **F10** e **F11** para contornar e intervir em funções para rastrear a execução.
 
@@ -213,7 +213,7 @@ Agora, percorra o processo de script ao criar um locatário em seu próprio banc
 
 Este exercício provisiona um lote com 17 locatários. É recomendável provisionar esse lote de locatários antes de iniciar outros tutoriais do Wingtip Tickets, de forma que haja mais bancos de dados com os quais trabalhar.
 
-1. No *ISE do PowerShell* , abra ...\\Módulos de Aprendizagem\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e altere o parâmetro *$DemoScenario* para 4:
+1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizagem\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e altere o parâmetro *$DemoScenario* para 4:
    - **$DemoScenario** = **4** para provisionar um lote de locatários em um banco de dados compartilhado.
 
 2. Pressione **F5** e execute o script.
@@ -237,13 +237,13 @@ A lista completa de locatários e o banco de dados correspondente para cada um e
 - O nome do locatário é armazenado na tabela Locatários.
 - O nome do banco de dados é armazenado nas tabelas de gerenciamento de fragmentos.
 
-1. No SSMS (SQL Server Management Studio), conecte-se ao servidor de locatários em **catalog-mt.\<USER\>.database.windows.net** , com o logon = **developer** e a senha = **P\@ssword1**
+1. No SSMS (SQL Server Management Studio), conecte-se ao servidor de locatários em **catalog-mt.\<USER\>.database.windows.net**, com o logon = **developer** e a senha = **P\@ssword1**
 
     ![caixa de diálogo de conexão do SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. No Pesquisador de Objetos do SSMS, navegue até as exibições no banco de dados *tenantcatalog* .
+2. No Pesquisador de Objetos do SSMS, navegue até as exibições no banco de dados *tenantcatalog*.
 
-3. Clique com o botão direito do mouse na exibição *TenantsExtended* e escolha **Selecionar as 1000 primeiras linhas** . Observe o mapeamento entre o nome do locatário e o banco de dados de diferentes locatários.
+3. Clique com o botão direito do mouse na exibição *TenantsExtended* e escolha **Selecionar as 1000 primeiras linhas**. Observe o mapeamento entre o nome do locatário e o banco de dados de diferentes locatários.
 
     ![Exibição ExtendedTenants no SSMS](./media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
 

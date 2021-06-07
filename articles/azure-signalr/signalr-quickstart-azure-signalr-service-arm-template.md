@@ -2,17 +2,20 @@
 title: 'Início Rápido: Criar um Serviço do Azure SignalR – Modelo do ARM'
 description: Neste guia de Início Rápido, aprenda como criar um Serviço do Azure SignalR usando um modelo do Azure Resource Manager (modelo ARM).
 author: sffamily
-ms.service: signalr
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.topic: quickstart
+ms.service: signalr
+ms.custom:
+- subject-armqs
+- devx-track-azurecli
+- mode-arm
+ms.openlocfilehash: 075915f2a06e29eb5b80425913c6e7a2c476ff99
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841608"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536524"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Início Rápido: Usar um modelo do ARM para implantar o Serviço do Azure SignalR
 

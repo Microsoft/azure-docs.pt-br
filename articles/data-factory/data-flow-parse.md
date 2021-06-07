@@ -6,18 +6,20 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: a81676b9985b134a8214f7f5f97d85d27259b71f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416930"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101710185"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Analisar transformação no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use a transformação analisar para analisar colunas em seus dados que estão no formato de documento. Os tipos atuais com suporte de documentos inseridos que podem ser analisados são texto JSON e delimitado.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
 ## <a name="configuration"></a>Configuração
 

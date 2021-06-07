@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022931"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
@@ -93,7 +93,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
    
    | Coluna de resultados | Descrição |
    |:--- |:--- |
-   |  Name |A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto. |
+   |  Nome |A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto. |
    |  Dispositivo |A coluna **Dispositivo** contém o endereço IP do dispositivo conectado ao computador host. |
    |  Nome do Volume do Dispositivo |A coluna **Nome do Volume do Dispositivo** contém o nome do volume do dispositivo ao qual o volume selecionado pertence. Esse é o nome do volume definido no portal do Azure para o volume específico. |
    |  Caminhos de acesso |A coluna **Caminhos de Acesso** exibe o caminho de acesso ao volume. Esta é a letra da unidade ou ponto de montagem no qual o volume está acessível para o computador host. |

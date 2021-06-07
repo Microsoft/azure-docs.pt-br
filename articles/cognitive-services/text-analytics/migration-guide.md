@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096314"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101699888"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3. x do API de Análise de Texto
 
@@ -77,23 +77,23 @@ A tabela a seguir lista as categorias de entidade retornadas para o NER v 2.1.
 
 | Categoria   | Descrição                          |
 |------------|--------------------------------------|
-| Person   |   Nomes de pessoas.  |
-|Localização    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
+| Pessoa   |   Nomes de pessoas.  |
+|Location    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
 |Organização | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. |
 | PhoneNumber | Números de telefone (somente números de telefone dos EUA e da UE). |
 | Email | Endereços de email. |
 | URL | URLs para sites. |
 | IP | Endereços IP de rede. |
-| Datetime | Datas e horas do dia.| 
+| DateTime | Datas e horas do dia.| 
 | Data | Datas do calendário. |
 | Hora | Horas do dia |
 | DateRange | Intervalos de datas. |
 | TimeRange | Intervalos de tempo. |
-| Duração | Durações. |
+| Duration | Durações. |
 | Definir | Definido, horários repetidos. |
 | Quantidade | Números e quantidades numéricas. |
 | Número | Números. |
-| Porcentagem | Porcentagens.|
+| Percentual | Porcentagens.|
 | Ordinal | Números ordinais. |
 | Idade | Paralisa. |
 | Moeda | Moedas. |
@@ -104,7 +104,7 @@ A tabela a seguir lista as categorias de entidade retornadas para o NER v 2.1.
 
 ### <a name="feature-changes"></a>Alterações de recurso 
 
-O recurso de detecção de idioma não foi alterado na v3 fora da versão do ponto de extremidade, mas a resposta JSON conterá `ConfidenceScore` em vez de `score` . V3 também retorna apenas um único idioma na saída. 
+A saída do recurso de detecção de idioma foi alterada na v3. A resposta JSON conterá `ConfidenceScore` em vez de `score` . V3 também retorna apenas um idioma em um  `detectedLanguage` atributo para cada documento.
 
 ### <a name="steps-to-migrate"></a>Etapas para migrar
 

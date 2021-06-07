@@ -16,16 +16,16 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96023781"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como usar serviço de email SendGrid do PHP
 
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são escritas em PHP.
-Os cenários abordados incluem **escrever email**, **enviar email**, and **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de email, consulte a seção [próximas etapas](#next-steps) .
+Os cenários abordados incluem **escrever email**, **enviar email**, and **adicionar anexos**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o serviço de email SendGrid?
 SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de email transacional], escalabilidade e análise em tempo real confiáveis com APIs flexíveis que facilitam a integração personalizada. Os cenários comuns de uso do SendGrid incluem:
@@ -299,7 +299,7 @@ O envio de um anexo usando a API Web é muito semelhante ao envio de um email us
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: usar filtros para habilitar rodapés, rastreamento e análise
 
-O SendGrid fornece funcionalidade adicional de email por meio do uso de *filtros*. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante.
+O SendGrid fornece a funcionalidade adicional de email por meio do uso de *filtros*. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante.
 
 Os filtros podem ser aplicados a uma mensagem pela propriedade filtros. Cada filtro é especificado por um hash que possui configurações específicas de filtro. O exemplo a seguir ativa o filtro do rodapé e especifica uma mensagem de texto que será anexada na parte inferior da mensagem de email: Para este exemplo, usaremos a [biblioteca de sendgrid-php].
 

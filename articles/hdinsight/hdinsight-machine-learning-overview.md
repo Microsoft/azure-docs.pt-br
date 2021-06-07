@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 492663ca35ed04da09e7f0d198444a4d40178e2b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945257"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867518"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -26,7 +26,7 @@ A biblioteca do Microsoft Azure Machine Learning para Apache Spark é [MMLSpark]
 
 [R](https://www.r-project.org/) atualmente é a linguagem de programação estatística mais popular do mundo. É uma ferramenta de visualização de dados de software livre com uma comunidade de mais de 2,5 milhões usuários e crescendo. Com sua base de usuários próspera e mais de 8.000 pacotes contribuídos, o R é uma opção provável para muitas empresas que precisam de aprendizado de máquina. Você pode criar um Cluster HDInsight com o ML Services pronto para ser usado com conjuntos de dados maciços e modelos. Essa capacidade fornece aos cientistas de dados e estatísticos uma interface R familiar que pode der dimensionada sob demanda por meio do HDInsight, sem a sobrecarga de configuração e manutenção do cluster.
 
-![Treinamento para previsão com Microsoft R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/training-for-prediction.png" alt-text="Treinamento para previsão com Microsoft R Server" border="false":::
 
 O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R.  Você também pode executar scripts do R em todos os nós do cluster usando a redução de mapa do Hadoop do scaler ou contextos de computação do Spark.
 
@@ -36,7 +36,7 @@ Com o ML Services no HDInsight com Spark, é possível paralelizar o treinamento
 
 Azure Machine Learning fornece ferramentas para modelar análises preditivas e um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. O Microsoft Azure Machine Learning é uma solução de análise preditiva completa na nuvem que você pode usar para criar, testar, operacionalizar e gerenciar modelos preditivos. Selecione de uma grande biblioteca de algoritmos, use um estúdio baseado na Web para a criação de modelos e implante facilmente seu modelo como um serviço Web.
 
-![Visão geral do Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Visão geral do Microsoft Azure Machine Learning" border="false":::
 
 Criar recursos para dados em um cluster do HDInsight Hadoop usando [consultas do Hive](../machine-learning/team-data-science-process/create-features-hive.md). *A engenharia de recursos* tenta aumentar o poder preditivo dos algoritmos de aprendizado, criando recursos a partir de dados brutos que facilitam o processo de aprendizado. Você pode executar consultas HiveQL de Azure Machine Learning Studio (clássico) e acessar dados processados no hive e armazenados no armazenamento de BLOBs usando o [módulo importar dados](../machine-learning/classic/import-data.md).
 
@@ -46,7 +46,7 @@ Criar recursos para dados em um cluster do HDInsight Hadoop usando [consultas do
 
 Para ajudar a avançar seu próprio trabalho no aprendizado profundo, a Microsoft desenvolveu o [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Este kit de ferramentas está sendo usado por uma grande variedade de produtos da Microsoft, por empresas em todo o mundo com a necessidade de implantar aprendizado profundo em escala e por estudantes interessados nos algoritmos e técnicas mais recentes.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 ### <a name="scenarios"></a>Cenários
 

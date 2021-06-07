@@ -3,16 +3,16 @@ title: Executar contêineres privilegiados em um cluster do Azure Red Hat OpenSh
 description: Execute contêineres privilegiados para monitorar a segurança e a conformidade.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: toa, openshift, aquasec, Twistlock, Red Hat
-ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 77e75232b7f9d23f1d07931cc7dc231174e1312d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218860"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100633555"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contêineres privilegiados em um cluster do Red Hat OpenShift no Azure
 

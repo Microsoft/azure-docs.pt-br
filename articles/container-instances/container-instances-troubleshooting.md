@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: d8e7fb85e369f5f278436370944eafeb1fb6a50e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96779508"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
@@ -25,7 +25,7 @@ Ao definir a especificação de contêiner, alguns parâmetros exigem aderência
 | Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
 | Nome do contêiner<sup>1</sup> | 1-63 |Minúsculas | Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-container<number>` |`web-batch-container1` |
-| Portas de contêiner | Entre 1 e 65535 |Integer |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contêiner | Entre 1 e 65535 |Inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5 a 63 |Minúsculas |Alfanuméricos e hifens em qualquer lugar, exceto o primeiro ou o último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |

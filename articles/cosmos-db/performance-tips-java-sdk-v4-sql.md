@@ -10,10 +10,10 @@ ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: 8aad9df4720c833a74659b5cd36b7f5aafdf9b60
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631832"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
@@ -150,15 +150,15 @@ Por padrão, as solicitações do Cosmos DB de modo direto são feitas por TCP a
 
 No SDK do Java v4 do Azure Cosmos DB, o modo direto é a melhor opção para melhorar o desempenho do banco de dados com a maioria das cargas de trabalho. 
 
-* ***Visão geral do modo direto** _
+* ***Visão geral do modo direto***
 
 :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
 
-A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme o necessário pelo **Ponto de Extremidade de Serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
+A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 **Canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme o necessário pelo **Ponto de Extremidade de Serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
 
-* ***Opções de configuração para o modo direto** _
+* ***Opções de configuração para o modo direto***
 
-Se o comportamento de modo direto não padrão for desejado, crie uma instância _DirectConnectionConfig * e personalize suas propriedades e, em seguida, passe a instância de propriedade personalizada para o método *directmode ()* no construtor de cliente Azure Cosmos DB.
+Se o comportamento de modo direto não padrão for desejado, crie uma instância de *DirectConnectionConfig* e personalize suas propriedades e, em seguida, passe a instância de propriedade personalizada para o método *directmode ()* no construtor de cliente Azure Cosmos DB.
 
 Essas definições de configuração controlam o comportamento da arquitetura de modo direto subjacente discutida acima.
 
@@ -176,19 +176,19 @@ Como uma primeira etapa, use as definições de configuração recomendadas abai
 
 Azure Cosmos DB Java SDK v4 dá suporte a consultas paralelas, que permitem a consulta uma coleção particionada em paralelo. Para saber mais, confira [exemplos de código](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) relacionados ao trabalho com o SDK do Java v4 do Azure Cosmos DB. Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial.
 
-* ***Ajustando \: setMaxDegreeOfParallelism** _
+* ***Como ajustar setMaxDegreeOfParallelism\:***
     
 As consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série com relação à consulta. Por isso, use setMaxDegreeOfParallelism para definir o número de partições que representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá usar setMaxDegreeOfParallelism para definir um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo.
 
 É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um gargalo dessas partições.
 
-_ ***Ajustando \: setMaxBufferedItemCount** _
+* ***Como ajustar setMaxBufferedItemCount\:***
     
 A consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-buscados. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
 
 A busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.
 
-_ **Escalar horizontalmente sua carga de trabalho do cliente**
+* **Escalar horizontalmente sua carga de trabalho do cliente**
 
 Se você estiver testando em altos níveis da taxa de transferência, o aplicativo cliente poderá tornar-se o gargalo devido à limitação do computador na utilização da CPU ou da rede. Se você chegar a este ponto, poderá continuar aumentando a conta do Azure Cosmos DB ainda mais distribuindo seus aplicativos cliente entre vários servidores.
 
@@ -233,11 +233,11 @@ Para saber mais sobre o SDK do Java v4 do Azure Cosmos DB, confira o [Diretório
 
 Por vários motivos, talvez você queira ou precise adicionar o registro em log em uma thread que está gerando alta taxa de transferência de solicitação. Se seu objetivo for saturar completamente a taxa de transferência provisionada de um contêiner com solicitações geradas por essa thread, as otimizações de log poderão melhorar significativamente o desempenho.
 
-* ***Configurar um agente assíncrono** _
+* ***Configurar um agente assíncrono***
 
 A latência de um agente síncrono é necessariamente um dos fatores do cálculo de latência geral da sua thread de geração de solicitação. Um agente assíncrono, como [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), é recomendado para desacoplar a sobrecarga de log de suas threads de aplicativos de alto desempenho.
 
-_ ***Desabilitar registro em log da sub-rede** _
+* ***Desabilitar o log do netty***
 
 O registro em log da biblioteca Netty é verborrágico e precisa ser desativado (suprimir o log na configuração talvez não seja suficiente) para evitar custos adicionais de CPU. Se você não estiver no modo de depuração, desabilite o registro em log do netty completamente. Portanto, se estiver usando log4j para remover os custos adicionais de CPU devidos por ``org.apache.log4j.Category.callAppenders()`` do netty, adicione a seguinte linha à sua base de código:
 
@@ -245,7 +245,7 @@ O registro em log da biblioteca Netty é verborrágico e precisa ser desativado 
 org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
 ```
 
- _ **Limite de recursos de arquivos abertos do so**
+ * **Limite de recursos de arquivos abertos do SO**
  
 Alguns sistemas Linux (como Red Hat) têm um limite superior no número de arquivos abertos e, portanto no número total de conexões. Execute o seguinte para exibir os limites atuais:
 

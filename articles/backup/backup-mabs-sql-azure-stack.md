@@ -4,10 +4,10 @@ description: Neste artigo, saiba como configurar o servidor de Backup do Microso
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332807"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack

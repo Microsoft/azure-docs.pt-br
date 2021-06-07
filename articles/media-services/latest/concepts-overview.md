@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b425cd9268b336a8926e4fad9cb1f288f4fe3e87
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 309ef8baada22f59b1395164626dd664366cb4d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897910"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581126"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Conceitos e terminologia dos serviços de mídia
 
@@ -26,10 +26,6 @@ ms.locfileid: "98897910"
 Este tópico fornece uma breve visão geral da terminologia e dos conceitos dos serviços de mídia do Azure. O artigo também fornece links para artigos com uma explicação detalhada dos conceitos e da funcionalidade dos serviços de mídia v3.
 
 Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes de iniciar o desenvolvimento.
-
-> [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar [eventos ao vivo](live-events-outputs-concept.md)do Media Services V3, exibir (não gerenciar) v3 [ativos](assets-concept.md)e [obter informações sobre como acessar APIs](./access-api-howto.md).
-> Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/accountfilters), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,8 +46,8 @@ Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes d
 |Empacotamento e entrega|Depois que o conteúdo é codificado, você pode tirar proveito do **empacotamento dinâmico**. Nos serviços de mídia, um **ponto de extremidade de streaming** é o serviço de empacotamento dinâmico usado para fornecer conteúdo de mídia aos players cliente. Para disponibilizar vídeos no ativo de saída para os clientes para reprodução, você precisa criar um **localizador de streaming** e, em seguida, criar URLs de streaming. <br/><br/>Ao criar o **localizador de streaming**, além do nome do ativo, você precisa especificar a **política de streaming**. **As políticas de streaming** permitem definir protocolos de streaming e opções de criptografia (se houver) para seus **localizadores de streaming**. O empacotamento dinâmico é usado se você transmite seu conteúdo ao vivo ou sob demanda. <br/><br/>Você pode usar **manifestos dinâmicos** dos serviços de mídia para transmitir apenas uma rendição ou subclipes específicos do seu vídeo.|[Empacotamento dinâmico](dynamic-packaging-overview.md)<br/><br/>[Pontos de extremidade de streaming](streaming-endpoint-concept.md)<br/><br/>[Localizadores de streaming](streaming-locators-concept.md)<br/><br/>[Políticas de streaming](streaming-policy-concept.md)<br/><br/>[Manifestos dinâmicos](filters-dynamic-manifest-overview.md)<br/><br/>[Filtros](filters-concept.md)|
 |Proteção de conteúdo|Com os serviços de mídia, você pode entregar seu conteúdo ao vivo e sob demanda criptografado dinamicamente com criptografia AES (AES-128) ou/e qualquer um dos três principais sistemas DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. <br/><br/>Se especificar as opções de criptografia em seu fluxo, crie a **política de chave de conteúdo** e associe-a ao seu **localizador de streaming**. A **política de chave de conteúdo** permite que você configure como a chave de conteúdo é entregue aos clientes finais.<br/><br/> Tente reutilizar as políticas sempre que as mesmas opções forem necessárias.| [Políticas de chave de conteúdo](content-key-policy-concept.md)<br/><br/>[Proteção de conteúdo](content-protection-overview.md)|
 |Transmissão ao vivo|Os Serviços de Mídia permitem que você entregue eventos ao vivo para seus clientes na nuvem do Azure. **Eventos ao Vivo** são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um **evento ao vivo**, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. Depois que o fluxo fluir para o **evento ao vivo**, você poderá iniciar o evento de streaming criando um **ativo**, uma **saída ao vivo** e um **localizador de streaming**. A **saída ao vivo** arquivará o fluxo no **ativo** e o tornará disponível para os visualizadores por meio do ponto de **extremidade de streaming**. Um evento ao vivo pode ser definido como uma *passagem* (um codificador dinâmico local envia um fluxo de taxa de bits múltipla) ou uma *Codificação Ativa* (um codificador dinâmico local envia um fluxo de taxa de bits única). |[Visão geral da transmissão ao vivo](live-streaming-overview.md)<br/><br/>[Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)|
-|Monitoramento com a grade de eventos|Para ver o progresso do trabalho, use a **grade de eventos**. Os serviços de mídia também emite os tipos de evento ao vivo. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. |[Lidando com os eventos da Grade de Eventos](reacting-to-media-services-events.md)<br/><br/>[Esquemas](media-services-event-schemas.md)|
-|Monitoramento com o Azure Monitor|Monitore métricas e logs de diagnóstico que ajudam você a entender como seus aplicativos estão sendo executados com o Azure Monitor.|[Métrica e logs de diagnóstico](media-services-metrics-diagnostic-logs.md)<br/><br/>[Esquemas de logs de diagnóstico](media-services-diagnostic-logs-schema.md)|
+|Monitoramento com a grade de eventos|Para ver o progresso do trabalho, use a **grade de eventos**. Os serviços de mídia também emite os tipos de evento ao vivo. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. |[Lidando com os eventos da Grade de Eventos](monitoring/reacting-to-media-services-events.md)<br/><br/>[Esquemas](monitoring/media-services-event-schemas.md)|
+|Monitoramento com o Azure Monitor|Monitore métricas e logs de diagnóstico que ajudam você a entender como seus aplicativos estão sendo executados com o Azure Monitor.|[Métrica e logs de diagnóstico](monitoring/monitor-media-services-data-reference.md)<br/><br/>[Esquemas de logs de diagnóstico](monitoring/monitor-media-services-data-reference.md)|
 |Clientes do Player|Você pode usar Player de Mídia do Azure para reproduzir conteúdo de mídia transmitido pelos serviços de mídia em uma ampla variedade de navegadores e dispositivos. O Player de Mídia do Azure usa padrões do setor, como HTML5, MSE (Media Source Extensions) e EME (Encrypted Media Extensions) para fornecer uma experiência avançada de streaming adaptável. |[Visão geral do Player de Mídia do Azure](use-azure-media-player.md)|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações

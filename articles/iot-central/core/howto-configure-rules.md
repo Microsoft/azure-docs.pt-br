@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 378a1dbcfbc89cdf9b24dc2490db583f1135b9a2
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97796781"
 ---
 # <a name="configure-rules"></a>Configurar regras

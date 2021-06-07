@@ -1,36 +1,38 @@
 ---
-title: Solucionar problemas comuns de Kubernetes habilitado para Azure Arc (versão prévia)
+title: Solucionar problemas comuns de kubernetes habilitados para Arc do Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 03/02/2020
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Solução de problemas comuns de clusters do Kubernetes habilitado para Arc.
 keywords: Kubernetes, Arc, Azure, contêineres
-ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 992ea75c48b2630032e1314610986fbc610eec7b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684082"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025774"
 ---
-# <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Solução de problemas de Kubernetes habilitado para Azure Arc (versão prévia)
+# <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Solução de problemas do kubernetes habilitado para Arc do Azure
 
-Este documento fornece alguns cenários comuns da solução de problemas de conectividade, permissões e agentes.
+Este documento fornece guias de solução de problemas com conectividade, permissões e agentes.
 
 ## <a name="general-troubleshooting"></a>Solução de problemas gerais
 
-### <a name="azure-cli-set-up"></a>Configuração da CLI do Azure
-Antes de usar os comandos da CLI az connectedk8s ou az k8sconfiguration, verifique se az está configurado para funcionar com a assinatura correta do Azure.
+### <a name="azure-cli"></a>CLI do Azure
+
+Antes de usar os `az connectedk8s` `az k8s-configuration` comandos do ou da CLI, verifique se CLI do Azure está definido para funcionar com a assinatura do Azure correta.
 
 ```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
 
-### <a name="azure-arc-agents"></a>Agentes azure-arc
-Todos os agentes do Kubernetes habilitado para o Azure Arc são implantados como pods no namespace `azure-arc`. Em operações normais, todos os pods devem estar em execução e passar as verificações de integridade.
+### <a name="azure-arc-agents"></a>Agentes do Azure Arc
+
+Todos os agentes do Kubernetes habilitado para o Azure Arc são implantados como pods no namespace `azure-arc`. Todos os pods devem estar em execução e passando por suas verificações de integridade.
 
 Primeiro, verifique a versão do Helm do Azure Arc:
 
@@ -44,9 +46,9 @@ REVISION: 5
 TEST SUITE: None
 ```
 
-Se a versão do Helm não for encontrada ou estiver ausente, tente realizar a integração do cluster novamente.
+Se a versão Helm não for encontrada ou ausente, tente [conectar o cluster ao arco do Azure](./quickstart-connect-cluster.md) novamente.
 
-Se a versão do Helm estiver presente e `STATUS: deployed` determinar o status dos agentes usando `kubectl`:
+Se a versão Helm estiver presente no `STATUS: deployed` , verifique o status dos agentes usando `kubectl` :
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
@@ -69,45 +71,42 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Todos os Pods devem mostrar `STATUS` como `Running` e `READY` deve ser `3/3` ou `2/2`. Busque os logs e descreva os pods que estão retornando `Error` ou `CrashLoopBackOff`. Se qualquer um desses pods estiver preso no `Pending` estado, pode ser devido a recursos insuficientes em nós de cluster. [Escalar verticalmente o cluster](https://kubernetes.io/docs/tasks/administer-cluster/) fará com que esses pods façam a transição para o `Running` estado.
+Todos os pods devem ser mostrados `STATUS` como `Running` com um `3/3` ou `2/2` sob a `READY` coluna. Busque logs e descreva os pods que retornam um `Error` ou `CrashLoopBackOff` . Se qualquer pods estiver preso no `Pending` estado, pode haver recursos insuficientes em nós de cluster. [Escalar verticalmente seu cluster](https://kubernetes.io/docs/tasks/administer-cluster/) pode fazer com que esses pods façam a transição para o `Running` estado.
 
 ## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Conectando clusters kubernetes ao arco do Azure
 
-A conexão de clusters ao Azure requer acesso a uma assinatura do Azure e `cluster-admin` a um cluster de destino. Se não for possível acessar o cluster ou se não houver permissões suficientes, a integração falhará.
+Conectar clusters ao Azure requer acesso a uma assinatura do Azure e `cluster-admin` acesso a um cluster de destino. Se você não conseguir acessar o cluster ou se tiver permissões insuficientes, a conexão do cluster ao arco do Azure falhará.
 
 ### <a name="insufficient-cluster-permissions"></a>Permissões de cluster insuficientes
 
-Se o arquivo kubeconfig fornecido não tiver permissões suficientes para instalar os agentes do Azure Arc, o comando da CLI do Azure retornará um erro ao tentar chamar a API do Kubernetes.
+Se o arquivo kubeconfig fornecido não tiver permissões suficientes para instalar os agentes Arc do Azure, o comando CLI do Azure retornará um erro.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 
 Error: list: failed to list: secrets is forbidden: User "myuser" cannot list resource "secrets" in API group "" at the cluster scope
 ```
 
-O proprietário do cluster deve usar um usuário de Kubernetes com permissões de administrador de cluster.
+O usuário que está conectando o cluster ao arco do Azure deve ter `cluster-admin` a função atribuída a ele no cluster.
 
 ### <a name="installation-timeouts"></a>Tempos limite de instalação
 
-A instalação do agente do Azure Arc requer a execução de um conjunto de contêineres no cluster de destino. Se o cluster for executado em uma conexão lenta com a Internet, o pull da imagem de contêiner pode demorar mais do que o tempo limite da CLI do Azure.
+Conectar um cluster kubernetes ao kubernetes habilitado para Arc do Azure requer a instalação de agentes Arc do Azure no cluster. Se o cluster estiver sendo executado em uma conexão de Internet lenta, o pull de imagem de contêiner para agentes poderá levar mais tempo do que o CLI do Azure tempo limite.
 
 ```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
 
 ### <a name="helm-issue"></a>Problema de Helm
 
-`v3.3.0-rc.1`A versão do Helm tem um [problema](https://github.com/helm/helm/pull/8527) em que a instalação/atualização do Helm (usada na extensão da CLI do connectedk8s) resulta na execução de todos os ganchos que levam ao seguinte erro:
+`v3.3.0-rc.1`A versão Helm tem um [problema](https://github.com/helm/helm/pull/8527) em que o Helm instalar/atualizar (usado pela `connectedk8s` extensão da CLI) resulta na execução de todos os ganchos que levam ao seguinte erro:
 
 ```console
 $ az connectedk8s connect -n shasbakstest -g shasbakstest
-Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -117,7 +116,7 @@ ValidationError: Unable to install helm release: Error: customresourcedefinition
 
 Para se recuperar desse problema, siga estas etapas:
 
-1. Exclua o recurso kubernetes habilitado para o Azure Arc de preocupação no portal do Azure.
+1. Exclua o recurso kubernetes habilitado para arco do Azure na portal do Azure.
 2. Execute os seguintes comandos em seu computador:
     
     ```console
@@ -132,15 +131,16 @@ Para se recuperar desse problema, siga estas etapas:
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 
 ### <a name="general"></a>Geral
-Para ajudar a solucionar problemas na configuração do controle do código-fonte, execute os comandos az com a opção --debug.
+Para ajudar a solucionar problemas com o recurso de configuração, execute comandos AZ com o `--debug` parâmetro especificado.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8sconfiguration create <parameters> --debug
+az k8s-configuration create <parameters> --debug
 ```
 
-### <a name="create-source-control-configuration"></a>Criar configuração de controle do código-fonte
-A função de colaborador no recurso Microsoft.Kubernetes/connectedCluster é necessária e suficiente para criar o recurso Microsoft.KubernetesConfiguration/sourceControlConfiguration.
+### <a name="create-configurations"></a>Criar configurações
+
+Permissões de gravação no recurso kubernetes habilitado para Arc do Azure ( `Microsoft.Kubernetes/connectedClusters/Write` ) são necessárias e suficientes para a criação de configurações nesse cluster.
 
 ### <a name="configuration-remains-pending"></a>A configuração permanece `Pending`
 

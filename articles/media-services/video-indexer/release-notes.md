@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427644"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102203718"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,39 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="march-2021"></a>Março de 2021
+
+A análise de áudio está disponível agora em um novo pacote adicional de recursos de áudio em um ponto de preço diferente. A nova predefinição de análise de **áudio básica** fornece uma opção de baixo custo para extrair apenas a transcrição de fala, tradução e formatação de legendas de saída e legendas. A predefinição de **áudio básica** produzirá dois medidores separados na sua fatura, incluindo uma linha para transcrição e uma linha separada para formatação de legenda e subtítulo. Para obter mais informações sobre os preços, consulte a página de [preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/) .
+
+O grupo recém-adicionado está disponível ao indexar ou reindexar o arquivo escolhendo a **opção avançada**  ->  predefinição de **áudio básico** (na caixa suspensa **vídeo + indexação de áudio** ).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="multiple-account-owners"></a>Proprietários de contas múltiplas 
+
+A função de proprietário da conta foi adicionada ao Video Indexer. Você pode adicionar, alterar e remover usuários; Altere sua função. Para obter detalhes sobre como compartilhar uma conta, consulte [convidar usuários](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Detecção de eventos de áudio (visualização pública)
+
+> [!NOTE]
+> Esse recurso só está disponível em contas de avaliação. 
+
+O Video Indexer agora detecta os seguintes efeitos de áudio nos segmentos de não fala do conteúdo: gunshot, cortar de vidro, alarme, Siren, explosão, cachorro latido, incontestável, risadas, reações de alta (paz, Clapping e booing) e silêncio. 
+
+O recurso de áudio recém-adicionado afeta a disponibilidade de recursos ao indexar o arquivo escolhendo a **opção avançada**  ->  predefinição de **áudio avançado** (em vídeo + indexação de áudio). A indexação padrão incluirá apenas a **reação** de **silêncio** e de forma de torcida. 
+
+O tipo de evento **Clapping** que foi incluído no modelo de efeitos de áudio anterior agora é extraído de uma parte do tipo de evento de **reação de torcida** .
+
+Quando você opta por ver **informações** do seu vídeo no site [Video indexer](https://www.videoindexer.ai/) , os efeitos de áudio aparecem na página.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Detecção de eventos de áudio":::
+
+### <a name="named-entities-enhancement"></a>Aprimoramento de entidades nomeadas  
+
+A lista extraída de pessoas e local foi estendida e atualizada em geral. 
+
+Além disso, o modelo agora inclui pessoas e locais no contexto que não são famosos, como um ' Sam ' ou ' Home ' no vídeo. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -67,7 +100,7 @@ Você poderá se inscrever e entrar usando um destes provedores: Azure AD, Micro
 > [!NOTE]
 > As contas de Video Indexer conectadas ao LinkedIn e ao Facebook não estarão acessíveis após 1º de março de 2021. 
 > 
-> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso.<br/>
+> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso. Você pode adicionar um proprietário adicional dos provedores com suporte, conforme descrito em [convidar](invite-users.md). <br/>
 > Como alternativa, você pode criar uma conta paga e migrar os dados.
 
 ## <a name="august-2020"></a>Agosto de 2020

@@ -8,20 +8,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/01/2020
-ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: MT
+ms.date: 04/06/2021
+ms.openlocfilehash: 7524644b34a6fd479c08b9ce6418c547c836add5
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018660"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554018"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimento
 Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](../text-analytics/index.yml).
 
-LUIS usa Análise de Texto v2. 
+O LUIS usa a Análise de Texto V2. 
 
-## <a name="resolution-for-sentiment"></a>Resolução de sentimentos
+A Análise de Sentimento é configurada no momento da publicação do aplicativo. Confira [como publicar um aplicativo](./luis-how-to-publish-app.md) para saber mais.
+
+## <a name="resolution-for-sentiment"></a>Resolução para sentimento
 
 Dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
 
@@ -36,7 +38,7 @@ Quando a cultura for `en-us`, a resposta será:
 }
 ```
 
-#### <a name="other-languages"></a>[Outras linguagens](#tab/other-languages)
+#### <a name="other-languages"></a>[Outros idiomas](#tab/other-languages)
 
 Para todas as outras culturas, a resposta é:
 

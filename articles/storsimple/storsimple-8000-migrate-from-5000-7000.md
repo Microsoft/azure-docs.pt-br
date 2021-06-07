@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99428159"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000

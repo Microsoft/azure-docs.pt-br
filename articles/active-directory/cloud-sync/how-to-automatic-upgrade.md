@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26c0b47dd358826b843143aaf23c469d852e93b3
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613050"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agente de provisionamento de nuvem Azure AD Connect: atualização automática
@@ -50,5 +50,5 @@ Para remover o agente, vá para **desinstalar ou alterar um programa** e desinst
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)
 

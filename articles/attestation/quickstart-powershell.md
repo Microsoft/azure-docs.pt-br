@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3c908fffe93d657662310d4e91ed25ae28ca6908
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429085"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102501117"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Início Rápido: Configurar o Atestado do Azure com o Azure PowerShell
 
-Siga as etapas abaixo para criar e configurar um provedor de atestado usando o Azure PowerShell. Confira [Visão geral do Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) para obter informações sobre como instalar e executar o Azure PowerShell.
+Siga as etapas abaixo para criar e configurar um provedor de atestado usando o Azure PowerShell. Confira [Visão geral do Azure PowerShell](/powershell/azure/) para obter informações sobre como instalar e executar o Azure PowerShell.
 
 Observe que a Galeria do PowerShell preteriu as versões 1.0 e 1.1 do protocolo TLS. Recomendamos usar o TLS 1.2 ou uma versão posterior. Portanto, você poderá receber os seguintes erros:
 
@@ -226,7 +226,7 @@ Observe que todo o processamento semântico do certificado de signatário de pol
 
 Para obter um exemplo de certificado de signatário de política, confira os [exemplos de certificados de signatário de política](policy-signer-examples.md).
 
-Para obter mais informações sobre os cmdlets e os respectivos parâmetros, confira [Cmdlets do PowerShell no Atestado do Azure](/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
+Para obter mais informações sobre os cmdlets e os respectivos parâmetros, confira [Cmdlets do PowerShell no Atestado do Azure](/powershell/module/az.attestation/#attestation) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

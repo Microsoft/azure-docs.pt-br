@@ -7,15 +7,15 @@ author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630388"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048656"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -198,7 +198,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira o [Início rápido do Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
-* Veja o [tutorial do Android](./tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
-* Veja o [tutorial do iOS](./tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
-* Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
+* Veja o [tutorial do Android](./how-to-launch-immersive-reader.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
+* Veja o [tutorial do iOS](./how-to-launch-immersive-reader.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
+* Confira o [tutorial do Python](./how-to-launch-immersive-reader.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)

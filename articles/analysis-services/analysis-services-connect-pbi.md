@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500913"
 ---
 # <a name="connect-with-power-bi"></a>Conectar com Power BI
@@ -49,6 +49,6 @@ Depois de criar um servidor no Azure e implantar um modelo tabular nele, os usu�
 1. Crie um arquivo do Power BI Desktop que tenha uma conexão ativa com seu modelo no servidor.
 2. Em [Power BI](https://powerbi.microsoft.com), clique em **Obter Dados** > **Arquivos** e em seguida, localize e selecione o arquivo .pbix.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Conectar-se ao Azure Analysis Services](analysis-services-connect.md)   
 [Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896656"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funções de transformação no Power Query para Wrangling de dados
@@ -89,7 +89,7 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 
 | Função | Status |
 | -- | -- |
-| Table.PromoteHeaders | Não há suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
+| Table.PromoteHeaders | Sem suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
 | Table.CombineColumns | Esse é um cenário comum que não tem suporte direto, mas pode ser obtido com a adição de uma nova coluna que concatena duas colunas especificadas.  Por exemplo, Table. AddColumn (RemoveEmailColumn, "Name", cada [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Isso tem suporte na maioria dos casos. Os cenários a seguir não têm suporte: transformando cadeia de caracteres para tipo de moeda, transformando cadeia de caracteres em tipo de hora, transformando cadeia de caracteres para tipo de porcentagem. |
 | Table.NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |

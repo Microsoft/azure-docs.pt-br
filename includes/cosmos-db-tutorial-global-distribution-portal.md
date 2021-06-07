@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96027491"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Adicionar regiões de banco de dados globais usando o Portal do Azure
@@ -31,11 +31,11 @@ Depois de adicionar uma segunda região, a opção **Failover Manual** é habili
 Há dois cenários comuns para configurar duas ou mais regiões:
 
 1. Fornecimento de acesso a dados de baixa latência para os usuários finais, independentemente de onde estejam localizados em todo o mundo
-2. Adição de resiliência regional para continuidade dos negócios e recuperação de desastre (BCDR)
+2. Adição de resiliência regional para continuidade dos negócios e recuperação de desastres (BCDR)
 
 Para oferecer baixa latência para os usuários finais, é recomendável implantar o aplicativo e o Azure Cosmos DB nas regiões que correspondem aos locais em que os usuários do aplicativo estão localizados.
 
-Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [BCDR (continuidade dos negócios e recuperação de desastres): Regiões emparelhadas do Azure][bcdr].
+Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [Continuidade dos negócios e recuperação de desastre (BCDR): Regiões Emparelhadas do Azure][bcdr].
 
 <!--
 

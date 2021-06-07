@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c15090551ad9d84282f65925ff9c2cfbab7e14f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935012"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773343"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de chaves do Azure Key Vault para Python
 
@@ -24,14 +24,14 @@ Introdução à biblioteca de clientes do Azure Key Vault para Python. Siga as e
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ ou 3.5.3+](/azure/developer/python/configure-local-development-environment)
+- O [Python 2.7+ ou 3.6+](/azure/developer/python/configure-local-development-environment)
 - [CLI do Azure](/cli/azure/install-azure-cli)
 
 Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli) em uma janela de terminal do Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 
-Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para saber mais, confira [Autenticar o cliente na biblioteca de clientes do Azure Idendity](/java/api/overview/azure/identity-readme).
+Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para saber mais, confira [Autenticar o cliente na biblioteca de clientes do Azure Idendity](/python/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -179,7 +179,7 @@ Para ler uma chave do Key Vault, use o método [get_key](/python/api/azure-keyva
 retrieved_key = client.get_key(keyName)
  ```
 
-Você também pode verificar se a chave foi definida com o comando da CLI do Azure [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+Você também pode verificar se a chave foi definida com o comando da CLI do Azure [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 ### <a name="delete-a-key"></a>Excluir uma chave
 
@@ -192,7 +192,7 @@ deleted_key = poller.result()
 
 O método `begin_delete_key` é assíncrono e retorna um objeto do instrumento de sondagem. Chamar o método `result` do instrumento de sondagem aguarda sua conclusão.
 
-Você pode verificar se a chave foi excluída com o comando da CLI do Azure [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show).
+Você pode verificar se a chave foi excluída com o comando da CLI do Azure [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show).
 
 Depois de excluída, uma chave permanece em um estado excluído, mas recuperável, por algum tempo. Se você executar o código novamente, use um nome de chave diferente.
 
@@ -209,7 +209,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
-- [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- [Proteger o acesso a um cofre de chaves](../general/security-overview.md)
 - [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - [Visão geral da segurança do Key Vault](../general/security-overview.md)
 - [Autenticar com o Key Vault](../general/authentication.md)

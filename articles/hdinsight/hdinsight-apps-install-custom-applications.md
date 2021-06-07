@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 19dd5bf94b524ff3eb6eb601c77b503a0040bd75
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942691"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867637"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
@@ -106,13 +106,13 @@ Se a instalação de um aplicativo falhar, você poderá ver as mensagens de err
 
     Abra o cluster no portal e selecione aplicativos em configurações:
 
-    ![erro de instalação do aplicativo aplicativos hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="erro de instalação do aplicativo aplicativos hdinsight":::
 
 * Ação de script HDInsight: se a mensagem de erro dos aplicativos do HDInsight indicar uma falha na ação de script, mais detalhes sobre a falha do script serão apresentados no painel de ações de script.
 
     Selecione Ação de script nas configurações. O histórico de ação de script mostra as mensagens de erro
 
-    ![erro de ação de script aplicativos hdinsight](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="erro de ação de script aplicativos hdinsight":::
 
 * Interface do usuário da Web do Apache Ambari: se o script de instalação foi a causa da falha, use a interface do usuário da Web do amAmbari para verificar os logs completos sobre os scripts de instalação.
 

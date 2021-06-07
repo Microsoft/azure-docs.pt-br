@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333453"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
@@ -164,7 +164,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Utilizar tokens de sessão
 
-Um dos níveis de consistência no Azure Cosmos DB é a consistência de *Sessão*. Esse é o nível padrão aplicado a contas do Cosmos por padrão. Ao trabalhar com a consistência de *Sessão* , o cliente usará um token de sessão internamente com cada solicitação de leitura/consulta para garantir que o nível de consistência definido seja mantido.
+Um dos níveis de consistência no Azure Cosmos DB é a consistência de *Sessão*. Esse é o nível padrão aplicado a contas do Cosmos por padrão. Ao trabalhar com a consistência de *Sessão*, o cliente usará um token de sessão internamente com cada solicitação de leitura/consulta para garantir que o nível de consistência definido seja mantido.
 
 Para gerenciar os tokens de sessão manualmente, obtenha o token de sessão na resposta e configure-os por solicitação. Se não for necessário gerenciar manualmente os tokens de sessão, você não precisa usar esses exemplos. O SDK controla os tokens de sessão automaticamente. Se você não definir o token de sessão manualmente, por padrão, o SDK usará o token de sessão mais recente.
 
@@ -287,7 +287,7 @@ Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como gerenciar conflitos de dados ou passar para o próximo conceito fundamental no Azure Cosmos DB. Confira os seguintes artigos:
+Saiba mais sobre como gerenciar conflitos de dados ou passar para o próximo conceito fundamental no Azure Cosmos DB. Veja os artigos a seguir:
 
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 * [Particionamento e distribuição de dados](./partitioning-overview.md)

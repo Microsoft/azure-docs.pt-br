@@ -8,10 +8,10 @@ ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98202905"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>Mover uma configuração de controle de manutenção para outra região
@@ -45,7 +45,7 @@ Antes de começar a mover uma configuração de controle de manutenção:
     ```
 2. Examine a lista de tabelas retornada de registros de configuração na assinatura. Veja um exemplo. Sua lista conterá valores para seu ambiente específico.
 
-    **Nome** | **Localização** | **Grupo de recursos**
+    **Nome** | **Localidade** | **Grupo de recursos**
     --- | --- | ---
     Ignorar manutenção | eastus2 | configuração-grupo de recursos
     IgniteDemoConfig | eastus2 | configuração-grupo de recursos

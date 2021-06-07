@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204088"
 ---
 # <a name="create-client-side-performance-traces"></a>Criar rastreamentos de desempenho do lado do cliente
@@ -35,13 +35,13 @@ Ao procurar informações sobre rastreamentos de desempenho, você será inevita
 * `WPR`
 * `WPA`
 
-O **ETW** representa a [corrida de **T**de ventilação **E**saídas para **W**](/windows/win32/etw/about-event-tracing). É simplesmente o nome abrangente para o recurso de rastreamento eficiente no nível do kernel que é incorporado ao Windows. Ele é chamado de rastreamento de *eventos* , porque os aplicativos que dão suporte ao ETW emitirão eventos para registrar ações que podem ajudar a rastrear problemas de desempenho. Por padrão, o sistema operacional já emite eventos para coisas como acessos a disco, opções de tarefas e tal. Aplicativos como o ARR também emitem eventos personalizados, por exemplo, sobre quadros descartados, retardo de rede etc.
+O **ETW** representa a [corrida de **T** de ventilação **E** saídas para **W**](/windows/win32/etw/about-event-tracing). É simplesmente o nome abrangente para o recurso de rastreamento eficiente no nível do kernel que é incorporado ao Windows. Ele é chamado de rastreamento de *eventos* , porque os aplicativos que dão suporte ao ETW emitirão eventos para registrar ações que podem ajudar a rastrear problemas de desempenho. Por padrão, o sistema operacional já emite eventos para coisas como acessos a disco, opções de tarefas e tal. Aplicativos como o ARR também emitem eventos personalizados, por exemplo, sobre quadros descartados, retardo de rede etc.
 
-**ETL** significa **E**& vento **T**Race **L**ogging. Isso simplesmente significa que um rastreamento foi coletado (registrado) e, portanto, normalmente é usado como a extensão de arquivo para arquivos que armazenam os dados de rastreamento. Assim, quando você faz um rastreamento, normalmente terá um \* arquivo. etl posteriormente.
+**ETL** significa **E**& vento **T** Race **L** ogging. Isso simplesmente significa que um rastreamento foi coletado (registrado) e, portanto, normalmente é usado como a extensão de arquivo para arquivos que armazenam os dados de rastreamento. Assim, quando você faz um rastreamento, normalmente terá um \* arquivo. etl posteriormente.
 
-**WPR** significa [ **W**erenciador **R**ecorder **P**v](/windows-hardware/test/wpt/windows-performance-recorder) e é o nome do aplicativo que inicia e interrompe a gravação de rastreamentos de eventos. WPR usa um arquivo de perfil ( \* . wprp) que configura quais eventos exatos registrar em log. Esse `wprp` arquivo é fornecido com o SDK do arr. Ao fazer rastreamentos em um PC desktop, você pode iniciar o WPR diretamente. Ao fazer um rastreamento no HoloLens, você normalmente passa pela interface da Web.
+**WPR** significa [ **W** erenciador **R** ecorder v](/windows-hardware/test/wpt/windows-performance-recorder) e é o nome do aplicativo que inicia e interrompe a gravação de rastreamentos de eventos. WPR usa um arquivo de perfil ( \* . wprp) que configura quais eventos exatos registrar em log. Esse `wprp` arquivo é fornecido com o SDK do arr. Ao fazer rastreamentos em um PC desktop, você pode iniciar o WPR diretamente. Ao fazer um rastreamento no HoloLens, você normalmente passa pela interface da Web.
 
-O **WPA** significa [ **W**erenciador **a** **P**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome do aplicativo de GUI usado para abrir \* arquivos. ETL e examinar os dados para identificar problemas de desempenho. O WPA permite que você classifique dados por vários critérios, exiba os dados de várias maneiras, aprofunde-se em detalhes e correlacione informações.
+O **WPA** significa [ **W** erenciador **a** nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) e é o nome do aplicativo de GUI usado para abrir \* arquivos. ETL e examinar os dados para identificar problemas de desempenho. O WPA permite que você classifique dados por vários critérios, exiba os dados de várias maneiras, aprofunde-se em detalhes e correlacione informações.
 
 Embora os rastreamentos de ETL possam ser criados em qualquer dispositivo Windows (PC local, HoloLens, servidor de nuvem, etc.), eles são normalmente salvos em disco e analisados com WPA em um PC desktop. Os arquivos ETL podem ser enviados a outros desenvolvedores para que eles tenham uma aparência. No entanto, lembre-se de que informações confidenciais, como caminhos de arquivo e endereços IP, podem ser capturadas em rastreamentos de ETL. Você pode usar o ETW de duas maneiras: para gravar rastreamentos ou para analisar rastreamentos. A gravação de rastreamentos é direta e requer configuração mínima. A análise de rastreamentos por outro lado requer uma compreensão razoável da ferramenta WPA e do problema que você está investigando. O material geral para o aprendizado de WPA será fornecido abaixo, bem como diretrizes sobre como interpretar rastreamentos específicos do ARR.
 

@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84783156"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Usar a transmissão ao vivo de busca no Azure Sentinel para detectar ameaças
 
 Use a busca de transmissão ao vivo para criar sessões interativas que permitem testar consultas recém-criadas à medida que ocorrem eventos, obter notificações das sessões quando uma correspondência for encontrada e iniciar investigações, se necessário. Você pode criar rapidamente uma sessão transmissão ao vivo usando qualquer consulta de Log Analytics.
 

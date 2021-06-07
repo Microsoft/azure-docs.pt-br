@@ -2,18 +2,19 @@
 title: Perguntas frequentes - VMs do Azure Disk Encryption para Linux
 description: Este artigo fornece respostas a perguntas frequentes sobre o Microsoft Azure Disk Encryption para VMs de IaaS do Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d62195759de2d43e863c1cb2c4c3ef911bb52c6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: MT
+ms.openlocfilehash: 6a85af1a5e0603d78dc9bc233fef56417e19c50e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498516"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102553078"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Perguntas frequentes do Azure Disk Encryption para máquinas virtuais
 

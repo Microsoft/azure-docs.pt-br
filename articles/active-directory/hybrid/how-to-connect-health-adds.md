@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0686a4dafae17bafc65a03c985a65aecba70e60c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98017010"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Usar o Azure AD Connect Health com o AD DS
@@ -61,6 +61,6 @@ Por padrão, selecionamos previamente quatro contadores de desempenho. No entant
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Perguntas frequentes do Azure AD Connect Health](reference-connect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)

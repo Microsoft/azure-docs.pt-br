@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3452bfee1e9228926bb687d1b9dc7fb26dfff85a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020119"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642181"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único usando a CLI
 
@@ -171,7 +171,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
    Address:  10.1.3.4
    ```
 
-3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. O exemplo a seguir usa o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. O exemplo a seguir usa o [Azure Data Studio](/sql/azure-data-studio/download) para realizar a operação.
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 

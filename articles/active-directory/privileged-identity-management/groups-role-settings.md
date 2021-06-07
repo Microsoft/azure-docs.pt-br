@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835383"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564629"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Definir configurações de grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -75,14 +75,14 @@ Na guia **notificações** da página Configurações de função, Privileged Id
 
 Você pode escolher uma destas opções de duração de atribuição **qualificadas** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir atribuição qualificada permanente** | Os administradores de recursos podem atribuir uma atribuição qualificada permanente. |
 | **Expirar atribuição qualificada após** | Os administradores de recursos podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificadas. |
 
 E, você pode escolher uma destas opções de duração da atribuição **ativa**:
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir atribuição ativa permanente** | Os administradores de recursos podem atribuir uma atribuição ativa permanente. |
 | **Expirar atribuição ativa após** | Os administradores de recursos podem exigir que todas as atribuições ativas tenham uma data de início e de término especificadas. |

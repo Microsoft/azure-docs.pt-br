@@ -10,10 +10,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: daba400b9daadf464c4c125ad266745237e71367
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142517"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introdução à identidade e módulo do módulo do Hub IoT (.NET)
@@ -64,11 +64,11 @@ Antes de começar, obtenha a cadeia de conexão do módulo. Entre no [portal do 
 
     ![Criar um projeto do Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. Selecione **criar** para criar seu projeto.
+1. Selecione **Criar** para criar seu projeto.
 
 1. No Visual Studio, abra **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução**. Selecione a guia **Procurar**.
 
-1. Pesquise e selecione **Microsoft. Azure. Devices. Client**e, em seguida, selecione **instalar**.
+1. Pesquise e selecione **Microsoft. Azure. Devices. Client** e, em seguida, selecione **instalar**.
 
     ![Captura de tela que mostra o "Microsoft. Azure. Devices. Client" selecionado e o botão "instalar" realçado.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
@@ -171,7 +171,7 @@ Agora você pode executar os aplicativos.
 
 1. Em **Propriedades comuns**, selecione **projeto de inicialização.**
 
-1. Selecione **vários projetos de inicialização**e, em seguida, selecione **Iniciar** como a ação para os aplicativos e **OK** para aceitar as alterações.
+1. Selecione **vários projetos de inicialização** e, em seguida, selecione **Iniciar** como a ação para os aplicativos e **OK** para aceitar as alterações.
 
 1. Pressione **F5** para iniciar os aplicativos.
 

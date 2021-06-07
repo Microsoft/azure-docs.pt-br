@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 763ccd397d8cd704ca161032e65f17979bccb53b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466156"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630955"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Configurar a VPN em seu dispositivo de borda de Azure Stack mini R via Azure PowerShell
 
@@ -284,7 +284,7 @@ Siga estas etapas na interface do usuário local do seu dispositivo Azure Stack 
 
     ![Configurar VPN 1](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-1.png)
 
-2. Na folha **Configurar VPN** :
+2. Na folha **Configurar VPN**:
     
     1. No arquivo carregar catálogo telefônico, aponte para o arquivo. pbk que você criou na etapa anterior.
     2. No arquivo de configuração carregar lista de IPS públicos, forneça o arquivo JSON do intervalo de IP do Data Center do Azure como entrada. Você baixou esse arquivo em uma etapa anterior de: [https://www.microsoft.com/download/details.aspx?id=56519](https://www.microsoft.com/download/details.aspx?id=56519) .
@@ -303,7 +303,7 @@ Siga estas etapas na interface do usuário local do seu dispositivo Azure Stack 
 
 ## <a name="validate-data-transfer-through-vpn"></a>Validar a transferência de dados por meio de VPN
 
-Para confirmar que a VPN está funcionando, copie os dados para um compartilhamento SMB. Siga as etapas em [Adicionar um compartilhamento](azure-stack-edge-j-series-manage-shares.md#add-a-share) no dispositivo do Azure Stack Edge. 
+Para confirmar que a VPN está funcionando, copie os dados para um compartilhamento SMB. Siga as etapas em [Adicionar um compartilhamento](azure-stack-edge-gpu-manage-shares.md#add-a-share) no dispositivo do Azure Stack Edge. 
 
 1. Copie um arquivo, por exemplo \data\pictures\waterfall.jpg para o compartilhamento SMB que você montou no sistema cliente. 
 2. Para validar que os dados estão passando por VPN, enquanto os dados estão sendo copiados:

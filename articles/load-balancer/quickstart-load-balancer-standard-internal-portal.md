@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 9f987cd99007f66540fd826a6cd14c6427ea0893
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562345"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056378"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o portal do Azure
 
@@ -68,7 +67,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **Oeste da Europa** |
+    | Região           | Selecione **(Europa) Oeste da Europa** |
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
@@ -106,16 +105,17 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 ## <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
-
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, digite **Balanceador de carga**. Selecione **Balanceador de carga** nos resultados da pesquisa.
+3. Na página **Balanceador de carga**, clique em **Criar**.
+4. Na página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Região         | Selecione **(Europa) Oeste da Europa**.                                        |
     | Type          | selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criada na etapa anterior. |
@@ -228,7 +228,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Grupo de recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM1** |
-    | Região | Selecione **Oeste da Europa** |
+    | Região | Selecione **(Europa) Oeste da Europa** |
     | Opções de disponibilidade | Selecione **Zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **Windows Server 2019 Datacenter** |
@@ -303,7 +303,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     | Grupo de recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **Oeste da Europa** |
+    | Região           | Selecione **(Europa) Oeste da Europa** |
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
@@ -350,7 +350,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
     | Nome                   | Insira **myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Região         | Selecione **(Europa) Oeste da Europa**.                                        |
     | Type          | selecione **Interno**.                                        |
     | SKU           | Selecione **Básico** |
     | Rede virtual | Selecione **myVNet** criada na etapa anterior. |

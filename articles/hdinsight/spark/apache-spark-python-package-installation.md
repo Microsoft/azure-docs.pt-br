@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929817"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868708"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerenciar com segurança o ambiente do Python no Azure HDInsight usando a Ação de Script
 
@@ -104,7 +104,7 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
 
     1. Abra a interface do usuário do Ambari, acesse a página Spark2, guia Configurações.
 
-        ![Alterar a configuração do Spark e do Livy por meio do Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Alterar a configuração do Spark e do Livy por meio do Ambari" border="true":::
 
     2. Expanda Livy2-env avançado e adicione as instruções abaixo na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho analogamente.
 
@@ -113,7 +113,7 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Alterar a configuração do Livy por meio do Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Alterar a configuração do Livy por meio do Ambari" border="true":::
 
     3. Expanda Spark2-env avançado, substitua a instrução exportação PYSPARK_PYTHON existente, na parte inferior. Se você instalou o ambiente virtual com um prefixo diferente, altere o caminho analogamente.
 
@@ -121,11 +121,11 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Alterar a configuração do Spark por meio do Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Alterar a configuração do Spark por meio do Ambari" border="true":::
 
     4. Salve as alterações e reinicie os serviços afetados. Essas alterações precisam de uma reinicialização do serviço Spark2. A interface do usuário do Ambari exibirá um lembrete de reinicialização necessária. Clique em Reiniciar para reiniciar todos os serviços afetados.
 
-        ![Reiniciar serviços](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Reiniciar serviços" border="true":::
 
     5. Defina duas propriedades para a sessão do Spark para garantir que o trabalho aponte para a configuração do Spark atualizada: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` e `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
 
@@ -153,7 +153,7 @@ O cluster do HDInsight depende do ambiente interno do Python, tanto Python 2.7 q
 
     Você pode confirmar duas vezes o ambiente do Python no Jupyter Notebook executando o código abaixo:
 
-    ![Verificar a versão do Python no Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Verificar a versão do Python no Jupyter Notebook" border="true":::
 
 ## <a name="known-issue"></a>Problema conhecido
 

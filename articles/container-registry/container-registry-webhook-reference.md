@@ -4,10 +4,10 @@ description: Referência para carga JSON para solicitações de webhook em um re
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74455968"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
@@ -39,7 +39,7 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 |Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
@@ -103,7 +103,7 @@ Webhook disparado quando um gráfico Helm é enviado por push para um repositór
 |Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#helm_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 
@@ -153,7 +153,7 @@ Webhook disparado quando um repositório ou manifesto de imagem é excluído. N�
 |Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#delete_request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
@@ -215,7 +215,7 @@ Webhook disparado quando um gráfico ou repositório Helm é excluído.
 |Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#chart_delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 

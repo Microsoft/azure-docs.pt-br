@@ -3,7 +3,7 @@ title: Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET | Mi
 description: Saiba como obter conteúdo de mídia nos serviços de mídia criando e carregando ativos usando o .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9f1dc0ce303b45ad2d43c0c9365edc197f7d8e
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee9bcc6861245ce40c43570126445a3613cd2744
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695587"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103013696"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
 

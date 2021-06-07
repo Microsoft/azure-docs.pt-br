@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779944"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimizar o desempenho usando tecnologias na memória no banco de dados SQL do Azure e Azure SQL Instância Gerenciada
@@ -74,11 +74,11 @@ Para obter mais informações sobre na memória no SQL Server, consulte:
 - [Guia de Índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview)
 - HTAP (Processamento Transacional e Analítico Híbrido), também conhecido como [análise operacional em tempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
-## <a name="in-memory-oltp"></a>OLTP na memória
+## <a name="in-memory-oltp"></a>OLTP in-memory
 
 In-Memory tecnologia OLTP fornece operações de acesso a dados extremamente rápidas, mantendo todos os dados na memória. Ela também usa índices especializados, compilação nativa de consultas e acesso de dados sem bloqueio para melhorar o desempenho da carga de trabalho OLTP. Há duas maneiras de organizar seus dados OLTP In-Memory:
 
-- Formato **rowstore com otimização de memória** , em que cada linha é um objeto de memória separado. Esse é um formato clássico de OLTP In-Memory otimizado para cargas de trabalho OLTP de alto desempenho. Há dois tipos de tabelas com otimização de memória que podem ser usados no formato rowstore com otimização de memória:
+- Formato **rowstore com otimização de memória**, em que cada linha é um objeto de memória separado. Esse é um formato clássico de OLTP In-Memory otimizado para cargas de trabalho OLTP de alto desempenho. Há dois tipos de tabelas com otimização de memória que podem ser usados no formato rowstore com otimização de memória:
 
   - *Tabelas duráveis* (SCHEMA_AND_DATA) em que as linhas colocadas na memória são preservadas após reiniciar o servidor. Esse tipo de tabelas se comporta como uma tabela rowstore tradicional com os benefícios adicionais de otimizações de memória.
   - *Tabelas não duráveis* (SCHEMA_ONLY) em que as linhas não são preservadas após a reinicialização. Esse tipo de tabela foi projetado para dados temporários (por exemplo, substituição de tabelas temporárias), ou tabelas em que você precisa carregar rapidamente os dados antes de movê-los para alguma tabela persistente (denominadas tabelas de preparo).
@@ -101,7 +101,7 @@ Há uma maneira programática de entender se determinado banco de dados dá supo
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Se a consulta retorna **1** , há suporte para o OLTP in-memory neste banco de dados. As consultas a seguir identificam todos os objetos que precisam ser removidos antes que um banco de dados possa ser desatualizado para Uso Geral, Standard ou Basic:
+Se a consulta retorna **1**, há suporte para o OLTP in-memory neste banco de dados. As consultas a seguir identificam todos os objetos que precisam ser removidos antes que um banco de dados possa ser desatualizado para Uso Geral, Standard ou Basic:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Tamanho dos dados e limite de armazenamento do OLTP in-memory
 
-O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no banco de dados SQL, temos o conceito de uma cota para o usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory* .
+O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no banco de dados SQL, temos o conceito de uma cota para o usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory*.
 
 Cada tipo de preço de banco de dados individual e de pool elástico compatível inclui determinada quantidade de armazenamento do OLTP in-memory.
 
@@ -149,7 +149,7 @@ Porém, fazer downgrade da camada pode afetar negativamente o banco de dados. O 
 
 Antes de fazer o downgrade do banco de dados para Uso Geral, Standard ou Basic, remova todas as tabelas com otimização de memória e os tipos de tabela, bem como todos os módulos T-SQL compilados nativamente.
 
-*Recursos de dimensionamento na camada de comercialmente crítico* : os dados em tabelas com otimização de memória devem se ajustar ao armazenamento OLTP In-Memory que está associado à camada do banco de dados ou à instância gerenciada ou está disponível no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
+*Recursos de dimensionamento na camada de comercialmente crítico*: os dados em tabelas com otimização de memória devem se ajustar ao armazenamento OLTP In-Memory que está associado à camada do banco de dados ou à instância gerenciada ou está disponível no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
 
 ## <a name="in-memory-columnstore"></a>Columnstore In-memory
 
@@ -180,7 +180,7 @@ Quando você usa os índices columnstore não clusterizado, a tabela base ainda 
 
 O *downgrade de banco de dados individual para básico ou Standard* pode não ser possível se a camada de destino estiver abaixo do S3. Os índices columnstore só têm suporte no tipo de preço Comercialmente Crítico/Premium e na camada Standard, S3 e superior, e não na camada Básico. Ao fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar de volta para um tipo ou nível com suporte, o índice columnstore será imediatamente disponibilizado para uso novamente.
 
-Se você tiver um índice columnstore **clusterizado** , a tabela inteira ficará indisponível após o downgrade. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte.
+Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte.
 
 > [!Note]
 > O SQL Instância Gerenciada dá suporte a índices Columnstore em todas as camadas.

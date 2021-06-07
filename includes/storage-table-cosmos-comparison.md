@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2021
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: a7e34f077ce1b2541168df40f2806fdb24a63a79
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 698219a446240950b9a661f923109fbb2f863556
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050741"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178617"
 ---
 Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá os seguintes benefícios ao mudar para a API de Tabela do Azure Cosmos DB:
 
@@ -21,7 +21,7 @@ Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá 
 | --- | --- | --- |
 | Latency | Rápido, mas não há limites superiores de latência. | Latência de milissegundo de dígito único para leituras e gravações, com suporte de leituras de latência de <10 ms e gravações de latência de <15 ms no 99º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Produtividade | Modelo de taxa de transferência variável. As tabelas têm um limite de escalabilidade de 20.000 operações/s. | Altamente escalonável com [taxa de transferência reservada dedicada por tabela](../articles/cosmos-db/request-units.md), que é respaldada por SLAs. As contas não têm nenhum limite superior na taxa de transferência e dão suporte a mais de 10 milhões de operações/s por tabela (no modo de taxa de transferência provisionada). |
-| Distribuição global | Região única com uma região secundária legível opcional para alta disponibilidade. Você não pode iniciar o failover. | [Distribuição global turnkey](../articles/cosmos-db/distribute-data-globally.md) de 1 a 30 ou mais regiões. Suporte para [failovers automáticos e manuais](../articles/cosmos-db/high-availability.md) a qualquer momento, em qualquer lugar no mundo. |
+| Distribuição global | Região única com uma região de leitura de réplica secundária para leitura opcional para alta disponibilidade, que dá suporte a failover automático e manual de conta. | [Distribuição global turnkey](../articles/cosmos-db/distribute-data-globally.md) de 1 a 30 ou mais regiões. Suporte para [failovers automáticos e manuais](../articles/cosmos-db/high-availability.md) a qualquer momento, em qualquer lugar no mundo. |
 | Indexação | Somente índice primário em PartitionKey e RowKey. Nenhum índice secundário. | Indexação automática e completa em todas as propriedades, sem gerenciamento de índice. |
 | Consulta | A execução de consulta usa o índice para chave primária. Caso contrário, realiza a verificação. | As consultas podem aproveitar a indexação automática em propriedades para tempos rápidos de consulta. |
 | Consistência | Forte na região primária. Eventual na região secundária. | [Cinco níveis de consistência bem definidos](../articles/cosmos-db/consistency-levels.md) para compensar a disponibilidade, latência, taxa de transferência e consistência com base nas necessidades do seu aplicativo. |

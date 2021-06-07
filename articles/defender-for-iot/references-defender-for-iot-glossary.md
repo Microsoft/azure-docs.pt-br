@@ -1,29 +1,25 @@
 ---
 title: Defender para glossário do IoT
 description: Este glossário fornece uma breve descrição dos termos e conceitos importantes do defender for IoT Platform.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 13eb84e91e1809012a2ae1ad01397b20cb322f16
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 191b94ca37118ed6413149dd6047f94c5ee568cd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104443"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786814"
 ---
 # <a name="defender-for-iot-glossary"></a>Defender para glossário do IoT
 
 Este glossário fornece uma breve descrição dos termos e conceitos importantes para a plataforma Azure defender para IoT. Selecione o link **saiba mais** links para ir para os termos relacionados no Glossário. Isso ajudará você a aprender e usar com mais rapidez as ferramentas de produto.
 
 > [!Note]
-> Qualquer termo com um `(AL)` listado em nome é um termo do construtor de dispositivos baseado em agente. 
+> Qualquer termo com um `(DB)` listado em nome é um termo do construtor de dispositivos baseado em agente. 
 
 <a name="glossary-a"></a>
 
-## <a name="a"></a>Um
+## <a name="a"></a>A
 
 | Termo | Descrição | Saiba mais |
 |--|--|--|
@@ -58,10 +54,10 @@ Este glossário fornece uma breve descrição dos termos e conceitos importantes
 | **Defender para mecanismos de IoT** | Os mecanismos de análise de autoaprendizado no defender para IoT eliminam a necessidade de atualizar assinaturas ou definir regras. Os mecanismos usam a análise comportamental específica do ICS e a ciência de dados para analisar continuamente o tráfego de rede para anomalias, malware, problemas operacionais, violações de protocolo e desvios da atividade de rede de linha de base.<br /><br />Quando um mecanismo detecta um desvio, um alerta é disparado. Os alertas podem ser exibidos e gerenciados na tela de **alertas** ou em um Siem. | **[Alerta](#glossary-a)** |
 | **Defender para plataforma IoT** | A solução defender para IoT instalada no defender para sensores IoT e no console de gerenciamento local. | **[](#s) <br /> Sensor <br /> [Console de gerenciamento local](#o)** |
 | **Mapa do dispositivo** | Uma representação gráfica dos dispositivos de rede que o defender for IoT detecta. Ele mostra as conexões entre os dispositivos e as informações sobre cada dispositivo. Use o mapa para:<br /><br />-Recuperar e controlar informações críticas do dispositivo.<br /><br />-Analisar fatias de rede.<br /><br />-Exportar detalhes e resumos do dispositivo. | **[Grupo de camadas Purdue](#p)** |
-| **Inventário de dispositivo-sensor** | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo detectados pelo defender para IoT. As opções estão disponíveis para:<br /><br />-Filtrar informações exibidas.<br /><br />-Exporte essas informações para um arquivo CSV.<br /><br />-Importar detalhes do registro do Windows. | **[Group](#g)** <br /><br />**[Inventário de dispositivo – console de gerenciamento local](#d)** |
+| **Inventário de dispositivo-sensor** | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo detectados pelo defender para IoT. As opções estão disponíveis para:<br /><br />-Filtrar informações exibidas.<br /><br />-Exporte essas informações para um arquivo CSV.<br /><br />-Importar detalhes do registro do Windows. | **[Agrupar](#g)** <br /><br />**[Inventário de dispositivo – console de gerenciamento local](#d)** |
 | **Inventário de dispositivo – console de gerenciamento local** | As informações do dispositivo de sensores conectados podem ser exibidas no console de gerenciamento local no inventário de dispositivos. Isso permite que os usuários do console de gerenciamento local tenham uma visão abrangente de todas as informações de rede. | **[Inventário de dispositivo-sensor](#d) <br /> <br /> [Inventário de dispositivos-integrador de dados](#d)** |
 | **Inventário de dispositivos-integrador de dados** | Os recursos de integração de dados do console de gerenciamento local permitem aprimorar os dados no inventário de dispositivos com informações de outros recursos da empresa. Os recursos de exemplo são CMDBs, DNS, firewalls e APIs da Web. | **[Inventário de dispositivo – console de gerenciamento local](#d)** |
-| **Dispositivo gêmeos**`(AL)` | Dispositivos gêmeos são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. | [Módulo...](#m) <br /> <br />[Módulo de segurança/a](#s) |
+| **Dispositivos gêmeos** `(DB)` | Dispositivos gêmeos são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. | [Módulo...](#m) <br /> <br />[Defender-IoT-micro-Agent.](#s) |
 
 ## <a name="e"></a>E
 
@@ -94,7 +90,7 @@ Este glossário fornece uma breve descrição dos termos e conceitos importantes
 
 | Termo | Descrição | Saiba mais |
 |--|--|--|
-| **Hub IoT** `(AL)` | Serviço gerenciado, hospedado na nuvem, que atua como um hub central de mensagens para comunicação bidirecional entre o aplicativo IoT e os dispositivos que ele gerencia.  |   |
+| **Hub IoT** `(DB)` | Serviço gerenciado, hospedado na nuvem, que atua como um hub central de mensagens para comunicação bidirecional entre o aplicativo IoT e os dispositivos que ele gerencia.  |   |
 | **Integrações** | Expanda o defender para recursos de IoT compartilhando informações de dispositivo com sistemas de parceiros. As organizações podem fazer a ponte de soluções de segurança, NAC, gerenciamento de incidentes e gerenciamento de dispositivos anteriormente encontradas para acelerar as respostas em todo o sistema e reduzir mais rapidamente os riscos. | **[Regra de encaminhamento](#f)** |
 | **Sub-rede interna** | Configurações de sub-rede definidas pelo defender para IoT. Em alguns casos, como ambientes que usam intervalos públicos como intervalos internos, você pode instruir o defender para IoT a resolver todas as sub-redes como sub-redes internas. As sub-redes são exibidas no mapa e em vários relatórios do defender for IoT. | **[Sub-redes](#s)** |
 
@@ -108,10 +104,11 @@ Este glossário fornece uma breve descrição dos termos e conceitos importantes
 
 ## <a name="m"></a>M
 
+
 | Termo | Descrição | Saiba mais |
 |--|--|--|
-| **Micro Agent**`(AL)` | Fornece recursos de segurança de profundidade para dispositivos IoT, incluindo a postura de segurança e a detecção de ameaças.  |    |
-| **Módulo Gêmeo** `(AL)` | Módulo gêmeo refere-se a são documentos JSON que armazenam informações do estado do módulo, incluindo metadados, configurações e condições. | [Dispositivo gêmeo](#d) <br /> <br />[Módulo de segurança/a](#s) |
+| **Micro Agent**`(DB)` | Fornece recursos de segurança de profundidade para dispositivos IoT, incluindo a postura de segurança e a detecção de ameaças. | |
+| **Módulo Gêmeo** `(DB)` | Módulo gêmeo refere-se a são documentos JSON que armazenam informações do estado do módulo, incluindo metadados, configurações e condições. | [Dispositivo gêmeo](#d) <br /> <br />[Defender-IoT-micro-Agent.](#s) |
 | **Evento de alerta de mudo** | Instrua o defender para IoT a ignorar continuamente a atividade com dispositivos idênticos e o tráfego comparável. | **[Alerta do](#glossary-a) <br /> <br /> [](#e) <br /> Regra <br /> de exclusão [Confirmar evento](#glossary-a) <br /> <br /> de alerta [Aprender evento de alerta](#l)** |
 
 ## <a name="n"></a>N
@@ -147,7 +144,7 @@ Este glossário fornece uma breve descrição dos termos e conceitos importantes
 | Termo | Descrição | Saiba mais |
 |--|--|--|
 | **Alerta de segurança** | Alertas que lidam com problemas de segurança, como tentativas excessivas de entrada de SMB ou detecções de malware. | **[Alerta do](#glossary-a) <br /> <br /> [Alerta operacional](#o)** |
-| **Módulo de segurança** /a `(AL)` | O módulo de segurança de tudo contém todas as informações relevantes para a segurança do dispositivo, para cada dispositivo específico em sua solução. | [Dispositivo gêmeo](#d) <br /> <br />[Módulo...](#m)  |
+| **Defender-IOT-micro-Agent** . `(DB)` | O defender-IoT-micro-Agent ' up ' armazena todas as informações relevantes à segurança do dispositivo para cada dispositivo específico em sua solução. | [Dispositivo gêmeo](#d) <br /> <br />[Módulo...](#m)  |
 | **Investigação seletiva** | O defender para IoT o inspeciona passivamente e se torna o tráfego e detecta informações relevantes sobre dispositivos, seus atributos, seus comportamentos e muito mais. Em determinados casos, algumas informações podem não estar visíveis em análises de rede passivas.<br /><br />Quando isso acontece, você pode usar as ferramentas de investigação seguras e granulares no defender for IoT para descobrir informações importantes sobre dispositivos inacessíveis anteriormente. | - |
 | **Sensor** | A máquina virtual ou física na qual a plataforma defender para IoT está instalada. | **[Console de gerenciamento local](#o)** |
 | **Site** | Um local que uma fábrica ou outra entidade. O site deve conter uma zona ou várias zonas nas quais um sensor está instalado. | **[Zona](#z)** |

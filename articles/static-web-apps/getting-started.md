@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562507"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449067"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure
 
-Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando a extensão do Visual Studio Code.
+Os Aplicativos Web Estáticos do Azure publicam um site pela criação de aplicativos por meio de um repositório de código. Neste guia de início rápido, você implantará um aplicativo nos Aplicativos Web Estáticos do Azure usando a extensão do Visual Studio Code.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free).
 
@@ -26,12 +26,13 @@ Se você não tiver uma assinatura do Azure, [crie uma conta de avaliação grat
 - Conta do [Azure](https://portal.azure.com)
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Extensão dos Aplicativos Web Estáticos do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- [Instalar o Git](https://www.git-scm.com/downloads)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para abrir no editor o repositório recém-clonado no computador.
+Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para abrir no editor o repositório clonado no computador.
 
 ## <a name="create-a-static-web-app"></a>Criar um aplicativo Web estático
 
@@ -42,7 +43,7 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
     > [!NOTE]
     > A entrada no Azure e no GitHub é necessária. Se você ainda não entrou no Azure e no GitHub por meio do Visual Studio Code, a extensão solicitará a você que entre em ambos durante o processo de criação.
 
-1. Posicione o mouse sobre o rótulo _Aplicativos Web Estáticos_ e escolha o **sinal de adição**.
+1. No rótulo _Aplicativos Web Estáticos_, escolha o **sinal de adição**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nome do aplicativo":::
 
@@ -52,45 +53,34 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Criar Aplicativo Web Estático":::
 
-1. Selecione o branch **main** e pressione **Enter**.
+1. Selecione as predefinições que correspondem ao seu tipo de aplicativo.
 
-    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome do branch":::
+    # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Predefinições de aplicativo: nenhuma estrutura":::
 
-1. Selecione **/** como a localização do código do aplicativo e clique em **ENTER**.
+    Insira **./** como a localização dos arquivos de aplicativo
 
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Localização do código do aplicativo":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Localização dos arquivos de aplicativo":::
 
-1. A extensão procura a localização da API no aplicativo. Este artigo não implementa uma API.
-
-    Selecione **Ignorar por enquanto** e clique em **ENTER**.
+    Selecione **Ignorar por enquanto** como a localização para a API do Azure Functions
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Localização da API":::
 
-1. Selecione a localização em que os arquivos são criados para produção no aplicativo.
+    Insira **./** como a localização de saída do build
 
-    # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
-
-    Desmarque a caixa e clique em **ENTER**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="Caminho dos arquivos do aplicativo":::
+    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Localização de saída do build do aplicativo":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    Digite **dist/angular-basic** e clique em **ENTER**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Caminho dos arquivos do aplicativo Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Predefinições de aplicativo: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 
-    Digite **build** e clique em **ENTER**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="Caminho dos arquivos do aplicativo React":::
+    :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Predefinições de aplicativo: React":::
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    Digite **dist** e clique em **ENTER**.
-
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Caminho dos arquivos do aplicativo Vue":::
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Predefinições de aplicativo: Vue":::
 
     ---
 
@@ -102,11 +92,13 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Confirmação criada":::
 
-1. Na janela do Explorador do Visual Studio Code, navegue até o nó que tem o nome da sua assinatura e expanda-o. Pode levar vários minutos para que a implantação seja concluída. Em seguida, retorne à seção Aplicativos Web Estáticos e selecione o nome do aplicativo, depois clique com o botão direito do mouse em my-first-static-web-app e selecione Abrir no Portal para ver o aplicativo no portal do Azure.
+    Em seguida, clique no botão **Abrir Ações no GitHub**. Esta página mostra o status do build do aplicativo.
 
-    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Abrir portal":::
+    Depois que a ação do GitHub for concluída, navegue até o site publicado.
 
-[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
+1. Para ver o site no navegador, clique com o botão direito do mouse no projeto na extensão de Aplicativos Web Estáticos e selecione **Procurar no Site**.
+
+    :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Procurar no site":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

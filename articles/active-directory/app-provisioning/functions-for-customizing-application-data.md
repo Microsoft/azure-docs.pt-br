@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8f5a4d3695722aae14b73bf6bba5f2e38593e08d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255790"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102198499"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para escrever expressões para mapeamentos de atributo no Azure AD
 
-Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
+Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para isso, você deve escrever uma expressão do tipo script que permita transformar os dados dos usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
 
 ## <a name="syntax-overview"></a>Visão geral da sintaxe
 
@@ -38,7 +38,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 ## <a name="list-of-functions"></a>Lista de funções
 
-[](#append) &nbsp; &nbsp; Acrescentar &nbsp; &nbsp; [](#bitand) &nbsp; &nbsp; BitAnd &nbsp; &nbsp; [](#cbool) &nbsp; &nbsp; CBool &nbsp; &nbsp; [](#coalesce) &nbsp; &nbsp; União &nbsp; &nbsp; [](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Contagem](#count) &nbsp; &nbsp; de &nbsp; &nbsp; [](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [](#formatdatetime) &nbsp; &nbsp; FormatDateTime &nbsp; &nbsp; [GUID](#guid) &nbsp; &nbsp; do &nbsp; &nbsp; [](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [](#isstring) &nbsp; &nbsp; IsString &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; de &nbsp; &nbsp; [](#join) &nbsp; &nbsp; Unir &nbsp; &nbsp; [À](#left) &nbsp; &nbsp; esquerda &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [substitua](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [switch](#switch) ToLower &nbsp; &nbsp; &nbsp; &nbsp; [](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
+[](#append) &nbsp; &nbsp; Acrescentar &nbsp; &nbsp; [](#bitand) &nbsp; &nbsp; BitAnd &nbsp; &nbsp; [](#cbool) &nbsp; &nbsp; CBool &nbsp; &nbsp; [](#coalesce) &nbsp; &nbsp; União &nbsp; &nbsp; [](#converttobase64) &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; [](#converttoutf8hex) &nbsp; &nbsp; ConvertToUTF8Hex &nbsp; &nbsp; [Contagem](#count) &nbsp; &nbsp; de &nbsp; &nbsp; [](#cstr) &nbsp; &nbsp; CStr &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; [](#formatdatetime) &nbsp; &nbsp; FormatDateTime &nbsp; &nbsp; [GUID](#guid) &nbsp; &nbsp; do &nbsp; &nbsp; [](#iif) &nbsp; &nbsp; IIF &nbsp; &nbsp; [](#instr) &nbsp; &nbsp; InStr &nbsp; &nbsp; [](#isnull) &nbsp; &nbsp; IsNull &nbsp; &nbsp; [](#isnullorempty) &nbsp; &nbsp; IsNullOrEmpty &nbsp; &nbsp; [](#ispresent) &nbsp; &nbsp; IsPresent &nbsp; &nbsp; [](#isstring) &nbsp; &nbsp; IsString &nbsp; &nbsp; [Item](#item) &nbsp; &nbsp; de &nbsp; &nbsp; [](#join) &nbsp; &nbsp; Unir &nbsp; &nbsp; [À](#left) &nbsp; &nbsp; esquerda &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [NumFromDate](#numfromdate) &nbsp; &nbsp; &nbsp; &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; &nbsp; &nbsp; [substitua](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [switch](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [](#toupper) &nbsp; &nbsp; &nbsp; &nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Acrescentar
@@ -51,8 +51,21 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+| **suffix** |Obrigatório |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+
+
+### <a name="append-constant-suffix-to-user-name"></a>Acrescentar sufixo constante ao nome de usuário
+Exemplo: se você estiver usando uma área restrita Salesforce, talvez seja necessário acrescentar um sufixo adicional a todos os nomes de usuário antes de sincronizá-los.
+
+**Expressão** 
+`Append([userPrincipalName], ".test")`
+
+**Entrada/saída de exemplo:** 
+
+* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
+* **Saída**: " John.Doe@contoso.com.test "
+
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -105,8 +118,21 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source1  … sourceN** | Obrigatório | Cadeia de caracteres |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
+| **source1  … sourceN** | Obrigatório | String |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
 | **defaultValue** | Opcional | Cadeia de caracteres | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
+
+### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>O valor do fluxo de email se não for nulo; caso contrário, flua userPrincipalName
+Exemplo: você deseja fluir o atributo de email se ele estiver presente. Se não for, você deseja fluir o valor de userPrincipalName em vez disso.
+
+**Expressão** 
+`Coalesce([mail],[userPrincipalName])`
+
+**Entrada/saída de exemplo:** 
+
+* **Entrada** (email): nulo
+* **Entrada** (userPrincipalName): " John.Doe@contoso.com "
+* **Saída**: " John.Doe@contoso.com "
+
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -118,7 +144,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser convertida em base 64|
+| **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em base 64|
 
 **Exemplo**
 `ConvertToBase64("Hello world!")`
@@ -135,7 +161,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser convertida em UTF8 hex|
+| **source** |Obrigatório |String |Cadeia de caracteres a ser convertida em UTF8 hex|
 
 **Exemplo**
 `ConvertToUTF8Hex("Hello world!")`
@@ -192,7 +218,7 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
-**Função:** FormatDateTime (origem, inputFormat, outputFormat)
+**Função:** FormatDateTime (origem, dateTimeStyles, inputFormat, outputFormat)
 
 **Descrição:** Usa uma cadeia de caracteres de data de um formato e a converte em um formato diferente.
 
@@ -200,9 +226,25 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-| **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
+| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+| **dateTimeStyles** | Opcional | Cadeia de caracteres | Use isso para especificar as opções de formatação que personalizam a análise de cadeia de caracteres para alguns métodos de análise de data e hora. Para obter os valores com suporte, consulte [Doc DateTimeStyles](/dotnet/api/system.globalization.datetimestyles). Se deixado em branco, o valor padrão usado será DateTimeStyles. RoundtripKind, DateTimeStyles. AllowLeadingWhite, DateTimeStyles. AllowTrailingWhite  |
+| **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **outputFormat** |Obrigatório |String |Formato da data de saída. |
+
+
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
+Exemplo: você deseja enviar datas para um aplicativo SaaS como o ServiceNow em um determinado formato. Você pode considerar o uso da expressão a seguir. 
+
+**Expressão** 
+
+`FormatDateTime([extensionAttribute1], , "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
+
+**Entrada/saída de exemplo:**
+
+* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
+* **Saída**: "2015-01-23"
+
 
 ---
 ### <a name="guid"></a>Guid
@@ -237,8 +279,8 @@ Retorna um DateTime que representa 1º de janeiro de 2012 às 11:13h.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value1** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser pesquisada |
-| **value2** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres a ser encontrada |
+| **value1** |Obrigatório |String |Cadeia de caracteres a ser pesquisada |
+| **value2** |Obrigatório |String |Cadeia de caracteres a ser encontrada |
 | **start** |Opcional |Inteiro |Posição inicial para localizar a subcadeia de caracteres|
 | **comparetype** |Opcional |Enumeração |Pode ser vbTextCompare ou vbBinaryCompare |
 
@@ -330,7 +372,7 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
  `Item([proxyAddresses], 1)` Retorna o segundo item no atributo de valores múltiplos.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Ingressar
 **Função:** Junção (separador, origem1, origem2,...)
 
 **Descrição:** Join () é semelhante a Append (), exceto pelo fato de que ele pode combinar vários valores de cadeia de caracteres de **origem** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres **separadora** .
@@ -341,8 +383,8 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
+| **separator** |Obrigatório |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+| **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
 
 ---
 ### <a name="left"></a>Esquerda
@@ -375,9 +417,9 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
-| **start** |Obrigatório |Número inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **length** |Obrigatório |Número inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+| **source** |Obrigatório |String |Geralmente o nome do atributo. |
+| **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -389,7 +431,19 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
+| **source** |Obrigatório |String | Geralmente um atributo de nome ou sobrenome. |
+
+
+### <a name="remove-diacritics-from-a-string"></a>Remover diacríticos de uma cadeia de caracteres
+Exemplo: você precisa substituir caracteres que contenham marcas de acentuação por caracteres equivalentes que não contenham marcas de acentuação.
+
+**Expressão:** NormalizeDiacritics ([excertoname])
+
+**Entrada/saída de exemplo:** 
+
+* **INPUT** (givenName): "Zoë"
+* **SAÍDA**:  "Zoe"
+
 
 ---
 ### <a name="not"></a>Not
@@ -413,14 +467,14 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value** |Obrigatório | Cadeia de caracteres | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Obrigatório | String | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exemplo:**
 * Exemplo de workday supondo que você deseja mapear o atributo *ContractEndDate* do workday, que está no formato *2020-12-31-08:00* para o campo *accountExpires* no AD, aqui está como você pode usar essa função e alterar o deslocamento do fuso horário para corresponder à sua localidade. 
-  `NumFromDate(Join("", FormatDateTime([ContractEndDate], "yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
+  `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), "T23:59:59-08:00"))`
 
 * SuccessFactors exemplo supondo que você deseja mapear o atributo *EndDate* de SuccessFactors que está no formato *M/d/aaaa hh: mm: SS TT* para *accountExpires* no AD, aqui está como você pode usar essa função e alterar o deslocamento de fuso horário para corresponder à sua localidade.
-  `NumFromDate(Join("",FormatDateTime([endDate],"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
+  `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd"),"T23:59:59-08:00"))`
 
 
 ---
@@ -465,7 +519,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de **origem** . |
+| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de **origem** . |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
 | **regexPattern** |Opcional |Cadeia de caracteres |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
 | **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
@@ -473,214 +527,8 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 | **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome do atributo a ser usado para o valor de substituição |
 | **modelos** |Opcional |Cadeia de caracteres |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
 
----
-### <a name="selectuniquevalue"></a>SelectUniqueValue
-**Função:** SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, ...)
-
-**Descrição:** Requer um mínimo de dois argumentos, que são regras exclusivas de geração de valor definidas usando expressões. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade no aplicativo/diretório de destino. O primeiro valor exclusivo encontrado será retornado o um. Se todos os valores já existem no destino, a entrada será obter mantida em garantia e o motivo pelo qual obtém registrado nos logs de auditoria. Não há nenhum limite superior para o número de argumentos que podem ser fornecidos.
-
-
- - Essa é uma função de nível superior, ele não pode ser aninhado.
- - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.   
- - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
- - Atualmente, essa função só tem suporte para "WORKDAY para Active Directory provisionamento de usuário" e "SuccessFactors para Active Directory provisionamento de usuário". Ele não pode ser usado com outros aplicativos de provisionamento. 
-
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar. |
-
-
----
-### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
-**Função:** SingleAppRoleAssignment ([appRoleAssignments])
-
-**Descrição:** Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuídos a um usuário para um determinado aplicativo. Essa função é necessária para converter o objeto appRoleAssignments em uma cadeia de caracteres de nome de função única. Observe que a prática recomendada é garantir que apenas um appRoleAssignment seja atribuído por usuário por vez, e se várias funções forem atribuídas a cadeia de caracteres de função retornada pode não ser previsível. 
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
-
----
-### <a name="split"></a>Divisão
-**Função:** Divisão (origem, delimitador)
-
-**Descrição:** Divide uma cadeia de caracteres em uma matriz de valores múltiplos, usando o caractere delimitador especificado.
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Valor da **origem** para atualizar. |
-| **delimitador** |Obrigatório |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
-
----
-### <a name="stripspaces"></a>StripSpaces
-**Função:** StripSpaces (origem)
-
-**Descrição:** Remove todos os caracteres de espaço ("") da cadeia de caracteres de origem.
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Valor da **origem** para atualizar. |
-
----
-### <a name="switch"></a>Comutador
-**Função:** Switch (Source, defaultValue, key1, value1, Key2, value2,...)
-
-**Descrição:** Quando o valor de **origem** corresponde a uma **chave**, retorna um **valor** para essa **chave**. Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue**.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
-| **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
-| **value** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
-
----
-### <a name="tolower"></a>ToLower
-**Função:** ToLower (origem, cultura)
-
-**Descrição:** Usa um valor de cadeia de caracteres de *origem* e o converte em letras minúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
-
----
-### <a name="toupper"></a>ToUpper
-**Função:** ToUpper (origem, cultura)
-
-**Descrição:** Usa um valor de cadeia de caracteres de *origem* e converte-o em maiúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **source** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
-
----
-### <a name="word"></a>Word
-**Função:** Word (cadeia de caracteres, WordNumber, delimitadores)
-
-**Descrição:** A função Word retorna uma palavra contida em uma cadeia de caracteres, com base nos parâmetros que descrevem os delimitadores a serem usados e o número da palavra a ser retornado.  cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
-
-Se number < 1, retorna uma cadeia de caracteres vazia.
-Se a cadeia de caracteres for nula, retorna a cadeia de caracteres vazia.
-Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não contiver nenhuma palavra identificada por delimitadores, uma cadeia de caracteres vazia será retornada.
-
-**Parâmetro** 
-
-| Nome | Obrigatório/repetição | Type | Observações |
-| --- | --- | --- | --- |
-| **Cadeia de caracteres** |Obrigatório |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
-| **WordNumber** |Necessária | Inteiro | Número que identifica qual número de palavras deve retornar|
-| **delimitadores** |Obrigatório |Cadeia de caracteres| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
-
-**Exemplo**
-`Word("The quick brown fox",3," ")`
-
-Retorna "Brown".
-
-`Word("This,string!has&many separators",3,",!&#")`
-
-Retorna "tem".
-
----
-
-## <a name="examples"></a>Exemplos
-### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
-Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário.  Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
-
-**Expressão** 
-`Replace([mail], "@contoso.com", , ,"", ,)`
-
-**Entrada/saída de exemplo:** 
-
-* **INPUT** (mail): "john.doe@contoso.com"
-* **SAÍDA**: "davi.barros"
-
-### <a name="append-constant-suffix-to-user-name"></a>Acrescentar sufixo constante ao nome de usuário
-Se você estiver usando um Salesforce Sandbox, talvez seja necessário acrescentar um sufixo adicional a todos os nomes de usuário antes de sincronizá-los.
-
-**Expressão** 
-`Append([userPrincipalName], ".test")`
-
-**Entrada/saída de exemplo:** 
-
-* **INPUT**: (userPrincipalName): "John.Doe@contoso.com"
-* **Saída**: " John.Doe@contoso.com.test "
-
-### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias de usuário concatenando partes do nome e do sobrenome
-Você precisa gerar um alias de usuário selecionando as três primeiras letras do nome do usuário e as cinco primeiras letras do sobrenome do usuário.
-
-**Expressão** 
-`Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
-
-**Entrada/saída de exemplo:** 
-
-* **ENTRADA** (givenName): "Davi"
-* **ENTRADA** (sobrenome): "Barros"
-* **Saída**: "davibarros"
-
-### <a name="remove-diacritics-from-a-string"></a>Remover diacríticos de uma cadeia de caracteres
-Você precisa substituir caracteres que contenham os acentos por caracteres equivalentes que não contenham acentos.
-
-**Expressão:** NormalizeDiacritics ([excertoname])
-
-**Entrada/saída de exemplo:** 
-
-* **INPUT** (givenName): "Zoë"
-* **SAÍDA**:  "Zoe"
-
-### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
-É necessário usar uma lista de cadeias de caracteres delimitada por vírgula e dividi-las em uma matriz que possa ser conectada a um atributo com vários valores, como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi preenchida em extensionAttribute5 no Azure AD.
-
-**Expressão:** Split ([extensionAttribute5], ",")
-
-**Entrada/saída de exemplo:** 
-
-* **Entrada** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
-* **SAÍDA**: ["PermissionSetOne", "PermissionSetTwo"]
-
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
-Você deseja enviar datas para um aplicativo SaaS em um determinado formato.  Por exemplo, você deseja formatar datas para o ServiceNow.
-
-**Expressão** 
-
-`FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
-
-**Entrada/saída de exemplo:**
-
-* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **Saída**: "2015-01-23"
-
-### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
-
-Você precisa definir o fuso horário do usuário com base no código de estado armazenado no AD do Azure.  Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
-
-**Expressão** 
-`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
-
-**Entrada/saída de exemplo:**
-
-* **ENTRADA** (estado): "QLD"
-* **SAÍDA**: "Australia/Brisbane"
-
 ### <a name="replace-characters-using-a-regular-expression"></a>Substituir caracteres usando uma expressão regular
-É necessário localizar caracteres que correspondam a um valor de expressão regular e removê-los.
+Exemplo: você precisa localizar caracteres que correspondem a um valor de expressão regular e removê-los.
 
 **Expressão** 
 
@@ -691,19 +539,28 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 * **ENTRADA** (mailNickname: "john_doe72"
 * **Saída**: "72"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
-No exemplo a seguir, o valor do UPN é gerado pela concatenação dos campos de origem PreferredFirstName e PreferredLastName, e a função ToLower opera na cadeia de caracteres gerada para converter todos os caracteres em letras minúsculas. 
 
-`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+---
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Função:** SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, ...)
 
-**Entrada/saída de exemplo:**
+**Descrição:** Requer um mínimo de dois argumentos, que são regras exclusivas de geração de valor definidas usando expressões. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade no aplicativo/diretório de destino. O primeiro valor exclusivo encontrado será retornado o um. Se todos os valores já existem no destino, a entrada será obter mantida em garantia e o motivo pelo qual obtém registrado nos logs de auditoria. Não há nenhum limite superior para o número de argumentos que podem ser fornecidos.
 
-* **INPUT** (PreferredFirstName): "John"
-* **INPUT** (PreferredLastName): "Smith"
-* **Saída**: " john.smith@contoso.com "
+
+ - Essa é uma função de nível superior, ele não pode ser aninhado.
+ - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.     
+ - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
+ - Atualmente, essa função só tem suporte para "WORKDAY para Active Directory provisionamento de usuário" e "SuccessFactors para Active Directory provisionamento de usuário". Ele não pode ser usado com outros aplicativos de provisionamento. 
+
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
-Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar um valor para o atributo UPN e procure sua exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
+Exemplo: com base no nome do usuário, no nome do meio e no sobrenome, você precisa gerar um valor para o atributo UPN e verificar sua exclusividade no diretório do AD de destino antes de atribuir o valor ao atributo UPN.
 
 **Expressão** 
 
@@ -723,17 +580,177 @@ Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar u
 * **Saída**: " J.Smith@contoso.com " se o valor UPN John.Smith@contoso.com já existir no diretório
 * **Saída**: " Jo.Smith@contoso.com " se os dois valores UPN acima já existirem no diretório
 
-### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>O valor do fluxo de email se não for nulo; caso contrário, flua userPrincipalName
-Você deseja fluir o atributo mail se ele estiver presente. Se não for, você deseja fluir o valor de userPrincipalName em vez disso.
 
-**Expressão** 
-`Coalesce([mail],[userPrincipalName])`
+
+---
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Função:** SingleAppRoleAssignment ([appRoleAssignments])
+
+**Descrição:** Retorna um único appRoleAssignment da lista de todos os appRoleAssignments atribuídos a um usuário para um determinado aplicativo. Essa função é necessária para converter o objeto appRoleAssignments em uma cadeia de caracteres de nome de função única. Observe que a prática recomendada é garantir que apenas um appRoleAssignment seja atribuído por usuário por vez, e se várias funções forem atribuídas a cadeia de caracteres de função retornada pode não ser previsível. 
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Obrigatório |String |Objeto **[appRoleAssignments]**. |
+
+---
+### <a name="split"></a>Divisão
+**Função:** Divisão (origem, delimitador)
+
+**Descrição:** Divide uma cadeia de caracteres em uma matriz de valores múltiplos, usando o caractere delimitador especificado.
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **source** |Obrigatório |String |Valor da **origem** para atualizar. |
+| **delimitador** |Obrigatório |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres em uma matriz de vários valores
+Exemplo: você precisa usar uma lista delimitada por vírgulas de cadeias de caracteres e dividi-las em uma matriz que pode ser conectada a um atributo de vários valores como o atributo PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi preenchida em extensionAttribute5 no Azure AD.
+
+**Expressão:** Split ([extensionAttribute5], ",")
 
 **Entrada/saída de exemplo:** 
 
-* **Entrada** (email): nulo
-* **Entrada** (userPrincipalName): " John.Doe@contoso.com "
-* **Saída**: " John.Doe@contoso.com "
+* **Entrada** (extensionAttribute5): "PermissionSetOne, PermissionSetTwo"
+* **SAÍDA**: ["PermissionSetOne", "PermissionSetTwo"]
+
+
+---
+### <a name="stripspaces"></a>StripSpaces
+**Função:** StripSpaces (origem)
+
+**Descrição:** Remove todos os caracteres de espaço ("") da cadeia de caracteres de origem.
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **source** |Obrigatório |String |Valor da **origem** para atualizar. |
+
+---
+### <a name="switch"></a>Comutador
+**Função:** Switch (Source, defaultValue, key1, value1, Key2, value2,...)
+
+**Descrição:** Quando o valor de **origem** corresponde a uma **chave**, retorna um **valor** para essa **chave**. Se o valor da **origem** não corresponder a nenhuma chave, retorna **defaultValue**.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros. A função não deve ser usada para atributos referenciais como Manager. 
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **source** |Obrigatório |String |**Source** a atualizar. |
+| **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
+| **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **value** |Obrigatório |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
+
+### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
+Exemplo: você precisa definir o fuso horário do usuário com base no código de estado armazenado no Azure AD.  Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
+
+**Expressão** 
+`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
+
+**Entrada/saída de exemplo:**
+
+* **ENTRADA** (estado): "QLD"
+* **SAÍDA**: "Australia/Brisbane"
+
+
+---
+### <a name="tolower"></a>ToLower
+**Função:** ToLower (origem, cultura)
+
+**Descrição:** Usa um valor de cadeia de caracteres de *origem* e o converte em letras minúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor userPrincipalName (UPN) gerado em letras minúsculas
+Exemplo: você gostaria de gerar o valor UPN concatenando os campos de origem nomepreferido e PreferredLastName e convertendo todos os caracteres em letras minúsculas. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Entrada/saída de exemplo:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **Saída**: " john.smith@contoso.com "
+
+
+---
+### <a name="toupper"></a>ToUpper
+**Função:** ToUpper (origem, cultura)
+
+**Descrição:** Usa um valor de cadeia de caracteres de *origem* e converte-o em maiúsculas usando as regras de cultura especificadas. Se não houver nenhuma informação de *cultura* especificada, ela usará a Cultura invariável.
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **source** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
+| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+
+---
+### <a name="word"></a>Word
+**Função:** Word (cadeia de caracteres, WordNumber, delimitadores)
+
+**Descrição:** A função Word retorna uma palavra contida em uma cadeia de caracteres, com base nos parâmetros que descrevem os delimitadores a serem usados e o número da palavra a ser retornado.  cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
+
+Se number < 1, retorna uma cadeia de caracteres vazia.
+Se a cadeia de caracteres for nula, retorna a cadeia de caracteres vazia.
+Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não contiver nenhuma palavra identificada por delimitadores, uma cadeia de caracteres vazia será retornada.
+
+**Parâmetro** 
+
+| Nome | Obrigatório/repetição | Type | Observações |
+| --- | --- | --- | --- |
+| **Cadeia de caracteres** |Obrigatório |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
+| **WordNumber** |Necessária | Inteiro | Número que identifica qual número de palavras deve retornar|
+| **delimitadores** |Obrigatório |String| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
+
+**Exemplo**
+`Word("The quick brown fox",3," ")`
+
+Retorna "Brown".
+
+`Word("This,string!has&many separators",3,",!&#")`
+
+Retorna "tem".
+
+---
+
+## <a name="examples"></a>Exemplos
+Esta seção fornece mais exemplos de uso de função de expressão. 
+
+### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
+Você precisa remover um nome de domínio conhecido do email de um usuário para obter um nome de usuário.  Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
+
+**Expressão** 
+`Replace([mail], "@contoso.com", , ,"", ,)`
+
+**Entrada/saída de exemplo:** 
+
+* **INPUT** (mail): "john.doe@contoso.com"
+* **SAÍDA**: "davi.barros"
+
+
+### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar o alias de usuário concatenando partes do nome e do sobrenome
+Você precisa gerar um alias de usuário selecionando as três primeiras letras do nome do usuário e as cinco primeiras letras do sobrenome do usuário.
+
+**Expressão** 
+`Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
+
+**Entrada/saída de exemplo:** 
+
+* **ENTRADA** (givenName): "Davi"
+* **ENTRADA** (sobrenome): "Barros"
+* **Saída**: "davibarros"
+
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)

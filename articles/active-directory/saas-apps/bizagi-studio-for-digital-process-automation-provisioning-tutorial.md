@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
 ms.openlocfilehash: 72e021f47bb8db4dedf0e434d0d94bb2118a4c00
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728145"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: configurar o BizAgi Studio para a automação de processos digitais para o provisionamento automático de usuário
@@ -79,7 +79,7 @@ Observe os seguintes pontos sobre o escopo:
 
 * Quando você estiver atribuindo usuários e grupos ao BizAgi Studio para automação de processo digital, deverá selecionar uma função diferente de **acesso padrão**. Os usuários com a função de acesso padrão são excluídos do provisionamento e são marcados nos logs de provisionamento, conforme serão marcados como não tendo sido efetivamente qualificados. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções. 
 
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo do provisionamento é definido como usuários e grupos atribuídos, você pode controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido como todos os usuários e grupos, você pode especificar um [filtro de escopo baseado em atributo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, é possível controlar isso atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="configure-automatic-user-provisioning"></a>Configurar o provisionamento automático de usuário 
@@ -159,7 +159,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 
 ## <a name="monitor-your-deployment"></a>Monitorar a implantação
-Depois de configurar o provisionamento, use os seguintes recursos para monitorar sua implantação:
+Após configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 - Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não.
 - Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e como fechá-lo para conclusão.

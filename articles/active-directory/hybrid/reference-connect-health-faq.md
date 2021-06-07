@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367989"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
@@ -210,6 +210,6 @@ A certificação do agente será renovada automaticamente **6 meses** antes da d
 * [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
-* [Histórico de versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)

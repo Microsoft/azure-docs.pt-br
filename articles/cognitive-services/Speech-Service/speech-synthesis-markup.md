@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: c4e70c7f74c202b7de44a259b8a680f57aeaa041
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631968"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645035"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -44,7 +44,7 @@ Ao usar o SSML, tenha em mente que caracteres especiais, como aspas, apóstrofos
 
 ## <a name="supported-ssml-elements"></a>Elementos SSML com suporte
 
-Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos são usados para ajustar a densidade, Prosody, volume e muito mais. As seções a seguir detalham como cada elemento é usado e quando um elemento é obrigatório ou opcional.  
+Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos são usados para ajustar a densidade, Prosody, volume e muito mais. As seções a seguir detalham como cada elemento é usado e quando um elemento é obrigatório ou opcional.
 
 > [!IMPORTANT]
 > Não se esqueça de usar aspas duplas em relação aos valores de atributo. Os padrões para um XML válido bem formado requer que os valores de atributo sejam colocados entre aspas duplas. Por exemplo, `<prosody volume="90">` é um elemento válido bem formado, mas `<prosody volume=90>` não é. O SSML pode não reconhecer valores de atributo que não estão entre aspas.
@@ -88,11 +88,11 @@ O `voice` elemento é obrigatório. Ele é usado para especificar a voz que é u
 **Exemplo**
 
 > [!NOTE]
-> Este exemplo usa a `en-US-AriaRUS` voz. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech).
+> Este exemplo usa a `en-US-JennyNeural` voz. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -100,7 +100,7 @@ O `voice` elemento é obrigatório. Ele é usado para especificar a voz que é u
 
 ## <a name="use-multiple-voices"></a>Usar várias vozes
 
-Dentro do `speak` elemento, você pode especificar várias vozes para a saída de conversão de texto em fala. Essas vozes podem estar em idiomas diferentes. Para cada voz, o texto deve ser encapsulado em um `voice` elemento. 
+Dentro do `speak` elemento, você pode especificar várias vozes para a saída de conversão de texto em fala. Essas vozes podem estar em idiomas diferentes. Para cada voz, o texto deve ser encapsulado em um `voice` elemento.
 
 **Atributos**
 
@@ -117,7 +117,7 @@ Dependendo da linguagem do SDK de fala, você definirá a `"SpeechServiceRespons
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>consulte.
 
 ```csharp
 speechConfig.SetProperty(
@@ -126,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>consulte.
 
 ```cpp
 speechConfig->SetProperty(
@@ -135,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>consulte.
 
 ```java
 speechConfig.setProperty(
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>consulte.
 
 ```python
 speech_config.set_property_by_name(
@@ -153,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty` </a>consulte.
 
 ```javascript
 speechConfig.setProperty(
@@ -162,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>consulte.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -170,7 +170,7 @@ Para obter mais informações, confira <a href="https://docs.microsoft.com/objec
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para obter mais informações, confira <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Para obter mais informações, <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>consulte.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -183,11 +183,11 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-Guy24kRUS">
-        Good morning to you too Aria!
+    <voice name="en-US-GuyNeural">
+        Good morning to you too Jenny!
     </voice>
 </speak>
 ```
@@ -213,7 +213,7 @@ Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `zh-CN-XiaoxuanNeural` Apresentação
 * `zh-CN-XiaoruiNeural` Apresentação
 
-A intensidade do estilo de fala pode ser alterada para melhor se ajustar ao seu caso de uso. Você pode especificar um estilo mais forte ou mais flexível com `styledegree` o para tornar a fala mais expressiva ou subdued. 
+A intensidade do estilo de fala pode ser alterada para melhor se ajustar ao seu caso de uso. Você pode especificar um estilo mais forte ou mais flexível com `styledegree` o para tornar a fala mais expressiva ou subdued.
 
 Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `zh-CN-XiaoxiaoNeural`
@@ -254,6 +254,7 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiável e autoritativo para entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para entrega de notícias geral        |
+|                         | `style="narration-professional"` | Expressar um tom profissional, objetivo para leitura de conteúdo        |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
 |                         | `style="chat"`            | Expressa um tom casual e relaxado                         |
 |                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
@@ -275,11 +276,11 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
 |                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
 |                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.          |
-|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
-|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
-|                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |   
-| `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  | 
-| `zh-CN-YunyeNeural`     | `style="calm"`            | Expressa uma atitude fria, coletada e composta durante a fala. Tom, pitch, Prosody é muito mais uniforme em comparação com outros tipos de fala.    | 
+|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |
+|                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expressa uma atitude fria, coletada e composta durante a fala. Tom, pitch, Prosody é muito mais uniforme em comparação com outros tipos de fala.    |
 |                         | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
 |                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
@@ -301,22 +302,22 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
 |                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
 |                         | `style="embarrassed"`     | Expressa um tom incerto e hesitar quando o orador está se sentindo desconfortável   |
-|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
-|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
+|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |
 | `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
 |                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
 |                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
 |                         | `style="depressed"`       | Expressa um tom de melancholic e despondent com densidade mais baixa e energia    |
-|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |  
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |
 | `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
 |                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
 |                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.    |
 |                         | `style="depressed"`       | Expressa um tom de melancholic e despondent com densidade mais baixa e energia    |
-|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |
 | `zh-CN-XiaoruiNeural`    | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
@@ -398,7 +399,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Segurança                      | Description |
+| Segurança                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -418,10 +419,10 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 ```
 ## <a name="add-silence"></a>Adicionar silêncio
 
-Use o `mstts:silence` elemento para inserir pausas antes ou depois do texto ou entre as duas sentenças adjacentes. 
+Use o `mstts:silence` elemento para inserir pausas antes ou depois do texto ou entre as duas sentenças adjacentes.
 
 > [!NOTE]
->A diferença entre `mstts:silence` e `break` é que `break` pode ser adicionada a qualquer lugar no texto, mas o silêncio funciona apenas no início ou no final do texto de entrada ou no limite de 2 sentenças adjacentes.  
+>A diferença entre `mstts:silence` e `break` é que `break` pode ser adicionada a qualquer lugar no texto, mas o silêncio funciona apenas no início ou no final do texto de entrada ou no limite de 2 sentenças adjacentes.
 
 
 **Sintaxe**
@@ -434,18 +435,18 @@ Use o `mstts:silence` elemento para inserir pausas antes ou depois do texto ou e
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `type` | Especifica o local de silêncio a ser adicionado: <ul><li>À esquerda – no início do texto </li><li>Cauda – no final do texto </li><li>Sentenceboundary – entre frases adjacentes </li></ul> | Obrigatório |
+| `type` | Especifica o local de silêncio a ser adicionado: <ul><li>`Leading` – no início do texto </li><li>`Tailing` – no final do texto </li><li>`Sentenceboundary` – entre frases adjacentes </li></ul> | Obrigatório |
 | `Value` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Obrigatório |
 
 **Exemplo** Neste exemplo, `mtts:silence` é usado para adicionar 200 MS de silêncio entre duas frases.
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
-<voice name="en-US-AriaNeural"> 
-<mstts:silence  type="Sentenceboundary" value="200ms"/> 
-If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
-A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
-</voice> 
-</speak> 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<voice name="en-US-AriaNeural">
+<mstts:silence  type="Sentenceboundary" value="200ms"/>
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
+</voice>
+</speak>
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>Especificar parágrafos e frases
@@ -467,7 +468,7 @@ O `s` elemento pode conter texto e os seguintes elementos: `audio` ,,,,, `break`
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -499,14 +500,14 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no `ph` atributo. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonético internacional</a></li><li>`sapi`&ndash; [Alfabeto fonético do serviço de fala](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Conjunto de telefone universal</a></li></ul><br>O alfabeto aplica-se somente ao `phoneme` no elemento. | Opcional |
+| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no `ph` atributo. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto fonético internacional</a></li><li>`sapi`&ndash; [Alfabeto fonético do serviço de fala](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Conjunto de telefone universal</a></li></ul><br>O alfabeto aplica-se somente ao `phoneme` no elemento. | Opcional |
 | `ph` | Uma cadeia de caracteres que contém telefones que especificam a pronúncia da palavra no `phoneme` elemento. Se a cadeia de caracteres especificada contiver telefones não reconhecidos, o serviço de conversão de texto em fala (TTS) rejeitará todo o documento SSML e produzirá nenhuma saída de fala especificada no documento. | Necessário se estiver usando fonemas. |
 
 **Exemplos**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -514,7 +515,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -522,7 +523,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -533,7 +534,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 Às vezes, o serviço de conversão de texto em fala não pode pronunciar uma palavra com precisão. Por exemplo, o nome de uma empresa ou um termo médico. Os desenvolvedores podem definir como as entidades únicas são lidas em SSML usando as `phoneme` `sub` marcas e. No entanto, se você precisar definir como várias entidades são lidas, poderá criar um léxico personalizado usando a `lexicon` marca.
 
 > [!NOTE]
-> O léxico personalizado atualmente dá suporte à codificação UTF-8. 
+> O léxico personalizado atualmente dá suporte à codificação UTF-8.
 
 > [!NOTE]
 > Não há suporte para o léxico personalizado para essas 5 vozes (et-EE-AnuNeural, GA-IE-OrlaNeural, lt-LT-OnaNeural, LV-LV-EveritaNeural e MT-MT-GarceNeural) no momento.
@@ -551,40 +552,40 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | O endereço do documento PLS externo. | Obrigatórios.           |
 
-**Uso**
+**Usage**
 
 Para definir como várias entidades são lidas, você pode criar um léxico personalizado, que é armazenado como um arquivo. xml ou. pls. Este é um arquivo. XML de exemplo.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<lexicon version="1.0" 
+<lexicon version="1.0"
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
       alphabet="ipa" xml:lang="en-US">
   <lexeme>
-    <grapheme>BTW</grapheme> 
-    <alias>By the way</alias> 
+    <grapheme>BTW</grapheme>
+    <alias>By the way</alias>
   </lexeme>
   <lexeme>
-    <grapheme> Benigni </grapheme> 
+    <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
 </lexicon>
 ```
 
-O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um `grapheme` elemento e um ou mais `grapheme` `alias` elementos, e `phoneme` . O `grapheme` elemento contém texto que descreve <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">o <span class="docon docon-navigate-external x-hidden-focus"></span> orthography </a>. Os `alias` elementos são usados para indicar a pronúncia de um acrônimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como o `lexeme` é pronunciado.
+O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um `grapheme` elemento e um ou mais `grapheme` `alias` elementos, e `phoneme` . O `grapheme` elemento contém texto que descreve o <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. Os `alias` elementos são usados para indicar a pronúncia de um acrônimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como o `lexeme` é pronunciado.
 
 É importante observar que não é possível definir diretamente a pronúncia de uma frase usando o léxico personalizado. Se você precisar definir a pronúncia para um acrônimo ou um termo abreviado, primeiro forneça um `alias` e, em seguida, associe o `phoneme` com isso `alias` . Por exemplo:
 
 ```xml
   <lexeme>
-    <grapheme>Scotland MV</grapheme> 
-    <alias>ScotlandMV</alias> 
+    <grapheme>Scotland MV</grapheme>
+    <alias>ScotlandMV</alias>
   </lexeme>
   <lexeme>
-    <grapheme>ScotlandMV</grapheme> 
+    <grapheme>ScotlandMV</grapheme>
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
@@ -592,8 +593,8 @@ O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elem
 Você também pode fornecer diretamente o esperado `alias` para o acrônimo ou o termo abreviado. Por exemplo:
 ```xml
   <lexeme>
-    <grapheme>Scotland MV</grapheme> 
-    <alias>Scotland Media Wave</alias> 
+    <grapheme>Scotland MV</grapheme>
+    <alias>Scotland Media Wave</alias>
   </lexeme>
 ```
 
@@ -610,10 +611,10 @@ Depois de publicar o léxico personalizado, você pode referenciá-lo de seu SSM
 > O `lexicon` elemento deve estar dentro do `voice` elemento.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
-          xmlns:mstts="http://www.w3.org/2001/mstts" 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+          xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -621,7 +622,7 @@ Depois de publicar o léxico personalizado, você pode referenciá-lo de seu SSM
 </speak>
 ```
 
-Ao usar esse léxico personalizado, "BTW" será lido como "a propósito". "Benignoi" será lido com o IPA fornecido "bɛ ˈ ni ː nji".  
+Ao usar esse léxico personalizado, "BTW" será lido como "a propósito". "Benignoi" será lido com o IPA fornecido "bɛ ˈ ni ː nji".
 
 **Limitações**
 - Tamanho do arquivo: o limite máximo de tamanho de arquivo léxico personalizado é 100 KB, se além desse tamanho, a solicitação de síntese falhará.
@@ -637,7 +638,7 @@ Você pode usar o `sapi` como o vale para o `alphabet` atributo com léxicos per
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<lexicon version="1.0" 
+<lexicon version="1.0"
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
@@ -681,7 +682,7 @@ Como os valores de atributo prosódico podem variar em um intervalo maior, o rec
 
 ### <a name="change-speaking-rate"></a>Alterar taxa de fala
 
-A taxa de fala pode ser aplicada a vozes neurais e a vozes padrão na palavra ou no nível da frase. 
+A taxa de fala pode ser aplicada a vozes neurais e a vozes padrão na palavra ou no nível da frase.
 
 **Exemplo**
 
@@ -703,7 +704,7 @@ As alterações de volume podem ser aplicadas a vozes padrão na palavra ou no n
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -736,7 +737,7 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
-            Were you the only person in the room? 
+            Were you the only person in the room?
         </prosody>
     </voice>
 </speak>
@@ -775,17 +776,17 @@ A seguir estão os tipos de conteúdo com suporte para os `interpret-as` `format
 | `telephone` | | O texto é falado como um número de telefone. O `format` atributo pode conter dígitos que representam um código de país. Por exemplo, "1" para o Estados Unidos ou "39" para a Itália. O mecanismo de síntese de fala pode usar essas informações para orientar sua pronúncia de um número de telefone. O número de telefone também pode incluir o código do país e, nesse caso, tem precedência sobre o código do país no `format` . O mecanismo de síntese de fala pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "meu número é código de área 8 8 8 5 5 5 1 2 1 2." |
 | `time` | hms12, hms24 | O texto é falado como uma hora. O `format` atributo especifica se a hora é especificada usando um relógio de 12 horas (hms12) ou um relógio de 24 horas (hms24). Use dois-pontos para separar números que representam horas, minutos e segundos. Estes são exemplos de tempo válidos: 12:35, 1:14:32, 08:15 e 02:50:45. O mecanismo de síntese de fala pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "o treinamento faz parte de quatro A M". |
 
-**Uso**
+**Usage**
 
 O `say-as` elemento pode conter apenas texto.
 
 **Exemplo**
 
 O mecanismo de síntese de fala fala o exemplo a seguir como "sua primeira solicitação foi por um quarto de outubro de nineteenth 20 10 com chegada antecipada às 12 35 PM".
- 
+
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -823,7 +824,7 @@ Qualquer áudio incluído no documento SSML deve atender a estes requisitos:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -863,11 +864,168 @@ Somente um arquivo de áudio de segundo plano é permitido por documento SSML. N
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```
+
+## <a name="bookmark-element"></a>Elemento Bookmark
+
+O elemento Bookmark permite que você insira marcadores personalizados em SSML para obter o deslocamento de cada marcador no fluxo de áudio.
+Não vamos ler os elementos de indicador.
+O elemento Bookmark pode ser usado para fazer referência a um local específico na sequência de texto ou de marca.
+
+> [!NOTE]
+> `bookmark` o elemento funciona apenas para `en-US-AriaNeural` voz por enquanto.
+
+**Sintaxe**
+
+```xml
+<bookmark mark="string"/>
+```
+
+**Atributos**
+
+| Atributo | Descrição                                   | Obrigatório/Opcional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+|  `mark`   | Especifica o texto de referência do `bookmark` elemento. | Obrigatórios. |
+
+**Exemplo**
+
+Por exemplo, talvez você queira saber o deslocamento de tempo de cada palavra de flor como a seguir
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-AriaNeural">
+        We are selling <bookmark mark='flower_1'/>roses and <bookmark mark='flower_2'/>daisies.
+    </voice>
+</speak>
+```
+
+### <a name="get-bookmark-using-speech-sdk"></a>Obter indicador usando o SDK de fala
+
+Você pode assinar o `BookmarkReached` evento no SDK de fala para obter os deslocamentos de indicador.
+
+> [!NOTE]
+> `BookmarkReached` o evento só está disponível desde o Speech SDK versão 1.16.0.
+
+Os eventos `BookmarkReached` são gerados à medida que os dados de áudio de saída ficam disponíveis, o que será mais rápido do que a reprodução em um dispositivo de saída.
+
+* `AudioOffset` relata o tempo decorrido da saída de áudio entre o início de síntese e o elemento de indicador. Isso é medido na unidade HNS (100 nanossegundos), com 10.000 HNS sendo equivalentes a um milissegundo.
+* `Text` é o texto de referência do elemento Bookmark, que é a cadeia de caracteres que você definiu no `mark` atributo.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>consulte.
+
+```csharp
+synthesizer.BookmarkReached += (s, e) =>
+{
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    Console.WriteLine($"Bookmark reached. Audio offset: " +
+        $"{e.AudioOffset / 10000}ms, bookmark text: {e.Text}.");
+};
+```
+
+Para o SSML de exemplo acima, o `BookmarkReached` evento será disparado duas vezes e a saída do console será
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="c"></a>[C++](#tab/cpp)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>consulte.
+
+```cpp
+synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+{
+    cout << "Bookmark reached. "
+        // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+        << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
+        << "bookmark text: " << e.Text << "." << endl;
+};
+```
+
+Para o SSML de exemplo acima, o `BookmarkReached` evento será disparado duas vezes e a saída do console será
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>consulte.
+
+```java
+synthesizer.BookmarkReached.addEventListener((o, e) -> {
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    System.out.print("Bookmark reached. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
+    System.out.println("bookmark text: " + e.getText() + ".");
+});
+```
+
+Para o SSML de exemplo acima, o `BookmarkReached` evento será disparado duas vezes e a saída do console será
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>consulte.
+
+```python
+# The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
+speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+    "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+```
+
+Para o SSML de exemplo acima, o `bookmark_reached` evento será disparado duas vezes e a saída do console será
+```text
+Bookmark reached, audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached` </a>consulte.
+
+```javascript
+synthesizer.bookmarkReached = function (s, e) {
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms, bookmark text: " + e.text);
+}
+```
+
+Para o SSML de exemplo acima, o `bookmarkReached` evento será disparado duas vezes e a saída do console será
+```text
+(Bookmark reached), Audio offset: 825ms, bookmark text: flower_1.
+(Bookmark reached), Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>consulte.
+
+```objectivec
+[synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
+    // The unit of AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to converted to milliseconds.
+    NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
+}];
+```
+
+Para o SSML de exemplo acima, o `BookmarkReached` evento será disparado duas vezes e a saída do console será
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
+# <a name="swift"></a>[Swift](#tab/swift)
+
+Para obter mais informações, <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>consulte.
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

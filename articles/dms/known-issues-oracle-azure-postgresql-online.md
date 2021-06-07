@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94962409"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online da Oracle para o BD do Azure para PostgreSQL – servidor único

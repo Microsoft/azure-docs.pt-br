@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Documentação da Análise de Imagens
+summary: A API da Análise de Imagens baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações sobre os recursos visuais. O serviço pode analisar o conteúdo visual de diversas maneiras com base em entradas e opções de usuário. Aprenda a analisar o conteúdo visual com guias de início rápido, tutoriais e exemplos.
+metadata:
+  title: Documentação da Análise de Imagens – Guias de início rápido, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
+  description: A API da Análise de Imagens baseada em nuvem fornece aos desenvolvedores o acesso a algoritmos avançados para processar imagens e retornar informações sobre os recursos visuais. O serviço pode analisar o conteúdo visual de diversas maneiras com base em entradas e opções de usuário. Aprenda a analisar o conteúdo visual com guias de início rápido, tutoriais e exemplos.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
+  ms.openlocfilehash: b9c4d44879c0988359d08c52e0383a03631a46c0
+  ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 04/03/2021
+  ms.locfileid: "106287457"
+landingContent:
+- title: Sobre a Análise de Imagens
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Visão geral da Análise de Imagens
+      url: overview-image-analysis.md
+  - linkListType: quickstart
+    links:
+    - text: Início rápido da Análise de Imagens
+      url: quickstarts-sdk/image-analysis-client-library.md
+- title: Recursos da Análise de Imagens
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Marcas de conteúdo
+      url: concept-tagging-images.md
+    - text: Detecção de objetos
+      url: concept-object-detection.md
+    - text: Detecção de marca
+      url: concept-brand-detection.md
+    - text: Categorização da imagem
+      url: concept-categorizing-images.md
+    - text: Descrições da imagem
+      url: concept-describing-images.md
+    - text: Detecção facial
+      url: concept-detecting-faces.md
+    - text: Conteúdo específico a um domínio
+      url: concept-detecting-domain-content.md
+    - text: Miniaturas com recorte inteligente
+      url: concept-generating-thumbnails.md
+    - text: Detecção de conteúdo para adulto
+      url: concept-detecting-adult-content.md
+- title: Desenvolver com Análise de Imagens
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Chamar a API da Análise de Imagens
+      url: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - linkListType: tutorial
+    links:
+    - text: Gerar metadados de imagens
+      url: Tutorials/storage-lab-tutorial.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST da Análise de Imagens
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opções de Ajuda e suporte
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

@@ -2,14 +2,14 @@
 title: Série de vídeos explicativos sobre o portal do Azure
 description: Encontre demonstrações em vídeo sobre como trabalhar com os serviços do Azure no portal. Exiba e vincule diretamente aos vídeos de instruções mais recentes.
 keywords: ''
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: aeb80f0ac9b160747d75a50acc7c21b211c9fe28
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550434"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771508"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vídeos explicativos sobre o portal do Azure
 
@@ -17,17 +17,17 @@ A série de vídeos de instruções portal do Azure demonstra como trabalhar com
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos como usar as exibições de gerenciamento de custos do Azure.
+Neste vídeo em destaque, mostramos como criar guias e alertas em pastas de trabalho do Azure.
 
-> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[Como usar as exibições de gerenciamento de custos do Azure](https://www.youtube.com/watch?v=VRJA5bn2VH0)
+[Como criar guias e alertas em pastas de trabalho do Azure](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 Atualize-se com estes vídeos recentes que você pode ter perdido:
 
-| [Como usar o pills para filtrar na portal do Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Como obter uma exibição de visualização de seus recursos](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Como fixar conteúdo ao seu painel de portal do Azure](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [Como gerenciar facilmente sua máquina virtual](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [Como usar o pills para filtrar na portal do Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Como obter uma exibição de visualização de seus recursos](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Imagem do vídeo do YouTube sobre como usar o pills para filtrar na portal do Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Imagem do vídeo do YouTube sobre como obter uma exibição de visualização de seus recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Imagem do vídeo do YouTube sobre como fixar conteúdo no seu painel do portal do Azure](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![Imagem do vídeo do YouTube sobre como gerenciar facilmente sua máquina virtual](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Imagem do vídeo do YouTube sobre como usar o pills para filtrar na portal do Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Imagem do vídeo do YouTube sobre como obter uma exibição de visualização de seus recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## <a name="video-playlist"></a>Playlist de vídeo
 

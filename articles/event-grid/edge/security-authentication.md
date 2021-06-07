@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171373"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -40,7 +40,7 @@ Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir e
 | Valores possíveis | Descrição |
 | ---------------- | ------------ |
 | Rigoroso | Padrão. Habilita somente HTTPS
-| Habilitada | Habilita HTTP e HTTPS
+| habilitado | Habilita HTTP e HTTPS
 | Desabilitado | Habilita somente HTTP
 
 ## <a name="inbound-client-authentication"></a>Autenticação de cliente de entrada

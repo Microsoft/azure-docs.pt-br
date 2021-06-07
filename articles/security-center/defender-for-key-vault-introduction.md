@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: b1dd559db2d736fa27de2884d2fe82edaaeaaf3c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: f127a24bec5567a3868ae77cb8a52f0af2a19603
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916635"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100671"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure Defender para Key Vault
 
@@ -26,7 +26,7 @@ Habilite o **Azure Defender para Key Vault** para proteção avançada e nativa 
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (Disponibilidade Geral)|
-|Preço:|O **Azure Defender para Key Vault** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Preço:|O **Azure Defender para Key Vault** é cobrado conforme mostrado em [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 

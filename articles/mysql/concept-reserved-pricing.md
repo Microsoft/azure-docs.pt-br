@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: b1f51cd9e9f310c68834c16f83c182250a1a4eaf
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98598033"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelos recursos de computação do banco de dados do Azure para MySQL com capacidade reservada
@@ -50,7 +50,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Assinatura   | A assinatura usada para pagar o banco de dados do Azure para reserva de capacidade reservada do MySQL. O método de pagamento na assinatura é cobrado pelos custos antecipados do banco de dados do Azure para reserva de capacidade reservada do MySQL. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
+| Subscription   | A assinatura usada para pagar o banco de dados do Azure para reserva de capacidade reservada do MySQL. O método de pagamento na assinatura é cobrado pelos custos antecipados do banco de dados do Azure para reserva de capacidade reservada do MySQL. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura corporativa, os encargos são deduzidos do saldo do Pagamento antecipado do Azure do registro (chamado anteriormente de compromisso monetário) ou cobrados como excedente. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
 | Escopo | O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MySQL em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MySQL nesta assinatura. </br></br> **Um grupo de recursos único**, o desconto de reserva é aplicado ao banco de dados do Azure para servidores MySQL na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.
 | Região | A região do Azure que é coberta pelo banco de dados do Azure para MySQL reserva de capacidade reservada.
 | Tipo de implantação | O tipo de recurso do banco de dados do Azure para MySQL do qual você deseja comprar a reserva.

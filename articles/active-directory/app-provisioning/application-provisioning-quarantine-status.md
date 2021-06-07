@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256298"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579494"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -85,7 +85,7 @@ Primeiro, resolva o problema que fez com que o aplicativo fosse colocado em quar
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Determinadas alterações nas configurações de provisionamento do aplicativo, como mapeamentos de atributo ou filtros de escopo, reiniciarão automaticamente o provisionamento para você. A barra de progresso na página de **provisionamento** do aplicativo indica quando o provisionamento foi iniciado pela última vez. Se você precisar reiniciar o trabalho de provisionamento manualmente, use um dos seguintes métodos:  
 
-- Use o portal do Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** do aplicativo em **configurações**, selecione **limpar estado e reiniciar sincronização** e defina o **status de provisionamento** como **ativado**. Essa ação reinicia completamente o serviço de provisionamento, o que pode levar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as caução, remove o aplicativo da quarentena e limpa as marcas d' água.
+- Use o portal do Azure para reiniciar o trabalho de provisionamento. Na página de **provisionamento** do aplicativo, selecione **reiniciar provisionamento**. Essa ação reinicia completamente o serviço de provisionamento, o que pode levar algum tempo. Um ciclo inicial completo será executado novamente, o que limpa as caução, remove o aplicativo da quarentena e limpa as marcas d' água. O serviço, então, avaliará todos os usuários no sistema de origem novamente e determinará se eles estão no escopo do provisionamento. Isso pode ser útil quando seu aplicativo está em quarentena no momento, como este artigo discute, ou você precisa fazer uma alteração nos mapeamentos de atributo. Observe que o ciclo inicial leva mais tempo para ser concluído do que o ciclo incremental típico, devido ao número de objetos que precisam ser avaliados. Saiba mais sobre o desempenho dos ciclos iniciais e incrementais [aqui](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Use Microsoft Graph para [reiniciar o trabalho de provisionamento](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Você terá controle total sobre o que reinicia. Você pode optar por limpar as caução (para reiniciar o contador de caução que se acumula para o status de quarentena), limpar a quarentena (para remover o aplicativo da quarentena) ou limpar as marcas d' água. Envie a seguinte solicitação:
  

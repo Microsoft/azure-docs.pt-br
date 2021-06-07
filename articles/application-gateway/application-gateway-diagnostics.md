@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065313"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950460"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -306,7 +306,7 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
 |message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
-|ação     |  Ação executada na solicitação. Os valores disponíveis são MATCHED e blocked.      |
+|ação     |  Ação executada na solicitação. Os valores disponíveis são bloqueados e permitidos (para regras personalizadas), correspondidas (quando uma regra corresponde a uma parte da solicitação) e detectadas e bloqueadas (elas são ambas para regras obrigatórias, dependendo de se o WAF está no modo de detecção ou prevenção).      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
 |detalhes     | Detalhes do evento de gatilho.        |
 |details.message     | Descrição da regra.        |

@@ -4,20 +4,20 @@ description: Saiba mais sobre identidade gerenciada para Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: e0d3b551265a480a700f374ddfcf89dd4d93333f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389154"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562453"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo ajuda você a entender o que é a identidade gerenciada para Data Factory (anteriormente conhecido como Identidade de Serviço Gerenciada/MSI) e como ela funciona.
+Este artigo ajuda você a entender o que é uma identidade gerenciada para Data Factory (anteriormente conhecido como Identidade de Serviço Gerenciada/MSI) e como ela funciona.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,8 +28,7 @@ Ao criar um data factory, uma identidade gerenciada pode ser criada junto com a 
 A identidade gerenciada para Data Factory beneficia os seguintes recursos:
 
 - [Armazene a credencial em Azure Key Vault](store-credentials-in-key-vault.md), nesse caso data Factory identidade gerenciada é usada para Azure Key Vault autenticação.
-- Conectores, incluindo o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [banco de dados SQL do Azure](connector-azure-sql-database.md)e [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Atividade da Web](control-flow-web-activity.md).
+- Acesse armazenamentos de dados ou computações usando a autenticação de identidade gerenciada, incluindo o armazenamento de BLOBs do Azure, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure, Azure SQL Instância Gerenciada, Azure Synapse Analytics, REST, atividade do databricks, atividade da Web e muito mais. Verifique os artigos do conector e da atividade para obter detalhes.
 
 ## <a name="generate-managed-identity"></a>Gerar identidade gerenciada
 
@@ -157,11 +156,10 @@ Você pode encontrar as informações de identidade gerenciadas de portal do Azu
 
 - ID de objeto de identidade gerenciada
 - Locatário de identidade gerenciada
-- ID do aplicativo de identidade gerenciada
 
 As informações de identidade gerenciadas também aparecerão quando você criar um serviço vinculado, que dá suporte à autenticação de identidade gerenciada, como blob do Azure, Azure Data Lake Storage, Azure Key Vault, etc.
 
-Ao conceder permissão, use ID de objeto ou nome de data factory (como nome de identidade gerenciada) para localizar essa identidade.
+Ao conceder a permissão, na guia IAM (controle de acesso do recurso do Azure)-> adicionar atribuição de função-> atribuir acesso a-> selecione Data Factory em identidade gerenciada atribuída pelo sistema-> selecione pelo nome da fábrica; ou, em geral, você pode usar a ID de objeto ou nome de data factory (como nome de identidade gerenciada) para localizar essa identidade. Se você precisar obter a ID do aplicativo da identidade gerenciada, poderá usar o PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Recuperar identidade gerenciada usando o PowerShell
 

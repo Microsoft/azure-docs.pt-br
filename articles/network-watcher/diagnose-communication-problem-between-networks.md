@@ -5,7 +5,6 @@ description: Neste tutorial, saiba como diagnosticar um problema de comunicaçã
 services: network-watcher
 documentationcenter: na
 author: damendo
-Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: tutorial
@@ -14,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 1a556ea66bb54f994349ce9ba4d12fb486827edf
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e9122a323556bebd4ed08ab99f2183313d04eaca
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013287"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066017"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes usando o portal do Azure
 

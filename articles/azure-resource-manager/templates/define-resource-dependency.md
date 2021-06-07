@@ -4,13 +4,13 @@ description: Descreve como definir um recurso do Azure como dependente de outro 
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934740"
 ---
-# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implantação de recursos em modelos ARM
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implantação de recursos em modelos do ARM
 
 Ao implantar recursos, talvez seja necessário verificar se existem alguns recursos antes de outros recursos. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você estabelece essa relação marcando um recurso como dependente do outro recurso. Use o `dependsOn` elemento para definir uma dependência explícita. Use as funções de **referência** ou de **lista** para definir uma dependência implícita.
 
@@ -214,7 +214,7 @@ Para obter informações sobre como avaliar a ordem de implantação e resolver 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para percorrer um tutorial, consulte [tutorial: criar modelos de ARM com recursos dependentes](template-tutorial-create-templates-with-dependent-resources.md).
-* Para um módulo Microsoft Learn que aborda dependências de recursos, consulte [gerenciar implantações de nuvem complexas usando recursos avançados de modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
+* Para obter um módulo do Microsoft Learn que aborda as dependências de recursos, confira [Gerenciar implantações de nuvem complexas usando recursos avançados do modelo do ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para obter recomendações ao definir dependências, consulte [práticas recomendadas do modelo ARM](template-best-practices.md).
 * Para saber mais sobre a solução de problemas de dependência durante a implantação, confira [Solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
 * Para saber mais sobre como criar modelos de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).

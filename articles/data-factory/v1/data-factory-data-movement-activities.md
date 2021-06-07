@@ -8,10 +8,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100364011"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
@@ -76,7 +76,7 @@ A Atividade de Cópia também lê e grava em arquivos em formatos especificados:
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
-* Copie dados em um banco de SQL Server e grave em Azure Data Lake Store no formato ORC.
+* Copiar dados de um banco de dados do SQL Server e gravá-los no Azure Data Lake Storage no formato ORC.
 * Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
 * Copiar os arquivos compactados do Sistema de Arquivos local e, em seguida, descompactá-los no Azure Data Lake Store.
 * Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL do Azure.
@@ -112,7 +112,7 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |
 | Japão | Leste do Japão | Leste do Japão |
-| &nbsp; | Oeste do Japão | Japan East |
+| &nbsp; | Oeste do Japão | Leste do Japão |
 | Coreia do Sul | Coreia Central | Coreia Central |
 | &nbsp; | Sul da Coreia | Coreia Central |
 
@@ -132,7 +132,7 @@ Você pode criar um pipeline com uma Atividade de Cópia de duas maneiras:
 O Assistente de Cópia do Data Factory ajuda você a criar um pipeline com a Atividade de Cópia. Esse pipeline permite copiar dados de fontes compatíveis para destinos *sem gravar definições JSON* para serviços vinculados, conjuntos de dados e pipelines. Veja [Assistente de Cópia do Data Factory](data-factory-copy-wizard.md) para obter detalhes sobre o assistente.  
 
 ### <a name="by-using-json-scripts"></a>Usando scripts JSON
-Você pode usar o editor de Data Factory no Visual Studio ou Azure PowerShell para criar uma definição de JSON para um pipeline (usando a atividade de cópia). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Confira [Tutorial: Use Copy Activity in an Azure Data Factory pipeline (Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
+Use o Editor do Data Factory no Visual Studio ou o Azure PowerShell para criar uma definição em JSON para um pipeline (usando a atividade Copy). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Confira [Tutorial: Use Copy Activity in an Azure Data Factory pipeline (Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
 
 As propriedades JSON (como nome, descrição, tabelas de entrada e saída, e políticas) estão disponíveis para todos os tipos de atividade. As propriedades que estão disponíveis na seção `typeProperties` da atividade variam de acordo com cada tipo de atividade.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: ad802b2bdf08a8e43179beece5f52d869513aff3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eb97e209bc7bb9bc1a15ecadc88593e4c0573b5c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933050"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870595"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conecte-se ao Apache Kafka no HDInsight por meio de uma rede virtual do Azure
 
@@ -245,15 +245,15 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes Kafka aos
 
 2. Para exibir informações sobre o Kafka, selecione __Kafka__ na lista à esquerda.
 
-    ![Lista de serviços com Kafka realçado](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Lista de serviços com Kafka realçado" border="true":::
 
 3. Para exibir a configuração do Kafka, selecione __Configurações__ na parte central superior.
 
-    ![Configuração de serviços do Apache Ambari](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Configuração de serviços do Apache Ambari" border="true":::
 
 4. Para localizar a configuração __kafka-env__, digite `kafka-env` no campo __Filtro__ na parte superior direita.
 
-    ![Configuração do Kafka, para kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="Configuração do Kafka, para kafka-env" border="true":::
 
 5. Para configurar o Kafka para anunciar endereços IP, adicione o seguinte texto à parte inferior do campo __kafka-env-template__:
 
@@ -271,15 +271,15 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes Kafka aos
 
 8. Para salvar as alterações de configuração, use o botão __Salvar__. Digite uma mensagem de texto que descreva as alterações. Selecione __OK__ assim que as alterações tiverem sido salvas.
 
-    ![Salvar configuração do Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Salvar configuração do Apache Ambari" border="true":::
 
 9. Para evitar erros ao reiniciar o Kafka, use o botão __Ações de Serviço__ e selecione __Ativar o Modo de Manutenção__. Selecione OK para concluir essa operação.
 
-    ![Ações de serviço, com ativar manutenção realçada](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="Ações de serviço, com ativar manutenção realçada" border="true":::
 
 10. Para reiniciar o Kafka, use o botão __Reiniciar__ e selecione __Reiniciar Todos os Afetados__. Confirme a reinicialização e, em seguida, use o botão __OK__ depois que a operação for concluída.
 
-    ![Botão Reiniciar com reiniciar todos os afetados realçada](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="Botão Reiniciar com reiniciar todos os afetados realçada" border="true":::
 
 11. Para desabilitar o modo de manutenção, use o botão __Ações de Serviço__ e selecione __Ativar o Modo de Manutenção__. Selecione **OK** para concluir essa operação.
 

@@ -2,17 +2,18 @@
 title: Migrar suas VMs do Linux para o Armazenamento Premium do Azure com o Azure Site Recovery
 description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 author: luywang
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: e00496ad623d534e1fbdcb60f22a1e36f77c4212
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8688d278c40ba34b7c4344a73cb4717f3fd71368
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600064"
 ---
 # <a name="use-site-recovery-to-migrate-to-premium-storage"></a>Usar Site Recovery para migrar para o armazenamento Premium
 
@@ -165,7 +166,7 @@ Para verificar se o seu servidor de configuração está corretamente associado 
 
    ![Habilitar o painel de replicação com a Origem selecionada][13]
 
-Ao criar seu ambiente de Armazenamento do Azure, é recomendável usar contas de armazenamento separadas para cada VM em um conjunto de disponibilidade. É recomendável que você siga a melhor prática na camada de armazenamento para [usar várias contas de armazenamento para cada conjunto de disponibilidade](../manage-availability.md). A distribuição de discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui a E/S em toda a infraestrutura de armazenamento do Azure.
+Ao criar seu ambiente de Armazenamento do Azure, é recomendável usar contas de armazenamento separadas para cada VM em um conjunto de disponibilidade. É recomendável que você siga a melhor prática na camada de armazenamento para [usar várias contas de armazenamento para cada conjunto de disponibilidade](../availability.md). A distribuição de discos VM para várias contas de armazenamento ajuda a melhorar a disponibilidade de armazenamento e distribui a E/S em toda a infraestrutura de armazenamento do Azure.
 
 Se suas VMs estiverem em um conjunto de disponibilidade, em vez de replicar os discos de todas elas em uma conta de armazenamento, é altamente recomendável migrar várias VMs várias vezes. Desse modo, as VMs em um mesmo conjunto de disponibilidade não compartilham uma única conta de armazenamento. Use o painel **Habilitar Replicação** para configurar uma conta de armazenamento de destino para cada VM, uma de cada vez.
  
@@ -196,7 +197,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
    * Para uma VM criada por meio do modelo de implantação clássico: Adicione a VM ao conjunto de disponibilidade no portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic).
    * Para uma VM criada por meio do modelo de implantação do Resource Manager: Salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar esse script, verifique as limitações dele e planeje o tempo de inatividade.
 
-2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema no qual o disco não é excluído, mesmo que você exclua a VM, consulte [Solucionar problemas de erros de exclusão de recursos de armazenamento](../troubleshooting/storage-resource-deletion-errors.md).
+2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema no qual o disco não é excluído, mesmo que você exclua a VM, consulte [Solucionar problemas de erros de exclusão de recursos de armazenamento](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 

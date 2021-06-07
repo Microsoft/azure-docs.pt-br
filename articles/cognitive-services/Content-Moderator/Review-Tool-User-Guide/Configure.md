@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912014"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
@@ -35,7 +35,7 @@ Esta seção explica como criar subequipes e atribuir rapidamente revisões imed
 
 ### <a name="create-a-subteam"></a>Criar uma subequipe
 
-Vá para a seção **subequipes** e clique em **Adicionar subequipe** . Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar** .
+Vá para a seção **subequipes** e clique em **Adicionar subequipe**. Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar**.
 
 ![Nome da subequipe](images/1-Teams-2.PNG)
 
@@ -60,13 +60,13 @@ Para atribuir conteúdo a uma subequipe, clique nas reticências no canto superi
 
 ### <a name="switch-between-subteams"></a>Alternar entre subequipes
 
-Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia **revisar** , selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe** . Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
+Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia **revisar** , selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe**. Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
 
 ![Alternar entre subequipes](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Marcações
+## <a name="tags"></a>Marcas
 
-A guia **marcas** permite que você defina marcas de moderação personalizadas além das duas marcas de moderação padrão &mdash; **isadulto** ( **a** ) e **isracy** ( **r** ). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
+A guia **marcas** permite que você defina marcas de moderação personalizadas além das duas marcas de moderação padrão &mdash; **isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
 
 ![Exibição de marcas, incluindo as caixas de seleção "is Visible"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ A guia **marcas** permite que você defina marcas de moderação personalizadas 
 
 Para criar uma nova marca, você deve inserir um código curto, um nome e uma descrição nos respectivos campos.
 
-- **Código curto** : Insira um código de duas letras para sua marca. Exemplo: **CB**
-- **Nome** : Insira um nome de marca curto e descritivo em minúsculas, sem espaços. Exemplo: **isbullying** .
-- **Descrição** : (opcional) Insira uma descrição do tipo de conteúdo que sua marca visa. Exemplo: **representações ou instâncias do cyber bullying** .
+- **Código curto**: Insira um código de duas letras para sua marca. Exemplo: **CB**
+- **Nome**: Insira um nome de marca curto e descritivo em minúsculas, sem espaços. Exemplo: **isbullying**.
+- **Descrição**: (opcional) Insira uma descrição do tipo de conteúdo que sua marca visa. Exemplo: **representações ou instâncias do cyber bullying**.
 
 Clique em **Adicionar** para adicionar uma marca e clique em **salvar** quando terminar de criar marcas.
 
@@ -90,7 +90,7 @@ Você pode excluir marcas personalizadas selecionando o ícone de Lixeira ao lad
 
 A guia **conectores** permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
 
-O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico** , encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector facial, por exemplo, será necessário obter uma chave de assinatura [facial](../../face/overview.md) ).
+O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector facial, por exemplo, será necessário obter uma chave de assinatura [facial](../../face/overview.md) ).
 
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
@@ -105,7 +105,7 @@ Para adicionar um conector (e torná-lo disponível para uso em [fluxos de traba
 
 ![Configurações de conectores do Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Fluxos de Trabalho
+## <a name="workflows"></a>Fluxos de trabalho
 
 A guia **fluxos de trabalho** permite que você gerencie seus fluxos de [trabalho](../review-api.md#workflows). Os fluxos de trabalho são filtros baseados em nuvem para conteúdo e trabalham com conectores para classificar conteúdo de maneiras diferentes e tomar as medidas apropriadas. Aqui, você pode definir, editar e testar seus fluxos de trabalho. Consulte [definir e usar fluxos de trabalho](Workflows.md) para obter orientação sobre como fazer isso.
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487670"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
@@ -158,7 +158,7 @@ Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.
 | Repúdio            | Não repúdio       | Habilitar o [monitoramento e diagnóstico](/azure/architecture/best-practices/monitoring) do Azure.|
 | Divulgação de informações confidenciais | Confidencialidade       | Criptografe dados confidenciais [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Negação de serviço      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|
-| Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Reduzir a superfície de ataque
 
@@ -253,7 +253,7 @@ Os segredos são armazenados em *cofres* individuais. Cada cofre tem suas própr
 >
 > Os dados do usuário devem ser armazenados em outro lugar, como em uma instância do banco do dados SQL do Azure com Transparent Data Encryption (TDE) ou em uma conta de armazenamento que usa o Criptografia do Serviço de Armazenamento do Azure. Os segredos que são usados pelo seu aplicativo para acessar esses armazenamentos de dados podem ser mantidos em Azure Key Vault.
 
-### <a name="protect-sensitive-data"></a>Proteger dados confidenciais
+### <a name="protect-sensitive-data"></a>proteger dados confidenciais
 
 Proteger os dados é uma parte essencial da sua estratégia de segurança.
 Classificar seus dados e identificar suas necessidades de proteção de dados ajuda a projetar seu aplicativo com a segurança de dados em mente. Classificar (categorizar) dados armazenados por sensibilidade e impacto nos negócios ajuda os desenvolvedores a determinar os riscos associados aos dados.

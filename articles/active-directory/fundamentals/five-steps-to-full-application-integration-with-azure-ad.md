@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
 ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96172628"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco etapas para integrar todos os seus aplicativos com o Azure AD
 
-O Azure Active Directory (Azure AD) é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft. O Azure AD fornece soluções seguras de autenticação e autorização para que clientes, parceiros e funcionários possam acessar os aplicativos de que precisam. Com o Azure AD, o [acesso condicional](../conditional-access/overview.md), [a autenticação multifator](../authentication/concept-mfa-howitworks.md), o [logon único](../hybrid/how-to-connect-sso.md)e o [provisionamento automático de usuário](../app-provisioning/user-provisioning.md) tornam o gerenciamento de identidade e acesso fácil e seguro.
+O Azure AD (Azure Active Directory) é o serviço de gerenciamento de acesso e identidades baseado em nuvem da Microsoft. O Azure AD fornece soluções seguras de autenticação e autorização para que clientes, parceiros e funcionários possam acessar os aplicativos de que precisam. Com o Azure AD, o [acesso condicional](../conditional-access/overview.md), [a autenticação multifator](../authentication/concept-mfa-howitworks.md), o [logon único](../hybrid/how-to-connect-sso.md)e o [provisionamento automático de usuário](../app-provisioning/user-provisioning.md) tornam o gerenciamento de identidade e acesso fácil e seguro.
 
 Se sua empresa tiver uma assinatura Microsoft 365, provavelmente você [já usa](/office365/enterprise/about-office-365-identity) o Azure AD. No entanto, o Azure AD pode ser usado para todos os seus aplicativos e [centralizar o gerenciamento de aplicativos](../manage-apps/common-scenarios.md) você pode usar os mesmos recursos, ferramentas e políticas de gerenciamento de identidade em todo o seu portfólio de aplicativos. Isso fornecerá uma solução unificada que melhora a segurança, reduz os custos, aumenta a produtividade e permite garantir a conformidade. E você terá acesso remoto a aplicativos locais.
 

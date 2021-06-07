@@ -1,197 +1,148 @@
 ---
 title: 'Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure com nós de computação confidencial'
-description: Saiba como criar um cluster do AKS com nós confidenciais e implantar um aplicativo Olá, mundo usando o CLI do Azure.
+description: Neste guia de início rápido, você aprenderá a criar um cluster do AKS com nós confidenciais e implantar um aplicativo Olá, Mundo usando a CLI do Azure.
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 03/18/2020
 ms.author: amgowda
-ms.openlocfilehash: 92b4cd58b496602b479a24bab81a1d9322e732b0
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.custom: contentperf-fy21q3
+ms.openlocfilehash: 73770acefc8a153e4a2f2fde146f9afd4c319cd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760632"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933127"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli-preview"></a>Início Rápido: implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial (DCsv2) usando a CLI do Azure (versão prévia)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Início Rápido: implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial (DCsv2) usando a CLI do Azure
 
-Este guia de início rápido é destinado a desenvolvedores ou operadores de clusters que desejam criar rapidamente um cluster do AKS e implantar um aplicativo para monitorar aplicativos usando o serviço de Kubernetes gerenciado no Azure.
+Este guia de início rápido é destinado a desenvolvedores ou operadores de clusters que desejam criar rapidamente um cluster do AKS e implantar um aplicativo para monitorar aplicativos usando o serviço de Kubernetes gerenciado no Azure. Você também pode provisionar o cluster e adicionar nós de computação confidencial do portal do Azure.
 
 ## <a name="overview"></a>Visão geral
 
-Neste guia de início rápido, você aprenderá a implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial usando a CLI do Azure e a executar um aplicativo Olá, Mundo em um enclave. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Leia mais sobre o AKS [aqui](../aks/intro-kubernetes.md).
+Neste guia de início rápido, você aprenderá a implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial usando a CLI do Azure e a executar um aplicativo simples Olá, Mundo em um enclave. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Para saber mais, leia a [Introdução do AKS](../aks/intro-kubernetes.md) e a [Visão geral dos nós confidenciais do AKS](confidential-nodes-aks-overview.md).
 
 > [!NOTE]
 > As VMs DCsv2 com computação confidencial usam hardware especializado sujeito a maiores preços e disponibilidade da região. Para obter mais informações, confira na página das máquinas virtuais os [SKUs disponíveis e as regiões com suporte](virtual-machine-solutions.md).
 
-> O DCsv2 aproveita as Máquinas Virtuais de Geração 2 no Azure. Essa VM de Geração 2 é uma versão prévia do recurso com o AKS. 
+### <a name="confidential-computing-node-features-dcsv2"></a>Recursos do nó de computação confidencial (DCsv2)
 
-### <a name="deployment-pre-requisites"></a>Pré-requisitos de implantação
-Essas instruções de implantação pressupõem:
+1. Nós de trabalho do Linux que dão suporte a contêineres do Linux.
+1. VM de Geração 2 com nós de Máquinas Virtuais do Ubuntu 18.04.
+1. CPU baseada em Intel SGX com EPC (Memória de cache de página criptografada). Leia mais [aqui](./faq.md).
+1. Suporte para o Kubernetes versão 1.16 e posterior.
+1. Driver Intel SGX DCAP pré-instalado em nós do AKS. Leia mais [aqui](./faq.md).
 
-1. Ter uma assinatura ativa do Azure. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar
-1. Ter a CLI do Azure versão 2.0.64 ou posterior instalada e configurada no computador de implantação (execute `az --version` para localizar a versão). Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md)
-1. [Extensão aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) com a versão mínima 0.4.62 
-1. Disponibilidade de cota para núcleos de VMs. Ter no mínimo seis núcleos **DC<x>s-v2** disponíveis em sua assinatura para uso. Por padrão, a cota de núcleos de VM para computação confidencial por assinatura do Azure é de 8 núcleos. Se você planeja provisionar um cluster que requer mais de 8 núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instruções para gerar um tíquete de aumento de cota
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="confidential-computing-node-features-dcxs-v2"></a>Recursos do nó de computação confidencial (DC<x>s-v2)
+Este início rápido requer:
 
-1. Nós de trabalho Linux com suporte apenas para contêineres Linux
-1. Uma VM de Geração 2 com nós de Máquinas Virtuais Ubuntu 18.04
-1. CPU baseada em Intel SGX com EPC (Memória de cache de página criptografada). Leia mais [aqui](./faq.md)
-1. Suporte para Kubernetes versão 1.16+
-1. Driver Intel SGX DCAP pré-instalado em nós do AKS. Leia mais [aqui](./faq.md)
-1. Suporte para obter uma implantação baseada em CLI durante a versão prévia com um provisionamento baseado em portal após a GA.
+1. Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+1. CLI do Azure versão 2.0.64 ou posterior instalada e configurada no computador de implantação (execute `az --version` para localizar a versão). Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
+1. No mínimo, seis núcleos **DCsv2** disponíveis na sua assinatura para uso. Por padrão, a cota de núcleos de VM para a computação confidencial por assinatura do Azure é de oito núcleos. Se você pretende provisionar um cluster que exige mais de oito núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instruções para gerar um tíquete de aumento de cota.
 
+## <a name="create-a-new-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Criar um cluster do AKS com nós de computação confidencial e o complemento
 
-## <a name="installing-the-cli-pre-requisites"></a>Instalando os pré-requisitos da CLI
+Siga as instruções abaixo para adicionar nós compatíveis com computação confidencial e complemento.
 
-Para instalar a extensão aks-preview 0.4.62 ou posterior, use os seguintes comandos da CLI do Azure:
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-Para atualizar a extensão aks-preview da CLI, use os seguintes comandos da CLI do Azure:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-### <a name="generation-2-vms-feature-registration-on-azure"></a>Registro de recurso de uma VM de Geração 2 no Azure
-Como registrar o Gen2VMPreview na assinatura do Azure. Esse recurso permite provisionar Máquinas Virtuais de Geração 2 como pools de nós do AKS:
-
-```azurecli-interactive
-az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
-```
-Pode levar vários minutos para que o status seja exibido como Registrado. É possível verificar o status do registro usando o comando 'az feature list'. Esse registro de recurso será feito somente uma vez por assinatura. Caso o recurso tenha sido registrado anteriormente, será possível ignorar a etapa acima:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
-```
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando 'az provider register':
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### <a name="azure-confidential-computing-feature-registration-on-azure-optional-but-recommended"></a>Registro de recurso de Computação Confidencial do Azure no Azure (opcional, porém recomendado)
-Como registrar o AKS-ConfidentialComputinAddon na assinatura do Azure. Esse recurso adicionará dois DaemonSets, conforme discutido em detalhes [aqui](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
-1. Plug-in do driver do dispositivo SGX
-2. Auxiliar de cotação do atestado SGX
-
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
-```
-Pode levar vários minutos para que o status seja exibido como Registrado. É possível verificar o status do registro usando o comando 'az feature list'. Esse registro de recurso será feito somente uma vez por assinatura. Caso o recurso tenha sido registrado anteriormente, será possível ignorar a etapa acima:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
-```
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando 'az provider register':
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-## <a name="creating-an-aks-cluster"></a>Criar um cluster do AKS
+### <a name="create-an-aks-cluster-with-a-system-node-pool"></a>Criar um cluster do AKS com um pool de nós do sistema
 
 Se você já tem um cluster do AKS que atende aos requisitos acima, [vá diretamente para a seção sobre o cluster existente](#existing-cluster) para adicionar um novo pool de nós de computação confidencial.
 
-Primeiro, crie um grupo de recursos para o cluster usando o comando az group create. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *westus2*:
+Primeiro, crie um grupo de recursos para o cluster usando o comando [az group create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na região *westus2*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Agora, crie um cluster do AKS usando o comando az aks create.
+Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]:
 
 ```azurecli-interactive
-# Create a new AKS cluster with  system node pool with Confidential Computing addon enabled
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
-As etapas acima criarão um cluster do AKS com um pool de nós do sistema. Continue adicionando um nó de usuário do tipo Pool de Nós de Computação Confidencial no AKS (DCsv2)
 
-O exemplo abaixo adicionará um pool de nós de usuário com três nós de tamanho `Standard_DC2s_v2`. É possível escolher outra lista de SKUs e regiões compatíveis com o DCsv2 [aqui](../virtual-machines/dcv2-series.md):
+O comando acima cria um cluster do AKS com um pool de nós do sistema e o complemento habilitado. Em seguida, adicione um pool de nós de usuário com funcionalidades de computação confidencial ao cluster do AKS.
+
+### <a name="add-a-confidential-computing-node-pool-to-the-aks-cluster"></a>Adicionar um pool de nós de computação confidencial a um cluster do AKS 
+
+Execute o comando a seguir para adicionar um pool de nós de usuário do tamanho `Standard_DC2s_v2` com três nós. Escolha outro SKU na lista de [SKUs DCsv2 e regiões](../virtual-machines/dcv2-series.md) com suporte.
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2 --aks-custom-headers usegen2vm=true
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
-O comando acima adicionará um pool de nós com dois DaemonSets **DC<x>s-v2** de execução automática a esse pool de nós – ([plug-in do dispositivo SGX](confidential-nodes-aks-overview.md#sgx-plugin) & [auxiliar de cotação SGX](confidential-nodes-aks-overview.md#sgx-quote))
 
-Obtenha as credenciais do seu cluster do AKS usando o comando az aks get-credentials:
+Após a execução, um novo pool de nós com **DCsv2** ficará visível com os daemonsets do complemento de computação confidencial ([Plug-in de Dispositivo SGX](confidential-nodes-aks-overview.md#sgx-plugin)).
+
+### <a name="verify-the-node-pool-and-add-on"></a>Verificar o pool de nós e o complemento
+
+Obtenha as credenciais do cluster do AKS usando o comando [az aks get-credentials][az-aks-get-credentials]:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verifique se os nós foram criados de modo adequado e se os DaemonSets relacionados ao SGX estão em execução nos pools de nós **DC<x>s-v2** usando o comando 'kubectl get pods & node', conforme mostrado abaixo:
+
+Verifique se os nós foram criados corretamente e se os daemonsets relacionados ao SGX estão em execução nos pools de nós **DCsv2** usando o comando kubectl get pods & nodes, conforme mostrado abaixo:
 
 ```console
 $ kubectl get pods --all-namespaces
 
-output
 kube-system     sgx-device-plugin-xxxx     1/1     Running
-kube-system     sgx-quote-helper-xxxx      1/1     Running
-```
-Se a saída corresponder à anterior, o cluster do AKS estará pronto para executar aplicativos confidenciais.
-
-Vá para a seção de implantação de [Olá, Mundo do enclave](#hello-world) para testar um aplicativo em um enclave. Ou siga as instruções abaixo para adicionar pools de nós adicionais no AKS (o AKS dá suporte à combinação de pools de nós que são e que não são do SGX)
-
-## <a name="adding-confidential-computing-node-pool-to-existing-aks-cluster"></a>Como adicionar um pool de nós de computação confidencial a um cluster do AKS existente<a id="existing-cluster"></a>
-
-Esta seção pressupõe que você já tenha um cluster do AKS em execução que atende aos critérios listados na seção de pré-requisitos.
-
-Primeiro, vamos adicionar o recurso à uma assinatura do Azure
-
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
-```
-Pode levar vários minutos para que o status seja exibido como Registrado. É possível verificar o status do registro usando o comando 'az feature list'. Esse registro de recurso será feito somente uma vez por assinatura. Caso o recurso tenha sido registrado anteriormente, será possível ignorar a etapa acima:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
-```
-Quando o status aparecer como registrado, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando 'az provider register':
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
-Em seguida, vamos habilitar complementos do AKS relacionados à uma computação confidencial em um cluster existente:
+Se a saída corresponder ao indicado acima, o cluster do AKS estará pronto para executar aplicativos confidenciais.
+
+Acesse a seção de implantação de [Olá, Mundo por meio do Enclave](#hello-world) para testar um aplicativo em um enclave. Ou, então, siga as instruções abaixo para adicionar outros pools de nós ao AKS (o AKS dá suporte à combinação de pools de nós que são e que não são do SGX).
+
+## <a name="add-a-confidential-computing-node-pool-to-an-existing-aks-cluster"></a>Adicionar um pool de nós de computação confidencial a um cluster do AKS existente<a id="existing-cluster"></a>
+
+Esta seção pressupõe que você já tenha um cluster do AKS em execução que atende aos critérios listados na seção de pré-requisitos (aplica-se a complementos).
+
+### <a name="enable-the-confidential-computing-aks-add-on-on-the-existing-cluster"></a>Habilitar o complemento de computação confidencial do AKS no cluster existente
+
+Execute o seguinte comando para habilitar o complemento de computação confidencial:
 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Agora, adicione ao cluster um pool de nós **DC<x>s-v2**
-    
+
+### <a name="add-a-dcsv2-user-node-pool-to-the-cluster"></a>Adicionar um pool de nós de usuário **DCsv2** ao cluster
+
 > [!NOTE]
-> Para usar a capacidade de computação confidencial, seu cluster AKS existente precisa ter pelo menos um pool de nós baseado em SKU de VM **DC<x>s-v2**. Saiba mais sobre SKUs de VMs de computação confidencial DCsv2 aqui [SKUs disponíveis e regiões compatíveis](virtual-machine-solutions.md).
-    
-  ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
+> Para usar a funcionalidade de computação confidencial, o cluster do AKS existente precisa ter, no mínimo, um pool de nós baseado em SKU de VM **DCsv2**. Para saber mais sobre os SKUs de VMs DCs-v2 de computação confidencial, confira [SKUs disponíveis e regiões com suporte](virtual-machine-solutions.md).
 
-output node pool added
+Execute o seguinte comando para criar um pool de nós:
 
-Verify
+```azurecli-interactive
+az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2
+```
 
+Verifique se o pool de nós com o nome confcompool1 foi criado:
+
+```azurecli-interactive
 az aks nodepool list --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
+
+### <a name="verify-that-daemonsets-are-running-on-confidential-node-pools"></a>Verificar se os daemonsets estão em execução nos pools de nós confidenciais
+
+Entre no cluster do AKS existente para executar a verificação a seguir.
 
 ```console
 kubectl get nodes
 ```
-A saída deve mostrar o confcompool1 recém-adicionado no cluster do AKS.
+
+A saída deve mostrar o confcompool1 recém-adicionado no cluster do AKS. Você também poderá ver outros daemonsets.
 
 ```console
 $ kubectl get pods --all-namespaces
 
-output (you may also see other daemonsets along SGX daemonsets as below)
 kube-system     sgx-device-plugin-xxxx     1/1     Running
-kube-system     sgx-quote-helper-xxxx      1/1     Running
 ```
-Se a saída corresponder à anterior, o cluster do AKS estará pronto para executar aplicativos confidenciais.
+
+Se a saída corresponder ao indicado acima, o cluster do AKS estará pronto para executar aplicativos confidenciais. Siga as instruções abaixo para implantar um aplicativo de teste.
 
 ## <a name="hello-world-from-isolated-enclave-application"></a>Aplicativo Olá, Mundo do enclave isolado <a id="hello-world"></a>
-Crie um arquivo chamado *hello-world-enclave.yaml* e cole o manifesto YAML a seguir. Esse código de aplicativo de exemplo baseado no Open Enclave pode ser encontrado no [Projeto Open Enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). A implantação abaixo pressupõe que o complemento "confcom" foi implantado.
+Crie um arquivo chamado *hello-world-enclave.yaml* e cole o manifesto YAML a seguir. Esse código de aplicativo de exemplo baseado no Open Enclave pode ser encontrado no [Projeto Open Enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). A implantação a seguir pressupõe que o complemento "confcom" foi implantado.
 
 ```yaml
 apiVersion: batch/v1
@@ -228,50 +179,48 @@ Você pode confirmar que a carga de trabalho criou com êxito um Ambiente de exe
 
 ```console
 $ kubectl get jobs -l app=sgx-test
-```
 
-```console
-$ kubectl get jobs -l app=sgx-test
 NAME       COMPLETIONS   DURATION   AGE
 sgx-test   1/1           1s         23s
 ```
 
 ```console
 $ kubectl get pods -l app=sgx-test
-```
 
-```console
-$ kubectl get pods -l app=sgx-test
 NAME             READY   STATUS      RESTARTS   AGE
 sgx-test-rchvg   0/1     Completed   0          25s
 ```
 
 ```console
 $ kubectl logs -l app=sgx-test
-```
 
-```console
-$ kubectl logs -l app=sgx-test
 Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para remover os pools de nós associados ou excluir o cluster do AKS, use os comandos abaixo:
+Para remover os pools de nós associados ou excluir o cluster do AKS, use os seguintes comandos:
 
-Excluindo o cluster do AKS
-``````azurecli-interactive
+### <a name="remove-the-confidential-computing-node-pool"></a>Remover o pool de nós de computação confidencial
+
+```azurecli-interactive
+az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resource-group myResourceGroup
+```
+
+### <a name="delete-the-aks-cluster"></a>Excluir o cluster do AKS
+
+```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster
 ```
-Removing the confidential computing node pool
-
-``````azurecli-interactive
-az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resource-group myResourceGroup
-``````
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Execute aplicativos Python, Node etc. de maneira confidencial por meio de contêineres confidenciais visitando os [exemplos de contêiner confidencial](https://github.com/Azure-Samples/confidential-container-samples).
+* Execute aplicativos Python, Node etc. de maneira confidencial por meio de contêineres confidenciais acessando os [exemplos de contêineres confidenciais](https://github.com/Azure-Samples/confidential-container-samples).
 
-Execute aplicativos com reconhecimento de enclave visitando os [Exemplos de contêineres do Azure com reconhecimento de enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
+* Execute aplicativos com reconhecimento de enclave visitando os [Exemplos de contêineres do Azure com reconhecimento de enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
+
+<!-- LINKS -->
+[az-group-create]: /cli/azure/group#az_group_create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97900409"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar problemas de erros de replicação de VMs do Azure para o Azure

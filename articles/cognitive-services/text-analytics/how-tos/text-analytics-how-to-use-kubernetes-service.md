@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: fb33bd4fe70c51e1e2afffece10ba3b29dcb0450
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932440"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner de Análise de Texto no serviço kubernetes do Azure
@@ -55,9 +55,9 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-**_
+***
 
 ## <a name="next-steps"></a>Próximas etapas
 
-_ Usar mais [contêineres de serviços cognitivas](../../cognitive-services-container-support.md)
+* Usar mais [contêineres de serviços cognitivas](../../cognitive-services-container-support.md)
 * Usar o [serviço conectado do análise de texto](../index.yml)

@@ -23,12 +23,10 @@
           href: access-api-howto.md
         - name: Configurar o Azure Cloud Shell
           href: ../../cloud-shell/overview.md
-        - name: Desenvolver com o REST
+        - name: Conectar-se aos Serviços de Mídia
           items:
-            - name: Conectar-se com o Postman
+            - name: Conectar-se ao REST e ao Postman
               href: media-rest-apis-with-postman.md
-        - name: Desenvolver com SDKs
-          items:
             - name: Conectar-se com Java
               href: configure-connect-java-howto.md
             - name: Conectar-se com .NET
@@ -51,6 +49,8 @@
       items:
         - name: Criar uma conta com o ARM
           href: quickstart-arm-template-account.md
+    - name: Guia de início rápido de codificação básica do Python
+      href: quickstart-basic-encoding-python.md
 - name: Tutoriais
   items:
     - name: .NET
@@ -220,10 +220,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: Esquemas de logs de diagnóstico
           href: media-services-diagnostic-logs-schema.md
-    - name: Player de Mídia do Azure
+    - name: Players compatíveis
       items:
-        - name: Visão geral do Player de Mídia do Azure
-          href: ../azure-media-player/azure-media-player-overview.md
+        - name: Players de mídia para Serviços de Mídia
+          href: media-players-overview.md
     - name: Desenvolver com APIs v3
       items:
         - name: Visão geral
@@ -327,6 +327,8 @@
           href: how-to-create-transform.md
         - name: Criar uma transformação de áudio básica com REST
           href: how-to-create-basic-audio-transform.md
+        - name: Criar sprites em miniatura
+          href: how-to-create-thumbnail-sprites.md
         - name: Criar uma transformação copyAllBitrateNonInterleaved com REST
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Copiar vídeos sem codificação com REST
@@ -503,5 +505,3 @@
       href: azure-clouds-regions.md
     - name: Nomes de código regionais e pontos de extremidade
       href: azure-regions-code-names.md
-    - name: Atualizações na documentação
-      href: docs-release-notes.md

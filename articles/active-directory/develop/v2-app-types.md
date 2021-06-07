@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
 ms.openlocfilehash: 7ec309f016e73642262399bd75e7b5146bc5e497
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98752779"
 ---
 # <a name="application-types-for-the-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma Microsoft Identity

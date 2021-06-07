@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para os Serviços Cognitivos do Azure
 description: Lista as definições de políticas internas do Azure Policy para os Serviços Cognitivos do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 01a135900e90aef180a77c9de7e76b1dc596d4c5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.openlocfilehash: bf97c37f370b0250203757c37928be38e51175d7
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100090693"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500968"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Definições de políticas internas do Azure Policy para os Serviços Cognitivos do Azure
 

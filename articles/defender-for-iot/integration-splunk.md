@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do Splunk
-titleSuffix: Azure Defender for IoT
 description: Para resolver a falta de visibilidade da segurança e da resiliência de outras redes, o defender for IoT desenvolveu o defender for IoT, o IIoT e o aplicativo de monitoramento de ameaças do ICS para o Splunk, uma integração nativa entre o defender para IoT e o Splunk, que permite uma abordagem unificada para a ti e a segurança.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557259"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785913"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>Aplicativo de monitoramento de ameaças do defender para IoT e ICS para Splunk
 
@@ -158,7 +153,7 @@ Para criar uma regra de encaminhamento:
     | **Selecionar severidade** | O incidente de nível de segurança mínimo a ser encaminhado. Por exemplo, se a secundária estiver selecionada, os alertas secundários e qualquer alerta acima desse nível de severidade serão encaminhados. |
     | **Protocolos** | Por padrão, todos os protocolos são selecionados. Para selecionar um protocolo específico, selecione **específico** e selecione o protocolo para o qual essa regra é aplicada. |
     | **Motores** | Por padrão, todos os mecanismos de segurança estão envolvidos. Para selecionar um mecanismo de segurança específico para o qual essa regra é aplicada, selecione **específico** e selecione o mecanismo. |
-    | **Notificações do sistema** | Encaminhar o status do sensor online/offline. Essa opção só estará disponível se você tiver feito logon no gerente central. |                                            |
+    | **Notificações do sistema** | Encaminhar o status do sensor online/offline. Essa opção só estará disponível se você tiver feito logon no gerente central. |
 
 1. Para instruir o defender para IoT a enviar informações de ativo ao Splunk, selecione **ação** e, em seguida, selecione **Enviar para o servidor Splunk**.
 

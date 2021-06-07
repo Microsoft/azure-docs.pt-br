@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: cc1d375de9f45369f6d2902b106a1740f316ad8d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41f6c8e260968eacd04249b3f887d4865907df0d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947821"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879783"
 ---
 [Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -116,7 +116,9 @@ node index.js
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](/javascript/api/@azure/arm-cognitiveservices/)
-* [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
-* [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
-* [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)
+* Confira **[Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)** para saber como trabalhar com segurança com os Serviços Cognitivos.
+* Confira **[O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)** para obter uma lista de categorias diferentes dentro dos Serviços Cognitivos.
+* Confira **[Suporte para linguagem natural](../../language-support.md)** para ver a lista de linguagens naturais a que os Serviços Cognitivos dão suporte.
+* Confira **[Usar os Serviços Cognitivos como contêineres](../../cognitive-services-container-support.md)** para saber como usar os Serviços Cognitivos no local.
+* Confira **[Planejar e gerenciar custos para os Serviços Cognitivos](../../plan-manage-costs.md)** para estimar o custo de uso dos Serviços Cognitivos.
+* Confira a **[documentação de referência do SDK de Gerenciamento do Azure](/javascript/api/@azure/arm-cognitiveservices/)** para obter mais detalhes sobre o SDK de gerenciamento.

@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.openlocfilehash: 3d2c0cf780b992d7bb464969c50d60ffa5093e8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896555"
 ---
 # <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dados a serem coletados ao abrir um caso para a Automação do Microsoft Azure

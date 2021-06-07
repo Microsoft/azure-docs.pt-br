@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935080"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
@@ -125,7 +125,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="conditional-access"></a>Acesso Condicional
+## <a name="conditional-access"></a>Acesso condicional
 
 **P: quais são as novidades com esse recurso?**
 

@@ -10,21 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107582"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562341"
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).
 
  As políticas são um recurso poderoso do sistema que permitem ao editor alterar o comportamento da API por meio de configuração. As políticas são um conjunto de instruções executadas em sequência, no momento da solicitação ou da resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor. Muitas políticas estão disponíveis pré-configuradas.
 
- Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, consulte [políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [expressões de política](api-management-policy-expressions.md).
+ Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](api-management-policy-expressions.md).
 
 ##  <a name="policies"></a><a name="ProxyPolicies"></a> Policie
 
@@ -81,6 +81,12 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
     - [Enviar solicitação para um serviço](api-management-dapr-policies.md#invoke) – usa o tempo de execução Dapr para localizar e se comunicar de forma confiável com um microserviço Dapr.
     -  [Enviar mensagem para o tópico pub/sub](api-management-dapr-policies.md#pubsub) – usa o tempo de execução Dapr para publicar uma mensagem em um tópico publicar/assinar.
     -  [Disparar Associação de saída](api-management-dapr-policies.md#bind) – usa o tempo de execução Dapr para invocar um sistema externo por meio da Associação de saída.
+- [Políticas de validação](validation-policies.md)
+    - [Validar conteúdo](validation-policies.md#validate-content) – valida o tamanho ou o esquema JSON de um corpo de solicitação ou resposta em relação ao esquema de API.
+. 
+    - [Validar parâmetros](validation-policies.md#validate-parameters) – valida os parâmetros do cabeçalho, da consulta ou do caminho da solicitação em relação ao esquema da API.
+    - [Validar cabeçalhos](validation-policies.md#validate-headers) – valida os cabeçalhos de resposta em relação ao esquema de API.
+    - [Validar o código de status](validation-policies.md#validate-status-code) -valida os códigos de status HTTP em respostas em relação ao esquema de API.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como trabalhar com políticas, consulte:

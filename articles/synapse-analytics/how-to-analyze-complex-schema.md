@@ -2,19 +2,19 @@
 title: Analisar o esquema com matrizes e estruturas aninhadas
 description: Como analisar matrizes e estruturas aninhadas com Apache Spark e SQL
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219990"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627958"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analisar tipos de dados complexos no Azure Synapse Analytics
 

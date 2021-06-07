@@ -3,15 +3,16 @@ title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows �
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 03/10/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+manager: femila
+ms.openlocfilehash: 1003ab20f839469235d6bd7949ec3b2df4dd4f25
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735174"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447974"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -67,6 +68,9 @@ Para começar a criar seu pool de host:
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela do portal do Azure mostrando o campo Localização com a localização Leste dos EUA selecionada. Ao lado do campo está o texto que diz "Os metadados serão armazenados no Leste dos EUA".](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Caso deseje criar seu pool de host em [uma região compatível](data-locations.md) fora dos EUA, registre novamente o provedor de recursos. Após o novo registro, você verá as outras regiões na lista suspensa de seleção da localização. Saiba como se registrar novamente em nosso artigo de solução de problemas de [criação do pool de host](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects).
 
 8. Em Tipo de pool de host, selecione se o pool de host será **Pessoal** ou **Em pool**.
 
@@ -97,18 +101,16 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 1. Em **Grupo de recursos**, escolha o grupo de recursos no qual você deseja criar as máquinas virtuais. Esse pode ser um grupo de recursos diferente daquele usado para o pool de host.
 
-2. Escolha a **Localização da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
+2. Depois disso, forneça um **Prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números começando em 0.
 
-3. Em seguida, escolha o **Tamanho da máquina virtual** que você deseja usar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
+3. Escolha a **Localização da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
+   
+4. Em seguida, escolha a opção de disponibilidade mais adequada às suas necessidades. Para saber mais sobre qual opção é adequada para você, confira [Opções de disponibilidade para máquinas virtuais no Azure](../virtual-machines/availability.md) e [nossas Perguntas Frequentes](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [Uma captura de tela do menu suspenso da zona de disponibilidade. A opção "zona de disponibilidade" está realçada.](media/availability-zone.png)
 
-4. Em **Número de VMs**, forneça o número de VMs que você deseja criar para o pool de host.
-
-    >[!NOTE]
-    >O processo de instalação pode criar até 400 VMs durante a configuração do pool de host. Cada processo de instalação da VM cria quatro objetos em seu grupo de recursos. Como os processos de criação não verificam sua cota de assinatura, verifique se o número de VMs inseridas está dentro dos limites de API e de VM do Azure para seu grupo de recursos e assinatura. Você pode adicionar mais VMs depois de concluir a criação do pool de host.
-
-5. Depois disso, forneça um **Prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números começando em 0.
-
-6. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Você pode escolher **Galeria** ou **Blob de Armazenamento**.
+5. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Você pode escolher **Galeria** ou **Blob de Armazenamento**.
 
     - Se você escolher **Galeria**, selecione uma das imagens recomendadas no menu suspenso:
 
@@ -118,23 +120,30 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
       - Windows 10 Enterprise multissessão, versão 2004
       - Windows 10 Enterprise multissessão, versão 2004 + Aplicativos Microsoft 365
 
-     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
+      Se você não vir a imagem desejada, selecione **Ver todas as imagens**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
 
-     Você também pode ir até **Meus Itens** e escolher uma imagem personalizada que você já carregou.
+      Você também pode ir até **Meus Itens** e escolher uma imagem personalizada que você já carregou.
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
 
-    - Se você escolher **Blob de Armazenamento**, poderá aproveitar seu build de imagem por meio do Hyper-V ou em uma VM do Azure. Basta inserir a localização da imagem no blob de armazenamento como um URI.
+    - Se você escolher **Blob de Armazenamento**, poderá usar seu build de imagem por meio do Hyper-V ou em uma VM do Azure. Basta inserir a localização da imagem no blob de armazenamento como um URI.
+   
+   A localização da imagem é independente da opção de disponibilidade, mas a resiliência de zona da imagem determina se essa imagem pode ser usada com a zona de disponibilidade. Se você selecionar uma zona de disponibilidade ao criar a imagem, verifique se você está usando uma imagem da galeria com a resiliência de zona habilitada. Para saber mais sobre qual opção de resiliência de zona você deve usar, confira [as Perguntas Frequentes](faq.md#which-availability-option-is-best-for-me).
 
-7. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
+6. Em seguida, escolha o **Tamanho da máquina virtual** que você deseja usar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
 
-8. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual que você selecionou devem ser configurados para usar o IP do controlador de domínio.
+7. Em **Número de VMs**, forneça o número de VMs que você deseja criar para o pool de host.
 
-9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que você selecione **Não** porque um IP privado é mais seguro.
+    >[!NOTE]
+    >O processo de instalação pode criar até 400 VMs durante a configuração do pool de host. Cada processo de instalação da VM cria quatro objetos em seu grupo de recursos. Como os processos de criação não verificam sua cota de assinatura, verifique se o número de VMs inseridas está dentro dos limites de API e de VM do Azure para seu grupo de recursos e assinatura. Você pode adicionar mais VMs depois de concluir a criação do pool de host.
+
+8. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
+
+9. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual que você selecionou devem ser configurados para usar o IP do controlador de domínio.
 
 10. Selecione o tipo de grupo de segurança desejado: **Básico**, **Avançado** ou **Nenhum**.
 
@@ -150,9 +159,9 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 11. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Opcionalmente, você pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam. Se você escolher **Não**, as VMs serão unidas ao domínio que corresponde ao sufixo da **UPN de ingresso no domínio do AD**.
 
-  - Ao especificar uma unidade organizacional, lembre-se de usar o caminho completo (nome diferenciado) e não usar aspas.
+    - Ao especificar uma unidade organizacional, lembre-se de usar o caminho completo (nome diferenciado) e não usar aspas.
 
-12. Em Conta do administrador, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou. Essa conta não pode ter a MFA (autenticação multifator) habilitada. Ao ingressar em um domínio do Azure AD DS (Azure Active Directory Domain Services), a conta precisa fazer parte do grupo de administradores do Azure AD DS e a senha da conta precisa funcionar no Azure AD DS.
+12. Em Conta do Administrador de Domínio, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou. Essa conta não pode ter a MFA (autenticação multifator) habilitada. Ao ingressar em um domínio do Azure AD DS (Azure Active Directory Domain Services), a conta precisa fazer parte do grupo de administradores do Azure AD DS e a senha da conta precisa funcionar no Azure AD DS.
 
 13. Selecione **Avançar: Workspace >** .
 

@@ -4,10 +4,10 @@ description: Este artigo explica como migrar clientes do Apache Kafka para os hu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90061437"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrar para os Hubs de Eventos do Azure para os Ecossistemas Apache Kafka
@@ -18,7 +18,7 @@ Os hubs de eventos do Azure expõem um ponto de extremidade Apache Kafka, que pe
 ### <a name="create-an-azure-account"></a>Criar uma conta do Azure
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-### <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+### <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 Siga as instruções passo a passo no artigo [criar um hub de eventos](event-hubs-create.md) para criar um namespace de hubs de eventos e um hub de eventos. 
 
 ### <a name="connection-string"></a>Cadeia de conexão
@@ -49,7 +49,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 Se `sasl.jaas.config` não for uma configuração com suporte em sua estrutura, localize as configurações usadas para definir o nome de usuário e a senha SASL e use-as. Defina o nome de usuário como `$ConnectionString` e a senha para sua cadeia de conexão de hubs de eventos.
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 Execute o aplicativo Kafka que envia eventos para o Hub de eventos. Em seguida, verifique se o Hub de eventos recebe os eventos usando o portal do Azure. Na página **visão geral** do namespace de seus hubs de eventos, alterne para o modo de exibição **mensagens** na seção **métricas** . Atualize a página para atualizar o gráfico. Poderá levar alguns segundos para que ela mostre que as mensagens foram recebidas. 
 
 [![Verificar se o hub de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)

@@ -1,17 +1,16 @@
 ---
 title: Solução de Análise de Rede do Azure no Azure Monitor | Microsoft Docs
 description: Você pode usar a Solução de Análise de Rede do Azure no Azure Monitor para examinar os logs do grupo de segurança da Rede do Azure e os logs do Gateway de Aplicativo do Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: b8b03378e82810bc2b9680805bacf8360f322a94
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707683"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101708128"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento de rede do Azure no Azure Monitor
 
@@ -113,11 +112,11 @@ A pasta de trabalho de informações de rede permite que você aproveite os recu
 
 * Console centralizado para monitoramento e solução de problemas com dados de [métrica](../insights/network-insights-overview.md#resource-health-and-metrics) e de log.
 
-* Tela flexível para dar suporte à criação de [visualizações](../platform/workbooks-overview.md#visualizations)avançadas personalizadas.
+* Tela flexível para dar suporte à criação de [visualizações](../visualize/workbooks-overview.md#visualizations)avançadas personalizadas.
 
-* Capacidade de consumir e [compartilhar modelos de pasta de trabalho](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade maior.
+* Capacidade de consumir e [compartilhar modelos de pasta de trabalho](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade maior.
 
-Para obter mais informações sobre os recursos da nova pasta de trabalho check-out de pastas de trabalho [-visão geral](../platform/workbooks-overview.md)
+Para obter mais informações sobre os recursos da nova pasta de trabalho check-out de pastas de trabalho [-visão geral](../visualize/workbooks-overview.md)
 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrando da solução de análise de gateway do Azure para Azure Monitor pastas de trabalho
 
@@ -129,7 +128,7 @@ Para obter mais informações sobre os recursos da nova pasta de trabalho check-
 > [!NOTE]
 > Todos os dados anteriores já estão disponíveis na pasta de trabalho do ponto em que as configurações de diagnóstico foram originalmente habilitadas. Não há nenhuma transferência de dados necessária.
 
-2. Acesse a [pasta de trabalho de informações padrão](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) para o recurso de gateway de aplicativo. Todas as informações existentes suportadas pela solução de análise do gateway de aplicativo já estarão presentes na pasta de trabalho. Você pode estender isso adicionando [visualizações](../platform/workbooks-overview.md#visualizations) personalizadas com base na métrica & dados de log.
+2. Acesse a [pasta de trabalho de informações padrão](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) para o recurso de gateway de aplicativo. Todas as informações existentes suportadas pela solução de análise do gateway de aplicativo já estarão presentes na pasta de trabalho. Você pode estender isso adicionando [visualizações](../visualize/workbooks-overview.md#visualizations) personalizadas com base na métrica & dados de log.
 
 3. Depois que você conseguir ver todas as suas métricas e informações de log, para limpar a solução de análise de gateway do Azure do seu espaço de trabalho, você pode excluir a solução da página de recursos da solução.
 
@@ -232,5 +231,5 @@ Os dados coletados antes da alteração não estão visíveis na nova solução.
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Consultas de log no Azure Monitor](../log-query/log-query-overview.md) para exibir dados detalhados do Diagnóstico do Azure.
+* Use [Consultas de log no Azure Monitor](../logs/log-query-overview.md) para exibir dados detalhados do Diagnóstico do Azure.
 

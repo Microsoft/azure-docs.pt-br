@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77111211"
 ---
 | **Fornecedor** | **Família de dispositivos** | **Versão do firmware** |

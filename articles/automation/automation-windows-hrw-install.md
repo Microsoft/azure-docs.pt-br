@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006982"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100651350"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
-Você pode usar o recurso Hybrid Runbook Worker do usuário da automação do Azure para executar runbooks diretamente no computador do Azure ou não Azure, incluindo servidores registrados com [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md). No computador ou servidor que está hospedando a função, você pode executar runbooks diretamente e em recursos no ambiente para gerenciar esses recursos locais.
+Você pode usar o recurso Hybrid Runbook Worker do usuário da automação do Azure para executar runbooks diretamente em um computador do Azure ou não Azure, incluindo servidores registrados com [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md). No computador ou servidor que está hospedando a função, você pode executar runbooks diretamente em relação a ele e em recursos no ambiente para gerenciar esses recursos locais.
 
 A automação do Azure armazena e gerencia runbooks e, em seguida, os entrega a um ou mais computadores designados. Este artigo descreve como implantar um Hybrid Runbook Worker de usuário em um computador Windows, como remover o trabalho e como remover um grupo de Hybrid Runbook Worker.
 
@@ -24,15 +24,15 @@ Depois de implantar com êxito um trabalhador de runbook, revise [Executar runbo
 
 Antes de começar, verifique se você tem o seguinte.
 
-### <a name="a-log-analytics-workspace"></a>Um workspace do Log Analytics
+### <a name="a-log-analytics-workspace"></a>Um espaço de trabalho Log Analytics
 
-A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
+Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/logs/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
-A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md) para o sistema operacional Windows com suporte. Para servidores ou computadores hospedados fora do Azure, você pode instalar o agente de Log Analytics usando os [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md).
+A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-monitor/agents/log-analytics-agent.md) para o sistema operacional Windows com suporte. Para servidores ou computadores hospedados fora do Azure, você pode instalar o agente de Log Analytics usando os [servidores habilitados para Arc do Azure](../azure-arc/servers/overview.md).
 
 ### <a name="supported-windows-operating-system"></a>Sistema operacional Windows com suporte
 
@@ -153,7 +153,7 @@ Para instalar e configurar um Hybrid Runbook Worker do Windows, execute as etapa
         
             - O [Portal do Azure](../azure-arc/servers/manage-vm-extensions-portal.md)
             - A [CLI do Azure](../azure-arc/servers/manage-vm-extensions-cli.md)
-            - [PowerShell do Azure](../azure-arc/servers/manage-vm-extensions-powershell.md)
+            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
             - Modelos do Azure [Resource Manager](../azure-arc/servers/manage-vm-extensions-template.md)
         
         - Usando Azure Policy.

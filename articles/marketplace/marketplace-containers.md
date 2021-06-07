@@ -9,10 +9,10 @@ author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
 ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95741654"
 ---
 # <a name="publishing-guide-for-azure-container-offers"></a>Guia de publicação para ofertas de contêiner do Azure

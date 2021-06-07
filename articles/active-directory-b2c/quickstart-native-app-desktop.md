@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Configurar as credenciais para um aplicativo da área de trabalho'
+title: 'Guia de início rápido: configurar as credenciais de um aplicativo da área de trabalho'
 titleSuffix: Azure AD B2C
 description: Neste Início Rápido, execute um aplicativo de desktop WPF de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
@@ -13,13 +13,13 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "78187263"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo da área de trabalho usando o Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de área de trabalho usando o Azure Active Directory B2C
 
 O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades de nuvem para manter seu aplicativo, sua empresa e seus clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão. Neste início rápido, você pode usar um aplicativo de área de trabalho WPF (Windows Presentation Foundation) para iniciar sessão usando um provedor de identidade de redes sociais e chamar uma API Web do Azure AD B2C protegida.
 
@@ -83,7 +83,7 @@ O aplicativo inclui o token de acesso do Azure AD na solicitação para o recurs
 
 Você usou com êxito sua conta de usuário do Azure AD B2C para fazer uma chamada autorizada a uma API Web protegida pelo Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tutoriais ou inícios rápidos do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o locatário do Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

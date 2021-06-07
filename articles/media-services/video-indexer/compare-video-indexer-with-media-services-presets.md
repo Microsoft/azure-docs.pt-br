@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87047332"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparar as predefinições do Azure Media Services v3 e o Video Indexer 
@@ -31,7 +31,7 @@ Atualmente, há uma sobreposição entre os recursos oferecidos pelas [APIs de v
 
 |Recurso|APIs do indexador de vídeo |Analisador de vídeo e áudio Analyzer predefinições<br/>nas APIs do Media Services v3|
 |---|---|---|
-|Insights de mídia|[Avançado](video-indexer-output-json-v2.md) |[Princípios básicos](../latest/analyzing-video-audio-files-concept.md)|
+|Insights de mídia|[Avançado](video-indexer-output-json-v2.md) |[Conceitos básicos](../latest/analyzing-video-audio-files-concept.md)|
 |Experiências|Consulte a lista completa de recursos com suporte: <br/> [Visão geral](video-indexer-overview.md)|Retorna somente os insights de vídeo|
 |Cobrança|[Preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformidade|Para obter as atualizações de conformidade mais atuais, visite [Offerings.pdfde conformidade do Azure ](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise "Video indexer" para ver se ele está em conformidade com um certificado de interesse.|Para obter as atualizações de conformidade mais atuais, visite [Offerings.pdfde conformidade do Azure ](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e pesquise "serviços de mídia" para ver se ele está em conformidade com um certificado de interesse.|

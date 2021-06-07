@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905563"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223159"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Tutorial: Adicionar a autenticação ao seu aplicativo Web em execução no Serviço de Aplicativo do Azure
 
@@ -41,7 +41,7 @@ Neste tutorial, você aprenderá como:
 
 Para este tutorial, você precisará ter um aplicativo Web implantado no Serviço de Aplicativo. Você pode usar um aplicativo Web existente ou pode seguir o [Início Rápido do ASP.NET Core](quickstart-dotnetcore.md) para criar e publicar um aplicativo Web no Serviço de Aplicativo.
 
-Independentemente de você criar um aplicativo Web ou usar um existente, anote o nome do aplicativo Web e o nome do grupo de recursos no qual o aplicativo Web é implantado. Você precisará desses nomes ao longo deste tutorial. Ao longo deste tutorial, os nomes de exemplo em procedimentos e capturas de tela contêm *SecureWebApp*.
+Independentemente de você criar um aplicativo Web ou usar um existente, anote o nome do aplicativo Web e o nome do grupo de recursos no qual o aplicativo Web é implantado. Você precisará desses nomes ao longo deste tutorial. 
 
 ## <a name="configure-authentication-and-authorization"></a>Configurar a autenticação e a autorização
 
@@ -53,17 +53,19 @@ Clique em **grupos de recursos** e selecione o grupo de recursos. Em **Visão ge
 
 :::image type="content" alt-text="Captura de tela que mostra a seleção da página de gerenciamento do aplicativo." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-No menu esquerdo do aplicativo, selecione **Autenticação/Autorização** e habilite a Autenticação do Serviço de Aplicativo selecionando **Ativado**.
+No menu à esquerda do seu aplicativo, selecione **Autenticação** e clique em **Adicionar provedor de identidade**.
 
-Em **Ação a tomar quando a solicitação não está autenticada**, selecione **Entrar com o Azure Active Directory**.
+Na página **Adicionar um provedor de identidade**, selecione **Microsoft** como o **Provedor de identidade** para conectar identidades da Microsoft e do Azure AD.
 
-Em **Provedores de Autenticação**, selecione **Azure Active Directory**. Selecione **Expresso** e aceite as configurações padrão para criar um aplicativo do Active Directory. Selecione **OK**.
+Em **Registro de aplicativo** > **Tipo de registro de aplicativo**, selecione **Criar registro de aplicativo**.
 
-:::image type="content" alt-text="Captura de tela que mostra a autenticação Expresso." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+Em **Registro de aplicativo** > **Tipos de conta compatíveis**, selecione **Locatário atual – locatário único**.
 
-Na página **Autenticação/Autorização**, selecione **Salvar**.
+Na seção **Configurações de autenticação do serviço de aplicativo**, mantenha **Autenticação** definida como **Exigir autenticação** e **Solicitações não autenticadas** definida como **HTTP 302 Redirecionamento encontrado: recomendado para sites**.
 
-Quando você vir a notificação com a mensagem `Successfully saved the Auth Settings for <app-name> App`, atualize a página do portal.
+Na parte inferior da página **Adicionar um provedor de identidade**, clique em **Adicionar** para habilitar a autenticação do seu aplicativo Web.
+
+:::image type="content" alt-text="Captura de tela que mostra a configuração da autenticação." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 Agora você tem um aplicativo protegido pela autenticação e a autorização do Serviço de Aplicativo.
 

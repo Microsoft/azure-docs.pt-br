@@ -14,12 +14,12 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: f0f2e009220292d298848cf93c479639b2318062
-  ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+  ms.openlocfilehash: c8e74f83085054d7fc4e0892d371d644a06b060a
+  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/16/2020
-  ms.locfileid: "97588481"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104656270"
 landingContent:
 - title: Tradutor
   linkLists:
@@ -27,8 +27,10 @@ landingContent:
     links:
     - text: Tradutor
       url: translator-info-overview.md
+    - text: Tradução de Documento
+      url: document-translation/overview.md
     - text: Tradutor personalizado
-      url: translator-info-overview.md
+      url: custom-translator/overview.md
     - text: Preços
       url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - text: Conformidade
@@ -57,7 +59,7 @@ landingContent:
       url: request-limits.md
     - text: Suporte ao idioma
       url: language-support.md
-- title: Tradutor personalizado
+- title: Tradução personalizada
   linkLists:
   - linkListType: quickstart
     links:
@@ -87,8 +89,8 @@ landingContent:
     links:
     - text: Suporte ao idioma
       url: language-support.md
-    - text: Glossário
-      url: custom-translator/glossary.md
+    - text: Terminologia
+      url: custom-translator/terminology.md
 - title: Recursos
   linkLists:
   - linkListType: reference

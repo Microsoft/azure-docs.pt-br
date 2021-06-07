@@ -1,22 +1,22 @@
 ---
 title: Criar uma SAS de serviço para um contêiner ou BLOB
 titleSuffix: Azure Storage
-description: Saiba como criar uma assinatura de acesso compartilhado de serviço (SAS) para um contêiner ou BLOB usando a biblioteca de armazenamento do Azure para armazenamento de BLOBs.
+description: Saiba como criar uma assinatura de acesso compartilhado de serviço (SAS) para um contêiner ou BLOB usando a biblioteca de cliente de armazenamento de BLOBs do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 03/23/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55cfcf6d6ec369cdf871e8ba38bd81774dacd8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7bbe19de666fb167297de89e85bf302186a9145e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092305"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024873"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Criar uma SAS de serviço para um contêiner ou BLOB
 
@@ -85,28 +85,9 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Uma SAS de serviço é assinada com a chave de acesso da conta. Use a classe [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) para criar a credencial usada para assinar a SAS. Em seguida, chame a função [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo as opções necessárias para obter a cadeia de caracteres do token SAS.
+Uma SAS de serviço é assinada com a chave de acesso da conta. Use a classe [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) para criar a credencial usada para assinar a SAS. Em seguida, chame a função [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo os parâmetros necessários para obter a cadeia de caracteres do token SAS.
 
-```javascript
-function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyName) {
-    const sasOptions = {
-        containerName: containerClient.containerName,
-        permissions: ContainerSASPermissions.parse("c")
-    };
-
-    if (storedPolicyName == null) {
-        sasOptions.startsOn = new Date();
-        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
-    } else {
-        sasOptions.identifier = storedPolicyName;
-    }
-
-    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
-    console.log(`SAS token for blob container is: ${sasToken}`);
-
-    return `${containerClient.url}?${sasToken}`;
-}
-```
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
 
 ---
 
@@ -178,29 +159,9 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 Para criar uma SAS de serviço para um blob, chame o método [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
-Para criar uma SAS de serviço para um blob, chame a chamada da função [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo as opções necessárias.
+Para criar uma SAS de serviço para um blob, chame a função [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) fornecendo os parâmetros necessários.
 
-```javascript
-function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPolicyName) {
-    const sasOptions = {
-        containerName: containerClient.containerName,
-        blobName: blobName
-    };
-
-    if (storedPolicyName == null) {
-        sasOptions.startsOn = new Date();
-        sasOptions.expiresOn = new Date(new Date().valueOf() + 3600 * 1000);
-        sasOptions.permissions = BlobSASPermissions.parse("r");
-    } else {
-        sasOptions.identifier = storedPolicyName;
-    }
-
-    const sasToken = generateBlobSASQueryParameters(sasOptions, sharedKeyCredential).toString();
-    console.log(`SAS token for blob is: ${sasToken}`);
-
-    return `${containerClient.getBlockBlobClient(blobName).url}?${sasToken}`;
-}
-```
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
 
 ---
 

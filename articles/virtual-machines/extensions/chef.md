@@ -1,25 +1,19 @@
 ---
 title: Extensão do chefe para VMs do Azure
 description: Implante o cliente do Chef em uma máquina virtual usando a extensão para VM do Chef.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: linux
 ms.date: 09/21/2018
-ms.author: akjosh
-ms.openlocfilehash: 8977563c6b19754eda53686baf85f840a7583e77
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e316bf9763dd7c2cbbab21992086eac52d108912
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968359"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554778"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
 
@@ -79,15 +73,15 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 | Nome | Valor/Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| settings/runlist | `recipe[mycookbook::default]` | string | S |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| Nome | Exemplo | Tipo de dados | Necessário?
+| Nome | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings

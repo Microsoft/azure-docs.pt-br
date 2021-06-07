@@ -7,14 +7,17 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805948"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739637"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 O roteamento em aplicativos Web estáticos do Azure define as regras de roteamento de back-end e o comportamento de autorização para conteúdo estático e APIs<sup>1</sup>. As regras são definidas como uma matriz de regras no arquivo _routes.json_.
 
@@ -29,6 +32,9 @@ O tópico de roteamento é bastante semelhante aos conceitos de autenticação e
 Consulte o [exemplo de arquivo de rota](#example-route-file) para obter detalhes.
 
 ## <a name="location"></a>Location
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 O arquivo _routes.json_ deve existir na raiz da pasta de artefatos do build do aplicativo. Se o seu aplicativo Web inclui uma etapa de compilação que copia os arquivos de compilação de uma pasta específica para a sua pasta de artefato de compilação, então o arquivo _routes.json_ precisa existir nessa pasta específica.
 
@@ -46,6 +52,9 @@ A tabela acima é apenas um representante de algumas estruturas e bibliotecas co
 
 ## <a name="defining-routes"></a>Definir rotas
 
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
+
 As rotas são definidas no arquivo _routes.json_ como uma matriz de regras de rota na propriedade `routes`. Cada regra é composta por um padrão de rota, juntamente com uma ou mais das propriedades de regra opcionais. Veja o [exemplo de arquivo de rota](#example-route-file) para obter exemplos de uso.
 
 | Propriedade de regra  | Obrigatório | Valor padrão | Comentário                                                      |
@@ -56,6 +65,9 @@ As rotas são definidas no arquivo _routes.json_ como uma matriz de regras de ro
 | `statusCode`   | Não       | 200           | A resposta do [código de status HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para a solicitação. |
 
 ## <a name="securing-routes-with-roles"></a>Proteger rotas com funções
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 As rotas são protegidas pela adição de um ou mais nomes de função na matriz de `allowedRoles` de uma regra. Veja o [exemplo de arquivo de rota](#example-route-file) para obter exemplos de uso.
 
@@ -77,10 +89,13 @@ Você pode criar novas funções conforme necessário na matriz de `allowedRoles
 }
 ```
 
-- Você tem controle total sobre os nomes de função; não há nenhuma lista mestra à qual suas funções devem aderir.
+- Você tem controle total sobre os nomes de função; não há nenhuma lista à qual suas funções devem se ater.
 - Os usuários individuais são associados a funções por meio de [convites](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Curingas
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 As regras de curinga correspondem a todas as solicitações em um determinado padrão de rota. Se você definir um valor de `serve` em sua regra, o arquivo ou caminho nomeado será entregue como a resposta.
 
@@ -109,6 +124,9 @@ Você também pode proteger rotas com caracteres curinga. No exemplo a seguir, q
 
 ## <a name="fallback-routes"></a>Rotas de fallback
 
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
+
 Aplicativos de página única, se estiverem usando estruturas de JavaScript de front-end ou bibliotecas ou plataformas Webassembly, como o mais alto, muitas vezes dependem do roteamento do lado do cliente para a navegação do aplicativo Web. Essas regras de roteamento do lado do cliente atualizam o local da janela do navegador sem fazer solicitações de volta ao servidor. Se você atualizar a página ou navegar diretamente para os locais gerados pelas regras de roteamento do lado do cliente, uma rota de fallback do lado do servidor será necessária para atender à página HTML apropriada.
 
 Uma rota de fallback comum é mostrada no seguinte exemplo:
@@ -128,6 +146,9 @@ Uma rota de fallback comum é mostrada no seguinte exemplo:
 A rota de fallback deve ser listada por último em suas regras de roteamento, pois ela captura todas as solicitações não detectadas pelas regras definidas anteriormente.
 
 ## <a name="redirects"></a>Redirecionamentos
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 Você pode usar os códigos de status HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) e [302](https://en.wikipedia.org/wiki/HTTP_302) para redirecionar solicitações de uma rota para outra.
 
@@ -153,6 +174,9 @@ Os redirecionamentos também funcionam com caminhos que não definem arquivos di
 
 ## <a name="custom-error-pages"></a>Páginas de erro personalizadas
 
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
+
 Os usuários podem encontrar várias situações diferentes que podem resultar em um erro. Usando a matriz de `platformErrorOverrides`, você pode fornecer uma experiência personalizada em resposta a esses erros. Consulte o [exemplo de arquivo de rota](#example-route-file) para o posicionamento da matriz no arquivo _rotas.json_.
 
 > [!NOTE]
@@ -171,6 +195,9 @@ A tabela a seguir lista as substituições de erro de plataforma disponíveis:
 | `Unauthorized_Unknown` | 401 | Há um problema desconhecido ao tentar autenticar o usuário. Uma causa desse erro pode ser que o usuário não é reconhecido porque não deu consentimento ao aplicativo.|
 
 ## <a name="custom-mime-types"></a>Tipos de MIME personalizados
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 O `mimeTypes` objeto, listado no mesmo nível que a `routes` matriz, permite que você associe [tipos de MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) a extensões de arquivo.
 
@@ -194,6 +221,9 @@ As considerações a seguir são importantes ao trabalhar com tipos MIME:
 > Os aplicativos Web estáticos compreendem aplicativos mais Incrivelmenteos e os tipos MIME esperados para os arquivos WASM e DLL, não é necessário adicionar mapeamentos para eles.
 
 ## <a name="default-headers"></a>Cabeçalhos padrão
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 O `defaultHeaders` objeto, listado no mesmo nível que a `routes` matriz, permite que você adicione, modifique ou remova cabeçalhos de [resposta](https://developer.mozilla.org/docs/Web/HTTP/Headers).
 
@@ -221,6 +251,9 @@ As considerações a seguir são importantes ao trabalhar com cabeçalhos:
 - Os cabeçalhos definidos no _routes.js_ somente se aplicam ao conteúdo estático. Você pode personalizar cabeçalhos de resposta de um ponto de extremidade de API no código da função.
 
 ## <a name="example-route-file"></a>Exemplo de arquivo de rota
+
+> [!IMPORTANT]
+> A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
 
 O exemplo a seguir mostra como criar regras de rota para conteúdo estático e APIs em um arquivo _routes.json_. Algumas rotas usam a pasta [ _.auth_ do sistema](authentication-authorization.md) que acessam pontos de extremidade relacionados à autenticação.
 
@@ -312,7 +345,7 @@ Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor
 - O arquivo _routes.json_ não pode ter mais de 100 KB
 - O arquivo _routes.json_ oferece suporte a um máximo de 50 funções distintas
 
-Consulte o [artigo cotas](quotas.md) para restrições gerais e limitações.
+Confira o [artigo Cotas](quotas.md) para ver as restrições gerais e limitações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

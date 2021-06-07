@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cc3498c6d8f385bcf63aa7860edd12f9bf343fb8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397137"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552517"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Rotear o tráfego da web baseado na URL usando Azure PowerShell
 
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -358,7 +358,7 @@ for ($i=1; $i -le 3; $i++)
   $vmssConfig = New-AzVmssConfig `
     -Location eastus `
     -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
+    -SkuName Standard_DS2_v2 `
     -UpgradePolicyMode Automatic
 
   Set-AzVmssStorageProfile $vmssConfig `

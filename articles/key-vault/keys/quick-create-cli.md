@@ -11,10 +11,10 @@ ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4141e60370b397e799664b7d42384bbeb096bd05
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99071164"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e recuperar uma chave do Azure Key Vault usando a CLI do Azure

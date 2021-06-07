@@ -11,10 +11,10 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
 ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678484"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
@@ -54,9 +54,9 @@ As exibições materializadas implementadas no pool de SQL também fornecem os s
 
 Comparando com outros provedores de data warehouse, as exibições materializadas implementadas no Azure Synapse Analytics também fornecem os seguintes benefícios adicionais:
 
-- atualização automática e síncrona de dados com alterações de dados em tabelas base. Não é necessária nenhuma ação do usuário.
-- Amplo suporte à função de agregação. Confira [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- O suporte para recomendação de exibição materializada específica de consulta.  Confira [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Atualização automática e síncrona de dados com alterações de dados nas tabelas base. Não é necessária nenhuma ação do usuário.
+- Amplo suporte à função de agregação. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O suporte para recomendação de exibição materializada específica de consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -75,9 +75,9 @@ As alterações de esquema e consulta em pools de SQL geralmente são mantidas e
 Em comparação com outras opções de ajuste, como gerenciamento de escala e estatísticas, é uma mudança de produção muito menos impactante criar e manter uma exibição materializada e seu potencial ganho de desempenho também é maior.
 
 - Criar ou manter exibições materializadas não afeta as consultas em execução nas tabelas base.
-- O otimizador de consulta pode usar automaticamente as exibições materializadas implantadas sem referência de exibição direta em uma consulta. Esse recurso reduz a necessidade de alteração de consulta no ajuste de desempenho.
+- O otimizador de consulta pode usar as exibições materializadas implantadas automaticamente sem referência direta à exibição em uma consulta. Esse recurso reduz a necessidade de alteração de consulta no ajuste do desempenho.
 
-**Necessidade de uma estratégia de distribuição de dados diferente para um desempenho de consulta mais rápido**
+**Precisa de uma estratégia de distribuição de dados diferente para obter um desempenho de consulta mais rápido**
 
 O Azure Synapse Analytics é um sistema de processamento de consulta distribuído.  Os dados em uma tabela SQL são distribuídos entre 60 nós usando uma das três [estratégias de distribuição](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin ou replicado).   
 
@@ -111,11 +111,11 @@ JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 
 Opções para reduzir o número de exibições materializadas:
 
-- Identifique conjuntos de dados comuns usados frequentemente pelas consultas complexas em sua carga de trabalho.  Crie exibições materializadas para armazenar esses conjuntos de dados para que o otimizador possa usá-los como blocos de construção ao criar planos de execução.  
+- Identifique conjuntos de dados comuns usados frequentemente pelas consultas complexas em sua carga de trabalho.  Crie exibições materializadas para armazenar esses conjuntos de dados para que o otimizador possa usá-los como blocos de construção quando for criar planos de execução.  
 
-- Descarte as exibições materializadas com pouco uso ou que não são mais necessárias.  Uma exibição materializada desabilitada não é mantida, mas ainda incorre em custo de armazenamento.  
+- Descarte as exibições materializadas com pouco uso ou que não são mais necessárias.  Uma exibição materializada desabilitada não é mantida, mas incorre em custo de armazenamento mesmo assim.  
 
-- Combine exibições materializadas criadas nas mesmas ou em tabelas base semelhantes, mesmo que seus dados não se sobreponham.  A combinação de exibições materializadas pode resultar em uma exibição maior do que a soma das exibições separadas. No entanto, o custo da manutenção da exibição deve ser reduzido.  Por exemplo:
+- Combine visualizações materializadas criadas nas tabelas base iguais ou semelhantes, mesmo que seus dados não se sobreponham.  A combinação de exibições materializadas pode resultar em uma exibição maior do que a soma das exibições separadas. No entanto, o custo da manutenção da exibição deve ser reduzido.  Por exemplo:
 
 ```sql
 
@@ -139,9 +139,9 @@ GROUP BY A, C
 
 ```
 
-**Nem todo ajuste de desempenho requer alteração de consulta**
+**Nem todo ajuste de desempenho exige alteração de consulta**
 
-O otimizador de análise do SQL pode usar automaticamente exibições materializadas implantadas para melhorar o desempenho da consulta.  Esse suporte é aplicado de forma transparente a consultas que não fazem referência a exibições e consultas que usam agregações sem suporte na criação de exibições materializadas.  Nenhuma alteração de consulta é necessária. Você pode verificar o plano de execução estimado de uma consulta para confirmar se uma exibição materializada é usada.  
+O otimizador de análise do SQL pode usar automaticamente exibições materializadas implantadas para melhorar o desempenho da consulta.  Esse suporte é aplicado de forma transparente a consultas que não fazem referência a exibições e consultas que usam agregações sem suporte na criação de exibições materializadas.  Nenhuma alteração de consulta é necessária. É possível verificar o plano de execução estimado de uma consulta para confirmar se uma exibição materializada é usada.  
 
 **Monitorar exibições materializadas**
 
@@ -155,7 +155,7 @@ Esses dois recursos são introduzidos na análise de SQL ao mesmo tempo para o a
 
 Para usar o resultado em cache, a forma da consulta de solicitação de cache deve corresponder à consulta que o cache produziu.  Além disso, o resultado em cache deve se aplicar à toda a consulta.  
 
-Exibições materializadas permitem alterações de dados nas tabelas base.  Os dados em exibições materializadas podem ser aplicados a uma parte de uma consulta.  Esse suporte permite que as mesmas exibições materializadas sejam usadas por diferentes consultas que compartilham alguma computação para um desempenho mais rápido.
+Exibições materializadas permitem alterações de dados nas tabelas base.  Dados em exibições materializadas podem ser aplicados a uma parte de uma consulta.  Esse suporte permite que as mesmas exibições materializadas sejam usadas por diferentes consultas que compartilham alguma computação para um desempenho mais rápido.
 
 ## <a name="example"></a>Exemplo
 
@@ -362,7 +362,7 @@ Verifique novamente o plano de execução da consulta original.  Agora o número
 
  ![Plan_Output_List_with_Materialized_Views](./media/performance-tuning-materialized-views/output-list.png)
 
-Com as exibições materializadas, a mesma consulta é executada de forma muito mais rápida sem qualquer alteração de código.  
+Com as exibições materializadas, a mesma consulta é executada muito mais rapidamente sem qualquer alteração de código.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386707"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101721007"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -29,7 +29,7 @@ Os plug-ins de senha, como "validate_password" e "caching_sha2_password", não s
 
 ## <a name="storage-engines"></a>Mecanismos de armazenamento
 
-O MySQL dá suporte a muitos mecanismos de armazenamento. No banco de dados do Azure para MySQL servidor flexível, os seguintes mecanismos de armazenamento têm suporte e não têm suporte:
+O MySQL dá suporte a muitos mecanismos de armazenamento. No banco de dados do Azure para MySQL, há suporte para os seguintes mecanismos de armazenamento e sem suporte:
 
 ### <a name="supported"></a>Com suporte
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)

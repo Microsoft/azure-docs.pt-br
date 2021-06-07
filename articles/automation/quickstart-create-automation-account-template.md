@@ -3,18 +3,20 @@ title: 'Início Rápido: Criar uma conta de Automação – modelo do Azure'
 titleSuffix: Azure Automation
 description: Este guia de início rápido mostra como criar uma conta de Automação usando o modelo do Azure Resource Manager.
 services: automation
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
+ms.author: magoedte
+ms.date: 01/07/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 01/07/2021
-ms.author: magoedte
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.custom:
+- mvc
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 50a8c057a6fdf6350a18225cd2dc538942d6686d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050661"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538411"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Início Rápido: Criar uma conta de Automação usando o modelo do ARM
 
@@ -80,11 +82,11 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
 
 Se você for novo na automação do Azure e Azure Monitor, é importante entender os detalhes de configuração a seguir. Eles podem ajudá-lo a evitar erros ao tentar criar, configurar e usar um workspace do Log Analytics vinculado à sua nova conta de automação.
 
-* Examine [detalhes adicionais](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
+* Examine [detalhes adicionais](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
 
 * Examine [mapeamentos de workspace](how-to/region-mappings.md) para especificar as regiões com suporte embutidas ou em um arquivo de parâmetro. Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um workspace do Log Analytics e uma Conta de Automação na sua assinatura.
 
-* Se você for novo nos logs do Azure Monitor e ainda não tiver implantado um espaço de trabalho, leia as [diretrizes de design do workspace](../azure-monitor/platform/design-logs-deployment.md). Elas ajudarão você a aprender sobre o controle de acesso e compreender as estratégias de implementação de design que recomendamos para sua organização.
+* Se você for novo nos logs do Azure Monitor e ainda não tiver implantado um espaço de trabalho, leia as [diretrizes de design do workspace](../azure-monitor/logs/design-logs-deployment.md). Elas ajudarão você a aprender sobre o controle de acesso e compreender as estratégias de implementação de design que recomendamos para sua organização.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 

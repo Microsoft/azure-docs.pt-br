@@ -3,18 +3,18 @@ title: 'ML Studio (clássico): Início Rápido: Criar um experimento de ciência
 description: Este início rápido de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: quickstart
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 81842fb3a9a68e818a3e8c94aa6db690cb1d94f5
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 843845e6099bdf43f7cd37b0f3e6f82d3ed50b4c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486272"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520605"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento de ciência de dados no Machine Learning Studio (clássico)
 

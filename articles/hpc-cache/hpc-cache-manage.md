@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471890"
 ---
 # <a name="manage-your-cache"></a>Gerenciar seu cache
 
@@ -198,7 +198,7 @@ $
 
 ---
 
-## <a name="collect-diagnostics"></a>Coletar diagnóstico
+## <a name="collect-diagnostics"></a>Coletar o diagnóstico
 
 O botão **coletar diagnósticos** inicia manualmente o processo para coletar informações do sistema e carregá-lo para o serviço Microsoft e o suporte para solução de problemas. O cache coleta e carrega automaticamente as mesmas informações de diagnóstico se ocorre um problema grave de cache.
 
@@ -253,7 +253,21 @@ A página Visão geral mostra grafos para algumas estatísticas básicas de cach
 
 ![captura de tela de três gráficos de linha mostrando as estatísticas mencionadas acima para um cache de exemplo](media/hpc-cache-overview-stats.png)
 
-Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Exibir avisos
+
+Se o cache entrar em um estado não íntegro, verifique a página de **avisos** . Esta página mostra notificações do software de cache que podem ajudá-lo a entender seu estado.
+
+Essas notificações não aparecem no log de atividades porque não são controladas pelo portal do Azure. Eles são frequentemente associados a configurações personalizadas que você pode ter feito.
+
+Os tipos de avisos que você pode ver aqui incluem:
+
+* O cache não pode acessar seu servidor NTP
+* O cache não pôde baixar informações de nome de usuário de grupos estendidos
+* As configurações personalizadas de DNS foram alteradas em um destino de armazenamento
+
+![captura de tela da página monitoramento > avisos mostrando uma mensagem informando que não foi possível baixar os nomes de email de grupos estendidos](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

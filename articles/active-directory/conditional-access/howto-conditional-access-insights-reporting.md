@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049410"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574168"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights e relatórios de acesso condicional
 
@@ -43,7 +43,7 @@ Os usuários também precisam de uma das seguintes funções do workspace do Log
 
 Se você ainda não integrou os logs do Azure AD aos logs do Azure Monitor, é necessário realizar as seguintes etapas antes que a pasta de trabalho seja carregada:  
 
-1. [Criar um workspace do Log Analytics no Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Criar um workspace do Log Analytics no Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrar logs do Azure AD aos logs do Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="how-it-works"></a>Como ele funciona 

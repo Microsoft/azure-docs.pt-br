@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
 ms.openlocfilehash: fe173ec4d4f28444d43739ea2ed51e43021916b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84744350"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Solução de problemas do Analisador de Internet do Azure

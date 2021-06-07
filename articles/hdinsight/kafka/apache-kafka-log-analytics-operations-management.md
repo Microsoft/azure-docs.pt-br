@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 74db121c33864ee72ad984b49c8fa43afa0f598c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932769"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870510"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analise logs do Apache Kafka no HDInsight
 
@@ -34,7 +34,7 @@ Os logs de Apache Kafka no cluster estão localizados em `/var/log/kafka` . Os l
 
 As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesmas para todos os clusters HDInsight. Use os links a seguir para entender como criar e configurar os serviços necessários:
 
-1. Criar um espaço de trabalho do Log Analytics. Para obter mais informações, consulte o documento [logs no Azure monitor](../../azure-monitor/platform/data-platform-logs.md) .
+1. Criar um espaço de trabalho do Log Analytics. Para obter mais informações, consulte o documento [logs no Azure monitor](../../azure-monitor/logs/data-platform-logs.md) .
 
 2. Criar um Kafka no cluster HDInsight. Para obter mais informações, consulte o documento [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -97,7 +97,7 @@ As etapas para habilitar os logs de Azure Monitor para o HDInsight são as mesma
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Métricas do Kafka JMX |
 
-    ![Uso da CPU do Apache Kafka log Analytics](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+    :::image type="content" source="./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png" alt-text="Uso da CPU do Apache Kafka log Analytics" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

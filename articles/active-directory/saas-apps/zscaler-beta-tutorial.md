@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: integração do Azure Active Directory com o Zscaler Beta
@@ -190,14 +190,14 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     b. Selecione **Ativar**.
 
-## <a name="configure-proxy-settings"></a>Definir configurações de proxy
+## <a name="configure-proxy-settings&quot;></a>Definir configurações de proxy
 Para definir as configurações de proxy no Internet Explorer, siga estas etapas.
 
 1. Inicie o **Internet Explorer**.
 
 2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**. 
     
-     ![Caixa de diálogo de Opções da Internet](./media/zscaler-beta-tutorial/ic769492.png "Opções da Internet")
+     ![Caixa de diálogo de Opções da Internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Opções da Internet")
 
 3. Selecione a guia **Conexões**. 
   

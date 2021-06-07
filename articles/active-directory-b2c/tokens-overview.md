@@ -11,10 +11,10 @@ ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516363"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 3ecf4458b052f4fdc0eb2e6e697b0468c71ce9c2
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584848"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102519649"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>Disparar pipelines do Machine Learning
 
@@ -66,7 +66,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Criar uma agenda baseada em tempo
 
-O `ScheduleRecurrence` Construtor tem um `frequency` argumento necessário que deve ser uma das seguintes cadeias de caracteres: "minuto", "hora", "dia", "semana" ou "mês". Ele também requer um `interval` argumento inteiro especificando quantas `frequency` unidades devem decorrer entre a agenda começar. Os argumentos opcionais permitem que você seja mais específico sobre horários de início, conforme detalhado nos [documentos do SDK do ScheduleRecurrence](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?preserve-view=true&view=azure-ml-py).
+O `ScheduleRecurrence` Construtor tem um `frequency` argumento necessário que deve ser uma das seguintes cadeias de caracteres: "minuto", "hora", "dia", "semana" ou "mês". Ele também requer um `interval` argumento inteiro especificando quantas `frequency` unidades devem decorrer entre a agenda começar. Os argumentos opcionais permitem que você seja mais específico sobre horários de início, conforme detalhado nos [documentos do SDK do ScheduleRecurrence](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence).
 
 Crie um `Schedule` que comece uma execução a cada 15 minutos:
 
@@ -83,11 +83,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Os pipelines disparados por alterações de arquivo podem ser mais eficientes do que os agendamentos baseados em tempo. Quando você deseja fazer algo antes de um arquivo ser alterado, ou quando um novo arquivo é adicionado a um diretório de dados, você pode pré-processar esse arquivo. Você pode monitorar qualquer alteração em um repositório de armazenamento ou alterações dentro de um diretório específico dentro do repositório de armazenamento. Se você monitorar um diretório específico, as alterações nos subdiretórios desse diretório _não_ dispararão uma execução.
 
-Para criar um arquivo-reativo `Schedule` , você deve definir o `datastore` parâmetro na chamada para [Schedule. Create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorar uma pasta, defina o `path_on_datastore` argumento.
+Para criar um arquivo-reativo `Schedule` , você deve definir o `datastore` parâmetro na chamada para [Schedule. Create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorar uma pasta, defina o `path_on_datastore` argumento.
 
 O `polling_interval` argumento permite que você especifique, em minutos, a frequência na qual o repositório de armazenamento é verificado quanto a alterações.
 
-Se o pipeline foi construído com um [DataPath](/python/api/azureml-core/azureml.data.datapath.datapath?preserve-view=true&view=azure-ml-py) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?preserve-view=true&view=azure-ml-py), você pode definir essa variável como o nome do arquivo alterado, definindo o `data_path_parameter_name` argumento.
+Se o pipeline foi construído com um [DataPath](/python/api/azureml-core/azureml.data.datapath.datapath) [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter), você pode definir essa variável como o nome do arquivo alterado, definindo o `data_path_parameter_name` argumento.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")

@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519906"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para usar o logon do Twitter
@@ -27,7 +27,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Twitter
 1. Entre no [portal do Azure] e vá para seu aplicativo. Copie a **URL**. Você o usará para configurar seu aplicativo do Twitter.
 1. Vá para o site de [desenvolvedores do Twitter] , entre com suas credenciais de conta do Twitter e selecione **criar um aplicativo**.
 1. Insira o **nome do aplicativo** e a **Descrição do aplicativo** para o novo aplicativo. Cole a **URL** do aplicativo no campo **URL do site** . Na seção **URLs de retorno de chamada** , insira a URL https do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/twitter/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
-1. Na parte inferior da página, digite pelo menos 100 caracteres em **diga-nos como esse aplicativo será usado**e, em seguida, selecione **criar**. Clique em **criar** novamente no pop-up. Os detalhes do aplicativo são exibidos.
+1. Na parte inferior da página, digite pelo menos 100 caracteres em **diga-nos como esse aplicativo será usado** e, em seguida, selecione **criar**. Clique em **criar** novamente no pop-up. Os detalhes do aplicativo são exibidos.
 1. Selecione a guia **Chaves e Tokens de Acesso** .
 
    Anote esses valores:

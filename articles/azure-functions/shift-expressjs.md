@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
 ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87810217"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Mudando de Express.js para Azure Functions
@@ -113,7 +113,7 @@ Ao migrar para o functions, as seguintes alterações são feitas:
 
 - **Configuração**: você define os verbos HTTP no [function.jsno](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) arquivo, como `POST` ou `PUT` .
 
-Ofunction.jsa seguir _ no_ arquivo contém informações de configuração para a função.
+Ofunction.jsa seguir _no_ arquivo contém informações de configuração para a função.
 
 ```json
 {

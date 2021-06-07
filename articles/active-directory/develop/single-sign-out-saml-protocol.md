@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703408"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781204"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
 
-O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. O Microsoft Azure Active Directory usa o LogoutURL para redirecionar os usuários depois que eles são desconectados.
+O Azure AD (Azure Active Directory) dá suporte ao perfil de logout único de navegador Web SAML 2.0. Para que o logout único funcione corretamente, o **LogoutURL** do aplicativo deve ser explicitamente registrado com o Azure AD durante o registro do aplicativo. Se o aplicativo for [adicionado à galeria de Azure app](v2-howto-app-gallery-listing.md) , esse valor poderá ser definido por padrão. Caso contrário, o valor deve ser determinado e definido pela pessoa que está adicionando o aplicativo ao seu locatário do Azure AD. O Microsoft Azure Active Directory usa o LogoutURL para redirecionar os usuários depois que eles são desconectados. 
 
 O Azure AD dá suporte à associação de redirecionamento (HTTP GET) e não à associação HTTP POST.
 

@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387505"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
@@ -76,7 +76,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
@@ -342,7 +342,7 @@ Tabela "TabelaDeExemplo_Faturas":
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0,2 |
 | 1111 |1 |124 |forno |1235 |0,2 |
-| 2222 |0 |135 |geladeira |12543 |0,0 |
+| 2222 |0 |135 |geladeira |12543 |0.0 |
 
 Tabela "TabelaDeExemplo_Classificações":
 

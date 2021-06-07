@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898288"
 ---
 # <a name="smote"></a>SMOTE
@@ -42,7 +42,7 @@ Para aumentar o número de casos, você pode definir o valor de **SMOTE percentu
 
 ||Classe 0|Classe 1|total|  
 |-|-------------|-------------|-----------|  
-|Conjunto de dados original<br /><br /> (equivalente ao **percentual**  =  de SMOTE **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
+|Conjunto de dados original<br /><br /> (equivalente ao **percentual**  =  de SMOTE **0**)|570<br /><br /> 76%|178<br /><br /> 24%|748|  
 |**Porcentagem**  =  de SMOTE **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
 |**Porcentagem**  =  de SMOTE **200**|570<br /><br /> 52%|534<br /><br /> 48%|1.104|  
 |**Porcentagem**  =  de SMOTE **300**|570<br /><br /> 44%|712<br /><br /> 56%|1.282|  

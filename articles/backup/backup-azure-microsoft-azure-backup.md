@@ -4,10 +4,10 @@ description: Neste artigo, veja como preparar o ambiente para proteger e fazer b
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98987015"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure

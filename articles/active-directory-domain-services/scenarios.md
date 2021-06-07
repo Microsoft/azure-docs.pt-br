@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: justinha
 ms.openlocfilehash: d33698ed2f9ac53aae3c836acd54f19a4b72ceef
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619021"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services

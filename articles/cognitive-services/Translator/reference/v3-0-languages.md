@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
 ms.openlocfilehash: 8471983d24cfed39e6521e19366f6023e519adaf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895468"
 ---
 # <a name="translator-30-languages"></a>Tradutor 3,0: idiomas
 
 Obtém o conjunto de idiomas com suporte no momento por outras operações do tradutor. 
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `GET` para:
 ```HTTP
@@ -40,7 +40,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>escopo</td>
+    <td>scope</td>
     <td>*Parâmetro opcional*.<br/>Uma lista separada por vírgula de nomes que definem o grupo de idiomas a ser retornado. Os nomes de grupo permitidos são: `translation`, `transliteration` e `dictionary`. Se nenhum escopo é fornecido, todos os grupos são retornados, o que é equivalente a passar `scope=translation,transliteration,dictionary`. Para decidir qual conjunto de idiomas compatíveis é apropriado para seu cenário, confira a descrição do [objeto de resposta](#response-body).</td>
   </tr>
 </table> 

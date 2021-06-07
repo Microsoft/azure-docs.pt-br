@@ -9,10 +9,10 @@ ms.date: 02/03/2021
 ms.author: fauhse
 ms.custom: include file
 ms.openlocfilehash: a086aae35c9a800c6a4cfc3e872a34438bc84095
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99569452"
 ---
 Por padrão, os compartilhamentos de arquivo padrão podem abranger até 5 TiB, mas você pode aumentar o limite de compartilhamento para 100 TiB. Para aumentar o limite de compartilhamento, habilite **Compartilhamento de arquivo grandes** na sua conta de armazenamento. As contas de armazenamento Premium (contas de armazenamento *FileStorage*) não têm o sinalizador de recurso de compartilhamento de arquivo grande, pois todos os compartilhamentos de arquivo Premium já estão habilitados para provisionar até a capacidade total de 100 TiB.

@@ -11,14 +11,14 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
-  ms.date: 01/29/2019
+  ms.date: 02/09/2019
   ms.author: aahi
-  ms.openlocfilehash: 48d045fb89a4b04826ecb9fd0c7d0b2ac676d64a
-  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+  ms.openlocfilehash: ac0b74be60ceccdb4d6c6466c4ae8da17cb1937c
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/28/2021
-  ms.locfileid: "98944971"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102507527"
 landingContent:
 - title: Sobre a API de Análise de Texto
   linkLists:
@@ -114,26 +114,22 @@ landingContent:
     links:
     - text: Reconhecimento de entidade
       url: how-tos/text-analytics-how-to-entity-linking.md
-- title: Referência
+- title: Uso responsável da IA
   linkLists:
-  - linkListType: reference
+  - linkListType: overview
     links:
-    - text: API REST
-      url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
-    - text: Biblioteca de clientes do .NET
-      url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
-    - text: Biblioteca de clientes Python
-      url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
-    - text: Biblioteca de clientes JavaScript
-      url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
-    - text: Biblioteca de clientes Java
-      url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
-    - text: Biblioteca de clientes Go
-      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
-    - text: Azure PowerShell
-      url: /powershell/module/az.cognitiveservices
-    - text: CLI do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+    - text: Nota de transparência para Análise de Texto
+      url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota de transparência para Integridade
+      url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota de transparência para PII
+      url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+    - text: Nota de transparência para Análise de Sentimento
+      url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+  - linkListType: concept
+    links:
+    - text: Integração e uso responsável
+      url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
 - title: Usar contêineres do Docker
   linkLists:
   - linkListType: how-to-guide
@@ -148,6 +144,26 @@ landingContent:
       url: ../containers/azure-container-instance-recipe.md
     - text: Implantar um contêiner no AKS (Serviço de Kubernetes do Azure)
       url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST (v3.1 – versão prévia)
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/
+    - text: API REST (v3.0)
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
+    - text: Biblioteca de clientes do .NET
+      url: /dotnet/api/overview/azure/ai.textanalytics-readme
+    - text: Biblioteca de clientes Python
+      url: /python/api/overview/azure/ai-textanalytics-readme
+    - text: Biblioteca de clientes JavaScript
+      url: /javascript/api/overview/azure/ai-text-analytics-readme
+    - text: Biblioteca de clientes Java
+      url: /java/api/overview/azure/ai-textanalytics-readme
+    - text: Azure PowerShell
+      url: /powershell/module/az.cognitiveservices
+    - text: CLI do Azure
+      url: /cli/azure/cognitiveservices
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

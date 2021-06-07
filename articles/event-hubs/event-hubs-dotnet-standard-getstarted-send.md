@@ -4,12 +4,12 @@ description: Este artigo fornece um passo a passo para criar um aplicativo .NET 
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36551a52bc095a37aa5176ab945dd5d27c640954
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 58da331336481614cf0f85bdf6c1136c8bdc8db7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504603"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536497"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar e receber eventos dos Hubs de Eventos do Azure – .NET (Azure.Messaging.EventHubs) 
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando a biblioteca **Azure.Messaging.EventHubs** do .NET. 
@@ -188,8 +188,8 @@ Neste início rápido, você usará o Armazenamento do Azure como o repositório
             // Start the processing
             await processor.StartProcessingAsync();
 
-            // Wait for 10 seconds for the events to be processed
-            await Task.Delay(TimeSpan.FromSeconds(10));
+            // Wait for 30 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(30));
 
             // Stop the processing
             await processor.StopProcessingAsync();

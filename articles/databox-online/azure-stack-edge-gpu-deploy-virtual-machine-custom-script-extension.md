@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804871"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102438005"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Implantar a extensão de script personalizado em VMs em execução no seu dispositivo Azure Stack Edge pro
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 A extensão de script personalizado baixa e executa scripts ou comandos em máquinas virtuais em execução em seus dispositivos Azure Stack Edge pro. Este artigo fornece detalhes sobre como instalar e executar a extensão de script personalizado usando um modelo de Azure Resource Manager. 
 
@@ -35,8 +37,8 @@ A extensão de script personalizado para Windows será executada no seguinte OSs
 
 | Distribuição | Versão |
 |---|---|
-| Windows Server 2019 | Core |
-| Windows Server 2016 | Core |
+| Windows Server 2019 | Núcleo |
+| Windows Server 2016 | Núcleo |
 
 #### <a name="supported-os-for-custom-script-extension-on-linux"></a>Sistema operacional com suporte para extensão de script personalizado no Linux
 

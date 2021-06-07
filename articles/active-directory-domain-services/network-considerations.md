@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: justinha
 ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97615810"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure Active Directory Domain Services
@@ -96,7 +96,7 @@ Um domínio gerenciado cria alguns recursos de rede durante a implantação. Ess
 | Placa de interface de rede                  | O Azure AD DS hospeda o domínio gerenciado em dois controladores de domínio (DCs) executados no Windows Server como VMs do Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS se comunica com o serviço de sincronização e gerenciamento usando um endereço IP público de SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [tipos de endereço IP e métodos de alocação no Azure](../virtual-network/public-ip-addresses.md). |
 | Balanceador de carga standard do Azure            | O Azure AD DS usa um balanceador de carga SKU padrão para NAT (conversão de endereços de rede) e balanceamento de carga (quando usado com o LDAP seguro). Para obter mais informações sobre os balanceadores de carga do Azure, consulte [o que é Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
-| Regras de conversão de endereços de rede (NAT) | O Azure AD DS cria e usa três regras NAT na regra de balanceador de carga-uma para o tráfego HTTP seguro e duas regras para proteger a comunicação remota do PowerShell. |
+| Regras NAT (conversão de endereços de rede) | O Azure AD DS cria e usa três regras NAT na regra de balanceador de carga-uma para o tráfego HTTP seguro e duas regras para proteger a comunicação remota do PowerShell. |
 | Regras do balanceador de carga                     | Quando um domínio gerenciado é configurado para LDAP seguro na porta TCP 636, três regras são criadas e usadas em um balanceador de carga para distribuir o tráfego. |
 
 > [!WARNING]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: fecb7381786c36b077d329f68ca48ab10f65a984
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895047"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642966"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ScaleX Enterprise
 
@@ -49,7 +49,7 @@ Para configurar a integração do ScaleX Enterprise ao Azure AD, você precisar�
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **ScaleX Enterprise** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **ScaleX Enterprise** na caixa de pesquisa.
 1. Selecione **ScaleX Enterprise** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -70,13 +70,13 @@ Para configurar e testar o SSO do Azure AD com o ScaleX Enterprise, conclua os s
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ScaleX Enterprise** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ScaleX Enterprise**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/`
 
@@ -84,20 +84,20 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/sso/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/sso/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](https://info.rescale.com/contact_sales) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](https://about.rescale.com/contactus.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. O aplicativo ScaleX Enterprise espera as declarações do SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado para a configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **emailaddress** é mapeado com **user.mail**. O aplicativo ScaleX Enterprise espera que **emailaddress** seja mapeado com **user.userprincipalname**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterando-o.
 
     ![image](common/edit-attribute.png)
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o ScaleX Enterprise** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o ScaleX Enterprise**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -105,11 +105,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -127,9 +127,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-scalex-enterprise-sso"></a>Configurar o SSO do ScaleX Enterprise
 
@@ -160,9 +160,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     a. Selecione **Criar qualquer usuário que possa se autenticar com o SSO**
 
-    b. **Saml do provedor de serviços** : Cole o valor * *_urn:oasis:names:tc:SAML:2.0:nameid-format:persistent_* _
+    b. **SAML do Provedor de Serviços**: cole o valor **_urn:oasis:names:tc:SAML:2.0:nameid-format:persistent_**
 
-    c. _*Nome do campo de email do Provedor de Identidade na resposta do ACS**: Cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Nome do campo de email do Provedor de Identidade na resposta do ACS**: cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     d. **ID da entidade do EntityDescriptor do provedor de identidade:** Cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 

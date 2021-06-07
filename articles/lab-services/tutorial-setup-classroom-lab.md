@@ -4,10 +4,10 @@ description: Neste tutorial, você usará o Azure Lab Services para configurar u
 ms.topic: tutorial
 ms.date: 12/03/2020
 ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98787411"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 

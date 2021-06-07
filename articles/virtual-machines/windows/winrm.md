@@ -3,24 +3,24 @@ title: Configurar o acesso do WinRM para uma VM do Azure
 description: Configure o acesso do WinRM para uso com uma máquina virtual do Azure criada no modelo de implantação do Resource Manager.
 author: mimckitt
 manager: vashan
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
-ms.openlocfilehash: fbba14980083287c91fdd3defec78b229808fb15
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: ab676e7595a8ccd902eea27612e4c2fd035fae0c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621681"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102555713"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurando o acesso do WinRM para as máquinas virtuais no Azure Resource Manager
 
 Aqui estão as etapas que você precisa realizar para configurar uma VM com conectividade do WinRM
 
 1. Criar um cofre de chaves
-2. Criará um certificado autoassinado
+2. Crie um certificado autoassinado
 3. Carregar seu certificado autoassinado no Cofre de Chaves
 4. Obtenha a URL para seu certificado autoassinado no Cofre de Chaves
 5. Referenciar a URL de seus certificados autoassinados ao criar uma VM

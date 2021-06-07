@@ -6,15 +6,15 @@ metadata:
   description: O Azure Kinect DK é um kit de desenvolvedor com sensores de IA avançados que fornecem modelos de fala e pesquisa visual computacional sofisticados. O Kinect contém um sensor de profundidade, uma matriz de microfone espacial com uma câmera de vídeo e um sensor de orientação integrados em um dispositivo pequeno, com vários modos, opções e SDKs.
   ms.prod: kinect-dk
   ms.topic: landing-page
-  author: tesych
-  ms.author: tesych
-  ms.date: 03/11/2020
-  ms.openlocfilehash: f1691507d75d6de630f3c5a48cd59c8cc22b5999
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  author: qm13
+  ms.author: quentinm
+  ms.date: 03/18/2021
+  ms.openlocfilehash: 74f320461327d4835e07a12d122f131977edc91a
+  ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85277872"
+  ms.lasthandoff: 03/24/2021
+  ms.locfileid: "104954897"
 landingContent:
 - title: Sobre o Azure Kinect DK
   linkLists:
@@ -75,7 +75,7 @@ landingContent:
     - text: API do SDK do sensor
       url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
     - text: API do SDK de acompanhamento de corpo
-      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.1.x/index.html
     - text: Serviços de Visão
       url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
     - text: Serviços de Fala

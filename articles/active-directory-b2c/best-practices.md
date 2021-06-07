@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 1c3c3d38ac0d8334f70f681d8ef86c0d6f86ecfa
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750213"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
 
 As práticas recomendadas e recomendações a seguir abrangem alguns dos principais aspectos da integração do Azure Active Directory (Azure AD) B2C em ambientes de aplicativos novos ou existentes.
 
-## <a name="fundamentals"></a>Princípios básicos
+## <a name="fundamentals"></a>Conceitos básicos
 
 | Melhor prática | Descrição |
 |--|--|
 | Escolher fluxos de usuário para a maioria dos cenários | A estrutura de experiência de identidade do Azure AD B2C é a força principal do serviço. As políticas descrevem em detalhe experiências de identidade, tais como inscrição, entrada ou edição de perfil. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas fluxos dos usuários. Com os fluxos de usuário, você pode criar excelentes experiências do usuário em questão de minutos, com apenas alguns cliques. [Saiba quando usar fluxos de usuário versus políticas personalizadas](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | Registros de aplicativo | Todos os aplicativos (Web, nativos) e a API que estão sendo protegidos devem ser registrados em Azure AD B2C. Se um aplicativo tiver uma versão Web e nativa do iOS e do Android, você poderá registrá-las como um aplicativo no Azure AD B2C com a mesma ID do cliente. Saiba como [registrar aplicativos OIDC, SAML, Web e nativos](./tutorial-register-applications.md?tabs=applications). Saiba mais sobre os [tipos de aplicativos que podem ser usados no Azure ad B2C](./application-types.md). |
-| Mover para cobrança mensal de usuários ativos | Azure AD B2C passou de autenticações ativas mensais para a cobrança de usuários ativos mensais (MAU). A maioria dos clientes considerará esse modelo econômico. [Saiba mais sobre a cobrança mensal dos usuários ativos](https://azure.microsoft.com/updates/mau-billing/). [Salvar este link](b2clogin.md) |
+| Mover para cobrança mensal de usuários ativos | Azure AD B2C passou de autenticações ativas mensais para a cobrança de usuários ativos mensais (MAU). A maioria dos clientes considerará esse modelo econômico. [Saiba mais sobre a cobrança mensal dos usuários ativos](https://azure.microsoft.com/updates/mau-billing/). |
 
 ## <a name="planning-and-design"></a>Planejamento e design
 
@@ -70,7 +70,7 @@ Teste e automatize sua implementação de Azure AD B2C.
 | Limitação |  Azure AD B2C limita o tráfego se muitas solicitações forem enviadas da mesma fonte em um curto período de tempo. Use várias fontes de tráfego durante o teste de carga e manipule o `AADB2C90229` código de erro normalmente em seus aplicativos. |
 | Automação | Use pipelines de CI/CD (integração e entrega contínuas) para automatizar testes e implantações, por exemplo, [DevOps do Azure](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 Gerencie seu ambiente de Azure AD B2C.
 
@@ -84,7 +84,7 @@ Gerencie seu ambiente de Azure AD B2C.
 | Configurar alertas e monitoramento ativos | [Acompanhe o comportamento do usuário](./analytics-with-application-insights.md) em Azure AD B2C usando Application insights. |
 
 ## <a name="support-and-status-updates"></a>Atualizações de status e suporte
-## <a name="todays-support-and-status-updates"></a>Atuais atualizações de suporte e status
+
 Mantenha-se atualizado com o estado do serviço e encontre opções de suporte.
 
 | Melhor prática | Descrição |

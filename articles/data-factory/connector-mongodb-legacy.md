@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368839"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiar dados do MongoDB usando Azure Data Factory (Herdado)
@@ -228,7 +228,7 @@ As tabelas a seguir mostram as tabelas virtuais que representam as matrizes orig
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |torradeira |456 |0,2 |
 | 1111 |1 |124 |forno |1235 |0,2 |
-| 2222 |0 |135 |geladeira |12543 |0,0 |
+| 2222 |0 |135 |geladeira |12543 |0.0 |
 
 **Tabela “ExampleTable_Ratings":**
 

@@ -15,13 +15,13 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077823"
 ---
-# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo Spring Boot
+# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Usar sinalizadores de recurso em um aplicativo Spring Boot
 
 As bibliotecas de Gerenciamento de Recursos do Spring Boot Core oferecem suporte para implementar sinalizadores de recursos em um aplicativo Spring Boot. Essas bibliotecas permitem que você adicione sinalizadores de recursos ao código de forma declarativa.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
 ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762408"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -147,7 +147,7 @@ Para fazer backup de um serviço de Gerenciamento de API, execute a seguinte sol
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-onde:
+em que:
 
 -   `subscriptionId` – ID da assinatura que contém o serviço de Gerenciamento de API do qual você está tentando fazer backup
 -   `resourceGroupName` -nome do grupo de recursos do seu serviço de Gerenciamento de API do Azure
@@ -177,7 +177,7 @@ Para restaurar um serviço de Gerenciamento de API de um backup criado anteriorm
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-onde:
+em que:
 
 -   `subscriptionId` - ID da assinatura que contém o serviço de Gerenciamento de API que você está restaurando um backup em
 -   `resourceGroupName` – nome do grupo de recursos que contém o serviço de Gerenciamento de API do Azure em que você está restaurando um backup

@@ -4,10 +4,10 @@ description: Saiba como definir configurações de inicialização automática p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91328472"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Máquinas virtuais do laboratório de inicialização automática  

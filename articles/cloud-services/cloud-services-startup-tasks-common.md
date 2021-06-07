@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741189"
 ---
 # <a name="common-cloud-service-classic-startup-tasks"></a>Tarefas de inicialização comuns do serviço de nuvem (clássico)
@@ -87,7 +87,7 @@ As seções relevantes do arquivo [ServiceDefinition.csdef] são mostradas aqui,
 O arquivo em lotes *Startup.cmd* usa *AppCmd.exe* para adicionar uma seção e uma entrada de compactação para JSON ao arquivo *Web.config*. O **errorlevel** esperado de 183 é definido como zero usando o programa de linha de comando VERIFY.EXE. Os errorlevels inesperados são registrados em StartupErrorLog.txt.
 
 ```cmd
-REM   **_ Add a compression section to the Web.config file. _*_
+REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -102,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Add compression for json. _*_
+REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -110,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   _*_ Exit batch file. _*_
+REM   *** Exit batch file. ***
 EXIT /b 0
 
-REM   _*_ Log error and exit _*_
+REM   *** Log error and exit ***
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -129,7 +129,7 @@ O segundo firewall controla conexões entre a máquina virtual e os processos de
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter uma[tarefa] [ExecutionContext]de _ * privilégios elevados * *. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]**elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

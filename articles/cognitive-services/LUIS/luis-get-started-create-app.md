@@ -4,13 +4,13 @@ description: Neste início rápido, crie um aplicativo LUIS que use o domínio p
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019153"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277021"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 
@@ -31,7 +31,7 @@ Na janela exibida, insira as seguintes informações:
 
 |Nome  |Descrição  |
 |---------|---------|
-|AName     | Um nome para o seu aplicativo. Por exemplo, "automação residencial".        |
+|AName     | Um nome para o aplicativo. Por exemplo, "automação residencial".        |
 |Cultura     | O idioma que o seu aplicativo compreende e fala.   |
 |Descrição | Uma descrição para o aplicativo.
 |Recurso de previsão | O recurso de previsão que receberá consultas. |
@@ -52,7 +52,7 @@ Selecione **Concluído**.
 
     Quando o domínio for adicionado com êxito, a caixa de domínio predefinido exibirá um botão **Remover domínio**.
 
-## <a name="intents-and-entities"></a>Intenções e entidades
+## <a name="intents-and-entities&quot;></a>Intenções e entidades
 
 1. Selecione **Intenções** no menu de navegação à esquerda para ver as intenções do domínio HomeAutomation. Ele tem exemplos de enunciados, como `HomeAutomation.QueryState` e `HomeAutomation.SetDevice`.
 
@@ -61,8 +61,8 @@ Selecione **Concluído**.
 
 1. Selecione a intenção **HomeAutomation.TurnOff**. A intenção contém uma lista de enunciados de exemplo rotulados com entidades.
 
-    > [!div class="mx-imgBorder"]
-    > [![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class=&quot;mx-imgBorder&quot;]
+    > [![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png &quot;Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 1. Caso deseje ver as entidades do aplicativo, selecione **Entidades**. Se você clicar em uma das entidades, como **HomeAutomation.DeviceName**, verá uma lista de valores associados a ela. 
  
@@ -220,7 +220,5 @@ Para receber uma previsão do LUIS em um chatbot ou em outro aplicativo cliente,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode chamar o ponto de extremidade do código:
-
 > [!div class="nextstepaction"]
-> [Chamar um ponto de extremidade do LUIS usando código](./luis-get-started-get-intent-from-rest.md)
+> [Desenvolvimento de aplicativo iterativo para LUIS](./luis-concept-app-iteration.md)

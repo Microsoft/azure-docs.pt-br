@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621888"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200682"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e assinar com Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Você pode usar Azure IoT Edge agente MQTT para publicar e assinar mensagens. Este artigo mostra como se conectar a esse agente, publicar e assinar mensagens em tópicos definidos pelo usuário e usar primitivos de mensagens do Hub IoT. O agente do MQTT IoT Edge é interno do hub de IoT Edge. Para obter mais informações, consulte [os recursos de agente do hub de IOT Edge](iot-edge-runtime.md).
 
@@ -366,8 +368,8 @@ Os [SDKs do dispositivo IOT do Azure](https://github.com/Azure/azure-iot-sdks) j
 
 O envio de dados de telemetria para o Hub IoT é semelhante à publicação em um tópico definido pelo usuário, mas usando um tópico específico do Hub IoT:
 
-- Para um dispositivo, a telemetria é enviada no tópico: `devices/<device_name>/messages/events`
-- Para um módulo, a telemetria é enviada no tópico: `devices/<device_name>/<module_name>/messages/events`
+- Para um dispositivo, a telemetria é enviada no tópico: `devices/<device_name>/messages/events/`
+- Para um módulo, a telemetria é enviada no tópico: `devices/<device_name>/<module_name>/messages/events/`
 
 Além disso, crie uma rota como `FROM /messages/* INTO $upstream` para enviar telemetria do IOT Edge agente do MQTT para o Hub IOT. Para saber mais sobre roteamento, consulte [declarar rotas](module-composition.md#declare-routes).
 

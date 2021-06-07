@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91842896"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura AWS para hospedar um cluster do Service Fabric
@@ -25,7 +25,7 @@ Na primeira parte da série, você aprenderá a:
 > * Entrar em uma das instâncias
 > * Preparar a instância do Service Fabric
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de uma conta do AWS.  Caso ainda não tenha uma conta, vá até o [Console do AWS](https://aws.amazon.com/) para criar uma.
 
@@ -69,7 +69,7 @@ Por fim, selecione **Inicializar Instâncias**, depois **Visualizar Instâncias*
 
 O Service Fabric requer uma quantidade de portas abertas entre os hosts no cluster. Para abrir essas portas na infraestrutura do AWS, selecione uma das instâncias que você criou. Em seguida, selecione o nome do grupo de segurança, por exemplo, **launch-wizard-1**. Agora, selecione a guia **Entrada**.
 
-Para evitar a abertura dessas portas para o mundo, em vez disso, abra-as apenas para hosts no mesmo grupo de segurança. Anote a ID do grupo de segurança, no exemplo, é **sg-c4fb1eba**.  Depois selecione **Editar**.
+Para evitar a abertura dessas portas para o mundo, em vez disso, abra-as apenas para hosts no mesmo grupo de segurança. Anote a ID do grupo de segurança, no exemplo, é **sg-c4fb1eba**.  Em seguida, selecione **Editar**.
 
 Em seguida, adicione quatro regras ao grupo de segurança para dependências de serviço e mais três para o Service Fabric em si. A primeira regra é permitir o tráfego ICMP para verificações de conectividade básica. As outras regras abrem as portas necessárias para habilitar o SMB e o registro remoto.
 
@@ -87,7 +87,7 @@ Para as últimas duas regras do Service Fabric, abra-o para o mundo para que voc
 
 Por fim, precisamos apenas abrir a porta 8080 para que você possa ver o aplicativo quando ele for implantado. Selecione **Adicionar Regra**, na lista suspensa, selecione **Regra TCP Personalizada**, no intervalo de porta, insira `8080`, depois altere a lista suspensa Origem para Qualquer lugar.
 
-Agora todas as regras foram inseridas. Clique em **Salvar**.
+Agora todas as regras foram inseridas. Selecione **Salvar**.
 
 ## <a name="connect-to-an-instance-and-validate-connectivity"></a>Conectar-se a uma instância e validar a conectividade
 

@@ -3,12 +3,12 @@ title: Etapas de uma implantação de blueprint
 description: Conheça as etapas relacionadas à segurança e ao artefato que os serviços de plantas do Azure passam durante a criação de uma atribuição de Blueprint.
 ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 473f8c7957994401ea6000ecc0d8023a89f8c349
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918544"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560141"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de uma implantação de blueprint
 
@@ -27,7 +27,7 @@ A implantação Blueprint é disparada atribuindo um plano gráfico a uma assina
 
 A entidade de serviço de plantas do Azure recebe direitos de proprietário para a assinatura ou assinaturas atribuídas quando uma identidade gerenciada de identidade gerenciada [atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é usada. A função concedida permite que os planos gráficos do Azure criem e, posteriormente, revoguem a identidade gerenciada **atribuída pelo sistema** . Se estiver usando uma identidade gerenciada **atribuída pelo usuário** , a entidade de serviço dos planos gráficos do Azure não obterá nem precisará de direitos de proprietário na assinatura.
 
-Os direitos serão concedidos automaticamente se a atribuição for feita por meio do Portal. No entanto, se a atribuição for feita por meio da API REST, a concessão dos direitos precisará ser feita com uma chamada à API separada. A AppId dos planos gráficos do Azure é `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` , mas a entidade de serviço varia de acordo com o locatário. Use [Azure Active Directory API do Graph](../../../active-directory/develop/active-directory-graph-api.md) e os serviços [de ponto de](/graph/api/resources/serviceprincipal) extremidade REST para obter a entidade de serviço. Em seguida, conceda ao Azure plantas a função de _proprietário_ por meio do [portal](../../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [API REST](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo de Azure Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Os direitos serão concedidos automaticamente se a atribuição for feita por meio do Portal. No entanto, se a atribuição for feita por meio da API REST, a concessão dos direitos precisará ser feita com uma chamada à API separada. A AppId dos planos gráficos do Azure é `f71766dc-90d9-4b7d-bd9d-4499c4331c3f` , mas a entidade de serviço varia de acordo com o locatário. Use [Azure Active Directory API do Graph](/graph/migrate-azure-ad-graph-planning-checklist) e os serviços [de ponto de](/graph/api/resources/serviceprincipal) extremidade REST para obter a entidade de serviço. Em seguida, conceda ao Azure plantas a função de _proprietário_ por meio do [portal](../../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [API REST](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo de Azure Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
 O serviço de plantas do Azure não implanta diretamente os recursos.
 

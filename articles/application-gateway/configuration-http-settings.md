@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: c0c939a6a8323dfdfafddb46ccdb7d7ef3dd2f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89652746"
 ---
 # <a name="application-gateway-http-settings-configuration"></a>Configuração de configurações de HTTP do gateway de aplicativo
@@ -76,7 +76,7 @@ Essa configuração permite que você configure um caminho de encaminhamento per
 
 ## <a name="use-for-app-service"></a>Usar para o serviço de aplicativo
 
-Esse é apenas um atalho de interface do usuário que seleciona as duas configurações necessárias para o back-end do serviço de Azure App. Ele permite **escolher o nome do host do endereço de back-end**e cria uma nova investigação personalizada, se você ainda não tiver uma. (Para obter mais informações, consulte a seção [escolher nome do host do endereço de back-end](#pick-host-name-from-back-end-address)deste artigo.) Uma nova investigação é criada e o cabeçalho de investigação é escolhido do endereço do membro de back-end.
+Esse é apenas um atalho de interface do usuário que seleciona as duas configurações necessárias para o back-end do serviço de Azure App. Ele permite **escolher o nome do host do endereço de back-end** e cria uma nova investigação personalizada, se você ainda não tiver uma. (Para obter mais informações, consulte a seção [escolher nome do host do endereço de back-end](#pick-host-name-from-back-end-address)deste artigo.) Uma nova investigação é criada e o cabeçalho de investigação é escolhido do endereço do membro de back-end.
 
 ## <a name="use-custom-probe"></a>Usar investigação personalizada
 

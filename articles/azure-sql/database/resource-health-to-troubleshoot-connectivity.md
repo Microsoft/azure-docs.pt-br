@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/24/2021
+ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497955"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107781"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Use Resource Health para solucionar problemas de conectividade do banco de dados SQL do Azure e do SQL Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Você pode acessar até 14 dias de histórico de integridade na seção Históri
 
 ### <a name="downtime-reasons"></a>Motivos de tempo de inatividade
 
-Quando seu banco de dados apresentar tempo de inatividade, a análise é executada para determinar um motivo. Quando disponível, o motivo do tempo de inatividade é relatado na seção Histórico de Integridade do Resource Health. Razões de tempo de inatividade são normalmente publicadas 30 minutos após um evento.
+Quando seu banco de dados apresentar tempo de inatividade, a análise é executada para determinar um motivo. Quando disponível, o motivo do tempo de inatividade é relatado na seção Histórico de Integridade do Resource Health. Os motivos do tempo de inatividade são normalmente publicados em 45 minutos após um evento.
 
 #### <a name="planned-maintenance"></a>Manutenção planejada
 
@@ -76,5 +76,5 @@ As reconfigurações são consideradas condições transitórias e são esperada
 - Saiba mais sobre [a lógica de repetição para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Solucionar problemas, diagnosticar e impedir erros de conexão SQL](troubleshoot-common-connectivity-issues.md).
 - Saiba mais sobre como [configurar alertas de Resource Health](../../service-health/resource-health-alert-arm-template-guide.md).
-- Obtenha uma visão geral do [Resource Health](../../application-gateway/resource-health-overview.md).
+- Obtenha uma visão geral do [Resource Health](../../service-health/resource-health-overview.md).
 - Examine as [perguntas frequentes Resource Health](../../service-health/resource-health-faq.md).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97703425"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Como: usar a API do detector de anomalias em seus dados de série temporal  
@@ -71,4 +71,4 @@ Os exemplos a seguir mostram um resultado da API do detector de anomalias em dif
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API do Detector de Anomalias?](../overview.md)
-* [Início rápido: detectar anomalias nos dados de série temporal usando o detector de anomalias](../quickstarts/client-libraries.md)
+* [Início Rápido: Detectar anomalias nos dados de série temporal usando o Detector de Anomalias](../quickstarts/client-libraries.md)

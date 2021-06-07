@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380127"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101699089"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
 
-> Para os fluxos criados após outubro de 2020, você não pode mais exportar do Power Automate e implantar no aplicativo lógico do Azure.
-
 Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Power mate](https://flow.microsoft.com) para [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
 
-> [!NOTE]
-> Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode migrar somente fluxos de energia automatizada que têm conectores equivalentes em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia. Atualmente, não há suporte para fluxos baseados em OpenAPI na energia automatizada para exportação e implantação como modelos de aplicativos lógicos.
->
-> * Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-logicapps-connectors).
+> [!IMPORTANT]
+> A exportação para aplicativos lógicos não está disponível para fluxos de automatização de energia criados após agosto de 2020. Em outubro de 2020, automatize a criação de novo fluxo padronizado no [protocolo OpenAPI 2,0](https://swagger.io/specification/v2/). Novos fluxos com base nesse protocolo são incompatíveis com fluxos de trabalho de aplicativos lógicos; portanto, exportar esses fluxos para aplicativos lógicos foi desabilitado. Em vez disso, você deve criar manualmente os [aplicativos lógicos](quickstart-create-first-logic-app-workflow.md) para esses fluxos.
+
+Nem todos os conectores de energia automatizada estão disponíveis nos aplicativos lógicos do Azure. Você pode migrar somente fluxos de energia automatizada que têm conectores equivalentes em aplicativos lógicos do Azure. Por exemplo, o gatilho de botão, o conector de aprovação e o conector de notificação são específicos para a automatização de energia. 
+
+* Para descobrir quais conectores de automatização de energia não têm equivalentes aos aplicativos lógicos, consulte [Power Automate Connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Para descobrir quais conectores de aplicativos lógicos não têm os equivalentes de energia automatizada, consulte [conectores de aplicativos lógicos](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * O fluxo que você deseja exportar da energia automatizada
 

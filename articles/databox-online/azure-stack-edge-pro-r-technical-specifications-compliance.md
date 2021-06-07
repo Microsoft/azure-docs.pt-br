@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: 56d301762fde41f727b0b425d6c41a423f08103c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465968"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109158"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Especificações técnicas do Azure Stack Edge pro R
 
@@ -26,7 +26,7 @@ O dispositivo R Azure Stack Edge Pro tem as seguintes especificações para comp
 
 | Especificação       | Valor                  |
 |---------------------|------------------------|
-| CPU    | CPU de 2 X 10 núcleos, Intel Xeon Silver 4114 |
+| CPU    | 2 X Intel Xeon prata 4114 CPU<br>20 núcleos de físicos (10 por CPU)<br>40 núcleos lógicos (vCPUs) (20 por CPU)  |
 | Memória              | 256 GB de RAM (2666 MT/s)     |
 
 
@@ -58,7 +58,7 @@ O dispositivo R Azure Stack Edge Pro tem quatro interfaces de rede, PORT1-PORT4.
 |Especificação  |Descrição                              |
 |----------------------|----------------------------------|
 |Interfaces de rede    |**2 x 1 GbE RJ45** <br> A porta 1 é usada como interface de gerenciamento para a configuração inicial e é estática por padrão. Depois que a configuração inicial for concluída, você poderá usar a interface para dados com qualquer endereço IP. No entanto, ao redefinir, a interface reverte de volta para o IP estático. <br>A outra porta 2 da interface é configurável pelo usuário, pode ser usada para transferência de dados e é DHCP por padrão.     |
-|Adaptadores de rede    |**2 x 25 GbE SFP28** <br> Essas interfaces de dados porta 3 e porta 4 podem ser configuradas como DHCP (padrão) ou estática.            |
+|Interfaces de rede    |**2 x 25 GbE SFP28** <br> Essas interfaces de dados porta 3 e porta 4 podem ser configuradas como DHCP (padrão) ou estática.            |
 
 O dispositivo R Azure Stack Edge Pro tem o seguinte hardware de rede:
 

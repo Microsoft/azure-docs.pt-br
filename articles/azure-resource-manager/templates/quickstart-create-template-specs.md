@@ -5,12 +5,12 @@ author: tfitzmac
 ms.date: 12/14/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 1d3e7c6ee6d19d4d2cd3828d5abf95ccb5457e76
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 28987486726f5a88d20efe9fe8a766e536062c2c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511341"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104889953"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Início Rápido: Criar e implantar especificação de modelo (versão prévia)
 
@@ -335,7 +335,7 @@ Para implantar uma especificação de modelo, use os mesmos comandos de implanta
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "demo",
           "properties": {
             "templateLink": {
@@ -597,7 +597,7 @@ Em vez de criar uma especificação de modelo para o modelo revisado, adicione u
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "demo",
           "properties": {
             "templateLink": {

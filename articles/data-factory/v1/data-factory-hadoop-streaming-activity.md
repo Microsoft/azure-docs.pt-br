@@ -3,16 +3,16 @@ title: Transformar dados usando a atividade de streaming do Hadoop – Azure
 description: Saiba como usar a Atividade de Streaming do Hadoop em um Azure Data Factory para transformar dados executando programas de Streaming do Hadoop em um cluster HDInsight sob demanda ou em seu próprio cluster HDInsight.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 532ece3bcc8c62771511fb2608e824de846b54fe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 964af993fdcf17bca2caa812bf39ab63e650e807
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383085"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782615"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]

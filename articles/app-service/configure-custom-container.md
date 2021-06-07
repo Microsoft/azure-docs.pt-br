@@ -2,14 +2,14 @@
 title: Configurar um contêiner personalizado
 description: Saiba como configurar um contêiner personalizado no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007629"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036757"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contêiner personalizado para o Serviço de Aplicativo do Azure
 
@@ -111,7 +111,9 @@ No PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-Quando seu aplicativo é executado, as configurações do aplicativo do serviço de aplicativo são injetadas no processo como variáveis de ambiente automaticamente. 
+Quando seu aplicativo é executado, as configurações do aplicativo do serviço de aplicativo são injetadas no processo como variáveis de ambiente automaticamente. Você pode verificar as variáveis de ambiente do contêiner com a URL `https://<app-name>.scm.azurewebsites.net/Env)` .
+
+Se seu aplicativo usa imagens de um registro privado ou do Hub do Docker, as credenciais para acessar o repositório são salvas em variáveis de ambiente: `DOCKER_REGISTRY_SERVER_URL` `DOCKER_REGISTRY_SERVER_USERNAME` e `DOCKER_REGISTRY_SERVER_PASSWORD` . Devido a riscos de segurança, nenhum desses nomes de variáveis reservados é exposto ao aplicativo.
 
 ::: zone pivot="container-windows"
 Para os contêineres baseados no IIS ou .NET Framework (4,0 ou superior), eles são injetados `System.ConfigurationManager` como configurações de aplicativo .net e cadeias de conexão automaticamente pelo serviço de aplicativo. Para todas as outras linguagens ou estruturas, elas são fornecidas como variáveis de ambiente para o processo, com um dos seguintes prefixos correspondentes:
@@ -292,44 +294,55 @@ No momento, não há suporte para contas de serviço gerenciado de grupo (gMSAs)
 
 ## <a name="enable-ssh"></a>Habilitar SSH
 
-O SSH permite a comunicação segura entre um contêiner e um cliente. Para que um contêiner personalizado dê suporte ao SSH, você deve adicioná-lo no próprio Dockerfile.
+O SSH permite a comunicação segura entre um contêiner e um cliente. Para que um contêiner personalizado dê suporte ao SSH, você deve adicioná-lo à própria imagem do Docker.
 
 > [!TIP]
-> Todos os contêineres internos do Linux adicionaram as instruções de SSH em seus repositórios de imagem. Você pode percorrer as instruções a seguir com o [ repositórioNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como ele está habilitado lá.
+> Todos os contêineres internos do Linux no serviço de aplicativo adicionaram as instruções de SSH em seus repositórios de imagem. Você pode percorrer as instruções a seguir com o [ repositórioNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como ele está habilitado lá. A configuração no Node.js imagem interna é ligeiramente diferente, mas a mesma em princípio.
 
-- Use a instrução [Run](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e definir a senha da conta raiz como `"Docker!"` . Por exemplo, para uma imagem baseada em [Alpine Linux](https://hub.docker.com/_/alpine), você precisa dos seguintes comandos:
+- Adicione [um arquivo de sshd_config](https://man.openbsd.org/sshd_config) ao repositório, como no exemplo a seguir.
 
-    ```Dockerfile
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
     ```
-
-    Essa configuração não permite conexões externas com o contêiner. O SSH está disponível apenas por meio `https://<app-name>.scm.azurewebsites.net` de e autenticado com as credenciais de publicação.
-
-- Adicione [este arquivo de sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) ao seu repositório de imagens e use a instrução de [cópia](https://docs.docker.com/engine/reference/builder/#copy) para copiar o arquivo para o diretório */etc/ssh/* Para obter mais informações sobre *sshd_config* arquivos, consulte a [documentação do OpenBSD](https://man.openbsd.org/sshd_config).
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
+    Port            2222
+    ListenAddress       0.0.0.0
+    LoginGraceTime      180
+    X11Forwarding       yes
+    Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+    MACs hmac-sha1,hmac-sha1-96
+    StrictModes         yes
+    SyslogFacility      DAEMON
+    PasswordAuthentication  yes
+    PermitEmptyPasswords    no
+    PermitRootLogin     yes
+    Subsystem sftp internal-sftp
     ```
 
     > [!NOTE]
-    > O arquivo *sshd_config* deve incluir os seguintes itens:
+    > Este arquivo configura o OpenSSH e deve incluir os seguintes itens:
+    > - `Port` deve ser definido como 2222.
     > - `Ciphers` deve incluir pelo menos um item nesta lista: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` deve incluir pelo menos um item nesta lista: `hmac-sha1,hmac-sha1-96`.
 
-- Use a instrução de [exposição](https://docs.docker.com/engine/reference/builder/#expose) para abrir a porta 2222 no contêiner. Embora a senha raiz seja conhecida, a porta 2222 não pode ser acessada pela Internet. Ele é acessível somente por contêineres dentro da rede de ponte de uma rede virtual privada.
+- Em seu Dockerfile, adicione os seguintes comandos:
 
     ```Dockerfile
+    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
+    RUN apk add openssh \
+         && echo "root:Docker!" | chpasswd 
+
+    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY sshd_config /etc/ssh/
+
+    # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
+
+    Essa configuração não permite conexões externas com o contêiner. A porta 2222 do contêiner é acessível somente dentro da rede de ponte de uma rede virtual privada e não pode ser acessada por um invasor na Internet.
 
 - No script de inicialização do seu contêiner, inicie o servidor SSH.
 
     ```bash
     /usr/sbin/sshd
     ```
-
-    Para obter um exemplo, consulte como o [ contêiner padrãoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia o servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 

@@ -1,15 +1,17 @@
 ---
 title: Início Rápido do Azure – Criar uma conta do Lote – modelo do Azure Resource Manager
 description: Este guia de início rápido mostra como criar uma conta do Lote usando um modelo do ARM.
-ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: e3405e98e2753a308b6b34b392aa364a67f7fe5b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106573"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535579"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Resource Manager
 

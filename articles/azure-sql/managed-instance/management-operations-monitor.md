@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782443"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589341"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorando operações de gerenciamento de Instância Gerenciada do SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ A maioria das operações de gerenciamento são [operações de longa execução
 Há várias maneiras de monitorar as operações gerenciadas de gerenciamento de instância:
 
 - [Implantações de grupo de recursos](../../azure-resource-manager/templates/deployment-history.md)
-- [Log de atividades](../../azure-monitor/platform/activity-log.md)
+- [Log de atividades](../../azure-monitor/essentials/activity-log.md)
 - [API de operações de instância gerenciada](#managed-instance-operations-api)
 
 

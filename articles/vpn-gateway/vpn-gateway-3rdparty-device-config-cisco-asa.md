@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426163"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)

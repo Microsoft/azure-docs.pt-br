@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registr
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: be5c8c4012267dc7ce6362502c806a9f238732b7
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6d6ca8c41ce808df4b32bc10a7b537ffae809b3a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920267"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780669"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -120,7 +120,7 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status": "Enabled"
+      "status&quot;: &quot;Enabled"
     },
     "sourceTriggers": [
       {
@@ -129,16 +129,16 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType&quot;: &quot;Github"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status": "Enabled"
+        "status&quot;: &quot;Enabled"
       }
     ]
   },
-  "type": "Microsoft.ContainerRegistry/registries/tasks"
+  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
@@ -446,11 +446,11 @@ Neste tutorial, você aprendeu a criar tarefas de várias etapas baseadas em vá
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add    
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az_acr_task_credential_add    
+[az-login]: /cli/azure/reference-index#az_login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

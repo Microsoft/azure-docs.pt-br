@@ -160,10 +160,10 @@
               href: create-data-source-web-sdk.md
             - name: Adicionar uma camada de símbolo
               href: map-add-pin.md
-            - name: Adicionar um pop-up
-              href: map-add-popup.md
             - name: Adicionar uma camada de bolha
               href: map-add-bubble-layer.md
+            - name: Adicionar um pop-up
+              href: map-add-popup.md
             - name: Adicionar marcadores HTML
               href: map-add-custom-html.md
             - name: Adicionar uma camada de linha
@@ -244,20 +244,26 @@
           href: how-to-use-android-map-control-library.md
         - name: Alterar o estilo do mapa
           href: set-android-map-styles.md
+        - name: Adicionar controles ao mapa
+          href: map-add-controls-android.md
         - name: Criar uma fonte de dados
           href: create-data-source-android-sdk.md
         - name: Adicionar uma camada de símbolo
           href: how-to-add-symbol-to-android-map.md
         - name: Adicionar uma camada de bolha
           href: map-add-bubble-layer-android.md
-        - name: Adicionar formas
-          href: how-to-add-shapes-to-android-map.md
-        - name: Adicionar camada do mapa de calor
-          href: map-add-heat-map-layer-android.md
-        - name: Adicionar uma camada de linha
-          href: android-map-add-line-layer.md
         - name: Exibir informações do recurso
           href: display-feature-information-android.md
+        - name: Adicionar uma camada de linha
+          href: android-map-add-line-layer.md
+        - name: Adicionar uma camada de polígono
+          href: how-to-add-shapes-to-android-map.md
+        - name: Adicionar uma camada de extrusão de polígono
+          href: map-extruded-polygon-android.md
+        - name: Adicionar camada do mapa de calor
+          href: map-add-heat-map-layer-android.md
+        - name: Adicionar uma camada de imagem
+          href: map-add-image-layer-android.md
         - name: Adicionar uma camada de bloco
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar dados de tráfego

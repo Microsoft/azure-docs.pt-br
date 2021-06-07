@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 7e2400d42798dddf33a0431938e7f13ff29b64f9
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d7f09d8e4b00a079fb012939e88ff585cbc88f4d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005844"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787729"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Criar um aplicativo ASP.NET Core em um contêiner do Docker por meio do Hub do Docker usando a CLI do Azure
 
@@ -38,10 +38,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container#az_webapp_config_container_set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

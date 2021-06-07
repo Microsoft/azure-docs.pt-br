@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue é uma fila de alta taxa de transferência 
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: d6852982621d3efd3f4a8597a2959fceb13abd12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784284"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric

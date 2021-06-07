@@ -4,26 +4,26 @@ description: Como criar e aplicar políticas de acesso personalizadas para limit
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802398"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471786"
 ---
-# <a name="use-client-access-policies"></a>Usar políticas de acesso para cliente
+# <a name="control-client-access"></a>Controlar o acesso do cliente
 
 Este artigo explica como criar e aplicar políticas de acesso de cliente personalizadas para seus destinos de armazenamento.
 
-As políticas de acesso para cliente controlam como os clientes são capazes de se conectar às exportações de destino de armazenamento. Você pode controlar coisas como o controle de rede e o acesso de leitura/gravação no host do cliente ou no nível do servidor.
+As políticas de acesso para cliente controlam como os clientes têm permissão para se conectar às exportações de destino de armazenamento. Você pode controlar coisas como o controle de rede e o acesso de leitura/gravação no host do cliente ou no nível do servidor.
 
 As políticas de acesso são aplicadas a um caminho de namespace, o que significa que você pode usar políticas de acesso diferentes para duas exportações diferentes em um sistema de armazenamento NFS.
 
 Esse recurso é para fluxos de trabalho em que você precisa controlar como diferentes grupos de clientes acessam os destinos de armazenamento.
 
-Se você não precisar de controle refinado sobre o acesso de destino de armazenamento, poderá usar a política padrão ou poderá personalizar a política padrão com regras extras.
+Se você não precisar de controle refinado sobre o acesso de destino de armazenamento, poderá usar a política padrão ou poderá personalizar a política padrão com regras extras. Por exemplo, se você quiser habilitar o comprimir raiz para todos os clientes que se conectam por meio do cache, você pode editar a política denominada **Default** para adicionar a configuração de comprimir raiz.
 
 ## <a name="create-a-client-access-policy"></a>Criar uma política de acesso de cliente
 
@@ -81,15 +81,21 @@ Marque esta caixa para permitir que os clientes especificados montem diretamente
 
 Escolha se deseja ou não definir o comprimir raiz para clientes que correspondem a essa regra.
 
-Esse valor permite que você permita o comprimi raiz no nível de exportação de armazenamento. Você também pode [definir o comprimir raiz no nível de cache](configuration.md#configure-root-squash).
+Essa configuração controla como o cache HPC do Azure trata as solicitações do usuário raiz em computadores cliente. Quando o comprimir raiz está habilitado, os usuários raiz de um cliente são mapeados automaticamente para um usuário sem privilégios quando enviam solicitações por meio do cache do HPC do Azure. Ele também impede solicitações de cliente de usar bits de permissão set-UID.
 
-Se você ativar o comprimir raiz, também deverá definir o valor do usuário da ID anônima como uma destas opções:
+Se o comprimir raiz estiver desabilitado, uma solicitação do usuário raiz do cliente (UID 0) será passada para um sistema de armazenamento NFS de back-end como raiz. Essa configuração pode permitir o acesso impróprio a arquivos.
 
-* **-2** (ninguém)
-* **65534** (ninguém)
-* **-1** (sem acesso)
-* **65535** (sem acesso)
+A configuração de comprimir raiz para solicitações de cliente pode ajudar a compensar a ``no_root_squash`` configuração necessária em sistemas nas que são usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
+
+Se você ativar o comprimir raiz, também deverá definir o valor de usuário da ID anônima. O portal aceita valores inteiros entre 0 e 4294967295. (Os valores antigos-2 e-1 têm suporte para compatibilidade com versões anteriores, mas não são recomendados para novas configurações.)
+
+Esses valores são mapeados para valores de usuário específicos:
+
+* **-2** ou **65534** (ninguém)
+* **-1** ou **65535** (sem acesso)
 * **0** (raiz sem privilégios)
+
+Seu sistema de armazenamento pode ter outros valores com significados especiais.
 
 ## <a name="update-access-policies"></a>Atualizar políticas de acesso
 

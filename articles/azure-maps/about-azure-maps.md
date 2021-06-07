@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680816"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256116"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -169,11 +169,11 @@ O serviço Tráfego é um conjunto de serviços Web que os desenvolvedores podem
 
 Para obter mais informações, confira a [documentação do serviço de Tráfego](/rest/api/maps/traffic).
 
-### <a name="weather-services-preview"></a>Serviços Clima (versão prévia) 
+### <a name="weather-services"></a>Serviços meteorológicos
 
 Os serviços Clima oferecem APIs que os desenvolvedores podem usar para recuperar informações de clima para uma localização específica. As informações contêm detalhes como data e hora de observação, breve descrição das condições climáticas, ícone de clima, sinalizadores de indicador precipitação, temperatura e informações de velocidade de vento. Detalhes adicionais, como temperatura RealFeel™ e índice UV, também são retornados.
 
-Os desenvolvedores podem usar a [API Obter Clima ao longo da rota](/rest/api/maps/weather/getweatheralongroutepreview) para recuperar informações sobre o clima em uma rota específica. Além disso, o serviço dá suporte à geração de notificações de clima para marcos que são afetados por riscos meteorológicos, como inundação ou chuva pesada.
+Os desenvolvedores podem usar a [API Obter Clima ao longo da rota](/rest/api/maps/weather/getweatheralongroute) para recuperar informações sobre o clima em uma rota específica. Além disso, o serviço dá suporte à geração de notificações de clima para marcos que são afetados por riscos meteorológicos, como inundação ou chuva pesada.
 
 A API [Obter Bloco de Mapa V2](/rest/api/maps/renderv2/getmaptilepreview) permite que você solicite blocos de radar e satélite passados, atuais e futuros.
 

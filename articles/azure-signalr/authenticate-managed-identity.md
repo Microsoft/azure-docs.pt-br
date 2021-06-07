@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 08/03/2020
 ms.service: signalr
 ms.topic: conceptual
-ms.openlocfilehash: 46d66451bb8f2cd6c5d4448131b5f4842a728fd0
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: c561bb507a5178f4a838b370a3da8af9447829f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797455"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101092557"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-signalr-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos do Signalr do Azure
 O serviço de Signaler do Azure dá suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso aos recursos do serviço de Signaler do Azure usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -47,8 +47,8 @@ Depois de habilitar essa configuração, uma nova identidade de serviço será c
 
 Agora, atribua essa identidade de serviço a uma função no escopo necessário em seus recursos do serviço de Signaler do Azure.
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Atribuir funções de RBAC usando o portal do Azure  
-Para saber mais sobre como gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure, consulte [Este artigo](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções do Azure usando o portal do Azure  
+Para saber mais sobre como gerenciar o acesso aos recursos do Azure usando o RBAC do Azure e o portal do Azure, consulte [Este artigo](..//role-based-access-control/role-assignments-portal.md). 
 
 Depois de determinar o escopo apropriado para uma atribuição de função, navegue até esse recurso na portal do Azure. Exiba as configurações de controle de acesso (IAM) para o recurso e siga estas instruções para gerenciar as atribuições de função:
 

@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como restaurar bancos de dados SAP HANA execu
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e524bfe090f0d67b76c13e876f44e83986aeb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a249ab63aa72c1d39ab1626e72ff3b2037f3f723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334796"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768443"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Restaurar bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
@@ -34,7 +34,7 @@ Este tutorial pressupõe que você tenha um banco de dados SAP HANA em execuçã
 
 ## <a name="view-restore-points-for-a-backed-up-database"></a>Exibir pontos de restauração de um banco de dados copiado em backup
 
-Para ver a lista de todos os pontos de recuperação de um banco de dados, use o cmdlet [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) da seguinte maneira:
+Para ver a lista de todos os pontos de recuperação de um banco de dados, use o cmdlet [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain) da seguinte maneira:
 
 ```azurecli-interactive
 az backup recoverypoint list --resource-group saphanaResourceGroup \
@@ -57,7 +57,7 @@ DefaultRangeRecoveryPoint                                    AzureWorkload      
 Como você pode ver, a lista acima contém três pontos de recuperação: um para o backup completo, um para o diferencial e um para o de log.
 
 >[!NOTE]
->Veja também os pontos inicial e final de cada cadeia de backup de log ininterrupta usando o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain).
+>Veja também os pontos inicial e final de cada cadeia de backup de log ininterrupta usando o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain).
 
 ## <a name="prerequisites-to-restore-a-database"></a>Pré-requisitos para restaurar um banco de dados
 
@@ -74,7 +74,7 @@ O Backup do Azure pode restaurar bancos de dados SAP HANA que estão em execuç�
 * Restauração em uma data ou uma hora específica (com precisão de segundos) usando backups de log. O Backup do Azure determina automaticamente os backups diferenciais completos apropriados e a cadeia de backups de log necessários para a restauração com base na hora selecionada.
 * Restauração em um backup completo ou diferencial específico para restauração em um ponto de recuperação específico.
 
-Para restaurar um banco de dados, use o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl), que exige um objeto de configuração de recuperação como uma das entradas. Esse objeto pode ser gerado com o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). O objeto de configuração de recuperação contém todos os detalhes para executar uma restauração. Um deles é o modo de restauração: **OriginalWorkloadRestore** ou **AlternateWorkloadRestore**.
+Para restaurar um banco de dados, use o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az_backup_restore_restore_azurewl), que exige um objeto de configuração de recuperação como uma das entradas. Esse objeto pode ser gerado com o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show). O objeto de configuração de recuperação contém todos os detalhes para executar uma restauração. Um deles é o modo de restauração: **OriginalWorkloadRestore** ou **AlternateWorkloadRestore**.
 
 >[!NOTE]
 > **OriginalWorkloadRestore**: restaure os dados para a mesma instância do SAP HANA da fonte original. Essa opção substitui o banco de dados original. <br>
@@ -86,7 +86,7 @@ Para restaurar um banco de dados em uma localização alternativa, use **Alterna
 
 Neste tutorial, você fará a restauração em um ponto de restauração anterior. [Veja a lista de pontos de restauração](#view-restore-points-for-a-backed-up-database) do banco de dados e escolha o ponto no qual deseja fazer a restauração. Este tutorial usará o ponto de restauração com o nome *7660777527047692711*.
 
-Usando o nome do ponto de restauração acima e o modo de restauração, vamos criar o objeto de configuração de recuperação usando o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). Vejamos o que significa cada um dos parâmetros restantes nesse cmdlet:
+Usando o nome do ponto de restauração acima e o modo de restauração, vamos criar o objeto de configuração de recuperação usando o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show). Vejamos o que significa cada um dos parâmetros restantes nesse cmdlet:
 
 * **--target-item-name** Esse é o nome que será usado pelo banco de dados restaurado. Nesse caso, usamos o nome *restored_database*.
 * **--target-server-name** Esse é o nome de um servidor do SAP HANA registrado com êxito em um cofre dos Serviços de Recuperação e que reside na mesma região do banco de dados a ser restaurado. Neste tutorial, restauraremos o banco de dados no mesmo servidor do SAP HANA que protegemos, chamado *hxehost*.
@@ -113,7 +113,7 @@ A resposta à consulta acima será um objeto de configuração de recuperação 
 {"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
-Agora, para restaurar o banco de dados, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Para usar esse comando, entraremos na saída JSON acima que está salva em um arquivo chamado *recoveryconfig.json*.
+Agora, para restaurar o banco de dados, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az_backup_restore_restore_azurewl). Para usar esse comando, entraremos na saída JSON acima que está salva em um arquivo chamado *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -130,13 +130,13 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 ## <a name="restore-and-overwrite"></a>Restaurar e substituir
 
 Para fazer a restauração na localização original, usaremos **OriginalWorkloadRestore** como o modo de restauração. Em seguida, você precisará escolher o ponto de restauração, que pode ser um ponto anterior no tempo ou um dos pontos de restauração anteriores.
 
-Neste tutorial, escolheremos o ponto no tempo anterior “28-11-2019-09:53:00” para o qual será feita a restauração. Você pode fornecer esse ponto de restauração nos seguintes formatos: dd-mm-aaaa, dd-mm-aaaa-hh:mm:ss. Para escolher um ponto no tempo válido para a restauração, use o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain), que lista os intervalos de backups da cadeia de logs ininterrupta.
+Neste tutorial, escolheremos o ponto no tempo anterior “28-11-2019-09:53:00” para o qual será feita a restauração. Você pode fornecer esse ponto de restauração nos seguintes formatos: dd-mm-aaaa, dd-mm-aaaa-hh:mm:ss. Para escolher um ponto no tempo válido para a restauração, use o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain), que lista os intervalos de backups da cadeia de logs ininterrupta.
 
 ```azurecli-interactive
 az backup recoveryconfig show --resource-group saphanaResourceGroup \
@@ -154,7 +154,7 @@ A resposta à consulta acima será um objeto de configuração de recuperação 
 {"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
-Agora, para restaurar o banco de dados, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Para usar esse comando, entraremos na saída JSON acima que está salva em um arquivo chamado *recoveryconfig.json*.
+Agora, para restaurar o banco de dados, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az_backup_restore_restore_azurewl). Para usar esse comando, entraremos na saída JSON acima que está salva em um arquivo chamado *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -171,15 +171,15 @@ Name                                  Resource
 5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
 ```
 
-A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 ## <a name="restore-as-files"></a>Restaurar como arquivos
 
 Para restaurar os dados de backup como arquivos em vez de um banco de dados, usaremos **RestoreAsFiles** como o modo de restauração. Então escolha o ponto de restauração, que pode ser um ponto anterior no tempo ou um dos pontos de restauração anteriores. Depois que os arquivos são despejados em um caminho especificado, você pode pegar esses arquivos em qualquer computador SAP HANA em que queira restaurá-los como um banco de dados. Como você pode mover esses arquivos para qualquer computador, agora é possível restaurar os dados entre assinaturas e regiões.
 
-Para este tutorial, escolheremos o ponto no tempo `28-11-2019-09:53:00` anterior para o qual restaurar e a localização para despejar arquivos de backup como `/home/saphana/restoreasfiles` no mesmo servidor SAP HANA. Você pode fornecer esse ponto de restauração em qualquer um dos seguintes formatos: **dd-mm-aaaa** ou **dd-mm-aaaa-hh:mm:ss**. Para escolher um ponto no tempo válido para a restauração, use o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain), que lista os intervalos de backups da cadeia de logs ininterrupta.
+Para este tutorial, escolheremos o ponto no tempo `28-11-2019-09:53:00` anterior para o qual restaurar e a localização para despejar arquivos de backup como `/home/saphana/restoreasfiles` no mesmo servidor SAP HANA. Você pode fornecer esse ponto de restauração em qualquer um dos seguintes formatos: **dd-mm-aaaa** ou **dd-mm-aaaa-hh:mm:ss**. Para escolher um ponto no tempo válido para a restauração, use o cmdlet [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az_backup_recoverypoint_show_log_chain), que lista os intervalos de backups da cadeia de logs ininterrupta.
 
-Usando o nome do ponto de restauração acima e o modo de restauração, vamos criar o objeto de configuração de recuperação usando o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show). Vejamos o que significa cada um dos parâmetros restantes nesse cmdlet:
+Usando o nome do ponto de restauração acima e o modo de restauração, vamos criar o objeto de configuração de recuperação usando o cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az_backup_recoveryconfig_show). Vejamos o que significa cada um dos parâmetros restantes nesse cmdlet:
 
 * **--target-container-name** Esse é o nome de um servidor do SAP HANA registrado com êxito em um cofre dos Serviços de Recuperação e que reside na mesma região do banco de dados a ser restaurado. Neste tutorial, restauraremos o banco de dados como arquivos no mesmo servidor do SAP HANA que protegemos, chamado *hxehost*.
 * **-rp-name** para uma restauração de ponto no tempo, o nome do ponto de restauração será **DefaultRangeRecoveryPoint**
@@ -216,7 +216,7 @@ A resposta à consulta acima será um objeto de configuração de recuperação 
 }
 ```
 
-Agora, para restaurar o banco de dados como arquivos, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl). Para usar esse comando, vamos inserir a saída json acima, que é salva em um arquivo chamado *recoveryconfig.json*.
+Agora, para restaurar o banco de dados como arquivos, execute o cmdlet [az restore restore-azurewl](/cli/azure/backup/restore#az_backup_restore_restore_azurewl). Para usar esse comando, vamos inserir a saída json acima, que é salva em um arquivo chamado *recoveryconfig.json*.
 
 ```azurecli-interactive
 az backup restore restore-azurewl --resource-group saphanaResourceGroup \
@@ -267,7 +267,7 @@ A saída se parecerá com esta:
 }
 ```
 
-A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az-backup-job-show).
+A resposta fornecerá o nome do trabalho. Esse nome de trabalho pode ser usado para acompanhar o status do trabalho usando o cmdlet [az backup job show](/cli/azure/backup/job#az_backup_job_show).
 
 Os arquivos despejados no contêiner de destino são:
 

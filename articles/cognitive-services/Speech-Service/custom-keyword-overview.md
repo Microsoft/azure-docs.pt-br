@@ -12,10 +12,10 @@ ms.date: 04/06/2020
 ms.author: hasshah
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b2763372cc63637f73610e1936e3ea54a4524e7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91356597"
 ---
 # <a name="what-is-a-keyword"></a>O que é uma palavra-chave?

@@ -7,20 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0dcd763240205bd396fc8cd0301c2046098473b
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7279c5578d969db9178ce85734e3a43f9eccdf8d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070126"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780039"
 ---
 # <a name="what-is-azure-files"></a>O que são os Arquivos do Azure?
 Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [Protocolo SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ou do [Protocolo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) padrão do setor. Os compartilhamentos de arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem. É possível acessar os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure em clientes Windows, Linux e macOS. É possível acessar os compartilhamentos de arquivos do protocolo NFS dos Arquivos do Azure em clientes Linux e macOS. Além disso, os compartilhamentos de arquivos do protocolo SMB dos Arquivos do Azure podem ser armazenados em cache nos Windows Servers com a Sincronização de Arquivos do Azure para acesso rápido perto de onde os dados estão sendo usados.
-
-## <a name="videos"></a>vídeos
-| Introdução à Sincronização de Arquivos do Azure | Arquivos do Azure com Sincronização (Ignite 2019)  |
-|-|-|
-| [![Screencast do vídeo Introdução à Sincronização de Arquivos do Azure - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast da apresentação Arquivos do Azure com Sincronização - clique para reproduzir!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
 
 Veja alguns vídeos sobre os casos de uso comuns dos Arquivos do Azure:
 * [Substitua o servidor de arquivos por um Compartilhamento de Arquivo do Azure sem servidor](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)

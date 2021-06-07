@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc3ef7d168c17ec10fe64925adbda7044a2a4c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87907956"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Deixar uma organização como um usuário convidado
@@ -51,7 +51,7 @@ Quando um usuário deixar uma organização, a conta de usuário é "excluída d
 
 Se desejar, um administrador de locatários pode excluir permanentemente a conta a qualquer momento durante o período de 30 dias. Para fazer isso:
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 2. Em **Gerenciar**, selecione **Usuários**.
 3. Selecione **Usuários Excluídos**.
 4. Selecione a caixa de seleção próxima a um usuário deletado e então selecione **Deletar permanentemente**.

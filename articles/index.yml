@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 01/29/2021
+  ms.date: 03/03/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 58b5b8917aeeefb918914a598655da962019de34
-  ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+  ms.openlocfilehash: 77c953664459419ca4f3069eb727c6d0cc29892f
+  ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100102964"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102488895"
 highlightedContent:
   items:
   - title: Guia de introdução para desenvolvedores do Azure
@@ -36,6 +36,12 @@ highlightedContent:
 productDirectory:
   title: Procurar produtos do Azure
   items:
+  - title: Azure Percept
+    summary: Inteligência de borda do início ao serviço
+    imageSrc: ./media/index/azure-percept.svg
+    azureCategories:
+    - iot
+    url: azure-percept/index.yml
   - title: Detector de Anomalias
     summary: Adicione facilmente recursos de detecção de anomalias aos seus aplicativos
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
@@ -174,7 +180,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/custom-vision.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/Custom-Vision-Service/index.yml
+    url: cognitive-services/custom-vision-service/index.yml
   - title: Máquina Virtual de Ciência de Dados
     summary: Ambiente avançado pré-configurado para o desenvolvimento de IA
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-machine.svg
@@ -204,7 +210,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
-    url: cognitive-services/ink-recognizer/index.yml
+    url: /previous-versions/azure/cognitive-services/Ink-Recognizer/
   - title: Kinect DK
     summary: Crie modelos de fala e de pesquisa visual computacional usando um kit para desenvolvedores com sensores de IA avançados
     imageSrc: ./media/index/kinect-viewer.svg
@@ -408,6 +414,12 @@ productDirectory:
     - databases
     - iot
     url: cosmos-db/index.yml
+  - title: Instância Gerenciada do Azure para Apache Cassandra
+    summary: Automatizar a implantação e o dimensionamento para datacenters do Apache Cassandra open-source gerenciados
+    imageSrc: ./media/index/managed-instance-apache-cassandra.svg
+    azureCategories:
+    - databases
+    url: managed-instance-apache-cassandra/index.yml
   - title: Aplicativos Lógicos
     summary: Automatizar o acesso e o uso dos dados nas nuvens sem precisar escrever código
     imageSrc: https://static.docs.com/ui/media/product/azure/logic-apps.svg
@@ -507,7 +519,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/linux/index.yml
+    url: ./virtual-machines/index.yml
   - title: Service Fabric
     summary: Desenvolver microsserviços e orquestrar contêineres no Windows ou Linux
     imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
@@ -557,7 +569,7 @@ productDirectory:
     azureCategories:
     - featured
     - compute
-    url: virtual-machines/windows/index.yml
+    url: ./virtual-machines/index.yml
   - title: Espaços de Desenvolvimento do Azure
     summary: Teste e desenvolva iterativamente um aplicativo de microsserviços no AKS do Azure
     imageSrc: ./media/index/AzureDevSpaceController_50x.svg
@@ -867,7 +879,7 @@ productDirectory:
     azureCategories:
     - integration
     url: service-bus-messaging/index.yml
-  - title: Gêmeos Digitais do Azure (versão prévia)
+  - title: Gêmeos Digitais do Azure
     summary: Crie soluções de inteligência espacial de IoT da próxima geração
     imageSrc: https://static.docs.com/ui/media/product/azure/digital-twins.svg
     azureCategories:
@@ -1091,6 +1103,12 @@ productDirectory:
     - migration
     - storage
     url: databox/index.yml
+  - title: Âncoras de Objeto (versão prévia)
+    summary: Alinhar e ancorar automaticamente o conteúdo 3D a objetos no mundo físico
+    imageSrc: ./media/index/object-anchors.svg
+    azureCategories:
+    - mixed-reality
+    url: object-anchors/index.yml
   - title: Âncoras Espaciais
     summary: Crie experiências de realidade misturada multiusuário e com reconhecimento espacial
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
@@ -1098,7 +1116,7 @@ productDirectory:
     - mixed-reality
     - mobile
     url: spatial-anchors/index.yml
-  - title: Remote Rendering (versão prévia)
+  - title: Azure Remote Rendering
     summary: Renderize conteúdo 3D interativo e de alta qualidade e transmita para seus dispositivos em tempo real
     imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
     azureCategories:
@@ -1192,6 +1210,12 @@ productDirectory:
     azureCategories:
     - networking
     url: load-balancer/index.yml
+  - title: Servidor de Rota do Azure (versão prévia)
+    summary: Simplifique o gerenciamento de operações dos dispositivos de rede
+    imageSrc: ./media/index/azure-route-server.svg
+    azureCategories:
+    - networking
+    url: route-server/index.yml
   - title: Rede Virtual
     summary: Provisione redes privadas e, opcionalmente, conecte-se a datacenters locais
     imageSrc: https://static.docs.com/ui/media/product/azure/virtual-networks.svg

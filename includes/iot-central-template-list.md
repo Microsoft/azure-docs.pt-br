@@ -9,13 +9,13 @@ ms.date: 02/11/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 08e4fd82bea6bb1b510b127db8dee7803ee112f5
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96912227"
 ---
-**Modelos de aplicativos**
+**Modelos de aplicativo**
 
 **Modelos de aplicativo IoT Central**
 

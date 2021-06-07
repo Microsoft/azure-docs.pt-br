@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: dcfef81f2d7f3413489490d97c143fdec7e11bed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d516bcb224f7a7b5943214f28cffb7da3ea0871f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499315"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102031592"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -382,11 +382,9 @@ Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standa
 
 **Quais regiões dão suporte à capacidade de intermitência no tamanho de disco SSD Premium aplicável?**
 
-Atualmente, há suporte à capacidade de intermitência em todas as regiões na nuvem pública do Azure, e o suporte a nuvens soberanas virá em breve. 
+Atualmente, a intermitência baseada em crédito é suportada em todas as regiões na nuvem pública do Azure, atualmente não há suporte para nuvens soberanas.
 
-**Quais regiões dão suporte a tamanhos de Managed Disks (P1/P2/P3, E1/E2/E3) de 4/8/16 GiB?**
-
-Atualmente, esses novos tamanhos de disco têm suporte em todas as regiões na nuvem pública do Azure, e o suporte a nuvens soberanas virá em breve. 
+A intermitência sob demanda só está disponível no EUA Central ocidental.
 
 **Os tamanhos de disco P1/P2/P3 têm suporte por discos não gerenciados ou blobs de páginas?**
 

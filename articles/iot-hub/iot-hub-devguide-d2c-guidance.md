@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: dd4f4ad7f84ebc1f5e254843e7afa4aa0f3f224f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87319126"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Diretrizes de comunicações do dispositivo para a nuvem
@@ -39,7 +39,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 | Cenário | Série de tempo de telemetria e alertas. Por exemplo, os lotes de dados de sensor de 256 KB enviados a cada 5 minutos. | Recursos disponíveis e condições. Por exemplo, o modo atual de conectividade do dispositivo como celular ou WiFi. Sincronização dos fluxos de trabalho de longa duração, como atualizações de software e configuração. | Arquivos de mídia. Lotes grandes de telemetria (geralmente compactados). |
 | Armazenamento e recuperação | Armazenado temporariamente pelo Hub IoT, até sete dias. Somente leitura sequencial. | Armazenados pelo Hub IoT no dispositivo gêmeo. Recuperáveis usando a [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |
 | Tamanho | Mensagens de até 256 KB. | O tamanho máximo de propriedades relatadas é 32 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
-| Frequência | Alta. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
+| Frequência | Alta: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
 | Protocolo | Disponível em todos os protocolos. | Disponível usando MQTT ou AMQP. | Disponível ao usar qualquer protocolo, mas requer HTTPS no dispositivo. |
 
 Um aplicativo pode precisar enviar informações tanto como um alerta ou uma série temporal de telemetria e torná-lo disponível no dispositivo gêmeo. Nesse cenário, você pode escolher uma das seguintes opções:

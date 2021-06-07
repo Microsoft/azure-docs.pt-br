@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777217"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o personalizador
@@ -81,7 +81,7 @@ Neste exemplo, você verá como usar a Personalização para criar uma sugestão
 
 Muitas empresas usam mecanismos de recomendação, ferramentas de marketing e campanhas, segmentação e clustering de público-alvo, filtragem colaborativa e outros meios para recomendar produtos de um extenso catálogo aos clientes.
 
-O [repositório GitHub de recomendados da Microsoft](https://github.com/Microsoft/Recommenders) fornece exemplos e práticas recomendadas para a criação de sistemas de recomendação, fornecidos como notebooks Jupyter. Ele fornece exemplos funcionais de preparação de dados, criação de modelos, avaliação, ajuste e operacionalização de mecanismos de recomendação para muitas abordagens comuns, incluindo xDeepFM, SAR, ALS, RBM e DKN.
+O [repositório do GitHub de Sistemas de Recomendação da Microsoft](https://github.com/Microsoft/Recommenders) fornece exemplos e melhores práticas para a criação de sistemas de recomendação, fornecidos como notebooks Jupyter. Ele fornece exemplos funcionais de preparação de dados, criação de modelos, avaliação, ajuste e operacionalização de mecanismos de recomendação para muitas abordagens comuns, incluindo xDeepFM, SAR, ALS, RBM e DKN.
 
 O Personalizador pode funcionar com um mecanismo de recomendação quando ele está presente.
 

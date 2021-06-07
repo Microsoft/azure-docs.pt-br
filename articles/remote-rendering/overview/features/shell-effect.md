@@ -7,10 +7,10 @@ ms.date: 10/23/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7af95cba807cea340438a7de30f096758d0369ad
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594156"
 ---
 # <a name="shell-rendering"></a>Renderização do shell
@@ -23,7 +23,7 @@ Você pode configurar a aparência de objetos renderizados pelo shell por meio d
 
 `ShellRenderingSettings`A classe contém as configurações relacionadas às propriedades de renderização do Shell global:
 
-| Parâmetro      | Tipo    | Descrição                                             |
+| Parâmetro      | Type    | Descrição                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Desaturation` | FLOAT   | A quantidade de dessaturação a ser aplicada à cor comum do objeto final, no intervalo 0 (sem dessaturação) a 1 (dessaturação completa) |
 | `Opacity`      | FLOAT   | A opacidade dos objetos renderizados pelo shell, no intervalo 0 (invisível) a 1 (totalmente opaco) |

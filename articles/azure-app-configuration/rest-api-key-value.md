@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932550"
 ---
 # <a name="key-values"></a>Valores de chave
@@ -30,7 +30,7 @@ Este artigo se aplica à versão de API 1,0.
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 ```json
 {
@@ -117,7 +117,7 @@ Opcional: ``key`` (se não for especificado, ele implica qualquer chave.) Opcion
 GET /kv?label=*&api-version={api-version} HTTP/1.1
 ```
 
-**Responde**
+**Resposta:**
 
 ```http
 HTTP/1.1 200 OK
@@ -135,7 +135,7 @@ Como alternativa, o conteúdo fornece um link seguinte na forma da `@nextLink` p
 GET /kv?api-version={api-version} HTTP/1.1
 ```
 
-**Responde**
+**Resposta:**
 
 ```http
 HTTP/1.1 200 OK
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Corresponde a rótulos que começam com **prod**|
 |`label=prod,test`|Faz a correspondência dos rótulos **prod** ou **Test** (limitado a 5 CSV)|
 
-**_Caracteres reservados_* _
+***Caracteres reservados***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Se um caractere reservado fizer parte do valor, ele deverá ser ignorado com o uso de `\{Reserved Character}` . Caracteres não reservados também podem ser ignorados.
 
-***Validação de filtro** _
+***Validação de filtro***
 
 No caso de um erro de validação de filtro, a resposta é HTTP `400` com os detalhes do erro:
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Exemplos**
+**Exemplos**
 
 - Tudo
 
@@ -240,7 +240,7 @@ GET /kv?api-version={api-version} HTTP/1.1
 Accept-Datetime: Sat, 12 May 2018 02:10:00 GMT
 ```
 
-**Responde**
+**Resposta:**
 
 ```http
 HTTP/1.1 200 OK

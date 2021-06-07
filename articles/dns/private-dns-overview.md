@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 6/12/2019
 ms.author: rohink
 ms.openlocfilehash: 540c4d6f2dde64cef9b5795d635ac6259bfc69c3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87985624"
 ---
 # <a name="what-is-azure-private-dns"></a>O que é o DNS privado do Azure?

@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374041"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608811"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -195,7 +195,7 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
-| captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
 | isEnabled | true | Habilita ou desabilita a coleta de instantâneos | 
@@ -253,7 +253,7 @@ A definição de configuração pode ser encontrada em [Associações para Durab
 
 ## <a name="eventhub"></a>eventHub
 
-As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs-trigger.md#host-json). 
+As definições de configuração podem ser encontradas em [Associações e gatilhos do Hub de Eventos](functions-bindings-event-hubs.md#host-json). 
 
 ## <a name="extensions"></a>extensions
 
@@ -345,7 +345,7 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [Filtragem de logs](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do ASP.NET Core. |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels). |
 |console|N/D| A configuração de log do [console](#console). |
 |applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
@@ -401,8 +401,8 @@ Controla as opções de [política de repetição](./functions-bindings-error-pa
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|usada|nulo|Obrigatório. Usar qual estratégia de repetição. Os valores válidos são `fixedDelay` ou `exponentialBackoff`.|
-|maxRetryCount|nulo|Obrigatório. O número máximo de repetições permitidas por execução de função. `-1` significa repetir indefinidamente.|
+|usada|nulo|Obrigatórios. Usar qual estratégia de repetição. Os valores válidos são `fixedDelay` ou `exponentialBackoff`.|
+|maxRetryCount|nulo|Obrigatórios. O número máximo de repetições permitidas por execução de função. `-1` significa repetir indefinidamente.|
 |delayInterval|nulo|O atraso usado entre as repetições com uma `fixedDelay` estratégia.|
 |minimumInterval|nulo|O atraso mínimo de repetição ao usar a `exponentialBackoff` estratégia.|
 |maximumInterval|nulo|O atraso máximo de repetição ao usar a `exponentialBackoff` estratégia.| 

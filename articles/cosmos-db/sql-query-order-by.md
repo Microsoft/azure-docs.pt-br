@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93338281"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
@@ -104,7 +104,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir.
+Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta a seguir:
 
 ```sql
     SELECT f.id, f.creationDate

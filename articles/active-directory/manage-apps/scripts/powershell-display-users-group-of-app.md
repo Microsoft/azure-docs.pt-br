@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – listar usuários e grupos para aplicativo do Pr
 description: Exemplo do PowerShell que lista todos os usuários e grupos atribuídos a um aplicativo específico do Proxy de Aplicativo do Azure AD (Azure Active Directory).
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6fc94a7e9c8ed222b7612db691c687b8daa85d9a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0fdbf2ab7d33978a72e7455f3e2f5ba591cc4ab7
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258408"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375484"
 ---
 # <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>Exibir usuários e grupos atribuídos a um aplicativo do Proxy de Aplicativo
 
@@ -28,7 +28,7 @@ Este exemplo de script do PowerShell lista os usuários e grupos atribuídos a u
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 

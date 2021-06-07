@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 ms.openlocfilehash: ae8b01522a248b8b1dbdd255a9fcd55f16cf2369
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461714"
 ---
 # <a name="develop-without-using-an-azure-iot-hub-sdk"></a>Desenvolver sem usar um SDK do Hub IoT do Azure
@@ -54,4 +54,4 @@ Para dispositivos, é altamente recomendável usar MQTT se o seu dispositivo der
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Suporte do MQTT](iot-hub-mqtt-support.md)
+* [Suporte ao MQTT](iot-hub-mqtt-support.md)

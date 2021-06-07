@@ -3,12 +3,12 @@ title: Adicionar uma extensão de conjunto de dimensionamento de máquinas virtu
 description: Veja como adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a Service Fabric tipo de nó de cluster gerenciado
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 64df4b82795f382e176d66dc61470296447b9e29
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a47908b511f79c18482e9d21e623f1cb4dc70ed1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788071"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101737759"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adicionar uma extensão de conjunto de dimensionamento de máquinas virtuais a um Service Fabric tipo de nó de cluster gerenciado (versão prévia)
 

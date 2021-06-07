@@ -8,10 +8,10 @@ ms.date: 06/27/2018
 ms.author: twooley
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103723"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introdução ao Azure Data Lake Store Gen1 usando Azure PowerShell

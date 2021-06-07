@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93305696"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
@@ -28,9 +28,9 @@ A [API de detecção de anomalias](https://gallery.azure.ai/MachineLearningAPI/A
 
 Esta API pode detectar os seguintes tipos de padrão anômalo nos dados de série temporal:
 
-* **Tendências positivas e negativas** : Por exemplo, ao monitorar o uso de memória na computação, uma tendência de aumento pode ser interessante, pois pode indicar um vazamento de memória.
-* **Alterações no intervalo dinâmico dos valores** : Por exemplo, ao monitorar as exceções geradas por um serviço de nuvem, as alterações no intervalo dinâmico dos valores pode indicar instabilidade na integridade do serviço.
-* **Picos e quedas** : Por exemplo, ao monitorar o número de falhas de logon em um serviço ou o número de check-outs em um site de comércio eletrônico, os picos ou as quedas podem indicar um comportamento anormal.
+* **Tendências positivas e negativas**: Por exemplo, ao monitorar o uso de memória na computação, uma tendência de aumento pode ser interessante, pois pode indicar um vazamento de memória.
+* **Alterações no intervalo dinâmico dos valores**: Por exemplo, ao monitorar as exceções geradas por um serviço de nuvem, as alterações no intervalo dinâmico dos valores pode indicar instabilidade na integridade do serviço.
+* **Picos e quedas**: Por exemplo, ao monitorar o número de falhas de logon em um serviço ou o número de check-outs em um site de comércio eletrônico, os picos ou as quedas podem indicar um comportamento anormal.
 
 Esses detectores de aprendizado da máquina rastreiam as alterações nos valores ao longo do tempo e informam as mudanças contínuas em seus valores como pontuações de anomalia. Eles não precisam de ajuste de limite ad hoc e suas pontuações podem ser usadas para controlar a taxa de falsos positivos. A API de detecção de anomalias é útil em vários cenários, como o monitoramento do serviço ao controlar KPIs ao longo do tempo, monitoramento do uso por meio de métricas, como o número de pesquisas, número de cliques, monitoramento do desempenho por meio de contadores, como memória, CPU, leituras de arquivos etc. ao longo do tempo.
 

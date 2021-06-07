@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/23/2020
+ms.date: 03/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319770"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574553"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividade de entrada Azure Active Directory-visualização
 
@@ -125,7 +125,12 @@ Cada guia na folha de entradas mostra as colunas padrão abaixo. Algumas guias t
 
 As entradas de usuário interativas são entradas em que um usuário fornece um fator de autenticação para o Azure AD ou interage diretamente com o Azure AD ou um aplicativo auxiliar, como o aplicativo Microsoft Authenticator. Os fatores que os usuários fornecem incluem senhas, respostas a desafios de MFA, fatores biométricos ou códigos QR que um usuário fornece ao Azure AD ou a um aplicativo auxiliar.
 
-Esse relatório também inclui entradas federadas de provedores de identidade que são federados para o Azure AD.  
+> [!NOTE]
+> Esse relatório também inclui entradas federadas de provedores de identidade que são federados para o Azure AD.  
+
+
+
+Observação: o relatório de entradas de usuário interativo usado para conter algumas entradas não interativas de clientes do Microsoft Exchange. Embora essas entradas não sejam interativas, elas foram incluídas no relatório de entradas de usuário interativo para obter visibilidade adicional. Depois que o relatório de entradas de usuário não interativa entrou na visualização pública em novembro de 2020, os logs de eventos de entrada não interativos foram movidos para o relatório de entrada de usuário não interativo para maior precisão. 
 
 
 **Tamanho do relatório:** pequeno <br> 
@@ -148,7 +153,7 @@ Além dos campos padrão, o relatório de entradas interativas também mostra:
 
 
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Colunas de entrada do usuário interativo](./media/concept-all-sign-ins/columns-interactive.png "Colunas de entrada do usuário interativo")
 
@@ -360,7 +365,7 @@ O relatório de atividade de entradas no portal do Azure fornece um método simp
 
 Para acessar os novos relatórios de entrada com entradas não interativas e de aplicativo: 
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
     ![Selecionar Azure AD](./media/concept-all-sign-ins/azure-services.png)
 
@@ -395,7 +400,7 @@ Quando você baixa um relatório de atividade de entrada, o seguinte é verdadei
 - O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md). 
 
 
-![Baixar relatórios](./media/concept-all-sign-ins/download-reports.png "Baixar relatórios")
+![Download de relatórios](./media/concept-all-sign-ins/download-reports.png "Download de relatórios")
 
 
 Cada download de CSV consiste em seis arquivos diferentes:

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466149"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043760"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>Use a interface do usuário da Web local para gerenciar a conectividade sem fio em seu Azure Stack Edge mini R
 
@@ -34,45 +34,47 @@ Execute as etapas a seguir na interface do usuário local do seu dispositivo par
 
 1. Acesse a página **Introdução** na IU da Web local do seu dispositivo. No bloco **Rede**, selecione **Configurar**.  
     
-    Em seu dispositivo físico, há cinco interfaces de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. A porta 3 e a porta 4 são as interfaces de rede de 10 Gbps. A quinta porta é a porta Wi-Fi. 
+    No dispositivo físico, há cinco adaptadores de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. PORTA 3 e PORTA 4 são adaptadores de rede de 10 Gbps. A quinta é a porta Wi-Fi. 
 
-    [![Interface do usuário da Web local "configurações de rede", página 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)  
+    [![Página "Configurações de rede" na IU da Web local 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)  
     
-    Selecione a porta Wi-Fi e defina as configurações de porta. 
+    Selecione a porta Wi-Fi e defina suas configurações. 
     
     > [!IMPORTANT]
-    > É altamente recomendável que você configure um endereço IP estático para a porta de Wi-Fi.  
+    > É altamente recomendável configurar um endereço IP estático para a porta Wi-Fi.  
 
     ![Página "Configurações de rede" da IU da Web local 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-2.png)
 
-    A página de **rede** é atualizada depois que você aplica as configurações de porta Wi-Fi.
+    A página **Rede** é atualizada após a aplicação das configurações da porta Wi-Fi.
 
-    ![Interface do usuário da Web local "configurações de rede", página 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-4.png)
+    ![Página "Configurações de rede" na IU da Web local 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-4.png)
 
    
 2. Selecione **Adicionar perfil de Wi-Fi** e carregue seu perfil de Wi-Fi. 
 
-    ![Interface do usuário da Web local "configurações de rede de WiFi de porta" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
-    Um perfil de rede sem fio contém o SSID (nome da rede), A chave de senha e as informações de segurança para poder se conectar a uma rede sem fio. Você pode obter o perfil de Wi-Fi para o seu ambiente do seu administrador de rede.
+    Um perfil de rede sem fio contém o SSID (nome da rede), a chave de senha e as informações de segurança para se conectar a uma rede sem fio. Você pode obter o perfil de Wi-Fi do seu ambiente com seu administrador de rede.
 
-    ![Interface do usuário da Web local "configurações de rede WiFi da porta" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
+    Para obter informações sobre como preparar seus perfis de Wi-Fi, consulte [usar perfis de Wi-Fi com dispositivos de borda de Azure Stack mini](azure-stack-edge-mini-r-use-wifi-profiles.md).
 
-    Depois que o perfil for adicionado, a lista de perfis de Wi-Fi será atualizada para refletir o novo perfil. O perfil deve mostrar o **status da conexão** como **desconectado**. 
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 
-    ![Interface do usuário da Web local "configurações de rede WiFi da porta" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
+    Após o perfil ser adicionado, a lista de perfis Wi-Fi é atualizada de maneira a refletir o novo perfil. O perfil deve mostrar o **Status da conexão** **Desconectado**. 
+
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
     
-3. Depois que o perfil de rede sem fio for carregado com êxito, conecte-se a esse perfil. Selecione **conectar-se a Wi-Fi perfil**. 
+3. Após o perfil de rede sem fio ser carregado com êxito, conecte-se a ele. Selecione **Conectar-se ao perfil de Wi-Fi**. 
 
-    ![Interface do usuário da Web local "porta Wi-Fi configurações de rede" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-4. Selecione o perfil de Wi-Fi que você adicionou na etapa anterior e selecione **aplicar**. 
+4. Selecione o perfil de Wi-Fi que você adicionou na etapa anterior e escolha **Aplicar**. 
 
-    ![Interface do usuário da Web local "porta Wi-Fi configurações de rede" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
-    O **status da conexão** deve ser atualizado para **conectado**. A intensidade de sinal é atualizada para indicar a qualidade do sinal. 
+    O **Status da conexão** deve ser atualizado para **Conectado**. A intensidade do sinal é atualizada para indicar sua qualidade. 
 
-    ![Interface do usuário da Web local "porta Wi-Fi configurações de rede" 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
+    !["Configurações de rede Wi-Fi da porta" na IU da Web local 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
 
     > [!NOTE]
     > Para transferir grandes quantidades de dados, recomendamos que você use uma conexão com fio em vez da rede sem fio. 

@@ -3,17 +3,17 @@ title: Visão geral da VM da série HB – máquinas virtuais do Azure | Microso
 description: Saiba mais sobre o suporte de visualização para o tamanho da VM da série HB no Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e37f13bc6e819079c63c583a1eeda12af5e213c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2f5dddd3d59ebe778d577176e439528a86bb42a7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965452"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802578"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 
@@ -31,7 +31,7 @@ A fixação do processo funcionará em VMs da série HB porque expõemos o silí
 
 O diagrama a seguir mostra a diferenciação de núcleos reservada para o hipervisor do Azure e a VM da série HB.
 
-![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HB](./media/hb-series-overview/segregation-cores.png)
+![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HB](./media/architecture/hb-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificações de hardware
 
@@ -51,13 +51,13 @@ O diagrama a seguir mostra a diferenciação de núcleos reservada para o hiperv
 |-----------------------------|-----------------------|
 | Tamanho máximo do trabalho MPI            | 18000 núcleos (300 VMs em um único conjunto de dimensionamento de máquinas virtuais com singlePlacementGroup = true)  |
 | Suporte a MPI                 | HPC-X, Intel MPI, OpenMPi, MVAPICH2, MPICH, plataforma MPI  |
-| Estruturas adicionais       | Comunicação unificada X, libfabric, PGAS |
+| Estruturas adicionais       | UCX, libfabric, PGAS |
 | Suporte do armazenamento do Azure       | Discos Standard e Premium (máximo de 4 discos) |
-| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Suporte do Orchestrator        | CycleCloud, lote  |
+| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Suporte do Orchestrator        | CycleCloud, lote, AKS; [Opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options) |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre arquitetura do [AMD EPYC](https://bit.ly/2Epv3kC) e [arquiteturas de vários chips](https://bit.ly/2GpQIMb). Para obter informações mais detalhadas, consulte o [Guia de ajuste do HPC para processadores AMD EPYC](https://bit.ly/2T3AWZ9).
-- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

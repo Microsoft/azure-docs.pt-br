@@ -7,10 +7,10 @@ ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88002581"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo
@@ -48,7 +48,7 @@ Veja a seguir as instruções gerais sobre como preparar uma máquina virtual pa
 4. Clique com o botão direito do mouse na nova pasta, selecione **Propriedades**, **compartilhamento**, selecione **compartilhamento avançado...**.
 5. Selecione **compartilhar esta pasta**, selecione **permissões...** e, em seguida, selecione **Adicionar...**.
 6. Procure o grupo de segurança ao qual você adicionou os usuários da área de trabalho virtual do Windows e verifique se o grupo tem **controle total**.
-7. Depois de adicionar o grupo de segurança, clique com o botão direito do mouse na pasta, selecione **Propriedades**, selecione **compartilhamento**e, em seguida, copie o **caminho de rede** a ser usado para mais tarde.
+7. Depois de adicionar o grupo de segurança, clique com o botão direito do mouse na pasta, selecione **Propriedades**, selecione **compartilhamento** e, em seguida, copie o **caminho de rede** a ser usado para mais tarde.
 
 Para obter mais informações sobre permissões, consulte a [documentação do FSLogix](/fslogix/fslogix-storage-config-ht/).
 
@@ -64,9 +64,9 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 
-| Nome                | Type               | Dados/valor                        |
+| Nome                | Tipo               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
-| Habilitada             | DWORD              | 1                                 |
+| habilitado             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para compartilhamento de arquivos"     |
 
 >[!IMPORTANT]

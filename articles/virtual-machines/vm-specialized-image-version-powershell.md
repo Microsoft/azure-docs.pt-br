@@ -3,18 +3,18 @@ title: Criar uma VM com base em uma imagem especializada
 description: Crie uma VM usando uma imagem especializada em uma galeria de imagens compartilhada.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e1c8f664c98d068e9772fd47717c07f44236db2e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6b728591aeb330c7b2af8ca5dc4770147761b5b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881899"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552279"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Criar uma VM usando uma imagem especializada 
 

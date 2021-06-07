@@ -3,12 +3,12 @@ title: 'Início Rápido: Biblioteca de clientes do QnA Maker para .NET'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O QnA Maker permite ter um serviço avançado de perguntas e respostas a partir de um conteúdo semiestruturado, como documentos de perguntas frequentes ou URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 18d8dbc59d1c43961cd665a3ea98d1041516afb7
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: aac57f4ca173a7ac94c64884fa1d2db4a478c3f3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616433"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609402"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/version-1)
 
@@ -65,18 +65,6 @@ Use a biblioteca de clientes do QnA Maker para .NET para:
 ---
 
 ## <a name="setting-up"></a>Configurando
-
-### <a name="visual-studio-ide"></a>Visual Studio IDE
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/version-1)
-
-Usando o Visual Studio, crie um aplicativo .NET Core e instale a biblioteca de clientes clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise por `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker`. Selecione a versão `2.0.1` e, em seguida, **Instalar**.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/version-2)
-
-Usando o Visual Studio, crie um aplicativo .NET Core e instale a biblioteca de clientes clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes NuGet**. No gerenciador de pacotes aberto, selecione **Procurar**, marque **Incluir pré-lançamento** e pesquise `Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker`. Selecione a versão `3.0.0-preview.1` e, em seguida, **Instalar**.
-
----
 
 ### <a name="cli"></a>CLI
 
@@ -150,27 +138,28 @@ No método `Main` do aplicativo, adicione as variáveis e o código mostrados na
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/version-1)
 
-> [!IMPORTANT]
-> Acesse o portal do Azure e localize a chave e o ponto de extremidade do recurso do QnA Maker criados nos pré-requisitos. Eles estarão localizados na página de **chave e ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+- Usamos a chave de assinatura e a chave de criação de modo intercambiável. Para obter mais detalhes sobre a chave de criação, siga [Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-Usamos a chave de assinatura e a chave de criação de modo intercambiável. Para obter mais detalhes sobre a chave de criação, siga [Chaves no QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker).
+- O valor de QNA_MAKER_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Acesse o portal do Azure e localize o recurso do QnA Maker criado nos pré-requisitos. Clique na página **Chaves e Ponto de Extremidade**, em **gerenciamento de recursos**, para localizar a chave de Criação (Assinatura) e o ponto de extremidade do QnA Maker.
 
-- Crie variáveis de ambiente chamadas QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, e QNA_MAKER_RUNTIME_ENDPOINT para armazenar esses valores.
-- O valor de QNA_MAKER_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
-- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
+ ![Ponto de extremidade de criação do QnA Maker](../media/keys-endpoint.png)
+
+- O valor de QNA_MAKER_RUNTIME_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Acesse o portal do Azure e localize o recurso do QnA Maker criado nos pré-requisitos. Clique na página **Exportar Modelo**, em **Automação**, para localizar o ponto de extremidade do runtime.
+
+ ![Ponto de extremidade do runtime do QnA Maker](../media/runtime-endpoint.png)
+      
 - Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](../../../key-vault/general/overview.md) fornece armazenamento de chaves seguro.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/version-2)
 
-> [!IMPORTANT]
-> Acesse o portal do Azure e localize a chave e o ponto de extremidade do recurso do QnA Maker criados nos pré-requisitos. Eles estarão localizados na página de **chave e ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+- Usamos a chave de assinatura e a chave de criação de modo intercambiável. Para obter mais detalhes sobre a chave de criação, siga [Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-Usamos a chave de assinatura e a chave de criação de modo intercambiável. Para obter mais detalhes sobre a chave de criação, siga [Chaves no QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker).
+- O valor de QNA_MAKER_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Acesse o portal do Azure e localize o recurso do QnA Maker criado nos pré-requisitos. Clique na página **Chaves e Ponto de Extremidade**, em **gerenciamento de recursos**, para localizar a chave de Criação (Assinatura) e o ponto de extremidade do QnA Maker.
 
-- Crie variáveis de ambiente chamadas QNA_MAKER_SUBSCRIPTION_KEY e QNA_MAKER_ENDPOINT para armazenar esses valores.
-- O valor de QNA_MAKER_ENDPOINT tem o formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+ ![Ponto de extremidade de criação do QnA Maker](../media/keys-endpoint.png)
+
 - Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](../../../key-vault/general/overview.md) fornece armazenamento de chaves seguro.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=Resourcevariables)]
@@ -184,7 +173,7 @@ Usamos a chave de assinatura e a chave de criação de modo intercambiável. Par
 
 O [QnA Maker](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) usa dois modelos de objeto diferentes:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto usado para criar, gerenciar, publicar e baixar a base de dados de conhecimento.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto usado para consultar a base de dados de conhecimento com a API GenerateAnswer e para enviar novas perguntas sugeridas usando a API de Treinamento (como parte do [aprendizado ativo](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto usado para consultar a base de dados de conhecimento com a API GenerateAnswer e para enviar novas perguntas sugeridas usando a API de Treinamento (como parte do [aprendizado ativo](../how-to/use-active-learning.md)).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/version-2)
 

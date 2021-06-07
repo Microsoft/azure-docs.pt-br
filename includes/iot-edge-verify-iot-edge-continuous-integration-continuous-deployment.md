@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5450e4846c3c49c89830ae65c50a95ee0c8d6eb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301452"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803251"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verificar o CI/CD do IoT Edge com os pipelines de lançamento e de build
 
@@ -36,3 +36,5 @@ Para disparar um trabalho de build, você pode efetuar push da confirmação do 
 6. Clique em estágio de **desenvolvimento** para ver os logs de liberação.
 
     ![Logs de lançamento](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. Se o seu pipeline estiver falhando, comece examinando os logs. Você pode exibir os logs navegando até o resumo de execução de pipeline e selecionando o trabalho e a tarefa. Se uma determinada tarefa estiver falhando, verifique os logs dessa tarefa. Para obter instruções detalhadas sobre como configurar e usar logs, consulte [examinar logs para diagnosticar problemas de pipeline](/azure/devops/pipelines/troubleshooting/review-logs).

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 55e102cc7e27cbcd9a65999f590c8264f1ad4434
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736845"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103464081"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Gerenciador do Azure Time Series Insights
 
@@ -25,7 +25,7 @@ Este artigo descreve os vários recursos e opções disponíveis no [ambiente de
 
 Para começar a usar o Azure Time Series Insights Explorer, você deve:
 
-* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./tutorial-set-up-environment.md) .
 * [Forneça acesso a dados](./concepts-access-policies.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
 * Adicione uma origem do evento ao ambiente Azure Time Series Insights Gen2 para enviar dados por push para o ambiente:
   * Saiba [como se conectar a um hub de eventos](./how-to-ingest-data-event-hub.md)
@@ -92,7 +92,7 @@ O bem exibe os campos de instância e outros metadados associados às instância
 
 Você pode remover elementos de dados específicos de seus dados atuais bem, selecionando o controle vermelho **delete** (lixeira) no lado esquerdo do elemento. O também permite que você controle como cada elemento é exibido no gráfico. Você pode optar por adicionar sombras mínimas/máximas, pontos de dados, deslocar o elemento no tempo e visualizar a instância de uma maneira de nível.
 
-Além disso, o controle explorações permite que você crie facilmente turnos de tempo e dispersão.  
+Além disso, o controle explorações permite que você crie facilmente turnos de tempo e dispersão.
 
   [![Opções de layout bem](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 

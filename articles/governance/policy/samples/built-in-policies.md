@@ -1,15 +1,15 @@
 ---
 title: Lista de definições de políticas internas
 description: Liste as definições de políticas internas para o Azure Policy. As categorias incluem Marcas, Conformidade a normas, Key Vault, Kubernetes, Configuração de convidado e muito mais.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 9f2a28c9acf2287c70bedad305ee1c143868c59d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 8110ee2539165dfd6daa243dca151578726d0d84
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099969"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498425"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 
@@ -80,6 +80,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="compute"></a>Computação
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
+
+## <a name="container-instance"></a>Instância de contêiner
+
+[!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
 
 ## <a name="container-registry"></a>Registro de Contêiner
 
@@ -152,6 +156,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="managed-application"></a>Aplicativo gerenciado
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## <a name="migrate"></a>Migrações
+
+[!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
 ## <a name="monitoring"></a>Monitoramento
 

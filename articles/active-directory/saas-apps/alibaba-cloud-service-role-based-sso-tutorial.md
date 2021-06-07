@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
 ms.openlocfilehash: 6e4cb3c372b696b203d2441c74a6cafff175af47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736123"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Alibaba Cloud Service (SSO baseado em função)

@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 48d43cb2d3c51194d0708a2b9b739a0ee87843d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793391"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First** . O tutorial [Code First - New Database](/ef/ef6/modeling/code-first/workflows/new-database) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
+Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](/ef/ef6/modeling/code-first/workflows/new-database) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Baixar e executar o código de exemplo
 
@@ -31,7 +31,7 @@ Para baixar o código para este artigo:
 * Baixe as [Ferramentas de BD Elástico para SQL do Azure – Amostra de integração ao Entity Framework](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio.
 * No Visual Studio, selecione Arquivo -> Abrir Projeto/Solução.
-* Na caixa de diálogo **Abrir Projeto** , navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra.
+* Na caixa de diálogo **Abrir Projeto**, navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra.
 
 Para executar o exemplo, você precisa criar três bancos de dados vazios no Banco de Dados SQL do Azure:
 
@@ -45,10 +45,10 @@ Depois de criar esses bancos de dados, preencha os espaços reservados em **Prog
 
 Os desenvolvedores do Entity Framework dependem de um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência de objetos de aplicativo:
 
-* **Code First (Novo banco de dados)** : o desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele.
-* **Code First (Banco de dados existente)** : o desenvolvedor deixa o EF criar código do aplicativo para o modelo por meio de um banco de dados existente.
-* **Model First** : o desenvolvedor cria o modelo no designer de EF e, em seguida, o EF cria o banco de dados por meio do modelo.
-* **Database First** : o desenvolvedor usa ferramentas do EF para inferir o modelo a por meio de um banco de dados existente.
+* **Code First (Novo banco de dados)**: o desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele.
+* **Code First (Banco de dados existente)**: o desenvolvedor deixa o EF criar código do aplicativo para o modelo por meio de um banco de dados existente.
+* **Model First**: o desenvolvedor cria o modelo no designer de EF e, em seguida, o EF cria o banco de dados por meio do modelo.
+* **Database First**: o desenvolvedor usa ferramentas do EF para inferir o modelo a por meio de um banco de dados existente.
 
 Todas essas abordagens contam com a classe DbContext para gerenciar, transparentemente, conexões de banco de dados e o esquema de banco de dados para um aplicativo. Construtores diferentes na classe base DbContext permitem diferentes níveis de controle sobre a criação da conexão, a inicialização do banco de dados e a criação de esquema. Desafios surgem principalmente do fato de que o gerenciamento de conexão de banco de dados fornecido pelo EF interage com os recursos de gerenciamento de conexão das interfaces de roteamento dependente de dados fornecidas pela biblioteca cliente do banco de dados elástico.
 
@@ -56,7 +56,7 @@ Todas essas abordagens contam com a classe DbContext para gerenciar, transparent
 
 Para obter definições de termos, consulte o [Glossário de ferramentas do Banco de Dados Elástico](elastic-scale-glossary.md).
 
-Com a biblioteca de cliente de banco de dados elástico, você define partições dos seus dados de aplicativo chamados shardlets. Os shardlets são identificados por uma chave de fragmentação e são mapeados para bancos de dados específicos. Um aplicativo pode ter tantos bancos de dados quanto necessários e distribuir shardlets para fornecer capacidade ou desempenho suficientes, considerando os requisitos de negócio atuais. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs de banco de dados elástico. Essa capacidade é chamada de **Gerenciamento de Mapa de Fragmentos** ou SMM abreviado. O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Essa capacidade é conhecida como **roteamento dependente de dados** .
+Com a biblioteca de cliente de banco de dados elástico, você define partições dos seus dados de aplicativo chamados shardlets. Os shardlets são identificados por uma chave de fragmentação e são mapeados para bancos de dados específicos. Um aplicativo pode ter tantos bancos de dados quanto necessários e distribuir shardlets para fornecer capacidade ou desempenho suficientes, considerando os requisitos de negócio atuais. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs de banco de dados elástico. Essa capacidade é chamada de **Gerenciamento de Mapa de Fragmentos** ou SMM abreviado. O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Essa capacidade é conhecida como **roteamento dependente de dados**.
 
 O gerenciador de mapa de fragmentos protege os usuários contra exibições inconsistentes nos dados do shardlet que podem ocorrer quando operações simultâneas de gerenciamento de shardlet (ex.: realocar dados de um fragmento para outro) estão acontecendo. Para fazer isso, os mapas de fragmentos gerenciados pela biblioteca de cliente intermediam as conexões de banco de dados para um aplicativo. Isso permite que a funcionalidade de mapa do fragmento interrompa automaticamente uma conexão de banco de dados quando as operações de gerenciamento de fragmento podem afetar o shardlet para o qual a conexão foi criado. Essa abordagem precisa se integrar com algumas funcionalidades do EF, como a criação de novas conexões de uma existente para verificar a existência do banco de dados. Em geral, nossa observação é a de que os construtores DbContext padrão só funcionam confiavelmente para conexões fechadas de banco de dados que podem ser clonadas com segurança para funcionar no EF. Diferentemente, o princípio de design do banco de dados elástico é de apenas intermediar as conexões abertas. É possível imaginar que fechar uma conexão intermediada pela biblioteca de cliente antes de entregá-la ao EF DbContext pode resolver esse problema. No entanto, ao fechar a conexão e confiar no EF para abri-la novamente, perde-se a validação e as verificações de consistência executadas pela biblioteca. No entanto, a funcionalidade de migrações no EF, usa essas conexões para gerenciar o esquema de banco de dados subjacente de forma transparente para o aplicativo. O ideal seria manter e combinar todos esses recursos de biblioteca cliente do banco de dados elástico e do EF no mesmo aplicativo. A seção a seguir aborda essas propriedades e requisitos mais detalhadamente.
 
@@ -64,16 +64,16 @@ O gerenciador de mapa de fragmentos protege os usuários contra exibições inco
 
 Ao trabalhar com a biblioteca cliente do banco de dados elástico e com as APIs do Entity Framework, queremos manter as seguintes propriedades:
 
-* **Escala vertical** : para adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. Isso significa controle sobre a criação e a exclusão de bancos de dados e o uso de APIs do gerenciador de mapa de fragmentos de banco de dados elástico para gerenciar bancos de dados e mapeamentos de shardlets.
-* **Consistência** : o aplicativo utiliza fragmentação e usa os recursos de roteamento dependente de dados da biblioteca cliente. Para evitar corrompimento ou resultados incorretos de consulta, as conexões são intermediadas por meio do gerenciador de mapa de fragmentos. Isso também mantém a consistência e a validação.
-* **Code First** : para reter a conveniência do paradigma de code first do EF. No Code First, as classes do aplicativo são mapeadas de forma transparente para as estruturas de banco de dados subjacentes. O código do aplicativo interage com DbSets que mascaram a maioria dos aspectos envolvidos no processamento do banco de dados subjacente.
-* **Esquema** : o Entity Framework lida com a criação de esquema do banco de dados inicial e com a evolução de esquemas subsequentes por meio de migrações. Mantendo esses recursos, é fácil adaptar seu aplicativo à medida que os dados evoluem.
+* **Escala vertical**: para adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. Isso significa controle sobre a criação e a exclusão de bancos de dados e o uso de APIs do gerenciador de mapa de fragmentos de banco de dados elástico para gerenciar bancos de dados e mapeamentos de shardlets.
+* **Consistência**: o aplicativo utiliza fragmentação e usa os recursos de roteamento dependente de dados da biblioteca cliente. Para evitar corrompimento ou resultados incorretos de consulta, as conexões são intermediadas por meio do gerenciador de mapa de fragmentos. Isso também mantém a consistência e a validação.
+* **Code First**: para reter a conveniência do paradigma de code first do EF. No Code First, as classes do aplicativo são mapeadas de forma transparente para as estruturas de banco de dados subjacentes. O código do aplicativo interage com DbSets que mascaram a maioria dos aspectos envolvidos no processamento do banco de dados subjacente.
+* **Esquema**: o Entity Framework lida com a criação de esquema do banco de dados inicial e com a evolução de esquemas subsequentes por meio de migrações. Mantendo esses recursos, é fácil adaptar seu aplicativo à medida que os dados evoluem.
 
 As diretrizes a seguir ensinam como atender a esses requisitos para aplicativos Code First usando as ferramentas de banco de dados elástico.
 
 ## <a name="data-dependent-routing-using-ef-dbcontext"></a>Roteamento dependente de dados usando DbContext do EF
 
-Conexões de banco de dados com o Entity Framework são normalmente gerenciadas por meio de subclasses do **DbContext** . Crie essas subclasses derivando por meio do **DbContext** . É aqui que você define seus **DbSets** que implementam as coleções de banco de dados de backup dos objetos CLR para seu aplicativo. No contexto do roteamento dependente de dados, você pode identificar várias propriedades úteis que não necessariamente valem para outros cenários de aplicativo do EF Code First:
+Conexões de banco de dados com o Entity Framework são normalmente gerenciadas por meio de subclasses do **DbContext**. Crie essas subclasses derivando por meio do **DbContext**. É aqui que você define seus **DbSets** que implementam as coleções de banco de dados de backup dos objetos CLR para seu aplicativo. No contexto do roteamento dependente de dados, você pode identificar várias propriedades úteis que não necessariamente valem para outros cenários de aplicativo do EF Code First:
 
 * O banco de dados já existe e foi registrado no mapa de fragmento de banco de dados elástico.
 * O esquema do aplicativo já foi implantado no banco de dados (explicado abaixo).
@@ -159,7 +159,7 @@ using (var db = new ElasticScaleContext<int>(
 }
 ```
 
-O novo construtor abre a conexão para o fragmento que mantém os dados para o shardlet identificado pelo valor de **tenantid1** . O código no bloco **using** permanece inalterado para acessar o **DbSet** para blogs usando o EF no fragmento para **tenantid1** . Isso altera a semântica para o código do bloco em uso, de modo que todas as operações de banco de dados sejam agora abrangidas pelo fragmento onde o **tenantid1** é mantido. Por exemplo, uma consulta LINQ sobre os blogs **DbSet** apenas retornaria blogs armazenados no fragmento atual, mas não os armazenados em outros fragmentos.  
+O novo construtor abre a conexão para o fragmento que mantém os dados para o shardlet identificado pelo valor de **tenantid1**. O código no bloco **using** permanece inalterado para acessar o **DbSet** para blogs usando o EF no fragmento para **tenantid1**. Isso altera a semântica para o código do bloco em uso, de modo que todas as operações de banco de dados sejam agora abrangidas pelo fragmento onde o **tenantid1** é mantido. Por exemplo, uma consulta LINQ sobre os blogs **DbSet** apenas retornaria blogs armazenados no fragmento atual, mas não os armazenados em outros fragmentos.  
 
 ### <a name="transient-faults-handling"></a>Tratamento de falhas transitórias
 
@@ -185,7 +185,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 **SqlDatabaseUtils.SqlRetryPolicy** no código acima é definido como um **SqlDatabaseTransientErrorDetectionStrategy** com uma contagem de repetições de 10, com tempo de espera de 5 segundos entre as tentativas. Essa abordagem é semelhante ás diretrizes para o EF e transações iniciadas pelo usuário (consulte [Limitações com estratégias de repetição de execução (EF6 em diante)](/ef/ef6/fundamentals/connection-resiliency/retry-logic). Ambas as situações exigem que o programa aplicativo controle o escopo ao qual a exceção transitória retorna: para reabrir a transação, ou (conforme mostrado) recriar o contexto do construtor apropriado que usa as bibliotecas de cliente de banco de dados elástico.
 
-A necessidade de controlar quais exceções temporárias levaríamos no escopo também impede o uso da **SqlAzureExecutionStrategy** incorporada que acompanha o EF. **SqlAzureExecutionStrategy** reabriria uma conexão, mas não usa **OpenConnectionForKey** e, portanto, ignora a validação que é executada como parte da chamada **OpenConnectionForKey** . Em vez disso, o exemplo de código usa a **DefaultExecutionStrategy** incorporada que também vem com o EF. Em vez de **SqlAzureExecutionStrategy** , ela funciona corretamente em combinação com a política de repetição de tratamento de falhas transitórias. A política  de execução é definida na classe **ElasticScaleDbConfiguration** . Observe que nós decidimos não usar a **DefaultSqlExecutionStrategy** porque ela sugere usar a **SqlAzureExecutionStrategy** se ocorrerem exceções transitórias, o que poderia levar a um comportamento incorreto, como já discutimos. Para obter mais informações sobre as políticas de repetição diferentes e EF, consulte [Resiliência de conexão no EF](/ef/ef6/fundamentals/connection-resiliency/retry-logic).
+A necessidade de controlar quais exceções temporárias levaríamos no escopo também impede o uso da **SqlAzureExecutionStrategy** incorporada que acompanha o EF. **SqlAzureExecutionStrategy** reabriria uma conexão, mas não usa **OpenConnectionForKey** e, portanto, ignora a validação que é executada como parte da chamada **OpenConnectionForKey**. Em vez disso, o exemplo de código usa a **DefaultExecutionStrategy** incorporada que também vem com o EF. Em vez de **SqlAzureExecutionStrategy**, ela funciona corretamente em combinação com a política de repetição de tratamento de falhas transitórias. A política  de execução é definida na classe **ElasticScaleDbConfiguration** . Observe que nós decidimos não usar a **DefaultSqlExecutionStrategy** porque ela sugere usar a **SqlAzureExecutionStrategy** se ocorrerem exceções transitórias, o que poderia levar a um comportamento incorreto, como já discutimos. Para obter mais informações sobre as políticas de repetição diferentes e EF, consulte [Resiliência de conexão no EF](/ef/ef6/fundamentals/connection-resiliency/retry-logic).
 
 #### <a name="constructor-rewrites"></a>O construtor reescreve
 
@@ -205,7 +205,7 @@ Os exemplos de código acima ilustram as reescritas do construtor padrão necess
 
 Gerenciamento automático de esquema é uma conveniência fornecida pelo Entity Framework. No contexto de aplicativos que usam ferramentas de banco de dados elástico, queremos manter essa capacidade de provisionar o esquema automaticamente para fragmentos recém-criados quando os bancos de dados são adicionados ao aplicativo fragmentado. O caso de uso primário é aumentar a capacidade na camada de dados para aplicativos fragmentados usando o EF. Contar com recursos do EF para gerenciamento de esquema reduz o esforço de administração de banco de dados com um aplicativo fragmentado criado no EF.
 
-A implantação de esquema por meio de migrações EF funciona melhor em **conexões não abertas** . Isso é diferente do cenário de roteamento dependente de dados que se baseia na conexão aberta fornecida pela API do cliente de banco de dados elástico. Outra diferença é o requisito de consistência: apesar de desejável para garantir a consistência em todas as conexões de roteamento dependentes de dados para se proteger contra manipulação de mapa do fragmento simultânea, não é uma preocupação com a implantação de esquema inicial para um novo banco de dados que ainda não tenha sido registrado no mapa do fragmento e que ainda não tenha sido alocado para manter shardlets. Portanto, é possível contar com conexões de banco de dados regulares para esse cenário, ao contrário do roteamento dependente de dados.  
+A implantação de esquema por meio de migrações EF funciona melhor em **conexões não abertas**. Isso é diferente do cenário de roteamento dependente de dados que se baseia na conexão aberta fornecida pela API do cliente de banco de dados elástico. Outra diferença é o requisito de consistência: apesar de desejável para garantir a consistência em todas as conexões de roteamento dependentes de dados para se proteger contra manipulação de mapa do fragmento simultânea, não é uma preocupação com a implantação de esquema inicial para um novo banco de dados que ainda não tenha sido registrado no mapa do fragmento e que ainda não tenha sido alocado para manter shardlets. Portanto, é possível contar com conexões de banco de dados regulares para esse cenário, ao contrário do roteamento dependente de dados.  
 
 Isso leva a uma abordagem em que a implantação de esquema por meio de migrações do EF está intimamente ligada com o registro do novo banco de dados como um fragmento no mapa do fragmento do aplicativo. Isso depende dos seguintes pré-requisitos:
 
@@ -244,7 +244,7 @@ public void RegisterNewShard(string server, string database, string connStr, int
 }
 ```
 
-Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** ( **ElasticScaleContext** no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
+Este exemplo mostra o método **RegisterNewShard** que registra o fragmento no mapa de fragmentos, implanta o esquema por meio de migrações do EF e armazena um mapeamento de uma chave de fragmentação para o fragmento. Ele se baseia em um construtor da subclasse **DbContext** (**ElasticScaleContext** no exemplo) que usa uma cadeia de conexão SQL como entrada. O código desse construtor é direto, como mostra o exemplo a seguir:
 
 ```csharp
 // C'tor to deploy schema and migrations to a new shard
@@ -270,7 +270,7 @@ Alguém pode ter usado a versão do construtor herdado da classe base. Mas o có
 
 As abordagens descritas neste documento envolvem algumas limitações:
 
-* Aplicativos de EF que utilizem o **LocalDb** primeiro precisam migrar para um banco de dados SQL Server normal antes de usar a biblioteca de cliente de banco de dados elástico. Não é possível escalar verticalmente um aplicativo por meio de fragmentação com Escala Elástica com o **LocalDb** . Observe que o desenvolvimento ainda pode usar **LocalDb** .
+* Aplicativos de EF que utilizem o **LocalDb** primeiro precisam migrar para um banco de dados SQL Server normal antes de usar a biblioteca de cliente de banco de dados elástico. Não é possível escalar verticalmente um aplicativo por meio de fragmentação com Escala Elástica com o **LocalDb**. Observe que o desenvolvimento ainda pode usar **LocalDb**.
 * As alterações para o aplicativo que implicam alterações de esquema do banco de dados precisam passar pelas migrações do EF em todos os fragmentos. O código de exemplo para este documento não mostra como fazer isso. Considere o uso de Update-Database com um parâmetro ConnectionString para iterar em todos os fragmentos; ou extraia o script T-SQL para a migração pendente usando Update-Database com a opção -Script e aplique o script T-SQL aos seus fragmentos.  
 * Dada a solicitação, presume-se que todo o processamento do banco de dados está contido dentro de um único fragmento, conforme identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto nem sempre é verdadeiro. Por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consultas em vários fragmentos. Aprender a usar o **MultiShardQuery** combinado com o EF está além do escopo deste documento
 

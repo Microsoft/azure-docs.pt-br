@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: API REST
           href: role-assignments-list-rest.md
-    - name: Adicionar ou remover atribuições de função
+    - name: Atribuir funções
       items:
-        - name: Etapas para adicionar uma atribuição de função
+        - name: Etapas para atribuição de uma função
           href: role-assignments-steps.md
         - name: Portal
           items:
-            - name: Adicionar ou remover atribuições de função
+            - name: Atribuir funções
               href: role-assignments-portal.md
             - name: Administrador da assinatura
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Modelo de ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Remover atribuições de função
+      href: role-assignments-remove.md
     - name: Listar atribuições de negação
       items:
         - name: Visão geral
@@ -124,7 +126,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: CLI do Azure
-      href: /cli/azure/role?view=azure-cli-latest
+      href: /cli/azure/role
     - name: API REST
       href: /rest/api/authorization/
     - name: Modelos de ARM

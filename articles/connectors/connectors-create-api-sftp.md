@@ -10,10 +10,10 @@ ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673807"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorar, criar e gerenciar arquivos SFTP em aplicativos lógicos do Azure
@@ -30,7 +30,7 @@ Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um s
 
 Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibilizam a saída para outras ações. Você pode usar ações que executam várias tarefas em seu servidor SFTP. Você também pode ter outras ações em seu aplicativo lógico usando a saída das ações do SFTP. Por exemplo, se você recuperar regularmente arquivos do servidor SFTP, poderá enviar alertas por email sobre esses arquivos e seu conteúdo usando o conector do Office 365 Outlook ou o conector Outlook.com. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 O conector SFTP manipula apenas os arquivos que são *50 MB ou menores* e não dá suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). Para arquivos maiores, use o [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para diferenças entre o conector SFTP e o conector SFTP-SSH, examine [comparar SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) no artigo SFTP-SSH.
 
@@ -45,12 +45,12 @@ O conector SFTP manipula apenas os arquivos que são *50 MB ou menores* e não d
   > O conector SFTP suporta esses formatos de chave privada: OpenSSH, ssh.com e PuTTY
   >
   > Ao criar seu aplicativo lógico, depois de adicionar o acionador ou a ação SFTP desejada, você precisará fornecer informações de conexão para o servidor SFTP. 
-  > Se você estiver usando uma chave privada SSH, certifique-se de * **copiar** _ a chave do seu arquivo de chave privada SSH e _*_Cole_*_ essa chave nos detalhes da conexão, _*_não insira manualmente ou edite a chave_*_ , o que pode causar falha na conexão. 
+  > Se você estiver usando uma chave privada SSH, certifique-se de ***copiar*** a chave do arquivo de chave privada SSH e ***colar*** essa chave nos detalhes da conexão, ***não insira ou edite manualmente a chave***, o que pode causar falha na conexão. 
   > Para mais informações, consulte as etapas posteriores neste artigo.
 
-_ Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* O aplicativo lógico no qual você deseja acessar a conta SFTP. Para iniciar com um gatilho SFTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de SFTP, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência** .
+* O aplicativo lógico no qual você deseja acessar a conta SFTP. Para iniciar com um gatilho SFTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de SFTP, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência**.
 
 ## <a name="how-sftp-triggers-work"></a>Como funcionam os gatilhos do SFTP
 
@@ -74,28 +74,28 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
    -ou-
 
-   Para aplicativos lógicos existentes, na última etapa em que deseja adicionar uma ação, escolha **Nova etapa** . Na caixa de pesquisa, insira "sftp" como o seu filtro. Na lista de ações, selecione a ação desejada.
+   Para aplicativos lógicos existentes, na última etapa em que deseja adicionar uma ação, escolha **Nova etapa**. Na caixa de pesquisa, insira "sftp" como o seu filtro. Na lista de ações, selecione a ação desejada.
 
-   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação** .
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Forneça os detalhes necessários para sua conexão.
 
    > [!IMPORTANT]
    >
-   > Ao inserir sua chave privada SSH na propriedade **chave privada SSH** , siga estas etapas adicionais, que ajudam a fornecer o valor completo e correto para essa propriedade. 
+   > Ao inserir sua chave privada SSH na propriedade **chave privada SSH**, siga estas etapas adicionais, que ajudam a fornecer o valor completo e correto para essa propriedade. 
    > Uma chave inválida faz com que a conexão falhe.
 
    Embora você possa usar qualquer editor de texto, aqui estão etapas de exemplo que mostram como copiar e colar corretamente a chave usando o Notepad.exe como exemplo.
 
    1. Abra seu arquivo de chave privada SSH em um editor de texto. Essas etapas usam o bloco de notas do exemplo.
 
-   1. No menu **Editar** do bloco de notas, selecione **selecionar tudo** .
+   1. No menu **Editar** do bloco de notas, selecione **selecionar tudo**.
 
-   1. Selecione **Editar**  >  **cópia** .
+   1. Selecione **Editar**  >  **cópia**.
 
-   1. No gatilho ou ação SFTP que você adicionou, cole a chave *completa* que você copiou na propriedade **SSH private key** , que suporta várias linhas. **_Certifique-se de colar_* _ a chave. _*_Não insira ou edite manualmente a chave_*_ .
+   1. No gatilho ou ação SFTP que você adicionou, cole a chave *completa* que você copiou na propriedade **SSH private key**, que suporta várias linhas. **_Certifique-se_*de colar _ a chave. _*_não insira manualmente ou edite a chave_**.
 
-1. Quando você terminar de inserir os detalhes da conexão, escolha _ * criar * *.
+1. Quando você terminar inserindo os detalhes de conexão, escolha **criar**.
 
 1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 
@@ -107,7 +107,7 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
 Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arquivo é adicionado ou alterado em um servidor SFTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo atende a uma condição especificada. Em seguida, você pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esse conteúdo em uma pasta no servidor SFTP.
 
-**Exemplo corporativo** : você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo** , para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo**, para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
 
 <a name="get-content"></a>
 

@@ -5,29 +5,30 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 03/18/2021
+ms.openlocfilehash: a040aecbdee40832bd21256e26a140a986b65e39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094069"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606235"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
-Este artigo descreve a opção de nível de compatibilidade no Azure Stream Analytics. O Stream Analytics é um serviço gerenciado, com atualizações de recursos regulares e melhorias de desempenho. A maioria das atualizações de tempos de execução do serviço é disponibilizada automaticamente para os usuários finais. 
+Este artigo descreve a opção de nível de compatibilidade no Azure Stream Analytics.
 
-No entanto, algumas novas funcionalidades do serviço podem introduzir uma alteração importante, como uma alteração no comportamento de um trabalho existente ou uma alteração na maneira como os dados são consumidos em trabalhos em execução. Você pode manter os trabalhos de Stream Analytics existentes em execução sem alterações importantes, deixando a configuração de nível de compatibilidade reduzida. Quando estiver pronto para os comportamentos de tempo de execução mais recentes, você poderá optar por gerar o nível de compatibilidade. 
+O Stream Analytics é um serviço gerenciado, com [atualizações de recursos regulares e melhorias de desempenho constantes](https://azure.microsoft.com/updates/?product=stream-analytics). A maioria das atualizações de tempos de execução do serviço é disponibilizada automaticamente para os usuários finais, independentemente do nível de compatibilidade. No entanto, quando uma nova funcionalidade apresenta uma alteração no comportamento de trabalhos existentes ou uma alteração na maneira como os dados são consumidos em trabalhos em execução, apresentamos essa alteração em um novo nível de compatibilidade. Você pode manter os trabalhos de Stream Analytics existentes em execução sem alterações importantes, deixando a configuração de nível de compatibilidade reduzida. Quando estiver pronto para os comportamentos de tempo de execução mais recentes, você poderá optar por gerar o nível de compatibilidade.
+
 
 ## <a name="choose-a-compatibility-level"></a>Escolher um nível de compatibilidade
 
-O nível de compatibilidade controla o comportamento de runtime de um trabalho do Stream Analytics. 
+O nível de compatibilidade controla o comportamento de runtime de um trabalho do Stream Analytics.
 
 O Azure Stream Analytics atualmente dá suporte a três níveis de compatibilidade:
 
-* 1,0-nível de compatibilidade original, introduzido durante a disponibilidade geral de Azure Stream Analytics há vários anos.
-* 1,1-comportamento anterior
 * 1,2-comportamento mais recente com melhorias mais recentes
+* 1,1-comportamento anterior
+* 1,0-nível de compatibilidade original, introduzido durante a disponibilidade geral de Azure Stream Analytics há vários anos. 
 
 Quando você cria um novo trabalho de Stream Analytics, é uma prática recomendada criá-lo usando o nível de compatibilidade mais recente. Inicie seu design de trabalho contando com os comportamentos mais recentes, para evitar alterações e complexidade adicionais posteriormente.
 

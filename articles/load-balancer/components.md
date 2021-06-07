@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399172"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739824"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do Azure Load Balancer
 
@@ -131,6 +131,7 @@ O balanceador de carga básico não é compatível com regras de saída.
 - O fluxo de saída de uma VM de back-end para um front-end de um Load Balancer interno falhará.
 - Uma regra de balanceador de carga não pode abranger duas redes virtuais.  Os front-ends e as instâncias de back-end deles devem estar localizados na mesma rede virtual.  
 - Não há suporte para o encaminhamento de fragmentos de IP nas regras de balanceamento de carga. A fragmentação de IP de pacotes UDP e TCP não é permitida em regras de balanceamento de carga. As regras de balanceamento de carga das portas de HA podem ser usadas para encaminhar fragmentos IP existentes. Para saber mais, confira [Visão geral das portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
+- Você só pode ter um Load Balancer público e um Load Balancer interno por conjunto de disponibilidade
 
 ## <a name="next-steps"></a>Próximas etapas
 

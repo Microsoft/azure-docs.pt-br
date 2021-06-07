@@ -1,23 +1,24 @@
 ---
 title: Sincronização de tempo para VMs Linux no Azure
 description: Sincronização de tempo para máquinas virtuais Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 399022c1ef740865e4b2f7b82e2175e748a2a925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18c8570a8066985cab5263c4779787062dc32d75
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306949"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552636"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para VMs Linux no Azure
 
@@ -114,7 +115,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 ### <a name="check-for-ptp-clock-source"></a>Verificar origem do relógio PTP
 
-Com versões mais recentes do Linux, uma fonte de relógio do Precision Time Protocol (PTP) está disponível como parte do provedor VMICTimeSync. Em versões mais antigas do Red Hat Enterprise Linux ou CentOS 7.x, o [ Linux Integration Services ](https://github.com/LIS/lis-next) pode ser baixado e usado para instalar o driver atualizado. Quando a origem do relógio do PTP estiver disponível, o dispositivo Linux será do formato/dev/PTP*x*. 
+Com versões mais recentes do Linux, uma fonte de relógio do Precision Time Protocol (PTP) está disponível como parte do provedor VMICTimeSync. Em versões mais antigas do Red Hat Enterprise Linux ou CentOS 7.x, o [ Linux Integration Services ](https://github.com/LIS/lis-next) pode ser baixado e usado para instalar o driver atualizado. Quando a origem do relógio do PTP estiver disponível, o dispositivo Linux será do formato/dev/PTP *x*. 
 
 Veja quais fontes de relógio PTP estão disponíveis.
 

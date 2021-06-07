@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 46c26b6070a874947dfe5d7acd5a615961576b49
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736677"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580310"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usar o módulo Azure PowerShell para habilitar a criptografia de ponta a ponta usando criptografia no host
 
@@ -23,9 +23,6 @@ Quando você habilita a criptografia no host, os dados armazenados no host da VM
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Regiões com suporte
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### <a name="supported-vm-sizes"></a>Tamanhos de VM com suporte
 
@@ -35,7 +32,20 @@ Você também pode encontrar os tamanhos de VM programaticamente. Para saber com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
+Você deve habilitar o recurso para sua assinatura antes de usar a propriedade EncryptionAtHost para sua VM/VMSS. Siga as etapas abaixo para habilitar o recurso para sua assinatura:
+
+1.  Execute o comando a seguir para registrar o recurso para sua assinatura
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  Verifique se o estado do registro está registrado (leva alguns minutos) usando o comando a seguir antes de experimentar o recurso.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um Azure Key Vault e DiskEncryptionSet
 

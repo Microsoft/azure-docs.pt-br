@@ -8,10 +8,10 @@ ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
 ms.openlocfilehash: 972015f0f42a8a869de0edcc8f0e921ae7278cd1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376251"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificação de expiração e atualização automática do runtime de integração auto-hospedada

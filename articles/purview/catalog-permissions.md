@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610362"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Controle de acesso baseado em função no plano de dados do Azure alcance

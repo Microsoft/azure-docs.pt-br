@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629216"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102501287"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
@@ -22,8 +22,8 @@ Quando você habilita grandes compartilhamentos de arquivos em sua conta de arma
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli).
+- Se você pretende usar o módulo Azure PowerShell, [Instale a versão mais recente](/powershell/azure/install-az-ps).
 
 ## <a name="restrictions"></a>Restrições
 
@@ -37,10 +37,10 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. No portal do Azure, clique em **Todos os serviços**. 
-1. Na lista de recursos, insira **contas de armazenamento**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **Contas de Armazenamento**.
+1. Na lista de recursos, insira **Contas de Armazenamento**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **Contas de Armazenamento**.
 1. Na janela **contas de armazenamento** que aparece, selecione **Adicionar**.
 1. Selecione a assinatura que você usará para criar a conta de armazenamento.
-1. No campo **Grupo de recursos** , selecione **Criar novo**. Insira um nome para o novo grupo de recursos.
+1. No campo **Grupo de recursos**, selecione **Criar novo**. Insira um nome para o novo grupo de recursos.
 
     ![Captura de tela mostrando como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
@@ -65,7 +65,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Primeiro, [Instale a versão mais recente do CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para que você possa habilitar grandes compartilhamentos de arquivos.
+Primeiro, [Instale a versão mais recente do CLI do Azure](/cli/azure/install-azure-cli) para que você possa habilitar grandes compartilhamentos de arquivos.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Primeiro, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) para que você possa habilitar compartilhamentos de arquivos grandes.
+Primeiro, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps) para que você possa habilitar compartilhamentos de arquivos grandes.
 
 Para criar uma conta de armazenamento com grandes compartilhamentos de arquivos habilitados, use o comando a seguir. Substitua `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` pelas suas informações.
 
@@ -132,7 +132,7 @@ Depois de habilitar grandes compartilhamentos de arquivos em sua conta de armaze
 A criação de um compartilhamento de arquivos grande é quase idêntica à criação de um compartilhamento de arquivos padrão. A principal diferença é que você pode definir uma cota de até 100 TiB.
 
 1. Em sua conta de armazenamento, selecione **compartilhamentos de arquivos**.
-1. Selecione **+ compartilhamento de arquivos**.
+1. Selecione **+Compartilhamento de arquivos**.
 1. Insira um nome para o compartilhamento de arquivos. Você também pode definir o tamanho da cota que deseja, até 100 TiB. Em seguida, selecione **Criar**. 
 
 ![A interface do usuário do portal do Azure mostrando as caixas nome e cota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428666"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628570"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Essa é uma limitação atual do componente subjacente que verifica o nome da su
 
 **Como posso dimensionar minha instância gerenciada?**
 
-Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-update) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover meu Instância Gerenciada de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, você pode. Para obter instruções, consulte [mover recursos entre regiõe
 
 **Como posso excluir meu Instância Gerenciada?**
 
-Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [CLI do Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
+Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-delete) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo leva para criar ou atualizar uma instância, ou para restaurar um banco de dados?**
 
@@ -135,7 +135,7 @@ A instância gerenciada oferece os mesmos níveis de desempenho por computação
 
 Uma opção é [exportar um banco de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o arquivo BACPAC](../database/database-import.md). Essa é a abordagem recomendada caso o banco de dados seja menor que 100 GB.
 
-A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
+A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
 
 Os backups de COPY_ONLY nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server. Para obter mais detalhes, consulte [backup somente cópia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -171,7 +171,7 @@ Consulte as [principais causas de diferenças de desempenho entre a instância g
 
 Você pode otimizar o desempenho da instância gerenciada do:
 - [Ajuste automático](../database/automatic-tuning-overview.md) que fornece desempenho de pico e cargas de trabalho estáveis por meio do ajuste de desempenho contínuo com base no ia e no aprendizado de máquina.
--   [OLTP na memória](../in-memory-oltp-overview.md) que melhora a taxa de transferência e a latência em cargas de trabalho de processamento transacionais e fornece informações de negócios mais rápidas. 
+-    [OLTP na memória](../in-memory-oltp-overview.md) que melhora a taxa de transferência e a latência em cargas de trabalho de processamento transacionais e fornece informações de negócios mais rápidas. 
 
 Para ajustar ainda mais o desempenho, considere aplicar algumas das *práticas recomendadas* para o [ajuste de aplicativos e bancos de dados](../database/performance-guidance.md#tune-your-database).
 Se sua carga de trabalho consistir em muitas transações pequenas, considere [alternar o tipo de conexão do proxy para o modo de redirecionamento](connection-types-overview.md#changing-connection-type) para latência mais baixa e taxa de transferência mais alta.
@@ -214,7 +214,7 @@ Sim, você pode comprar o armazenamento de complemento, independentemente da com
 
 **Como posso otimizar o desempenho do armazenamento na camada de serviço Uso Geral?**
 
-Para otimizar o desempenho do armazenamento, consulte [práticas recomendadas de armazenamento no uso geral](https://techcommunity.microsoft.com).
+Para otimizar o desempenho do armazenamento, consulte [práticas recomendadas de armazenamento no uso geral](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 
@@ -263,9 +263,9 @@ Sim. Depois que um Instância Gerenciada for provisionado, você poderá definir
 **Posso definir o firewall local ou NVA para filtrar o tráfego de gerenciamento de saída com base em FQDNs?**
 
 Não. Isso não é suportado por vários motivos:
--   O tráfego de roteamento que representa a resposta à solicitação de gerenciamento de entrada seria assimétrico e não pode funcionar.
--   O tráfego de roteamento que vai para o armazenamento seria afetado por restrições de taxa de transferência e latência, de modo que não será possível fornecer a qualidade de serviço esperada e a disponibilidade.
--   Com base na experiência, essas configurações são propensas a erros e não podem ser suportadas.
+-    O tráfego de roteamento que representa a resposta à solicitação de gerenciamento de entrada seria assimétrico e não pode funcionar.
+-    O tráfego de roteamento que vai para o armazenamento seria afetado por restrições de taxa de transferência e latência, de modo que não será possível fornecer a qualidade de serviço esperada e a disponibilidade.
+-    Com base na experiência, essas configurações são propensas a erros e não podem ser suportadas.
 
 **Posso definir o NVA ou o firewall para o tráfego de não gerenciamento de saída?**
 
@@ -416,9 +416,9 @@ O SQL Instância Gerenciada oferece um [modelo de compra baseado em vCore](sql-m
 **Quais benefícios de custo estão disponíveis para o SQL Instância Gerenciada?**
 
 Você pode economizar custos com os benefícios do SQL Azure das seguintes maneiras:
--   Maximize os investimentos existentes em licenças locais e economize até 55 por cento com [benefício híbrido do Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--   Confirme a uma reserva de recursos de computação e economize até 33 por cento com [benefício de instância reservada](../database/reserved-capacity-overview.md). Combine isso com o benefício híbrido do Azure para economizar até 82%. 
--   Economize até 55 por cento versus preços de lista com o benefício de preço de desenvolvimento [/teste do Azure](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para suas cargas de trabalho de desenvolvimento e teste em andamento.
+-    Maximize os investimentos existentes em licenças locais e economize até 55 por cento com [benefício híbrido do Azure](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Confirme a uma reserva de recursos de computação e economize até 33 por cento com [benefício de instância reservada](../database/reserved-capacity-overview.md). Combine isso com o benefício híbrido do Azure para economizar até 82%. 
+-    Economize até 55 por cento versus preços de lista com o benefício de preço de desenvolvimento [/teste do Azure](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para suas cargas de trabalho de desenvolvimento e teste em andamento.
 
 **Quem está qualificado para o benefício da instância reservada?**
 
@@ -483,7 +483,7 @@ Cada logon deve definir sua senha no logon e alterar sua senha depois que atingi
 | Duração máxima da senha | 42 dias |
 | Duração mínima da senha | 1 dia |
 | Comprimento mínimo da senha | 10 caracteres |
-| A senha deve atender aos requisitos de complexidade | Habilitada |
+| A senha deve atender aos requisitos de complexidade | habilitado |
 
 **É possível desabilitar a complexidade e a expiração de senha no SQL Instância Gerenciada no nível de logon?**
 

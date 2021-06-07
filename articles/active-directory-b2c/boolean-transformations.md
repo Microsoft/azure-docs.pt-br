@@ -12,10 +12,10 @@ ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85201269"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de declarações boolianas

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524661"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109005"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -52,6 +52,9 @@ A avaliação de acesso contínuo é implementada habilitando serviços, como o 
 
 Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos, email, calendário ou tarefas organizacionais do SharePoint, e equipes de Microsoft 365 aplicativos cliente dentro de minutos após um desses eventos críticos. 
 
+> [!NOTE] 
+> As equipes ainda não dão suporte a eventos de risco do usuário.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Avaliação da política de acesso condicional (versão prévia)
 
 O Exchange e o SharePoint são capazes de sincronizar as políticas de acesso condicional de chave para que possam ser avaliadas dentro do próprio serviço.
@@ -59,11 +62,11 @@ O Exchange e o SharePoint são capazes de sincronizar as políticas de acesso co
 Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos organizacionais, email, calendário ou tarefas de Microsoft 365 aplicativos cliente ou SharePoint Online imediatamente após as alterações no local de rede.
 
 > [!NOTE]
-> Nem todas as combinações de provedor de recursos e aplicativos têm suporte. Consulte a tabela abaixo. O Office se refere ao Word, Excel e PowerPoint
+> Nem todas as combinações de provedor de recursos e aplicativos têm suporte. Consulte a tabela abaixo. O Office se refere ao Word, Excel e PowerPoint.
 
 | | Outlook Web | Win32 do Outlook | IOS do Outlook | Android do Outlook | Mac do Outlook |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Com suporte | Com suporte | Sem suporte | Sem suporte | Com suporte |
+| **SharePoint Online** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 | **Exchange Online** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 
 | | Office Web Apps | Aplicativos Win32 do Office | Office para iOS | Office para Android | Office para Mac |
@@ -71,23 +74,20 @@ Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos
 | **SharePoint Online** | Sem suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 | **Exchange Online** | Sem suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 
+| | Web do OneDrive | Win32 do OneDrive | IOS do OneDrive | Android do OneDrive | Mac do OneDrive |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
+
 ### <a name="client-side-claim-challenge"></a>Desafio de declaração do lado do cliente
 
 Antes da avaliação de acesso contínuo, os clientes sempre tentarão repetir o token de acesso de seu cache, desde que ele não tenha expirado. Com o CAE, estamos introduzindo um novo caso que um provedor de recursos possa rejeitar um token, mesmo quando ele não tiver expirado. Para informar os clientes para ignorarem seu cache, mesmo que os tokens em cache não tenham expirado, apresentamos um mecanismo chamado **Challenge de declaração** para indicar que o token foi rejeitado e um novo token de acesso precisa ser emitido pelo Azure AD. O CAE requer uma atualização do cliente para entender o desafio da declaração. A versão mais recente dos seguintes aplicativos abaixo dá suporte ao desafio de declaração:
 
-- Janelas do Outlook
-- IOS do Outlook
-- Android do Outlook
-- Mac do Outlook
-- Outlook Web App
-- Teams para Windows (somente para recursos de equipes)
-- Equipes iOS (somente para recursos de equipes)
-- Equipes Android (somente para recursos de equipes)
-- Mac das equipes (somente para recursos de equipes)
-- Word/Excel/PowerPoint para Windows
-- Word/Excel/PowerPoint para iOS
-- Word/Excel/PowerPoint para Android
-- Word/Excel/PowerPoint para Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
+| **Teams** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
+| **Office** | Sem suporte | Com suporte | Com suporte | Com suporte | Com suporte |
+| **OneDrive** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 
 ### <a name="token-lifetime"></a>Tempo de vida do Token
 
@@ -165,9 +165,9 @@ Para obter uma explicação dos canais de atualização do Office, consulte [vis
 
 ### <a name="policy-change-timing"></a>Tempo de alteração de política
 
-Devido ao potencial de atraso de replicação entre o Azure AD e os provedores de recursos, as alterações de política feitas pelos administradores podem levar até duas horas para serem efetivas para o Exchange Online.
+As alterações de política feitas pelos administradores podem levar até um dia para entrar em vigor. Alguma otimização foi feita para reduzir o atraso para duas horas. No entanto, ele não abrange todos os cenários ainda. 
 
-Exemplo: o administrador adiciona uma política para impedir que um intervalo de endereços IP acesse email às 11:00 A.M., um usuário que vem desse intervalo de IPS antes de poder continuar a acessar o email até 1:00 PM.
+Se houver uma emergência e você precisar que suas políticas atualizadas sejam aplicadas a determinados usuários imediatamente, você deverá usar esse comando do [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) ou "revogar sessão" na página de perfil do usuário para revogar a sessão dos usuários, o que garantirá que as políticas atualizadas serão aplicadas imediatamente.
 
 ### <a name="coauthoring-in-office-apps"></a>Coautoria em aplicativos do Office
 

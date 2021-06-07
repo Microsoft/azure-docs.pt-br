@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 60e8b4b21a9e62279cd0eccfabbbed680183e2a9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92787016"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Usar o roteamento dependente de dados para rotear uma consulta para um banco de dados apropriado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O **roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. O roteamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dado fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta ou transação específica em um aplicativo que usa o roteamento dependente de dados é restrita a acessar um único banco de dados por solicitação. Para as ferramentas elásticas do banco de dados SQL do Azure, esse roteamento é realizado com a classe **ShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
+O **roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. O roteamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dado fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta ou transação específica em um aplicativo que usa o roteamento dependente de dados é restrita a acessar um único banco de dados por solicitação. Para as ferramentas elásticas do banco de dados SQL do Azure, esse roteamento é realizado com a classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-O aplicativo não precisa controlar a várias cadeias de caracteres de conexão ou locais de BD associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de Mapa de Fragmento](elastic-scale-shard-map-management.md) abre as conexões no banco de dados correto quando necessário, com base nos dados do mapa do fragmento e o valor da chave de fragmentação é o destino da solicitação do aplicativo. Normalmente, a chave é a *Customer_ID* , *tenant_id* , *date_key* ou algum outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
+O aplicativo não precisa controlar a várias cadeias de caracteres de conexão ou locais de BD associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de Mapa de Fragmento](elastic-scale-shard-map-management.md) abre as conexões no banco de dados correto quando necessário, com base nos dados do mapa do fragmento e o valor da chave de fragmentação é o destino da solicitação do aplicativo. Normalmente, a chave é a *Customer_ID*, *tenant_id*, *date_key* ou algum outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
 
 Para obter mais informações, confira [Scaling Out SQL Server with Data-Dependent Routing](/previous-versions/sql/sql-server-2005/administrator/cc966448(v=technet.10)) (Escalando horizontalmente o SQL Server com roteamento dependente de dados).
 
@@ -36,7 +36,7 @@ Para baixar:
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Usando um ShardMapManager em um aplicativo de roteamento dependente de dados
 
-Os aplicativos devem criar a instância do **ShardMapManager** durante a inicialização, usando a chamada do alocador **GetSQLShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). Neste exemplo, tanto um **ShardMapManager** quanto um **ShardMap** específico que ele contém são inicializados. Este exemplo mostra os métodos GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](/previous-versions/azure/dn824173(v=azure.100))).
+Os aplicativos devem criar a instância do **ShardMapManager** durante a inicialização, usando a chamada do alocador **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)). Neste exemplo, tanto um **ShardMapManager** quanto um **ShardMap** específico que ele contém são inicializados. Este exemplo mostra os métodos GetSqlShardMapManager e GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager.getrangeshardmap), [.NET](/previous-versions/azure/dn824173(v=azure.100))).
 
 ```Java
 ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -50,11 +50,11 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 
 ### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>Use as credenciais com o privilégio mais baixo possível para obter o mapa do fragmento
 
-Se o aplicativo não estiver manipulando o mapa de fragmentos por conta própria, as credenciais usadas no método de fábrica deverão ter permissões somente leitura no banco de dados **Mapa de Fragmentos Global** . Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões com o Gerenciador de mapa do fragmento. Consulte também [Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico](elastic-scale-manage-credentials.md).
+Se o aplicativo não estiver manipulando o mapa de fragmentos por conta própria, as credenciais usadas no método de fábrica deverão ter permissões somente leitura no banco de dados **Mapa de Fragmentos Global**. Essas credenciais são normalmente diferentes das credenciais usadas para abrir conexões com o Gerenciador de mapa do fragmento. Consulte também [Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico](elastic-scale-manage-credentials.md).
 
 ## <a name="call-the-openconnectionforkey-method"></a>Chame o método OpenConnectionForKey
 
-O **método ShardMap.OpenConnectionForKey** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) retorna uma conexão pronta para emitir comandos para o banco de dados apropriado com base no valor do parâmetro **key** . As informações de fragmentos são armazenadas em cache no aplicativo pelo **ShardMapManager** , portanto, essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global** .
+O **método ShardMap.OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) retorna uma conexão pronta para emitir comandos para o banco de dados apropriado com base no valor do parâmetro **key**. As informações de fragmentos são armazenadas em cache no aplicativo pelo **ShardMapManager**, portanto, essas solicitações normalmente não envolvem uma pesquisa de banco de dados no banco de dados do **Mapa de Fragmentos Global**.
 
 ```Java
 // Syntax:
@@ -67,14 +67,14 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 
 * O parâmetro **key** é usado como uma chave de pesquisa no mapa de fragmentos para determinar o banco de dados apropriado para a solicitação.
-* **connectionString** é usado para transmitir somente as credenciais do usuário para a conexão desejada. Não há nenhum nome de banco de dados ou nome do servidor incluído nesta *connectionString* pois o método determina o banco de dados e o servidor usando o **ShardMap** .
-* O **connectionOptions** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deverá ser definido como **ConnectionOptions.Validate** em um ambiente em que os mapeamentos de fragmento possam ser alterados e as linhas possam ser movidas para outros bancos de dados como resultado de operações de divisão ou mesclagem. Essa validação envolve uma breve consulta no mapa de fragmentos local no banco de dados de destino (não no mapa de fragmentos global) antes que a conexão seja entregue ao aplicativo.
+* **connectionString** é usado para transmitir somente as credenciais do usuário para a conexão desejada. Não há nenhum nome de banco de dados ou nome do servidor incluído nesta *connectionString* pois o método determina o banco de dados e o servidor usando o **ShardMap**.
+* O **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) deverá ser definido como **ConnectionOptions.Validate** em um ambiente em que os mapeamentos de fragmento possam ser alterados e as linhas possam ser movidas para outros bancos de dados como resultado de operações de divisão ou mesclagem. Essa validação envolve uma breve consulta no mapa de fragmentos local no banco de dados de destino (não no mapa de fragmentos global) antes que a conexão seja entregue ao aplicativo.
 
 Se a validação em relação ao mapa de fragmentos local falhar (indicando que o cache está incorreto), o Gerenciador de Mapa de Fragmentos consultará o mapa de fragmentos global para obter o novo valor correto para a pesquisa, atualizará o cache e obterá e retornará a conexão de banco de dados apropriada.
 
 Use **ConnectionOptions.None** somente quando as alterações de mapeamento de fragmentos não são esperadas enquanto um aplicativo estiver online. Nesse caso, os valores do cache podem ser considerados sempre corretas, e a chamada de validação extra ida e volta ao banco de dados de destino pode ser ignorada com segurança. Isso reduz o tráfego de banco de dados. **connectionOptions** também pode ser definido por meio de um valor em um arquivo de configuração para indicar se as alterações de fragmentação são ou não esperadas durante um período.  
 
-Este exemplo usa o valor de uma chave de inteiro **CustomerID** , usando um objeto **ShardMap** chamado **customerShardMap** .  
+Este exemplo usa o valor de uma chave de inteiro **CustomerID**, usando um objeto **ShardMap** chamado **customerShardMap**.  
 
 ```Java
 int customerId = 12345;
@@ -112,7 +112,7 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 O método **OpenConnectionForKey** retorna uma nova conexão já aberta para o banco de dados correto. As conexões utilizadas dessa forma ainda aproveitam ao máximo do pool de conexões.
 
-O **método OpenConnectionForKeyAsync method** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) também estará disponível se o seu aplicativo usar programação assíncrona.
+O **método OpenConnectionForKeyAsync method** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkeyasync), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync)) também estará disponível se o seu aplicativo usar programação assíncrona.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integrando a manipulação de falhas transitórias
 

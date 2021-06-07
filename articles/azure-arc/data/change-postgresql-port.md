@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 11/02/2020
 ms.topic: how-to
 ms.openlocfilehash: 45424408c790e4921be48464818c55fe74313fd3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93328674"
 ---
 # <a name="change-the-port-on-which-the-server-group-is-listening"></a>Alterar a porta na qual o grupo de servidores está ouvindo 

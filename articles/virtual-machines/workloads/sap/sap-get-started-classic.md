@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 keywords: ''
 ms.assetid: f9cd93dc-71ad-48a4-8778-4e48aec484a6
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: cc7cf98a6dc8d872664229fbca05b48b918b4f6d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.openlocfilehash: bf0ae8bdd800f5fa43df73eca312504f56fc009a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950387"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101675389"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Usando o SAP em máquinas virtuais do Linux no Azure
 Computação em Nuvem é um termo amplamente usado que está adquirindo cada vez mais importância no setor de TI, de pequenas empresas até multinacionais e grandes corporações. O Microsoft Azure é a Plataforma de Serviços de Nuvem da Microsoft que oferece um amplo espectro de novas possibilidades. Agora, os clientes podem provisionar e desprovisionar com rapidez os aplicativos como Serviços de Nuvem, para que não sejam limitados por restrições técnicas ou orçamentárias. Em vez de investir tempo e dinheiro na infraestrutura de hardware, as empresas podem se concentrar no aplicativo, nos processos de negócios e em seus benefícios para clientes e usuários.

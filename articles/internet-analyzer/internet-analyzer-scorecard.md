@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91330206"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretar seu scorecard

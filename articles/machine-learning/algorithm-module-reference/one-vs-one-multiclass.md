@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592899"
 ---
 # <a name="one-vs-one-multiclass"></a>Multiclasse um-vs-um
@@ -42,7 +42,7 @@ Você conecta o modelo binário ao módulo de multiclasse One-vs-One. Em seguida
 
 Quando você combina os modelos, a multiclasse um-vs-um cria vários modelos de classificação binária, otimiza o algoritmo para cada classe e, em seguida, mescla os modelos. O módulo executa essas tarefas, embora o conjunto de módulos de treinamento possa ter vários valores de classe.
 
-1. Adicione o módulo de multiclasse One-vs-One ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize** , na categoria **classificação** .
+1. Adicione o módulo de multiclasse One-vs-One ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize**, na categoria **classificação** .
 
    O classificador multiclasse One-vs-One não tem nenhum parâmetro configurável. Todas as personalizações devem ser feitas no modelo de classificação binária que é fornecido como entrada.
 

@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/21/2021
-ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681087"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101095188"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicionar colaboradores ao seu aplicativo
 
@@ -37,7 +37,7 @@ Você migrou se sua experiência de criação do LUIS está vinculada a um recur
 
     Quando o email do usuário for encontrado, selecione a conta e selecione **salvar**.
 
-    Se você tiver problemas com essa atribuição de função, examine as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas do controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+    Se você tiver problemas com essa atribuição de função, examine [atribuir funções do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas de controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
 ## <a name="view-the-app-as-a-contributor"></a>Exibir o aplicativo como um colaborador
 

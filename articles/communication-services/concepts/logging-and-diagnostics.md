@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0bf7213e5cfdc57194482c6914d4e25b9336832e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033112"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935867"
 ---
 # <a name="communication-services-logs"></a>Logs dos Serviços de Comunicação
 
@@ -30,7 +30,7 @@ As novas configurações terão efeito em aproximadamente dez minutos. Os logs c
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opções de configurações de diagnóstico do ACS.":::
 
-Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre como configurar um diagnóstico, confira a visão geral dos [logs de recursos do Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorias de log de recursos
 
@@ -97,7 +97,7 @@ Os Serviços de Comunicação oferecem três tipos de logs que você pode habili
 | OutgoingMessageLength | O número de caracteres na mensagem de saída. |
 | IncomingMessageLength | O número de caracteres na mensagem de entrada. |
 | DeliveryAttempts | O número de tentativas feitas para entregar esta mensagem. |
-| PhoneNumber | O número de telefone para o qual a mensagem SMS está sendo enviada. |
+| PhoneNumber | O número de telefone do qual a mensagem SMS está sendo enviada. |
 | SdkType | O tipo de SDK usado na solicitação. |
 | PlatformType | O tipo de plataforma usado na solicitação. |
 | Método | O método usado na solicitação. |

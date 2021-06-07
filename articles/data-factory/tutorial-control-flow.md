@@ -1,22 +1,19 @@
 ---
 title: Ramificação no pipeline do Azure Data Factory
 description: Aprenda a controlar o fluxo de dados no Azure Data Factory por ramificação e encadeamento de atividades.
-services: data-factory
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 83bc90ca251fddd498dd365f1a4b00689a471475
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496935"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104785658"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -610,7 +607,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +750,7 @@ Press any key to exit...
 Neste tutorial, você executou as seguintes tarefas:
 
 > [!div class="checklist"]
-> _ Criar um data factory
+> * Criar uma data factory
 > * Criar um serviço vinculado do Armazenamento do Azure
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web

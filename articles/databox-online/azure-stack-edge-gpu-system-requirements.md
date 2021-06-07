@@ -6,18 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 67de5cce3bd5a4ca2b383e2809eb237a6e753bf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832446"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577080"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para o Azure Stack Edge pro com GPU 
 
-Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Stack Edge pro e para os clientes que se conectam ao Azure Stack Edge pro. Recomendamos que você revise as informações cuidadosamente antes de implantar o Azure Stack Edge pro. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
+Este artigo descreve os requisitos de sistema importantes para sua solução Microsoft Azure Stack Edge pro GPU e para os clientes que se conectam ao Azure Stack Edge pro. Recomendamos que você revise as informações cuidadosamente antes de implantar o Azure Stack Edge pro. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
 
 Os requisitos de sistema para o Azure Stack Edge pro incluem:
 
@@ -38,7 +39,7 @@ Os requisitos de sistema para o Azure Stack Edge pro incluem:
 
 ## <a name="supported-edge-storage-accounts"></a>Contas de armazenamento de borda com suporte
 
-As contas de armazenamento de borda a seguir têm suporte com a interface REST do dispositivo. As contas de armazenamento de borda são criadas no dispositivo. Para obter mais informações, consulte [Edge Storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+As contas de armazenamento de borda a seguir têm suporte com a interface REST do dispositivo. As contas de armazenamento de borda são criadas no dispositivo. Para obter mais informações, consulte [Edge Storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Tipo  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|

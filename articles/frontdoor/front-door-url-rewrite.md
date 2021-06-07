@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445479"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Regeneração de URL (caminho personalizado de encaminhamento)
@@ -36,7 +36,7 @@ Considere uma regra de roteamento com a seguinte combinação de hosts front-end
 |            | /foo/\*     |
 |            | /foo/bar/\* |
 
-A primeira coluna da tabela abaixo mostra exemplos de solicitações de entrada, e a segunda coluna mostra qual seria a rota "mais específica" correspondente com 'Path'.  As colunas terceira e incorreta da tabela são exemplos de caminhos de **encaminhamento personalizados**configurados.
+A primeira coluna da tabela abaixo mostra exemplos de solicitações de entrada, e a segunda coluna mostra qual seria a rota "mais específica" correspondente com 'Path'.  As colunas terceira e incorreta da tabela são exemplos de caminhos de **encaminhamento personalizados** configurados.
 
 Por exemplo, se lermos na segunda linha, veremos que para a solicitação de entrada `www.contoso.com/sub`, se o caminho de encaminhamento personalizado fosse `/`, o caminho encaminhado seria `/sub`. Se o caminho de encaminhamento personalizado fosse `/fwd/`, o caminho encaminhado seria `/fwd/sub`. E assim por diante nas colunas restantes. As partes **enfatizadas** dos caminhos abaixo representam as que fazem parte da correspondência curinga.
 

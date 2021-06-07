@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e6bec71c44d7fbcf2841e087af9887d99c94e6f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945341"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867569"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorar o desempenho do cluster no Azure HDInsight
 
@@ -33,11 +33,11 @@ Para obter uma visão de alto nível dos nós do cluster e do seu carregamento, 
 
 Você também verá colunas mostrando o número de núcleos e a quantidade de RAM para cada host, bem como o uso do disco e a carga média.
 
-![Visão geral da guia hosts Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png" alt-text="Visão geral da guia hosts Apache Ambari":::
 
 Selecione qualquer um dos nomes de host para ter uma visão detalhada dos componentes em execução nesse host, bem como suas métricas. As métricas são mostradas como uma linha do tempo selecionável de uso de CPU, carga, uso do disco, uso de memória, uso de rede e números de processos.
 
-![Visão geral dos detalhes do host Apache Ambari](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png" alt-text="Visão geral dos detalhes do host Apache Ambari":::
 
 Consulte [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) para obter detalhes sobre a configuração de alertas e exibição de métricas.
 
@@ -53,19 +53,19 @@ Quando vários locatários compartilham um cluster grande, há a competição pe
 
 O YARN nos permite alocar recursos para essas filas e mostra se todos os recursos disponíveis estão atribuídos. Para visualizar informações sobre suas filas, entre na interface do usuário do Ambari Web e selecione **YARN Queue Manager** no menu superior.
 
-![Gerenciador de filas do Apache Ambari YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png" alt-text="Gerenciador de filas do Apache Ambari YARN":::
 
 A página do Gerenciador de Filas do YARN mostra uma lista de suas filas à esquerda, junto com o percentual da capacidade atribuída a cada uma.
 
-![Página de detalhes do Gerenciador de Filas do YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png" alt-text="Página de detalhes do Gerenciador de Filas do YARN":::
 
 Para obter informações mais detalhada sobre seu filas, no painel do Ambari, selecione o serviço **YARN** na lista à esquerda. Em seguida, no menu suspenso **Links rápidos**, selecione **Interface do usuário do Gerenciador de Recursos** abaixo do nó ativo.
 
-![Links de menu da interface do usuário do Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png" alt-text="Links de menu da interface do usuário do Resource Manager":::
 
 Na interface do usuário do Gerenciador de Recursos, selecione **Agendador** no menu à esquerda. Você vê uma lista com as suas filas em *Filas de Aplicativo*. Aqui você pode ver a capacidade usada para cada uma das suas filas, como os trabalhos estão distribuídos entre elas e se algum trabalho está com limitação de recursos.
 
-![Menu da IU do Gerenciador de recursos do Apache HAdoop](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Menu da IU do Gerenciador de recursos do Apache HAdoop":::
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 

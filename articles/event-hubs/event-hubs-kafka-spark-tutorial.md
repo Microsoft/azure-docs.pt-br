@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Apache Spark co
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913731"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Conectar seu aplicativo Apache Spark com os hubs de eventos do Azure
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá como:
 > * Ler dos Hubs de Eventos para Kafka
 > * Gravar nos Hubs de Eventos para o Kafka
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, verifique se você possui:
 -   Assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/).
@@ -36,7 +36,7 @@ Antes de começar este tutorial, verifique se você possui:
 > O adaptador Spark-Kafka foi atualizado para dar suporte ao Kafka v2.0 a partir do Spark v2.4. Em versões anteriores do Spark, o adaptador dava suporte ao Kafka v0.10 e versões posteriores, mas dependia especificamente das APIs do Kafka v0.10. Como os Hubs de Eventos para Kafka não dão suporte ao Kafka v0.10, os adaptadores Spark-Kafka de versões do Spark anteriores à v2.4 não têm suporte pelos Hubs de Eventos para ecossistemas do Kafka.
 
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo

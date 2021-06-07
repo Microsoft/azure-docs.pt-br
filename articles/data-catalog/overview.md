@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e128e9f7515e572fc0be4b92ef03d8d98529ac66
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68736987"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104674896"
 ---
 # <a name="what-is-azure-data-catalog"></a>O que é o Catálogo de Dados do Azure?
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado. Ele permite que os usuários descubram os dados de origens de que precisam e entendam as fontes de dados que ele encontra. Ao mesmo tempo, o Catálogo de Dados ajuda as organizações a obter mais valor sobre os investimentos existentes.
 

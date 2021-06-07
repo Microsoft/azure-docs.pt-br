@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
 ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99500403"
 ---
 O recurso NER para Análise de Texto retorna as seguintes categorias de entidade geral (sem identificação). por exemplo, ao enviar solicitações para o `/entities/recognition/general` ponto de extremidade.
@@ -29,7 +29,7 @@ O recurso NER para Análise de Texto retorna as seguintes categorias de entidade
 | [Product](#category-product) | Objetos físicos de várias categorias. |
 | [Habilidade](#category-skill) | Capacidade, habilidade ou experiência.  |
 | [Endereço](#category-address) | Endereços de endereçamento completos.  |
-| [Número de telefone](#category-phonenumber) | Números de telefone. |
+| [Número do telefone](#category-phonenumber) | Números de telefone. |
 | [Email](#category-email) | Endereços de email. |
 | [URL](#category-url) | URLs para sites. |
 | [IP](#category-ip) | Endereços IP de rede. |
@@ -45,7 +45,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="":::
         **Entidade**
 
-        Person
+        Pessoa
 
     :::column-end:::
     :::column span="2":::
@@ -96,7 +96,7 @@ Esta categoria contém a seguinte entidade:
     :::column span="":::
         **Entidade**
 
-        Localização
+        Location
 
     :::column-end:::
     :::column span="2":::
@@ -728,7 +728,7 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
 :::row-end:::
 :::row:::
     :::column span="":::
-        Porcentagem
+        Percentual
 
     :::column-end:::
     :::column span="2":::

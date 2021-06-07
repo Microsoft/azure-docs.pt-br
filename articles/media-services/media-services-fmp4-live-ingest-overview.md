@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019504"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure 
@@ -174,7 +174,7 @@ As etapas a seguir são uma implementação recomendada para ingestão de faixa 
 
     f. O fragmento de faixa esparso é disponibilizado para o cliente quando o fragmento da faixa pai correspondente que tiver um valor de carimbo de data/hora igual ou maior for disponibilizado para o cliente. Por exemplo, se o fragmento esparso tiver um carimbo de data/hora de t=1000, espera-se que depois que o cliente veja o carimbo de data/hora do fragmento de vídeo (supondo que o nome da faixa pai seja “vídeo”) de 1000 ou superior, ele possa baixar o fragmento esparso t-1000. Observe que o sinal real pode ser usado para uma posição diferente na linha do tempo da apresentação para os fins pretendidos. No exemplo acima, é possível que o fragmento esparso de t=1000 tenha uma carga XML que seja para inserção de um anúncio em uma posição que esteja alguns segundos depois.
 
-    g. A carga de fragmentos de faixa esparsa pode ser em formatos diferentes (como XML, texto ou binário), dependendo do cenário.
+    (por exemplo, A carga de fragmentos de faixa esparsa pode ser em formatos diferentes (como XML, texto ou binário), dependendo do cenário.
 
 ### <a name="redundant-audio-track"></a>Faixa de áudio redundante
 Em um cenário normal de HTTP de streaming adaptável (por exemplo, Streaming Suave ou DASH), muitas vezes, há apenas uma faixa de áudio em toda a apresentação. Diferentemente das faixas de vídeo que têm vários níveis de qualidade para o cliente escolher em condições de erro, a faixa de áudio poderá ser um ponto único de falha se a ingestão do fluxo que contém a faixa de áudio for quebrada. 

@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442388"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conectar um aplicativo Mongoose do Node.js ao Azure Cosmos DB
@@ -39,11 +39,11 @@ Vamos criar uma conta do Cosmos. Caso já tenha uma conta que queira usar, você
 
 ### <a name="create-a-database"></a>Criar um banco de dados 
 Neste aplicativo, abordaremos duas maneiras de criar coleções no Azure Cosmos DB: 
-- **Armazenando cada modelo de objeto em uma coleção separada** : é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
+- **Armazenando cada modelo de objeto em uma coleção separada**: é recomendável [criar um banco de dados com taxa de transferência dedicada](set-throughput.md#set-throughput-on-a-database). Usar esse modelo de capacidade proporcionará uma melhor eficiência aos custos.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text=" Tutorial deNode.js-captura de tela do portal do Azure, mostrando como criar um banco de dados no Data Explorer para uma conta de Azure Cosmos DB, para uso com o módulo de nó Mongoose":::
 
-- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB** : se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
+- **Armazenando todos os modelos de objeto em uma única coleção de Cosmos DB**: se você preferir armazenar todos os modelos em uma única coleção, basta criar um novo banco de dados sem selecionar a opção provisionar taxa de transferência. Usar esse modelo de capacidade criará cada coleção com sua própria capacidade de taxa de transferência para cada modelo de objeto.
 
 Depois de criar o banco de dados, você usará o nome na `COSMOSDB_DBNAME` variável de ambiente abaixo.
 

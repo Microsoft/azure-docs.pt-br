@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 5e01ffd8e17fda9113c7ec0fdb2c7f436b39c810
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936899"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gerenciando ambientes híbridos com o PowerShell no Azure Functions e no serviço de aplicativo Conexões Híbridas
@@ -117,7 +117,7 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
     | **Host de ponto de extremidade** | finance1 |
     | **Porta do ponto de extremidade** | 5986 |
     | **Namespace do ServiceBus** | Criar Novo |
-    | **Localização** | Escolha um local disponível |
+    | **Localidade** | Escolha um local disponível |
     | **Nome** | contosopowershellhybrid | 
 
 1. Selecione **OK** para criar a conexão híbrida.
@@ -213,7 +213,7 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Altere o código do PowerShell e salve a função de gatilho HTTP." border="true":::
 

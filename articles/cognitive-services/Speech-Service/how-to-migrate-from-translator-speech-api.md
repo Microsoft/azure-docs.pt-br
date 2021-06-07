@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95013639"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar do API de Tradução de Fala para o serviço de fala
@@ -64,7 +64,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou produção
 * [Experimente gratuitamente o serviço de fala](overview.md#try-the-speech-service-for-free)
 * [Início rápido: Reconhecer fala em um aplicativo UWP usando SDK de Fala](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [O que é o serviço de fala](overview.md)
 * [Documentação do Speech Service e do Speech SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android)

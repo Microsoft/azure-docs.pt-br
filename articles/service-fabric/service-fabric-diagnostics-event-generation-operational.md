@@ -1,16 +1,14 @@
 ---
 title: Lista de eventos do Azure Service Fabric
 description: Lista abrangente dos eventos fornecida pelo Azure Service Fabric para ajudar a monitorar os clusters.
-author: srrengar
 ms.topic: reference
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85846649"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628876"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
@@ -47,14 +45,21 @@ Mais detalhes sobre atualizações de cluster podem ser encontrados [aqui](servi
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | A desativação de um nó foi concluída | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | O cluster detectou que um nó foi iniciado | FM | Informativo | 
-| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Erro do | 
+| 18604 | NodeDown | StateTransition | O cluster detectou que um nó foi encerrado. Durante uma reinicialização do nó, você verá um evento NodeDown seguido por um evento NodeUp |  FM | Erro | 
 | 18605 | NodeAddedToCluster | StateTransition |  Um novo nó foi adicionado ao cluster e o Service Fabric pode implantar aplicativos para este nó | FM | Informativo | 
 | 18606 | NodeRemovedFromCluster | StateTransition |  Um nó foi removido do cluster. O Service Fabric não implantará aplicativos para este nó | FM | Informativo | 
 | 18607 | NodeDeactivateStarted | StateTransition |  A desativação de um nó foi iniciada | FM | Informativo | 
 | 25621 | NodeOpenSucceeded | StateTransition |  O nó foi iniciado com êxito | FabricNode | Informativo | 
-| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Erro do | 
+| 25622 | NodeOpenFailed | StateTransition |  Um nó falha ao iniciar e unir o anel | FabricNode | Erro | 
 | 25624 | NodeClosed | StateTransition |  Um nó foi desligado com êxito | FabricNode | Informativo | 
-| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Erro do | 
+| 25626 | NodeAborted | StateTransition |  Um nó foi desligado de maneira brusca | FabricNode | Erro | 
+
+**Eventos de nó do KTL logger** 
+
+| EventId | Nome | Categoria | Descrição |Origem (Tarefa) | Nível |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Saúde | As gravações no log compartilhado estão sendo limitadas | KtlLoggerNode | Informativo | 
+| 50188 | SharedLogWriteUnthrottled | Saúde | As gravações no log compartilhado não foram limitadas | KtlLoggerNode | Informativo | 
 
 ## <a name="application-events"></a>Eventos de aplicativo
 
@@ -114,7 +119,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 | 63648 | ReliableConcurrentQueueOpened | Ciclo de vida | A fila simultânea confiável foi aberta | ReliableConcurrentQueue | Informativo |
 | 63649 | ReliableConcurrentQueueClosed | Ciclo de vida | A fila simultânea confiável foi fechada | ReliableConcurrentQueue | Informativo |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | Ciclo de vida | A fila simultânea confiável recuperou seu ponto de verificação | ReliableConcurrentQueue | Informativo |
-| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Erro do |
+| 61687 | TStoreError | Falha | A coleta confiável recebeu um erro inesperado | TStore | Erro |
 | 63831 | PrimaryFullCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia completa | TReplicator | Informativo |
 | 63832 | PrimaryPartialCopyInitiated | Ciclo de vida | A réplica primária iniciou uma cópia parcial | TReplicator | Informativo |
 | 16831 | BuildIdleReplicaStarted | Ciclo de vida | A réplica primária começou a compilar a réplica ociosa | Replicação | Informativo |

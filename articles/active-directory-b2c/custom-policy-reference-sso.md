@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508043"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102095758"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
@@ -135,7 +135,7 @@ Esse provedor é usado para gerenciar as sessões de Azure AD B2C entre uma terc
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre um aplicativo de terceira parte confiável ou um provedor de identidade federada SAML. Ao usar o provedor SSO para armazenar uma sessão de provedor de identidade SAML, o `RegisterServiceProviders` precisa ser definido como `false`. O perfil técnico `SM-Saml-idp` a seguir é usado pelo [perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
+Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre um aplicativo de terceira parte confiável ou um provedor de identidade federada SAML. Ao usar o provedor SSO para armazenar uma sessão de provedor de identidade SAML, o `RegisterServiceProviders` precisa ser definido como `false`. O seguinte `SM-Saml-idp` perfil técnico é usado pelo [provedor de identidade SAML](identity-provider-generic-saml.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -149,7 +149,7 @@ Esse provedor é usado para gerenciar as sessões de SAML do Azure AD B2C entre 
 
 Ao usar o provedor para armazenar a sessão de SAML do B2C, o `RegisterServiceProviders` precisa ser definido como `true`. O logoff da sessão de SAML requer que `SessionIndex` e `NameID` sejam concluídos.
 
-O perfil técnico `SM-Saml-issuer` a seguir é usado pelo [perfil técnico do emissor de SAML](saml-issuer-technical-profile.md)
+O perfil técnico `SM-Saml-issuer` a seguir é usado pelo [perfil técnico do emissor de SAML](saml-service-provider.md)
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031021"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103149351"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar destinos de computação para treinamento e implantação de modelo no Azure Machine Learning Studio
 
@@ -147,7 +147,7 @@ Use as [etapas acima](#portal-create) para anexar uma computação.  Em seguida,
 
 1. Insira um nome para o destino de computação. 
 1. Selecione o tipo de computação a ser anexado. Nem todos os tipos de computação podem ser anexados no estúdio do Azure Machine Learning. Os tipos de computação que podem ser anexados para treinamento são:
-    * VM remota
+    * Uma máquina virtual do Azure (para anexar um Máquina Virtual de Ciência de Dados)
     * Azure Databricks (para uso em pipelines de aprendizado de máquina)
     * Azure Data Lake Analytics (para uso em pipelines de aprendizado de máquina)
     * Azure HDInsight

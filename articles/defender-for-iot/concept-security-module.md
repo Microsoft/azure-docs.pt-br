@@ -1,26 +1,16 @@
 ---
-title: Módulo de segurança e dispositivo gêmeos
-description: Saiba mais sobre o conceito de gêmeos do módulo de segurança e como eles são usados no defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Defender-IoT-micro-Agent e dispositivo gêmeos
+description: Saiba mais sobre o conceito de defender-IoT-micro-Agent gêmeos e como eles são usados no defender para IoT.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/24/2019
-ms.author: mlottner
-ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 1ed6faf03d168ed7a2a2f07733cb7e238d234915
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522913"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779164"
 ---
-# <a name="security-module"></a>Módulo de segurança
+# <a name="defender-iot-micro-agent"></a>Defender-IoT-micro-Agent
 
 Este artigo explica como o defender para IoT usa dispositivos gêmeos e módulos.
 
@@ -28,19 +18,19 @@ Este artigo explica como o defender para IoT usa dispositivos gêmeos e módulos
 
 Para soluções de IoT criadas no Azure, dispositivos gêmeos desempenham um papel fundamental tanto no gerenciamento do dispositivo quanto na automação do processo.
 
-O Defender para IoT oferece integração completa à plataforma de gerenciamento de dispositivos IoT que você já tem, permitindo gerenciar seu status de segurança de dispositivo e fazer uso das funcionalidades existentes de controle de dispositivo. A integração é obtida por meio do uso do mecanismo de entrelaçamento do Hub IoT.
+O Defender para IoT oferece integração completa à plataforma de gerenciamento de dispositivos IoT que você já tem, permitindo gerenciar seu status de segurança de dispositivo e fazer uso das funcionalidades existentes de controle de dispositivo. A integração é obtida usando o mecanismo de gêmeo do Hub IoT.
 
 Saiba mais sobre o conceito de [dispositivo gêmeos](../iot-hub/iot-hub-devguide-device-twins.md) no Hub IOT do Azure.
 
-## <a name="security-module-twins"></a>Gêmeos do módulo de segurança
+## <a name="defender-iot-micro-agent-twins"></a>Defender-IoT-micro-Agent gêmeos
 
-O defender para IoT mantém um módulo de segurança para cada dispositivo no serviço.
-O módulo de segurança de tudo contém todas as informações relevantes à segurança do dispositivo para cada dispositivo específico em sua solução.
-As propriedades de segurança do dispositivo são mantidas em um módulo de segurança dedicado para comunicação mais segura e para habilitar atualizações e manutenção que exigem menos recursos.
+O defender para IoT mantém um defender-IoT-micro-Agent para cada dispositivo no serviço.
+O defender-IoT-micro-Agent "/" e retém todas as informações relevantes à segurança do dispositivo para cada dispositivo específico em sua solução.
+As propriedades de segurança do dispositivo são mantidas em um defender-IoT-micro-Agent para comunicação mais segura e para habilitar atualizações e manutenção que exigem menos recursos.
 
-Confira [Criar módulo de segurança](quickstart-create-security-twin.md) e [Configurar agentes de segurança](how-to-agent-configuration.md) para saber como criar, personalizar e configurar o entrelaçamento. Consulte [entendendo o módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) para saber mais sobre o conceito de módulo gêmeos no Hub IOT.
+Confira [criar defender-IOT-micro-Agent](quickstart-create-security-twin.md) e [configurar os agentes de segurança](how-to-agent-configuration.md) para saber como criar, personalizar e configurar o entrelaçamento. Consulte [entendendo o módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) para saber mais sobre o conceito de módulo gêmeos no Hub IOT.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 - [Visão geral do defender for IoT](overview.md)
 - [Implantar agentes de segurança](how-to-deploy-agent.md)

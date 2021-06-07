@@ -1,19 +1,19 @@
 ---
-title: 'Início Rápido: Consulta Apache HBase no Azure HDInsight – Shell do HBase'
+title: 'Guia de início rápido: consultar o Apache HBase no Azure HDInsight – Shell do HBase'
 description: Neste início rápido, você aprende como usar o Shell do Apache HBase para executar as consultas do Apache HBase.
 keywords: hdinsight,hadoop,HBase
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98844a7dab673fb98dcdb639fbc48c0f6035fbba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942934"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104865104"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Início Rápido: Consulta Apache HBase no Azure HDInsight com o Shell do HBase
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Guia de início rápido: consultar o Apache HBase no Azure HDInsight usando o Shell do HBase
 
 Neste início rápido, você aprenderá a usar o Shell do Apache HBase para criar uma tabela do HBase, inserir dados e, em seguida, consultar a tabela.
 
@@ -29,11 +29,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
 
-![Dados de tabela do HBase do HDInsight Apache](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png" alt-text="Dados de tabela do HBase do HDInsight Apache" border="true":::
 
 No HBase (uma implementação do [Cloud BigTable](https://cloud.google.com/bigtable/)), os mesmos dados se parecem com:
 
-![Dados de BigTable do HBase do HDInsight Apache](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png" alt-text="Dados de BigTable do HBase do HDInsight Apache" border="true":::
 
 Você pode usar o SSH para se conectar aos clusters do HBase e, em seguida, usar o Shell do Apache HBase para criar tabelas do HBase, inserir dados e consultar dados.
 
@@ -61,7 +61,7 @@ Você pode usar o SSH para se conectar aos clusters do HBase e, em seguida, usar
     list
     ```
 
-5. Use o comando `put` para inserir valores em uma coluna e linha especificadas em uma determinada tabela. Insira o seguinte comando:
+5. Use o comando `put` para inserir valores em uma coluna e linha especificadas em uma determinada tabela. Digite o seguinte comando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -84,19 +84,19 @@ Você pode usar o SSH para se conectar aos clusters do HBase e, em seguida, usar
 
     Você vê resultados semelhantes usando o comando `scan` porque há apenas uma linha de comando.
 
-8. Use o comando `delete` para excluir um valor de célula na tabela. Insira o seguinte comando:
+8. Use o comando `delete` para excluir um valor de célula na tabela. Digite o seguinte comando:
 
     ```hbase
     delete 'Contacts', '1000', 'Office:Address'
     ```
 
-9. Use o comando `disable` para desabilitar a tabela. Insira o seguinte comando:
+9. Use o comando `disable` para desabilitar a tabela. Digite o seguinte comando:
 
     ```hbase
     disable 'Contacts'
     ```
 
-10. Use o comando `drop` para remover uma tabela do HBase. Insira o seguinte comando:
+10. Use o comando `drop` para remover uma tabela do HBase. Digite o seguinte comando:
 
     ```hbase
     drop 'Contacts'

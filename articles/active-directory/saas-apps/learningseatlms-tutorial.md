@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: edf9df1777c4ab1d204cfc8058ec22c2d4e3f663
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97631662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Azure Active Directory com o Learning Seat LMS
@@ -199,4 +199,4 @@ Ao clicar no bloco do Learning Seat LMS no Painel de Acesso, você deverá entra
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: add0d392f39ab476c6d75f704d5b2e2e0faaa77c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93bfb515c46413400ecd47105de378c7b677cecd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004325"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102564944"
 ---
 ## <a name="prepare-your-repository"></a>Preparar o repositório
 
-Para obter builds automáticos do servidor de build Kudu do Serviço de Aplicativo do Azure, verifique se a raiz do repositório tem os arquivos corretos no projeto.
+Para obter builds automáticos do servidor de build do Serviço de Aplicativo do Azure, verifique se a raiz do repositório tem os arquivos adequados no projeto.
 
 | Runtime | Arquivos do diretório raiz |
 |-|-|
@@ -34,6 +34,6 @@ Para obter builds automáticos do servidor de build Kudu do Serviço de Aplicati
 Para personalizar a implantação, você pode incluir um arquivo *.deployment* na raiz do repositório. Para mais informações, confira [Personalizar implantações](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) e [Script de implantação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Se você desenvolver no Visual Studio, permita que o [Visual Studio cria um repositório para você](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). O projeto estará imediatamente pronto para ser implantado usando o Git.
+> Se você desenvolver no Visual Studio, permita que o [Visual Studio cria um repositório para você](/azure/devops/repos/git/creatingrepo?tabs=visual-studio). O projeto estará imediatamente pronto para ser implantado usando o Git.
 >
 

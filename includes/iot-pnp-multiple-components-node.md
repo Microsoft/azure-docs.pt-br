@@ -4,14 +4,21 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: d803796792a3933cdf915214f15c56d146ecb49d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 1d54429d901ca6caeadabfa7580e7270ceabcf45
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511231"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612270"
 ---
 Este tutorial mostra como criar um aplicativo de exemplo de dispositivo do IoT Plug and Play com componentes, como conectá-lo ao hub IoT e como usar a ferramenta Azure IoT Explorer para ver as informações que ele envia ao hub. O aplicativo de exemplo é escrito para Node.js e é incluído no SDK do Dispositivo do Hub IoT do Azure para Node.js. Um construtor de soluções pode usar a ferramenta Azure IoT Explorer para compreender as funcionalidades de um dispositivo IoT Plug and Play sem a necessidade de ver nenhum código de dispositivo.
+
+Neste tutorial, você:
+
+> [!div class="checklist"]
+> * Baixe o código de exemplo.
+> * Executará o aplicativo de dispositivo de exemplo e validará se ele se conecta ao seu hub IoT.
+> * Examinará o código-fonte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +60,7 @@ Navegue até a pasta *azure-iot-sdk-node\device\samples\pnp*.
 
 A pasta *azure-iot-sdk-node\device\samples\pnp* contém o código de exemplo do dispositivo controlador de temperatura do IoT Plug and Play.
 
-O código no arquivo *pnpTemperatureController.js* implementa um dispositivo controlador de temperatura do IoT Plug and Play. O modelo que este exemplo implementa usa [vários componentes](../articles/iot-pnp/concepts-components.md). O [arquivo de modelo de DTDL (linguagem de definição de Gêmeos Digitais) do dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define a telemetria, as propriedades e os comandos que o dispositivo implementa.
+O código no arquivo *pnpTemperatureController.js* implementa um dispositivo controlador de temperatura do IoT Plug and Play. O modelo que este exemplo implementa usa [vários componentes](../articles/iot-pnp/concepts-modeling-guide.md). O [arquivo de modelo de DTDL (linguagem de definição de Gêmeos Digitais) do dispositivo de temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) define a telemetria, as propriedades e os comandos que o dispositivo implementa.
 
 Abra o arquivo *pnpTemperatureController.js* em um editor de código de sua escolha. O código de exemplo mostra como:
 
@@ -120,5 +127,3 @@ Mantenha o exemplo em execução enquanto você conclui as próximas etapas.
 Após iniciar o exemplo de cliente do dispositivo, use a ferramenta Azure IoT Explorer para verificar se ele está funcionando.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

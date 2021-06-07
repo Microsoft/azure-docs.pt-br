@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2fdebffbf9643febc08cba997b3a5a5fc4bb5998
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652306"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102547825"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de Extração de Frases-Chave
 
@@ -41,6 +41,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 |---------------------|-------------|
 | `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (opcional) O número máximo de frases-chave para produzir. |
+| `modelVersion`   | Adicional A versão do modelo a ser usada ao chamar o serviço de Análise de Texto. O padrão será o mais recente disponível quando não for especificado. Recomendamos que você não especifique esse valor, a menos que seja absolutamente necessário. Consulte [controle de versão de modelo no API de análise de texto](../cognitive-services/text-analytics/concepts/model-versioning.md) para obter mais detalhes. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -109,8 +110,8 @@ Para o exemplo acima, a saída de suas habilidades será gravada em um novo nó 
 
 Você pode usar "Document/myKeyPhrases" como entrada em outras habilidades ou como uma fonte de um [mapeamento de campo de saída](cognitive-search-output-field-mapping.md).
 
-## <a name="errors-and-warnings"></a>Erros e avisos
-Se você fornecer um código de idioma sem suporte, será gerado um erro e frases-chave não são extraídos.
+## <a name="warnings"></a>Warnings
+Se você fornecer um código de idioma sem suporte, um aviso será gerado e as frases-chave não serão extraídas.
 Se o texto estiver vazio, um aviso será gerado.
 Se o texto for maior que 50.000 caracteres, somente os primeiros 50.000 caracteres serão analisados e um aviso será emitido.
 

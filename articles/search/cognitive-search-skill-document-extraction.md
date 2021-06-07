@@ -1,5 +1,5 @@
 ---
-title: Habilidade cognitiva de extração de documentos (visualização)
+title: Habilidade cognitiva de extração de documentos
 titleSuffix: Azure Cognitive Search
 description: Extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Essa habilidade está atualmente em versão prévia pública.
 manager: nitinme
@@ -8,17 +8,14 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474839"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102547859"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
-
-> [!IMPORTANT] 
-> Essa habilidade está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). No momento, não há suporte para Portal ou SDK do .NET.
 
 A habilidade de **extração de documentos** extrai o conteúdo de um arquivo dentro do pipeline de enriquecimento. Isso permite que você aproveite a etapa de extração de documentos que normalmente ocorre antes da execução do Configurador de habilidades com arquivos que podem ser gerados por outras habilidades.
 
@@ -42,7 +39,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Parâmetro de configuração   | Valores Permitidos | Descrição |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Defina como `none` para ignorar imagens inseridas ou arquivos de imagem no conjunto de dados. Este é o padrão. <br/>Para [análise de imagem usando habilidades cognitivas](cognitive-search-concept-image-scenarios.md), defina como `generateNormalizedImages` para que a habilidade crie uma matriz de imagens normalizadas como parte da quebra de documento. Essa ação requer que `parsingMode` esteja definida como `default` e `dataToExtract` seja definida como `contentAndMetadata` . Uma imagem normalizada refere-se ao processamento adicional resultando em uma saída de imagem uniforme, dimensionada e girada para promover uma renderização consistente quando forem incluídas imagens nos resultados da pesquisa visual (por exemplo, fotografias do mesmo tamanho em um controle de grafo, conforme visto na [Demonstração sobre JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Essas informações são geradas para cada imagem quando você usa essa opção.  <br/>Se você definir como `generateNormalizedImagePerPage` , os arquivos PDF serão tratados de forma diferente, em vez de extrair imagens inseridas, cada página será renderizada como uma imagem e normalizada adequadamente.  Os tipos de arquivo não PDF serão tratados da mesma forma que se `generateNormalizedImages` foi definido.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Defina como `none` para ignorar imagens inseridas ou arquivos de imagem no conjunto de dados. Esse é o padrão. <br/>Para [análise de imagem usando habilidades cognitivas](cognitive-search-concept-image-scenarios.md), defina como `generateNormalizedImages` para que a habilidade crie uma matriz de imagens normalizadas como parte da quebra de documento. Essa ação requer que `parsingMode` esteja definida como `default` e `dataToExtract` seja definida como `contentAndMetadata` . Uma imagem normalizada refere-se ao processamento adicional resultando em uma saída de imagem uniforme, dimensionada e girada para promover uma renderização consistente quando forem incluídas imagens nos resultados da pesquisa visual (por exemplo, fotografias do mesmo tamanho em um controle de grafo, conforme visto na [Demonstração sobre JFK](https://github.com/Microsoft/AzureSearch_JFK_Files)). Essas informações são geradas para cada imagem quando você usa essa opção.  <br/>Se você definir como `generateNormalizedImagePerPage` , os arquivos PDF serão tratados de forma diferente, em vez de extrair imagens inseridas, cada página será renderizada como uma imagem e normalizada adequadamente.  Os tipos de arquivo não PDF serão tratados da mesma forma que se `generateNormalizedImages` foi definido.
 | `normalizedImageMaxWidth` | Qualquer inteiro entre 50-10000 | A largura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. | 
 | `normalizedImageMaxHeight` | Qualquer inteiro entre 50-10000 | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. |
 

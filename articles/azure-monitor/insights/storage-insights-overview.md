@@ -1,17 +1,16 @@
 ---
 title: Monitore os serviços de Armazenamento do Microsoft Azure com o Azure Monitor for Storage | Microsoft Docs
 description: Este artigo descreve o recurso Azure Monitor for Storage, que permite aos administradores entenderem rapidamente questões de desempenho e utilização de suas contas do Armazenamento do Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208634"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101708060"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -85,7 +84,7 @@ Ao selecionar um valor em qualquer uma das colunas da pasta de trabalho, você f
 
 ## <a name="view-from-a-storage-account"></a>Exibir a partir de uma conta de armazenamento
 
-Para acessar o Azure Monitor para VMs diretamente a partir de uma conta de armazenamento:
+Para acessar as informações da VM diretamente de uma conta de armazenamento:
 
 1. No portal do Azure, selecione Contas de armazenamento.
 
@@ -266,8 +265,8 @@ Cada pasta de trabalho será salva na conta de armazenamento na qual você a sal
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
+* Configure [alertas de métrica](../alerts/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
 
-* Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
+* Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md).
 
 * Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

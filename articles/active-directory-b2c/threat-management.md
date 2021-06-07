@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e5184698cab1874f327173fb30cf527feee48cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85384967"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerenciar ameaças a recursos e dados no Azure Active Directory B2C
@@ -45,7 +45,7 @@ Para gerenciar as configurações de proteção de senha, incluindo o limite de 
 1. Insira as configurações de proteção de senha desejadas e, em seguida, selecione **salvar**.
 
     ![Página de proteção de senha portal do Azure nas configurações do Azure AD](./media/threat-management/portal-02-password-protection.png)
-    <br />*Definindo o limite de bloqueio como 5 em configurações de **proteção de senha** *.
+    <br />*Definindo o limite de bloqueio como 5 em configurações de **proteção de senha***.
 
 ## <a name="view-locked-out-accounts"></a>Exibir contas bloqueadas
 

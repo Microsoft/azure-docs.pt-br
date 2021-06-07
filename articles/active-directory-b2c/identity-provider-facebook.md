@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7e7a99daa169c994a0b9656786926f0715fa17a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98952667"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580055"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Facebook usando o Azure Active Directory B2C
 
@@ -55,7 +55,8 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 1. Escolha **Mostrar** e copie o valor de **Segredo do Aplicativo**. Você usará ambos para configurar o Facebook como um provedor de identidade em seu locatário. **Segredo do Aplicativo** é uma credencial de segurança importante.
 1. No menu, selecione o sinal de **adição** ao lado de **produtos**. Em **Adicionar produtos ao seu aplicativo**, selecione **Configurar** em logon do **Facebook**.
 1. No menu, selecione **logon do Facebook**, selecione **configurações**.
-1. Em **URIs de Redirecionamento do OAuth Válidos**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do seu locatário. Escolha **Salvar Alterações** na parte inferior da página.
+1. Em **URIs de Redirecionamento do OAuth Válidos**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado. 
+1. Escolha **Salvar Alterações** na parte inferior da página.
 1. Para disponibilizar seu aplicativo do Facebook para Azure AD B2C, selecione o seletor de status na parte superior direita da página e **ative-o** para tornar o aplicativo público e selecione **modo de comutação**.  Neste ponto, o Status deverá mudar de **Desenvolvimento** para **Ativo**.
 
 ::: zone pivot="b2c-user-flow"
@@ -73,13 +74,19 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Facebook a um fluxo de usuário 
 
+Neste ponto, o provedor de identidade do Facebook foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do Facebook a um fluxo de usuário:
+
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Facebook.
 1. Em **provedores de identidade social**, selecione **Facebook**.
 1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Selecione o botão **executar fluxo de usuário** .
+1. Na página inscrever-se ou entrar, selecione **Facebook** para entrar com a conta do Facebook.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
+
 
 ::: zone-end
 
@@ -118,7 +125,10 @@ Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do
 1. Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário.
 1. Na página **Políticas personalizadas**, selecione **B2C_1A_signup_signin**.
 1. Para **Selecionar aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Selecione **Executar agora** e o Facebook para entrar no Facebook e testar a política personalizada.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **Facebook** para entrar com a conta do Facebook.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end
 

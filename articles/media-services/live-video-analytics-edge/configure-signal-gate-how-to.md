@@ -4,10 +4,10 @@ description: Este artigo fornece orientação sobre como configurar uma entrada 
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410786"
 ---
 # <a name="configure-a-signal-gate-for-event-based-video-recording"></a>Configurar uma porta de sinal para gravação de vídeo baseada em evento
@@ -58,35 +58,35 @@ As IDs de correlação são definidas para cada evento. Essas IDs são definidas
 
 ### <a name="parameters-based-on-the-physical-time-that-events-arrive-at-the-signal-gate"></a>Parâmetros, com base no tempo físico que os eventos chegam na porta do sinal
 
-* **minimumActivationTime (menor duração possível de uma gravação)** : o número mínimo de segundos que o processador da porta de sinal permanece aberto depois que ele é disparado para receber novos eventos, a menos que seja interrompido pelo maximumActivationTime.
-* **maximumActivationTime (duração mais longa possível de uma gravação)** : o número máximo de segundos do evento inicial que o processador da porta do sinal permanece aberto depois de ser disparado para receber novos eventos, independentemente de quais eventos são recebidos.
-* **activationSignalOffset** : o número de segundos entre a ativação do processador da porta do sinal e o início da gravação do vídeo. Normalmente, esse valor é negativo porque ele inicia a gravação antes do evento de disparo.
-* **activationEvaluationWindow** : a partir do evento de disparo inicial, o número de segundos em que um evento ocorrido antes do evento inicial, em tempo de mídia, deve chegar ao processador da porta do sinal antes de ser desconsiderado e considerado uma chegada tardia.
+* **minimumActivationTime (menor duração possível de uma gravação)**: o número mínimo de segundos que o processador da porta de sinal permanece aberto depois que ele é disparado para receber novos eventos, a menos que seja interrompido pelo maximumActivationTime.
+* **maximumActivationTime (duração mais longa possível de uma gravação)**: o número máximo de segundos do evento inicial que o processador da porta do sinal permanece aberto depois de ser disparado para receber novos eventos, independentemente de quais eventos são recebidos.
+* **activationSignalOffset**: o número de segundos entre a ativação do processador da porta do sinal e o início da gravação do vídeo. Normalmente, esse valor é negativo porque ele inicia a gravação antes do evento de disparo.
+* **activationEvaluationWindow**: a partir do evento de disparo inicial, o número de segundos em que um evento ocorrido antes do evento inicial, em tempo de mídia, deve chegar ao processador da porta do sinal antes de ser desconsiderado e considerado uma chegada tardia.
 
 > [!NOTE]
 > Uma *chegada tardia* é qualquer evento que chega após a aprovação da janela de avaliação de ativação, mas que chega antes do evento inicial no tempo de mídia.
 
 ### <a name="limits-of-parameters"></a>Limites de parâmetros
 
-* **activationEvaluationWindow** : 0 segundos a 10 segundos
-* **activationSignalOffset** :-1 minuto a 1 minuto
-* **minimumActivationTime** : 1 segundo a 1 hora
-* **maximumActivationTime** : 1 segundo a 1 hora
+* **activationEvaluationWindow**: 0 segundos a 10 segundos
+* **activationSignalOffset**:-1 minuto a 1 minuto
+* **minimumActivationTime**: 1 segundo a 1 hora
+* **maximumActivationTime**: 1 segundo a 1 hora
 
 
 No caso de uso, você definiria os parâmetros da seguinte maneira:
 
-* **activationEvaluationWindow** : *K* segundos
-* **activationSignalOffset** : *-X* segundos
-* **minimumActivationWindow** : *Y* segundos
-* **maximumActivationWindow** : *Z* segundos
+* **activationEvaluationWindow**: *K* segundos
+* **activationSignalOffset**: *-X* segundos
+* **minimumActivationWindow**: *Y* segundos
+* **maximumActivationWindow**: *Z* segundos
 
 
 Veja um exemplo de como a seção do nó do **processador da porta de sinal** indicaria uma topologia de gráfico de mídia para os seguintes valores de parâmetro:
-* **activationEvaluationWindow** : 1 segundo
-* **activationSignalOffset** :-5 segundos
-* **minimumActivationTime** : 20 segundos
-* **maximumActivationTime** : 40 segundos
+* **activationEvaluationWindow**: 1 segundo
+* **activationSignalOffset**:-5 segundos
+* **minimumActivationTime**: 20 segundos
+* **maximumActivationTime**: 40 segundos
 
 > [!IMPORTANT]
 > O [formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations
@@ -120,7 +120,7 @@ Agora, considere como essa configuração do processador da porta de sinal se co
 
 ### <a name="recording-scenarios"></a>Cenários de gravação
 
-**Um evento de uma fonte ( *ativação normal* )**
+**Um evento de uma fonte (*ativação normal*)**
 
 Um processador de porta de sinal que recebe um evento resulta em uma gravação que inicia 5 segundos (sinal de ativação = 5 segundos) antes que o evento chegue à porta. O restante da gravação é de 20 segundos (tempo mínimo de ativação = 20 segundos) porque nenhum outro evento chega antes do término do tempo mínimo de ativação para disparar novamente o portão.
 
@@ -131,7 +131,7 @@ Diagrama de exemplo:
 * Duração da gravação =-offset + minimumActivationTime = [E1 + deslocamento, E1 + minimumActivationTime]
 
 
-**Dois eventos de uma fonte ( *ativação reacionada* )**
+**Dois eventos de uma fonte (*ativação reacionada*)**
 
 Um processador de porta de sinal que recebe dois eventos resulta em uma gravação que inicia 5 segundos (deslocamento de sinal de ativação = 5 segundos) antes que o evento chegue à porta. Além disso, o evento 2 chega 5 segundos após o evento 1. Como o evento 2 chega antes do final do tempo mínimo de ativação do evento 1 (20 segundos), o portão é disparado novamente. O restante da gravação é de 20 segundos (tempo mínimo de ativação = 20 segundos) porque nenhum outro evento chega antes do término do tempo mínimo de ativação do evento 2 para disparar novamente o portão.
 
@@ -142,7 +142,7 @@ Diagrama de exemplo:
 * Duração da gravação =-offset + (chegada do evento 2 – chegada do evento 1) + minimumActivationTime
 
 
-***N* eventos de uma fonte ( *ativação máxima* )**
+***N* eventos de uma fonte (*ativação máxima*)**
 
 Um processador de porta de sinal que recebe *N* eventos resulta em uma gravação que inicia 5 segundos (deslocamento de sinal de ativação = 5 segundos) antes que o primeiro evento chegue à porta. À medida que cada evento chega antes do término do tempo mínimo de ativação de 20 segundos do evento anterior, o portão é continuamente disparado. Ele permanece aberto até o tempo máximo de ativação de 40 segundos após o primeiro evento. Em seguida, a porta fecha e não aceita mais nenhum novo evento.
 

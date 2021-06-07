@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537201"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Criar ou modificar um emparelhamento Direto usando o portal do Azure
@@ -43,17 +43,17 @@ Como um provedor de serviços de Internet ou um provedor de Internet, você pode
 
 3. Para o grupo de recursos, você pode escolher um grupo de recursos existente na lista suspensa ou criar um selecionando Criar. Para este exemplo, vamos criar um grupo de recursos.
 
-4. O nome corresponde ao nome do recurso e pode ser qualquer um que você escolher.
+4. O nome corresponde ao nome do recurso e pode ser qualquer um de sua escolha.
 
-5. A região será selecionada automaticamente se você escolher um grupo de recursos existente. Se você optar por criar um grupo de recursos, também precisará escolher a região do Azure na qual deseja que o recurso resida.
+5. A região será selecionada automaticamente se você escolher um grupo de recursos existente. Se você optar por criar um novo grupo de recursos, também precisará escolher a região do Azure na qual deseja que o recurso resida.
 
     >[!NOTE]
-    > A região em que um grupo de recursos reside é independente da localização em que você deseja criar o emparelhamento com a Microsoft. Porém, é uma prática recomendada organizar seus recursos de emparelhamento em grupos de recursos que residem nas regiões do Azure mais próximas. Por exemplo, para emparelhamentos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou no Leste dos EUA 2.
+    > A região em que um grupo de recursos reside é independente do local em que você deseja criar o emparelhamento com a Microsoft. Porém, é uma prática recomendada organizar seus recursos de emparelhamento em grupos de recursos que residem nas regiões do Azure mais próximas. Por exemplo, para emparelhamentos em Ashburn, você pode criar um grupo de recursos no Leste dos EUA ou no Leste dos EUA 2.
 
 6. Selecione seu ASN na caixa **PeerASN**.
 
     >[!IMPORTANT]
-    >Você só pode escolher um ASN com ValidationState como Aprovado antes de enviar uma solicitação de emparelhamento. Se você tiver acabado de enviar sua solicitação PeerAsn, aguarde cerca de 12 horas para que a associação do ASN seja aprovada. Se o ASN selecionado tiver validação pendente, você verá uma mensagem de erro. Se você não vir o ASN que precisa escolher, verifique se selecionou a assinatura correta. Neste caso, verifique se você já criou o PeerAsn usando **[Associar o ASN Par à assinatura do Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
+    >Você só pode escolher um ASN com ValidationState como Aprovado antes de enviar uma solicitação de emparelhamento. Se você tiver acabado de enviar sua solicitação PeerAsn, aguarde cerca de 12 horas para que a associação do ASN seja aprovada. Se o ASN selecionado tiver validação pendente, você verá uma mensagem de erro. Se não vir o ASN que precisa escolher, verifique se selecionou a assinatura correta. Neste caso, verifique se você já criou o PeerAsn usando **[Associar o ASN Par à assinatura do Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
 
 7. Selecione **Avançar: Configuração** para continuar.
 

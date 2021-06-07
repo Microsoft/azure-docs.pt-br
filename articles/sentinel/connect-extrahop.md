@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588290"
 ---
 # <a name="connect-extrahop-revealx"></a>Conectar ExtraHop Reveal(x)
@@ -34,9 +34,9 @@ O conector de dados ExtraHop Reveal (x) permite que você conecte facilmente seu
 
 ## <a name="connect-azure-sentinel-to-extrahop-revealx"></a>Conectar o Azure Sentinel ao ExtraHop Reveal (x)
 
-1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector **ExtraHop Reveal (x)** .
+1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >   e selecione o conector **ExtraHop Reveal (x)** .
 
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 
 3. Siga as instruções na página **ExtraHop Reveal (x)** .
 

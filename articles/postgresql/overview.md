@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92491318"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é o Banco de Dados do Azure para PostgreSQL?

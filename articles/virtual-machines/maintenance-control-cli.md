@@ -3,16 +3,17 @@ title: Controle de manutenção para máquinas virtuais do Azure usando a CLI
 description: Saiba como controlar quando a manutenção é aplicada às suas VMs do Azure usando o controle de manutenção e a CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020
 ms.author: cynthn
-ms.openlocfilehash: d94cd649df9da6b36ac484d4fc1e6acef7a21bb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9425759de1e08bc83cac80cd1b56c602edb59fb1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026158"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102562955"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Controlar atualizações com o controle de manutenção e o CLI do Azure
 
@@ -63,7 +64,7 @@ az maintenance configuration create \
 > [!IMPORTANT]
 > A **duração** da manutenção deve ser de *2 horas* ou mais. A **recorrência** de manutenção deve ser definida para pelo menos ocorrer uma vez em 35 dias.
 
-A recorrência da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos são:
+A recorrência da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos incluem:
 - **diário**-manutenção-janela-recorrência-a cada: "dia" **ou** "3Days"
 - **semanalmente**-manutenção-janela-recorrência-a cada: "3Weeks" **ou** "semana sábado, domingo"
 - **mensal**-manutenção-janela-recorrência-a cada: "month day23, day24" **ou** "month Last domingo" **ou** "month quarta segunda-feira"

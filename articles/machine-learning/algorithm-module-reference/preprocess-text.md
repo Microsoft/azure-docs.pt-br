@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/16/2020
 ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659264"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
@@ -93,8 +93,8 @@ A seguir estão alguns exemplos:
 
 | Configuração | Resultado da saída |
 | --- | --- |
-|Com todas as opções selecionadas </br> Explica </br> Para os casos como ' 3Test ' em ' WC-3 3Test 4Test ', o designer remove a palavra inteira ' 3Test ', já que, nesse contexto, o marcador de parte da fala especifica esse token ' 3Test ' como numeral e, de acordo com a parte da fala, o módulo o Remove.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Com todas as opções selecionadas" border="True"::: |
-|Somente com `Removing number` selecionado </br> Explica </br> Para os casos como ' 3Test ', ' 4-EC ', o designer criador não dose dividir esses casos e os trata como os tokens inteiros. Portanto, ele não removerá os números dessas palavras.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Com apenas ' removendo número ' selecionado" border="True"::: |
+|Com todas as opções selecionadas </br> Explicação: </br> Para os casos como ' 3Test ' em ' WC-3 3Test 4Test ', o designer remove a palavra inteira ' 3Test ', já que, nesse contexto, o marcador de parte da fala especifica esse token ' 3Test ' como numeral e, de acordo com a parte da fala, o módulo o Remove.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="Com todas as opções selecionadas" border="True"::: |
+|Somente com `Removing number` selecionado </br> Explicação: </br> Para os casos como ' 3Test ', ' 4-EC ', o designer criador não dose dividir esses casos e os trata como os tokens inteiros. Portanto, ele não removerá os números dessas palavras.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="Com apenas ' removendo número ' selecionado" border="True"::: |
 
 Você também pode usar a expressão regular para gerar resultados personalizados:
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0efb451997b0ed842e6757a7e6b30dd88b33f4aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96177840"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Tutorial: Configurar o Juno Journey para o provisionamento automático de usuário
@@ -146,8 +146,8 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 ## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
-* Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não.
-* Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.
+* Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
+* Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 * Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais

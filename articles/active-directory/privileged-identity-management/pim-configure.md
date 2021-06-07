@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370178"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104802158"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -47,7 +47,7 @@ O Privileged Identity Management fornece ativação de função baseada em tempo
 
 ## <a name="what-can-i-do-with-it"></a>O que posso fazer com ele?
 
-Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas** , **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você escolherá entre opções como gerenciar **funções do Azure AD** , gerenciar funções do **recurso do Azure** ou grupos de acesso privilegiado. Ao escolher o que você deseja gerenciar, você verá o conjunto apropriado de opções para essa opção.
+Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você escolherá entre opções como gerenciar **funções do Azure AD**, gerenciar funções do **recurso do Azure** ou grupos de acesso privilegiado. Ao escolher o que você deseja gerenciar, você verá o conjunto apropriado de opções para essa opção.
 
 ![Captura de tela do Privileged Identity Management no portal do Azure](./media/pim-configure/pim-quickstart.png)
 
@@ -92,8 +92,8 @@ Para entender melhor o Privileged Identity Management e a documentação dele, e
 | ativada | Estado | Um usuário que tem uma atribuição de função qualificada, executou as ações para ativar a função e agora está ativo.  Depois que a função for ativada, o usuário poderá usar a função por um período pré-configurado antes de precisar ativá-la novamente. |
 | qualificada permanentemente | Duration | Uma atribuição de função em que um usuário sempre está qualificado para ativar a função. |
 | permanentemente ativa | Duration | Uma atribuição de função em que um usuário sempre pode usar a função sem executar nenhuma ação. |
-| qualificado com expiração | Duration | Uma atribuição de função em que um usuário está qualificado para ativar a função dentro de uma data de início e término especificada. |
-| ativo com expiração | Duration | Uma atribuição de função em que um usuário pode usar a função sem executar nenhuma ação dentro de uma data de início e término especificada. |
+| tempo associado qualificado | Duração | Uma atribuição de função em que um usuário está qualificado para ativar a função somente na data de início e término especificada. |
+| tempo associado ativo | Duração | Uma atribuição de função em que um usuário pode usar determinada função somente na data de início e término especificada. |
 | Acesso JIT (Just-In-Time) |  | Um modelo no qual os usuários recebem permissões temporárias para executar tarefas privilegiadas, o que impede que usuários mal-intencionados ou não autorizados obtenham acesso após a expiração das permissões. O acesso é concedido somente quando os usuários precisam dele. |
 | princípio de acesso de privilégios mínimos |  | Uma prática de segurança recomendada na qual todos os usuários recebem apenas os privilégios mínimos necessários para realizar as tarefas que estão autorizados a executar. Essa prática minimiza o número de Administradores Globais usando funções de administrador específicas para determinados cenários. |
 

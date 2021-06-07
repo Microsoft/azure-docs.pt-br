@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843066"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600506"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualização e monitoramento dos dados
 
 
 
-Depois [conectar as fontes de dados](quickstart-onboard.md) ao Azure Sentinel, será possível visualizar e monitorar os dados usando as Pastas de Trabalho do Azure Monitor com o Azure Sentinel, que oferece versatilidade na criação de painéis personalizados. Embora as Pastas de Trabalho sejam exibidas de diferentes maneiras no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, você poderá visualizar e monitorar os dados usando a adoção do Azure sentinel de Azure monitor pastas de trabalho, que fornece versatilidade na criação de painéis personalizados. Embora as Pastas de Trabalho sejam exibidas de diferentes maneiras no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com as Pastas de Trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 
 Este tutorial ajuda a visualizar os dados no Azure Sentinel.
@@ -46,13 +46,13 @@ Este tutorial ajuda a visualizar os dados no Azure Sentinel.
   ![acessar pastas de trabalho](./media/tutorial-monitor-data/access-workbooks.png)
 1. Clique em **Exibir modelo** para ver o modelo preenchido com seus dados.
   
-1. Para editar a pasta de trabalho, selecione **salvar**e, em seguida, selecione o local onde você deseja salvar o arquivo JSON para o modelo. 
+1. Para editar a pasta de trabalho, selecione **salvar** e, em seguida, selecione o local onde você deseja salvar o arquivo JSON para o modelo. 
 
    > [!NOTE]
    > Isso cria um recurso do Azure com base no modelo relevante e salva o arquivo JSON da pasta de trabalho e não os dados.
 
 
-1. Selecione **Exibir pasta de trabalho salva**. Em seguida, clique no botão **Editar** na parte superior. Agora você pode editar a pasta de trabalho e personalizá-la de acordo com as suas necessidades. Para obter mais informações sobre como personalizar a pasta de trabalho, veja como [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+1. Selecione **Exibir pasta de trabalho salva**. Em seguida, clique no botão **Editar** na parte superior. Agora você pode editar a pasta de trabalho e personalizá-la de acordo com as suas necessidades. Para obter mais informações sobre como personalizar a pasta de trabalho, veja como [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 ![exibir pastas de trabalho](./media/tutorial-monitor-data/workbook-graph.png)
 1. Salve a pasta de trabalho depois de fazer as alterações. 
 
@@ -64,18 +64,29 @@ Este tutorial ajuda a visualizar os dados no Azure Sentinel.
 1. Acesse **Pastas de Trabalho** e. em seguida, selecione **Adicionar pasta de trabalho** para criar uma nova pasta de trabalho do zero.
   ![Captura de tela que mostra a nova exibição da pasta de trabalho.](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Para editar a pasta de trabalho, selecione **Editar**e, em seguida, adicione texto, consultas e parâmetros conforme necessário. Para obter mais informações sobre como personalizar a pasta de trabalho, veja como [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md). 
+1. Para editar a pasta de trabalho, selecione **Editar** e, em seguida, adicione texto, consultas e parâmetros conforme necessário. Para obter mais informações sobre como personalizar a pasta de trabalho, veja como [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
-1. Ao criar uma consulta, verifique se a **fonte de dados** está definida **como logs** e se o **tipo de recurso** está definido como **log Analytics**e, em seguida, escolha os espaços de trabalho relevantes. 
+1. Ao criar uma consulta, verifique se a **fonte de dados** está definida **como logs** e se o **tipo de recurso** está definido como **log Analytics** e, em seguida, escolha os espaços de trabalho relevantes. 
 
 1. Depois de criar sua pasta de trabalho, salve a pasta de trabalho, salvando-a na assinatura e no grupo de recursos do seu espaço de trabalho do Azure Sentinel.
 
 1. Se quiser permitir que outras pessoas em sua organização usem a pasta de trabalho, em **Salvar para** selecione **Relatórios compartilhados**. Se quiser que essa pasta de trabalho esteja disponível apenas para você, selecione **Meus relatórios**.
 
-1. Para alternar entre pastas de trabalho em seu espaço de trabalho, **Open** você pode selecionar ![ o ícone abrir para abrir uma pasta de trabalho. ](./media/tutorial-monitor-data/switch.png) no painel superior de qualquer pasta de trabalho. Na janela que abre à direita, alterne entre as pastas de trabalho.
+1. Para alternar entre pastas de trabalho em seu espaço de trabalho,  você pode selecionar ![ o ícone abrir para abrir uma pasta de trabalho. ](./media/tutorial-monitor-data/switch.png) no painel superior de qualquer pasta de trabalho. Na janela que abre à direita, alterne entre as pastas de trabalho.
 
    ![Alternar pastas de trabalho](./media/tutorial-monitor-data/switch-workbooks.png)
 
+
+## <a name="print-a-workbook-or-save-as-pdf"></a>Imprimir uma pasta de trabalho ou salvar como PDF
+
+Para imprimir uma pasta de trabalho ou salvá-la como um PDF, use o menu de opções à direita do título da pasta de trabalho.
+
+1. Selecione opções > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Imprimir conteúdo**. 
+2. Na tela de impressão, ajuste as configurações de impressão conforme necessário ou selecione **salvar como PDF** para salvá-las localmente.
+
+Por exemplo:
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprima sua pasta de trabalho ou salve como PDF.":::
 
 ## <a name="how-to-delete-workbooks"></a>Como excluir pastas de trabalho
 

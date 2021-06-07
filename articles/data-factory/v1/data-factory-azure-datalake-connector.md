@@ -9,10 +9,10 @@ ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 8bdfceff562ae2501a9d95774f7134669e929b7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379396"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de/para o Data Lake Storage Gen1 usando o Data Factory
@@ -113,7 +113,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Como alternativa, você pode usar a autenticação de credenciais do usuário para copiar de ou para o Data Lake Store especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **nesse** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
 | **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |
@@ -232,7 +232,7 @@ Para especificar um conjunto de dados para representar os dados de entrada em um
 
 A seção **typeProperties** do conjunto de um conjunto de dados do tipo **AzureDataLakeStore** contém a seguinte propriedade:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o contêiner e a pasta no Data Lake Store. |Sim |
 | **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estará no formato `Data._Guid_.txt` . Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |

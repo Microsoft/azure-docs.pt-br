@@ -1,5 +1,5 @@
 ---
-title: Experiências de consentimento de aplicativo do Azure AD
+title: Experiências de consentimento de aplicativo do Microsoft Azure AD
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as experiências de consentimento do Microsoft Azure Active Directory para ver como você pode usá-lo ao gerenciar e desenvolver aplicativos no Microsoft Azure Active Directory
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92478126"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Noções básicas sobre experiências de consentimento de aplicativo do Microsoft Azure Active Directory
@@ -65,13 +65,13 @@ Aqui estão as experiências de consentimento que um usuário pode ver em cenár
     
     2. Os usuários verão a solicitação de consentimento tradicional.
 
-        ![Captura de tela que mostra o prompt de consentimento tradicional.](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Captura de tela mostrando a solicitação de consentimento tradicional.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Indivíduos acessando um aplicativo que exige pelo menos uma permissão que está fora de seu escopo de autoridade de indivíduos.
     1. Os administradores verão a mesma solicitação como 1.i mostrada acima.
     2. Os usuários serão impedidos de conceder autorização para o aplicativo e serão avisados peça seu administrador de acesso ao aplicativo. 
                 
-        ![Captura de tela da solicitação de consentimento informando ao usuário para pedir a um administrador o acesso ao aplicativo.](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Captura de tela da solicitação de consentimento informando que o usuário deve pedir a um administrador para acessar o aplicativo.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Fluxo de autorização de indivíduos que navegam ou são direcionados para o administrador.
     1. Os usuários do administrador verão a solicitação de consentimento tradicional. O título e as descrições de permissão alteradas na solicitação, o realce de alterações, o fato de que aceitar este solicitação concederá o aplicativo de acesso para os dados solicitados em nome do locatário inteiro.
@@ -83,4 +83,4 @@ Aqui estão as experiências de consentimento que um usuário pode ver em cenár
 ## <a name="next-steps"></a>Próximas etapas
 - Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD implementa o consentimento](./quickstart-register-app.md).
 - Para se aprofundar, veja [como um aplicativo multilocatário pode usar a estrutura de consentimento](./howto-convert-app-to-be-multi-tenant.md) para implementar consentimento de "usuário" e "administrador", dando suporte a padrões mais avançados de aplicativos de várias camadas.
-- Saiba [como configurar o domínio do Publicador do aplicativo](howto-configure-publisher-domain.md).
+- Saiba [como configurar o domínio do publicador do aplicativo](howto-configure-publisher-domain.md).

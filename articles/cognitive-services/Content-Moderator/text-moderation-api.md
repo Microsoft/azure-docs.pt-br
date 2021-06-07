@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912898"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
@@ -47,9 +47,9 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](./la
 ```
 
 > [!NOTE]
-> Para o parâmetro **language** , atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas** .
+> Para o parâmetro **language**, atribua `eng` ou deixe vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte ao inglês apenas**.
 >
-> Para a detecção de **termos obscenos** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
+> Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
 ## <a name="classification"></a>classificação
 
@@ -142,7 +142,7 @@ Se você solicitar correção automática, a resposta conterá a versão corrigi
 Embora a lista global de termos padrão funcione muito bem na maioria dos casos, convém filtrar os termos específicos das necessidades da sua empresa. Por exemplo, é possível querer filtrar qualquer marca competitiva das postagens dos usuários.
 
 > [!NOTE]
-> Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos** .
+> Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos**.
 >
 
 O exemplo a seguir mostra a ID da lista correspondente:

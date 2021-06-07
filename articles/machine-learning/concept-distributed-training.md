@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: f87175500fcf5bdbcf9a5c2f499f6bab96b37b63
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358568"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102498958"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treinamento distribuído com o Azure Machine Learning
 
@@ -24,7 +24,7 @@ No treinamento distribuído, a carga de trabalho para treinar um modelo é divid
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizado avançado e treinamento distribuído 
 
-Há dois tipos principais de treinamento distribuído: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo](#model-parallelism). Para treinamento distribuído sobre modelos de aprendizado profundo, o [SDK do Azure Machine Learning no Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) dá suporte a integrações com estruturas populares, PyTorch e TensorFlow. Ambas as estruturas empregam o paralelismo de dados para treinamento distribuído e podem aproveitar o [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar as velocidades de computação. 
+Há dois tipos principais de treinamento distribuído: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo](#model-parallelism). Para treinamento distribuído sobre modelos de aprendizado profundo, o [SDK do Azure Machine Learning no Python](/python/api/overview/azure/ml/intro) dá suporte a integrações com estruturas populares, PyTorch e TensorFlow. Ambas as estruturas empregam o paralelismo de dados para treinamento distribuído e podem aproveitar o [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar as velocidades de computação. 
 
 * [Treinamento distribuído com PyTorch](how-to-train-pytorch.md#distributed-training)
 

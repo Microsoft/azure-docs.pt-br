@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 71291458eec0aec13542d3e0dfaf04a96f391a23
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089217"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103466109"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Compreender funções no Azure Active Directory
 
@@ -61,11 +61,11 @@ A tabela a seguir é auxilia o entendimento dessas categorias de função. As ca
 Categoria | Função
 ---- | ----
 Usuários em funções específicas do Azure AD | Administrador de aplicativos<br>Desenvolvedor de aplicativos<br>Administrador de Autenticação<br>Administrador de Conjunto de Chaves do IEF B2C<br>Administrador de Política do IEF B2C<br>Administrador de Aplicativos de Nuvem<br>Administrador de Dispositivo de Nuvem<br>Administrador de Acesso Condicional<br>Administradores de Dispositivo<br>Leitores de Diretório<br>Contas de sincronização de diretório<br>Gravadores de diretório<br>Administrador de fluxo do usuário de ID externa<br>Administrador de atributo de fluxo do usuário de ID externa<br>Administrador do Provedor de Identidade Externa<br>Administrador de Grupos<br>Emissor do Convite ao Convidado<br>Administrador de assistência técnica<br>Administrador de Identidade Híbrida<br>Administrador de Licenças<br>Suporte de camada 1 do parceiro<br>Suporte de camada 2 do parceiro<br>Administrador de senha<br>Administrador de Autenticação Privilegiada<br>Administrador de função com privilégios<br>Leitor de Relatórios<br>Administrador da conta de usuário
-Funções entre serviços | Administrador global<br>Administrador de conformidade<br>Administrador de dados de conformidade<br>Leitor global<br>Administrador de Segurança<br>Operador de segurança<br>Leitor de segurança<br>Administrador de suporte a serviço
+Funções entre serviços | Administrador Global<br>Administrador de conformidade<br>Administrador de dados de conformidade<br>Leitor global<br>Administrador de Segurança<br>Operador de segurança<br>Leitor de segurança<br>Administrador de suporte a serviço
 Funções específicas do serviço | Administrador do Azure DevOps<br>Administrador da Proteção de Informações do Azure<br>Administrador de cobrança<br>Administrador de serviços do CRM<br>Aprovador de acesso do cofre do cliente<br>Administrador de Análise de Área de Trabalho<br>Administrador de serviços do Exchange<br>Administrador do Insights<br>Líder de negócios do Insights<br>Administrador de serviços do Intune<br>Administrador do Kaizala<br>Administrador de serviços do Lync<br>Leitor de Privacidade do Centro de Mensagens<br>Leitor do Centro de Mensagens<br>Usuário moderno do Commerce<br>Administrador de Rede<br>Administrador de Aplicativos do Office<br>Administrador de serviços do Power BI<br>Administrador do Power Platform<br>Administrador de Impressora<br>Técnico de Impressora<br>Administrador de Pesquisas<br>Editor de Pesquisa<br>Administrador de serviços do SharePoint<br>Administrador de Comunicações do Teams<br>Engenheiro de Suporte de Comunicações do Teams<br>Especialista em Suporte de Comunicações do Teams<br>Administrador de dispositivos do Teams<br>Administrador de Serviços do Teams
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral do controle de acesso baseado em função do Azure AD](custom-overview.md)
 - Criar atribuições de função usando [o portal do Azure, o Azure AD PowerShell e a API do Graph](custom-create.md)
-- [Exibir as atribuições de uma função](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: System Architecture'
 ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92148342"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Visão geral do gerenciamento de dispositivos com o Hub IoT
@@ -89,7 +89,7 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
     * [Configurar e monitorar dispositivos IoT em escala](./iot-hub-automatic-device-management.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
-* **Desativar**: substituir ou encerrar dispositivos após uma falha, ciclo de atualização ou no final do tempo de vida do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
+* **Desativação**: substitua ou encerre os dispositivos após uma falha, ciclo de atualização ou ao final da vida útil do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
   
     *Leitura adicional*: 
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)

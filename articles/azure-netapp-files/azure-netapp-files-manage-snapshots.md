@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a18c53d972fbb38dc0b0e557d14b2fbffbff15fa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379107"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102174352"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -68,7 +68,7 @@ O recurso de **política de instantâneo** está atualmente em visualização. S
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+Você também pode usar [comandos de CLI do Azure](/cli/azure/feature) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
 
@@ -100,7 +100,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Salvar**.  
+4.  Clique em **Save** (Salvar).  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -257,6 +257,9 @@ Você pode encontrar a opção reverter volume no menu instantâneos de um volum
 ## <a name="delete-snapshots"></a>Excluir instantâneos  
 
 Você pode excluir os instantâneos que você não precisa mais manter. 
+
+> [!IMPORTANT]
+> A operação de exclusão de instantâneo não pode ser desfeita. Um instantâneo excluído não pode ser recuperado. 
 
 1. Vá para o menu **instantâneos** de um volume. Clique com o botão direito do mouse no instantâneo que você deseja excluir. Selecione **Excluir**.
 

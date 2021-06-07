@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
 ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831834"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Monitorar logs usando a pasta de trabalho do firewall do Azure

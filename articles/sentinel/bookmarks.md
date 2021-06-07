@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94651305"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Manter o controle dos dados durante a busca com o Azure Sentinel
 
 A busca de ameaças normalmente requer a revisão de montanhas de dados de log, procurando evidências de comportamento mal-intencionado. Durante esse processo, os investigadores localizam eventos que desejam lembrar, revisitar e analisar como parte da validação de possíveis ameaças e de entender toda a história de um comprometimento.
 
-Os indicadores de busca no Azure Sentinel o ajudam a fazer isso, preservando as consultas executadas no **Azure Sentinel-logs**, juntamente com os resultados da consulta que você considera relevantes. Você também pode registrar suas observações contextuais e fazer referência às suas descobertas Adicionando anotações e marcas. Os dados marcados são visíveis para você e seus colegas de equipe para facilitar a colaboração.
+Os indicadores de busca no Azure Sentinel o ajudam a fazer isso, preservando as consultas executadas no **Azure Sentinel-logs**, juntamente com os resultados da consulta que você considera relevantes. Você também pode registrar observações de contexto e consultar as descobertas alcançadas adicionando anotações e marcações. Os dados de indicadores ficam visíveis para você e seus colegas de equipe para facilitar a colaboração.
 
-Você pode revisitar seus dados marcados a qualquer momento na guia **indicadores** do painel de **busca** . Você pode usar as opções de filtragem e pesquisa para localizar rapidamente dados específicos para sua investigação atual. Como alternativa, você pode exibir seus dados marcados diretamente na tabela **HuntingBookmark** em seu espaço de trabalho log Analytics. Por exemplo:
+Você pode revisitar seus dados marcados a qualquer momento na guia **indicadores** do painel de **busca** . Você pode usar as opções de filtragem e pesquisa a fim de localizar rapidamente dados específicos para sua investigação atual. Como alternativa, você pode exibir seus dados marcados diretamente na tabela **HuntingBookmark** em seu espaço de trabalho log Analytics. Por exemplo:
 
 > [!div class="mx-imgBorder"]
 > ![Exibir tabela HuntingBookmark](./media/bookmarks/bookmark-table.png)
@@ -67,7 +67,7 @@ Também na visualização, você pode visualizar seus dados marcados, clicando e
 
  
 > [!NOTE]
-> Os resultados da consulta de log dão suporte a indicadores sempre que esse painel é aberto do Azure Sentinel. Por exemplo, você seleciona **General**  >  **logs** gerais na barra de navegação, seleciona links de eventos no grafo de investigações ou seleciona uma ID de alerta a partir dos detalhes completos de um incidente (atualmente em visualização). Não é possível criar indicadores quando o painel **logs** é aberto de outros locais, como diretamente do Azure monitor.
+> Os resultados da consulta de log dão suporte a indicadores sempre que esse painel é aberto do Azure Sentinel. Por exemplo, você seleciona   >  **logs** gerais na barra de navegação, seleciona links de eventos no grafo de investigações ou seleciona uma ID de alerta a partir dos detalhes completos de um incidente (atualmente em visualização). Não é possível criar indicadores quando o painel **logs** é aberto de outros locais, como diretamente do Azure monitor.
 
 ## <a name="view-and-update-bookmarks"></a>Exibir e atualizar indicadores 
 
@@ -115,20 +115,20 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
     - Para um novo incidente: opcionalmente, atualize os detalhes para o incidente e, em seguida, selecione **criar**.
     - Para adicionar um indicador a um incidente existente: selecione um incidente e, em seguida, selecione **Adicionar**. 
 
-Para exibir o indicador dentro do incidente: Navegue até **sentinela**  >  **Threat management**  >  **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos** e, em seguida, selecione a guia **indicadores** .
+Para exibir o indicador dentro do incidente: Navegue até **sentinela**  >    >  **incidentes** de gerenciamento de ameaças e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos** e, em seguida, selecione a guia **indicadores** .
 
 > [!TIP]
 > Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto (**...**) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente** e **remover do incidente**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Exibir dados marcados em logs
 
-Para exibir consultas com indicadores, resultados ou seu histórico, selecione o indicador na guia indicadores de **busca**  >  **Bookmarks** e use os links fornecidos no painel de detalhes: 
+Para exibir consultas com indicadores, resultados ou seu histórico, selecione o indicador na guia indicadores de **busca**  >   e use os links fornecidos no painel de detalhes: 
 
 - **Exiba a consulta de origem** para exibir a consulta de origem no painel **logs** .
 
 - **Exiba os logs de indicadores** para ver todos os metadados de indicador, que incluem quem fez a atualização, os valores atualizados e a hora em que a atualização ocorreu.
 
-Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de **Hunting** comandos na  >  guia **indicadores** de busca:
+Você também pode exibir os dados brutos do indicador para todos os indicadores selecionando **logs de indicadores** na barra de comandos na  >  guia **indicadores** de busca:
 
 > [!div class="mx-imgBorder"]
 > ![Logs de indicadores](./media/bookmarks/bookmark-logs.png)

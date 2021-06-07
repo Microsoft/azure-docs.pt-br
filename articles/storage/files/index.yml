@@ -12,12 +12,12 @@ metadata:
   author: roygara
   ms.author: rogarana
   ms.date: 08/27/2019
-  ms.openlocfilehash: 3e9224746c400f9795e16edd51b69740fb3c45c7
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1ede53a8e288b14696ca2c30088486478a13a3af
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "72299566"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101724193"
 landingContent:
 - title: Sobre os Arquivos do Azure
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
     - text: Criar/usar compartilhamentos de arquivos – Windows
       url: storage-files-quick-create-use-windows.md
     - text: Criar compartilhamentos de arquivos Premium
-      url: storage-how-to-create-premium-fileshare.md
+      url: ./storage-how-to-create-file-share.md
     - text: Gerenciar seu servidor com a Sincronização de Arquivos do Azure
       url: storage-sync-files-server-registration.md
   - linkListType: tutorial

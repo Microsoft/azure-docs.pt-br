@@ -4,10 +4,10 @@ description: Este artigo descreve como listar assinaturas de grade de eventos em
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 3d700f543bc5e3c7add2a346c10acf975e1c2462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86120442"
 ---
 # <a name="query-event-grid-subscriptions"></a>Consultar assinaturas de Grade de Eventos 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 48740c52e6713735957e1ebf00e8996800eabec2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740849"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103015770"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início Rápido: Conceder permissão para criar registros de aplicativo ilimitados
 
@@ -69,16 +69,16 @@ Há duas permissões disponíveis para conceder a capacidade de criar registros 
 Primeiro, instale o módulo do Azure AD PowerShell da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de versão prévia do Azure AD PowerShell usando o seguinte comando:
 
 ```powershell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto para uso, a versão retornada pelo seguinte comando deve coincidir com o comando listado aqui:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### <a name="create-the-custom-role-in-azure-ad-powershell"></a>Criar a função personalizada no PowerShell do Azure AD

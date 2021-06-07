@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4176c92d48b67b9f9207f22ebd8939b5ec1437ee
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92636741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Azure Active Directory com Vidyard
@@ -63,7 +63,7 @@ Para configurar a integração do Vidyard ao Azure AD, você precisa adicionar o
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Vidyard** , selecione **Vidyard** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Vidyard**, selecione **Vidyard** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
 
      ![Vidyard na lista de resultados](common/search-new-app.png)
 
@@ -87,19 +87,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Vidyard** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Vidyard**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
@@ -111,16 +111,16 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/login`
 
     > [!NOTE]
     > Esses valores não são reais. Você atualizará esses valores com o identificador, URL de resposta e URL de logon reais, explicado mais adiante no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o Vidyard** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o Vidyard**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
     ![A captura de tela mostra o botão Novo Perfil.](./media/vidyard-tutorial/configure2.png)
 
-4. Na seção **Configuração SAML** , execute as seguintes etapas:
+4. Na seção **Configuração SAML**, execute as seguintes etapas:
 
     ![A captura de tela mostra a seção Configuração de SAML, em que você pode inserir os valores descritos.](./media/vidyard-tutorial/configure3.png)
 
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
     e. Abra o arquivo de certificado baixado do portal do Azure no Bloco de Notas e cole-o na caixa de texto **Certificado X.509**.
 
-    f. Na caixa de texto **URL do Ponto de extremidade SAML** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    f. Na caixa de texto **URL do Ponto de extremidade SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     g. Clique em **Confirmar**.
 
@@ -182,7 +182,7 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -194,9 +194,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -206,7 +206,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Vidyard.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Vidyard**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Vidyard**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -222,11 +222,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-vidyard-test-user"></a>Crie usuário de teste do Vidyard
 

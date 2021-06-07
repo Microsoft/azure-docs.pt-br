@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 72aa8e5e3284e0ee7fbe63e0fb617b9eba03292e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417002"
 ---
 # <a name="iot-central-solution-builder-guide"></a>Guia do Solution Builder IoT Central
@@ -48,7 +48,7 @@ IoT Central tem recursos de análise internos que um operador pode usar para ana
 
 ## <a name="integrate-with-other-services"></a>Integrar com outros serviços
 
-Como um construtor de soluções, você pode usar os recursos de regras e exportação de dados no IoT Central para integrar com outro serviço. Para saber mais, confira:
+Como um construtor de soluções, você pode usar os recursos de regras e exportação de dados no IoT Central para integrar com outro serviço. Para obter mais informações, consulte:
 
 - [Exportar dados de IoT para destinos de nuvem usando a exportação de dados](howto-export-data.md)
 - [Usar fluxos de trabalho para integrar o aplicativo Azure IoT Central a outros serviços em nuvem](howto-configure-rules-advanced.md)

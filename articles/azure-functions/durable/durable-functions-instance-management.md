@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: bd95acf5c07786f725398416f220d3ba638c515e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555688"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199782"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias em Durable Functions no Azure
 
@@ -203,6 +203,9 @@ O método retorna um objeto com as seguintes propriedades:
   * **Terminated**: a instância foi interrompida abruptamente.
 * **Histórico**: O histórico de execução de orquestração. Este campo é preenchido somente se `showHistory` é definido como `true`.
 
+> [!NOTE]
+> Um orquestrador não é marcado como `Completed` até que todas as suas tarefas agendadas tenham sido concluídas _e_ o orquestrador tenha retornado. Em outras palavras, não é suficiente para um orquestrador alcançar sua `return` declaração para que ele seja marcado como `Completed` . Isso é particularmente relevante para casos em que `WhenAny` é usado; esses orquestradores geralmente `return` antes de todas as tarefas agendadas terem sido executadas.
+
 Esse método retornará `null` (.net), `undefined` (JavaScript) ou `None` (Python) se a instância não existir.
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -231,6 +234,7 @@ module.exports = async function(context, instanceId) {
 
     const status = await client.getStatus(instanceId);
     // do something based on the current status.
+    // example: if status.runtimeStatus === df.OrchestrationRuntimeStatus.Running: ...
 }
 ```
 
@@ -247,6 +251,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
     status = await client.get_status(instance_id)
     # do something based on the current status
+    # example: if (existing_instance.runtime_status is df.OrchestrationRuntimeStatus.Running) { ...
 ```
 
 ---
@@ -281,7 +286,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 Em vez de consultar uma instância em sua orquestração por vez, talvez você ache mais eficiente consultar todas elas de uma só vez.
 
-Você pode usar o método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (JavaScript) ou `get_status_all` (Python) para consultar os status de todas as instâncias de orquestração. No .NET, você pode passar um `CancellationToken` objeto caso queira cancelá-lo. O método retorna uma lista de objetos que representam as instâncias de orquestração correspondentes aos parâmetros de consulta.
+Você pode usar o método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--) (JavaScript) ou `get_status_all` (Python) para consultar os status de todas as instâncias de orquestração. No .NET, você pode passar um `CancellationToken` objeto caso queira cancelá-lo. O método retorna uma lista de objetos que representam as instâncias de orquestração correspondentes aos parâmetros de consulta.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -364,7 +369,7 @@ func durable get-instances
 
 E se você não precisar realmente de todas as informações que uma consulta de instância padrão pode fornecer? Por exemplo, e se você estiver apenas procurando o tempo de criação da orquestração ou o status do tempo de execução Orchestration? Você pode restringir sua consulta aplicando filtros.
 
-Use o método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net) ou [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) para obter uma lista de instâncias de orquestração que correspondem a um conjunto de filtros predefinidos.
+Use o método [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.net) ou [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) para obter uma lista de instâncias de orquestração que correspondem a um conjunto de filtros predefinidos.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
 ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077772"
 ---
-# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conectar-se a um conjunto de dimensionamento de máquinas virtuais usando a bastiões do Azure
+# <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Como se conectar a um conjunto de dimensionamento de máquinas virtuais usando o Azure Bastion
 
 Este artigo mostra como usar o RDP de forma segura e direta para a instância do conjunto de dimensionamento de máquinas virtuais do Windows em uma rede virtual do Azure usando a bastiões do Azure. Você pode se conectar a uma instância do conjunto de dimensionamento de máquinas virtuais diretamente da portal do Azure. Ao usar a bastiões do Azure, as VMs não exigem um cliente, agente ou software adicional. Para obter mais informações sobre a bastiões do Azure, consulte a [visão geral](bastion-overview.md).
 
@@ -24,7 +24,7 @@ Verifique se você configurou um host de bastiões do Azure para a rede virtual 
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Conectar usando RDP
 
-1. Abra o [Portal do Azure](https://portal.azure.com). Navegue até o conjunto de dimensionamento de máquinas virtuais ao qual você deseja se conectar.
+1. Abra o [portal do Azure](https://portal.azure.com). Navegue até o conjunto de dimensionamento de máquinas virtuais ao qual você deseja se conectar.
 
    ![navegar](./media/bastion-connect-vm-scale-set/1.png)
 2. Navegue até a instância do conjunto de dimensionamento de máquinas virtuais à qual você deseja se conectar e, em seguida, selecione **conectar**. Ao usar uma conexão RDP, o conjunto de dimensionamento de máquinas virtuais deve ser um conjunto de dimensionamento de máquinas virtuais do Windows.

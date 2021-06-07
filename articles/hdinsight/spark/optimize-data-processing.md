@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 98457456bc1c8f9fdb08c32fdcd319a3aa9ff14a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944711"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Otimização de processamento de dados para Apache Spark
 
-Este artigo discute como otimizar a configuração do cluster do Apache Spark para obter o melhor desempenho no Azure HDInsight.
+Este artigo discute como otimizar a configuração do cluster do Apache Spark para obter um melhor desempenho no Azure HDInsight.
 
 ## <a name="overview"></a>Visão geral
 

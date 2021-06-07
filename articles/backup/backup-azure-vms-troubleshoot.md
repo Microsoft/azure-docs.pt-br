@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831543"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559359"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -134,12 +134,12 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Etapa 3: se as etapas 1 e 2 não resolverem o problema, a falha poderá ser devido ao tempo limite dos gravadores VSS expirarem devido a um IOPS limitado.<br>
 
-Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo** _ e verifique a seguinte mensagem de erro:<br>
-O tempo limite do provedor de cópia de sombra do _The expirou enquanto retém gravações no volume que está sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida. *<br>
+Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo*** e verifique a seguinte mensagem de erro:<br>
+*O tempo limite do provedor de cópia de sombra foi atingido ao reter gravações no volume sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
 
 Solução:
 
-* Verifique se há possibilidades para distribuir a carga entre os discos de VM. Isso reduzirá a carga em discos únicos. Você pode [verificar a limitação de IOPS habilitando as métricas de diagnóstico no nível de armazenamento](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Verifique se há possibilidades para distribuir a carga entre os discos de VM. Isso reduzirá a carga em discos únicos. Você pode [verificar a limitação de IOPS habilitando as métricas de diagnóstico no nível de armazenamento](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Altere a política de backup para executar backups fora do horário de pico, quando a carga na VM for a mais baixa.
 * Atualize os discos do Azure para dar suporte a IOPs mais altos. [Saiba mais aqui](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ Normalmente, o agente de VM já está presente em máquinas virtuais que são cr
 #### <a name="windows-vms---set-up-the-agent"></a>VMs do Windows – configurar o agente
 
 * Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de administrador para concluir a instalação.
-* Para máquinas virtuais criadas usando o modelo de implantação clássico, [atualizar a propriedade de VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Azure Resource Manager.
+* Para máquinas virtuais criadas usando o modelo de implantação clássico, [atualizar a propriedade de VM](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Azure Resource Manager.
 
 #### <a name="linux-vms---set-up-the-agent"></a>VMs do Linux – configurar o agente
 
 * Instale a versão mais recente do agente do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte o [Repositório do agente Linux](https://github.com/Azure/WALinuxAgent).
-* Para VMs criadas usando o modelo de implantação clássico, [atualize a propriedade da VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
+* Para VMs criadas usando o modelo de implantação clássico, [atualize a propriedade da VM](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o agente de VM
 

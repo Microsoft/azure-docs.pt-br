@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 7e0fe85007aae69bf79557e0f094e275f538d280
-  ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+  ms.openlocfilehash: 24f6ec0afc0760b2f57f7ac9409f0b84f2e630da
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97683428"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107789097"
 landingContent:
 - title: Sobre a API do Detector de Anomalias
   linkLists:
@@ -58,8 +58,6 @@ landingContent:
     links:
     - text: Visualizar anomalias usando a detecção em lotes e o Power BI
       url: tutorials/batch-anomaly-detection-powerbi.md
-    - text: Detectar anomalias nos dados de streaming usando o Azure Databricks
-      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: Detecção de anomalias nos dados de streaming usando o Azure Databricks
@@ -123,4 +121,4 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI do Azure
-      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az_cognitiveservices_list

@@ -2,16 +2,17 @@
 title: Crie e carregue um VHD do Linux
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux.
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: 9888cde8bca9fb0646dbdc8bb601b0887908ad1d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5a62bae8881f20eb7778f179cbecce77f102f6e8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203228"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554625"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para distribuições não endossadas
 

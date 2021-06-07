@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151107"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagindo aos eventos do Serviço do Azure SignalR
@@ -29,7 +29,7 @@ Os eventos do serviço de Signaler do Azure estão ativos apenas quando as conex
 ## <a name="available-azure-signalr-service-events"></a>Eventos do serviço de Signaler do Azure disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. As assinaturas de evento do serviço de Signaler do Azure dão suporte a dois tipos de eventos:  
 
-|Nome do evento|Description|
+|Nome do evento|Descrição|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|Gerado quando uma conexão de cliente é conectada.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|Gerado quando uma conexão de cliente é desconectada.|

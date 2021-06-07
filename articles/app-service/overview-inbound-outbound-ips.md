@@ -3,13 +3,13 @@ title: Endereços IP de entrada/saída
 description: Saiba como os endereços IP de entrada e saída são usados no serviço Azure App, quando eles mudam e como encontrar os endereços para seu aplicativo.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18
+ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746151"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591360"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no Serviço de Aplicativo do Azure
 
@@ -19,7 +19,7 @@ O [Serviço de Aplicativo do Azure](overview.md) é um serviço multilocatário,
 
 ## <a name="how-ip-addresses-work-in-app-service"></a>Como os endereços IP funcionam no serviço de aplicativo
 
-Um aplicativo do serviço de aplicativo é executado em um plano do serviço de aplicativo, e os planos do serviço de aplicativo são implantados em uma das unidades de implantação na infraestrutura do Azure (internamente chamada de espaço Web). Cada unidade de implantação é atribuída a até cinco endereços IP virtuais, o que inclui um endereço IP de entrada público e quatro endereços IP de saída. Todos os planos do serviço de aplicativo na mesma unidade de implantação e as instâncias de aplicativo que são executados neles compartilham o mesmo conjunto de endereços IP virtuais. Para um Ambiente do Serviço de Aplicativo (um plano do serviço de aplicativo na [camada isolada](https://azure.microsoft.com/pricing/details/app-service/)), o plano do serviço de aplicativo é a própria unidade de implantação e, portanto, os endereços IP virtuais são dedicados a ele como resultado.
+Um aplicativo do serviço de aplicativo é executado em um plano do serviço de aplicativo, e os planos do serviço de aplicativo são implantados em uma das unidades de implantação na infraestrutura do Azure (internamente chamada de espaço Web). Cada unidade de implantação recebe um conjunto de endereços IP virtuais, que inclui um endereço IP de entrada público e um conjunto de [endereços IP de saída](#find-outbound-ips). Todos os planos do serviço de aplicativo na mesma unidade de implantação e as instâncias de aplicativo que são executados neles compartilham o mesmo conjunto de endereços IP virtuais. Para um Ambiente do Serviço de Aplicativo (um plano do serviço de aplicativo na [camada isolada](https://azure.microsoft.com/pricing/details/app-service/)), o plano do serviço de aplicativo é a própria unidade de implantação e, portanto, os endereços IP virtuais são dedicados a ele como resultado.
 
 Como você não tem permissão para mover um plano do serviço de aplicativo entre as unidades de implantação, os endereços IP virtuais atribuídos ao seu aplicativo geralmente permanecem os mesmos, mas há exceções.
 
@@ -51,7 +51,7 @@ O conjunto de endereços IP de saída para seu aplicativo é alterado quando voc
 
 - Exclua um aplicativo e recrie-o em um grupo de recursos diferente (a unidade de implantação pode ser alterada).
 - Excluir o último aplicativo em um grupo de recursos _e_ uma combinação de região e recriá-lo (a unidade de implantação pode ser alterada).
-- Dimensione seu aplicativo entre as camadas inferiores ( **Basic** , **Standard** e **Premium** ) e a camada **Premium v2** (os endereços IP podem ser adicionados ou subtraídos do conjunto).
+- Dimensione seu aplicativo entre as camadas inferiores (**Basic**, **Standard** e **Premium**) e a camada **Premium v2** (os endereços IP podem ser adicionados ou subtraídos do conjunto).
 
 Você pode encontrar o conjunto de todos os endereços IP de saída possíveis que seu aplicativo pode usar, independentemente dos tipos de preço, procurando a `possibleOutboundIpAddresses` propriedade ou no campo **endereços IP de saída adicionais** na folha **Propriedades** no portal do Azure. Consulte [Localizar IPs de saída](#find-outbound-ips).
 

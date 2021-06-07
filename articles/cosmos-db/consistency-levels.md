@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347805"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800132"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Você pode configurar o nível de coerência padrão em sua conta do Azure Cosmo
 
 Azure Cosmos DB garante que 100 por cento das solicitações de leitura atendam à garantia de consistência para o nível de consistência escolhido. As definições precisas dos cinco níveis de consistência no Azure Cosmos DB usando a linguagem de especificação TLA + são fornecidas no repositório GitHub [Azure-Cosmos-TLA](https://github.com/Azure/azure-cosmos-tla) .
 
-A semântica dos cinco níveis de coerência é descrita aqui:
+A semântica dos cinco níveis de consistência é descrita nas seções a seguir.
 
-- **Forte**: a consistência forte oferece uma garantia transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
+### <a name="strong-consistency"></a>Coerência forte
+
+A coerência forte oferece uma garantia de transação atômica. Transação atômica refere-se ao fornecimento de solicitações simultaneamente. As leituras são garantidas para retornar a versão mais recente de um item. Um cliente nunca vê uma gravação não comprometida ou parcial. Os usuários sempre terão a garantia de ler a última gravação confirmada.
 
   O gráfico a seguir ilustra a forte consistência com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", ao ler os dados de outras regiões, você obtém o valor mais recente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustração do nível de consistência forte":::
 
-- Desatualização **limitada**: as leituras têm a garantia de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* , o que for atingido primeiro. Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras:
+### <a name="bounded-staleness-consistency"></a>Coerência de desatualização limitada
+
+Na consistência de desatualização limitada, as leituras são garantidas de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* , o que for atingido primeiro. Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras:
 
 - O número de versões (*K*) do item
 - As leituras de intervalo de tempo (*T*) podem atrasar por trás das gravações
@@ -79,7 +83,9 @@ Dentro da janela de desatualização, a desatualização limitada fornece as seg
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustração do nível de consistência de desatualização limitada":::
 
-- **Sessão**: em uma única sessão de cliente, as leituras têm a garantia de honrar as leituras de prefixo consistente, de monotônico, gravações de monotônico, leitura e gravação, e as garantias de Write-seguir-leituras. Isso pressupõe uma única sessão de "gravador" ou o compartilhamento do token de sessão para vários gravadores.
+### <a name="session-consistency"></a>Coerência de sessão
+
+Na consistência da sessão, as leituras de uma única sessão de cliente têm a garantia de honrar as leituras de prefixo consistente, monotônico, gravações de monotônico, leitura e gravação e leituras de escrita a seguir. Isso pressupõe uma única sessão de "gravador" ou o compartilhamento do token de sessão para vários gravadores.
 
 Os clientes fora da sessão que executam gravações verão as seguintes garantias:
 
@@ -92,7 +98,9 @@ Os clientes fora da sessão que executam gravações verão as seguintes garanti
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustração do nível de consistência da sessão":::
 
-- **Prefixo consistente**: as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
+### <a name="consistent-prefix-consistency"></a>Coerência de prefixo coerente
+
+Na opção de prefixo consistente, as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
 
 Se as gravações foram executadas na ordem `A, B, C` , um cliente vê `A` , `A,B` ou `A,B,C` , mas nunca permutações fora de ordem, como `A,C` ou `B,A,C` . O prefixo consistente fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparáveis à de consistência eventual, mas também fornece as garantias de ordem que atendem às necessidades dos cenários em que a ordem é importante.
 
@@ -107,7 +115,9 @@ O gráfico a seguir ilustra a consistência do prefixo de consistência com nota
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustração de um prefixo consistente":::
 
-- **Eventual**: não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
+### <a name="eventual-consistency"></a>Coerência eventual
+
+Em consistência eventual, não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
 A consistência eventual é a forma mais fraca de consistência, pois um cliente pode ler os valores mais antigos do que aqueles que tinha lido anteriormente. A consistência eventual é ideal quando o aplicativo não requer nenhuma garantia de ordenação. Os exemplos incluem a contagem de retweets, curtidos ou comentários não-threaded. O gráfico a seguir ilustra a consistência eventual com notas musicais.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration de consistência eventual":::

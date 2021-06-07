@@ -8,17 +8,98 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
-ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375554"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562215"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
-Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro) .
+
+__Feed RSS__: Receba uma notificação quando esta página for atualizada copiando e colando a seguinte URL em seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-03-08"></a>2021-03-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v 1.24.0
++ **Correções de bugs e melhorias**
+  + **azureml-automl-core**
+    + Removidas as importações compatíveis com versões anteriores do `azureml.automl.core.shared` . O módulo não encontrou erros no `azureml.automl.core.shared` namespace pode ser resolvido pela importação de `azureml.automl.runtime.shared` .
+  + **azureml-contrib-automl-DNN-Vision**
+    + Modelo de Yolo de detecção de objeto exposto.
+  + **azureml-contrib-dataset**
+    + Funcionalidade adicionada para filtrar conjuntos de tabelas de tabela por valores de coluna e conjuntos de arquivos de arquivo por metadados.
+  + **azureml-contrib-fairness**
+    + Incluir esquema JSON na roda para `azureml-contrib-fairness`
+  + **azureml-contrib-K8S**
+    + Agora, é necessário fornecer resource_id para anexar em vez do grupo de recursos e do nome do cluster.
+  + **azureml-contrib-Mir**
+    + Com a configuração show_output como true ao implantar modelos, a configuração de inferência e a configuração de implantação serão reproduzidas antes de enviar a solicitação ao servidor.
+  + **azureml-core**
+    + Funcionalidade adicionada para filtrar conjuntos de tabelas de tabela por valores de coluna e conjuntos de arquivos de arquivo por metadados.
+    + Anteriormente, era possível que os usuários criassem configurações de provisionamento para ComputeTarget que não satisfazem os requisitos de força de senha para o `admin_user_password` campo (ou seja, que eles devem conter pelo menos três dos seguintes: 1 letra minúscula, 1 letra maiúscula, 1 dígito e 1 caractere especial do seguinte conjunto: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?`` ). Se o usuário criou uma configuração com uma senha fraca e executou um trabalho usando essa configuração, o trabalho falha em tempo de execução. Agora, a chamada para `AmlCompute.provisioning_configuration` emitirá um `ComputeTargetException` com uma mensagem de erro que o acompanha, explicando os requisitos de força de senha. 
+    + Além disso, também era possível, em alguns casos, especificar uma configuração com um número negativo de nós máximos. Não é mais possível fazer isso. Agora, `AmlCompute.provisioning_configuration` gerará um `ComputeTargetException` se o `max_nodes` argumento for um inteiro negativo.
+    + Com a configuração show_output como true ao implantar modelos, a configuração de inferência e a configuração de implantação serão exibidas.
+    + Com a configuração show_output como true ao aguardar a conclusão da implantação do modelo, o progresso da operação de implantação será exibido.
+    + Permitir o diretório de configuração do AzureML auth especificado pelo cliente por meio da variável de ambiente: AZUREML_AUTH_CONFIG_DIR
+    + Anteriormente, era possível criar uma configuração de provisionamento com a contagem de nós mínima menor que a contagem máxima de nós. O trabalho seria executado, mas falha em tempo de execução. Esse bug agora foi corrigido. Se agora você tentar criar uma configuração de provisionamento com `min_nodes < max_nodes` o SDK, o irá gerar um `ComputeTargetException` .
+  + **azureml-interpret**
+    + corrigir o painel de explicação não mostrando as importâncias do recurso agregado para explicações de engenharia esparsa
+    + uso otimizado de memória do ExplanationClient no pacote azureml-interpret
+  + **azureml-train-automl-client**
+    +  Fixed show_output = false para retornar o controle ao usuário ao executar usando o Spark.
+
+## <a name="2021-02-28"></a>2021-02-28
+### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de fevereiro)
++ **Novos recursos**
+  + [Terminal nativo (GA)](./how-to-access-terminal.md). Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do terminal integrado.
+  + [Trechos de bloco de anotações (visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Trechos de código comuns do Azure ML agora estão disponíveis ao seu alcance. Navegue até o painel trechos de código, acessível por meio da barra de ferramentas ou ative o menu de trechos no código usando Ctrl + espaço.  
+  + [Atalhos de teclado](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Paridade completa com atalhos de teclado disponíveis no Jupyter. 
+  + Indicar parâmetros de célula. Mostra os usuários quais células em um bloco de anotações são células de parâmetro e podem executar blocos de anotações com parâmetros via [Papermill](https://github.com/nteract/papermill) na instância de computação.
+  + Gerenciador de sessão de terminal e kernel: os usuários poderão gerenciar todos os kernels e sessões de terminal em execução em sua computação.
+  + Botão de compartilhamento. Agora, os usuários podem compartilhar qualquer arquivo no explorador de arquivos do bloco de anotações clicando com o botão direito do mouse no arquivo e usando o botão compartilhar.
+
+
++ **Correções de bugs e melhorias**
+  + Tempos de carregamento de página aprimorados
+  + desempenho aprimorado 
+  + Velocidade aprimorada e confiabilidade do kernel
+  + Roda giratória adicionada para mostrar o progresso de todas as [operações de instância de computação](./how-to-run-jupyter-notebooks.md#status-indicators)em andamento.
+  + Clique com o botão direito do mouse no explorador de arquivos. Clicar com o botão direito do mouse em qualquer arquivo agora abrirá as operações de arquivo. 
+
+
+## <a name="2021-02-16"></a>2021-02-16
+
+### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK para Python v 1.23.0
++ **Correções de bugs e melhorias**
+  + **azureml-core**
+    + [Recurso experimental] Adicionar suporte para vincular o espaço de trabalho Synapse ao AML como um serviço vinculado
+    + [Recurso experimental] Adicionar suporte para anexar o pool do Synapse Spark ao AML como uma computação
+    + [Recurso experimental] Adicione suporte para acesso a dados com base em identidade. Os usuários podem registrar datastore ou conjuntos de registros sem fornecer credenciais. Nesse caso, o token do AAD dos usuários ou a identidade gerenciada do destino de computação serão usados para autenticação. Saiba mais [aqui](./how-to-identity-based-data-access.md).
+  + **azureml-pipeline-steps**
+    + [Recurso experimental] Adicionar suporte para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
+  + **azureml-synapse**
+    + [Recurso experimental] Adicione suporte da Magic Spark para executar sessão interativa no pool do Synapse Spark.
++ **Correções de bugs e melhorias**
+  + **azureml-automl-runtime**
+    + Nessa atualização, adicionamos a suavização exponencial de Holt de inverno à caixa de ferramentas de previsão do SDK do AutoML. Dada uma série temporal, o melhor modelo é selecionado por [AICc (critério de informações do Akaike corrigido)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e retornado.
+    + O AutoML agora irá gerar dois arquivos de log em vez de um. As instruções de log vão para uma ou outra, dependendo de qual processo a instrução de log foi gerada.
+    + Remova a previsão em amostra desnecessária durante o treinamento do modelo com validações cruzadas. Isso pode diminuir o tempo de treinamento do modelo em alguns casos, especialmente para modelos de previsão de série temporal.
+  + **azureml-contrib-fairness**
+    + Adicione um esquema JSON para os carregamentos de dashboardDictionary.
+  + **azureml-contrib-interpret**
+    + o LEIAme do azureml-contrib-interpret é atualizado para refletir que o pacote será removido na próxima atualização depois de ser preterido desde outubro, use o pacote azureml-interprete em vez disso
+  + **azureml-core**
+    + Anteriormente, era possível criar uma configuração de provisionamento com a contagem de nós mínima menor que a contagem máxima de nós. Agora, isso foi corrigido. Se agora você tentar criar uma configuração de provisionamento com `min_nodes < max_nodes` o SDK, o irá gerar um `ComputeTargetException` .
+    +  Corrige o bug em wait_for_completion no AmlCompute que fez com que a função retornasse o fluxo de controle antes que a operação fosse realmente concluída
+    + Execute. Fail () agora está preterido, use Run. Tag () para marcar executar como com falha ou use execute. Cancel () para marcar a execução como cancelada.
+    + Mostrar mensagem de erro ' nome do ambiente esperado Str, {} encontrado ' quando o nome do ambiente fornecido não for uma cadeia de caracteres.
+  + **azureml-train-automl-client**
+    + Correção de um bug que impedia experimentos AutoML executados em Azure Databricks clusters sejam cancelados.
 
 
 ## <a name="2021-02-09"></a>2021-02-09
@@ -31,10 +112,10 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
     + Corrigido um bug em que modelos de previsão clássicas (por exemplo, AutoArima) poderiam receber dados de treinamento em que as linhas com valores de destino imputados não estavam presentes. Isso violou o contrato de dados desses modelos. * Corrigido vários bugs com o comportamento de atraso por ocorrência no operador de retardo da série temporal. Anteriormente, a operação de latência por ocorrência não marcou todas as linhas imputados corretamente e, portanto, nem sempre geraria os valores de retardo de ocorrência corretos. Também corrigidos alguns problemas de compatibilidade entre o operador de latência e o operador de janela sem interrupção com comportamento de latência por ocorrência. Isso resultou anteriormente no operador de janela sem interrupção, descartando algumas linhas dos dados de treinamento que deveria usar de outra forma.
   + **azureml-core**
     + Adicionando suporte para autenticação de token por público.
-    + Adicione `process_count` ao [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para dar suporte a trabalhos de PyTorch de vários nós de vários processos.
+    + Adicione `process_count` ao [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) para dar suporte a trabalhos de PyTorch de vários nós de vários processos.
   + **azureml-pipeline-steps**
-    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) agora GA e não mais experimental.
-    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): Adicione o argumento allowed_failed_count e allowed_failed_percent para verificar o limite de erros no mini nível do lote. O limite de erros tem 3 tipos agora:
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep) agora GA e não mais experimental.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig): Adicione o argumento allowed_failed_count e allowed_failed_percent para verificar o limite de erros no mini nível do lote. O limite de erros tem 3 tipos agora:
        + error_threshold-o número de itens de mini-lote permitidos com falha; 
        + allowed_failed_count-o número de mini lotes permitidos com falha; 
        + allowed_failed_percent-o percentual de mini lotes permitidos com falha. 
@@ -44,7 +125,7 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
     + O ScriptRunConfig agora tem suporte do HyperDriveStep
   + **azureml-train-core**
     + HyperDrive execuções invocadas de um ScriptRun agora serão consideradas uma execução filho.
-    + Adicione `process_count` ao [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para dar suporte a trabalhos de PyTorch de vários nós de vários processos.
+    + Adicione `process_count` ao [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) para dar suporte a trabalhos de PyTorch de vários nós de vários processos.
   + **azureml-widgets**
     + Adicione o widget ParallelRunStepDetails para visualizar o status de um ParallelRunStep.
     + Permite que os usuários do hyperdrive vejam um eixo adicional no gráfico de coordenadas paralelas que mostra o valor da métrica correspondente a cada conjunto de hiperparâmetros para cada execução filho.
@@ -54,11 +135,11 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de Janeiro)
 + **Novos recursos**
   + Editor de redução nativa no AzureML. Agora, os usuários podem renderizar e editar arquivos de redução nativamente no AzureML Studio.
-  + [Botão Executar para scripts (. py,. R e. sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Agora, os usuários podem executar o script Python, R e bash no AzureML
-  + [Gerenciador de variáveis](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Explore o conteúdo de variáveis e quadros de dados em um painel pop-up. Os usuários podem verificar facilmente o tipo de dados, o tamanho e o conteúdo.
-  + [Tabela de conteúdo](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Navegue até as seções do seu bloco de anotações, indicadas por cabeçalhos de redução.
+  + [Botão Executar para scripts (. py,. R e. sh)](./how-to-run-jupyter-notebooks.md#run-a-notebook-or-python-script). Agora, os usuários podem executar o script Python, R e bash no AzureML
+  + [Gerenciador de variáveis](./how-to-run-jupyter-notebooks.md#explore-variables-in-the-notebook). Explore o conteúdo de variáveis e quadros de dados em um painel pop-up. Os usuários podem verificar facilmente o tipo de dados, o tamanho e o conteúdo.
+  + [Tabela de conteúdo](./how-to-run-jupyter-notebooks.md#navigate-with-a-toc). Navegue até as seções do seu bloco de anotações, indicadas por cabeçalhos de redução.
   + Exporte seu bloco de anotações como LaTeX/HTML/py. Crie arquivos de bloco de anotações fáceis de compartilhar exportando para LaTex, HTML ou. py
-  + Intellicode. Os resultados com base no ML fornecem uma [experiência de autocompletação inteligente](https://docs.microsoft.com/visualstudio/intellicode/overview)aprimorada.
+  + Intellicode. Os resultados com base no ML fornecem uma [experiência de autocompletação inteligente](/visualstudio/intellicode/overview)aprimorada.
 
 + **Correções de bugs e melhorias**
   + Tempos de carregamento de página aprimorados
@@ -405,7 +486,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK para Python v 1.13.0
 + **Versão prévia dos recursos**
-  + **azureml-núcleo** Com a nova funcionalidade de conjuntos de novos de saída, você pode fazer write-back para o armazenamento em nuvem, incluindo BLOB, ADLS Gen 1, ADLS Gen 2 e FileShare. Você pode configurar o local de saída de dados, como gerar dados de saída (via montagem ou carregamento), se deseja registrar os dados de saída para futura reutilização e compartilhamento e passar dados intermediários entre as etapas do pipeline diretamente. Isso permite que o reprodução, o compartilhamento, impeça a duplicação de dados e resulte em eficiência de custo e ganhos de produtividade. [Saiba como usá-lo](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py)
+  + **azureml-núcleo** Com a nova funcionalidade de conjuntos de novos de saída, você pode fazer write-back para o armazenamento em nuvem, incluindo BLOB, ADLS Gen 1, ADLS Gen 2 e FileShare. Você pode configurar o local de saída de dados, como gerar dados de saída (via montagem ou carregamento), se deseja registrar os dados de saída para futura reutilização e compartilhamento e passar dados intermediários entre as etapas do pipeline diretamente. Isso permite que o reprodução, o compartilhamento, impeça a duplicação de dados e resulte em eficiência de custo e ganhos de produtividade. [Saiba como usá-lo](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig)
     
 + **Correções de bugs e melhorias**
   + **azureml-automl-core**
@@ -479,7 +560,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
   + **azureml-core**
     + Um novo método `run.get_detailed_status()` agora mostra a explicação detalhada do status de execução atual. No momento, ele só mostra a explicação do `Queued` status.
     + Adicione image_name e image_label parâmetros a Model. Package () para habilitar a renomeação da imagem do pacote compilado.
-    + Novo método `set_pip_requirements()` para definir a seção Pip inteira [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?preserve-view=true&view=azure-ml-py) ao mesmo tempo.
+    + Novo método `set_pip_requirements()` para definir a seção Pip inteira [`CondaDependencies`](/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies) ao mesmo tempo.
     + Habilitar o registro de repositório de armazenamento de ADLS Gen2 com menos credenciais.
     + Mensagem de erro aprimorada ao tentar baixar ou montar um tipo de conjunto de texto incorreto.
     + Atualize o bloco de anotações de exemplo de filtro de conjunto de teste de série temporal com mais exemplos de partition_timestamp que fornece otimização de filtro.
@@ -504,7 +585,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
     + Correção de problemas de instantâneo ao enviar execuções do AutoML sem scripts fornecidos pelo usuário.
     + Correção de falhas de execução de filhos quando os dados contêm Nan e personalização são desativados.
   + **azureml-train-core**
-    + Suporte adicionado para especificar opções de PIP (por exemplo,--extra-index-URL) no arquivo de requisitos Pip passado para um [`Estimator`](/python/api/azureml-train-core/azureml.train.estimator.estimator?preserve-view=true&view=azure-ml-py) parâmetro por meio de `pip_requirements_file` .
+    + Suporte adicionado para especificar opções de PIP (por exemplo,--extra-index-URL) no arquivo de requisitos Pip passado para um [`Estimator`](/python/api/azureml-train-core/azureml.train.estimator.estimator) parâmetro por meio de `pip_requirements_file` .
 
 
 ## <a name="2020-08-03"></a>2020-08-03
@@ -952,7 +1033,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
 ## <a name="2020-05-04"></a>2020-05-04
 **Nova experiência de notebook**
 
-Agora você pode criar, editar e compartilhar arquivos e blocos de anotações do Machine Learning diretamente dentro da experiência da Web do estúdio do Azure Machine Learning. Você pode usar todas as classes e os métodos disponíveis em [Azure Machine Learning SDK do Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) de dentro desses notebooks comece [aqui](./how-to-run-jupyter-notebooks.md)
+Agora você pode criar, editar e compartilhar arquivos e blocos de anotações do Machine Learning diretamente dentro da experiência da Web do estúdio do Azure Machine Learning. Você pode usar todas as classes e os métodos disponíveis em [Azure Machine Learning SDK do Python](/python/api/overview/azure/ml/intro) de dentro desses notebooks comece [aqui](./how-to-run-jupyter-notebooks.md)
 
 **Novos recursos introduzidos:**
 
@@ -971,7 +1052,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Descrição  |
+| Ferramenta baseada na Web  |     Description  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1323,7 +1404,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Mensagens de substituição adicionadas para todos os caminhos de código de classe de imagem
     + A construção de URL de Gerenciamento de Modelos fixa para a região da 21Vianet do Azure China.
     + Correção do problema em que os modelos que usam source_dir não puderam ser empacotados para Azure Functions.    
-    + Adicionada uma opção para [Environment.build_local ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) para enviar uma imagem para o registro de contêiner do espaço de trabalho do AzureML
+    + Adicionada uma opção para [Environment.build_local ()](/python/api/azureml-core/azureml.core.environment.environment) para enviar uma imagem para o registro de contêiner do espaço de trabalho do AzureML
     + O SDK foi atualizado para usar a nova biblioteca de tokens no Azure Synapse de forma compatível.
   + **azureml-interpret**
     + Corrigido o bug onde nenhum foi retornado quando nenhuma explicação estava disponível para download. Agora gera uma exceção, correspondendo ao comportamento em outro lugar.
@@ -1483,7 +1564,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | 
+| Ferramenta baseada na Web | Description | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 
@@ -1702,7 +1783,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
       + O parâmetro ' daily_latest_only ' foi preterido.
     + Suporte à recuperação de saídas de descompasso de dados baseados em DataSet.
   + **azureml-explain-model**
-    + Adicionar suporte para [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py&preserve-view=true) a ser criado diretamente usando MimicWrapper
+    + Adicionar suporte para [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer) a ser criado diretamente usando MimicWrapper
   + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
     + Desempenho aprimorado para criação de pipeline grande.
   + **[azureml-train-core](/python/api/azureml-train-core)**
@@ -2285,7 +2366,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 
 Azure Machine Learning SDK para Python v 1.0.30 lançado.
 
-O [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?preserve-view=true&view=azure-ml-py) foi introduzido para adicionar uma nova versão de um pipeline publicado enquanto mantém o mesmo ponto de extremidade.
+O [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint) foi introduzido para adicionar uma nova versão de um pipeline publicado enquanto mantém o mesmo ponto de extremidade.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
@@ -2302,7 +2383,7 @@ O [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.p
 + **Novos recursos**
   + O SDK do Azure Machine Learning agora dá suporte ao Python 3,7.
   + Azure Machine Learning os estimadores DNN agora fornecem suporte interno a várias versões. Por exemplo, `TensorFlow` o estimador agora aceita um `framework_version` parâmetro e os usuários podem especificar a versão ' 1,10 ' ou ' 1,12 '. Para obter uma lista das versões com suporte na versão atual do SDK, chame `get_supported_versions()` na classe da estrutura desejada (por exemplo, `TensorFlow.get_supported_versions()` ).
-  Para obter uma lista das versões com suporte da versão mais recente do SDK, consulte a [documentação do estimador do DNN](/python/api/azureml-train-core/azureml.train.dnn?preserve-view=true&view=azure-ml-py).
+  Para obter uma lista das versões com suporte da versão mais recente do SDK, consulte a [documentação do estimador do DNN](/python/api/azureml-train-core/azureml.train.dnn).
 
 ## <a name="2019-03-25"></a>25-03-2019
 
@@ -2339,13 +2420,13 @@ O [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core.p
 ### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK para Python v 1.0.17
 
 + **Novos recursos**
-  + Azure Machine Learning agora fornece suporte de primeira classe para o DNN Framework popular. Usar [`Chainer`](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py) usuários de classe pode facilmente treinar e implantar modelos de encadeamento.
+  + Azure Machine Learning agora fornece suporte de primeira classe para o DNN Framework popular. Usar [`Chainer`](/python/api/azureml-train-core/azureml.train.dnn.chainer) usuários de classe pode facilmente treinar e implantar modelos de encadeamento.
     + Saiba como [executar o treinamento distribuído com o ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Saiba como [executar o ajuste de hiperparâmetro com o encadeamento usando hyperdrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning pipelines adicionou a capacidade de disparar uma execução de pipeline com base nas modificações do repositório de armazenamento. O [notebook de agendamento](https://aka.ms/pl-schedule) de pipeline é atualizado para demonstrar esse recurso.
 
 + **Correções de bugs e melhorias**
-  + Adicionamos suporte em pipelines de Azure Machine Learning para definir a propriedade source_directory_data_store para um armazenamento de um repositório desejado (como um armazenamento de BLOBs) no [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) que são fornecidos para o [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py). Por padrão, as etapas usam o repositório de arquivos do Azure como o repositório de armazenamento de backup, que pode ter problemas de limitação quando um grande número de etapas é executado simultaneamente.
+  + Adicionamos suporte em pipelines de Azure Machine Learning para definir a propriedade source_directory_data_store para um armazenamento de um repositório desejado (como um armazenamento de BLOBs) no [RunConfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration) que são fornecidos para o [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep). Por padrão, as etapas usam o repositório de arquivos do Azure como o repositório de armazenamento de backup, que pode ter problemas de limitação quando um grande número de etapas é executado simultaneamente.
 
 ### <a name="azure-portal"></a>Portal do Azure
 

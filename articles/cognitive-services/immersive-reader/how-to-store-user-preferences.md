@@ -6,21 +6,21 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: metang
-ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 16ecd2166604d29fbc2242229f625b30ffd684e5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636537"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617685"
 ---
 # <a name="how-to-store-user-preferences"></a>Como armazenar as preferências do usuário
 
-Este artigo demonstra como armazenar as configurações de interface do usuário, formalmente conhecidas como **preferências do usuário** , por meio das opções do SDK do leitor de imersão de leitura [-preferências](./reference.md#options) e [-Preferences](./reference.md#options) .
+Este artigo demonstra como armazenar as configurações de interface do usuário, formalmente conhecidas como **preferências do usuário**, por meio das opções do SDK do leitor de imersão de leitura [-preferências](./reference.md#options) e [-Preferences](./reference.md#options) .
 
-Quando a opção SDK do [CookiePolicy](./reference.md#cookiepolicy-options) é definida como *habilitada* , o aplicativo de leitor de imersão armazena as **preferências do usuário** (tamanho do texto, cor do tema, fonte e assim por diante) em cookies, que são locais para um dispositivo e navegador específicos. Cada vez que o usuário inicia o leitor de imersão no mesmo navegador e dispositivo, ele será aberto com as preferências do usuário de sua última sessão nesse dispositivo. No entanto, se o usuário abrir o leitor de imersão em um dispositivo ou navegador diferente, as configurações serão inicialmente definidas com as configurações padrão do leitor de imersão e o usuário precisará definir suas preferências novamente e assim por diante para cada dispositivo que usar. As `-preferences` `-onPreferencesChanged` Opções do SDK do leitor de imersão fornecem uma maneira para que os aplicativos movimentem as preferências de um usuário em vários navegadores e dispositivos, para que o usuário tenha uma experiência consistente onde quer que use o aplicativo.
+Quando a opção SDK do [CookiePolicy](./reference.md#cookiepolicy-options) é definida como *habilitada*, o aplicativo de leitor de imersão armazena as **preferências do usuário** (tamanho do texto, cor do tema, fonte e assim por diante) em cookies, que são locais para um dispositivo e navegador específicos. Cada vez que o usuário inicia o leitor de imersão no mesmo navegador e dispositivo, ele será aberto com as preferências do usuário de sua última sessão nesse dispositivo. No entanto, se o usuário abrir o leitor de imersão em um dispositivo ou navegador diferente, as configurações serão inicialmente definidas com as configurações padrão do leitor de imersão e o usuário precisará definir suas preferências novamente e assim por diante para cada dispositivo que usar. As `-preferences` `-onPreferencesChanged` Opções do SDK do leitor de imersão fornecem uma maneira para que os aplicativos movimentem as preferências de um usuário em vários navegadores e dispositivos, para que o usuário tenha uma experiência consistente onde quer que use o aplicativo.
 
 Primeiro, ao fornecer a `-onPreferencesChanged` opção de SDK de retorno de chamada ao iniciar o aplicativo de leitor de imersão, o leitor de imersão enviará uma cadeia de `-preferences` caracteres de volta ao aplicativo host sempre que o usuário alterar suas preferências durante a sessão do leitor de imersão. O aplicativo host é então responsável por armazenar as preferências do usuário em seu próprio sistema. Em seguida, quando o mesmo usuário inicia o leitor de imersão novamente, o aplicativo host pode recuperar as preferências desse usuário do armazenamento e fornecê-las como a `-preferences` opção de SDK de cadeia de caracteres ao iniciar o aplicativo de leitura imersiva, para que as preferências do usuário sejam restauradas.
 

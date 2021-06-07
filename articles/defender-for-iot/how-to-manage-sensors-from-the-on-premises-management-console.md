@@ -1,18 +1,14 @@
 ---
 title: Gerenciar sensores do console de gerenciamento local
 description: Saiba como gerenciar sensores do console de gerenciamento do, incluindo a atualização de versões do sensor, o envio de configurações do sistema para sensores e a habilitação e a desabilitação de mecanismos em sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523950"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781918"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerenciar sensores do console de gerenciamento
 
@@ -72,7 +68,7 @@ Você pode atualizar vários sensores simultaneamente no console de gerenciament
 
 Para atualizar vários sensores:
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Vá para Azure defender para IoT.
 
@@ -315,6 +311,6 @@ Para configurar um servidor SMB para que você possa salvar um backup de sensor 
 
 9. Defina `Backup.shared_location` como `<backup_folder_name_on_cyberx_server>`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Gerenciar sensores individuais](how-to-manage-individual-sensors.md)

@@ -9,10 +9,10 @@ ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7c7baf4de56edd25537f93095bfa6ae0402214e2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93073166"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Exemplos da CLI do Azure para a API do Azure Cosmos DB Core (SQL)

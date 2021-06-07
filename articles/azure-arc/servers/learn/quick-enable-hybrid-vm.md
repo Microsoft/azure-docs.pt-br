@@ -3,14 +3,14 @@ title: Conectar o computador híbrido com os servidores habilitados para Azure A
 description: Saiba como se conectar e registrar o seu computador híbrido com os servidores habilitados para Azure Arc.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516793"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101646819"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Início Rápido: Conectar o computador híbrido com os servidores habilitados para Azure Arc
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Início Rápido: Conectar computadores híbridos com os servidores habilitados para Azure Arc
 
 [Os servidores habilitados para Azure Arc](../overview.md) permitem que você gerencie e controle os computadores Windows e Linux hospedados em ambientes locais, de borda e de várias nuvens. Neste guia de início rápido, você vai implantar e configurar o agente do Connected Machine no seu computador Windows ou Linux hospedado fora do Azure para gerenciamento por servidores habilitados para Arc.
 

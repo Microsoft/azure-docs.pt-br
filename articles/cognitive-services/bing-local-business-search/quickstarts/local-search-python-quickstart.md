@@ -4,24 +4,26 @@ titleSuffix: Azure Cognitive Services
 description: Use este início rápido para começar a usar a API de Pesquisa de Negócios Locais do Bing em Python.
 services: cognitive-services
 author: aahill
+ms.author: aahi
 manager: nitinme
+ms.date: 05/12/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: bing-local-business
-ms.topic: quickstart
-ms.date: 05/12/2020
-ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: a6d2ed78c97e247bafefa957cddd777cc127fe6f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: adbf3d9abddf01ba67046cfa433ffd46f713ff83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493246"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536669"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Início Rápido: Enviar uma consulta para a API de Pesquisa de Empresas Locais do Bing no Python
 
 > [!WARNING]
-> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisaram ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> As APIs de Pesquisa do Bing estão migrando dos Serviços Cognitivos para os Serviços de Pesquisa do Bing. A partir de **30 de outubro de 2020**, todas as novas instâncias da Pesquisa do Bing precisam ser provisionadas seguindo o processo documentado [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > As APIs de Pesquisa do Bing provisionadas por meio dos Serviços Cognitivos terão suporte nos próximos três anos ou até o final do seu Contrato Enterprise, o que ocorrer primeiro.
 > Para obter instruções sobre a migração, confira [Serviços de Pesquisa do Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
@@ -33,7 +35,7 @@ Este aplicativo de exemplo obtém dados de resposta local da API para uma consul
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * [Python](https://www.python.org/) 2.x ou 3.x.
-* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 
 ## <a name="run-the-complete-application"></a>Execute o aplicativo concluído
 

@@ -1,19 +1,21 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 – Python'
 description: Saiba como usar a biblioteca de clientes do Armazenamento de Filas do Azure v12 para Python para criar uma fila e adicionar mensagens a ela. Depois, descubra como ler e excluir mensagens da fila. Você também aprenderá a excluir uma fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-python
-ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 68f68c32b160757e82d59b1dd5ee4847a06ec698
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585489"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534357"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 para Python
 
@@ -40,7 +42,7 @@ Recursos adicionais:
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - Conta de armazenamento do Azure - [criar uma conta de armazenamento](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) para seu sistema operacional – 2.7, 3.5 ou superior
+- Ter o [Python](https://www.python.org/downloads/) 2.7 ou 3.6+ em seu sistema operacional
 
 ## <a name="setting-up"></a>Configurando
 

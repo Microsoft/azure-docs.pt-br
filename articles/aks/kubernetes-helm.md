@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.author: zarhoads
 ms.openlocfilehash: f12dffe0b538738a8f6dd00cd3d87d44da828f21
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96779160"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos existentes com o Helm no serviço kubernetes do Azure (AKS)

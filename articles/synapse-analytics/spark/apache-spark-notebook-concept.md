@@ -10,10 +10,10 @@ ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
 ms.openlocfilehash: 5efdfcea7b6d727038bad124368179b9395bfafd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093270"
 ---
 # <a name="azure-synapse-analytics-notebooks"></a>Blocos de anotações do Azure Synapse Analytics

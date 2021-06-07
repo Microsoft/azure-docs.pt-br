@@ -9,10 +9,10 @@ ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015684"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
@@ -351,7 +351,7 @@ Uma [atualização de política de indexação](index-policy.md#modifying-the-in
 > [!NOTE]
 > Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Saiba mais sobre as [transformações de indexação](index-policy.md#modifying-the-indexing-policy)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Contêineres do Azure Cosmos armazenam sua política de indexação como um documento JSON que o portal do Azure lhe permite editar diretamente.
 

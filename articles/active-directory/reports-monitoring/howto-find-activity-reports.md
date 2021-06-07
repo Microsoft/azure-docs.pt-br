@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013013"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
@@ -79,7 +79,7 @@ Os serviços incluem:
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso Condicional
+- Acesso condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Identity Protection

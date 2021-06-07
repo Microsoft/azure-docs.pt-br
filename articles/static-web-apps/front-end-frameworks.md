@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
 ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97901225"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar estruturas e bibliotecas de front-end com a visualização de aplicativos Web estáticos do Azure
@@ -33,30 +33,30 @@ A intenção das colunas da tabela é explicada pelos seguintes itens:
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a <sup>2</sup> |
 | [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
 | [Universal angular](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
-| [Aurelia](https://aurelia.io/) | `dist` | n/a |
-| [Backbone.js](https://backbonejs.org/) | `/` | n/a |
-| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | n/a |
-| [Ember](https://emberjs.com/) | `dist` | n/a |
+| [Aurelia](https://aurelia.io/) | `dist` | N/D |
+| [Backbone.js](https://backbonejs.org/) | `/` | N/D |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | N/D |
+| [Ember](https://emberjs.com/) | `dist` | N/D |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
-| [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
-| [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
-| [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
-| [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a |
-| [jQuery](https://jquery.com/) | `/` | n/a |
-| [KnockoutJS](https://knockoutjs.com/) | `dist` | n/a |
-| [LitElement](https://lit-element.polymer-project.org/) | `dist` | n/a |
-| [Marko](https://markojs.com/) | `public` | n/a |
-| [Meteoro](https://www.meteor.com/) | `bundle` | n/a |
-| [Mithril](https://mithril.js.org/) | `dist` | n/a |
-| [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
-| [Preact](https://preactjs.com/) | `build` | n/a |
-| [React](https://reactjs.org/) | `build` | n/a |
-| [Stencil](https://stenciljs.com/) | `www` | n/a |
-| [Svelte](https://svelte.dev/) | `public` | n/a |
-| [Three.js](https://threejs.org/) | `/` | n/a |
-| [TypeScript](https://www.typescriptlang.org/) | `dist` | n/a |
-| [Vue.js](https://vuejs.org/) | `dist` | n/a |
+| [Glimmer](https://glimmerjs.com/) | `dist` | N/D |
+| [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | N/D |
+| [Hyperapp](https://hyperapp.dev/) | `/` | N/D |
+| [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | N/D |
+| [jQuery](https://jquery.com/) | `/` | N/D |
+| [KnockoutJS](https://knockoutjs.com/) | `dist` | N/D |
+| [LitElement](https://lit-element.polymer-project.org/) | `dist` | N/D |
+| [Marko](https://markojs.com/) | `public` | N/D |
+| [Meteoro](https://www.meteor.com/) | `bundle` | N/D |
+| [Mithril](https://mithril.js.org/) | `dist` | N/D |
+| [Polymer](https://www.polymer-project.org/) | `build/default` | N/D |
+| [Preact](https://preactjs.com/) | `build` | N/D |
+| [React](https://reactjs.org/) | `build` | N/D |
+| [Stencil](https://stenciljs.com/) | `www` | N/D |
+| [Svelte](https://svelte.dev/) | `public` | N/D |
+| [Three.js](https://threejs.org/) | `/` | N/D |
+| [TypeScript](https://www.typescriptlang.org/) | `dist` | N/D |
+| [Vue.js](https://vuejs.org/) | `dist` | N/D |
 
 <sup>1</sup> a tabela acima não deve ser uma lista completa de estruturas e bibliotecas que funcionam com aplicativos Web estáticos do Azure.
 

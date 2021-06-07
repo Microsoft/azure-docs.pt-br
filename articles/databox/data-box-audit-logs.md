@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209240"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Logs de auditoria para seu Azure Data Box e Azure Data Box Heavy
@@ -65,9 +65,9 @@ As seguintes IDs de evento de log de segurança são coletadas como logs de audi
 
 As IDs de evento de log de aplicativo a seguir são coletadas como parte dos logs de auditoria de pacote no seu Data Box.     
 
-- **Microsoft-Azure-data Box-OOBE-Auditing** -contém os eventos que ocorrem na interface do usuário local. 
+- **Microsoft-Azure-data Box-OOBE-Auditing** -contém os eventos que ocorrem na interface do usuário local. 
 - **Microsoft-Azure-data Box-reprovision-Audit** -contém eventos relacionados ao reprovisionamento do dispositivo data box. O reprovisionamento do Data Box ocorre quando o dispositivo é redefinido por meio da interface do usuário local. Você escolhe essa opção quando deseja apagar os dados copiados removendo os compartilhamentos existentes e recriando os compartilhamentos como parte do reprovisionamento ou da redefinição do dispositivo.
-- **Microsoft-Azure-data Box-HcsMgmt-Audit** -contém eventos relacionados somente à etapa **preparar para enviar** antes que o dispositivo seja enviado de volta para o datacenter do Azure. 
+- **Microsoft-Azure-data Box-HcsMgmt-Audit** -contém eventos relacionados somente à etapa **preparar para enviar** antes que o dispositivo seja enviado de volta para o datacenter do Azure. 
 - **Microsoft-Azure-data Box-IfxAudit** -contém as mensagens registradas por diferentes entidades do produto sobre os trabalhos, logs que indicam mais informações sobre o que está acontecendo em alguns dos fluxos.
 
 Aqui está uma tabela que resume os vários provedores de eventos e as IDs de evento correspondentes que são coletadas em cada caso.

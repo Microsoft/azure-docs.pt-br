@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7f4903cf29f15132db91e47d78efe5a556efd937
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340236"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com Azure Cosmos DB e Azure Functions
@@ -31,8 +31,8 @@ Com o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-b
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
-* **O contêiner monitorado** : o contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
-* **O contêiner de concessão** : o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os contêineres de concessão particionados devem ter uma `/id` definição de chave de partição.
+* **O contêiner monitorado**: o contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
+* **O contêiner de concessão**: o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os contêineres de concessão particionados devem ter uma `/id` definição de chave de partição.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Criar seu gatilho de Azure Functions para Cosmos DB
 

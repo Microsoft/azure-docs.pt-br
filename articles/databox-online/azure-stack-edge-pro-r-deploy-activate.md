@@ -6,21 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2020
+ms.date: 02/23/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: c1408c25ea7e5d805d17e084899b0ffeb6cfec28
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2908f9c3cb39debed4f5a1bea38d15ccf6a22822
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463375"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059948"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-r-device"></a>Tutorial: Ativar dispositivo Azure Stack Edge Pro R
 
 Este tutorial descreve como você pode ativar o dispositivo Azure Stack Edge Pro R usando a IU da Web local.
 
-O processo de ativação pode levar cerca de cinco minutos para ser concluído.
+O processo de ativação pode levar cerca de cinco minutos para ser concluído.  
 
 Neste tutorial, você aprendeu a:
 
@@ -108,4 +107,4 @@ Neste tutorial, você aprendeu a:
 Para saber como transferir dados com o seu dispositivo Azure Stack Edge Pro R, confira:
 
 > [!div class="nextstepaction"]
-> [Transferir dados com o Azure Stack Edge Pro R](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transferir dados com o Azure Stack Edge Pro R](./azure-stack-edge-gpu-deploy-add-shares.md)

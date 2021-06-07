@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100098088"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
@@ -46,7 +46,7 @@ Armazenamentos de dados de rastreamento de indexadores no Azure.
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Instância Gerenciada de SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-+ [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
++ [SQL Server em Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 Conexões de indexador para fontes de dados remotas podem ser feitas usando conexões de Internet padrão (públicas) ou conexões privadas criptografadas quando você usa redes virtuais do Azure para aplicativos cliente. Você também pode configurar conexões para autenticar usando uma identidade de serviço confiável. Para obter mais informações sobre conexões seguras, consulte [concedendo acesso por meio de pontos de extremidade privados](search-indexer-securing-resources.md#granting-access-via-private-endpoints) e [conectar-se a uma fonte de dados usando uma identidade gerenciada](search-howto-managed-identities-data-sources.md).
 

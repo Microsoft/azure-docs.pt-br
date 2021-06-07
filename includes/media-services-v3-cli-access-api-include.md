@@ -9,10 +9,10 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: 9a9aaf723b7b89b5b9c5611cea05c22c4003b99a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92755333"
 ---
 ### <a name="access-the-media-services-api"></a>Instalar a API de Serviços de Mídia

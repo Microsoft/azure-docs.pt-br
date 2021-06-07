@@ -4,10 +4,10 @@ description: Neste tutorial, você criará um laboratório no Azure DevTest Labs
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91324273"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório usando o Azure DevTest Labs
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 As etapas a seguir ilustram como usar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No menu principal no lado esquerdo, selecione **Criar um recurso** (na parte superior da lista), aponte para **Ferramentas de desenvolvedor**e clique em **DevTest Labs**. 
+2. No menu principal no lado esquerdo, selecione **Criar um recurso** (na parte superior da lista), aponte para **Ferramentas de desenvolvedor** e clique em **DevTest Labs**. 
 
     ![Menu novo DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 1. Na janela **Criar um DevTest Lab**, execute as seguintes ações: 

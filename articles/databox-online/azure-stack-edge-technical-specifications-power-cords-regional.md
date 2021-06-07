@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 18de1f445990f167041c755aa5e7d909819319b1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446457"
 ---
 # <a name="azure-stack-edge-pro-power-cord-specifications"></a>Especificações do Azure Stack Power cabo pro Edge

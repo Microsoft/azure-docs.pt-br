@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: e2d89718d953f05b3e5500db412ac8ac03bfa00b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: c6152d4b9ee28554efcb5b08b7a2d161a0723852
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301943"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670897"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação de desastre automatizada usando o Azure Site Recovery para compartilhamentos de arquivos hospedados no StorSimple
 
@@ -44,7 +44,7 @@ A implementação de uma solução de recuperação de desastre de um clique, qu
    - Dispositivo de armazenamento do StorSimple local registrado com o Azure StorSimple Manager
    - Dispositivo de Nuvem StorSimple criado no gerenciador do Azure StorSimple. O dispositivo pode ser mantido em um estado de desligamento.
    - Compartilhamentos de arquivos hospedados em volumes configurados no dispositivo de armazenamento do StorSimple
-   - [Cofre de serviços do Azure Site Recovery](/azure/site-recovery/hyper-v-vmm-azure-tutorial) criado em uma assinatura do Microsoft Azure
+   - [Cofre de serviços do Azure Site Recovery](../site-recovery/hyper-v-vmm-azure-tutorial.md) criado em uma assinatura do Microsoft Azure
 
 Além disso, se o Azure for seu site de recuperação, execute a [ferramenta de Avaliação de Prontidão de Máquina Virtual do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nas VMs, a fim de garantir que elas sejam compatíveis com as VMs do Azure e com os serviços do Azure Site Recovery.
 
@@ -112,7 +112,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    1. Use a função Serviços de Arquivo e Armazenamento para criar compartilhamentos de arquivos nesses volumes.
 
 #### <a name="to-create-and-prepare-an-azure-site-recovery-vault"></a>Para criar e preparar um cofre do Azure Site Recovery
-Confira a [documentação do Azure Site Recovery](/azure/site-recovery/) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
+Confira a [documentação do Azure Site Recovery](../site-recovery/index.yml) para começar a usá-lo antes de proteger a VM do servidor de arquivos.
 
 #### <a name="to-enable-protection"></a>Para habilitar a proteção
 1. Desconecte os destinos iSCSI das VMs locais que você deseja proteger por meio do Azure Site Recovery:
@@ -124,7 +124,7 @@ Confira a [documentação do Azure Site Recovery](/azure/site-recovery/) para co
    > [!NOTE]
    > Isso fará com que os compartilhamentos de arquivos fiquem temporariamente indisponíveis.
    
-1. [Habilitar a proteção da máquina virtual](/azure/site-recovery/hyper-v-azure-tutorial) da VM do servidor de arquivos do portal do Azure Site Recovery.
+1. [Habilitar a proteção da máquina virtual](../site-recovery/hyper-v-azure-tutorial.md) da VM do servidor de arquivos do portal do Azure Site Recovery.
 1. Quando a sincronização inicial começar, você poderá reconectar o destino novamente. Acesse o iniciador iSCSI, selecione o dispositivo StorSimple e clique em **Conectar**.
 1. Quando a sincronização for concluída e o status da VM estiver como **Protegida**, selecione a VM, depois a guia **Configurar** e atualize a rede da VM adequadamente (essa é a rede da qual as VMs submetidas ao failover farão parte). Se a rede não aparecer, isso significará que a sincronização ainda está em execução.
 
@@ -177,7 +177,7 @@ Você pode criar um plano de recuperação no ASR para automatizar o processo de
    - _RecoveryPlanName_**-DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na guia **Dispositivos** na seção do Gerenciador de Dispositivos do StorSimple &gt; **Configurações** &gt; **Rede grupo** &gt; **Configurações de DNS**).
    - _RecoveryPlanName_**-VolumeContainers**: uma cadeia de caracteres separada por vírgulas de contêineres de volume presentes no dispositivo que precisa passar por failover; por exemplo: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: o dispositivo de nuvem StorSimple no qual os contêineres devem passar por failover.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na guia rede do grupo configurações da seção **máquina virtual** &gt; **Settings** &gt; **Networking** ).
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: o endereço IP do dispositivo de destino (isso pode ser encontrado na guia rede do grupo configurações da seção **máquina virtual** &gt;  &gt;  ).
    - _RecoveryPlanName_**-StorageAccountName**: o nome da conta de armazenamento na qual o script (que deve ser executado na VM com failover) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha espaço para armazenar o script temporariamente.
    - _RecoveryPlanName_**-StorageAccountKey**: a chave de acesso para a conta de armazenamento acima.
    - _RecoveryPlanName_**-VMGUIDS**: na proteção de uma VM, Azure site Recovery atribui a cada VM uma ID exclusiva que fornece os detalhes da VM com failover. Para obter o VMGUID, selecione a guia **Serviços de Recuperação** e clique em **Item protegido** &gt; **Grupos de Proteção** &gt; **Computadores** &gt; **Propriedades**. Se você tiver várias VMs, adicione os GUIDs como uma cadeia de caracteres separada por vírgulas.

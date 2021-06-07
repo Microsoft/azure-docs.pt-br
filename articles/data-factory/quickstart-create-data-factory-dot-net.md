@@ -1,24 +1,18 @@
 ---
 title: Criar um Azure Data Factory usando o SDK do .NET
 description: Crie um pipeline e um Azure Data Factory usando o SDK do .NET para copiar dados de uma localização em um Armazenamento de Blobs do Azure para outra.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/18/2020
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: c5e35fb8ab6a782ec79f10b1099f6781062c1d7c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678876"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385421"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início Rápido: Criar um data factory e um pipeline usando o SDK do .NET
 
@@ -38,10 +32,6 @@ Este guia de início rápido descreve como usar o SDK do .NET para criar um Azur
 ### <a name="visual-studio"></a>Visual Studio
 
 As instruções passo a passo neste artigo usam o Visual Studio 2019. Os procedimentos para Visual Studio 2013, 2015 ou 2017 são levemente diferentes.
-
-### <a name="azure-net-sdk"></a>SDK do Azure .NET
-
-Baixe e instale o [SDK .NET do Azure](https://azure.microsoft.com/downloads/) no seu computador.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
 
@@ -115,12 +105,14 @@ Em seguida, crie um aplicativo de console do .NET em C# no Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> Para nuvens soberanas, é necessário usar os pontos de extremidade apropriados específicos da nuvem para ActiveDirectoryAuthority e ResourceManagerUrl (BaseUri). Por exemplo, no US Gov do Azure, você usa a autoridade de https://login.microsoftonline.us em vez de https://login.microsoftonline.com e usa https://management.usgovcloudapi.net em vez de https://management.azure.com/, além de criar o cliente de gerenciamento de data factory. Você pode usar o PowerShell para obter com facilidade as URLs de ponto de extremidade para várias nuvens executando “Get-AzEnvironment | Format-List”, que retornará uma lista de pontos de extremidade para cada ambiente de nuvem.
 
 3. Adicione o código a seguir, que cria uma instância da classe **DataFactoryManagementClient**, ao método **Main**. Você usa esse objeto para criar um data factory, um serviço vinculado, conjuntos de dados e um pipeline. Você também pode usar esse objeto para monitorar os detalhes da execução de pipeline.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;
@@ -128,6 +120,7 @@ Em seguida, crie um aplicativo de console do .NET em C# no Visual Studio:
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 

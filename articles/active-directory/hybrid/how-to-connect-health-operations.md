@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016959"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101686454"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -45,9 +45,7 @@ Você pode configurar o serviço do Azure AD Connect Health para enviar notifica
 >[!NOTE] 
 > Quando há problemas ao processar solicitações de sincronização em nosso serviço de back-end, esse serviço envia um email de notificação com os detalhes do erro para os endereços de email de contato administrativo do seu locatário. Ouvimos comentários de clientes que, em determinados casos, o volume dessas mensagens é extremamente grande, portanto, estamos alterando a maneira como enviamos essas mensagens. 
 >
-> Em vez de enviar uma mensagem para cada erro de sincronização toda vez que ocorrer, enviaremos um resumo diário de todos os erros retornados pelo serviço de back-end. Isso permite que os clientes processem esses erros de maneira mais eficiente e reduzem o número de mensagens de erro duplicadas.
->
-> Planejamos que essa alteração seja implementada em 15 de janeiro de 2020.
+> Em vez de enviar uma mensagem para cada erro de sincronização toda vez que ocorrer, enviaremos um resumo diário de todos os erros retornados pelo serviço de back-end. Isso permite que os clientes processem esses erros de maneira mais eficiente e reduzam o número de mensagens de erro duplicadas.
 
 ## <a name="delete-a-server-or-service-instance"></a>Excluir uma instância de serviço ou servidor
 
@@ -78,7 +76,7 @@ Azure AD Connect Health para Serviços de Federação do Active Directory (AD FS
 
 Azure AD Connect Health para Azure Active Directory Domain Services:
 
-1. Abra o painel **controladores de domínio** .
+1. Abra o painel **Controladores de Domínio**.
 2. Selecione o controlador de domínio a ser removido.
 3. Na barra de ações, clique em **Excluir Selecionado**.
 4. Confirme a ação para excluir o servidor.
@@ -104,7 +102,7 @@ Ao excluir uma instância de serviço, esteja ciente do seguinte:
 
 [//]: # (Início da seção de RBAC)
 ## <a name="manage-access-with-azure-rbac"></a>Gerenciar o acesso com o RBAC do Azure
-O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do azure para Azure ad Connect Health fornece acesso a usuários e grupos diferentes de administradores globais. O RBAC do Azure atribui funções aos usuários e grupos pretendidos e fornece um mecanismo para limitar os administradores globais em seu diretório.
+[ O Controle de acesso baseado em função (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) para Azure AD Connect Health fornece acesso a usuários e grupos diferentes de administradores globais. O Azure RBAC atribui funções aos usuários e grupos pretendidos e fornece um mecanismo para limitar os administradores globais em seu diretório.
 
 ### <a name="roles"></a>Funções
 O Azure AD Connect Health dá suporte às seguintes funções internas:
@@ -135,12 +133,12 @@ Para permitir a um usuário o acesso no nível *Todas as instâncias de serviço
    ![Captura de tela da barra lateral de recursos  do Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selecione **Adicionar**.
 3. No painel **Selecionar uma função**, selecione uma função (por exemplo, **Proprietário**).<br>
-   ![Captura de tela de Azure AD Connect Health e menu Configurar do RBAC do Azure](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Captura de tela do Azure AD Connect Health e menu Configurar do Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digite o nome ou identificador do usuário ou grupo de destino. Você pode selecionar um ou mais usuários ou grupos ao mesmo tempo. Clique em **Selecionar**.
    ![Captura de tela de Azure AD Connect Health e lista de funções do Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selecione **OK**.<br>
 6. Após a conclusão da atribuição de função, os usuários e grupos aparecerão na lista.<br>
-   ![Captura de tela de Azure AD Connect Health e RBAC do Azure e novos usuários realçados](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Captura de tela do Azure AD Connect Health, do Azure RBAC e de novos usuários realçados](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Agora os usuários e grupos listados têm acesso, de acordo com suas funções atribuídas.
 
@@ -153,7 +151,7 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois que você atribuir permissões, o usuário poderá acessar o Azure AD Connect Health [aqui](https://aka.ms/aadconnecthealth).
 2. Na folha, o usuário pode fixar a folha ou diferentes partes dela no painel. Basta clicar no ícone **Fixar no painel**.<br>
-   ![Captura de tela de Azure AD Connect Health e folha de PIN do RBAC do Azure, com ícone de pino realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Captura de tela do Azure AD Connect Health e da folha de marcador do Azure RBAC, com ícone de marcador realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Um usuário com a função Leitor atribuído não pode obter a extensão do Azure AD Connect Health no Azure Marketplace. O usuário não pode executar a operação "create" necessária para fazer isso. O usuário ainda poderá acessar a folha usando o link apresentado anteriormente. Para uso subsequente, o usuário pode fixar a folha no painel.
@@ -161,8 +159,8 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 >
 
 ### <a name="remove-users-or-groups"></a>Remover usuários ou grupos
-Você pode remover um usuário ou grupo adicionado ao Azure AD Connect Health e ao RBAC do Azure. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **Remover**.<br>
-![Captura de tela de Azure AD Connect Health e RBAC do Azure com remover realçado](./media/how-to-connect-health-operations/RBAC_remove.png)
+Você pode remover um usuário ou um grupo adicionado ao Azure AD Connect Health e ao Azure RBAC. Basta clicar com o botão direito do mouse no usuário ou grupo e selecionar **Remover**.<br>
+![Captura de tela do Azure AD Connect Health e do Azure RBAC com a opção Remover realçada](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fim da seção de RBAC)
 
@@ -170,7 +168,7 @@ Você pode remover um usuário ou grupo adicionado ao Azure AD Connect Health e 
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](reference-connect-health-faq.md)
-* [Histórico de versões do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)

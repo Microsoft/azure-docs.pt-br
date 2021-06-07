@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 4abef9c848a32d9fa6a34eabe407c4d10f913797
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258160"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101643789"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -175,7 +175,8 @@ Para coletar essas informações:
 As declarações opcionais permitem que você adicione declarações Standard-, mas-não incluído-por padrão que todos os usuários e locatários têm. Você pode configurar declarações opcionais para seu aplicativo modificando o manifesto do aplicativo. Para obter mais informações, consulte o [artigo noções básicas sobre o manifesto de aplicativo do Azure ad](../develop/reference-app-manifest.md)
 
 Exemplo para incluir o endereço de email no access_token que o PingAccess consumirá:
-```
+
+```json
     "optionalClaims": {
         "idToken": [],
         "accessToken": [

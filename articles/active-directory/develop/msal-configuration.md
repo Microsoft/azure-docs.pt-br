@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92275600"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
@@ -91,7 +91,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapear a autoridade do AAD & público para pontos de extremidade da plataforma Microsoft Identity
 
-| Type | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
+| Tipo | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Somente as contas presentes no contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do locatário, pode ser usado como a ID do locatário. |
@@ -107,7 +107,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 #### <a name="authority-properties"></a>Propriedades da autoridade
 
-| Propriedade | Tipo de dados  | Obrigatório | Observações |
+| Propriedade | Tipo de dados  | Necessária | Observações |
 |-----------|-------------|-----------|--------|
 | `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD` , `B2C` |
 | `audience` | Objeto | Não | Aplica-se somente quando Type = `AAD` . Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
@@ -144,7 +144,7 @@ Se você estiver usando a autoridade do AAD com o público definido como `"Micro
 
 Defina configurações globais para tempos limite de HTTP, como:
 
-| Propriedade | Tipo de dados | Obrigatório | Observações |
+| Propriedade | Tipo de dados | Necessária | Observações |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | Não | Tempo em milissegundos |
 | `read_timeout` | int | Não | Tempo em milissegundos |
@@ -155,9 +155,9 @@ As seguintes configurações globais são para registro em log:
 
 | Propriedade | Tipo de Dados  | Obrigatório | Observações |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | booleano | Não | Se os dados pessoais devem ser emitidos |
+| `pii_enabled`  | boolean | Não | Se os dados pessoais devem ser emitidos |
 | `log_level`   | Cadeia de caracteres | No | As mensagens de log para saída. Os níveis de log com suporte incluem `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |
-| `logcat_enabled` | booleano | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
+| `logcat_enabled` | boolean | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
 
 ### <a name="account_mode"></a>account_mode
 

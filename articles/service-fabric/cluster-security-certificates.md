@@ -3,12 +3,12 @@ title: Autenticação baseada em certificado X. 509 em um Cluster Service Fabric
 description: Saiba mais sobre a autenticação baseada em certificado em clusters Service Fabric e como detectar, atenuar e corrigir problemas relacionados a certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901242"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101729684"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Autenticação baseada em certificado X. 509 em clusters Service Fabric
 
@@ -182,7 +182,7 @@ Foi mencionado anteriormente que as configurações de segurança de um Cluster 
 
 Conforme mencionado, a validação de certificado sempre implica na criação e na avaliação da cadeia do certificado. Para certificados emitidos por autoridades de certificação, essa chamada de API de so aparentemente simples geralmente envolve várias chamadas de saída para vários pontos de extremidade da PKI emissora, cache de respostas e assim por diante. Devido à prevalência de chamadas de validação de certificado em um Cluster Service Fabric, quaisquer problemas nos pontos de extremidade da PKI podem resultar em redução da disponibilidade do cluster ou de uma divisão totalmente. Embora as chamadas de saída não possam ser suprimidas (veja abaixo na seção de perguntas frequentes para saber mais sobre isso), as configurações a seguir podem ser usadas para mascarar erros de validação causados por falhas em chamadas de CRL.
 
-  * CrlCheckingFlag-abaixo da seção ' Security ', Cadeia de caracteres convertida em UINT. O valor dessa configuração é usado pelo Service Fabric para mascarar erros de status da cadeia de certificados alterando o comportamento da construção da cadeia; Ele é passado para a chamada [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) do CryptoAPI do Win32 como o parâmetro ' dwFlags ' e pode ser definido como qualquer combinação válida de sinalizadores aceitos pela função. Um valor de 0 força o tempo de execução do Service Fabric a ignorar qualquer erro de status de confiança-isso não é recomendado, pois seu uso constituiria uma exposição de segurança significativa. O valor padrão é 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag-na seção "segurança", Cadeia de caracteres convertida em UINT. O valor dessa configuração é usado pelo Service Fabric para mascarar erros de status da cadeia de certificados alterando o comportamento da construção da cadeia; Ele é passado para a chamada [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) do CryptoAPI do Win32 como o parâmetro ' dwFlags ' e pode ser definido como qualquer combinação válida de sinalizadores aceitos pela função. Um valor de 0 força o tempo de execução do Service Fabric a ignorar qualquer erro de status de confiança-isso não é recomendado, pois seu uso constituiria uma exposição de segurança significativa. O valor padrão é 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Quando usar: para teste local, com certificados autoassinados ou certificados de desenvolvedor que não estão totalmente formados/não têm uma infraestrutura de chave pública adequada para dar suporte aos certificados. Também pode usar como mitigação em ambientes de ar-gapped durante a transição entre PKIs.
 
@@ -197,7 +197,7 @@ Conforme mencionado, a validação de certificado sempre implica na criação e 
     </Section>
   ```
 
-  * IgnoreCrlOfflineError-na seção ' Security ', booliano com um valor padrão de ' false '. Representa um atalho para suprimir um status de erro de criação de uma cadeia de ' revogação offline ' (ou um status de erro de validação de política de cadeia subsequente).
+  * IgnoreCrlOfflineError-na seção "segurança", booliano com um valor padrão de "false". Representa um atalho para suprimir um status de erro de criação de uma cadeia de ' revogação offline ' (ou um status de erro de validação de política de cadeia subsequente).
 
   Quando usar: teste local ou com certificados de desenvolvedor não apoiados por uma PKI apropriada. Use como mitigação em ambientes de ar-gapped ou quando a PKI for conhecida como inacessível.
 
@@ -208,7 +208,7 @@ Conforme mencionado, a validação de certificado sempre implica na criação e 
     </Section>
   ```
 
-  Outras configurações notáveis (todas na seção "segurança"):
+  Outras configurações notáveis (tudo na seção "segurança"):
   * AcceptExpiredPinnedClusterCertificate – discutido na seção dedicada à validação de certificado baseada em impressão digital; permite aceitar certificados de cluster autoassinados expirados. 
   * CertificateExpirySafetyMargin-Interval, expresso em minutos antes do carimbo de data/hora de não após do certificado, e durante o qual o certificado é considerado em risco de expiração. Service Fabric monitora certificados de cluster e emite periodicamente relatórios de integridade sobre a disponibilidade restante. Dentro do intervalo de ' segurança ', esses relatórios de integridade são elevados para o status ' aviso '. O valor padrão é 30 dias.
   * CertificateHealthReportingInterval-controla a frequência de relatórios de integridade referentes à validade de tempo restante dos certificados de cluster. Os relatórios só serão emitidos uma vez a cada intervalo. O valor é expresso em segundos, com um padrão de 8 horas.

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 1a8138b4b2fdab2cdef8d2cb4c27de8d12ef38cd
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97107339"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
@@ -182,7 +182,7 @@ Este exemplo é uma implantação mais complexa do que o uso de seletores de nó
 
 Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Isolamento de multilocação e cluster][aks-best-practices-scheduler]
+* [Multilocação e isolamento de cluster][aks-best-practices-scheduler]
 * [Recursos básicos de Agendador Kubernetes][aks-best-practices-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: da021e3ba0fd93a182ea76a1ba4b7042b325aacc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142372"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Criar um hub IoT usando o cmdlet New-AzIotHub

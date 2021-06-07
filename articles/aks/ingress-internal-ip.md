@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de entrada NGINX para uma rede privada interna em um cluster do AKS (Serviço de Kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 976c5581ad217064da37b0b092d2d634d30cb7e5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: 3201f510db9970b7db548ee6a3348fa68d278248
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601458"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada para uma rede virtual interna no AKS (Serviço de Kubernetes do Azure)
 
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O controlador de entrada é configurado em um endereço IP e uma rede virtual interna privada. Nenhum acesso externo é permitido. Dois aplicativos são então executados no cluster do AKS, cada um dos quais é acessível pelo endereço IP único.
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -232,7 +232,7 @@ ingress.extensions/hello-world-ingress created
 Para testar as rotas para o controlador de entrada, navegue até os dois aplicativos com um cliente Web. Se necessário, você pode testar rapidamente essa funcionalidade somente interna de um pod no cluster do AKS. Crie um pod de teste e uma sessão de terminal a ele:
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
 ```
 
 Instale `curl` no pod usando `apt-get`:
@@ -273,7 +273,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
@@ -342,7 +342,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [CLI do Helm][helm-cli]
 - [Controlador de entrada NGINX ][nginx-ingress]
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]

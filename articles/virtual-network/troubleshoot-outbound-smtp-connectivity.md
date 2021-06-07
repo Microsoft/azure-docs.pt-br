@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054839"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102607604"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solucionar problemas de conectividade SMTP de saída no Azure
 
@@ -76,6 +76,10 @@ Para assinaturas dos seguintes tipos que foram criados após 15 de novembro de 2
 Se você quiser ser capaz de enviar emails de VMs do Azure diretamente para provedores de email externos (sem usar uma retransmissão SMTP autenticada), poderá fazer uma solicitação abrindo um caso de suporte usando o seguinte tipo de problema: a  >  conectividade de **rede virtual** técnica  >    >  **não pode enviar email (SMTP/porta 25)**. Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar email diretamente aos provedores de email em vez de usar uma retransmissão autenticada. As solicitações serão revisadas e aprovadas a critério da Microsoft. As solicitações serão concedidas somente após a conclusão de verificações de antifraude adicionais. 
 
 Depois que uma assinatura é isenta e as VMs são interrompidas e reiniciadas no portal do Azure, todas as VMs nessa assinatura são isentas no futuro. A isenção se aplica somente à assinatura solicitada e somente ao tráfego de VM que é roteado diretamente para a Internet.
+
+## <a name="changing-subscription-type"></a>Alterando o tipo de assinatura
+
+Se você alterar o tipo de assinatura ou seu provedor de solução de nuvem ou se a assinatura paga conforme o uso for aprovada, você deverá parar, desalocar e reiniciar sua VM para que a nova política entre em vigor. Da mesma forma, se você tiver um tipo de assinatura permitido por padrão e, em seguida, alterar para um tipo de assinatura que não é permitido, a porta 25 poderá ser bloqueada devido às alterações na implantação.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

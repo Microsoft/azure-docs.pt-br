@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898179"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654723"
 ---
 # <a name="train-clustering-model"></a>Treinar Modelo de Clustering
 
@@ -52,6 +52,9 @@ Após a conclusão do treinamento:
 + Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
 + Para gerar pontuações do modelo, use [atribuir dados a clusters](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Se você precisar implantar o modelo treinado no designer, certifique-se de que [atribuir dados a clusters](assign-data-to-clusters.md) em vez de **modelo de Pontuação** esteja conectado à entrada do [módulo saída do serviço Web](web-service-input-output.md) no pipeline de inferência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

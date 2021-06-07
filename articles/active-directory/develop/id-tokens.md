@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755918"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102175381"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
@@ -55,7 +55,7 @@ Exiba esse token de exemplo de v2.0 em [jwt.ms](https://jwt.ms/#id_token=eyJ0eXA
 |-----|--------|-------------|
 |`typ` | Cadeia de caracteres – sempre "JWT" | Indica que o token é um token JWT.|
 |`alg` | String | Indica o algoritmo que foi usado para assinar o token. Exemplo: "RS256" |
-|`kid` | String | Impressão digital da chave pública usada para assinar esse token. Emitido em `id_tokens` v1.0 e v2.0. |
+|`kid` | String | Impressão digital para a chave pública usada para verificar esse token. Emitido em `id_tokens` v1.0 e v2.0. |
 |`x5t` | String | O mesmo (em uso e valor) que `kid`. No entanto, essa é uma declaração herdada emitida somente em `id_tokens` v1.0 para fins de compatibilidade. |
 
 ### <a name="payload-claims"></a>Declarações de conteúdo

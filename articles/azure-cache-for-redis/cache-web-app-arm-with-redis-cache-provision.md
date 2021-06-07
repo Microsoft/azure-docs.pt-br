@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: ec8d4f5611425734974d07ae6ee7008b10b9b406
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85833767"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o Cache Redis do Azure usando um modelo
@@ -20,7 +20,7 @@ ms.locfileid: "85833767"
 
 Neste tópico, você aprenderá como criar um modelo do Azure Resource Manager que implanta um aplicativo Web do Azure com o Cache Redis. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e as propriedades dos tipos de recurso de cache, consulte [Tipos de recurso de Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e as propriedades dos tipos de recurso de cache, consulte [Tipos de recurso de Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
 Para o modelo completo, consulte [aplicativo Web com o Cache do Azure para o modelo de Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 

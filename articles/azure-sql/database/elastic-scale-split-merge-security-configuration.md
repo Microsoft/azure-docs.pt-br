@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793425"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
@@ -34,7 +34,7 @@ Os certificados são configurados de duas maneiras.
 
 Certificados podem ser obtidos por meio de autoridades de certificação públicas (CAs) ou do [Serviço de Certificado do Windows](/windows/win32/seccrypto/certificate-services). Esses são os métodos preferenciais para obter certificados.
 
-Se essas opções não estiverem disponíveis, você pode gerar **certificados autoassinados** .
+Se essas opções não estiverem disponíveis, você pode gerar **certificados autoassinados**.
 
 ## <a name="tools-to-generate-certificates"></a>Ferramentas para gerar certificados
 
@@ -124,7 +124,7 @@ A configuração padrão nega todo os acessos ao ponto de extremidade HTTP. Esta
 A configuração padrão permite todo os acessos ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
 ### <a name="changing-the-configuration"></a>Alterando a configuração
-O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na **\<EndpointAcls>** seção no **arquivo de configuração de serviço** .
+O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na **\<EndpointAcls>** seção no **arquivo de configuração de serviço**.
 
 ```xml
 <EndpointAcls>
@@ -193,7 +193,7 @@ Este tópico é apenas para referência. Siga as etapas de configuração descri
 * Configurar o certificado TLS/SSL
 * Configurar certificados de cliente
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 Execute:
 
 ```console
@@ -441,31 +441,31 @@ Siga estas etapas:
 
 1. Execute mmc.exe.
 2. Arquivo -> Adicionar/Remover Snap-in...
-3. Selecione **Certificados** .
-4. Clique em **Adicionar** .
+3. Selecione **Certificados**.
+4. Clique em **Adicionar**.
 5. Escolha o local do repositório de certificados.
-6. Clique em **Concluir** .
-7. Clique em **OK** .
-8. Expanda **Certificados** .
+6. Clique em **Concluir**.
+7. Clique em **OK**.
+8. Expanda **Certificados**.
 9. Expanda o nó do repositório de certificados.
 10. Expanda o nó filho Certificado.
 11. Selecione um certificado na lista.
 
 ## <a name="export-certificate"></a>Exportar o certificado
-No **Assistente para Exportação de Certificados** :
+No **Assistente para Exportação de Certificados**:
 
-1. Clique em **Próximo** .
-2. Selecione **Sim** e **Exportar a chave privada** .
-3. Clique em **Próximo** .
+1. Clique em **Próximo**.
+2. Selecione **Sim** e **Exportar a chave privada**.
+3. Clique em **Próximo**.
 4. Selecione o formato de arquivo de saída desejado.
 5. Marque as opções desejadas.
-6. Marque a **Senha** .
+6. Marque a **Senha**.
 7. Digite uma senha forte e confirme-a.
-8. Clique em **Próximo** .
+8. Clique em **Próximo**.
 9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
-10. Clique em **Próximo** .
-11. Clique em **Concluir** .
-12. Clique em **OK** .
+10. Clique em **Próximo**.
+11. Clique em **Concluir**.
+12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar certificado
 No Assistente para importação de certificados:
@@ -474,26 +474,26 @@ No Assistente para importação de certificados:
    
    * Selecione **Usuário Atual** somente se processos em execução no atual usuário acessarão o serviço
    * Selecione **Computador Local** se outros processos no computador acessarão o serviço
-2. Clique em **Próximo** .
+2. Clique em **Próximo**.
 3. Se estiver importando um arquivo, verifique seu caminho.
 4. Se estiver importando um arquivo .PFX:
    1. Digite a senha que protege as informações da chave privada
    2. Selecione as opções de importação
 5. Selecione para “Colocar” os certificados no repositório a seguir
-6. Clique em **Procurar** .
+6. Clique em **Procurar**.
 7. Selecione o repositório desejado.
-8. Clique em **Concluir** .
+8. Clique em **Concluir**.
    
-   * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim** .
+   * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9. Clique em **OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar um certificado
 No [portal do Azure](https://portal.azure.com/)
 
-1. Selecione **Serviços de Nuvem** .
+1. Selecione **Serviços de Nuvem**.
 2. Selecione o serviço de nuvem.
-3. Na parte superior do menu, clique em **Certificados** .
-4. Na barra inferior, clique em **Carregar** .
+3. Na parte superior do menu, clique em **Certificados**.
+4. Na barra inferior, clique em **Carregar**.
 5. Selecione o arquivo de certificado.
 6. Se for um arquivo .PFX, digite a senha da chave privada.
 7. Depois de concluído, copie a impressão digital do certificado da nova entrada na lista.

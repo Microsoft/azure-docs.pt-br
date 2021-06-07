@@ -1,37 +1,37 @@
 ---
-title: Cache do Azure para Redis como origem da grade de eventos
-description: Descreve as propriedades fornecidas para o cache do Azure para eventos Redis com a grade de eventos do Azure
+title: Cache do Azure para Redis como origem da Grade de Eventos
+description: Descreve as propriedades que são fornecidas para eventos do Cache do Azure para Redis com a Grade de Eventos do Azure
 ms.topic: conceptual
 ms.date: 02/11/2021
 author: curib
 ms.author: cauribeg
 ms.openlocfilehash: 1a2995bc9ef40cd4eab320ce1bb4c5faf61e0e6e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100371270"
 ---
-# <a name="azure-cache-for-redis-as-an-event-grid-source"></a>Cache do Azure para Redis como uma fonte de grade de eventos
+# <a name="azure-cache-for-redis-as-an-event-grid-source"></a>Cache do Azure para Redis como origem da Grade de Eventos
 
-Este artigo fornece as propriedades e o esquema para o cache do Azure para eventos Redis. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). 
+Este artigo fornece as propriedades e o esquema dos eventos do Cache do Azure para Redis. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). 
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
-Esses eventos são disparados quando um cliente exporta, importa ou dimensiona chamando o cache do Azure para APIs REST do Redis. O evento de aplicação de patch é disparado pela atualização do Redis.
+Esses eventos são disparados quando um cliente exporta, importa ou escala chamando as APIs REST do Cache do Azure para Redis. O evento de aplicação de patch é disparado pela atualização do Redis.
 
  |Nome do evento |Descrição|
  |----------|-----------|
- |**Microsoft. cache. ExportRDBCompleted** |Disparado quando os dados do cache são exportados. |
- |**Microsoft. cache. ImportRDBCompleted** |Disparado quando os dados do cache são importados. |
- |**Microsoft. cache. PatchingCompleted** |Disparado quando a aplicação de patch é concluída. |
- |**Microsoft. cache. ScalingCompleted** |Disparado quando o dimensionamento é concluído. |
+ |**Microsoft.Cache.ExportRDBCompleted** |Disparado quando os dados do cache forem exportados. |
+ |**Microsoft.Cache.ImportRDBCompleted** |Disparado quando os dados do cache forem importados. |
+ |**Microsoft.Cache.PatchingCompleted** |Disparado quando a aplicação de patch for concluída. |
+ |**Microsoft.Cache.ScalingCompleted** |Disparado quando a escala for concluída. |
 
 ## <a name="example-event"></a>Exemplo de evento
-Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre esse evento para o ponto de extremidade de assinatura. Esta seção contém um exemplo de como os dados seriam para cada evento do cache do Azure para Redis.
+Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre esse evento para o ponto de extremidade de assinatura. Esta seção tem um exemplo da aparência dos dados em cada evento do Cache do Azure para Redis.
 
 # <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 
-### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft. cache. PatchingCompleted
+### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft.Cache.PatchingCompleted
 
 ```json
 [{
@@ -48,7 +48,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 "eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
 ```
 
-### <a name="microsoftcacheimportrdbcompleted-event"></a>Evento Microsoft. cache. ImportRDBCompleted
+### <a name="microsoftcacheimportrdbcompleted-event"></a>Evento Microsoft.Cache.ImportRDBCompleted
 
 ```json
 [{
@@ -65,7 +65,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 "eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
 ```
 
-### <a name="microsoftcacheexportrdbcompleted-event"></a>Evento Microsoft. cache. ExportRDBCompleted
+### <a name="microsoftcacheexportrdbcompleted-event"></a>Evento Microsoft.Cache.ExportRDBCompleted
 
 ```json
 [{
@@ -82,7 +82,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 "eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
 ```
 
-### <a name="microsoftcachescalingcompleted"></a>Microsoft. cache. ScalingCompleted
+### <a name="microsoftcachescalingcompleted"></a>Microsoft.Cache.ScalingCompleted
 
 ```json
 [{
@@ -102,7 +102,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 # <a name="cloud-event-schema"></a>[Esquema de evento de nuvem](#tab/cloud-event-schema)
 
 
-### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft. cache. PatchingCompleted
+### <a name="microsoftcachepatchingcompleted-event"></a>Evento Microsoft.Cache.PatchingCompleted
 
 ```json
 [{
@@ -120,7 +120,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 }]
 ```
 
-### <a name="microsoftcacheimportrdbcompleted-event"></a>Evento Microsoft. cache. ImportRDBCompleted
+### <a name="microsoftcacheimportrdbcompleted-event"></a>Evento Microsoft.Cache.ImportRDBCompleted
 
 ```json
 [{
@@ -138,7 +138,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 }]
 ```
 
-### <a name="microsoftcacheexportrdbcompleted-event"></a>Evento Microsoft. cache. ExportRDBCompleted
+### <a name="microsoftcacheexportrdbcompleted-event"></a>Evento Microsoft.Cache.ExportRDBCompleted
 
 ```json
 [{
@@ -156,7 +156,7 @@ Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre 
 }]
 ```
 
-### <a name="microsoftcachescalingcompleted"></a>Microsoft. cache. ScalingCompleted
+### <a name="microsoftcachescalingcompleted"></a>Microsoft.Cache.ScalingCompleted
 
 ```json
 [{
@@ -189,7 +189,7 @@ Um evento tem os seguintes dados de nível superior:
 | `eventType` | string | Um dos tipos de evento registrados para a origem do evento. |
 | `eventTime` | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | `id` | string | Identificador exclusivo do evento. |
-| `data` | object | Cache do Azure para dados de evento Redis. |
+| `data` | objeto | Dados de eventos do Cache do Azure para Redis. |
 | `dataVersion` | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | `metadataVersion` | string | A versão do esquema dos metadados do evento. Grade de Eventos define o esquema de propriedades de nível superior. A Grade de Eventos fornece esse valor. |
 
@@ -206,8 +206,8 @@ Um evento tem os seguintes dados de nível superior:
 | `type` | string | Um dos tipos de evento registrados para a origem do evento. |
 | `time` | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | `id` | string | Identificador exclusivo do evento. |
-| `data` | object | Cache do Azure para dados de evento Redis. |
-| `specversion` | string | Versão de especificação de esquema CloudEvents. |
+| `data` | objeto | Dados de eventos do Cache do Azure para Redis. |
+| `specversion` | string | Versão de especificação do esquema CloudEvents. |
 
 ---
 
@@ -218,13 +218,13 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | `timestamp` | string | A hora em que o evento ocorreu. |
 | `name` | string | O nome do evento. |
-| `status` | string | O status do evento. Com falha ou com êxito. |
+| `status` | string | O status do evento. Com falha ou bem-sucedido. |
 
 ## <a name="quickstarts"></a>Inícios rápidos
 
-Se você quiser experimentar o cache do Azure para eventos Redis, consulte qualquer um destes artigos de início rápido:
+Se você quiser experimentar os eventos do Cache do Azure para Redis, confira qualquer um destes artigos de guia de início rápido:
 
-|Se você quiser usar essa ferramenta:    |Consulte este artigo: |
+|Se você quiser usar esta ferramenta:    |Confira este artigo: |
 |--|-|
 |Portal do Azure    |[Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o portal do Azure](../azure-cache-for-redis/cache-event-grid-quickstart-portal.md)|
 |PowerShell    |[Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o PowerShell](../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md)|

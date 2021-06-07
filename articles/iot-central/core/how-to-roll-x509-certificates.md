@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: a9e35c7d4d64279c65971dd512bcd2107dad6594
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92000065"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Como distribuir certificados de dispositivo X. 509 no aplicativo IoT Central
@@ -31,7 +31,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 1. Navegue até **Administração**  no painel esquerdo e selecione **conexão de dispositivo**.
 
-2. Selecione **grupos de registro**e selecione o nome do grupo na lista.
+2. Selecione **grupos de registro** e selecione o nome do grupo na lista.
 
 3. Para atualização de certificado, selecione **gerenciar primário** ou **gerenciar secundário**.
 
@@ -45,7 +45,7 @@ Se você estiver sem interrupção de certificados para lidar com expirações d
 
 1. Navegue até **Administração**  no painel esquerdo e selecione **conexão de dispositivo**.
 
-2. Selecione **grupos de registro**e selecione o nome do grupo na lista.
+2. Selecione **grupos de registro** e selecione o nome do grupo na lista.
 
 3. Para atualização de certificado, selecione **gerenciar primário**.
 
@@ -57,15 +57,15 @@ Se você estiver sem interrupção de certificados para lidar com expirações d
 
 Se você estiver sem interrupção de certificados em resposta a uma violação de segurança, use a seguinte abordagem para atualizar o certificado atual imediatamente:
 
-1. Selecione **dispositivos**e selecione o dispositivo.
+1. Selecione **dispositivos** e selecione o dispositivo.
 
-2. Selecione **conectar**e selecione o método conectar como **registro individual**
+2. Selecione **conectar** e selecione o método conectar como **registro individual**
 
 3. Selecione **certificados (X. 509)** como mecanismo.
 
     ![Gerenciar registros individuais](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Para atualização de certificado, selecione o ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+4. Para atualização de certificado, selecione o ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Selecione **Salvar**.
 
     Conclua estas etapas para os certificados primários e secundários, se ambos estiverem comprometidos
 
@@ -75,15 +75,15 @@ Se você estiver implantando certificados para lidar com as expirações de cert
 
 Quando o certificado secundário se aproximar da expiração e precisar ser revertido, você poderá girar para usar a configuração primária. Girar entre os certificados primários e secundários dessa maneira reduz o tempo de inatividade para dispositivos de tentativa de provisionar.
 
-1. Selecione **dispositivos**e selecione o dispositivo.
+1. Selecione **dispositivos** e selecione o dispositivo.
 
-2. Selecione **conectar**e selecione o método conectar como **registro individual**
+2. Selecione **conectar** e selecione o método conectar como **registro individual**
 
 3. Selecione **certificados (X. 509)** como mecanismo.
 
     ![Gerenciar registros individuais](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Para atualização de certificado secundário, selecione o ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
+4. Para atualização de certificado secundário, selecione o ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Selecione **Salvar**.
 
 5. Posteriormente, quando o certificado primário tiver expirado, volte e atualize esse certificado primário.
 

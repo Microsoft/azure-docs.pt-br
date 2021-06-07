@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8c6764ad5b63aa2fde07326ab986404ea4312316
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862011"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99585170"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Jekyll na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -79,8 +79,11 @@ Os Aplicativos Web Estáticos do Azure usam o GitHub para publicar seu site. As 
 1. Envie por push seu repositório local para o GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
+
+   > [!NOTE]
+   > O seu git branch pode ter um nome diferente de `main`. Substitua `main` neste comando pelo valor correto.
 
 ## <a name="deploy-your-web-app"></a>Implantar o aplicativo Web
 
@@ -116,7 +119,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Selecione **jekyll-static-app** como o _Repositório_.
 
-1. Para _Branch_, selecione **master**.
+1. Para _Branch_, selecione **main**.
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
 
@@ -146,7 +149,7 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Abra o aplicativo do Jekyll em um editor de texto e abra o arquivo _.github/workflows/azure-pages-<NOME_DO_FLUXO_DE_TRABALHO>.yml_.
 
-1. Após a linha `- uses: actions/checkout@v2`, adicione o bloco de configuração a seguir.
+1. Antes da linha `- name: Build And Deploy`, adicione o bloco de configuração a seguir.
 
     ```yml
     - name: Set up Ruby

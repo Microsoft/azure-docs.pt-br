@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
 ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511137"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na porta frontal do Azure
@@ -33,7 +33,7 @@ A porta frontal aceita a maioria dos cabeçalhos para a solicitação de entrada
 
 A porta frontal inclui cabeçalhos para uma solicitação de entrada, a menos que sejam removidas devido a restrições. A porta frontal também adiciona os seguintes cabeçalhos:
 
-| Cabeçalho  | Exemplo e descrição |
+| parâmetro  | Exemplo e descrição |
 | ------------- | ------------- |
 | Através de |  *Via: 1,1 Azure* </br> Porta frontal adiciona a versão HTTP do cliente seguida pelo *Azure* como o valor para o cabeçalho via. Esse cabeçalho indica a versão HTTP do cliente e essa porta frontal era um destinatário intermediário da solicitação entre o cliente e o back-end.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Representa o endereço IP do cliente associado à solicitação que está sendo processada. Por exemplo, uma solicitação proveniente de um proxy pode adicionar o cabeçalho X-Forwardd-for para indicar o endereço IP do chamador original. |
@@ -51,14 +51,14 @@ A porta frontal inclui cabeçalhos para uma solicitação de entrada, a menos qu
 
 Todos os cabeçalhos enviados para a porta de front-end também são passados para o cliente. Os cabeçalhos a seguir são enviados da porta frontal para os clientes.
 
-| Cabeçalho  | Exemplo e descrição |
+| parâmetro  | Exemplo e descrição |
 | ------------- | ------------- |
 | X-Azure-ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Essa é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente, que é essencial para a solução de problemas, pois é usada para pesquisar logs de acesso.|
 | Cache X | *X-cache: TCP_HIT* </br> Esse cabeçalho descreve o status do cache da solicitação, que permite que você identifique se o conteúdo da resposta está sendo servido do cache da porta frontal. |
 
 Você precisa enviar o cabeçalho de solicitação "X-Azure-DebugInfo: 1" para habilitar os seguintes cabeçalhos de resposta opcionais.
 
-| Cabeçalho  | Exemplo e descrição |
+| parâmetro  | Exemplo e descrição |
 | ------------- | ------------- |
 | X-Azure-OriginStatusCode |  *X-Azure-OriginStatusCode: 503* </br> Esse cabeçalho contém o código de status HTTP retornado pelo back-end. Usando esse cabeçalho, você pode identificar o código de status HTTP retornado pelo aplicativo em execução no back-end sem passar pelos logs de back-end. Esse código de status pode ser diferente do código de status HTTP na resposta enviada ao cliente pela porta frontal. Esse cabeçalho permite que você determine se o back-end está com comportamento inadequado ou se o problema é com o serviço de porta frontal. |
 | X-Azure-InternalError | Esse cabeçalho conterá o código de erro que a porta frontal entra ao processar a solicitação. Esse erro indica que o problema é interno ao serviço/infraestrutura da porta de front-end. Relatar problema para dar suporte ao.  |
@@ -66,5 +66,5 @@ Você precisa enviar o cabeçalho de solicitação "X-Azure-DebugInfo: 1" para h
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma porta frontal](quickstart-create-front-door.md)
+- [Criar um Front Door](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)

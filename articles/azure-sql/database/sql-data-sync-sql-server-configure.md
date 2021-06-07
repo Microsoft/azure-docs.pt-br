@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882222"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968604"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar a Sincronização de Dados SQL entre bancos de dados no Banco de Dados SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Para obter exemplos do PowerShell de como configurar a Sincronização de Dados 
    | **Usar um link privado** | Escolha um ponto de extremidade privado gerenciado pelo serviço para estabelecer uma conexão segura entre o serviço de sincronização e o banco de dados hub. |
 
    > [!NOTE]
-   > A Microsoft recomenda que você crie um novo banco de dados vazio para usar como o **banco de dados de metadados de sincronização**. A Sincronização de Dados cria tabelas nesse banco de dados e executa uma carga de trabalho frequente. Esse banco de dados é compartilhado como o **Banco de Dados de Metadados de Sincronização** para todos os grupos de sincronização em uma região e uma assinatura selecionada. Você não pode alterar o banco de dados nem o nome dele sem remover todos os grupos de sincronização e os agentes de sincronização da região.
+   > A Microsoft recomenda que você crie um novo banco de dados vazio para usar como o **banco de dados de metadados de sincronização**. A Sincronização de Dados cria tabelas nesse banco de dados e executa uma carga de trabalho frequente. Esse banco de dados é compartilhado como o **Banco de Dados de Metadados de Sincronização** para todos os grupos de sincronização em uma região e uma assinatura selecionada. Você não pode alterar o banco de dados nem o nome dele sem remover todos os grupos de sincronização e os agentes de sincronização da região. Além disso, um banco de dados de trabalhos Elásticos não pode ser usado como o banco de dados de Metadados de Sincronização de Dados SQL e vice-versa.  
 
    Selecione **OK** e aguarde até que o grupo de sincronização seja criado e implantado.
    

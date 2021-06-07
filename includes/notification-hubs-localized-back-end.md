@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 520a0b4ec42b9a32fbd30c28c7ce311b5445f23d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74260642"
 ---
 Ao enviar notificações de modelo, será necessário somente fornecer um conjunto de propriedades. Nesse cenário, o conjunto de propriedades contém a versão localizada das notícias atuais.

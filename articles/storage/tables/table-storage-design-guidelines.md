@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: f84707e454a8b1f5d5947478fe65108a142a9757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88236311"
 ---
 # <a name="guidelines-for-table-design"></a>Diretrizes de design da tabela
@@ -22,10 +22,10 @@ Criar tabelas para uso com o serviço de tabela de armazenamento do Azure é mui
 ## <a name="design-your-table-service-solution-to-be-read-efficient"></a>Criar sua solução do serviço Tabela para ser eficiente em leitura
 
 * ***Design para consulta em aplicativos com alta taxa de leitura.***  Quando você está criando tabelas, pense sobre as consultas (especialmente aquelas sensíveis a latência) que você executará antes de pensar em como atualizará as entidades. Isso normalmente resulta em uma solução eficiente e de alto desempenho.  
-* ***Especifique PartitionKey e RowKey em suas consultas.*** *Consultas de ponto* como essas são as consultas de serviço Tabela mais eficientes.  
+* ***Especifique PartitionKey e RowKey em suas consultas.** _ _Point consultas * como essas são as consultas de serviço de tabela mais eficientes.  
 * ***Considere armazenar cópias duplicadas de entidades.***  O armazenamento de tabela é barato, portanto, considere armazenar a mesma entidade várias vezes (com chaves diferentes) para permitir consultas mais eficientes.  
 * ***Considere a desnormalização de seus dados.***  O armazenamento de tabela é barato, então considere desnormalizar seus dados. Por exemplo, armazene entidades resumidas para que consultas a dados agregados só tenham de acessar uma única entidade.  
-* ***Use valores de chave composta.*** As únicas chaves que você tem são **PartitionKey** e **RowKey**. Por exemplo, use valores de chave composta para habilitar caminhos alternativo com chave de acesso para entidades.  
+* ***Use valores de chave composta.** _ As únicas chaves que você tem são _ *PartitionKey** e **RowKey**. Por exemplo, use valores de chave composta para habilitar caminhos alternativo com chave de acesso para entidades.  
 * ***Use a projeção de consulta.*** Você pode reduzir a quantidade de dados transferidos pela rede por meio de consultas que selecionam apenas os campos necessários.  
 
 ## <a name="design-your-table-service-solution-to-be-write-efficient"></a>Criar sua solução do serviço Tabela para ser eficiente em gravação  

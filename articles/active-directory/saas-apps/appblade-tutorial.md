@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao AppBlade | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o AppBlade | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o AppBlade.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 49fa266319423b4c1a0bc56ad2a32b49c18f168e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672597"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutorial: Integração do Azure Active Directory ao AppBlade
+# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutorial: Integração do Active Directory do Azure com o AppBlade
 
 Neste tutorial, você aprende a integrar o AppBlade ao Azure AD (Azure Active Directory).
 A integração do AppBlade ao Azure AD oferece os seguintes benefícios:
@@ -199,4 +199,4 @@ Ao clicar no bloco do AppBlade no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

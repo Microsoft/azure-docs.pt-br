@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461586"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100591847"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrar o Hub IoT do monitoramento de operações para Azure Monitor logs de recursos
 
-Os clientes que usam o [monitoramento de operações](iot-hub-operations-monitoring.md) para acompanhar o status das operações no Hub IOT podem migrar esse fluxo de trabalho para [Azure monitor logs de recursos](../azure-monitor/platform/platform-logs-overview.md), um recurso do Azure monitor. Os logs de recursos fornecem informações de diagnóstico no nível do recurso para muitos serviços do Azure.
+Os clientes que usam o [monitoramento de operações](iot-hub-operations-monitoring.md) para acompanhar o status das operações no Hub IOT podem migrar esse fluxo de trabalho para [Azure monitor logs de recursos](../azure-monitor/essentials/platform-logs-overview.md), um recurso do Azure monitor. Os logs de recursos fornecem informações de diagnóstico no nível do recurso para muitos serviços do Azure.
 
 **A funcionalidade de monitoramento de operações do Hub IOT foi preterida** e foi removida do Portal. Este artigo fornece etapas para mover suas cargas de trabalho do monitoramento de operações para Azure Monitor logs de recursos. Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,9 +49,9 @@ Para atualizar o Hub IoT no portal do Azure, primeiro crie uma configuração de
 
 1. Clique em **Salvar** para salvar as configurações.
 
-As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado. Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado. Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
-Para obter informações mais detalhadas sobre como criar configurações de diagnóstico, incluindo com o PowerShell e o CLI do Azure, consulte [configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) na documentação do Azure monitor.
+Para obter informações mais detalhadas sobre como criar configurações de diagnóstico, incluindo com o PowerShell e o CLI do Azure, consulte [configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) na documentação do Azure monitor.
 
 ### <a name="turn-off-operations-monitoring"></a>Desligue o monitoramento de operações
 

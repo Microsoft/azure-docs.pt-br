@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93311915"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Suporte a agrupamento de banco de dados para Synapse SQL no Azure Synapse Analytics 
@@ -113,9 +113,9 @@ Quando passou ' collation ' como o parâmetro Property, a função DatabasePrope
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Informações adicionais sobre as práticas recomendadas para pool de SQL dedicado e pool SQL sem servidor podem ser encontradas nos seguintes artigos:
+Encontre mais informações sobre as melhores práticas do pool de SQL dedicado e do pool de SQL sem servidor nos seguintes artigos:
 
-- [Práticas recomendadas para o pool do SQL dedicado](best-practices-sql-pool.md)
-- [Práticas recomendadas para o pool SQL sem servidor](best-practices-sql-on-demand.md)
+- [Melhores práticas do pool de SQL dedicado](best-practices-sql-pool.md)
+- [Melhores práticas do pool de SQL sem servidor](best-practices-sql-on-demand.md)
 
 

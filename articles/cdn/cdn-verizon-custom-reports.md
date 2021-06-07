@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84888718"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
@@ -81,7 +81,7 @@ Você pode exportar os dados em formato Excel clicando no símbolo do Excel à d
 | Acertos                      | Indica o número total de solicitações para o CNAME de borda |
 | Perdas                    | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em uma perda no cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma perda no cache ocorre quando o conteúdo solicitado não foi armazenado em cache no servidor de borda que cumpriu a solicitação. | 
 | Sem cache                  | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status do cache do tipo CONFIG_NOCACHE.  |
-| Outros                     | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda indicado, que resulta em um código de status HTTP fora do intervalo 2xx–5xx. |
+| Outro                     | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda indicado, que resulta em um código de status HTTP fora do intervalo 2xx–5xx. |
 | Plataforma                  | Indica a plataforma que trata do tráfego do CNAME de borda. |
 | Não atribuído               | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda para o qual as informações do código de status do cache ou do código de status HTTP não foram registradas.  |
 | Não armazenável em cache               | Indica o número total de solicitações ou dados transferidos (MB) para o CNAME de borda, que resulta em um código de status do cache do tipo UNCACHEABLE.  |

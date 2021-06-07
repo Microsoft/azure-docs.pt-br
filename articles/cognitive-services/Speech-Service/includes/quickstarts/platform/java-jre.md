@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c58132cfa422eae39fd5f4030afb2ff004c0e71d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188142"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552840"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits. Se você quiser apenas o nome do pacote para começar por conta própria, o SDK do Java não estará disponível no repositório central do Maven. Se você estiver usando o Gradle ou um arquivo de dependência `pom.xml`, será necessário adicionar um repositório personalizado apontando para `https://csspeechstorage.blob.core.windows.net/maven/` (veja abaixo o nome do pacote).
 
@@ -33,6 +33,8 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
   - Linux; confira a lista de [distribuições do Linux e arquiteturas de destino compatíveis](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+- No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessária uma reinicialização.
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

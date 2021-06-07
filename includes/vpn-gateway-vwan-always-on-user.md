@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96027403"
 ---
 1. Instale certificados de cliente no cliente do Windows 10, conforme mostrado neste artigo do [cliente VPN ponto a site](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . O certificado deve estar no repositório de usuários atual.

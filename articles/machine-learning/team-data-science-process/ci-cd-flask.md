@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93309606"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Criar pipelines de CI/CD para aplicativos de ia usando Azure Pipelines, Docker e kubernetes
@@ -60,7 +60,7 @@ O diagrama e as etapas a seguir descrevem a arquitetura de pipeline de CI/CD:
 10. As solicitações de usuário para o aplicativo passam pelo servidor DNS.
 11. O servidor DNS passa as solicitações para um balanceador de carga e envia respostas de volta para os usuários.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [TDSP (Processo de Ciência de dados de Equipe)](./index.yml)
 - [AML (Azure Machine Learning)](../index.yml)

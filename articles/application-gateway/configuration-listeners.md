@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 15f68e8cbca65e7b970944f7ca5ef1952140cc6b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397630"
 ---
 # <a name="application-gateway-listener-configuration"></a>Configuração do ouvinte do gateway de aplicativo
@@ -20,7 +20,7 @@ ms.locfileid: "93397630"
 
 Um ouvinte é uma entidade lógica que verifica as solicitações de conexão de entrada usando a porta, o protocolo, o host e o endereço IP. Ao configurar o ouvinte, você deve inserir valores para eles que correspondam aos valores correspondentes na solicitação de entrada no gateway.
 
-Ao criar um gateway de aplicativo usando o portal do Azure, você também cria um ouvinte padrão escolhendo o protocolo e a porta para o ouvinte. Você pode escolher se deseja habilitar o suporte do HTTP2 no ouvinte. Depois de criar o gateway de aplicativo, você pode editar as configurações desse ouvinte padrão ( *appGatewayHttpListener* ) ou criar novos ouvintes.
+Ao criar um gateway de aplicativo usando o portal do Azure, você também cria um ouvinte padrão escolhendo o protocolo e a porta para o ouvinte. Você pode escolher se deseja habilitar o suporte do HTTP2 no ouvinte. Depois de criar o gateway de aplicativo, você pode editar as configurações desse ouvinte padrão (*appGatewayHttpListener*) ou criar novos ouvintes.
 
 ## <a name="listener-type"></a>Tipo de ouvinte
 
@@ -87,7 +87,7 @@ Para configurar uma página de erro personalizada global, consulte [configuraç�
 
 ## <a name="tls-policy"></a>Política TLS
 
-Você pode centralizar o gerenciamento de certificados TLS/SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de TLS centralizado também permite que você especifique uma política TLS central adequada aos seus requisitos de segurança. Você pode escolher a política TLS *padrão* , *predefinida* ou *personalizada* .
+Você pode centralizar o gerenciamento de certificados TLS/SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de TLS centralizado também permite que você especifique uma política TLS central adequada aos seus requisitos de segurança. Você pode escolher a política TLS *padrão*, *predefinida* ou *personalizada* .
 
 Você configura a política TLS para controlar as versões do protocolo TLS. Você pode configurar um gateway de aplicativo para usar uma versão mínima de protocolo para Handshakes de TLS do TLS 1.0, TLS 1.1 e TLS 1.2. Por padrão, o SSL 2,0 e o 3,0 estão desabilitados e não são configuráveis. Para obter mais informações, consulte [visão geral da política de TLS do gateway de aplicativo](./application-gateway-ssl-policy-overview.md).
 

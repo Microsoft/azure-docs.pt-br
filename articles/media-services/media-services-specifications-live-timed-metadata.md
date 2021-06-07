@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: f826ee9ef3c9fff0b721a9c79d3c12e0adbd5f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336387"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo 
@@ -478,7 +478,7 @@ A caixa MediaDataBox (' mdat ') **deve** ter o seguinte formato:
 | version                 | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | Determina o formato do conteúdo da caixa ' mdat '. Versões não reconhecidas serão ignoradas. Atualmente, a única versão aceita é 1.                                                                                                                                                                                                                                                                                                                                                                      |
 | id                      | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | Identifica esta instância da mensagem. Mensagens com semântica equivalente devem ter o mesmo valor. Ou seja, o processamento de qualquer caixa de mensagem de um evento com a mesma ID é suficiente.                                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | Inteiro sem sinal de 32 bits (uimsbf) | Obrigatório      | A soma da fragment_absolute_time, especificada em TrackFragmentExtendedHeaderBox, e a presentation_time_delta **deve** ser a hora da apresentação do evento. A hora e a duração da apresentação **devem** alinhar-se com os pontos de acesso do fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] anexo I. Para saída de HLS, o tempo e a duração **devem ser** alinhados com limites de segmento. A hora da apresentação e a duração de diferentes mensagens de evento dentro do mesmo fluxo de eventos não **devem** se sobrepor. |
-| mensagem                 | matriz de bytes                       | Obrigatório      | A mensagem do evento. Para mensagens [SCTE-35], a mensagem é o splice_info_section binário (). Para mensagens [SCTE-35], isso **deve** ser o splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. Para mensagens [SCTE-35], o binário splice_info_section () é a carga da caixa ' mdat ' e **não** é codificado em base64.                                                                                                                     |
+| message                 | matriz de bytes                       | Obrigatório      | A mensagem do evento. Para mensagens [SCTE-35], a mensagem é o splice_info_section binário (). Para mensagens [SCTE-35], isso **deve** ser o splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. Para mensagens [SCTE-35], o binário splice_info_section () é a carga da caixa ' mdat ' e **não** é codificado em base64.                                                                                                                     |
 
 ---
 

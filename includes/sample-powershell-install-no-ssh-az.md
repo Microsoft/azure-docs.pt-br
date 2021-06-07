@@ -5,10 +5,10 @@ author: mikefrobbins
 ms.author: mirobb
 manager: barbkess
 ms.openlocfilehash: 32a725f6f84a1a79df9b1211d95ecb2ac530aa07
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95998117"
 ---
 Este exemplo exige o Azure PowerShell. Execute `Get-Module -ListAvailable Az` para encontrar a versão.

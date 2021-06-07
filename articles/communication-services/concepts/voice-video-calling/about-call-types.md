@@ -6,27 +6,25 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/25/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028753"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729160"
 ---
 # <a name="voice-and-video-concepts"></a>Conceitos de voz e vídeo
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Você pode usar os Serviços de Comunicação do Azure para fazer e receber chamadas de voz e vídeo individuais ou em grupo. Suas chamadas podem ser feitas a outros dispositivos conectados à Internet e a telefones antigos. Você pode usar as bibliotecas de cliente JavaScript, Android ou iOS dos Serviços de Comunicação para criar aplicativos que permitem que os usuários falem entre si em conversas privadas ou em discussões em grupo. Os Serviços de Comunicação do Azure dão suporte a chamadas de e para serviços ou bots.
+Você pode usar os Serviços de Comunicação do Azure para fazer e receber chamadas de voz e vídeo individuais ou em grupo. Suas chamadas podem ser feitas a outros dispositivos conectados à Internet e a telefones antigos. Você pode usar os SDKs de JavaScript, Android ou iOS dos Serviços de Comunicação para criar aplicativos que permitem que os usuários falem entre si em conversas privadas ou em discussões em grupo. Os Serviços de Comunicação do Azure dão suporte a chamadas de e para serviços ou bots.
 
 ## <a name="call-types-in-azure-communication-services"></a>Tipos de chamadas nos Serviços de Comunicação do Azure
 
 Você pode fazer vários tipos de chamadas nos Serviços de Comunicação do Azure. O tipo de chamadas que você faz determina seu esquema de sinalização, os fluxos de tráfego de mídia e o modelo de preços.
 
-### <a name="voice-over-ip-voip"></a>VoIP (voz sobre IP) 
+### <a name="voice-over-ip-voip"></a>VoIP (voz sobre IP)
 
 Quando um usuário de seu aplicativo chama outro usuário de seu aplicativo por meio de uma conexão de Internet ou de dados, a chamada é feita por VoIP (voz sobre IP). Nesse caso, a sinalização e a mídia fluem pela Internet.
 
@@ -36,21 +34,17 @@ Sempre que os usuários interagem com um número de telefone tradicional, as cha
 
 ### <a name="one-to-one-call"></a>Chamada individual
 
-Uma chamada individual nos Serviços de Comunicação do Azure ocorre quando um de seus usuários se conecta a outro usuário usando uma de nossas bibliotecas de cliente. A chamada pode ser VoIP ou PSTN.
+Uma chamada individual nos Serviços de Comunicação do Azure ocorre quando um de seus usuários se conecta a outro usuário usando um de nossos SDKs. A chamada pode ser VoIP ou PSTN.
 
 ### <a name="group-call"></a>Chamada em grupo
 
 Uma chamada em grupo nos Serviços de Comunicação do Azure ocorre quando três ou mais participantes se conectam entre si. Qualquer combinação de VoIP e usuários conectados a PSTN pode estar presente em uma chamada de grupo. Uma chamada individual pode ser convertida em uma chamada em grupo adicionando participantes à chamada. Um desses participantes pode ser um bot.
 
 ### <a name="supported-video-standards"></a>Padrões de vídeo com suporte
-Damos suporte a H.264 (MPEG-4) 
+Damos suporte ao H.264 (MPEG-4).
 
 ### <a name="video-quality"></a>A qualidade de vídeo 
-Damos suporte a Full HD 1080p nos SDKs nativos (iOS, Android). Para o SDK Web (JS), damos suporte a HD 720p Standard. A qualidade depende da largura de banda disponível.  
-
-### <a name="rooms-concept"></a>Conceito de salas
-Salas são um conjunto de APIs e SDKs que permitem adicionar facilmente áudio, vídeo, compartilhamento de tela, interações PSTN e SMS ao seu site ou aplicativo nativo.
-Durante a versão prévia, você pode usar a ID do grupo para ingressar na mesma conversa. Você pode criar quantas IDs de grupo precisar e separar os usuários em "salas". A seguir, apresentaremos mais controles de "salas" 
+Damos suporte a Full HD 1080p nos SDKs nativos (iOS, Android). Para o SDK Web (JS), damos suporte a HD 720p Standard. A qualidade depende da largura de banda disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -59,5 +53,5 @@ Durante a versão prévia, você pode usar a ID do grupo para ingressar na mesma
 
 Para obter mais informações, consulte os seguintes artigos:
 - Familiarize-se com [fluxos de chamada](../call-flows.md) gerais
-- [Planeje sua solução PSTN](../telephony-sms/plan-solution.md)
-- Saiba mais sobre as [funcionalidades da biblioteca de clientes de chamadas](../voice-video-calling/calling-sdk-features.md)
+- [Tipos de número de telefone](../telephony-sms/plan-solution.md)
+- Saiba mais sobre as [funcionalidades do SDK de Chamada](../voice-video-calling/calling-sdk-features.md)

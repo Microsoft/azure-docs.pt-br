@@ -8,14 +8,16 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5954c3083afc73fb25c796086f8fb8809af03ec1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539426"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200661"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na borda com o Armazenamento de Blobs do Azure no IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O armazenamento de BLOBs do Azure no IoT Edge fornece um [blob de blocos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) e a solução de armazenamento de [blobs de acréscimo](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) na borda. Um módulo de armazenamento de BLOBs em seu dispositivo IoT Edge se comporta como um serviço blob do Azure, exceto que os BLOBs são armazenados localmente em seu dispositivo IoT Edge. Você pode acessar seus BLOBs usando os mesmos métodos do SDK de armazenamento do Azure ou chamadas de API de BLOB para as quais você já está acostumado. Este artigo explica os conceitos relacionados ao armazenamento de BLOBs do Azure no contêiner IoT Edge que executa um serviço blob em seu dispositivo IoT Edge.
 
@@ -291,7 +293,7 @@ Sem suporte:
 
 Este armazenamento de BLOBs do Azure no módulo IoT Edge agora fornece integração com a grade de eventos no IoT Edge. Para obter informações detalhadas sobre essa integração, consulte o [tutorial para implantar os módulos, publicar eventos e verificar a entrega de eventos](../event-grid/edge/react-blob-storage-events-locally.md).
 
-## <a name="release-notes"></a>Notas de versão
+## <a name="release-notes"></a>Notas sobre a versão
 
 Aqui estão as [notas de versão no Hub do Docker](https://hub.docker.com/_/microsoft-azure-blob-storage) para este módulo. Talvez seja possível encontrar mais informações relacionadas a correções de bugs e correção nas notas de versão de uma versão específica.
 

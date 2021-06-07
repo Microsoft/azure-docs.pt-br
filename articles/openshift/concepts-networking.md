@@ -4,14 +4,14 @@ description: Diagrama e visão geral da rede para o Red Hat OpenShift no Azure
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
-ms.openlocfilehash: 07b0dd38b616525728c264bd315c5cb8ddcaa79a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5d69aacb6e3f25e3414aa446c4c5ae7852cabdfc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072045"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101720895"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceitos de rede no ARO (Red Hat OpenShift no Azure)
 
@@ -60,7 +60,7 @@ A lista a seguir abrange os componentes de rede importantes em um cluster do Red
 
 * **Entrada**: A política de rede de entrada tem suporte como parte da [SDN do OpenShift](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Essa política de rede é habilitada por padrão e a imposição é realizada pelos usuários. Embora a política de rede de entrada esteja em conformidade com V1 NetworkPolicy, os Tipos de IPBlock e de Saída não têm suporte.
 
-* **Saída**: As políticas de rede de saída têm suporte usando o recurso de [firewall de saída](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) no OpenShift. Há apenas uma política de saída por namespace/projeto. As políticas de saída não têm suporte no namespace "padrão" e são avaliadas em ordem (primeiro ao último).
+* **Saída**: As políticas de rede de saída têm suporte usando o recurso de [firewall de saída](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) no OpenShift. Há apenas uma política de saída por namespace/projeto. As políticas de saída não têm suporte no namespace "padrão" e são avaliadas em ordem (primeira à última).
 
 ## <a name="networking-basics-in-openshift"></a>Noções básicas de rede no OpenShift
 

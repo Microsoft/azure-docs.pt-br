@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a9bfb4beea2c2bec1b819d228215cfff65e37fe4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998763"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110250"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Conectar uma rede virtual a um circuito ExpressRoute usando o portal
 
@@ -45,7 +45,7 @@ Neste tutorial, você aprenderá como:
 
 * Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de ExpressRoute padrão.
 
-* Uma única rede virtual pode ser vinculada a até quatro circuitos de ExpressRoute. Use o processo a seguir para criar um objeto de conexão para cada circuito do ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
+* Uma única VNet pode ser vinculada a até 16 circuitos de ExpressRoute. Use o processo a seguir para criar um objeto de conexão para cada circuito do ExpressRoute ao qual você está se conectando. Os circuitos de ExpressRoute podem estar na mesma assinatura, assinaturas diferentes ou uma mistura de ambos.
 
 * Se habilitar o complemento premium do ExpressRoute, você poderá vincular redes virtuais fora da região geopolítica do circuito do ExpressRoute. O complemento premium também permitirá que você conecte mais de 10 redes virtuais ao circuito do ExpressRoute, dependendo da largura de banda escolhida. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333096"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Solucionando problemas de implantações do Azure SQL Edge 
@@ -28,7 +28,7 @@ O Azure SQL Edge dá suporte a dois modelos de implantação:
 ## <a name="troubleshooting-iot-edge-device-and-deployments"></a>Solução de problemas IoT Edge dispositivos e implantações
 
 Se você receber um erro ao implantar o SQL Edge por meio do Azure IoT Edge, verifique se o `iotedge` serviço está configurado e em execução corretamente. Os documentos a seguir podem ser úteis ao solucionar problemas relacionados a Azure IoT Edge:
-- [Problemas comuns e resoluções para Azure IOT Edge](../iot-edge/troubleshoot-common-errors.md).
+- [Problemas comuns e resoluções para o Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md).
 - [Solucionar problemas de seu dispositivo IoT Edge](../iot-edge/troubleshoot.md)
 
 ## <a name="docker-command-errors"></a>Erros de comando do Docker

@@ -1,17 +1,17 @@
 ---
 title: Extensões-banco de dados do Azure para PostgreSQL-servidor flexível
 description: Saiba mais sobre as extensões postgres disponíveis no banco de dados do Azure para PostgreSQL – servidor flexível
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: e8f71eb120b86f35672c9123b52f7f19c9fee662
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710576"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608452"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -36,14 +36,14 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Usado para analisar um endereço em elementos constituintes. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Exemplo de conjunto de DataSet de endereço do padronizador dos EUA|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | funções para verificar a integridade da relação|
-> |[cair](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | método de acesso de flor – índice baseado em arquivo de assinatura|
+> |[cair](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | método de acesso de flor – índice baseado em arquivo de assinatura|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1,3             | suporte para indexação de tipos de texto comuns em iniciar|
 > |[btree_gist](https://www.postgresql.org/docs/12/btree-gist.html)                   | 1.5             | suporte para indexação de tipos de texto comuns no|
 > |[citext](https://www.postgresql.org/docs/12/citext.html)                       | 1.6             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
 > |[simples](https://www.postgresql.org/docs/12/cube.html)                         | 1.4             | tipo de dados para cubos multidimensionais|
 > |[dblink](https://www.postgresql.org/docs/12/dblink.html)                       | 1.2             | conectar-se a outros bancos de dados PostgreSQL de dentro de um Database|
-> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1,0             | modelo de dicionário de pesquisa de texto para inteiros|
-> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1,0             | modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo|
+> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para inteiros|
+> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo|
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1,1             | calcular grandes distâncias de círculo na superfície da terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1,1             | determinar semelhanças e distância entre cadeias de caracteres|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | tipo de dados para armazenar conjuntos de pares (chave, valor)|
@@ -62,16 +62,16 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1,3             | funções criptográficas|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
-> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Linguagem de procedimento PL/pgSQL|
 > |[PostGIS](https://www.postgis.net/)                      | 3.0.0           | PostGIS Geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | Funções e tipos de rasterização de PostGIS| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | Funções PostGIS SFCGAL|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | Geocodificador PostGIS Tiger e reverso geocodificador|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Tipos e funções espaciais de topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1,0             | wrapper de dados externos para servidores PostgreSQL remotos|
+> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | wrapper de dados externos para servidores PostgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | informações sobre certificados SSL|
-> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1,0             |  Método TABLESAMPLE que aceita o número de linhas como um limite|
-> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1,0             |  Método TABLESAMPLE que aceita o tempo em milissegundos como um limite|
+> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  Método TABLESAMPLE que aceita o número de linhas como um limite|
+> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  Método TABLESAMPLE que aceita o tempo em milissegundos como um limite|
 > |[unaccent](https://www.postgresql.org/docs/12/unaccent.html)                     | 1,1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/12/uuid-ossp.html)                    | 1,1             | gerar identificadores universais exclusivos (UUIDs)|
 
@@ -85,14 +85,14 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Usado para analisar um endereço em elementos constituintes. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemplo de conjunto de DataSet de endereço do padronizador dos EUA|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1,1             | funções para verificar a integridade da relação|
-> |[cair](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | método de acesso de flor – índice baseado em arquivo de assinatura|
+> |[cair](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | método de acesso de flor – índice baseado em arquivo de assinatura|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1,3             | suporte para indexação de tipos de texto comuns em iniciar|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | suporte para indexação de tipos de texto comuns no|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | tipo de dados para cadeias de caracteres não diferenciando maiúsculas de minúsculas|
 > |[simples](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | tipo de dados para cubos multidimensionais|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | conectar-se a outros bancos de dados PostgreSQL de dentro de um Database|
-> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1,0             | modelo de dicionário de pesquisa de texto para inteiros|
-> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1,0             | modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para inteiros|
+> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1.0             | modelo de dicionário de pesquisa de texto para processamento estendido de sinônimo|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1,1             | calcular grandes distâncias de círculo na superfície da terra|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1,1             | determinar semelhanças e distância entre cadeias de caracteres|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | tipo de dados para armazenar conjuntos de pares (chave, valor)|
@@ -111,25 +111,24 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1,3             | funções criptográficas|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
-> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Linguagem de procedimento PL/pgSQL|
 > |[PostGIS](https://www.postgis.net/)                      | 2.5.1           | Funções e tipos espaciais de PostGIS, geography e rasterização|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | Funções PostGIS SFCGAL|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | Geocodificador PostGIS Tiger e reverso geocodificador|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Tipos e funções espaciais de topologia PostGIS|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | wrapper de dados externos para servidores PostgreSQL remotos|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | wrapper de dados externos para servidores PostgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | informações sobre certificados SSL|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada|
-> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1,0             |  Método TABLESAMPLE que aceita o número de linhas como um limite|
-> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1,0             |  Método TABLESAMPLE que aceita o tempo em milissegundos como um limite|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada|
+> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  Método TABLESAMPLE que aceita o número de linhas como um limite|
+> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1.0             |  Método TABLESAMPLE que aceita o tempo em milissegundos como um limite|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1,1             | dicionário de pesquisa de texto que remove acentos|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1,1             | gerar identificadores universais exclusivos (UUIDs)|
 
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem que você se conecte de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor. O servidor de envio precisa permitir conexões de saída para o servidor de recebimento. O servidor de recebimento precisa permitir conexões do servidor de envio.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem que você se conecte de um servidor PostgreSQL para outro ou a outro banco de dados no mesmo servidor. O servidor flexível dá suporte a conexões de entrada e de saída para qualquer servidor PostgreSQL. O servidor de envio precisa permitir conexões de saída para o servidor de recebimento. Da mesma forma, o servidor de recebimento precisa permitir conexões do servidor de envio. 
 
 É recomendável implantar seus servidores com [integração VNet](concepts-networking.md) se você planeja usar essas duas extensões. Por padrão, a integração VNet permite conexões entre servidores na VNET. Você também pode optar por usar [grupos de segurança de rede de VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
-
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

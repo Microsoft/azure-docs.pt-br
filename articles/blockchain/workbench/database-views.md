@@ -4,16 +4,16 @@ description: Visão geral das exibições do banco de dados SQL do Azure Blockch
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c7fba590c9c8951e1862c28cb24dbde52c8da8d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87003314"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625527"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Exibições do banco de dados do Azure Blockchain Workbench
 
-A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com os dados do blockchain.
+A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), para interagir com os dados do blockchain.
 
 O Azure Blockchain Workbench fornece um conjunto de exibições de banco de dados que fornecem acesso a dados que poderão ser úteis ao executar as consultas. Essas exibições são extremamente desnormalizadas para tornar mais fácil de obter rapidamente iniciadas criando relatórios, análise e caso contrário consumir dados blockchain com as ferramentas existentes e sem a necessidade de treinar novamente a equipe de banco de dados.
 
@@ -292,13 +292,13 @@ Essa exibição fornece detalhes sobre os membros do consórcio que são provisi
 | ID                 | int           | Não          | Um identificador exclusivo de um usuário |
 | ExternalId         | nvarchar (255) | Não          | Um identificador externo de um usuário. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário. |
 | ProvisioningStatus | int           | Não          |Identifica o status atual do processo de provisionamento para o usuário. Os valores possíveis são: <br />0 – o usuário foi criado pela API<br />1 – uma chave foi sido associada ao usuário no banco de dados<br />2 – o usuário está totalmente provisionado |
-| Nome          | nvarchar (50)  | Sim         | Primeiro nome do usuário |
+| FirstName          | nvarchar (50)  | Sim         | Primeiro nome do usuário |
 | LastName           | nvarchar (50)  | Sim         | O sobrenome do usuário |
 | EmailAddress       | nvarchar (255) | Sim         | O endereço de email do usuário |
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Esta exibição representa os detalhes dos metadados do fluxo de trabalho de núcleo bem como as funções e parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada fluxo de trabalho, essa exibição contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada fluxo de trabalho, essa exibição contém os seguintes dados:
 
 -   Definição de aplicativo associado
 -   Definição de fluxo de trabalho associado
@@ -325,7 +325,7 @@ Esta exibição representa os detalhes dos metadados do fluxo de trabalho de nú
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Esta exibição representa os detalhes dos metadados do fluxo de trabalho de núcleo bem como as funções e parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada função de fluxo de trabalho, essa exibição contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada função de fluxo de trabalho, essa exibição contém os seguintes dados:
 
 -   Definição de aplicativo associado
 -   Definição de fluxo de trabalho associado

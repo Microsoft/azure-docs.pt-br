@@ -4,14 +4,14 @@ description: Saiba mais sobre como monitorar a execução da atividade de cópia
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388287"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771372"
 ---
 # <a name="monitor-copy-activity"></a>Monitorar atividade de cópia
 
@@ -59,7 +59,7 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | rowsCopied | Número de linhas copiadas para o coletor. Essa métrica não se aplica ao copiar arquivos no estado em que se encontram sem analisá-los, por exemplo, quando os conjuntos de fontes de origem e de coletor são do tipo formato binário ou outro tipo de formato com configurações idênticas.  | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que foram ignoradas. Você pode habilitar linhas incompatíveis para serem ignoradas definindo `enableSkipIncompatibleRow` como true. | Valor Int64 (nenhuma unidade) |
 | copyDuration | Duração da execução da cópia. | Valor Int32, em segundos |
-| throughput | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
+| throughput | Taxa de transferência de dados, calculada pela `dataRead` divisão por `copyDuration` . | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
 | sinkPeakConnections| Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia.| Valor Int32 (nenhuma unidade) |
 | sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para o Azure Synapse Analytics. | Boolean |

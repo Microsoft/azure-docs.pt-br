@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086152"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Provisionar produtividade de banco de dados, contêiner ou dimensionamento automático em recursos de API Azure Cosmos DB Gremlin
@@ -28,13 +28,13 @@ Se você estiver usando uma API diferente, consulte os artigos [API do SQL](how-
 
 1. [Crie uma conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) ou selecione uma existente.
 
-1. Abra o painel de **Data Explorer** e selecione **novo grafo** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel de **Data Explorer** e selecione **novo grafo**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente. Selecione a opção **provisionar taxa de transferência do banco de dados** se você quiser provisionar a taxa de transferência no nível do banco
    * Insira uma ID do grafo.
    * Insira um valor de chave de partição (por exemplo, `/ItemID`).
    * Insira uma taxa de transferência que você deseja provisionar (por exemplo, 1.000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Captura de tela de Data Explorer ao criar um novo grafo com taxa de transferência no nível do banco de dados":::
 

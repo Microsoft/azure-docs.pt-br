@@ -4,10 +4,10 @@ description: Saiba como fazer backup do servidor de Backup do Microsoft Azure (M
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172115"
 ---
 # <a name="back-up-the-mabs-server"></a>Fazer backup do servidor MABS

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260832"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
@@ -25,7 +25,7 @@ Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
 | --- | --- |
 | events | Obtém o próximo segmento dos eventos do caos com base no token de continuação ou no intervalo. |
 | get | Obter o status do caos. |
-| start | Inicia o Chaos no cluster. |
+| iniciar | Inicia o Chaos no cluster. |
 | parar | Interrompe o Chaos se ele estiver em execução no cluster e coloca a Agenda do Chaos em um estado parado. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events

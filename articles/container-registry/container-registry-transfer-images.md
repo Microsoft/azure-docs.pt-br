@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefatos de um registro
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935345"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785811"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefatos para outro registro
 
@@ -368,8 +368,9 @@ IMPORT_RUN_RES_ID=$(az deployment group show \
   --name importPipelineRun \
   --query 'properties.outputResources[0].id' \
   --output tsv)
+```
 
-When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
+Quando a implantação for concluída com êxito, verifique a importação de artefatos listando os repositórios no registro de contêiner de destino. Por exemplo, execute [AZ ACR Repository List][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -426,7 +427,8 @@ az resource delete \
   * Nem todos os artefatos, ou nenhum, são transferidos. Confirme a ortografia dos artefatos na execução de exportação e o nome do blob nas execuções de exportação e importação. Confirme que você está transferindo um máximo de 50 artefatos.
   * A execução do pipeline pode não ter sido concluída. Uma execução de exportação ou importação pode levar algum tempo. 
   * Para outros problemas de pipeline, forneça a [ID de correlação](../azure-resource-manager/templates/deployment-history.md) de implantação da execução de exportação ou a execução de importação para a equipe de registro de contêiner do Azure.
-
+* **Problemas ao extrair a imagem em um ambiente isolado fisicamente**
+  * Se você vir erros relacionados a camadas estrangeiras ou tentar resolver mcr.microsoft.com ao tentar efetuar pull de uma imagem em um ambiente isolado fisicamente, o manifesto da imagem provavelmente terá camadas não distribuíveis. Devido à natureza de um ambiente isolado fisicamente, essas imagens geralmente falharão ao efetuar pull. Você pode confirmar que esse é o caso verificando o manifesto da imagem em busca de quaisquer referências a registros externos. Se esse for o caso, você precisará enviar as camadas não distribuíveis para o ACR da nuvem pública antes de implantar um pipeline de exportação-executar para essa imagem. Para obter orientação sobre como fazer isso, consulte [como fazer enviar camadas não distribuíveis por push para um registro?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## <a name="next-steps"></a>Próximas etapas
 

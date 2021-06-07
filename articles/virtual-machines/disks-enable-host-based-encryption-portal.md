@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573595"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721861"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use o portal do Azure para habilitar a criptografia de ponta a ponta usando a criptografia no host
 
@@ -27,9 +27,6 @@ Quando você habilita a criptografia no host, os dados armazenados no host da VM
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Regiões com suporte
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### <a name="supported-vm-sizes"></a>Tamanhos de VM com suporte
 
@@ -37,7 +34,24 @@ Quando você habilita a criptografia no host, os dados armazenados no host da VM
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
+Você deve habilitar o recurso para sua assinatura antes de usar a propriedade EncryptionAtHost para sua VM/VMSS. Siga as etapas abaixo para habilitar o recurso para sua assinatura:
+
+1. **Portal do Azure**: selecione o ícone de Cloud Shell na [portal do Azure](https://portal.azure.com):
+
+    ![Ícone para iniciar o Cloud Shell do portal do Azure](../Cloud-Shell/media/overview/portal-launch-icon.png)
+    
+2.  Execute o comando a seguir para registrar o recurso para sua assinatura
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+3.  Verifique se o estado do registro está registrado (leva alguns minutos) usando o comando a seguir antes de experimentar o recurso.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 Entre no portal do Azure usando o [link fornecido](https://aka.ms/diskencryptionupdates).
 

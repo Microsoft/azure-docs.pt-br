@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: bb74ab16e51fbb3a157757353d5743e889f993dd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94629692"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolvimento para o Arquivos do Azure com C++
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Conectar-se a uma conta de armazenamento do Azure
 
-Você pode usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
+É possível usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -77,7 +77,7 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 
 Todos os arquivos e diretórios em um compartilhamento de Arquivos do Azure residem em um contêiner chamado **Compartilhamento**. Sua conta de armazenamento pode a quantidade de compartilhamentos que a capacidade da conta permitir. Para obter acesso a um compartilhamento e seu conteúdo, é necessário usar um cliente de Arquivos do Azure.
 
@@ -107,7 +107,7 @@ Neste ponto, **compartilhar** contém uma referência a um compartilhamento cham
 
 ## <a name="delete-an-azure-file-share"></a>Excluir um Compartilhamento de Arquivos do Azure
 
-A exclusão de um compartilhamento é feita chamando o método **delete_if_exists** em um objeto cloud_file_share. O código fornecido a seguir é um exemplo de como fazer isso.
+Para excluir um compartilhamento deve-se chamar o método **delete_if_exists** em um objeto cloud_file_share. O código fornecido a seguir é um exemplo de como fazer isso.
 
 ```cpp
 // Get a reference to the share.
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar arquivos e diretórios em um Compartilhamento de Arquivos do Azure
 
-A obtenção de uma lista de arquivos e diretórios em um compartilhamento é facilmente feita chamando **list_files_and_directories** em uma referência de **cloud_file_directory** . Para acessar o conjunto avançado de propriedades e métodos para um **list_file_and_directory_item** retornado, você deverá chamar o método **list_file_and_directory_item.as_file** a fim de obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directory** a fim de obter um objeto **cloud_file_directory**.
+A lista de arquivos e diretórios em um compartilhamento pode ser obtida facilmente chamando **list_files_and_directories** em uma referência **cloud_file_directory**. Para acessar o conjunto avançado de propriedades e métodos para um **list_file_and_directory_item** retornado, você deverá chamar o método **list_file_and_directory_item.as_file** a fim de obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directory** a fim de obter um objeto **cloud_file_directory**.
 
 O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no diretório raiz do compartilhamento.
 
@@ -185,11 +185,11 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 }
 ```
 
-## <a name="upload-a-file"></a>Carregar um arquivo
+## <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 No mínimo, um compartilhamento de Arquivos do Azure contém um diretório raiz no qual os arquivos podem residir. Nesta seção, você aprenderá a carregar um arquivo do armazenamento local para o diretório raiz de um compartilhamento.
 
-A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Você faz isso chamando o método **get_root_directory_reference** do objeto de compartilhamento.
+A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Para isso, você deve chamar o método **get_root_directory_reference** do objeto de compartilhamento.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -220,7 +220,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>Baixar um arquivo
 
-Para baixar arquivos, primeiro recupere uma referência de arquivo e, em seguida, chame o método **download_to_stream** para transferir o conteúdo do arquivo para um objeto de fluxo, que você pode persistir em um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
+Para baixar arquivos, primeiro recupere uma referência de arquivo e chame o método **download_to_stream** a fim de transferir o conteúdo do arquivo para um objeto de fluxo, que você pode persistir em um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
 
 O exemplo a seguir usa os métodos **download_to_stream** e **download_text** para demonstrar o download dos arquivos, que foram criados nas seções anteriores.
 
@@ -370,4 +370,4 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 * [Biblioteca do Cliente de Armazenamento para C++](https://github.com/Azure/azure-storage-cpp)
 * [Exemplos do Serviço de Arquivo de Armazenamento do Microsoft Azure em C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Gerenciador de Armazenamento do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentação do armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

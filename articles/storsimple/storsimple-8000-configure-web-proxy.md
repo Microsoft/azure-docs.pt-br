@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017212"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar proxy da web para seu dispositivo StorSimple
@@ -71,7 +71,7 @@ Use o assistente de instalação para guiá-lo durante as etapas de configuraç�
 4. Selecione o tipo de autenticação como **NTLM**, **Básico** ou **Nenhum**. Básica é a autenticação menos segura para a configuração do servidor proxy. NTLM (NT LAN Manager) é um protocolo de autenticação complexo e de alta segurança que usa um sistema de mensagens de três vias (às vezes, quatro, se for necessária integridade adicional) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, confira autenticação [Básica](https://hc.apache.org/httpclient-3.x/authentication.html) e [Autenticação NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **No serviço StorSimple Device Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação básica ou NTLM está habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisa garantir que a autenticação esteja definida como nenhuma.**
+   > **No serviço StorSimple Gerenciador de Dispositivos, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação básica ou NTLM está habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisa garantir que a autenticação esteja definida como nenhuma.**
   
 5. Se você habilitar a autenticação, forneça um **Nome de Usuário de Proxy Web** e uma **Senha de Proxy Web**. Você também precisará confirmar a senha.
    

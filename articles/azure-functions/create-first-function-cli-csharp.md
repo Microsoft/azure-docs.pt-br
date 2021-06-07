@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 19d38bb5933a6acf82c61f0a739bf2adb7f34eaf
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-csharp-ieux
+ms.openlocfilehash: 08b1f2b112542a4b4772744d122ce1260b0edffd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937256"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101704762"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função C# no Azure da linha de comando
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186211"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100583813"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar Azure Monitor agente de Application Insights para servidores locais
 
@@ -45,7 +45,7 @@ Application Insights agente está localizado aqui: https://www.powershellgallery
 - [Set-ApplicationInsightsMonitoringConfig](./status-monitor-v2-api-reference.md#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](./status-monitor-v2-api-reference.md#start-applicationinsightsmonitoringtrace)
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 - [Solução de problemas](status-monitor-v2-troubleshoot.md)
 - [Problemas conhecidos](status-monitor-v2-troubleshoot.md#known-issues)
 
@@ -67,7 +67,7 @@ Cada uma dessas opções é descrita nas [instruções detalhadas](status-monito
   - O cmdlet [Get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) pode ser usado para verificar se a habilitação foi bem-sucedida.
   - Recomendamos que você use [métricas em tempo real](./live-stream.md) para determinar rapidamente se seu aplicativo está enviando telemetria.
 
-  - Você também pode usar [log Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções de nuvem que estão enviando telemetria no momento:
+  - Você também pode usar [log Analytics](../logs/log-analytics-tutorial.md) para listar todas as funções de nuvem que estão enviando telemetria no momento:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Cada uma dessas opções é descrita nas [instruções detalhadas](status-monito
 
 Exiba sua telemetria:
 
-* [Explore as métricas](../platform/metrics-charts.md) para monitorar o desempenho e o uso.
+* [Explore as métricas](../essentials/metrics-charts.md) para monitorar o desempenho e o uso.
 * [Pesquise eventos e logs](./diagnostic-search.md) para diagnosticar problemas.
-* [Use a análise](../log-query/log-query-overview.md) para consultas mais avançadas.
+* [Use a análise](../logs/log-query-overview.md) para consultas mais avançadas.
 * [Crie painéis](./overview-dashboard.md).
 
 Adicione mais telemetria:

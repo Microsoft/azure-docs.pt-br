@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 0b30cb1767e733861d8418ea29e564bc90a5bc70
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063189"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676511"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Fazer conexões do indexador por meio de um ponto de extremidade privado
 
@@ -47,7 +47,7 @@ A tabela a seguir lista os recursos do Azure para os quais você pode criar pont
 
 Você também pode consultar os recursos do Azure para os quais há suporte para conexões de ponto de extremidade privadas de saída usando a [lista de APIs com suporte](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-No restante deste artigo, uma combinação dos [CLI do Azure](https://docs.microsoft.com/cli/azure/) (ou [ARMClient](https://github.com/projectkudu/ARMClient) se preferir) e o [postmaster](https://www.postman.com/) (ou qualquer outro cliente http, como a [ondulação](https://curl.se/) , se preferir) é usado para demonstrar as chamadas à API REST.
+No restante deste artigo, uma combinação dos [CLI do Azure](/cli/azure/) (ou [ARMClient](https://github.com/projectkudu/ARMClient) se preferir) e o [postmaster](https://www.postman.com/) (ou qualquer outro cliente http, como a [ondulação](https://curl.se/) , se preferir) é usado para demonstrar as chamadas à API REST.
 
 > [!NOTE]
 > Os exemplos neste artigo baseiam-se nas seguintes suposições:
@@ -69,7 +69,7 @@ Configure a conta de armazenamento para [permitir o acesso somente de sub-redes 
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Etapa 1: criar um recurso de link privado compartilhado para a conta de armazenamento
 
-Para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento, faça a seguinte chamada de API, por exemplo, com o [CLI do Azure](https://docs.microsoft.com/cli/azure/): 
+Para solicitar que o Azure Pesquisa Cognitiva crie uma conexão de ponto de extremidade privada de saída para a conta de armazenamento, faça a seguinte chamada de API, por exemplo, com o [CLI do Azure](/cli/azure/): 
 
 `az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
 

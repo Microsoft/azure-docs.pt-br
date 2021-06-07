@@ -3,12 +3,12 @@ title: Conheça os termos da infraestrutura de BareMetal do Azure
 description: Conheça os termos da infraestrutura de BareMetal do Azure.
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.openlocfilehash: fd7a39854c86f728ef152f8e7d858157e1ad26f4
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b22a6cecb2647df3878cb8fd4ade93d9a7d963fd
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861913"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770879"
 ---
 # <a name="know-the-terms-for-baremetal-infrastructure"></a>Conheça os termos da infraestrutura BareMetal
 
@@ -23,4 +23,4 @@ Neste artigo, abordaremos alguns termos importantes do BareMetal.
 - **Locatário**: um cliente implantado no carimbo de instância BareMetal é isolado em um *locatário.* Um locatário é isolado de outros locatários na camada de rede, de armazenamento e de computação. As unidades de armazenamento e de computação atribuídas aos diferentes locatários não podem ver um ao outro ou se comunicar umas com as outras no nível de carimbo de instância BareMetal. Um cliente pode escolher ter implantações em diferentes locatários. Mesmo assim, não há nenhuma comunicação entre os locatários no nível de selo da instância de BareMetal.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a [infraestrutura do BareMetal](workloads/sap/baremetal-overview-architecture.md) ou como [identificar e interagir com as unidades da instância do BareMetal](workloads/sap/baremetal-infrastructure-portal.md). 
+Saiba mais sobre a [infraestrutura do BareMetal](concepts-baremetal-infrastructure-overview.md) ou como [identificar e interagir com as unidades da instância do BareMetal](connect-baremetal-infrastructure.md). 

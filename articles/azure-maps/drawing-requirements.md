@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895264"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
@@ -198,7 +198,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 ### `directoryInfo`
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 | `name`      | string | true   |  Nome da construção. |
 | `streetAddress`|    string |    false    | Endereço da construção. |
@@ -219,7 +219,7 @@ As seções a seguir detalham os requisitos de cada objeto.
 
 O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`levelName`    |string    |true |    Nome do nível descritivo. Por exemplo: piso 1, lobby, estacionamento azul ou porão.|
 |`ordinal` | inteiro |    true | Determina a ordem vertical dos níveis. Cada instalação deve ter um nível com o ordinal 0. |
@@ -229,7 +229,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 ### `georeference`
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    Representação decimal da latitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |numeric|    true|    Representação decimal da longitude em graus na origem do desenho da instalação. As coordenadas de origem devem estar no WGS84 Web Mercator (`EPSG:3857`). |
@@ -251,7 +251,7 @@ O objeto `buildingLevels` contém uma matriz JSON de níveis de construções.
 
 O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |`unitName`    |string    |true    |Nome da unidade a ser associada a esse registro `unitProperty`. Esse registro só é válido quando uma correspondência de rótulo `unitName` é encontrada nas `unitLabel` camadas. |
 |`categoryName`|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |
@@ -271,7 +271,7 @@ O objeto `unitProperties` contém uma matriz JSON das propriedades da unidade.
 
 O objeto `zoneProperties` contém uma matriz JSON das propriedades da zona.
 
-| Propriedade  | Tipo | Necessária | Descrição |
+| Propriedade  | Type | Obrigatório | Descrição |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome da zona a ser associada ao registro `zoneProperty`. Esse registro só é válido quando um rótulo correspondente a `zoneName` for encontrado na camada `zoneLabel` da zona.  |
 |categoryName|    string|    false    |Nome da categoria. Para obter uma lista completa das categorias, consulte [categorias](https://aka.ms/pa-indoor-spacecategories). |

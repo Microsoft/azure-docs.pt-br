@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 60ae36d80e34f27ed68c679f47edacf3e402417c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916143"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
@@ -49,7 +49,7 @@ Como alternativa, você pode habilitar o JIT com parâmetros padrão, embutidos 
 
 Cada uma dessas opções é explicada em uma guia separada abaixo.
 
-### <a name="azure-security-center"></a>[**Central de segurança do Azure**](#tab/jit-config-asc)
+### <a name="azure-security-center"></a>[**Central de Segurança do Azure**](#tab/jit-config-asc)
 
 ### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Habilitar o JIT em suas VMs na central de segurança do Azure <a name="jit-asc"></a>
 
@@ -97,7 +97,7 @@ Na central de segurança, você pode habilitar e configurar o acesso à VM JIT.
 
      1. Selecione **OK**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 
@@ -235,7 +235,7 @@ Você pode solicitar acesso a uma VM habilitada para JIT do portal do Azure (na 
 
 Cada uma dessas opções é explicada em uma guia separada abaixo.
 
-### <a name="azure-security-center"></a>[**Central de segurança do Azure**](#tab/jit-request-asc)
+### <a name="azure-security-center"></a>[**Central de Segurança do Azure**](#tab/jit-request-asc)
 
 ### <a name="request-access-to-a-jit-enabled-vm-from-azure-security-center"></a>Solicitar acesso a uma VM habilitada para JIT da central de segurança do Azure 
 

@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: c37e2c28eb6aee9edf4bdd97066ce5f15e7447c1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005616"
 ---
 ## <a name="message-headers"></a>Cabeçalhos de mensagem

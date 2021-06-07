@@ -8,10 +8,10 @@ ms.author: alkemper
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929677"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>Habilitar a distribuição em etapas de recursos para públicos-alvo
@@ -46,7 +46,7 @@ Neste ponto, você pode usar o sinalizador de recurso para habilitar ou desabili
    dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
-1. Adicionar um arquivo *TestTargetingContextAccessor.cs* :
+1. Adicione um arquivo *TestTargetingContextAccessor. cs* :
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -91,7 +91,7 @@ Neste ponto, você pode usar o sinalizador de recurso para habilitar ou desabili
     }
     ```
 
-1. No *Startup.cs*, adicione uma referência ao namespace *Microsoft. FeatureManagement. FeatureFilters* :
+1. Em *Startup. cs*, adicione uma referência ao namespace *Microsoft. FeatureManagement. FeatureFilters* :
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -133,7 +133,7 @@ O método *configureservices* inteiro terá a seguinte aparência:
 
 1. Na portal do Azure, vá para o repositório de configurações do aplicativo e selecione **Gerenciador de recursos**.
 
-1. Selecione o menu de contexto para o sinalizador de recurso *beta* que você criou no guia de início rápido. Selecione **Edit** (Editar).
+1. Selecione o menu de contexto para o sinalizador de recurso *beta* que você criou no guia de início rápido. Selecione **Editar**.
 
     > [!div class="mx-imgBorder"]
     > ![Editar sinalizador de recurso beta](./media/edit-beta-feature-flag.png)

@@ -4,12 +4,12 @@ description: Saiba mais sobre o projeto de aplicativo que você acabou de criar 
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760428"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044372"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>O seu aplicativo do Service Fabric e as próximas etapas
 O seu aplicativo do Service Fabric do Azure foi criado. Este artigo inclui vários recursos, algumas informações sobre as quais você pode estar interessado e [as próximas etapas](#next-steps)possíveis.
@@ -59,7 +59,7 @@ O aplicativo pode conter informações confidenciais, como cadeias de conexão d
 Assim como acontece com outras plataformas, um aplicativo do Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, upgrade, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de Service Fabric aplicativo.
 
 ## <a name="learn-about-best-practices"></a>Saiba mais sobre as práticas recomendadas
-Service Fabric tem vários artigos que descrevem [as práticas recomendadas](./service-fabric-best-practices-overview.md). Aproveite essas informações para ajudar a garantir que o cluster e o aplicativo sejam executados assim como possível.
+Service Fabric tem vários artigos que descrevem [as práticas recomendadas](./service-fabric-best-practices-security.md). Aproveite essas informações para ajudar a garantir que o cluster e o aplicativo sejam executados assim como possível.
 Os tópicos abordados incluem:
 * [Segurança](./service-fabric-best-practices-security.md)
 * [Rede](./service-fabric-best-practices-networking.md)

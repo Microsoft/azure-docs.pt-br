@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576034"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes

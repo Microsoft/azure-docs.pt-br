@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75430586"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de host do serviço de gerenciamento de API
@@ -41,9 +41,9 @@ Para resolver esse problema, siga estas etapas:
 1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e, em seguida, selecione **identidades gerenciadas**. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
     ![Registrando com o Azure active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. No portal do Azure, abra o serviço de **cofres de chaves** e selecione o cofre de chaves que você está tentando usar para o domínio personalizado.
-1. Selecione **políticas de acesso**e verifique se há uma entidade de serviço que corresponda ao nome da instância do serviço de gerenciamento de API. Se houver, selecione a entidade de serviço e verifique se ela tem a permissão **obter** listada em **permissões secretas**.  
+1. Selecione **políticas de acesso** e verifique se há uma entidade de serviço que corresponda ao nome da instância do serviço de gerenciamento de API. Se houver, selecione a entidade de serviço e verifique se ela tem a permissão **obter** listada em **permissões secretas**.  
     ![Adicionando política de acesso para entidade de serviço](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
-1. Se o serviço de gerenciamento de API não estiver na lista, selecione **Adicionar política de acesso**e, em seguida, crie a seguinte política de acesso:
+1. Se o serviço de gerenciamento de API não estiver na lista, selecione **Adicionar política de acesso** e, em seguida, crie a seguinte política de acesso:
     - **Configurar do modelo**: nenhum
     - **Selecionar entidade**: Pesquise o nome do serviço de gerenciamento de API e, em seguida, selecione-o na lista
     - **Permissões de chave**: nenhuma

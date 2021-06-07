@@ -6,12 +6,12 @@ ms.topic: overview
 description: Saiba como o Azure Dev Spaces oferece uma experiência de desenvolvimento rápida e iterativa do Kubernetes para equipes em clusters do Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 9bdd6f48a8f48266b8a9aad003fe6ea43715036c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fd6f52c71c81f253f3f40f05408e45b6a6c0dbce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978434"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199468"
 ---
 # <a name="what-is-azure-dev-spaces"></a>O que é o Azure Dev Spaces?
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre como funciona o Azure Dev Spaces, confira [C
 
 ## <a name="supported-regions-and-configurations"></a>Configurações e regiões com suporte
 
-Só há suporte para o Azure Dev Spaces em clusters do AKS em [algumas regiões][supported-regions]. O Azure Dev Spaces dá suporte ao uso da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, no macOS ou no Windows 8 ou posterior para criar e executar aplicativos no AKS. Ele também dá suporte ao uso do [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows com a carga de trabalho de Desenvolvimento do Azure.
+Só há suporte para o Azure Dev Spaces em clusters do AKS em [algumas regiões][supported-regions]. O Azure Dev Spaces dá suporte ao uso da [CLI do Azure](/cli/azure/install-azure-cli) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, no macOS ou no Windows 8 ou posterior para criar e executar aplicativos no AKS. Ele também dá suporte ao uso do [Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows com a carga de trabalho de Desenvolvimento do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,27 @@
 ---
 title: 'Início Rápido: Criar um pipeline de CI/CD para Python com o Azure DevOps Starter'
 description: O DevOps Starter facilita o uso inicial do Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
-ms.prod: devops
-ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom:
+- mvc
+- devx-track-python
+- mode-api
+ms.openlocfilehash: d236eadd4c1c3bbda5a781d00de43e4ed3dc88b9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588923"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533277"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Criar um pipeline de CI/CD para Python com o Azure DevOps Starter
 
@@ -129,4 +132,4 @@ Na etapa anterior, o DevOps Starter configurou automaticamente um pipeline de CI
 Quando você configurou seu processo de CI/CD, os pipelines de build e de lançamento foram criados automaticamente. Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
 ms.openlocfilehash: d838fe1d1015e1913c8aa28a122b06d108fb4676
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91446654"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com redirecionamento interno usando o Azure PowerShell

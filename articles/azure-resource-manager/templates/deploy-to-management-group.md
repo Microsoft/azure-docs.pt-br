@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/18/2021
+ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491630"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043301"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -25,7 +25,7 @@ Para plantas do Azure, use:
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versões](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Para políticas do Azure, use:
+Para Azure Policy, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -220,6 +220,16 @@ O exemplo a seguir cria um novo grupo de gerenciamento no grupo de gerenciamento
 }
 ```
 
+## <a name="subscriptions"></a>Assinaturas
+
+Para usar um modelo ARM para criar uma nova assinatura do Azure em um grupo de gerenciamento, consulte:
+
+* [Criar programaticamente assinaturas do Azure Contrato Enterprise](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Criar programaticamente assinaturas do Azure para um contrato de cliente da Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Crie programaticamente assinaturas do Azure para um contrato de parceiro da Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+
+Para implantar um modelo que move uma assinatura do Azure existente para um novo grupo de gerenciamento, consulte [mover assinaturas no modelo ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
+
 ## <a name="azure-policy"></a>Azure Policy
 
 As definições de política personalizadas que são implantadas no grupo de gerenciamento são extensões do grupo de gerenciamento. Para obter a ID de uma definição de política personalizada, use a função [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . As definições de política internas são recursos de nível de locatário. Para obter a ID de uma definição de política interna, use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
@@ -317,7 +327,7 @@ De uma implantação em nível de grupo de gerenciamento, você pode direcionar 
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedSub",
             "location": "[parameters('nestedLocation')]",
             "subscriptionId": "[parameters('nestedSubId')]",
@@ -333,7 +343,7 @@ De uma implantação em nível de grupo de gerenciamento, você pode direcionar 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('nestedRG')]",
                             "location": "[parameters('nestedLocation')]"
                         }
@@ -343,7 +353,7 @@ De uma implantação em nível de grupo de gerenciamento, você pode direcionar 
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedRG",
             "subscriptionId": "[parameters('nestedSubId')]",
             "resourceGroup": "[parameters('nestedRG')]",

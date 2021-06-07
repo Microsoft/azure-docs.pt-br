@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078774"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104798758"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início Rápido: criar um aplicativo do Python usando uma conta de API de SQL do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL para 
     * Sem uma assinatura do Azure:
         * [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/), um ambiente de testes que dura 30 dias.
         * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7+ ou 3.5.3+](https://www.python.org/downloads/), com o executável `python` em seu `PATH`.
+- [Python 2.7 ou 3.6+](https://www.python.org/downloads/) com o executável `python` em seu `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -64,11 +64,11 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
 
     :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="O Data Explorer do portal do Azure, painel Adicionar Contêiner":::
 
-2. Na página **Adicionar contêiner** , insira as configurações do novo contêiner.
+2. Na página **Adicionar contêiner**, insira as configurações do novo contêiner.
 
     |Configuração|Valor sugerido|Descrição
     |---|---|---|
-    |**ID do banco de dados**|Tarefas|Digite *Tarefas* como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados** ; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
+    |**ID do banco de dados**|Tarefas|Digite *Tarefas* como o nome do novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
     |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.| 
     |**ID do contêiner**|Itens|Insira *Itens* como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.|
     |**Chave de partição**| /category| O exemplo descrito neste artigo usa */category* como a chave de partição.|

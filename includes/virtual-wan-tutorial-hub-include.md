@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67171824"
 ---
 Um hub contém o gateway. Depois que o hub é criado, você será cobrado por ele, mesmo se não anexar sites. Leva 30 minutos para criar o hub e o gateway.
@@ -25,4 +25,4 @@ Um hub contém o gateway. Depois que o hub é criado, você será cobrado por el
    * Nome
    * Espaço de endereço privado do hub
 
-Clique em **Confirmar** para criar o hub. Clique em **Atualizar** para exibir o Hub na página **hubs** .
+Clique em **Confirmar** para criar o hub. Clique em **Atualizar** para exibir o hub na página **Hubs**.

@@ -1,27 +1,22 @@
 ---
 title: Usar pontos de extremidade privados para criar um pipeline do Azure Data Factory
 description: Este tutorial fornece instruções passo a passo para usar o portal do Azure a fim de criar um data factory com um pipeline. O pipeline usa a atividade de cópia para copiar dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 04/14/2021
 ms.author: jingwang
-ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 191ad61990e10fdb718eebf1a8f57d8edaadcf35
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249476"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515440"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiar dados com segurança do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando pontos de extremidade privados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. *O pipeline deste data factory copia os dados com segurança do Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure (permitindo o acesso somente às redes selecionadas) usando pontos de extremidade privados na [Rede Virtual Gerenciada do Azure Data Factory](managed-virtual-network-private-endpoint.md).* O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados compatíveis como origens e coletores, confira a tabela de [Formatos e armazenamentos de dados compatíveis](./copy-activity-overview.md).
 

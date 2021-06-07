@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519cd952bd1265b4daad3b77b29aabd47ea4cc5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935272"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102547468"
 ---
 # <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva do Sentiment
 
@@ -110,11 +110,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 }
 ```
 
-## <a name="notes"></a>Observações
-Se estiver vazio, uma pontuação de sensibilidade não é retornada para os registros.
-
-## <a name="error-cases"></a>Casos de erro
-Se não há suporte para um idioma, será gerado um erro e nenhuma pontuação de sensibilidade é retornada.
+## <a name="warning-cases"></a>Casos de aviso
+Se o texto estiver vazio, um aviso será gerado e nenhuma pontuação de sentimentos será retornada.
+Se não houver suporte para um idioma, um aviso será gerado e nenhuma pontuação de sentimentos será retornada.
 
 ## <a name="see-also"></a>Confira também
 

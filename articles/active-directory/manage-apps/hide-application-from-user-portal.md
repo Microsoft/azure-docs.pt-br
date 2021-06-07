@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8469b48b92f3f9a645a0c05441e6c1943b02e16f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258873"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicativos empresariais de usuários finais no Azure Active Directory
@@ -40,7 +40,7 @@ Use as etapas a seguir para ocultar um aplicativo do painel myapps e Microsoft 3
 5.  Procure o aplicativo que você quer ocultar e clique no aplicativo.  A visão geral do aplicativo é aberta.
 6.  Clique em **Propriedades**. 
 7.  Para a pergunta **Visível para os usuários?**, clique em **Não**.
-8.  Clique em **Salvar**.
+8.  Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Essas instruções se aplicam somente a aplicativos empresariais.

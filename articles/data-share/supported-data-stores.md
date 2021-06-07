@@ -7,10 +7,10 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 12/16/2020
 ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963671"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no Azure Data Share

@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 1d83f859fce33b9499d01c4b58e69f56fdbbb293
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221927"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Remover Gerenciamento de Atualizações da conta de automação

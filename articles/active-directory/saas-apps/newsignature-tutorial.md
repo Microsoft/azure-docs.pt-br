@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 950744e0b8b2f722d801c911d6fd2c9112f035ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92522474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integração do Azure Active Directory com o Cloud Management Portal for Microsoft Azure
@@ -61,7 +61,7 @@ Para configurar a integração do Cloud Management Portal for Microsoft Azure ao
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Portal de Gerenciamento de Nuvem para Microsoft Azure** , selecione **Portal de Gerenciamento de Nuvem para Microsoft Azure** no painel de resultados; em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Portal de Gerenciamento de Nuvem para Microsoft Azure**, selecione **Portal de Gerenciamento de Nuvem para Microsoft Azure** no painel de resultados; em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Portal de Gerenciamento de Nuvem para Microsoft Azure na lista de resultados](common/search-new-app.png)
 
@@ -85,37 +85,37 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Portal de Gerenciamento de Nuvem para Microsoft Azure, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Portal de Gerenciamento de Nuvem para Microsoft Azure** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Portal de Gerenciamento de Nuvem para Microsoft Azure**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de domínio e URLs do Portal de Gerenciamento de Nuvem para Microsoft Azure](common/sp-identifier-reply.png)
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
     ```http
     https://portal.newsignature.com/<instancename>
     https://portal.igcm.com/<instancename>
     ```
 
-    b. Na caixa **Identificador** , digite uma URL usando o seguinte padrão:
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão:
 
     ```http
     https://<subdomain>.igcm.com
     https://<subdomain>.newsignature.com
     ```
 
-    c. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
+    c. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
     ```http
     https://<subdomain>.igcm.com/<instancename>
@@ -126,11 +126,11 @@ Para configurar o logon único do Azure AD com o Portal de Gerenciamento de Nuve
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com [a equipe de suporte do cliente do Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Portal de Gerenciamento de Nuvem para Microsoft Azure** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Portal de Gerenciamento de Nuvem para Microsoft Azure**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -142,13 +142,13 @@ Para configurar o logon único do Azure AD com o Portal de Gerenciamento de Nuve
 
 ### <a name="configure-cloud-management-portal-for-microsoft-azure-single-sign-on"></a>Configurar o logon único do Portal de Gerenciamento de Nuvem para Microsoft Azure
 
-Para configurar o logon único no lado do **Portal de Gerenciamento de Nuvem para Microsoft Azure** , é necessário enviar o **Certificado (Base64)** baixado e as URLs adequadas copiadas do Portal do Azure para a equipe de suporte do [Portal de Gerenciamento de Nuvem para Microsoft Azure](mailto:jczernuszka@newsignature.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Portal de Gerenciamento de Nuvem para Microsoft Azure**, é necessário enviar o **Certificado (Base64)** baixado e as URLs adequadas copiadas do Portal do Azure para a equipe de suporte do [Portal de Gerenciamento de Nuvem para Microsoft Azure](mailto:jczernuszka@newsignature.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -160,9 +160,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Cloud Management Portal for Microsoft Azure.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Portal de Gerenciamento de Nuvem para Microsoft Azure**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Portal de Gerenciamento de Nuvem para Microsoft Azure**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -189,11 +189,11 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-cloud-management-portal-for-microsoft-azure-test-user"></a>Criar usuário de teste do Portal de Gerenciamento de Nuvem para Microsoft Azure
 

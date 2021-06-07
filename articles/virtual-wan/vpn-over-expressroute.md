@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487500"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
@@ -115,7 +115,7 @@ Depois de criar o site VPN e conectar-se ao Hub, use as seguintes etapas para co
 1. Para **usar o endereço IP privado do Azure**, selecione **Sim**. A configuração configura o gateway de VPN do hub para usar endereços IP privados dentro do intervalo de endereços do Hub no gateway para essa conexão, em vez dos endereços IP públicos. Isso garantirá que o tráfego da rede local percorra os caminhos de emparelhamento privado do ExpressRoute em vez de usar a Internet pública para essa conexão VPN. A captura de tela a seguir mostra a configuração:
 
    :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Configuração para usar um endereço IP privado para a conexão VPN" border="false":::
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Depois de salvar as alterações, o gateway de VPN de Hub usará os endereços IP privados no gateway de VPN para estabelecer as conexões IPsec/IKE com o dispositivo VPN local no ExpressRoute.
 

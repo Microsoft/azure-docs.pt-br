@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
 ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895536"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3,0: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 

@@ -8,17 +8,17 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880179"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865597"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
 
 > [!IMPORTANT]
-> Os serviços de nuvem (suporte estendido) estão atualmente em visualização pública.
+> No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para garantir uma implantação bem-sucedida dos serviços de nuvem (suporte estendido), examine as etapas abaixo e conclua cada item antes de tentar qualquer implantação. 
@@ -42,7 +42,7 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Atualizações de arquivo de configuração de serviço (. cscfg) necessárias
 
 ### <a name="1-virtual-network"></a>1) rede virtual
-As implantações do serviço de nuvem (suporte estendido) devem estar em uma rede virtual. A rede virtual pode ser criada por meio de [portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), [CLI do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) ou [modelo ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). A rede virtual e as sub-redes também devem ser referenciadas na configuração do serviço (. cscfg) na seção [NetworkConfiguration](schema-cscfg-networkconfiguration.md) . 
+As implantações do Serviço de Nuvem (suporte estendido) precisam estar em uma rede virtual. A rede virtual pode ser criada por meio de [portal do Azure](../virtual-network/quick-create-portal.md), [PowerShell](../virtual-network/quick-create-powershell.md), [CLI do Azure](../virtual-network/quick-create-cli.md) ou [modelo ARM](../virtual-network/quick-create-template.md). A rede virtual e as sub-redes também devem ser referenciadas na configuração do serviço (. cscfg) na seção [NetworkConfiguration](schema-cscfg-networkconfiguration.md) . 
 
 Para redes virtuais pertencentes ao mesmo grupo de recursos que o serviço de nuvem, a referência apenas ao nome da rede virtual no arquivo de configuração do serviço (. cscfg) é suficiente. Se a rede virtual e o serviço de nuvem estiverem em dois grupos de recursos diferentes, a ID de Azure Resource Manager completa da rede virtual precisará ser especificada no arquivo de configuração de serviço (. cscfg).
  
@@ -78,8 +78,16 @@ Remova as configurações antigas da área de trabalho remota do arquivo de conf
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Remova as configurações de diagnóstico antigas para cada função no arquivo de configuração de serviço (. cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Atualizações necessárias do arquivo de definição de serviço (. csdef)
+
+> [!NOTE]
+> As alterações no arquivo de definição de serviço (. csdef) exigem que o arquivo de pacote (. cspkg) seja gerado novamente. Crie e reempacote seu. cspkg post fazendo as seguintes alterações no arquivo. csdef para obter as configurações mais recentes para seu serviço de nuvem
 
 ### <a name="1-virtual-machine-sizes"></a>1) tamanhos de máquina virtual
 Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se você quiser continuar a usá-los, atualize o `vmsize` nome com a Convenção de nomenclatura de Azure Resource Manager associada.  
@@ -87,7 +95,7 @@ Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se v
 | Nome do tamanho anterior | Nome do tamanho atualizado | 
 |---|---|
 | ExtraSmall | Standard_A0 | 
-| Pequeno | Standard_A1 |
+| Small | Standard_A1 |
 | Médio | Standard_A2 | 
 | Grande | Standard_A3 | 
 | ExtraLarge | Standard_A4 | 
@@ -103,7 +111,7 @@ Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se v
  Por exemplo, `<WorkerRole name="WorkerRole1" vmsize="Medium"` se tornaria `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
 > [!NOTE]
-> Para recuperar uma lista de tamanhos disponíveis [, consulte SKUs de recursos-List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) e aplique os seguintes filtros: <br>
+> Para recuperar uma lista de tamanhos disponíveis [, consulte SKUs de recursos-List](/rest/api/compute/resourceskus/list) e aplique os seguintes filtros: <br>
 `ResourceType = virtualMachines ` <br>
 `VMDeploymentTypes = PaaS `
 
@@ -117,13 +125,18 @@ As implantações que utilizaram os plugins de área de trabalho remota antigos 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
 ```
+As implantações que utilizaram os plug-ins antigos de diagnóstico precisam das configurações removidas para cada função do arquivo de definição de serviço (. csdef)
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+```
 
 ## <a name="key-vault-creation"></a>Criação de Key Vault 
 
-Key Vault é usado para armazenar certificados associados aos serviços de nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar Key Vault para as permissões apropriadas para que o recurso de serviços de nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos de Key Vault. Key Vault pode ser criado por meio do [portal do Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)e do  [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). O Key Vault deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, consulte [usar certificados com os serviços de nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
+O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar Key Vault ' políticas de acesso ' (no Portal) para ' máquinas virtuais do Azure para implantação ' para que o recurso de serviços de nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos de Key Vault. Você pode criar um cofre de chaves no [portal do Azure](../key-vault/general/quick-create-portal.md) ou usando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre de chaves deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
-- Visite o [repositório de exemplos dos serviços de nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
+- Visite o [repositório de exemplos dos Serviços de Nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

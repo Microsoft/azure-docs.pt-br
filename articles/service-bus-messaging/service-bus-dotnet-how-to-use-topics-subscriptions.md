@@ -3,42 +3,78 @@ title: Enviar mensagens para tópicos do Barramento de Serviço do Azure usando 
 description: Este guia de início rápido mostra como enviar mensagens para tópicos do Barramento de Serviço do Azure usando o pacote azure-messaging-servicebus.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 11/13/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 60504bcf9e2c3f9460eee9a2e72d18767c0cfa71
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/16/2021
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 79eb7783fd3daf546539dd5b9048f4e9f484374f
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631667"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279792"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-net"></a>Enviar mensagens para um tópico do Barramento de Serviço do Azure e receber mensagens de assinaturas para o tópico (.NET)
-Este tutorial mostra como criar um aplicativo de console .NET Core que envia mensagens para um tópico do Barramento de Serviço e recebe mensagens de uma assinatura do tópico. 
+Neste tutorial, você criará um aplicativo em C# para executar as seguintes tarefas:
 
-> [!Important]
-> Este guia de início rápido usa o novo pacote **Azure.Messaging.ServiceBus**. Para obter um guia de início rápido que usa o pacote antigo Microsoft.Azure.ServiceBus, confira [Enviar e receber mensagens usando o pacote Microsoft.Azure.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md).
+1. Enviar mensagens para um tópico do Barramento de Serviço. 
+
+    Um tópico do Barramento de Serviço fornecerá um ponto de extremidade para aplicativos do remetente enviarem mensagens. Um tópico pode ter uma ou mais assinaturas. Cada assinatura de um tópico obterá uma cópia da mensagem enviada ao tópico. Para obter mais informações sobre tópicos do Barramento de Serviço, confira [O que é o Barramento de Serviço do Azure?](service-bus-messaging-overview.md). 
+1. Receber mensagens de uma assinatura do tópico. 
+
+    :::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Tópicos e assinaturas do Barramento de Serviço":::
+
+    > [!Important]
+    > Este guia de início rápido usa o novo pacote **Azure.Messaging.ServiceBus**. Caso esteja usando o pacote Microsoft.Azure.ServiceBus antigo, confira como [Enviar e receber mensagens usando o pacote Microsoft.Azure.ServiceBus](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/vs)
 - Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md). Anote a cadeia de conexão, o nome do tópico e o nome de uma assinatura. Você usará apenas uma assinatura neste guia de início rápido. 
+- Siga as etapas deste [Guia de início rápido](service-bus-quickstart-topics-subscriptions-portal.md) para criar um tópico do Barramento de Serviço e assinaturas para ele. 
 
+    > [!NOTE]
+    > Neste tutorial, você usará uma cadeia de conexão para o namespace, o nome do tópico e o nome de uma das assinaturas para o tópico.  
+- [Visual Studio 2019](https://www.visualstudio.com/vs). 
+ 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Nesta seção, você criará um aplicativo de console .NET Core no Visual Studio e adicionará um código para enviar mensagens para o tópico criado. 
+Nesta seção, você criará um aplicativo de console do .NET Core no Visual Studio e adicionará um código para enviar mensagens ao tópico do Barramento de Serviço criado. 
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
-Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)** para C#. 
+Crie um aplicativo de console do .NET Core usando o Visual Studio. 
+
+1. Inicie o Visual Studio.  
+1. Caso veja a página **Introdução**, clique em **Criar um projeto**. 
+1. Na página **Criar um projeto** siga estas etapas: 
+    1. Selecione **C#** para a linguagem de programação. 
+    1. Selecione **Console** para o tipo de projeto. 
+    1. Selecione **Aplicativo de Console (.NET Core)** na lista de modelos. 
+    1. Em seguida, selecione **Avançar**. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project.png" alt-text="Criar um projeto de aplicativo de console":::
+1. Na página **Configurar novo projeto**, siga estas etapas: 
+    1. Em **Nome do projeto**, insira um nome para o projeto. 
+    1. Em **Local**, selecione um local para os arquivos do projeto e da solução. 
+    1. Em **Nome da solução**, insira um nome para a solução. Uma solução do Visual Studio pode ter um ou mais projetos. Neste guia de início rápido, a solução terá somente um projeto. 
+    1. Selecione **Criar** para criar o cluster. 
+            
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project-2.png" alt-text="Inserir o nome e o local do projeto e da solução":::    
+
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Barramento de Serviço
-
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
-1. Selecione **Procurar**. Procure e selecione **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)** .
-1. Selecione **Instalar** para concluir a instalação e feche o gerenciador de pacotes NuGet.
+
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/manage-nuget-packages-menu.png" alt-text="Menu Gerenciar Pacotes NuGet":::        
+1. Alterne para a guia **Procurar**.
+1. Procure e selecione **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)** .
+1. Selecione **Instalar** para concluir a instalação.
+
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-service-bus-package.png" alt-text="Selecionar um pacote NuGet do Barramento de Serviço.":::
+5. Caso veja a caixa de diálogo **Visualizar Alterações**, clique em **OK** para continuar. 
+1. Caso veja a página **Aceitação da Licença**, clique em **Aceito** para continuar. 
+    
 
 ### <a name="add-code-to-send-messages-to-the-topic"></a>Adicionar um código para enviar mensagens para o tópico 
 
-1. Em Program.cs, adicione as seguintes instruções `using` na parte superior da definição do namespace, antes da declaração de classe:
+1. Na janela **Gerenciador de Soluções**, clique duas vezes em **Program.cs** para abrir o arquivo no editor. 
+1. Adicione as seguintes instruções `using` na parte superior da definição do namespace, antes da declaração de classe:
    
     ```csharp
     using System;
@@ -46,34 +82,43 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     ```
-1. Na classe `Program`, declare as seguintes variáveis:
+1. Na classe `Program`, declare as seguintes variáveis acima da função `Main`:
 
     ```csharp
         static string connectionString = "<NAMESPACE CONNECTION STRING>";
-        static string topicName = "<TOPIC NAME>";
-        static string subscriptionName = "<SUBSCRIPTION NAME>";
+        static string topicName = "<SERVICE BUS TOPIC NAME>";
+        static string subscriptionName = "<SERVICE BUS - TOPIC SUBSCRIPTION NAME>";
     ```
 
     Substitua os seguintes valores:
     - `<NAMESPACE CONNECTION STRING>` pela cadeia de conexão para o namespace do Barramento de Serviço
     - `<TOPIC NAME>` pelo nome do tópico
     - `<SUBSCRIPTION NAME>` pelo nome da assinatura
-2. Adicione um método chamado `SendMessageToTopicAsync` que envia uma mensagem ao tópico. 
 
-    ```csharp
-        static async Task SendMessageToTopicAsync()
+### <a name="send-a-single-message-to-the-topic"></a>Enviar uma mensagem única ao tópico
+Adicione um método chamado `SendMessageToTopicAsync` à classe `Program` acima ou abaixo do método `Main`. Esse método enviará uma mensagem única ao tópico.
+
+```csharp
+    static async Task SendMessageToTopicAsync()
+    {
+        // create a Service Bus client 
+        await using (ServiceBusClient client = new ServiceBusClient(connectionString))
         {
-            // create a Service Bus client 
-            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
-            {
-                // create a sender for the topic
-                ServiceBusSender sender = client.CreateSender(topicName);
-                await sender.SendMessageAsync(new ServiceBusMessage("Hello, World!"));
-                Console.WriteLine($"Sent a single message to the topic: {topicName}");
-            }
+            // create a sender for the topic
+            ServiceBusSender sender = client.CreateSender(topicName);
+            await sender.SendMessageAsync(new ServiceBusMessage("Hello, World!"));
+            Console.WriteLine($"Sent a single message to the topic: {topicName}");
         }
-    ```
-1. Adicione um método chamado `CreateMessages` para criar uma fila (fila do .NET) de mensagens para a classe `Program`. Normalmente, você obtém essas mensagens de diferentes partes do seu aplicativo. Aqui, criamos uma fila de mensagens de exemplo.
+    }
+```
+
+Esse método executará as seguintes etapas: 
+1. Cria um objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) usando uma cadeia de conexão para o namespace. 
+1. Usa um objeto `ServiceBusClient` para criar um objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para o tópico do Barramento de Serviço especificado. Esta etapa usará o método [ServiceBusClient.CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender).
+1. Depois o método enviará uma mensagem de teste única ao tópico do Barramento de Serviço usando o método [ServiceBusSender.SendMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessageasync). 
+
+### <a name="send-a-batch-of-messages-to-the-topic"></a>Enviar um lote de mensagens ao tópico
+1. Adicione um método chamado `CreateMessages` para criar uma fila (do .NET, não uma fila do Barramento de Serviço) de mensagens para a classe `Program`. Normalmente, você obtém essas mensagens de diferentes partes do seu aplicativo. Aqui, criamos uma fila de mensagens de exemplo. Caso não esteja familiarizado com filas do .NET, confira [Queue.Enqueue](/dotnet/api/system.collections.queue.enqueue).
 
     ```csharp
         static Queue<ServiceBusMessage> CreateMessages()
@@ -86,7 +131,7 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
             return messages;
         }
     ```
-1. Adicione um método chamado `SendMessageBatchAsync` à classe `Program` e adicione o código a seguir. Esse método usa uma fila de mensagens e prepara um ou mais lotes para enviá-los ao tópico do Barramento de Serviço. 
+1. Adicione um método chamado `SendMessageBatchAsync` à classe `Program` e adicione o código abaixo. Esse método usa uma fila de mensagens e prepara um ou mais lotes para enviá-los ao tópico do Barramento de Serviço. 
 
     ```csharp
         static async Task SendMessageBatchToTopicAsync()
@@ -138,20 +183,32 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
                 Console.WriteLine($"Sent a batch of {messageCount} messages to the topic: {topicName}");
             }
         }
-    ```
-1. Substitua o método `Main()` pelo método **assíncrono** `Main` a seguir. Ele chama os métodos send para enviar uma só mensagem e um lote de mensagens para o tópico.  
+    ```    
 
-    ```csharp
-        static async Task Main()
-        {
-            // send a message to the topic
-            await SendMessageToTopicAsync();
+    Veja estas etapas importantes do código:
+    1. Cria um objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) usando uma cadeia de conexão para o namespace. 
+    1. Invoca o método [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) no objeto `ServiceBusClient` a fim de criar um objeto [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) para o tópico do Barramento de Serviço especificado. 
+    1. Invoca o método auxiliar `GetMessages` para obter uma fila de mensagens a serem enviadas ao tópico do Barramento de Serviço. 
+    1. Cria um método [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) usando [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
+    1. Adiciona mensagens ao lote usando o método [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). Conforme as mensagens forem adicionadas ao lote, elas serão removidas da fila do .NET. 
+    1. Envia o lote de mensagens ao tópico do Barramento de Serviço usando o método [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync).
 
-            // send a batch of messages to the topic
-            await SendMessageBatchToTopicAsync();
-        }
-    ```
-5. Execute o aplicativo. Você deve ver o seguinte resultado:
+### <a name="update-the-main-method"></a>Atualizar o método principal
+Substitua o método `Main()` pelo método **assíncrono** `Main` a seguir. Ele chama os métodos send para enviar uma só mensagem e um lote de mensagens para o tópico.  
+
+```csharp
+    static async Task Main()
+    {
+        // send a single message to the topic
+        await SendMessageToTopicAsync();
+
+        // send a batch of messages to the topic
+        await SendMessageBatchToTopicAsync();
+    }
+```
+
+### <a name="test-the-app-to-send-messages-to-the-topic"></a>Testar o aplicativo para enviar mensagens ao tópico
+1. Execute o aplicativo. Você deve ver o seguinte resultado:
 
     ```console
     Sent a single message to the topic: mytopic
@@ -219,6 +276,13 @@ Inicie o Visual Studio e crie um projeto de **Aplicativo de Console (.NET Core)*
             }
         }
     ```
+
+    Veja estas etapas importantes do código:
+    1. Cria um objeto [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) usando uma cadeia de conexão para o namespace. 
+    1. Invoca o método [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) no objeto `ServiceBusClient` a fim de criar um objeto [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) para o tópico do Barramento de Serviço e a combinação de assinatura especificados. 
+    1. Especifica os manipuladores dos eventos [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) e [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) do objeto `ServiceBusProcessor`. 
+    1. Inicia o processamento de mensagens invocando o método [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) no objeto `ServiceBusProcessor`. 
+    1. Quando o usuário pressionar uma tecla para encerrar o processamento, ele invocará o método [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) no objeto `ServiceBusProcessor`. 
 1. Adicione uma chamada ao método `ReceiveMessagesFromSubscriptionAsync` ao método `Main`. Comente o método `SendMessagesToTopicAsync` se você quiser testar apenas o recebimento das mensagens. Caso contrário, você verá outras quatro mensagens enviadas ao tópico. 
 
     ```csharp
@@ -269,5 +333,5 @@ Verifique o portal novamente.
 Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para .NET – Leiame](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
-- [Exemplos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [Exemplos do .NET para o Barramento de Serviço do Azure no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [Referência da API REST](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

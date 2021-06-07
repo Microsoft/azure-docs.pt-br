@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055154"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100585899"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitar Controle de Alterações e Inventário de uma conta de Automação
 
@@ -53,7 +53,7 @@ Computadores que não estão no Azure precisam ser adicionados manualmente. Reco
 
 1. Na sua conta de Automação, selecione **Inventário** ou **Controle de Alterações** em **Gerenciamento de Configuração**.
 
-2. Clique em **Adicionar computador não Azure**. Essa ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente do Log Analytics para o Windows](../../azure-monitor/platform/log-analytics-agent.md). Isso serve para o computador começar a relatar operações de Controle de Alterações e Inventário. Se você estiver habilitando um computador que seja gerenciado atualmente pelo Operations Manager, não será necessário um novo agente e as informações do workspace serão inseridas no agente existente.
+2. Clique em **Adicionar computador não Azure**. Essa ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente do Log Analytics para o Windows](../../azure-monitor/agents/log-analytics-agent.md). Isso serve para o computador começar a relatar operações de Controle de Alterações e Inventário. Se você estiver habilitando um computador que seja gerenciado atualmente pelo Operations Manager, não será necessário um novo agente e as informações do workspace serão inseridas no agente existente.
 
 ## <a name="enable-machines-in-the-workspace"></a>Habilitar computadores no workspace
 

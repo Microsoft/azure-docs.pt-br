@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197414"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101687389"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -113,7 +113,7 @@ A partir de novembro de 2017, todos os componentes do Controle de Acesso são to
 Aqui está a agenda para a substituição de componentes de Controle de Acesso:
 
 - **Novembro de 2017**: a experiência de administração do Azure AD no portal clássico do Azure [é desativada](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste ponto, o gerenciamento de namespace para o Controle de Acesso está disponível em uma URL nova e dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URL para exibir seus namespaces existentes, habilitar e desabilitar namespaces e excluir namespaces, se você desejar.
-- **2 de abril de 2018**: o Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
+- **2 de abril de 2018**: o Portal clássico do Azure é completamente desativado, o que significa que o gerenciamento do namespace do Controle de Acesso não está mais disponível por meio de qualquer URL. Neste ponto, você não pode desabilitar ou habilitar, excluir ou enumerar seus namespaces de Controle de Acesso. No entanto, o portal de gerenciamento de Controle de Acesso estará totalmente funcional e localizado em `https://<namespace>.accesscontrol.windows.net`. Todos os outros componentes do Controle de Acesso continuam operando normalmente.
 - **7 de novembro de 2018**: todos os componentes do Controle de Acesso serão desligados permanentemente. Isso inclui o portal de gerenciamento do Controle de Acesso, o serviço de gerenciamento, STS e o mecanismo de regras de transformação de token. Neste ponto, todas as solicitações enviadas para o controle de acesso (localizada em \<namespace\> . AccessControl.Windows.net) falham. Você deve ter migrado todos os aplicativos e serviços existentes para outras tecnologias bem antes disso.
 
 > [!NOTE]
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -320,7 +320,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |

@@ -7,10 +7,10 @@ ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230867"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente macOS
@@ -18,7 +18,7 @@ ms.locfileid: "89230867"
 > Aplica-se a: macOS 10,12 ou posterior
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-macos-2019.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos macOS com nosso cliente baixável. Este guia lhe dirá como configurar o cliente do.
 

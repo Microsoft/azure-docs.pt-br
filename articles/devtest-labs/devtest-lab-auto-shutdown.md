@@ -4,10 +4,10 @@ description: Saiba como definir a política de desligamento automático para um 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318982"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar o desligamento automático para máquinas virtuais de laboratório e computação no Azure DevTest Labs
@@ -42,8 +42,8 @@ Para exibir ou alterar as políticas de um laboratório, siga estas etapas:
 3. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
      ![Detalhes de desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 4. Se você habilitar essa política, especifique a hora (e fuso horário) para desligar todas as VMs no laboratório atual.
-5. Especifique **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim** , insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) .
-6. Selecione **Salvar**.
+5. Especifique **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) .
+6. Clique em **Salvar**.
 
     Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel de gerenciamento da VM e altere sua configuração de **Desligamento Automático**.
 
@@ -72,9 +72,9 @@ Se você definir seu laboratório para essa política, os usuários do laborató
 
 1. Na página **máquina virtual** , selecione **desligamento automático** no menu à esquerda na seção **operações** .
 2. Na página **desligamento automático** , selecione **ativado** para habilitar essa política e **desativado** para desabilitá-la.
-3. Se você habilitar essa política, especifique a **hora** (e o **fuso horário** ) em que a VM deve ser desligada.
-4. Escolha **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim** , insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) .
-5. Selecione **Salvar**.
+3. Se você habilitar essa política, especifique a **hora** (e o **fuso horário**) em que a VM deve ser desligada.
+4. Escolha **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) .
+5. Clique em **Salvar**.
 
     ![Configurar o desligamento automático para uma VM de computação](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
 
@@ -135,9 +135,9 @@ Para começar, crie um aplicativo lógico em sua assinatura do Azure usando as s
     4. Selecione um **local** para o aplicativo lógico.
 
         ![Novo aplicativo lógico-configurações](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. Nas **notificações** , selecione **ir para o recurso** na notificação.
+3. Nas **notificações**, selecione **ir para o recurso** na notificação.
 
-    ![Acessar recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
+    ![Ir para o recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
 4. Selecione **Designer de aplicativo lógico** na categoria **ferramentas de implantação** .
 
     ![Selecionar solicitação/resposta HTTP](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)

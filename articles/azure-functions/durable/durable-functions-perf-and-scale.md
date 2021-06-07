@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572792"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626568"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -40,7 +40,7 @@ Há uma fila de itens de trabalho por hub de tarefas nas Funções Duráveis. Es
 
 ### <a name="control-queues"></a>Fila(s) de controle
 
-Há várias *filas de controle* por hub de tarefa em Funções Duráveis. Uma *fila de controle* é mais sofisticada do que as filas de itens de trabalho mais simples. Filas de controle são usadas para disparar o orquestrador com estado e as funções de entidade. Como as instâncias de função de orquestrador e de entidade são singletons com estado, não é possível usar um modelo de consumidor concorrente para distribuir carga entre VMs. Em vez disso, as mensagens de orquestrador e de entidade têm balanceamento de carga entre as filas de controle. Para obter mais detalhes sobre esse comportamento, verifique as seções subsequentes.
+Há várias *filas de controle* por hub de tarefa em Funções Duráveis. Uma *fila de controle* é mais sofisticada do que as filas de itens de trabalho mais simples. Filas de controle são usadas para disparar o orquestrador com estado e as funções de entidade. Como as instâncias de função de orquestrador e de entidade são singletons com estado, é importante que cada orquestração ou entidade seja processada apenas por um trabalhador por vez. Para conseguir isso, cada instância de orquestração ou entidade é atribuída a uma única fila de controle. Essas filas de controle têm balanceamento de carga entre os trabalhadores para garantir que cada fila seja processada apenas por um trabalhador por vez. Para obter mais detalhes sobre esse comportamento, verifique as seções subsequentes.
 
 Filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de orquestração. Exemplos incluem [mensagens de controle de orquestrador](durable-functions-instance-management.md), mensagens de *resposta* de função de atividade e mensagens de temporizador. Até 32 mensagens serão removidas da fila de uma fila de controle em uma única chamada seletiva. Essas mensagens contêm dados de conteúdo, bem como metadados, incluindo qual instância de orquestração é destinada. Se várias mensagens removidas da fila destinam-se à mesma instância de orquestração, será processado como um lote.
 
@@ -56,7 +56,7 @@ O atraso máximo de sondagem é configurável por meio da `maxQueuePollingInterv
 ### <a name="orchestration-start-delays"></a>Atrasos de início da orquestração
 As instâncias de orquestrações são iniciadas colocando uma `ExecutionStarted` mensagem em uma das filas de controle do hub de tarefas. Em determinadas condições, você pode observar atrasos de vários segundos entre quando uma orquestração está agendada para ser executada e quando ela realmente começa a ser executada. Durante esse intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais desse atraso:
 
-1. **Filas de controle de registro** posterior: se a fila de controle dessa instância contiver um grande número de mensagens, pode levar tempo antes que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de execução. Os registros de pendências de mensagem podem ocorrer quando orquestrações estão processando muitos eventos simultaneamente. Os eventos que entram na fila de controle incluem eventos de início de orquestração, conclusões de atividade, temporizadores duráveis, encerramento e eventos externos. Se esse atraso ocorrer em circunstâncias normais, considere a criação de um novo hub de tarefas com um número maior de partições. A configuração de mais partições fará com que o tempo de execução crie mais filas de controle para a distribuição de carga.
+1. **Filas de controle de registro** posterior: se a fila de controle dessa instância contiver um grande número de mensagens, pode levar tempo antes que a `ExecutionStarted` mensagem seja recebida e processada pelo tempo de execução. Os registros de pendências de mensagem podem ocorrer quando orquestrações estão processando muitos eventos simultaneamente. Os eventos que entram na fila de controle incluem eventos de início de orquestração, conclusões de atividade, temporizadores duráveis, encerramento e eventos externos. Se esse atraso ocorrer em circunstâncias normais, considere a criação de um novo hub de tarefas com um número maior de partições. A configuração de mais partições fará com que o tempo de execução crie mais filas de controle para a distribuição de carga. Cada partição corresponde a 1:1 com uma fila de controle, com um máximo de 16 partições.
 
 2. **Desfazer atrasos de sondagem**: outra causa comum de atrasos de orquestração é o [comportamento de sondagem de retirada descrito anteriormente para filas de controle](#queue-polling). No entanto, esse atraso só é esperado quando um aplicativo é escalado horizontalmente para duas ou mais instâncias. Se houver apenas uma instância de aplicativo ou se a instância do aplicativo que inicia a orquestração também for a mesma instância que está sondando a fila de controle de destino, não haverá um atraso de sondagem de fila. Os atrasos de sondagem podem ser reduzidos atualizando o **host.jsem** configurações, conforme descrito anteriormente.
 
@@ -94,7 +94,12 @@ Se não estiver especificado, a conta de armazenamento `AzureWebJobsStorage` pad
 
 ## <a name="orchestrator-scale-out"></a>Expansão do orquestrador
 
-As funções de atividade são sem estado e são expandidas automaticamente adicionando VMs. As funções e entidades do Orchestrator, por outro lado, são *particionadas* em uma ou mais filas de controle. O número de filas do controle é definido no arquivo **host.json**. O exemplo a seguir host.jsno trecho de código define a `durableTask/storageProvider/partitionCount` Propriedade (ou `durableTask/partitionCount` no Durable Functions 1. x) como `3` .
+Embora as funções de atividade possam ser expandidas infinitamente adicionando mais VMs de forma elástica, as instâncias individuais do orquestrador e as entidades são restritas a estar uma única partição e o número máximo de partições é limitado pela `partitionCount` configuração em seu `host.json` . 
+
+> [!NOTE]
+> De modo geral, as funções de orquestrador devem ser leves e não devem precisar de muita capacidade de computação. Portanto, não é necessário criar um grande número de partições de fila de controle para obter uma excelente taxa de transferência para orquestrações. A maior parte do trabalho pesado será feita em funções de atividade sem monitoração de estado, que podem ser expandidas infinitamente.
+
+O número de filas do controle é definido no arquivo **host.json**. O exemplo a seguir host.jsno trecho de código define a `durableTask/storageProvider/partitionCount` Propriedade (ou `durableTask/partitionCount` no Durable Functions 1. x) como `3` . Observe que há tantas filas de controle quanto as partições.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
@@ -124,11 +129,25 @@ As funções de atividade são sem estado e são expandidas automaticamente adic
 
 Um hub de tarefa pode ser configurado com entre 1 e 16 partições. Se não for especificado, a contagem de participação padrão 4 **será usada**.
 
-Ao expandir para várias instâncias de host de função (normalmente, em VMs diferentes), cada instância adquire um bloqueio de uma das filas de controle. Esses bloqueios são implementados internamente como concessões de armazenamento de BLOBs e garantem que uma instância ou entidade de orquestração seja executada somente em uma única instância de host de cada vez. Se um hub de tarefas estiver configurado com três filas de controle, as instâncias de orquestração e as entidades poderão ser balanceadas com balanceamento de carga em até três VMs. VMs adicionais podem ser adicionadas para aumentar a capacidade de execução da função de atividade.
+Durante cenários de baixo tráfego, seu aplicativo será dimensionado, de modo que as partições serão gerenciadas por um pequeno número de trabalhadores. Como exemplo, considere o diagrama a seguir.
+
+![Diagrama de orquestrações de escala no](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+No diagrama anterior, vemos que os orquestradores de 1 a 6 têm balanceamento de carga entre partições. Da mesma forma, as partições, como atividades, têm balanceamento de carga entre os trabalhadores. As partições têm balanceamento de carga entre os trabalhadores, independentemente do número de orquestradores que começarem.
+
+Se você estiver executando o consumo de Azure Functions ou os planos Premium elásticos ou se tiver configurado o dimensionamento automático baseado em carga, mais trabalhadores serão alocados conforme o aumento de tráfego e as partições eventualmente balancearão a carga entre todos os trabalhadores. Se continuarmos a escalar horizontalmente, cada partição eventualmente será gerenciada por um único trabalho. As atividades, por outro lado, continuarão a ser balanceadas com balanceamento de carga em todos os trabalhos. Isso é mostrado na imagem abaixo.
+
+![Diagrama de orquestrações do primeiro dimensionamento horizontal](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+O limite superior do número máximo de orquestrações _ativas_ simultâneas em *um determinado momento* é igual ao número de trabalhadores alocados para o seu aplicativo _vezes_ seu valor para `maxConcurrentOrchestratorFunctions` . Esse limite superior pode se tornar mais preciso quando suas partições são totalmente dimensionadas entre os trabalhadores. Quando totalmente dimensionado, e como cada operador terá apenas uma única instância de host do functions, o número máximo de instâncias simultâneas do orquestrador _ativo_ será igual ao número de partições _vezes_ o valor de `maxConcurrentOrchestratorFunctions` . Nossa imagem abaixo ilustra um cenário totalmente dimensionado em que mais orquestradores são adicionados, mas alguns estão inativos, mostrados em cinza.
+
+![Diagrama de orquestrações de segundo escalado horizontalmente](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+Durante a expansão, os bloqueios da fila de controle podem ser redistribuídos entre instâncias de host de funções para garantir que as partições sejam distribuídas uniformemente. Esses bloqueios são implementados internamente como concessões de armazenamento de BLOBs e garantem que qualquer instância de orquestração individual ou entidade seja executada apenas em uma única instância de host de cada vez. Se um hub de tarefas estiver configurado com três partições (e, portanto, três filas de controle), as instâncias de orquestração e as entidades poderão ser balanceadas com balanceamento de carga entre todas as três instâncias de host que mantêm a concessão. VMs adicionais podem ser adicionadas para aumentar a capacidade de execução da função de atividade.
 
 O diagrama a seguir ilustra como o host do Azure Functions interage com as entidades de armazenamento em um ambiente expandido.
 
-![Diagrama de escala](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagrama de escala](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Conforme mostrado no diagrama anterior, todas as máquinas virtuais competem por mensagens na fila do item de trabalho. No entanto, apenas três VMs podem adquirir mensagens das filas de controle e cada VM bloqueia uma única fila de controle.
 

@@ -2,20 +2,20 @@
 title: Entrega de conteúdo aos clientes
 description: Este tópico fornece uma visão geral do que está envolvido no fornecimento de conteúdo com os Serviços de Mídia do Azure.
 services: media-services
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 1ad89345a2779766fde4559758e61dff92023741
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014376"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103016603"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
 

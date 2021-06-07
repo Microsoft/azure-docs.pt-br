@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392241"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacotes DACPAC e BACPAC do banco de dados SQL no SQL Edge
@@ -47,9 +47,9 @@ Para implantar (ou importar) um pacote de DAC do banco de dados SQL `(*.dacpac)`
 
     2. No painel esquerdo, selecione **IoT Edge**.
 
-    3. Na página do **IoT Edge** , localize e selecione o IoT Edge em que o módulo SQL no Edge é implantado.
+    3. Na página do **IoT Edge**, localize e selecione o IoT Edge em que o módulo SQL no Edge é implantado.
 
-    4. Na página de dispositivos **Dispositivo do IoT Edge** , selecione **Definir Módulo**.
+    4. Na página de dispositivos **Dispositivo do IoT Edge**, selecione **Definir Módulo**.
 
     5. Na página **definir módulos** e clique no módulo Azure SQL Edge.
 

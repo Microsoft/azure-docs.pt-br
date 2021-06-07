@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618800"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e as credenciais são sincronizados em um domínio gerenciado Azure Active Directory Domain Services
@@ -24,7 +24,7 @@ Os objetos e as credenciais em um domínio gerenciado Azure Active Directory Dom
 
 Em um ambiente híbrido, os objetos e as credenciais de um domínio AD DS local podem ser sincronizados com o Azure AD usando Azure AD Connect. Depois que esses objetos forem sincronizados com êxito com o Azure AD, a sincronização automática em segundo plano disponibilizará esses objetos e as credenciais para os aplicativos que usam o domínio gerenciado.
 
-Se AD DS local e o Azure AD estiverem configurados para autenticação federada usando o ADFS, não haverá nenhum hash de senha (atual/válido) disponível no Azure DS. As contas de usuário do Azure AD criadas antes da autenticação alimentada foi implementada podem ter um hash de senha antigo, mas isso provavelmente não corresponde a um hash de sua senha local. Portanto, o Azure AD DS não conseguirá validar as credenciais dos usuários.
+Se o AD DS local e o Azure AD forem configurados para autenticação federada usando o ADFS, então não haverá nenhum hash de senha (atual/válido) disponível no Azure DS. As contas de usuário do Azure AD criadas antes de a autenticação federada ter sido implementada podem ter um hash de senha antigo, mas isso provavelmente não corresponde a um hash da senha local delas. Portanto, o Azure AD DS não conseguirá validar as credenciais dos usuários.
 
 O diagrama a seguir ilustra como funciona a sincronização entre o Azure AD DS, o Azure AD e um ambiente de AD DS local opcional:
 

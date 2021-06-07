@@ -3,12 +3,12 @@ title: Configurar a política de retenção no Azure DevTest Labs | Microsoft Do
 description: Saiba como configurar uma política de retenção, limpar a fábrica e desativar imagens antigas do DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476046"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102550018"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurar a política de retenção no Azure DevTest Labs
 Este artigo aborda a definição de uma política de retenção, a limpeza da fábrica e a desativação de imagens antigas de todos os outros DevTest Labs da organização. 
@@ -64,7 +64,7 @@ A adição de uma nova imagem à sua fábrica também é simples. Quando desejar
 
 
 ## <a name="next-steps"></a>Próximas etapas
-1. [Agende sua compilação/versão](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar a fábrica de imagens periodicamente. Ele atualiza suas imagens geradas de fábrica regularmente.
+1. [Agende sua compilação/versão](/azure/devops/pipelines/build/triggers?tabs=designer) para executar a fábrica de imagens periodicamente. Ele atualiza suas imagens geradas de fábrica regularmente.
 2. Faça mais imagens Golden para sua fábrica. Você também pode considerar a [criação de artefatos](devtest-lab-artifact-author.md) para partes adicionais de script de suas tarefas de configuração de VM e incluir os artefatos em suas imagens de fábrica.
 4. Crie um [Build/versão separado](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o script **DistributeImages** separadamente. Você pode executar esse script ao fazer alterações no Labs.jse obter imagens copiadas para os laboratórios de destino sem precisar recriar todas as imagens novamente.
 

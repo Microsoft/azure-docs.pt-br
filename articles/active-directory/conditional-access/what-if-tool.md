@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077635"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952755"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta What If no Acesso Condicional
 
-O [acesso condicional](./overview.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional** .
+O [acesso condicional](./overview.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
 
 Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## <a name="what-it-is"></a>O que é
 
@@ -32,7 +34,7 @@ A ferramenta de **What If** fornece uma maneira de determinar rapidamente as pol
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Na **ferramenta de What If de acesso condicional** , primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
+Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
 
 - O usuário que você deseja testar 
 - Os aplicativos de nuvem que o usuário tente acessar
@@ -46,7 +48,7 @@ Terminada a avaliação, a ferramenta gera um relatório das políticas afetadas
 
 Você pode encontrar a ferramenta **What If** na página **[acesso condicional-políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal do Azure.
 
-Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **What If** .
+Para iniciar a ferramenta, na barra de ferramentas na parte superior da lista de políticas, clique em **What If**.
 
 :::image type="content" source="./media/what-if-tool/01.png" alt-text="Captura de tela da página de políticas de acesso condicional no portal do Azure. Na barra de ferramentas, o item What If é realçado." border="false":::
 
@@ -56,15 +58,15 @@ Antes de executar uma avaliação, você deve configurar as definições.
 
 Esta seção fornece informações sobre as configurações de execução de simulação.
 
-:::image type="content" source="./media/what-if-tool/02.png" alt-text="Captura de tela da página de políticas de acesso condicional no portal do Azure. Na barra de ferramentas, o item What If é realçado." border="false":::
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Captura de tela da página de What If de portal do Azure, com campos para um usuário, aplicativos de nuvem, um endereço I P, uma plataforma de dispositivo, um aplicativo cliente e um risco de entrada." border="false":::
 
-### <a name="user"></a>Usuário
+### <a name="user"></a>User
 
 Você só pode selecionar um usuário. Esse é o único campo obrigatório.
 
 ### <a name="cloud-apps"></a>Aplicativos na nuvem
 
-O padrão para essa configuração é **Todos os aplicativos de nuvem** . A configuração padrão executa uma avaliação de todas as políticas disponíveis em seu ambiente. Você pode restringir o escopo para políticas que afetem aplicativos de nuvem específicos.
+O padrão para essa configuração é **Todos os aplicativos de nuvem**. A configuração padrão executa uma avaliação de todas as políticas disponíveis em seu ambiente. Você pode restringir o escopo para políticas que afetem aplicativos de nuvem específicos.
 
 ### <a name="ip-address"></a>Endereço IP
 
@@ -72,12 +74,12 @@ O endereço IP é um único endereço IPv4 para imitar a [condição local](loca
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-Essa configuração imita a [condição de plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)** . 
+Essa configuração imita a [condição de plataformas de dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a **todas as plataformas (incluindo plataformas sem suporte)**. 
 
 ### <a name="client-apps"></a>Aplicativos cliente
 
 Essa configuração imita a [condição de aplicativos do cliente](concept-conditional-access-conditions.md#client-apps).
-Por padrão, essa configuração faz com que uma avaliação de todas as políticas com **navegador** ou **aplicativos móveis e clientes de desktop** sejam cada ou ambos selecionados. Ela também detecta políticas que impõem o **Exchange ActiveSync (EAS)** . Você pode reduzir essa configuração selecionando:
+Por padrão, essa configuração faz com que uma avaliação de todas as políticas com **navegador** ou **aplicativos móveis e clientes de desktop** sejam cada ou ambos selecionados. Ela também detecta políticas que impõem o **Exchange ActiveSync (EAS)**. Você pode reduzir essa configuração selecionando:
 
 - **Navegador** para avaliar todas as políticas com menos **Navegador** selecionado. 
 - **Aplicativos móveis e clientes de desktop** avaliando todas as políticas com pelo menos **aplicativos móveis e clientes de desktop** selecionado. 
@@ -88,9 +90,9 @@ Essa configuração imita a [condição de risco de logon](concept-conditional-a
 
 ## <a name="evaluation"></a>Avaliação 
 
-Você inicia uma avaliação clicando em **What If** . O resultado da avaliação fornece um relatório que consiste em: 
+Você inicia uma avaliação clicando em **What If**. O resultado da avaliação fornece um relatório que consiste em: 
 
-:::image type="content" source="./media/what-if-tool/03.png" alt-text="Captura de tela da página de políticas de acesso condicional no portal do Azure. Na barra de ferramentas, o item What If é realçado." border="false":::
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Captura de tela de um relatório de avaliação. Texto indica que pelo menos uma política clássica está configurada. As guias estão disponíveis para exibição de políticas." border="false":::
 
 - Um indicador de se as políticas clássicas existem no seu ambiente
 - Políticas que se aplicam ao usuário

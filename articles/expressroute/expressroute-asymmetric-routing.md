@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/14/2020
 ms.author: duau
 ms.openlocfilehash: 0713c52c7f07db93d9ae9084062ef2c3b25a9074
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97560501"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede

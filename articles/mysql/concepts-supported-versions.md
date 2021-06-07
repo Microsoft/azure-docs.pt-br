@@ -6,42 +6,40 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 314462517ba4e63694266b5e49231cb8536f3635
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751021"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604712"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
 
-O Banco de Dados do Azure para MySQL foi desenvolvido a partir do [MySQL Community Edition](https://www.mysql.com/products/community/), usando o mecanismo InnoDB.
-
-O MySQL usa o esquema de nomenclatura X.Y.Z. X é a versão principal, Y é a versão secundária e Z é a versão de correção de bug. Para obter mais informações sobre o esquema, confira a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+O banco de dados do Azure para MySQL foi desenvolvido no [MySQL Community Edition](https://www.mysql.com/products/community/), usando o mecanismo de armazenamento InnoDB. O serviço dá suporte a toda a versão principal atual com suporte da Comunidade, o MySQL 5,6, 5,7 e 8,0. O MySQL usa o esquema de nomenclatura X. Y. Z em que X é a versão principal, Y é a versão secundária e Z é o lançamento de correção de bug. Para obter mais informações sobre o esquema, confira a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 
-> [!NOTE]
-> No serviço, um gateway é usado para redirecionar as conexões para as instâncias de servidor. Depois que a conexão for estabelecida, o cliente MySQL exibirá a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, use o `SELECT VERSION();` comando no prompt do MySQL.
 
-No momento, o Banco de Dados do Azure para MySQL dá suporte às seguintes versões:
+## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Conectar-se a um nó de gateway que está executando uma versão específica do MySQL
 
-## <a name="mysql-version-56"></a>MySQL Versão 5.6
+Na opção de implantação de servidor único, um gateway é usado para redirecionar as conexões para instâncias de servidor. Depois que a conexão for estabelecida, o cliente MySQL exibirá a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, use o `SELECT VERSION();` comando no prompt do MySQL. Examine a [arquitetura de conectividade](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture#connectivity-architecture) para saber mais sobre gateways na arquitetura de serviço banco de dados do Azure para MySQL.
 
-Versão de correção de bug: 5.6.47
+Como o banco de dados do Azure para MySQL dá suporte à versão principal do v 5.6, v 5.7 e v 8.0, a porta padrão 3306 para se conectar ao banco de dados do Azure para MySQL executa o cliente MySQL versão 5,6 (o denominador menos comum) para dar suporte a conexões com servidores de todas as três versões principais com suporte. No entanto, se seu aplicativo tiver um requisito para se conectar a uma versão principal específica, digamos que v 5.7 ou v 8.0, você poderá fazer isso alterando a porta na cadeia de conexão do servidor.
 
-Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+No serviço de banco de dados do Azure para MySQL, os nós de gateway escutam a porta 3308 para clientes v 5.7 e a porta 3309 para clientes v 8.0. Em outras palavras, se você quiser se conectar ao cliente do gateway v 5.7, deverá usar o nome do servidor totalmente qualificado e a porta 3308 para se conectar ao servidor do aplicativo cliente. Da mesma forma, se você quiser se conectar ao cliente do gateway v 8.0, poderá usar o nome do servidor totalmente qualificado e a porta 3309 para se conectar ao servidor. Verifique o exemplo a seguir para maior clareza.
 
-## <a name="mysql-version-57"></a>MySQL Versão 5.7
+:::image type="content" source="./media/concepts-supported-versions/concepts-supported-versions-gateway.png" alt-text="Exemplo de conexão por meio de diferentes versões de MySQL de gateway":::
 
-Versão de correção de bug: 5.7.29
 
-Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+## <a name="azure-database-for-mysql-currently-supports-the-following-major-and-minor-versions-of-mysql"></a>Atualmente, o banco de dados do Azure para MySQL dá suporte às seguintes versões principais e secundárias do MySQL:
 
-## <a name="mysql-version-80"></a>MySQL versão 8,0
 
-Versão de correção de bug: 8.0.15
+| Versão | Servidor único <br/> Versão secundária atual |Servidor Flexível (versão prévia) <br/> Versão secundária atual  |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (desativado) | Sem suporte|
+|MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|MySQL versão 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
-Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+Leia a política de suporte de versão para versões desativadas na [documentação da política de suporte de versão.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciar atualizações e upgrades
 O serviço gerencia automaticamente a aplicação de patch para atualizações de versão de correção de bug. Por exemplo, 5.7.20 a 5.7.21.  

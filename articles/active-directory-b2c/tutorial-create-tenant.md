@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725747"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579681"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -23,6 +23,8 @@ Antes que os aplicativos possam interagir com o Azure Active Directory B2C (Azur
 
 > [!NOTE]
 > Você pode criar até 20 locatários por assinatura. Esse limite ajuda a proteger contra ameaças aos seus recursos, como ataques de negação de serviço, e é imposto tanto no portal do Azure quanto na API de criação de locatários subjacente. Se precisar criar mais de 20 locatários, entre em contato com o [Suporte da Microsoft](support-options.md).
+> 
+> Caso queira reutilizar um nome de locatário que você tentou excluir anteriormente, porém receba a mensagem de erro "Em uso por outro diretório" ao inserir o nome de domínio, será preciso [seguir estas etapas primeiro para excluir completamente o locatário](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). É necessário obter pelo menos uma função de Administrador da Assinatura. Depois de excluir o locatário, talvez seja preciso sair e entrar novamente antes de reutilizar o nome de domínio.
 
 Neste artigo, você aprenderá como:
 
@@ -68,7 +70,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ![Criar formulário de locatário com valores de exemplo no portal do Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Selecione **Examinar + criar**.
-1. Examine as configurações do diretório. Em seguida, selecione **Criar**. Para obter a [solução de problemas de erros de implantação](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+1. Examine as configurações do diretório. Em seguida, selecione **Criar**. Para obter a [solução de problemas de erros de implantação](../azure-resource-manager/templates/common-deployment-errors.md).
 
 É possível vincular vários locatários Azure AD B2C a apenas uma assinatura do Azure para fins de cobrança. Para vincular um locatário, você precisa ser um administrador no locatário do Azure AD B2C e receber pelo menos uma função de Colaborador dentro da assinatura do Azure. Confira [Vincular um locatário do Azure AD B2C a uma assinatura](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

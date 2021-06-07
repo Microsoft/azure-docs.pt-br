@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
 ms.openlocfilehash: e28d21ed71cf5f485165c639a8bd519b3a2736e1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928986"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
@@ -73,7 +73,7 @@ Como mencionado anteriormente, há um `storm.py` arquivo que implementa a defini
 
 1. Baixe o projeto do [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) .
 
-1. Abra um prompt de comando e navegue até a raiz do projeto: `hdinsight-python-storm-wordcount-master` . Digite o seguinte comando:
+1. Abra um prompt de comando e navegue até a raiz do projeto: `hdinsight-python-storm-wordcount-master` . Insira o seguinte comando:
 
     ```cmd
     mvn clean compile package

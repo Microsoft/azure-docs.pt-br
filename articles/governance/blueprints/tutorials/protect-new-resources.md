@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Proteger novos recursos com bloqueios'
 description: Neste tutorial, você usa as opções Somente Leitura e Não Excluir dos bloqueios de recursos do Azure Blueprints para proteger recursos recém-implantados.
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915400"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102485734"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger recursos novos com bloqueios de recursos do Azure Blueprints
 
-Com os [bloqueios de recursos](../concepts/resource-locking.md) do Azure Blueprints, é possível proteger recursos recém-implantados contra interferências, até mesmo por uma conta com a função _Proprietário_. É possível adicionar essa proteção nas definições de blueprint dos recursos criados por um artefato de modelo do ARM (modelo do Azure Resource Manager).
+Com os [bloqueios de recursos](../concepts/resource-locking.md) do Azure Blueprints, é possível proteger recursos recém-implantados contra interferências, até mesmo por uma conta com a função _Proprietário_. É possível adicionar essa proteção nas definições de blueprint dos recursos criados por um artefato de modelo do ARM (modelo do Azure Resource Manager). O bloqueio de recursos do Blueprint é definido durante a atribuição do Blueprint.
 
 Neste tutorial, você concluirá estas etapas:
 
 > [!div class="checklist"]
 > - Criar uma definição de blueprint
 > - Marcar a definição de blueprint como **Publicada**
-> - Atribuir a definição de blueprint a uma assinatura existente
+> - Atribuir a definição do blueprint a uma assinatura existente (**definir bloqueios de recursos**)
 > - Inspecionar o novo grupo de recursos
 > - Cancelar a atribuição do blueprint para remover os bloqueios
 
@@ -56,6 +56,9 @@ Primeiro, crie a definição de blueprint.
    1. Selecione a linha **Adicionar artefato** na entrada **RGtoLock**.
    1. Selecione **Modelo do Azure Resource Manager** em **Tipo de artefato**, defina **Nome de exibição do artefato** como **StorageAccount** e deixe **Descrição** em branco.
    1. Na guia **Modelo**, cole o modelo do ARM a seguir na caixa do editor. Após colar o modelo, selecione **Adicionar** para adicionar o artefato ao blueprint.
+
+      > [!NOTE]
+      > Esta etapa define os recursos a serem implantados que são bloqueados pelo bloqueio de recursos do Blueprint, mas não inclui os bloqueios de recursos do Blueprint. Os bloqueios de recursos do Blueprint são definidos como um parâmetro da atribuição do Blueprint.
 
    ```json
    {
@@ -142,6 +145,9 @@ Depois que a definição de blueprint for publicada, será possível atribuí-la
    - **Atribuição de bloqueio**
 
      Selecione o modo de bloqueio de blueprint **Somente Leitura**. Para obter mais informações, consulte [bloqueio de recursos de projetos](../concepts/resource-locking.md).
+
+     > [!NOTE]
+     > Esta etapa configura o bloqueio de recursos do Blueprint nos recursos implantados recentemente.
 
    - **Identidade gerenciada**
 

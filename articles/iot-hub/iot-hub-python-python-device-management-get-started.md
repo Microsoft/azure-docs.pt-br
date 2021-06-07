@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: robinsh
-ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: d4c514042b89341b90b0bb9c939ef4b463741916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.custom: mqtt, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: c07d26715aff2c8dd5e00a7d7adbb548adf00a28
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872711"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482493"
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução ao gerenciamento de dispositivos (Python)
 

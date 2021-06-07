@@ -1,30 +1,33 @@
 ---
 title: Definir configurações de cache do HPC do Azure
-description: Explica como definir configurações adicionais para o cache, como MTU e não-raiz-comprimir, e como acessar os instantâneos Express de destinos do armazenamento de BLOBs do Azure.
+description: Explica como definir configurações adicionais para o cache, como MTU, configuração de DNS e NTP personalizado, e como acessar os instantâneos Express de destinos do armazenamento de BLOBs do Azure.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760496"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773225"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Definir configurações adicionais de cache do HPC do Azure
 
-A página de **configuração** no portal do Azure tem opções para personalizar várias configurações. A maioria dos usuários não precisa alterar essas configurações de seus valores padrão.
+A página **rede** na portal do Azure tem opções para personalizar várias configurações. A maioria dos usuários não precisa alterar essas configurações de seus valores padrão.
 
 Este artigo também descreve como usar o recurso de instantâneo para destinos do armazenamento de BLOBs do Azure. O recurso de instantâneo não tem configurações configuráveis.
 
-Para ver as configurações, abra a página de **configuração** do cache no portal do Azure.
+Para ver as configurações, abra a página **rede** do cache no portal do Azure.
 
-![captura de tela da página de configuração no portal do Azure](media/configuration.png)
+![captura de tela da página rede no portal do Azure](media/networking-page.png)
 
-> [!TIP]
-> O [vídeo Gerenciando o cache HPC do Azure](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) mostra a página de configuração e suas configurações.
+> [!NOTE]
+> Uma versão anterior desta página incluía uma configuração de comprimi raiz no nível do cache, mas essa configuração foi movida para [as políticas de acesso do cliente](access-policies.md).
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## <a name="adjust-mtu-value"></a>Ajustar o valor de MTU
 <!-- linked from troubleshoot-nas article -->
@@ -42,21 +45,41 @@ Se você não quiser alterar as configurações de MTU em outros componentes do 
 
 Saiba mais sobre as configurações de MTU em redes virtuais do Azure lendo o [ajuste de desempenho de TCP/IP para VMs do Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-## <a name="configure-root-squash"></a>Configurar o comprimir raiz
-<!-- linked from troubleshoot and from access policies -->
+## <a name="customize-ntp"></a>Personalizar o NTP
 
-A configuração **habilitar a raiz de comprimir** controla como o cache HPC do Azure trata as solicitações do usuário raiz em computadores cliente.
+O cache usa o time.microsoft.com de servidor de horário baseado no Azure por padrão. Se você quiser que o cache use um servidor NTP diferente, especifique-o na seção de **configuração de NTP** . Use um nome de domínio totalmente qualificado ou um endereço IP.
 
-Quando o comprimir raiz está habilitado, os usuários raiz de um cliente são mapeados automaticamente para o usuário "ninguém" quando enviam solicitações por meio do cache do HPC do Azure. Ele também impede solicitações de cliente de usar bits de permissão set-UID.
+## <a name="set-a-custom-dns-configuration"></a>Definir uma configuração de DNS personalizada
 
-Se o comprimir raiz estiver desabilitado, uma solicitação do usuário raiz do cliente (UID 0) será passada para um sistema de armazenamento NFS de back-end como raiz. Essa configuração pode permitir o acesso impróprio a arquivos.
+> [!CAUTION]
+> Não altere a configuração do DNS do cache se você não precisar. Erros de configuração podem ter consequências Dires. Se sua configuração não puder resolver os nomes de serviço do Azure, a instância de cache do HPC ficará permanentemente inacessível.
 
-A configuração de comprimir raiz no cache pode ajudar a compensar a ``no_root_squash`` configuração necessária em sistemas nas que são usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
+O cache HPC do Azure é configurado automaticamente para usar o sistema DNS do Azure seguro e conveniente. No entanto, algumas configurações incomuns exigem que o cache use um sistema DNS local separado em vez do sistema do Azure. A seção **configuração de DNS** da página **rede** é usada para especificar esse tipo de sistema.
 
-A configuração padrão é **Sim**. (Os caches criados antes de abril de 2020 podem ter a configuração padrão **não**.)
+Verifique com seus representantes do Azure ou consulte o serviço e suporte da Microsoft para determinar se você precisa ou não usar uma configuração de DNS de cache personalizado.
 
-> [!TIP]
-> Você também pode definir o comprimir raiz para exportações de armazenamento específicas Personalizando as [políticas de acesso do cliente](access-policies.md#root-squash).
+Se você configurar seu próprio sistema DNS local para o cache HPC do Azure usar, certifique-se de que a configuração possa resolver nomes de ponto de extremidade do Azure para serviços do Azure. Você deve configurar seu ambiente DNS personalizado para encaminhar determinadas solicitações de resolução de nomes para o DNS do Azure ou para outro servidor, conforme necessário.
+
+Verifique se a configuração de DNS pode resolver esses itens com êxito antes de usá-lo para um cache do HPC do Azure:
+
+* ``*.core.windows.net``
+* Download da CRL (lista de certificados revogados) e serviços de verificação do protocolo de status de certificado online (OCSP). Uma lista parcial é fornecida no [Item regras de firewall](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) no final deste artigo do [Azure TLS](../security/fundamentals/tls-certificate-changes.md), mas você deve consultar um representante técnico da Microsoft para entender todos os requisitos.
+* O nome de domínio totalmente qualificado do seu servidor NTP (time.microsoft.com ou um servidor personalizado)
+
+Se você precisar definir um servidor DNS personalizado para seu cache, use os campos fornecidos:
+
+* **Domínio de pesquisa DNS** (opcional) – Insira seu domínio de pesquisa, por exemplo, ``contoso.com`` . Um único valor é permitido ou você pode deixá-lo em branco.
+* **Servidor (es) DNS** – insira até três servidores DNS. Especifique-os por endereço IP.
+
+<!-- 
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds. -->
+
+Considere usar um cache de teste para verificar e refinar a configuração do DNS antes de usá-lo em um ambiente de produção.
+
+### <a name="refresh-storage-target-dns"></a>Atualizar DNS de destino de armazenamento
+
+Se o servidor DNS atualizar endereços IP, os destinos de armazenamento NFS associados ficarão temporariamente indisponíveis. Leia como atualizar os endereços IP do sistema DNS personalizados em [Editar destinos de armazenamento](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Exibir instantâneos para destinos de armazenamento de BLOBs
 
@@ -73,10 +96,10 @@ Esse recurso está disponível somente para destinos do armazenamento de BLOBs d
 
 Os instantâneos são feitos a cada oito horas, em UTC 0:00, 08:00 e 16:00.
 
-O cache HPC do Azure armazena instantâneos diários, semanais e mensais até que sejam substituídos por novos. Os limites são:
+O cache HPC do Azure armazena instantâneos diários, semanais e mensais até que sejam substituídos por novos. Os limites de retenção de instantâneo são:
 
-* até 20 instantâneos diários
-* até 8 instantâneos semanais
-* até 3 instantâneos mensais
+* Até 20 instantâneos diários
+* Até 8 instantâneos semanais
+* Até 3 instantâneos mensais
 
-Acesse os instantâneos do `.snapshot` diretório no namespace do destino do armazenamento de BLOBs.
+Acesse os instantâneos do `.snapshot` diretório na raiz do seu destino de armazenamento de BLOBs montado.

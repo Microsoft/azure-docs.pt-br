@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221018"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103196854"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o GitHub AE
 
@@ -101,9 +101,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Selecionar grupos** e pesquise o **Grupo** que você deseja incluir nessa declaração, cujos membros devem ser administradores do GHAE.
 
-1. Selecione **Atributo** para **Origem** e insira **true** para o **Valor**. 
+1. Selecione **Atributo** para **Origem** e insira **true** (sem aspas) para o **Valor**. 
 
-10. Clique em **Save** (Salvar).
+1. Clique em **Save** (Salvar).
 
     ![gerenciar declaração](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do Certificado](common/certificateBase64.png)
+    ![O link de download do Certificado](common/certificatebase64.png)
 
 1. Na seção **Configurar o GitHub AE**, copie a(s) URL(s) apropriada(s) de acordo com seus requisitos.
 

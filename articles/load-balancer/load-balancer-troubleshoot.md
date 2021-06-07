@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: cddaf1bde84d7e60eb59bd4c58c65fa889e06ae3
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028804"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer

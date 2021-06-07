@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96744047"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>Como funciona: autenticação multifator do Azure AD
@@ -48,7 +48,7 @@ As seguintes formas adicionais de verificação podem ser usadas com a autentica
 
 * Aplicativo Microsoft Authenticator
 * Token OATH de hardware
-* SMS
+* sms
 * Chamada de voz
 
 ## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Como habilitar e usar a autenticação multifator do Azure AD

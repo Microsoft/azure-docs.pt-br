@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578132"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Gerenciar vários locatários no Azure Sentinel como um MSSP
@@ -35,7 +35,7 @@ Se você for um MSSP (provedor de serviços de segurança gerenciado) e estiver 
 
     1. No menu de navegação da tela de assinatura, em **configurações**, selecione **provedores de recursos**.
 
-    1. Do ** *nome da assinatura* | Provedores de recursos** tela, procure e selecione *Microsoft. OperationalInsights* e *Microsoft. SecurityInsights*e verifique a coluna **status** . Se o status do provedor for não *registrado*, selecione **registrar**.
+    1. Do ***nome da assinatura* | Provedores de recursos** tela, procure e selecione *Microsoft. OperationalInsights* e *Microsoft. SecurityInsights* e verifique a coluna **status** . Se o status do provedor for não *registrado*, selecione **registrar**.
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Verificar provedores de recursos":::
 
@@ -43,7 +43,7 @@ Se você for um MSSP (provedor de serviços de segurança gerenciado) e estiver 
 
 1. Em **diretório + assinatura**, selecione os diretórios delegados (diretório = locatário) e as assinaturas onde os espaços de trabalho do Azure Sentinel do seu cliente estão localizados.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Verificar provedores de recursos":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="Escolher locatários e assinaturas":::
 
 1. Abra o Azure Sentinel. Você verá todos os espaços de trabalho nas assinaturas selecionadas e poderá trabalhar com eles diretamente, como qualquer espaço de trabalho em seu próprio locatário.
 

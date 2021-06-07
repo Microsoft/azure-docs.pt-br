@@ -1,5 +1,5 @@
 ---
-title: Escalabilidade e metas de desempenho para o armazenamento de filas
+title: Metas de escalabilidade e desempenho do Armazenamento de Filas
 titleSuffix: Azure Storage
 description: Saiba mais sobre escalabilidade e metas de desempenho para armazenamento de filas.
 author: tamram
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: queues
 ms.openlocfilehash: c8567943033647c785e633e185d4662a5a9fa847
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588243"
 ---
-# <a name="scalability-and-performance-targets-for-queue-storage"></a>Escalabilidade e metas de desempenho para o armazenamento de filas
+# <a name="scalability-and-performance-targets-for-queue-storage"></a>Metas de escalabilidade e desempenho do Armazenamento de Filas
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "97588243"
 
 ## <a name="see-also"></a>Veja também
 
-- [Lista de verificação de desempenho e escalabilidade para armazenamento de filas](storage-performance-checklist.md)
+- [Lista de verificação de desempenho e escalabilidade do Armazenamento de Filas](storage-performance-checklist.md)
 - [Metas de escalabilidade para contas de armazenamento Standard](../common/scalability-targets-standard-account.md)
 - [Metas de escalabilidade para o provedor de recursos de armazenamento do Azure](../common/scalability-targets-resource-provider.md)
 - [Limites e cotas de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

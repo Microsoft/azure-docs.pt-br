@@ -2,18 +2,18 @@
 title: Início Rápido – Biblioteca de clientes de Segredo do Azure Key Vault para Java
 description: Fornece um início rápido para usar a biblioteca de clientes de Segredo do Azure Key Vault para Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 95323ec513f1a3d00347da022f7c808b029bd44f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b45bb353ae32f1037fde7dc5d518472089edf12f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934791"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766327"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Início Rápido: Biblioteca de clientes de Segredo do Azure Key Vault para Java
 Introdução à biblioteca de clientes de Segredo do Azure Key Vault para Java. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
@@ -175,7 +175,7 @@ Agora que o aplicativo foi autenticado, você pode colocar um segredo no cofre d
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-Você pode verificar se o segredo foi definido usando o comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
+Você pode verificar se o segredo foi definido usando o comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -200,7 +200,7 @@ SyncPoller<DeletedSecret, Void> deletionPoller = secretClient.beginDeleteSecret(
 deletionPoller.waitForCompletion();
 ```
 
-Você pode verificar se o segredo foi excluído usando o comando [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show):
+Você pode verificar se o segredo foi excluído usando o comando [az keyvault secret show](/cli/azure/keyvault/secret?#az_keyvault_secret_show):
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-key-vault-name> --name mySecret
@@ -281,4 +281,4 @@ Neste início rápido, você criou um cofre de chaves, armazenou um segredo, o r
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Como [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- Como [Proteger o acesso a um cofre de chaves](../general/security-overview.md)

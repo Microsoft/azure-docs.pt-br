@@ -1,18 +1,14 @@
 ---
 title: Gerenciar o console de gerenciamento local
 description: Saiba mais sobre as opções do console de gerenciamento local, como backup e restauração, definição do nome do host e configuração de um proxy para sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 871c74eee4b74538a8a09188953916ff7376bc8d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523933"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781714"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerenciar o console de gerenciamento local
 
@@ -399,7 +395,7 @@ Para redefinir sua senha:
 
 O procedimento a seguir descreve como atualizar a versão do software do console de gerenciamento local. O processo de atualização leva cerca de 30 minutos.
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 1. Vá para defender para IoT.
 
@@ -415,7 +411,21 @@ O procedimento a seguir descreve como atualizar a versão do software do console
 
 1. Selecione o arquivo que você baixou da página de **atualizações** do defender for IOT.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="mail-server-settings"></a>Configurações do servidor de email
+
+Defina as configurações do servidor de email SMTP para o console de gerenciamento local.
+
+Para definir:
+
+1. Entre na CLI para o gerenciamento local com credenciais administrativas.
+1. Digite ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Selecione enter. Os prompts a seguir são exibidos.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Insira o nome do servidor SMTP e o remetente e selecione Enter.
+
+## <a name="see-also"></a>Veja também
 
 [Gerenciar sensores do console de gerenciamento](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

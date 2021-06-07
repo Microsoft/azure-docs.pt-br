@@ -2,17 +2,17 @@
 title: 'Gateway de VPN do Azure: configurar a captura de pacotes'
 description: Saiba mais sobre a funcionalidade de captura de pacote que você pode usar em gateways de VPN para ajudar a reduzir a causa de um problema.
 services: vpn-gateway
-author: radwiv
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/2/2020
-ms.author: radwiv
-ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.date: 02/22/2021
+ms.author: alzam
+ms.openlocfilehash: 0983139d1c9af235eba4c9f99da7bc9dea3f231b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733783"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101726607"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurar a captura de pacotes para gateways de VPN
 
@@ -27,6 +27,7 @@ Você pode executar a captura de pacotes do gateway de VPN no gateway ou em uma 
 É útil usar um filtro de cinco tuplas (sub-rede de origem, sub-rede de destino, porta de origem, porta de destino, protocolo) e sinalizadores TCP (SYN, ACK, FIN, URG, PSH, RST) quando você estiver isolando problemas no tráfego de alto volume.
 
 Os exemplos a seguir de JSON e um esquema JSON fornecem explicações de cada propriedade. Aqui estão algumas limitações para ter em mente ao executar capturas de pacote:
+
 - No esquema mostrado aqui, o filtro é uma matriz, mas no momento apenas um filtro pode ser usado de cada vez.
 - Você não pode executar várias capturas de pacote de todo o gateway ao mesmo tempo.
 - Você não pode executar várias capturas de pacote em uma única conexão ao mesmo tempo. Você pode executar várias capturas de pacote em diferentes conexões ao mesmo tempo.
@@ -317,7 +318,13 @@ Os exemplos a seguir de JSON e um esquema JSON fornecem explicações de cada pr
 }
 ```
 
-## <a name="set-up-packet-capture-by-using-powershell"></a>Configurar a captura de pacotes usando o PowerShell
+## <a name="packet-capture---portal"></a>Captura de pacote-Portal
+
+Você pode configurar a captura de pacotes no portal do Azure.
+
+:::image type="content" source="./media/packet-capture/portal.jpg" alt-text="Captura de tela da captura de pacote no Portal." lightbox="./media/packet-capture/portal.jpg":::
+
+## <a name="packet-capture---powershell"></a>Captura de pacote-PowerShell
 
 Os exemplos a seguir mostram os comandos do PowerShell que iniciam e param as capturas de pacote. Para obter mais informações sobre as opções de parâmetro, consulte [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92739053"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
@@ -90,13 +90,13 @@ az account set --subscription <subscription_id>
 
 Ao implantar um Registro de Contêiner do Azure, primeiro você precisa de um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando **az group create** . Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *westus* .
+Crie um grupo de recursos com o comando **az group create**. Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado na região *westus*.
 
 ```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
-Crie um Registro de Contêiner do Azure com o comando **az acr create** . Substitua \<acrName> pelo nome do registro de contêiner que deseja criar na sua assinatura. Esse nome de exibição deve ser alfanumérico e exclusivo.
+Crie um Registro de Contêiner do Azure com o comando **az acr create**. Substitua \<acrName> pelo nome do registro de contêiner que deseja criar na sua assinatura. Esse nome de exibição deve ser alfanumérico e exclusivo.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true

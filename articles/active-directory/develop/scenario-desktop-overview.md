@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753724"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798945"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo da área de trabalho que chama APIs Web
 
@@ -30,6 +30,7 @@ Se você ainda não fez isso, crie seu primeiro aplicativo concluindo um início
 - [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows](./quickstart-v2-windows-desktop.md)
 - [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da UWP](./quickstart-v2-uwp.md)
 - [Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo nativo do macOS](./quickstart-v2-ios.md)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Node.js & de aplicativos](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Visão geral
 
@@ -39,6 +40,7 @@ Você escreve um aplicativo da área de trabalho e deseja conectar usuários ao 
 
   - Se o seu aplicativo da área de trabalho dá suporte a controles gráficos, por exemplo, se é um aplicativo Windows.Form, um aplicativo WPF ou um aplicativo nativo do macOS.
   - Ou, se é um aplicativo do .NET Core e você concorda em fazer a interação de autenticação com o Azure Active Directory (Azure AD) no navegador do sistema.
+  - Ou, se for um aplicativo de Node.js de aplicativos, que é executado em uma instância de Chromium.
 
 - Para aplicativos hospedados do Windows, também é possível para aplicativos em execução em computadores ingressados em um domínio do Windows ou ingressados no Azure AD adquirir um token silenciosamente usando a Autenticação Integrada do Windows.
 - Por fim, e embora não seja recomendado, é possível usar o nome de usuário e a senha em aplicativos cliente públicos. Isso ainda é necessário em alguns cenários, tais como o DevOps. E usá-los impõe restrições em seus aplicativos. Por exemplo, não é possível conectar um usuário que precisa realizar [autenticação multifator](../authentication/concept-mfa-howitworks.md) (acesso condicional). Além disso, seus aplicativos também não se beneficiam do logon único (SSO).

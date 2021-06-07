@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 63fab50f991a15a38d18dead53d268abca79c811
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98231852"
 ---
 # <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais

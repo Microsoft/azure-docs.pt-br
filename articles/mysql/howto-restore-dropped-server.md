@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
 ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657083"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restaurar um servidor descartado do banco de dados do Azure para MySQL

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 93a05231bc971737a08d74ad04150e5449dfc792
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220934"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell

@@ -7,17 +7,17 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: a1b9d03da29b7c89055303fa97fc38c2ef734b23
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381470"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Gatilhos e associações do armazenamento de filas do Azure para Azure Functions visão geral
 
 Azure Functions pode executar como novas mensagens de armazenamento de fila do Azure são criadas e podem gravar mensagens de fila em uma função.
 
-| Ação | Digite |
+| Ação | Type |
 |---------|---------|
 | Executar uma função como armazenamento de filas alterações de dados | [Gatilho](./functions-bindings-storage-queue-trigger.md) |
 | Gravar mensagens de armazenamento de fila |[Associação de saída](./functions-bindings-storage-queue-output.md) |

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256670"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579477"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
@@ -48,7 +48,7 @@ A partir daqui, você pode acessar a barra de progresso de provisionamento e os 
 
 ## <a name="provisioning-progress-bar"></a>Barra de progresso do provisionamento
 
-A [barra de progresso de provisionamento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) fica visível na guia **provisionamento** para determinado aplicativo. Ele está localizado na seção **status atual** abaixo de **configurações** e mostra o status do ciclo inicial ou incremental atual. Esta seção também mostra:
+A [barra de progresso de provisionamento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) fica visível na guia **provisionamento** para um determinado aplicativo. Ele está localizado na seção **status atual** e mostra o status do ciclo inicial ou incremental atual. Esta seção também mostra:
 
 * O número total de usuários e grupos que foram sincronizados e estão atualmente no escopo para provisionamento entre o sistema de origem e o sistema de destino.
 * A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20-40 minutos, após a conclusão de um [ciclo inicial](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) .

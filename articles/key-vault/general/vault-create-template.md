@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/5/2020
+ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: e489efd335d2a46a0e55d4ceb9bdee809ae6c39d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664343"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595236"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar um cofre de chaves do Azure e uma política de acesso do cofre usando um modelo do Resource Manager
 
@@ -150,7 +150,7 @@ Você pode implantar políticas de acesso a um cofre de chaves existente sem rei
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatesPermissions')]"
+              "certificates": "[parameters('certificatePermissions')]"
             }
           }
         ]
@@ -187,7 +187,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-
 az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar com os tutoriais e guias de início rápido subsequentes, poderá deixar esses recursos em vigor. Quando você não precisar mais dos recursos, exclua o grupo de recursos. Se você excluir o grupo, o cofre de chaves e os recursos relacionados também serão excluídos. Para excluir o grupo de recursos usando o CLI do Azure ou Azure PowerShell, conclua estas etapas:
 
@@ -220,4 +220,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Proteger o acesso a um cofre de chaves](secure-your-key-vault.md)
 - [Autenticar em um cofre de chaves](authentication.md)
-- [Guia do desenvolvedor de Azure Key Vault](developers-guide.md)
+- [Guia do desenvolvedor do Cofre da Chave do Azure](developers-guide.md)

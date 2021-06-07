@@ -4,42 +4,56 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 6b16dea3c4f9241133b91b092c90c9056da57de0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515078"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102455672"
 ---
 ### <a name="standard-and-neural-voices"></a>Vozes padrão e neural
 
-Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por região/ponto de extremidade:
+Use esta tabela para determinar a **disponibilidade de vozes padrão** por região/ponto de extremidade:
 
-| Região | Ponto de extremidade | Vozes neurais | Vozes padrão |
-|--------|----------|-----------------|---------------|
-| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Centro dos EUA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Leste da Ásia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Leste dos EUA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Oeste do Japão | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
-| Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Não | Sim |
-| Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
+| Região | Ponto de extremidade |
+|--------|----------|
+| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro dos EUA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Leste da Ásia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Leste dos EUA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
+| França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Oeste do Japão | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > As [vozes na versão prévia](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) estão disponíveis apenas nestas três regiões: leste dos eua, Europa Ocidental e sudeste asiático.
+
+Use esta tabela para determinar a **disponibilidade de vozes neurais** por região/ponto de extremidade:
+
+| Região | Ponto de extremidade |
+|--------|----------|
+| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
+| Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Leste dos EUA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 

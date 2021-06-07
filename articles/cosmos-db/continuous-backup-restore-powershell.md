@@ -8,10 +8,10 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381827"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Configurar e gerenciar o backup contínuo e a restauração pontual (versão prévia)-usando Azure PowerShell
@@ -26,7 +26,7 @@ O recurso de restauração pontual do Azure Cosmos DB (versão prévia) ajuda vo
 
 Este artigo descreve como provisionar uma conta com backup contínuo e restaurar dados usando o Azure PowerShell.
 
-## <a name="install-azure-powershell"></a><a id="install-powershell"></a>Instalar Azure PowerShell
+## <a name="install-azure-powershell"></a><a id="install-powershell"></a>Instalar o Azure PowerShell
 
 1. Execute o seguinte comando de Azure PowerShell para instalar o `Az.CosmosDB` módulo de visualização, que contém os comandos relacionados à restauração pontual:
 

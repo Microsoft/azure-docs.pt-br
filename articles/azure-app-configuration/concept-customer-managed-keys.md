@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 46a1e99a7bc75efa85fcb5eff649c14af5abd17b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930493"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Usar chaves gerenciadas pelo cliente para criptografar os dados de configuração do aplicativo

@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832514"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100575291"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Exibir e configurar os alertas da proteção contra DDoS
 
 O padrão de Proteção contra DDoS do Azure fornece informações detalhadas de ataque e visualização com Análise de Ataque de DDoS. Os clientes que protegem suas redes virtuais contra ataques de DDoS têm visibilidade detalhada sobre o tráfego de ataque e as ações tomadas para reduzir o ataque por meio de relatórios de mitigação de ataque e logs de fluxo de mitigação. A telemetria avançada é exposta por meio de Azure Monitor incluindo métricas detalhadas durante a duração de um ataque de DDoS. Alertas podem ser configurados para qualquer métrica do Azure Monitor exposta pela Proteção contra DDoS. O registro em log pode ser integrado com o [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (hubs de eventos do Azure), OMS log Analytics e armazenamento do Azure para análise avançada por meio da interface de diagnóstico de Azure monitor.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar alertas por meio do Azure Monitor
 > * Configurar alertas por meio do portal
-> * Exibir alertas na central de segurança do Azure
+> * Ver alertas de segurança na Central de Segurança do Azure
 > * Validar e testar seus alertas
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -72,9 +72,9 @@ Em alguns minutos de detecção de ataque, você deve receber um email de Azure 
 
 ![Alerta de ataque](./media/manage-ddos-protection/ddos-alert.png)
 
-Você também pode aprender mais sobre [configuração de webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicativos lógicos](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criação de alertas.
+Você também pode aprender mais sobre [configuração de webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [aplicativos lógicos](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criação de alertas.
 
-## <a name="view-alerts-in-azure-security-center"></a>Exibir alertas na central de segurança do Azure
+## <a name="view-alerts-in-azure-security-center"></a>Ver alertas de segurança na Central de Segurança do Azure
 
 A central de segurança do Azure fornece uma lista de [alertas de segurança](../security-center/security-center-managing-and-responding-alerts.md), com informações para ajudar a investigar e corrigir problemas. Com esse recurso, você obtém uma exibição unificada de alertas, incluindo alertas relacionados a ataques de DDoS e as ações tomadas para mitigar o ataque em tempo quase futuro.
 Há dois alertas específicos que você verá para qualquer detecção e mitigação de ataque de DDoS:
@@ -97,7 +97,7 @@ Neste tutorial, você aprendeu a:
 
 - Configurar alertas por meio do Azure Monitor
 - Configurar alertas por meio do portal
-- Exibir alertas na central de segurança do Azure
+- Ver alertas de segurança na Central de Segurança do Azure
 - Validar e testar seus alertas
 
 Para saber como testar e simular um ataque de DDoS, consulte o guia de testes de simulação:

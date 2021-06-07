@@ -12,10 +12,10 @@ ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659964"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
@@ -30,7 +30,7 @@ Você pode usar as APIs REST de transcrição do lote para chamar os seguintes m
 |    Recupera uma lista de transcrições para a assinatura autenticada.    |    GET       |    speechtotext/v 3.0/transcrições            |
 |    Obtém uma lista de localidades com suporte para transcrições offline.              |    GET       |    speechtotext/v 3.0/transcrições/localidades    |
 |    Atualiza os detalhes mutáveis da transcrição identificada por sua ID.    |    PATCH     |    speechtotext/v 3.0/transcrições/{ID}       |
-|    Exclui a tarefa de transcrição especificada.                                 |    DELETE    |    speechtotext/v 3.0/transcrições/{ID}       |
+|    Exclui a tarefa de transcrição especificada.                                 |    Delete (excluir)    |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém a transcrição identificada pela ID fornecida.                        |    GET       |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém os arquivos de resultado da transcrição identificada pela ID fornecida.    |    GET       |    speechtotext/v 3.0/transcrições/{ID}/arquivos |
 

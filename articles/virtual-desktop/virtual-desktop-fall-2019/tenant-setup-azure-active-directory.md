@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+manager: femila
+ms.openlocfilehash: b2421c8b8c2d74649084f1cc8b75160857f40fc1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542029"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444319"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows (clássica)
 

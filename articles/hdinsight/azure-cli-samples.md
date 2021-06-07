@@ -1,18 +1,18 @@
 ---
-title: 'Azure HDInsight: Exemplos da CLI do Azure'
+title: 'Azure HDInsight: exemplos de CLI do Azure'
 description: Exemplos da CLI do Azure para tarefas comuns no Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4502cb26b4aeedff4223aaf5a592581aee36a0e6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946893"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775093"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Exemplos da CLI do Azure
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: exemplos de CLI do Azure
 
 > [!div class="op_single_selector"]
 > [Exemplos do .NET](hdinsight-sdk-dotnet-samples.md)
@@ -29,7 +29,7 @@ Este artigo fornece scripts de exemplo para tarefas comuns. Para cada exemplo, a
 
 ## <a name="az-login"></a>az login
 
-[Faça logon no Azure](/cli/azure/reference-index#az-login).
+[Faça logon no Azure](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -40,7 +40,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[Cria um cluster](/cli/azure/hdinsight#az-hdinsight-create).
+[Cria um cluster](/cli/azure/hdinsight#az_hdinsight_create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Criar um cluster com uma conta de armazenamento existente
 
@@ -173,7 +173,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[Crie um aplicativo para um cluster HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
+[Crie um aplicativo para um cluster HDInsight](/cli/azure/hdinsight/application#az_hdinsight_application_create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Criar um aplicativo com um URI de script
 
@@ -240,7 +240,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[Execute ações de script no cluster HDInsight especificado](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
+[Execute ações de script no cluster HDInsight especificado](/cli/azure/hdinsight/script-action#az_hdinsight_script_action_execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Executar uma ação de script e persisti-la em caso de êxito
 

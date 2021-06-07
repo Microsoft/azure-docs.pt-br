@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793221"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
@@ -24,7 +24,7 @@ Este artigo descreve os vários modelos de locação disponíveis para um aplica
 
 Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de locação determina como os dados de cada locatário são mapeados para o armazenamento.  A escolha do modelo de aluguel afeta o design de aplicativo e gerenciamento.  Alternar para um modelo diferente mais tarde, às vezes, é caro.
 
-## <a name="a-saas-concepts-and-terminology"></a>A. Conceitos e terminologia de SaaS
+## <a name="a-saas-concepts-and-terminology"></a>a. Conceitos e terminologia de SaaS
 
 No Software como um modelo de serviço (SaaS), sua empresa não vende *licenças* com o seu software. Em vez disso, cada cliente faz alugar pagamentos à sua empresa, tornando a cada cliente um *locatário* da sua empresa.
 
@@ -62,7 +62,7 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
 
 - **Personalização:** &nbsp; Facilidade de suporte a personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
 
-A discussão de aluguel enfoca na camada de *dados* .  Mas considere por um momento a camada de *aplicativo* .  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
+A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicativo de único locatário autônomo com o banco de dados único locatário
 

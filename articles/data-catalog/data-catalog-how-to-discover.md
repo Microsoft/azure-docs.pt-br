@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 52aaa11278e5bb523594936c75d6810c1638fa7e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009408"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674930"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>Introdução
 

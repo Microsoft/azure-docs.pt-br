@@ -1,23 +1,19 @@
 ---
 title: Criar seu primeiro data factory (Visual Studio)
 description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando o Visual Studio.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: b0532e75ac581bad3b5dd8669a591186dc320a86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7431dcbdcd94b74482786625a052bc5abc31c164
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496510"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783159"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -65,7 +61,7 @@ Eis as etapas executadas como parte deste tutorial:
 3. Você deve ter os seguintes itens instalados no seu computador:
    * Visual Studio 2013 ou Visual Studio 2015
    * Baixe o SDK do Azure para Visual Studio 2013 ou Visual Studio de 2015. Navegue até a [Página de Download do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na seção **.NET**.
-   * Baixe o plug-in Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Você também pode atualizar o plug-in, executando as seguintes etapas: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
+   * Baixe o último plug-in do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Você também pode atualizar o plug-in, executando as seguintes etapas: no menu, clique em **Ferramentas** -> **Extensões e Atualizações** -> **Online** -> **Galeria do Visual Studio** -> **Ferramentas do Microsoft Azure Data Factory** -> **Atualizar**.
 
 Agora, vamos usar o Visual Studio para criar um Azure Data Factory.
 
@@ -168,7 +164,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
 
     A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-    Propriedade | DESCRIÇÃO |
+    Propriedade | Descrição |
     -------- | ----------- |
     type |A propriedade de tipo é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure.
     linkedServiceName | Refere-se ao AzureStorageLinkedService1 que você criou anteriormente.
@@ -563,7 +559,7 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
 ## <a name="see-also"></a>Consulte Também
 
-| Tópico | DESCRIÇÃO |
+| Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados para o seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |

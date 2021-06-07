@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 55802b04e10f06c7e362033f97d24c4e20c12c62
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853468"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566482"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar análises de vídeo usando .NET
 
@@ -58,7 +58,7 @@ Para os quadros de vídeo (imagens), use as imagens a seguir:
 
 ![Miniatura de quadro de vídeo 1](images/ams-video-frame-thumbnails-1.PNG) | ![Miniatura de quadro de vídeo 2](images/ams-video-frame-thumbnails-2.PNG) | ![Miniatura de quadro de vídeo 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Quadro 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Quadro 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Quadro 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+Quadro 1 | Quadro 2 | Quadro 3 |
 
 ## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
 
@@ -542,7 +542,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>Conferir a análise de vídeo
 
-Por fim, você verá a revisão de vídeo em seu Content moderator conta de ferramenta de revisão na tela de vídeo de **revisão** > **Video** .
+Por fim, você verá a revisão de vídeo em seu Content moderator conta de ferramenta de revisão na tela de vídeo de **revisão** >  .
 
 ![Análise de vídeo para moderadores humanos](images/ams-video-review.PNG)
 

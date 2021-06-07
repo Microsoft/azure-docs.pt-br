@@ -3,15 +3,15 @@ title: Reinicie o servidor-CLI do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como você pode reiniciar um banco de dados do Azure para MariaDB Server usando o CLI do Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50389c7c4e1f497e63c5221181713649a7b068c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8ae69adfe83b871eb29c85fc4d03e817026ec006
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664912"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-the-azure-cli"></a>Reiniciar o banco de dados do Azure para MariaDB Server usando o CLI do Azure
@@ -34,7 +34,7 @@ Para concluir este guia de instruções:
 - Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 
-## <a name="restart-the-server"></a>Reiniciar o servidor
+## <a name="restart-the-server"></a>Reinicie o servidor
 
 Reinicie o servidor com o seguinte comando:
 

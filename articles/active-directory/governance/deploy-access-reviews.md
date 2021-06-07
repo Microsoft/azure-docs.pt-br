@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932428"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
@@ -192,10 +192,10 @@ A função administrativa necessária para criar, gerenciar ou ler uma revisão 
 
 | Tipo de recurso| Criar e gerenciar revisões de acesso (criadores)| Ler resultados da revisão de acesso |
 | - | - | -|
-| Grupo ou aplicativo| Administrador global <p>Administrador de usuários| Criadores e administrador de segurança |
-| Funções com privilégios no Azure AD| Administrador global <p>Administrador de função com privilégios| Criadores <p>Leitor de segurança<p>Administrador de Segurança |
-| Funções com privilégios no Azure (recursos)| Administrador global<p>Administrador de usuários<p>Proprietário do recurso| Criadores |
-| Pacote de acesso| Administrador global<p>Criador do pacote de acesso| Somente administrador global |
+| Grupo ou aplicativo| Administrador Global <p>Administrador de usuários| Criadores e administrador de segurança |
+| Funções com privilégios no Azure AD| Administrador Global <p>Administrador de função com privilégios| Criadores <p>Leitor de segurança<p>Administrador de Segurança |
+| Funções com privilégios no Azure (recursos)| Administrador Global<p>Administrador de usuários<p>Proprietário do recurso| Criadores |
+| Pacote de acesso| Administrador Global<p>Criador do pacote de acesso| Somente administrador global |
 
 
 Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../roles/permissions-reference.md).
@@ -244,9 +244,9 @@ Para criar uma política de revisão de acesso, você deve ter as seguintes info
 | Componente| Valor |
 | - | - |
 | **Recursos a serem examinados**| Acesso ao Microsoft Dynamics |
-| **Frequência de revisão**| Mensalmente |
+| **Frequência de revisão**| Mensal |
 | **Quem executa a revisão**| Gerentes de programa do Dynamics Business Group |
-| **Notification**| Email 24 horas antes da revisão para o alias Dynamics-Pms<p>Incluir a encorajação de mensagens personalizadas a revisores para proteger sua compra |
+| **Notificação**| Email 24 horas antes da revisão para o alias Dynamics-Pms<p>Incluir a encorajação de mensagens personalizadas a revisores para proteger sua compra |
 | **Linha do tempo**| 48 horas da notificação |
 |**Ações automáticas**| Remova o acesso de qualquer conta que não tenha entrada interativa dentro de 90 dias, removendo o usuário do grupo de segurança Dynamics-Access. <p>*Execute ações se não forem revisadas na linha do tempo.* |
 | **Ações manuais**| Os revisores podem executar a aprovação de remoções antes da ação automatizada, se desejado. |
@@ -393,7 +393,7 @@ O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-c
 
 As revisões de acesso permitem que os revisores atestam se os usuários ainda precisam estar em uma função. Assim como as revisões de acesso para pacotes de acesso, as revisões para funções do Azure AD e recursos do Azure são integradas à experiência do usuário de administrador do PIM. Recomendamos que você revise as seguintes atribuições de função regularmente:
 
-* Administrador global
+* Administrador Global
 
 * Administrador de usuários
 

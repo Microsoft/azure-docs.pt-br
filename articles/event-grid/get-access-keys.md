@@ -4,10 +4,10 @@ description: Este artigo descreve como obter a chave de acesso de um domínio ou
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632522"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obter chaves de acesso para recursos da grade de eventos (tópicos ou domínios)

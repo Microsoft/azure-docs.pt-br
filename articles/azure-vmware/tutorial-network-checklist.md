@@ -2,13 +2,13 @@
 title: Tutorial – Lista de verificação de planejamento de rede
 description: Saiba mais sobre os requisitos de rede para conectividade de rede e as portas de rede para a Solução VMware no Azure.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: f493443da617f5f76771e5d1b2b3b190b37f9b5d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.date: 03/13/2021
+ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918578"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462058"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planejamento de rede da Solução VMware no Azure 
 
@@ -89,13 +89,12 @@ Os aplicativos e as cargas de trabalho em execução em um ambiente de nuvem pri
 
 Use o serviço DHCP interno do NSX ou um servidor DHCP local na nuvem privada em vez de rotear o tráfego DHCP de difusão pela WAN novamente para o local.
 
+Para obter mais detalhes, confira o artigo [Fornecer serviços DHCP para o segmento de rede do NSX-T](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu mais sobre as considerações e os requisitos para implantar uma nuvem privada da Solução VMware no Azure. 
-
-
-Quando a rede adequada estiver funcionando, siga para o próximo tutorial para aprender a criar uma nuvem privada da Solução VMware no Azure.
+Neste tutorial, você aprendeu mais sobre as considerações e os requisitos para implantar uma nuvem privada da Solução VMware no Azure. Quando a rede adequada estiver funcionando, siga para o próximo tutorial para aprender a criar uma nuvem privada da Solução VMware no Azure.
 
 > [!div class="nextstepaction"]
 > [Criar uma nuvem privada da Solução VMware no Azure](tutorial-create-private-cloud.md)

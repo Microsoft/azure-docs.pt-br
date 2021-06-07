@@ -7,10 +7,10 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007159"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no Área de Trabalho Remota
@@ -34,7 +34,7 @@ Você precisará do nome da sessão remota para identificar os contadores de des
 Depois de determinar o nome da sessão remota, siga estas instruções para coletar os contadores de desempenho de gráficos do RemoteFX para sua sessão remota.
 
 1. Selecione **Iniciar**  >  **Ferramentas administrativas**  >  **Monitor de desempenho**.
-2. Na caixa de diálogo **Monitor de desempenho** , expanda **ferramentas de monitoramento**, selecione **Monitor de desempenho**e, em seguida, selecione **Adicionar**.
+2. Na caixa de diálogo **Monitor de desempenho** , expanda **ferramentas de monitoramento**, selecione **Monitor de desempenho** e, em seguida, selecione **Adicionar**.
 3. Na caixa de diálogo **Adicionar contadores** , na lista **contadores disponíveis** , expanda a seção para gráficos do RemoteFX.
 4. Selecione os contadores a serem monitorados.
 5. Na lista **instâncias do objeto selecionado** , selecione as instâncias específicas a serem monitoradas para os contadores selecionados e, em seguida, selecione **Adicionar**. Para selecionar todas as instâncias de contador disponíveis, selecione **todas as instâncias**.

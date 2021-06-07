@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.openlocfilehash: 363be8b34f230b812bc24276e1f3925faf0cdc1c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540834"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns par
 ## <a name="configure-server-parameters"></a>Configurar parâmetros do servidor
 
 1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, localize o servidor do banco de dados do Azure para MySQL.
-2. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
+2. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
 3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
 :::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Enumerar a lista suspensa":::
@@ -36,7 +36,7 @@ O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns par
 
 Se o parâmetro de servidor que você deseja atualizar não estiver listado no portal do Azure, você poderá, opcionalmente, definir o parâmetro no nível de conexão usando `init_connect` . Isso define os parâmetros de servidor para cada cliente que se conecta ao servidor. 
 
-1. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
+1. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
 2. Pesquisar por `init_connect`
 3. Adicione os parâmetros de servidor no formato: `SET parameter_name=YOUR_DESIRED_VALUE` em valor, a coluna valor.
 
@@ -44,7 +44,7 @@ Se o parâmetro de servidor que você deseja atualizar não estiver listado no p
 4. Clique em **Salvar** para salvar as alterações.
 
 >[!Note]
-> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER** , não será possível definir o parâmetro usando "init_connect".
+> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER**, não será possível definir o parâmetro usando "init_connect".
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
 ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97955613"
 ---
 # <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solucionar problemas de integridade de recursos e de disponibilidade de entrada 
@@ -26,7 +26,7 @@ A verificação de Resource Health (RHC) para o Load Balancer é usada para dete
 
 A tabela abaixo descreve a lógica RHC usada para determinar o estado de integridade do balanceador de carga.
 
-| Status de integridade de recurso | Description |
+| Status de integridade de recurso | Descrição |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
 | Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. 

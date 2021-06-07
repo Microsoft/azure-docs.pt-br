@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: b94e1f82409da3329eb6d978fa2ae0222928cd97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806165"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102505929"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
@@ -37,7 +36,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
+| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Agrupar  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -604,7 +603,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais eventos, é a
 - Use Managed Disks para VMs em um conjunto de disponibilidade.
 - Configure cada camada de aplicativo em conjuntos de disponibilidade separados.
 
-Para obter mais informações, marque [gerenciar a disponibilidade de máquinas virtuais do Linux](../../manage-availability.md)
+Para obter mais informações, marque [gerenciar a disponibilidade de máquinas virtuais do Linux](../../availability.md)
 
 #### <a name="high-availability-for-cms-database"></a>Alta disponibilidade para o banco de dados CMS
 

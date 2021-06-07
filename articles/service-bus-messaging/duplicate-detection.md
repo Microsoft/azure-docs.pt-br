@@ -3,12 +3,12 @@ title: Detecção de mensagens duplicadas do Barramento de Serviço do Azure | M
 description: Este artigo explica como você pode detectar duplicatas em mensagens do barramento de serviço do Azure. A mensagem duplicada pode ser ignorada e descartada.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684801"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101711917"
 ---
 # <a name="duplicate-detection"></a>Detecção de duplicidade
 
@@ -48,7 +48,7 @@ No portal, o recurso é ativado durante a criação de entidade com a caixa de s
 
 Programaticamente, você pode definir o sinalizador com a propriedade [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) na API do .NET de estrutura completa. Com a API do Azure Resource Manager, o valor é definido com a propriedade [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-O histórico de tempo de detecção duplicado é padronizado para 30 segundos para filas e tópicos, com um valor máximo de sete dias. Você pode alterar essa configuração na janela de propriedades de fila e tópico no Portal do Azure.
+O histórico de tempo de detecção de duplicidades tem como padrão 10 minutos para filas e tópicos, com um valor mínimo de 20 segundos para o valor máximo de 7 dias. Você pode alterar essa configuração na janela de propriedades de fila e tópico no Portal do Azure.
 
 ![Captura de tela do recurso do barramento de serviço com a configuração Propriedades realçada e a opção histórico de detecção de duplicidades descrita em vermelho.][2]
 

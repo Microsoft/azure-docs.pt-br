@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6da04bda9e9d1a00ff10cc94d3dcef557a3f2802
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: edb94e8e1b4e814bfac4a1a2a90c5ec71bc48c77
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062932"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101652988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Saba TalentSpace
 
@@ -181,8 +181,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Logon do Saba TalentSpace diretamente e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Saba TalentSpace em Meus Aplicativos, você deverá ser conectado automaticamente ao Saba TalentSpace para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Saba TalentSpace em Meus Aplicativos, você deverá ser conectado automaticamente ao Saba TalentSpace para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
- Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+ Depois de configurar o Saba TalentSpace, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
 ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89179905"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Proteção acidental de exclusão para compartilhamentos de arquivos do Azure usando o backup do Azure

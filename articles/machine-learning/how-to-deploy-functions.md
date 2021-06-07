@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: abb38ebbdacdf4f153148fbe121e54ede88f066a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327161"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102519258"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)
 
@@ -31,7 +31,7 @@ Com Azure Machine Learning, você pode criar imagens do Docker de modelos de apr
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](how-to-manage-workspace.md) .
-* O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* O [CLI do Azure](/cli/azure/install-azure-cli).
 * Um modelo de aprendizado de máquina treinado registrado em seu espaço de trabalho. Se você não tiver um modelo, use o [tutorial de classificação de imagem: treinar modelo](tutorial-train-models-with-aml.md) para treinar e registrar um.
 
     > [!IMPORTANT]
@@ -63,7 +63,7 @@ Para obter mais informações sobre o script de entrada, consulte [definir códi
 Essas entidades são encapsuladas em uma __configuração de inferência__. A configuração de inferência faz referência ao script de entrada e a outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para uso com Azure Functions, você deve usar um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
+> Ao criar uma configuração de inferência para uso com Azure Functions, você deve usar um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment%28class%29) . Observe que, se você estiver definindo um ambiente personalizado, deverá adicionar o azureml-padrões com a versão >= 1.0.45 como uma dependência Pip. Esse pacote contém a funcionalidade necessária para hospedar o modelo como um serviço Web. O exemplo a seguir demonstra como criar um objeto de ambiente e usá-lo com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem do Docker que é implantada no Azure Functions, use [azureml. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) ou a função de pacote específica para o gatilho que você está interessado em usar. O trecho de código a seguir demonstra como criar um novo pacote com um gatilho de blob do modelo e a configuração de inferência:
+Para criar a imagem do Docker que é implantada no Azure Functions, use [azureml. contrib. Functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions) ou a função de pacote específica para o gatilho que você está interessado em usar. O trecho de código a seguir demonstra como criar um novo pacote com um gatilho de blob do modelo e a configuração de inferência:
 
 > [!NOTE]
 > O trecho de código pressupõe que `model` contém um modelo registrado e que `inference_config` contém a configuração para o ambiente de inferência. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
@@ -301,4 +301,4 @@ Para obter mais informações sobre como usar gatilhos de BLOB, consulte o artig
 * Saiba mais sobre o armazenamento de BLOBs que dispara [associações de armazenamento de BLOBs do Azure](../azure-functions/functions-bindings-storage-blob.md).
 * [Implante seu modelo no serviço Azure app](how-to-deploy-app-service.md).
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
-* [Referência da API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py)
+* [Referência da API](/python/api/azureml-contrib-functions/azureml.contrib.functions)

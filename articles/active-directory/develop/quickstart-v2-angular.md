@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: bab92a6d7e30f5aefdd28d06b34a006d065cee3c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225792"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966836"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
@@ -35,9 +35,7 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opção 1 (expresso): registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se a conta tiver acesso a mais de um locatário, selecione a conta na parte superior direita e defina sua sessão do portal para o locatário do Azure AD (Azure Active Directory) que deseja usar.
-> 1. Abra o novo painel de [Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) no portal do Azure.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 > 1. Insira um nome para o aplicativo e selecione **Registrar**.
 > 1. Vá até o painel do início rápido e veja o início rápido do Angular. Siga as instruções para baixar e configurar automaticamente o novo aplicativo.
 >
@@ -45,15 +43,15 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >
 > #### <a name="step-1-register-the-application"></a>Etapa 1: Registrar o aplicativo
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-> 1. Se a conta tiver acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Siga as instruções para [registrar um aplicativo de página única](./scenario-spa-app-registration.md) no portal do Azure.
 > 1. Adicione uma nova plataforma no painel **Autenticação** do seu registro de aplicativo e registre o URI de redirecionamento: `http://localhost:4200/`.
 > 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar a ****Concessão implícita**.
+> Para que o exemplo de código deste guia de início rápido funcione, é necessário adicionar um URI de redirecionamento como **http://localhost:4200/** e habilitar a **Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >
@@ -104,15 +102,31 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >|Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
 >|cacheLocation  | (Opcional) Defina o armazenamento do navegador do estado de autenticação. O padrão é **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de solicitação de autenticação. Esse estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Esse cookie é definido para o Internet Explorer e o Microsoft Edge para acomodar esses dois navegadores. Para obter mais detalhes, confira os [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
-> > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
+>
+> Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
 
-Para saber mais sobre opções configuráveis disponíveis, confira [Inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
+> Para saber mais sobre opções configuráveis disponíveis, confira [Inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
 
-Você pode localizar o código-fonte da biblioteca MSAL.js no repositório [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
+> Você pode localizar o código-fonte da biblioteca MSAL.js no repositório [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) no GitHub.
 
->[!div class="sxs-lookup" renderon="portal"]
->#### <a name="step-3-run-the-project"></a>Etapa 3: Executar o projeto
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
+> Configuramos seu projeto com os valores das propriedades do seu aplicativo.
+
+> [!div renderon="docs"]
+>
+> Role para baixo no mesmo arquivo e atualize o `graphMeEndpoint`. 
+> - Substitua a cadeia de caracteres `Enter_the_Graph_Endpoint_Herev1.0/me` por `https://graph.microsoft.com/v1.0/me`
+> - `Enter_the_Graph_Endpoint_Herev1.0/me` é o ponto de extremidade no qual as chamadas à API serão feitas. Para o serviço da API do Microsoft Graph principal (global), insira `https://graph.microsoft.com/` (inclua a barra à direita). Para obter mais informações, confira a [documentação](https://docs.microsoft.com/graph/deployments).
+>
+>
+> ```javascript
+>      protectedResourceMap: [
+>        ['Enter_the_Graph_Endpoint_Herev1.0/me', ['user.read']]
+>      ],
+> ```
+>
+>
 
 >[!div renderon="docs"]
 >#### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto

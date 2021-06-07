@@ -4,10 +4,10 @@ description: Saiba como integrar Azure DevTest Labs no pipeline de entrega e na 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288929"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrar o Azure DevTest Labs ao seu pipeline Azure Pipelines CI/CD
@@ -89,15 +89,15 @@ Para criar o arquivo de script:
    Write-Host "##vso[task.setvariable variable=labVMFqdn;]$labVMFqdn"
    ```
 
-1. Salve o arquivo com um nome como *GetLabVMParams.ps1*e verifique-o em seu sistema de controle do código-fonte. 
+1. Salve o arquivo com um nome como *GetLabVMParams.ps1* e verifique-o em seu sistema de controle do código-fonte. 
 
 ## <a name="create-a-release-pipeline-in-azure-pipelines"></a>Criar um pipeline de lançamento no Azure Pipelines
 
 Para criar um novo pipeline de lançamento:
 
-1. Na página do projeto DevOps do Azure, selecione versões de **pipelines**  >  **Releases** no painel de navegação esquerdo.
+1. Na página do projeto DevOps do Azure, selecione versões de **pipelines**  >   no painel de navegação esquerdo.
 1. Selecione **novo pipeline**.
-1. Em **selecionar um modelo**, role para baixo e selecione **trabalho vazio**e, em seguida, selecione **aplicar**.
+1. Em **selecionar um modelo**, role para baixo e selecione **trabalho vazio** e, em seguida, selecione **aplicar**.
 
 ### <a name="add-and-set-variables"></a>Adicionar e definir variáveis
 
@@ -119,9 +119,9 @@ Para adicionar variáveis para os valores:
 
 A próxima etapa é criar a VM de imagem dourada a ser usada para implantações futuras. Você cria a VM dentro de sua instância de Azure DevTest Labs usando a tarefa *Azure DevTest Labs criar VM* .
 
-1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio**e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
+1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio** e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
    
-1. Em **adicionar tarefas**, selecione **Azure DevTest Labs criar VM**e selecione **Adicionar**. 
+1. Em **adicionar tarefas**, selecione **Azure DevTest Labs criar VM** e selecione **Adicionar**. 
    
 1. Selecione **criar Azure DEVTEST Labs VM** no painel esquerdo. 
 
@@ -133,15 +133,15 @@ A próxima etapa é criar a VM de imagem dourada a ser usada para implantações
    |**Nome do laboratório**|Selecione o nome de um laboratório existente no qual a VM do laboratório será criada.|
    |**Nome do modelo**|Insira o caminho completo e o nome do arquivo de modelo que você salvou em seu repositório de código-fonte. Você pode usar propriedades internas para simplificar o caminho, por exemplo:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Parâmetros de modelo**|Insira os parâmetros para as variáveis que você definiu anteriormente:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Variáveis**  >  de saída **ID da VM do laboratório**|Insira a variável para a ID da VM do laboratório criada. Se você usar o **labVMId**padrão, poderá consultar a variável nas tarefas subsequentes como *$ (labVMId)*.<br /><br />Você pode criar um nome diferente do padrão, mas lembre-se de usar o nome correto nas tarefas subsequentes. Você pode escrever a ID da VM do laboratório no seguinte formato:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   |**Variáveis**  >  de saída **ID da VM do laboratório**|Insira a variável para a ID da VM do laboratório criada. Se você usar o **labVMId** padrão, poderá consultar a variável nas tarefas subsequentes como *$ (labVMId)*.<br /><br />Você pode criar um nome diferente do padrão, mas lembre-se de usar o nome correto nas tarefas subsequentes. Você pode escrever a ID da VM do laboratório no seguinte formato:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>Coletar os detalhes da VM do DevTest Labs
 
 Execute o script que você criou anteriormente para coletar os detalhes da VM do DevTest Labs. 
 
-1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio**e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
+1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio** e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
    
-1. Em **adicionar tarefas**, selecione **Azure PowerShell**e selecione **Adicionar**. 
+1. Em **adicionar tarefas**, selecione **Azure PowerShell** e selecione **Adicionar**. 
    
 1. Selecione **Azure PowerShell script: FilePath** no painel esquerdo. 
    
@@ -161,9 +161,9 @@ O script coleta os valores necessários e os armazena em variáveis de ambiente 
 
 A próxima tarefa é criar uma imagem da VM implantada recentemente na sua instância do Azure DevTest Labs. Você pode usar a imagem para criar cópias da VM sob demanda sempre que desejar executar uma tarefa de desenvolvimento ou executar alguns testes. 
 
-1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio**e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
+1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio** e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
    
-1. Em **adicionar tarefas**, selecione **Azure DevTest Labs criar imagem personalizada**e selecione **Adicionar**. 
+1. Em **adicionar tarefas**, selecione **Azure DevTest Labs criar imagem personalizada** e selecione **Adicionar**. 
    
 1. Configure as tarefas da seguinte forma:
    
@@ -180,15 +180,15 @@ A próxima tarefa é criar uma imagem da VM implantada recentemente na sua inst�
 
 Você pode adicionar tarefas para implantar seu aplicativo na nova VM do DevTest Labs. As tarefas que você geralmente usa para implantar o aplicativo são *cópia de arquivo do Azure* e *PowerShell em computadores de destino*.
 
-As informações de VM necessárias para os parâmetros dessas tarefas são armazenadas em três variáveis de configuração chamadas **labVmRgName**, **labVMIpAddress**e **labVMFqdn** no pipeline de lançamento. Se você quiser apenas experimentar com a criação de uma VM do DevTest Labs e uma imagem personalizada, sem implantar um aplicativo nela, poderá ignorar essa etapa.
+As informações de VM necessárias para os parâmetros dessas tarefas são armazenadas em três variáveis de configuração chamadas **labVmRgName**, **labVMIpAddress** e **labVMFqdn** no pipeline de lançamento. Se você quiser apenas experimentar com a criação de uma VM do DevTest Labs e uma imagem personalizada, sem implantar um aplicativo nela, poderá ignorar essa etapa.
 
 ### <a name="delete-the-vm"></a>Excluir a VM
 
 A tarefa final é excluir a VM implantada em sua instância de Azure DevTest Labs. Normalmente, você excluiria a VM após executar as tarefas de desenvolvimento ou executaria os testes necessários na VM implantada. 
 
-1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio**e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
+1. Na guia **pipeline** de lançamento de pipeline, selecione o texto de hiperlink no **estágio 1** para **Exibir tarefas de estágio** e, em seguida, selecione o sinal de adição **+** ao lado de **trabalho do agente**. 
    
-1. Em **adicionar tarefas**, selecione **Azure DevTest Labs excluir VM**e selecione **Adicionar**. 
+1. Em **adicionar tarefas**, selecione **Azure DevTest Labs excluir VM** e selecione **Adicionar**. 
    
 1. Configure as tarefas da seguinte forma:
    

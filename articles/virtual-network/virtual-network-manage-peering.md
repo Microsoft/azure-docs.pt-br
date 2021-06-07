@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: dc8db3f1eccce2bb85f03d51fcfd1c4113823d49
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222659"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
@@ -149,7 +149,7 @@ As contas que você pode usar para trabalhar com o emparelhamento de rede virtua
 
 Se sua conta não está atribuída a uma das funções anteriores, ela deve ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe atribuição para as ações necessárias da tabela a seguir:
 
-| Ação                                                          | Name |
+| Ação                                                          | Nome |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessário para criar um emparelhamento de a rede virtual A com a rede virtual B. A rede virtual A um deve ser uma rede virtual (Gerenciador de Recursos)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessário para criar um emparelhamento de rede virtual B (Gerenciador de Recursos) com a rede virtual A                                                       |

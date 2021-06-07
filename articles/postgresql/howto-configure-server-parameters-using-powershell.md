@@ -1,19 +1,19 @@
 ---
 title: Configurar parâmetros do servidor-Azure PowerShell-banco de dados do Azure para PostgreSQL
 description: Este artigo descreve como configurar os parâmetros de serviço no banco de dados do Azure para PostgreSQL usando o PowerShell.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 24106e40a78d4b5607c352ffd49a310533760a66
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6e9bf55aa46e2206928a5f93285a4001dc731f64
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489941"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604287"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>Personalizar os parâmetros de servidor do banco de dados do Azure para PostgreSQL usando o PowerShell
 
@@ -24,7 +24,7 @@ Você pode listar, mostrar e atualizar parâmetros de configuração para um ser
 Para concluir este guia de instruções, você precisa:
 
 - O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
-- Um [servidor de Banco de Dados do Azure para PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
+- Um [banco de dados do Azure para servidor PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.PostgreSql PowerShell está em versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
@@ -38,7 +38,7 @@ Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azur
 
 Para listar todos os parâmetros modificáveis em um servidor e seus valores, execute o `Get-AzPostgreSqlConfiguration` cmdlet.
 
-O exemplo a seguir lista os parâmetros de configuração do servidor para o **mydemoserver** do servidor no grupo de recursos **MyResource**Group.
+O exemplo a seguir lista os parâmetros de configuração do servidor para o **mydemoserver** do servidor no grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlConfiguration -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -50,7 +50,7 @@ Para obter a definição de cada um dos parâmetros listados, consulte a seção
 
 Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o `Get-AzPostgreSqlConfiguration` cmdlet e especifique o parâmetro de **nome** .
 
-Este exemplo mostra detalhes do parâmetro de configuração do servidor de ** \_ \_ log de consulta lenta** para o servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+Este exemplo mostra detalhes do parâmetro de configuração do servidor de **\_ \_ log de consulta lenta** para o servidor **mydemoserver** em grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -60,7 +60,7 @@ Get-AzPostgreSqlConfiguration -Name slow_query_log -ResourceGroupName myresource
 
 Você pode modificar o valor de determinados parâmetros de configuração, que atualiza o valor da configuração subjacente para o mecanismo do servidor PostgreSQL. Para atualizar a configuração, use o `Update-AzPostgreSqlConfiguration` cmdlet.
 
-Para atualizar o parâmetro de configuração do servidor ** \_ \_ log de consulta lenta** do servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+Para atualizar o parâmetro de configuração do servidor **\_ \_ log de consulta lenta** do servidor **mydemoserver** em grupo de recursos **MyResource** Group.
 
 ```azurepowershell-interactive
 Update-AzPostgreSqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

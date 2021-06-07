@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: c2c84b508ee86ebdd82dbcc7040106142187c506
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a92679bb3114c4a60870424f3ec68a8de7b303da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563453"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102499910"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>WAF (firewall do aplicativo Web) com listas de exclusão de serviço de porta frontal 
 
-Às vezes, o Firewall do aplicativo Web (WAF) pode bloquear uma solicitação que você deseja permitir para seu aplicativo. Por exemplo, Active Directory insere tokens que são usados para autenticação. Esses tokens podem conter caracteres especiais que podem disparar um falso positivo das regras WAF. As listas de exclusões do WAF permitem a você omitir certos atributos de solicitação de uma avaliação do WAF.  Uma lista de exclusão pode ser configurada usando o  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [CLI do Azure](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal do Azure. O exemplo a seguir mostra a configuração de portal do Azure. 
+Às vezes, o Firewall do aplicativo Web (WAF) pode bloquear uma solicitação que você deseja permitir para seu aplicativo. Por exemplo, Active Directory insere tokens que são usados para autenticação. Esses tokens podem conter caracteres especiais que podem disparar um falso positivo das regras WAF. As listas de exclusões do WAF permitem a você omitir certos atributos de solicitação de uma avaliação do WAF.  Uma lista de exclusão pode ser configurada usando o  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [CLI do Azure](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal do Azure. O exemplo a seguir mostra a configuração de portal do Azure. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurar listas de exclusão usando o portal do Azure
 **Gerenciar exclusões** é acessível no portal do WAF em **regras gerenciadas**
 
@@ -36,11 +36,11 @@ Os atributos a seguir podem ser adicionados às listas de exclusão por nome. Os
 
 Você pode especificar um cabeçalho de solicitação exato, corpo, cookie ou uma correspondência de atributo de cadeia de consulta.  Outra opção é especificar correspondências parciais. Os seguintes operadores são os critérios de correspondência com suporte:
 
-- **Equals** : esse operador é usado para uma correspondência exata. Por exemplo, para selecionar um cabeçalho chamado **bearerToken** , use o operador Equals com o seletor definido como **bearerToken**.
-- **Começa com** : esse operador corresponde com todos os campos que começam com o valor do seletor especificado.
-- **Termina com** : esse operador corresponde com todos os campos de solicitação que terminam com o valor do seletor especificado.
-- **Contém** : esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
-- **Equals any** : Este operador corresponde a todos os campos de solicitação. * é o valor do seletor.
+- **Equals**: esse operador é usado para uma correspondência exata. Por exemplo, para selecionar um cabeçalho chamado **bearerToken**, use o operador Equals com o seletor definido como **bearerToken**.
+- **Começa com**: esse operador corresponde com todos os campos que começam com o valor do seletor especificado.
+- **Termina com**: esse operador corresponde com todos os campos de solicitação que terminam com o valor do seletor especificado.
+- **Contém**: esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
+- **Equals any**: Este operador corresponde a todos os campos de solicitação. * é o valor do seletor.
 
 Os nomes de cabeçalho e cookie não diferenciam maiúsculas de minúsculas.
 
@@ -58,7 +58,7 @@ Se um valor de cabeçalho, um valor de cookie, um valor de argumento de postagem
 Atualmente, há suporte apenas para exclusões de regra para os matchVariableNames acima em seus logs de WAF. Para qualquer outro matchVariableNames, você deve desabilitar as regras que fornecem falsos positivos ou criar uma regra personalizada que permita explicitamente essas solicitações. Em particular, quando matchVariableName é CookieName, HeaderName, createparamname ou QueryParamName, isso significa que o próprio nome está disparando a regra. A exclusão de regra não tem suporte para esses matchVariableNames no momento.
 
 
-Se você excluir um argumento de postagem do corpo da solicitação chamado *foo* , nenhuma regra deverá mostrar o subparamvalue: foo como o matchVariableName nos logs do WAF. No entanto, você ainda pode ver uma regra com matchVariableName InitialBodyContents que corresponde ao valor do parâmetro post FOO, pois os valores de post param fazem parte do InitialBodyContents.
+Se você excluir um argumento de postagem do corpo da solicitação chamado *foo*, nenhuma regra deverá mostrar o subparamvalue: foo como o matchVariableName nos logs do WAF. No entanto, você ainda pode ver uma regra com matchVariableName InitialBodyContents que corresponde ao valor do parâmetro post FOO, pois os valores de post param fazem parte do InitialBodyContents.
 
 Você pode aplicar listas de exclusão a todas as regras no conjunto de regras gerenciadas, às regras de um grupo de regras específico ou a uma única regra, conforme mostrado no exemplo anterior.
 

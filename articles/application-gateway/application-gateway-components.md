@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88723309"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
@@ -153,5 +153,5 @@ Para obter mais informações, consulte [monitorar a integridade do seu gateway 
 Criar um Application Gateway:
 
 * [No portal do Azure](quick-create-portal.md)
-* [Usando o Azure PowerShell](quick-create-powershell.md)
+* [Usando Azure PowerShell](quick-create-powershell.md)
 * [Usando o CLI do Azure](quick-create-cli.md)

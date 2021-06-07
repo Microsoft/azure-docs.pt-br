@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
 ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94648014"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurar um laboratório para ensinar ciência de dados com notebooks Python e Jupyter
@@ -85,7 +85,7 @@ Se você forneceu aos alunos as VMs do Linux, há várias opções que os alunos
 
 As seções a seguir fornecem detalhes sobre essas maneiras de se conectar a notebooks Jupyter. 
 
-#### <a name="ssh-to-virtual-machine"></a>SSH para máquina virtual
+#### <a name="ssh-to-virtual-machine"></a>SSH para a máquina virtual
 Os alunos podem se conectar via SSH a suas VMs Linux a partir de uma sessão de terminal. Para obter etapas detalhadas, consulte [como acessar um laboratório de sala de aula](how-to-use-classroom-lab.md). Se eles estiverem usando um computador cliente Windows, eles precisarão habilitar um cliente SSH baixando a [saída ou](https://www.putty.org/) habilitando o [OpenSSH no Windows](/windows-server/administration/openssh/openssh_install_firstuse) para o ssh a partir do prompt de comando. 
 
 1.  Inicie a VM.

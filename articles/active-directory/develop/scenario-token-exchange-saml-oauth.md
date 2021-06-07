@@ -12,10 +12,10 @@ ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99582342"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Cenários de troca de tokens da plataforma Microsoft Identity com SAML e OIDC/OAuth

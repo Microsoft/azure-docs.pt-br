@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962273"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639790"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
 
@@ -102,7 +102,7 @@ Quando você tenta se conectar à fonte no assistente de projeto de serviço de 
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Ao usar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o serviço de migração de banco de dados do Azure [requer](./tutorial-sql-server-azure-sql-online.md) o provisionamento de três pontos de extremidade de serviço na sub-rede da rede virtual associada ao serviço:<br> --Ponto de extremidade do barramento de serviço<br> --Ponto de extremidade de armazenamento<br> --Ponto de extremidade do banco de dados de destino (por exemplo, ponto Cosmos DB de extremidade SQL, ponto de extremidade<br><br><br><br><br> | [Habilite](./tutorial-sql-server-azure-sql-online.md) os pontos de extremidade de serviço necessários para conectividade de ExpressRoute entre o serviço de migração de banco de dados de origem e do Azure. <br><br><br><br><br><br><br><br> |
+| Ao usar o [ExpressRoute](https://azure.microsoft.com/services/expressroute/), o serviço de migração de banco de dados do Azure [requer](./tutorial-sql-server-to-azure-sql.md) o provisionamento de três pontos de extremidade de serviço na sub-rede da rede virtual associada ao serviço:<br> --Ponto de extremidade do barramento de serviço<br> --Ponto de extremidade de armazenamento<br> --Ponto de extremidade do banco de dados de destino (por exemplo, ponto Cosmos DB de extremidade SQL, ponto de extremidade<br><br><br><br><br> | [Habilite](./tutorial-sql-server-to-azure-sql.md) os pontos de extremidade de serviço necessários para conectividade de ExpressRoute entre o serviço de migração de banco de dados de origem e do Azure. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Erro de tempo limite de espera de bloqueio ao migrar um banco de dados MySQL para o BD do Azure para MySQL
 
@@ -126,13 +126,13 @@ Quando você tenta conectar o serviço de migração de banco de dados do Azure 
 
 ## <a name="additional-known-issues"></a>Problemas conhecidos adicionais
 
-* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure](./known-issues-azure-sql-online.md)
+* [Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure](./index.yml)
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](./known-issues-azure-mysql-online.md)
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](/powershell/module/azurerm.datamigration#data_migration).
 * Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](../mysql/howto-server-parameters.md).
 * Veja o artigo [visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](./pre-reqs.md).
 * Consulte as [perguntas frequentes sobre como usar o serviço migração de banco de dados do Azure](./faq.md).

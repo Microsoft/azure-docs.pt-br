@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 robots: noindex
 ms.openlocfilehash: ce29b5a112d70575a721b0b527947fd95868da80
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382915"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP usando o Azure Data Factory
@@ -88,7 +88,7 @@ Definir **authenticationType** à **básica**, **Digest**, ou **Windows**. Além
 
 Para usar a autenticação básica, defina **authenticationType** como **ClientCertificate**. Além da HTTP conector as propriedades genéricas descritas nas seções anteriores, defina as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo codificado em Base64 de dados binários do arquivo PFX. | Especifique **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplique somente quando você copiar dados de uma origem HTTP local. | Especifique **embeddedCertData** ou **certThumbprint** |
@@ -214,7 +214,7 @@ As propriedades que estão disponíveis na seção **typeProperties** da ativida
 
 Atualmente, quando a origem em Copy Activity é do tipo **HttpSource**, as seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não<br />(valor padrão: **00:01:40**) |
 

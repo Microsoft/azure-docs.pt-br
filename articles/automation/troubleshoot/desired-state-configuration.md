@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896521"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Solucionar problemas de State Configuration da Automação do Azure
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Esse problema é causado por um certificado insatisfatório ou expirado. Confira [Registrar um nó novamente](../automation-dsc-onboarding.md#re-register-a-node).
 
-Esse problema também pode ser causado por uma configuração de proxy que não permite o acesso a **_. Azure-Automation.net_*. Para obter mais informações, confira [Configuração de redes privadas](../automation-dsc-overview.md#network-planning). 
+Esse problema também pode ser causado por uma configuração de proxy que não permite o acesso a * **.azure-automation.net**. Para obter mais informações, confira [Configuração de redes privadas](../automation-dsc-overview.md#network-planning). 
 
 ### <a name="resolution"></a>Resolução
 
@@ -340,6 +340,6 @@ Você pode fazer com que suas configurações DSC sejam analisadas mais rapidame
 
 Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio dos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

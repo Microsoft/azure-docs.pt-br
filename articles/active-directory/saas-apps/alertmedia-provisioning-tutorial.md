@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: b15b20ee8e643dc260578d17913810aaf68cc929
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181081"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Tutorial: Configurar o AlertMedia para o provisionamento automático de usuário
@@ -117,31 +117,31 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |---|---|
    |userName|String|
    |ativo|Boolean|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:first_name|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:last_name|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email3|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:title|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone_post_dial|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address2|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:city|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:state|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:country|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:zipcode|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:notes|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|Cadeia de caracteres|
-   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|Cadeia de caracteres|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:first_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:last_name|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:email3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:title|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone2_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:mobile_phone3_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:home_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:office_phone_post_dial|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:address2|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:city|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:state|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:country|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:zipcode|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:notes|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:customer_user_id|String|
+   |urn:ietf:params:scim:schemas:extension:alertmedia:2.0:CustomAttribute:User:user_type|String|
 
 10. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o AlertMedia**.
 

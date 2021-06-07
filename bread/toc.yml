@@ -67,6 +67,9 @@
         - name: Relatórios e monitoramento
           tocHref: /azure/active-directory/reports-monitoring/
           topicHref: /azure/active-directory/reports-monitoring/
+        - name: Credenciais verificáveis
+          tocHref: /azure/active-directory/verifiable-credentials/
+          topicHref: /azure/active-directory/verifable-credentials/
     - name: Serviços de análise
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -204,11 +207,23 @@
       topicHref: /azure/vmware-cloudsimple/
     - name: Documentação do portal do Azure
       tocHref: /azure/azure-portal/
-      topicHref: /azure/azure-portal/\
+      topicHref: /azure/azure-portal/
+    - name: Documentação do portal do Azure
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/azure-portal/index
+    - name: Documentação do portal do Azure
+      tocHref: /power-bi
+      topicHref: /azure/azure-portal/index
     - name: Internet das coisas
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
+        - name: Azure Percept
+          tocHref: /azure/azure-percept/
+          topicHref: /azure/azure-percept/
+        - name: Documentação da Atualização de dispositivo para o Hub IoT
+          tocHref: /azure/iot-hub-device-update/
+          topicHref: /azure/iot-hub-device-update/
         - name: Hub IoT
           tocHref: /azure/iot-hub/
           topicHref: /azure/iot-hub/
@@ -236,6 +251,9 @@
         - name: Mapas do Azure
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/
+        - name: Azure Certified Device
+          tocHref: /azure/certification/
+          topicHref: /azure/certification/
     - name: Gerenciador de Recursos
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
@@ -257,14 +275,18 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka para Confluent Cloud
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
-    - name: Azure Stack
+    - name: Azure Stack Hub
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+      items:
+        - name: Azure Stack Edge
+          tocHref: /azure/databox-online/
+          topicHref: /azure/databox-online/
     - name: Usuário do Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
@@ -448,6 +470,9 @@
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
+    - name: Instância Gerenciada para Apache Cassandra
+      tocHref: /azure/managed-instance-apache-cassandra/
+      topicHref: /azure/managed-instance-apache-cassandra/
     - name: Armazenamento
       tocHref: /azure/storage/
       topicHref: /azure/storage/
@@ -455,9 +480,6 @@
         - name: Transferência offline do Data Box
           tocHref: /azure/databox/
           topicHref: /azure/databox/
-        - name: Transferência online do Data Box
-          tocHref: /azure/databox-online/
-          topicHref: /azure/databox-online/
         - name: Data Box Gateway
           tocHref: /azure/databox-gateway/
           topicHref: /azure/databox-gateway/
@@ -631,6 +653,8 @@
       tocHref: /azure/networking/
       topicHref: /azure/networking/
       items:
+        - name: Conceitos básicos
+          tocHref: /azure/networking/fundamentals
         - name: Gateway de Aplicativo
           tocHref: /azure/application-gateway/
           topicHref: /azure/application-gateway/
@@ -658,6 +682,9 @@
         - name: Serviço de Front Door
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
+        - name: Front Door Standard/Premium (Versão Prévia)
+          tocHref: /azure/frontdoor/standard-premium
+          topicHref: /azure/frontdoor/standard-premium
         - name: Analisador de Internet
           tocHref: /azure/internet-analyzer/
           topicHref: /azure/internet-analyzer/
@@ -676,6 +703,9 @@
         - name: Serviço de Emparelhamento
           tocHref: /azure/peering-service/
           topicHref: /azure/peering-service/
+        - name: Sobre o Servidor de Rota do Azure (versão prévia)
+          tocHref: /azure/route-server/
+          topicHref: /azure/route-server/
         - name: Gerenciador de Tráfego
           tocHref: /azure/traffic-manager/
           topicHref: /azure/traffic-manager/
@@ -743,6 +773,9 @@
         - name: Desenvolver
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Journey
+          tocHref: /azure/security/journey
+          topicHref: /azure/security/journey
         - name: Parâmetros de comparação
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/
@@ -831,6 +864,9 @@
         - name: Arquivos
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
+        - name: Sincronização de Arquivos
+          tocHref: /azure/storage/file-sync/
+          topicHref: /azure/storage/file-sync/file-sync-introduction
         - name: Filas
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction
@@ -905,6 +941,9 @@
         - name: Reservas
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+        - name: Contrato de Cliente da Microsoft
+          tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+          topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
     - name: Purview
       tocHref: /azure/purview/
       topicHref: /azure/purview/

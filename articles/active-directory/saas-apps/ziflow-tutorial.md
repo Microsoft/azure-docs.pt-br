@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e10ca98e0c9257187288d02483ed81915a7b321d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92894708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Ziflow
@@ -61,7 +61,7 @@ Para configurar a integração do Ziflow ao Microsoft Azure AD, você precisará
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Ziflow** , selecione **Ziflow** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Ziflow**, selecione **Ziflow** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Ziflow na lista de resultados](common/search-new-app.png)
 
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Microsoft Azure AD com o Ziflow, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Ziflow** , clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Ziflow**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Ziflow](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
 
     > [!NOTE]
     > Os valores anteriores não são reais. Você atualizará o valor de ID exclusiva no identificador e na URL de logon com o valor real, que é explicado no tutorial posteriormente.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Ziflow** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Ziflow**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -134,25 +134,25 @@ Para configurar o logon único do Microsoft Azure AD com o Ziflow, execute as se
 
     ![Logon único nas configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-4. Na página **Logon Único** , execute as seguintes etapas:
+4. Na página **Logon Único**, execute as seguintes etapas:
 
     ![Logon único nas configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
     a. Selecione **Tipo** como **SAML 2.0**.
 
-    b. Na caixa de texto **URL de Entrada** , cole o valor de **URL de Logon** , copiado do portal do Azure.
+    b. Na caixa de texto **URL de Entrada**, cole o valor de **URL de Logon**, copiado do portal do Azure.
 
     c. Carregue o certificado codificado em base 64 que você baixou do Portal do Azure, para o **Certificado de Autenticação do X509**.
 
-    d. Na caixa de texto **URL de Saída** , cole o valor de **URL de Logoff** , copiado do portal do Azure.
+    d. Na caixa de texto **URL de Saída**, cole o valor de **URL de Logoff**, copiado do portal do Azure.
 
-    e. Da seção **Definições de configuração para seu provedor de identificador** , copie o valor de ID exclusiva destacado e acrescente-o ao identificador e à URL de logon na **Configuração Básica de SAML** no portal do Azure.
+    e. Da seção **Definições de configuração para seu provedor de identificador**, copie o valor de ID exclusiva destacado e acrescente-o ao identificador e à URL de logon na **Configuração Básica de SAML** no portal do Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -164,9 +164,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Ziflow.
 
-1. No portal do Azure, escolha **Aplicativos empresariais** , escolha **Todos os aplicativos** e, em seguida, escolha **Ziflow**.
+1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Ziflow**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -192,11 +192,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-ziflow-test-user"></a>Criar um usuário de teste no Ziflow
 
@@ -214,15 +214,15 @@ Para provisionar uma conta de usuário, execute as seguintes etapas:
 
     ![A captura de tela mostra a opção Adicionar usuário selecionada.](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
-4. Na janela pop-up **Adicionar um Usuário** , realize as seguintes etapas:
+4. Na janela pop-up **Adicionar um Usuário**, realize as seguintes etapas:
 
     ![A captura de tela mostra a caixa de diálogo Adicionar um usuário, na qual você pode inserir os valores descritos.](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-    a. Na caixa de texto **Email** , insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
 
-    b. Na caixa de texto **Nome** , insira o nome do usuário como Brenda.
+    b. Na caixa de texto **Nome**, insira o nome do usuário como Brenda.
 
-    c. Na caixa de texto **Sobrenome** , insira o nome do usuário como Fernandes.
+    c. Na caixa de texto **Sobrenome**, insira o nome do usuário como Fernandes.
 
     d. Selecione sua função no Ziflow.
 

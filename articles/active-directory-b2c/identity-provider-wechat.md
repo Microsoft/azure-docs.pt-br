@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ddd41448820984497ae96142ca409774af7c7bf9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98954048"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488545"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do WeChat usando o Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Para habilitar a entrada para usuários com uma conta do WeChat no Azure Active 
 1. Entre no [https://open.weixin.qq.com/](https://open.weixin.qq.com/) com suas credenciais do WeChat.
 1. Escolha **管理中心** (Centro de gerenciamento).
 1. Siga as etapas para registrar um novo aplicativo.
-1. Insira `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno de chamada). Por exemplo, se o nome do locatário é contoso, defina a URL para ser `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Para o **授权回调域** (URL de retorno de chamada), digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
 1. Copie a **ID DO APLICATIVO** e a **CHAVE DO APLICATIVO**. Você precisa de ambos para configurar o provedor de identidade para seu locatário.
 
 ::: zone pivot="b2c-user-flow"
@@ -54,17 +54,20 @@ Para habilitar a entrada para usuários com uma conta do WeChat no Azure Active 
 1. Insira um **Nome**. Por exemplo, *WeChat*.
 1. Para a **ID do cliente**, insira a ID do aplicativo WeChat que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="add-wechat-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade WeChat a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade WeChat.
 1. Em **provedores de identidade social**, selecione **WeChat**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Selecione o botão **executar fluxo de usuário** .
+1. Na página inscrever-se ou entrar, selecione **WeChat** para entrar com a conta do WeChat.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end
 
@@ -164,6 +167,13 @@ Você pode definir uma conta WeChat como um provedor de declarações adicionand
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
+1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **WeChat** para entrar com a conta do WeChat.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end

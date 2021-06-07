@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 86e279fef9561397343b3e6cb55ac335a5b39542
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942843"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872210"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o .NET SDK
 
@@ -167,7 +167,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
     
     A IU da Web do Storm está disponível no cluster HDInsight:
     
-    ![Redistribuir escala do Storm do HDInsight](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="Rebalanceamento de escala do HDInsight Storm":::
     
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
     
@@ -190,7 +190,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBCODBC
+* ODBC
 * JDBC
 * Apache Ambari
 * Apache Oozie

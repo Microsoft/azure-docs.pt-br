@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 10e42e502a1f435d06d52d22d5c1e1924a46e575
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744181"
 ---
 # <a name="azure-cloud-services-extended-support-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição de serviços de nuvem do Azure (suporte estendido)
@@ -64,5 +64,5 @@ A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Esquema de definição do serviço de nuvem (suporte estendido)](schema-csdef-file.md).

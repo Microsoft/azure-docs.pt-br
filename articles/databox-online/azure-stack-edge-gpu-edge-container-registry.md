@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bccb6fa33007082737997c7282fb286c38e3bbd7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465926"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560320"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar o registro de contêiner de borda em seu dispositivo de GPU pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como habilitar o registro de contêiner de borda e usá-lo de dentro do cluster kubernetes em seu dispositivo Azure Stack Edge pro. O exemplo usado no artigo fornece detalhes sobre como enviar por push uma imagem de um registro de origem, nesse caso, o registro de contêiner da Microsoft, para o registro no dispositivo Azure Stack Edge, o registro de contêiner do Edge.
 
@@ -292,4 +294,4 @@ Depois de excluir as imagens não usadas, o espaço associado às imagens não r
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

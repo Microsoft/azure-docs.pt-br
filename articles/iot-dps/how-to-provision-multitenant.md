@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571599"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101727423"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -395,7 +395,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
 
@@ -417,16 +417,8 @@ Para excluir o grupo de recursos por nome:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
-- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
+> [!div class="nextstepaction"]
+> Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md)
 
-
-
-
-
-
-
-
-
-
-
+> [!div class="nextstepaction"]
+> Para saber mais sobre o desprovisionamento, consulte [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md)

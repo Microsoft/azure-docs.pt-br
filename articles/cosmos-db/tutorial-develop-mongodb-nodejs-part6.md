@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93081307"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – adicionar funções de CRUD ao aplicativo
@@ -68,7 +68,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
    }
    ```
 
-3. Em **hero.service.js** , atualize o `module.exports` para incluir a nova função `postHero`. 
+3. Em **hero.service.js**, atualize o `module.exports` para incluir a nova função `postHero`. 
 
     ```javascript
     module.exports = {
@@ -77,7 +77,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
     };
     ```
 
-4. Em **routes.js** , adicione um roteador à função `post` depois do roteador `get`. Esse roteador posta um hero por vez. Estruturar o arquivo de roteador dessa maneira mostra claramente todos os pontos de extremidade de API disponíveis e deixa o trabalho de verdade para o arquivo **hero.service.js**.
+4. Em **routes.js**, adicione um roteador à função `post` depois do roteador `get`. Esse roteador posta um hero por vez. Estruturar o arquivo de roteador dessa maneira mostra claramente todos os pontos de extremidade de API disponíveis e deixa o trabalho de verdade para o arquivo **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -99,7 +99,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
 
 ## <a name="add-the-put-and-delete-functions"></a>Adicionar as funções Put e Delete
 
-1. Em **routes.js** , adicione os roteadores `put` e `delete` depois do roteador de post.
+1. Em **routes.js**, adicione os roteadores `put` e `delete` depois do roteador de post.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -159,7 +159,7 @@ Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas n
    }
    ```
 
-3. Em **hero.service.js** , exporte os novos módulos:
+3. Em **hero.service.js**, exporte os novos módulos:
 
    ```javascript
     module.exports = {

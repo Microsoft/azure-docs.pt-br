@@ -4,10 +4,10 @@ description: Saiba como integrar o Gerenciador de tráfego à solução do Azure
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988601"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implantar o Gerenciador de tráfego para balancear as cargas de trabalho da solução Azure VMware
@@ -98,7 +98,7 @@ As etapas a seguir verificam a configuração do segmento NSX-T no ambiente da s
    - Nome do perfil
    - Método de roteamento (uso [ponderado](../traffic-manager/traffic-manager-routing-methods.md)
    - Subscription
-   - Grupo de recursos
+   - Resource group
 
 ## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Adicionar pontos de extremidade externos ao perfil do Gerenciador de tráfego
 

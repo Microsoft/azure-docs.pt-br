@@ -10,13 +10,13 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4cfbfe3e3e3ba620d8292767012c9bb866d8a878
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968087"
 ---
-# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Criar e provisionar um dispositivo X.509 simulado usando um dispositivo Java e um SDK de serviço e agrupar registros para o Serviço de Provisionamento de Dispositivos no Hub IoT
 
 Estas etapas mostram como simular um dispositivo X.509 no computador de desenvolvimento que executa o sistema operacional Windows e usam um exemplo de código para conectar este dispositivo simulado com o Serviço de Provisionamento do Dispositivo e o Hub IoT usando grupos de registro. 
 
@@ -176,7 +176,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
 
     Se você gerou seus certificados de dispositivo com o shell Bash, /certs/new-device.cert.pem contém a chave pública. A chave privada do dispositivo estará no arquivo ./private/new-device.key.pem.
 
-    Abra seu arquivo de chave pública e atualize a variável `leafPublicPem` com esse valor. Copie o texto de _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_ .
+    Abra seu arquivo de chave pública e atualize a variável `leafPublicPem` com esse valor. Copie o texto de _-----BEGIN PRIVATE KEY-----_ a _-----END PRIVATE KEY-----_.
 
     ```java
     private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
@@ -188,7 +188,7 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
         "-----END CERTIFICATE-----\n";
     ```
 
-    Abra seu arquivo de chave privada e atualize a variável `leafPrivatePem` com esse valor. Copie o texto de _-----BEGIN RSA PRIVATE KEY-----_ para _-----END RSA PRIVATE KEY-----_ .
+    Abra seu arquivo de chave privada e atualize a variável `leafPrivatePem` com esse valor. Copie o texto de _-----BEGIN RSA PRIVATE KEY-----_ para _-----END RSA PRIVATE KEY-----_.
 
     ```java
     private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +

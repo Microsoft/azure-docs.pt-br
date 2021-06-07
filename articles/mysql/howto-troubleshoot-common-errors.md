@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631360"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109787"
 ---
-# <a name="common-errors"></a>Erros comuns
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Erros frequentemente encontrados durante ou após a migração para o serviço do Banco de Dados do Azure para MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 O Banco de Dados do Azure para MySQL é um serviço totalmente gerenciado ativado pela versão da comunidade do MySQL. A experiência do MySQL em um ambiente de serviço gerenciado pode ser diferente da execução do MySQL no próprio ambiente. Neste artigo, você verá alguns dos erros comuns que os usuários podem receber ao fazer a migração para o serviço Banco de Dados do Azure para MySQL ou fazer o desenvolvimento nele pela primeira vez.
 
@@ -25,9 +27,9 @@ O erro acima ocorre após o logon bem-sucedido, mas antes da execução de qualq
 
 Há alguns parâmetros do servidor como require_secure_transport que não são compatíveis com o nível de sessão. Portanto, a tentativa de alterar os valores desses parâmetros usando init_connect poderá resultar no erro 1184 durante a conexão com o servidor MySQL, conforme mostrado abaixo
 
-mysql> show databases; ERROR 2006 (HY000): O servidor MySQL desapareceu. Sem conexão. Tentando reconectar... ID da conexão:    64897 Banco de dados atual: *** NENHUM **_ ERRO 1184 (08S01): conexão 22 com db: 'db-name' usuário: 'user' host: 'hostIP' anulada (falha no comando init_connect)
+mysql> show databases; ERROR 2006 (HY000): O servidor MySQL desapareceu. Sem conexão. Tentando reconectar... ID da conexão:    64897 Banco de dados atual: *** NENHUM *** ERRO 1184 (08S01): a conexão 22 com o BD foi anulada: usuário 'db-name': host 'user': 'hostIP' (falha no comando init_connect)
 
-_ *Resolução**: você deve redefinir o valor de init_connect na guia Parâmetros do servidor no portal do Azure e definir apenas os parâmetros do servidor compatíveis usando o parâmetro init_connect. 
+**Resolução**: será necessário redefinir o valor de init_connect na guia Parâmetros do servidor do portal do Azure e definir somente os parâmetros do servidor compatíveis usando o parâmetro init_connect. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erros devido à ausência do privilégio SUPER e da função DBA
@@ -48,7 +50,7 @@ BEGIN
 END;
 ```
 
-**Resolução:**  para resolver o erro, defina log_bin_trust_function_creators como 1 na folha [Parâmetros do servidor](howto-server-parameters.md) no portal, execute as instruções DDL ou importe o esquema para criar os objetos desejados e reverta o parâmetro log_bin_trust_function_creators para o valor anterior após a criação.
+**Resolução**: para resolver o erro, defina log_bin_trust_function_creators como 1 na folha [Parâmetros do servidor](howto-server-parameters.md) no portal, execute as instruções DDL ou importe o esquema para criar os objetos desejados. Você pode continuar mantendo o log_bin_trust_function_creators como 1 para o seu servidor para evitar o erro no futuro. Nossa recomendação é definir log_bin_trust_function_creators, pois o risco de segurança realçado na [documentação da comunidade do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) é mínimo no serviço do BD do Azure para MySQL, já que o log do compartimento não é exposto a nenhuma ameaça.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERRO 1227 (42000) na linha 101: acesso negado; você precisará ter (pelo menos um dos) privilégios SUPER para executar essa operação. Falha na operação com o código de saída 1
 
@@ -84,6 +86,14 @@ O erro acima poderá ocorrer durante a execução de CREATE VIEW com instruçõe
 
 > [!Tip] 
 > Use sed ou o PERL para modificar um arquivo de despejo ou um script SQL para substituir a instrução DEFINER=
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>ERRO 1227 (42000) na linha 18: acesso negado; você precisará ter (pelo menos um dos) privilégios SUPER para executar essa operação
+
+O erro acima poderá ocorrer se você estiver tentando importar o arquivo de despejo do servidor MySQL com o GTID habilitado para o servidor de destino do Banco de Dados do Azure para MySQL. Mysqldump adiciona a instrução SET @@SESSION.sql_log_bin=0 a um arquivo de despejo de um servidor em que os GTIDs estão em uso, o que desabilita o log binário enquanto o arquivo de despejo está sendo recarregado.
+
+**Resolução**: para resolver esse erro durante a importação, remova ou comente as linhas abaixo no arquivo mysqldump e execute a importação novamente para garantir que ela seja bem-sucedida. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN; SET @@SESSION.SQL_LOG_BIN= 0; SET @@GLOBAL.GTID_PURGED=''; SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Erros comuns de conexão do logon de administrador do servidor
 

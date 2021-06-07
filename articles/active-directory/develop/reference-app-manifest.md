@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 47215070893c6fefd42554fdf4514e4aa8b45047
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 199d85d2805b92e1421330be8f299c769637b649
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103338"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578457"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -620,7 +620,7 @@ Use a seção de comentários a seguir para dar sua opinião e nos ajudar a apri
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
-[GRAPH-API]: active-directory-graph-api.md
+[GRAPH-API]: /graph/migrate-azure-ad-graph-planning-checklist
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference

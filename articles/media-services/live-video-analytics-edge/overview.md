@@ -4,10 +4,10 @@ description: Este tópico fornece uma visão geral da Análise de Vídeo ao vivo
 ms.topic: overview
 ms.date: 05/27/2020
 ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90904345"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>O que é a Análise de Vídeo ao vivo no IoT Edge? (versão prévia)

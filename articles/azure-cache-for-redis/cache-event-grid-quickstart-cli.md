@@ -1,17 +1,17 @@
 ---
 title: 'Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com a CLI do Azure'
-description: Use a Grade de Eventos do Azure para assinar eventos do Cache do Azure para Redis, enviar os eventos para um webhook e processar os eventos em um aplicativo Web.
+description: Use a Grade de Eventos do Azure para assinar eventos do Cache do Azure para Redis, disparar um evento e ver os resultados.
 author: curib
 ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 55c4c6bb5352d70c9bc688b28c3e0ab6eccd34fd
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 7f33ca0043400962054fabb1aadb1da612fe5426
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056435"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99806419"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-azure-cli"></a>Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com a CLI do Azure
 

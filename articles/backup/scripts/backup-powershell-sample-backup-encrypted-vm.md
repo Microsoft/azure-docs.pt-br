@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 73dc119e8db34aed04ce8926bfa85f557027c8e2
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97967303"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer backup de uma máquina virtual do Azure criptografada com o PowerShell

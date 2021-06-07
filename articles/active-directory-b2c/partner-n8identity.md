@@ -12,10 +12,10 @@ ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96170915"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Tutorial para configurar a ferramenta de administração do TheAccessHub com o Azure Active Directory B2C
@@ -194,7 +194,7 @@ As permissões para gerenciar os usuários do cliente e do CSR/helpdesk na ferra
 
 1. Faça logon na ferramenta de administração do TheAccessHub usando as credenciais fornecidas pela identidade do N8
 
-2. Navegue até **Manager Tools** a  >  **exibição de árvore** de ferramentas do Gerenciador
+2. Navegue até a  >  **exibição de árvore** de ferramentas do Gerenciador
 
 3. Nessa representação, você pode visualizar quais colegas e grupos podem gerenciar quais organizações.
 
@@ -210,7 +210,7 @@ Para personalizar a notificação:
 
 1. Faça logon no TheAccessHub usando as credenciais fornecidas pela identidade do N8
 
-2. Navegar para notificações de **administrador do sistema**  >  **Notifications**
+2. Navegar para notificações de **administrador do sistema**  >  
 
 3. Selecione o **modelo criar colega**
 

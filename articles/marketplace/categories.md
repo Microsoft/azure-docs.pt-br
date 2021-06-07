@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/16/2020
 ms.openlocfilehash: 5042c6801678f94c749454dac28eec56fdcb7559
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94810944"
 ---
 # <a name="categories-and-subcategories-in-the-commercial-marketplace"></a>Categorias e subcategorias no Marketplace comercial
@@ -31,7 +31,7 @@ Esta tabela mostra as categorias e subcategorias principais que são mapeadas pa
 
 | Categoria principal | Subcategoria |
 | ------------ | ------------- |
-| IA + Machine Learning | ML automatizado<br>Serviços de bot<br>Automação de processos de negócios/robótica<br>Serviços Cognitivos<br>Rotulamento de dados<br>Preparação de dados<br>Mineração de conhecimento<br>Operações de ML<br>Serviço do Machine Learning |
+| IA + Machine Learning | ML automatizado<br>Serviços de Bot<br>Automação de processos de negócios/robótica<br>Serviços Cognitivos<br>Rotulamento de dados<br>Preparação de dados<br>Mineração de conhecimento<br>Operações de ML<br>Serviço do Machine Learning |
 | Análise | Big Data<br>Análise de Dados<br>Informações de dados<br>Análise preditiva<br>Análise em tempo real/streaming |
 | Blockchain | Aceleradores de aplicativos<br>Razão de vários nós<br>Razão de nó único<br>Ferramentas |
 | Computação | Infraestrutura do aplicativo<br>Cache<br>Sistemas operacionais |

@@ -7,10 +7,10 @@ ms.date: 12/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: fd830afd5628591019902ca583f9cbc8e2a7ecad
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97683401"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure

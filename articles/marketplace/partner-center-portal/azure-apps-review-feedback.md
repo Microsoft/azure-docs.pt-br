@@ -8,10 +8,10 @@ ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: ede4e5dd781851c781407a8acea640e3e501f259
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96436378"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Como lidar com comentários de análise para ofertas de aplicativos do Azure

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737313"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar o Azure Functions para os Provedores Personalizados do Azure
@@ -79,4 +79,4 @@ O seguinte elemento XML é um arquivo de projeto C# de exemplo:
 
 Neste tutorial, você configurou um aplicativo de funções do Azure para funcionar como um ponto de extremidade de provedor personalizado do Azure.
 
-Para saber como criar um ponto de extremidade de provedor personalizado RESTful, confira [Tutorial: Como criar um ponto de extremidade de provedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).
+Para saber como criar um ponto de extremidade de provedor personalizado RESTful, confira [Tutorial: Como criar um ponto de extremidade do provedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).

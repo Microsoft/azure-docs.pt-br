@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a674f5f653ad420ab8f28ff73c6b86f9c18b154e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92517745"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Trelica
@@ -50,15 +50,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Trelica ao Azure AD, você precisará adicionar o Trelica da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
-1. No painel de navegação mais esquerdo, escolha o serviço **Azure Active Directory** .
-1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , insira **Trelica** na caixa de pesquisa.
+1. No painel de navegação mais esquerdo, escolha o serviço **Azure Active Directory**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, insira **Trelica** na caixa de pesquisa.
 1. Selecione **Trelica** nos resultados da pesquisa e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-trelica"></a>Configurar e testar logon único do Azure AD para o Trelica
 
-Configure e teste o SSO do Azure AD com o Trelica usando uma usuária de teste chamada **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Trelica.
+Configure e teste o SSO do Azure AD com o Trelica usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Trelica.
 
 Para configurar e testar o SSO do Azure AD com o Trelica, conclua os seguintes blocos de construção:
 
@@ -73,24 +73,24 @@ Para configurar e testar o SSO do Azure AD com o Trelica, conclua os seguintes b
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Trelica** , acesse a seção **Gerenciar** . Selecione **Logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o Logon Único com o SAML** , clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Trelica**, acesse a seção **Gerenciar**. Selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![A página Configurar Logon Único com SAML, com o ícone de lápis para Configuração Básica de SAML realçado](common/edit-urls.png)
 
-1. Na página **Configurar Logon Único com SAML** , insira os seguintes valores:
+1. Na página **Configurar Logon Único com SAML**, insira os seguintes valores:
 
-    1. Na caixa **Identificador** , insira a URL **https://app.trelica.com** .
+    1. Na caixa **Identificador**, insira a URL **https://app.trelica.com** .
 
-    1. Na caixa **URL de Resposta** , digite uma URL que tenha o padrão `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
+    1. Na caixa **URL de Resposta**, digite uma URL que tenha o padrão `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
     > [!NOTE]
     > O valor de URL de Resposta não é real. Atualize esse valor com a URL de Resposta real (também conhecida como o ACS).
     > Encontre isso fazendo logon no Trelica e acessando a [página de configuração provedores de identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Administrador > Conta > SAML). Clique no botão Copiar ao lado da **URL do ACS (serviço do consumidor de declaração)** para colocá-lo na área de transferência, pronto para colar na caixa de texto **URL de Resposta** no Azure AD.
     > Leia a [documentação de ajuda do Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou entre em contato com a [equipe de suporte ao cliente do Trelica](mailto:support@trelica.com) em caso de dúvidas.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
     ![A seção Certificado de Autenticação SAML, com o botão copiar realçado ao lado da URL de Metadados de Federação do Aplicativo](common/copy-metadataurl.png)
 
@@ -98,35 +98,35 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
 
 Nesta seção, você criará uma usuária de teste no portal do Azure chamada B.Fernandes.
 
-1. No painel mais à esquerda do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários** .
-1. Na parte superior da tela, selecione **Novo usuário** .
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira **B.Fernandes** .
-   1. No campo **Nome de usuário** , insira **B.Fernandes@** _domíniodaempresa_ **.** _extensão_ . Por exemplo, B.Simon@contoso.com.
-   1. Marque a caixa de seleção **Mostrar senha** , em seguida, anote o valor mostrado na caixa **Senha** .
-   1. Selecione **Criar** .
+1. No painel mais à esquerda do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
+1. Na parte superior da tela, selecione **Novo usuário**.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira **B.Fernandes**.
+   1. No campo **Nome de usuário**, insira **B.Fernandes@** _domíniodaempresa_ **.** _extensão_. Por exemplo, B.Simon@contoso.com.
+   1. Marque a caixa de seleção **Mostrar senha**, em seguida, anote o valor mostrado na caixa **Senha**.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Trelica.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Trelica** .
-1. Na página de visão geral do aplicativo, acesse a seção **Gerenciar** e selecione **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Trelica**.
+1. Na página de visão geral do aplicativo, acesse a seção **Gerenciar** e selecione **Usuários e grupos**.
 
    ![A seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** . Na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos** .
+1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
    ![A janela Usuários e grupos, com Adicionar usuário realçado](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Se você esperar qualquer valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Se você esperar qualquer valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ## <a name="configure-trelica-sso"></a>Configurar o SSO do Trelica
 
-Para configurar o logon único no lado do **Trelica** , acesse a [página de configuração de provedores de identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Administrador > Conta > SAML). Clique no botão **Novo** . Insira **Azure AD** como o Nome e escolha **Metadados da URL** como o tipo de metadados. Cole a **URL de Metadados de Federação do Aplicativo** copiada do Azure AD no campo **URL de Metadados** do Trelica.
+Para configurar o logon único no lado do **Trelica**, acesse a [página de configuração de provedores de identidade SAML](https://app.trelica.com/Admin/Profile/SAML) (Administrador > Conta > SAML). Clique no botão **Novo**. Insira **Azure AD** como o Nome e escolha **Metadados da URL** como o tipo de metadados. Cole a **URL de Metadados de Federação do Aplicativo** copiada do Azure AD no campo **URL de Metadados** do Trelica.
 
 Leia a [documentação de ajuda do Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou entre em contato com a [equipe de suporte ao cliente do Trelica](mailto:support@trelica.com) em caso de dúvidas.
 

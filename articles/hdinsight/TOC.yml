@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Conceitos
       items:
-        - name: Componentes do Apache no HDInsight
-          href: ./hdinsight-component-versioning.md
+        - name: Controle de versão
+          items:
+            - name: Introdução ao controle de versão
+              href: ./hdinsight-overview-versioning.md
+            - name: Versões do HDInsight
+              href: ./hdinsight-component-versioning.md
+            - name: HDInsight versão 4.0
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight versão 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: Versões do HDInsight desativadas
+              href: ./hdinsight-retired-versions.md
         - name: Enterprise Security Package
           href: ./enterprise-security-package.md
         - name: Notas de versão Hortonworks
@@ -263,9 +273,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: SDK para .NET
-          href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/hdinsight
         - name: SDK para Python
-          href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
+          href: /python/api/overview/azure/hdinsight
         - name: SDK para Java
           href: /java/api/overview/azure/hdinsight
         - name: SDK para linguagem Go
@@ -650,7 +660,7 @@
             - name: Usar Apache Kafka com o Hub IoT
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Registro de Esquema Confluente
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Criar pipelines de transmissão
               items:
                 - name: 'Apache Spark, Apache Kafka e Azure Cosmos DB'
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Gerenciar
           items:
+            - name: Copiar tabelas do Hive entre Contas de Armazenamento
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Migrar metastore do Hive padrão para metastore externo no Azure HDInsight
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Otimizar consultas do Apache Hive

@@ -12,10 +12,10 @@ ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
 ms.openlocfilehash: 1cbe5f986ca36ecc3b45cf4bb7ecffa7067a27bd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97936610"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um modelo do Resource Manager

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100521672"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Portal do Azure**
+**Azure portal**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 

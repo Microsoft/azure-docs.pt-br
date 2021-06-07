@@ -3,12 +3,12 @@ title: 'Tutorial: Usar a Grade de Eventos do Azure para automatizar o redimensio
 description: 'Tutorial: A Grade de Eventos do Azure pode ser disparada em carregamentos de blob no Armazenamento do Azure. Você pode usar isso para enviar os arquivos de imagem carregados no Armazenamento do Azure para outros serviços, como o Azure Functions, para redimensionamento e outras melhorias.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca231fc65162fe38f4dcb8b8d5677ef42c7807bb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326551"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99550483"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -43,7 +43,7 @@ Para concluir este tutorial:
 
 É necessário concluir o tutorial de Armazenamento de Blobs anterior: [Carregue os dados de imagem na nuvem com o Armazenamento do Azure][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+É necessária uma [assinatura do Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). Este tutorial não funciona com a assinatura **gratuita**. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -263,7 +263,7 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
 
 1.  Selecione **Integração**, depois escolha o **Gatilho de Grade de Eventos** e selecione **Criar Assinatura de Grade de Eventos**.
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Escolher a função Miniatura no portal" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navegar até Adicionar Assinatura de Grade de Eventos no portal do Azure" :::
 
 1. Use as configurações da assinatura de evento, conforme especificado na tabela.
     
@@ -283,7 +283,7 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
 
 1. Alterne para a guia **Filtros** e execute as seguintes ações:
     1. Selecione a opção **Habilitar filtragem por assunto**.
-    1. Em **O assunto começa com**, insira o seguinte valor: **/blobServices/default/containers/images/blobs/** .
+    1. Em **O assunto começa com**, insira o seguinte valor: **/blobServices/default/containers/images/** .
 
         ![Especificar o filtro para a assinatura de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

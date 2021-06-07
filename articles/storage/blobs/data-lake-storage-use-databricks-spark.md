@@ -9,12 +9,12 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: 5fce5871b4bd6c3e2353f7df04018e88b86ec4c7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 232e28d3cc8b0bc7427dd035d51743f623e54259
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912511"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103564296"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -54,7 +54,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Este tutorial usa dados de voo do Bureau of Transportation Statistics (Departamento de Estatísticas de Transporte dos EUA) para demonstrar como executar uma operação de ETL. Você precisa baixar esses dados para concluir o tutorial.
 
-1. Acesse [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time) (Administração de pesquisa e inovação em tecnologia, Departamento de Estatísticas de Transporte dos EUA).
+1. Acesse [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ) (Administração de pesquisa e inovação em tecnologia, Departamento de Estatísticas de Transporte dos EUA).
 
 2. Marque a caixa de seleção **Arquivo Pré-compactado** para selecionar todos os campos de dados.
 

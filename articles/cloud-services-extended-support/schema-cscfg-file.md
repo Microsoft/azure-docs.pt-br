@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 3aac5ca8d146f0cd74f483846d22fdf0052f86f2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744154"
 ---
 # <a name="azure-cloud-services-extended-support-config-schema-cscfg-file"></a>Esquema de configuração dos serviços de nuvem do Azure (suporte estendido) (arquivo cscfg)
@@ -45,7 +45,7 @@ O formato básico do arquivo de configuração de serviço é o seguinte.
 ## <a name="schema-definitions"></a>Definições do esquema
 Os tópicos a seguir descrevem o esquema para o elemento `ServiceConfiguration`:
 
-- [Esquema de Função](schema-cscfg-role.md)
+- [Esquema de função](schema-cscfg-role.md)
 - [Esquema NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 
 ## <a name="service-configuration-namespace"></a>Namespace de configuração de serviço
@@ -65,6 +65,6 @@ A tabela a seguir descreve os atributos do elemento `ServiceConfiguration`. Todo
 
 O arquivo de configuração de serviço deve conter um elemento `ServiceConfiguration`. O elemento `ServiceConfiguration` pode incluir qualquer número de elementos `Role` e zero ou 1 elementos `NetworkConfiguration`.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Esquema de definição (suporte estendido) dos serviços de nuvem do Azure (arquivo csdef)](schema-csdef-file.md)

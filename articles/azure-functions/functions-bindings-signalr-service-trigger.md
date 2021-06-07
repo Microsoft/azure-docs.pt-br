@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763499"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Associação de gatilho de serviço signalr para Azure Functions

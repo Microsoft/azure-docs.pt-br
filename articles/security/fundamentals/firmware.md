@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: 8233cc714d977083f4d55716d35c0b7094a069ea
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94557539"
 ---
 # <a name="firmware-security"></a>Segurança do firmware
@@ -52,6 +52,6 @@ Para saber mais sobre o que fazemos para impulsionar a integridade e a seguranç
 
 - [Inicialização segura](secure-boot.md)
 - [Atestado de inicialização e host medidos](measured-boot-host-attestation.md)
-- [O Cerberus do projeto](project-cerberus.md)
+- [Projeto Cerberus](project-cerberus.md)
 - [Criptografia em repouso](encryption-atrest.md)
 - [Segurança do hipervisor](hypervisor.md)

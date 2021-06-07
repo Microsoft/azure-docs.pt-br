@@ -11,10 +11,10 @@ ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8cceeef7e41e8fc5c48b4e67cdb1adf3aa4f02a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89483857"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotado para aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure
@@ -120,7 +120,7 @@ Clicar em qualquer imagem de captura de tela leva você até a marcação de tem
 
 &nbsp; <a name="anchor-image-wtip-min00505"></a>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. aplicativo Web multilocatário, 0:05:00
-[![Aplicativo de SaaS Wingtip: aplicativo Web multilocatário][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Aplicativo Wingtip SaaS: aplicativo Web multilocatário][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"></a>

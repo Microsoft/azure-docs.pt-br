@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 882d96271b6976db1ffc0dde181d5699c5cc27de
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367564"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101688239"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 
@@ -56,14 +56,14 @@ Use a política `check-header` para impor que uma solicitação tem um cabeçalh
 
 ### <a name="elements"></a>Elementos
 
-| Nome         | Descrição                                                                                                                                   | Necessária |
+| Nome         | Descrição                                                                                                                                   | Obrigatório |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Elemento raiz.                                                                                                                                 | Sim      |
-| value        | Valor do cabeçalho HTTP permitido. Quando vários elementos de valor são especificados, a verificação é considerada um sucesso se qualquer um dos valores é uma correspondência. | Não       |
+| valor        | Valor do cabeçalho HTTP permitido. Quando vários elementos de valor são especificados, a verificação é considerada um sucesso se qualquer um dos valores é uma correspondência. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                       | Descrição                                                                                                                                                            | Necessária | Padrão |
+| Nome                       | Descrição                                                                                                                                                            | Obrigatório | Padrão |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | failed-check-error-message | A mensagem de erro para retornar no corpo da resposta HTTP se o cabeçalho não existe ou tem um valor inválido. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape. | Sim      | N/D     |
 | failed-check-httpcode      | O código de status HTTP para retornar se o cabeçalho não existir ou tiver um valor inválido.                                                                                        | Sim      | N/D     |
@@ -126,7 +126,7 @@ No exemplo a seguir, o limite de taxa por assinatura é de 20 chamadas por 90 se
 
 ### <a name="elements"></a>Elementos
 
-| Nome       | Descrição                                                                                                                                                                                                                                                                                              | Necessária |
+| Nome       | Descrição                                                                                                                                                                                                                                                                                              | Obrigatório |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Elemento raiz.                                                                                                                                                                                                                                                                                            | Sim      |
 | api        | Adicione um ou mais desses elementos para impor um limite de taxa de chamada em APIs dentro do produto. Limites de taxa de chamadas à API e ao produto são aplicados de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.                    | Não       |
@@ -134,11 +134,11 @@ No exemplo a seguir, o limite de taxa por assinatura é de 20 chamadas por 90 se
 
 ### <a name="attributes"></a>Atributos
 
-| Nome           | Descrição                                                                                           | Necessária | Padrão |
+| Nome           | Descrição                                                                                           | Obrigatório | Padrão |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | O nome da API para a qual aplicar o limite de taxa.                                                | Sim      | N/D     |
-| chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`. | Sim      | N/D     |
-| renewal-period | O período de tempo em segundos após o qual a taxa é redefinida.                                              | Sim      | N/D     |
+| chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado em `renewal-period` . | Sim      | N/D     |
+| renewal-period | O comprimento em segundos da janela deslizante durante o qual o número de solicitações permitidas deve ou não exceder o valor especificado em `calls` .                                              | Sim      | N/D     |
 | repetir-após-cabeçalho-nome    | O nome de um cabeçalho de resposta cujo valor é o intervalo de repetição recomendado em segundos depois que a taxa de chamada especificada é excedida. |  Não | N/D  |
 | repetir-após-variável-name    | O nome de uma variável de expressão de política que armazena o intervalo de repetição recomendado em segundos após a taxa de chamada especificada ser excedida. |  Não | N/D  |
 | restantes-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor após cada execução de política é o número de chamadas restantes permitidas para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
@@ -203,18 +203,18 @@ No exemplo a seguir, o limite de taxa de 10 chamadas por 60 segundos é inserido
 
 ### <a name="elements"></a>Elementos
 
-| Nome              | Descrição   | Necessária |
+| Nome              | Descrição   | Obrigatório |
 | ----------------- | ------------- | -------- |
 | taxa-limite por chave | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                | Descrição                                                                                           | Necessária | Padrão |
+| Nome                | Descrição                                                                                           | Obrigatório | Padrão |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | chamadas               | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`. | Sim      | N/D     |
 | counter-key         | A chave a ser usada para a política de limite de taxa.                                                             | Sim      | N/D     |
 | increment-condition | A expressão booliana que especifica se a solicitação deve ser contada em direção à taxa ( `true` ).        | Não       | N/D     |
-| renewal-period      | O período de tempo em segundos após o qual a taxa é redefinida.                                              | Sim      | N/D     |
+| renewal-period      | O comprimento em segundos da janela deslizante durante o qual o número de solicitações permitidas deve ou não exceder o valor especificado em `calls` .                                           | Sim      | N/D     |
 | repetir-após-cabeçalho-nome    | O nome de um cabeçalho de resposta cujo valor é o intervalo de repetição recomendado em segundos depois que a taxa de chamada especificada é excedida. |  Não | N/D  |
 | repetir-após-variável-name    | O nome de uma variável de expressão de política que armazena o intervalo de repetição recomendado em segundos após a taxa de chamada especificada ser excedida. |  Não | N/D  |
 | restantes-calls-Header-Name    | O nome de um cabeçalho de resposta cujo valor após cada execução de política é o número de chamadas restantes permitidas para o intervalo de tempo especificado no `renewal-period` . |  Não | N/D  |
@@ -255,7 +255,7 @@ No exemplo a seguir, a política só permite solicitações provenientes do ende
 
 ### <a name="elements"></a>Elementos
 
-| Nome                                      | Descrição                                         | Necessária                                                       |
+| Nome                                      | Descrição                                         | Obrigatório                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Elemento raiz.                                       | Sim                                                            |
 | address                                   | Especifica um único endereço IP no qual filtrar.   | Pelo menos um elemento `address` ou `address-range` é necessário. |
@@ -263,7 +263,7 @@ No exemplo a seguir, a política só permite solicitações provenientes do ende
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                                      | Descrição                                                                                 | Necessária                                           | Padrão |
+| Nome                                      | Descrição                                                                                 | Obrigatório                                           | Padrão |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Um intervalo de endereços IP aos quais o acesso será permitido ou negado.                                        | Necessário quando o elemento `address-range` é usado. | N/D     |
 | ip-filter action="allow &#124; forbid"    | Especifica se chamadas para os endereços IP e intervalos de endereços IP especificados devem ou não ser permitidas. | Sim                                                | N/D     |
@@ -313,20 +313,20 @@ A política `quota` impõe uma cota renovável ou de tempo de vida de volume de 
 
 ### <a name="elements"></a>Elementos
 
-| Nome      | Descrição                                                                                                                                                                                                                                                                                  | Necessária |
+| Nome      | Descrição                                                                                                                                                                                                                                                                                  | Obrigatório |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Elemento raiz.                                                                                                                                                                                                                                                                                | Sim      |
 | api       | Adicione um ou mais desses elementos para impor a cota de chamada em APIs dentro do produto. Cotas de API e produto são aplicadas de forma independente. A API pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado.                    | Não       |
-| operation | Adicione um ou mais desses elementos para impor a cota de chamada em operações em uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado. | Não       |
+| operation | Adicione um ou mais desses elementos para impor a cota de chamada em operações em uma API. Cotas de operações, APIs e produtos são aplicadas de forma independente. A operação pode ser referenciada através de `name` ou `id`. Se ambos os atributos são fornecidos, `id` será usado e `name` será ignorado. | Não      |
 
 ### <a name="attributes"></a>Atributos
 
-| Nome           | Descrição                                                                                               | Necessária                                                         | Padrão |
+| Nome           | Descrição                                                                                               | Obrigatório                                                         | Padrão |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | O nome da API ou operação à qual a cota se aplica.                                             | Sim                                                              | N/D     |
 | largura de banda      | O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`. | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | chamadas          | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.     | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
-| renewal-period | O período de tempo, em segundos, durante o qual uma cota reinicia.                                                  | Sim                                                              | N/D     |
+| renewal-period | O período de tempo, em segundos, durante o qual uma cota reinicia. Quando definido como `0` o período é definido como infinito. | Sim                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -378,19 +378,19 @@ No exemplo a seguir, a cota é codificada pelo endereço IP do chamador.
 
 ### <a name="elements"></a>Elementos
 
-| Nome  | Descrição   | Necessária |
+| Nome  | Descrição   | Obrigatório |
 | ----- | ------------- | -------- |
 | quota | Elemento raiz. | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                | Descrição                                                                                               | Necessária                                                         | Padrão |
+| Nome                | Descrição                                                                                               | Obrigatório                                                         | Padrão |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | largura de banda           | O número total máximo de kilobytes permitidos durante o intervalo de tempo especificado no `renewal-period`. | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | chamadas               | O número total máximo de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period`.     | `calls` ou `bandwidth` ou ainda ambos juntos devem ser especificados. | N/D     |
 | counter-key         | A chave a ser usada para a política de cota.                                                                      | Sim                                                              | N/D     |
 | increment-condition | A expressão booliana que especifica se a solicitação deve ser contabilizada para a cota (`true`)             | Não                                                               | N/D     |
-| renewal-period      | O período de tempo, em segundos, durante o qual uma cota reinicia.                                                  | Sim                                                              | N/D     |
+| renewal-period      | O período de tempo, em segundos, durante o qual uma cota reinicia. Quando definido como `0` o período é definido como infinito.                                                   | Sim                                                              | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -548,7 +548,7 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 
 ### <a name="elements"></a>Elementos
 
-| Elemento             | Descrição                                                                                                                                                                                                                                                                                                                                           | Necessária |
+| Elemento             | Descrição                                                                                                                                                                                                                                                                                                                                           | Obrigatório |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Elemento raiz.                                                                                                                                                                                                                                                                                                                                         | Sim      |
 | públicos-alvo           | Contém uma lista de declarações de público-alvo aceitáveis que podem estar presentes no token. Se vários valores de público-alvo estiverem presentes, cada valor será tentado até que todos sejam esgotados (nesse caso, a validação falhará) ou até obter êxito. Pelo menos um público-alvo deve ser especificado.                                                                     | Não       |
@@ -560,7 +560,7 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 
 ### <a name="attributes"></a>Atributos
 
-| Nome                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Necessária                                                                         | Padrão                                                                           |
+| Nome                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obrigatório                                                                         | Padrão                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | Período de tempo. Use para especificar a diferença de tempo máxima esperada entre os relógios do sistema do emissor do token e a instância do Gerenciamento de API.                                                                                                                                                                                                                                                                                                               | Não                                                                               | 0 segundos                                                                         |
 | failed-validation-error-message | Mensagem de erro para retornar no corpo da resposta HTTP se o JWT não passar na validação. Esta mensagem deve conter quaisquer caracteres especiais adequadamente seguidos por caracteres de escape.                                                                                                                                                                                                                                                                                                 | Não                                                                               | A mensagem de erro padrão depende do problema de validação, por exemplo, "O JWT não está presente." |

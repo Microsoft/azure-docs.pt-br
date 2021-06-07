@@ -4,24 +4,24 @@ description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplif
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122249"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718783"
 ---
-# <a name="iot-central-device-development-overview"></a>Visão geral do desenvolvimento de dispositivos para o IoT Central
+# <a name="iot-central-device-development-guide"></a>Guia de desenvolvimento de dispositivos para o IoT Central
 
 *Este artigo se aplica a desenvolvedores de dispositivos.*
 
-Um aplicativo do IoT Central permite que você monitore e gerencie milhões de dispositivos ao longo de seu ciclo de vida. Esta visão geral destina-se a desenvolvedores de dispositivos que implementam código para execução em dispositivos que se conectam ao IoT Central.
+Um aplicativo do IoT Central permite que você monitore e gerencie milhões de dispositivos ao longo de seu ciclo de vida. Este guia destina-se a desenvolvedores de dispositivos que implementam código para execução em dispositivos que se conectam ao IoT Central.
 
 Os dispositivos interagem com um aplicativo do IoT Central usando os seguintes primitivos:
 
@@ -68,7 +68,7 @@ O uso do DPS permite que:
 - Você use as próprias identificações do dispositivo para registrar dispositivos no IoT Central. O uso das próprias identificações do dispositivo simplifica a integração aos sistemas de back-office existentes.
 - Uma só maneira consistente de conectar dispositivos ao IoT Central.
 
-Para saber mais, confira [Conectar-se ao Azure IoT Central](./concepts-get-connected.md).
+Para saber mais, confira [Conectar-se ao Azure IoT Central](./concepts-get-connected.md) e [Melhores práticas](concepts-best-practices.md).
 
 ### <a name="security"></a>Segurança
 
@@ -105,7 +105,7 @@ Um modelo de DTDL pode ser um modelo com _nenhum componente_ ou _vários compone
 - Modelo com nenhum componente: um modelo simples não usa componentes inseridos nem em cascata. Toda a telemetria, propriedades e comandos são definidos como um _componente padrão_. Para obter um exemplo, confira o modelo [Termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
 - Modelo com vários componentes. Um modelo mais complexo que inclui dois ou mais componentes. Esses componentes incluem um componente padrão e um ou mais componentes aninhados adicionais. Para obter um exemplo, confira o modelo [Controlador de Temperatura](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-Para saber mais, confira [Componentes de IoT Plug and Play em modelos](../../iot-pnp/concepts-components.md)
+Para saber mais, confira o [Guia de modelagem do IoT Plug and Play](../../iot-pnp/concepts-modeling-guide.md).
 
 ### <a name="conventions"></a>Convenções
 
@@ -125,7 +125,7 @@ Para saber mais sobre as convenções do IoT Plug and Play, confira [Convençõe
 
 ### <a name="device-sdks"></a>SDKs de dispositivo
 
-Use um dos [SDKs do dispositivo IoT do Azure](#languages-and-sdks) para implementar o comportamento de seu dispositivo. O código deve:
+Use um dos [SDKs do dispositivo IoT do Azure](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) para implementar o comportamento de seu dispositivo. O código deve:
 
 - Registrar o dispositivo com o DPS e usar as informações do DPS para se conectar ao Hub IoT interno em seu aplicativo do IoT Central.
 - Comunicar o DTMI do modelo implementado pelo dispositivo.

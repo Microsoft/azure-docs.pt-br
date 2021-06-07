@@ -1,54 +1,21 @@
 ---
-title: Recomendações de segurança
-description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas no defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
+title: Recomendações de segurança do Hub IoT
+description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas no defender para o Hub IoT.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
-ms.author: shhazam
-ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.date: 02/16/2021
+ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521859"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779334"
 ---
-# <a name="security-recommendations"></a>Recomendações de segurança
+# <a name="security-recommendations-for-iot-hub"></a>Recomendações de segurança do Hub IoT
 
 O defender para IoT examina seus recursos do Azure e dispositivos IoT e fornece recomendações de segurança para reduzir a superfície de ataque.
 As recomendações de segurança são acionáveis e visam ajudar os clientes a cumprir as práticas recomendadas de segurança.
 
-Neste artigo, você encontrará uma lista de recomendações, que podem ser disparadas em seus dispositivos de Hub IoT e/ou IoT.
-
-## <a name="agent-based-recommendations"></a>Recomendações baseadas em agente
-
-As recomendações de dispositivo fornecem ideias e sugestões para melhorar a postura de segurança do dispositivo.
-
-| Severidade | Nome | fonte de dados | Descrição |
-|--|--|--|--|
-| Médio | Abrir portas no dispositivo | Módulo de segurança clássico | Um ponto de extremidade de escuta foi encontrado no dispositivo. |
-| Médio | Política de firewall permissiva encontrada em uma das cadeias. | Módulo de segurança clássico | Política de firewall permitida encontrada (entrada/saída). A política de firewall deve negar todo o tráfego por padrão e definir regras para permitir a comunicação necessária de/para o dispositivo. |
-| Médio | A regra de firewall permissiva na cadeia de entrada foi encontrada | Módulo de segurança clássico | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
-| Médio | A regra de firewall permissiva na cadeia de saída foi encontrada | Módulo de segurança clássico | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
-| Médio | Falha na validação da linha de base do sistema operacional | Módulo de segurança clássico | O dispositivo não está em conformidade com os [benchmarks Linux do CIS](https://www.cisecurity.org/cis-benchmarks/). |
-
-### <a name="agent-based-operational-recommendations"></a>Recomendações operacionais baseadas em agente
-
-As recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
-
-| Severidade | Nome | fonte de dados | Descrição |
-|--|--|--|--|
-| Baixo | O Agent envia mensagens não utilizadas | Módulo de segurança clássico | 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas. |
-| Baixo | Configuração de configurações de segurança não ideal | Módulo de segurança clássico | A configuração de configurações de segurança não é ideal. |
-| Baixo | Conflito de configuração de configurações de segurança | Módulo de segurança clássico | Os conflitos foram identificados na configuração de configurações de segurança. |  |
-
+Neste artigo, você encontrará uma lista de recomendações, que podem ser disparadas em seu hub IoT.
 
 ## <a name="built-in-recommendations-in-iot-hub"></a>Recomendações internas no Hub IoT
 

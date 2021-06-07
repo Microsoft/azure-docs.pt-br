@@ -4,12 +4,12 @@ description: Saiba como usar a Visão Personalizada do Azure para criar um model
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055358"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561195"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analisar vídeos ao vivo com Análise Dinâmica de Vídeo no IoT Edge e na Visão Personalizada do Azure
 
@@ -77,7 +77,7 @@ Neste tutorial, você usará a Análise Dinâmica de Vídeo no IoT Edge para det
 
 O diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor).
 
-O nó de extensão HTTP desempenha a função de um proxy.  Ele faz uma amostragem dos quadros de vídeo de entrada definidos por você usando o campo `samplingOptions` e converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo de borda que executa um modelo de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo de borda é o modelo de detector de caminhão de brinquedos criado usando a Visão Personalizada. O nó de processador de extensão HTTP coleta os resultados da detecção e publica eventos no nó do [coletor do Hub IoT do Azure](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha a função de um proxy.  Ele faz uma amostragem dos quadros de vídeo de entrada definidos por você usando o campo `samplingOptions` e converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo de borda que executa um modelo de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo de borda é o modelo de detector de caminhão de brinquedos criado usando a Visão Personalizada. O nó de processador de extensão HTTP coleta os resultados da detecção e publica eventos no nó do [coletor do Hub IoT do Azure](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [hub do IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Criar e implantar um modelo de detecção de brinquedo de Visão Personalizada 
 
@@ -221,7 +221,7 @@ Se você abrir a topologia do grafo deste tutorial em um navegador, verá que o 
         
    ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",

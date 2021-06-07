@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/03/2021
 ms.author: cherylmc
-ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051523"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102048244"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gerenciar o acesso seguro aos recursos no spoke VNets para clientes VPN de usuário
 
@@ -50,8 +50,6 @@ Ao selecionar o método de autenticação, você tem três opções. Cada métod
 * **Autenticação baseada em RADIUS:** Obtenha o IP do servidor RADIUS, o segredo do servidor RADIUS e as informações de certificado.
 
 * **Certificados do Azure:** Para essa configuração, os certificados são necessários. Você precisa gerar ou obter certificados. Um certificado de cliente é necessário para cada cliente. Além disso, as informações de certificado raiz (chave pública) precisam ser carregadas. Para obter mais informações sobre os certificados necessários, consulte [gerar e exportar certificados](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
-
-O exemplo a seguir mostra a autenticação de certificado do Azure.
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -129,7 +127,7 @@ Nesta seção, você precisa garantir que o tráfego seja roteado pelo firewall 
 1. Em **Configurações**, escolha **Configuração de segurança**.
 1. Em **Tráfego privado**, selecione **Enviar por meio do Firewall do Azure**.
 1. Verifique se a conexão VNet e o tráfego privado da conexão de ramificação estão protegidos pelo firewall do Azure.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="validate"></a><a name="validate"></a>Verifica
 

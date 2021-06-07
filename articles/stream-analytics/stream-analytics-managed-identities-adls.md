@@ -5,16 +5,16 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 03/16/2021
 ms.custom: seodec18
-ms.openlocfilehash: d7e9b1ecef9cfda804b89f0ba1beeb54d7d48b98
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5b406d260b1c6518d9227c51d84ab7eb3754329
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020342"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598143"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas (versão prévia)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 usando identidades gerenciadas
 
 O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada com a saída do ADLS (Azure Data Lake Storage) Gen1. A identidade é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics e pode ser usada para autenticar um recurso almejado. Identidades gerenciadas eliminam as limitações dos métodos de autenticação baseados em usuário, como a necessidade de autenticar novamente devido a alterações de senha ou expirações de token de usuário que ocorrem a cada 90 dias. Além disso, as identidades gerenciadas ajudam com a automação de implantações de trabalho do Stream Analytics que produzem saída para o Azure Data Lake Storage Gen1.
 
@@ -36,7 +36,7 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
  
    A entidade de serviço tem o mesmo nome que o trabalho do Stream Analytics. Por exemplo, se o nome do seu trabalho for **MyASAJob**, o nome da entidade de serviço criada também será **MyASAJob**.
 
-3. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione * * identidade gerenciada * *.
+3. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione **identidade gerenciada**.
 
 4. Preencha o restante das propriedades. Para saber mais sobre como criar uma saída do ADLS, veja [Criar uma saída do Data Lake Storage com o Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quando terminar, clique em **Salvar**.
 
@@ -70,7 +70,7 @@ Este artigo mostra três maneiras de habilitar a identidade gerenciada para um t
 
    ![Identidades gerenciadas de configuração de trabalho do Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione * * identidade gerenciada * *.
+2. Na janela Propriedades de saída da ADLS Gen1 coletor de saída, clique na lista suspensa modo de autenticação e selecione **identidade gerenciada**.
 
    ![Identidades gerenciadas de saída do ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

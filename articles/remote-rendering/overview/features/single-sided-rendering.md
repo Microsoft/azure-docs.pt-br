@@ -7,10 +7,10 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fea9deae3948b36732b5ea5203fceea6bec07fb9
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594071"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: tratamento

@@ -4,10 +4,10 @@ description: Fornece instruções para configurar rapidamente o monitoramento co
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86517120"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
@@ -20,11 +20,11 @@ Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de
 
 1. No [Azure DevOps](https://dev.azure.com), selecione uma organização e um projeto.
    
-1. No menu à esquerda da página do projeto, selecione **Pipelines**  >  **lançamentos**de pipelines. 
+1. No menu à esquerda da página do projeto, selecione   >  **lançamentos** de pipelines. 
    
 1. Solte a seta ao lado de **novo** e selecione **novo pipeline de liberação**. Ou, se você ainda não tiver um pipeline, selecione **novo pipeline** na página que aparece.
    
-1. No painel **selecionar um modelo** , procure e selecione **Azure app implantação de serviço com monitoramento contínuo**e, em seguida, selecione **aplicar**. 
+1. No painel **selecionar um modelo** , procure e selecione **Azure app implantação de serviço com monitoramento contínuo** e, em seguida, selecione **aplicar**. 
 
    ![Novo pipeline de lançamento de Azure Pipelines](media/continuous-monitoring/001.png)
 
@@ -47,7 +47,7 @@ Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de
 
 ## <a name="modify-alert-rules"></a>Modificar as regras de alerta
 
-Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor**e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
+Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor** e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
 
 Para modificar as configurações da regra de alerta:
 

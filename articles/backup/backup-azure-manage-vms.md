@@ -3,12 +3,12 @@ title: Gerenciar e monitorar backups de VM do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002895"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100635070"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -97,7 +97,7 @@ Você pode executar um backup sob demanda de uma VM depois de configurar sua pro
 * O período de retenção para um backup sob demanda é o valor de retenção que você especifica ao disparar o backup.
 
 > [!NOTE]
-> O serviço de backup do Azure dá suporte a até nove backups sob demanda por dia, mas a Microsoft recomenda não mais do que quatro backups diários sob demanda para garantir o melhor desempenho.
+> O serviço de backup do Azure dá suporte a até três backups sob demanda por dia e um backup adicional agendado.
 
 Para disparar um backup sob demanda:
 

@@ -4,12 +4,12 @@ description: Esse script cria um trabalho no Lote e adiciona uma série de taref
 ms.topic: sample
 ms.date: 12/12/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b67925f48a9d2dbe0b4559d46d783b500e7a0773
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8e51fa96370b46c9a5a5d5ed6fd7593a06e45430
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100908"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768153"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Exemplo de CLI: executar um trabalho e tarefas com o Lote do Azure
 
@@ -37,16 +37,16 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Lote. |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
-| [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create) | Cria um pool de nós de computação.  |
-| [az batch job create](/cli/azure/batch/job#az-batch-job-create) | Cria um trabalho do Lote.  |
-| [az batch task create](/cli/azure/batch/task#az-batch-task-create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
-| [az batch job set](/cli/azure/batch/job#az-batch-job-set) | Atualiza as propriedades de um trabalho do Lote.  |
-| [az batch job show](/cli/azure/batch/job#az-batch-job-show) | Recupera detalhes de um trabalho especificado do Lote.  |
-| [az batch task show](/cli/azure/batch/task#az-batch-task-show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) | Cria um pool de nós de computação.  |
+| [az batch job create](/cli/azure/batch/job#az_batch_job_create) | Cria um trabalho do Lote.  |
+| [az batch task create](/cli/azure/batch/task#az_batch_task_create) | Adiciona uma tarefa ao trabalho do Lote especificado.  |
+| [az batch job set](/cli/azure/batch/job#az_batch_job_set) | Atualiza as propriedades de um trabalho do Lote.  |
+| [az batch job show](/cli/azure/batch/job#az_batch_job_show) | Recupera detalhes de um trabalho especificado do Lote.  |
+| [az batch task show](/cli/azure/batch/task#az_batch_task_show) | Recupera os detalhes de uma tarefa do trabalho do Lote especificado.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

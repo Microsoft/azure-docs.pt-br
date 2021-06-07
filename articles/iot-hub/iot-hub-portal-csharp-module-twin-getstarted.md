@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 0d16d7a6dbf903ae790015c12e3d34e4a2a553d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139353"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando o portal e o dispositivo .NET
@@ -81,11 +81,11 @@ Para criar um aplicativo que atualiza as propriedades relatadas do módulo de at
 
 ### <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Instalar o SDK do dispositivo .NET do Hub IoT do Azure
 
-A identidade do módulo e o módulo gêmeo estão em versão prévia pública. Ele só está disponível nos SDKs do dispositivo de pré-lançamento do Hub IoT. Para instalá-lo, siga estas etapas:
+A identidade do módulo e o módulo gêmeo estão em versão prévia pública. Ele só está disponível nos SDKs do dispositivo de pré-lançamento do Hub IoT. Para instalá-la, siga as etapas abaixo:
 
 1. No Visual Studio, abra **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução**.
 
-1. Selecione **procurar**e, em seguida, selecione **incluir pré-lançamento**. Procure *Microsoft. Azure. Devices. Client*. Selecione a versão mais recente e instale.
+1. Selecione **procurar** e, em seguida, selecione **incluir pré-lançamento**. Procure *Microsoft. Azure. Devices. Client*. Selecione a versão mais recente e instale.
 
     ![Instalar a versão prévia do SDK do serviço .NET do Hub IoT do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 

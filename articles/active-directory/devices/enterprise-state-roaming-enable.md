@@ -13,15 +13,15 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89268597"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
 
-Enterprise State Roaming está disponível para qualquer organização com uma licença Azure AD Premium ou Enterprise Mobility + Security (EMS). Para saber mais sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
+Enterprise State Roaming está disponível para qualquer organização com uma licença Azure AD Premium ou Enterprise Mobility + Security (EMS). Para obter mais informações sobre como obter uma assinatura do Azure AD, consulte a [página de produto do Azure ad](https://azure.microsoft.com/services/active-directory).
 
 Quando você habilita o Enterprise State Roaming, sua organização recebe automaticamente uma licença gratuita de uso limitado para o Azure Rights Management da Proteção de Informações do Azure. Essa assinatura gratuita é limitada a criptografar e descriptografar configurações da empresa e dados de aplicativo sincronizados por Enterprise State Roaming. Você deve ter [uma assinatura paga](https://azure.microsoft.com/pricing/details/information-protection/) para usar os recursos completos do serviço do Azure Rights Management.
 
@@ -94,6 +94,6 @@ A política de retenção de dados não é configurável. Depois que os dados s�
 
 * [Visão geral do Enterprise State Roaming](enterprise-state-roaming-overview.md)
 * [Perguntas frequentes sobre configurações e roaming de dados](enterprise-state-roaming-faqs.md)
-* [Política de grupo e as configurações do MDM para a sincronização de configurações](enterprise-state-roaming-group-policy-settings.md)
+* [Configurações de Política de Grupo e MDM para sincronização de configurações](enterprise-state-roaming-group-policy-settings.md)
 * [Referência de configurações de roaming do Windows 10](enterprise-state-roaming-windows-settings-reference.md)
 * [Solução de problemas](enterprise-state-roaming-troubleshooting.md)

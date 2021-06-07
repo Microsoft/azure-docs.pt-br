@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3766db0d5070f15216ac612353e2c25737ad092a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96741619"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Personalizar a experiência do usuário para Azure Active Directory redefinição de senha de autoatendimento
@@ -56,8 +56,8 @@ Para obter mais informações sobre as diferentes funções de administrador e s
 
 Se sua organização não deseja notificar os administradores sobre solicitações de redefinição de senha, as seguintes opções de configuração podem ser usadas:
 
-* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em **Password Reset**  >  **Customization**  >  **email ou URL do helpdesk personalizado de** redefinição de senha.
-* Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em Propriedades de **redefinição de senha**  >  **Properties**. Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
+* Personalizar o link de assistência técnica para fornecer uma URL da Web ou um endereço mailto: que os usuários podem usar para obter assistência. Esta opção está em   >    >  **email ou URL do helpdesk personalizado de** redefinição de senha.
+* Habilite a redefinição de senha de autoatendimento para todos os usuários. Essa opção está em Propriedades de **redefinição de senha**  >  . Se você não quiser que os usuários redefinam as próprias senhas, poderá definir o escopo de acesso como um grupo vazio. *Não recomendamos essa opção.*
 
 ## <a name="customize-the-sign-in-page-and-access-panel"></a>Personalizar a página de entrada e o painel de acesso
 

@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 52d44685678c3e89dc820042a7925d284500cef8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512502"
 ---
-# <a name="use-user-defined-reducer"></a>Usar redutor definidas pelo usuário
+# <a name="use-user-defined-reducer"></a>Usar redutor definido pelo usuário
 
 ## <a name="u-sql-udo-user-defined-reducer"></a>UDO do U-SQL: redutor definido pelo usuário
 

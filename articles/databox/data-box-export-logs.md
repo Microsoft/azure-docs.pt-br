@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337501"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
@@ -26,7 +26,7 @@ A tabela a seguir mostra um resumo das etapas Data Box ordem de exportação e a
 | Estágio de ordem de exportação Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Criar pedido               | [Configurar o controle de acesso na ordem por meio do RBAC do Azure](#set-up-access-control-on-the-order) <br> [Habilitar log detalhado na ordem](#enable-verbose-log-in-the-order)                                                    |
-| Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
+| Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por email</ul> |
 | Configurar o dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados              |
 | Cópia de dados do dispositivo        | [Examinar logs de cópia](#copy-log) <br> [Examine os logs detalhados](#verbose-log) antes de copiar dados            |
 | Eliminação de dados do dispositivo   | [Exibir cadeia de logs de custódia](#get-chain-of-custody-logs-after-data-erasure) , incluindo logs de auditoria e histórico de pedidos                |
@@ -252,7 +252,7 @@ Se você rolar o histórico do pedido, verá:
 
 - Informações de rastreamento de portador para seu dispositivo.
 - Eventos com a atividade *SecureErase* . Esses eventos correspondem à eliminação dos dados no disco.
-- Data Box links de log. Os caminhos para os *logs de auditoria* , *os logs de cópia* e os arquivos de *bom* são apresentados.
+- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia* e os arquivos de *bom* são apresentados.
 
 Aqui está um exemplo do log do histórico de pedidos do portal do Azure:
 

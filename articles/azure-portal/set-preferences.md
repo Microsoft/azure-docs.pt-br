@@ -2,14 +2,14 @@
 title: Gerenciar configurações e preferências do portal do Azure
 description: Você pode alterar portal do Azure configurações padrão para atender às suas próprias preferências. As configurações incluem tempo limite de sessão inativo, exibição padrão, modo de menu, contraste, tema, notificações e formatos regionais e de idioma
 keywords: configurações, tempo limite, idioma, regional
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 067b9808a91b8e5e22fb940095779b099bad0d58
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094103"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775062"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerenciar configurações e preferências do portal do Azure
 
@@ -71,7 +71,7 @@ Para ler todas as notificações recebidas durante a sessão atual, selecione **
 
 ![Captura de tela mostrando portal do Azure cabeçalho global com notificações realçadas](./media/set-preferences/read-notifications.png)
 
-Se você quiser ler notificações de sessões anteriores, Procure eventos no log de atividades. Para obter mais informações, consulte [Exibir o log de atividades](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+Se você quiser ler notificações de sessões anteriores, Procure eventos no log de atividades. Para obter mais informações, consulte [Exibir o log de atividades](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>Alterar a configuração de tempo limite de inatividade
 
@@ -103,7 +103,7 @@ Se você for um administrador global e quiser impor uma configuração de tempo 
 
 1. Em seguida, insira as **horas** e os **minutos** para o tempo máximo que um usuário pode ficar ocioso antes de sua sessão ser desconectada automaticamente.
 
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
 
     ![Captura de tela mostrando a página para definir o tempo limite de inatividade no nível do diretório](./media/set-preferences/configure.png)
 

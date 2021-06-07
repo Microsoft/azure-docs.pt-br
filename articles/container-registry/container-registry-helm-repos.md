@@ -4,10 +4,10 @@ description: Saiba como armazenar gráficos Helm para seus aplicativos kubernete
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537860"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Enviar por push e efetuar pull de gráficos do Helm para um registro de contêiner do Azure
@@ -93,7 +93,7 @@ Para obter mais informações sobre como criar e executar este exemplo, consulte
 
 Altere o diretório para o `hello-world` subdiretório. Em seguida, execute `helm chart save` para salvar uma cópia do gráfico localmente e também criar um alias com o nome totalmente qualificado do registro (todas as letras minúsculas) e o repositório e a marca de destino. 
 
-No exemplo a seguir, o nome do registro é *mycontainerregistry*, o repositório de destino é *Hello-World*e a marca do gráfico de destino é *v1*, mas valores substitutos para o seu ambiente:
+No exemplo a seguir, o nome do registro é *mycontainerregistry*, o repositório de destino é *Hello-World* e a marca do gráfico de destino é *v1*, mas valores substitutos para o seu ambiente:
 
 ```console
 cd ..

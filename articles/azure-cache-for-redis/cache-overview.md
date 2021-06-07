@@ -5,20 +5,20 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 05/12/2020
-ms.openlocfilehash: 225df0dc53a0386bb53576970a1b6330351f4545
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 02/08/2021
+ms.openlocfilehash: 49a697e6c3a6a6c931f2bb9c545647e2d6f1322d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184120"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056650"
 ---
-# <a name="azure-cache-for-redis"></a>Cache Redis do Azure
+# <a name="about-azure-cache-for-redis"></a>Sobre o Cache Redis do Azure
 O Cache do Azure para Redis fornece um armazenamento de dados na memória com base no software [Redis](https://redis.io/). O Redis melhora o desempenho e a escalabilidade de um aplicativo que usa muito armazenamentos de dados de back-end. Ele é capaz de processar grandes volumes de solicitação de aplicativo mantendo os dados acessados com frequência na memória do servidor, que pode ser gravada e lida rapidamente. O Redis traz uma solução de armazenamento de dados crítica de baixa latência e alta taxa de transferência para aplicativos modernos.
 
-O Cache do Azure para Redis oferece o software livre do Redis e um produto comercializado do Redis Labs como serviço gerenciado. Ele fornece instâncias de servidor Redis seguras e dedicadas e compatibilidade total com a API do Redis. O serviço é operador pela Microsoft, hospedado no Azure e acessível para qualquer aplicativo dentro ou fora do Azure.
+O Cache do Azure para Redis oferece o OSS Redis (software livre do Redis) e um produto comercializado da Redis Labs (Redis Enterprise) como serviço gerenciado. Ele fornece instâncias de servidor Redis seguras e dedicadas e compatibilidade total com a API do Redis. O serviço é operador pela Microsoft, hospedado no Azure e acessível para qualquer aplicativo dentro ou fora do Azure.
 
-O Cache do Azure para Redis pode ser usado como um cache de dados ou conteúdo distribuído, um repositório de sessão, um agente de mensagem e muito mais. Ele pode ser implantado de modo autônomo ou junto com outro serviço de banco de dados do Azure, como o Azure SQL ou Cosmos DB.
+O Cache do Azure para Redis pode ser usado como um cache de dados ou conteúdo distribuído, um repositório de sessão, um agente de mensagem e muito mais. Ele pode ser implantado de modo autônomo ou junto com outros serviços de banco de dados do Azure, como o SQL do Azure ou Cosmos DB.
 
 ## <a name="key-scenarios"></a>Principais cenários
 O Cache do Azure para Redis aprimora o desempenho do aplicativo dando suporte a padrões de arquitetura de aplicativo comuns. Alguns dos mais comuns incluem o seguinte:
@@ -56,11 +56,11 @@ O [Preço do Cache do Azure para Redis](https://azure.microsoft.com/pricing/deta
 | Criptografia de dados |✔|✔|✔|✔|✔|
 | [Isolamento da rede](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
 | [Dimensionamento](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
-| [Redundância de zona](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
-| [Replicação geográfica](cache-how-to-geo-replication.md) |-|-|✔|-|-|
-| [Persistência de dados](cache-how-to-premium-persistence.md) |-|-|✔|-|-|
 | [Cluster de software livre](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
-| [Módulos](https://redis.io/modules) |-|-|-|✔|-|
+| [Persistência de dados](cache-how-to-premium-persistence.md) |-|-|✔|Visualização|Visualização|
+| [Redundância de zona](cache-how-to-zone-redundancy.md) |-|-|Visualização|✔|✔|
+| [Replicação geográfica](cache-how-to-geo-replication.md) |-|-|✔|Visualização|Visualização|
+| [Módulos](https://redis.io/modules) |-|-|-|✔|✔|
 | [Importar/exportar](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Atualizações agendadas](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
 
@@ -68,29 +68,34 @@ O [Preço do Cache do Azure para Redis](https://azure.microsoft.com/pricing/deta
 Você deve considerar o seguinte ao escolher uma camada do Cache do Azure para Redis:
 
 * **Memória**: as camadas Básica e Standard oferecem 250 MB a 53 GB; a camada Premium 6 GB a 1,2 TB; as camadas Enterprise de 12 GB a 14 TB.  Para criar um cache de camada Premium maior que 120 GB, você pode usar o clustering do software livre do Redis. Para obter mais informações, consulte [Preço do Cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/). Para saber mais, confira [Como configurar o clustering para um Cache do Azure para Redis Premium](cache-how-to-premium-clustering.md).
+* **Desempenho**: os caches nas camadas Premium e Enterprise são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado com as camadas Básica ou Standard. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas. Para obter mais informações, confira [Desempenho do Cache do Azure para Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
+* **Núcleo dedicado para o servidor do Redis**: todos os caches, exceto o C0 executam núcleos de VM dedicados. o Redis, por design, usa apenas um thread para processamento de comando. O Cache do Azure para Redis utiliza núcleos adicionais para processamento de E/S. Ter mais núcleos melhora o desempenho da taxa de transferência, embora possa não produzir dimensionamento linear. Além disso, tamanhos de VM maiores normalmente têm limites de largura de banda maiores do que os menores. Isso ajuda a evitar a saturação da rede, o que causará tempos limite em seu aplicativo.
 * **Desempenho de rede**: se você tiver uma carga de trabalho que exija uma alta taxa de transferência, a camada Premium ou Enterprise oferece mais largura de banda quando comparada com as camadas Básica ou Standard. Também dentro de cada camada, caches de tamanhos maiores têm mais largura de banda, devido à VM subjacente que hospeda o cache. Para obter mais informações, confira [Desempenho do Cache do Azure para Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
-* **Taxa de transferência**: a camada Premium oferece a maior taxa de transferência disponível. Se o cliente ou o servidor de cache atingir os limites de largura de banda, você poderá receber tempos limite no lado do cliente. Para obter mais informações, confira a tabela a seguir.
-* **Alta disponibilidade**: o Cache do Azure para Redis fornece várias opções de [alta disponibilidade](cache-high-availability.md). Ele garante que um cache Standard, Premium ou Enterprise esteja disponível conforme nosso [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). o SLA abrange apenas a conectividade com os pontos de extremidade do cache. O SLA não abrange a proteção contra perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados.
-* **Persistência de dados**: A camada Premium permite persistir os dados de cache em uma conta do Armazenamento do Azure. Em outras camadas, os dados são armazenados apenas na memória. Problemas de infraestrutura subjacente podem resultar em uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra a perda de dados. O Cache do Azure para Redis oferece opções de RDB e AOF (versão prévia) na Persistência do Redis. Para saber mais, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
-* **Isolamento de rede**: as implantações de VNET (Rede Virtual) e do Link Privado do Azure fornecem segurança e isolamento de tráfego aprimorados para seu Cache do Azure para Redis. A VNET permite restringir ainda mais o acesso por meio de políticas de controle de acesso à rede. Para obter mais informações, confira o [Cache do Azure para Redis com o Link Privado do Azure](cache-private-link.md) e [Como configurar o suporte da Rede Virtual para um Cache do Azure para Redis Premium](cache-how-to-premium-vnet.md).
 * **Quantidade máxima de conexões de cliente**: a camada Premium oferece o número máximo de clientes que podem se conectar ao Redis, com um número maior de conexões para caches de tamanhos maiores. O clustering não aumenta o número de conexões disponíveis para um cache em cluster. Para obter mais informações, confira [Preços do Cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/).
-* **Núcleo dedicado para o servidor do Redis**: todos os caches, exceto o C0 executam núcleos de VM dedicados.
-* **Processamento de thread único**: o Redis, por design, usa apenas um thread para processamento de comando. O Cache do Azure para Redis também utiliza núcleos adicionais para processamento de E/S. Ter mais núcleos melhora o desempenho da taxa de transferência, embora possa não produzir dimensionamento linear. Além disso, tamanhos de VM maiores normalmente têm limites de largura de banda maiores do que os menores. Isso ajuda a evitar a saturação da rede, o que causará tempos limite em seu aplicativo.
-* **Aprimoramentos de desempenho**: os caches nas camadas Premium e Enterprise são implantados no hardware que tem processadores mais rápidos e que oferece um melhor desempenho quando comparado com as camadas Básica ou Standard. Os Caches da camada Premium têm a taxa de transferência mais alta e as latências mais baixas. Para obter mais informações, confira [Desempenho do Cache do Azure para Redis](cache-planning-faq.md#azure-cache-for-redis-performance).
+* **Alta disponibilidade**: o Cache do Azure para Redis fornece várias opções de [alta disponibilidade](cache-high-availability.md). Ele garante que um cache Standard, Premium ou Enterprise esteja disponível conforme nosso [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). o SLA abrange apenas a conectividade com os pontos de extremidade do cache. O SLA não abrange a proteção contra perda de dados. Recomendamos usar o recurso de persistência de dados do Redis nas camadas Premium e Enterprise para aumentar a resiliência contra a perda de dados.
+* **Persistência de dados**: as camadas Premium e Enterprise permitem que você mantenha os dados do cache em uma conta do Armazenamento do Azure e em um Disco Gerenciado respectivamente. Problemas de infraestrutura subjacente podem resultar em uma possível perda de dados. Recomendamos usar o recurso de persistência de dados do Redis nessas camadas para aumentar a resiliência contra a perda de dados. O Cache do Azure para Redis oferece as opções RDB e AOF (versão prévia). A persistência de dados pode ser habilitada por meio do portal do Azure e da CLI. Para a camada Premium, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
+* **Isolamento de rede**: as implantações de VNET (Rede Virtual) e do Link Privado do Azure fornecem segurança e isolamento de tráfego aprimorados para seu Cache do Azure para Redis. A VNET permite restringir ainda mais o acesso por meio de políticas de controle de acesso à rede. Para obter mais informações, confira o [Cache do Azure para Redis com o Link Privado do Azure](cache-private-link.md) e [Como configurar o suporte da Rede Virtual para um Cache do Azure para Redis Premium](cache-how-to-premium-vnet.md).
+* **Extensibilidade**: as camadas Enterprise dão suporte a [RediSearch](https://docs.redislabs.com/latest/modules/redisearch/), [RedisBloom](https://docs.redislabs.com/latest/modules/redisbloom/) e [RedisTimeSeries](https://docs.redislabs.com/latest/modules/redistimeseries/). Esses módulos adicionam novos tipos de dados e funcionalidades ao Redis.
 
-Você pode dimensionar o cache da camada Básica até a Premium após a criação dele. Não há suporte para a redução para uma camada inferior. Para obter instruções sobre dimensionamento passo a passo, confira [Como dimensionar o Cache do Azure para Redis](cache-how-to-scale.md) e [Como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+Você pode dimensionar o cache da camada Básica até a Premium após a criação dele. No momento, não há suporte para a redução para uma camada inferior. Para obter instruções sobre dimensionamento passo a passo, confira [Como dimensionar o Cache do Azure para Redis](cache-how-to-scale.md) e [Como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="enterprise-tier-requirements"></a>Requisitos da camada Enterprise
+### <a name="special-considerations-for-enterprise-tiers"></a>Considerações especiais para as camadas Enterprise
 
 As camadas Enterprise contam com o Redis Enterprise, uma versão comercial do Redis da Redis Labs. Os clientes obterão e pagarão por uma licença para esse software por meio de uma oferta do Azure Marketplace. O Cache do Azure para Redis facilitarão a aquisição da licença para que você não precisa fazer isso separadamente. Para fazer compras no Azure Marketplace, você precisa ter os seguintes pré-requisitos:
 * Sua assinatura do Azure tem um meio de pagamento válido. Não há suporte para créditos Azure ou assinaturas do MSDN gratuitas.
-* Você é proprietário ou colaborador da assinatura.
 * Sua organização permite [compras no Azure Marketplace](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
 * Se você usar um Marketplace particular, ele precisará conter a oferta do Redis Labs Enterprise.
 
+> [!IMPORTANT]
+> O Cache do Azure para Redis Enterprise requer Load Balancers de rede Standard que são cobrados separadamente das instâncias de cache propriamente ditas. Confira os [preços de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) para obter mais detalhes. Se um cache Enterprise estiver configurado para várias Zonas de Disponibilidade, a transferência de dados será cobrada com as [tarifas de largura de banda de rede Standard](https://azure.microsoft.com/pricing/details/bandwidth/) a partir de 1º de julho de 2021.
+>
+> Além disso, a persistência de dados adiciona Managed Disks. O uso desses recursos será gratuito durante a versão prévia pública da persistência de dados Enterprise. Isso poderá mudar quando o recurso entrar em disponibilidade geral.
+>
+>
+
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar uma instância de Cache do Azure para Redis](quickstart-create-redis.md)
-* [Criar um cache de camada Enterprise](quickstart-create-redis-enterprise.md)
+* [Criar um Cache Redis de software livre](quickstart-create-redis.md)
+* [Criar um cache Redis Enterprise](quickstart-create-redis-enterprise.md)
 * [Usar o Cache do Azure para Redis em um aplicativo Web ASP.NET](cache-web-app-howto.md)
 * [Usar o Cache do Azure para Redis no .NET Core](cache-dotnet-core-quickstart.md)
 * [Usar o Cache do Azure para Redis no .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)

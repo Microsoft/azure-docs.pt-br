@@ -12,10 +12,10 @@ ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881184"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
@@ -51,7 +51,7 @@ O primeiro modo deste perfil técnico é gerar um código. Abaixo estão as opç
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Necessária | Descrição |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que precisa verificar o código posteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 
@@ -61,7 +61,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Necessária | Descrição |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | otpGenerated | Sim | O código gerado cuja sessão é gerenciada pelo Azure AD B2C. |
 
@@ -117,7 +117,7 @@ O segundo modo desse perfil técnico é verificar um código. Abaixo estão as o
 
 O elemento **InputClaims** contém uma lista de declarações necessárias para enviar para o provedor de protocolo de senha de uso único. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Necessária | Descrição |
+| ClaimReferenceId | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | identificador | Sim | O identificador para identificar o usuário que gerou um código anteriormente. Normalmente, ele é usado como o identificador do destino para o qual o código é entregue, por exemplo, endereço de email ou número de telefone. |
 | otpToVerify | Sim | O código de verificação fornecido pelo usuário. |

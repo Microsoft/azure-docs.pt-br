@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
 ms.openlocfilehash: 73fdfa06fab42a5687e3aa354e3ba92937b92605
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98684285"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operações de taxa de transferência (RU/s) com o PowerShell para um banco de dados ou contêiner da API de Núcleo (SQL) do Azure Cosmos DB

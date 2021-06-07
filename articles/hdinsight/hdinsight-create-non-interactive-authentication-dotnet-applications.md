@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0fffe763f77fffcec6010d43deb92ffea9ece15d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101094922"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 
@@ -28,7 +28,7 @@ Um cluster HDInsight. Consulte o [tutorial de introdução](hadoop/apache-hadoop
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função ao aplicativo do Azure AD
 
-Atribua a seu aplicativo do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para lhe conceder permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, a adição de um aplicativo à função leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos nele. Neste artigo, você define o escopo no nível do grupo de recursos. Para obter mais informações, consulte [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
+Atribua a seu aplicativo do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para lhe conceder permissões para executar ações. Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, a adição de um aplicativo à função leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos nele. Neste artigo, você define o escopo no nível do grupo de recursos. Para obter mais informações, consulte [atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Adicionar a função de Proprietário ao aplicativo do Azure AD**
 

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380807"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
@@ -297,7 +297,7 @@ A tabela a seguir descreve o comportamento de cobrança para um blob que é excl
 | Se a exclusão reversível de BLOB e o controle de versão estiverem habilitados | Todas as versões existentes com tamanho de conteúdo completo, independentemente da camada. |
 | Se a exclusão reversível de blob estiver habilitada, mas o controle de versão estiver desabilitado | Todos os instantâneos de exclusão reversível existentes com tamanho de conteúdo completo, independentemente da camada. |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 9/21/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13baf8f033338e242610d7b8c4eec14806cd5ec5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534049"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770013"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Criar um Banco de Dados do Azure para MySQL – Servidor Flexível (versão prévia) com aplicativo Web dos Serviços de Aplicativos na rede virtual
 
@@ -22,13 +22,21 @@ ms.locfileid: "92534049"
 
 Este tutorial mostra como criar um aplicativo Web do Serviço de Aplicativo do Azure com o Servidor Flexível do MySQL (versão prévia) dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
+Neste tutorial, você aprenderá a:
+>[!div class="checklist"]
+> * Criar um servidor flexível MySQL em uma rede virtual
+> * Criar uma sub-rede a ser delegada ao Serviço de Aplicativo
+> * Criar um aplicativo Web
+> * Adicionar o aplicativo Web à rede virtual
+> * Conectar-se ao Postgres do aplicativo Web 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/reference-index#az-login). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
+Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure/reference-index#az_login). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 
 ```azurecli
 az login
@@ -37,7 +45,7 @@ az login
 Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Substitua a propriedade **ID da assinatura** da saída **az logon** por sua assinatura no espaço reservado da ID de assinatura.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server"></a>Criar um Servidor Flexível do Banco de Dados do Azure para MySQL
@@ -46,7 +54,7 @@ Crie um servidor flexível privado dentro de uma VNET (rede virtual ) usando o s
 ```azurecli
 az mysql flexible-server create --resource-group myresourcegroup --location westus2
 ```
-Esse comando executa as seguintes ações, que podem levar alguns minutos:
+Copie a cadeia de conexão e o nome da rede virtual recém-criada. Esse comando executa as seguintes ações, que podem levar alguns minutos:
 
 - Crie o grupo de recursos se ele ainda não existir.
 - Gera um nome do servidor, caso não tenha sido fornecido.
@@ -57,6 +65,14 @@ Esse comando executa as seguintes ações, que podem levar alguns minutos:
 > [!NOTE]
 > Anote a senha que será gerada para você se não for fornecida. Se você esquecer a senha, precisará redefini-la usando o comando ``` az mysql flexible-server update```
 
+## <a name="create-subnet-for-app-service-endpoint"></a>Criar uma sub-rede para o ponto de extremidade do Serviço de Aplicativo
+Agora, precisamos ter uma sub-rede delegada ao ponto de extremidade do Aplicativo Web do Serviço de Aplicativo. Execute o comando a seguir para criar uma sub-rede na mesma rede virtual do servidor de banco de dados criado. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Anote os nomes da rede virtual e da sub-rede após esse comando, pois você precisará deles para adicionar a regra de Integração VNET ao aplicativo Web depois que ele for criado. 
+
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
 Nesta seção, você criará o host de aplicativo no aplicativo do Serviço de Aplicativo e conectará esse aplicativo ao banco de dados MySQL. Verifique se você está na raiz do repositório do código do aplicativo no terminal.
@@ -64,12 +80,13 @@ Nesta seção, você criará o host de aplicativo no aplicativo do Serviço de A
 Crie um aplicativo do Serviço de Aplicativo (o processo de host) com o comando az webapp up
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
 > - Para o argumento --location, use a mesma localização usada para o banco de dados na seção anterior.
 > - Substitua _&lt;app-name>_ por um nome exclusivo em todo o Azure (o ponto de extremidade do servidor é https://\<app-name>.azurewebsites.net). Os caracteres permitidos para <app-name> são A-Z, 0-9 e -. Um bom padrão é usar uma combinação do nome da empresa e um identificador de aplicativo.
+> - A camada Básica do Serviço de Aplicativo não dá suporte à Integração VNET. Use o plano Standard ou Premium. 
 
 Esse comando executa as seguintes ações, que podem levar alguns minutos:
 
@@ -84,7 +101,7 @@ Esse comando executa as seguintes ações, que podem levar alguns minutos:
 Use o comando **az webapp vnet-integration** para adicionar uma integração de rede virtual regional a um webapp. Substitua _&lt;vnet-name>_ e _&lt;subnet-name_ pelo nome da rede virtual e da sub-rede que o servidor flexível está usando.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## <a name="configure-environment-variables-to-connect-the-database"></a>Configurar as variáveis de ambiente para conexão com o banco de dados

@@ -2,19 +2,19 @@
 title: Tutorial – Gerenciar discos do Azure com o Azure CLI
 description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e gerenciar discos do Azure para máquinas virtuais
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 948a4ae8c329d69e404ef8d0f609748b955b0ecc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e804bc0d479f09ef2900c42361fbd24eed1d98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078842"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765945"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -70,13 +70,13 @@ Discos de dados podem ser criados e anexados no momento da criação de VM ou a 
 
 ### <a name="attach-disk-at-vm-creation"></a>Anexar disco na criação da VM
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create).
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az-vm-create). O exemplo a seguir cria uma VM chamada *myVM*, adiciona uma conta de usuário chamada *azureuser* e gera as chaves SSH, caso ainda não existam. O `--datadisk-sizes-gb` argumento é utilizado para especificar que um disco adicional deve ser criado e anexado à máquina virtual. Para criar e anexar mais de um disco, utilize uma lista delimitada por espaço dos valores de tamanho de disco. No exemplo a seguir, uma VM é criada com dois discos de dados, ambos os 128 GB. Como os tamanhos de disco são 128 GB, esses discos são configurados como P10, que fornecem o máximo de 500 IOPS por disco.
+Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVM*, adiciona uma conta de usuário chamada *azureuser* e gera as chaves SSH, caso ainda não existam. O `--datadisk-sizes-gb` argumento é utilizado para especificar que um disco adicional deve ser criado e anexado à máquina virtual. Para criar e anexar mais de um disco, utilize uma lista delimitada por espaço dos valores de tamanho de disco. No exemplo a seguir, uma VM é criada com dois discos de dados, ambos os 128 GB. Como os tamanhos de disco são 128 GB, esses discos são configurados como P10, que fornecem o máximo de 500 IOPS por disco.
 
 ```azurecli-interactive
 az vm create \
@@ -84,13 +84,14 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
+  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>Anexar disco à máquina virtual existente
 
-Para criar e anexar um novo disco a uma máquina virtual existente, utilize o comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach). O exemplo a seguir cria um disco premium de 128 gigabytes de tamanho e anexa-o à VM criada na última etapa.
+Para criar e anexar um novo disco a uma máquina virtual existente, utilize o comando [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). O exemplo a seguir cria um disco premium de 128 gigabytes de tamanho e anexa-o à VM criada na última etapa.
 
 ```azurecli-interactive
 az vm disk attach \
@@ -189,7 +190,7 @@ Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas le
 
 ### <a name="create-snapshot"></a>Create snapshot
 
-Antes de criar um instantâneo, você precisará da ID ou do nome do disco. Use [az vm show](/cli/azure/vm#az-vm-show) para capturar a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável e utilizada em uma etapa posterior.
+Antes de criar um instantâneo, você precisará da ID ou do nome do disco. Use [az vm show](/cli/azure/vm#az_vm_show) para capturar a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável e utilizada em uma etapa posterior.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -199,7 +200,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Agora que você tem a ID, use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) para criar um instantâneo do disco.
+Agora que você tem a ID, use [az snapshot create](/cli/azure/snapshot#az_snapshot_create) para criar um instantâneo do disco.
 
 ```azurecli-interactive
 az snapshot create \
@@ -210,7 +211,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Como criar o disco a partir de um instantâneo
 
-Esse instantâneo pode ser convertido em um disco usando [az disk create](/cli/azure/disk#az-disk-create), que pode ser usado para recriar a máquina virtual.
+Esse instantâneo pode ser convertido em um disco usando [az disk create](/cli/azure/disk#az_disk_create), que pode ser usado para recriar a máquina virtual.
 
 ```azurecli-interactive
 az disk create \
@@ -221,7 +222,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Como restaurar a máquina virtual a partir de um instantâneo
 
-Para demonstrar a recuperação da máquina virtual, exclua a máquina virtual existente usando [az vm delete](/cli/azure/vm#az-vm-delete).
+Para demonstrar a recuperação da máquina virtual, exclua a máquina virtual existente usando [az vm delete](/cli/azure/vm#az_vm_delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -243,7 +244,7 @@ az vm create \
 
 Todos os discos de dados precisam ser anexados novamente à máquina virtual.
 
-Use o comando [az disk list](/cli/azure/disk#az-disk-list) para localizar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada `datadisk`, que será usada na próxima etapa.
+Use o comando [az disk list](/cli/azure/disk#az_disk_list) para localizar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada `datadisk`, que será usada na próxima etapa.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
@@ -252,7 +253,7 @@ datadisk=$(az disk list \
    -o tsv)
 ```
 
-Use o comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) para anexar o disco.
+Use o comando [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) para anexar o disco.
 
 ```azurecli-interactive
 az vm disk attach \

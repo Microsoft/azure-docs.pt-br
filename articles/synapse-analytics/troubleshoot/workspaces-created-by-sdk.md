@@ -8,10 +8,10 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.date: 11/24/2020
 ms.openlocfilehash: f5d0aae975d476da47510a1f2fd164cbc5f32945
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96465915"
 ---
 # <a name="troubleshoot-azure-synapse-analytics-workspaces-created-using-sdk"></a>Solucionar os espaços de trabalho do Azure Synapse Analytics criados usando o SDK

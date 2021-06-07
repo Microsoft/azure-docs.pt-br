@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928554"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169242"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -21,11 +21,14 @@ O Personalizador do Azure é um serviço baseado em nuvem que ajuda os seus apli
 > [!TIP]
 > O conteúdo é qualquer unidade de informação, como texto, imagens, URLs, emails ou qualquer outro item que você deseje selecionar e para mostrar aos usuários.
 
-Antes de começar, sinta-se à vontade para experimentar o [Personalizador com esta demonstração interativa](https://personalizationdemo.azurewebsites.net/).
+Esta documentação contém os seguintes tipos de artigos:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* Os [**guias de início rápido**](quickstart-personalizer-sdk.md) são instruções de introdução que orientam sobre como fazer solicitações ao serviço.  
+* Os [**guias de instruções**](how-to-settings.md) contêm instruções de uso do serviço de maneiras mais específicas ou personalizadas.  
+* Os [**conceitos**](how-personalizer-works.md) fornecem explicações detalhadas sobre a funcionalidade e os recursos do serviço.  
+* Os [**tutoriais**](tutorial-use-personalizer-web-app.md) são guias mais longos que mostram como usar o serviço como um componente de soluções de negócios mais amplas.  
+
+Antes de começar, experimente o [Personalizador com esta demonstração interativa](https://personalizationdemo.azurewebsites.net/).
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Como o Personalizador seleciona o melhor item de conteúdo?
 
@@ -100,18 +103,6 @@ Como o Personalizador usa informações coletivas quase em tempo real para retor
         * Imediatamente após mostrar seu conteúdo
         * Ou algum tempo depois em um sistema offline
     1. [Avalie seu loop](concepts-offline-evaluation.md) com uma avaliação offline após um período de uso. Uma avaliação offline permite testar e avaliar a eficácia do serviço do Personalizador sem alterar o código nem afetar a experiência do usuário.
-
-## <a name="complete-a-quickstart"></a>Concluir um guia de início rápido
-
-Oferecemos guias de início rápido em C#, JavaScript e Python. Cada guia de início rápido é projetado para ensinar a você padrões de design básicos e para você executar o seu código em menos de dez minutos. 
-
-* [Início Rápido: Como usar a biblioteca do cliente do Personalizador](./quickstart-personalizer-sdk.md)
-
-Depois de ter tido a oportunidade de começar a usar o serviço do Personalizador, experimente nossos tutoriais e saiba como usar o Personalizador em aplicativos Web, chatbots ou um Notebook do Azure.
-
-* [Tutorial: Usar o Personalizador em um aplicativo Web do .NET](tutorial-use-personalizer-web-app.md)
-* [Tutorial: Usar o Personalizador em um chatbot do .NET](tutorial-use-personalizer-chat-bot.md)
-* [Tutorial: Usar o Personalizador no Notebook do Azure](tutorial-use-azure-notebook-generate-loop-data.md)
 
 ## <a name="reference"></a>Referência 
 

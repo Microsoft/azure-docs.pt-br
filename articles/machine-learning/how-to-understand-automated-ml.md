@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388202"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773106"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar os resultados do experimento do Machine Learning automatizado
 
@@ -24,7 +24,7 @@ Neste artigo, saiba como avaliar e comparar modelos treinados por seu experiment
 
 Por exemplo, o ML automatizado gera os gráficos a seguir com base no tipo de experimento.
 
-| Classificação| Regressão/previsão |
+| classificação| Regressão/previsão |
 | ----------------------------------------------------------- | ---------------------------------------- |
 | [Matriz de confusão](#confusion-matrix)                       | [Histograma de residuais](#residuals)        |
 | [Curva de característica operacional do receptor (ROC)](#roc-curve) | [Previsto versus verdadeiro](#predicted-vs-true) |
@@ -45,7 +45,7 @@ Por exemplo, o ML automatizado gera os gráficos a seguir com base no tipo de ex
 
 Após a conclusão do experimento do ML automatizado, um histórico das execuções pode ser encontrado por meio de:
   - Um navegador com [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md)
-  - Um notebook Jupyter usando o [widget Jupyter do RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
+  - Um notebook Jupyter usando o [widget Jupyter do RunDetails](/python/api/azureml-widgets/azureml.widgets.rundetails)
 
 As etapas e o vídeo a seguir mostram como exibir o histórico de execuções e os gráficos e as métricas de avaliação do modelo no estúdio:
 
@@ -91,6 +91,8 @@ weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é po
 O ML automatizado não diferencia entre métricas binárias e multiclasse. As mesmas métricas de validação são relatadas se um conjunto de dado tem duas classes ou mais de duas classes. No entanto, algumas métricas são destinadas à classificação multiclasse. Quando aplicado a um DataSet binário, essas métricas não tratarão nenhuma classe como a `true` classe, como você pode esperar. As métricas que são claramente destinadas a multiclasse são sufixadas com `micro` , `macro` ou `weighted` . Os exemplos incluem,,, `average_precision_score` `f1_score` `precision_score` `recall_score` e `AUC` .
 
 Por exemplo, em vez de calcular a RECALL como `tp / (tp + fn)` , a média de recalls de várias classes ( `micro` , `macro` ou `weighted` ) é calculada em ambas as classes de um conjunto de uma classificação binária. Isso é equivalente a calcular a recall para a `true` classe e a `false` classe separadamente e, em seguida, pegar a média dos dois.
+
+O ML automatizado não calcula métricas binárias, que são métricas para conjuntos de valores de classificação binária. No entanto, essas métricas podem ser calculadas manualmente usando a [matriz de confusão](#confusion-matrix) que o ml automatizado gerou para essa execução específica. Por exemplo, você pode calcular a precisão, `tp / (tp + fp)` , com os valores verdadeiros positivos e falsos positivos mostrados em um gráfico de matriz de confusão 2x2.
 
 ## <a name="confusion-matrix"></a>Matriz de confusão
 
@@ -192,7 +194,7 @@ explained_variance|A variação explicada mede a extensão para a qual um modelo
 mean_absolute_error|Erro de média absoluta é o valor esperado do valor absoluto da diferença entre o destino e a previsão.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf) <br><br> Digita <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, o mean_absolute_error dividido pelo intervalo dos dados. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Erro de percentual absoluto médio (MAPE) é uma medida da diferença média entre um valor previsto e o valor real.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf) ||
 median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre a meta e a previsão. Essa perda é robusta para exceções.<br><br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf)<br><br>Digita <br> `median_absolute_error`<br> `normalized_median_absolute_error`: a median_absolute_error dividida pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R ^ 2 é o coeficiente de determinação ou a porcentagem de redução de erros quadrados em comparação com um modelo de linha de base que gera a média. <br> <br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [-1, 1] <br><br> Observação: R ^ 2 geralmente tem o intervalo (-inf, 1], mas valores negativos de clipes de ML automatizados para modelos muito ruins para-1.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (o coeficiente de determinação) mede a redução proporcional no erro de quadrado médio (MSE) em relação à variância total dos dados observados. <br> <br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [-1, 1]<br><br>Observação: R<sup>2</sup> geralmente tem o intervalo (-inf, 1]. O MSE pode ser maior do que a variação observada, portanto o R<sup>2</sup> pode ter valores negativos arbitrariamente grandes, dependendo dos dados e das previsões do modelo. Os clipes de ML automatizados relataram as pontuações de R<sup>2</sup> em-1, portanto, um valor de-1 para R<sup>2</sup> provavelmente significa que a pontuação de R<sup>2</sup> verdadeira é menor que-1. Considere os outros valores de métricas e as propriedades dos dados ao interpretar uma pontuação de R<sup>2</sup> negativa.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Erro de quadrado da média raiz (RMSE) é a raiz quadrada da diferença quadrada esperada entre o destino e a previsão. Para um estimador não polarizado, RMSE é igual ao desvio padrão.<br> <br> **Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf)<br><br>Digita<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: a root_mean_squared_error dividida pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Erro de log no quadrado da média raiz é a raiz quadrada do erro logarítmica de quadrado esperado.<br><br>**Objetivo:** Mais próximo de 0 o melhor <br> **Intervalo:** [0, inf) <br> <br>Digita <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: a root_mean_squared_log_error dividida pelo intervalo dos dados.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| Correlação de Spearman é uma medida não paramétrica da monotonicidade da relação entre dois conjuntos de dados. Diferentemente da correlação de Pearson, a correlação de Spearman não supõe que os dois conjuntos de dados estão distribuídos normalmente. Assim como outros coeficientes de correlação, o Spearman varia entre-1 e 1 com 0, indicando que não há correlação. Correlações de-1 ou 1 implicam uma relação de monotônico exata. <br><br> Spearman é uma métrica de correlação de ordem de classificação que significa que as alterações em valores previstos ou reais não alterarão o resultado de Spearman se não alterarem a ordem de classificação dos valores previstos ou reais.<br> <br> **Objetivo:** Mais próximo de 1 o melhor <br> **Intervalo:** [-1, 1]|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

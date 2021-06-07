@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586033"
 ---
 # <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Como usar o Synapse Studio para monitorar seus aplicativos Apache Spark

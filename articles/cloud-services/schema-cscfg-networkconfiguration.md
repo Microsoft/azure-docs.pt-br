@@ -10,10 +10,10 @@ ms.reviewer: mimckitt
 ms.custom: ''
 '---thor': tagore
 ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743450"
 ---
 # <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Esquema NetworkConfiguration de configuração dos serviços de nuvem do Azure (clássico)

@@ -2,14 +2,14 @@
 title: Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 description: Os pools de imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731354"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024057"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -67,14 +67,17 @@ As etapas a seguir mostram como preparar uma VM, gerar um instantâneo e criar u
 Se você estiver criando uma nova VM para a imagem, use uma imagem interna do Azure Marketplace com suporte no Lote como a imagem base para sua imagem gerenciada. Somente imagens internas podem ser usadas como uma imagem base. Para obter uma lista de referências de imagens do Azure Marketplace com suporte no Lote do Azure, confira a operação [Listar SKUs do agente de nó](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes par máquinas virtuais [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes para VMs do [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) ou do [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
+
+Siga estas diretrizes ao criar VMs:
 
 - Verifique se a VM é criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
 - Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.
 - Ao usar discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 - Verifique se a imagem do sistema operacional base que você forneceu usa unidade temporária padrão. O agente do nó de Lote no momento espera unidade temporária padrão.
 - Verifique se o disco do sistema operacional não está criptografado.
-- Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.  
+- Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.
+- Para o provisionamento mais rápido de pool, use a [configuração de cache de disco ReadWrite](../virtual-machines/premium-storage-performance.md#disk-caching) para o disco do sistema operacional da VM.
 
 ### <a name="create-a-vm-snapshot"></a>Criar um instantâneo da VM
 

@@ -10,16 +10,16 @@ services: azure-maps
 ms.custom: references_regions
 manager: philmea
 ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905478"
 ---
 # <a name="azure-maps-weather-services-preview-coverage"></a>Cobertura dos serviços meteorológicos do Azure Maps (versão prévia)
 
 > [!IMPORTANT]
-> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> O serviço Clima do Azure Mapas está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -51,7 +51,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Bonaire                                  | ✓ |   | |✓| 
 | Brasil                                   | ✓ |   | ✓ |✓| 
 | Ilhas Virgens Britânicas                   | ✓ |   | |✓| 
-| Canada                                   | ✓ | ✓ | ✓ | ✓| 
+| Canadá                                   | ✓ | ✓ | ✓ | ✓| 
 | Ilhas Cayman                           | ✓ |   | |✓| 
 | Chile                                    | ✓ |   | |✓| 
 | Colômbia                                 | ✓ |   | |✓| 

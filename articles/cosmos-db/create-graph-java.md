@@ -10,10 +10,10 @@ ms.date: 03/26/2019
 ms.author: chrande
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 5a793eb69b344e361679759e46db47c78885831e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93360948"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Início Rápido: Criar um banco de dados de grafo com o SDK do Java e a API do Gremlin para Azure Cosmos DB
@@ -168,11 +168,11 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
 Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao grafo e acrescentar pontos de dados adicionais.
 
-1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer** , expanda **sample-graph** , selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
+1. Em sua conta do Azure Cosmos DB no portal do Azure, selecione **Data Explorer**, expanda **sample-graph**, selecione **Grafo** e, em seguida, selecione **Aplicar Filtro**. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="A captura de tela mostra a opção Grafo selecionada na API com a opção Aplicar Filtro.":::
 
-2. Na lista **Resultados** , observe os novos usuários adicionados ao grafo. Selecione **ben** e observe que o usuário está conectado a robin. Você pode mover os vértices arrastando e soltando, ampliar e reduzir rolando o botão de rolagem do mouse e expandir o tamanho do grafo com a seta dupla. 
+2. Na lista **Resultados**, observe os novos usuários adicionados ao grafo. Selecione **ben** e observe que o usuário está conectado a robin. Você pode mover os vértices arrastando e soltando, ampliar e reduzir rolando o botão de rolagem do mouse e expandir o tamanho do grafo com a seta dupla. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Novos vértices no grafo no Data Explorer no portal do Azure":::
 
@@ -213,11 +213,11 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
     Conforme você adiciona mais dados, pode usar os filtros para limitar os resultados. Por padrão, o Data Explorer usa `g.V()` para recuperar todos os vértices em um grafo. Você pode alterá-lo para outra [consulta de grafo](tutorial-query-graph.md), como `g.V().count()`, para retornar uma contagem de todos os vértices no grafo no formato JSON. Se você alterou o filtro, altere o filtro novamente para `g.V()` e selecione **Aplicar Filtro** para exibir todos os resultados novamente.
 
-12. Agora, você pode conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados** e, em seguida, selecione :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Alterar o destino de um vértice em um grafo"::: ao lado de **Destinos** , no lado inferior direito. Talvez seja necessário ampliar a janela para ver o botão.
+12. Agora, você pode conectar rakesh e ashley. Verifique se **ashley** está selecionada na lista **Resultados** e, em seguida, selecione :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Alterar o destino de um vértice em um grafo"::: ao lado de **Destinos**, no lado inferior direito. Talvez seja necessário ampliar a janela para ver o botão.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice em um grafo – Azure CosmosDB":::
 
-13. Na caixa **Destino** , insira *rakesh*. Na caixa **Rótulo de borda** , insira *knows* e, em seguida, marque a caixa de seleção.
+13. Na caixa **Destino**, insira *rakesh*. Na caixa **Rótulo de borda**, insira *knows* e, em seguida, marque a caixa de seleção.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma conexão no Data Explorer – Azure CosmosDB":::
 

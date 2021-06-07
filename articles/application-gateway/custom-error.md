@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: 355caeb54f09797ae719f21401ceebb7d53d745a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592713"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Criar páginas de erro personalizadas do Gateway de Aplicativo

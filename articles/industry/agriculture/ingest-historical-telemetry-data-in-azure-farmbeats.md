@@ -4,14 +4,14 @@ description: Este artigo descreve como ingerir dados de telemetria históricos.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ms.custom: has-adal-ref
-ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e4182f3718422be3a0aa99c980d33026df4ce9af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656777"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102173742"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 

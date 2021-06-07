@@ -4,12 +4,12 @@ description: Análise de desempenho do aplicativo Web e diagnóstico durante a d
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2507dbf7bb8294c949f434d5fa96ccc0af9a7eb3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532895"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563531"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure seus aplicativos com o Azure Application Insights no Visual Studio
 No Visual Studio (2015 e posterior), você pode analisar o desempenho e diagnosticar problemas em seu aplicativo Web ASP.NET na depuração e na produção usando a telemetria do [Application Insights do Azure](./app-insights-overview.md).
@@ -65,17 +65,6 @@ Na linha de CodeLens acima de cada método manipulador, você verá uma contagem
 >
 
 [Saiba mais sobre o Application Insights no CodeLens](./visual-studio-codelens.md)
-
-## <a name="trends"></a>Tendências
-Tendências é uma ferramenta para visualizar como o seu aplicativo se comporta ao longo do tempo. 
-
-Escolha **Explorar Tendências de Telemetria** no botão de barra de ferramentas do Application Insights ou da janela Pesquisa do Application Insights. Escolha uma das cinco consultas comuns para começar. Você pode analisar conjuntos de dados diferentes com base em tipos de telemetria, intervalos de tempo e outras propriedades. 
-
-Para encontrar anomalias em seus dados, escolha uma das opções de anomalias na lista suspensa "Tipo de Exibição". As opções de filtragem na parte inferior da janela facilitam o aprimoramento de subconjuntos específicos de sua telemetria.
-
-![Tendências](./media/visual-studio/51.png)
-
-[Mais sobre tendências](./visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitoramento local
 (Do Visual Studio 2015 Atualização 2) Se você não tiver configurado o SDK para enviar telemetria ao portal do Application Insights (de modo que não haja nenhuma chave de instrumentação em ApplicationInsights.config), então a janela de diagnóstico exibirá a telemetria da sua sessão de depuração mais recente. 

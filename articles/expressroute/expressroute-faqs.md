@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789339"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587271"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -40,9 +40,9 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 
 Sim, a largura de banda do circuito do ExpressRoute é duplex. Por exemplo, se você comprar um circuito de ExpressRoute de 200 Mbps, você será adquirir 200 Mbps para o tráfego de entrada e 200 Mbps para o tráfego de saída.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, a conexão VPN que adquiro do meu provedor de serviços de rede precisa ser a mesma velocidade?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pagar por um circuito de ExpressRoute de uma determinada largura de banda, a conexão privada que eu comprar do provedor de serviços de rede precisaria ser a mesma velocidade?
 
-Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
+Não. Você pode comprar uma conexão privada de qualquer velocidade do seu provedor de serviços. No entanto, sua conexão com o Azure é limitada à largura de banda do circuito de ExpressRoute que você comprar.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se eu pagar por um circuito de ExpressRoute de uma determinada largura de banda, tenho a capacidade de usar mais do que a minha largura de banda adquirida?
 
@@ -60,7 +60,7 @@ O gateway de ExpressRoute anunciará os *espaços de endereço* da VNet do Azure
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quantos prefixos podem ser anunciados de uma VNet para o local no emparelhamento privado do ExpressRoute?
 
-Há no máximo 200 prefixos anunciados em uma única conexão de ExpressRoute ou por meio do emparelhamento de VNet usando o trânsito de gateway. Por exemplo, se você tiver 199 espaços de endereço em uma única VNet conectada a um circuito do ExpressRoute, todos os 199 desses prefixos serão anunciados no local. Como alternativa, se você tiver uma VNet habilitada para permitir o trânsito de gateway com 1 espaço de endereço e 150 VNets de spoke habilitadas usando a opção "Permitir gateway remoto", a VNet implantada com o gateway anunciará 151 prefixos no local.
+Há um máximo de 1000 prefixos anunciados em uma única conexão de ExpressRoute ou por meio de emparelhamento VNet usando o trânsito de gateway. Por exemplo, se você tiver 999 espaços de endereço em uma única VNet conectada a um circuito do ExpressRoute, todos os 999 desses prefixos serão anunciados para o local. Como alternativa, se você tiver uma VNet habilitada para permitir o trânsito de gateway com 1 espaço de endereço e 500 spoke VNets habilitado usando a opção "permitir gateway remoto", a VNet implantada com o gateway anunciará 501 prefixos para local.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>O que acontece se eu exceder o limite de prefixo em uma conexão de ExpressRoute?
 
@@ -104,6 +104,7 @@ Se o circuito do ExpressRoute estiver habilitado para o emparelhamento da Micros
 * [Área de Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de Autenticação Multifator (herdado)
 * Gerenciador de Tráfego
+* Aplicativos Lógicos
 
 ### <a name="public-peering"></a>Emparelhamento público
 
@@ -203,7 +204,7 @@ Se o seu provedor de serviços oferecer o ExpressRoute em ambos os sites, você 
 
 Sim. Você pode ter vários circuitos do ExpressRoute com os mesmos provedores de serviço ou com provedores diferentes. Se o metro tiver vários locais de emparelhamento do ExpressRoute e os circuitos forem criados em diferentes locais de emparelhamento, você poderá vinculá-los à mesma rede virtual. Se os circuitos forem criados no mesmo local de emparelhamento, você poderá vincular até quatro circuitos à mesma rede virtual.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito do ExpressRoute
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como fazer conectar minhas redes virtuais a um circuito do ExpressRoute?
 
 As etapas básicas são:
 
@@ -258,9 +259,13 @@ Se você anunciar rotas padrão, forçamos o tráfego para serviços oferecidos 
 
 Sim. Máquinas virtuais implantadas em redes virtuais conectadas ao mesmo circuito de ExpressRoute podem comunicar-se umas com as outras. É recomendável configurar o [emparelhamento de rede virtual](../virtual-network/virtual-network-peering-overview.md) para facilitar essa comunicação.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Posso usar a conectividade site a site para redes virtuais em conjunto com ExpressRoute?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>Posso configurar uma conexão VPN site a site para minha rede virtual em conjunto com o ExpressRoute?
 
 Sim. O ExpressRoute pode coexistir com VPN dos tipos site a site. Consulte [Configure as conexões coexistentes de ExpressRoute e site a site](expressroute-howto-coexist-resource-manager.md).
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Como fazer habilitar o roteamento entre minha conexão VPN site a site e meu ExpressRoute?
+
+Se você quiser habilitar o roteamento entre sua ramificação conectada ao Expressoute e a sua ramificação conectada a uma conexão VPN site a site, será necessário configurar o [servidor de rota do Azure](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Por que há um endereço IP público associado ao gateway de ExpressRoute em uma rede virtual?
 
@@ -293,6 +298,15 @@ Você também terá de fazer o acompanhamento junto ao seu provedor de conectivi
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Como posso alterar a largura de banda de um circuito de ExpressRoute?
 
 Você pode atualizar a largura de banda do circuito ExpressRoute usando a API REST ou o cmdlet do PowerShell.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>Recebi uma notificação sobre a manutenção no meu circuito do ExpressRoute. Qual é o impacto técnico dessa manutenção?
+
+Você deve experimentar o mínimo para nenhum impacto durante a manutenção se você operar o circuito no [modo ativo-ativo](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). Realizamos a manutenção nas conexões primária e secundária do seu circuito separadamente. A manutenção agendada normalmente será realizada fora do horário comercial no fuso horário do local de emparelhamento e você não poderá selecionar um tempo de manutenção.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>Recebi uma notificação sobre uma atualização de software ou manutenção no meu gateway de ExpressRoute. Qual é o impacto técnico dessa manutenção?
+
+Você deve experimentar o mínimo para nenhum impacto durante uma atualização de software ou manutenção em seu gateway. O gateway de ExpressRoute é composto de várias instâncias e durante as atualizações, as instâncias são colocadas offline uma de cada vez. Embora isso possa fazer com que o gateway tenha suporte temporário para reduzir a taxa de transferência de rede para a rede virtual, o próprio gateway não experimentará nenhum tempo de inatividade.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute premium
 

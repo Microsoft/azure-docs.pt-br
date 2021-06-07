@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 63041e0b1b6e12c765299b12f28aa3637b6a6ccb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99052780"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitação dos recursos de Controle de Alterações e Inventário no portal do Azure

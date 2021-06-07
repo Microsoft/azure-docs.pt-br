@@ -3,19 +3,18 @@ title: Explorar dados e modelo no Windows
 titleSuffix: Azure Data Science Virtual Machine
 description: Executar tarefas de exploração e modelagem de dados no Máquina Virtual de Ciência de Dados do Windows.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09a4dc8467b9b3c11c8daeb5ca8c62a0e26e79de
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c44c40f2ddab53cf0beb5ecd48127d126fdb4333
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574999"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101657393"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com um Máquina Virtual de Ciência de Dados do Windows
 
@@ -58,7 +57,7 @@ Depois de iniciar o Jupyter, navegue até o `/notebooks` diretório de blocos de
 
 * Selecione o bloco de anotações para ver o código.
 * Execute cada célula selecionando Shift + Enter.
-* Execute o bloco de anotações inteiro selecionando a execução da **célula**  >  **Run**.
+* Execute o bloco de anotações inteiro selecionando a execução da **célula**  >  .
 * Crie um novo bloco de anotações selecionando o ícone de Jupyter (canto superior esquerdo), selecionando o botão **novo** à direita e escolhendo o idioma do notebook (também conhecido como kernels).   
 
 > [!NOTE]

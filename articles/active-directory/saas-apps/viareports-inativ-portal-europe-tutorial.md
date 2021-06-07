@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.openlocfilehash: e8393410c5b15ee888a2c0cee82c783f17e0e177
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92517609"
 ---
 # <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>Tutorial: integrar o Viareport (Europa) ao Azure Active Directory
@@ -49,7 +49,7 @@ Para configurar a integração do Viareport (Europa) ao Azure AD, você precisar
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **Viareport (Europa)** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **Viareport (Europa)** na caixa de pesquisa.
 1. Selecione **Viareport (Europa)** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -71,23 +71,23 @@ Para configurar e testar o SSO do Azure AD com o Viareport (Europa), conclua os 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Viareport (Europa)** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-    Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão: `https://inativ.viareport.com/SSO/<tenant_id>/callback`
+    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://inativ.viareport.com/SSO/<tenant_id>/callback`
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://inativ.viareport.com/SSO/<tenant_id>/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://inativ.viareport.com/SSO/<tenant_id>/login`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Viareport (Europa)](mailto:ycezard@viareport.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -98,11 +98,11 @@ Para configurar o logon único no lado do **Viareport (Europa)** , é necessári
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -120,9 +120,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-viareport-europe-test-user"></a>Criar usuário de teste no Viareport (Europa)
 

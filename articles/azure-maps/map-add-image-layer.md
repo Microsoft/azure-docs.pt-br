@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 43de832095e2c2dd674a156da914ed26f1e472d0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f0c24940e606020dc45e5a000cfcb030fd806d4b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892937"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102047478"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem ao um mapa
 
@@ -70,6 +70,9 @@ O código usa a `getCoordinatesFromEdges` função estática da classe [ImageLay
 
 <iframe height='500' scrolling='no' title='Sobreposição de terra KML como camada de imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>Sobreposição de Terra KML como Camada de Imagem</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Use as `getPixels` `getPositions` funções e da classe da camada de imagem para converter entre coordenadas geográficas da camada de imagem posicionada e as coordenadas de pixel de imagem local.
 
 ## <a name="customize-an-image-layer"></a>Customizar uma camada de imagem
 

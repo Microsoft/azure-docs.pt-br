@@ -3,20 +3,25 @@ title: Configurar permissões de serviço do construtor de imagem do Azure usand
 description: Configurar requisitos para o serviço do construtor de imagem de VM do Azure, incluindo permissões e privilégios usando CLI do Azure
 author: cynthn
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676743"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607493"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure
 
-O serviço do construtor de imagens do Azure requer a configuração de permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando CLI do Azure.
+Quando você se registra no (AIB), o serviço AIB recebe permissão para criar, gerenciar e excluir um grupo de recursos de preparo (IT_*), bem como direitos para adicionar a ele recursos necessários para o build da imagem. Para que isso ocorra, um SPN (nome da entidade de serviço) do AIB é disponibilizado em sua assinatura durante um registro bem-sucedido.
+
+Para permitir que o Construtor de Imagens de VM do Azure distribua imagens para as imagens gerenciadas ou para uma Galeria de Imagens Compartilhadas, você precisará criar uma identidade atribuída pelo usuário do Azure que tenha permissões para ler e gravar imagens. Se você estiver acessando o armazenamento do Azure, isso precisará de permissões para ler contêineres privados ou públicos.
+
+Você deve configurar permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando CLI do Azure.
 
 > [!IMPORTANT]
 > O Construtor de Imagens do Azure está atualmente em versão prévia pública.
@@ -131,7 +136,7 @@ imageResourceGroup=<Resource group>
 identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # Create a unique role name to avoid clashes in the same Azure Active Directory domain
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
@@ -172,7 +177,7 @@ VnetResourceGroup=<Resource group>
 identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
 
 # Create a unique role name to avoid clashes in the same domain
 netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
@@ -234,7 +239,7 @@ Substitua as seguintes configurações de espaço reservado:
 | \<Storage account container\> | Nome do contêiner da conta de armazenamento |
 | \<Subscription ID\> | Assinatura do Azure |
 
-Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada do azure User-Assigned para arquivos do Conecte Access do armazenamento do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
+Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada do azure User-Assigned para arquivos do Conecte Access do armazenamento do Azure](./image-builder-user-assigned-identity.md). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

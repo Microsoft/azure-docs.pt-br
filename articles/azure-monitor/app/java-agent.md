@@ -6,16 +6,18 @@ ms.date: 01/10/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 50c5a8a0c1e7c5d554e19ffcbc9a78bc0a385a5c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c753e4e254890f9198da9bc913b29bdaae335b78
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131722"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100573827"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
 > [!IMPORTANT]
+> A abordagem descrita neste documento não é mais recomendada.
+>
 > A abordagem recomendada para monitorar aplicativos Java é usar a instrumentação automática sem alterar o código. Siga as diretrizes para [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
 Se você tiver [instrumentado seu aplicativo Web Java com Application insights SDK][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
@@ -137,5 +139,5 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 

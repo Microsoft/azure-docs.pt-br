@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
 ms.openlocfilehash: 002ae9f99865114dd8bf52b53efc9303a0706a82
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491817"
 ---
 # <a name="azure-api-management-terminology"></a>Terminologia de gerenciamento de API do Azure

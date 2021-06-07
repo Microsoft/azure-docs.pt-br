@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 2a7d191af78da417d0ee2ade12b1576912643b6c
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: a2c149bfdf79102779abf7544fed9fb78796a50e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827437"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101649935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao New Relic by Account
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o New Relic by Account ao Azure AD (
 * Controlar no Azure AD quem tem acesso ao New Relic by Account.
 * Permitir que os usuários sejam conectados automaticamente ao New Relic by Account com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,24 +39,22 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O New Relic by Account é compatível com SSO iniciado por **SP**
 
-* Após configurar o New Relic by Account, você poderá impor controles de sessão, que protegem contra a exfiltração e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-new-relic-by-account-from-the-gallery"></a>Adicionar o New Relic by Account por meio da Galeria
+## <a name="add-new-relic-by-account-from-the-gallery"></a>Adicionar o New Relic by Account por meio da galeria
 
 Para configurar a integração do New Relic by Account ao Azure AD, você precisará adicionar o New Relic by Account por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **New Relic by Account** na caixa de pesquisa.
 1. Selecione **New Relic by Account** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-new-relic-by-account"></a>Configurar e testar o logon único do Azure AD para o New Relic by Account
+## <a name="configure-and-test-azure-ad-sso-for-new-relic-by-account"></a>Configurar e testar o SSO do Azure AD para o New Relic by Account
 
 Configure e teste o SSO do Azure AD com o New Relic by Account usando um(a) usuário(a) de teste com o nome **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do New Relic by Account.
 
-Para configurar e testar o SSO do Azure AD com o New Relic by Account, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o New Relic by Account, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -71,18 +67,19 @@ Para configurar e testar o SSO do Azure AD com o New Relic by Account, conclua o
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **New Relic by Account**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração do aplicativo **New Relic by Account**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   
 1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: 
 
     `https://rpm.newrelic.com:443/accounts/{acc_id}/sso/saml/finalize` – Substitua `acc_id` pela sua ID da conta do New Relic by Account.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `rpm.newrelic.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `rpm.newrelic.com`
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -92,13 +89,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -110,39 +101,33 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo-lhe acesso ao New Relic by Account.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **New Relic by Account**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função &quot;Acesso Padrão&quot; selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-new-relic-by-account-sso"></a>Configurar o SSO do New Relic by Account
+## <a name=&quot;configure-new-relic-by-account-sso&quot;></a>Configurar o SSO do New Relic by Account
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do **New Relic by Account** como administrador.
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/ic797036.png "Configurações da Conta")
+    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/settings.png &quot;Configurações da Conta")
 
 3. Clique na guia **Segurança e autenticação** e na guia **Logon único**.
    
-    ![Logon único](./media/new-relic-tutorial/ic797037.png "Logon Único")
+    ![Logon único](./media/new-relic-tutorial/single-sign-on-tab.png "Logon Único")
 
 4. Na página da caixa de diálogo SAML, execute as seguintes etapas:
    
-    ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
+    ![SAML](./media/new-relic-tutorial/save.png "SAML")
    
     a. Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
 
@@ -158,15 +143,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![A captura de tela mostra a opção Configurações de conta selecionada na página inicial.](./media/new-relic-tutorial/ic797040.png "Configurações da Conta")
+    ![A captura de tela mostra a opção Configurações de conta selecionada na página inicial.](./media/new-relic-tutorial/account.png "Configurações da Conta")
 
 3. No painel **Conta** no lado esquerdo, clique em **Resumo** e em **Adicionar usuário**.
    
-    ![A captura de tela mostra o painel Resumo em que você pode selecionar Adicionar usuário.](./media/new-relic-tutorial/ic797041.png "Configurações da Conta")
+    ![A captura de tela mostra o painel Resumo em que você pode selecionar Adicionar usuário.](./media/new-relic-tutorial/add.png "Configurações da Conta")
 
 4. No diálogo **Usuários ativos** , realize as seguintes etapas:
    
-    ![Usuários ativos](./media/new-relic-tutorial/ic797042.png "Usuários ativos")
+    ![Usuários ativos](./media/new-relic-tutorial/user.png "Usuários ativos")
    
     a. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
 
@@ -179,18 +164,14 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do New Relic by Account no Painel de Acesso, você deverá ser conectado automaticamente ao New Relic by Account, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do New Relic by Account, na qual será possível iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do New Relic by Account e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do New Relic by Account em Meus Aplicativos, você será redirecionado para a URL de Logon do New Relic by Account. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimentar o New Relic by Account com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Depois de configurar o New Relic by Account, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

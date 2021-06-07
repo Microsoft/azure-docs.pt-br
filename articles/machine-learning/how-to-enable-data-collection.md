@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f42a2f9e606eaa0475f2e35c479e99545ecf8193
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680957"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102521893"
 ---
 # <a name="collect-data-from-models-in-production"></a>Coletar dados de modelos em produção
 
@@ -65,11 +65,11 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 - Você precisa de um cluster AKS. Para obter informações sobre como criar um e implantá-lo, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
-- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](/python/api/overview/azure/ml/install).
 
 ## <a name="enable-data-collection"></a>Habilitar coleta de dados
 
-Você pode habilitar a [coleta de dados](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
+Você pode habilitar a [coleta de dados](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
 
 Para habilitar a coleta de dados, você precisa:
 

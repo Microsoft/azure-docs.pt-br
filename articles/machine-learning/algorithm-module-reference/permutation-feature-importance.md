@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421236"
 ---
 # <a name="permutation-feature-importance"></a>Importância do recurso de permuta
@@ -36,11 +36,11 @@ A geração de um conjunto de pontuações de recursos requer que você tenha um
 
 3.  Na entrada à direita, conecte um conjunto de dados. Preferencialmente, escolha uma que seja diferente do conjunto de um que você usou para treinar o modelo. Esse DataSet é usado para pontuação com base no modelo treinado. Ele também é usado para avaliar o modelo após a alteração dos valores de recurso.  
 
-4.  Para **semente aleatória** , insira um valor a ser usado como semente para randomização. Se você especificar 0 (o padrão), um número será gerado com base no relógio do sistema.
+4.  Para **semente aleatória**, insira um valor a ser usado como semente para randomização. Se você especificar 0 (o padrão), um número será gerado com base no relógio do sistema.
 
      Um valor de semente é opcional, mas você deve fornecer um valor se quiser reprodução em execuções do mesmo pipeline.  
 
-5.  Para **métrica para medir o desempenho** , selecione uma única métrica a ser usada quando você estiver computando a qualidade do modelo após a permuta.  
+5.  Para **métrica para medir o desempenho**, selecione uma única métrica a ser usada quando você estiver computando a qualidade do modelo após a permuta.  
 
      O Azure Machine Learning designer dá suporte às seguintes métricas, dependendo se você está avaliando um modelo de classificação ou regressão:  
 

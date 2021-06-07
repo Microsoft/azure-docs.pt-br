@@ -1,19 +1,19 @@
 ---
 title: Criar um cluster privado do Red Hat OpenShift 4 no Azure
 description: Saiba como criar e gerenciar um cluster privado do Red Hat OpenShift no Azure executando o OpenShift 4
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 5a6eafa6b2380ee61c0de2e329a1751ec7d59c1f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740917"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102216064"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -23,7 +23,7 @@ Neste artigo, você vai preparar seu ambiente para criar clusters privados do Re
 > * Configurar os pré-requisitos e criar a rede virtual e as sub-redes necessárias
 > * Implantar um cluster com um ponto de extremidade privado do servidor de API e um controlador de entrada privado
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

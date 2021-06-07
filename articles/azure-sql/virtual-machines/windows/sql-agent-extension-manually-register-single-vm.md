@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964517"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181424"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrar SQL Server VM com extensão do agente IaaS do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -76,7 +76,7 @@ Registre sua assinatura do Azure com o provedor **Microsoft. SqlVirtualMachine**
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL IaaS Agent extension to your subscription
@@ -109,7 +109,7 @@ Registre uma VM SQL Server no modo leve com o CLI do Azure:
   ```
 
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Registre uma VM SQL Server no modo leve com Azure PowerShell:  
 
@@ -160,7 +160,7 @@ Registre sua máquina virtual SQL Server no modo noagent com o CLI do Azure:
  ```
  
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 
 Registre sua máquina virtual SQL Server no modo noagent com Azure PowerShell: 
@@ -219,7 +219,7 @@ Para atualizar a extensão para o modo completo, execute o seguinte trecho de c�
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Para atualizar a extensão para o modo completo, execute o seguinte trecho de código de Azure PowerShell:
 
@@ -259,7 +259,7 @@ Para verificar o status de registro usando o CLI do Azure, execute o seguinte tr
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Para verificar o status de registro usando o Azure PowerShell, execute o seguinte trecho de código:
 
@@ -282,7 +282,7 @@ O cancelamento do registro da máquina virtual do SQL com a extensão do SQL Iaa
 
 Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure, siga estas etapas:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Navegue até o recurso de VM do SQL. 
   
    ![Recurso de máquinas virtuais do SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)
@@ -304,7 +304,7 @@ Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure,
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para cancelar o registro da VM SQL Server da extensão com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* da VM, mas não excluirá a máquina virtual. 
+Para cancelar o registro da VM SQL Server da extensão com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* da VM, mas não excluirá a máquina virtual. 
 
 
 ```azurecli-interactive

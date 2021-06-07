@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792218"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
@@ -33,11 +33,11 @@ Para obter definições de termos, consulte o [Glossário de ferramentas do Banc
 
 ## <a name="why-use-the-recovery-manager"></a>Por que usar o gerenciador de recuperação
 
-Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados e muitos bancos de dados por servidor. Também pode haver vários servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmento para que as chamadas possam ser encaminhadas para o banco de dados e servidor corretos. Os bancos de dados são controlados de acordo com uma **chave de fragmentação** e um **intervalo de valores de chave** é atribuído a cada fragmento. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecidos como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)** . Cada banco de dados também contém um mapa dos intervalos contidos no fragmento – isso é conhecido como o **LSM (mapa de fragmentos local)** . Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados em cache.
+Em um ambiente de banco de dados fragmentado, há um locatário por banco de dados e muitos bancos de dados por servidor. Também pode haver vários servidores no ambiente. Cada banco de dados é mapeado no mapa de fragmento para que as chamadas possam ser encaminhadas para o banco de dados e servidor corretos. Os bancos de dados são controlados de acordo com uma **chave de fragmentação** e um **intervalo de valores de chave** é atribuído a cada fragmento. Por exemplo, uma chave de fragmentação pode representar os nomes de clientes de "D" a "F". O mapeamento de todos os fragmentos (também conhecidos como bancos de dados) e seus intervalos de mapeamento estão contidos no **GSM (mapa de fragmentos global)**. Cada banco de dados também contém um mapa dos intervalos contidos no fragmento – isso é conhecido como o **LSM (mapa de fragmentos local)**. Quando um aplicativo se conecta a um fragmento, o mapeamento é armazenado em cache com o aplicativo para recuperação rápida. O LSM é usado para validar dados em cache.
 
 O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
-1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão** . De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](recovery-using-backups.md).
+1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](recovery-using-backups.md).
 2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do Gerenciador do mapa de fragmentos no aplicativo e, em seguida, atualizar os detalhes do mapeamento de fragmentos para todos os fragmentos em um mapa de fragmentos. Em caso de um failover geográfico, tal lógica de recuperação deverá ser automatizada no fluxo de trabalho do failover. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados se houver uma interrupção data center, consulte [continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md) e [recuperação de desastres](disaster-recovery-guidance.md).
 3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um ponto anterior. Para saber mais sobre recuperação pontual usando backups, consulte [Recuperação usando backups](recovery-using-backups.md).
 

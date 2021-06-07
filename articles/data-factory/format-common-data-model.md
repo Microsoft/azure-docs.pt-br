@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
 ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387692"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de modelo de dados comuns no Azure Data Factory
@@ -31,7 +31,7 @@ O Common Data Service está disponível como um [conjunto de dados embutido](dat
 
 A tabela abaixo lista as propriedades com suporte por uma fonte CDM. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Formato de metadados | Onde a referência de entidade para os dados está localizada. Se estiver usando o CDM versão 1,0, escolha manifesto. Se estiver usando uma versão do CDM anterior a 1,0, escolha model.jsem. | Sim | `'manifest'` ou `'model'` | manifestatype |
@@ -114,7 +114,7 @@ source(output(
 
 A tabela abaixo lista as propriedades com suporte de um coletor CDM. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `cdm` | sim | `cdm` | format |
 | Local raiz: contêiner | Nome do contêiner da pasta CDM | sim | String | fileSystem |

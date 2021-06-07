@@ -1,18 +1,15 @@
 ---
-title: Solucionar problemas de atualização do provedor de Site Recovery de Microsoft Azure
-description: Resolva problemas comuns que ocorrem ao atualizar o provedor de Site Recovery de Microsoft Azure.
-author: rayne-wiselman
-manager: carmonm
+title: Solucionar problemas de atualização do provedor do Microsoft Azure Site Recovery
+description: Resolva problemas comuns que ocorrem ao atualizar o provedor do Microsoft Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
-ms.author: raynew
-ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: f53cc8d5732db85f69e48efdaddd518e75ff518b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84434380"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579490"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solucionar problemas de falhas de atualização do provedor do Microsoft Azure Site Recovery
 
@@ -42,9 +39,9 @@ Para atualizar, execute as etapas a seguir:
 
 1. Retorne à pasta na qual você baixou a Instalação Unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de atualização devido à pasta de terceiros sendo renomeada
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de atualização devido à pasta de terceiros renomeada
 
-Para que a atualização seja realizada com sucesso, a pasta de terceiros não deve ser renomeada.
+Para que a atualização seja realizada com êxito, a pasta de terceiros não deve ser renomeada.
 
 Para resolver o problema.
 
@@ -67,14 +64,14 @@ Para resolver o problema.
 1. Verifique se C:\thirdparty existe e se a pasta contém as bibliotecas RRD.
 1. Retorne à pasta na qual você baixou a Instalação Unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização.
 
-## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>Falha de atualização devido à falha na instalação do destino mestre
+## <a name="upgrade-failure-due-to-master-target-installation-failure"></a>Falha de atualização devido à falha na instalação do Destino Mestre
 
-Ao atualizar Microsoft Azure provedor de Site Recovery (DRA), a instalação do destino mestre falha com o erro ' o local de instalação não existe e/ou não tem 1 GB de espaço livre e/ou não existe em uma unidade fixa. '.
+Ao atualizar o provedor do Microsoft Azure Site Recovery (DRA), a instalação do destino mestre falha e exibe o erro 'local de instalação não existe e/ou não tem 1 GB de espaço livre e/ou não existe em uma unidade fixa'.
 
-Isso pode ser devido a um valor nulo para um parâmetro na chave do registro. Para resolver o problema-
+Isso pode acontecer devido a um valor nulo para um parâmetro na Chave do Registro. Para resolver o problema:
 
-1. Inicie o editor do registro (regedit.exe) e abra a ramificação HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
-1. Inspecione o valor da chave ' Diretóriodeinstalação '.Se for NULL, adicione o valor do diretório de instalação atual.
-1. Da mesma forma, abra a ramificação do HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 no editor do registro.
-1. Inspecione o valor da chave ' Diretóriodeinstalação ' e adicione o valor do diretório de instalação atual.
-1. Execute novamente o instalador de instalação unificada.
+1. Inicie o Editor do Registro (regedit.exe) e abra a ramificação HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
+1. Inspecione o valor da chave 'InstallDirectory'. Se ele for nulo, adicione o valor do diretório de instalação atual.
+1. Da mesma forma, abra a ramificação HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5, no Editor do Registro.
+1. Inspecione o valor da chave 'InstallDirectory' e adicione o valor do diretório de instalação atual.
+1. Execute novamente a instalação de Configuração Unificada.

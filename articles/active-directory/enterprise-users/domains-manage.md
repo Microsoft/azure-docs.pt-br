@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b8867a137e38e7400da877f4c239e517cbebe05
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577964"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerenciando nomes de domínio personalizados no Azure Active Directory
 
@@ -43,7 +43,7 @@ Você pode alterar o nome de domínio primário da sua organização para que se
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adicionar nomes de domínio personalizados a sua organização do Azure Active Directory
 
-É possível adicionar até 900 nomes de domínio gerenciado. Se você estiver configurando todos os seus domínios para federação com Active Directory locais, poderá adicionar até 450 nomes de domínio em cada organização.
+Você pode adicionar até 5000 nomes de domínio gerenciados. Se você estiver configurando todos os seus domínios para federação com Active Directory locais, poderá adicionar até 2500 nomes de domínio em cada organização.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 
@@ -111,7 +111,7 @@ Se você achar que alguma das condições ainda não foi atendida, limpe as refe
 A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Directory também pode ser concluída usando o Microsoft PowerShell ou de forma programática, usando a API do Microsoft Graph.
 
 * [Como usar o PowerShell para gerenciar nomes de domínio no Azure AD](/powershell/module/azuread/#domains&preserve-view=true)
-* [Tipo de recurso de domínio](/graph/api/resources/domain?view=graph-rest-1.0&preserve-view=true)
+* [Tipo de recurso de domínio](/graph/api/resources/domain)
 
 ## <a name="next-steps"></a>Próximas etapas
 

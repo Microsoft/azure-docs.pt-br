@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: ff49d5e88df7c56ed4dee0685f09e45eb372aa5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930206"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
@@ -47,7 +47,7 @@ Siga estas etapas no portal do Azure:
 3. Exibição de **configurações** folha. Na seção **Acesso à API**, selecione **Permissões necessárias**.
 4. Clique em **adicionar** para adicionar uma nova permissão necessária.
 5. Na etapa 1, digite **API de gerenciamento de serviços do Microsoft Azure**, selecione essa API da lista de resultados e clique no **selecione** botão.
-6. Na etapa 2, selecione a caixa de seleção Avançar ao **Aceder a modelo de implantação clássico do Azure enquanto usuários da organização**e clique no **selecione** botão.
+6. Na etapa 2, selecione a caixa de seleção Avançar ao **Aceder a modelo de implantação clássico do Azure enquanto usuários da organização** e clique no **selecione** botão.
 7. Clique no botão **Concluído**.
 
 O **permissões necessárias** folha agora mostra que as permissões para o seu aplicativo são concedidas ao ADAL e APIs do Gerenciador de recursos. Permissões são concedidas a ADAL por padrão, quando você primeiro registra seu aplicativo com o Azure AD.

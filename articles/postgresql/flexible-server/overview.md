@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/22/2020
-ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 04/05/2021
+ms.openlocfilehash: 090d38a92da126cd4fd8423231f856d22ea9a64c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532655"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106829"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Servidor Flexível do Banco de Dados do Azure para PostgreSQL
 
@@ -56,7 +56,7 @@ A imagem abaixo mostra a transição para a falha de VM e de armazenamento.
 
 Se a alta disponibilidade com redundância de zona estiver configurada, o serviço provisionará e manterá um servidor em espera ativa na zona de disponibilidade, na mesma região do Azure. As alterações de dados no servidor de origem são replicadas de maneira síncrona para o servidor em espera para garantir zero perda de dados. Com alta disponibilidade com redundância de zona, uma vez que o evento de failover planejado ou não planejado é disparado, o servidor em espera fica online imediatamente e está disponível para processar transações de entrada. Isso permite a resiliência de serviço de uma falha de zona de disponibilidade em uma região do Azure que dá suporte a várias zonas de disponibilidade, conforme mostrado na imagem abaixo.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexível – falhas de VM e de armazenamento":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Alta disponibilidade com redundância de zona":::
 
  Confira o [documento sobre alta disponibilidade](./concepts-high-availability.md) para obter mais detalhes.
 
@@ -86,12 +86,43 @@ Os servidores flexíveis permitem acesso privado completo aos servidores usando 
 
 O serviço de servidor flexível é equipado com recursos internos de monitoramento e alerta de desempenho. Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas fornece 30 dias de histórico. É possível configurar alertas nas métricas. O serviço expõe as métricas do servidor host para monitorar a utilização de recursos e permite configurar logs de consultas lentas. Usando essas ferramentas, você pode otimizar rapidamente suas cargas de trabalho e configurar seu servidor para ter o melhor desempenho.
 
+## <a name="azure-regions"></a>Regiões do Azure
+
+Uma das vantagens de executar sua carga de trabalho no Azure é obter um alcance global. O servidor flexível está disponível hoje nas seguintes regiões do Azure:
+
+| Região | Disponibilidade | HA com redundância de zona | 
+| --- | --- | --- |
+| Europa Ocidental | :heavy_check_mark: | :heavy_check_mark: |
+| Norte da Europa | :heavy_check_mark: | :heavy_check_mark: |
+| Sul do Reino Unido | :heavy_check_mark: | :heavy_check_mark: | 
+| Leste dos EUA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Oeste dos EUA 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Centro dos EUA | :heavy_check_mark: | :heavy_check_mark: | 
+| Leste dos EUA | :heavy_check_mark: | :heavy_check_mark: | 
+| Sudeste Asiático | :heavy_check_mark: | :heavy_check_mark: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
+| Leste da Austrália | :heavy_check_mark: | :heavy_check_mark: | 
+| Canadá Central | :heavy_check_mark: | :heavy_check_mark: | 
+| França Central | :heavy_check_mark: | :heavy_check_mark: | 
+
+Continuamos adicionando mais regiões para o servidor flexível.
+
 ## <a name="migration"></a>Migração
 
 O serviço executa a versão da comunidade do PostgreSQL. Isso permite a compatibilidade total do aplicativo e exige o mínimo de custo de refatoração para migrar um aplicativo existente desenvolvido no mecanismo PostgreSQL para um Servidor Flexível. 
 
-- **Despejo e restauração** : nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade, como pg_dump e pg_restore, pode fornecer uma forma mais rápida de migração. Confira [Migrar usando despejo e restauração](../howto-migrate-using-dump-and-restore.md) para obter detalhes.
-- **Serviço de Migração de Banco de Dados do Azure** : para migrações diretas e simplificadas para um servidor flexível com tempo de inatividade mínimo, você pode aproveitar o Serviço de Migração de Banco de Dados do Azure. Confira [DMS por meio do portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS por meio da CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Você pode fazer a migração por meio do Banco de Dados do Azure para PostgreSQL – Servidor Único para Servidor Flexível. Confira este [artigo sobre o DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para obter detalhes.
+- **Despejo e restauração**: nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade, como pg_dump e pg_restore, pode fornecer uma forma mais rápida de migração. Confira [Migrar usando despejo e restauração](../howto-migrate-using-dump-and-restore.md) para obter detalhes.
+- **Serviço de Migração de Banco de Dados do Azure**: para migrações diretas e simplificadas para um servidor flexível com tempo de inatividade mínimo, você pode aproveitar o Serviço de Migração de Banco de Dados do Azure. Confira [DMS por meio do portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS por meio da CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Você pode fazer a migração por meio do Banco de Dados do Azure para PostgreSQL – Servidor Único para Servidor Flexível. Confira este [artigo sobre o DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para obter detalhes.
+
+## <a name="contacts"></a>Contatos
+Para perguntas ou sugestões sobre o servidor flexível do Banco de Dados do Azure para PostgreSQL, envie um email para a equipe do Banco de Dados do Azure para PostgreSQL ([@Ask BD do Azure para PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Observe que esse endereço de email não é um alias de suporte técnico.
+
+Além disso, considere os seguintes pontos de contato, conforme apropriado:
+
+- Para entrar em contato com o Suporte do Azure, [crie um tíquete no Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema com sua conta, apresente uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Para fornecer comentários ou solicitar novos recursos, crie uma entrada por meio do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+  
 
 ## <a name="next-steps"></a>Próximas etapas
 

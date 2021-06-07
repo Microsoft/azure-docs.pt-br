@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: f4e34e850391696506beed9f6f386f85528dff24
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92283558"
 ---
 Se você selecionou uma das VMs pré-configuradas com um sistema operacional (e serviços adicionais opcionais), você já escolheu um tamanho de VM padrão do Azure. Iniciar sua solução com um SO pré-configurado é a abordagem recomendada. No entanto, se você estiver instalando um so manualmente, deverá dimensionar seu VHD primário em sua imagem de VM. Verifique se o tamanho do disco do sistema operacional está dentro dos limites do Linux ou do Windows.

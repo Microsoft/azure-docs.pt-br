@@ -4,17 +4,17 @@ description: Saiba como criar uma imagem de um instantâneo ou de um disco geren
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f4ca28efce28933eed9be5cca7bd412f2d9505aa
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 70ef194ab7f7403f31ad431eba25db5f71dfb580
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679527"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556896"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o PowerShell
 

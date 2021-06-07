@@ -4,10 +4,10 @@ description: Saiba como fazer backup do estado do sistema de computadores Window
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332875"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
@@ -46,7 +46,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
 ## <a name="configure-the-vault"></a>Configurar o cofre
 
-1. No painel cofre dos serviços de recuperação (para o cofre que você acabou de criar), na seção Introdução, selecione **backup**e, em seguida, no painel **introdução com backup** , selecione **meta de backup**.
+1. No painel cofre dos serviços de recuperação (para o cofre que você acabou de criar), na seção Introdução, selecione **backup** e, em seguida, no painel **introdução com backup** , selecione **meta de backup**.
 
     ![Abrir configurações de backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
@@ -58,11 +58,11 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     Você escolhe o **local** porque seu computador Windows Server ou Windows é um computador físico que não está no Azure.
 
-3. No menu do **que você deseja fazer backup?** , selecione estado do **sistema**e selecione **OK**.
+3. No menu do **que você deseja fazer backup?** , selecione estado do **sistema** e selecione **OK**.
 
     ![Configuração de arquivos e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Depois de selecionar **OK**, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
+    Depois de selecionar **OK**, uma marca de seleção é exibida ao lado de **meta de backup** e o painel **preparar infraestrutura** é aberto.
 
     ![Meta de backup configurada, prepare a infraestrutura em seguida](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -86,7 +86,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Selecione **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
+    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Selecione **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Siga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]

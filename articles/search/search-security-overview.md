@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
 ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097629"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Visão geral de segurança para o Azure Pesquisa Cognitiva
@@ -128,7 +128,7 @@ No Azure Pesquisa Cognitiva, a criptografia começa com conexões e transmissõe
 
 Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-models.md). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
 
-| Modelar | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+| Modelo | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
 | criptografia do lado do servidor | Chaves gerenciadas pela Microsoft | Nenhum (interno) | Nenhum, disponível em todas as camadas, em todas as regiões, para o conteúdo criado após janeiro de 24 2018. | Conteúdo (índices e mapas de sinônimos) e definições (indexadores, fontes de dados, habilidades) |
 | criptografia do lado do servidor | chaves gerenciadas pelo cliente | Cofre de Chave do Azure | Disponível em camadas faturáveis, em todas as regiões, para conteúdo criado depois de janeiro de 2019. | Conteúdo (mapas e índices de sinônimos) em discos de dados |
@@ -178,7 +178,7 @@ Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Conceitos básicos de segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança do Azure](https://azure.microsoft.com/overview/security)

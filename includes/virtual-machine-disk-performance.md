@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518034"
 ---
 Este artigo ajuda a esclarecer o desempenho do disco e como ele funciona quando você combina máquinas virtuais do Azure e discos do Azure. Ele também descreve como você pode diagnosticar afunilamentos para a e/s de disco e as alterações que você pode fazer para otimizar o desempenho.

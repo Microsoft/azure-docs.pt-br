@@ -4,30 +4,27 @@ description: Use o Azure IoT Edge para criar um dispositivo de gateway transpare
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371084"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027339"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 IoT Edge dispositivos podem operar como gateways, fornecendo uma conexão entre outros dispositivos na rede e no Hub IoT.
 
-O módulo Hub de IoT Edge atua como o Hub IoT, portanto, pode manipular conexões de qualquer dispositivo que tenha uma identidade com o Hub IoT, incluindo outros dispositivos IoT Edge. Esse tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos downstream para o Hub IOT, como se não houvesse um gateway entre eles.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões downstream de outros dispositivos IoT Edge.
-::: moniker-end
+O módulo Hub de IoT Edge atua como o Hub IoT e, portanto, pode manipular conexões de outros dispositivos que têm uma identidade com o mesmo Hub IoT. Esse tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos downstream para o Hub IOT, como se não houvesse um gateway entre eles.
 
 Para dispositivos que não podem se conectar ao Hub IoT por conta própria, IoT Edge gateways podem fornecer essa conexão. Esse tipo de padrão de gateway é chamado de *conversão* porque o dispositivo IOT Edge precisa executar o processamento em mensagens de dispositivo de downstream de entrada antes que elas possam ser encaminhadas ao Hub IOT. Esses cenários exigem módulos adicionais no gateway de IoT Edge para manipular as etapas de processamento.
 
@@ -49,17 +46,19 @@ Para obter mais informações sobre como o Hub de IoT Edge gerencia a comunicaç
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge dispositivos não podem ser downstream de um gateway de IoT Edge.
-
 ![Diagrama-padrão de gateway transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>No IoT Edge versão 1,1 e mais antiga, os dispositivos IoT Edge não podem ser downstream de um gateway de IoT Edge.
+>
+>A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões de dispositivos de IoT Edge downstream. Para obter mais informações, alterne para a versão [IoT Edge 1,2](?view=iotedge-2020-11&preserve-view=true) deste artigo.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-A partir da versão 1.2.0, os dispositivos IoT Edge podem se conectar por meio de gateways transparentes.
+A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões de dispositivos de IoT Edge downstream.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 
@@ -95,7 +94,7 @@ Em dispositivos IoT downstream, use o parâmetro **gatewayHostname** na cadeia d
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-Em dispositivos IoT Edge downstream, use o parâmetro **parent_hostname** no arquivo config. YAML para apontar para o dispositivo pai.
+Em dispositivos IoT Edge downstream, use o parâmetro **parent_hostname** no arquivo de configuração para apontar para o dispositivo pai.
 ::: moniker-end
 
 #### <a name="secure-connection"></a>Conexão segura

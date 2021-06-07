@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018745"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
@@ -26,7 +26,7 @@ O LUIS tem novas [regiões](./luis-reference-regions.md) fornecidas para as APIs
 A rota da API de criação mudou de usar a rota **prog** para usar a rota **api**.
 
 
-| Versão | route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -35,7 +35,7 @@ A rota da API de criação mudou de usar a rota **prog** para usar a rota **api*
 ## <a name="endpoint-route-changes"></a>Alterações de rota de ponto de extremidade
 A API de ponto de extremidade tem novos parâmetros de cadeia de caracteres de consulta, bem como uma resposta diferente. Se o sinalizador detalhado for true, todas as intenções, independentemente da pontuação, serão retornadas em uma matriz denominada intenções, além de topScoringIntent.
 
-| Versão | Rota GET |
+| version | Rota GET |
 |--|--|
 |1|/luis/v1/application?ID={appId}&q={q}|
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
@@ -105,7 +105,7 @@ Resposta de êxito do ponto de extremidade v2:
 ## <a name="key-management-no-longer-in-api"></a>O gerenciamento de chaves não está mais na API
 As APIs da chave do ponto de extremidade de assinatura estão preteridas, retornando 410 GONE.
 
-| Versão | route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -115,7 +115,7 @@ As [chaves de ponto de extremidade](luis-how-to-azure-subscription.md) são gera
 ## <a name="new-versioning-route"></a>Nova rota de controle de versão
 Agora o modelo v2 está contido em uma [versão](luis-how-to-manage-versions.md). Um nome de versão tem 10 caracteres na rota. A versão padrão é "0,1".
 
-| Versão | route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -134,7 +134,7 @@ Várias APIs que retornam metadados do LUIS têm novos nomes.
 ## <a name="sample-renamed-to-suggest"></a>"Exemplo" renomeado para "sugestão"
 O LUIS sugere declarações com base em [declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md) existentes que podem aprimorar o modelo. Na versão anterior, isso era chamado de **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugestão**. Isso é chamado de **[Examinar declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do LUIS.
 
-| Versão | route |
+| version | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

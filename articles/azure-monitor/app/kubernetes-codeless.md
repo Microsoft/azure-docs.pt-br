@@ -6,10 +6,10 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/13/2020
 ms.openlocfilehash: 52bd6d2a98e5126ff2463de1ef99da03ca555567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87075298"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Monitoramento de aplicativo de instrumentação zero para aplicativos Kubernetes - Application Insights do Azure Monitor

@@ -2,18 +2,19 @@
 title: Tutorial – Gerenciar a configuração de máquina virtual do Windows no Azure
 description: Neste tutorial, você aprenderá a identificar alterações e a gerenciar atualizações de pacote em uma máquina virtual do Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: db7c0f2dbc547d78e3caa9ab37450c86278929bd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736661"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555934"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Windows no Azure
 
@@ -76,7 +77,7 @@ Para habilitar o Gerenciamento de Atualizações na VM:
 
 Uma validação é executada para determinar se o Gerenciamento de Atualizações está habilitado nessa VM. A validação inclui verificar se há um workspace do Log Analytics, uma conta de Automação vinculada e se a solução está no workspace.
 
-Use um workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para coletar dados que são gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
+Use um workspace do [Log Analytics](../../azure-monitor/logs/log-query-overview.md) para coletar dados que são gerados por recursos e serviços, como o Gerenciamento de Atualizações. O workspace fornece um único local para examinar e analisar dados de várias fontes.
 
 Para executar ações adicionais em VMs que exigem atualizações, use a Automação do Azure para executar runbooks nas VMs. Essas ações incluem o download ou a aplicação de atualizações.
 
@@ -86,7 +87,7 @@ Na janela **Habilitar o Gerenciamento de Atualizações**, escolha o workspace d
 
 Qualquer um dos seguintes pré-requisitos ausentes durante a integração é adicionado automaticamente:
 
-* Workspace do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* Workspace do [Log Analytics](../../azure-monitor/logs/log-query-overview.md)
 * [Automação](../../automation/index.yml)
 * Um [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md), que está habilitado na VM
 
@@ -113,7 +114,7 @@ Para agendar uma nova implantação de atualizações para a VM, selecione **Age
 | **Nome** |Insira um nome exclusivo para identificar a implantação de atualizações. |
 |**Sistema operacional**| Selecione **Linux** ou **Windows**.|
 | **Grupos para atualização** |Para as VMs hospedadas no Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, localizações e marcas. Essa consulta cria um grupo dinâmico de VMs hospedadas no Azure a serem incluídas em sua implantação. </br></br>Para as VMs não hospedadas no Azure, selecione uma pesquisa salva existente. Com essa pesquisa, você pode selecionar um grupo dessas VMs a ser incluído na implantação. </br></br> Para saber mais, confira [Grupos dinâmicos](../../automation/update-management/configure-groups.md).|
-| **Computadores para atualização** |Selecione **Pesquisa salva**, **Grupos importados** ou **Computadores**.<br/><br/>Se você selecionar **Computadores**, poderá escolher computadores individuais na lista suspensa. A preparação de cada computador é mostrada na coluna **PREPARAÇÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
+| **Computadores para atualização** |Selecione **Pesquisa salva**, **Grupos importados** ou **Computadores**.<br/><br/>Se você selecionar **Computadores**, poderá escolher computadores individuais na lista suspensa. A preparação de cada computador é mostrada na coluna **PREPARAÇÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/logs/computer-groups.md) |
 |**Classificações de atualização**|Escolha todas as classificações de atualização necessárias.|
 |**Incluir/excluir atualizações**|Selecione essa opção para abrir o painel **Incluir/Excluir**. As atualizações a serem incluídas e aquelas a serem excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, confira [Agendar uma implantação de atualização](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Configurações do agendamento**|Escolha a hora de início e selecione **Uma vez** ou **Recorrente**.|

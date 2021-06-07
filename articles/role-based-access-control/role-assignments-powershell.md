@@ -1,22 +1,22 @@
 ---
-title: Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell-RBAC do Azure
+title: Atribuir funções do Azure usando o Azure PowerShell-RBAC do Azure
 description: Saiba como conceder acesso aos recursos do Azure para usuários, grupos, entidades de serviço ou identidades gerenciadas usando o Azure PowerShell e o Azure RBAC (controle de acesso baseado em função) do Azure.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 3bb09133ba6991554072b4bf68b5306c78f868a7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 00f663b90f34f3b557329692f844bbbc1bf3207d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964279"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100556799"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell
+# <a name="assign-azure-roles-using-azure-powershell"></a>Atribuir funções do Azure usando o Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando Azure PowerShell.
 
@@ -24,19 +24,19 @@ ms.locfileid: "97964279"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar ou remover atribuições de função, você deve ter:
+Para atribuir funções, você deve ter:
 
-- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissões, como [administrador de acesso do usuário](built-in-roles.md#user-access-administrator) ou [proprietário](built-in-roles.md#owner)
 - [PowerShell em Azure cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 - A conta usada para executar o comando do PowerShell deve ter a `Directory.Read.All` permissão Microsoft Graph.
 
-## <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
+## <a name="steps-to-assign-an-azure-role"></a>Etapas para atribuir uma função do Azure
 
-Para conceder acesso no Azure RBAC, adicione uma atribuição de função. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo. Para adicionar uma atribuição de função, siga estas etapas.
+Atribuir uma função consiste em três elementos: entidade de segurança, definição de função e escopo.
 
 ### <a name="step-1-determine-who-needs-access"></a>Etapa 1: determinar quem precisa de acesso
 
-Você pode atribuir uma função a um usuário, grupo, entidade de serviço ou identidade gerenciada. Para adicionar uma atribuição de função, talvez seja necessário especificar a ID exclusiva do objeto. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou Azure PowerShell.
+Você pode atribuir uma função a um usuário, grupo, entidade de serviço ou identidade gerenciada. Para atribuir uma função, talvez seja necessário especificar a ID exclusiva do objeto. A ID tem o formato: `11111111-1111-1111-1111-111111111111`. Você pode obter a ID usando o portal do Azure ou Azure PowerShell.
 
 **Usuário**
 
@@ -74,7 +74,7 @@ Get-AzADServicePrincipal -SearchString <principalName>
 (Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
     
-### <a name="step-2-find-the-appropriate-role"></a>Etapa 2: localizar a função apropriada
+### <a name="step-2-select-the-appropriate-role"></a>Etapa 2: selecionar a função apropriada
 
 As permissões são agrupadas em funções. Você pode selecionar em uma lista de várias [funções internas do Azure](built-in-roles.md) ou pode usar suas próprias funções personalizadas. É uma prática recomendada conceder acesso com o privilégio mínimo necessário, portanto, evite atribuir uma função mais ampla.
 
@@ -128,9 +128,9 @@ Para o escopo do grupo de gerenciamento, você precisa do nome do grupo de geren
 Get-AzManagementGroup
 ```
     
-### <a name="step-4-add-role-assignment"></a>Etapa 4: Adicionar atribuição de função
+### <a name="step-4-assign-role"></a>Etapa 4: atribuir função
 
-Para adicionar uma atribuição de função, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Dependendo do escopo, o comando normalmente tem um dos formatos a seguir.
+Para atribuir uma função, use o comando [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) . Dependendo do escopo, o comando normalmente tem um dos formatos a seguir.
 
 **Escopo do recurso**
 
@@ -190,9 +190,9 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
     
-## <a name="add-role-assignment-examples"></a>Adicionar exemplos de atribuição de função
+## <a name="assign-role-examples"></a>Atribuir exemplos de função
 
-#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Adicionar atribuição de função para todos os contêineres de BLOB em um escopo de recurso da conta de armazenamento
+#### <a name="assign-a-role-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Atribuir uma função para todos os contêineres de BLOB em um escopo de recurso da conta de armazenamento
 
 Atribui a função de [colaborador de dados de blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) a uma entidade de serviço com a ID de objeto *55555555-5555-5555-5555-555555555555* em um escopo de recurso para uma conta de armazenamento denominada *storage12345*.
 
@@ -212,7 +212,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Adicionar atribuição de função para um escopo de recurso de contêiner de blob específico
+#### <a name="assign-a-role-for-a-specific-blob-container-resource-scope"></a>Atribuir uma função a um escopo de recurso de contêiner de blob específico
 
 Atribui a função de [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) a uma entidade de serviço com a ID de objeto *55555555-5555-5555-5555-555555555555* em um escopo de recurso para um contêiner de blob chamado *blob-container-01*.
 
@@ -233,7 +233,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Adicionar atribuição de função para um grupo em um escopo de recurso de rede virtual específico
+#### <a name="assign-a-role-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Atribuir uma função para um grupo em um escopo de recurso de rede virtual específico
 
 Atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) ao grupo *Pharma Sales admins* com a ID aaaaaaaa-AAAA-AAAA-AAAA-aaaaaaaaaaaa em um escopo de recurso para uma rede virtual chamada *Pharma-Sales-Project-Network*.
 
@@ -258,7 +258,7 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-#### <a name="add-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Adicionar uma atribuição de função para um usuário em um escopo de grupo de recursos
+#### <a name="assign-a-role-for-a-user-at-a-resource-group-scope"></a>Atribuir uma função para um usuário em um escopo de grupo de recursos
 
 Atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) ao usuário *patlong \@ contoso.com* no escopo do grupo de recursos *Pharma-Sales* .
 
@@ -297,7 +297,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Adicionar atribuição de função para um usuário usando a ID de função exclusiva em um escopo de grupo de recursos
+#### <a name="assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Atribuir uma função para um usuário usando a ID de função exclusiva em um escopo de grupo de recursos
 
 Há algumas ocasiões em que um nome de função pode ser alterado, por exemplo:
 
@@ -324,7 +324,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Adicionar atribuição de função para um aplicativo em um escopo de grupo de recursos
+#### <a name="assign-a-role-for-an-application-at-a-resource-group-scope"></a>Atribuir uma função para um aplicativo em um escopo de grupo de recursos
 
 Atribui a função [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) a um aplicativo com ID de objeto de entidade de serviço 77777777-7777-7777-7777-777777777777 no escopo do grupo de recursos *Pharma-Sales* .
 
@@ -344,7 +344,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Adicionar atribuição de função para um usuário em um escopo de assinatura
+#### <a name="assign-a-role-for-a-user-at-a-subscription-scope"></a>Atribuir uma função para um usuário em um escopo de assinatura
 
 Atribui a função [leitor](built-in-roles.md#reader) ao usuário *annm \@ example.com* em um escopo de assinatura.
 
@@ -364,7 +364,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Adicionar atribuição de função para um usuário em um escopo de grupo de gerenciamento
+#### <a name="assign-a-role-for-a-user-at-a-management-group-scope"></a>Atribuir uma função para um usuário em um escopo do grupo de gerenciamento
 
 Atribui a função de [leitor de cobrança](built-in-roles.md#billing-reader) ao usuário *Alain \@ example.com* em um escopo de grupo de gerenciamento.
 
@@ -383,36 +383,6 @@ ObjectId           : 44444444-4444-4444-4444-444444444444
 ObjectType         : User
 CanDelegate        : False
 ```
-
-## <a name="remove-a-role-assignment"></a>Excluir uma atribuição de função
-
-No RBAC do Azure, para remover o acesso, você remove uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
-
-O exemplo a seguir remove a atribuição de função de [colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) do usuário *patlong \@ contoso.com* no grupo de recursos *Pharma-Sales* :
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
--RoleDefinitionName "Virtual Machine Contributor" `
--ResourceGroupName pharma-sales
-```
-
-Remove a função [leitor](built-in-roles.md#reader) do grupo de *equipe Ana Mack* com ID 22222222-2222-2222-2222-222222222222 em um escopo de assinatura.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
--RoleDefinitionName "Reader" `
--Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-Remove a função de [leitor de cobrança](built-in-roles.md#billing-reader) do usuário *Alain \@ example.com* no escopo do grupo de gerenciamento.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
--RoleDefinitionName "Billing Reader" `
--Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
-```
-
-Se você receber a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de especificar também os `-Scope` `-ResourceGroupName` parâmetros ou. Para obter mais informações, consulte [solucionar problemas do RBAC do Azure](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Próximas etapas
 

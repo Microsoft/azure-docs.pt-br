@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: alkohli
 ms.openlocfilehash: dfff3bdd716c54a6c83dbc9fec63c794c1fba85b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96466024"
 ---
 # <a name="azure-stack-edge-pro-r-limits"></a>Limites de R Azure Stack Edge pro

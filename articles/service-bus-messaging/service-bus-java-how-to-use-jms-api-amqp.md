@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 97031abaedaa3e5595e290fa0292646feb744d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90086684"
 ---
 # <a name="use-the-java-message-service-with-azure-service-bus-and-amqp-10"></a>Usar o serviço de mensagem Java com o barramento de serviço do Azure e o AMQP 1,0
@@ -381,7 +381,7 @@ O barramento de serviço divide o plano de controle do plano de dados, de modo q
 | createTemporaryTopic        | Crie um tópico por meio da API de gerenciamento, das ferramentas ou do portal com *AutoDeleteOnIdle* definido como um período de expiração. |
 | createTopic                 | Crie um tópico por meio da API de gerenciamento, das ferramentas ou do Portal.                                         |
 | cancelar assinatura                 | Exclua a API, as ferramentas ou o portal de gerenciamento de tópico.                                            |
-| createBrowser               | Sem suporte. Use a funcionalidade Peek () da API do barramento de serviço.                         |
+| createBrowser               | Sem suporte: Use a funcionalidade Peek () da API do barramento de serviço.                         |
 | createQueue                 | Crie uma fila por meio da API de gerenciamento, das ferramentas ou do Portal.                                           | 
 | createTemporaryQueue        | Crie uma fila por meio da API de gerenciamento, das ferramentas ou do portal com *AutoDeleteOnIdle* definido como um período de expiração. |
 | receiveNoWait               | Use o método Receive () fornecido pelo SDK do barramento de serviço e especifique um tempo limite muito baixo ou zero. |

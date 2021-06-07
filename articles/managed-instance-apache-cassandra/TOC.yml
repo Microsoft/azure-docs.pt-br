@@ -1,0 +1,28 @@
+- name: Documentação da Instância Gerenciada do Azure para Apache Cassandra
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Instância Gerenciada do Azure para Apache Cassandra?
+      href: introduction.md
+- name: Conceitos
+  items:
+    - name: Perguntas frequentes
+      href: faq.md
+    - name: Instância Gerenciada versus API do Cassandra do Azure Cosmos DB
+      href: compare-cosmosdb-managed-instance.md
+- name: Inícios rápidos
+  items:
+    - name: Criar um cluster – Portal
+      href: create-cluster-portal.md
+    - name: Criar um cluster – CLI
+      href: create-cluster-cli.md
+    - name: Configurar um cluster híbrido
+      href: configure-hybrid-cluster.md
+    - name: Implantar o cluster Spark com o Databricks
+      href: deploy-cluster-databricks.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar com a CLI do Azure
+      href: manage-resources-cli.md
+    - name: Visualizar métricas no Prometheus com o Grafana
+      href: visualize-prometheus-grafana.md

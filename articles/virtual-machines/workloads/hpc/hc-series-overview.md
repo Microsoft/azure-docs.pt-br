@@ -3,17 +3,17 @@ title: Visão geral da VM da série HC-máquinas virtuais do Azure | Microsoft D
 description: Saiba mais sobre o suporte de visualização para o tamanho da VM da série HC no Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b9fe978da9accd28ea0e538f458325f10c9c5d8d
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831883"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802804"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
@@ -31,7 +31,7 @@ As CPUs Intel Xeon Platinum, Gold e prata também introduzem uma rede de malha 2
 
 O diagrama a seguir mostra a diferenciação de núcleos reservada para o hipervisor do Azure e a VM da série HC.
 
-![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HC](./media/hc-series-overview/segregation-cores.png)
+![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HC](./media/architecture/hc-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificações de hardware
 
@@ -51,13 +51,13 @@ O diagrama a seguir mostra a diferenciação de núcleos reservada para o hiperv
 |-----------------------------|-----------------------|
 | Tamanho máximo do trabalho MPI            | 13200 núcleos (300 VMs em um único conjunto de dimensionamento de máquinas virtuais com singlePlacementGroup = true)  |
 | Suporte a MPI                 | HPC-X, Intel MPI, OpenMPi, MVAPICH2, MPICH, plataforma MPI  |
-| Estruturas adicionais       | Comunicação unificada X, libfabric, PGAS |
+| Estruturas adicionais       | UCX, libfabric, PGAS |
 | Suporte do armazenamento do Azure       | Discos Standard e Premium (máximo de 4 discos) |
-| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Suporte do Orchestrator        | CycleCloud, lote  |
+| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Suporte do Orchestrator        | CycleCloud, lote, AKS; [Opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [arquitetura do Intel Xeon SP](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
-- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 9558e6c5ddd58b1d5fd70da03187caef50d1275d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865563"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Acessar logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux
 
@@ -152,11 +152,11 @@ A `ResourceManager` interface do usuário do yarn é executada no cabeçalho do 
 
 2. Na lista de serviços à esquerda, selecione **yarn**.
 
-    ![Serviço yarn do Apache Ambari selecionado](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png" alt-text="Serviço yarn do Apache Ambari selecionado":::
 
 3. Na lista suspensa **links rápidos** , selecione um dos nós de cabeçalho do cluster e, em seguida, selecione **`ResourceManager Log`** .
 
-    ![Links rápidos do Apache Ambari yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png" alt-text="Links rápidos do Apache Ambari yarn":::
 
     Você verá uma lista de links para logs do YARN.
 

@@ -4,10 +4,10 @@ description: Você pode criar clusters do Service Fabric em qualquer VM ou compu
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: d83ec139c367d9a539db173a42ae909f57d5d71a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96576121"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparando clusters do Service Fabric independentes e do Azure no Windows Server e no Linux

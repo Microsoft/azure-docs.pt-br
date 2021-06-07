@@ -1,26 +1,22 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o portal do Azure
 description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f3060a7308d728b31266008d75e18470883e4480
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 02/18/2021
+ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508587"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606678"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para um banco de dados no Banco de Dados SQL do Azure usando o portal do Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega os dados delta de várias tabelas em um banco de dados do SQL Server para um banco de dados no Banco de Dados SQL do Azure.    
 
@@ -257,7 +253,7 @@ END
 8. Clique em **Criar**.      
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
-   ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 10. Clique no bloco **Criar e Monitorar** para iniciar a interface do usuário do Azure Data Factory em uma guia separada.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
@@ -295,7 +291,7 @@ Nesta etapa, você vincula seu Banco de Dados do SQL Server ao data factory.
 
 1. Na janela **Conexões**, alterne da guia **Integration Runtime** para a guia **Serviços Associados** e clique em **+ Novo**.
 
-   ![Novo serviço vinculado](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Novo serviço vinculado.":::
 1. Na janela **Novo Serviço Vinculado**, selecione **SQL Server** e clique em **Continuar**. 
 
 1. Na janela **Novo Serviço Vinculado**, execute estas etapas:

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74815572"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Solução de problemas do SDK de Dispositivos de Fala

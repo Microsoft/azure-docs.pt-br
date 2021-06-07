@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 08/19/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b4209ce159c9d0bbee01dd422b98832f6bb5713
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1eca17106067d964ba2f280d358b2973b41459a6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968996"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783261"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando PowerShell
 

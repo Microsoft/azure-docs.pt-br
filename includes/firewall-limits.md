@@ -9,10 +9,10 @@ ms.date: 11/06/2020
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: d479c3087b971aa17cf145e0111890da07381eab
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94386478"
 ---
 | Recurso | Limite |

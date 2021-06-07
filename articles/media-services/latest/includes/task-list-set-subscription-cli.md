@@ -4,17 +4,17 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
-ms.custom: CLI, devx-track-azurecli
-ms.openlocfilehash: 94df457cc93a059de3f9bb294bd1c568b095781c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: MT
+ms.custom: CLI
+ms.openlocfilehash: ffd053b98a54d3e23eec62427f5c3d82df58954d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94885126"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800327"
 ---
 <!-- List and set subscriptions -->
 
-1. Obtenha a lista de assinaturas usando o comando [az account list](/cli/azure/account#az-account-list):
+1. Obtenha a lista de assinaturas usando o comando [az account list](/cli/azure/account#az_account_list):
 
     ```
     az account list --output table

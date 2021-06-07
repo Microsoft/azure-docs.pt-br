@@ -6,13 +6,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 585a325c2a5650510b2138c0d708cebdfd17d034
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 1540e088565f69ca6d923202ad9b32b8d4ccf0ee
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375724"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584417"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando a ferramenta Copiar Dados
 
@@ -20,7 +20,7 @@ ms.locfileid: "100375724"
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-copy-data-tool.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, você usará a ferramenta Copiar Dados para criar um pipeline que copia dados do Armazenamento de Blobs do Azure para um Banco de Dados SQL.
 
@@ -82,7 +82,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 
     O nome do seu data factory deve ser _globalmente exclusivo_. Você deve ver a seguinte mensagem de erro:
 
-    ![Mensagem de erro do novo data factory](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 
     Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **assinatura** do Azure na qual deseja criar o novo data factory.
@@ -100,7 +100,7 @@ Prepare o Armazenamento de Blobs e o Banco de Dados SQL para o tutorial executan
 
 1. Depois de finalizada a criação, a home page do **Data Factory** é exibida.
 
-    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 1. Para iniciar a interface do usuário do Azure Data Factory em uma guia separada, selecione o bloco **Criar e Monitorar**.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Use a ferramenta Copy Data para criar um pipeline

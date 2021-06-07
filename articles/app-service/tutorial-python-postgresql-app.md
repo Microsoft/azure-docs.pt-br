@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 6112247a99c519aad8aadf7946c7707480b3b491
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 882a9fb0f8d528ca21cdc8149c60b9d5bdaf1723
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558413"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767087"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -160,7 +160,7 @@ Quando é concluído, o comando gera um objeto JSON que contém cadeias de conex
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `-l <location-name>`, pode ser definido como qualquer uma das [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). É possível obter as regiões disponíveis para sua assinatura com o comando [`az account list-locations`](/cli/azure/account#az-account-list-locations). Para aplicativos de produção, coloque seu banco de dados e seu aplicativo na mesma localização.
+> `-l <location-name>`, pode ser definido como qualquer uma das [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). É possível obter as regiões disponíveis para sua assinatura com o comando [`az account list-locations`](/cli/azure/account#az_account_list_locations). Para aplicativos de produção, coloque seu banco de dados e seu aplicativo na mesma localização.
 
 Está com problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
 
@@ -172,7 +172,7 @@ Nesta seção, você criará o host do aplicativo do Serviço de Aplicativo, con
 
 No terminal, verifique se você está na pasta do repositório *djangoapp* que contém o código do aplicativo.
 
-Crie um aplicativo do Serviço de Aplicativo (o processo de host) com o comando [`az webapp up`](/cli/azure/webapp#az-webapp-up):
+Crie um aplicativo do Serviço de Aplicativo (o processo de host) com o comando [`az webapp up`](/cli/azure/webapp#az_webapp_up):
 
 ```azurecli
 az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
@@ -205,7 +205,7 @@ Com o código implantado no Serviço de Aplicativo, a próxima etapa é conectar
 
 O código do aplicativo espera encontrar informações sobre o banco de dados em quatro variáveis de ambiente chamadas `DBHOST`, `DBNAME`, `DBUSER` e `DBPASS`.
 
-Para definir variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) a seguir.
+Para definir variáveis de ambiente no Serviço de Aplicativo, crie "configurações do aplicativo" usando o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) a seguir.
 
 ```azurecli
 az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
@@ -231,7 +231,7 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 
     Substitua `<app-name>` pelo nome usado anteriormente no comando `az webapp up`.
 
-    Você também pode se conectar a uma sessão SSH com o comando [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh). No Windows, esse comando requer a CLI do Azure 2.18.0 ou superior.
+    Você também pode se conectar a uma sessão SSH com o comando [`az webapp ssh`](/cli/azure/webapp#az_webapp_ssh). No Windows, esse comando requer a CLI do Azure 2.18.0 ou superior.
 
     Se você não puder se conectar à sessão SSH, o aplicativo não terá sido iniciado. [Confira os logs de diagnóstico](#6-stream-diagnostic-logs) para obter detalhes. Por exemplo, se você não tiver criado as configurações de aplicativo necessárias na seção anterior, os logs indicarão `KeyError: 'DBNAME'`.
 
@@ -365,7 +365,7 @@ Está com problemas? [Fale conosco](https://aka.ms/DjangoCLITutorialHelp).
 Em `polls/models.py`, localize a linha que começa com `choice_text` e altere o parâmetro `max_length` para 100:
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 

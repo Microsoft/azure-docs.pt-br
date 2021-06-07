@@ -17,10 +17,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313898"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Enviar notificações entre plataformas com os hubs de notificação do Azure
@@ -41,7 +41,7 @@ Esta seção usa o código de exemplo que você criou no tutorial [enviar notifi
 
 Para enviar notificações entre plataformas usando modelos, faça o seguinte:
 
-1. No Visual Studio no **Gerenciador de soluções**, expanda a pasta **controladores** e, em seguida, abra o arquivo *RegisterController.cs* .
+1. No Visual Studio no **Gerenciador de soluções**, expanda a pasta **controladores** e, em seguida, abra o arquivo *RegisterController. cs* .
 
 1. Localize o bloco do código no método `Put` que cria um novo registro e, em seguida, substitua o conteúdo `switch` pelo seguinte código:
 
@@ -76,7 +76,7 @@ Para enviar notificações entre plataformas usando modelos, faça o seguinte:
 
     Esse código chama o método da plataforma específica para criar um registro de modelo em vez de um registro nativo. Como os registros de modelo são derivados de registros nativos, você não precisa modificar os registros existentes.
 
-1. No **Gerenciador de soluções**, na pasta **controladores** , abra o arquivo **NotificationsController.cs** . Substitua o método `Post` pelo seguinte código:
+1. No **Gerenciador de soluções**, na pasta **controladores** , abra o arquivo **NotificationsController. cs** . Substitua o método `Post` pelo seguinte código:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

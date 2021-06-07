@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91531983"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar um aplicativo Java implantado em um cluster local do Service Fabric
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. Na janela Importar Projetos, escolha a opção **Selecionar diretório raiz** e escolha o diretório **Votação**. Se você seguiu a primeira série de tutoriais, o diretório **Votação** estará no diretório **Eclipse-espaço de trabalho**.
 
-4. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Neste tutorial, o front-end sem estado é usado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Neste exemplo, a porta 8001 foi definida para depuração.
+4. Atualize entryPoint.sh do serviço que você quer depurar para que ele inicie o processo java com parâmetros de depuração remota. Para este tutorial, o front-end sem estado é usado: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Neste exemplo, a porta 8001 foi definida para depuração.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar

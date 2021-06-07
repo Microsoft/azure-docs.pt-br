@@ -8,10 +8,10 @@ ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: ed7020a58f3f15403108934bcc3fab644bd1b627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99584458"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure

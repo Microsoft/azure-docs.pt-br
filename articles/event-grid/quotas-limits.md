@@ -2,13 +2,13 @@
 title: Cotas e limites – Grade de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece limites e cotas para a Grade de Eventos do Azure. Por exemplo, número de assinaturas para tópico, número de tópicos personalizados por assinatura etc.
 ms.topic: reference
-ms.date: 07/07/2020
-ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 02/17/2021
+ms.openlocfilehash: a885ad45b2dcbcd5108249dc011f0f175e9991b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120425"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104702449"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Limites e cotas da Grade de Eventos do Azure
 Este artigo lista as cotas e os limites na Grade de Eventos do Azure. 

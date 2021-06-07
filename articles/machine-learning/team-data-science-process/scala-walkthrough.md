@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321375"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
@@ -258,8 +258,8 @@ sqlResultsDF.show(3)
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2,9 |1.0 |
-|        16,0 |2.0 |3.4 |1.0 |
-|        10.5 |2.0 |1.0 |1.0 |
+|        16,0 |2,0 |3.4 |1.0 |
+|        10,5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
 Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de Jupyter de visualização automática.
@@ -301,7 +301,7 @@ sqlResults
  O kernel do Spark visualiza automaticamente a saída das consultas SQL (HiveQL) depois que você executa o código. Você pode escolher entre vários tipos de visualizações:
 
 * Tabela
-* Pie
+* Pizza
 * Linha
 * Área
 * Barra

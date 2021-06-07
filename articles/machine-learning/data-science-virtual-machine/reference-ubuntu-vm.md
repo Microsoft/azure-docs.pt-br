@@ -3,18 +3,18 @@ title: 'Referência: Ubuntu Máquina Virtual de Ciência de Dados'
 titleSuffix: Azure Data Science Virtual Machine
 description: Detalhes sobre as ferramentas incluídas no Ubuntu Máquina Virtual de Ciência de Dados
 author: gvashishtha
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e9a55f72718d6ed5991f3d0f16323409bb0f699f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101661062"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Ciência de Dados
 

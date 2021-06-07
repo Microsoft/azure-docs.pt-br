@@ -4,17 +4,17 @@ description: Saiba como usar Azure PowerShell para criar uma imagem em uma galer
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: a7b8cb10f75d7a99198ddfdc1a1bbef3c34a03da
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f7afc671dbb3d4ef8aa30222c4f235c9f7869d02
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685099"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556835"
 ---
 # <a name="create-an-image-from-a-vm"></a>Criar uma imagem de uma VM
 

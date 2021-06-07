@@ -1,5 +1,5 @@
 ---
-title: Planejar e gerenciar custos para Azure Cosmos DB
+title: Planejar e gerenciar custos do Azure Cosmos DB
 description: Saiba como planejar e gerenciar custos para Azure Cosmos DB usando a análise de custo no portal do Azure.
 author: SnehaGunda
 ms.author: sngun
@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602139"
 ---
-# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos para Azure Cosmos DB
+# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planejar e gerenciar custos do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Este artigo descreve como você pode planejar e gerenciar custos para Azure Cosmos DB. Primeiro, use a calculadora de capacidade de Azure Cosmos DB para estimar o custo da carga de trabalho antes de criar qualquer recurso. Posteriormente, você pode examinar o custo estimado e começar a criar seus recursos.
@@ -83,7 +83,7 @@ Ao usar a análise de custo, você pode exibir os custos de Azure Cosmos DB em g
 
 Para exibir os custos de Azure Cosmos DB na análise de custo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 1. Abra o escopo no portal do Azure e selecione **análise de custo** no menu. Por exemplo, vá para **assinaturas**, selecione uma assinatura na lista e, em seguida, selecione  **análise de custo** no menu. Selecione o **escopo** para alternar para um escopo diferente na análise de custo.
 

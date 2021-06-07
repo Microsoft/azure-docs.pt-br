@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082613"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Execute o planejador de implantação do Azure Site Recovery para recuperação de desastre do Hyper-V no Azure
@@ -157,7 +157,7 @@ Quando o nome da conta de armazenamento e a chave são passados, a ferramenta me
 O Azure Site Recovery não dá suporte para VMs que têm discos de passagem e iSCSI. A ferramenta não pode detectar e analisar discos de passagem e iSCSI anexados às VMs.
 
 ## <a name="generate-a-report"></a>Gerar um relatório
-A ferramenta gera um arquivo do Microsoft Excel com macros habilitadas (arquivo XLSM) como a saída de relatório. Ela resume todas as recomendações de implantação. O relatório é denominado DeploymentPlannerReport_*identificador numérico exclusivo*.xlsm e colocado no diretório especificado.
+A ferramenta gera um arquivo do Microsoft Excel com macros habilitadas (arquivo XLSM) como a saída de relatório. Ela resume todas as recomendações de implantação. O relatório é denominado DeploymentPlannerReport_ *identificador numérico exclusivo*.xlsm e colocado no diretório especificado.
 
 Após a conclusão da criação de perfil, você poderá executar a ferramenta no modo de geração de relatório. 
 
@@ -292,7 +292,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 ### <a name="throughput-considerations"></a>Considerações sobre a taxa de transferência
 
-A ferramenta cria vários arquivos asrvhdfile*número*.vhd de 64 MB (em onde *número* é o número de arquivos) no diretório especificado. A ferramenta carrega os arquivos para a conta de armazenamento para obter a taxa de transferência. Depois que a taxa de transferência é medida, a ferramenta exclui todos os arquivos da conta de armazenamento e do servidor local. Se a ferramenta for encerrada por qualquer motivo enquanto estiver calculando a taxa de transferência, não excluirá os arquivos da conta de armazenamento ou do servidor local. Você deve excluí-los manualmente.
+A ferramenta cria vários arquivos asrvhdfile *número*.vhd de 64 MB (em onde *número* é o número de arquivos) no diretório especificado. A ferramenta carrega os arquivos para a conta de armazenamento para obter a taxa de transferência. Depois que a taxa de transferência é medida, a ferramenta exclui todos os arquivos da conta de armazenamento e do servidor local. Se a ferramenta for encerrada por qualquer motivo enquanto estiver calculando a taxa de transferência, não excluirá os arquivos da conta de armazenamento ou do servidor local. Você deve excluí-los manualmente.
 
 A taxa de transferência é medida em um momento específico no tempo. É a taxa de transferência máxima que o Azure Site Recovery pode alcançar durante a replicação, se todos os outros fatores permanecem os mesmos. Por exemplo, se qualquer aplicativo começar a consumir mais largura de banda na mesma rede, a taxa de transferência real variará durante a replicação. O resultado da taxa de transferência medida será diferente se a operação GetThroughput for executada quando as VMs protegidas tiverem alta variação de dados. 
 

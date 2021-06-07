@@ -1,20 +1,20 @@
 ---
 title: Carregar dados de imagem na nuvem com o Armazenamento do Azure | Microsoft Docs
 description: Use o armazenamento de Blobs do Azure com aplicativos Web para armazenar dados de aplicativo em uma conta de armazenamento. Este tutorial cria um aplicativo Web que armazena e exibe imagens do armazenamento do Azure.
-author: mhopkins-msft
+author: twooley
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: mhopkins
+ms.author: twooley
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b50aadfa16ed95bacb5247187c15489a1b017d39
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f751b93a7d298763da5a37a54f400d6fc56a58e3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676567"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277956"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com o Armazenamento do Azure
 

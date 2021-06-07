@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ecb1c3dc0e72523b19e3183e17306774b3ce164
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7b12b6c1cdc85eaba531f34b23aa74bee6b38f7b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370369"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103201117"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Crie uma **implantação automática do IoT Edge** usando a interface de linha de comando do Azure para gerenciar implantações contínuas para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](../iot-hub/iot-hub-automatic-device-management.md) do Hub IoT. Implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o status e a integridade dos módulos e fazer alterações, quando necessário.
 

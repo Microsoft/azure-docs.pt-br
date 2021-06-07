@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 08966549d2c4d2bf701ee0dbfc5ed24f202396fc
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891369"
 ---
 # <a name="core-io-operations"></a>Operações de e/s básica
@@ -34,7 +34,7 @@ Por padrão, o leitor usará o caractere de vírgula como o delimitador. No enta
 | Delimitador | Caractere |
 | :-- | :-- |
 | Vírgula | `,` |
-| Guia | `\t` |
+| Tab | `\t` |
 | Pipe | `|` |
 
 Esse leitor também dá suporte a qualificadores de texto que são usados para manipular células que contêm o caractere delimitador. O caractere quote ( `'"'` ) é o qualificador de texto padrão, mas pode ser alterado para qualquer caractere único.

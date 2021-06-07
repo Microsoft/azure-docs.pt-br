@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
 ms.openlocfilehash: c9b1b2782a34285ae194f2998a7cd053cf3c0c70
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325665"
 ---
 # <a name="encryption-in-azure-backup"></a>Criptografia no Backup do Azure

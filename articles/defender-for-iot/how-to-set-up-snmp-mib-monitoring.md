@@ -1,18 +1,14 @@
 ---
 title: Configurar o monitoramento de MIB do SNMP
 description: Você pode executar o monitoramento de integridade do sensor usando SNMP. O sensor responde a consultas SNMP enviadas de um servidor de monitoramento autorizado.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523814"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781663"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>Configurar o monitoramento de MIB do SNMP
 
@@ -36,7 +32,7 @@ Antes de começar a configurar o monitoramento SNMP, você precisa abrir a porta
 | Uso de memória | 1.3.6.1.4.1.9.9.53313.3.3 | GAUGE32 | Indicação de zero a 100 |
 | Uso de disco | 1.3.6.1.4.1.9.9.53313.3.4 | GAUGE32 | Indicação de zero a 100 |
 | Status do Serviço | 1.3.6.1.4.1.9.9.53313.5 | DISPLAYSTRING | Online ou offline se um dos quatro componentes cruciais estiver inativo |
-| Largura de Banda | Fora do escopo para 2,4 |  | A largura de banda recebida em cada interface do monitor em Xsense |
+| Largura de banda | Fora do escopo para 2,4 |  | A largura de banda recebida em cada interface do monitor em Xsense |
 
    - Chaves não existentes respondem com NULL, HTTP 200, com base em [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).
     
@@ -82,8 +78,8 @@ Para definir o monitoramento de integridade SNMP V3:
     | **Criptografia** | Selecione DES ou AES. |
     | **Chave Secreta** | A chave deve conter exatamente oito caracteres e incluir qualquer combinação de caracteres alfanuméricos (letras maiúsculas, letras minúsculas e números). |
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Exportar logs de solução de problemas](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 10206aced4f38f4d157f46703aac2d28ec863274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319143"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101093019"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Diretrizes de comunicações da nuvem para o dispositivo
 
@@ -29,6 +29,8 @@ O Hub IoT fornece três opções para os aplicativos de dispositivos exporem fun
 * [Propriedades desejadas do gêmeo](iot-hub-devguide-device-twins.md), para comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos.
 
 * [Mensagens da nuvem para o dispositivo](iot-hub-devguide-messages-c2d.md) para notificações unidirecionais para o aplicativo do dispositivo.
+
+Para saber como o [Azure IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) usa essas opções para controlar dispositivos de plug and Play IOT, consulte [Guia do desenvolvedor do serviço de IOT plug and Play](../iot-pnp/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -41,7 +43,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação da n
 | Durabilidade | Dispositivos desconectados não são contatados. O back-end da solução é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
 | Destinos | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs](iot-hub-devguide-jobs.md). | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs](iot-hub-devguide-jobs.md). | Dispositivo único por **deviceId**. |
 | Tamanho | O tamanho de payload do método direto máximo é 128 KB. | O tamanho máximo de propriedades desejadas é 32 KB. | Mensagens de até 64 KB. |
-| Frequência | Alta. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
+| Frequência | Alta: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa: Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
 | Protocolo | Disponível usando MQTT ou AMQP. | Disponível usando MQTT ou AMQP. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTPS. |
 
 Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem para o dispositivo nos seguintes tutoriais:

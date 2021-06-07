@@ -9,10 +9,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 10/8/2019
 ms.openlocfilehash: e1c6825820ae943d10157279dfe93922a7521b75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91295610"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -24,7 +24,7 @@ Problemas de conexão podem ser causados por várias coisas, como:
 * Informações de entrada incorretas
 * Limite de conexão atingido para o grupo de servidores
 * Problemas com a infraestrutura do serviço
-* Manutenção do serviço
+* Manutenção de serviço
 * O nó do coordenador que está fazendo failover para um novo hardware
 
 Geralmente, os problemas de conexão para o Citus (hiperescala) podem ser classificados da seguinte maneira:

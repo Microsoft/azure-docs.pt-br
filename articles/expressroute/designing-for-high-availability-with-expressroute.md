@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: duau
 ms.openlocfilehash: 3602c3944e8731263fbb55f024c276783950329f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202354"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetando para alta disponibilidade com o ExpressRoute

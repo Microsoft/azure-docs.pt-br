@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: e1099f271291c6d86610237454e08e06b5fe48c7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92522148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: integração do Azure Active Directory com o Humanity
@@ -49,11 +49,11 @@ Para configurar a integração do Humanity ao Azure AD, você precisará adicion
 
 **Para adicionar o Humanity da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Humanity ao Azure AD, você precisará adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Humanity** , selecione **Humanity** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Humanity**, selecione **Humanity** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Humanity na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Humanity, com base em uma usuária de teste chamada **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Humanity, com base em uma usuária de teste chamada **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Humanity.
 
 Para configurar e testar o logon único do Azure AD com o Humanity, você precisará concluir os seguintes blocos de construção:
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Humanity, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Humanity** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Humanity**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Humanity](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://company.humanity.com/includes/saml/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://company.humanity.com/includes/saml/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://company.humanity.com/app/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Humanity](https://www.humanity.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar Humanity** , copie a URL apropriada, de acordo com suas necessidades.
+6. Na seção **Configurar Humanity**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,10 +126,10 @@ Para configurar o logon único do Azure AD com o Humanity, realize as seguintes 
 
 1. Em outra janela do navegador da Web, faça logon em seu site de empresa do **Humanity** como um administrador.
 
-2. No menu na parte superior, clique em **Administrador** .
+2. No menu na parte superior, clique em **Administrador**.
 
     ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Admin")
-3. Em **Integração** , clique em **Logon Único** .
+3. Em **Integração**, clique em **Logon Único**.
 
     ![Captura de tela que mostra a opção Logon Único selecionada no menu Integração.](./media/shiftplanning-tutorial/iC786620.png "Logon Único")
 
@@ -137,23 +137,23 @@ Para configurar o logon único do Azure AD com o Humanity, realize as seguintes 
 
     ![Captura de tela que mostra a seção Logon Único, na qual você pode inserir os valores descritos.](./media/shiftplanning-tutorial/iC786905.png "Logon Único")
 
-    a. Selecione **SAML Habilitado** .
+    a. Selecione **SAML Habilitado**.
 
-    b. Selecione **Permitir Logon de Senha** .
+    b. Selecione **Permitir Logon de Senha**.
 
-    c. Na caixa de texto **URL do Emissor SAML** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    c. Na caixa de texto **URL do Emissor SAML**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    d. Na caixa de texto **URL de Logout Remoto** , cole o valor da **URL de Logout** copiado do portal do Azure.
+    d. Na caixa de texto **URL de Logout Remoto**, cole o valor da **URL de Logout** copiado do portal do Azure.
 
     e. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509** .
 
-    f. Clique em **Salvar Configurações** .
+    f. Clique em **Salvar Configurações**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -165,40 +165,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Humanity.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Humanity** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Humanity**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Humanity** .
+2. Na lista de aplicativos, selecione **Humanity**.
 
     ![O link do Humanity na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-humanity-test-user"></a>Criar um usuário de teste do Humanity
 
@@ -208,15 +208,15 @@ Para permitir que os usuários do Azure AD façam logon no Humanity, eles dever�
 
 1. Faça logon em seu site de empresa do **Humanity** como administrador.
 
-2. Clique em **Administrador** .
+2. Clique em **Administrador**.
 
     ![Administrador](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
-3. Clique em **Equipe** .
+3. Clique em **Equipe**.
 
     ![Equipe](./media/shiftplanning-tutorial/ic786623.png "Equipe")
 
-4. Em **Ações** , clique em **Adicionar Funcionários** .
+4. Em **Ações**, clique em **Adicionar Funcionários**.
 
     ![Adicionar Funcionários](./media/shiftplanning-tutorial/iC786624.png "Adicionar Funcionários")
 
@@ -224,9 +224,9 @@ Para permitir que os usuários do Azure AD façam logon no Humanity, eles dever�
 
     ![Salvar Funcionários](./media/shiftplanning-tutorial/iC786625.png "Salvar Funcionários")
 
-    a. Nas caixas de texto correspondentes, digite o **Nome** , o **Sobrenome** e o **Email** de uma conta válida do Azure AD que você deseja provisionar.
+    a. Nas caixas de texto correspondentes, digite o **Nome**, o **Sobrenome** e o **Email** de uma conta válida do Azure AD que você deseja provisionar.
 
-    b. Clique em **Salvar Funcionários** .
+    b. Clique em **Salvar Funcionários**.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do Humanity ou as APIs fornecidas pelo Humanity para provisionar as contas de usuário do Azure AD.

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021445"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de Dados Escalonáveis com o Azure Data Lake: um passo a passo de ponta a ponta
@@ -738,7 +738,7 @@ Um exemplo de um experimento de classificação binária lendo dados da tabela d
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-Após a criação do experimento, clique em configurar serviço Web **de previsão de serviço Web**  -->  **Predictive Web Service**
+Após a criação do experimento, clique em configurar serviço Web **de previsão de serviço Web**  -->  
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
@@ -753,7 +753,7 @@ O painel do serviço Web será exibido em breve:
 ## <a name="summary"></a>Resumo
 Ao concluir este passo a passos, você criou um ambiente de ciência de dados para criar soluções escalonáveis de ponta a ponta no Azure Data Lake. Esse ambiente foi usado para analisar um grande conjunto de dados público, realizando as etapas canônicas do Processo de Ciência de Dados da aquisição de dados ao treinamento de modelo e prosseguindo para a implantação do modelo como um serviço Web. O U-SQL foi usado para processar, explorar e obter amostras de dados. O Python e o hive foram usados com Azure Machine Learning Studio (clássico) para criar e implantar modelos de previsão.
 
-## <a name="whats-next"></a>E agora?
+## <a name="whats-next"></a>O que vem a seguir?
 O roteiro de aprendizagem do [TDSP (Processo de Ciência de Dados de Equipe)](./index.yml) fornece links para tópicos que descrevem cada etapa do processo de análise avançada. Há diversas instruções detalhadas listadas na página [Passo a passo do Processo de Ciência de Dados de Equipe](walkthroughs.md) que demonstram como usar recursos e serviços nos diversos cenários de análise preditiva:
 
 * [O processo de ciência de dados de equipe em ação: usando o Azure Synapse Analytics](sqldw-walkthrough.md)

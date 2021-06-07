@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420658"
 ---
 # <a name="train-pytorch-model"></a>Treinar modelo de Pytorch
@@ -37,17 +37,17 @@ Este artigo descreve como usar o módulo de **modelo Train Pytorch** no designer
 
     O conjunto de e-DataSet de treinamento têm as mesmas categorias de rótulo, caso contrário, um InvalidDatasetError será gerado.
 
-4.  Para **épocas** , especifique quantas épocas você gostaria de treinar. O conjunto de um inteiro será iterado em todas as épocas, por padrão, 5.
+4.  Para **épocas**, especifique quantas épocas você gostaria de treinar. O conjunto de um inteiro será iterado em todas as épocas, por padrão, 5.
 
-5.  Em **tamanho do lote** , especifique quantas instâncias deseja treinar em um lote, por padrão, 16.
+5.  Em **tamanho do lote**, especifique quantas instâncias deseja treinar em um lote, por padrão, 16.
 
-6.  Para **taxa de aprendizagem** , especifique um valor para a *taxa de aprendizado*. Os valores de taxa de aprendizagem controlam o tamanho da etapa usada no otimizador como SGD cada vez que o modelo é testado e corrigido.
+6.  Para **taxa de aprendizagem**, especifique um valor para a *taxa de aprendizado*. Os valores de taxa de aprendizagem controlam o tamanho da etapa usada no otimizador como SGD cada vez que o modelo é testado e corrigido.
 
     Ao tornar a taxa menor, você testa o modelo com mais frequência, com o risco que você pode ficar preso em um limite local. Aumentando a etapa, você pode convergir mais rapidamente, com o risco mínimo de errar o alvo verdadeiro. Por padrão, 0, 1.
 
-7.  Para **semente aleatória** , opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do experimento entre execuções.
+7.  Para **semente aleatória**, opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do experimento entre execuções.
 
-8.  Para **paciência** , especifique quantas épocas para interromper o treinamento antecipado se a perda de validação não diminuir consecutivamente. Por padrão 3.
+8.  Para **paciência**, especifique quantas épocas para interromper o treinamento antecipado se a perda de validação não diminuir consecutivamente. Por padrão 3.
 
 9.  Envie o pipeline. Se o seu conjunto de seus conjuntos de seu tamanho for maior, levará um tempo e a computação da GPU será recomendada.
 
@@ -58,7 +58,7 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 ## <a name="technical-notes"></a>Observações técnicas
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome               | Tipo                    | Descrição                              |
+| Nome               | Type                    | Descrição                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modelo não treinado    | UntrainedModelDirectory | Modelo não treinado, exigir pytorch         |
 | Conjunto de dados de treinamento   | ImageDirectory          | Conjunto de dados de treinamento                         |
@@ -66,17 +66,17 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name          | Intervalo            | Type    | Padrão | Descrição                              |
+| Nome          | Intervalo            | Type    | Padrão | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Épocas        | >0               | Integer | 5       | Selecione a coluna que contém a coluna de rótulo ou de resultado |
-| Tamanho do lote    | >0               | Integer | 16      | Quantas instâncias para treinar em um lote   |
+| Épocas        | >0               | Inteiro | 5       | Selecione a coluna que contém a coluna de rótulo ou de resultado |
+| Tamanho do lote    | >0               | Inteiro | 16      | Quantas instâncias para treinar em um lote   |
 | Taxa de aprendizado | >= double.Épsilon | Float   | 0,001   | A taxa de aprendizagem inicial do otimizador Descendente do gradiente estocástico. |
 | Propagação aleatória   | Qualquer              | Integer | 1       | A propagação para o gerador de número aleatório usado pelo modelo. |
-| Paciência      | >0               | Integer | 3       | Quantas épocas para o treinamento de parada antecipada   |
+| Paciência      | >0               | Inteiro | 3       | Quantas épocas para o treinamento de parada antecipada   |
 
 ###  <a name="outputs"></a>Saídas  
 
-| Nome          | Tipo           | Descrição   |
+| Nome          | Type           | Descrição   |
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 

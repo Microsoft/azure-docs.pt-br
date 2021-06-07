@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 886e99d6f56a008c694b3bcb366cfb4049f3528e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920368"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100590216"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
@@ -88,7 +88,7 @@ Durante a visualização, algumas regiões podem ainda não dar suporte ao conju
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou.
   
-5. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
+5. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.
 
@@ -96,7 +96,7 @@ Durante a visualização, algumas regiões podem ainda não dar suporte ao conju
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
-- [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre ações de webhook para regras de alerta do log.
-- [Saiba mais](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Criando e Gerenciar Grupo de ações.
+- [Saiba mais](../../azure-monitor/alerts/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
+- [Saiba mais](../..//azure-monitor/alerts/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre ações de webhook para regras de alerta do log.
+- [Saiba mais](../..//azure-monitor/alerts/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Criando e Gerenciar Grupo de ações.
 - [Saiba mais](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a Integridade do Serviço do Azure.

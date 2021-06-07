@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896966"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutorial: Conectar-se a um aplicativo Web usando um ponto de extremidade privado do Azure
@@ -48,7 +48,7 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Rede virtual** ou pesquise por **Rede virtual** na caixa de pesquisa.
 
-2. Em **Criar rede virtual** , insira ou selecione estas informações na guia **Básico** :
+2. Em **Criar rede virtual**, insira ou selecione estas informações na guia **Básico**:
 
     | **Configuração**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -61,15 +61,15 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
-4. Na guia **Endereços IP** , insira estas informações:
+4. Na guia **Endereços IP**, insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Espaço de endereço IPv4 | Insira **10.1.0.0/16** |
 
-5. Em **Nome da sub-rede** , selecione a palavra **padrão**.
+5. Em **Nome da sub-rede**, selecione a palavra **padrão**.
 
-6. Em **Editar sub-rede** , insira estas informações:
+6. Em **Editar sub-rede**, insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
@@ -80,13 +80,13 @@ O bastion host será usado para se conectar com segurança à máquina virtual p
 
 8. Selecione a guia **Segurança**.
 
-9. Em **BastionHost** , selecione **Habilitar**. Insira estas informações:
+9. Em **BastionHost**, selecione **Habilitar**. Insira estas informações:
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
     | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
-    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome** , insira **myBastionIP**. </br> Selecione **OK**. |
+    | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
 
 
 8. Selecione a guia **Revisar + criar** ou o botão **Revisar + criar**.
@@ -100,7 +100,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
 
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual** ou pesquise **Máquina virtual** na caixa de pesquisa.
    
-2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
+2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
@@ -119,7 +119,7 @@ Nesta seção, você criará uma máquina virtual que será usada para testar o 
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
@@ -142,7 +142,7 @@ Nesta seção, você criará um aplicativo Web.
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Armazenamento** > **Aplicativo Web** ou procure **Aplicativo Web** na caixa de pesquisa.
 
-2. Na guia **Informações Básicas** de **Criar Aplicativo Web** , insira ou selecione as seguintes informações:
+2. Na guia **Informações Básicas** de **Criar Aplicativo Web**, insira ou selecione as seguintes informações:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
@@ -171,11 +171,11 @@ Nesta seção, você criará um aplicativo Web.
 
 2. Na visão geral do aplicativo Web, selecione **Configurações** > **Rede**.
 
-3. Em **Rede** , selecione **Configurar suas conexões de ponto de extremidade privado**.
+3. Em **Rede**, selecione **Configurar suas conexões de ponto de extremidade privado**.
 
 4. Selecione **+ Adicionar** na tela **Conexões de Ponto de Extremidade Privado**.
 
-5. Insira ou selecione as seguintes informações na tela **Adicionar Ponto de Extremidade Privado** :
+5. Insira ou selecione as seguintes informações na tela **Adicionar Ponto de Extremidade Privado**:
 
     | Configuração | Valor |
     | ------- | ----- |
@@ -198,7 +198,7 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
 3. Selecione **myVM**.
 
-4. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion**.
+4. Na página de visão geral de **myVM**, escolha **Conectar** e **Bastion**.
 
 5. Selecione o botão azul **Usar Bastion**.
 
@@ -226,7 +226,7 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Página 403 do endereço do aplicativo Web externo." border="true":::
 
-11. Na conexão do bastion com **myVM** , abra o Internet Explorer.
+11. Na conexão do bastion com **myVM**, abra o Internet Explorer.
 
 12. Insira a URL do aplicativo Web, **https://\<webapp-name>.azurewebsites.net**.
 

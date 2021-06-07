@@ -2,16 +2,16 @@
 title: Comandos comuns da CLI do Azure
 description: Aprenda alguns dos comandos comuns da CLI do Azure para começar a gerenciar suas VMs no modo do Azure Resource Manager
 author: RicksterCDN
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 5a9dd8aaeed0642461e4244a72a3dab5c96a77b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 2084d79ecbbc53ef9e3c75bae0664eae7de0eccb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372239"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102559623"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerenciar recursos do Azure
 

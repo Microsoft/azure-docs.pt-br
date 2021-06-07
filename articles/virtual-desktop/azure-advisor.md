@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147354"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Usar o Azure Advisor com a área de trabalho virtual do Windows
@@ -19,7 +19,7 @@ O Azure Advisor pode ajudar os usuários a resolver problemas comuns por conta p
 
 Este artigo lhe dirá como configurar o assistente do Azure em sua implantação de área de trabalho virtual do Windows para ajudar seus usuários.
 
-## <a name="what-is-azure-advisor"></a>O que é o Azure Advisor?
+## <a name="what-is-azure-advisor"></a>O que é o Assistente do Azure?
 
 O Azure Advisor analisa suas configurações e telemetria para oferecer recomendações personalizadas para resolver problemas comuns. Com essas recomendações, você pode otimizar seus recursos do Azure para confiabilidade, segurança, excelência operacional, desempenho e custo. Saiba mais no [site do Azure Advisor](https://azure.microsoft.com/services/advisor/).
 
@@ -28,7 +28,7 @@ O Azure Advisor analisa suas configurações e telemetria para oferecer recomend
 Tudo o que você precisa para começar é uma conta do Azure no portal do Azure. Primeiro, abra o portal do Azure em <https://portal.azure.com/#home> , em seguida, selecione **Advisor** em **Serviços do Azure**, conforme mostrado na imagem a seguir. Você também pode inserir "Azure Advisor" na barra de pesquisa na portal do Azure.
 
 > [!div class="mx-imgBorder"]
-> ![Uma captura de tela da portal do Azure. O usuário está passando o cursor do mouse sobre o link do supervisor do Azure, fazendo com que um menu suspenso seja exibido.](media/azure-advisor.png)
+> ![Uma captura de tela do portal do Azure. O usuário está passando o cursor do mouse sobre o link do supervisor do Azure, fazendo com que um menu suspenso seja exibido.](media/azure-advisor.png)
 
 Ao abrir o Azure Advisor, você verá cinco categorias:
 

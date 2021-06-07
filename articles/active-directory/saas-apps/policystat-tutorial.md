@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893007"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
@@ -66,7 +66,7 @@ Para configurar a integração do PolicyStat ao Azure AD, é necessário adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **PolicyStat** , selecione **PolicyStat** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **PolicyStat**, selecione **PolicyStat** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![PolicyStat na lista de resultados](common/search-new-app.png)
 
@@ -89,30 +89,30 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o PolicyStat, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **PolicyStat** , clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **PolicyStat**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do PolicyStat](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do PolicyStat](http://www.policystat.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do PolicyStat](https://rldatix.com/services-support/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     ![Captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
-6. Além do indicado acima, o aplicativo PolicyStat espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+6. Além do indicado acima, o aplicativo PolicyStat espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome | Atributo de Origem |
     |------------------- | -------------------- |
@@ -138,13 +138,13 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     d. Selecione Fonte como **Transformação**.
 
-    e. Na lista **Transformação** , digite o valor do atributo mostrado para aquela linha.
+    e. Na lista **Transformação**, digite o valor do atributo mostrado para aquela linha.
     
-    f. Na lista **Parâmetro 1** , digite o valor do atributo mostrado para essa linha.
+    f. Na lista **Parâmetro 1**, digite o valor do atributo mostrado para essa linha.
 
     g. Clique em **Save** (Salvar).
 
-7. Na seção **Configurar o PolicyStat** , copie as URLs apropriadas, de acordo com suas necessidades.
+7. Na seção **Configurar o PolicyStat**, copie as URLs apropriadas, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -154,15 +154,15 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     c. URL de logoff
 
-### <a name="configure-policystat-single-sign-on"></a>Configurar o logon único do PolicyStat
+### <a name="configure-policystat-single-sign-on&quot;></a>Configurar o logon único do PolicyStat
 
 1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do PolicyStat como administrador.
 
 2. Clique na guia **Admin** e, em seguida, clique em **Configuração de Logon Único** no painel de navegação à esquerda.
    
-    ![Menu do Administrador](./media/policystat-tutorial/ic808633.png "Menu do Administrador")
+    ![Menu do Administrador](./media/policystat-tutorial/ic808633.png &quot;Menu do Administrador")
 
-3. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP** , realize as seguintes etapas:
+3. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
    
     ![Captura de tela que mostra a ação "Seus Metadados de IdP" selecionada.](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
@@ -170,19 +170,19 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     b. Clique em **Salvar Alterações**.
 
-4. Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos** , realize as seguintes etapas:
+4. Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos**, realize as seguintes etapas:
    
-    a. Na caixa de texto **Atributo do Nome de Usuário** , digite **uid**.
+    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
-    b. Na caixa de texto **Atributo de Nome** , digite o nome da declaração de Atributo de Nome no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
+    b. Na caixa de texto **Atributo de Nome**, digite o nome da declaração de Atributo de Nome no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    c. Na caixa de texto **Atributo de Sobrenome** , digite o nome da declaração de Atributo de Sobrenome no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
+    c. Na caixa de texto **Atributo de Sobrenome**, digite o nome da declaração de Atributo de Sobrenome no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
 
-    d. Na caixa de texto **Atributo de Email** , digite o nome da declaração de Atributo de Email no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
+    d. Na caixa de texto **Atributo de Email**, digite o nome da declaração de Atributo de Email no Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
     e. Clique em **Salvar Alterações**.
 
-5. Na seção **Configuração** , selecione **Habilitar Integração de Logon Único**.
+5. Na seção **Configuração**, selecione **Habilitar Integração de Logon Único**.
    
     ![Configuração de logon único](./media/policystat-tutorial/ic808634.png "Configuração de Logon Único")
 
@@ -191,7 +191,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
 Nesta seção, você permite que sua própria conta use o logon único do Azure concedendo acesso ao PolicyStat.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **PolicyStat**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **PolicyStat**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -207,11 +207,11 @@ Nesta seção, você permite que sua própria conta use o logon único do Azure 
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , selecione sua conta na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, selecione sua conta na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-policystat-test-user"></a>Criar um usuário de teste do PolicyStat
 

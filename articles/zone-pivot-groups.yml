@@ -256,8 +256,10 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
-  - id: programming-language-javascript
-    title: JavaScript
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-browserjs
+    title: JavaScript (navegador)
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
   - id: programming-language-python
@@ -358,6 +360,16 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Outro
+- id: development-environment-functions
+  title: Ambiente de desenvolvimento
+  prompt: Escolher um ambiente de desenvolvimento
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Linha de comando
+  - id: development-environment-vs
+    title: Visual Studio
 - id: programming-languages-metrics-monitor
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação.
@@ -496,6 +508,8 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-rest-api
@@ -832,6 +846,22 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-js-csharp-java-python-swift-android
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
 - id: acs-web-ios-android
   title: Plataforma
   prompt: Escolher uma plataforma
@@ -940,6 +970,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Páginas do portal da Central de Segurança
+- id: manage-asc-initiatives
+  title: Gerenciar iniciativas da Central de Segurança
+  prompt: Como você vai gerenciar suas iniciativas da Central de Segurança?
+  pivots:
+  - id: azure-portal
+    title: No portal do Azure
+  - id: rest-api
+    title: Com as APIs REST
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Sistema operacional/console
   prompt: Escolha um sistema operacional e um console
@@ -990,6 +1028,16 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+- id: app-service-webjob
+  title: Tipos de WebJob
+  prompt: Escolher um tipo de WebJob
+  pivots:
+  - id: webjob-type-continuous
+    title: Contínuo
+  - id: webjob-type-scheduled
+    title: Agendado
+  - id: webjob-type-manual
+    title: Manual
 - id: qnamaker-quickstart
   title: Linguagens de programação
   prompt: Escolha uma linguagem de programação
@@ -1008,10 +1056,18 @@ groups:
     title: Ruby
   - id: rest
     title: Rest
+- id: azure-maps-android
+  title: Linguagens de programação
+  prompt: Escolha uma linguagem de programação
+  pivots:
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
 metadata:
-  ms.openlocfilehash: 79b9f9d871ffd5d410dd00b7dfbc1aca8fc98c4a
-  ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+  ms.openlocfilehash: 4075041f3a79138c80c1e020a7410bbc252de6f3
+  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/08/2021
-  ms.locfileid: "99820799"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102558161"

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7d597c4dbb81562050e9523c61d47d0020fc9059
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944002"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869456"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -53,31 +53,31 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 1. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
 
-    ![Seleção do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-1.png" alt-text="Seleção do utilitário de administração do R Server" border="true":::
 
 1. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
 
-    ![Operacionalização do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-2.png" alt-text="Operacionalização do utilitário de administração do R Server" border="true":::
 
 1. Quando solicitado, digite e insira novamente a senha para um usuário de administrador local.
 
 1. Você deve ver sugestões de saídas que a operação foi bem-sucedida. Você também precisará selecionar outra opção de menu. Selecione E para retornar ao menu principal.
 
-    ![Êxito do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
+    :::image type="content" source="./media/r-server-operationalize/admin-util-one-box-3.png" alt-text="Êxito do utilitário de administração do R Server" border="true":::
 
 1. Como opção, você pode executar verificações de diagnóstico com um teste de diagnóstico da seguinte forma:
 
     a. No menu principal, selecione **6** para executar testes de diagnóstico.
 
-    ![Diagnóstico do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic1.png" alt-text="Diagnóstico do utilitário de administração do R Server" border="true":::
 
     b. No menu testes de diagnóstico, selecione **um**. Quando solicitado, insira a senha que você forneceu para o usuário administrador local.
 
-    ![Teste do utilitário de administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic2.png" alt-text="Teste do utilitário de administração do servidor R" border="true":::
 
     c. Verifique se a saída mostra que a integridade geral é uma passagem.
 
-    ![Passagem do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    :::image type="content" source="./media/r-server-operationalize/hdinsight-diagnostic3.png" alt-text="Passagem do utilitário de administração do R Server" border="true":::
 
     d. Nas opções de menu apresentadas, insira **E** para retornar ao menu principal e, em seguida, digite **8** para sair do utilitário de administração.
 
@@ -154,7 +154,7 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. Clique em **ações**  >  **hosts selecionados**  >  **hosts**  >  **ativar o modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
 
-   ![O Apache Ambari ativa o modo de manutenção](./media/r-server-operationalize/get-started-operationalization.png)  
+   :::image type="content" source="./media/r-server-operationalize/get-started-operationalization.png" alt-text="O Apache Ambari ativa o modo de manutenção" border="true":::  
 
 * Selecione **ações**  >  **hosts selecionados**  >  **datanodes** > clique em **desativar**.
 * Selecione **ações**  >  **hosts selecionados**  >  **NodeManagers** > clique em **desativar**.

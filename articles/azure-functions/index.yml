@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação do Azure Functions
-summary: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante. Você pode usar o Azure Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens entre outras ações.
+summary: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes e o Functions cuida do restante. O Functions fornece computação sem servidor ao Azure. Você pode usar o Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens, entre outras ações.
 metadata:
   title: Documentação do Azure Functions
-  description: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante. Você pode usar o Azure Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens entre outras ações.
+  description: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante. O Functions fornece computação sem servidor ao Azure. Você pode usar o Azure Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens entre outras ações.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 10c606ab86a577f22167197138e56a14d176b88a
-  ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+  ms.openlocfilehash: 4d856232d2f0780852a1f369548b08012d124834
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/19/2021
-  ms.locfileid: "98570126"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101729157"
 landingContent:
 - title: Sobre o Azure Functions
   linkLists:
@@ -128,14 +128,22 @@ landingContent:
       url: functions-how-to-azure-devops.md
     - text: Implantar usando o plug-in do Jenkins
       url: /azure/developer/jenkins/deploy-to-azure-functions
-- title: Desempenho e monitoramento
+- title: Melhores práticas de desempenho e monitoramento
   linkLists:
   - linkListType: concept
     links:
+    - text: Desempenho e confiabilidade
+      url: functions-best-practices.md
+    - text: Gerenciar conexões
+      url: manage-connections.md
+    - text: Considerações de armazenamento
+      url: storage-considerations.md
+    - text: Tratamento de erro e novas tentativas de função
+      url: functions-bindings-error-pages.md
+    - text: Segurança
+      url: security-concepts.md
     - text: Monitorar funções
       url: functions-monitoring.md
-    - text: Otimizar desempenho
-      url: functions-best-practices.md
     - text: Considerações de rede
       url: functions-networking-options.md
   - linkListType: how-to-guide

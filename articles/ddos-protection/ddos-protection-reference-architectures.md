@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
 ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992430"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Arquiteturas de referência da Proteção contra DDoS

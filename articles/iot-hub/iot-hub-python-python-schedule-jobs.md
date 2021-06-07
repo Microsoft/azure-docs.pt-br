@@ -10,10 +10,10 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
 ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876675"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
@@ -155,7 +155,7 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
 
 Neste artigo, você cria um serviço de back-end que invoca um método direto em um dispositivo e atualiza o dispositivo de atualização. O serviço precisa da permissão de **conexão de serviço** para chamar um método direto em um dispositivo. O serviço também precisa das permissões de **leitura** do registro e de **gravação do registro** para ler e gravar o registro de identidade. Não há nenhuma política de acesso compartilhado padrão que contenha apenas essas permissões, portanto, você precisa criar uma.
 
-Para criar uma política de acesso compartilhado que conceda permissões de conexão do **serviço**, **leitura do registro**e **gravação do registro** e para obter uma cadeia de conexão para essa política, siga estas etapas:
+Para criar uma política de acesso compartilhado que conceda permissões de conexão do **serviço**, **leitura do registro** e **gravação do registro** e para obter uma cadeia de conexão para essa política, siga estas etapas:
 
 1. Abra o Hub IoT no [portal do Azure](https://portal.azure.com). A maneira mais fácil de acessar o Hub IoT é selecionar grupos de **recursos**, selecionar o grupo de recursos onde o Hub IOT está localizado e, em seguida, selecionar o Hub IOT na lista de recursos.
 
@@ -163,7 +163,7 @@ Para criar uma política de acesso compartilhado que conceda permissões de cone
 
 3. No menu superior acima da lista de políticas, selecione **Adicionar**.
 
-4. No painel **Adicionar uma política de acesso compartilhado** , insira um nome descritivo para a política; por exemplo: *serviceAndRegistryReadWrite*. Em **permissões**, selecione **conexão de serviço** e **gravação de registro** (a**leitura do registro** é selecionada automaticamente quando você seleciona **gravação do registro**). Em seguida, selecione **Criar**.
+4. No painel **Adicionar uma política de acesso compartilhado** , insira um nome descritivo para a política; por exemplo: *serviceAndRegistryReadWrite*. Em **permissões**, selecione **conexão de serviço** e **gravação de registro** (a **leitura do registro** é selecionada automaticamente quando você seleciona **gravação do registro**). Em seguida, selecione **Criar**.
 
     ![Mostrar como adicionar uma nova política de acesso compartilhado](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 

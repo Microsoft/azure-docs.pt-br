@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363909"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
@@ -124,7 +124,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
     *  Você pode copiar dados de um armazenamento usando a [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
 *  Você pode usar Gerenciamento de Dados gateway para entrada de dados diretamente de um banco de SQL Server no Azure Machine Learning.
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
     * Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de cópia sem código.
 
@@ -140,7 +140,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
     * Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
 
@@ -148,7 +148,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 
 *  Correções de bug
 
@@ -160,34 +160,34 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 *  Capacidade de definir o horário da agenda de atualização
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Melhorar a experiência de solução de problemas
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Suporte à fonte/coletor do HDFS local
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -204,7 +204,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Suporte a nome de tabela para  fonte de dados ODBC para o Azure Data Factory
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -225,13 +225,13 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Suporte a cinco bancos de dados relacionais do Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Suporte à compactação (Gzip e Deflate)
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Adicionar suporte a fonte de dados Oracle para o Azure Data Factory
-*  Melhorias de desempenho
+*  Aprimoramentos de desempenho
 *  Correções de bug
 
 ### <a name="1454921"></a>1.4.5492.1

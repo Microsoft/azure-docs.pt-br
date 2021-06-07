@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 67ba4f12aec9e987d79109b7197d03301bf40650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89004775"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de usuário final com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
@@ -19,7 +19,7 @@ ms.locfileid: "89004775"
 > * [Usando Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Usando o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-end-user-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -33,7 +33,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 * **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de usuário final com Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Criar um aplicativo .NET
-1. No Visual Studio, selecione o menu **arquivo** , **novo**e **projeto**.
+1. No Visual Studio, selecione o menu **arquivo** , **novo** e **projeto**.
 2. Escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 3. Em **Nome do projeto**, digite `CreateADLApplication` e, em seguida, selecione **Criar**.
 
@@ -49,7 +49,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
         ![Adicionar uma origem do NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta de Azure Data Lake")
    4. Feche o **Gerenciador de pacotes NuGet**.
 
-5. Abrir **Program.cs**
+5. Abra o **Program. cs**
 6. Substitua as instruções usando as linhas a seguir:
 
     ```csharp

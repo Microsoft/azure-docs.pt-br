@@ -11,30 +11,30 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e180ecbf5c68dbd9c179244083a641ac6ed42de0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100371950"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
-Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem e implantação. Este artigo descreve as tarefas para concluir várias tarefas comuns de ciência de dados, como exploração interativa de dados, análise de dados, relatórios e criação de modelo. As opções para implantar um modelo em um ambiente de produção podem incluir:
+Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem e implantação. Este artigo descreve as tarefas que devem realizadas para concluir várias tarefas de ciência de dados comuns como exploração interativa de dados, análise de dados, relatórios e criação de modelo. As opções para implantar um modelo em um ambiente de produção podem incluir:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server com serviços de ML](/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
 
-## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> exploração 
+## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Exploração 
 
 Um cientista de dados pode realizar exploração e geração de relatórios de várias maneiras: usando bibliotecas e pacotes disponíveis para Python (matplotlib, por exemplo) ou com R (ggplot ou malha, por exemplo). Os cientistas de dados podem personalizar esse código para atender às necessidades de exploração de dados para cenários específicos. As necessidades de lidar com dados estruturados são diferentes daquelas de dados não estruturados, como texto ou imagens. 
 
-Produtos como Azure Machine Learning também fornecem [preparação de dados avançada](../how-to-create-register-datasets.md) para Wrangling e exploração de dados, incluindo a criação de recursos. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
+Produtos como o Azure Machine Learning também fornecem uma [preparação avançada de dados](../how-to-create-register-datasets.md) para estruturação e exploração de dados, incluindo a criação de recursos. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
 
 A entrega ao final dessa fase é um relatório de exploração de dados. O relatório deve fornecer uma exibição bastante abrangente dos dados a serem usados para modelagem e uma avaliação de se os dados são adequados para prosseguir para a etapa de modelagem. 
 
-## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> modelagem
+## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> Modelagem
 
 Há vários kits de ferramentas e pacotes para treinar modelos em diversas linguagens. Os cientistas de dados devem ficar à vontade para usar aqueles com os quais estão acostumados, desde que as considerações de desempenho em relação à precisão e latência sejam atendidas para os casos de uso nos negócios e cenários de produção relevantes.
 
@@ -46,7 +46,7 @@ Depois de vários modelos terem sido compilados, geralmente é necessário ter u
 3. [SQL-Server como um sistema de gerenciamento de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
-## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> implantação
+## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Implantação
 
 A implantação de produção permite que um modelo execute uma função ativa em uma empresa. Previsões de um modelo implantado podem ser usadas para decisões de negócios.
 

@@ -6,19 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d10e27c80a9253de7482644debd19debce8f4e50
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550985"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055290"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Tutorial: Executar uma carga de trabalho de computação com o módulo do IoT Edge na GPU do Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este tutorial descreve como executar uma carga de trabalho de computação usando um módulo do IoT Edge em seu dispositivo de GPU do Azure Stack Edge Pro. Após você configurar a computação, o dispositivo transformará os dados antes de enviá-los para o Azure.
 
@@ -75,7 +74,7 @@ Para a implantação simples neste tutorial, você precisará de dois compartilh
 
     `rsync <source file path> < destination file path>`
 
-    Para obter mais informações sobre o comando `rsync`, acesse a [Documentação do rsync](https://www.computerhope.com/unix/rsync.htm).
+    Para obter mais informações sobre o comando `rsync`, acesse a [documentação do `Rsync`](https://www.computerhope.com/unix/rsync.htm).
  
 3. Vá para **Gateway de armazenamento em nuvem > Compartilhamentos** para ver a lista atualizada de compartilhamentos.
 
@@ -84,9 +83,9 @@ Para a implantação simples neste tutorial, você precisará de dois compartilh
 
 ## <a name="add-a-module"></a>Adicionar um módulo
 
-Você pode adicionar um módulo personalizado ou pré-criado. O dispositivo não vem com módulos predefinidos nem personalizados. Para saber como criar um módulo personalizado, acesse [Desenvolver um módulo em C# para o dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md).
+Você pode adicionar um módulo personalizado ou pré-criado. O dispositivo não vem com módulos predefinidos nem personalizados. Para saber como criar um módulo personalizado, acesse [Desenvolver um módulo em C# para o dispositivo Azure Stack Edge Pro](./azure-stack-edge-gpu-create-iot-edge-module.md).
 
-Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
+Nesta seção, você adiciona um módulo personalizado ao dispositivo do IoT Edge que foi criado em [Desenvolver um módulo em C# para o Azure Stack Edge Pro](./azure-stack-edge-gpu-create-iot-edge-module.md). Esse módulo personalizado usa arquivos de um compartilhamento local do Microsoft Edge no dispositivo do Microsoft Edge e move-os para um compartilhamento do Microsoft Edge (nuvem) no dispositivo. O compartilhamento em nuvem então efetua o push dos arquivos para a conta de Armazenamento do Azure associada com o compartilhamento em nuvem.
 
 Para adicionar um módulo, siga estas etapas:
 

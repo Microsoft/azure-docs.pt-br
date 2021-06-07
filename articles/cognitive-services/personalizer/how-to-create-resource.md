@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303549"
 ---
 # <a name="create-a-personalizer-resource"></a>Criar um recurso personalizado
@@ -20,7 +20,7 @@ Um recurso personalizado é a mesma coisa que um loop de aprendizagem personaliz
 Se você quiser que o personalizador selecione o melhor conteúdo para mais de uma área de conteúdo de uma página da Web, use um loop de aprendizagem diferente para cada.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Crie um recurso no portal do Azure
+## <a name="create-a-resource-in-the-azure-portal"></a>Criar um recurso no portal do Azure
 
 Crie um recurso do Personalizador para cada loop de comentários.
 

@@ -3,15 +3,15 @@ title: Parametrizar serviços vinculados no Azure Data Factory
 description: Saiba como parametrizar serviços vinculados no Azure Data Factory e passar valores dinâmicos em tempo de execução.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 03/18/2021
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: df26b77f37100ae41b26c013c57cccbfa0d7e205
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372919"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595576"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
 
@@ -38,18 +38,21 @@ Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece u
 
 - Amazon Redshift
 - Amazon S3
+- Armazenamento do Blobs do Azure
 - Azure Cosmos DB (API do SQL)
+- Azure Data Lake Storage Gen2
 - Banco de Dados do Azure para MySQL
 - Azure Databricks
-- Cofre de Chave do Azure
+- Azure Key Vault
 - Banco de Dados SQL do Azure
 - Instância Gerenciada de SQL do Azure
 - Azure Synapse Analytics 
+- Armazenamento de Tabelas do Azure
+-  HTTP Genérico
+- REST Genérico
 - MySQL
 - Oracle
 - SQL Server
--  HTTP Genérico
-- REST Genérico
 
 Para outros tipos de serviço vinculado que não estão na lista acima, você pode parametrizar o serviço vinculado editando o JSON na interface do usuário:
 

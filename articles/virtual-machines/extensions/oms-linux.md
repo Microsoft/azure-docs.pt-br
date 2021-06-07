@@ -1,26 +1,19 @@
 ---
 title: Extensão da máquina virtual do Log Analytics para Linux
 description: Implante o agente do Log Analytics na máquina virtual do Linux usando uma extensão da máquina virtual.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/18/2020
-ms.author: akjosh
-ms.openlocfilehash: f75ad90a562a39f940e1006a2e4d9123eff2b47c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3ac6937d83bd2d21fefc09878408a54aa0eb41f1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202174"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102559062"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Log Analytics para Linux
 
@@ -37,7 +30,7 @@ Os Logs do Azure Monitor fornecem recursos de monitoramento, alertas e correçã
 
 ### <a name="operating-system"></a>Sistema operacional
 
-Para obter detalhes sobre as distribuições do Linux com suporte, consulte o artigo [visão geral do Azure monitor Agents](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
+Para obter detalhes sobre as distribuições do Linux com suporte, consulte o artigo [visão geral do Azure monitor Agents](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do Agente e da Extensão de VM
 A tabela a seguir fornece um mapeamento da versão da extensão de VM do Log Analytics e o pacote do agente do Log Analytics para cada versão. Há um link para as notas de versão da versão do pacote do agente do Log Analytics. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
@@ -76,7 +69,7 @@ A extensão do Agente do Log Analytics para Linux requer que a máquina virtual 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho no espaço de trabalho do Log Analytics de destino. Esses valores podem ser [encontrados no seu espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho no espaço de trabalho do Log Analytics de destino. Esses valores podem ser [encontrados no seu espaço de trabalho do Log Analytics](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -221,7 +214,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | 53 | Esta extensão falhou devido a parâmetros de configuração ausentes ou errados | Verifique a saída e os logs para obter mais informações sobre o que deu errado. Além disso, verifique a exatidão da ID do espaço de trabalho e verifique se a máquina está conectada à Internet. |
 | 55 | Não é possível se conectar ao serviço Azure Monitor. Os pacotes necessários estão ausentes ou o gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou se um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do espaço de trabalho e verifique se os utilitários de rotação e tar estão instalados. |
 
-Informações adicionais podem ser encontradas no [Guia de solução de problemas do Log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
+Informações adicionais podem ser encontradas no [Guia de solução de problemas do Log Analytics-Agent-for-Linux](../../azure-monitor/visualize/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 

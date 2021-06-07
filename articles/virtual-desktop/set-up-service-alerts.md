@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 66617afee11b02eae0ba5e36d9ff91cbdf21911f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+manager: femila
+ms.openlocfilehash: ca5f225265b42ffc67a41a5252b2e789f7bcf500
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023098"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445628"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 

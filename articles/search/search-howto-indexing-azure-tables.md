@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91275176"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento de tabelas do Azure com o Azure Pesquisa Cognitiva
@@ -24,7 +24,7 @@ Este artigo mostra como usar os Pesquisa Cognitiva do Azure para indexar dados a
 
 Você pode configurar um indexador de armazenamento de Tabela do Azure usando estes recursos:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portal do Azure](https://ms.portal.azure.com)
 * [API REST](/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
 * SDK do [.net](/dotnet/api/overview/azure/search) pesquisa cognitiva do Azure
 
@@ -70,7 +70,7 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
 
 - **Cadeia de conexão de identidade gerenciada**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` essa cadeia de conexão não requer uma chave de conta, mas você deve seguir as instruções para [Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada](search-howto-managed-identities-storage.md).
-- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando as chaves de configurações da **folha da conta de armazenamento**  >  **Settings**  >  **Keys** (para contas de armazenamento clássicas) ou **configurações**  >  **chaves de acesso** (para contas de armazenamento de Azure Resource Manager).
+- **Cadeia de conexão da conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` você pode obter a cadeia de conexão do portal do Azure acessando as chaves de configurações da **folha da conta de armazenamento**  >    >   (para contas de armazenamento clássicas) ou **configurações**  >  **chaves de acesso** (para contas de armazenamento de Azure Resource Manager).
 - **Cadeia de conexão de assinatura de acesso compartilhado da conta de armazenamento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter as permissões de lista e leitura em contêineres (tabelas neste caso) e objetos (linhas de tabela).
 -  **Assinatura de acesso compartilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
 

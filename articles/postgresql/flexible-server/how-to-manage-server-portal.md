@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc
 ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91961401"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para PostgreSQL – servidor flexível usando o portal do Azure
@@ -27,7 +27,7 @@ Entre no [portal do Azure](https://portal.azure.com). Vá para o recurso de serv
 
 ## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
 
-Após a criação do servidor, você pode dimensionar entre os vários [tipos de preço](https://azure.microsoft.com/pricing/details/postgresql/) conforme suas necessidades mudam. Você também pode escalar ou reduzir verticalmente sua computação e memória aumentando ou diminuindo o vCores.
+Após a criação do servidor, você pode dimensionar entre os vários [tipos de preço](https://azure.microsoft.com/pricing/details/postgresql/) conforme suas necessidades mudam. Você também pode escalar ou reduzir verticalmente sua computação e sua memória aumentando ou diminuindo vCores.
 
 > [!NOTE]
 > O armazenamento não pode ser reduzido para o valor mais baixo.
@@ -52,7 +52,7 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="redefinir sua senha para o servidor flexível":::
 
 3. Selecione **salvar** para salvar a nova senha.
 
@@ -63,7 +63,7 @@ Você pode excluir o servidor se não precisar mais dele.
 1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
 2. Digite o nome do servidor na caixa de entrada para confirmar que você deseja excluir o servidor.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="dimensionamento do servidor flexível de armazenamento":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="excluir o servidor flexível":::
 
    > [!IMPORTANT]
    > A exclusão de um servidor é irreversível.

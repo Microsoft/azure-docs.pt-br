@@ -8,14 +8,16 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c5f28e2c2d370329dbee0fb76284a4b76b2b945e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376500"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103489450"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solucionar problemas de seu dispositivo IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Se você tiver problemas em execução Azure IoT Edge em seu ambiente, use este artigo como um guia para solução de problemas e diagnósticos.
 
@@ -42,7 +44,7 @@ iotedge check
 
 A ferramenta de solução de problemas executa muitas verificações que são classificadas nestas três categorias:
 
-* As *verificações de configuração* examinam os detalhes que podem impedir que IOT Edge dispositivos se conectem à nuvem, incluindo problemas com *config. YAML* e o mecanismo de contêiner.
+* As *verificações de configuração* examinam os detalhes que podem impedir que IOT Edge dispositivos se conectem à nuvem, incluindo problemas com o arquivo de configuração e o mecanismo de contêiner.
 * *Verificações de conexão* Verifique se o tempo de execução de IOT Edge pode acessar portas no dispositivo de host e se todos os componentes de IOT Edge podem se conectar ao Hub IOT. Esse conjunto de verificações retornará erros se o dispositivo IoT Edge estiver protegido por um proxy.
 * As *verificações de preparação de produção* procuram práticas recomendadas de produção recomendadas, como o estado de certificados de autoridade de certificação de dispositivo (CA) e configuração de arquivo de log de módulo.
 
@@ -102,6 +104,9 @@ O [Gerenciador de segurança IOT Edge](iot-edge-security-manager.md) é respons�
 
 No Linux:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 * Exibir o status do Gerenciador de segurança do IoT Edge:
 
    ```bash
@@ -110,32 +115,68 @@ No Linux:
 
 * Exiba os logs do Gerenciador de segurança do IoT Edge:
 
-    ```bash
-    sudo journalctl -u iotedge -f
-    ```
+   ```bash
+   sudo journalctl -u iotedge -f
+   ```
 
 * Exibir logs mais detalhados do IoT Edge Security Manager:
 
-  * Edite as configurações do daemon de IoT Edge:
+  1. Edite as configurações do daemon de IoT Edge:
 
-      ```bash
-      sudo systemctl edit iotedge.service
-      ```
+     ```bash
+     sudo systemctl edit iotedge.service
+     ```
 
-  * Atualize as seguintes linhas:
+  2. Atualize as seguintes linhas:
 
-      ```bash
-      [Service]
-      Environment=IOTEDGE_LOG=edgelet=debug
-      ```
+     ```bash
+     [Service]
+     Environment=IOTEDGE_LOG=edgelet=debug
+     ```
 
-  * Reinicie o daemon de segurança do IoT Edge:
+  3. Reinicie o daemon de segurança do IoT Edge:
 
-      ```bash
-      sudo systemctl cat iotedge.service
-      sudo systemctl daemon-reload
-      sudo systemctl restart iotedge
-      ```
+     ```bash
+     sudo systemctl cat iotedge.service
+     sudo systemctl daemon-reload
+     sudo systemctl restart iotedge
+     ```
+<!--end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* Exiba o status dos serviços do sistema IoT Edge:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* Exiba os logs dos serviços do sistema IoT Edge:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Habilite logs de nível de depuração para exibir logs mais detalhados dos serviços do sistema IoT Edge:
+
+  1. Habilitar logs de nível de depuração.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Volte para os logs de nível de informações padrão após a depuração.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+<!-- end 1.2 -->
+:::moniker-end
 
 No Windows:
 
@@ -159,52 +200,17 @@ No Windows:
 
 * Exibir logs mais detalhados do IoT Edge Security Manager:
 
-  * Adicione uma variável de ambiente no nível do sistema:
+  1. Adicione uma variável de ambiente no nível do sistema:
 
-      ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-      ```
+     ```powershell
+     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
+     ```
 
-  * Reinicie o daemon de segurança do IoT Edge:
+  2. Reinicie o daemon de segurança do IoT Edge:
 
-      ```powershell
-      Restart-Service iotedge
-      ```
-
-### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gerenciador de segurança do IoT Edge não estiver em execução, verifique o arquivo de configuração do YAML
-
-> [!WARNING]
-> Os arquivos YAML não podem conter guias como recuo. Use 2 espaços no lugar. Elementos de nível superior não devem ter espaços à esquerda.
-
-No Linux:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-No Windows:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-### <a name="restart-the-iot-edge-security-manager"></a>Reinicie o gerenciador de segurança do IoT Edge
-
-Se o problema ainda é persistente, você pode tentar reiniciar o Gerenciador de segurança de IoT Edge.
-
-No Linux:
-
-   ```cmd
-   sudo systemctl restart iotedge
-   ```
-
-No Windows:
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+     ```powershell
+     Restart-Service iotedge
+     ```
 
 ## <a name="check-container-logs-for-issues"></a>Verifique os logs de contêiner de problemas
 
@@ -217,6 +223,9 @@ iotedge logs <container name>
 Você também pode usar uma chamada de [método direto](how-to-retrieve-iot-edge-logs.md#upload-module-logs) para um módulo em seu dispositivo para carregar os logs desse módulo para o armazenamento de BLOBs do Azure.
 
 ## <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Exibir as mensagens que passam pelo hub de IoT Edge
+
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Você pode exibir as mensagens que passam pelo hub de IoT Edge e coletar informações de logs detalhados dos contêineres de tempo de execução. Para ativar os logs detalhados nesses contêineres, defina `RuntimeLogLevel` em seu arquivo de configuração yaml. Para abrir o arquivo:
 
@@ -256,7 +265,29 @@ Substitua `env: {}` por:
 
 Salve o arquivo e reinicie o gerenciador de segurança do IoT Edge.
 
-Você também pode verificar as mensagens que estão sendo enviadas entre os dispositivos do Hub IoT e do IoT Edge. Exiba essas mensagens usando a [extensão do Hub IOT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). Para obter mais informações, confira [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Ferramenta útil ao desenvolver com o Azure IoT).
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Você pode exibir as mensagens que passam pelo hub de IoT Edge e coletar informações de logs detalhados dos contêineres de tempo de execução. Para ativar os logs detalhados nesses contêineres, defina a `RuntimeLogLevel` variável de ambiente no manifesto de implantação.
+
+Para exibir mensagens que passam pelo hub de IoT Edge, defina a `RuntimeLogLevel` variável de ambiente como `debug` para o módulo edgeHub.
+
+Os módulos edgeHub e edgeAgent têm essa variável de ambiente de log de tempo de execução, com o valor padrão definido como `info` . Essa variável de ambiente pode ter os seguintes valores:
+
+* fatais
+* erro
+* warning
+* informações
+* depurar
+* verbose
+
+<!-- end 1.2 -->
+:::moniker-end
+
+Você também pode verificar as mensagens que estão sendo enviadas entre o Hub IoT e os dispositivos IoT. Exiba essas mensagens usando a [extensão do Hub IOT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). Para obter mais informações, confira [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/) (Ferramenta útil ao desenvolver com o Azure IoT).
 
 ## <a name="restart-containers"></a>Reinicie os contêineres
 

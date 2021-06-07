@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87760117"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no mecanismo de regras padrão para a CDN do Azure
@@ -40,7 +40,7 @@ Definir se ausente | Quando essa opção for selecionada e a regra corresponder,
 
 Dias | Horas | minutos | Segundos
 -----|-------|---------|--------
-Int | Int | Int | Int 
+int | int | int | int 
 
 ### <a name="cache-key-query-string"></a>Cadeia de consulta de chave de cache
 
@@ -53,7 +53,7 @@ Comportamento | Descrição
 Incluir | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta especificadas nos parâmetros são incluídas quando a chave de cache é gerada. 
 Armazenar em cache todas as URLs exclusivas | Quando essa opção é selecionada e a regra corresponde, cada URL exclusiva tem sua própria chave de cache. 
 Excluir | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta especificadas nos parâmetros são excluídas quando a chave de cache é gerada.
-Ignorar as cadeias de caracteres de consulta | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta não são consideradas quando a chave de cache é gerada. 
+Ignorar as cadeias de consulta | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta não são consideradas quando a chave de cache é gerada. 
 
 ### <a name="modify-request-header"></a>Modificar o cabeçalho de solicitação
 

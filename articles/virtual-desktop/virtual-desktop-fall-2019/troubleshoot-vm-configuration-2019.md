@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008620"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configuração de máquina virtual do host de sessão da área de trabalho virtual (clássica) do Windows
@@ -82,7 +82,7 @@ A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **cr
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas**programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas** programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\ScriptLog.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 

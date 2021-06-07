@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 441632ea33195ff8bcb6da5f4fb2298c337a6c97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 265d14d7cca05ff510e747c8d3a3b071e44a0a68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043152"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102202392"
 ---
 Nesta etapa, você está avaliando Quantos compartilhamentos de arquivos do Azure são necessários. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 compartilhamentos de arquivos do Azure.
 
-Você pode ter mais pastas em seus volumes que você compartilha localmente no momento como compartilhamentos SMB para seus usuários e aplicativos. A maneira mais fácil de modelar esse cenário é desconceber um compartilhamento local que mapeia 1:1 para um compartilhamento de arquivos do Azure. Se você tiver um número pequeno o suficiente, abaixo de 30 para uma única instância do Windows Server, recomendamos um mapeamento 1:1.
+Você pode ter mais pastas em seus volumes que você compartilha localmente no momento como compartilhamentos SMB para seus usuários e aplicativos. A maneira mais fácil de modelar esse cenário é desconceber um compartilhamento local que mapeia 1:1 para um compartilhamento de arquivos do Azure. Se você tiver um número pequeno o suficiente, abaixo de 30 para uma única instância do Windows Server, será recomendado um mapeamento 1:1.
 
 Se você tiver mais compartilhamentos do que 30, muitas vezes é desnecessário mapear um compartilhamento local 1:1 para um compartilhamento de arquivos do Azure. Considere as opções a seguir.
 
@@ -26,11 +26,11 @@ Por exemplo, se seu departamento de RH (recursos humanos) tiver um total de 15 c
 
 #### <a name="volume-sync"></a>Sincronização de volume
 
-O Sincronização de Arquivos do Azure dá suporte à sincronização da raiz de um volume para um compartilhamento de arquivos do Azure. Se você sincronizar a pasta raiz, todas as subpastas e arquivos vão para o mesmo compartilhamento de arquivos do Azure.
+O Sincronização de Arquivos do Azure dá suporte à sincronização da raiz de um volume para um compartilhamento de arquivos do Azure. Se você sincronizar a raiz do volume, todas as subpastas e arquivos vão para o mesmo compartilhamento de arquivos do Azure.
 
 A sincronização da raiz do volume nem sempre é a melhor resposta. Há benefícios na sincronização de vários locais. Por exemplo, isso ajuda a manter o número de itens menores por escopo de sincronização. Enquanto testamos os compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure com 100 milhões itens (arquivos e pastas) por compartilhamento, uma prática recomendada é tentar manter o número abaixo de 20 milhões ou 30 milhões em um único compartilhamento. Configurar Sincronização de Arquivos do Azure com um número menor de itens não é apenas benéfico para a sincronização de arquivos. Um número menor de itens também beneficia cenários como estes:
 
-* A verificação inicial do conteúdo da nuvem antes que o namespace possa começar a aparecer em um servidor habilitado para Sincronização de Arquivos do Azure pode ser concluída mais rapidamente.
+* A verificação inicial do conteúdo da nuvem pode ser concluída mais rapidamente, o que, por sua vez, diminui a espera até que o namespace apareça em um servidor habilitado para Sincronização de Arquivos do Azure.
 * A restauração do lado da nuvem de um instantâneo de compartilhamento de arquivos do Azure será mais rápida.
 * A recuperação de desastres de um servidor local pode acelerar significativamente.
 * As alterações feitas diretamente em um compartilhamento de arquivos do Azure (fora da sincronização) podem ser detectadas e sincronizadas mais rapidamente.
@@ -47,24 +47,22 @@ Para tomar a decisão sobre quantos compartilhamentos de arquivos do Azure você
 * Um servidor com o agente de Sincronização de Arquivos do Azure instalado pode sincronizar com até 30 compartilhamentos de arquivos do Azure.
 * Um compartilhamento de arquivos do Azure é implantado dentro de uma conta de armazenamento. Isso torna a conta de armazenamento um destino de escala para números de desempenho, como IOPS e taxa de transferência.
 
-  Dois compartilhamentos de arquivos do Azure padrão (não Premium) podem, teoricamente, saturar o desempenho máximo que uma conta de armazenamento pode fornecer. Se você planeja anexar apenas Sincronização de Arquivos do Azure a esses compartilhamentos de arquivos, o agrupamento de vários compartilhamentos de arquivos do Azure na mesma conta de armazenamento não criará um problema. Examine os destinos de desempenho do compartilhamento de arquivos do Azure para obter informações mais aprofundadas sobre as métricas relevantes a serem consideradas.
+  Um compartilhamento de arquivos padrão do Azure pode teoricamente saturar o desempenho máximo que uma conta de armazenamento pode fornecer. Colocar vários compartilhamentos em uma única conta de armazenamento significa que você está criando um pool compartilhado de IOPS e taxa de transferência para esses compartilhamentos. Se você planeja anexar apenas Sincronização de Arquivos do Azure a esses compartilhamentos de arquivos, o agrupamento de vários compartilhamentos de arquivos do Azure na mesma conta de armazenamento não criará um problema. Examine os destinos de desempenho do compartilhamento de arquivos do Azure para obter informações mais aprofundadas sobre as métricas relevantes a serem consideradas. Essas limitações não se aplicam ao armazenamento Premium, em que o desempenho é provisionado explicitamente e garantido para cada compartilhamento.
 
-  Se você planeja levantar um aplicativo para o Azure que usará o compartilhamento de arquivos do Azure nativamente, talvez seja necessário mais desempenho do compartilhamento de arquivos do Azure. Se esse tipo de uso for uma possibilidade, mesmo no futuro, o mapeamento de um compartilhamento de arquivos do Azure para sua própria conta de armazenamento é o melhor.
-* Há um limite de 250 contas de armazenamento por assinatura em uma única região do Azure.
+  Se você planeja levantar um aplicativo para o Azure que usará o compartilhamento de arquivos do Azure nativamente, talvez seja necessário mais desempenho do compartilhamento de arquivos do Azure. Se esse tipo de uso for uma possibilidade, mesmo no futuro, é melhor criar um único compartilhamento de arquivo do Azure padrão em sua própria conta de armazenamento.
+* Há um limite de 250 contas de armazenamento por assinatura por região do Azure.
 
 > [!TIP]
 > Com essas informações em mente, geralmente é necessário agrupar várias pastas de nível superior em seus volumes em um diretório raiz comum e novo. Em seguida, você sincroniza esse novo diretório raiz e todas as pastas que você agrupau para ele para um único compartilhamento de arquivos do Azure. Essa técnica permite que você permaneça dentro do limite de 30 sincronizações de compartilhamento de arquivos do Azure por servidor.
 >
-> Esse agrupamento sob uma raiz comum não tem impacto sobre o acesso aos seus dados. Suas ACLs permanecem como estão. Você precisaria apenas ajustar os caminhos de compartilhamento (como compartilhamentos SMB ou NFS) que você pode ter nas pastas de servidor que você alterou em uma raiz comum. Nada mais muda.
+> Esse agrupamento sob uma raiz comum não tem impacto sobre o acesso aos seus dados. Suas ACLs permanecem como estão. Você precisaria apenas ajustar os caminhos de compartilhamento (como compartilhamentos SMB ou NFS) que você pode ter nas pastas do servidor local que você alterou em uma raiz comum. Nada mais muda.
 
 > [!IMPORTANT]
-> O vetor de escala mais importante para Sincronização de Arquivos do Azure é o número de itens (arquivos e pastas) que precisam ser sincronizados.
+> O vetor de escala mais importante para Sincronização de Arquivos do Azure é o número de itens (arquivos e pastas) que precisam ser sincronizados. Examine os [destinos de escala de sincronização de arquivos do Azure](../articles/storage/files/storage-files-scale-targets.md#azure-file-sync-scale-targets) para obter mais detalhes.
 
-O Sincronização de Arquivos do Azure dá suporte à sincronização de até 100 milhões itens para um único compartilhamento de arquivos do Azure. Esse limite pode ser excedido e mostra apenas o que a equipe de Sincronização de Arquivos do Azure testa regularmente.
+É uma prática recomendada manter o número de itens por escopo de sincronização baixo. Esse é um fator importante a ser considerado no mapeamento de pastas para compartilhamentos de arquivos do Azure. Sincronização de Arquivos do Azure é testado com 100 milhões itens (arquivos e pastas) por compartilhamento. No entanto, geralmente é melhor manter o número de itens abaixo de 20 milhões ou 30 milhões em um único compartilhamento. Divida o namespace em vários compartilhamentos se você começar a exceder esses números. Você pode continuar a agrupar vários compartilhamentos locais no mesmo compartilhamento de arquivos do Azure se ficar mais abaixo desses números. Essa prática fornecerá espaço para crescer.
 
-É uma prática recomendada manter o número de itens por escopo de sincronização baixo. Esse é um fator importante a ser considerado no mapeamento de pastas para compartilhamentos de arquivos do Azure. Enquanto testamos os compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure com 100 milhões itens (arquivos e pastas) por compartilhamento, uma prática recomendada é tentar manter o número abaixo de 20 milhões ou 30 milhões em um único compartilhamento. Divida o namespace em vários compartilhamentos se você começar a exceder esses números. Você pode continuar a agrupar vários compartilhamentos locais no mesmo compartilhamento de arquivos do Azure se ficar mais abaixo desses números. Essa prática fornecerá espaço para crescer.
-
-Em sua situação, é possível que um conjunto de pastas possa ser sincronizado logicamente com o mesmo compartilhamento de arquivos do Azure (usando a nova abordagem de pasta raiz comum mencionada anteriormente). Mas talvez ainda seja melhor reagrupar pastas de forma que elas sincronizem com duas, em vez de um compartilhamento de arquivos do Azure. Você pode usar essa abordagem para manter o número de arquivos e pastas por compartilhamento de arquivos balanceados pelo servidor.
+Em sua situação, é possível que um conjunto de pastas possa ser sincronizado logicamente com o mesmo compartilhamento de arquivos do Azure (usando a nova abordagem de pasta raiz comum mencionada anteriormente). Mas talvez ainda seja melhor reagrupar pastas de forma que elas sincronizem com duas, em vez de um compartilhamento de arquivos do Azure. Você pode usar essa abordagem para manter o número de arquivos e pastas por compartilhamento de arquivos balanceados pelo servidor. Você também pode dividir seus compartilhamentos locais e sincronizar entre mais servidores locais, adicionando a capacidade de sincronização com mais de 30 compartilhamento de arquivos do Azure por servidor extra.
 
 #### <a name="create-a-mapping-table"></a>Criar uma tabela de mapeamento
 

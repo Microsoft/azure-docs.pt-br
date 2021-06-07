@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 479a8fac111be6e5b1ae2c6ea21fff801ba26f83
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878877"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863574"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Como configurar o BGP em gateways de VPN do Azure
 
@@ -79,13 +79,15 @@ Nesta etapa, você cria um gateway de VPN com os parâmetros BGP correspondentes
 
    * O campo **endereço IP do BGP APIPA do Azure** é opcional. Se os dispositivos VPN locais usarem o endereço APIPA para BGP, você deverá selecionar um endereço do intervalo de endereços APIPA reservado do Azure para VPN, que é de **169.254.21.0** para **169.254.22.255**. Este exemplo usa 169.254.21.11.
 
-   * Se você estiver criando um gateway de VPN ativo-ativo, a seção BGP mostrará um **segundo endereço IP APIPA do Azure personalizado** adicional. Especifique um endereço diferente do intervalo APIPA permitido (**169.254.21.0** para **169.254.22.255**).
+   * Se você estiver criando um gateway de VPN ativo-ativo, a seção BGP mostrará um **segundo endereço IP APIPA do Azure personalizado** adicional. No intervalo APIPA permitido (**169.254.21.0** para **169.254.22.255**), selecione outro endereço IP. O segundo endereço IP deve ser diferente do primeiro endereço.
 
    > [!IMPORTANT]
    >
    > * Por padrão, o Azure atribui um endereço IP privado do intervalo de prefixo GatewaySubnet automaticamente como o endereço IP do BGP do Azure no gateway de VPN do Azure. O endereço BGP do APIPA do Azure personalizado é necessário quando os dispositivos VPN locais usam um endereço APIPA (169.254.0.1 a 169.254.255.254) como o IP do BGP. O gateway de VPN do Azure escolherá o endereço APIPA personalizado se o recurso de gateway de rede local correspondente (rede no local) tiver um endereço APIPA como o IP do par de BGP. Se o gateway de rede local usar um endereço IP regular (não APIPA), o gateway de VPN do Azure será revertido para o endereço IP privado do intervalo de GatewaySubnet.
    >
    > * Os endereços BGP do APIPA não devem se sobrepor entre os dispositivos VPN locais e todos os gateways de VPN do Azure conectados.
+   >
+   > * Quando os endereços APIPA são usados em gateways de VPN do Azure, os gateways não iniciam sessões de emparelhamento via protocolo BGP com endereços IP de origem APIPA. O dispositivo VPN local deve iniciar conexões de emparelhamento via protocolo BGP.
    >
 
 1. Selecione **Examinar + criar** para executar a validação. Depois que a validação for aprovada, selecione **Criar** para implantar o Gateway de VPN. Um gateway pode levar até 45 minutos para ser criado e implantado por completo. Você poderá ver o status de implantação na página de Visão Geral do gateway.

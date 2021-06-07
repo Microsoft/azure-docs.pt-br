@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
 ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015495"
 ---
 # <a name="smart-contract-integration-patterns"></a>Padrões de integração e contratos inteligentes

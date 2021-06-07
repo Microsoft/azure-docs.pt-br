@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 91e10c25d2c3bef9c1ca20e3e5737a326d45997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
-ms.translationtype: MT
+ms.openlocfilehash: fdf24fdc56d39d93fed0009e2fadbafd7f97db6c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654771"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280489"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair frases-chave usando Análise de Texto
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair frases-chave usando a Análise de Texto
 
 A [API de Extração de Frases-chave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave.
 
@@ -27,7 +27,7 @@ Para obter mais informações, consulte [Linguagens com suporte](../language-sup
 
 > [!TIP]
 > * A Análise de Texto também fornece uma imagem de contêiner do Docker baseado em Linux para extração de frases-chave, para que você possa [instalar e executar o contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) perto de seus dados.
-> * Você também pode usar esse recurso de [forma assíncrona](text-analytics-how-to-call-api.md) usando o `/analyze` ponto de extremidade.
+> * Você também pode usar esse recurso [de maneira assíncrona](text-analytics-how-to-call-api.md) usando o ponto de extremidade `/analyze`.
 
 ## <a name="preparation"></a>Preparação
 
@@ -37,7 +37,7 @@ Você deve ter documentos JSON neste formato: ID, texto, idioma
 
 O tamanho do documento precisa ter 5.120 caracteres ou menos por documento, e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para extração de frase-chave. 
 
-Consulte [como chamar o API de análise de texto](text-analytics-how-to-call-api.md) para obter mais informações sobre objetos de solicitação e resposta.  
+Confira [Como chamar a API d Análise de Texto](text-analytics-how-to-call-api.md) para saber mais sobre objetos de solicitação e resposta.  
 
 ### <a name="example-synchronous-request-object"></a>Exemplo de objeto de solicitação síncrona
 
@@ -76,7 +76,7 @@ Consulte [como chamar o API de análise de texto](text-analytics-how-to-call-api
 
 ### <a name="example-asynchronous-request-object"></a>Exemplo de objeto de solicitação assíncrona
 
-A partir do `v3.1-preview.3` , você pode enviar solicitações Ner de forma assíncrona usando o `/analyze` ponto de extremidade.
+Começando no `v3.1-preview.3`, você pode enviar solicitações NER de maneira assíncrona usando o ponto de extremidade `/analyze`.
 
 
 ```json
@@ -108,9 +108,9 @@ A partir do `v3.1-preview.3` , você pode enviar solicitações Ner de forma ass
 
 Para saber mais sobre a definição de solicitação, confira [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Crie uma solicitação **post** . Examine a documentação da API para esta solicitação: [API de frases-chave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-chave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Defina o ponto de extremidade HTTP para extração de frases-chave usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Se você estiver usando a API de forma síncrona, deverá incluir `/text/analytics/v3.0/keyPhrases` na URL. Por exemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Defina o ponto de extremidade HTTP para extração de frases-chave usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Se estiver usando a API de maneira síncrona, você deverá incluir `/text/analytics/v3.0/keyPhrases` na URL. Por exemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de Análise de Texto do Azure Machine Learning.
 
@@ -121,7 +121,7 @@ Para saber mais sobre a definição de solicitação, confira [Como chamar a API
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: postar a solicitação
 
-A análise é executada após o recebimento da solicitação. Para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, consulte a seção [limites de dados](../overview.md#data-limits) na visão geral.
+A análise é executada após o recebimento da solicitação. Para saber mais sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, confira o artigo sobre [limites de dados](../concepts/data-limits.md).
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
@@ -131,7 +131,7 @@ Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs 
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados.
 
-Um exemplo da saída para extração de frases-chave do ponto de extremidade v 3.1-Preview. 2 é mostrado aqui:
+Um exemplo da saída para extração de frases-chave do ponto de extremidade v31-preview.2 é mostrado aqui:
 
 ### <a name="synchronous-result"></a>Resultado síncrono
 
@@ -197,7 +197,7 @@ Conforme observado, o analisador localiza e descarta as palavras não essenciais
 
 ### <a name="asynchronous-result"></a>Resultado assíncrono
 
-Se você usar o `/analyze` ponto de extremidade para a operação assíncrona, receberá uma resposta que contém as tarefas que você enviou para a API.
+Se usar o ponto de extremidade `/analyze` para a operação assíncrona, você receberá uma resposta contendo as tarefas que enviou para a API.
 
 ```json
 {
@@ -256,7 +256,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho de extração de
 
 + [API de extração de frase-chave](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) está disponível para os idiomas selecionados.
 + Documentos JSON no corpo da solicitação incluem um código de idioma, texto e ID.
-+ A solicitação POST é para `/keyphrases` um `/analyze` ponto de extremidade ou, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
++ A solicitação POST é para um ponto de extremidade `/keyphrases` ou `/analyze`, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para sua assinatura.
 + A saída de resposta, que consiste em palavras e frases-chave para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON, incluindo o Microsoft Office Excel e o Power BI, para citar alguns.
 
 ## <a name="see-also"></a>Confira também

@@ -2,17 +2,19 @@
 title: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 description: Neste início rápido, você aprenderá a criar um namespace do Barramento de Serviço e uma fila no namespace usando o Azure PowerShell.
 author: spelluru
-ms.devlang: dotnet
-ms.topic: quickstart
-ms.date: 08/12/2020
 ms.author: spelluru
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8cf024735c66e6bae9d334e3d8ce8d0a0eed1426
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.devlang: dotnet
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: f7bf9e5435b00ee3076422cccbe689038051499d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95799100"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537094"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Usar o Azure PowerShell para criar um namespace e uma fila do Barramento de Serviço
 Este guia de início rápido mostra como criar um namespace e uma fila do Barramento de Serviço usando o Azure PowerShell. Ele também mostra como obter credenciais de autorização que um aplicativo cliente pode usar para enviar/receber mensagens de/para a fila. 
@@ -70,4 +72,3 @@ Neste artigo, você criou um namespace do Barramento de Serviço e uma fila no n
 - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-

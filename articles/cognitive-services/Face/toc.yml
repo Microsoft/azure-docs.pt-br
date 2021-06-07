@@ -5,36 +5,26 @@
   items:
     - name: O que é o serviço de Detecção Facial?
       href: Overview.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: Novidades
       href: releasenotes.md
-- name: Inícios rápidos
-  items:
-    - name: Como usar a biblioteca de clientes ou a API REST
-      href: Quickstarts/client-libraries.md
-- name: Tutoriais
-  items:
-    - name: Usando o SDK do cliente
-      items:
-        - name: C#
-          href: Tutorials/FaceAPIinCSharpTutorial.md
-- name: Conceitos
-  items:
-    - name: Detecção facial
-      href: concepts/face-detection.md
-    - name: Reconhecimento facial
-      href: concepts/face-recognition.md
+- name: Guia de Início Rápido
+  href: Quickstarts/client-libraries.md
+- name: Exemplos
+  href: /samples/browse/?products=azure&term=face
 - name: Guias de instruções
   items:
-    - name: Detectar faces
+    - name: Detectar e analisar rostos
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: Especificar uma versão de modelo de reconhecimento facial
+      href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Especificar uma versão de modelo de detecção facial
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Adicionar faces a um grupo
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Usar o atributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md
-    - name: Especificar um modelo de reconhecimento facial
-      href: Face-API-How-to-Topics/specify-recognition-model.md
-    - name: Especificar um modelo de detecção facial
-      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Mitigar a latência ao usar o serviço de Detecção Facial
       href: Face-API-How-to-Topics/how-to-mitigate-latency.md
     - name: Use o recurso de larga escala
@@ -43,62 +33,65 @@
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: Migrar dados de detecção facial
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-    - name: Usar contêineres
+    - name: Usar o contêiner de Detecção Facial
       items:
+        - name: Documentação sobre contêineres de Serviços Cognitivos
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
+        - name: Visão geral dos contêineres
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: Instalar e executar contêineres
           href: face-how-to-install-containers.md
         - name: Configurar contêineres
           href: face-resource-container-config.md
         - name: Usar instâncias de contêiner
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Documentação sobre contêineres dos Serviços Cognitivos
-          href: ../containers/index.yml
-- name: Cenário de aprofundamento
-  items:
-    - name: Registro facial
+          href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+    - name: Preparação corporativa
       items:
-        - name: Visão geral
+        - name: Configuração de redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/face/context/context
+        - name: Usar chaves gerenciadas pelo cliente
+          href: encrypt-data-at-rest.md
+        - name: Usar a autenticação do Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/face/context/context
+- name: Conceitos
+  items:
+    - name: Detecção facial
+      href: concepts/face-detection.md
+    - name: Reconhecimento facial
+      href: concepts/face-recognition.md
+- name: Tutoriais
+  items:
+    - name: Adicionar usuários a um serviço de Detecção Facial
+      items:
+        - name: Melhores práticas para adicionar usuários
           href: enrollment-overview.md
-        - name: Guias de instruções
-          items:
-            - name: Criar um aplicativo de registro com o React
-              href: build-enrollment-app.md
+        - name: Criar um aplicativo React para adicionar usuários
+          href: build-enrollment-app.md
 - name: Referência
   items:
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/face/'
-    - name: SDKs
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
-        - name: Python
-          href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
-        - name: Java
-          href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
-        - name: Node.js
-          href: /javascript/api/@azure/cognitiveservices-face
-        - name: Go
-          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
+    - name: API REST da Detecção Facial
+      href: APIReference.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/@azure/cognitiveservices-face
+    - name: Python
+      href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Recursos
   items:
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Módulos de aprendizagem
+      href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-    - name: Exemplos
-      items:
-        - name: Exemplos de Detecção Facial
-          href: /samples/browse/?products=azure&term=face
-    - name: Preços e limites
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/430315-face-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Roteiro do Azure
+    - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: face-encryption-of-data-at-rest.md

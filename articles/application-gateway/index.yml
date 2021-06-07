@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 02/08/2021
-  ms.openlocfilehash: 7493683355ea3be24bf086dab1a968f9f03b1e05
-  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.openlocfilehash: 25604a7be6f0be94a2742751829f68e3f5353696
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/08/2021
-  ms.locfileid: "99833245"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101711613"
 landingContent:
 - title: Saber mais sobre o Gateway de Aplicativo
   linkLists:
@@ -73,8 +73,8 @@ landingContent:
       url: ingress-controller-overview.md
   - linkListType: tutorial
     links:
-    - text: Criar um Ingress Controller para AKS
-      url: ingress-controller-install-new.md
+    - text: Criar um complemento AKS Controlador de Entrada para AKS
+      url: tutorial-ingress-controller-add-on-new.md
 - title: Reescrever cabeçalhos HTTP e URL usando um Gateway de Aplicativo
   linkLists:
   - linkListType: overview

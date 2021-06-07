@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
 ms.openlocfilehash: f7d2a6f01e891a7fb1c14cde552d66679e474139
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94359126"
 ---
 # <a name="tutorial-configure-proxyclick-for-automatic-user-provisioning"></a>Tutorial: Configurar o Proxyclick para provisionamento automático de usuário

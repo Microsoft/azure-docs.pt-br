@@ -3,16 +3,16 @@ title: Série Lsv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Lsv2.
 author: sasha-melamed
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-storage
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 787f9ada921e1580a34431568e87c41496b37f6a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097835"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563193"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 

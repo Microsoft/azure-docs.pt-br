@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
 ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89536375"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para as imagens do Azure Marketplace

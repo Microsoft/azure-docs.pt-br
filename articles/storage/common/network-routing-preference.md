@@ -1,26 +1,26 @@
 ---
-title: Configurar preferência de roteamento de rede (versão prévia)
+title: Preferência de roteamento de rede
 titleSuffix: Azure Storage
-description: Configure a preferência de roteamento de rede (versão prévia) para sua conta de armazenamento do Azure para especificar como o tráfego de rede é roteado para sua conta de clientes pela Internet.
+description: A preferência de roteamento de rede permite que você especifique como o tráfego de rede é roteado para sua conta de clientes pela Internet.
 services: storage
-author: santoshc
+author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.author: santoshc
-ms.reviewer: tamram
+ms.date: 02/11/2021
+ms.author: normesta
+ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf2270fe6f71dfe5be31db8e82f6c44696f28074
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362736"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601484"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurar preferência de roteamento de rede para o Armazenamento do Microsoft Azure (versão prévia)
+# <a name="network-routing-preference-for-azure-storage"></a>Preferência de roteamento de rede para o armazenamento do Azure
 
-Você pode configurar a [preferência de roteamento](../../virtual-network/routing-preference-overview.md) (versão prévia) para sua conta de armazenamento do Azure para especificar como o tráfego de rede é roteado para sua conta de clientes pela Internet. Por padrão, o tráfego da Internet é roteado para o ponto de extremidade público de sua conta de armazenamento sobre a [rede global da Microsoft](../../networking/microsoft-global-network.md). O Armazenamento do Microsoft Azure fornece opções adicionais para configurar como o tráfego é roteado para sua conta de armazenamento.
+Você pode configurar a [preferência de roteamento](../../virtual-network/routing-preference-overview.md) de rede para sua conta de armazenamento do Azure para especificar como o tráfego de rede é roteado para sua conta de clientes pela Internet. Por padrão, o tráfego da Internet é roteado para o ponto de extremidade público de sua conta de armazenamento pela [rede global da Microsoft](../../networking/microsoft-global-network.md). O Armazenamento do Microsoft Azure fornece opções adicionais para configurar como o tráfego é roteado para sua conta de armazenamento.
 
 Configurar a preferência de roteamento oferece a flexibilidade para otimizar o tráfego para um desempenho de rede Premium ou para otimizar custos. Ao configurar uma preferência de roteamento, você especifica como o tráfego será direcionado para o ponto de extremidade público para sua conta de armazenamento por padrão. Você também pode publicar pontos de extremidade específicos de rota para sua conta de armazenamento.
 
@@ -37,15 +37,17 @@ O diagrama a seguir mostra como o tráfego flui entre o cliente e a conta de arm
 
 ![Visão geral das opções de roteamento para o Armazenamento do Microsoft Azure](media/network-routing-preference/routing-options-diagram.png)
 
-Para obter mais informações sobre a preferência de roteamento no Azure, consulte [O que é preferência de roteamento (visualização)?](../../virtual-network/routing-preference-overview.md).
+Para obter mais informações sobre a preferência de roteamento no Azure, consulte [o que é a preferência de roteamento?](../../virtual-network/routing-preference-overview.md).
 
 ## <a name="routing-configuration"></a>Configuração de roteamento
+
+Para obter orientações passo a passo que mostram como configurar a preferência de roteamento e os pontos de extremidade específicos de rota, consulte [Configurar a preferência de roteamento de rede para o armazenamento do Azure](configure-network-routing-preference.md).
 
 Você pode escolher entre a rede global da Microsoft e o roteamento da Internet como a preferência de roteamento padrão para o ponto de extremidade público da sua conta de armazenamento. A preferência de roteamento padrão se aplica a todo o tráfego de clientes fora do Azure e afeta os pontos de extremidade para o Azure Data Lake Storage Gen2, armazenamento de blobs, Arquivos do Azure e sites estáticos. Não há suporte para configurar a preferência de roteamento para Filas do Azure ou Tabelas do Azure.
 
 Você também pode publicar pontos de extremidade específicos de rota para sua conta de armazenamento. Quando você publica pontos de extremidade específicos a uma rota, o Armazenamento do Microsoft Azure cria novos pontos de extremidade públicos para sua conta de armazenamento que roteiam o tráfego no caminho desejado. Essa flexibilidade permite direcionar o tráfego para sua conta de armazenamento em uma rota específica sem alterar a preferência de roteamento padrão.
 
-Por exemplo, a publicação de um ponto de extremidade específico de uma rota da Internet para o “StorageAccountA” publicará os seguintes pontos de extremidades para sua conta de armazenamento:
+Por exemplo, a publicação de um ponto de extremidade específico de rota da Internet para o ' StorageAccountA ' publicará os seguintes pontos de extremidades para sua conta de armazenamento:
 
 | Serviço de armazenamento        | Pontos de extremidade específicos à rota                                  |
 | :--------------------- | :------------------------------------------------------- |
@@ -65,7 +67,7 @@ Se você tiver um armazenamento com redundância geográfica com acesso de leitu
 
 As cadeias de conexão para os pontos de extremidade específicos à rota publicados podem ser copiadas pelo [portal do Azure](https://portal.azure.com). Essas cadeias de conexão podem ser usadas para a autorização de chave compartilhada com todos os SDKs e APIs do Armazenamento do Microsoft Azure existentes.
 
-## <a name="about-the-preview"></a>Sobre a visualização
+## <a name="regional-availability"></a>Disponibilidade regional
 
 A preferência de roteamento para o Armazenamento do Microsoft Azure está disponível nas seguintes regiões:
 
@@ -100,16 +102,17 @@ A preferência de roteamento para o Armazenamento do Microsoft Azure está dispo
 - Leste da Austrália 
 - Sudeste da Austrália 
 
-Os seguintes problemas conhecidos afetam a visualização de preferência do roteamento para o Armazenamento do Microsoft Azure:
+Os seguintes problemas conhecidos afetam a preferência de roteamento para o armazenamento do Azure:
 
 - As solicitações de acesso para o ponto de extremidade específico à rota para a rede global da Microsoft falham com o erro HTTP 404 ou equivalente. O roteamento pela rede global da Microsoft funciona conforme o esperado quando é definido como a preferência de roteamento padrão para o ponto de extremidade público.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-Para obter os detalhes de preços e cobranças, consulte a seção **Preços** em [O que é preferência de roteamento (visualização)?](../../virtual-network/routing-preference-overview.md#pricing).
+Para obter os detalhes de preços e cobranças, consulte a seção de **preços** em [o que é preferência de roteamento?](../../virtual-network/routing-preference-overview.md#pricing).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é preferência de roteamento (visualização)?](../../virtual-network/routing-preference-overview.md)
+- [O que é preferência de roteamento?](../../virtual-network/routing-preference-overview.md)
+- [Configurar preferência de roteamento de rede](configure-network-routing-preference.md)
 - [Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure](storage-network-security.md)
 - [Recomendações de segurança para o armazenamento de blobs](../blobs/security-recommendations.md)

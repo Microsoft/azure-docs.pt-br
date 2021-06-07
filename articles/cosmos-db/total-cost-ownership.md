@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079284"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Custo total de propriedade (TCO) com Azure Cosmos DB

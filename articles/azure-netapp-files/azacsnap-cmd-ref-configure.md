@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 0875aae8bb9049fc96377c1c98efa7391211d08f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632571"
 ---
 # <a name="configure-azure-application-consistent-snapshot-tool-preview"></a>Configurar Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)

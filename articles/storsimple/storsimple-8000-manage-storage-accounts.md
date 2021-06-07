@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016856"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
@@ -86,7 +86,7 @@ Use os procedimentos a seguir para adicionar as credenciais de conta de armazena
    
     3. Na caixa de texto **Chave de acesso da conta de armazenamento**, forneça a chave de acesso primária para suas credenciais de conta de armazenamento do Azure. Para obter essa chave, vá para o serviço de Armazenamento do Azure, escolha sua credencial de conta de armazenamento e clique em **Gerenciar chaves de conta**. Agora você pode copiar a chave de acesso primária.
    
-    4. Para habilitar o TLS, clique no botão **habilitar** para criar um canal seguro para comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
+    4. Para habilitar o TLS, clique no botão **habilitar** para criar um canal seguro para comunicação de rede entre o serviço StorSimple Gerenciador de dispositivos e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
    
     5. Clique em **Adicionar**. Você será notificado depois que a credencial de conta de armazenamento tiver sido criada com êxito.
 

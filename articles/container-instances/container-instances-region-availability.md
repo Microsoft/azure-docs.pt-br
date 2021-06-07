@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e de memória para o se
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831273"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046004"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para Instâncias de Contêiner do Azure nas regiões do Azure
 
@@ -48,6 +48,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Centro-Sul dos Estados Unidos | 4 | 16 | 4 | 16 | 50 | N/D |
 | Sudeste Asiático | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sul da Índia | 4 | 16 | N/D | N/D | 50 | N/D |
+| Norte da Suíça | 3 | 16 | N/D | N/D | 50 | N/D |
 | Sul do Reino Unido | 4 | 16 | 4 | 16 | 50 | N/D |
 | Norte dos EAU | 3 | 16 | N/D | N/D | 50 | N/D |
 | Centro-Oeste dos EUA| 4 | 16 | 4 | 16 | 50 | N/D |
@@ -87,21 +88,21 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
 | Canadá Central | 2 | 8 | 2 | 3,5 | 20 |
 | Índia Central | 2 | 3,5 | 2 | 3,5 | 20 |
-| Centro dos EUA | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro dos EUA | 2 | 8 | 2 | 3,5 | 20 |
 | Leste da Ásia | 2 | 3,5 | 2 | 3,5 | 20 |
-| Leste dos EUA | 4 | 16 | 2 | 8 | 20 |
-| Leste dos EUA 2 | 2 | 3,5 | 4 | 16 | 20 |
+| Leste dos EUA | 2 | 8 | 2 | 8 | 20 |
+| Leste dos EUA 2 | 2 | 8 | 4 | 16 | 20 |
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Coreia Central | 4 | 16 | 4 | 16 | 20 |
-| Centro-Norte dos EUA | 4 | 16 | 4 | 16 | 20 |
+| Centro-Norte dos EUA | 2 | 8 | 4 | 16 | 20 |
 | Norte da Europa | 2 | 8 | 2 | 8 | 20 |
-| Centro-Sul dos Estados Unidos | 2 | 3,5 | 2 | 8 | 20 |
+| Centro-Sul dos Estados Unidos | 2 | 8 | 2 | 8 | 20 |
 | Sudeste Asiático | N/D | N/D | 2 | 3,5 | 20 |
 | Sul da Índia | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sul do Reino Unido | 2 | 8 | 2 | 3,5 | 20 |
-| Centro-Oeste dos EUA | 4 | 16 | 2 | 8 | 20 |
+| Centro-Oeste dos EUA | 2 | 8 | 2 | 8 | 20 |
 | Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
-| Oeste dos EUA | 4 | 16 | 2 | 8 | 20 |
+| Oeste dos EUA | 2 | 8 | 2 | 8 | 20 |
 | Oeste dos EUA 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 

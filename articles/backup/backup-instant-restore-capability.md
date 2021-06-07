@@ -4,12 +4,12 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014441"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618569"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -67,7 +67,7 @@ No portal do Azure, você pode ver um campo adicionado no painel **política de 
 
 ![Funcionalidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 >[!NOTE]
 > Em AZ PowerShell Version 1.6.0 em diante, você pode atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell
@@ -112,7 +112,13 @@ O novo modelo não permite excluir o ponto de restauração (tier2), a menos que
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Por que meu instantâneo ainda existe, mesmo após o período de retenção definido na política de backup?
 
-Se o ponto de recuperação tiver um instantâneo e ele for o último ponto de recuperação disponível, ele será retido até o próximo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) designada. Isso exige que pelo menos um ponto de recuperação mais recente sempre esteja presente, no caso de falha em todos os backups subsequentes devido a um problema na VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a expiração.
+Se o ponto de recuperação tiver um instantâneo e ele for o último ponto de recuperação disponível, ele será retido até o próximo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) designada. Isso exige que pelo menos um ponto de recuperação mais recente sempre esteja presente, no caso de falha em todos os backups subsequentes devido a um problema na VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a expiração. Em casos raros, pode haver um ou dois instantâneos adicionais com base na carga mais pesada no GC (coletor de lixo).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>Por que vejo mais instantâneos do que minha política de retenção?
+
+Em um cenário em que uma política de retenção é definida como "1", você pode encontrar dois instantâneos. Isso exige que pelo menos um ponto de recuperação mais recente sempre esteja presente, no caso de falha em todos os backups subsequentes devido a um problema na VM. Isso pode causar a presença de dois instantâneos.<br></br>Portanto, se a política for para "n" instantâneos, você poderá encontrar instantâneos "n + 1" às vezes. Além disso, você pode até encontrar instantâneos "n + 1 + 2" se houver um atraso na coleta de lixo. Isso pode ocorrer em raras ocasiões em que:
+- Você limpa os instantâneos que estão com retenção passada.
+- O coletor de lixo (GC) no back-end está sob carga pesada.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade de restauração instantânea. Ele pode ser desabilitado?
 

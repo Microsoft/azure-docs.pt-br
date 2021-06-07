@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348246"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Gravação de auditoria para conta de armazenamento atrás de rede virtual ou firewall
@@ -123,7 +123,7 @@ Para configurar a Auditoria do SQL para gravar eventos em uma conta de armazenam
    > [!NOTE]
    > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey* :
+3. Configure a [política de auditoria de blob do servidor](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey*:
 
    Solicitação de exemplo
 

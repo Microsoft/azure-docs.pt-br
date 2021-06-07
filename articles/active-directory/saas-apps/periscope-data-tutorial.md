@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: deac4dcde51049d744706b7479f5b5f3bbb4d9c0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
@@ -49,11 +49,11 @@ Para configurar a integração do Periscope Data no Azure AD, você precisará a
 
 **Para adicionar Periscope Data da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Periscope Data no Azure AD, você precisará a
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Periscope Data** , selecione **Periscope Data** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Periscope Data**, selecione **Periscope Data** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Periscope Data na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Periscope Data, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Periscope Data, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Periscope Data.
 
 Para configurar e testar o logon único do Azure AD com o Periscope Data, você precisa concluir os seguintes blocos de construção:
@@ -85,23 +85,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Periscope Data, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Periscope Data** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Periscope Data**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Periscope Data](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de logon** , digite qualquer uma das URLs:
+    a. Na caixa de texto **URL de logon**, digite qualquer uma das URLs:
     
     ```https
     https://app.periscopedata.com/
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize os valores com a URL de Entrada real. Entre em contato com a [equipe de Suporte ao Cliente de do Periscope Data](mailto:support@periscopedata.com) para obter esse valor; o valor do Identificador, você obterá da seção **Configurar logon único do Periscope Data** explicada posteriormente no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -127,21 +127,21 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
     a. Copie a **URL de Metadados de Federação do Aplicativo** da etapa 5 **Certificado de Assinatura SAML** e abra-o em um navegador. Isso abrirá um documento XML.
 
-    b. Na caixa de texto **Logon Único** , selecione **Azure Active Directory** .
+    b. Na caixa de texto **Logon Único**, selecione **Azure Active Directory**.
 
-    c. Localize a tag **SingleSignOnService** e cole o valor **Local** na caixa de texto **URL de SSO** .
+    c. Localize a tag **SingleSignOnService** e cole o valor **Local** na caixa de texto **URL de SSO**.
 
-    d. Localize a tag **SingleLogoutService** e cole o valor **Local** na caixa de texto **URL de SLO** .
+    d. Localize a tag **SingleLogoutService** e cole o valor **Local** na caixa de texto **URL de SLO**.
 
     e. Copie o valor de **Identificador** da instância e cole-o na caixa de texto **Identificador (ID da Entidade)** da seção **Configuração Básica do SAML** no portal do Azure.
 
-    f. Encontre a primeira tag do arquivo XML, copie o valor de **entityID** e cole-o na caixa de texto **Emissor** .
+    f. Encontre a primeira tag do arquivo XML, copie o valor de **entityID** e cole-o na caixa de texto **Emissor**.
 
-    g. Localize a tag **IDPSSODescriptor** com o protocolo SAML. Dentro dessa seção, localize a tag **KeyDescriptor** com **use=signing** . copie o valor de **X509Certificate** e cole-o na caixa de texto **Certificado** .
+    g. Localize a tag **IDPSSODescriptor** com o protocolo SAML. Dentro dessa seção, localize a tag **KeyDescriptor** com **use=signing**. copie o valor de **X509Certificate** e cole-o na caixa de texto **Certificado**.
 
-    h. Sites com vários espaços podem escolher o espaço de padrão na lista suspensa **Espaço Padrão** . Esse será o espaço adicionado para novos usuários quando eles fazem logon no Periscope Data pela primeira vez e são provisionados por meio do Logon Único do Active Directory.
+    h. Sites com vários espaços podem escolher o espaço de padrão na lista suspensa **Espaço Padrão**. Esse será o espaço adicionado para novos usuários quando eles fazem logon no Periscope Data pela primeira vez e são provisionados por meio do Logon Único do Active Directory.
 
-    i. Por fim, clique em **Salvar** e **confirme** a alteração de configurações de SSO digitando **Logout** .
+    i. Por fim, clique em **Salvar** e **confirme** a alteração de configurações de SSO digitando **Logout**.
 
     ![Uma captura de tela que mostra a caixa de diálogo "Atualizar a Configuração de SSO" com "logout" digitado na caixa de texto e o botão "Confirmar" selecionado.](./media/periscope-data-tutorial/configure02.png)
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -161,40 +161,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Periscope Data.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **Periscope Data** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Periscope Data**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Periscope Data** .
+2. Na lista de aplicativos, selecione **Periscope Data**.
 
     ![O link do Periscope Data na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-periscope-data-test-user"></a>Criar usuário de teste do Periscope Data
 
@@ -204,7 +204,7 @@ Para habilitar que os usuários do Azure AD façam logon no Periscope Data, eles
 
 1. Faça logon no Periscope Data como um Administrador.
 
-2. Clique no ícone **Configurações** no canto inferior esquerdo do menu e navegue até **Permissões** .
+2. Clique no ícone **Configurações** no canto inferior esquerdo do menu e navegue até **Permissões**.
 
     ![Uma captura de tela que mostra o menu de "Configurações" com a opção "Permissões" selecionada.](./media/periscope-data-tutorial/configure03.png)
 
@@ -212,13 +212,13 @@ Para habilitar que os usuários do Azure AD façam logon no Periscope Data, eles
 
       ![Informações de Configuração de Dados de Periscópio](./media/periscope-data-tutorial/configure04.png)
 
-    a. Na caixa de texto **Nome** , insira o nome do usuário como **Brenda** .
+    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
-    b. Na caixa de texto **Sobrenome** , insira o nome do usuário como **Fernandes** .
+    b. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    c. Na caixa de texto **Email** , insira o email do usuário como **brendafernandes\@contoso.com** .
+    c. Na caixa de texto **Email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
-    d. Clique em **ADICIONAR** .
+    d. Clique em **ADICIONAR**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -232,4 +232,4 @@ Quando você clica no bloco Periscope Data no painel de acesso, deve entrar auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185930"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775724"
 ---
-# <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
+# <a name="tls-termination-with-key-vault-certificates"></a>Terminação TLS com os certificados do Key Vault
 
 [Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. O Gateway de Aplicativo v2 do Azure dá suporte à integração com o Key Vault para certificados de servidor que estejam anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado à SKU v2 do gateway de aplicativo.
 
@@ -47,10 +47,19 @@ A integração do gateway de aplicativo com o Key Vault requer um processo de co
 
 1. **Configurar o cofre de chaves**
 
-   Em seguida, importe um certificado existente ou crie um novo no cofre de chaves. O certificado será usado por aplicativos que são executados por meio do gateway de aplicativo. Nesta etapa, você também pode usar um segredo do Key Vault que é armazenado como um arquivo PFX codificado por senha, em base 64. É recomendável usar um tipo de certificado devido ao recurso de renovação automática disponível com objetos de tipo de certificado no cofre de chaves. Depois de criar um certificado ou um segredo, defina as políticas de acesso no cofre de chaves para permitir que a identidade *receba acesso ao* segredo.
+   Em seguida, importe um certificado existente ou crie um novo no cofre de chaves. O certificado será usado por aplicativos que são executados por meio do gateway de aplicativo. Nesta etapa, você também pode usar um segredo de Key Vault que também permite armazenar um arquivo PFX codificado por senha, baseado em base 64. É recomendável usar um tipo de "certificado" devido ao recurso de renovação automática disponível com esse tipo de objeto na Key Vault. Depois de criar um certificado ou um segredo, você deve definir políticas de acesso no Key Vault para permitir que a identidade receba acesso ao segredo.
    
    > [!IMPORTANT]
-   > Atualmente, o gateway de aplicativo requer Key Vault para permitir o acesso de todas as redes a fim de aproveitar a integração. Ele não dá suporte à integração de Key Vault quando Key Vault está definido para permitir somente pontos de extremidade privados e selecionar acesso de redes. O suporte para redes privadas e selecionadas está em funcionamento para integração total do Key Vault com o gateway de aplicativo. 
+   > A partir de 15 de março de 2021, Key Vault reconhece o gateway de Aplicativo Azure como um dos serviços confiáveis, permitindo, assim, que você crie um limite de rede seguro no Azure. Isso lhe dá a capacidade de negar o acesso ao tráfego de todas as redes (incluindo o tráfego da Internet) para Key Vault, mas ainda torná-lo acessível para o recurso de gateway de aplicativo em sua assinatura. 
+
+   > Você pode configurar o gateway de aplicativo em uma rede restrita de Key Vault da seguinte maneira. <br />
+   > a) na folha de rede de Key Vault <br />
+   > b) escolher ponto de extremidade privado e redes selecionadas na guia "firewall e redes virtuais" <br/>
+   > c) em seguida, usando redes virtuais, adicione a rede virtual e a sub-rede do gateway de aplicativo. Durante o processo, configure também o ponto de extremidade de serviço ' Microsoft. keyvault ' selecionando sua caixa de seleção. <br/>
+   > d) por fim, selecione "Sim" para permitir que os serviços confiáveis ignorem o Firewall do Key Vault. <br/>
+   > 
+   > ![Key Vault firewall](media/key-vault-certs/key-vault-firewall.png)
+
 
    > [!NOTE]
    > Se você implantar o gateway de aplicativo por meio de um modelo ARM, usando o CLI do Azure ou o PowerShell, ou por meio de um aplicativo do Azure implantado no portal do Azure, o certificado SSL será armazenado no cofre de chaves como um arquivo PFX codificado em base64. Você deve concluir as etapas em [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). 

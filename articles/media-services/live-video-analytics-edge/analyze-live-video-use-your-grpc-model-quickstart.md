@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89421504"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Início Rápido: Análise Dinâmica de Vídeo usando o próprio modelo gRPC

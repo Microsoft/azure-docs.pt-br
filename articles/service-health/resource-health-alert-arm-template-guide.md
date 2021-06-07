@@ -3,12 +3,12 @@ title: Modelo para criar alertas de Resource Health
 description: Crie alertas por meio de programação que notificam você quando seus recursos do Azure se tornam não disponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1cbe1e2d2c185906feb4ccba380cb31df864f5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537422"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100588212"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
@@ -23,7 +23,7 @@ O Azure Resource Health mantém você informado sobre o status de integridade at
 Para seguir as instruções nesta página, você precisará configurar algumas coisas antecipadamente:
 
 1. Você precisa instalar o [módulo Azure PowerShell](/powershell/azure/install-az-ps)
-2. Você precisará [criar ou reutilizar um Grupo de Ações](../azure-monitor/platform/action-groups.md) configurado para notificar você
+2. Você precisará [criar ou reutilizar um Grupo de Ações](../azure-monitor/alerts/action-groups.md) configurado para notificar você
 
 ## <a name="instructions"></a>Instruções
 1. Usando o PowerShell, faça logon no Azure usando sua conta e selecione a assinatura com a qual você deseja interagir
@@ -452,4 +452,4 @@ Saiba mais sobre o Resource Health:
 
 Criar alertas de Integridade do Serviço:
 -  [Configurar alertas para a Integridade do Serviço](./alerts-activity-log-service-notifications-portal.md) 
--  [Esquema de eventos do log de atividades do Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Esquema de eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log-schema.md)

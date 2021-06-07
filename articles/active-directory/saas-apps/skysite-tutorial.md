@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 9d4413c47e40a611fb1559b32aac1e32a71d1998
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92515977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o SKYSITE
@@ -48,16 +48,16 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do SKYSITE ao Azure AD, você precisa adicionar o SKYSITE da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **SKYSITE** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **SKYSITE** na caixa de pesquisa.
 1. Selecione **SKYSITE** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-skysite"></a>Configurar e testar o logon único do Azure AD para o SKYSITE
 
-Configure e teste o SSO do Azure AD com o SKYSITE usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SKYSITE.
+Configure e teste o SSO do Azure AD com o SKYSITE usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SKYSITE.
 
 Para configurar e testar o SSO do Azure AD com o SKYSITE, conclua os seguintes blocos de construção:
 
@@ -72,19 +72,19 @@ Para configurar e testar o SSO do Azure AD com o SKYSITE, conclua os seguintes b
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SKYSITE** , clique na **guia Propriedades** e execute as seguintes etapas: 
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SKYSITE**, clique na **guia Propriedades** e execute as seguintes etapas: 
 
     ![Propriedades de logon único](./media/skysite-tutorial/config05.png)
 
-    * Copie a **URL de acesso do usuário** e cole-a na **seção Configurar SSO do SKYSITE** , que é explicado mais adiante no tutorial.
+    * Copie a **URL de acesso do usuário** e cole-a na **seção Configurar SSO do SKYSITE**, que é explicado mais adiante no tutorial.
 
-1. Na página de integração do aplicativo do **SKYSITE** , navegue até **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página de integração do aplicativo do **SKYSITE**, navegue até **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado no modo iniciado do **IDP** e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Seu aplicativo SKYSITE espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo Atributos de usuário.
 
@@ -92,7 +92,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo SKYSITE espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo (Versão Prévia)** , execute as seguintes etapas:
 
-    a. Clique na **caneta** ao lado de **Grupos retornados na declaração** .
+    a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
     ![Captura de tela que mostra Declarações de usuário com a opção de Adicionar declaração.](./media/skysite-tutorial/config01.png)
 
@@ -100,15 +100,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Selecione **Todos os Grupos** na lista de opções.
 
-    c. Selecione **Atributo de Origem** da **ID do Grupo** .
+    c. Selecione **Atributo de Origem** da **ID do Grupo**.
 
     d. Clique em **Save** (Salvar).
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o SKYSITE** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o SKYSITE**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -116,37 +116,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo-lhe acesso ao SKYSITE.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **SKYSITE** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SKYSITE**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="configure-skysite-sso"></a>Configurar o SSO do SKYSITE
 
 1. Abra uma nova janela do navegador da Web, entre no site da empresa SKYSITE como administrador e execute as seguintes etapas:
 
-4. Clique em **Configurações** no canto superior direito da página e navegue até **Configuração da conta** .
+4. Clique em **Configurações** no canto superior direito da página e navegue até **Configuração da conta**.
 
     ![Captura de tela que mostra a opção Configuração da conta selecionada em Configurações.](./media/skysite-tutorial/config03.png)
 
@@ -154,7 +154,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![Captura de tela que mostra a guia Logon único, na qual você pode inserir os valores descritos.](./media/skysite-tutorial/config04.png)
 
-    a. Na caixa de texto **URL de entrada do Provedor de Identidade** , cole o valor da **URL acesso do usuário** que você copiou da guia **Propriedades** no portal do Azure.
+    a. Na caixa de texto **URL de entrada do Provedor de Identidade**, cole o valor da **URL acesso do usuário** que você copiou da guia **Propriedades** no portal do Azure.
 
     b. Clique em **Carregar certificado** para carregar o certificado codificado em Base64 que você baixou do portal do Azure.
 

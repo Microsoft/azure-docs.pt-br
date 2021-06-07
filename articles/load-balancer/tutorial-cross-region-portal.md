@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/24/2020
-ms.openlocfilehash: d94736656f691da9e893e4619a2299a061acd8e8
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.date: 02/24/2021
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611195"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529530"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um Azure Load Balancer entre regiões usando o portal do Azure
 
@@ -41,28 +41,29 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 
-[Entre](https://portal.azure.com) na Versão Prévia do Portal do Azure.
+[Entre](https://portal.azure.com) no portal do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar um balanceador de carga entre regiões
 
 Nesta seção, você criará um balanceador de carga entre regiões e um endereço IP público.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso > Rede > Balanceador de Carga** ou pesquise **Balanceador de Carga** na caixa de pesquisa.
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, digite **Balanceador de carga**. Selecione **Balanceador de carga** nos resultados da pesquisa.
+3. Na página **Balanceador de carga**, clique em **Criar**.
+4. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
-
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e insira **CreateCRLBTutorial-rg** na caixa de texto.|
     | Name                   | Insira **myLoadBalancer-CR**                                   |
     | Região         | Selecione **Oeste dos EUA**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** |
+    | SKU           | Deixe o padrão de **Standard**. |
     | Camada           | Selecione **Global** |
     | Endereço IP público | Selecione **Criar novo**.|
     | Nome do endereço IP público | Digite **myPublicIP-CR** na caixa de texto.|
-    | Preferência de roteamento| Selecione **Rede da Microsoft** |
+    | Preferência de roteamento| Selecione **Rede da Microsoft**. </br> Para obter mais informações sobre preferências de roteamento, confira [O que é uma preferência de roteamento (versão prévia)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > O balanceador de carga entre regiões só pode ser implantado nas seguintes regiões de residência: **Leste dos EUA 2, Oeste dos EUA, Oeste da Europa, Sudeste da Ásia, EUA Central, Norte da Europa e Leste da Ásia**. Para obter mais informações, confira **https://aka.ms/homeregionforglb**.
@@ -105,34 +106,6 @@ Crie o pool de endereços de back-end **myBackendPool-CR** para incluir os balan
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Adicionar balanceadores de carga regionais ao pool de back-end" border="true":::
 
-## <a name="create-a-health-probe"></a>Criar uma investigação de integridade
-
-Nesta seção, você criará uma investigação de integridade para criar a regra de balanceamento de carga:
-
-* Chamado **myHealthProbe**.
-* Protocolo **TCP**.
-* Intervalo de **5** segundos.
-* Limite não íntegro de **duas** falhas.
-
-1. Escolha **Todos os serviços** no menu à esquerda, **Todos os recursos** e **myLoadBalancer-CR** na lista de recursos.
-
-2. Em **Configurações**, selecione **Investigações de integridade**.
-
-3. Use estes valores para configurar a investigação de integridade:
-
-    | Configuração | Valor |
-    | ------- | ----- |
-    | Nome | Insira **myHealthProbe**. |
-    | Protocolo | selecione **TCP**. |
-    | Porta | Insira **80**. |
-    | Intervalo | Insira **5**. |
-    | Limite não íntegro | Insira **2**. |
-
-4. Selecione **OK**.
-
-    > [!NOTE]
-    > O balanceador de carga entre regiões tem uma investigação de integridade interna. Essa investigação é um espaço reservado para que a criação da regra de balanceamento de carga funcione.  Para obter mais informações, confira **[Limitações do balanceador de carga entre regiões](cross-region-overview.md#limitations)** .
-
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
 Nesta seção, você criará uma regra de balanceador de carga:
@@ -160,7 +133,6 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta | Insira **80**.|
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
-    | Investigação de integridade | Selecione **myHealthProbe**. |
     | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15**. |
     | Redefinição de TCP | Selecione **Habilitado**. |
 
@@ -199,9 +171,6 @@ Neste tutorial, você:
 * Criou uma regra de balanceamento de carga.
 * Testou o balanceador de carga.
 
-Para obter mais informações sobre o balanceador de carga entre regiões, confira [Balanceador de carga entre regiões (versão prévia)](cross-region-overview.md).
-
-
-Prossiga para o próximo artigo para saber como:
+Para obter mais informações sobre o balanceador de carga entre regiões, confira:
 > [!div class="nextstepaction"]
-> [VMs com balanceamento de carga entre zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Balanceador de carga entre regiões (versão prévia)](cross-region-overview.md)

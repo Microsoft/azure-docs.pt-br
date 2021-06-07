@@ -3,14 +3,14 @@ title: Repositório de Consultas-banco de dados do Azure para MariaDB
 description: Saiba mais sobre o recurso Repositório de Consultas no banco de dados do Azure para MariaDB para ajudá-lo a acompanhar o desempenho ao longo do tempo.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 0841a38ab6e4fe3b4d0faf755209d85cfea1ac17
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664190"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas

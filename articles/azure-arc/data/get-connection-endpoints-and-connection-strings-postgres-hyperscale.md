@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331005"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670334"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obter pontos de extremidade de conexão e formar cadeias de conexão para seu grupo de servidores de hiperescala PostgreSQL habilitado para Arc
 
@@ -43,22 +43,23 @@ Execute o comando a seguir:
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Ele retorna uma saída como:
+Por exemplo:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+Ele mostra a lista de pontos de extremidade: o ponto de extremidades do PostgreSQL que você usa para conectar seu aplicativo e usar o banco de dados, Kibana e Grafana pontos de extremidade para o log Analytics e monitoramento. Por exemplo: 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Use estes pontos de extremidade para:
 - Formate suas cadeias de conexão e conecte-se com suas ferramentas ou aplicativos de cliente
@@ -66,7 +67,7 @@ Use estes pontos de extremidade para:
 
 Por exemplo, você pode usar o ponto de extremidade chamado _instância PostgreSQL_ para se conectar com psql ao seu grupo de servidores. Por exemplo:
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -86,11 +87,11 @@ postgres=#
 ## <a name="from-cli-with-kubectl"></a>Da CLI com kubectl
 - Se o seu grupo de servidores for do postgres versão 12 (padrão), o seguinte comando:
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - Se o seu grupo de servidores for do postgres versão 11, o seguinte comando:
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Esses comandos produzirão uma saída como a mostrada abaixo. Você pode usar essas informações para formar suas cadeias de conexão:
@@ -149,12 +150,6 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 
 ```ruby
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
-```
-
-### <a name="web-app"></a>Aplicativo Web
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c7125e25c9716a9934c97f9f8f85666d264d5f89
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946801"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866940"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -37,7 +37,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 1. No Windows, navegue até **iniciar > ferramentas administrativas do windows > fontes de dados ODBC (32 bits)/(64 bits)**.  Essa ação abre a janela **administrador de fonte de dados ODBC** .
 
-    ![Administrador de fonte de dados ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configurar um DSN usando o administrador de fonte de dados ODBC")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="Administrador de fonte de dados ODBC" border="true":::
 
 1. Na guia **DSN de Usuário**, selecione **Adicionar** para abrir a janela **Criar Nova Fonte de Dados**.
 
@@ -48,7 +48,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
    | Propriedade | Descrição |
    | --- | --- |
    |  Nome da Fonte de Dados |Forneça um nome para a sua fonte de dados |
-   |  Hosts |Insira `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: `HDInsightClusterName-int.azurehdinsight.net` o tem suporte desde que a VM do cliente esteja emparelhada com a mesma rede virtual. |
+   |  Hosts |Digite `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: `HDInsightClusterName-int.azurehdinsight.net` o tem suporte desde que a VM do cliente esteja emparelhada com a mesma rede virtual. |
    |  Porta |Use **443**. (Essa porta foi alterada de 563 para 443.) |
    |  Banco de dados |Usar **padrão**. |
    |  Mecanismo |Selecione **Serviço do Microsoft Azure HDInsight** |
@@ -63,7 +63,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
    |  Comprimento de coluna de cadeia de caracteres padrão, Comprimento da coluna binária e Escala da coluna decimal |Os tamanhos e as precisões dos tipos de dados podem afetar a maneira como os dados são retornados. Eles fazem com que informações incorretas sejam retornadas devido à perda de precisão e, ou truncamento. |
 
-    ![Opções de configuração avançada de DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opções de configuração avançada de DSN")
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Opções de configuração avançada de DSN" border="true":::
 
 1. Selecione **Testar** para testar a fonte de dados. Quando a fonte de dados estiver configurada corretamente, o resultado do teste mostrará **êxito!**
 
@@ -81,7 +81,7 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela Hive em u
 
 2. Na guia **Dados**, navegue até **Obter Dados** > **De Outras Fontes** > **Do ODBC** para abrir a janela **Do ODBC**.
 
-    ![Abrir assistente de conexão de dados do Excel](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Abrir assistente de conexão de dados do Excel")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Abrir assistente de conexão de dados do Excel" border="true":::
 
 3. Na lista suspensa, selecione o nome da fonte de dados que você criou na última seção e, em seguida, selecione **OK**.
 
@@ -89,7 +89,7 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela Hive em u
 
 5. De **Navegador**, navegue até **HIVE** > **padrão** > **hivesampletable** e selecione **Carregar**. Leva alguns minutos para que os dados sejam importados para o Excel.
 
-    ![Navegador ODBC do hive do Excel do HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador ODBC do hive do Excel do HDInsight")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="Navegador ODBC do hive do Excel do HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

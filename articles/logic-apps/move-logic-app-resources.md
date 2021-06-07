@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87826204"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Mover recursos do aplicativo lógico para outros grupos de recursos, regiões ou assinaturas do Azure
@@ -104,7 +104,7 @@ O modelo obtido do Visual Studio inclui apenas as definições de recurso para s
 
 1. No menu da sua conta de integração, em **configurações**, selecione **Exportar modelo**.
 
-1. Na barra de ferramentas, selecione **baixar**e salve o modelo.
+1. Na barra de ferramentas, selecione **baixar** e salve o modelo.
 
 1. Abra e edite o modelo para parametrizar os valores necessários para a implantação.
 

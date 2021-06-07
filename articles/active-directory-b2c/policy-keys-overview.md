@@ -11,10 +11,10 @@ ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953348"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Active Directory B2C
@@ -38,9 +38,9 @@ O recurso de nível superior para chaves de política no Azure AD B2C é o cont�
 
 | Atributo |  Obrigatório | Comentários |
 | --- | --- |--- |
-| `use` | Yes | Uso: identifica o uso pretendido da chave pública. Criptografar dados `enc` ou verificar a assinatura nos dados `sig` .|
-| `nbf`| No | Data e hora de ativação. |
-| `exp`| No | Data e hora de expiração. |
+| `use` | Sim | Uso: identifica o uso pretendido da chave pública. Criptografar dados `enc` ou verificar a assinatura nos dados `sig` .|
+| `nbf`| Não | Data e hora de ativação. |
+| `exp`| Não | Data e hora de expiração. |
 
 É recomendável definir os valores de ativação e de validade de chave de acordo com seus padrões de PKI. Talvez seja necessário girar esses certificados periodicamente por motivos de segurança ou política. Por exemplo, você pode ter uma política para girar todos os seus certificados todos os anos.
 

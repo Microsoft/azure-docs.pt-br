@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783565"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
@@ -51,7 +51,7 @@ Entre em sua conta que tem acesso à nuvem com a qual você deseja se conectar e
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud** . Para acessar a Nuvem alemã, use **AzureGermanCloud** .
+Para acessar a Nuvem da China, use o ambiente **AzureChinaCloud**. Para acessar a Nuvem alemã, use **AzureGermanCloud**.
 
 Neste ponto, se precisar da lista de locais para criar uma conta de armazenamento ou outro recurso, você poderá consultar os locais disponíveis para a nuvem selecionada usando [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
 ## <a name="endpoint-suffix"></a>Sufixo de ponto de extremidade
 
-O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net** . Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net** .
+O sufixo de ponto de extremidade para cada um desses ambientes é diferente do ponto de extremidade da nuvem pública do Azure. Por exemplo, o sufixo de ponto de extremidade do blob da nuvem pública do Azure é **blob.core.windows.net**. Para a nuvem do governo, o sufixo de ponto de extremidade do blob é **blob.core.usgovcloudapi.net**.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obter o ponto de extremidade usando Get-AzEnvironment
 
@@ -85,7 +85,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Esse comando retorna os seguintes resultados.
 
-| Name| StorageEndpointSuffix|
+| Nome| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -100,7 +100,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 Os resultados são semelhantes aos seguintes valores:
 
-|Nome da propriedade|Valor|
+|Nome da Propriedade|Valor|
 |----|----|
 | Nome | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181443"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário

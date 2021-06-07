@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 11/05/2020
-  ms.openlocfilehash: a3b96f5ffb2bd9be758d08b53032eedf12836c92
-  ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+  ms.openlocfilehash: 5b2495f2cf5dbe6714796a4e1f6516cd3a3fe7f4
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/30/2021
-  ms.locfileid: "99091053"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101668209"
 landingContent:
 - title: Os recursos mais recentes
   linkLists:
@@ -27,6 +27,8 @@ landingContent:
       url: dedicated-hosts.md
     - text: Grupos de posicionamento de proximidade
       url: co-location.md
+    - text: Modos de orquestração dos conjuntos de dimensionamento de máquinas virtuais
+      url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
 - title: Guias de início rápido do Linux
   linkLists:
   - linkListType: quickstart
@@ -66,7 +68,7 @@ landingContent:
     - text: A VM do Linux não está inicializando
       url: ./troubleshooting/boot-error-troubleshoot-linux.md
     - text: A VM do Windows não está inicializando
-      url: /azure/virtual-machines/troubleshooting/boot-error-troubleshoot
+      url: ./troubleshooting/boot-error-troubleshoot.md
     - text: P e R da Microsoft
       url: /answers/topics/azure-virtual-machines.html
 - title: Recursos

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5eb537a70c69745c8067ffb71cfb895a0875945
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96934154"
 ---
 # <a name="uninstall-azure-ad-connect"></a>Desinstalar o Azure AD Connect
@@ -23,7 +23,7 @@ ms.locfileid: "96934154"
 Este documento descreve como desinstalar corretamente o Azure AD Connect.
 
 ## <a name="uninstall-azure-ad-connect-from-the-server"></a>Desinstalar o Azure AD Connect do servidor
-A primeira coisa que você precisa fazer é remover Azure AD Connect do servidor em que ele está sendo executado.  Use as etapas a seguir:
+A primeira coisa que você precisa fazer é remover Azure AD Connect do servidor em que ele está sendo executado.  Use as seguintes etapas:
 
  1. No servidor que executa o Azure AD Connect, navegue até o **painel de controle**.
  2. Clique em **desinstalar um programa** 

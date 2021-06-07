@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 724bb91b4295162b32822d36d82958638d976e09
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8c1b45d78d4fb61d239fef178cbcb9fa6efd9539
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056690"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101645671"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudknox-permissions-management-platform"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CloudKnox Permissions Management Platform
 
@@ -143,11 +143,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você deverá ser conectado automaticamente ao CloudKnox Permissions Management Platform, para o qual configurou o SSO
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do CloudKnox Permissions Management Platform em Meus Aplicativos, você deverá ser conectado automaticamente ao CloudKnox Permissions Management Platform para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do CloudKnox Permissions Management Platform em Meus Aplicativos, você deverá ser conectado automaticamente ao CloudKnox Permissions Management Platform para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o CloudKnox Permissions Management Platform, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o CloudKnox Permissions Management Platform, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -2,14 +2,14 @@
 title: Práticas recomendadas para melhorar o desempenho usando o barramento de serviço do Azure
 description: Descreve como usar o Barramento de Serviço para otimizar o desempenho na troca de mensagens agenciadas.
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70f2fe88cf363572bcbca71115ba08dc0ed10e6d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 10435f74cfb7c87ccb28b64e1b3f136add1dc927
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664691"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561867"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -44,17 +44,22 @@ Para obter mais informações sobre o suporte mínimo à plataforma .NET Standar
 # <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
 Os objetos do barramento de serviço que interagem com o serviço, como [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)e [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), devem ser registrados para injeção de dependência como singletons (ou instanciados uma vez e compartilhados). ServiceBusClient pode ser registrado para injeção de dependência com o [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
-É recomendável não fechar ou descartar esses objetos depois de enviar ou receber cada mensagem. O fechamento ou Descartamento de objetos específicos da entidade (ServiceBusSender/receptor/processador) resulta na subdivisão do link para o serviço do barramento de serviço. Descartar os resultados do ServiceBusClient na divisão da conexão com o serviço do barramento de serviço. Estabelecer uma conexão é uma operação cara que você pode evitar reutilizando o mesmo ServiceBusClient e criando os objetos específicos da entidade necessários da mesma instância ServiceBusClient. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads.
+É recomendável não fechar ou descartar esses objetos depois de enviar ou receber cada mensagem. O fechamento ou Descartamento de objetos específicos da entidade (ServiceBusSender/receptor/processador) resulta na subdivisão do link para o serviço do barramento de serviço. Descartar os resultados do ServiceBusClient na divisão da conexão com o serviço do barramento de serviço. 
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
-Os objetos de cliente do barramento de serviço, como implementações de [`IQueueClient`][QueueClient] ou [`IMessageSender`][MessageSender] , devem ser registrados para injeção de dependência como singletons (ou instanciadas uma vez e compartilhadas). Recomendamos que você não feche as fábricas de mensagens, a fila, o tópico ou os clientes de assinatura depois de enviar uma mensagem e, em seguida, recriá-las ao enviar a próxima mensagem. Fechar uma fábrica de mensagens exclui a conexão com o serviço do barramento de serviço. Uma nova conexão é estabelecida ao recriar a fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando o mesmo alocador e objetos de cliente para diversas operações. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads.
+Os objetos de cliente do barramento de serviço, como implementações de [`IQueueClient`][QueueClient] ou [`IMessageSender`][MessageSender] , devem ser registrados para injeção de dependência como singletons (ou instanciadas uma vez e compartilhadas). Recomendamos que você não feche as fábricas de mensagens, a fila, o tópico ou os clientes de assinatura depois de enviar uma mensagem e, em seguida, recriá-las ao enviar a próxima mensagem. Fechar uma fábrica de mensagens exclui a conexão com o serviço do barramento de serviço. Uma nova conexão é estabelecida ao recriar a fábrica. 
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK do WindowsAzure. ServiceBus](#tab/net-framework-sdk)
 
-Os objetos de cliente do barramento de serviço, como `QueueClient` ou `MessageSender` , são criados por meio de um objeto [MessagingFactory][MessagingFactory] , que também fornece gerenciamento interno de conexões. Recomendamos que você não feche as fábricas de mensagens, a fila, o tópico ou os clientes de assinatura depois de enviar uma mensagem e, em seguida, recriá-las ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando o mesmo alocador e objetos de cliente para diversas operações. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads.
+Os objetos de cliente do barramento de serviço, como `QueueClient` ou `MessageSender` , são criados por meio de um objeto [MessagingFactory][MessagingFactory] , que também fornece gerenciamento interno de conexões. Recomendamos que você não feche as fábricas de mensagens, a fila, o tópico ou os clientes de assinatura depois de enviar uma mensagem e, em seguida, recriá-las ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. 
 
 ---
+
+A observação a seguir se aplica a todos os SDKs:
+
+> [!NOTE]
+> O estabelecimento de uma conexão é uma operação cara que você pode evitar usando o mesmo alocador e objetos de cliente para diversas operações. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads.
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 Operações como enviar, receber, excluir e assim por diante, levam algum tempo. Esse tempo inclui o tempo que o serviço do barramento de serviço leva para processar a operação e a latência da solicitação e da resposta. Para aumentar o número de operações por hora, elas devem ser executadas simultaneamente.
@@ -302,9 +307,9 @@ var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
 Para obter mais informações, consulte os seguintes artigos:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK do WindowsAzure. ServiceBus](#tab/net-framework-sdk)
 
@@ -319,9 +324,9 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
 Para obter mais informações, consulte os seguintes artigos:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 
@@ -353,15 +358,15 @@ Você pode definir valores para essas propriedades em [ServiceBusReceiverOptions
 
 Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK do WindowsAzure. ServiceBus](#tab/net-framework-sdk)
 
 Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ---
 

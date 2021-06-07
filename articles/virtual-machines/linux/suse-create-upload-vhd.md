@@ -2,18 +2,19 @@
 title: Criar e carregar um VHD do SUSE Linux no Azure
 description: Saiba como criar e carregar um disco rígido virtual (VHD) do Azure que contém o sistema operacional SUSE Linux.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 3d6a981db93cd84f0dbe5ab229ba1e90ee0bd1e7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200729"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552704"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual do SLES ou openSUSE para o Azure
 
@@ -161,7 +162,7 @@ Como uma alternativa para compilar seu próprio VHD, o SUSE também publica imag
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
 3. No shell, execute o comando '`zypper lr`'. Se este comando retornar uma saída semelhante à seguinte, os repositórios estarão configurados conforme o esperado – nenhum ajuste é necessário (observe que os números de versão podem variar):
 
-   | # | Alias                 | Name                  | Habilitada | Atualizar
+   | # | Alias                 | Nome                  | habilitado | Atualizar
    | - | :-------------------- | :-------------------- | :------ | :------
    | 1 | Nuvem: Tools_13.1      | Nuvem: Tools_13.1      | Sim     | Sim
    | 2 | openSUSE_13 openSUSE_13.1_OSS     | openSUSE_13 openSUSE_13.1_OSS     | Sim     | Sim

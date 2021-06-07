@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89662389"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: compreender e personalizar a sincronização
@@ -28,7 +28,7 @@ Os serviços de sincronização do Azure Active Directory Connect (sincronizaç�
 
 Este tópico é a base da **sincronização do Azure AD Connect** (também chamada de **mecanismo de sincronização**) e relaciona links para todos os outros tópicos relacionados a ela. Para obter links para Azure AD Connect, consulte [integrando suas identidades locais com Azure Active Directory](whatis-hybrid-identity.md).
 
-O serviço de sincronização consiste em dois componentes, o componente local **Sincronização do Azure AD Connect** e o lado do serviço no Azure AD, chamado **Serviço de sincronização do Azure AD Connect **.
+O serviço de sincronização consiste em dois componentes, o componente local **Sincronização do Azure AD Connect** e o lado do serviço no Azure AD, chamado **Serviço de sincronização do Azure AD Connect**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Tópicos da sincronização do Azure AD Connect
 | Tópico | O que ele abrange e quando deve ser lido |

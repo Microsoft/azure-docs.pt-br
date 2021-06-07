@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 3a8429d9dc6820b1f79c49d325872b61833f988d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341678"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102095537"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
@@ -29,7 +29,7 @@ A Central de Segurança usa o agente do Log Analytics para coletar e armazenar d
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Como posso obter a Central de Segurança do Azure?
-A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para acessá-lo, [entre no portal](https://portal.azure.com), selecione **procurar**e role até a **central de segurança**.
+A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para acessá-lo, [entre no portal](https://portal.azure.com), selecione **procurar** e role até a **central de segurança**.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Quais recursos do Azure são monitorados pela Central de Segurança do Azure?
@@ -46,10 +46,10 @@ A página **visão geral da central de segurança** mostra a postura de seguran�
 
 
 
-## <a name="what-is-a-security-policy"></a>O que é uma política de segurança?
-Uma política de segurança define o conjunto de controles recomendados para os recursos na assinatura ou grupo de recursos especificado. Na Central de Segurança do Azure, você pode definir as políticas para as assinaturas do Azure de acordo com os requisitos de segurança de sua empresa e os tipos de aplicativos ou a confidencialidade dos dados de cada assinatura.
+## <a name="what-is-a-security-initiative"></a>O que é uma iniciativa de segurança?
+Uma iniciativa de segurança define o conjunto de controles (políticas) que são recomendados para recursos dentro da assinatura especificada. Na central de segurança do Azure, você atribui iniciativas para suas assinaturas do Azure de acordo com os requisitos de segurança da sua empresa e os tipos de aplicativos ou a sensibilidade dos dados em cada assinatura.
 
-As políticas de segurança habilitadas na Central de Segurança do Azure determinam as recomendações de segurança e o monitoramento. Para saber mais sobre as políticas de segurança, consulte a seção [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md).
+As políticas de segurança habilitadas na Central de Segurança do Azure determinam as recomendações de segurança e o monitoramento. Saiba mais em [o que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md).
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?

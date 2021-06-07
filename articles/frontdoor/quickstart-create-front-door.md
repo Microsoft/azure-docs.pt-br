@@ -5,7 +5,6 @@ services: front-door
 documentationcenter: na
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1869098362e37ea18c7ca9a9f827b0e5ec98ea3c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91252233"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067564"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: Crie um Front Door para um aplicativo Web global altamente disponível
 
@@ -58,7 +57,7 @@ Se você ainda não tiver um aplicativo Web, use as etapas a seguir para configu
 
 1. Selecione **Examinar + criar**, examine o **Resumo** e, em seguida, selecione **Criar**. Pode levar vários minutos para que a implantação seja concluída.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Analisar resumo do aplicativo Web":::
 
 Depois que a implantação for concluída, crie um segundo aplicativo Web. Use o mesmo procedimento com os mesmos valores, exceto pelos seguintes valores:
 
@@ -87,7 +86,7 @@ Configure o Azure Front Door para direcionar o tráfego do usuário com base na 
 
 1. Para **Nome do host**, insira um nome do host globalmente exclusivo. Este exemplo usa *contoso-frontend*. Selecione **Adicionar**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Adicionar um host de front-end ao Azure Front Door":::
 
 Em seguida, crie um pool de back-end que contenha os dois aplicativos Web.
 
@@ -95,7 +94,7 @@ Em seguida, crie um pool de back-end que contenha os dois aplicativos Web.
 
 1. Para **Nome**, insira *myBackendPool* e selecione **Adicionar um back-end**.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Adicionar um pool de back-end":::
 
 1. Na folha **Adicionar um back-end**, selecione as informações a seguir e selecione **Adicionar**.
 
@@ -107,7 +106,7 @@ Em seguida, crie um pool de back-end que contenha os dois aplicativos Web.
 
     **Deixe todos os outros campos com os valores padrão.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Adicionar um host de back-end ao seu Front Door":::
 
 1. Selecione **Adicionar um back-end** novamente. selecione as informações a seguir e selecione **Adicionar**.
 
@@ -121,7 +120,7 @@ Em seguida, crie um pool de back-end que contenha os dois aplicativos Web.
 
 1. Selecione **Adicionar** na folha **Adicionar um pool de back-end** para concluir a configuração do pool de back-end.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Adicionar um pool de back-end para o Azure Front Door":::
 
 Por fim, adicione uma regra de roteamento. Uma regra de roteamento mapeia o host de front-end para o pool de back-end. A regra encaminha uma solicitação de `contoso-frontend.azurefd.net` para **myBackendPool**.
 
@@ -129,14 +128,14 @@ Por fim, adicione uma regra de roteamento. Uma regra de roteamento mapeia o host
 
 1. Em **Adicionar uma regra**, para **Nome**, insira *LocationRule*. Aceite todos os valores padrão e, em seguida, selecione **Adicionar** para adicionar a regra de roteamento.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Adicionar uma regra ao seu Front Door":::
 
    >[!WARNING]
    > É **necessário** garantir que cada um dos hosts de front-end no seu Front Door tenha uma regra de roteamento com um caminho padrão (`\*`) associado a ela. Ou seja, entre todas as suas regras de roteamento, deve haver pelo menos uma regra de roteamento para cada um dos seus hosts de front-end definida no caminho padrão (`\*`). Não fazer isso poderá fazer o tráfego do seu usuário final não ser roteado corretamente.
 
 1. Selecione **Examinar + Criar** e depois **Criar**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Azure Front Door configurado":::
 
 ## <a name="view-azure-front-door-in-action"></a>Ver o Azure Front Door em ação
 
@@ -161,7 +160,7 @@ Para testar o failover global instantâneo em ação, tente as seguintes etapas:
 
 1. Atualize seu navegador. Desta vez, você deverá ver uma mensagem de erro.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Criar um aplicativo Web no portal do Azure":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Ambas as instâncias do aplicativo Web foram interrompidas":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

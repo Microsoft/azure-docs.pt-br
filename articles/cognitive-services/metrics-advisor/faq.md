@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: mbullwin
 ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420947"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Perguntas frequentes do assistente de métricas
@@ -109,7 +109,7 @@ Veja [as configurações de detecção de anomalias](how-tos/configure-metrics.m
 
 1.  Um usuário com privilégios de administrador de assinatura ou grupo de recursos precisa navegar até o recurso do supervisor de métricas criado no portal do Azure e selecionar a guia **controle de acesso (iam)** . 
 2.  Selecione **Adicionar atribuições de função**
-3.  Escolha uma função de **administrador do Orientador de métricas de serviços cognitivas** , selecione sua conta como na imagem abaixo.
+3.  Escolha uma função de **administrador do Orientador de métricas de serviços cognitivas**, selecione sua conta como na imagem abaixo.
 4.  Clique no botão **salvar** e você foi adicionado com êxito como administrador do recurso do assistente de métricas. Observe que todas as ações acima precisam ser executadas pelo administrador da assinatura ou pelo administrador do grupo de recursos. 
 
 :::image type="content" source="media/access-control.png" alt-text="Página de menu de controle de acesso (IAM) com adicionar uma atribuição de função selecionada, seguida por uma caixa com atribuir acesso ao usuário selecionado exibido com uma função de acesso de administrador de métricas de serviços cognitivas, seguido pelo botão salvar da interface do usuário que está sendo selecionada para ilustrar as etapas de pesquisa de um usuário e adição de um nível específico de permissões de acesso." lightbox="media/access-control.png":::

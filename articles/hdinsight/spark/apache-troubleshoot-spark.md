@@ -6,12 +6,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: af488cd253e8a8ebedd838aa5286185ea556f69d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b54b9d932505ada890ac21c1b8de3178ad2f0042
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942503"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867501"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Spark usando o Azure HDInsight
 
@@ -25,49 +25,49 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
 1. Navegue até   >  **configurações** do Spark2.
 
-    ![Selecione a guia Configurações](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png" alt-text="Selecione a guia Configurações" border="true":::
 
 1. Na lista de configurações, selecione e expanda **personalizado-spark2-padrões**.
 
 1. Procure a configuração do valor que você precisa ajustar, como **spark.executor.memory**. Nesse caso, o valor de **9728m** é muito alto.
 
-    ![Selecione custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png" alt-text="Selecione custom-spark-defaults" border="true":::
 
 1. Defina o valor para a configuração recomendada. O valor de **2048m** é recomendado para essa configuração.
 
-1. Salve o valor e, em seguida, salve a configuração. Selecione **Salvar**.
+1. Salve o valor e, em seguida, salve a configuração. Clique em **Salvar**.
 
-    ![Altere o valor para 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png" alt-text="Altere o valor para 2048m" border="true":::
 
     Escreva uma observação sobre as alterações de configuração e selecione **Salvar**.
 
-    ![Insira uma observação sobre as alterações feitas](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png" alt-text="Insira uma observação sobre as alterações feitas" border="true":::
 
     Você será notificado se todas as configurações precisarem de atenção. Observe os itens e, em seguida, selecione **Continuar Assim Mesmo**.
 
-    ![Selecione Continuar Assim Mesmo](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png" alt-text="Selecione Continuar Assim Mesmo" border="true":::
 
 1. Sempre que uma configuração é salva, você é solicitado a reiniciar o serviço. Selecione **Reiniciar**.
 
-    ![Selecione reiniciar](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png" alt-text="Selecione reiniciar" border="true":::
 
     Confirme a reinicialização.
 
-    ![Selecione Confirmar Reiniciar Tudo](./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7b.png" alt-text="Selecione Confirmar Reiniciar Tudo" border="true":::
 
     Você pode examinar os processos em execução.
 
-    ![Examinar processos em execução](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png" alt-text="Examinar processos em execução" border="true":::
 
 1. Você pode adicionar configurações. Na lista de configurações, selecione **Custom-spark2-defaults** e, em seguida, selecione **Adicionar Propriedade**.
 
-    ![Selecione adicionar propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png" alt-text="Selecione adicionar propriedade" border="true":::
 
 1. Defina uma nova propriedade. Você pode definir uma única propriedade usando uma caixa de diálogo para configurações específicas, como o tipo de dados. Ou você pode definir várias propriedades usando uma definição por linha.
 
     Neste exemplo, a propriedade **spark.driver.memory** é definida com um valor de **4g**.
 
-    ![Definir nova propriedade](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
+    :::image type="content" source="./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png" alt-text="Definir nova propriedade" border="true":::
 
 1. Salve a configuração e, em seguida, reinicie o serviço conforme descrito nas etapas 6 e 7.
 
@@ -77,7 +77,7 @@ Essas alterações valem para todo o cluster, mas podem ser substituídas quando
 
 Na primeira célula do Jupyter Notebook, após a diretiva **%% Configure** , especifique as configurações do Spark no formato JSON válido. Altere os valores reais conforme necessário:
 
-![Adicionar uma configuração](./media/apache-troubleshoot-spark/add-configuration-cell.png)
+:::image type="content" source="./media/apache-troubleshoot-spark/add-configuration-cell.png" alt-text="Adicionar uma configuração" border="true":::
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Como fazer para configurar um aplicativo Apache Spark usando o Apache Livy nos clusters?
 

@@ -3,19 +3,18 @@ title: Monitorar e gerenciar a criação de certificados
 description: Os cenários demonstram uma gama de opções para a criação, monitoramento e interação com o processo de criação de certificado com o Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 8e4acb5195497dd31f466829b1cde301ba9696b3
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81430962"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751086"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorar e gerenciar a criação de certificados
 Aplica-se ao Azure
@@ -331,7 +330,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 |Método|URI da solicitação|
 |------------|-----------------|
-|Delete (excluir)|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>Solicitação
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 02/18/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60d54a905f460eb5c26c2f183cd22b175a5b3c4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860806"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102174522"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -279,6 +279,14 @@ A expressão a seguir seleciona todos os usuários que possuem algum plano de se
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
+#### <a name="example-3"></a>Exemplo 3
+
+A seguinte expressão seleciona todos os usuários que não têm nenhum plano de serviço atribuído:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+```
+
 ### <a name="using-the-underscore-_-syntax"></a>Usando a sintaxe de sublinhado (\_)
 
 A sintaxe de sublinhado (\_) corresponde a ocorrências de um valor específico em uma das propriedades de coleção de cadeias de valores variados para adicionar usuários ou dispositivos a um grupo dinâmico. Ele é usado com-qualquer ou - todos os operadores.
@@ -378,8 +386,8 @@ Os seguintes atributos de dispositivo podem ser usados.
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
  displayName | qualquer valor de cadeia de caracteres |(device.displayName -eq "Rob iPhone")
- deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")
+ deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")<br>(device.deviceOSType -eq "Windows")
+ deviceOSVersion | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")<br>(device.deviceOSVersion -eq "10.0.17763.0")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | qualquer valor de cadeia de caracteres | (device.deviceManufacturer -eq "Samsung")
  deviceModel | qualquer valor de cadeia de caracteres | (device.deviceModel -eq "iPad Air")

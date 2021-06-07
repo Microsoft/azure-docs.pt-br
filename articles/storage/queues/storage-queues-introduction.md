@@ -1,19 +1,19 @@
 ---
 title: Introdução ao Armazenamento de Filas do Azure – Armazenamento do Azure
 description: Veja uma introdução ao Armazenamento de Filas do Azure, um serviço para armazenar um grande volume de mensagens. Um serviço Armazenamento de Filas contém um formato de URL, uma conta de armazenamento, uma fila e uma mensagem.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 03/18/2020
 ms.topic: overview
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 8c5c97fbb72934dd99ec784ccf8e08eec059c31b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 32ce5af5371047ae814602e9118f622ee036bd9c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590572"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276205"
 ---
 # <a name="what-is-azure-queue-storage"></a>O que é o Armazenamento de Filas do Azure?
 

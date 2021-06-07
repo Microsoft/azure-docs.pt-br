@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – PowerShell
+title: 'Tutorial: como se conectar a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – PowerShell'
 description: Use este tutorial para aprender como criar um SQL Server do Azure com um ponto de extremidade privado usando o Azure PowerShell
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: allensu
-ms.openlocfilehash: 7448e003771bea1e235d4e0776ebce3cb1beae17
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 8668bdb9dc391582234bf5741c0dd287d026defd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544081"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102554931"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – Azure PowerShell
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-powershell"></a>Tutorial: como se conectar um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – Azure PowerShell
 
 Um ponto de extremidade privado do Azure é o bloco de construção básico para o Link Privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem em modo privado com os recursos do Link Privado.
 
@@ -337,6 +338,6 @@ Neste tutorial, você criou:
 
 Você usou a máquina virtual para testar a conectividade seguramente com o SQL Server no ponto de extremidade privado.
 
-Saiba como criar um serviço de Link Privado:
+Como próxima etapa, talvez você também esteja interessado no cenário de arquitetura de um **aplicativo Web com conectividade privada com o banco de dados SQL do Azure**, que conecta um aplicativo Web fora da rede virtual ao ponto de extremidade privado de um banco de dados.
 > [!div class="nextstepaction"]
-> [Criar um serviço de Link Privado](create-private-link-service-portal.md)
+> [Aplicativo Web com conectividade privada com o banco de dados SQL do Azure](/azure/architecture/example-scenario/private-web-app/private-web-app)

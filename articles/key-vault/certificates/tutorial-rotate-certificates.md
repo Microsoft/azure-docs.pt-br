@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 591d71e8cd6af2801540f5a1a41ad88b1f538e81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844481"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102204041"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar a rotação automática do certificado no Key Vault
 
@@ -134,7 +134,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-Para saber mais sobre os parâmetros, confira [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+Para saber mais sobre os parâmetros, confira [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

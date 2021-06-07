@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947032"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026498"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
@@ -25,8 +25,12 @@ Para habilitar o Profiler em um aplicativo, siga as instruções abaixo. Se voc�
 
 O Application Insights Profiler é pré-instalado como parte do runtime dos Serviços de Aplicativos. As etapas a seguir mostrarão como habilitá-lo para o Serviço de Aplicativo. Siga estas etapas mesmo se você tiver incluído o SDK do App Insights em seu aplicativo no momento da compilação.
 
+> [!NOTE]
+> A instalação sem código do Application Insights Profiler segue a política de suporte do .NET Core.
+> Para obter mais informações sobre tempos de execução com suporte, consulte [política de suporte do .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Navegue até o painel de controle do Azure para seu serviço de aplicativo.
-1. Habilite a configuração "Always On" para o serviço de aplicativo. Você pode encontrar essa configuração em **configurações**, página de **configuração** (consulte a captura de tela na próxima etapa) e clique na guia **configurações gerais** .
+1. Habilite a configuração "Always On" para o serviço de aplicativo. Você pode encontrar essa configuração em **configurações**, página de **configuração** (consulte a captura de tela na próxima etapa) e selecione a guia **configurações gerais** .
 1. Navegue até **configurações > página Application insights** .
 
    ![Habilitar Insights de Aplicativo no portal de Serviços de Aplicativos](./media/profiler/AppInsights-AppServices.png)
@@ -52,18 +56,18 @@ Aqui estão as configurações necessárias para habilitar o criador de perfil:
 
 Você pode definir esses valores usando [modelos de Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)  [CLI do Azure](/cli/azure/webapp/config/appsettings).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Como habilitar o criador de perfil para outras nuvens manualmente
+## <a name="enable-profiler-for-other-clouds"></a>Habilitar o Profiler para outras nuvens
 
-Se você quiser habilitar o criador de perfil para outras nuvens, poderá usar as configurações de aplicativo abaixo.
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights) e o [Azure China](/azure/china/resources-developer-guide).
 
-|Configurações de Aplicativo    | Valores do Governo dos EUA| Nuvem da China |   
+|Configurações de Aplicativo    | Nuvem do governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Desabilitar o Profiler
 
-Para parar ou reiniciar o Profiler para uma instância do aplicativo individual, em **WebJobs**, pare o webjob chamado ApplicationInsightsProfiler3. Mesmo que o criador de perfil esteja desabilitado usando a opção na página Application Insights, conforme descrito acima, o processo do criador de perfil ainda será executado. O criador de perfil verificará se ele está habilitado. Se ele estiver desabilitado, ele entrará em suspensão por um período antes de verificar novamente. Ele não fará nenhuma criação de perfil se estiver desabilitado. Se você desabilitar esse webjob, o processo do criador de perfil não será executado, mesmo para verificar se ele está habilitado.
+Para parar ou reiniciar o Profiler para uma instância do aplicativo individual, na barra lateral esquerda, selecione **webjobs** e interrompa o webjob chamado `ApplicationInsightsProfiler3` .
 
   ![Desabilitar o Profiler para trabalhos da web][disable-profiler-webjob]
 
@@ -79,4 +83,3 @@ Os arquivos do criador de perfil podem ser excluídos ao usar o WebDeploy para i
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

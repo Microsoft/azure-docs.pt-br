@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d54b8f15c90aa8f6ffcc04453fee0349e501f47d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585744"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de Filas do Azure usando o .NET
@@ -60,7 +60,7 @@ Você pode usar as bibliotecas de cliente de armazenamento do Azure em qualquer 
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Use o NuGet para instalar os pacotes necessários
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Você precisa fazer referência aos quatro pacotes a seguir em seu projeto para concluir este tutorial:
 
@@ -69,14 +69,14 @@ Você precisa fazer referência aos quatro pacotes a seguir em seu projeto para 
 - [Biblioteca de cliente do Azure. Storage. Queues para .net](https://www.nuget.org/packages/azure.storage.queues/): Este pacote permite trabalhar com o armazenamento de filas do Azure para armazenar mensagens que podem ser acessadas por um cliente.
 - [System.Configuration.Configbiblioteca urationManager para .net](https://www.nuget.org/packages/system.configuration.configurationmanager/): Este pacote fornece acesso a arquivos de configuração para aplicativos cliente.
 
-Você pode usar o NuGet para obter esses pacotes. Execute estas etapas:
+Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 
 1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções** e escolha **gerenciar pacotes NuGet**.
 1. Selecione **procurar**
 1. Pesquise online e `Azure.Storage.Queues` selecione **instalar** para instalar a biblioteca de cliente do armazenamento do Azure e suas dependências. Isso também instalará as bibliotecas Azure. Storage. Common e Azure. Core, que são dependências da biblioteca de filas.
 1. Pesquise online `System.Configuration.ConfigurationManager` e selecione **instalar** para instalar o Configuration Manager.
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Você precisa fazer referência aos três pacotes a seguir em seu projeto para concluir este tutorial:
 
@@ -84,7 +84,7 @@ Você precisa fazer referência aos três pacotes a seguir em seu projeto para c
 - [Biblioteca de cliente de armazenamento de fila Microsoft Azure para .net](https://www.nuget.org/packages/microsoft.azure.storage.queue/): essa biblioteca de cliente permite trabalhar com o armazenamento de filas do Azure para armazenar mensagens que podem ser acessadas por um cliente.
 - [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/microsoft.azure.configurationmanager/): este pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente de onde o aplicativo está sendo executado.
 
-Você pode usar o NuGet para obter esses pacotes. Execute estas etapas:
+Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 
 1. Clique com o botão direito do mouse em seu projeto no **Gerenciador de soluções** e escolha **gerenciar pacotes NuGet**.
 1. Selecione **procurar**
@@ -152,11 +152,11 @@ Para direcionar o emulador de armazenamento azurite, você pode usar um atalho q
 
 Adicione as seguintes diretivas `using` à parte superior do arquivo `Program.cs`:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UsingStatements":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 ```csharp
 using System; // Namespace for Console output
@@ -169,13 +169,13 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="create-the-queue-storage-client"></a>Criar o cliente de armazenamento de fila
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 A [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) classe permite que você recupere filas armazenadas no armazenamento de filas. Veja uma maneira de criar o cliente de serviço:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 A [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) classe permite que você recupere filas armazenadas no armazenamento de filas. Veja uma maneira de criar o cliente de serviço:
 
@@ -196,11 +196,11 @@ Agora você está pronto para escrever código que lê e grava dados no armazena
 
 Este exemplo mostra como criar uma fila:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateQueue":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string
@@ -221,13 +221,13 @@ queue.CreateIfNotExists();
 
 ## <a name="insert-a-message-into-a-queue"></a>Inserir uma mensagem em uma fila
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para inserir uma mensagem em uma fila existente, chame o [`SendMessage`](/dotnet/api/azure.storage.queues.queueclient.sendmessage) método. Uma mensagem pode ser uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes. O código a seguir cria uma fila (se ela não existir) e insere uma mensagem:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Para inserir uma mensagem em uma fila existente, primeiro crie uma nova [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true) . Em seguida, chame o [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) método. Um `CloudQueueMessage` pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existir) e insere a mensagem `Hello, World` : para inserir uma mensagem em uma fila existente, primeiro crie uma nova [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true) . Em seguida, chame o [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) método. Um `CloudQueueMessage` pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existir) e insere a mensagem `Hello, World` :
 
@@ -254,13 +254,13 @@ queue.AddMessage(message);
 
 ## <a name="peek-at-the-next-message"></a>Espiar a próxima mensagem
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Você pode inspecionar as mensagens na fila sem removê-las da fila chamando o [`PeekMessages`](/dotnet/api/azure.storage.queues.queueclient.peekmessages) método. Se você não passar um valor para o `maxMessages` parâmetro, o padrão será inspecionar uma mensagem.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o [`PeekMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) método.
 
@@ -288,11 +288,11 @@ Console.WriteLine(peekedMessage.AsString);
 
 Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Isso salva o estado do trabalho associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem. Você poderia usar essa técnica para rastrear fluxos de trabalho com várias etapas em mensagens de fila, sem precisar começar desde o início se uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de *n* vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UpdateMessage":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -317,13 +317,13 @@ queue.UpdateMessage(message,
 
 ## <a name="dequeue-the-next-message"></a>Remover a próxima mensagem da fila
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Remover da fila uma mensagem de uma fila em duas etapas. Ao chamar [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) , você receberá a próxima mensagem em uma fila. Uma mensagem retornada de `ReceiveMessages` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar [`DeleteMessage`](/dotnet/api/azure.storage.queues.queueclient.deletemessage) . Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama `DeleteMessage` logo após a mensagem ser processada.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessage":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Seu código remove uma mensagem de um fila em duas etapas. Ao chamar [`GetMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true) , você receberá a próxima mensagem em uma fila. Uma mensagem retornada de `GetMessage` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar [`DeleteMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true) . Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama `DeleteMessage` logo após a mensagem ser processada.
 
@@ -353,11 +353,11 @@ queue.DeleteMessage(retrievedMessage);
 
 Este exemplo mostra como usar o padrão de Async-Await com APIs de armazenamento de fila comuns. O exemplo chama a versão assíncrona de cada um dos métodos fornecidos, conforme indicado pelo `Async` sufixo de cada método. Quando um método assíncrono é usado, o padrão de Async-Await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão Async-Await no .NET, confira [Async e Await (C# e Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_AsyncQueue":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Create the queue if it doesn't already exist
@@ -392,13 +392,13 @@ Console.WriteLine("Deleted message");
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 O exemplo de código a seguir usa o [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) método para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `foreach`. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os cinco minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de cinco minutos passaram desde a chamada para `ReceiveMessages` , todas as mensagens que não foram excluídas ficarão visíveis novamente.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessages":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 O exemplo de código a seguir usa o [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) método para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `foreach`. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os cinco minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de cinco minutos passaram desde a chamada para `GetMessages` , todas as mensagens que não foram excluídas ficarão visíveis novamente.
 
@@ -424,13 +424,13 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 ## <a name="get-the-queue-length"></a>Obter o tamanho da fila
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Você pode obter uma estimativa do número de mensagens em uma fila. O [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) método retorna propriedades de fila, incluindo a contagem de mensagens. A [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) propriedade contém o número aproximado de mensagens na fila. Esse número não é menor do que o número real de mensagens na fila, mas pode ser maior.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Você pode obter uma estimativa do número de mensagens em uma fila. O [`FetchAttributes`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) método retorna atributos de fila, incluindo a contagem de mensagens. A [`ApproximateMessageCount`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) propriedade retorna o último valor recuperado pelo `FetchAttributes` método, sem chamar o armazenamento de fila.
 
@@ -459,13 +459,13 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="delete-a-queue"></a>Excluir uma fila
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para excluir uma fila e todas as mensagens contidas nela, chame o [`Delete`](/dotnet/api/azure.storage.queues.queueclient.delete) método no objeto de fila.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DeleteQueue":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnetv11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
 Para excluir uma fila e todas as mensagens contidas nela, chame o [`Delete`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) método no objeto de fila.
 

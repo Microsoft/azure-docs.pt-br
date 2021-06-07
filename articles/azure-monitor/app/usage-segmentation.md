@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 6eb91734afac81e103cebea48865793fa687ad71
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323512"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024822"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -41,10 +41,10 @@ Explore diferentes grupos de usuários, ajustando as opções de consulta na par
 * Quem usou: Escolha os eventos personalizados e todas as exibições de página.
 * Durante: Escolha um intervalo de tempo.
 * Por: Escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
-* Dividir por: Escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
-* Adicionar filtros: Limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
- 
-## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
+* Dividir por: Escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
+* Adicionar filtros: Limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
+ 
+## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
 Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.
 
 Para compartilhar um link para um relatório de Usuários, Sessões ou Eventos; clique em **Compartilhar** na barra de ferramentas e, em seguida, copie o link.
@@ -62,6 +62,5 @@ A seção **Conheça seus usuários** mostra informações sobre cinco usuários
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Usuário](usage-flows.md)
-    - [Pastas de trabalho](../platform/workbooks-overview.md)
-    - [Adicionar contexto de usuário](usage-send-user-context.md)
-
+    - [Pastas de trabalho](../visualize/workbooks-overview.md)
+    - [Adicionar contexto de usuário](./usage-overview.md)

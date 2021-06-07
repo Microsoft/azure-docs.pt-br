@@ -1,19 +1,19 @@
 ---
 title: Conectar uma conta do Azure Purview 
 description: Conecte uma conta do Azure Purview a um workspace do Azure Synapse.
-services: synapse-analytics
-author: ArnoMicrosoft
+author: julieMSFT
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/16/2020
-ms.author: acomet
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ad9250d022f02db06c9c5251c1fccfbfb730af67
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880535"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567869"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Início Rápido: Conectar uma conta do Azure Purview a um workspace do Azure Synapse 
 

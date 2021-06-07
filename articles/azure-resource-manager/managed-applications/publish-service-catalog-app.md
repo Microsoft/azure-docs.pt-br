@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650639"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101093635"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Início Rápido: Criar e publicar uma definição de aplicativo gerenciado
 
@@ -401,7 +401,7 @@ Você pode verificar se os arquivos de definição de aplicativo estão salvos n
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Verifique se os usuários podem ver sua definição
 
-Você tem acesso à definição de aplicativo gerenciado, mas você deve certificar-se de que outros usuários na sua organização podem acessá-lo. Conceda a eles pelo menos a função de Leitor para a definição. Eles podem ter herdado esse nível de acesso da assinatura ou grupo de recursos. Para verificar quem tem acesso à definição e adicionar usuários ou grupos, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Você tem acesso à definição de aplicativo gerenciado, mas você deve certificar-se de que outros usuários na sua organização podem acessá-lo. Conceda a eles pelo menos a função de Leitor para a definição. Eles podem ter herdado esse nível de acesso da assinatura ou grupo de recursos. Para verificar quem tem acesso à definição e adicionar usuários ou grupos, confira [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

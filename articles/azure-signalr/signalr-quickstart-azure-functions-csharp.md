@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/25/2020
 ms.author: zhshang
 ms.openlocfilehash: 1f28058a766144ada3326b3ee4ce09ca503d1896
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94873872"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Início Rápido: criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando C\#

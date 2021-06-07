@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2019
 ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75973809"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Habilitar a replicação para um disco adicionado a uma VM do Azure
@@ -38,7 +38,7 @@ Este artigo pressupõe que você já configurou a recuperação de desastre para
 Para habilitar a replicação para um disco adicionado, faça o seguinte:
 
 1. No cofre > **itens replicados**, clique na VM para a qual você adicionou o disco.
-2. Clique em **discos**e selecione o disco de dados para o qual você deseja habilitar a replicação (esses discos têm um status **não protegido** ).
+2. Clique em **discos** e selecione o disco de dados para o qual você deseja habilitar a replicação (esses discos têm um status **não protegido** ).
 3.  Em **detalhes do disco**, clique em **habilitar replicação**.
 
     ![Habilitar a replicação para disco adicionado](./media/azure-to-azure-enable-replication-added-disk/enabled-added.png)

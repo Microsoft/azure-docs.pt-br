@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b5e852e3a32c4fb40dbe7ebc50a00302b4b82b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 51e84e7e3a1e8a800769985e37374abf6d601f5c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519082"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077322"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yuhu-property-management-platform"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Yuhu Property Management Platform
 
@@ -49,7 +49,7 @@ Para configurar a integração do Yuhu Property Management Platform ao Azure AD,
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **Yuhu Property Management Platform** na caixa de pesquisa.
+1. Na seção **Adicionar da Galeria**, digite **Yuhu Property Management Platform** na caixa de pesquisa.
 1. Selecione **Yuhu Property Management Platform** do painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-yuhu-property-management-platform"></a>Configurar e testar o logon único do Azure AD para o Yuhu Property Management Platform
@@ -69,15 +69,15 @@ Para configurar e testar o SSO do Azure AD com o Yuhu Property Management Platfo
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Yuhu Property Management Platform** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Yuhu Property Management Platform**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yuhu.io/companies`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yuhu.io/companies`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `yuhu-<ID>`
 
@@ -93,14 +93,14 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Nome | Atributo de Origem|
     | ---------------| --------------- |
     | firstName | user.givenname |
-    | lastName | user.surname ||
+    | lastName | user.surname |
     | email | user.mail |
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
-1. Na seção **Configurar o Yuhu Property Management Platform** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Yuhu Property Management Platform**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -108,11 +108,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -130,13 +130,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dand
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-yuhu-property-management-platform-sso"></a>Configurar o SSO do Yuhu Property Management Platform
 
-Para configurar o logon único no lado do **Yuhu Property Management Platform** , é necessário enviar o **Certificado (Bruto)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Yuhu Property Management Platform](mailto:hello@yuhu.io). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Yuhu Property Management Platform**, é necessário enviar o **Certificado (Bruto)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Yuhu Property Management Platform](mailto:hello@yuhu.io). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-yuhu-property-management-platform-test-user"></a>Criar usuário de teste do Yuhu Property Management Platform
 

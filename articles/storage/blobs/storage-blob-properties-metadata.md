@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95521522"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerenciar Propriedades de BLOB e metadados com o .NET
@@ -35,13 +35,13 @@ Além dos dados que eles contêm, os BLOBs dão suporte a propriedades do sistem
 
 O exemplo de código a seguir define as `ContentType` `ContentLanguage` Propriedades do sistema e em um blob.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para definir propriedades em um blob, chame [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) ou [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Todas as propriedades não explicitamente definidas são limpas. O exemplo de código a seguir primeiro obtém as propriedades existentes no BLOB e as usa para preencher os cabeçalhos que não estão sendo atualizados.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -72,11 +72,11 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 
 O exemplo de código a seguir obtém as propriedades do sistema de um blob e exibe alguns dos valores.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Recuperar metadados e valores de propriedade para um recurso de armazenamento de BLOBs é um processo de duas etapas. Antes de poder ler esses valores, você deve obtê-los explicitamente chamando o `FetchAttributes` `FetchAttributesAsync` método ou. A exceção a essa regra é que os `Exists` `ExistsAsync` métodos e chamam o `FetchAttributes` método apropriado nos bastidores. Ao chamar um desses métodos, você não precisa também chamar `FetchAttributes` .
 
@@ -115,12 +115,12 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 Você pode especificar os metadados como um ou mais pares de nome-valor em um recurso de contêiner ou blob. Para definir metadados, adicione pares de nome-valor à `Metadata` coleção no recurso. Em seguida, chame um dos seguintes métodos para gravar os valores:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -132,11 +132,11 @@ O nome dos metadados deve estar em conformidade com as convenções de nomenclat
 
 O exemplo de código a seguir define os metadados em um blob. Um valor é definido usando o método da coleção `Add` . O outro valor é definido usando a sintaxe implícita de chave/valor.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -166,13 +166,13 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 
 O exemplo de código a seguir lê os metadados em um blob.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para recuperar metadados, chame o método [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) ou [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) em seu BLOB ou contêiner para preencher a coleção de [metadados](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) e, em seguida, leia os valores, conforme mostrado no exemplo abaixo. Os métodos **GetProperties** recuperam Propriedades de BLOB e metadados em uma única chamada. Isso é diferente das APIs REST que exigem chamadas separadas para [obter propriedades de blob](/rest/api/storageservices/get-blob-properties) e [obter metadados de blob](/rest/api/storageservices/get-blob-metadata).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para recuperar metadados, chame o `FetchAttributes` `FetchAttributesAsync` método ou em seu BLOB ou contêiner para preencher a `Metadata` coleção e, em seguida, leia os valores, conforme mostrado no exemplo abaixo.
 
@@ -208,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Definir operação de propriedades de BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operação de obtenção de propriedades de BLOB](/rest/api/storageservices/get-blob-properties)

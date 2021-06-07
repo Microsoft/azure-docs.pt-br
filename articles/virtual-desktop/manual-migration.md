@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516164"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrar manualmente da área de trabalho virtual do Windows (clássico)

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272004"
 ---
 # <a name="retrieve-offer-status"></a>Recuperar status da oferta
@@ -32,7 +32,7 @@ Recupera o status atual da oferta.
 |  api-version    | Última versão da API                        |     Data       |
 |  |  |
 
-## <a name="header"></a>Cabeçalho
+## <a name="header"></a>parâmetro
 
 
 |  Nome           |  Valor               |
@@ -152,9 +152,9 @@ Recupera o status atual da oferta.
 |  NotStarted                  | A oferta é nova e não iniciada.                            |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.                 |
 |  Executando                     | O envio da oferta está sendo processado.                     |
-|  Êxito                   | O envio da oferta concluiu o processamento.               |
+|  Com sucesso                   | O envio da oferta concluiu o processamento.               |
 |  Canceled                    | O envio da oferta foi cancelado.                           |
-|  Failed (Falha)                      | O envio da oferta falhou.                                 |
+|  Com falha                      | O envio da oferta falhou.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Status da etapa

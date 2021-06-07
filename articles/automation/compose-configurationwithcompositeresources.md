@@ -7,10 +7,10 @@ ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1b1bbb12412deec6ecac8cf1ffd47a00f778862e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98894721"
 ---
 # <a name="compose-dsc-configurations"></a>Compor configurações DSC

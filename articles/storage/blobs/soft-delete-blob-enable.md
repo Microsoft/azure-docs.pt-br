@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: a74860b7adf4dade5aedc71a4960595cbe55eaf0
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995294"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
@@ -134,7 +134,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 
@@ -148,7 +148,7 @@ Para recuperar para uma versão específica do blob, primeiro chame Restaurar em
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 

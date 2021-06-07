@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 12/08/2019
 ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861435"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342426"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT

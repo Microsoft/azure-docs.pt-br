@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222514"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
@@ -151,7 +151,7 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 Pergunta | Resposta
 -------- | ------

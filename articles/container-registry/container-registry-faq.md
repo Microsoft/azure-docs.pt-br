@@ -3,14 +3,14 @@ title: Perguntas frequentes
 description: Respostas das perguntas frequentes relacionadas ao serviço de Registro de Contêiner do Azure
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606276"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045732"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
@@ -260,11 +260,23 @@ Atualmente, a quarentena da imagem é uma versão prévia do recurso do ACR. Voc
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso habilitar o acesso de pull anônimo?
 
-Atualmente, a configuração de um registro de contêiner do Azure para acesso de pull anônimo (público) é uma versão prévia do recurso. Se você tiver qualquer [mapa de escopo (usuário) ou recursos de token](./container-registry-repository-scoped-permissions.md) em seu registro, exclua-os antes de gerar um tíquete de suporte (os mapas de escopo do sistema podem ser ignorados). Para habilitar o acesso público, abra um tíquete de suporte em https://aka.ms/acr/support/create-ticket. Para obter detalhes, confira o [Fórum de Comentários do Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+A configuração de um registro de contêiner do Azure para acesso de pull anônimo (não autenticado) é atualmente um recurso de visualização, disponível nas [camadas de serviço](container-registry-skus.md)Standard e Premium. 
+
+Para habilitar o acesso de pull anônimo, atualize um registro usando o CLI do Azure (versão 2.21.0 ou posterior) e passe o `--anonymous-pull-enabled` parâmetro para o comando [AZ ACR Update](/cli/azure/acr#az_acr_update) :
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+Você pode desabilitar o acesso de pull anônimo a qualquer momento definindo `--anonymous-pull-enabled` como `false` .
 
 > [!NOTE]
-> * Somente as APIs necessárias para efetuar pull de uma imagem conhecida podem ser acessadas anonimamente. Nenhuma outra API para operações como lista de marcas ou lista de repositórios é acessível anonimamente.
 > * Antes de tentar uma operação de pull anônima, execute `docker logout` para garantir que você desmarque as credenciais existentes do Docker.
+> * Somente as operações de plano de dados estão disponíveis para clientes não autenticados.
+> * O registro pode limitar uma alta taxa de solicitações não autenticadas.
+
+> [!WARNING]
+> O acesso de pull anônimo atualmente se aplica a todos os repositórios no registro. Se você gerenciar o acesso ao repositório usando [tokens no escopo do repositório](container-registry-repository-scoped-permissions.md), lembre-se de que todos os usuários podem efetuar pull desses repositórios em um registro habilitado para pull anônimo. É recomendável excluir tokens quando o acesso de pull anônimo estiver habilitado.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Como fazer enviar camadas não distribuíveis por push para um registro?
 

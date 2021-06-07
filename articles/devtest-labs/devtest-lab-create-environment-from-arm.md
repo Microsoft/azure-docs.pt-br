@@ -4,10 +4,10 @@ description: Saiba como criar ambientes de várias VMs e recursos de PaaS no Azu
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88182401"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager
@@ -81,7 +81,7 @@ Depois de criar e configurar seu repositório, você pode adicioná-lo ao labora
    - **URL de clone do git**: Insira a URL de clone HTTPS do git no GitHub ou Azure repos.
    - **Branch** (opcional): Insira o nome do Branch para acessar suas definições de modelo de Azure Resource Manager.
    - **Token de acesso pessoal**: Insira o token de acesso pessoal que é usado para acessar com segurança seu repositório.
-     - Para obter o token do Azure Repos, em seu perfil, selecione **configurações do usuário**  >  **Security**  >  **tokens de acesso pessoal**.
+     - Para obter o token do Azure Repos, em seu perfil, selecione **configurações do usuário**  >    >  **tokens de acesso pessoal**.
      - Para obter seu token do GitHub, em seu perfil, selecione **configurações**  >  **configurações do desenvolvedor**  >  **tokens de acesso pessoal**.
    - **Caminhos de pasta**: Insira o caminho de pasta que é relativo ao URI de clone do git para suas definições de artefato ou suas definições de modelo de Azure Resource Manager.
 
@@ -97,9 +97,9 @@ Os usuários do laboratório têm a função **leitor** por padrão, portanto, n
 
 Para fornecer à função **colaborador** dos usuários do laboratório para que eles possam editar os recursos em seus ambientes, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com), no painel **visão geral** do laboratório, selecione **configuração e políticas**e, em seguida, selecione **configurações do laboratório**.
+1. No [portal do Azure](https://portal.azure.com), no painel **visão geral** do laboratório, selecione **configuração e políticas** e, em seguida, selecione **configurações do laboratório**.
 
-1. No painel **configurações do laboratório** , selecione **colaborador**e, em seguida, selecione **salvar** para conceder permissões de gravação aos usuários do laboratório.
+1. No painel **configurações do laboratório** , selecione **colaborador** e, em seguida, selecione **salvar** para conceder permissões de gravação aos usuários do laboratório.
 
    ![Configurar direitos de acesso de usuário de laboratório](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 

@@ -4,10 +4,10 @@ description: Este artigo define a lista de operações baseadas em solicitação
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88064407"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
@@ -190,7 +190,7 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagem|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
+|message|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
   
 ### <a name="schedule-message"></a>Agendar mensagem  
 
@@ -219,7 +219,7 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
 |session-id|Cadeia de caracteres|No|`amqpMessage.Properties.GroupId as string`|  
 |partition-key|Cadeia de caracteres|No|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
 |chave por meio de partição|Cadeia de caracteres|No|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|mensagem|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
+|message|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -340,7 +340,7 @@ O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|mensagem|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
+|message|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
   
 ### <a name="set-session-state"></a>Definir Estado de Sessão  
 
@@ -488,7 +488,7 @@ O mapa **correlação-filtro** deve incluir pelo menos uma das seguintes entrada
 |session-id|Cadeia de caracteres|No||  
 |reply-to-session-id|Cadeia de caracteres|No||  
 |content-type|Cadeia de caracteres|No||  
-|properties|map|Não|É mapeado para [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) do Barramento de Serviço.|  
+|properties|mapa|Não|É mapeado para [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) do Barramento de Serviço.|  
   
 O mapa **SQL-Rule-Action** deve incluir as seguintes entradas:  
   
@@ -595,11 +595,11 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 | 1 | string | ID da mensagem |
 | 2 | string | Para |
 | 3 | string | Responder Para |
-| 4 | string | Rotular |
+| 4 | string | Label |
 | 5 | string | ID da sessão |
 | 6 | string | ID da Sessão Responder Para|
 | 7 | string | Tipo de conteúdo |
-| 8 | Mapeamento | Mapa de propriedades de aplicativo definido |
+| 8 | Map | Mapa de propriedades de aplicativo definido |
 
 `ruleAction` pode ser de qualquer um dos seguintes tipos:
 
@@ -652,7 +652,7 @@ O mapa que representa uma mensagem deve conter as seguintes entradas:
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |lock-token|uuid|Sim|Token de bloqueio se `receiver-settle-mode` for 1.|  
-|mensagem|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
+|message|matriz de bytes|Sim|Mensagem codificada por transmissão AMQP 1.0.|  
   
 ### <a name="update-disposition-status"></a>Atualizar status de disposição  
 
@@ -675,7 +675,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |lock-tokens|matriz de uuid|Sim|Tokens de bloqueio de mensagem para atualizar o status de disposição.|  
 |deadletter-reason|Cadeia de caracteres|No|Pode ser definido se o status de disposição é definido como **suspenso**.|  
 |deadletter-description|Cadeia de caracteres|No|Pode ser definido se o status de disposição é definido como **suspenso**.|  
-|properties-to-modify|map|Não|Lista de propriedades de mensagem agenciada do Barramento de Serviço a serem modificadas.|  
+|properties-to-modify|mapa|Não|Lista de propriedades de mensagem agenciada do Barramento de Serviço a serem modificadas.|  
   
 #### <a name="response"></a>Resposta  
 

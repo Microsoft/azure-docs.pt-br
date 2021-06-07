@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703862"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557557"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -27,14 +27,9 @@ Você pode migrar VMs VMware de duas maneiras:
 
 Examine [Este artigo](server-migrate-overview.md) para descobrir qual método você deseja usar.
 
-## <a name="migration-limitations"></a>Limitações da migração
-
-- Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10.
-- Para a migração sem agente do VMware, você pode executar até 300 replicações simultaneamente.
-
 ## <a name="agentless-migration"></a>Migração sem agente 
 
-Esta seção resume os requisitos para a migração sem agente.
+Esta seção resume os requisitos de migração de VM do VMware sem agente para o Azure.
 
 ### <a name="vmware-requirements-agentless"></a>Requisitos do VMware (sem agente)
 
@@ -54,9 +49,9 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 
 **Suporte** | **Detalhes**
 --- | ---
-**Sistemas operacionais compatíveis** | Você pode migrar os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) com suporte no Azure.
+**Sistemas operacionais com suporte** | Você pode migrar os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) com suporte no Azure.
 **VMs do Windows no Azure** | Talvez seja necessário [fazer algumas alterações](prepare-for-migration.md#verify-required-changes-before-migrating) nas VMs antes da migração. 
-**VMs do Linux no Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure.<br/><br/> Para o Linux, as migrações para Azure fazem as alterações automaticamente para esses sistemas operacionais:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19, 4, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operacionais, faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**VMs do Linux no Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure.<br/><br/> Para o Linux, as migrações para Azure fazem as alterações automaticamente para esses sistemas operacionais:<br/> -Red Hat Enterprise Linux 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19, 4, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8, 9 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operacionais, faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Inicialização do Linux** | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos.
 **Inicialização UEFI** | Com suporte. As VMs baseadas em UEFI serão migradas para VMs do Azure geração 2. 
 **Tamanho do disco** | disco do sistema operacional de 2 TB;  32 TB para discos de dados.
@@ -70,10 +65,13 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **E/s de vários caminhos** | Não há suporte.
 **VMotion de armazenamento** | Não há suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
 **NICs agrupadas** | Não há suporte.
-**Protocolo** | Não há suporte.
+**IPv6** | Não há suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
-**Replicação simultânea** | 300 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 300.
-**Instalação automática do agente de VM do Azure (agente do Windows)** | Com suporte para o Windows Server 2008 R2 em diante.
+**Replicação simultânea** | Até 300 replicando VMs simultaneamente por vCenter Server com 1 dispositivo. Até 500 replicando VMs simultaneamente por vCenter Server quando um dispositivo de [expansão](./how-to-scale-out-for-migration.md) adicional é implantado. 
+**Instalação automática do agente de VM do Azure (agente do Windows e Linux)** | Com suporte para o Windows Server 2008 R2 em diante. <br/> Com suporte para RHEL6, RHEL7, CentOS7, Ubuntu 14, 4, Ubuntu 16, 4, Ubuntu 18.04. Examine a lista de [pacotes necessários](../virtual-machines/extensions/agent-linux.md#requirements)) para esses sistemas operacionais Linux.
+
+> [!TIP]
+>  Usando o portal do Azure você poderá selecionar até 10 VMs de cada vez para configurar a replicação. Para replicar mais VMs, você pode usar o portal e adicionar as VMs a serem replicadas em vários lotes de 10 VMs ou usar a interface do PowerShell de migrações para Azure para configurar a replicação. Verifique se você não configurou a replicação simultânea em mais do que o número máximo de VMs com suporte para replicações simultâneas.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos de dispositivo (sem agente)
 
@@ -133,7 +131,7 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **E/s de vários caminhos** | Não há suporte.
 **VMotion de armazenamento** | Com suporte
 **NICs agrupadas** | Não há suporte.
-**Protocolo** | Não há suporte.
+**IPv6** | Não há suporte.
 
 
 
@@ -159,7 +157,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 Todas as VMs locais replicadas para o Azure (com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requirements** 
+**Componente** | **Requisitos** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 

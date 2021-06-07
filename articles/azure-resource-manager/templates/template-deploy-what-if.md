@@ -3,14 +3,14 @@ title: Implantação de modelo What-If
 description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591617"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102547927"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação teste de hipóteses de implantação do modelo do ARM
 
@@ -391,8 +391,6 @@ Você pode usar a operação What-If por meio dos SDKs do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para usar a operação What-If em um pipeline, consulte [testar modelos de ARM com What-If em um pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - Se você observar resultados incorretos da operação What-If, informe os problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Para um módulo Microsoft Learn que aborda o uso do quê, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).
-- Para implantar modelos com Azure PowerShell, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).
-- Para implantar modelos com CLI do Azure, consulte [implantar recursos com modelos ARM e CLI do Azure](deploy-cli.md).
-- Para implantar modelos com REST, consulte [implantar recursos com modelos ARM e API REST do Gerenciador de recursos](deploy-rest.md).

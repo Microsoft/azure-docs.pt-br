@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95558000"
 ---
 > [!NOTE]
 > Esses exemplos não se aplicam a configurações de coexistência de S2S/ExpressRoute.
-> Para obter mais informações sobre como trabalhar com gateways em uma configuração coexistente, consulte [Configurar conexões coexistentes.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
+> Para obter mais informações sobre como trabalhar com gateways em uma configuração de coexistência, consulte [Configurar conexões coexistentes.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
 
 ## <a name="add-a-gateway"></a>Adicionar um gateway
 

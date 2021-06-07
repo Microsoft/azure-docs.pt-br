@@ -3,12 +3,12 @@ title: Coletar & analisar logs de recursos
 description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148643"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579320"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
@@ -27,7 +27,7 @@ As seções a seguir descrevem como criar um grupo de contêineres habilitado pa
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
-* [Espaço de Trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Espaço de Trabalho do Log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Para obter mais informações sobre como consultar logs e configurar alertas nos logs do Azure Monitor, confira:
 
-* [Noções básicas sobre pesquisas de log em logs de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+* [Noções básicas sobre pesquisas de log em logs de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Alertas unificados no Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorar memória e CPU do contêiner

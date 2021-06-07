@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
 ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797258"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Mover recursos entre regiões (do grupo de recursos)
@@ -54,7 +54,7 @@ Neste artigo, saiba como mover recursos em um grupo de recursos específico para
     - Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - Caso esteja usando regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, crie essas [regras de marcação de serviço](support-matrix-move-region-azure-vm.md#nsg-rules).
 
-## <a name="select-resources-to-move"></a>Selecionar os recursos a serem movidos
+## <a name="select-resources-to-move"></a>Selecionar recursos a serem movidos
 
 Selecione os recursos que deseja mover. Você move os recursos para uma região de destino na assinatura da região de origem. Se você quiser alterar a assinatura, poderá fazer isso depois que os recursos forem movidos.
 

@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5d768fdc2540496769883d839cfbb4f009a2000c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422120"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077628"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e conexões de IoT Edge
 
@@ -42,12 +42,12 @@ Agora, especifique as credenciais do contêiner no módulo do IoT Edge.
 
 4. Em **Credenciais de Registro de Contêiner**, insira os seguintes valores:
 
-   _Campo_|_Valor_
-   -------|-------
-   Nome|Nome do registro
-   Endereço|Servidor de logon
-   Nome do Usuário|Nome de Usuário
-   Senha|Senha
+   | _Campo_   | _Valor_       |
+   | -------   | -------       |
+   | Nome      | Nome do registro |
+   | Endereço   | Servidor de logon  | 
+   | Nome do Usuário | Nome de Usuário      | 
+   | Senha  | Senha      | 
   
 ## <a name="build-push-and-deploy-the-data-generator-module"></a>Criar, efetuar push e implantar um Módulo Gerador de Dados
 

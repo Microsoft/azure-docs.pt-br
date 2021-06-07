@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071367"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568651"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -292,7 +292,7 @@ Esse problema ocorre quando vCenter Server agentes de gerenciamento param de fun
 
 ### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensagem de erro: ocorreu um erro interno. [Tamanho do disco de instantâneo inválido]
 
-Esse é um problema conhecido do VMware no qual o tamanho do disco indicado pelo instantâneo se torna zero. Siga a resolução fornecida no [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
+Esse é um problema conhecido do VMware no qual o tamanho do disco indicado pelo instantâneo se torna zero. Siga a resolução fornecida no [VMware KB](https://kb.vmware.com/s/).
 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensagem de erro: ocorreu um erro interno. [Falha na alocação de memória. Memória insuficiente.]
 

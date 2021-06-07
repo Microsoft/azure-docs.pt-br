@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92282169"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospede seu domínio no DNS do Azure
@@ -40,12 +40,12 @@ Neste exemplo, vamos fazer referência ao domínio pai como **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
-1. Acesse o [Portal do Azure](https://portal.azure.com/) para criar uma zona DNS. Pesquise e selecione **zonas DNS** .
+1. Acesse o [Portal do Azure](https://portal.azure.com/) para criar uma zona DNS. Pesquise e selecione **zonas DNS**.
 
    ![Zona DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. Selecione **Criar zona DNS** .
-1. Na página **Criar zona DNS** , insira os seguintes valores e selecione **Criar** : por exemplo, **contoso.net**
+1. Selecione **Criar zona DNS**.
+1. Na página **Criar zona DNS**, insira os seguintes valores e selecione **Criar**: por exemplo, **contoso.net**
       > [!NOTE] 
       > Se a zona que você está criando for uma zona filho (por exemplo, zona pai = contoso.net zona filho = child.contoso.net), veja o nosso [Tutorial para criar um tutorial de zona DNS filho](./tutorial-public-dns-zones-child.md)
 
@@ -63,9 +63,9 @@ Neste exemplo, vamos fazer referência ao domínio pai como **contoso.net**
 
 Antes que você possa delegar a zona DNS ao DNS do Azure, você precisará saber os nomes do servidor para sua zona. O Azure DNS aloca os servidores de nomes de um pool sempre que uma zona é criada.
 
-1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, selecione **Todos os recursos** . Na página **Todos os recursos** , selecione sua zona DNS. Se a assinatura que você selecionou já contiver vários recursos, insira o nome de domínio na caixa **Filtrar por nome** para acessar com facilidade o gateway de aplicativo. 
+1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, selecione **Todos os recursos**. Na página **Todos os recursos**, selecione sua zona DNS. Se a assinatura que você selecionou já contiver vários recursos, insira o nome de domínio na caixa **Filtrar por nome** para acessar com facilidade o gateway de aplicativo. 
 
-1. Recupere os servidores de nomes da página da zona DNS. Neste exemplo, os servidores de nomes *ns1-01.azure-dns.com* , *ns2-01.azure-dns.net* , *ns3-01.azure-dns.org* e *ns4-01.azure-dns.info* :
+1. Recupere os servidores de nomes da página da zona DNS. Neste exemplo, os servidores de nomes *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* e *ns4-01.azure-dns.info*:
 
    ![Lista de servidores de nome](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
@@ -82,7 +82,7 @@ Agora que a zona DNS foi criada e você tem os servidores de nomes, você precis
 > [!NOTE]
 > Ao copiar cada endereço de servidor de nome, lembre-se de copiar o ponto à direita no final do endereço. O ponto à direita indica o final de um nome de domínio totalmente qualificado. Alguns registradores acrescentarão o ponto se o nome NS não tiver o ponto no final. Para estar em conformidade com o RFC do DNS, inclua o ponto à direita.
 
-Atualmente, o DNS do Azure não dá suporte às delegações que usam servidores de nomes em sua própria zona, às vezes chamados de *servidores de nome intuitivos* .
+Atualmente, o DNS do Azure não dá suporte às delegações que usam servidores de nomes em sua própria zona, às vezes chamados de *servidores de nome intuitivos*.
 
 ## <a name="verify-the-delegation"></a>Verificar a delegação
 
@@ -116,7 +116,7 @@ Você não precisa especificar os servidores de nomes DNS do Azure. Se a delega�
 
 Você pode manter o grupo de recursos **contosoRG** se você pretender fazer o próximo tutorial. Caso contrário, exclua o grupo de recursos **contosoRG** para excluir os recursos criados neste tutorial.
 
-- Selecione o grupo de recursos **contosoRG** e, em seguida, **Excluir grupo de recursos** . 
+- Selecione o grupo de recursos **contosoRG** e, em seguida, **Excluir grupo de recursos**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

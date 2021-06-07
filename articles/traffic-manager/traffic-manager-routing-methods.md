@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: duau
 ms.openlocfilehash: eeebded128f636ecba2e4e0dab1bc2f0632aaa6a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730965"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
@@ -123,7 +123,7 @@ O Gerenciador de tráfego lê o endereço IP de origem da consulta DNS e decide 
 
 Conforme explicado em [como funciona o Gerenciador de tráfego, o](traffic-manager-how-it-works.md)Gerenciador de tráfego não recebe consultas DNS diretamente dos clientes. As consultas DNS são provenientes do serviço DNS recursivo que os clientes estão configurados para usar. É por isso que o endereço IP usado para determinar a região não é o endereço IP do cliente, mas sim o endereço IP do serviço DNS recursivo. Esse endereço IP é um bom proxy para o cliente.
 
-### <a name="faqs"></a>Perguntas Frequentes
+### <a name="faqs"></a>Perguntas frequentes
 
 * [Quais são alguns casos de uso em que o roteamento geográfico é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-geographic-routing-is-useful)
 
@@ -148,7 +148,7 @@ Conforme explicado em [como funciona o Gerenciador de tráfego, o](traffic-manag
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Método de roteamento de tráfego de vários valores
 O método de roteamento de tráfego de **vários valores** permite que você obtenha vários pontos de extremidade íntegros em uma única resposta de consulta DNS. Essa configuração permite que o chamador faça repetições do lado do cliente com outros pontos de extremidade, caso um ponto de extremidades retornado não responda. Esse padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto de extremidade íntegro. O método de roteamento MultiValue funcionará apenas se todos os pontos de extremidade forem do tipo 'Externo' e especificados como endereços IPv4 ou IPv6. Quando uma consulta for recebida para este perfil, todos os pontos de extremidade íntegros serão retornados e estarão sujeitos a uma contagem de retorno máxima configurável.
 
-### <a name="faqs"></a>Perguntas Frequentes
+### <a name="faqs"></a>Perguntas frequentes
 
 * [Quais são alguns casos de uso em que o roteamento de Múltiplos Valores é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-multivalue-routing-is-useful)
 
@@ -164,7 +164,7 @@ Se você definir um terminal sem intervalo de endereços, ele funcionará como u
 
 O roteamento de sub-rede pode ser usado para fornecer uma experiência diferente aos usuários que se conectam de um espaço IP específico. Por exemplo, você pode fazer com que todas as solicitações de seu escritório corporativo sejam roteadas para um ponto de extremidade diferente. Esse método de roteamento é especialmente útil se você estiver tentando testar uma versão somente interna do seu aplicativo. Outro cenário é se você deseja fornecer uma experiência diferente aos usuários conectando-se de um ISP específico (por exemplo, bloquear usuários de um determinado ISP).
 
-### <a name="faqs"></a>Perguntas Frequentes
+### <a name="faqs"></a>Perguntas frequentes
 
 * [Quais são alguns casos de uso em que o roteamento de sub-rede é útil?](./traffic-manager-faqs.md#what-are-some-use-cases-where-subnet-routing-is-useful)
 

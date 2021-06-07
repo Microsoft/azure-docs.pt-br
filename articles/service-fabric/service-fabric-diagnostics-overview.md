@@ -1,16 +1,14 @@
 ---
 title: Visão geral de monitoramento e diagnóstico de Service Fabric do Azure
 description: Saiba mais sobre monitoramento e diagnóstico para clusters, aplicativos e serviços do Service Fabric do Azure.
-author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.author: srrengar
-ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ec86f26de1e94b4e17e0990d2eafd1fff954e2
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357124"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627737"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 

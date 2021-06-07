@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: a5a7a31c174271f963bb005f10b8376a59133d36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014866"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco em um dispositivo StorSimple da série 8000
@@ -100,10 +100,10 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
    
     ![Deslizando o disco para dentro do suporte da unidade de disco](./media/storsimple-disk-drive-replacement/IC741045.png)
    
-    **Figura 6**  Deslizando o Carrier da unidade para dentro do chassi
+    **Figura 6** Deslizando o suporte da unidade para dentro do chassi
 3. Com o suporte da unidade inserido, feche a alça do suporte enquanto continua a empurrar o suporte da unidade para dentro do chassi, até que a alça se encaixe na posição travada.
 4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
-5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o portal do Azure e navegue até **configurações do dispositivo**  >  **integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
+5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o Portal do Azure e navegue para **Configurações do dispositivo** > **Integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
 
    
    > [!NOTE]

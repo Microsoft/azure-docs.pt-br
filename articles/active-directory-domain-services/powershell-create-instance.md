@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 10/02/2020
+ms.date: 03/10/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 89061af04147d7cfaa0fdb3a6b1a8fb1cd8c8da7
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8056e95b731b1818e10d7415cb813d6aba0ec7fa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619140"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103149060"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitar o Azure Active Directory Domain Services usando PowerShell
 
@@ -40,16 +40,23 @@ Para concluir este artigo, você precisa dos seguintes recursos:
 * É necessário ter privilégios de *administrador global* no locatário do Azure AD para habilitar o Azure AD DS.
 * Você precisa de privilégios de *Colaborador* em sua assinatura do Azure para criar os recursos necessários do Azure AD DS.
 
+  > [!IMPORTANT]
+  > Enquanto o módulo **Az.ADDomainServices** do PowerShell estiver em versão prévia, você precisará instalá-lo separadamente usando o cmdlet `Install-Module`.
+
+  ```azurepowershell-interactive
+  Install-Module -Name Az.ADDomainServices
+  ```
+
 ## <a name="create-required-azure-ad-resources"></a>Criar recursos do Azure AD necessários
 
-O Azure AD DS requer uma entidade de serviço e um grupo do Azure AD. Esses recursos permitem que o domínio gerenciado do Azure AD DS sincronize dados e defina quais usuários têm permissões administrativas no domínio gerenciado.
+O Azure AD DS requer uma entidade de serviço para se autenticar e se comunicar e um grupo do Azure AD para definir quais usuários têm permissões administrativas no domínio gerenciado.
 
-Primeiro, crie uma entidade de serviço do Azure AD para o Azure AD DS para se comunicar e se autenticar. É usada uma ID de aplicativo específica denominada *Serviços de Controlador de Domínio* com uma ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
+Primeiro, crie uma entidade de serviço do Azure AD usando uma ID de aplicativo específica denominada *Serviços do Controlador de Domínio*. No Azure público, o valor da ID é *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Em outras nuvens, o valor é *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Não altere essa ID de aplicativo.
 
 Crie uma entidade de serviço do Azure AD usando o cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 Agora crie um grupo do Azure AD chamado *Administradores do AAD DC*. Os usuários adicionados a esse grupo recebem permissões para executar tarefas de administração no domínio gerenciado.
@@ -93,13 +100,13 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 
 Primeiro, registre o provedor de recursos do Azure AD Domain Services usando o cmdlet [Register-AzResourceProvider][Register-AzResourceProvider]:
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 Em seguida, crie um grupo de recursos usando o cmdlet [New-AzResourceGroup][New-AzResourceGroup]. No exemplo a seguir, o grupo de recursos é chamado *myResourceGroup* e é criado na região *westus*. Use seu nome e sua região desejada:
 
-```powershell
+```azurepowershell-interactive
 $ResourceGroupName = "myResourceGroup"
 $AzureLocation = "westus"
 
@@ -113,7 +120,7 @@ Crie a rede virtual e as sub-redes para o Azure AD Domain Services. Duas sub-red
 
 Crie as sub-redes usando o cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] e, em seguida, crie o rede virtual usando o cmdlet [New-AzVirtualNetwork][New-AzVirtualNetwork].
 
-```powershell
+```azurepowershell-interactive
 $VnetName = "myVnet"
 
 # Create the dedicated subnet for Azure AD Domain Services.
@@ -142,20 +149,8 @@ O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas 
 
 Os cmdlets do PowerShell a seguir usam [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig] para criar as regras e [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup] para criar o grupo de segurança de rede. O grupo de segurança de rede e as regras são então associados à sub-rede da rede virtual usando o cmdlet [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig].
 
-```powershell
+```azurepowershell-interactive
 $NSGName = "aaddsNSG"
-
-# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
-$nsg101 = New-AzNetworkSecurityRuleConfig `
-    -Name AllowSyncWithAzureAD `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 101 `
-    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
 $nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
@@ -183,7 +178,7 @@ $nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
 $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -ResourceGroupName $ResourceGroupName `
     -Location $AzureLocation `
-    -SecurityRules $nsg101,$nsg201,$nsg301
+    -SecurityRules $nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
 $vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
@@ -208,17 +203,24 @@ As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Az
 
 Não é preciso configurar nada para que o Azure AD DS seja distribuído entre as zonas. A plataforma do Azure lida automaticamente com a distribuição de recursos na zona. Para obter mais informações e ver a disponibilidade da região, confira [O que são as Zonas de Disponibilidade no Azure?][availability-zones].
 
-```powershell
+```azurepowershell-interactive
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado mostra o status atual durante essa fase de implantação.
@@ -236,7 +238,7 @@ O script completo do PowerShell a seguir combina todas as tarefas mostradas nest
 > [!NOTE]
 > Para habilitar o Azure AD DS, você deve ser um administrador global do locatário do Azure AD. Você também precisa, pelo menos, de privilégios de *Colaborador* na assinatura do Azure.
 
-```powershell
+```azurepowershell-interactive
 # Change the following values to match your deployment.
 $AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
@@ -252,7 +254,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -304,20 +306,8 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
-  
-$NSGName = "aaddsNSG"
 
-# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
-$nsg101 = New-AzNetworkSecurityRuleConfig `
-    -Name AllowSyncWithAzureAD `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 101 `
-    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443
+$NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
 $nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
@@ -345,7 +335,7 @@ $nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
 $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -ResourceGroupName $ResourceGroupName `
     -Location $AzureLocation `
-    -SecurityRules $nsg101,$nsg201,$nsg301
+    -SecurityRules $nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
 $vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
@@ -360,12 +350,19 @@ Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
 $vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O domínio gerenciado continua sendo provisionado em segundo plano e a implantação pode levar até uma hora para ser concluída. No portal do Azure, a página **Visão Geral** do seu domínio gerenciado mostra o status atual durante essa fase de implantação.

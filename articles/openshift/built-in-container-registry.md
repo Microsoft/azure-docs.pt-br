@@ -3,15 +3,15 @@ title: Configurar registro de contêiner interno para o Red Hat OpenShift 4 no A
 description: Configurar registro de contêiner interno para o Red Hat OpenShift 4 no Azure
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: dda050b8d824f0ff0ac1c84d2f008387de55aedf
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070603"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100636367"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Configurar registro de contêiner interno para o Red Hat OpenShift 4 no Azure
 

@@ -4,10 +4,10 @@ description: Saiba como usar o painel para um laboratório de sala de aula no Az
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434593"
 ---
 # <a name="dashboard-for-labs"></a>Painel para laboratórios

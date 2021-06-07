@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122836"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
@@ -60,9 +60,9 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 
 No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory** ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Selecione Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Em **monitoramento** , selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
 ![A captura de tela mostra as entradas selecionadas no menu monitoramento.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de entrada")
 
@@ -82,7 +82,7 @@ Um log de entradas tem um modo de exibição de lista padrão que mostra:
 
 ![Captura de tela mostra as entradas do Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Atividade de entrada")
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Captura de tela mostra a opção colunas na página de entradas.](./media/concept-sign-ins/19.png "Atividade de entrada")
 
@@ -143,7 +143,7 @@ O **local** -o local do qual a conexão foi iniciada:
 ![Filtro de aplicativo cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Autenticação moderna|Descrição|
+|Nome|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelo cliente POP e IMAP para enviar mensagens de email.|
 |Descoberta automática| |Usado pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.|
@@ -177,11 +177,11 @@ O **local** -o local do qual a conexão foi iniciada:
 
 **Acesso condicional** -o status das regras de acesso condicional aplicadas
 
-- **Não aplicado** : nenhuma política aplicada ao usuário e ao aplicativo durante a entrada.
+- **Não aplicado**: nenhuma política aplicada ao usuário e ao aplicativo durante a entrada.
 
-- **Êxito** : uma ou mais políticas de acesso condicional aplicadas ao usuário e ao aplicativo (mas não necessariamente às outras condições) durante a entrada. 
+- **Êxito**: uma ou mais políticas de acesso condicional aplicadas ao usuário e ao aplicativo (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha** : a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
+- **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
 
 
 
@@ -233,7 +233,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Localização
+- Location
 - Endereço IP
 - Data
 - MFA obrigatório
@@ -242,7 +242,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 > [!NOTE]
 > Os endereços IP são emitidos de uma forma que não há nenhuma conexão definitiva entre um endereço IP e em que o computador com esse endereço está localizado fisicamente. O mapeamento de endereços IP é dificultado pelo fato de que os provedores móveis e VPNs emitem endereços IP de pools centrais que geralmente estão muito longe de onde o dispositivo cliente realmente é usado. Atualmente, nos relatórios do Azure AD, a conversão do endereço IP em um local físico é um melhor esforço com base em rastreamentos, dados de registro, pesquisas inversas e outras informações.
 
-Na página **Usuários** , você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade** .
+Na página **Usuários**, você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade**.
 
 ![Captura de tela mostra a seção atividade em que você pode selecionar entradas.](./media/concept-sign-ins/08.png "Atividade de entrada")
 
@@ -254,7 +254,7 @@ Com uma exibição centrada no aplicativo de seus dados de entrada, você pode r
 * Quais são os três principais aplicativos em sua organização?
 * Como está o meu aplicativo mais recente?
 
-O ponto de entrada para esses dados são os três principais aplicativos em sua organização. Os dados estão contidos no relatório últimos 30 dias na seção **visão geral** em **aplicativos empresariais** .
+O ponto de entrada para esses dados são os três principais aplicativos em sua organização. Os dados estão contidos no relatório últimos 30 dias na seção **visão geral** em **aplicativos empresariais**.
 
 ![Captura de tela mostra onde você pode selecionar visão geral.](./media/concept-sign-ins/10.png "Atividade de entrada")
 

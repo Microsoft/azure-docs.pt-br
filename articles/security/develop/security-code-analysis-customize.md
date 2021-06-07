@@ -5,7 +5,7 @@ description: Este artigo descreve como personalizar as tarefas na extensão de a
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,14 +13,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008677"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802005"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
+
+> [!Note]
+> A partir de 1º de março de 2022, a extensão MSCA (análise de código de segurança da Microsoft) será desativada. Os clientes MSCA existentes manterão seu acesso ao MSCA até 1º de março de 2022. Consulte as ferramentas de [análise de código-fonte OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) para obter opções alternativas no Azure DevOps. Para os clientes que planejam migrar para o GitHub, você pode conferir a [segurança avançada do GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Este artigo descreve detalhadamente as opções de configuração disponíveis em cada uma das tarefas de compilação. O artigo começa com as tarefas de ferramentas de análise de código de segurança. Ele termina com as tarefas de pós-processamento.
 

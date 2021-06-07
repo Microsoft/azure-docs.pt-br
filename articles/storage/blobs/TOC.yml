@@ -246,14 +246,18 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Monitorar, diagnosticar e solucionar problemas'
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Suporte do protocolo NFS 3.0
+          items:
+            - name: Visão geral
+              href: network-file-system-protocol-support.md
+            - name: Considerações sobre o desempenho
+              href: network-file-system-protocol-support-performance.md
         - name: Manipulação de eventos
           href: storage-blob-event-overview.md
         - name: Recursos do blob de páginas
           href: storage-blob-pageblob-overview.md
         - name: Sites estáticos
           href: storage-blob-static-website.md
-        - name: Suporte do protocolo NFS 3.0
-          href: network-file-system-protocol-support.md
     - name: Como
       items:
         - name: Criar e gerenciar contas de armazenamento
@@ -391,6 +395,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurar a versão do TLS para um aplicativo cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Configurar preferência de roteamento de rede
+                  href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurar o Azure Defender para proteção contra ameaças
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Proteger dados de Blobs
@@ -557,6 +563,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solucionar problemas do Gerenciador de Armazenamento
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Opções de linha de comando do Gerenciador de Armazenamento
+              href: ../common/storage-explorer-command-line-options.md
             - name: Segurança do Gerenciador de Armazenamento
               href: ../common/storage-explorer-security.md
             - name: Controle de versão de blob do Gerenciador de Armazenamento
@@ -635,20 +643,16 @@
       items:
         - name: Introdução ao Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Inícios rápidos
-      items:
-        - name: Analisar dados com o Databricks
-          href: data-lake-storage-quickstart-create-databricks-account.md
     - name: Tutoriais
       items:
-        - name: 'Extrair, transformar e carregar dados usando o Azure Databricks'
-          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Acessar dados do Data Lake Storage com Databricks usando o Spark
+        - name: Usar com o Databricks e o Spark
           href: data-lake-storage-use-databricks-spark.md
-        - name: 'Extrair, transformar e carregar dados usando o Apache Hive no HDInsight do Azure'
+        - name: Usar com o Apache Hive e o HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: Inserir dados em tabelas do Delta do Databricks usando a Grade de Eventos
+        - name: Usar com o Databricks Delta e a Grade de Eventos
           href: data-lake-storage-events.md
+        - name: Usar com outros serviços do Azure
+          href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Conceitos
       items:
         - name: Processamento de Big Data
@@ -705,7 +709,7 @@
       items:
         - name: Criar uma conta de armazenamento
           href: create-data-lake-storage-account.md
-        - name: Migrar
+        - name: Migrar contas e armazenamentos de dados
           items:
             - name: Migrar do Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
@@ -713,31 +717,7 @@
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
             - name: Migrar um repositório HDFS online
               href: migrate-gen2-wandisco-live-data-platform.md
-        - name: Gerenciar
-          items:
-            - name: .NET
-              href: data-lake-storage-directory-file-acl-dotnet.md
-            - name: Java
-              href: data-lake-storage-directory-file-acl-java.md
-            - name: Python
-              href: data-lake-storage-directory-file-acl-python.md
-            - name: JavaScript
-              href: data-lake-storage-directory-file-acl-javascript.md
-            - name: PowerShell
-              href: data-lake-storage-directory-file-acl-powershell.md
-            - name: CLI
-              href: data-lake-storage-directory-file-acl-cli.md
-            - name: Gerenciador de Armazenamento
-              href: data-lake-storage-explorer.md
-            - name: CLI do sistema de arquivos do Hadoop
-              href: data-lake-storage-use-hdfs-data-lake-storage.md
-            - name: Definir ACLs recursivamente
-              href: recursive-access-control-lists.md
-        - name: Consulta
-          items:
-            - name: Filtrar dados com aceleração de consulta
-              href: data-lake-storage-query-acceleration-how-to.md
-        - name: Transferência
+        - name: Transferir dados
           items:
             - name: AzCopy
               items:
@@ -761,9 +741,47 @@
               href: data-lake-storage-use-distcp.md
             - name: Transferir dados com a biblioteca de Movimentação de Dados
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Otimizar
+        - name: Gerenciar o controle de acesso
           items:
-            - name: Otimizar desempenho
+            - name: Gerenciador de Armazenamento
+              href: data-lake-storage-explorer-acl.md
+            - name: PowerShell
+              href: data-lake-storage-acl-powershell.md
+            - name: CLI
+              href: data-lake-storage-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-acl-java.md
+            - name: Python
+              href: data-lake-storage-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-acl-javascript.md
+        - name: Trabalhar com dados
+          items:
+            - name: Gerenciador de Armazenamento
+              href: data-lake-storage-explorer.md
+            - name: PowerShell
+              href: data-lake-storage-directory-file-acl-powershell.md
+            - name: CLI
+              href: data-lake-storage-directory-file-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-directory-file-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-directory-file-acl-java.md
+            - name: Python
+              href: data-lake-storage-directory-file-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-directory-file-acl-javascript.md
+            - name: Aceleração de consulta
+              href: data-lake-storage-query-acceleration-how-to.md
+            - name: CLI do sistema de arquivos do Hadoop
+              href: data-lake-storage-use-hdfs-data-lake-storage.md
+        - name: Usar os serviços do Azure
+          href: data-lake-storage-integrate-with-services-tutorials.md
+        - name: Otimizar desempenho
+          items:
+            - name: Visão geral da otimização de desempenho
               href: data-lake-storage-performance-tuning-guidance.md
             - name: Otimizar Spark no HDInsight
               href: data-lake-storage-performance-tuning-spark.md
@@ -873,3 +891,5 @@
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: vídeos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+        - name: Parceiros
+          href: ../solution-integration/

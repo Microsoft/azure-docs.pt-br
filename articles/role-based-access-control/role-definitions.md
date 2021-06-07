@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602466"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801750"
 ---
 # <a name="understand-azure-role-definitions"></a>Entender as definições de função do Azure
 
@@ -63,7 +59,7 @@ A tabela a seguir descreve o que significam as propriedades de função.
 | Propriedade | Descrição |
 | --- | --- |
 | `Name`</br>`roleName` | O nome de exibição da função. |
-| `Id`</br>`name` | A ID exclusiva da função. |
+| `Id`</br>`name` | A ID exclusiva da função. As funções internas têm a mesma ID de função entre nuvens. |
 | `IsCustom`</br>`roleType` | Indica se esta é uma função personalizada. Defina como `true` ou `CustomRole` para funções personalizadas. Defina como `false` ou `BuiltInRole` para funções internas. |
 | `Description`</br>`description` | A descrição da função. |
 | `Actions`</br>`actions` | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento permitidas pela função. |
@@ -80,7 +76,7 @@ Operações são especificadas com cadeias de caracteres que têm o seguinte for
 
 A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo de operações que você pode executar em um tipo de recurso. Por exemplo, você verá as seguintes subcadeias de caracteres em `{action}`:
 
-| Subcadeia de caracteres de ação    | Descrição         |
+| Subcadeia de caracteres de ação    | Description         |
 | ------------------- | ------------------- |
 | `*` | O caractere curinga concede acesso a todas as operações que correspondem à cadeia de caracteres. |
 | `read` | Habilita operações de leitura (GET). |
@@ -281,7 +277,7 @@ Para exibir e usar as operações de dados na API REST, você precisa definir o 
 Uma permissão `Actions`especifica as operações de gerenciamento permitidas pela função a ser realizada. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Aqui estão alguns exemplos de operações de gerenciamento que podem ser usadas no `Actions`.
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de caracteres da operação    | Descrição         |
+> | Cadeia de caracteres da operação    | Description         |
 > | ------------------- | ------------------- |
 > | `*/read` | Concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.|
 > | `Microsoft.Compute/*` | Concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.|
@@ -318,7 +314,7 @@ As designações de negação impedem que os usuários executem ações específ
 Uma permissão `DataActions` que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Por exemplo, se um usuário tem acesso de leitura blob dados para uma conta de armazenamento, eles podem ler blobs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usados em `DataActions`.
 
 > [!div class="mx-tableFixed"]
-> | Cadeia de caracteres da operação    | Descrição         |
+> | Cadeia de caracteres da operação    | Description         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Retorna um blob ou uma lista de blobs. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Retorna o resultado de escrever um blob. |

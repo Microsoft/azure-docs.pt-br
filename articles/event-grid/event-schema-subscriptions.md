@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de assina
 ms.topic: reference
 ms.date: 02/12/2021
 ms.openlocfilehash: b9753ecfb46f5ac5f383f19e3d409e703c144d48
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363178"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como uma fonte de grade de eventos
@@ -419,7 +419,7 @@ O exemplo a seguir mostra o esquema para um **ResourceActionSuccess** eventos. O
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -434,7 +434,7 @@ Um evento tem os seguintes dados de nível superior:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -448,7 +448,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `authorization` | object | A autorização solicitada para a operação. |
 | `claims` | object | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |

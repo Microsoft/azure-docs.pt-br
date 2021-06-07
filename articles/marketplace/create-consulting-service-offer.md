@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.openlocfilehash: e9a0b2fe883fa46010fda74c58908128d05919e6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754312"
 ---
 # <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Como criar uma oferta de serviço de consultoria no Marketplace comercial
@@ -26,19 +26,19 @@ Para publicar uma oferta de serviço de consultoria, você deve atender a determ
 ## <a name="create-a-new-consulting-service-offer"></a>Criar uma nova oferta de serviços de consultoria
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.  No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial.
+2.  No menu de navegação à esquerda, selecione   >  **visão geral** do Marketplace comercial.
 3.  Na guia Visão geral, selecione **+ novo**  >  **serviço de consultoria** de oferta.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-consulting-service.png)
 
-4. Na caixa de diálogo **nova oferta** , insira uma **ID da oferta** . Essa ID é visível na URL da listagem do Marketplace comercial. Por exemplo, se você inserir Test-offer-1 nessa caixa, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+4. Na caixa de diálogo **nova oferta** , insira uma **ID da oferta**. Essa ID é visível na URL da listagem do Marketplace comercial. Por exemplo, se você inserir Test-offer-1 nessa caixa, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 
     * Cada oferta em sua conta deve ter uma ID de oferta exclusiva.
     * Use apenas letras minúsculas e números. A ID da oferta pode incluir hifens e sublinhados, mas sem espaços, e está limitado a 50 caracteres.
-    * A ID da oferta não pode ser alterada depois que você seleciona **criar** .
+    * A ID da oferta não pode ser alterada depois que você seleciona **criar**.
 
-5. Insira um **Alias da oferta** . Esse é o nome usado para a oferta no Partner Center. Ele não está visível nas lojas online e é diferente do nome da oferta mostrado aos clientes.
-6. Para gerar a oferta e continuar, selecione **criar** .
+5. Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center. Ele não está visível nas lojas online e é diferente do nome da oferta mostrado aos clientes.
+6. Para gerar a oferta e continuar, selecione **criar**.
 
 ## <a name="configure-lead-management"></a>Configurar o gerenciamento de clientes potenciais
 
@@ -47,7 +47,7 @@ Conecte seu sistema de CRM (gerenciamento de relacionamento com o cliente) com s
 Para configurar o gerenciamento de leads no Partner Center:
 
 1.  No Partner Center, vá para a guia **instalação da oferta** .
-2.  Em **clientes potenciais do cliente** , selecione o link **conectar** .
+2.  Em **clientes potenciais do cliente**, selecione o link **conectar** .
 3.  Na caixa de diálogo **detalhes da conexão** , selecione um destino de Lead na lista.
 4.  Preencha os campos que aparecem. Para obter etapas detalhadas, consulte os seguintes artigos:
 
@@ -57,9 +57,9 @@ Para configurar o gerenciamento de leads no Partner Center:
     * [Configuração da oferta para enviar clientes potenciais para o Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
     * [Configurar oferta para enviar clientes potenciais para o Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
-5.  Para validar a configuração que você forneceu, selecione o **link validar** .
-6.  Quando você tiver configurado os detalhes da conexão, selecione **conectar** .
-7.  Selecione **Salvar rascunho** .
+5.  Para validar a configuração que você forneceu, selecione o **link validar**.
+6.  Quando você tiver configurado os detalhes da conexão, selecione **conectar**.
+7.  Selecione **Salvar rascunho**.
 
 Depois de enviar sua oferta para publicação no Partner Center, validaremos a conexão e enviaremos a você um líder de teste. Ao visualizar a oferta antes que ela fique ativa, teste sua conexão de cliente potencial tentando comprar a oferta por conta própria no ambiente de visualização.
 

@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753681"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780303"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Avaliar grandes números de servidores físicos para migração para o Azure
 
-Este artigo descreve como avaliar grandes números de servidores físicos locais para migração para o Azure, usando a ferramenta de avaliação de servidor migrações para Azure.
+Este artigo descreve como avaliar grandes números de servidores físicos locais para migração para o Azure, usando a ferramenta de avaliação e descoberta de migrações para Azure.
 
 As [Migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros. 
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá como:
 Ao planejar a avaliação de um grande número de servidores físicos, há algumas coisas a considerar:
 
 - **Planejar projetos de migrações para Azure**: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos.
-- **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado em um computador Windows, para descobrir continuamente os servidores para avaliação e migração. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos implantar.
+- **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado em um servidor Windows, para descobrir continuamente os servidores para avaliação e migração. O dispositivo monitora as alterações de ambiente, como adicionar servidores, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos implantar.
 
 
 ## <a name="planning-limits"></a>Limites de planejamento
@@ -57,7 +57,7 @@ Use os limites resumidos nesta tabela para planejamento.
 
 ## <a name="prepare-for-assessment"></a>Preparar-se para avaliação
 
-Prepare servidores físicos e do Azure para avaliação do servidor. 
+Prepare os servidores físicos e do Azure para a ferramenta de descoberta e avaliação:  
 
 1. Verifique [os requisitos de suporte do servidor físico e as limitações](migrate-support-matrix-physical.md).
 2. Configure as permissões para sua conta do Azure para interagir com as migrações para Azure.
@@ -70,7 +70,7 @@ Siga as instruções neste [tutorial](./tutorial-discover-physical.md) para defi
 De acordo com seus requisitos de planejamento, faça o seguinte:
 
 1. Criar um projeto do Migrações para Azure.
-2. Adicione a ferramenta de avaliação do servidor de migrações para projetos.
+2. Adicione a ferramenta de avaliação e descoberta de migrações para projetos do Azure.
 
 [Saiba mais](./create-manage-projects.md)
 

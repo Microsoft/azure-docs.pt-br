@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86223305"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrar o usuário atual para notificações por push usando o ASP.NET
@@ -30,7 +30,7 @@ ms.locfileid: "86223305"
 
 Este tópico mostra como solicitar o registro de notificações por push com os Hubs de Notificação do Azure, quando o registro é executado pela ASP.NET Web API. Este tópico estende o tutorial [Notificar usuários com Hubs de Notificação]. Você já deve ter concluído as etapas necessárias nesse tutorial para criar o serviço móvel autenticado. Para obter mais informações sobre o cenário de notificação aos usuários, consulte [Notificar usuários com Hubs de Notificação].
 
-## <a name="update-your-app"></a>Atualizar seu aplicativo
+## <a name="update-your-app"></a>Atualizar o aplicativo
 
 1. No MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
 

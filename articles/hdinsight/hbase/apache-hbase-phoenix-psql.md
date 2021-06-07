@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: d56c9b33d53be0e30769aef8934a2dbf43d06867
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1ddf69acda442212500200eb6dc326dcbcb3c1b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944842"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867790"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregar dados em massa para o Apache Phoenix usando psql
 
@@ -26,7 +26,7 @@ O carregamento em massa com MapReduce é usado para volumes de dados muito maior
 
 Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitado e se as configurações de tempo limite de consulta estão como o esperado.  Acesse o painel do [Apache Ambari](https://ambari.apache.org/) do cluster HDInsight, selecione HBase e, em seguida, a guia configuração.  Role para baixo para verificar se Apache Phoenix está definido `enabled` como mostrado:
 
-![Configurações de Cluster de HDInsight do Apache Phoenix](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
+:::image type="content" source="./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png" alt-text="Configurações de Cluster de HDInsight do Apache Phoenix" border="true":::
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Use `psql` para tabelas de carregamento em massa
 

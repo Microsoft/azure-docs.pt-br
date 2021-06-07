@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 – .NET'
 description: Aprenda a usar a biblioteca de clientes do Armazenamento de Filas do Azure v12 para o .NET para criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá a ler e excluir mensagens da fila. Você também aprenderá a excluir uma fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589518"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276222"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 para .NET
 

@@ -3,7 +3,6 @@ title: 'Tutorial: Melhorar a resposta de site com o Gerenciador de Tráfego do A
 description: Este artigo de tutorial descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos web altamente disponíveis.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e95a1c5c2ab0803ba628e44275c4805f325ae3f0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003813"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067241"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 

@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f838b2a78f1c6993aa247f2944d4f2a9b1e9556
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078944"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181118"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Adicionar um pool de nós spot a um cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -42,7 +42,7 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS c
 * Um pool de nós Spot deve usar conjuntos de dimensionamento de máquinas virtuais.
 * Não é possível alterar ScaleSetPriority ou SpotMaxPrice após a criação.
 * Ao definir SpotMaxPrice, o valor deve ser-1 ou um valor positivo com até cinco casas decimais.
-* Um pool de nós spot terá o rótulo *kubernetes.Azure.com/scalesetpriority:spot* , o seu *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* e os pods do sistema terão a proteção contra afinidade.
+* Um pool de nós spot terá o rótulo *kubernetes.Azure.com/scalesetpriority:spot*, o seu *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule* e os pods do sistema terão a proteção contra afinidade.
 * Você deve adicionar um [toleration correspondente][spot-toleration] para agendar cargas de trabalho em um pool de nós Spot.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um pool de nós spot a um cluster do AKS
@@ -64,7 +64,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Por padrão, você cria um pool de nós com *priority* uma prioridade *regular* em seu cluster AKs ao criar um cluster com vários pools de nós. O comando acima adiciona um pool de nós auxiliares a um cluster AKS existente com uma *prioridade* de *Spot* . A *prioridade* de *Spot* torna o pool de nós um pool de nós Spot. O parâmetro de *política de remoção* é definido como *excluir* no exemplo acima, que é o valor padrão. Quando você define a [política de remoção][eviction-policy] a ser *excluída* , os nós no conjunto de dimensionamento subjacente do pool de nós são excluídos quando são removidos. Você também pode definir a política de remoção como *desalocar* . Quando você define a política de remoção como *desalocar* , os nós no conjunto de dimensionamento subjacente são definidos como o estado parado-desalocado após a remoção. Os nós na contagem de estado parado-desalocado em relação à sua cota de computação e podem causar problemas com o dimensionamento ou a atualização do cluster. Os valores de *política* de *prioridade* e remoção só podem ser definidos durante a criação do pool de nós. Esses valores não podem ser atualizados posteriormente.
+Por padrão, você cria um pool de nós com  uma prioridade *regular* em seu cluster AKs ao criar um cluster com vários pools de nós. O comando acima adiciona um pool de nós auxiliares a um cluster AKS existente com uma *prioridade* de *Spot*. A *prioridade* de *Spot* torna o pool de nós um pool de nós Spot. O parâmetro de *política de remoção* é definido como *excluir* no exemplo acima, que é o valor padrão. Quando você define a [política de remoção][eviction-policy] a ser *excluída*, os nós no conjunto de dimensionamento subjacente do pool de nós são excluídos quando são removidos. Você também pode definir a política de remoção como *desalocar*. Quando você define a política de remoção como *desalocar*, os nós no conjunto de dimensionamento subjacente são definidos como o estado parado-desalocado após a remoção. Os nós na contagem de estado parado-desalocado em relação à sua cota de computação e podem causar problemas com o dimensionamento ou a atualização do cluster. Os valores de *política* de *prioridade* e remoção só podem ser definidos durante a criação do pool de nós. Esses valores não podem ser atualizados posteriormente.
 
 O comando também habilita o [dimensionador de cluster][cluster-autoscaler], que é recomendado para uso com pools de nós Spot. Com base nas cargas de trabalho em execução no cluster, o dimensionamento automática do cluster é dimensionado e escala verticalmente o número de nós no pool de nós. Para pools de nós de spot, o dimensionador automática de cluster aumentará o número de nós após uma remoção se nós adicionais ainda forem necessários. Se você alterar o número máximo de nós que um pool de nós pode ter, também precisará ajustar o `maxCount` valor associado ao cluster de dimensionamento automática. Se você não usar um conjunto de dimensionamento de clusters, após a remoção, o pool de pontos será reduzido para zero e exigirá uma operação manual para receber outros nós especiais.
 
@@ -79,7 +79,7 @@ Para verificar se o pool de nós foi adicionado como um pool de nós de spot:
 az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
 ```
 
-Confirme se o *scaleSetPriority* é um *ponto* .
+Confirme se o *scaleSetPriority* é um *ponto*.
 
 Para agendar um pod para ser executado em um nó de spot, adicione um toleration que corresponda ao seu nó de spot aplicado. O exemplo a seguir mostra uma parte de um arquivo YAML que define um toleration que *corresponde a um o seu* que é usado na etapa anterior.
 
@@ -100,7 +100,7 @@ Quando um pod com esse toleration é implantado, o kubernetes pode agendar com �
 ## <a name="max-price-for-a-spot-pool"></a>Preço máximo para um pool de pontos
 O [preço para instâncias especiais é variável][pricing-spot], com base na região e SKU. Para obter mais informações, consulte os preços para [Linux][pricing-linux] e [Windows][pricing-windows].
 
-Como o preço é variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0,98765* seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como *-1* , a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que for menor, contanto que haja capacidade e cota disponível.
+Como o preço é variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor *0,98765* seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como *-1*, a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que for menor, contanto que haja capacidade e cota disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -113,7 +113,7 @@ Neste artigo, você aprendeu a adicionar um pool de nós Spot a um cluster AKS. 
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

@@ -9,10 +9,10 @@ ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.openlocfilehash: 378bb891c8539a6cf3d61f6511a0f58377d2bfd2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93091133"
 ---
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>API do SQL do Azure Cosmos DB: Exemplos do Spring Data Azure Cosmos DB v3
@@ -81,7 +81,7 @@ $ cd azure-spring-data-cosmos-java-sql-api-samples
 
 Você pode executar os exemplos usando um IDE (Eclipse, IntelliJ ou VSCODE) ou na linha de comando usando o Maven.
 
-Em **application.properties** , essas variáveis de ambiente devem ser definidas
+Em **application.properties**, essas variáveis de ambiente devem ser definidas
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}

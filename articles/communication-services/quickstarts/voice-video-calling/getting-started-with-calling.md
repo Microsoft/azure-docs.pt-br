@@ -2,24 +2,22 @@
 title: Guia de início rápido – Adicionar chamada de voz ao aplicativo
 titleSuffix: An Azure Communication Services quickstart
 description: Neste guia de início rápido, você aprenderá a adicionar as funcionalidades de chamada ao seu aplicativo usando os Serviços de Comunicação do Azure.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+author: mikben
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: e9f552d6be897b5d9fd462e9168b61fc0b934987
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 5a506d84f338b2eab1c32caa4d94bd03a33e637d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761951"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728327"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Início Rápido: Adicionar chamada de voz ao aplicativo
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de chamada dos Serviços de Comunicação para adicionar chamada de vídeo e de voz ao seu aplicativo. 
+Comece a usar os Serviços de Comunicação do Azure usando o SDK de Chamada dos Serviços de Comunicação para adicionar uma chamada de vídeo e voz ao seu aplicativo.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -44,5 +42,5 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 Para obter mais informações, consulte os seguintes artigos:
 
 - Confira nosso [exemplo de destaque da chamada](../../samples/calling-hero-sample.md)
-- Saiba mais sobre as [funcionalidades da biblioteca de clientes de chamada](./calling-client-samples.md)
+- Conheça os recursos do [SDK de Chamada](./calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../../concepts/voice-video-calling/about-call-types.md)

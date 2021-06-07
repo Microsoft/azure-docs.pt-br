@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.openlocfilehash: b14bd60ab744be5a1735abc073f32f8ebc3e1ab1
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96301704"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Criar e usar regras personalizadas do firewall do aplicativo Web no gateway de aplicativo

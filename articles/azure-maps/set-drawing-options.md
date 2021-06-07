@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890625"
 ---
 # <a name="use-the-drawing-tools-module"></a>Usar o módulo de ferramentas de desenho
 
-O SDK da Web do Azure Maps fornece um *módulo de ferramentas de desenho* . Esse módulo facilita desenhar e editar formas no mapa usando um dispositivo de entrada, como um mouse ou tela sensível ao toque. A classe principal desse módulo é o [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). O Gerenciador de desenho fornece todos os recursos necessários para desenhar e editar formas no mapa. Ele pode ser usado diretamente e está integrado a uma interface do usuário personalizada da barra de ferramentas. Você também pode usar a classe de [barra de ferramentas de desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) interna. 
+O SDK da Web do Azure Maps fornece um *módulo de ferramentas de desenho*. Esse módulo facilita desenhar e editar formas no mapa usando um dispositivo de entrada, como um mouse ou tela sensível ao toque. A classe principal desse módulo é o [Gerenciador de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). O Gerenciador de desenho fornece todos os recursos necessários para desenhar e editar formas no mapa. Ele pode ser usado diretamente e está integrado a uma interface do usuário personalizada da barra de ferramentas. Você também pode usar a classe de [barra de ferramentas de desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) interna. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carregando o módulo ferramentas de desenho em uma página da Web
 

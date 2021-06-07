@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7cfa7257e64421c30c359bb34044988bbb5af1dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7c70fa2e7131f09f621e992d537e0b120061ef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093078"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102210726"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e aplicação de patch para o cache do Azure para Redis
 
@@ -72,6 +72,10 @@ A maioria das bibliotecas de cliente tenta se reconectar ao cache se eles estive
 Como não é possível evitar completamente os failovers, grave seus aplicativos cliente para obter resiliência para quebras de conexão e solicitações com falha. Embora a maioria das bibliotecas de cliente Reconecte-se automaticamente ao ponto de extremidade do cache, algumas delas tentam repetir solicitações com falha. Dependendo do cenário do aplicativo, pode fazer sentido usar a lógica de repetição com retirada.
 
 Para testar a resiliência de um aplicativo cliente, use uma [reinicialização](cache-administration.md#reboot) como um gatilho manual para quebras de conexão. Além disso, recomendamos que você [agende as atualizações](cache-administration.md#schedule-updates) em um cache. Peça ao serviço de gerenciamento para aplicar patches de tempo de execução Redis durante as janelas semanais especificadas. Essas janelas normalmente são períodos em que o tráfego do aplicativo cliente é baixo, para evitar possíveis incidentes.
+
+### <a name="can-i-be-notified-in-advance-of-a-planned-maintenance"></a>Posso ser notificado com antecedência sobre uma manutenção planejada?
+
+O cache do Azure para Redis agora publica notificações em um canal de publicação/assinatura chamado [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) cerca de 30 segundos antes das atualizações planejadas. Essas são notificações de tempo de execução e são criadas especialmente para aplicativos que podem usar separadores de circuito para ignorar os comandos cache ou buffer, por exemplo, durante as atualizações planejadas. Não é um mecanismo que possa notificar os dias ou horas de antecedência.
 
 ### <a name="client-network-configuration-changes"></a>Rede do cliente-alterações de configuração
 

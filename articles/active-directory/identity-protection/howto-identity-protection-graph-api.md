@@ -12,25 +12,25 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2db8cfe652c0fca4b68b00d846e345c1b60cd05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880229"
 ---
 # <a name="azure-active-directory-identity-protection-and-the-microsoft-graph-powershell-sdk"></a>Azure Active Directory Identity Protection e o SDK do Microsoft Graph PowerShell
 
-O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](./overview-identity-protection.md). Este artigo mostrará como usar o SDK do [Microsoft Graph PowerShell](/graph/powershell/get-started) para obter detalhes de usuário arriscados usando o PowerShell. As organizações que desejam consultar as APIs de Microsoft Graph diretamente podem usar o artigo [tutorial: identificar e corrigir riscos usando APIs de Microsoft Graph](/graph/tutorial-riskdetection-api) para iniciar essa jornada.
+Microsoft Graph é o ponto de extremidade da API unificada da Microsoft e a página inicial das APIs de [Azure Active Directory Identity Protection](./overview-identity-protection.md) . Este artigo mostrará como usar o SDK do [Microsoft Graph PowerShell](/graph/powershell/get-started) para obter detalhes de usuário arriscados usando o PowerShell. As organizações que desejam consultar as APIs de Microsoft Graph diretamente podem usar o artigo [tutorial: identificar e corrigir riscos usando APIs de Microsoft Graph](/graph/tutorial-riskdetection-api) para iniciar essa jornada.
 
 
-## <a name="connect-to-microsoft-graph"></a>Conectar-se ao Microsoft Graph
+## <a name="connect-to-microsoft-graph"></a>Conectar o Microsoft Graph
 
 Há quatro etapas para acessar dados de Proteção de Identidade por meio do Microsoft Graph:
 
 - [Criar um certificado](#create-a-certificate)
 - [Criar um novo registro de aplicativo](#create-a-new-app-registration)
-- [Configurar permissões de API](#configure-api-permissions)
-- [Configurar uma credencial válida](#configure-a-valid-credential)
+- [Configure as permissões da API](#configure-api-permissions)
+- [Configure uma credencial válida](#configure-a-valid-credential)
 
 ### <a name="create-a-certificate"></a>Criar um certificado
 
@@ -43,31 +43,31 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 
 ### <a name="create-a-new-app-registration"></a>Criar um novo registro de aplicativo
 
-1. Na portal do Azure, navegue até **Azure Active Directory**  >  **registros de aplicativo**.
+1. No portal do Azure, navegue até os registros de aplicativo do **Azure Active Directory** > .
 1. Selecione **Novo registro**.
-1. Na página **criar** , execute as seguintes etapas:
-   1. Na caixa de texto **nome** , digite um nome para seu aplicativo (por exemplo: API de detecção de riscos do Azure AD).
-   1. Em **tipos de conta com suporte**, selecione o tipo de contas que usarão as APIs.
+1. Na página **Criar**, siga as seguintes etapas:
+   1. Na caixa de texto **Nome**, digite um nome para seu aplicativo (por exemplo: API de detecção de riscos do Azure AD).
+   1. Em **Tipos de conta com suporte**, selecione o tipo de contas que usarão as APIs.
    1. Selecione **Registrar**.
 1. Anote a ID do **aplicativo (cliente)** e a **ID do diretório (locatário)** , pois você precisará desses itens mais tarde.
 
-### <a name="configure-api-permissions"></a>Configurar permissões de API
+### <a name="configure-api-permissions"></a>Configure as permissões da API
 
 Neste exemplo, configuramos permissões de aplicativo, permitindo que este exemplo seja usado de forma autônoma. Se conceder permissões a um usuário que será conectado, escolha permissões delegadas em vez disso. Mais informações sobre tipos de permissão diferentes podem ser encontradas no artigo [permissões e consentimento na plataforma Microsoft Identity](../develop/v2-permissions-and-consent.md#permission-types).
 
 1. No **aplicativo** que você criou, selecione **permissões de API**.
-1. Na página **permissões configuradas** , na barra de ferramentas na parte superior, clique em **Adicionar uma permissão**.
+1. Na página **Permissões configuradas**, na barra de ferramentas na parte superior, clique em **Adicionar uma permissão**.
 1. Na página **Adicionar acesso à API**, clique em **Selecionar uma API**.
 1. Na página **Selecionar uma API**, selecione **Microsoft Graph** e clique em **Selecionar**.
-1. Na página **solicitar permissões de API** : 
+1. Na página **Solicitar permissões de API**: 
    1. Selecione **Permissões de aplicativo**.
    1. Marque as caixas de seleção ao lado de `IdentityRiskEvent.Read.All` e `IdentityRiskyUser.Read.All` .
    1. Escolha **Adicionar permissões**.
 1. Selecione **conceder consentimento de administrador para o domínio** 
 
-### <a name="configure-a-valid-credential"></a>Configurar uma credencial válida
+### <a name="configure-a-valid-credential"></a>Configure uma credencial válida
 
-1. No **aplicativo** que você criou, selecione **certificados & segredos**.
+1. No **Aplicativo** que você criou, selecione **Certificados e segredos**.
 1. Em **certificados**, selecione **carregar certificado**.
    1. Selecione o certificado exportado anteriormente na janela que é aberta.
    1. Selecione **Adicionar**.

@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
-ms.openlocfilehash: 5a7ddcf25993ab4ce87bdc47c5e0ae32fa24b07f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7907c81e45680de49f6653891fb4204a59db1002
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956455"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101710542"
 ---
 # <a name="private-endpoints"></a>Pontos de extremidade privados
 
 O ponto de extremidade privado do Azure é uma interface de rede que conecta você de forma privada e segura a um serviço com tecnologia do Link Privado do Azure. Agora, QnA Maker fornece suporte para criar pontos de extremidade privados para o serviço Azure Search. Essa funcionalidade está disponível em QnA Maker gerenciados. 
 
-Pontos de extremidade privados são fornecidos pelo [link privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-overview), como um serviço separado. Para obter mais informações sobre os custos, consulte a [página de preços.](https://azure.microsoft.com/pricing/details/private-link/) 
+Pontos de extremidade privados são fornecidos pelo [link privado do Azure](../../private-link/private-link-overview.md), como um serviço separado. Para obter mais informações sobre os custos, consulte a [página de preços.](https://azure.microsoft.com/pricing/details/private-link/) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class="checklist"]

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
+ms.openlocfilehash: ee0c673027892e6d3ee55b6ec5f67a30d88be683
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97770954"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780337"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,11 +76,11 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |
-| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| Dados/Log IOPS (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 k-320 K (4000 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 120 MB/s por instância<br/>22-65 MB/s por BD<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s por vCore<br/>Máximo de 96 MB/s |
 | Taxa de transferência de dados (aproximada) | 100 – 250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
-| OLTP na memória | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP in-memory | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | Máximo de trabalhos simultâneos (solicitações) | Gen4: 210 x número de vCores + 800<br>Gen5: 105 x número de vCores + 800 | Gen4: 210 x contagem de vCore + 800<br>Gen5: 105 * contagem de vCore + 800 |
 | [Réplicas somente leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |

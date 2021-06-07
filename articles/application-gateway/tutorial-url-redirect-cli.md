@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 03/05/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 36ba593a1d8cd2e50293eaf77dc9ec864245df4c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 042cb42d16fdc5394940b62709b5d25187775014
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566581"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772623"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando a CLI do Azure
 
@@ -236,7 +236,9 @@ az network application-gateway rule create \
 
 Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
 
-```azurecli-interactive
+Substitua \<azure-user> e \<password> por um nome de usuário e uma senha de sua escolha.
+
+```azurecli
 for i in `seq 1 3`; do
   if [ $i -eq 1 ]
   then
@@ -255,8 +257,8 @@ for i in `seq 1 3`; do
     --name myvmss$i \
     --resource-group myResourceGroupAG \
     --image UbuntuLTS \
-    --admin-username azureuser \
-    --admin-password Azure123456! \
+    --admin-username <azure-user> \
+    --admin-password <password> \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
@@ -284,7 +286,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Para obter o endereço IP público do gateway de aplicativo, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, ou `http://40.121.222.19:8081/images/test.htm`.
+Para obter o endereço IP público do gateway de aplicativo, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Como `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, ou `http://40.121.222.19:8081/images/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \

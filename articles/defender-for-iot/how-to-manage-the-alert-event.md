@@ -1,18 +1,14 @@
 ---
 title: Gerenciar eventos de alerta
 description: Gerenciar eventos de alerta detectados em sua rede.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2995ff0d2246929efb534bc21d888bad3a2cf24a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526894"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781782"
 ---
 # <a name="manage-alert-events"></a>Gerenciar eventos de alerta
 
@@ -126,6 +122,6 @@ Para exportar:
 1. Selecione Exportar.
 1. Selecione exportar alertas estendidos para exportar informações de alerta em linhas separadas para cada alerta que abrange vários dispositivos. Quando exportar alertas estendidos estiver selecionado, o arquivo. csv criará uma linha duplicada do evento de alerta com os itens exclusivos em cada linha. Usar essa opção torna mais fácil investigar eventos de alerta exportados.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Controlar qual tráfego é monitorado](how-to-control-what-traffic-is-monitored.md)

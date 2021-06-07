@@ -3,15 +3,15 @@ title: Usar o registro de contêiner do Azure com o Azure Red Hat OpenShift
 description: Saiba como efetuar pull e executar um contêiner do registro de contêiner do Azure em seu cluster do Azure Red Hat OpenShift.
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 01/10/2021
-ms.openlocfilehash: 91b43aa939579f5df8115048cf52b9bcdd7ade3d
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 651b73db084e8090f59faeffa9991c2ac468ca08
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063710"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100634406"
 ---
 # <a name="use-azure-container-registry-with-azure-red-hat-openshift-aro"></a>Usar o registro de contêiner do Azure com a toa (Red Hat OpenShift do Azure)
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: Zhchia
 ms.openlocfilehash: 75da1e2b2f1954b0126b08232046fe09b1c2b6e7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96177932"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Tutorial: Configurar o InVision para provisionamento automático de usuário

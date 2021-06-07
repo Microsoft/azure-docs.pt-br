@@ -4,10 +4,10 @@ description: Saiba como usar Azure DevTest Labs em pipelines de Build e versão 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080327"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usar o DevTest Labs no build do Azure Pipelines e em pipelines de lançamento
@@ -81,7 +81,7 @@ Você cria um pipeline de liberação com duas tarefas: **implantação do Azure
 
 Para a primeira tarefa, especifique o nome e o local do grupo de recursos. O local do modelo é um artefato vinculado. Se o modelo do Resource Manager incluir modelos vinculados, uma implantação de grupo de recursos personalizada precisará ser implementada. O modelo está no artefato de soltar publicado. Substitua os parâmetros do modelo do modelo do Resource Manager. Você pode deixar as configurações restantes com valores padrão. 
 
-Para a segunda tarefa **implantar Azure app serviço**, especifique a assinatura do Azure, selecione **aplicativo Web** para o **tipo de aplicativo**e **$ (site)** para o **nome do serviço de aplicativo**. Você pode deixar as configurações restantes com valores padrão. 
+Para a segunda tarefa **implantar Azure app serviço**, especifique a assinatura do Azure, selecione **aplicativo Web** para o **tipo de aplicativo** e **$ (site)** para o **nome do serviço de aplicativo**. Você pode deixar as configurações restantes com valores padrão. 
 
 ## <a name="test-run"></a>Execução de teste
 Agora que ambos os pipelines estão configurados, enfileirar manualmente uma compilação e vê-la funcionar. A próxima etapa é definir o gatilho apropriado para a compilação e conectar a compilação ao pipeline de lançamento.

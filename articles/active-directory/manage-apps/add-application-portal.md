@@ -2,20 +2,20 @@
 title: 'Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)'
 description: Este início rápido usa o portal do Azure para adicionar um aplicativo de galeria ao locatário do Azure AD (Azure Active Directory).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
-ms.openlocfilehash: 2d3b0be88a23bbbb0573b4d11a2e5a39dc6254da
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: d7827d6419e4d820f8aca482df2cfae83eaf319d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259060"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378883"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)
 

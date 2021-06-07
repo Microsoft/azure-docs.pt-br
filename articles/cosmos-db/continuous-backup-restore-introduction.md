@@ -9,10 +9,10 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393132"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Backup contínuo com o recurso de restauração pontual (versão prévia) no Azure Cosmos DB
@@ -41,7 +41,7 @@ Na visualização pública, você pode restaurar a conta de Azure Cosmos DB para
 
 Em um estado estável, todas as mutações executadas na conta de origem (que inclui bancos de dados, contêineres e itens) são submetidas a backup de forma assíncrona em 100 segundos. Se a mídia de backup (que é o armazenamento do Azure) estiver inoperante ou indisponível, as mutações serão persistidas localmente até que a mídia esteja disponível de volta e, em seguida, elas serão liberadas para evitar qualquer perda na fidelidade das operações que possam ser restauradas.
 
-Você pode optar por restaurar qualquer combinação de contêineres de taxa de transferência provisionados, banco de dados de produtividade compartilhada ou a conta inteira. A ação restaurar restaura todos os dados e suas propriedades de índice para uma nova conta. O processo de restauração garante que todos os dados restaurados em uma conta, banco de dados ou contêiner tenham a garantia de serem consistentes até o tempo de restauração especificado. A duração da restauração dependerá da quantidade de dados que precisam ser restaurados.
+Você pode optar por restaurar qualquer combinação de contêineres de taxa de transferência provisionados, banco de dados de taxa de transferência compartilhada ou a conta inteira. A ação de restauração restaura todos os dados e as propriedades de índices deles em uma nova conta. O processo de restauração garante que todos os dados restaurados em uma conta, um banco de dados ou um contêiner sejam consistentes até o tempo de restauração especificado. A duração da restauração dependerá da quantidade de dados que precisam ser restaurados.
 
 > [!NOTE]
 > Com o modo de backup contínuo, os backups são feitos em todas as regiões em que sua conta de Azure Cosmos DB está disponível. Os backups feitos para cada conta de região são localmente redundantes por padrão e com redundância de zona se sua conta tiver o recurso de [zona de disponibilidade](high-availability.md#availability-zone-support) habilitado para essa região. A ação restaurar sempre restaura os dados em uma nova conta.
@@ -104,7 +104,7 @@ Por exemplo, se você tiver 1 TB de dados em duas regiões, então:
 
 Atualmente, a funcionalidade de restauração pontual está em visualização pública e tem as seguintes limitações:
 
-* Somente Azure Cosmos DB APIs para SQL e MongoDB têm suporte para backup contínuo. As APIs Cassandra, Table e Gremlin ainda não têm suporte.
+* Somente APIs Azure Cosmos DB para SQL e MongoDB são compatíveis com backup contínuo. APIs Cassandra, Table e Gremlin ainda não são compatíveis.
 
 * Uma conta existente com a política de backup periódico padrão não pode ser convertida para usar o modo de backup contínuo.
 
@@ -116,23 +116,23 @@ Atualmente, a funcionalidade de restauração pontual está em visualização p�
 
 * Não há suporte para contas com o link Synapse habilitado.
 
-* A conta restaurada é criada na mesma região em que a conta de origem existe. Não é possível restaurar uma conta em uma região em que a conta de origem não exista.
+* A conta restaurada é criada na mesma região em que está a conta de origem. Não é possível restaurar uma conta em uma região sem a conta de origem.
 
 * A janela restaurar é de apenas 30 dias e não pode ser alterada.
 
-* Os backups não são resistentes a desastres geograficamente automaticamente. Você precisa adicionar outra região explicitamente para ter resiliência para a conta e o backup.
+* Os backups não são configurados automaticamente para recuperação de desastre geográfico. Você precisa adicionar explicitamente outra região para ter resiliência para a conta e o backup.
 
 * Enquanto uma restauração está em andamento, não modifique ou exclua as políticas de IAM (gerenciamento de acesso e identidade) que concedem as permissões para a conta ou alteram qualquer VNET, configuração de firewall.
 
-* Não há suporte para o backup contínuo Azure Cosmos DB API para contas SQL ou MongoDB que criam um índice exclusivo após o contêiner. Somente os contêineres que criam um índice exclusivo como parte da criação do contêiner inicial têm suporte. Para contas do MongoDB, você cria um índice exclusivo usando [comandos de extensão](mongodb-custom-commands.md).
+* API Azure Cosmos DB para contas SQL ou MongoDB que criam o índice exclusivo após o contêiner ser criado não são compatíveis backup contínuo. Somente os contêineres que criam um índice exclusivo como parte do contêiner de inicialização inicial são compatíveis. Para contas do MongoDB, você cria um índice exclusivo usando [comandos de extensão](mongodb-custom-commands.md).
 
-* A funcionalidade de restauração pontual sempre restaura para uma nova conta do Azure Cosmos. Atualmente, não há suporte para a restauração de uma conta existente. Se você estiver interessado em fornecer comentários sobre a restauração in-loco, entre em contato com a equipe de Azure Cosmos DB por meio de seu representante de conta ou [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+* A funcionalidade de restauração pontual sempre restaura para uma nova conta do Azure Cosmos. Atualmente, não é possível restaurar para uma conta existente. Se você estiver interessado em fornecer comentários sobre a restauração in-loco, entre em contato com a equipe de Azure Cosmos DB por meio de seu representante de conta ou [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 * Todas as novas APIs expostas para listagem,,,, `RestorableDatabaseAccount` `RestorableSqlDatabases` `RestorableSqlContainer` `RestorableMongodbDatabase` `RestorableMongodbCollection` estão sujeitas a alterações enquanto o recurso está em visualização.
 
 * Após a restauração, é possível que, para determinadas coleções, o índice consistente possa ser reconstruído. Você pode verificar o status da operação de recompilação por meio da propriedade [IndexTransformationProgress](how-to-manage-indexing-policy.md) .
 
-* O processo de restauração restaura todas as propriedades de um contêiner, incluindo sua configuração de TTL. Como resultado, é possível que os dados restaurados sejam excluídos imediatamente se você configurou essa maneira. Para evitar essa situação, o carimbo de data/hora de restauração deve ser antes das propriedades de TTL serem adicionadas ao contêiner.
+* O processo de restauração restaura todas as propriedades de um contêiner, inclusive a configuração de TTL. Por isso, é possível que os dados restaurados sejam excluídos imediatamente se você configurou essa maneira. Para evitar essa situação, o carimbo de data/hora de restauração precisa ser anterior à adição de propriedades de TTL no contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 

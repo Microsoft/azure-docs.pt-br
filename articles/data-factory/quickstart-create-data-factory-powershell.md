@@ -1,24 +1,18 @@
 ---
 title: Copiar dados no Armazenamento de Blobs usando o Azure Data Factory
 description: Crie um Azure Data Factory usando o PowerShell para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9f419d89a9757a11055781335cbf98e9eb651548
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013336"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100372715"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início rápido: Criar um Azure Data Factory usando o PowerShell
 
@@ -40,6 +34,9 @@ Este guia de início rápido descreve como usar o PowerShell para criar um Azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>Se você não usar as versões mais recentes do PowerShell e o módulo do Data Factory, poderá encontrar erros de desserialização ao executar os comandos. 
 
 #### <a name="log-in-to-powershell"></a>Fazer logon no PowerShell
 
@@ -341,12 +338,12 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
             -PipelineRunId $RunId
 
         if ($Run) {
-            if ($run.Status -ne 'InProgress') {
+            if ( ($Run.Status -ne "InProgress") -and ($Run.Status -ne "Queued") ) {
                 Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
                 $Run
                 break
             }
-            Write-Output "Pipeline is running...status: InProgress"
+            Write-Output ("Pipeline is running...status: " + $Run.Status)
         }
 
         Start-Sleep -Seconds 10

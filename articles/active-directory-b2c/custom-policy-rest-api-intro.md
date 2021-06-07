@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89594179"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrar trocas de declarações da API REST em sua política personalizada no Azure AD B2C

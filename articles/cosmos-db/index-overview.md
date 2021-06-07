@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019203"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – Visão geral

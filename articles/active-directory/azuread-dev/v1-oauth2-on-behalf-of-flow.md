@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88117729"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
@@ -105,14 +105,14 @@ O aplicativo cliente é protegido por um segredo compartilhado ou por um certifi
 
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço a serviço contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Uma solicitação OBO usa um JWT (Token Web JSON), de modo que o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | asserção |obrigatório | O valor do token de acesso usado na solicitação. |
 | client_id |obrigatório | A ID do aplicativo atribuída ao serviço de chamada durante o registro com o Azure AD. Para localizar a ID do aplicativo no portal do Azure, selecione **Active Directory**, escolha o diretório e selecione o nome do aplicativo. |
 | client_secret |obrigatório | A chave registrada para o serviço de chamada no Azure AD. Esse valor deve ter sido observado no momento do registro. |
 | recurso |obrigatório | O URI da ID do aplicativo do serviço de recebimento (recurso protegido). Para localizar o URI da ID do aplicativo no portal do Azure, selecione **Active Directory** e escolha o diretório. Selecione o nome do aplicativo, escolha **Todas as configurações** e, em seguida, selecione **Propriedades**. |
-| requested_token_use |necessárias | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
+| requested_token_use |obrigatório | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para OpenID Connect, a **openid** do escopo deve ser especificada.|
 
 #### <a name="example"></a>Exemplo
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Uma solicitação OBO usa um token de acesso JWT, de modo que o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | asserção |obrigatório | O valor do token usado na solicitação. |
@@ -147,7 +147,7 @@ Uma solicitação de token de acesso de serviço a serviço com um certificado c
 | client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obrigatório | Um Token Web JSON que você cria e assina com o certificado registrado como credenciais de seu aplicativo. Confira [credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber mais sobre o formato da declaração e sobre como registrar seu certificado.|
 | recurso |obrigatório | O URI da ID do aplicativo do serviço de recebimento (recurso protegido). Para localizar o URI da ID do aplicativo no portal do Azure, selecione **Active Directory** e escolha o diretório. Selecione o nome do aplicativo, escolha **Todas as configurações** e, em seguida, selecione **Propriedades**. |
-| requested_token_use |necessárias | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
+| requested_token_use |obrigatório | Especifica como a solicitação deve ser processada. No fluxo em nome de, o valor deve ser **on_behalf_of**. |
 | scope |obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para OpenID Connect, a **openid** do escopo deve ser especificada.|
 
 Esses parâmetros são quase iguais aos da solicitação do segredo compartilhado, exceto pelo fato de que `client_secret parameter` é substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
@@ -249,7 +249,7 @@ Alguns serviços Web baseados em OAuth precisam acessar outras APIs de serviços
 
 Uma solicitação de serviço a serviço para obter uma declaração SAML contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação que usa um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | asserção |obrigatório | O valor do token de acesso usado na solicitação.|

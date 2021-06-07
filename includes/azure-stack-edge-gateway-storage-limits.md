@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: alkohli
 ms.openlocfilehash: d12a5042d0c2d79989d82e86e7265d030912f5ee
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98900750"
 ---
 Esta seção descreve os limites para o serviço de armazenamento do Azure e as convenções de nomenclatura necessárias para arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço do Azure Stack Edge. Examine os limites de armazenamento com cuidado e siga todas as recomendações.

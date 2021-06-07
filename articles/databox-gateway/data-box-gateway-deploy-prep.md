@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937336"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101706088"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 - O sistema host é capaz de dedicar os seguintes recursos para provisionar seu dispositivo virtual Data Box:
   
   - Um mínimo de 4 processadores virtuais.
-  - Pelo menos 8 GB de RAM.
+  - Pelo menos 8 GB de RAM. É altamente recomendável ter pelo menos 16 GB de RAM.
   - Uma interface de rede.
   - Um disco de SO de 250 GB.
   - Um disco virtual de 2 TB de dados do sistema.

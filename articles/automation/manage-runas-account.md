@@ -5,18 +5,18 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9e99318c526bb935d0e035fdbf59874249390da
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
-ms.translationtype: MT
+ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050932"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101096472"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerenciar uma conta Executar como da Automação do Azure
 
-As contas Executar como na automação do Azure fornecem autenticação para gerenciar recursos no Azure Resource Manager ou no modelo de implantação clássico do Azure usando runbooks de automação e outros recursos de automação. Este artigo fornece orientação sobre como gerenciar uma conta Executar como ou executar como clássica.
+As contas Executar como na Automação do Azure fornecem autenticação para gerenciar recursos no Azure Resource Manager ou no modelo de implantação clássico do Azure usando runbooks de automação e outros recursos de automação. Este artigo fornece diretrizes sobre como gerenciar uma conta Executar como ou Executar como clássica.
 
-Para saber mais sobre a autenticação da conta de automação do Azure e diretrizes relacionadas a cenários de automação de processos, consulte [visão geral da autenticação da conta de automação](automation-security-overview.md).
+Para saber mais sobre a autenticação de conta da Automação do Azure e obter diretrizes relacionadas a cenários de automação de processos, confira [Visão geral de autenticação da Conta de Automação](automation-security-overview.md).
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovar um certificado autoassinado
 
@@ -38,38 +38,38 @@ Use as etapas a seguir para renovar o certificado autoassinado.
 
     :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Painel de propriedades da conta de automação.":::
 
-1. Na página de propriedades **contas Executar como** , selecione a **conta Executar como** ou a **conta Executar como clássica** , dependendo de qual conta você precisa para renovar o certificado.
+1. Na página de propriedades das **Contas Executar como**, escolha entre **Conta Executar como** ou **Conta Executar como Clássica**, de acordo com o certificado que você precisa renovar.
 
-1. Na página **Propriedades** da conta selecionada, selecione **renovar certificado**.
+1. Na página **Propriedades** da conta selecionada, selecione **Renovar certificado**.
 
-    :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renove o certificado para a conta Executar como.":::
+    :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Renovar o certificado da conta Executar como.":::
 
 1. Enquanto o certificado está sendo renovado, você poderá acompanhar o andamento em **Notificações** no menu.
 
-## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>Conceder permissões de conta Executar como em outras assinaturas
+## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>Conceder permissões da conta Executar como em outras assinaturas
 
-A automação do Azure dá suporte ao uso de uma única conta de automação de uma assinatura e a execução de runbooks em Azure Resource Manager recursos em várias assinaturas. Esta configuração não dá suporte ao modelo de implantação clássico do Azure.
+A Automação do Azure dá suporte ao uso de apenas uma conta de Automação por meio de uma assinatura e à execução de runbooks em recursos do Azure Resource Manager em várias assinaturas. Esta configuração não dá suporte ao modelo de implantação Clássico do Azure.
 
-Você atribui a entidade de serviço da conta Executar como a função de [colaborador](../role-based-access-control/built-in-roles.md#contributor) na outra assinatura ou permissões mais restritivas. Para obter mais informações, consulte [controle de acesso baseado em função](automation-role-based-access-control.md) na automação do Azure. Para atribuir a conta Executar como à função na outra assinatura, a conta de usuário que executa essa tarefa precisa ser um membro da função de **proprietário** nessa assinatura.
+Você atribui a função de [Colaborador](../role-based-access-control/built-in-roles.md#contributor) (ou permissões mais restritivas) à entidade de serviço da conta Executar como na outra assinatura. Para obter mais informações, confira [Controle de acesso baseado em função](automation-role-based-access-control.md) na Automação do Azure. Para atribuir a função da outra assinatura à conta Executar como, a conta de usuário que está executando essa tarefa precisa ter a função de **Proprietário** naquela assinatura.
 
 > [!NOTE]
-> Essa configuração dá suporte apenas a várias assinaturas de uma organização usando um locatário do Azure AD comum.
+> Essa configuração dá suporte apenas a várias assinaturas de uma organização usando um locatário comum do Azure AD.
 
-Antes de conceder as permissões da conta Executar como, você precisa primeiro anotar o nome de exibição da entidade de serviço a ser atribuída.
+Antes de conceder as permissões da conta Executar como, você precisa primeiro anotar o nome de exibição da entidade de serviço a atribuir.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Na sua conta de Automação, selecione **Contas Executar como** em **Configurações da Conta**.
 1. Selecione **Conta Executar como do Azure**.
-1. Copie ou anote o valor para **nome de exibição** na página da **conta Executar como do Azure** .
+1. Copie ou anote o valor do campo **Nome de exibição** na página **conta Executar como do Azure**.
 
-Para obter etapas detalhadas sobre como adicionar atribuições de função, confira os artigos a seguir, dependendo do método que você deseja usar.
+Para obter etapas detalhadas sobre como adicionar atribuições de função, confira os artigos a seguir, dependendo do método que deseja usar.
 
-* [Adicionar a atribuição de função do Azure da portal do Azure](../role-based-access-control/role-assignments-portal.md)
-* [Adicionar a atribuição de função do Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Adicionar a atribuição de função do Azure usando o CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-* [Adicionar a atribuição de função do Azure usando a API REST](..//role-based-access-control/role-assignments-rest.md)
+* [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Atribuir funções do Azure usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Atribuir funções do Azure usando a CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+* [Atribuir funções do Azure usando a API REST](..//role-based-access-control/role-assignments-rest.md)
 
-Depois de atribuir a conta Executar como à função, em seu runbook, especifique `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` para definir o contexto de assinatura a ser usado. Para obter mais informações, consulte [set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Depois de atribuir a função à conta Executar como, em seu runbook especifique `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` para definir o contexto de assinatura a ser usado. Para obter mais informações, confira [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ## <a name="limit-run-as-account-permissions"></a>Limitar as permissões da conta Executar como
 
@@ -78,7 +78,7 @@ Para controlar o direcionamento de automação contra recursos no Azure, você p
 >[!IMPORTANT]
 >Depois de executar o script **Update-AutomationRunAsAccountRoleAssignments.ps1**, os runbooks que acessam Key Vault por meio do uso de contas Executar como não funcionam mais. Antes de executar o script, você deve examinar os runbooks em sua conta para chamadas para Azure Key Vault. Para habilitar o acesso a Key Vault de runbooks de automação do Azure, você deve [adicionar a conta Executar como a permissões de Key Vault](#add-permissions-to-key-vault).
 
-Se precisar restringir ainda mais o que a entidade de serviço executar como pode fazer, você pode adicionar outros tipos de recursos ao `NotActions` elemento da definição de função personalizada. O exemplo a seguir restringe o acesso a `Microsoft.Compute/*`. Se você adicionar esse tipo de recurso a `NotActions` para a definição de função, a função não poderá acessar nenhum recurso de computação. Para obter mais informações sobre definições de função, confira [Noções básicas sobre definições de função para recursos do Azure](../role-based-access-control/role-definitions.md).
+Se você precisar restringir ainda mais o que a entidade de serviço Executar como é capaz de fazer, será possível adicionar outros tipos de recursos ao elemento `NotActions` da definição de função personalizada. O exemplo a seguir restringe o acesso a `Microsoft.Compute/*`. Se você adicionar esse tipo de recurso a `NotActions` para a definição de função, a função não poderá acessar nenhum recurso de computação. Para obter mais informações sobre definições de função, confira [Noções básicas sobre definições de função para recursos do Azure](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'
@@ -86,14 +86,14 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Você pode determinar se a entidade de serviço usada pela conta Executar como atribuiu a função **colaborador** ou uma personalizada.
+Você pode determinar se foi atribuída a função de **Colaborador** ou uma função personalizada à entidade de serviço usada pela sua conta Executar como.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Acesse sua conta de Automação e selecione **Contas Executar como** na seção de configurações de conta.
 1. Selecione **Conta Executar como do Azure**.
 1. Selecione **Função** para localizar a definição de função que está sendo usada.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verifique a função da conta Executar como." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verificar a função da Conta Executar como." lightbox="media/manage-runas-account/verify-role-expanded.png":::
 
 Você também pode determinar a definição de função usada pelas contas Executar como para várias assinaturas ou contas de automação. Faça isso usando o script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) no Galeria do PowerShell.
 
@@ -104,7 +104,7 @@ Você pode permitir que a Automação do Azure verifique se Key Vault e sua enti
 * Conceder permissões a um Key Vault.
 * Definir a política de acesso.
 
-Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) no Galeria do PowerShell para conceder permissões de conta Executar como para Key Vault. Consulte [atribuir uma política de acesso Key Vault](../key-vault/general/assign-access-policy-powershell.md) para obter mais detalhes sobre como definir permissões em Key Vault.
+Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) na Galeria do PowerShell a fim de conceder permissões no Key Vault para a sua conta Executar como. Confira [Atribuir uma política de acesso ao Key Vault](../key-vault/general/assign-access-policy-powershell.md) para obter mais detalhes sobre como definir permissões no Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Resolver problemas de configuração incorreta para contas Executar como
 
@@ -125,11 +125,11 @@ Quando você selecionar a conta Executar como, o painel Propriedades da conta ex
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Você pode resolver rapidamente esses problemas de conta Executar como [excluindo](delete-run-as-account.md) e [recriando](create-run-as-account.md) a conta Executar como.
+Você pode resolver rapidamente esses problemas da conta Executar como [excluindo](delete-run-as-account.md) e [recriando](create-run-as-account.md) a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Objetos de aplicativo e de entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md).
 * [Visão geral sobre certificados para os Serviços de Nuvem do Azure](../cloud-services/cloud-services-certs-create.md).
-* Para criar ou recriar uma conta Executar como, consulte [criar uma conta Executar como](create-run-as-account.md).
-* Se você não precisar mais usar uma conta Executar como, consulte [excluir uma conta Executar como](delete-run-as-account.md).
+* Para criar ou recriar uma conta Executar como, confira [Criar uma conta Executar como](create-run-as-account.md).
+* Se você não precisar mais usar uma conta Executar como, confira [Excluir uma conta Executar como](delete-run-as-account.md).

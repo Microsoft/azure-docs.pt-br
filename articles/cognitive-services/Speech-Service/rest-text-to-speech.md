@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9da83746cdaf693922b88841cd9c0fac432611c9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525731"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870833"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -45,7 +45,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 
 ### <a name="regions-and-endpoints"></a>Regiões e endpoints
 
-| Região | Ponto de Extremidade |
+| Região | Ponto de extremidade |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -72,7 +72,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 > [!TIP]
 > As [vozes na versão prévia](language-support.md#neural-voices-in-preview) estão disponíveis apenas nestas três regiões: leste dos eua, Europa Ocidental e sudeste asiático.
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -107,20 +107,7 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 ```json
 [
-  {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
-    "Status": "GA"
-  },
 
-...
-      
     {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
     "DisplayName": "Aria",
@@ -140,9 +127,9 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
     "VoiceType": "Neural",
     "Status": "GA"
   },
-  
+
   ...
-    
+
      {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
@@ -154,9 +141,9 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
     "VoiceType": "Neural",
     "Status": "Preview"
   },
-  
+
   ...
-    
+
    {
     "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
     "DisplayName": "Yunxi",
@@ -181,6 +168,21 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
   },
 
     ...
+
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+
 ]
 ```
 
@@ -207,7 +209,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -230,10 +232,14 @@ audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
 audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
+webm-16khz-16bit-mono-opus          webm-24khz-16bit-mono-opus
 ```
 
 > [!NOTE]
-> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Ogg-24kHz-16 bits-mono-Opus pode ser decodificado com o [codec Opus](https://opus-codec.org/downloads/)
+> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário.
+> Ogg-24kHz-16 bits-mono-Opus pode ser decodificado com o [codec Opus](https://opus-codec.org/downloads/)
 
 ### <a name="request-body"></a>Corpo da solicitação
 
@@ -279,5 +285,5 @@ Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncrona para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Síntese assíncrona para áudio de forma longa](./long-audio-api.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 92e93c3746308d2d6c1a489efc6b5c866b0ad2d9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98682623"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usar pontos de extremidade privados para o serviço de Signaler do Azure
@@ -60,7 +60,7 @@ Para o exemplo ilustrado acima, os registros de recurso de DNS para o serviço d
 | Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Um     | \<Azure SignalR Service public IP address\>           |
+| ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
 
 Como mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o controle de acesso à rede.
 
@@ -69,7 +69,7 @@ Os registros de recurso DNS para ' foobar ', quando resolvidos por um cliente na
 | Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | Um     | 10.1.1.5                                              |
+| ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
 
 Essa abordagem habilita o acesso ao serviço de Signaler do Azure **usando a mesma cadeia de conexão** para clientes na vnet que hospedam os pontos de extremidade privados, bem como clientes fora da vnet.
 

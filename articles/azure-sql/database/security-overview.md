@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
 ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94989183"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral do banco de dados SQL do Azure e recursos de segurança do SQL Instância Gerenciada
@@ -140,7 +140,7 @@ A [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um servi�
 
 ### <a name="data-discovery-and-classification"></a>Descoberta e classificação de dados
 
-A descoberta e a classificação de dados (atualmente em versão prévia) fornecem recursos avançados incorporados ao banco de dados SQL do Azure e ao SQL Instância Gerenciada para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Isso pode servir como infraestrutura para:
+A descoberta e a classificação de dados (atualmente em versão prévia) fornecem recursos avançados incorporados ao banco de dados SQL do Azure e ao SQL Instância Gerenciada para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Esse recurso pode funcionar como a infraestrutura para:
 
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlando o acesso e fortalecendo a segurança de bancos de dados que contêm dados altamente confidenciais.

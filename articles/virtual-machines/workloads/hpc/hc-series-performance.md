@@ -3,17 +3,17 @@ title: Desempenho do tamanho da VM da série HC
 description: Saiba mais sobre os resultados de testes de desempenho para tamanhos de VM da série HC no Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e1abe4b87bd5be98dad8e43d604f833eae3854e7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 177a58090303a70491d9a9226eca40d0bb371764
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966948"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722252"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HC
 
@@ -58,5 +58,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados de HPC (computação de alto desempenho) nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para uma exibição arquitetônica de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 4666f03e529c568177ff56a2db84e226bc906132
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963580"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182903"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
@@ -243,5 +243,5 @@ Para a Integração VNET exigida pelo gateway, você pode integrar o Serviço de
 [creategateway]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [setp2saddresses]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
-[installCLI]: /cli/azure/install-azure-cli?view=azure-cli-latest%2f
+[installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md

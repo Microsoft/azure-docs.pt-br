@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360951"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676479"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Criando indexadores no Azure Pesquisa Cognitiva
 
@@ -155,7 +155,7 @@ Como um indexador dá suporte à detecção de alteração varia de acordo com a
 
 Para grandes cargas de indexação, um indexador também controla o último documento processado por meio de uma "marca d' água alta" interna. O marcador nunca é exposto na API, mas, internamente, o indexador controla onde ele parou. Quando a indexação é retomada, por meio de uma execução agendada ou de uma invocação sob demanda, o indexador faz referência à marca d' água alta para que possa continuar de onde parou.
 
-Se você precisar limpar a marca d' água alta para reindexar novamente, você poderá usar [Redefinir indexador](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Para fazer uma reindexação mais seletiva, use [Redefinir habilidades](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) ou [Redefinir documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Por meio das APIs de redefinição, você pode limpar o estado interno e também liberar o cache se tiver habilitado o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais informações e a comparação de cada opção de redefinição, consulte [executar ou redefinir indexadores, habilidades e documentos](search-howto-run-reset-indexers.md).
+Se você precisar limpar a marca d' água alta para reindexar novamente, você poderá usar [Redefinir indexador](/rest/api/searchservice/reset-indexer). Para fazer uma reindexação mais seletiva, use [Redefinir habilidades](/rest/api/searchservice/preview-api/reset-skills) ou [Redefinir documentos](/rest/api/searchservice/preview-api/reset-documents). Por meio das APIs de redefinição, você pode limpar o estado interno e também liberar o cache se tiver habilitado o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais informações e a comparação de cada opção de redefinição, consulte [executar ou redefinir indexadores, habilidades e documentos](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Conheça seus dados
 
@@ -165,7 +165,7 @@ Para mesclar dados relacionais em um conjunto de linhas, você deve criar um mod
 
 Além dos dados simplificados, é importante efetuar pull somente de dados pesquisáveis. Os dados pesquisáveis são alfanuméricos. Pesquisa Cognitiva não pode pesquisar em dados binários em nenhum formato, embora possa extrair e inferir descrições de texto de arquivos de imagem (consulte o [enriquecimento de ai](cognitive-search-concept-intro.md)) para criar conteúdo pesquisável. Da mesma forma, usando o enriquecimento de ia, o texto grande pode ser analisado por modelos de linguagem natural para localizar a estrutura ou informações relevantes, gerando novo conteúdo que você pode adicionar a um documento de pesquisa.
 
-Considerando que os indexadores não corrigem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para obter mais informações, consulte a documentação do produto do seu [produto de banco de dados do Azure](/azure/?product=databases).
+Considerando que os indexadores não corrigem problemas de dados, outras formas de limpeza ou manipulação de dados podem ser necessárias. Para obter mais informações, consulte a documentação do produto do seu [produto de banco de dados do Azure](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Saber seu índice
 

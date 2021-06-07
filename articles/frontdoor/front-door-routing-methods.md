@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 2bc056620ff964747dfd83e7525cb5bfd2eb8e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449139"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de roteamento do Front Door
@@ -25,9 +25,9 @@ A porta frontal do Azure dá suporte a diferentes tipos de métodos de roteament
 Há quatro métodos de roteamento de tráfego disponíveis na porta frontal:
 
 * **[Latência](#latency):** o roteamento baseado em latência garante que as solicitações sejam enviadas para os back-ends de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, suas solicitações de usuário são enviadas para o conjunto "mais próximo" de back-ends em relação à latência de rede.
-* ** [Prioridade](#priority):** Você pode atribuir prioridades a seus back-ends quando desejar configurar um back-end primário para atender a todo o tráfego. O back-end secundário pode ser um backup caso o back-end primário fique indisponível.
-* ** [Ponderado](#weighted):** Você pode atribuir pesos aos back-ends quando desejar distribuir o tráfego entre um conjunto de back-ends. Se você deseja distribuir uniformemente ou de acordo com os coeficientes de peso.
-* ** [Afinidade de sessão](#affinity):** Você pode configurar a afinidade de sessão para seus hosts front-end ou domínios para garantir que as solicitações do mesmo usuário final sejam enviadas para o mesmo back-end.
+* **[Prioridade](#priority):** Você pode atribuir prioridades a seus back-ends quando desejar configurar um back-end primário para atender a todo o tráfego. O back-end secundário pode ser um backup caso o back-end primário fique indisponível.
+* **[Ponderado](#weighted):** Você pode atribuir pesos aos back-ends quando desejar distribuir o tráfego entre um conjunto de back-ends. Se você deseja distribuir uniformemente ou de acordo com os coeficientes de peso.
+* **[Afinidade de sessão](#affinity):** Você pode configurar a afinidade de sessão para seus hosts front-end ou domínios para garantir que as solicitações do mesmo usuário final sejam enviadas para o mesmo back-end.
 
 Todas as configurações do Front Door incluem monitoramento de integridade de back-end e failover global instantâneo automatizado. Para obter mais informações, confira [Monitoramento de back-end do Front Door](front-door-health-probes.md). Sua porta frontal pode trabalhar com base em um único método de roteamento. Mas, dependendo das necessidades do seu aplicativo, você também pode combinar vários métodos de roteamento para criar uma topologia de roteamento ideal.
 

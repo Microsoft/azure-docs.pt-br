@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f81446111ab87b280d50caceb93beefc7aedef3b
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761760"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110318"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar um gateway de rede virtual para ExpressRoute usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -50,22 +50,31 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 
 Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dessas etapas antes de iniciar sua configuração.
 
+> [!IMPORTANT]
+> A compatibilidade com IPv6 para emparelhamento privado está atualmente em **Versão Prévia Pública**. Se você quiser conectar sua rede virtual a um circuito do ExpressRoute com o emparelhamento privado configurado baseado em IPv6, verifique se a rede virtual é de pilha dupla e se segue as diretrizes do [IPv6 para VNet do Azure](../virtual-network/ipv6-overview.md).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Criar a sub-rede de gateway
 
 1. No [portal](https://portal.azure.com), navegue até a rede virtual do Gerenciador de Recursos para o qual você deseja criar um gateway de rede virtual.
 1. Na seção **Configurações** de sua VNet, clique em **Sub-redes** para expandir as Configurações da sub-rede.
-1. Nas configurações da **Sub-rede** , selecione **+ Sub-rede de gateway** para adicionar uma sub-rede de gateway. 
+1. Nas configurações da **Sub-rede**, selecione **+ Sub-rede de gateway** para adicionar uma sub-rede de gateway. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Adicionar a sub-rede de gateway":::
 
-1. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seus requisitos de configuração. É recomendável criar uma sub-rede do gateway com um /27 ou maior (/ 26, / 25 e assim por diante). Em seguida, selecione **OK** para salvar os valores e criar a sub-rede de gateway.
+1. O **Nome** da sua sub-rede será automaticamente preenchido com o valor 'GatewaySubnet'. Esse valor é necessário para que o Azure reconheça a sub-rede como a sub-rede de gateway. Ajuste os valores preenchidos automaticamente de **Intervalo de endereços** para corresponder aos seus requisitos de configuração. É recomendável criar uma sub-rede do gateway com um /27 ou maior (/ 26, / 25 e assim por diante). Se você planeja conectar 16 circuitos do ExpressRoute ao seu gateway, você **precisa** criar uma sub-rede de gateway de /26 ou maior.
+
+    Se você estiver usando uma rede virtual de pilha dupla e planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, clique em **Adicionar espaço de endereço IP6** e insira os valores de **intervalo de endereços IPv6**.
+
+    Em seguida, selecione **OK** para salvar os valores e criar a sub-rede de gateway.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adicionar a sub-rede":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
 
-1. No portal, do lado esquerdo, selecione **Criar um recurso** e digite “gateway de rede virtual” na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e selecione a entrada. Na página **Gateway de rede virtual** , selecione **Criar**.
-1. Na página **Criar gateway de rede virtual** , insira ou selecione estas configurações:
+1. No portal, do lado esquerdo, selecione **Criar um recurso** e digite “gateway de rede virtual” na pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e selecione a entrada. Na página **Gateway de rede virtual**, selecione **Criar**.
+1. Na página **Criar gateway de rede virtual**, insira ou selecione estas configurações:
 
     | Configuração | Valor |
     | --------| ----- |
@@ -78,6 +87,11 @@ Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/a
     | Rede virtual | Selecione *TestVNet*. |
     | Endereço IP público | Selecione **Criar novo**.|
     | Nome do endereço IP público | Forneça um nome para o endereço IP público. |
+
+    > [!IMPORTANT]
+    > Se você planeja usar o emparelhamento privado baseado em IPv6 por meio do ExpressRoute, não se esqueça de selecionar um SKU do AZ (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **SKU**.
+    > 
+    > 
 
 1. Selecione **Examinar + criar** e **Criar** para começar a criar o gateway. As configurações são validadas e o gateway é implantado. A criação de um gateway de rede virtual pode levar até 45 minutos para ser concluída.
 

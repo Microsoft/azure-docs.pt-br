@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92173676"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado nos Aplicativos Web Estáticos do Azure – Visualização

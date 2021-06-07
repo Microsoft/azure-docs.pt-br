@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880128"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: criar uma habilidade personalizada do reconhecedor de formulário
@@ -43,7 +43,7 @@ Primeiro, adicione variáveis de ambiente no nível de projeto. Localize o proje
 * `FORMS_RECOGNIZER_RETRY_DELAY` com o valor definido como 1000. Esse valor é o tempo em milissegundos que o programa aguardará antes de repetir a consulta.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS` com o valor definido como 100. Esse valor é o número de vezes que o programa consultará o serviço ao tentar obter uma resposta bem-sucedida.
 
-Em seguida, abra _AnalyzeForm.cs_ e localize a `fieldMappings` variável, que faz referência à *field-mappings.jsno* arquivo. Esse arquivo (e a variável que faz referência a ele) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada chave. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` significa que o script só salvará os valores para os `Address:` campos detectados e `Invoice For:` que rotularão esses valores com `"address"` e `"recipient"` , respectivamente.
+Em seguida, abra _AnalyzeForm. cs_ e localize a `fieldMappings` variável, que faz referência à *field-mappings.jsno* arquivo. Esse arquivo (e a variável que faz referência a ele) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada chave. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` significa que o script só salvará os valores para os `Address:` campos detectados e `Invoice For:` que rotularão esses valores com `"address"` e `"recipient"` , respectivamente.
 
 Por fim, observe a `contentType` variável. Esse script executa o modelo de reconhecedor de formulário fornecido em documentos remotos que são referenciados pela URL, portanto, o tipo de conteúdo é `application/json` . Se desejar analisar arquivos locais incluindo seus fluxos de bytes nas solicitações HTTP, você precisará alterar o `contentType` para o [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o arquivo.
 
@@ -112,7 +112,7 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
 1. No **Gerenciador de soluções** no Visual Studio, clique com o botão direito do mouse no projeto e selecione **publicar**. Escolha **criar nova**  >  **publicação**.
-1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**
+1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta....**
 1. Siga os prompts na tela. Especifique um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que você deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma nova conta de armazenamento, se ainda não os tiver. Ao terminar, selecione **Criar**.
 1. Após a conclusão da implantação, observe a URL do site. Essa URL é o endereço do seu aplicativo de funções no Azure. Salve-o em um local temporário.
 1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e procure a `AnalyzeForm` função que você publicou. Na seção **Gerenciar**, você deverá ver as chaves do host. Copie a chave de host *padrão* e salve-a em um local temporário.

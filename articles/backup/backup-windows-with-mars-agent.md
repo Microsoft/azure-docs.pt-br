@@ -4,10 +4,10 @@ description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98702761"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
@@ -34,30 +34,30 @@ Neste artigo, você aprenderá a:
 
 A política de backup especifica quando tirar instantâneos dos dados para criar pontos de recuperação. Ele também especifica por quanto tempo manter os pontos de recuperação. Você usa o agente MARS para configurar uma política de backup.
 
-O backup do Azure não faz a conta de horário de Verão (DST) automaticamente. Esse padrão pode causar alguma discrepância entre a hora real e a hora do backup agendado.
+O Backup do Azure não leva em conta automaticamente o horário de verão. Esse padrão pode causar alguma discrepância entre a hora real e a hora em que o backup foi agendado.
 
 Para criar uma política de backup:
 
 1. Depois de baixar e registrar o agente MARS, abra o console do Agent. Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.  
 
-1. Em **ações**, selecione **agendar backup**.
+1. Em **Ações**, selecione **Agendar backup**.
 
     ![Agendar um backup do Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 1. No assistente de agendamento de backup, selecione **Guia de introdução**  >  **Avançar**.
-1. Em **selecionar itens para fazer backup**, selecione **Adicionar itens**.
+1. Em **Selecionar itens a incluir no backup**, escolha **Adicionar itens**.
 
     ![Adicionar itens para fazer backup](./media/backup-azure-manage-mars/select-item-to-backup.png)
 
-1. Na caixa **selecionar itens** , selecione os itens para fazer backup e, em seguida, selecione **OK**.
+1. Na caixa **Selecionar itens**, escolha os itens a incluir no backup e selecione **OK**.
 
     ![Selecionar itens para fazer backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
-1. Na página **selecionar itens para fazer backup** , selecione **Avançar**.
+1. Na página **Selecionar itens a incluir no backup**, escolha **Avançar**.
 1. Na página **especificar agendamento de backup** , especifique quando fazer backups diários ou semanais. Em seguida, selecione **Avançar**.
 
-    * Um ponto de recuperação é criado quando um backup é feito.
-    * O número de pontos de recuperação criados em seu ambiente depende do seu agendamento de backup.
-    * Você pode agendar até três backups diários por dia. No exemplo a seguir, dois backups diários ocorrem, um à meia-noite e um às 6:00 PM.
+    * Um ponto de recuperação é criado quando um backup é realizado.
+    * O número de pontos de recuperação criados no ambiente depende da agenda de backups.
+    * Você pode agendar até três backups por dia. No exemplo a seguir, dois backups diários ocorrem, um à meia-noite e um às 6:00 PM.
 
         ![Configurar um agendamento de backup diário](./media/backup-configure-vault/day-schedule.png)
 
@@ -67,7 +67,7 @@ Para criar uma política de backup:
 
 1. Na página **selecionar política de retenção** , especifique como armazenar cópias históricas de seus dados. Em seguida, selecione **Avançar**.
 
-    * As configurações de retenção especificam quais pontos de recuperação armazenar e por quanto tempo armazená-los.
+    * As configurações de retenção especificam quais pontos de recuperação serão mantidos no armazenamento e por quanto tempo.
     * Para uma configuração de retenção diária, você indica que no momento especificado para a retenção diária, o último ponto de recuperação será retido para o número de dias especificado. Ou você pode especificar uma política de retenção mensal para indicar que o ponto de recuperação criado no dia 30 de cada mês deve ser armazenado por 12 meses.
     * A retenção para pontos de recuperação diários e semanais geralmente coincide com o agendamento de backup. Assim, quando o agendamento dispara um backup, o ponto de recuperação que o backup cria é armazenado pela duração que a política de retenção diária ou semanal especifica.
     * No exemplo a seguir:
@@ -129,11 +129,11 @@ Para habilitar a limitação de rede:
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
-1. No agente MARS, selecione **fazer backup agora**.
+1. No agente de MARS, selecione **Fazer backup agora**.
 
     ![Fazer backup agora no Windows Server](./media/backup-configure-vault/backup-now.png)
 
-1. Se a versão do agente MARS for 2.0.9169.0 ou mais recente, você poderá definir uma data de retenção personalizada. Na seção **manter backup até** , escolha uma data no calendário.
+1. Se a versão do agente de MARS for 2.0.9169.0 ou mais recente, você poderá definir uma data de retenção personalizada. Na seção **Manter backup até**, escolha uma data no calendário.
 
    ![Usar o calendário para personalizar uma data de retenção](./media/backup-configure-vault/mars-ondemand.png)
 

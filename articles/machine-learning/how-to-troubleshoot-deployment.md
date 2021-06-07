@@ -10,22 +10,30 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 8bec083e62bec6a0311487c1e64e780ad14f451b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102518256"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
 Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você pode encontrar ao implantar um modelo em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
+> [!NOTE]
+> Se você estiver implantando um modelo no AKS (serviço kubernetes do Azure), aconselharemos a habilitar [Azure monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) para esse cluster. Isso ajudará você a entender a integridade geral do cluster e o uso de recursos. Você também pode encontrar os seguintes recursos úteis:
+>
+> * [Verificar Resource Health eventos que afetam o cluster AKS](../aks/aks-resource-health.md)
+> * [Diagnóstico do serviço kubernetes do Azure](../aks/concepts-diagnostics.md)
+>
+> Se você estiver tentando implantar um modelo em um cluster não íntegro ou sobrecarregado, espera-se que eles tenham problemas. Se precisar de ajuda para solucionar problemas de cluster AKS, entre em contato com o suporte do AKS.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma **assinatura do Azure**. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install).
+* O [CLI do Azure](/cli/azure/install-azure-cli).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Etapas para a implantação do Docker de modelos de aprendizado de máquina
@@ -91,7 +99,7 @@ Use as informações no artigo [inspecionar o log do Docker](how-to-troubleshoot
 
 ## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
-Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
+Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
 
 ```python
 from azureml.core.model import Model
@@ -169,7 +177,7 @@ As duas ações a seguir podem evitar códigos de status 503:
     > [!NOTE]
     > Se você receber picos de solicitação maiores do que as novas réplicas mínimas podem suportar, você poderá receber códigos 503 novamente. Por exemplo, à medida que o tráfego para o serviço aumenta, talvez seja necessário aumentar as réplicas mínimas.
 
-Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
+Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice).
 
 ## <a name="http-status-code-504"></a>Código de status HTTP 504
 
@@ -181,7 +189,7 @@ Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o 
 
 Execute estas ações para os seguintes erros:
 
-|Error  | Resolução  |
+|Erro  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

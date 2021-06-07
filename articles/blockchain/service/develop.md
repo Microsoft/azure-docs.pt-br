@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348374"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Visão geral do desenvolvimento do serviço Blockchain do Azure
@@ -27,7 +27,7 @@ Para desenvolver soluções de blockchain empresarial sofisticadas, uma estrutur
 
 Para obter mais informações, consulte [início rápido: usar Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium](connect-vscode.md).
 
-### <a name="metamask"></a>Metamáscara
+### <a name="metamask"></a>MetaMask
 
 A metamáscara é uma carteira baseada em navegador (cliente remoto), cliente RPC e Gerenciador de contratos básico. Ao contrário de outras carteiras de navegador, a metamáscara injeta uma instância de Web3 no contexto de JavaScript do navegador, agindo como um cliente RPC que se conecta a uma variedade de Ethereum blockchains (*mainnet*, *Ropsten TESTNET*, *Kovan TESTNET*, nó RPC local, etc.). Você pode configurar o RPC personalizado facilmente para se conectar ao serviço Blockchain do Azure e iniciar o desenvolvimento de Blockchain usando o remix.
 
@@ -44,7 +44,7 @@ Para obter mais informações, consulte [início rápido: usar Geth para anexar 
 O quorum é um protocolo contábil distribuído baseado em Ethereum com transação mais privacidade de contrato e novos mecanismos de consenso. Os principais aprimoramentos em Go-Ethereum incluem:
 
 * **Privacidade** – o quorum dá suporte a transações privadas e a contratos privados por meio da separação de estado pública e privada e utiliza trocas de mensagens criptografadas ponto a ponto para transferência direcionada de dados privados para os participantes da rede.
-* **Mecanismos de consenso alternativos** – o consenso de prova de trabalho ou de prova de jogo não é necessário para uma rede com permissão. O quorum oferece vários mecanismos de consenso que são projetados para cadeias de consórcio, como reposicionamento e IBFT.O serviço Blockchain do Azure usa o mecanismo de consenso IBFT.
+* **Mecanismos de consenso alternativos** – o consenso de prova de trabalho ou de prova de jogo não é necessário para uma rede com permissão. O quorum oferece vários mecanismos de consenso que são projetados para cadeias de consórcio, como reposicionamento e IBFT.  O serviço Blockchain do Azure usa o mecanismo de consenso IBFT.
 * A permissão de **pares** e a troca de pontos por pares usando contratos inteligentes garante que apenas partes conhecidas possam ingressar na rede.
 * **Melhor desempenho** -o quorum oferece maior desempenho do que o Geth público.
 

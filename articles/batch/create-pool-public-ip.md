@@ -4,10 +4,10 @@ description: Saiba como criar um pool do lote que usa seus próprios endereços 
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91849321"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar um pool do lote do Azure com endereços IP públicos especificados

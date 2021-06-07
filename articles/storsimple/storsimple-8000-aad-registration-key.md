@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99805033"
 ---
 # <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>Usar a autenticação do Azure Active Directory (AD) para o StorSimple

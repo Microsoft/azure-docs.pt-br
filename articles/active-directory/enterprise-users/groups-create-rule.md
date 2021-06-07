@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a25caa3b59d242b8dcc8a52e1a5d684815cf7bf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8525e9a76fa2439692cdb26b36c0bb761d63177c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547773"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102550222"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
@@ -80,7 +80,7 @@ Se a regra que você inseriu não for válida, uma explicação do motivo pelo q
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar email de boas-vindas
 
-Quando um novo grupo de Microsoft 365 é criado, uma notificação por email de boas-vindas é enviada aos usuários que são adicionados ao grupo. Posteriormente, se qualquer atributo de um usuário ou dispositivo for alterado, todas as regras dinâmicas do grupo na organização serão processadas para alterações de associação. Os usuários que são adicionados também recebem a notificação de boas-vindas. Você pode desativar esse comportamento no [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps&preserve-view=true).
+Quando um novo grupo de Microsoft 365 é criado, uma notificação por email de boas-vindas é enviada aos usuários que são adicionados ao grupo. Posteriormente, se qualquer atributo de um usuário ou dispositivo for alterado, todas as regras dinâmicas do grupo na organização serão processadas para alterações de associação. Os usuários que são adicionados também recebem a notificação de boas-vindas. Você pode desativar esse comportamento no [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup).
 
 ## <a name="check-processing-status-for-a-rule"></a>Verificar o status de processamento de uma regra
 

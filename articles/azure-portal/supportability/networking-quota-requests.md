@@ -7,10 +7,10 @@ ms.date: 01/23/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745444"
 ---
 # <a name="networking-limit-increase"></a>Aumento de limite de rede
@@ -74,7 +74,7 @@ Siga estas instruções para criar uma solicitação de suporte usando o **uso +
 
 1. Selecione a assinatura que precisa de uma cota maior.
 
-    ![Selecionar assinatura](./media/networking-quota-request/select-subscription-change-quota.png)
+    ![Selecionar uma assinatura](./media/networking-quota-request/select-subscription-change-quota.png)
 
 1. Selecionar **uso + cotas**
 

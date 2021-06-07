@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783871"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
@@ -34,7 +34,7 @@ Para saber como exibir as chaves de acesso da conta e copiar uma cadeia de conex
 Seu aplicativo precisara acessar a cadeia de conexão no runtime para autorizar as solicitações feitas para o Armazenamento do Microsoft Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
 
 * Você pode armazenar a cadeia de conexão em uma variável de ambiente.
-* Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config** . Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
+* Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config**. Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
 * Um aplicativo em execução em um serviço de nuvem do Azure pode armazenar a cadeia de conexão no [arquivo de esquema (.cscfg) de configuração de serviço do Azure](/previous-versions/azure/reference/ee758710(v=azure.100)). Adicionar a cadeia de conexão à seção **ConfigurationSettings** do arquivo de configuração de serviço.
 
 Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o [emulador de armazenamento azurite](../common/storage-use-azurite.md) e uma conta de armazenamento do Azure na nuvem. Você precisa apenas editar a cadeia de conexão para apontar para seu ambiente de destino.
@@ -57,7 +57,7 @@ Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Embora o Armazenamento do Azure dê suporte a HTTP e HTTPS em uma cadeia de conexão, *usar HTTPS é altamente recomendável* .
+Embora o Armazenamento do Azure dê suporte a HTTP e HTTPS em uma cadeia de conexão, *usar HTTPS é altamente recomendável*.
 
 > [!TIP]
 > Você pode encontrar as cadeias de conexão da conta de armazenamento no [Portal do Azure](https://portal.azure.com). Navegue até **configurações**  >  **chaves de acesso** na folha do menu da sua conta de armazenamento para ver cadeias de conexão para as chaves de acesso primária e secundária.

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904730"
 ---
 # <a name="weather-services-preview-in-azure-maps"></a>Serviços meteorológicos (versão prévia) no Azure Maps
 
 > [!IMPORTANT]
-> Os serviços meteorológicos do Azure Maps estão atualmente em visualização pública.
+> O serviço Clima do Azure Mapas está em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo apresenta os conceitos que se aplicam aos [serviços meteorológicos](/rest/api/maps/weather)do Azure Maps. É recomendável passar por este artigo antes de começar com as APIs meteorológicos.
@@ -58,7 +58,7 @@ Algumas das APIs de serviço meteorológico (versão prévia) permitem que o usu
 
 Algumas das APIs de serviço meteorológico (versão prévia) retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |Ícone| Dia | Jogo | Texto |
+| Número do ícone |ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Quase que ensolarado|
@@ -569,7 +569,7 @@ A [API obter índices diários](/rest/api/maps/weather) retorna o valor de inter
   ----------------|--------------|------------
   Ruim           |0              |  3
   Razoável           |3, 1           |  6
-  Satisfatório           |6.01           |  7,5
+  Satisfatório           |6.01           |  7.5
   Muito bom      |7,51           |  8,99
   Excelente      |9              |  10
 
@@ -589,7 +589,7 @@ A [API obter índices diários](/rest/api/maps/weather) retorna o valor de inter
   ----------------|--------------|------------
   Baixo                |  0         |        1,99
   Moderado           |  2         |        3,99
-  Alta               |  4         |        5,99
+  Alto               |  4         |        5,99
   Muito alto          |  6         |        7,99
   Extremo            |  8         |        10
 
@@ -599,7 +599,7 @@ A [API obter índices diários](/rest/api/maps/weather) retorna o valor de inter
   ----------------|--------------|------------
   Baixo                |  0            |      2,99
   Moderado           |  3            |      4,99
-  Alta               |  5            |      6,99
+  Alto               |  5            |      6,99
   Muito alto          |  7            |      8,99
   Extremo            |  9            |      10
 

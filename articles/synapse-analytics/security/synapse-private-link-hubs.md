@@ -1,19 +1,19 @@
 ---
 title: Conectar-se a um Synapse Studio usando links privados
 description: Este artigo ensinará como se conectar ao Azure Synapse Studio usando links privados
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586968"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586617"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Conectar-se ao Azure Synapse Studio usando hubs de link privado do Azure 
 
@@ -37,7 +37,9 @@ Você deve conectar sua rede virtual do Azure ao recurso Synapse Private link Hu
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Captura de tela que mostra a página conexões de ponto de extremidade privado.":::
 
-Certifique-se de escolher o tipo de recurso "Microsoft. Synapse/privateLinkHubs" na guia "recurso". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="captura de tela que mostra a página ' criar um ponto de extremidade privado ' com ' tipo de recurso ' realçado.":::
+Certifique-se de escolher o tipo de recurso "Microsoft. Synapse/privateLinkHubs" na guia "recurso".
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Captura de tela que mostra a página ' criar um ponto de extremidade privado ' com ' tipo de recurso ' realçado.":::
 
 Na guia "configuração", selecione "privatelink.azuresynapse.net" para zonas de DNS privado ao integrar com sua rede virtual e zona DNS privada.
 

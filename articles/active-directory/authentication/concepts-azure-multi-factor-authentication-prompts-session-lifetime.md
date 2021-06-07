@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963512"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure AD
 
 O Azure Active Directory (AD do Azure) tem várias configurações que determinam a frequência com que os usuários precisam ser autenticados novamente. Essa reautenticação pode ser com um primeiro fator, como senha, FIDO ou Microsoft Authenticator sem senha, ou para executar a autenticação multifator (MFA). Você pode definir essas configurações de reautenticação conforme necessário para seu próprio ambiente e a experiência do usuário que desejar.
 
-A configuração padrão do Azure AD para a frequência de entrada do usuário é uma janela sem interrupção de 90 dias. Pedir aos usuários que as credenciais geralmente pareça uma coisa sensata a fazer, mas pode ser relançado. Se os usuários são treinados para inserir suas credenciais sem pensar, eles podem inadvertidamente fornecê-los a um prompt de credenciais mal-intencionado.
+A configuração padrão do Azure AD para a frequência de entrada do usuário é uma janela contínua de 90 dias. Pedir aos usuários que as credenciais geralmente pareça uma coisa sensata a fazer, mas pode ser relançado. Se os usuários são treinados para inserir suas credenciais sem pensar, eles podem inadvertidamente fornecê-los a um prompt de credenciais mal-intencionado.
 
 Pode parecer que o alarme não pede que um usuário entre novamente, embora qualquer violação das políticas de ti revogue a sessão. Alguns exemplos incluem uma alteração de senha, um dispositivo incompatível ou uma operação de desativação de conta. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 

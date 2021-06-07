@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5788585b2365b12a90a508e5a972b61f73e48c15
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97629503"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de segurança para aparar os resultados de Pesquisa Cognitiva do Azure usando identidades Active Directory
@@ -39,7 +39,7 @@ Você deve ter permissões de administrador do Azure AD, necessárias neste pass
 
 Seu aplicativo também deve ser registrado com o Azure AD como um aplicativo multilocatário, conforme descrito no procedimento a seguir.
 
-### <a name="register-your-application-with-azure-active-directory"></a>Registrar seu aplicativo com o Azure Active Directory
+### <a name="register-your-application-with-azure-active-directory"></a>Registrar seu aplicativo no Azure Active Directory
 
 Esta etapa integra seu aplicativo ao Azure AD com a finalidade de aceitar entradas de contas de usuário e de grupo. Se você não for um administrador de locatário em sua organização, talvez seja necessário [criar um novo locatário](../active-directory/develop/quickstart-create-new-tenant.md) para executar as etapas a seguir.
 

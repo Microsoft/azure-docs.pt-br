@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835893"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulando detecções de riscos na proteção de identidades
@@ -93,7 +93,7 @@ Esta seção fornece etapas para testar o usuário e as políticas de risco de e
 Para testar uma política de segurança de risco de usuário, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral** de segurança.
+1. Navegue até **Azure Active Directory**  >    >  **visão geral** de segurança.
 1. Selecione **Configurar política de risco do usuário**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
@@ -113,7 +113,7 @@ Para testar uma política de segurança de risco de usuário, execute as seguint
 Para testar uma política de segurança de entrada, execute as seguintes etapas:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **visão geral** de segurança.
+1. Navegue até **Azure Active Directory**  >    >  **visão geral** de segurança.
 1. Selecione **Configurar política de risco de entrada**.
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
@@ -129,6 +129,6 @@ Para testar uma política de segurança de entrada, execute as seguintes etapas:
 
 - [O que é risco?](concept-identity-protection-risks.md)
 
-- [Como configurar e habilitar políticas de risco](howto-identity-protection-configure-risk-policies.md)
+- [Como configurar e habilitar as políticas de risco](howto-identity-protection-configure-risk-policies.md)
 
 - [Azure Active Directory Identity Protection](overview-identity-protection.md)

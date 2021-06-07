@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: e4f756631b51ce9c5fba32939d1c6651e7b328d0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/12/2021
+ms.openlocfilehash: 4026d2f987ca37834231ac4d7e827ff543af9d2e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378512"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232385"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando Azure Data Factory
 
@@ -57,16 +57,16 @@ A versão 7, 1 ou posterior refere-se à versão do SAP NetWeaver em vez da vers
 
 Para usar esse conector de tabela SAP, você precisa:
 
-- Configure um tempo de execução de integração auto-hospedado (versão 3,17 ou posterior). Para obter mais informações, consulte [criar e configurar um tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md).
+- Configure um tempo de execução de integração auto-hospedado (versão 3,17 ou posterior). Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](create-self-hosted-integration-runtime.md).
 
-- Baixe o conector SAP de 64 bits [para Microsoft .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html) do site da SAP e instale-o no computador do Integration Runtime de hospedagem interna. Durante a instalação, certifique-se de selecionar a opção **instalar assemblies no GAC** na janela **etapas de instalação opcionais** .
+- Baixe o conector SAP de 64 bits [para Microsoft .NET 3,0](https://support.sap.com/en/product/connectors/msnet.html) do site da SAP e instale-o no computador do Integration Runtime de hospedagem interna. Durante a instalação, lembre-se de selecionar a opção **Instalar Assemblies no GAC** na janela **Etapas de instalação opcionais**.
 
   ![Instalar o conector do SAP para .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
 - O usuário SAP que está sendo usado no conector de tabela do SAP Data Factory deve ter as seguintes permissões:
 
   - Autorização para usar destinos de chamada de função remota (RFC).
-  - Permissões para a atividade executar do objeto de autorização S_SDSAUTH.
+  - Permissões para a atividade executar do objeto de autorização S_SDSAUTH. Você pode consultar o SAP Note 40089 na maioria dos objetos de autorização. Determinadas RFCs são exigidas pelo conector NCo subjacente, por exemplo RFC_FUNCTION_SEARCH. 
 
 ## <a name="get-started"></a>Introdução
 
@@ -238,6 +238,10 @@ Para copiar dados de uma tabela SAP, há suporte para as seguintes propriedades:
 >`partitionOption`Como `partitionOnInt` exemplo, o número de linhas em cada partição é calculado com esta fórmula: (total de linhas caindo entre `partitionUpperBound` e `partitionLowerBound` )/ `maxPartitionsNumber` .<br/>
 <br/>
 >Para carregar partições de dados em paralelo para acelerar a cópia, o grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) configuração na atividade de cópia. Por exemplo, se você definir `parallelCopies` como quatro, data Factory gera e executa quatro consultas simultaneamente com base na opção de partição especificada e nas configurações, e cada consulta recupera uma parte dos dados de sua tabela SAP. É altamente recomendável fazer `maxPartitionsNumber` um múltiplo do valor da `parallelCopies` propriedade. Ao copiar dados para o armazenamento de dados baseado em arquivo, ele também é recriado para gravar em uma pasta como vários arquivos (apenas especifique o nome da pasta); nesse caso, o desempenho é melhor do que gravar em um único arquivo.
+
+
+>[!TIP]
+> O `BASXML` é habilitado por padrão para este conector de tabela SAP no lado Azure data Factory.
 
 No `rfcTableOptions` , você pode usar os seguintes operadores de consulta SAP comuns para filtrar as linhas:
 

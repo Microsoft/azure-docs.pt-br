@@ -9,20 +9,23 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098071"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100585398"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento confiável para os serviços de mídia
 
 Ao criar uma conta de serviços de mídia, você deve associá-la a uma conta de armazenamento. Os serviços de mídia podem acessar essa conta de armazenamento usando a autenticação de sistema ou a autenticação de identidade gerenciada. Os serviços de mídia validam que a conta dos serviços de mídia e a conta de armazenamento estão na mesma assinatura e valida que o usuário que está adicionando a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
 
+>[!NOTE]
+>O armazenamento confiável só está disponível na API e, no momento, não está habilitado no portal do Azure.
+
 ## <a name="trusted-storage-with-a-firewall"></a>Armazenamento confiável com um firewall
 
-No entanto, se você quiser usar um firewall para proteger sua conta de armazenamento e habilitar o armazenamento confiável, a autenticação de [identidades gerenciadas](concept-managed-identities.md) será a opção preferida. Ele permite que os serviços de mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio de acesso de armazenamento confiável.
+No entanto, se você quiser usar um firewall para proteger sua conta de armazenamento e habilitar o armazenamento confiável, a autenticação de [identidades gerenciadas](concept-managed-identities.md) será a opção preferida. Ela permite que os Serviços de Mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio do acesso ao armazenamento confiável.
 
 ## <a name="tutorial"></a>Tutorial
 

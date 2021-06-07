@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/18/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a22d710f9e18dc98e9fe068abedd57152f4c755c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 94abfd704d000b907158b2559a268718046b6661
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463399"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059608"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-r"></a>Tutorial: Definir as configurações do dispositivo para o Azure Stack Edge Pro R
 
@@ -82,7 +81,7 @@ Siga estas etapas para definir as configurações relacionadas ao dispositivo:
         ![Página "Servidor de Atualização" da IU da Web local 2](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > Se um servidor do Windows Update separado for configurado e se optar por se conectar via *HTTPS* (em vez de *HTTP*), você precisará dos certificados de cadeia de assinatura requeridos para se conectar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, acesse [Gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).         
+        > Se um servidor do Windows Update separado for configurado e se optar por se conectar via *HTTPS* (em vez de *HTTP*), você precisará dos certificados de cadeia de assinatura requeridos para se conectar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, acesse [Gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md).         
         > Para trabalhar em um modo desconectado, como as camadas do dispositivo do Azure Stack Edge para o Data Center Modular, habilite a opção WSUS. Durante a ativação, o dispositivo verifica se há atualizações. Se o servidor não estiver configurado, a ativação falhará. 
 
 

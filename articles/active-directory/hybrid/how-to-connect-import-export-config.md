@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681948"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importar e exportar Azure AD Connect definições de configuração 
@@ -77,10 +77,10 @@ Para migrar as configurações:
 
    ![Captura de tela que mostra os diretórios Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Execute o script conforme mostrado aqui e salve todo o diretório de configuração de servidor de nível inferior. Copie esse diretório para o novo servidor de preparo. Você deve copiar toda a pasta **exported-ServerConfiguration-** _ para o novo servidor.
+1. Execute o script conforme mostrado aqui e salve todo o diretório de configuração de servidor de nível inferior. Copie esse diretório para o novo servidor de preparo. Você deve copiar toda a pasta **exported-ServerConfiguration-*** para o novo servidor.
 
    ![Captura de tela que mostra o script no Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Captura de tela que mostra a cópia da pasta exportada-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
+    ![ Captura de tela que mostra a cópia da pasta exportada-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Inicie **Azure ad Connect** clicando duas vezes no ícone na área de trabalho. Aceite os termos de licença para software Microsoft e, na próxima página, selecione **Personalizar**.
 1. Marque a caixa de seleção **Importar configurações de sincronização** . Selecione **procurar** para procurar a pasta copiada-over-ServerConfiguration-*. Selecione o MigratedPolicy.jsem para importar as configurações migradas.

@@ -9,10 +9,10 @@ ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 7f5b2831f45e902b312636e4133557a16ee7ec95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341630"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
@@ -41,7 +41,7 @@ Você pode aprender sobre [a sintaxe para criar expressões regulares no Perl](h
 
 O Azure Cosmos DB dá suporte aos quatro modificadores a seguir:
 
-| Modificador | Description |
+| Modificador | Descrição |
 | ------ | ----------- |
 | `m` | Trate a expressão de cadeia de caracteres a ser pesquisada como várias linhas. Sem essa opção, "^" e "$" corresponderão no início ou no final da cadeia de caracteres e não em cada linha individual. |
 | `s` | Permitir que "." corresponda a qualquer caractere, incluindo um caractere de nova linha. | 

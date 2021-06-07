@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 8a56b325dd5e1180b1229465965167241fab76a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796948"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101676452"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Início Rápido: Criar um workspace do Azure Synapse com a CLI do Azure
 
@@ -27,7 +27,7 @@ Neste guia de início rápido, você aprenderá a criar um workspace do Synapse 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Baixar e instalar o [jq](https://stedolan.github.io/jq/download/), um processador JSON de linha de comando leve e flexível
-- [Conta de armazenamento do Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Conta de armazenamento do Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
     > O workspace do Azure Synapse precisa conseguir fazer leituras e gravações na conta do ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento vinculada como a conta de armazenamento primária, você precisa ter habilitado **namespace hierárquico** na criação da conta de armazenamento, conforme descrito na página [Criar uma Conta de Armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 

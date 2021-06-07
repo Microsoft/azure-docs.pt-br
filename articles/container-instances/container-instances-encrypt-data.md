@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686269"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
@@ -59,10 +59,10 @@ Caso você não consiga criar a entidade de serviço com êxito:
 
 ### <a name="create-a-key-vault-resource"></a>Crie um recurso do Key Vault
 
-Crie um Azure Key Vault usando [portal do Azure](../key-vault/general/quick-create-portal.md), [CLI do Azure](../key-vault/general/quick-create-cli.md)ou [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+Crie um Azure Key Vault usando o [portal do Azure](../key-vault/general/quick-create-portal.md), a [CLI do Azure](../key-vault/general/quick-create-cli.md) ou o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Para as propriedades do cofre de chaves, use as seguintes diretrizes: 
-* Name: um nome exclusivo é necessário. 
+* Nome: é necessário um nome exclusivo. 
 * Assinatura: Escolha uma assinatura.
 * Em grupo de recursos, escolha um grupo de recursos existente ou crie um novo e insira um nome de grupo de recursos.
 * No menu suspenso Local, escolha um local.

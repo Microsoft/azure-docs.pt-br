@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94492082"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
@@ -34,7 +34,7 @@ As categorias e os setores de uma loja online diferente serão aplicáveis a dif
 
 | Loja online | Categorias <br>por loja online | Categorias <br>por loja online | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
+| **Tipo de Oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
 | Contêiner | X | |
 | Serviços de Consultoria | | | X |
@@ -130,8 +130,8 @@ Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Vincular a sua página de oferta do seu site
 
 Ao vincular do AppSource ou do selo do Azure Marketplace em seu site à sua listagem no Marketplace comercial, você pode dar suporte à análise e aos relatórios de alta segurança, incluindo os seguintes parâmetros de consulta no final da URL:
-* **src** : Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
-* **mktcmpid** : Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12* ).
+* **src**: Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
+* **mktcmpid**: Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12*).
 
 O exemplo de URL a seguir contém os dois parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

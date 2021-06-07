@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ff923d0231a1b00493a54996c2fcd489012bbe7
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 329036f3ed815eaaba94f441e372f4be86edd629
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862030"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102558076"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do PowerShell do Azure AD para relatórios
 
 > [!NOTE] 
-> Atualmente, esses cmdlets do PowerShell funcionam apenas com o módulo de [visualização do Azure ad](/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) . Observe que o módulo de visualização não é sugerido para uso em produção. 
+> Atualmente, esses cmdlets do PowerShell funcionam apenas com o módulo de [visualização do Azure ad](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) . Observe que o módulo de visualização não é sugerido para uso em produção. 
 
 Para instalar a versão de visualização pública, use o seguinte. 
 
@@ -52,7 +52,7 @@ Você obtém acesso aos logs de auditoria usando o cmdlet ' Get-AzureADAuditDire
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome de exibição do aplicativo      | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' sincronização de nuvem do Azure AD '" |
-| Category                      | Get-AzureADAuditDirectoryLogs-filtrar "category EQ ' ApplicationManagement '" |
+| Categoria                      | Get-AzureADAuditDirectoryLogs-filtrar "category EQ ' ApplicationManagement '" |
 | Data e hora da atividade            | Get-AzureADAuditDirectoryLogs-filtro "activityDateTime gt 2019-04-18" |
 | Todas as opções acima              | Get-AzureADAuditDirectoryLogs-filtrar "initiatedBy/app/displayName EQ ' Azure AD Cloud Sync ' e Category EQ ' ApplicationManagement ' e activityDateTime gt 2019-04-18"|
 

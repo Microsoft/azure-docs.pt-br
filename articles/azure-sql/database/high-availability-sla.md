@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a14f8e0ba3ae5cca75cf6518320023703a6d1700
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593411"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626377"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,25 @@ Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilidade com redundância de zona de camada de serviço Uso Geral (visualização)
 
-A configuração com redundância de zona para a camada de serviço de uso geral utiliza [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md)   para replicar bancos de dados em vários locais físicos em uma região do Azure.Ao selecionar a redundância de zona, você pode fazer com que seus novos e existentes bancos de dados individuais de uso geral e pools elásticos, resistentes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração da lógica do aplicativo.
+A configuração com redundância de zona para a camada de serviço de uso geral é oferecida para computação sem servidor e provisionada. Essa configuração utiliza [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md)   para replicar bancos de dados em vários locais físicos em uma região do Azure.Ao selecionar a redundância de zona, você pode tornar seus novos e existentes serverlesss e provisionado bancos de dados individuais de uso geral e pools elásticos resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração da lógica do aplicativo.
 
 A configuração com redundância de zona para a camada de uso geral tem duas camadas:  
 
-- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no PFS ZRS ( [compartilhamento de arquivos premium de armazenamento](../../storage/files/storage-how-to-create-premium-fileshare.md)com redundância de zona. Usando o [armazenamento com redundância de zona,](../../storage/common/storage-redundancy.md) os arquivos de dados e de log são copiados de forma síncrona em três zonas de disponibilidade do Azure fisicamente isoladas.
-- Uma camada de computação sem monitoração de estado que executa o processo de sqlservr.exe e contém somente dados transitórios e em cache, como TempDB, bancos de dado de modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa sqlservr.exe, controla a integridade do nó e executa o failover para outro nó, se necessário. Para bancos de dados de uso geral com redundância de zona, os nós com capacidade de reposição estão prontamente disponíveis em outros Zonas de Disponibilidade para failover.
+- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados em ZRS (armazenamento com redundância de zona). Usando o [ZRS](../../storage/common/storage-redundancy.md) , os arquivos de dados e de log são copiados de forma síncrona em três zonas de disponibilidade do Azure fisicamente isoladas.
+- Uma camada de computação sem monitoração de estado que executa o processo de sqlservr.exe e contém somente dados transitórios e em cache, como TempDB, bancos de dado de modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa sqlservr.exe, controla a integridade do nó e executa o failover para outro nó, se necessário. Para bancos de dados de uso geral com e sem servidor com redundância de zona, os nós com capacidade de reposição estão prontamente disponíveis em outros Zonas de Disponibilidade para failover.
 
 A versão com redundância de zona da arquitetura de alta disponibilidade para a camada de serviço de uso geral é ilustrada pelo seguinte diagrama:
 
 ![Configuração com redundância de zona para fins gerais](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada. A configuração com redundância de zona para a camada de uso geral só está disponível nas seguintes regiões: leste dos EUA, leste dos EUA 2, oeste dos EUA 2, Europa Setentrional, Europa Ocidental, Sudeste Asiático, leste da Austrália, leste do Japão, Sul do Reino Unido e França central.
+> A configuração com redundância de zona só estará disponível quando o hardware de computação Gen5 estiver selecionado. Este recurso não está disponível no SQL Instância Gerenciada. A configuração com redundância de zona para camada de uso geral sem servidor e provisionada só está disponível nas seguintes regiões: leste dos EUA, leste dos EUA 2, oeste dos EUA 2, Europa Setentrional, Europa Ocidental, Sudeste Asiático, leste da Austrália, leste do Japão, Sul do Reino Unido e França central.
 
 > [!NOTE]
-> Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Além disso, operações como backup, restauração, cópia de banco de dados e configuração de relações de DR geográfica podem sofrer um desempenho mais lento para qualquer banco de dados individual maior que 1 TB. 
+> Uso Geral bancos de dados com um tamanho de 80 VCORE podem apresentar degradação de desempenho com configuração com redundância de zona. Além disso, as operações como backup, restauração, cópia de banco de dados, configuração de relações de DR geográfica e downgrade de um banco de dados com redundância de zona de Comercialmente Crítico para Uso Geral podem apresentar um desempenho mais lento para qualquer um de mais de 1 TB. Consulte nossa [documentação de latência sobre como dimensionar um banco de dados](single-database-scale.md) para obter mais informações.
+> 
+> [!NOTE]
+> A visualização não é coberta pela instância reservada
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Disponibilidade com redundância local da camada de serviço Premium e Comercialmente Crítico
 
@@ -123,7 +126,7 @@ Um failover pode ser iniciado usando o PowerShell, a API REST ou CLI do Azure:
 |Tipo de implantação|PowerShell|API REST| CLI do Azure|
 |:---|:---|:---|:---|
 |Banco de dados|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Failover de banco de dados](/rest/api/sql/databases/failover)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
-|Pool elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover de pool elástico](/rest/api/sql/elasticpools(failover)/failover/)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
+|Pool elástico|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Failover de pool elástico](/rest/api/sql/elasticpools/failover)|[AZ REST](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada à API rest de CLI do Azure|
 |Banco de Dados SQL|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instâncias gerenciadas-failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]

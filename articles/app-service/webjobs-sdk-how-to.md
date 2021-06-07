@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737262"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617124"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -425,7 +425,7 @@ static async Task Main()
 }
 ```
 
-Para obter mais detalhes, consulte o artigo [Associação dos Hubs de Eventos](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json).
+Para obter mais detalhes, consulte o artigo [Associação dos Hubs de Eventos](../azure-functions/functions-bindings-event-hubs.md#host-json).
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuração do gatilho de armazenamento de Filas
 

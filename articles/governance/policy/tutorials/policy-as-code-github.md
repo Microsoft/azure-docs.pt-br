@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Implementar o Azure Policy como código com o GitHub'
 description: Neste tutorial, você implementará um fluxo de trabalho de Azure Policy como Código com exportação, GitHub Actions e fluxos de trabalho do GitHub
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 64957671597ad6df237f92176e10280dc45018c9
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325832"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092748"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Tutorial: Implementar o Azure Policy como código com o GitHub
 
@@ -30,22 +30,22 @@ Se você deseja atribuir uma política para identificar o estado atual de confor
 
 Para exportar uma definição de política do portal do Azure, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em **Todos os serviços** , em seguida pesquisando e selecionando **Política** .
+1. Inicie o serviço de Azure Policy no portal do Azure clicando em **Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
 1. Selecione **Definições** no lado esquerdo da página do Azure Policy.
 
-1. Use o botão **Exportar definições** ou selecione as reticências na linha de uma definição de política. Em seguida, selecione **Exportar definição** .
+1. Use o botão **Exportar definições** ou selecione as reticências na linha de uma definição de política. Em seguida, selecione **Exportar definição**.
 
-1. Selecione o botão **Entrar com o GitHub** . Se você ainda não tiver feito a autenticação com o GitHub para autorizar o Azure Policy a exportar o recurso, examine o acesso de que a [Ação do GitHub](https://github.com/features/actions) precisa na nova janela aberta e selecione **Autorizar AzureGitHubActions** para dar continuidade ao processo de exportação. Após a conclusão, a nova janela será fechada automaticamente.
+1. Selecione o botão **Entrar com o GitHub**. Se você ainda não tiver feito a autenticação com o GitHub para autorizar o Azure Policy a exportar o recurso, examine o acesso de que a [Ação do GitHub](https://github.com/features/actions) precisa na nova janela aberta e selecione **Autorizar AzureGitHubActions** para dar continuidade ao processo de exportação. Após a conclusão, a nova janela será fechada automaticamente.
 
-1. Na guia **Noções Básicas** , defina as seguintes opções e selecione a guia **Políticas** ou o botão **Avançar: Políticas** na parte inferior da página.
+1. Na guia **Noções Básicas**, defina as seguintes opções e selecione a guia **Políticas** ou o botão **Avançar: Políticas** na parte inferior da página.
 
-   - **Filtro de repositório** : defina como _Meus repositórios_ para ver apenas os repositórios que você tem ou _Todos os repositórios_ para ver todos aqueles aos quais você concedeu à Ação do GitHub acesso.
-   - **Repositório** : defina como o repositório ao qual você deseja exportar os recursos do Azure Policy.
-   - **Branch** : defina o branch no repositório. Usar um branch diferente do padrão é uma boa maneira de validar suas atualizações antes de mesclá-las em seu código-fonte.
-   - **Diretório** : a _pasta de nível raiz_ à qual exportar os recursos do Azure Policy. As subpastas nesse diretório são criadas com base em quais recursos são exportados.
+   - **Filtro de repositório**: defina como _Meus repositórios_ para ver apenas os repositórios que você tem ou _Todos os repositórios_ para ver todos aqueles aos quais você concedeu à Ação do GitHub acesso.
+   - **Repositório**: defina como o repositório ao qual você deseja exportar os recursos do Azure Policy.
+   - **Branch**: defina o branch no repositório. Usar um branch diferente do padrão é uma boa maneira de validar suas atualizações antes de mesclá-las em seu código-fonte.
+   - **Diretório**: a _pasta de nível raiz_ à qual exportar os recursos do Azure Policy. As subpastas nesse diretório são criadas com base em quais recursos são exportados.
 
-1. Na guia **Políticas** , defina o escopo a ser pesquisado selecionando as reticências e escolhendo uma combinação de grupos de gerenciamento, assinaturas ou grupos de recursos.
+1. Na guia **Políticas**, defina o escopo a ser pesquisado selecionando as reticências e escolhendo uma combinação de grupos de gerenciamento, assinaturas ou grupos de recursos.
    
 1. Use o botão **Adicionar definições de política** para pesquisar o escopo para os objetos a serem exportados. Na janela lateral aberta, selecione cada objeto a ser exportado. Filtre a seleção pela caixa de pesquisa ou pelo tipo. Após selecionar todos os objetos a serem exportados, use o botão **Adicionar** na parte inferior da página.
 
@@ -54,11 +54,11 @@ Para exportar uma definição de política do portal do Azure, siga estas etapas
    > [!NOTE]
    > Se a opção _Definição e Atribuições_ for escolhida, somente serão exportadas as atribuições de política dentro do escopo definido pelo filtro quando a definição de política for adicionada.
 
-1. Na guia **Examinar + Exportar** , verifique se os detalhes coincidem e use o botão **Exportar** na parte inferior da página.
+1. Na guia **Examinar + Exportar**, verifique se os detalhes coincidem e use o botão **Exportar** na parte inferior da página.
 
 1. Verifique seu repositório do GitHub, o branch e a _pasta de nível raiz_ para ver que os recursos selecionados agora são exportados para o controle do código-fonte.
 
-Os recursos do Azure Policy são exportados para a seguinte estrutura dentro do repositório GitHub selecionado e da _pasta de nível raiz_ :
+Os recursos do Azure Policy são exportados para a seguinte estrutura dentro do repositório GitHub selecionado e da _pasta de nível raiz_:
 
 ```text
 |
@@ -88,11 +88,11 @@ Os recursos do Azure Policy são exportados para a seguinte estrutura dentro do 
 
 1. O fluxo de trabalho sincroniza as alterações feitas nos objetos de política com o Azure e fornece o status nos logs.
 
-   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Captura de tela da guia Ação, do fluxo de trabalho e dos botões Executar fluxo de trabalho na interface Web do GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/workflow-logging.png" alt-text="Captura de tela do fluxo de trabalho em ação e detalhes registrados nos logs.":::
 
 1. O fluxo de trabalho também adiciona detalhes em objetos `properties.metadata` do Azure Policy para você acompanhar.
 
-   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Captura de tela da guia Ação, do fluxo de trabalho e dos botões Executar fluxo de trabalho na interface Web do GitHub.":::
+   :::image type="content" source="../media/policy-as-code-github/updated-definition-metadata.png" alt-text="Captura de tela da definição do Azure Policy no portal do Azure atualizado com metadados específicos à ação do GitHub.":::
 
 ### <a name="trigger-compliance-scans-using-github-action"></a>Disparar verificações de conformidade usando a ação do GitHub
 

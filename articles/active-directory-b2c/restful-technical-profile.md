@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: eb6d82019cccd1da327461cb0a0635aea4f3647f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386843"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102174964"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -225,6 +225,9 @@ Se o tipo de autenticação for definido como `ApiKeyHeader`, o elemento **Crypt
 | --------- | -------- | ----------- |
 | O nome do cabeçalho HTTP, como `x-functions-key` , ou `x-api-key` . | Sim | A chave que é usada para autenticar. |
 
+> [!NOTE]
+> Neste momento, Azure AD B2C dá suporte a apenas um cabeçalho HTTP para autenticação. Se sua chamada RESTful exigir vários cabeçalhos, como uma ID do cliente e um segredo do cliente, você precisará fazer o proxy da solicitação de alguma maneira.
+
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -290,4 +293,3 @@ Confira os seguintes artigos para obter exemplos de como usar um perfil técnico
 - [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário](custom-policy-rest-api-claims-validation.md)
 - [Passo a passo: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C](custom-policy-rest-api-claims-validation.md)
 - [Proteger seus serviços de API REST](secure-rest-api.md)
-

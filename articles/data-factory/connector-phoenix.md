@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b0919e1da93f0cf0a5d27e541493b724d2fa5f0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374313"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 

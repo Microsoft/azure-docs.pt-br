@@ -3,18 +3,20 @@ title: Extensão de Diagnóstico do Azure para Windows
 description: Monitorar VMs do Windows no Azure usando a Extensão de Diagnóstico do Azure
 author: johnkemnetz
 manager: ashwink
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c981214c69653b3a4a687a861cb348f3587def7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e703a8f91f18467660ef7e1b91fdb034feeb00b1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078751"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102549525"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de Diagnóstico do Azure para Windows
 
@@ -34,7 +36,7 @@ A Extensão de Diagnóstico do Azure para requer que a máquina virtual de desti
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-[Os valores de propriedade e o esquema da Extensão de Diagnóstico do Azure são descritos neste documento.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+[Os valores de propriedade e o esquema da Extensão de Diagnóstico do Azure são descritos neste documento.](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
@@ -81,12 +83,12 @@ Dados sobre o estado das implantações de extensão podem ser recuperados do Po
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Consulte este artigo](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obter um guia de solução de problemas mais abrangente para a extensão de Diagnóstico do Azure.
+[Consulte este artigo](../../azure-monitor/agents/diagnostics-extension-troubleshooting.md) para obter um guia de solução de problemas mais abrangente para a extensão de Diagnóstico do Azure.
 
 ### <a name="support"></a>Suporte
 
 Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre a Extensão de Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Examine o esquema e as versões de extensão](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
+* [Saiba mais sobre a Extensão de Diagnóstico do Azure](../../azure-monitor/agents/diagnostics-extension-overview.md)
+* [Examine o esquema e as versões de extensão](../../azure-monitor/agents/diagnostics-extension-schema-windows.md)

@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
 ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746517"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ associações para Azure Functions visão geral
@@ -21,7 +21,7 @@ ms.locfileid: "97746517"
 
 Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio de [gatilhos e associações](./functions-triggers-bindings.md). A extensão Azure Functions RabbitMQ permite que você envie e receba mensagens usando a API RabbitMQ com funções.
 
-| Ação | Tipo |
+| Ação | Type |
 |---------|---------|
 | Executar uma função quando uma mensagem RabbitMQ chegar à fila | [Gatilho](./functions-bindings-rabbitmq-trigger.md) |
 | Enviar mensagens RabbitMQ |[Associação de saída](./functions-bindings-rabbitmq-output.md) |
@@ -34,7 +34,7 @@ Para começar a desenvolver com essa extensão, verifique se você [configurou p
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Linguagem                                        | Adicionar por...                                   | Comentários
+| Idioma                                        | Adicionar por...                                   | Comentários
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |

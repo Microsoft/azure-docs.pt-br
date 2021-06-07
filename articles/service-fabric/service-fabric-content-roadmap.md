@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Saiba mais sobre os principais conceitos e as principais áreas do Azure Service Fabric. Fornece uma visão geral estendida do Service Fabric e como criar microsserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 011ddf5db1555e83a1a61a349cc19ed791ab900b
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c709abe1087a9cc69c9e6e23cd1ff344a3dbebd2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526759"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589040"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -69,7 +69,7 @@ O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços
 ### <a name="containers"></a>Contêineres
 Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em [contêineres](service-fabric-containers-overview.md). É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo. O Service Fabric dá suporte à implantação de contêineres do Linux e do Windows no Windows Server 2016. Você pode implantar aplicativos existentes, serviços sem monitoração de estado ou serviços com estado em contêineres. 
 
-### <a name="reliable-services"></a>Serviços confiáveis
+### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) é uma estrutura leve para escrever serviços que se integram à plataforma de Service Fabric e se beneficiam do conjunto completo de recursos de plataforma. O Reliable Services pode ser sem monitoração de estado (semelhante à maioria das plataformas de serviço, como servidores Web ou Funções de Trabalho nos Serviços de Nuvem do Azure), em que o estado é persistido em uma solução externa, como o BD do Azure ou o Armazenamento de Tabelas do Azure. O Reliable Services também pode ser com estado, em que o estado é persistido diretamente no próprio serviço usando Coleções Confiáveis. O estado se torna [altamente disponível](service-fabric-availability-services.md) por meio de replicação e é distribuído por meio de [particionamento](service-fabric-concepts-partitioning.md), tudo gerenciado automaticamente pelo Service Fabric.
 
 ### <a name="reliable-actors"></a>Reliable Actors
@@ -87,7 +87,7 @@ Um [executável convidado](service-fabric-guest-executables-introduction.md) é 
 ## <a name="application-lifecycle"></a>Ciclo de vida do aplicativo
 Semelhante a outras plataformas, um aplicativo no Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, atualização, manutenção e remoção. O Service Fabric dá um excelente suporte ao ciclo de vida completo dos aplicativos em nuvem, desde o desenvolvimento até a implantação, gerenciamento diário, manutenção e possível encerramento. O modelo de serviço permite que várias funções diferentes participem do ciclo de vida do aplicativo de forma independente. O [ciclo de vida de aplicativo do Service Fabric](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e de como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de aplicativo do Service Fabric. 
 
-O ciclo de vida inteiro do aplicativo pode ser gerenciado usando [cmdlets do PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), [comandos CLI](service-fabric-sfctl.md), [c# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [APIs Java](/java/api/overview/azure/servicefabric), e [ APIs REST](/rest/api/servicefabric/). Você também pode configurar pipelines de integração contínua/implantação contínua, usando ferramentas como o [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
+O ciclo de vida inteiro do aplicativo pode ser gerenciado usando [cmdlets do PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps), [comandos CLI](service-fabric-sfctl.md), [c# APIs](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [APIs Java](/java/api/overview/azure/servicefabric), e [ APIs REST](/rest/api/servicefabric/). Você também pode configurar pipelines de integração contínua/implantação contínua, usando ferramentas como o [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster).
 
 ## <a name="test-applications-and-services"></a>Testar aplicativos e serviços
 Para criar serviços que são realmente em escala de nuvem, é essencial verificar se os aplicativos e serviços podem dar suporte a falhas reais. O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Service Fabric. Com o [serviço de análise de falha](service-fabric-testability-overview.md), você pode induzir falhas significativas e executar cenários de teste completos em seus aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.
@@ -160,7 +160,7 @@ Os componentes do Service Fabric apresentam relatórios de integridade prontos p
 
 O Service Fabric fornece várias maneiras de [exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md) agregados no repositório de integridade:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização.
-* Consultas de integridade (por meio do [PowerShell](/powershell/module/ServiceFabric/New-ServiceFabricService), da [CLI](service-fabric-sfctl.md), das [APIs FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient) e das [APIs FabricClient de Java](/java/api/system.fabric), ou das [APIs REST](/rest/api/servicefabric)).
+* Consultas de integridade (por meio do [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps), da [CLI](service-fabric-sfctl.md), das [APIs FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient) e das [APIs FabricClient de Java](/java/api/system.fabric), ou das [APIs REST](/rest/api/servicefabric)).
 * Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, da CLI, das APIs ou de REST).
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico

@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 02abdd752528ce28642b6228648062ed961d5ae3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020580"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102452383"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída dos hubs de eventos de Azure Stream Analytics
 
@@ -37,7 +37,7 @@ A tabela a seguir tem os parâmetros necessários para configurar os fluxos de d
 
 ## <a name="partitioning"></a>Particionamento
 
-O particionamento varia dependendo do alinhamento da partição. Quando a chave de partição de saída do hub de eventos estiver alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições na saída do hub de eventos. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) para enviar eventos para a partição específica. Quando a chave de partição de saída do hub de eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) no **EventHubClient** para enviar eventos para todas as partições de saída. 
+O particionamento varia dependendo do alinhamento da partição. Quando a chave de partição de saída do hub de eventos estiver alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições na saída do hub de eventos. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) para enviar eventos para a partição específica. Quando a chave de partição de saída do hub de eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores será o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync) no **EventHubClient** para enviar eventos para todas as partições de saída. 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 

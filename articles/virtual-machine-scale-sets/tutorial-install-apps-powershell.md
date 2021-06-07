@@ -5,16 +5,15 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.subservice: powershell
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e783f7f0a9be413679e509e4d6124d50bb811821
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c365e83c0208a5105d9396fb788966bbd4643ac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059286"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934573"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -154,14 +153,14 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web. O
 Deixe o navegador da Web aberto para que você possa ver uma versão atualizada na próxima etapa.
 
 
-## <a name="update-app-deployment"></a>Atualizar a implantação do aplicativo
+## <a name="update-app-deployment&quot;></a>Atualizar a implantação do aplicativo
 Em todo o ciclo de vida de um conjunto de dimensionamento, talvez seja necessário implantar uma versão atualizada de seu aplicativo. Com a Extensão de Script Personalizado, você pode fazer referência a um script de implantação atualizado e, em seguida, aplicar novamente a extensão ao seu conjunto de dimensionamento. Quando o conjunto de dimensionamento foi criado em uma etapa anterior, o `-UpgradePolicyMode` foi definido como *Automático*. Essa configuração permite que as instâncias de VM no conjunto de dimensionamento se atualizem automaticamente e apliquem a versão mais recente de seu aplicativo.
 
 Crie uma nova definição de configuração denominada *customConfigv2*. Essa definição executa uma versão *v2* atualizada do script de instalação do aplicativo:
 
 ```azurepowershell-interactive
 $customConfigv2 = @{
-  "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis-v2.ps1");
+  &quot;fileUris&quot; = (,&quot;https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis-v2.ps1");
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis-v2.ps1"
 }
 ```

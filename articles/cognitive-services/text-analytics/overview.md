@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/17/2020
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: mineração de texto, análise de sentimentos, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b586478b6b3943fb0154ed6c50bade6fd8b08b76
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563221"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219494"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
 A API de Análise de Texto é um serviço baseado em nuvem que fornece recursos de NLP (Processamento de Idioma Natural) para mineração e análise de texto, incluindo análise de sentimento, mineração de opiniões, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
-A API faz parte dos [Serviços Cognitivos do Azure](../index.yml), uma coleção de algoritmos de IA e aprendizado de máquina na nuvem para seus projetos de desenvolvimento. Use esses recursos com a [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou a [biblioteca de clientes](quickstarts/client-libraries-rest-api.md).
+A API faz parte dos [Serviços Cognitivos do Azure](../index.yml), uma coleção de algoritmos de IA e aprendizado de máquina na nuvem para seus projetos de desenvolvimento. Você pode usar esses recursos com a API REST [versão 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/), a [versão prévia 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/) ou a [biblioteca de clientes](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
+
+Esta documentação contém os seguintes tipos de artigos:
+* Os [inícios rápidos](./quickstarts/client-libraries-rest-api.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados em um período curto. 
+* Os [guias de instruções](./how-tos/text-analytics-how-to-call-api.md) contêm instruções de uso do serviço de maneiras mais específicas ou personalizadas.
+* Os [conceitos](text-analytics-user-scenarios.md) fornecem explicações detalhadas sobre a funcionalidade e os recursos do serviço.
+* Os [tutoriais](./tutorials/tutorial-power-bi-key-phrases.md) são guias mais longos que mostram como usar o serviço como um componente de soluções de negócios mais amplas.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 
@@ -33,7 +39,7 @@ Use a [análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.
 
 O recurso fornece rótulos de sentimentos (como "negativo", "neutro" e "positivo") com base na pontuação de confiança mais alta encontrada pelo serviço em um nível de frase e documento. Esse recurso também retorna pontuações de confiança entre 0 e 1 para cada documento e frase dentro dele para um sentimento positivo, neutro e negativo. Execute também o serviço no local [usando um contêiner](how-tos/text-analytics-how-to-install-containers.md).
 
-Começando na versão prévia v3.1, a mineração de opiniões é um recurso da Análise de Sentimento. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
+Começando na versão prévia v3.1, a mineração de opiniões é um recurso da Análise de Sentimento. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a palavras (como os atributos de produtos ou serviços) no texto.
 
 ## <a name="key-phrase-extraction"></a>Extração de frases-chave
 

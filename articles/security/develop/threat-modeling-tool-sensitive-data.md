@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518117"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
@@ -449,7 +449,7 @@ A configuração mostrada abaixo define o modo de segurança como None.
 
 ### <a name="example"></a>Exemplo
 Há cinco modos de segurança disponíveis para todas as associações de serviço, são eles: 
-* nenhuma. desativa a segurança. 
+* Nenhum. desativa a segurança. 
 * Transport: usa a segurança de transporte para a proteção de autenticações e mensagens. 
 * Message. usa a segurança de mensagem para a proteção de autenticações e mensagens. 
 * Both: permite que você defina configurações de transporte e mensagem (somente o MSMQ oferece suporte a esse modo). 

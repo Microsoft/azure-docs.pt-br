@@ -2,20 +2,20 @@
 title: 'Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)'
 description: Este guia de início rápido usa o portal do Azure para configurar um aplicativo que foi registrado com seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: kenwith
-ms.openlocfilehash: e83caba2d2a5435c5cdac02c6f63094dc079c43c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: 3b7a5d88aa40422dc46c6ca2c1681447cb030ea4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379512"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 

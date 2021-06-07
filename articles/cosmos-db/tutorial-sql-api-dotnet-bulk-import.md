@@ -6,15 +6,15 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 03/15/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1c178f57a31e02b3dac712a5425db226720200c5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548062"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563599"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 [Crie uma conta da API do SQL do Azure Cosmos DB](create-cosmosdb-resources-portal.md) no portal do Azure portal. Você também pode criar a conta usando o [Emulador do Azure Cosmos DB](local-emulator.md).
 
-## <a name="step-2-set-up-your-net-project"></a>Etapa 2: Configurar seu projeto .NET
+## <a name="step-2-set-up-your-net-project"></a>Etapa 2: Configurar o projeto .NET
 
 Abra o prompt de comando do Windows ou uma janela do Terminal no computador local. Você executará todos os comandos nas próximas seções no prompt de comando ou no terminal. Execute o novo comando dotnet a seguir para criar um novo aplicativo com o nome *bulk-import-demo*. O parâmetro `--langVersion` define a propriedade *LangVersion* no arquivo de projeto criado.
 
@@ -90,7 +90,7 @@ O aplicativo de exemplo precisa autenticar sua conta do Azure Cosmos. Para auten
 
 Se você estiver usando o Emulador do Azure Cosmos DB, obtenha as [credenciais do emulador deste artigo](local-emulator.md#authenticate-requests).
 
-## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Etapa 5: Inicializar o objeto CosmosClient com suporte a execução em massa
+## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Etapa 5: Inicializar o objeto CosmosClient com suporte para execução em massa
 
 Abra o arquivo `Program.cs` gerado em um editor de código. Você criará uma instância do CosmosClient com a execução em massa habilitada e a usará para realizar operações em relação ao Azure Cosmos DB. 
 
@@ -112,7 +112,7 @@ Vamos começar substituindo o método `Main` padrão e definindo as variáveis g
         private const string AuthorizationKey = "<your-account-key>";
         private const string DatabaseName = "bulk-tutorial";
         private const string ContainerName = "items";
-        private const int ItemsToInsert = 300000;
+        private const int AmountToInsert = 300000;
 
         static async Task Main(string[] args)
         {
@@ -150,20 +150,17 @@ Em seguida, crie uma função auxiliar dentro da classe `Program`. Esta função
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
-Leia os itens e os serialize em instâncias de fluxo usando a classe `System.Text.Json`. Devido à natureza dos dados gerados automaticamente, você serializará os dados como fluxos. Você também pode usar a instância de item diretamente, mas ao convertê-los em fluxos, você aproveita o desempenho das APIs do fluxo no CosmosClient. Normalmente, você pode usar os dados diretamente desde que conheça a chave de partição. 
-
-
-Para converter os dados em instâncias de fluxo, no método `Main`, adicione o seguinte código logo após criar o contêiner:
+Use a função auxiliar para inicializar uma lista de documentos com os quais trabalhar:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
-Em seguida, use os fluxos de dados para criar tarefas simultâneas e preencha a lista de tarefas para inserir os itens no contêiner. Para executar essa operação, adicione o código a seguir à classe `Program`:
+Em seguida, use a lista de documentos para criar tarefas simultâneas e preencha a lista de tarefas para inserir os itens no contêiner. Para executar essa operação, adicione o código a seguir à classe `Program`:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
 Todas essas operações de ponto simultâneas serão executadas em conjunto (ou seja, em massa) conforme descrito na seção de introdução.
 
-## <a name="step-7-run-the-sample"></a>Etapa 7: Execute o exemplo
+## <a name="step-7-run-the-sample"></a>Etapa 7: Executar o exemplo
 
 Você pode executar o exemplo simplesmente pelo comando `dotnet`:
 

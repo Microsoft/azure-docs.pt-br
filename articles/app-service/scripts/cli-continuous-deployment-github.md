@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Implantação contínua no GitHub'
+title: 'CLI: implantação contínua no GitHub'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como criar um aplicativo com a CI/CD no GitHub.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 09/02/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 2147976ae73f93e6f451dbd871ead865e2331455
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: b67d05951a4fc1a0ed2d625b2406ca5d0bc0fe34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006304"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762291"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Como criar um aplicativo do Serviço de Aplicativo com a implantação contínua do GitHub usando a CLI
 
@@ -41,10 +41,10 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config) | Associa um aplicativo do Serviço de Aplicativo a um repositório Git ou Mercurial. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) | Associa um aplicativo do Serviço de Aplicativo a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 3d102b492326971ef186ba50a557ad8d1df5b6ec
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92454185"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Egnyte
@@ -50,15 +50,15 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 Para configurar a integração do Egnyte ao Azure AD, você precisará adicionar o Egnyte da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **Egnyte** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **Egnyte** na caixa de pesquisa.
 1. Selecione **Egnyte** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Egnyte, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Egnyte, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Egnyte.
 
 Para configurar e testar o logon único do Azure AD com o Egnyte, você precisa concluir os seguintes blocos de construção:
@@ -76,13 +76,13 @@ Para configurar e testar o SSO do Azure AD com o Egnyte, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Egnyte** , localize a seção **Gerenciar** e escolha **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Egnyte**, localize a seção **Gerenciar** e escolha **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de domínio único do Egnyte Domain e URLs](common/sp-signonurl.png)
 
@@ -93,11 +93,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize-os com as URLs de Logon e de Resposta. Contate a [equipe de suporte ao cliente do Egnyte](https://www.egnyte.com/corp/contact_egnyte.html) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-5. Na seção **Configurar o Egnyte** , copie as URLs apropriadas de acordo com suas necessidades.
+5. Na seção **Configurar o Egnyte**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -111,65 +111,65 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure dando a ela acesso ao Egnyte.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Egnyte** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Egnyte**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-egnyte-sso"></a>Configurar o SSO do Egnyte
 
 1. Em uma janela diferente do navegador da Web, entre no site da empresa do Egnyte como administrador.
 
-2. Clique em **Configurações** .
+2. Clique em **Configurações**.
    
     ![Configurações 1](./media/egnyte-tutorial/ic787819.png "Configurações")
 
-3. No menu, clique em **Configurações** .
+3. No menu, clique em **Configurações**.
 
     ![Configurações](./media/egnyte-tutorial/ic787820.png "Configurações")
 
-4. Clique na guia **Configuração** e, depois, em **Segurança** .
+4. Clique na guia **Configuração** e, depois, em **Segurança**.
 
     ![Segurança](./media/egnyte-tutorial/ic787821.png "Segurança")
 
-5. Na seção **Autenticação do Logon Único** , faça o seguinte:
+5. Na seção **Autenticação do Logon Único**, faça o seguinte:
 
     ![Autenticação de Logon Único](./media/egnyte-tutorial/ic787822.png "Autenticação de Logon Único")   
     
-    a. Em **Autenticação do logon único** , selecione **SAML 2.0** .
+    a. Em **Autenticação do logon único**, selecione **SAML 2.0**.
    
-    b. Como **Provedor de identidade** , selecione **AzureAD** .
+    b. Como **Provedor de identidade**, selecione **AzureAD**.
    
-    c. Cole o **URL de login** copiado do portal do Azure na caixa de texto **URL de login do provedor de identidade** .
+    c. Cole o **URL de login** copiado do portal do Azure na caixa de texto **URL de login do provedor de identidade**.
    
-    d. Cole o **Identificador do Azure AD** que você copiou do portal do Azure na caixa de texto **Identidade da entidade do provedor de identidade** .
+    d. Cole o **Identificador do Azure AD** que você copiou do portal do Azure na caixa de texto **Identidade da entidade do provedor de identidade**.
       
-    e. Abra seu certificado codificado em base-64 no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade** .
+    e. Abra seu certificado codificado em base-64 no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade**.
    
-    f. Como **Mapeamento de usuário padrão** , selecione **Endereço de email** .
+    f. Como **Mapeamento de usuário padrão**, selecione **Endereço de email**.
    
-    g. Como **Usar o valor do emissor especificado pelo domínio** , selecione **desabilitado** .
+    g. Como **Usar o valor do emissor especificado pelo domínio**, selecione **desabilitado**.
    
     h. Clique em **Save** (Salvar).
 
@@ -181,21 +181,21 @@ Para permitir que os usuários do Azure AD entrem no Egnyte, eles deverão ser p
 
 1. Entre o site da empresa do **Egnyte** como administrador.
 
-2. Vá para **Configurações \> Usuários e Grupos** .
+2. Vá para **Configurações \> Usuários e Grupos**.
 
 3. Clique em **Adicionar Novo Usuário** e, em seguida, selecione o tipo de usuário que você deseja adicionar.
    
     ![Usuários](./media/egnyte-tutorial/ic787824.png "Usuários")
 
-4. Na seção **Novo Usuário Avançado** , execute as seguintes etapas:
+4. Na seção **Novo Usuário Avançado**, execute as seguintes etapas:
     
     ![Novo Usuário Padrão](./media/egnyte-tutorial/ic787825.png "Novo Usuário Padrão")   
 
-    a. Na caixa de texto **Email** , insira o email do usuário como **Brendafernandes\@contoso.com** .
+    a. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
-    b. Na caixa de texto **Username** , insira o nome de usuário como **Brittasimon** .
+    b. Na caixa de texto **Username**, insira o nome de usuário como **Brittasimon**.
 
-    c. Selecione **logon único** como **tipo de autenticação** .
+    c. Selecione **logon único** como **tipo de autenticação**.
    
     d. Clique em **Save** (Salvar).
     

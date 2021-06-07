@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94710e99fa7d04d757f2ad5fd7b2d3f6e01371d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306324"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mover o banco de dados do Azure AD Connect do SQL Server Express para o SQL Server 
@@ -60,7 +60,7 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
     ![Captura de tela da caixa de diálogo pop-up "uma conta da floresta D" com a "criar nova conta D" selecionada.](./media/how-to-connect-install-move-db/db7.png)
  
 
-16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Avançar**.
+16. Depois que as credenciais são fornecidas, o ícone de cruz vermelha é substituído por um ícone de tique verde. Clique em **Próximo**.
     ![Captura de tela que mostra a página "conectar seus diretórios" depois de inserir as credenciais da conta.](./media/how-to-connect-install-move-db/db8.png)
  
 

@@ -4,10 +4,10 @@ description: Este artigo é uma introdução ao uso de Gerenciamento de API do A
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 32f47d62cc9dda7cc88421dbf616bf69ffe152fc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575679"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure

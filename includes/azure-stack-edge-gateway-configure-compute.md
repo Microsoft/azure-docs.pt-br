@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/07/2021
 ms.author: alkohli
 ms.openlocfilehash: c51577882e75facb1d8eb03c7cfab82467c5ec51
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99524727"
 ---
 Para configurar a computação no Azure Stack Edge Pro, você criará um recurso do Hub IoT do meio do portal do Azure.

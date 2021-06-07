@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91567818"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -88,7 +88,7 @@ Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/back
 |eTag     |         |   String      |  eTag Opcional       |
 |local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|tags     |         | Objeto        |     Marcações de recursos    |
+|marcas     |         | Objeto        |     Marcações de recursos    |
 
 #### <a name="example-request-body"></a>Exemplo do corpo de solicitação
 
@@ -107,7 +107,7 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

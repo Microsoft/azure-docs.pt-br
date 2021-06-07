@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93305964"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
@@ -91,9 +91,9 @@ Nas etapas a seguir, você implanta o armazenamento da análise, que é chamado 
 2. Defina a variável $DemoScenario no script para coincidir com sua escolha de repositório de análise:
     - Para usar o Banco de Dados SQL sem o repositório de colunas, defina **$DemoScenario** = **2**
     - Para usar o Banco de Dados SQL com o repositório de colunas, defina **$DemoScenario** = **3**  
-3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics\<XX>.ps1* ) que cria o repositório de análise de locatário. 
+3. Pressione **F5** para executar o script de demonstração (que chama o script *Deploy-TenantAnalytics\<XX>.ps1*) que cria o repositório de análise de locatário. 
 
-Agora que você implantou o aplicativo e o preencheu com os dados de locatário interessantes, use o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) para conectar servidores **tenants1-dpt-&lt;User&gt;** e **catalog-dpt-&lt;User&gt;** usando Login = *developer* , Password = *P\@ssword1*. Veja o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
+Agora que você implantou o aplicativo e o preencheu com os dados de locatário interessantes, use o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) para conectar servidores **tenants1-dpt-&lt;User&gt;** e **catalog-dpt-&lt;User&gt;** usando Login = *developer*, Password = *P\@ssword1*. Veja o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter instruções.
 
 ![Captura de tela que mostra as informações necessárias para se conectar ao SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -107,7 +107,7 @@ No Pesquisador de Objetos, execute as seguintes etapas:
 Veja os seguintes itens de banco de dados no Pesquisador de Objetos do SSMS expandindo o nó de armazenamento de análise:
 
 - As tabelas **TicketsRawData** e **EventsRawData** contêm dados brutos extraídos dos bancos de dados de locatário.
-- As tabelas de esquema em estrela são **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** e **dim_Dates**.
+- As tabelas de esquema em estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
 - O procedimento armazenado é usado para popular as tabelas de esquema em estrela das tabelas de dados brutos.
 
 ![Captura de tela dos itens de banco de dados mostrados no Pesquisador de Objetos do SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -170,7 +170,7 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
 1. Inicie o Power BI desktop.
 2. Na faixa de opções Página Inicial, selecione **Obter Dados** e **Mais...**  no menu.
-3. Na janela **Obter Dados** , selecione Banco de Dados SQL do Azure.
+3. Na janela **Obter Dados**, selecione Banco de Dados SQL do Azure.
 4. Na janela de logon do banco de dados, digite o nome do servidor (catalog-dpt-&lt;User&gt;.database.windows.net). Selecione **Importar** para **Modo de Conectividade de Dados** e clique em OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
@@ -179,7 +179,7 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
     ![A captura de tela mostra a caixa de diálogo do banco de dados do SQL Server em que você pode inserir um nome de usuário e uma senha.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. No painel **Navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **Carregar**. 
+6. No painel **Navegador**, no banco de dados de análise, selecione as tabelas de esquema em estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **Carregar**. 
 
 Parabéns! Você carregou com êxito os dados no Power BI. Agora você pode começar a explorar visualizações interessantes para ajudar a obter ideias sobre os locatários. Em seguida, você vê como a análise pode permitir o fornecimento de recomendações controladas por dados para a equipe de negócios de Wingtip Tickets. As recomendações podem ajudar a otimizar a experiência de atendimento ao cliente e o modelo de negócios.
 
@@ -209,7 +209,7 @@ A plotagem anterior da Contoso Concert Hall mostra que a grande demanda não oco
 
 As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip possa introduzir as camadas de serviço com diferentes tamanhos da computação. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
 
-Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold** :
+Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )

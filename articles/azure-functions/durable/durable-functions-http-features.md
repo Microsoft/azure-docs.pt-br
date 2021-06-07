@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 64d40de50f21811a56318971de1836abc8fbf8c9
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027254"
 ---
 # <a name="http-features"></a>Recursos de HTTP
@@ -57,7 +57,7 @@ A [Associação de cliente de orquestração](durable-functions-bindings.md#orch
 
 # <a name="python"></a>[Python](#tab/python)
 
-**__init__ . py**
+**__init__. py**
 
 ```python
 import logging
@@ -140,7 +140,7 @@ Para obter uma descrição de todas as APIs HTTP internas, consulte a [referênc
 
 ### <a name="async-operation-tracking"></a>Acompanhamento de operação assíncrona
 
-A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem* . O fluxo de cliente/servidor funciona da seguinte maneira:
+A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem*. O fluxo de cliente/servidor funciona da seguinte maneira:
 
 1. O cliente emite uma solicitação HTTP para iniciar um processo de execução longa, como uma função de orquestrador.
 1. O gatilho HTTP de destino retorna uma resposta HTTP 202 com um cabeçalho Location que tem o valor "statusQueryGetUri".

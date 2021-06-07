@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530025"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579221"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para dispositivos iOS específicos usando os hubs de notificação do Azure
 
@@ -125,8 +125,6 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 

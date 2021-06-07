@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542806"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99820222"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Mover os recursos do Banco de Dados SQL do Azure para outra região
 
@@ -272,8 +272,11 @@ Concluindo a movimentação de bancos de dados e de pools elásticos da seguinte
 
 Após a movimentação, você terá a opção de excluir os recursos da região de origem. 
 
+> [!NOTE]
+> Servidores do SQL Server não podem ser excluídos do portal e precisam ser excluídos da página de propriedades do recurso.
+
 1. Em **Entre regiões**, clique no nome de cada recurso de origem que deseja excluir.
-2. Na página de propriedades de cada recurso, selecione **Excluir**.
+2. Selecione **Excluir origem**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

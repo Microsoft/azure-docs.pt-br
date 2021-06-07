@@ -1,18 +1,14 @@
 ---
 title: Controlar qual tráfego é monitorado
 description: Os sensores executam automaticamente a detecção profunda de pacotes para ti e ficam sobre o tráfego e resolvem informações sobre dispositivos de rede, como atributos de dispositivo e comportamento de rede. Várias ferramentas estão disponíveis para controlar o tipo de tráfego que cada sensor detecta.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522386"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784434"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar qual tráfego é monitorado
 
@@ -295,7 +291,7 @@ Para exibir os resultados da verificação:
 
 1. Quando a verificação for concluída, no painel **ações** , selecione **exibir resultados da verificação**. O arquivo CSV com os resultados da verificação é baixado em seu computador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Investigar detecções de sensor em um inventário](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  de dispositivos [Investigar as detecções do sensor no mapa do dispositivo](how-to-work-with-the-sensor-device-map.md)

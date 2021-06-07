@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387352"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
@@ -89,7 +89,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do DB2, tem a seguinte propriedade:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -311,7 +311,7 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |Datetime |
+| Data |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
@@ -337,7 +337,7 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
-| Data |Datetime |
+| Data |DateTime |
 | Hora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/05/2021
 ms.topic: conceptual
 ms.openlocfilehash: 915a0d75622a98b33f647041f3c3b622cb5236b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99053713"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Enviar um email de um runbook
@@ -99,8 +99,8 @@ Depois de criar um cofre de chaves e armazenar sua chave de API do `SendGrid`, Ã
 
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
     Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Out-Null
-    $VaultName = "<Enter your vault name>"
-    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name "SendGridAPIKey").SecretValue
+    $VaultName = "<Enter your vault name>&quot;
+    $SENDGRID_API_KEY = (Get-AzKeyVaultSecret -VaultName $VaultName -Name &quot;SendGridAPIKey").SecretValue
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Authorization", "Bearer " + $SENDGRID_API_KEY)
     $headers.Add("Content-Type", "application/json")

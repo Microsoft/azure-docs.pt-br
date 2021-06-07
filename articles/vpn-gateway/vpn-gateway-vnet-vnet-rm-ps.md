@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7de83302dd91d7d679b9c35718d184a9767ba436
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655350"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
@@ -364,7 +364,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Crie um novo grupo de recursos.
+3. Criar um grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5

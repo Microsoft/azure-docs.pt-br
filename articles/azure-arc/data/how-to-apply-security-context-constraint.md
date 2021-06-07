@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 01/15/2021
 ms.topic: how-to
 ms.openlocfilehash: a6751a9ff96b82f9d4fdaacd449c8a766afaa381
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98697767"
 ---
 # <a name="apply-a-security-context-constraint-for-azure-arc-enabled-data-services-on-openshift"></a>Aplicar uma restrição de contexto de segurança para os serviços de dados habilitados para o Azure Arc no OpenShift

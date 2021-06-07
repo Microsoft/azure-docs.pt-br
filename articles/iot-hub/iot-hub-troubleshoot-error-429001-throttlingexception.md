@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545354"
 ---
 # <a name="429001-throttlingexception"></a>429001 ExceçãoLimitação
@@ -21,7 +21,7 @@ Este artigo descreve as causas e soluções para erros **429001 de limitaçãoex
 
 ## <a name="symptoms"></a>Sintomas
 
-Suas solicitações ao Hub IoT falham com o erro **429001 regulaexception** .
+Suas solicitações ao Hub IoT falham com o erro **429001 regulaexception**.
 
 ## <a name="cause"></a>Causa
 

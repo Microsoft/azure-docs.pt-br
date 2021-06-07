@@ -2,15 +2,15 @@
 title: Criar e implantar especificações de modelo
 description: Descreve como criar especificações de modelo e compartilhá-las com outros usuários em sua organização.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/26/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734908"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626077"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo de Azure Resource Manager (versão prévia)
 
@@ -25,9 +25,16 @@ Para implantar a especificação do modelo, você usa ferramentas padrão do Azu
 
 ## <a name="why-use-template-specs"></a>Por que usar as especificações de modelo?
 
-Se, no momento, você tiver seus modelos em um repositório GitHub ou em uma conta de armazenamento, você terá vários desafios ao tentar compartilhar e usar os modelos. Para que um usuário o implante, o modelo deve ser local ou a URL para o modelo deve ser acessível publicamente. Para contornar essa limitação, você pode compartilhar cópias do modelo com usuários que precisam implantá-lo ou abrir o acesso ao repositório ou à conta de armazenamento. Quando os usuários possuem cópias locais de um modelo, essas cópias podem eventualmente divergir do modelo original. Ao tornar um repositório ou uma conta de armazenamento acessível publicamente, você pode permitir que usuários indesejados acessem o modelo.
+As especificações de modelo oferecem os seguintes benefícios:
 
-O benefício de usar as especificações de modelo é que você pode criar modelos canônicos e compartilhá-los com equipes em sua organização. As especificações de modelo são seguras porque estão disponíveis para Azure Resource Manager para implantação, mas não podem ser acessadas por usuários sem permissão do RBAC do Azure. Os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
+* Você usa modelos ARM padrão para sua especificação de modelo.
+* Você gerencia o acesso por meio do RBAC do Azure, em vez de tokens SAS.
+* Os usuários podem implantar a especificação do modelo sem ter acesso de gravação ao modelo.
+* Você pode integrar a especificação do modelo ao processo de implantação existente, como o script do PowerShell ou pipeline do DevOps.
+
+As especificações de modelo permitem que você crie modelos canônicos e compartilhe-os com equipes em sua organização. As especificações de modelo são seguras porque estão disponíveis para Azure Resource Manager para implantação, mas não podem ser acessadas por usuários sem a permissão correta. Os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
+
+Se, no momento, você tiver seus modelos em um repositório GitHub ou em uma conta de armazenamento, você terá vários desafios ao tentar compartilhar e usar os modelos. Para implantar o modelo, você precisa tornar o modelo acessível publicamente ou gerenciar o acesso com tokens SAS. Para contornar essa limitação, os usuários podem criar cópias locais, que eventualmente divergem do modelo original. As especificações de modelo simplificam o compartilhamento de modelos.
 
 Os modelos incluídos em uma especificação de modelo devem ser verificados pelos administradores em sua organização para seguir os requisitos e as diretrizes da organização.
 
@@ -184,6 +191,12 @@ az deployment group create \
 
 ---
 
+Você também pode abrir uma URL no seguinte formato para implantar uma especificação de modelo:
+
+```url
+https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsubscriptions%2f{subscription-id}%2fresourceGroups%2f{resource-group-name}%2fproviders%2fMicrosoft.Resources%2ftemplateSpecs%2f{template-spec-name}%2fversions%2f{template-spec-version}
+```
+
 ## <a name="parameters"></a>Parâmetros
 
 A passagem de parâmetros para a especificação do modelo é exatamente como passar parâmetros para um modelo do ARM. Adicione os valores de parâmetro embutidos ou em um arquivo de parâmetro.
@@ -245,6 +258,78 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="versioning"></a>Controle de versão
+
+Ao criar uma especificação de modelo, você fornece um nome de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o nome da versão que desejam usar ao implantá-lo.
+
+## <a name="use-tags"></a>Usar marcações
+
+As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Você pode adicionar marcas às especificações de modelo usando Azure PowerShell e CLI do Azure:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Ao criar ou modificar uma especificação de modelo com o parâmetro de versão especificado, mas sem o parâmetro tag/Tags:
+
+- Se a especificação do modelo existir e tiver marcas, mas a versão não existir, a nova versão herdará as mesmas marcas da especificação do modelo existente.
+
+Ao criar ou modificar uma especificação de modelo com o parâmetro de marca/marcas e o parâmetro de versão especificado:
+
+- Se a especificação do modelo e a versão não existirem, as marcas serão adicionadas à nova especificação do modelo e à nova versão.
+- Se a especificação do modelo existir, mas a versão não existir, as marcas serão adicionadas somente à nova versão.
+- Se a especificação do modelo e a versão existirem, as marcas se aplicarão somente à versão.
+
+Ao modificar um modelo com o parâmetro de marca/marcas especificado, mas sem o parâmetro de versão especificado, as marcas só são adicionadas à especificação do modelo.
 
 ## <a name="create-a-template-spec-with-linked-templates"></a>Criar uma especificação de modelo com modelos vinculados
 
@@ -331,10 +416,6 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
 ```
 
 Para obter mais informações sobre como vincular especificações de modelo, consulte [tutorial: implantar uma especificação de modelo como um modelo vinculado](template-specs-deploy-linked-template.md).
-
-## <a name="versioning"></a>Controle de versão
-
-Ao criar uma especificação de modelo, você fornece um nome de versão para ela. À medida que você itera o código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de caracteres de texto. Você pode optar por seguir qualquer sistema de controle de versão, incluindo controle de versão semântico. Os usuários da especificação do modelo podem fornecer o nome da versão que desejam usar ao implantá-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

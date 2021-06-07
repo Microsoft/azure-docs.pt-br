@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integração do Active Directory do Azure com o Wikispaces
@@ -176,17 +176,17 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-wikispaces-test-user"></a>Criação de um usuário de teste do Wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Criação de um usuário de teste do Wikispaces
 
 Para permitir que os usuários do Azure AD façam logon no Wikispaces, eles devem ser provisionados no Wikispaces. No caso do Wikispaces, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Para provisionar contas de usuário, execute as seguintes etapas:
 
 1. Faça logon no site da sua empresa **Wikispaces** como um administrador.
 
 2. Vá para **Membros**.
    
-    ![Membros](./media/wikispaces-tutorial/ic787193.png "Membros")
+    ![Membros](./media/wikispaces-tutorial/ic787193.png &quot;Membros")
 
 3. Clique em **Convidar Pessoas**.
    

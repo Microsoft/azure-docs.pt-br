@@ -1,22 +1,18 @@
 ---
 title: Criar seu primeiro data factory (portal do Azure)
 description: Neste tutorial, crie um pipeline de exemplo do Azure Data Factory usando o Data Factory Editor no portal do Azure.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4e19991de20b130b878a230313d87ca09d31a84e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 9794aa0750a886803aac3fec7622f6b3770acf9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556436"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104785573"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]

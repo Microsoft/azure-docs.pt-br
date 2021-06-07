@@ -2,18 +2,19 @@
 title: Cenários de Azure Disk Encryption em VMs Windows
 description: Este artigo fornece instruções sobre como habilitar a criptografia de disco Microsoft Azure para VMs do Windows para vários cenários
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: a01d5f48ca3b10f4c49ee621398ae87392dc34a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781106"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103493451"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
@@ -151,7 +152,7 @@ Para habilitar a criptografia em discos do NVMe:
 
 A criptografia persistirá nos discos de NVMe nos seguintes cenários:
 - Reinicialização da VM
-- Refazer imagem do VMSS
+- Reimagem do conjunto de dimensionamento de máquinas virtuais
 - Sistema operacional de permuta
 
 Os discos de NVMe não serão inicializados nos seguintes cenários:
@@ -260,13 +261,11 @@ Azure Disk Encryption não funciona para os seguintes cenários, recursos e tecn
 - Contêineres do Windows Server, que criam volumes dinâmicos para cada contêiner.
 - Discos do SO Efêmero.
 - Criptografia de sistemas de arquivos compartilhados/distribuídos como (mas não se limitando a) DFS, GFS, DRDB e CephFS.
-- Movendo VMs criptografadas para outra assinatura ou região.
+- Movendo uma VM criptografada para outra assinatura ou região.
 - Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
-- VMs Gen2 (consulte: [suporte para VMs de geração 2 no Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos Acelerador de Gravação.
 - Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
 - Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).
-- [Tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md); especificamente, DV4, Dsv4, Ev4 e Esv4.
 - Criptografia de VMs em clusters de failover.
 
 ## <a name="next-steps"></a>Próximas etapas

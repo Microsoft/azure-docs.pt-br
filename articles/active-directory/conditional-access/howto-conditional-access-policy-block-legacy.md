@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98877281"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
@@ -46,7 +46,7 @@ As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de Acesso Condicional ](concept-conditional-access-policy-common.md)
+[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
 [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 

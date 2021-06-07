@@ -11,26 +11,22 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 3c52d4d80fd3c77cff5e335967fc9d109212ce29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582883"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578423"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
 Saiba como configurar o código para seu aplicativo daemon que chama APIs da Web.
 
-## <a name="msal-libraries-that-support-daemon-apps"></a>Bibliotecas MSAL que dão suporte a aplicativos daemon
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>Microsoft Libraries com suporte a aplicativos daemon
 
-Essas bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
+As seguintes bibliotecas da Microsoft oferecem suporte a aplicativos de daemon:
 
-  Biblioteca MSAL | Descrição
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core têm suporte para a criação de aplicativos daemon. (UWP, Xamarin. iOS e Xamarin. Android não têm suporte porque essas plataformas são usadas para criar aplicativos cliente públicos.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Suporte para aplicativos daemon em Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Suporte para aplicativos daemon em Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## <a name="configure-the-authority"></a>Configurar a autoridade
 
@@ -71,6 +67,30 @@ Aqui está um exemplo de como definir a configuração em um [*appsettings.jsno*
 
 Você fornece um `ClientSecret` ou um `CertificateName` . Essas configurações são exclusivas.
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+ private final static String CLIENT_ID = "";
+ private final static String AUTHORITY = "https://login.microsoftonline.com/<tenant>/";
+ private final static String CLIENT_SECRET = "";
+ private final static Set<String> SCOPE = Collections.singleton("https://graph.microsoft.com/.default");
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Os parâmetros de configuração para o [ exemplo de daemon deNode.js](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) estão localizados em um arquivo *. env* :
+
+```Text 
+# Credentials
+TENANT_ID=Enter_the_Tenant_Info_Here
+CLIENT_ID=Enter_the_Application_Id_Here
+CLIENT_SECRET=Enter_the_Client_Secret_Here
+
+# Endpoints
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Quando você cria um cliente confidencial com segredos do cliente, o [parameters.jsno](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) arquivo de configuração no exemplo do [daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon) é o seguinte:
@@ -98,15 +118,6 @@ Quando você cria um cliente confidencial com certificados, o [parameters.jsno](
 }
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
- private final static String CLIENT_ID = "";
- private final static String AUTHORITY = "https://login.microsoftonline.com/<tenant>/";
- private final static String CLIENT_SECRET = "";
- private final static Set<String> SCOPE = Collections.singleton("https://graph.microsoft.com/.default");
-```
-
 ---
 
 ### <a name="instantiate-the-msal-application"></a>Instanciar o aplicativo MSAL
@@ -130,15 +141,6 @@ using Microsoft.Identity.Client;
 IConfidentialClientApplication app;
 ```
 
-# <a name="python"></a>[Python](#tab/python)
-
-```python
-import msal
-import json
-import sys
-import logging
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -149,6 +151,23 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 import com.microsoft.aad.msal4j.IClientCredential;
 import com.microsoft.aad.msal4j.MsalException;
 import com.microsoft.aad.msal4j.SilentParameters;
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Basta instalar os pacotes executando `npm install` na pasta em que *package.jsno* arquivo reside. Em seguida, importe o pacote **MSAL** :
+
+```JavaScript 
+const msal = require('@azure/msal-node');
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import msal
+import json
+import sys
+import logging
 ```
 
 ---
@@ -183,6 +202,41 @@ public string Authority
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+
+ConfidentialClientApplication cca =
+        ConfidentialClientApplication
+                .builder(CLIENT_ID, credential)
+                .authority(AUTHORITY)
+                .build();
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+```JavaScript
+
+const msalConfig = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+    }
+};
+
+const apiConfig = {
+    uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+};
+
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+};
+
+const cca = new msal.ConfidentialClientApplication(msalConfig);
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 ```Python
@@ -197,18 +251,6 @@ app = msal.ConfidentialClientApplication(
                        # You can learn how to use SerializableTokenCache from
                        # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
     )
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
-
-ConfidentialClientApplication cca =
-        ConfidentialClientApplication
-                .builder(CLIENT_ID, credential)
-                .authority(AUTHORITY)
-                .build();
 ```
 
 ---
@@ -226,23 +268,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
-
-# <a name="python"></a>[Python](#tab/python)
-
-```Python
-# Pass the parameters.json file as an argument to this Python script. E.g.: python your_py_file.py parameters.json
-config = json.load(open(sys.argv[1]))
-
-# Create a preferably long-lived app instance that maintains a token cache.
-app = msal.ConfidentialClientApplication(
-    config["client_id"], authority=config["authority"],
-    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
-    # token_cache=...  # Default cache is in memory only.
-                       # You can learn how to use SerializableTokenCache from
-                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
-    )
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 No MSAL Java, há dois construtores para instanciar o aplicativo cliente confidencial com certificados:
@@ -274,6 +299,26 @@ ConfidentialClientApplication cca =
                 .builder(CLIENT_ID, credential)
                 .authority(AUTHORITY)
                 .build();
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+O aplicativo de exemplo não implementa a inicialização com certificados no momento.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+# Pass the parameters.json file as an argument to this Python script. E.g.: python your_py_file.py parameters.json
+config = json.load(open(sys.argv[1]))
+
+# Create a preferably long-lived app instance that maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    config["client_id"], authority=config["authority"],
+    client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
 ```
 
 ---
@@ -313,6 +358,22 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Novamente, para obter detalhes, consulte [declarações do cliente](msal-net-client-assertions.md).
 
+# <a name="java"></a>[Java](#tab/java)
+
+```Java
+IClientCredential credential = ClientCredentialFactory.createFromClientAssertion(assertion);
+
+ConfidentialClientApplication cca =
+        ConfidentialClientApplication
+                .builder(CLIENT_ID, credential)
+                .authority(AUTHORITY)
+                .build();
+```
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+O aplicativo de exemplo não implementa a inicialização com asserções no momento.
+
 # <a name="python"></a>[Python](#tab/python)
 
 No MSAL Python, você pode fornecer declarações de cliente usando as declarações que serão assinadas por essa `ConfidentialClientApplication` chave privada.
@@ -334,18 +395,6 @@ app = msal.ConfidentialClientApplication(
 
 Para obter detalhes, consulte a documentação de referência do Python do MSAL para [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__).
 
-# <a name="java"></a>[Java](#tab/java)
-
-```Java
-IClientCredential credential = ClientCredentialFactory.createFromClientAssertion(assertion);
-
-ConfidentialClientApplication cca =
-        ConfidentialClientApplication
-                .builder(CLIENT_ID, credential)
-                .authority(AUTHORITY)
-                .build();
-```
-
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -354,12 +403,16 @@ ConfidentialClientApplication cca =
 
 Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
-# <a name="python"></a>[Python](#tab/python)
-
-Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python).
-
 # <a name="java"></a>[Java](#tab/java)
 
 Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=nodejs).
+
+# <a name="python"></a>[Python](#tab/python)
+
+Vá para o próximo artigo neste cenário, [adquira um token para o aplicativo](./scenario-daemon-acquire-token.md?tabs=python).
 
 ---

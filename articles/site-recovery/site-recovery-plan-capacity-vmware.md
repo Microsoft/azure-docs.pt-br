@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368019"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento da recuperação de desastre do VMware para o Azure
@@ -146,7 +146,7 @@ Para saber como adicionar um servidor de destino mestre a uma máquina virtual b
 
 Para adicionar um servidor de destino mestre para uma máquina virtual do Windows:
 
-1. Vá para **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura.
+1. Vá para **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração** de infraestrutura.
 2. Selecione o servidor de configuração necessário e, em seguida, selecione **Servidor de Destino Mestre**.
 
     ![Captura de tela que mostra o botão Adicionar Servidor de Destino Mestre](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
@@ -165,7 +165,7 @@ Para adicionar um servidor de destino mestre para uma máquina virtual do Window
     ![Captura de tela que mostra em que local inserir o endereço IP e a frase secreta para o servidor de configuração](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selecione **Registrar**. Ao final do registro, selecione **Concluir**.
 
-Quando o registro for concluído com êxito, o servidor será listado no portal do Azure no **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura, nos servidores de destino mestre do servidor de configuração.
+Quando o registro for concluído com êxito, o servidor será listado no portal do Azure no **cofre dos serviços de recuperação**  >  **site Recovery**  >  **servidores de configuração** de infraestrutura, nos servidores de destino mestre do servidor de configuração.
 
  > [!NOTE]
  > Baixe a versão mais recente do [arquivo de configuração unificado do servidor de destino mestre para Windows](https://aka.ms/latestmobsvc).

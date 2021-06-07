@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
 ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89420210"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais no Azure
@@ -21,7 +21,7 @@ Este artigo descreve os tamanhos e as opções disponíveis para as máquinas vi
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
-| [Propósito geral](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, DV4, Dsv4, Ddv4, Ddsv4  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
+| [Uso geral](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, DV4, Dsv4, Ddv4, Ddsv4  | Relação equilibrada de CPU/memória. Ideal para teste e desenvolvimento, bancos de dados pequenos a médios e servidores Web de tráfego baixo a médio. |
 | [Computação otimizada](sizes-compute.md) | F, FS, Fsv2 | Alta relação de CPU/memória. Boa para servidores web de tráfego médio, dispositivos de rede, processos de lote e servidores de aplicativo. |
 | [Memória otimizada](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Alta relação de memória/CPU. Ótima para servidores de banco de dados relacionais, caches médios a grandes e análises na memória.                 |
 | [Armazenamento otimizado](sizes-storage.md) | Lsv2 | Taxa de transferência de disco alta e de E/S são ideais para bancos de dados Big Data, SQL, NoSQL, armazenamento de dados e grandes dados transacionais.  |

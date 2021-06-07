@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 1b7bfb47168c31f9e2e1b7e40764439118c00805
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743195"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-classic-webworker-role"></a>O tamanho da pasta temporária padrão é muito pequeno em uma função Web/de trabalho do serviço de nuvem (clássico)

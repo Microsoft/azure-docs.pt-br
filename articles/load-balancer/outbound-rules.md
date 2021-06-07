@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033146"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590204"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Regras de saída Azure Load Balancer
 
@@ -36,11 +36,11 @@ Com as regras de saída, você pode definir explicitamente o comportamento de **
 Regras de saída permitem que você controle:
 
 * **Quais máquinas virtuais são convertidas para quais endereços IP públicos.**
-     * Duas regras o pool de back-end A usa o endereço IP A e B, o pool de back-end B usa o endereço IP C e D.
+     * Duas regras foram o pool de back-end 1 que usa o endereço IP azul 1 e 2, o pool de back-end 2 usa o prefixo de IP amarelo.
 * **Como as portas SNAT de saída são alocadas.**
-     * O pool de back-end B é o único pool que faz conexões de saída, fornece todas as portas SNAT ao pool de back-end B e nenhuma para o pool de back-end
+     * Se o pool de back-end 2 for o único pool fazendo conexões de saída, forneça todas as portas SNAT ao pool de back-end 2 e nenhuma para o pool de back-end 1.
 * **Para quais protocolos fornecer tradução de saída.**
-     * O pool de back-end B precisa de portas UDP para saída. O pool de back-end A precisa de TCP. Forneça as portas TCP para as portas UDP e a B.
+     * Se o pool de back-end 2 precisar de portas UDP para saída e o pool de back-end 1 precisar de TCP, forneça portas TCP para 1 e portas UDP para 2.
 * **Qual duração usar para tempo limite de ociosidade de conexão de saída (4-120 minutos).**
      * Se houver conexões de longa execução com keepalives, Reserve portas ociosas para conexões de longa execução por até 120 minutos. Suponha que conexões obsoletas sejam abandonadas e libere portas em 4 minutos para conexões novas 
 * **Se deve ser enviada uma redefinição de TCP no tempo limite ocioso.**

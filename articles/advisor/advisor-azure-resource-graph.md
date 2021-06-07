@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
 ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87057781"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Consultar dados do Advisor no Gerenciador de grafo de recursos (grafo de recursos do Azure)

@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 9e56e37135c2ff73fb64d8afd5a852fd757f3e21
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 53058d27e94c9fdf18d726369f6a1b75a9f34db9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989261"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567535"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implantar os serviços de dados do Azure em seu dispositivo do Azure Stack Edge pro GPU
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve o processo de criação de um controlador de dados de arco do Azure e, em seguida, a implantação dos serviços de dados do Azure em seu dispositivo de GPU pro Azure Stack Edge. 
 
@@ -59,7 +60,7 @@ Antes de começar, verifique se:
 1. Aplique as configurações e esses novos IPs entrarão em vigor imediatamente em um cluster kubernetes já existente. 
 
 
-## <a name="deploy-azure-arc-data-controller"></a>Implantar o controlador de dados de arco do Azure
+## <a name="deploy-azure-arc-data-controller"></a>Implantar o Controlador de Dados do Azure Arc
 
 Antes de implantar um controlador de dados, você precisará criar um namespace.
 
@@ -86,7 +87,7 @@ Crie um novo namespace dedicado no qual você implantará o controlador de dados
 
 1. O arquivo de configuração deve residir na `.kube` pasta do seu perfil de usuário no computador local. Copie o arquivo para essa pasta em seu perfil de usuário.
 
-    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 1. Conceda ao usuário acesso ao namespace que você criou. Tipo: 
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`
@@ -343,4 +344,4 @@ kubectl delete ns <Name of your namespace>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implante um aplicativo sem estado em seu Azure Stack Edge pro](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

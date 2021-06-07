@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0ee2e783a7a9443db4c96817cf611272667c675a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944405"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Convertendo o conteúdo do certificado da entidade de serviço em formato de cadeia de caracteres codificada em base 64 no HDInsight

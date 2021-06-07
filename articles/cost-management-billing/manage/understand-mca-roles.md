@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 ms.author: banders
-ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 00ac61567502984759c5db9837060c86aaee378d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673824"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593579"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
@@ -100,6 +100,8 @@ As tabelas a seguir mostram a função que você precisa para concluir tarefas n
 |Atualizar propriedades do perfil de cobrança |✔|✔|✘|✘|✘|✘|✘|
 |Exibir as políticas aplicadas no perfil de cobrança, como habilitar compras de reserva do Azure, habilitar compras do Azure Marketplace, entre outros|✔|✔|✔|✔|✔|✔|✔|
 |Aplicar políticas no perfil de cobrança |✔|✔|✘|✘|✘|✘|✘|
+|Gerenciar pedidos de reserva |✔|✔|✘|✘|✘|✘|✘|
+|Ver pedidos de reserva |✔|✔|✔|✘|✘|✘|✘|
 
 ### <a name="manage-invoices-for-billing-profile"></a>Gerencia faturas do perfil de cobrança
 

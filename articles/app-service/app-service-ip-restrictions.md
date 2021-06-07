@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1bcd0ea253db01d626ef1887ef0983d30ca794b9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209929"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889869"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar Azure App restrições de acesso de serviço
 
@@ -97,26 +97,25 @@ Com os pontos de extremidade de serviço, você pode configurar seu aplicativo c
 > [!NOTE]
 > - Atualmente, os pontos de extremidade de serviço não têm suporte para aplicativos Web que usam VIP (IP virtual) de IP protocolo SSL (SSL).
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Definir uma regra baseada em marca de serviço (visualização)
+#### <a name="set-a-service-tag-based-rule"></a>Definir uma regra baseada em marca de serviço
 
-* Para a etapa 4, na lista suspensa **tipo** , selecione **marca de serviço (versão prévia)**.
+* Para a etapa 4, na lista suspensa **tipo** , selecione marca de **serviço**.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Captura de tela do painel ' Adicionar restrição ' com o tipo de marca de serviço selecionado.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Captura de tela do painel ' Adicionar restrição ' com o tipo de marca de serviço selecionado.":::
 
 Cada marca de serviço representa uma lista de intervalos de IP dos serviços do Azure. Uma lista desses serviços e links para os intervalos específicos pode ser encontrada na documentação da [marca de serviço][servicetags].
 
-A lista de marcas de serviço a seguir tem suporte nas regras de restrição de acesso durante a fase de visualização:
+Todas as marcas de serviço disponíveis têm suporte nas regras de restrição de acesso. Para simplificar, apenas uma lista das marcas mais comuns está disponível por meio do portal do Azure. Use Azure Resource Manager modelos ou scripts para configurar regras mais avançadas, como regras com escopo regional. Essas são as marcas disponíveis por meio de portal do Azure:
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Editar uma regra
 
@@ -137,6 +136,31 @@ Para excluir uma regra, na página **restrições de acesso** , selecione as ret
 
 ## <a name="access-restriction-advanced-scenarios"></a>Cenários avançados de restrição de acesso
 As seções a seguir descrevem alguns cenários avançados usando restrições de acesso.
+
+### <a name="filter-by-http-header"></a>Filtrar por cabeçalho http
+
+Como parte de qualquer regra, você pode adicionar filtros de cabeçalho HTTP adicionais. Há suporte para os seguintes nomes de cabeçalho http:
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Para cada nome de cabeçalho, você pode adicionar até 8 valores separados por vírgula. Os filtros de cabeçalho HTTP são avaliados após a regra em si e as duas condições devem ser verdadeiras para que a regra seja aplicada.
+
+### <a name="multi-source-rules"></a>Regras de várias fontes
+
+As regras de várias fontes permitem combinar até 8 intervalos de IP ou 8 marcas de serviço em uma única regra. Você pode usar isso se tiver mais de 512 intervalos de IP ou se quiser criar regras lógicas em que vários intervalos de IP são combinados com um único filtro de cabeçalho http.
+
+As regras de várias fontes são definidas da mesma maneira que você define regras de fonte única, mas com cada intervalo separado por vírgula.
+
+Exemplo do PowerShell:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Bloquear um único endereço IP
 
 Quando você adiciona sua primeira regra de restrição de acesso, o serviço adiciona uma regra *negar tudo* explícita com uma prioridade de 2147483647. Na prática, a regra *negar tudo* explícita é a regra final a ser executada e bloqueia o acesso a qualquer endereço IP que não seja explicitamente permitido por uma regra de *permissão* .
@@ -151,29 +175,32 @@ Além de poder controlar o acesso ao seu aplicativo, você pode restringir o ace
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Captura de tela da página ' restrições de acesso ' na portal do Azure, mostrando que nenhuma restrição de acesso está definida para o site do SCM ou o aplicativo.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Restringir o acesso a uma instância específica da porta de recepção do Azure (visualização)
-O tráfego da porta frontal do Azure para seu aplicativo provém de um conjunto conhecido de intervalos de IP definido na marca de serviço AzureFrontDoor. backend. Usando uma regra de restrição de marca de serviço, você pode restringir o tráfego para ser originado apenas da porta de início do Azure. Para garantir que o tráfego seja originado apenas de sua instância específica, você precisará filtrar ainda mais as solicitações de entrada com base no cabeçalho http exclusivo que o Azure front door envia. Durante a visualização, você pode conseguir isso com o PowerShell ou REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Restringir o acesso a uma instância específica da porta de recepção do Azure
+O tráfego da porta frontal do Azure para seu aplicativo provém de um conjunto conhecido de intervalos de IP definido na marca de serviço AzureFrontDoor. backend. Usando uma regra de restrição de marca de serviço, você pode restringir o tráfego para ser originado apenas da porta de início do Azure. Para garantir que o tráfego seja originado apenas de sua instância específica, você precisará filtrar ainda mais as solicitações de entrada com base no cabeçalho http exclusivo que o Azure front door envia.
 
-* Exemplo do PowerShell (a ID da porta frontal pode ser encontrada no portal do Azure):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Captura de tela da página ' restrições de acesso ' na portal do Azure, mostrando como adicionar a restrição de porta frontal do Azure.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Exemplo do PowerShell:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Gerenciar regras de restrição de acesso programaticamente
 
 Você pode adicionar restrições de acesso programaticamente seguindo um destes procedimentos: 
 
-* Use [o CLI do Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Por exemplo:
+* Use [o CLI do Azure](/cli/azure/webapp/config/access-restriction). Por exemplo:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0&preserve-view=true). Por exemplo:
+* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). Por exemplo:
 
 
   ```azurepowershell-interactive
@@ -181,7 +208,7 @@ Você pode adicionar restrições de acesso programaticamente seguindo um destes
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > Trabalhar com marcas de serviço, cabeçalhos HTTP ou regras de várias fontes requer pelo menos a versão 5.1.0. Você pode verificar a versão do módulo instalado com: **Get-InstalledModule-Name AZ**
+   > Trabalhar com marcas de serviço, cabeçalhos HTTP ou regras de várias fontes requer pelo menos a versão 5.7.0. Você pode verificar a versão do módulo instalado com: **Get-InstalledModule-Name AZ**
 
 Você também pode definir valores manualmente seguindo um destes procedimentos:
 

@@ -8,31 +8,33 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3989ec4ca2b5c9d7385841604678791b20c1d102
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85194783"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103489975"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 As implantações automáticas e a implantação em camadas ajudam você a gerenciar e configurar módulos em um grande número de dispositivos IoT Edge.
 
 O Azure IoT Edge fornece duas maneiras de configurar os módulos para serem executados em dispositivos IoT Edge. O primeiro método é implantar módulos em uma base por dispositivo. Você cria um manifesto de implantação e, em seguida, o aplica a um dispositivo específico por nome. O segundo método é implantar módulos automaticamente em qualquer dispositivo registrado que atenda a um conjunto de condições definidas. Você cria um manifesto de implantação e, em seguida, define a quais dispositivos ele se aplica com base nas [marcas](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) no dispositivo.
 
-Este artigo se concentra na configuração e no monitoramento de frotas de dispositivos, coletivamente chamados de *IOT Edge implantações automáticas*.As etapas básicas de implantação são as seguintes:
+Este artigo se concentra na configuração e no monitoramento de frotas de dispositivos, coletivamente chamados de *IOT Edge implantações automáticas*. As etapas básicas de implantação são as seguintes:
 
-1. Um operador define uma implantação que descreve um conjunto de módulos e os dispositivos de destino.Cada implantação tem um manifesto de implantação que reflete essa informação.
+1. Um operador define uma implantação que descreve um conjunto de módulos e os dispositivos de destino. Cada implantação tem um manifesto de implantação que reflete essa informação.
 2. O serviço do Hub IoT se comunica com todos os dispositivos de destino para configurá-los com os módulos declarados.
-3. O serviço do Hub IoT recupera o status dos dispositivos do IoT Edge e as disponibiliza para o operador.Por exemplo, um operador pode ver quando um dispositivo de borda não está configurado com êxito ou se um módulo falha durante o tempo de execução.
+3. O serviço do Hub IoT recupera o status dos dispositivos do IoT Edge e as disponibiliza para o operador.  Por exemplo, um operador pode ver quando um dispositivo de borda não está configurado com êxito ou se um módulo falha durante o tempo de execução.
 4. A qualquer momento, novos dispositivos IoT Edge que atendem às condições de destino são configurados para a implantação.
 
 Este artigo descreve cada componente envolvido na configuração e no monitoramento de uma implantação. Para obter instruções de criação e atualização de uma implantação, confira [Implantar e monitorar os módulos do IoT Edge em larga escala](how-to-deploy-at-scale.md).
 
 ## <a name="deployment"></a>Implantação
 
-Uma implantação automática do IoT Edge atribui imagens do módulo do IoT Edge para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização.Uma implantação pode ser atribuída a um único dispositivo (com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas).Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner dos repositórios do respectivo contêiner e os configura adequadamente.Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.
+Uma implantação automática do IoT Edge atribui imagens do módulo do IoT Edge para execução como instâncias em um conjunto de dispositivos IoT Edge de destino. Ele funciona com a configuração de um manifesto de implantação do IoT Edge para incluir uma lista de módulos com os parâmetros de inicialização. Uma implantação pode ser atribuída a um único dispositivo (com base na ID de dispositivo) ou a um grupo de dispositivos (com base em marcas). Depois que um dispositivo IoT Edge recebe um manifesto de implantação, ele baixa e instala as imagens de contêiner dos repositórios do respectivo contêiner e os configura adequadamente. Depois de criar uma implantação, um operador pode monitorar o status da implantação para ver se os dispositivos de destino estão configurados corretamente.
 
 Somente os dispositivos do IoT Edge podem ser configurados com uma implantação. Os pré-requisitos seguintes devem estar no dispositivo antes de ele poder receber a implantação:
 
@@ -42,7 +44,7 @@ Somente os dispositivos do IoT Edge podem ser configurados com uma implantação
 
 ### <a name="deployment-manifest"></a>Manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve os módulos a serem configurados nos dispositivos IoT Edge de destino. Ele contém os metadados de configuração para todos os módulos, incluindo os módulos do sistema necessários (especificamente o agente do IoT Edge e o hub IoT Edge).  
+Um manifesto de implantação é um documento JSON que descreve os módulos a serem configurados nos dispositivos IoT Edge de destino. Ele contém os metadados de configuração para todos os módulos, incluindo os módulos do sistema necessários (especificamente o agente do IoT Edge e o hub IoT Edge).  
 
 Os metadados de configuração para cada módulo incluem:
 
@@ -81,11 +83,11 @@ Considere estas restrições ao construir uma condição de destino:
 
 ### <a name="priority"></a>Prioridade
 
-Uma prioridade define se uma implantação deve ser aplicada a um dispositivo de destino em relação a outras implantações. Uma prioridade de implantação é um inteiro positivo, e os maiores números indicam as prioridades mais altas. Se um dispositivo IoT Edge é afetado por mais de uma implantação, a implantação com a prioridade mais alta será aplicada.As implantações com prioridades inferiores não são aplicadas nem mescladas.Se um dispositivo é afetado com duas ou mais implantações com a mesma prioridade, a implantação criada mais recentemente (determinada pelo carimbo de hora de criação) se aplica.
+Uma prioridade define se uma implantação deve ser aplicada a um dispositivo de destino em relação a outras implantações. Uma prioridade de implantação é um inteiro positivo, e os maiores números indicam as prioridades mais altas. Se um dispositivo IoT Edge é afetado por mais de uma implantação, a implantação com a prioridade mais alta será aplicada.  As implantações com prioridades inferiores não são aplicadas nem mescladas.  Se um dispositivo é afetado com duas ou mais implantações com a mesma prioridade, a implantação criada mais recentemente (determinada pelo carimbo de hora de criação) se aplica.
 
 ### <a name="labels"></a>Rótulos
 
-Os rótulos são pares de chave/valor de cadeia de caracteres que você pode usar para filtrar e agrupar implantações.Uma implantação pode ter vários rótulos. Os rótulos são opcionais e não afetam a configuração real dos dispositivos IoT Edge.
+Os rótulos são pares de chave/valor de cadeia de caracteres que você pode usar para filtrar e agrupar implantações. Uma implantação pode ter vários rótulos. Os rótulos são opcionais e não afetam a configuração real dos dispositivos IoT Edge.
 
 ### <a name="metrics"></a>Métricas
 
@@ -174,7 +176,7 @@ Uma distribuição em fases é um processo geral no qual um operador implanta al
 
 Uma distribuição em fases é executada nas seguintes fases e etapas:
 
-1. Estabeleça um ambiente de teste de dispositivos IoT Edge provisionando-os e definindo uma marca de gêmeo de dispositivo como `tag.environment='test'`.O ambiente de teste deve espelhar o ambiente de produção que a que se destinará a implantação.
+1. Estabeleça um ambiente de teste de dispositivos IoT Edge provisionando-os e definindo uma marca de gêmeo de dispositivo como `tag.environment='test'`. O ambiente de teste deve espelhar o ambiente de produção que a que se destinará a implantação.
 2. Crie uma implantação, incluindo as configurações e os módulos desejados. A condição de destino deve ter como destino o ambiente de teste do dispositivo IoT Edge.
 3. Valide a nova configuração do módulo no ambiente de teste.
 4. Atualize a implantação para incluir um subconjunto de dispositivos IoT Edge de produção, adicionando uma nova marca à condição de destino. Além disso, verifique se a prioridade da implantação é maior do que a de outras implantações atualmente destinadas a esses dispositivos
@@ -183,7 +185,7 @@ Uma distribuição em fases é executada nas seguintes fases e etapas:
 
 ## <a name="rollback"></a>Reversão
 
-As implantações podem ser revertidas em se você receber erros ou problemas de configuração.Como uma implantação define a configuração absoluta do módulo para um dispositivo do IoT Edge, outras implantações também devem estar voltadas para o mesmo dispositivo em uma prioridade mais baixa, mesmo se o objetivo é remover todos os módulos.  
+As implantações podem ser revertidas em se você receber erros ou problemas de configuração. Como uma implantação define a configuração absoluta do módulo para um dispositivo do IoT Edge, outras implantações também devem estar voltadas para o mesmo dispositivo em uma prioridade mais baixa, mesmo se o objetivo é remover todos os módulos.  
 
 A exclusão de uma implantação não remove os módulos dos dispositivos de destino. Deve haver outra implantação que defina uma nova configuração para os dispositivos, mesmo se for uma implantação vazia.
 

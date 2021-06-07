@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787529"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612789"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -83,7 +83,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
@@ -286,7 +286,7 @@ Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Test
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o Bot Framework.
 
-Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](/azure/bot-service/bot-service-debug-bot).
 
 ## <a name="integrating-luis"></a>Integrando LUIS
 

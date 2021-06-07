@@ -1,17 +1,17 @@
 ---
 title: Usar o Azure Active Directory – Banco de Dados do Azure para MySQL
 description: Saiba mais sobre como configurar o Azure Active Directory para a autenticação com o Banco de Dados do Azure para MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 808c3589ba5b51b035ccc8165489c4d11203dd66
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799831"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612221"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Usar Azure Active Directory para autenticação com MySQL
 
@@ -35,8 +35,6 @@ Somente usuários administradores do Azure Active Directory podem criar/habilita
 > Ao definir o administrador, um novo usuário é adicionado ao servidor do Banco de Dados do Azure para MySQL com permissões completas de administrador.
 
 Somente um administrador do Azure Active Directory pode ser criado por servidor MySQL, e a seleção de outro substituirá o administrador do Azure Active Directory existente configurado para o servidor.
-
-Em uma versão futura, permitiremos a especificação de um grupo do Azure Active Directory em vez de um usuário individual precisar ter vários administradores. No entanto, atualmente, isso não é possível.
 
 Depois de configurar o administrador, será possível entrar:
 

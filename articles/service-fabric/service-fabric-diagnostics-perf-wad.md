@@ -1,16 +1,14 @@
 ---
 title: Monitoramento de desempenho com o Windows Diagnóstico do Azure
 description: Use o Diagnóstico do Microsoft Azure para coletar contadores de desempenho para os clusters do Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6803494d29bf97336e30128f9f5ad20ec73ce202
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258624"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627397"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
 

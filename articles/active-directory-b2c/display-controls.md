@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97387047"
 ---
 # <a name="display-controls"></a>Controles de exibição
@@ -46,7 +46,7 @@ O elemento **DisplayControl** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
+| ID | Sim | Um identificador que é usado para o controle de exibição. Ele pode ser [referenciado](#referencing-display-controls). |
 | UserInterfaceControlType | Sim | O tipo do controle de exibição. Atualmente, há suporte para [VerificationControl](display-control-verification.md) |
 
 O elemento **DisplayControl** contém os seguintes elementos:
@@ -110,7 +110,7 @@ O elemento **Action** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode`. O `SendCode` valor envia um código para o usuário. Essa ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para enviá-lo. O `VerifyCode` valor verifica o código que o usuário digitou na caixa de texto de entrada. |
+| ID | Sim | O tipo de operação. Valores possíveis: `SendCode` ou `VerifyCode`. O `SendCode` valor envia um código para o usuário. Essa ação pode conter dois perfis técnicos de validação: um para gerar um código e outro para enviá-lo. O `VerifyCode` valor verifica o código que o usuário digitou na caixa de texto de entrada. |
 
 O elemento **Action** contém o seguinte elemento:
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.openlocfilehash: 26b503e7d55ed3d2f9bd06837551655e7af05a17
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541933"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no Banco de Dados do Azure para MySQL usando o portal do Azure
@@ -113,7 +113,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. Na portal do Azure, selecione seu banco de dados do Azure de origem para o servidor MySQL.
 
-2. Na **Visão geral** , selecione **Excluir**.
+2. Na **Visão geral**, selecione **Excluir**.
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Banco de dados do Azure para MySQL - Excluir mestre":::
 
@@ -125,7 +125,7 @@ Para excluir um servidor de origem do portal do Azure, use as seguintes etapas:
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione a réplica do Banco de Dados do Azure para o servidor MySQL que você deseja monitorar.
 
-2. Na seção **Monitoramento** da barra lateral, selecione **Métricas** :
+2. Na seção **Monitoramento** da barra lateral, selecione **Métricas**:
 
 3. Selecione o **atraso de replicação em segundos** na lista suspensa de métricas disponíveis.
 

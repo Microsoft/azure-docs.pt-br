@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962580"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
@@ -37,14 +37,14 @@ Os hosts nos pools de recursos (front-ends e trabalhadores) não podem ser acess
 Você pode definir o tamanho e a quantidade de pools de recursos. Em um ASE, você tem quatro opções de tamanho, que são rotuladas P1 a P4. Para obter detalhes sobre esses tamanhos e seus preços, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 A alteração da quantidade ou do tamanho é chamada de uma operação de escala.  Apenas uma operação de escala pode ocorrer por vez.
 
-**Front-ends**Os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
+**Front-ends** Os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
 
 * Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
 * Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
 * Os front-ends podem demorar até uma hora para serem provisionados. 
 * Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.  
 
-**Trabalhos**Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
+**Trabalhos** Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
 * Não é possível adicionar trabalhadores instantaneamente. Eles podem levar até uma hora para provisionar.
 * O dimensionamento de um recurso de computação para qualquer pool demorará menos de uma hora por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho da computação de um pool de trabalho com 10 instâncias, talvez demore até 10 horas para a conclusão.
@@ -122,10 +122,10 @@ As métricas que acabamos de discutir são as métricas do Ambiente do Serviço 
 
 Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de aplicativo dedicados. Isso significa que somente aplicativos executados nos hosts alocados para aquele Plano do Serviço de Aplicativo são aplicativos desse Plano do Serviço de Aplicativo. Para ver detalhes sobre o Plano do Serviço de Aplicativo, simplesmente abra o ASP de qualquer uma das listas na interface do usuário do ASE ou de **Procurar Planos do Serviço de Aplicativo** (o que listará todos eles).   
 
-### <a name="settings"></a>Configurações
+### <a name="settings"></a>Settings
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
-**Configurações**  >  do **Propriedades**: a folha **configurações** será aberta automaticamente quando você abrir sua folha ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
+**Configurações**  >  do **Propriedades**: a folha **configurações** será aberta automaticamente quando você abrir sua folha ASE. As **Propriedades** estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
 
 ![Folha Configurações e propriedades][4]
 
@@ -154,7 +154,7 @@ Para usar a operação Escala na folha ASE, arraste o controle deslizante até a
 
 ![Interface do usuário de escala][6]
 
-Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações**pool de  >  **front-end**  /  **pools de trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações**  >  **scale out** ou **configurações**  >  **escalar verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
+Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações** pool de  >  **front-end**  /  **pools de trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações**  >  **scale out** ou **configurações**  >  **escalar verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
 
 ![Interface do usuário de configurações de escala][7]
 

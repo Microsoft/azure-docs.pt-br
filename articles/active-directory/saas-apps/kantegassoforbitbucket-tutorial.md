@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 52879eb7cb7a9d90113971aa66c590b99b2d5e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92459255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bitbucket
@@ -49,11 +49,11 @@ Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, �
 
 **Para adicionar o SSO do Kantega para o Bitbucket por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, �
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **SSO do Kantega para o Bitbucket** , selecione **SSO do Kantega para o Bitbucket** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **SSO do Kantega para o Bitbucket**, selecione **SSO do Kantega para o Bitbucket** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![SSO do Kantega para o Bitbucket na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Microsoft Azure Active Directory com o SSO do Kantega para o Bitbucket, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Microsoft Azure Active Directory com o SSO do Kantega para o Bitbucket, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Microsoft Azure Active Directory e o usuário relacionado do SSO do Kantega para o Bitbucket.
 
 Para configurar e testar o logon único do Azure AD com o SSO do Kantega para o Bitbucket, você precisa concluir os seguintes blocos de construção:
@@ -85,19 +85,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Microsoft Azure Active Directory com o SSO do Kantega para o Bitbucket, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **SSO do Kantega para o Bitbucket** , clique em **Logon Único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **SSO do Kantega para o Bitbucket**, clique em **Logon Único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
@@ -109,16 +109,16 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Esses valores são recebidos durante a configuração do plug-in Bitbucket, explicado posteriormente no tutorial.
 
-6. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Na seção **Configurar o SSO do Kantega para o Bitbucket** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o SSO do Kantega para o Bitbucket**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 1. Em outra janela do navegador da Web, faça logon no portal de administração do Bitbucket como administrador.
 
-1. Clique na engrenagem e em **Localizar novos complementos** .
+1. Clique na engrenagem e em **Localizar novos complementos**.
 
     ![A captura de tela mostra a Administração do BitBucket com a opção Encontrar novos complementos selecionada.](./media/kantegassoforbitbucket-tutorial/addon1.png)
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![A captura de tela mostra o botão Fechar.](./media/kantegassoforbitbucket-tutorial/addon33.png)
 
-1. Clique em **Gerenciar** .
+1. Clique em **Gerenciar**.
 
     ![A captura de tela mostra o botão Gerenciar.](./media/kantegassoforbitbucket-tutorial/addon34.png)
 
@@ -156,61 +156,61 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![A captura de tela mostra Complementos instalados pelo usuário com Configurar selecionado.](./media/kantegassoforbitbucket-tutorial/addon35.png)
 
-1. Na seção **SAML** . Selecione **Azure AD (Azure Active Directory)** na lista suspensa **Adicionar provedor de identidade** .
+1. Na seção **SAML**. Selecione **Azure AD (Azure Active Directory)** na lista suspensa **Adicionar provedor de identidade**.
 
     ![A captura de tela mostra o Logon Único do Kantega com Azure AD selecionado como o provedor de identidade.](./media/kantegassoforbitbucket-tutorial/addon4.png)
 
-1. Selecione o nível de assinatura como **Básico** .
+1. Selecione o nível de assinatura como **Básico**.
 
     ![A captura de tela mostra Preparar o Azure AD com Básico selecionado.](./media/kantegassoforbitbucket-tutorial/addon5.png)
 
-1. Na seção **Propriedades do aplicativo** , realize as seguintes etapas:
+1. Na seção **Propriedades do aplicativo**, realize as seguintes etapas:
 
     ![A captura de tela mostra a seção Propriedades do aplicativo em que você pode fornecer as informações nesta etapa.](./media/kantegassoforbitbucket-tutorial/addon6.png)
 
     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
 
-    b. Clique em **Próximo** .
+    b. Clique em **Próximo**.
 
-1. Na seção **Importação de metadados** , realize as seguintes etapas:
+1. Na seção **Importação de metadados**, realize as seguintes etapas:
 
     ![A captura de tela mostra a seção Importação de metadados em que você pode navegar até um arquivo de metadados.](./media/kantegassoforbitbucket-tutorial/addon7.png)
 
     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
-    b. Clique em **Próximo** .
+    b. Clique em **Próximo**.
 
-1. Na seção **Nome e localização de SSO** , realize as seguintes etapas:
+1. Na seção **Nome e localização de SSO**, realize as seguintes etapas:
 
     ![A captura de tela mostra o Nome e o Local do SSO em que o Azure AD é o nome do provedor de identidade.](./media/kantegassoforbitbucket-tutorial/addon8.png)
 
     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
-    b. Clique em **Próximo** .
+    b. Clique em **Próximo**.
 
-1. Verifique o Certificado de autenticação e clique em **Avançar** .
+1. Verifique o Certificado de autenticação e clique em **Avançar**.
 
     ![A captura de tela mostra a Verificação da assinatura.](./media/kantegassoforbitbucket-tutorial/addon9.png)
 
-1. Na seção **Contas de usuário do Bitbucket** , realize as seguintes etapas:
+1. Na seção **Contas de usuário do Bitbucket**, realize as seguintes etapas:
 
     ![A captura de tela mostra as contas de usuário do BitBucket em que você tem a opção de criar usuários.](./media/kantegassoforbitbucket-tutorial/addon10.png)
 
     a. Selecione **Criar usuários no Diretório interno do Bitbucket, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
-    b. Clique em **Próximo** .
+    b. Clique em **Próximo**.
 
-1. Clique em **Concluir** .
+1. Clique em **Concluir**.
 
     ![A captura de tela mostra a página Resumo.](./media/kantegassoforbitbucket-tutorial/addon11.png)
 
-1. Na seção **Domínios conhecidos do Azure AD** , realize as seguintes etapas:
+1. Na seção **Domínios conhecidos do Azure AD**, realize as seguintes etapas:
 
     ![A captura de tela mostra os domínios conhecidos para o Azure AD em que você pode executar essas etapas.](./media/kantegassoforbitbucket-tutorial/addon12.png)
 
     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
-    b. Insira o nome de domínio na caixa de texto **Domínios conhecidos** .
+    b. Insira o nome de domínio na caixa de texto **Domínios conhecidos**.
 
     c. Clique em **Save** (Salvar).
 
@@ -218,7 +218,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -230,40 +230,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`  
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao SSO do Kantega para o Bitbucket.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os Aplicativos** e, em seguida, **SSO do Kantega para o Bitbucket** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os Aplicativos** e, em seguida, **SSO do Kantega para o Bitbucket**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **SSO do Kantega para o Bitbucket** .
+2. Na lista de aplicativos, selecione **SSO do Kantega para o Bitbucket**.
 
     ![O link SSO do Kantega para o Bitbucket na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-kantega-sso-for-bitbucket-test-user"></a>Criar um usuário de teste do SSO do Kantega para o Bitbucket
 
@@ -277,29 +277,29 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     ![A captura de tela mostra o ícone de configurações.](./media/kantegassoforbitbucket-tutorial/user1.png) 
 
-1. Na seção da guia **Administração** , clique em **Usuários** .
+1. Na seção da guia **Administração**, clique em **Usuários**.
 
     ![A captura de tela mostra a Administração do BitBucket com a opção Usuários selecionada. ](./media/kantegassoforbitbucket-tutorial/user2.png)
 
-1. Clique em **Criar usuário** .
+1. Clique em **Criar usuário**.
 
     ![A captura de tela mostra a Administração do BitBucket com a opção Criar usuário selecionada.](./media/kantegassoforbitbucket-tutorial/user3.png)   
 
-1. Na página da caixa de diálogo **Criar Usuário** , realize as seguintes etapas:
+1. Na página da caixa de diálogo **Criar Usuário**, realize as seguintes etapas:
 
     ![A captura de tela mostra a caixa de diálogo Criar usuário em que você pode executar essas etapas.](./media/kantegassoforbitbucket-tutorial/user4.png) 
 
-    a. Na caixa de texto **Nome de usuário** , digite o email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
-    b. Na caixa de texto **Nome completo** , digite o nome completo do usuário, como Brenda Fernandes.
+    b. Na caixa de texto **Nome completo**, digite o nome completo do usuário, como Brenda Fernandes.
 
-    c. Na caixa de texto **Endereço de email** , digite o endereço de email do usuário, como Brittasimon@contoso.com.
+    c. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
 
-    d. Na caixa de texto **Senha** , digite a senha do usuário.
+    d. Na caixa de texto **Senha**, digite a senha do usuário.
 
-    e. Na caixa de texto **Confirmar Senha** , insira novamente a senha do usuário.
+    e. Na caixa de texto **Confirmar Senha**, insira novamente a senha do usuário.
 
-    f. Clique em **Criar usuário** .
+    f. Clique em **Criar usuário**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

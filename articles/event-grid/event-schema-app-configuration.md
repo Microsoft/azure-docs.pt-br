@@ -4,10 +4,10 @@ description: Este artigo descreve como usar a configuração de Azure App como u
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: a64c6fead5e6d95ba11bc98d7e9a52e3021c3be2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100366765"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração de Azure App como uma fonte de grade de eventos
@@ -107,7 +107,7 @@ O esquema para um evento de chave-valor excluído é semelhante:
 # <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -123,7 +123,7 @@ Um evento tem os seguintes dados de nível superior:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -137,7 +137,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `key` | string | A chave do valor de chave que foi modificado ou excluído. |
 | `label` | string | O rótulo, se houver, do valor de chave que foi modificado ou excluído. |

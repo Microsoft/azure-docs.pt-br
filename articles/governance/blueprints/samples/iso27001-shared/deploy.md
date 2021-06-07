@@ -3,12 +3,12 @@ title: Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 description: Etapas de implantação do modelo de blueprint dos Serviços Compartilhados da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 8b28954b6145a9e6c1827107cf11aa85326dcc1f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627792"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100577325"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -110,7 +110,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos permitidos a serem implantados. Essa lista é composta por todos os tipos de recursos implantados nos Serviços Compartilhados.|
 |SKUs de contas de armazenamento permitidas|Atribuição de política|SKUs de armazenamento permitidos|Lista de SKUs de conta de armazenamento dos logs de diagnóstico permitidos. O valor padrão é _["Standard_LRS"]_ .|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual com permissão de serem implantados. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
-|Iniciativa de blueprint para ISO 27001|Atribuição de política|Tipos de recursos para auditar logs de diagnóstico|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Iniciativa de blueprint para ISO 27001|Atribuição de política|Tipos de recursos para auditar logs de diagnóstico|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Grupo de recursos do Log Analytics|Resource group|Nome|**Bloqueado** – concatena o **Nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do Log Analytics|Resource group|Location|**Bloqueado** – usa o parâmetro de blueprint.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviço|Define a camada do workspace do Log Analytics. O valor padrão é _PerNode_.|

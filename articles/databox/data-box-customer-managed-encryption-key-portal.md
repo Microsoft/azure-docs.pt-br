@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: e6b588ddea5bf4b4c92e89d9cebb37b09b9a86af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791537"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para Azure Data Box

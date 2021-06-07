@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 2fb9677f0874de1fb715082d58a0e354880e654b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 80fe9f03f2c57eab8527e553153f3e65315a54bf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358064"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102034823"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com um compartilhamento de arquivos Premium (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo explica como criar uma FCI (instância de cluster de failover) com SQL Server em VMs (máquinas virtuais) do Azure usando um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+Este artigo explica como criar uma FCI (instância de cluster de failover) com SQL Server em VMs (máquinas virtuais) do Azure usando um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-file-share.md).
 
 Os compartilhamentos de arquivos Premium são compartilhamentos de arquivos de baixa latência Espaços de Armazenamento Diretos (SSD) com suporte total para uso com instâncias de cluster de failover do SQL Server 2012 ou posterior no Windows Server 2012 ou posterior. Os compartilhamentos de arquivo premium proporcionam maior flexibilidade, permitindo que você redimensione e escale um compartilhamento de arquivo sem nenhum tempo de inatividade.
 
@@ -37,7 +37,7 @@ Antes de concluir as instruções neste artigo, você já deve ter:
 - Uma assinatura do Azure.
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
 - [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md) preparadas em um [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zonas de disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diferentes.
-- Um [compartilhamento de arquivo premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) a ser usado como a unidade clusterizada, com base na cota de armazenamento do seu banco de dados para os arquivos de dados.
+- Um [compartilhamento de arquivo premium](../../../storage/files/storage-how-to-create-file-share.md) a ser usado como a unidade clusterizada, com base na cota de armazenamento do seu banco de dados para os arquivos de dados.
 - A versão mais recente do [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montar compartilhamento de arquivos Premium
@@ -206,6 +206,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
 Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso. 
+
+Para obter mais detalhes sobre as opções de conectividade de cluster, confira [Rotear conexões HADR para o SQL Server em VMs do Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ## <a name="limitations"></a>Limitações
 

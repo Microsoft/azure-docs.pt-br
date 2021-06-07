@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394723"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
@@ -34,7 +34,7 @@ Os emails enviados de Privileged Identity Management para as funções de recurs
 - Endereço de email:  **Azure-noresponder \@ Microsoft.com**
 - Nome de exibição: Microsoft Azure
 
-Esses emails incluem um prefixo **PIM** na linha de assunto. Aqui está um exemplo:
+Esses emails incluem um prefixo **PIM** na linha de assunto. Veja um exemplo:
 
 - PIM: Alain Charon atribuiu permanentemente a função de leitor de backup
 
@@ -52,7 +52,7 @@ Quem recebe esses emails para as funções do Azure AD depende da função, do e
 | --- | --- | --- | --- |
 | Administrador de função com privilégios</br>(Ativado/Qualificado) | Sim</br>(somente se nenhum aprovador explícito for especificado) | Sim* | Sim |
 | Administrador de Segurança</br>(Ativado/Qualificado) | Não | Sim* | Sim |
-| Administrador global</br>(Ativado/Qualificado) | Não | Sim* | Sim |
+| Administrador Global</br>(Ativado/Qualificado) | Não | Sim* | Sim |
 
 \*Se as [**configurações de** Notificações](pim-how-to-change-default-settings.md#notifications) estiver definida como **Habilitar**.
 

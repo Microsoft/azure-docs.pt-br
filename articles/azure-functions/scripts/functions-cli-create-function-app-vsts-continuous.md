@@ -4,12 +4,12 @@ description: Criar um aplicativo de funções e implantar o código da função 
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f89da9fc146d753442f2a8c8aa38861e66c9a3d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f31c6a76412939d179cdd282e5e643ab7e8531b5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934366"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786206"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Criar uma função no Azure que é implantada usando o Azure DevOps
 
@@ -40,10 +40,10 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, conta de 
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [Plano de consumo](../consumption-plan.md) sem servidor. |
-| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Associa um aplicativo de funções a um repositório Git ou Mercurial. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Cria um aplicativo de funções no [Plano de consumo](../consumption-plan.md) sem servidor. |
+| [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config) | Associa um aplicativo de funções a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

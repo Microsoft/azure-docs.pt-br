@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93376187"
 ---
 #### <a name="to-create-a-manual-backup"></a>Para criar um backup manual
@@ -19,7 +19,7 @@ ms.locfileid: "93376187"
 
     ![Criar o backup manual](./media/storsimple-8000-create-manual-backup/createmanualbu1.png)
 
-3. Na folha **Fazer backup agora** , execute as seguintes etapas:
+3. Na folha **Fazer backup agora**, execute as seguintes etapas:
 
     1. Escolha o **Tipo de instantâneo** apropriado na lista suspensa: instantâneo **Local** ou instantâneo de **Nuvem**. Selecione instantâneo local para backups ou restaurações rápidas, e instantâneo de nuvem para resiliência de dados.
 

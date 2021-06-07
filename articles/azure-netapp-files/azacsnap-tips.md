@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6465acc0d4ce760e0bf89c73dace7c8c66d37c49
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737126"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869932"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Dicas e truques para usar Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
@@ -47,6 +47,27 @@ az role definition create --role-definition '{ \
   "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
 }'
 ```
+
+Para que as opções de restauração funcionem com êxito, a entidade de serviço AzAcSnap também precisa ser capaz de criar volumes.  Nesse caso, a definição de função precisa de uma ação adicional, portanto, a entidade de serviço completa deve ser semelhante ao exemplo a seguir.
+
+```bash
+az role definition create --role-definition '{ \
+  "Name": "Azure Application Consistent Snapshot tool", \
+  "IsCustom": "true", \
+  "Description": "Perform snapshots and restores on ANF volumes.", \
+  "Actions": [ \
+    "Microsoft.NetApp/*/read", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write" \
+  ], \
+  "NotActions": [], \
+  "DataActions": [], \
+  "NotDataActions": [], \
+  "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
+}'
+```
+
 
 ## <a name="take-snapshots-manually"></a>Tirar instantâneos manualmente
 

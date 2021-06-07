@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 5a59f5910d44f2a2b4cd75e7a1d51c2ed5dd51a4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932499"
 ---
 # <a name="labels"></a>Rótulos
@@ -69,7 +69,7 @@ O resultado será paginado se o número de itens retornados exceder o limite de 
 GET /labels?api-version={api-version} HTTP/1.1
 ```
 
-**Responde**
+**Resposta:**
 
 ```http
 HTTP/1.1 OK
@@ -166,7 +166,7 @@ GET /labels&api-version={api-version} HTTP/1.1
 Accept-Datetime: Sat, 12 May 2018 02:10:00 GMT
 ```
 
-**Responde**
+**Resposta:**
 
 ```http
 HTTP/1.1 200 OK

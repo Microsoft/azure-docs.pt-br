@@ -2,14 +2,15 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8dd208c29e47baa7876795e103e563e060f3497d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: public_preview
+ms.openlocfilehash: 5f934a1c3d6f0bec7a003c15d69bad236e80ed07
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932968"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103487812"
 ---
 > [!IMPORTANT]
 > Os Serviços de Comunicação do Azure estão atualmente em versão prévia pública.

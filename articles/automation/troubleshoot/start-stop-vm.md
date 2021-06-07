@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053577"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953843"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solucionar problemas de Iniciar/Parar VMs fora do horário comercial
 
@@ -149,7 +149,7 @@ Vejas as possíveis resoluções na lista a seguir:
   ```
 
 * Para iniciar e parar VMs, a conta Executar como da conta de Automação deve ter as permissões apropriadas para acessá-las. Para saber como verificar as permissões em um recurso, confira [Início Rápido: exibir funções atribuídas a um usuário usando o portal do Azure](../../role-based-access-control/check-access.md). Você precisará fornecer a ID de aplicativo da entidade de serviço usada pela conta Executar como. Você pode recuperar esse valor acessando sua conta de Automação no portal do Azure. Selecione **Conta Executar como** em **Configurações da Conta** e escolha a conta “Executar como” apropriada.
-* Se a VM estiver com problema na inicialização ou desalocação, talvez seja erro na própria VM. Os exemplos são: uma atualização que está sendo aplicada quando a VM tenta desligar, um serviço que para de funcionar e muito mais. Acesse o recurso da VM e confira os **Logs de atividades** para ver se existem erros nos logs. Você também pode tentar fazer logon na VM para ver se existem erros nos logs de eventos. Para saber mais sobre como solucionar problemas da VM, confira [Solução de problemas de máquinas virtuais do Azure](../../virtual-machines/troubleshooting/index.yml).
+* Se a VM estiver com problema na inicialização ou desalocação, talvez seja erro na própria VM. Os exemplos são: uma atualização que está sendo aplicada quando a VM tenta desligar, um serviço que para de funcionar e muito mais. Acesse o recurso da VM e confira os **Logs de atividades** para ver se existem erros nos logs. Você também pode tentar fazer logon na VM para ver se existem erros nos logs de eventos. Para saber mais sobre como solucionar problemas da VM, confira [Solução de problemas de máquinas virtuais do Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 * Verifique se há erros nos [fluxos de trabalho](../automation-runbook-execution.md#job-statuses). No portal, acesse a conta de Automação e selecione **Trabalhos**, em **Automação de Processos**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Cenário: meu runbook personalizado falha ao iniciar ou parar minhas VMs

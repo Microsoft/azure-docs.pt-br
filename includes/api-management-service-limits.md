@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/11/2021
+ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98147415"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103621981"
 ---
 | Recurso | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -34,6 +34,8 @@ ms.locfileid: "98147415"
 | Tamanho máximo de conteúdo do buffer<sup>8</sup> | 2 MiB |
 | Tamanho máximo da URL de solicitação<sup>9</sup> | 4096 bytes |
 | Comprimento máximo do segmento de caminho de URL<sup>10</sup> | 260 caracteres |
+| Tamanho máximo do esquema de API usado pela [política de validação](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
+| Tamanho máximo do corpo da solicitação ou da resposta na [política de validação de conteúdo](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
 | Número máximo de gateways auto-hospedados<sup>11</sup> | 25 |
 
 <sup>1</sup>Os limites de escala dependem do tipo de preço. Para obter detalhes dos tipos de preço e dos limites de escala deles, confira [Preços de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
@@ -45,5 +47,5 @@ ms.locfileid: "98147415"
 <sup>7</sup>Certificados de autoridade de certificação não têm suporte no nível de Consumo.<br/>
 <sup>8</sup>Esse limite aplica-se apenas ao nível de Consumo. Não há nenhum limite nessas categorias para outros níveis.<br/>
 <sup>9</sup>Aplica-se apenas ao nível de Consumo. Inclui uma cadeia de caracteres de consulta de até 2048 bytes de comprimento.<br/>
-<sup>10</sup> Para aumentar o limite, contate o [suporte](https://azure.microsoft.com/support/options/).<br/>
+<sup>10</sup> Para aumentar o limite, entre em contato com o [suporte](https://azure.microsoft.com/support/options/).<br/>
 <sup>11</sup>Os gateways auto-hospedados têm suporte apenas nos níveis Desenvolvedor e Premium. O limite se aplica ao número de [recursos de gateway auto-hospedados](/rest/api/apimanagement/2019-12-01/gateway). Para aumentar esse limite, entre em contato com o [suporte](https://azure.microsoft.com/support/options/). Observe que o número de nós (ou réplicas) associado a um recurso de gateway auto-hospedado é ilimitado no nível Premium e é limitado em um nó no nível Desenvolvedor.

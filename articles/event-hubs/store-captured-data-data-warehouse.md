@@ -6,10 +6,10 @@ ms.date: 12/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 77a2b35dea57c71e9e6f07056bd106df2ac109b8
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96854064"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>Tutorial: Migrar os dados dos Hubs de Eventos capturados para o Azure Synapse Analytics usando a Grade de Eventos e o Azure Functions

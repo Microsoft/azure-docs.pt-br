@@ -3,12 +3,12 @@ title: Segurança e autenticação da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371713"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601033"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
 A grade de eventos do Azure permite que você controle o nível de acesso fornecido a diferentes usuários para realizar várias **operações de gerenciamento** , como listar assinaturas de evento, criar novos e gerar chaves. A grade de eventos usa o controle de acesso baseado em função do Azure (RBAC do Azure).
@@ -31,80 +31,23 @@ As operações a seguir retornam informações potencialmente secretas, que são
 
 
 ## <a name="built-in-roles"></a>Funções internas
+A grade de eventos fornece as três funções internas a seguir. 
 
-Grade de eventos fornece duas funções internas para gerenciar assinaturas de evento. Eles são importantes ao implementar [domínios de evento](event-domains.md) porque fornecem aos usuários as permissões de que eles precisam para assinar tópicos em seu domínio de evento. Essas funções são focadas em assinaturas de eventos e não concedem acesso a ações como a criação de tópicos.
+As funções de colaborador do leitor de assinatura da grade de eventos e da grade de eventos são para o gerenciamento de assinaturas de evento. Eles são importantes ao implementar [domínios de evento](event-domains.md) porque fornecem aos usuários as permissões de que eles precisam para assinar tópicos em seu domínio de evento. Essas funções são focadas em assinaturas de eventos e não concedem acesso a ações como a criação de tópicos.
 
-Você pode [atribua essas funções para um usuário ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+A função colaborador da grade de eventos permite que você crie e gerencie recursos da grade de eventos. 
 
-**Colaborador do EventGrid EventSubscription**: gerenciar operações de assinatura da grade de eventos
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| Função | Descrição |
+| ---- | ----------- | 
+| [Leitor de assinatura de grade de eventos](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Permite que você gerencie operações de assinatura de evento de grade de eventos. |
+| [Colaborador de assinatura da grade de eventos](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Permite que você leia assinaturas de evento da grade de eventos. |
+| [Colaborador da grade de eventos](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Permite criar e gerenciar recursos da grade de eventos. |
 
-**Leitor de EventSubscription EventGrid**: ler assinaturas de grade de eventos
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> Selecione links na primeira coluna para navegar até um artigo que fornece mais detalhes sobre a função. Para obter instruções sobre como atribuir usuários ou grupos a funções de RBAC, consulte [Este artigo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
 
 ## <a name="custom-roles"></a>Funções personalizadas
 

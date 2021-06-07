@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: bf28d0abbd20cb170fa7adb6f13aefba8d2238c1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e3ec10bdcfb602c61943da288c32d28d30ec83ab
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947230"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104656"
 ---
 Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
 
@@ -31,8 +31,8 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, use as seguintes instruções:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Java Runtime <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
+* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
 
 ## <a name="import-dependencies"></a>Importar dependências
 
@@ -67,7 +67,7 @@ Há algumas maneiras de inicializar um [`SpeechConfig`](/java/api/com.microsoft.
 Neste exemplo, você cria um [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) usando uma chave de assinatura e uma região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../../../overview.md#try-the-speech-service-for-free). Você também cria um código clichê básico a ser usado no restante do artigo e o modifica para personalizações diferentes.
 
 ```java
-public class Program 
+public class Program
 {
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -124,7 +124,7 @@ Para muitos cenários de desenvolvimento de aplicativos de fala, é provável qu
 * Integrar o resultado com outras APIs ou serviços.
 * Modificar os dados de áudio, gravar cabeçalhos de `.wav` personalizados etc.
 
-É simples fazer essa alteração no exemplo anterior. Primeiro, remova o bloco `AudioConfig`, pois daqui em diante você gerenciará o comportamento de saída manualmente para ter mais controle. Em seguida, passe `null` para o `AudioConfig` no construtor `SpeechSynthesizer`. 
+É simples fazer essa alteração no exemplo anterior. Primeiro, remova o bloco `AudioConfig`, pois daqui em diante você gerenciará o comportamento de saída manualmente para ter mais controle. Em seguida, passe `null` para o `AudioConfig` no construtor `SpeechSynthesizer`.
 
 > [!NOTE]
 > Passar `null` para o `AudioConfig`, em vez de omiti-lo como no exemplo da saída para o alto-falante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo.
@@ -135,7 +135,7 @@ Desta vez, salve o resultado em uma variável [`SpeechSynthesisResult`](/java/ap
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    
+
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
@@ -254,3 +254,10 @@ Para alternar para uma voz neural, altere o `name` para uma das [opções de voz
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obter eventos de pose facial
+
+A fala pode ser uma boa maneira de orientar a animação de expressões faciais.
+Frequentemente, [visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as principais poses da fala observada, como a posição dos lábios, da mandíbula e da língua ao produzir um fonema específico.
+Você pode assinar eventos viseme no SDK de Fala para obter dados de animação facial e aplicar os dados a um personagem durante a animação facial.
+Saiba [como obter eventos viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

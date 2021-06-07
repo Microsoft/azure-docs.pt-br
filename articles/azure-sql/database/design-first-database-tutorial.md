@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92674882"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Tutorial: Criar um banco de dados relacional no Banco de Dados SQL do Azure usando o SSMS
@@ -56,8 +56,8 @@ Um banco de dados no Banco de Dados SQL do Azure é criado com um conjunto defin
 
 Siga estas etapas para criar um banco de dados em branco.
 
-1. No menu do portal do Azure ou na **Página Inicial** , selecione **Criar um recurso** .
-2. Na página **Novo** , selecione **Bancos de Dados** na seção do Azure Marketplace e, em seguida, clique em **Banco de Dados SQL** na seção **Em Destaque** .
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+2. Na página **Novo**, selecione **Bancos de Dados** na seção do Azure Marketplace e, em seguida, clique em **Banco de Dados SQL** na seção **Em Destaque**.
 
    ![criar banco de dados vazio](./media/design-first-database-tutorial/create-empty-database.png)
 
@@ -81,14 +81,14 @@ Siga estas etapas para criar um banco de dados em branco.
 
     ![criar database-server](./media/design-first-database-tutorial/create-database-server.png)
 
-5. Clique em **Selecionar** .
+5. Clique em **Selecionar**.
 6. Clique em **Tipo de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Você pode explorar as opções para o número de DTUs/vCores e o armazenamento disponível em cada camada de serviço.
 
-    Depois de selecionar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **Aplicar** .
+    Depois de selecionar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **Aplicar**.
 
 7. Insira uma **Ordenação** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre ordenações, confira [Ordenações](/sql/t-sql/statements/collations)
 
-8. Agora que você concluiu o formulário do **Banco de Dados SQL** , clique em **Criar** para provisionar o banco de dados. Esta etapa pode levar alguns minutos.
+8. Agora que você concluiu o formulário do **Banco de Dados SQL**, clique em **Criar** para provisionar o banco de dados. Esta etapa pode levar alguns minutos.
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
 
@@ -103,7 +103,7 @@ O Banco de Dados SQL do Azure cria um firewall de IP no nível do servidor. Esse
 
 1. Após a conclusão da implantação, selecione **bancos de dados SQL** no menu do portal do Azure ou pesquise e selecione *bancos de dados SQL* em qualquer página.  
 
-1. Selecione *yourDatabase* na página **bancos de dados SQL** . A página de visão geral do seu banco de dados é aberta, mostrando o **nome do servidor** totalmente qualificado (tal como `contosodatabaseserver01.database.windows.net`) e fornece opções para configurações adicionais.
+1. Selecione *yourDatabase* na página **bancos de dados SQL**. A página de visão geral do seu banco de dados é aberta, mostrando o **nome do servidor** totalmente qualificado (tal como `contosodatabaseserver01.database.windows.net`) e fornece opções para configurações adicionais.
 
    ![nome do servidor](./media/design-first-database-tutorial/server-name.png)
 
@@ -117,7 +117,7 @@ O Banco de Dados SQL do Azure cria um firewall de IP no nível do servidor. Esse
 
 1. Clique em **Save** (Salvar). Uma regra de firewall de IP no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor.
 
-1. Clique em **OK** , em seguida, feche a página **Configurações do Firewall** .
+1. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
 
 Agora seu endereço IP pode passar pelo firewall de IP. Agora, é possível se conectar ao seu banco de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha. Use a conta do administrador do servidor criada anteriormente.
 
@@ -129,25 +129,25 @@ Agora seu endereço IP pode passar pelo firewall de IP. Agora, é possível se c
 Use o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma conexão com seu banco de dados.
 
 1. Abra o SQL Server Management Studio.
-2. Na caixa de diálogo **Conectar ao Servidor** , insira as informações a seguir:
+2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
    | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Tipo de servidor** | Mecanismo de banco de dados | Esse valor é necessário. |
-   | **Nome do servidor** | O nome do servidor totalmente qualificado | Por exemplo, *yourserver.database.windows.net* . |
+   | **Nome do servidor** | O nome do servidor totalmente qualificado | Por exemplo, *yourserver.database.windows.net*. |
    | **Autenticação** | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
    | **Logon** | A conta do administrador do servidor | A conta que você especificou quando criou o servidor. |
    | **Senha** | A senha para sua conta do administrador do servidor | A senha que você especificou quando criou o servidor. |
 
    ![conectar-se ao servidor](./media/design-first-database-tutorial/connect.png)
 
-3. Clique em **Opções** na caixa de diálogo **Conectar servidor** . Na seção **Conectar ao banco de dados** , digite *yourDatabase* para conectar-se a este banco de dados.
+3. Clique em **Opções** na caixa de diálogo **Conectar servidor**. Na seção **Conectar ao banco de dados**, digite *yourDatabase* para conectar-se a este banco de dados.
 
     ![conectar o banco de dados no servidor](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Clique em **Conectar** . A janela **Pesquisador de Objetos** abre no SSMS.
+4. Clique em **Conectar**. A janela **Pesquisador de Objetos** abre no SSMS.
 
-5. No **Pesquisador de Objetos** , expanda **Bancos de Dados** e expanda *yourDatabase* para exibir os objetos no banco de dados de exemplo.
+5. No **Pesquisador de Objetos**, expanda **Bancos de Dados** e expanda *yourDatabase* para exibir os objetos no banco de dados de exemplo.
 
    ![objetos de banco de dados](./media/design-first-database-tutorial/connected.png)  
 
@@ -160,14 +160,14 @@ Criar um esquema de banco de dados com quatro tabelas que modelam um sistema de 
 - Aluno
 - Crédito
 
-O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessas tabelas fazem referência a colunas em outras tabelas. Por exemplo, a tabela *Student* faz referência à coluna *PersonId* da tabela *Person* . Estude o diagrama para entender como as tabelas neste tutorial estão relacionadas umas com as outras. Para obter uma visão detalhada de como criar tabelas de banco de dados eficientes, consulte [Criar tabelas de banco de dados eficientes](/previous-versions/tn-archive/cc505842(v=technet.10)). Para obter informações sobre como escolher tipos de dados, consulte [Tipos de dados](/sql/t-sql/data-types/data-types-transact-sql).
+O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessas tabelas fazem referência a colunas em outras tabelas. Por exemplo, a tabela *Student* faz referência à coluna *PersonId* da tabela *Person*. Estude o diagrama para entender como as tabelas neste tutorial estão relacionadas umas com as outras. Para obter uma visão detalhada de como criar tabelas de banco de dados eficientes, consulte [Criar tabelas de banco de dados eficientes](/previous-versions/tn-archive/cc505842(v=technet.10)). Para obter informações sobre como escolher tipos de dados, consulte [Tipos de dados](/sql/t-sql/data-types/data-types-transact-sql).
 
 > [!NOTE]
 > Você também pode usar o [designer de tabela no SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) para criar e projetar suas tabelas.
 
 ![Relações de tabela](./media/design-first-database-tutorial/tutorial-database-tables.png)
 
-1. No **Pesquisador de Objetos** , clique com o botão direito do mouse em *yourDatabase* e selecione **Nova Consulta** . Uma janela de consulta em branco conectada ao seu banco de dados é aberta.
+1. No **Pesquisador de Objetos**, clique com o botão direito do mouse em *yourDatabase* e selecione **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dados é aberta.
 
 2. Na janela de consulta, execute a consulta a seguir para criar quatro tabelas em seu banco de dados:
 
@@ -222,16 +222,16 @@ O diagrama a seguir mostra como essas tabelas estão relacionadas. Algumas dessa
 
 1. Crie uma pasta chamada *sampleData* na pasta Downloads para armazenar os dados de exemplo de seu banco de dados.
 
-2. Clique com o botão direito do mouse nos seguintes links e salve-os na pasta *sampleData* .
+2. Clique com o botão direito do mouse nos seguintes links e salve-os na pasta *sampleData*.
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Abra uma janela de prompt de comando e navegue até a pasta *sampleData* .
+3. Abra uma janela de prompt de comando e navegue até a pasta *sampleData*.
 
-4. Execute o comando a seguir para inserir dados de exemplo nas tabelas, substituindo os valores de *server* , *database* , *user* e *password* pelos valores do seu ambiente.
+4. Execute o comando a seguir para inserir dados de exemplo nas tabelas, substituindo os valores de *server*, *database*, *user* e *password* pelos valores do seu ambiente.
 
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","

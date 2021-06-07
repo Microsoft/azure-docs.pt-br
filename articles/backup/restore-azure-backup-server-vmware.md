@@ -4,10 +4,10 @@ description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88263513"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
@@ -61,7 +61,7 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
     ![Painel "pontos de recuperação para"](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-3. No painel **Pontos de Recuperação para:** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso Tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **Caminho:** .
+3. No painel **Pontos de Recuperação para:** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação** correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso Tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **Caminho:** .
 
 4. Para localizar os arquivos que você deseja recuperar, no painel **Caminho**, clique duas vezes no item na coluna **Item recuperável** para abri-lo. Selecione os arquivos ou as pastas que você deseja recuperar. Para selecionar vários itens, pressione a tecla **Ctrl** ao selecionar cada item. Use o painel **Caminho** para pesquisar a lista de arquivos ou pastas que aparecem na coluna **Item recuperável**. A **lista de pesquisa abaixo** não pesquisa em subpastas. Para pesquisar em subpastas, clique duas vezes na pasta. Use o botão **Para cima** a fim de sair de uma pasta filho para a pasta pai. Você pode selecionar vários itens (arquivos e pastas), mas eles devem estar na mesma pasta pai. Não é possível recuperar itens de várias pastas no mesmo trabalho de recuperação.
 

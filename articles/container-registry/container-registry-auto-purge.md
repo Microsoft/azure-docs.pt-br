@@ -2,19 +2,19 @@
 title: Limpar marcas e manifestos
 description: Use um comando de limpeza (purge) para excluir várias marcas e manifestos de um registro de contêiner do Azure com base na idade e em um filtro de marca e, opcionalmente, agende operações de limpeza.
 ms.topic: article
-ms.date: 01/27/2021
-ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 02/19/2021
+ms.openlocfilehash: 2dedfdd6eba73b7573743eba60294ac2231ffc56
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954031"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101722221"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Limpar automaticamente as imagens de um registro de contêiner do Azure
 
 Quando você usa um registro de contêiner do Azure como parte de um fluxo de trabalho de desenvolvimento, o registro pode ficar rapidamente lotado de imagens ou outros artefatos que não são necessários após um curto período. Talvez seja conveniente excluir todas as marcas anteriores a uma determinada duração ou que correspondam a um filtro de nome especificado. Para excluir vários artefatos rapidamente, este artigo apresenta o comando `acr purge`, que você pode executar quando necessário ou como uma Tarefa do ACR [agendada](container-registry-tasks-scheduled.md). 
 
-O comando `acr purge` está atualmente distribuído em uma imagem de contêiner pública (`mcr.microsoft.com/acr/acr-cli:0.3`), criada a partir do código-fonte no repositório [ACR-CLI](https://github.com/Azure/acr-cli) do GitHub.
+O comando `acr purge` está atualmente distribuído em uma imagem de contêiner pública (`mcr.microsoft.com/acr/acr-cli:0.4`), criada a partir do código-fonte no repositório [ACR-CLI](https://github.com/Azure/acr-cli) do GitHub.
 
 Use o Azure Cloud Shell ou uma instalação local da CLI do Azure para executar os exemplos de comando deste artigo. Para usá-lo localmente, é necessária a versão 2.0.76 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install]. 
 
@@ -45,6 +45,7 @@ No mínimo, especifique o seguinte ao executar `acr purge`:
 * `--untagged` - especifica que os manifestos que não têm marcas associadas (*manifestos sem marca*) serão excluídos.
 * `--dry-run` - especifica que nenhum dado é excluído, mas o resultado é o mesmo do comando executado sem esse sinalizador. Esse parâmetro é útil para testar um comando de limpeza a fim de garantir que ele não exclua inadvertidamente os dados que você pretende preservar.
 * `--keep` -Especifica que o número x mais recente de marcas a serem excluídas é retido.
+* `--concurrency` -Especifica um número de tarefas de limpeza a serem processadas simultaneamente. Um valor padrão será usado se esse parâmetro não for fornecido.
 
 Para parâmetros adicionais, execute `acr purge --help`. 
 

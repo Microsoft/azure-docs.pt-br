@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 89d04588d07407be5dbd7ddbafd6543ed461462e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: cc88561f8882b1712648a261d1f0208a18bab26d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945712"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095469"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
 A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso de VM (máquina virtual) JIT (Just-In-Time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o machine learning para analisar os processos em execução na VM e ajuda a aplicar regras de listas de permissões usando essa inteligência.
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar uma política de controle de aplicativo
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Defender habilitado. Você pode experimentar o Azure Defender sem custo. Para obter mais informações, confira [Experimentar o Azure defender](security-center-pricing.md).
+Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Defender habilitado. Há uma avaliação gratuita disponível. Para atualizar, confira [Habilitar o Azure Defender](enable-azure-defender.md).
 
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
 O acesso JIT à VM pode ser usado para bloquear o tráfego de entrada às suas VMs do Azure, reduzindo a exposição aos ataques, fornecendo acesso fácil para conectar às VMs quando necessário.

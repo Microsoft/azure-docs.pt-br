@@ -12,10 +12,10 @@ ms.custom: include file
 ms.author: aahi
 ms.reviewer: roy-har
 ms.openlocfilehash: a021b7c5b26e1bca1e3f623ad762c2f3ee8d6020
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97820786"
 ---
 Criar o aplicativo Pizza.

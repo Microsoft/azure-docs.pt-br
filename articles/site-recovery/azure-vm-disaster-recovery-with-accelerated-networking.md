@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000242"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com a recuperação de desastre de máquina virtual do Azure
@@ -35,10 +35,10 @@ Antes de começar, verifique se você compreende:
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Windows [aqui](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Datacenter do Windows Server 2016**
-* **Windows Server 2012 R2 Datacenter**
+* **Datacenter do Windows Server 2012 R2**
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
@@ -51,7 +51,7 @@ Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM 
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Linux [aqui](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Ubuntu 16.04**
 * **SLES 12 SP3**

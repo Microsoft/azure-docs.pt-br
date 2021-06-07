@@ -6,19 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: eb71db05a61a0e32f3f092f37a4da72bc04e581d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 626c4b192eeeeb8a07130d0a9ecf6754eebbe068
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525748"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065677"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configurar a computação no dispositivo de GPU Azure Stack Edge Pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+<!--ALPA WILL VERIFY - [!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 Este tutorial descreve como configurar uma função de computação e criar um cluster do Kubernetes no dispositivo Azure Stack Edge Pro. 
 
@@ -52,7 +51,7 @@ Para configurar um cliente para acessar o cluster do Kubernetes, você precisar�
 1. Na IU da Web local do dispositivo, acesse a página **Dispositivos**.
 2. Nos **Pontos de extremidade do dispositivo**, copie o ponto de extremidade do **Serviço de API do Kubernetes**. Esse ponto de extremidade é uma cadeia de caracteres no seguinte formato: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
 
-    ![Página de dispositivo na IU local](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
+    ![Página de dispositivo na IU local](./media/azure-stack-edge-gpu-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
 3. Salve a cadeia de caracteres do ponto de extremidade. Você usará essa cadeia de caracteres de ponto de extremidade após configurar um cliente para acesso ao cluster do Kubernetes por meio do kubectl.
 

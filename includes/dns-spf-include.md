@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67172553"
 ---
 Os registros da estrutura da política de remetente (SPF) são usados para especificar quais servidores de e-mail podem enviar e-mails em nome de um nome de domínio. A configuração correta dos registros SPF é importante para impedir que os destinatários marquem seu e-mail como lixo eletrônico.

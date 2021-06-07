@@ -15,17 +15,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 8a4b05c0ee76aca07fd740a16a76a634727504e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "71213015"
 ---
 # <a name="azure-notification-hubs-sdks"></a>SDKs de Hubs de Notificação do Azure
 
 SDKs de publicação da Microsoft e de terceiros para Hubs de Notificação do Azure. Os repositórios da Microsoft para Android, iOS e .NET também incluem aplicativos de exemplo para cada plataforma de destino.
 
-| .            | Publicador      |
+| .            | Publisher      |
 | -------------- | -------------- |
 | [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
 | [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |

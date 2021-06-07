@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: f40286a39694307ac43ecd60f6861d509f760990
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9adf525f4edb4104978bae32bbbef15ffb131f68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340781"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587246"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,17 +36,17 @@ Um valor numérico assinado, o número atual de tiques de 100 nanossegundos deco
 
 Retorna o valor de cadeia de caracteres do UTC de data e hora do ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` em que:
   
-  |Formatar|Descrição|
-  |-|-|
-  |AAAA|ano de quatro dígitos|
-  |MM|mês de dois dígitos (01 = Janeiro, etc.)|
-  |DD|dia de dois dígitos do mês (01 a 31)|
-  |T|signifier para o início dos elementos de hora|
-  |hh|hora de dois dígitos (00 a 23)|
-  |mm|minutos de dois dígitos (00 a 59)|
-  |ss|segundos de dois dígitos (00 a 59)|
-  |. fffffff|segundos fracionários de sete dígitos|
-  |Z|Designador UTC (tempo Universal Coordenado)||
+|Formatar|Descrição|
+|-|-|
+|AAAA|ano de quatro dígitos|
+|MM|mês de dois dígitos (01 = Janeiro, etc.)|
+|DD|dia de dois dígitos do mês (01 a 31)|
+|T|signifier para o início dos elementos de hora|
+|hh|hora de dois dígitos (00 a 23)|
+|MM|minutos de dois dígitos (00 a 59)|
+|ss|segundos de dois dígitos (00 a 59)|
+|. fffffff|segundos fracionários de sete dígitos|
+|Z|Designador UTC (tempo Universal Coordenado)|
   
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

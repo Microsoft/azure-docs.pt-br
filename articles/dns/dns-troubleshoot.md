@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965571"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure

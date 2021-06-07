@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos do Signal
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 321dc4d21485af23a9cca0d42d74da0a3e121b7c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363677"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento da grade de eventos do Azure para o serviço Signalr
@@ -118,7 +118,7 @@ O esquema para um evento de conexão de cliente desconectado é semelhante:
 # <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -133,7 +133,7 @@ Um evento tem os seguintes dados de nível superior:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -147,7 +147,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `timestamp` | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | `hubName` | string | O Hub ao qual a conexão do cliente pertence. |

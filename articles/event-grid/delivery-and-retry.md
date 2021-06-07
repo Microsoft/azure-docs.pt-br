@@ -3,41 +3,41 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
-ms.translationtype: MT
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247362"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276732"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
 Este artigo descreve como a Grade de Eventos do Azure manipula eventos quando a entrega não é confirmada.
 
-A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Ele entrega cada mensagem **pelo menos uma vez** para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
+A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada mensagem é entregue **pelo menos uma vez** para cada assinatura. Os eventos são enviados para o ponto de extremidade registrado de cada assinatura imediatamente. Se um ponto de extremidade não confirmar o recebimento de um evento, a Grade de Eventos tentará entregá-lo novamente.
 
 > [!NOTE]
-> A grade de eventos não garante a ordem de entrega de eventos, portanto, o assinante pode recebê-las fora de ordem. 
+> A Grade de Eventos não garante a ordem de entrega de eventos, portanto, os assinantes podem recebê-los fora de ordem. 
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
-A grade de eventos usa como padrão o envio de cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar a grade de eventos para eventos em lote para entrega para melhorar o desempenho de HTTP em cenários de alta taxa de transferência.
+A Grade de Eventos usa como padrão o envio individual de cada evento aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar a Grade de Eventos para eventos em lote para entrega de um desempenho de HTTP aprimorado em cenários de alta taxa de transferência.
 
 A entrega em lote tem duas configurações:
 
-* **Máximo de eventos por lote** – número máximo de eventos que a grade de eventos fornecerá por lote. Esse número nunca será excedido, mas menos eventos poderão ser entregues se nenhum outro evento estiver disponível no momento da publicação. A grade de eventos não atrasa eventos para criar um lote se menos eventos estiverem disponíveis. Deve estar entre 1 e 5.000.
-* **Tamanho de lote preferencial em kilobytes** -teto de destino para o tamanho do lote em kilobytes. Semelhante a Max Events, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho de lote preferencial *se* um único evento for maior do que o tamanho preferencial. Por exemplo, se o tamanho preferencial for de 4 KB e um evento de 10 KB for enviado para a grade de eventos, o evento de 10 KB ainda será entregue em seu próprio lote, em vez de ser Descartado.
+* **Máximo de eventos por lote** – Número máximo de eventos que a Grade de Eventos entregará por lote. Esse número nunca será excedido, mas menos eventos poderão ser entregues se nenhum outro evento estiver disponível no momento da publicação. A Grade de Eventos não atrasará eventos de criação de lote se menos eventos estiverem disponíveis. Esse valor precisa estar entre 1 e 5.000.
+* **Tamanho de lote preferencial em quilobytes** – O limite de destino do tamanho do lote em quilobytes. Semelhante ao máximo de eventos, o tamanho do lote poderá ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho de lote preferencial *se* um evento for maior do que o tamanho preferencial. Por exemplo, se o tamanho preferencial for 4 KB e um evento de 10 KB for enviado por push para a Grade de Eventos, o evento de 10 KB ainda será entregue no próprio lote, em vez de ser removido.
 
-Entrega em lote em configurada por assinatura por evento por meio do portal, da CLI, do PowerShell ou de SDKs.
+A entrega em lote é configurada em uma assinatura por evento por meio do portal, da CLI, do PowerShell ou de SDKs.
 
 ### <a name="azure-portal"></a>Portal do Azure: 
-![Configurações de entrega em lotes](./media/delivery-and-retry/batch-settings.png)
+![Configurações de entrega em lote](./media/delivery-and-retry/batch-settings.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 Ao criar uma assinatura de evento, use os seguintes parâmetros: 
 
-- **Max – eventos por lote** – número máximo de eventos em um lote. Deve ser um número entre 1 e 5000.
-- **preferencial-tamanho do lote-em quilobytes** -tamanho de lote preferido em kilobytes. Deve ser um número entre 1 e 1024.
+- **max-events-per-batch** – Número máximo de eventos em um lote. O valor precisa ser um número entre 1 e 5000.
+- **preferred-batch-size-in-kilobytes** – Tamanho de lote preferencial em quilobytes. O valor precisa ser um número entre 1 e 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -51,27 +51,27 @@ az eventgrid event-subscription create \
   --preferred-batch-size-in-kilobytes 512
 ```
 
-Para obter mais informações sobre como usar CLI do Azure com a grade de eventos, consulte [rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md).
+Para obter mais informações sobre como usar a CLI do Azure com a Grade de Eventos, confira [Rotear eventos de armazenamento para o ponto de extremidade da Web com a CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
 
-Quando o EventGrid recebe um erro para uma tentativa de entrega de evento, o EventGrid decide se deve tentar novamente a entrega ou mensagens mortas ou descartar o evento com base no tipo de erro. 
+Quando o EventGrid recebe um erro de uma tentativa de entrega de evento, ele decide se deve tentar novamente a entrega, armazena o evento como mensagem morta ou o remove de acordo com o tipo de erro. 
 
-Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com repetições (por exemplo, se o ponto de extremidade for excluído), EventGrid irá executar mensagens mortas no evento ou descartar o evento se a letra inativa não estiver configurada.
+Se o erro retornado pelo ponto de extremidade assinado for um erro relacionado à configuração que não pode ser corrigido com novas tentativas (por exemplo, se o ponto de extremidade for excluído), o EventGrid armazena o evento como mensagem morta ou removerá o evento se o armazenamento de mensagens mortas não estiver configurado.
 
-A seguir estão os tipos de pontos de extremidade para os quais repetir não acontece:
+A seguinte tabela descreve os tipos de pontos de extremidade e erros para os quais não acontecem novas tentativas:
 
 | Tipo de Ponto de Extremidade | Códigos do Erro |
 | --------------| -----------|
-| Recursos do Azure | 400 solicitação inadequada, entidade de solicitação 413 muito grande, 403 Proibido | 
-| webhook | 400 solicitação inválida, entidade de solicitação 413 muito grande, 403 Proibido, 404 não encontrado, 401 não autorizado |
+| Recursos do Azure | 400 Solicitação Inválida, 413 Entidade de Solicitação Muito Grande, 403 Proibido | 
+| webhook | 400 Solicitação Inválida, 413 Entidade de Solicitação Muito Grande, 403 Proibido, 404 Não Localizado, 401 Não Autorizado |
  
 > [!NOTE]
-> Se Dead-Letter não estiver configurado para o ponto de extremidade, os eventos serão descartados quando ocorrerem erros acima. Considere configurar mensagens mortas se você não quiser que esses tipos de eventos sejam removidos.
+> Se o Armazenamento de Mensagens Mortas não estiver configurado para um ponto de extremidade, os eventos serão removidos quando os erros acima ocorrerem. Considere configurar o Armazenamento de Mensagens Mortas se você não quiser que esses tipos de eventos sejam removidos.
 
-Se o erro retornado pelo ponto de extremidade assinado não estiver entre a lista acima, o EventGrid executará a repetição usando as políticas descritas abaixo:
+Se o erro retornado pelo ponto de extremidade assinado não estiver na lista acima, o EventGrid executará a nova tentativa usando as políticas descritas abaixo:
 
-A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
+A Grade de Eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para uma nova tentativa. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A Grade de Eventos repete a entrega usando a seguinte agenda com base no melhor esforço:
 
 - 10 segundos
 - 30 segundos
@@ -82,43 +82,43 @@ A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma m
 - 1 hora
 - 3 horas
 - 6 horas
-- A cada 12 horas até 24 horas
+- A cada 12 horas a 24 horas
 
 
-Se o ponto de extremidade responder em 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
+Se o ponto de extremidade responder em três minutos, a Grade de Eventos tentará remover o evento da fila de nova tentativa em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
 
-A grade de eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição e pode ignorar oportunamente determinadas tentativas se um ponto de extremidade estiver consistentemente não íntegro, inativo por um longo período ou parecer sobrecarregado.
+A Grade de Eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição e pode ignorar oportunamente determinadas tentativas se um ponto de extremidade estiver não íntegro de modo consistente, inativo por um longo período ou parecer sobrecarregado.
 
-Para comportamento determinístico, defina a vida útil do evento e as tentativas de entrega máxima nas [políticas de repetição de assinatura](manage-event-delivery.md).
+Para o comportamento determinístico, defina as tentativas de entrega máxima e a vida útil do evento nas [políticas de repetição de assinatura](manage-event-delivery.md).
 
 Por padrão, a Grade de Eventos expira todos os eventos que não são entregues em 24 horas. Você pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Forneça o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é 1440 minutos).
 
 ## <a name="delayed-delivery"></a>Entrega atrasada
 
-Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos começará a atrasar a entrega e a repetição de eventos para esse ponto de extremidade. Por exemplo, se os 10 primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novos* entregas por algum tempo, em alguns casos, até várias horas.
+Como um ponto de extremidade apresenta falhas de entrega, a Grade de Eventos começará a atrasar a entrega e a nova tentativa de eventos nesse ponto de extremidade. Por exemplo, se os dez primeiros eventos publicados em um ponto de extremidade falharem, a Grade de Eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novas* entregas por algum tempo, em alguns casos, por até várias horas.
 
-A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
+A finalidade funcional da entrega atrasada é proteger os pontos de extremidade não íntegros e o sistema de Grade de Eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da Grade de Eventos e as capacidades de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
-Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
+Quando a Grade de Eventos não puder entregar um evento dentro de um determinado período ou depois de tentar entregar o evento um determinado número de vezes, ela poderá enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **armazenamento de mensagens mortas**. A Grade de Eventos armazena mensagens mortas de um evento quando **uma das condições a seguir** é atendida. 
 
-- O evento não é entregue dentro do período de **vida útil** . 
-- O **número de tentativas** de entregar o evento excedeu o limite.
+- O evento não é entregue dentro do período de **vida útil**. 
+- O **número de tentativas** de entrega do evento excedeu o limite.
 
-Se qualquer uma das condições for atendida, o evento será descartado ou inativo.  Por padrão, a Grade de Eventos não ativa o armazenamento de mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para reter eventos que não foram entregues ao criar a assinatura do evento. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
+Se qualquer uma das condições for atendida, o evento será removido ou armazenado como mensagem morta.  Por padrão, a Grade de Eventos não ativa o armazenamento de mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para reter eventos que não foram entregues ao criar a assinatura do evento. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
 
-A Grade de Eventos enviará um evento ao local de mensagens mortas quando ela tiver tentado todas as suas tentativas de repetição. Se a grade de eventos receber um código de resposta 400 (solicitação inadequada) ou 413 (entidade de solicitação muito grande), ele agendará imediatamente o evento para mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá êxito.
+A Grade de Eventos enviará um evento ao local de mensagens mortas quando ela tiver tentado todas as suas tentativas de repetição. Se a Grade de Eventos receber um código de resposta 400 (Solicitação Inválida) ou 413 (Entidade de Solicitação Muito Grande), ela agendará imediatamente o evento para o armazenamento de mensagens mortas. Esses códigos de resposta indicam que a entrega do evento nunca terá êxito.
 
-A expiração de vida útil é verificada apenas na próxima tentativa de entrega agendada. Portanto, mesmo se o tempo de vida expirar antes da próxima tentativa de entrega agendada, a expiração do evento será verificada somente no momento da próxima entrega e, em seguida, mensagens mortas em seguida. 
+O término da vida útil é verificado APENAS na próxima tentativa de entrega agendada. Portanto, mesmo se a vida útil expirar antes da próxima tentativa de entrega agendada, a expiração do evento será verificada somente no momento da próxima entrega e o armazenamento de mensagens mortas será realizado em seguida. 
 
-Há um atraso de cinco minutos entre a última tentativa de entregar de um evento e quando ela é entregue para o local de inatividade. Esse atraso tem como objetivo reduzir o número de operações de armazenamento Blob. Se o local de mensagens mortas não estiver disponível por quatro horas, o evento será descartado.
+Há um atraso de cinco minutos entre a última tentativa de entregar de um evento e quando ela é entregue para o local de inatividade. Esse atraso tem como objetivo reduzir o número de operações de Armazenamento de Blobs. Se o local de mensagens mortas não estiver disponível por quatro horas, o evento será descartado.
 
 Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. É possível fornecer o ponto de extremidade para esse contêiner ao criar a assinatura do evento. O ponto de extremidade está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Talvez você queira ser notificado quando um evento tiver sido enviado para o local de mensagens mortas. Para usar a Grade de Eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blob de mensagens mortas. Toda vez que seu armazenamento de blob de mensagens mortas recebe um evento não entregue, a Grade de Eventos notifica o manipulador. O manipulador responde com ações que você deseja executar para reconciliar eventos não entregues. Para obter um exemplo de como configurar um local de mensagens mortas e tentar políticas de repetição, veja [políticas de inatividade e repetição](manage-event-delivery.md).
+Talvez você queira ser notificado quando um evento tiver sido enviado para a localização das mensagens mortas. Para usar a Grade de Eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blob de mensagens mortas. Toda vez que seu armazenamento de blob de mensagens mortas recebe um evento não entregue, a Grade de Eventos notifica o manipulador. O manipulador responde com ações que você deseja executar para reconciliar eventos não entregues. Para ver um exemplo de como configurar uma localização de mensagens mortas e políticas de repetição, confira [Mensagens mortas e políticas de repetição](manage-event-delivery.md).
 
 ## <a name="delivery-event-formats"></a>Formatos de evento de entrega
-Esta seção fornece exemplos de eventos e eventos inativos em formatos de esquema de entrega diferentes (esquema de grade de eventos, esquema CloudEvents 1,0 e esquema personalizado). Para obter mais informações sobre esses formatos, consulte artigos sobre esquema de [grade de eventos](event-schema.md) e [eventos de nuvem 1,0](cloud-event-schema.md) . 
+Esta seção fornece exemplos de eventos e eventos de mensagens mortas em formatos de esquema de entrega diferentes (esquema de Grade de Eventos, esquema do CloudEvents 1.0 e esquema personalizado). Para obter mais informações sobre esses formatos, confira os artigos [Esquema da Grade de Eventos](event-schema.md) e [Esquema do Cloud Events 1.0](cloud-event-schema.md). 
 
 ### <a name="event-grid-schema"></a>Esquema da Grade de Eventos
 
@@ -179,7 +179,7 @@ Esta seção fornece exemplos de eventos e eventos inativos em formatos de esque
 }
 ```
 
-### <a name="cloudevents-10-schema"></a>Esquema CloudEvents 1,0
+### <a name="cloudevents-10-schema"></a>Esquema do CloudEvents 1.0
 
 #### <a name="event"></a>Evento
 
@@ -265,29 +265,38 @@ A Grade de Eventos usa códigos de resposta HTTP para confirmar o recebimento de
 
 ### <a name="success-codes"></a>Códigos de sucesso
 
-A grade de eventos considera **apenas** os seguintes códigos de resposta http como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou mortodos conforme apropriado. Após receber um código de status bem-sucedido, a grade de eventos considera a entrega concluída.
+A Grade de Eventos considera **apenas** os códigos de resposta HTTP a seguir como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou armazenados como mensagens mortas, conforme apropriado. Após receber um código de status bem-sucedido, a Grade de Eventos considera a entrega concluída.
 
 - 200 OK
 - 201 Criado
 - 202 Aceito
-- 203 informações não autoritativas
+- 203 Informações Não Autoritativas
 - 204 Sem Conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos (se necessário). Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
+Todos os outros códigos que não estão no conjunto acima (200 a 204) são considerados falhas e serão repetidos (se necessário). Alguns têm políticas de repetição específicas ligadas a eles descritas abaixo e todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da Grade de Eventos, o comportamento de repetição é não determinístico. 
 
 | Código de status | Tentar comportamento novamente |
 | ------------|----------------|
-| 400 Solicitação Inválida | Não repetido |
-| 401 Não Autorizado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
-| 403 Proibido | Não repetido |
-| 404 Não Encontrado | Tente novamente após 5 minutos ou mais para os pontos de extremidade de recursos do Azure |
-| 408 Tempo Limite da Solicitação | Tentar novamente após 2 minutos ou mais |
-| Solicitação 413 entidade muito grande | Não repetido |
+| 400 Solicitação Inválida | Não tentar novamente |
+| 401 Não Autorizado | Tentar novamente após cinco minutos ou mais para os Pontos de Extremidade de Recursos do Azure |
+| 403 Proibido | Não tentar novamente |
+| 404 Não Encontrado | Tentar novamente após cinco minutos ou mais para os Pontos de Extremidade de Recursos do Azure |
+| 408 Tempo Limite da Solicitação | Tentar novamente após dois minutos ou mais |
+| Solicitação 413 entidade muito grande | Não tentar novamente |
 | 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
-| Todos os outros | Tentar novamente após 10 segundos ou mais |
+| Todos os outros | Tentar novamente após dez segundos ou mais |
 
+## <a name="custom-delivery-properties"></a>Propriedades de entrega personalizadas
+As assinaturas de evento permitem que você configure cabeçalhos HTTP que estão incluídos nos eventos entregues. Essa funcionalidade permite que você defina cabeçalhos personalizados que são exigidos por um destino. Você pode configurar até dez cabeçalhos ao criar uma assinatura de evento. Cada valor de cabeçalho não deve ser maior que 4.096 (4K) bytes. Você pode definir os cabeçalhos personalizados nos eventos que são entregues aos seguintes destinos:
+
+- Webhooks
+- Tópicos e filas do Barramento de Serviço do Azure
+- Hubs de eventos do Azure
+- Conexões híbridas de retransmissão
+
+Para obter mais informações, confira [Propriedades de entrega personalizadas](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

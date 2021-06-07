@@ -13,10 +13,10 @@ ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
 ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88798373"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Alterar as configurações do método de verificação de dois fatores

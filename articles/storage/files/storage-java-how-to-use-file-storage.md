@@ -9,10 +9,10 @@ ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 25baa278961b93b04e60f2e997b98753cb6cf3ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024102"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
@@ -253,7 +253,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 
 ---
 
-## <a name="upload-a-file"></a>Carregar um arquivo
+## <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 Saiba como carregar um arquivo do armazenamento local.
 

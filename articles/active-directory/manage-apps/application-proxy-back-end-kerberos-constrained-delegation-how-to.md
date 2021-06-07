@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 65d68924fbc3a777ef7ef59d2532a1ae20e23c48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8562f3bdd82b5b0c2c1340f511f87ad90dfbe3b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258211"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102487943"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 
@@ -161,7 +161,7 @@ Se você ainda não conseguir progredir, o suporte da Microsoft pode ajudá-lo. 
 ## <a name="other-scenarios"></a>Outros cenários
 
 - Application Proxy do Azure solicita um tíquete do Kerberos antes de enviar a solicitação para um aplicativo. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que as negociações mais convencionais ocorram. A primeira solicitação é anônima, e permite que o aplicativo responda com os tipos de autenticação que ele oferece suporte através de um 401. Esse tipo de negociação Kerberos pode ser habilitado usando as etapas descritas neste documento: [delegação restrita de Kerberos para logon único](application-proxy-configure-single-sign-on-with-kcd.md).
-- Autenticação com salto duplo é comumente usada em cenários com aplicativos em camadas, com um back-end e front-end, ambos exigindo autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte a [delegação restrita de Kerberos pode exigir a transição de protocolo em cenários de multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Autenticação com salto duplo é comumente usada em cenários com aplicativos em camadas, com um back-end e front-end, ambos exigindo autenticação, como o SQL Server Reporting Services. Para obter mais detalhes, consulte [como configurar a delegação restrita de Kerberos para páginas de proxy de registro da Web](/troubleshoot/windows-server/identity/configure-kerberos-constrained-delegation).
 
 ## <a name="next-steps"></a>Próximas etapas
 

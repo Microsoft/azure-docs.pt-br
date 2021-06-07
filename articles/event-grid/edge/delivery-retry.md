@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171611"
 ---
 # <a name="delivery-and-retry"></a>Entregar e tentar novamente
@@ -25,9 +25,9 @@ A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Ele ten
 
 A grade de eventos aguarda até 60 segundos por uma resposta depois de entregar uma mensagem. Se o ponto de extremidade do assinante não ACK da resposta, a mensagem será enfileirada em uma de nossas filas de retirada para novas tentativas.
 
-Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. Eles são:
+Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. São eles:
 
-| Agendamento | Descrição |
+| Agenda | Descrição |
 | ---------| ------------ |
 | 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que terminam aqui são tentadas a cada 10 minutos.
@@ -41,7 +41,7 @@ Há duas filas de back-configure pré-configuradas que determinam o agendamento 
 
 ## <a name="retry-policy-limits"></a>Limites de política de repetição
 
-Há duas configurações que determinam a política de repetição. Eles são:
+Há duas configurações que determinam a política de repetição. São eles:
 
 * Número máximo de tentativas
 * Tempo de vida (TTL) do evento

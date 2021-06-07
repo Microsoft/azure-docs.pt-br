@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: victorh
 ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98107847"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Usar o Firewall do Azure para proteger implantações do AKS (Serviço de Kubernetes do Azure)

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555909"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD
 
@@ -73,7 +73,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são excluídas permanentemente. Você deve recriar as funções personalizadas e quaisquer atribuições de função. |
 | Identidades gerenciadas atribuídas pelo sistema | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve desabilitar e reabilitar as identidades gerenciadas. Você deve recriar as atribuições de função. |
 | Identidades gerenciadas atribuídas pelo usuário | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve excluir, recriar e anexar as identidades gerenciadas ao recurso apropriado. Você deve recriar as atribuições de função. |
-| Azure Key Vault | Sim | Sim | [Listar políticas de acesso Key Vault](#list-key-vaults) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
+| Cofre de Chave do Azure | Sim | Sim | [Listar políticas de acesso Key Vault](#list-key-vaults) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
 | Bancos de dados SQL do Azure com a integração de autenticação do Azure AD habilitada | Sim | Não | [Verificar bancos de dados SQL do Azure com autenticação do Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Armazenamento e Azure Data Lake Storage Gen2 do Azure | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Azure Data Lake Storage Gen1 | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
@@ -307,9 +307,9 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>Criar atribuições de função
+### <a name="assign-roles"></a>Atribuir funções
 
-- Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para usuários, grupos e entidades de serviço. Para obter mais informações, consulte [Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure](role-assignments-cli.md).
+- Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a usuários, grupos e entidades de serviço. Para obter mais informações, consulte [atribuir funções do Azure usando CLI do Azure](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -325,7 +325,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     | conjuntos de escala de máquina virtual | [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo sistema. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a identidades gerenciadas atribuídas pelo sistema. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -341,7 +341,7 @@ Nesta etapa, você transfere a assinatura do diretório de origem para o diretó
     | conjuntos de escala de máquina virtual | [Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Outros serviços | [Serviços compatíveis com identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando o CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de função para identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [AZ role Assignment Create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a identidades gerenciadas atribuídas pelo usuário. Para obter mais informações, consulte [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

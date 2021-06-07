@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020105"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Explorer do Gen1
@@ -111,7 +111,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Azure Time Series 
 
 1. Use o **calor** para identificar rapidamente séries de dados exclusivas ou anormais em uma determinada consulta. Apenas um termo de pesquisa pode ser visualizado como um mapa de calor.
 
-    [Time Series insights calor Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png) (Media/Time-Series-percepções-Explorer/tsi-ga-example-heatmap-charting.png # Lightbox)
+    [Time Series insights calor Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png) (Media/Time-Series-percepções-Explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode examinar todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Azure Time Series Insights armazena todos os dados brutos.
 

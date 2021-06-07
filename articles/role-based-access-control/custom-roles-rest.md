@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790177"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100557524"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas do Azure usando a API REST
 
 > [!IMPORTANT]
-> A adição de um grupo de gerenciamento ao `AssignableScopes` está em visualização no momento.
+> A adição de um grupo de gerenciamento a `AssignableScopes` está em versão prévia no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -183,7 +183,7 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
 
 1. Se `assignableScopes` for uma assinatura ou grupo de recursos, substitua as instâncias *{SubscriptionId}* ou *{resourcegroup}* por seus identificadores.
 
-1. Se `assignableScopes` for um grupo de gerenciamento, substitua a instância *{GroupId}* pelo seu identificador de grupo de gerenciamento. A adição de um grupo de gerenciamento ao `assignableScopes` está em visualização no momento.
+1. Se `assignableScopes` for um grupo de gerenciamento, substitua a instância *{GroupId}* pelo seu identificador de grupo de gerenciamento. A adição de um grupo de gerenciamento a `assignableScopes` está em versão prévia no momento.
 
 1. Em `actions` propriedade, adicione as operações que permitem que a função seja executada.
 
@@ -341,5 +341,5 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
+- [Atribuir funções do Azure usando a API REST](role-assignments-rest.md)
 - [Referência de API REST do Azure](/rest/api/azure/)

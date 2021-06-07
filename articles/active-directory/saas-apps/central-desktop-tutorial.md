@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97674173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Active Directory do Azure ao Central Desktop
@@ -30,7 +30,7 @@ A integração da Área de Trabalho Central ao Azure AD oferece os seguintes ben
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD à Área de Trabalho Central, você precisa dos seguintes itens:
 
@@ -159,9 +159,9 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
     c. Abra seu certificado baixado no Bloco de Notas. Em seguida, copie o conteúdo do certificado e cole-o no campo **Certificado SSO**.
 
-    d. Selecione **Exibir um link para a sua página de logon do SAMLv2**.
+    d. Selecione **Exibir um link para a página de logon SAMLv2**.
 
-    e. Selecione **Atualização**.
+    e. Selecione **Atualizar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -233,7 +233,7 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 
     ![Endereços de email dos novos membros](./media/central-desktop-tutorial/ic781052.png "Endereços de email dos novos membros")
 
-4. Selecione **Adicionar Membro(s) Interno(s)** .
+4. Selecione **Adicionar Membro(s) Interno(s)**.
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
 

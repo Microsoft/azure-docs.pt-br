@@ -3,16 +3,16 @@ title: 'Tutorial de Data Factory: primeiro pipeline de dados '
 description: Este tutorial do Azure Data Factory mostra como criar e agendar um data factory que processa os dados usando o script Hive em um cluster Hadoop.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 7f1de53e20614ca66c91735ce462da5a194d1836
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e7114dae2a9cfef4a9b710831beb63a65c862643
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377220"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785369"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: crie seu primeiro pipeline para processar dados usando cluster Hadoop
 > [!div class="op_single_selector"]

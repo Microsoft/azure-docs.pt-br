@@ -7,17 +7,17 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2020
-ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879251"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627040"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
-Este artigo explica as diferentes opções e requisitos para a publicação de uma oferta de SaaS (software como serviço) para o Marketplace comercial da Microsoft. As ofertas de SaaS permitem entregar e licenciar soluções de software para seus clientes por meio de uma assinatura online em vez da instalação local em computadores individuais. Este artigo o ajudará a preparar sua oferta para publicação no Marketplace comercial com o Partner Center.
+Este artigo explica as diferentes opções e requisitos para publicar ofertas de software como serviço (SaaS) para o Marketplace comercial da Microsoft. As ofertas de SaaS permitem entregar e licenciar soluções de software para seus clientes por meio de assinaturas online. Como um editor de SaaS, você gerencia e paga pela infraestrutura necessária para dar suporte ao uso de seus clientes de sua oferta. Este artigo o ajudará a preparar sua oferta para publicação no Marketplace comercial com o Partner Center.
 
 ## <a name="listing-options"></a>Opções de listagem
 
@@ -37,9 +37,9 @@ A tabela a seguir mostra as opções de listagem para as ofertas de SaaS no Mark
 
 Para obter mais informações sobre essas opções de listagem, consulte [recursos de transação do Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Depois que sua oferta for publicada, a opção de listagem escolhida para sua oferta será exibida como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a captura de tela a seguir mostra uma página de listagem de oferta no Azure Marketplace com os botões **contate-me** e **Test Drive** .
+Depois que sua oferta for publicada, a opção de listagem escolhida para sua oferta será exibida como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a captura de tela a seguir mostra uma página de listagem de oferta no Azure Marketplace com o botão **obter agora** .
 
-![Ilustra uma listagem de oferta na loja online.](./media/listing-options.png)
+![Ilustra uma listagem de oferta na loja online.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -68,9 +68,9 @@ Se você estiver criando uma oferta de transação, precisará reunir as informa
 
 - **URL da página de aterrissagem**: a URL do site de SaaS (por exemplo: `https://contoso.com/signup` ) para a qual os usuários serão direcionados depois de adquirir sua oferta do Marketplace comercial, disparando o processo de configuração da assinatura SaaS recém-criada. Essa URL receberá um token que pode ser usado para chamar as APIs de preenchimento para obter detalhes de provisionamento para sua página de registro interativa.
 
-  Essa URL será chamada com o parâmetro de token de identificação de compra do Marketplace que identifica exclusivamente a compra de SaaS do cliente específico. Você deve trocar esse token para os detalhes da assinatura SaaS correspondente usando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que você queira coletar devem ser usados como parte de uma página da Web interativa para o cliente, criada em sua experiência para concluir o registro do cliente e ativar sua compra. Nessa página, o usuário deve se inscrever através da autenticação com um clique usando Azure Active Directory (AD do Azure).
+  Essa URL será chamada com o parâmetro de token de identificação de compra do Marketplace que identifica exclusivamente a compra de SaaS do cliente específico. Você deve trocar esse token para os detalhes da assinatura SaaS correspondente usando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que você deseja coletar como parte de uma página da Web interativa do cliente podem ser usados para iniciar a experiência de integração do cliente, que, eventualmente, termina com uma chamada de ativação na API para iniciar o período da assinatura. Nessa página, o usuário deve se inscrever através da autenticação com um clique usando Azure Active Directory (AD do Azure).
 
-  Esta URL com o parâmetro de token de identificação de compra do Marketplace também será chamada quando o cliente iniciar uma experiência SaaS gerenciada do centro de administração portal do Azure ou M365. Você deve lidar com ambos os fluxos: quando o token é fornecido pela primeira vez após uma nova compra de cliente, e quando ele é fornecido novamente para um cliente existente que gerencia sua solução de SaaS.
+  Esta URL com o parâmetro de token de identificação de compra do Marketplace também será chamada quando o cliente iniciar uma experiência SaaS gerenciada do portal do Azure ou Microsoft 365 centro de administração. Você deve lidar com ambos os fluxos: quando o token é fornecido pela primeira vez após uma nova compra de cliente, e quando ele é fornecido novamente para um cliente existente que gerencia sua solução de SaaS.
 
     A página de aterrissagem configurada deve estar em funcionamento em execução 24/7. Essa é a única maneira de você ser notificado sobre novas compras de suas ofertas de SaaS feitas no Marketplace comercial ou solicitações de configuração para uma assinatura ativa de uma oferta.
 
@@ -79,7 +79,7 @@ Se você estiver criando uma oferta de transação, precisará reunir as informa
   O webhook que você fornece deve estar em funcionamento em execução 24/7. Essa é a única maneira de você ser notificado sobre atualizações sobre as assinaturas de SaaS de seus clientes adquiridas por meio do Marketplace comercial.
 
   > [!NOTE]
-  > Dentro do portal do Azure, exigimos que você crie um aplicativo de Azure Active Directory de locatário único [(AD do Azure)](../active-directory/develop/howto-create-service-principal-portal.md) para habilitar uma ID de Azure app a ser usada para autenticar a conexão entre nossos dois serviços. Para localizar a [ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades** e procure o número de ID de diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Dentro do portal do Azure, exigimos que você crie um [registro de aplicativo de Azure Active Directory do Azure AD (](../active-directory/develop/howto-create-service-principal-portal.md)único locatário). Use os detalhes de registro do aplicativo para autenticar sua solução ao chamar as APIs do Marketplace. Para localizar a [ID de locatário](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades** e procure o número de ID de diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **ID de locatário Azure Active Directory**: (também conhecido como ID de diretório). Dentro do portal do Azure, exigimos que você [registre um aplicativo Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-lo à ACL (lista de controle de acesso) da API para garantir que você está autorizado a chamá-lo. Para localizar a ID do locatário para seu aplicativo Azure Active Directory (AD), vá para a folha [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) em Azure Active Directory. Na coluna **nome de exibição** , selecione o aplicativo. Em seguida, procure o número de **ID do diretório (locatário)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
@@ -88,7 +88,7 @@ Se você estiver criando uma oferta de transação, precisará reunir as informa
   A ID do aplicativo do Azure AD está associada à sua ID de editor em sua conta do Partner Center. Você deve usar a mesma ID de aplicativo para todas as ofertas nessa conta.
 
   > [!NOTE]
-  > Se o Publicador tiver duas ou mais contas diferentes no Partner Center, duas ou mais IDs de aplicativo diferentes do Azure AD devem ser usadas, cada uma para uma das contas. Cada conta de parceiro no Partner Center deve usar uma ID de aplicativo do Azure AD exclusiva para todas as ofertas de SaaS que são publicadas por meio dessa conta.
+  > Se o Publicador tiver duas ou mais contas diferentes no Partner Center, os detalhes de registro do aplicativo do Azure AD poderão ser usados somente em uma conta. Não há suporte para o uso da mesma ID de locatário, par de ID de aplicativo para uma oferta em uma conta de Publicador diferente.
 
 ## <a name="test-drives"></a>Test drives
 Você pode optar por habilitar um test drive para seu aplicativo SaaS. As unidades de teste oferecem aos clientes acesso a um ambiente pré-configurado por um número fixo de horas. Você pode habilitar as unidades de teste para qualquer opção de publicação, no entanto, esse recurso tem requisitos adicionais. Para saber mais sobre as unidades de teste, consulte [o que é um test drive?](what-is-test-drive.md). Para obter informações sobre como configurar diferentes tipos de unidades de teste, consulte [testar a configuração técnica](test-drive-technical-configuration.md).
@@ -138,7 +138,7 @@ Se você optar por usar o contrato padrão, terá a opção de adicionar os term
 
 Ao [criar uma nova oferta de SaaS](create-new-saas-offer.md) no Partner Center, você inserirá texto, imagens, vídeos opcionais e outros detalhes na página de **listagem da oferta** . Essas são as informações que os clientes verão quando descobrirem sua listagem de ofertas no Marketplace comercial, conforme mostrado no exemplo a seguir.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Ilustra como essa oferta aparece em Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Ilustra como essa oferta aparece em Microsoft AppSource.":::
 
 **Descrições de chamada**
 
@@ -209,9 +209,6 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
 > [!Note]
 > Sua oferta deve atender as políticas gerais de [certificação do Marketplace comercial](/legal/marketplace/certification-policies#100-general) e as [políticas de software como serviço](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a serem publicadas no mercado comercial.
 
-## <a name="preview-audience"></a>Público-alvo de versão prévia
-Um público de visualização pode acessar sua oferta antes de ser publicado em lojas online para testar a funcionalidade de ponta a ponta antes de você publicá-la em tempo real. Na página do **público de visualização** , você pode definir um público de visualização limitado. Essa configuração não estará disponível se você optar por processar as transações de forma independente, em vez de vender sua oferta pela Microsoft. Nesse caso, você pode ignorar esta seção e ir para [oportunidades de vendas adicionais](#additional-sales-opportunities).
-
 > [!NOTE]
 > Um público de visualização difere de um plano privado. Um plano privado é aquele que você disponibiliza apenas para um público específico que escolher. Isso permite que você negocie um plano personalizado com clientes específicos. Para obter mais informações, consulte a próxima seção: planos.
 
@@ -251,6 +248,50 @@ O exemplo a seguir mostra uma divisão de exemplo de custos e pagamentos para de
 |||
 
 **`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte e continuará a ser aplicada até que o status de incentivados de covenda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
+
+## <a name="preview-audience"></a>Público-alvo de versão prévia
+
+Um público de visualização pode acessar sua oferta antes de ser publicado em tempo real nas lojas online. Eles podem ver como sua oferta será examinada no mercado comercial e testar a funcionalidade de ponta a ponta antes de você publicá-la em tempo real. 
+
+Na página do **público de visualização** , você pode definir um público de visualização limitado. Essa configuração não estará disponível se você optar por processar as transações de forma independente, em vez de vender sua oferta pela Microsoft. Nesse caso, você pode ignorar esta seção e ir para [oportunidades de vendas adicionais](#additional-sales-opportunities).
+
+## <a name="test-offer"></a>Oferta de teste
+
+Antes de publicar sua oferta em tempo real, você deve usar a funcionalidade de visualização para desenvolver sua implementação técnica, teste e experimento com modelos de preços diferentes.
+
+Para desenvolver e testar sua oferta de SaaS com a menor quantidade de risco, recomendamos que você crie uma oferta de desenvolvimento e teste (DEV) para experimentação e teste. A oferta de desenvolvimento será separada da sua oferta de produção (PROD).
+
+Para evitar compras acidentais da oferta de desenvolvimento, você nunca enviará o botão **Go Live** para publicar a oferta de desenvolvimento ao vivo.
+
+![Ilustra a página Visão geral da oferta para uma oferta no Partner Center. O botão Go Live e os links de visualização são mostrados. O link Exibir relatório de validação também é mostrado em validação automatizada.](./media/review-publish-offer/publish-status-saas.png)
+
+Aqui estão alguns motivos para criar uma oferta de desenvolvimento separada para a equipe de desenvolvimento usar para desenvolvimento e teste da oferta de produção:
+
+- Evitar encargos acidentais de clientes
+- Avaliar modelos de preços
+- Não adicionar planos que não se destinam a clientes reais
+
+### <a name="avoid-accidental-customer-charges"></a>Evitar encargos acidentais de clientes
+
+Ao usar uma oferta de desenvolvimento em vez da oferta de PROD e tratá-las como ambientes de desenvolvimento e produção, você pode evitar encargos acidentais para os clientes.
+
+Recomendamos que você registre dois aplicativos diferentes do Azure AD para chamar as APIs do Marketplace. Os desenvolvedores usarão um aplicativo do Azure AD com as configurações da oferta de desenvolvimento, e a equipe de operações usará o registro do aplicativo de produção. Ao fazer isso, você pode isolar a equipe de desenvolvimento de cometer erros inadvertidos, como chamar a API para cancelar a assinatura de um cliente que paga US $100.000 por mês. Você também pode evitar cobrar um cliente pelo uso medido que não consome.
+
+### <a name="evaluate-pricing-models"></a>Avaliar modelos de preços
+
+O teste de modelos de preços na oferta de desenvolvimento reduz o risco quando os desenvolvedores experimentam modelos de preços diferentes.
+
+Os editores podem criar os planos de que precisam na oferta de desenvolvimento para determinar qual modelo de preços funciona melhor para sua oferta. Os desenvolvedores podem querer criar vários planos na oferta de desenvolvimento para testar combinações de preços diferentes. Por exemplo, você pode criar planos com diferentes conjuntos de dimensões limitadas personalizadas. Você pode criar um plano diferente com uma combinação de taxas fixas e dimensões limitadas personalizadas.
+
+Para testar várias opções de preços, você precisa criar um plano para cada modelo de preços exclusivo. Para saber mais, confira [planos](#plans).
+
+### <a name="not-adding-plans-that-do-not-target-actual-customers"></a>Não adicionar planos que não se destinam a clientes reais
+
+Usando uma oferta de desenvolvedor para desenvolvimento e teste, você pode reduzir a desordem desnecessária na oferta de produção. Por exemplo, você não pode excluir planos criados para testar diferentes modelos de preços ou configurações técnicas (sem o arquivamento de um tíquete de suporte). Portanto, ao criar planos para teste na oferta de desenvolvimento, você reduz a desordem na oferta de produção.
+
+A desordem na oferta de produção frustra as equipes de produtos e marketing, pois elas esperam que todos os planos tenham como alvo os clientes reais. Especialmente com grandes equipes que estão desenvolvidas com quem todos querem que as diferentes áreas de trabalho trabalhem, a criação de duas ofertas fornecerá dois ambientes diferentes para desenvolvimento e produção. Em alguns casos, talvez você queira criar várias ofertas de desenvolvimento para dar suporte a uma equipe maior que executa diferentes cenários de teste. Deixar que diferentes membros da equipe trabalhem na oferta de desenvolvimento separada da oferta de produção, ajuda a manter os planos de produção mais próximos ao pronto para a produção.
+
+O teste de uma oferta de desenvolvimento ajuda a evitar o limite de 30 dimensões limitadas personalizadas por oferta. Os desenvolvedores podem experimentar diferentes combinações de medidores na oferta de desenvolvimento sem afetar o limite de dimensão medida personalizada na oferta de produção.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de vendas adicionais
 

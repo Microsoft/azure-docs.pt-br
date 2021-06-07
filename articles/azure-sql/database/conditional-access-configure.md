@@ -1,5 +1,5 @@
 ---
-title: Acesso Condicional
+title: Acesso condicional
 description: Saiba como configurar o acesso condicional para o banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics.
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
@@ -13,10 +13,10 @@ ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
 ms.openlocfilehash: c18d235977f1256a10e813fa8e02aa3590366fe1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936406"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso condicional com o banco de dados SQL do Azure e o Azure Synapse Analytics

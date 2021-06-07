@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765bfe0f805ae4219110d689e8f7f8fd54a26cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173929"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579188"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "96173929"
 >
 > **Se você for um usuário final e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
-A [SSPR (redefinição de senha self-service)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é um recurso do Azure Active Directory (AD) que permite que os usuários redefinam suas senhas sem entrar em contato com a equipe de TI para obter ajuda. Os usuários podem rapidamente se desbloquear e continuar trabalhando independentemente de onde estiverem ou da hora do dia. Ao permitir que os funcionários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
+A [SSPR (redefinição de senha self-service)](https://www.youtube.com/watch?v=pS3XwfxJrMo) é um recurso do Azure Active Directory (AD) que permite que os usuários redefinam suas senhas sem entrar em contato com a equipe de TI para obter ajuda. Os usuários podem rapidamente se desbloquear e continuar trabalhando independentemente de onde estiverem ou da hora do dia. Ao permitir que os funcionários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
 O SSPR tem os seguintes recursos principais:
 
@@ -78,6 +78,7 @@ Para obter mais informações sobre preços, consulte [Preços do Azure Active D
 | vídeos| [Capacite seus usuários com melhor escalabilidade de TI](https://youtu.be/g9RpRnylxS8) 
 | |[O que é redefinição de senha self-service?](https://youtu.be/hc97Yx5PJiM)|
 | |[Como implantar a redefinição de senha self-service](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
+| |[Como habilitar e configurar o SSPR no Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ)|
 | |[Como configurar a redefinição de senha self-service para usuários no Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
 | |[Como [preparar usuários para] registrar [suas] informações de segurança para o Azure Active Directory](https://youtu.be/gXuh0XS18wA) |
 | Cursos online|[Gerenciamento de identidades no Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use o SSPR para dar aos seus usuários uma experiência moderna e protegida. Consulte principalmente o módulo "[Gerenciamento de usuários e grupos do Azure Active Directory](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)". |
@@ -321,7 +322,7 @@ Os logs de auditoria para registro e redefinição de senha estão disponíveis 
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticação – Uso e insights
 
-O [uso e as informações](./howto-authentication-methods-usage-insights.md) permitem que você entenda como os métodos de autenticação para recursos como o Azure ad MFA e SSPR estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
+O [uso e as informações](./howto-authentication-methods-activity.md) permitem que você entenda como os métodos de autenticação para recursos como o Azure ad MFA e SSPR estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 

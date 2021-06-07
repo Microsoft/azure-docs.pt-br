@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 33ad17e3024011368c909a89e9164ca06d044bad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369417"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612075"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtragem geográfica em um domínio para a porta frontal do Azure
 
@@ -214,4 +214,4 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba o que é possível para [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).
+- Saiba como [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).

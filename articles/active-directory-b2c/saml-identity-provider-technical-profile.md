@@ -12,10 +12,10 @@ ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674936"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do provedor de identidade SAML em uma política personalizada Azure Active Directory B2C

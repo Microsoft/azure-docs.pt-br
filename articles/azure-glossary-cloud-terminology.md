@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 33672e90406b94a1b5788803911c072cdc2577f7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186381"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102507714"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -41,7 +41,7 @@ Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modelo de implantação clássico do Azure
 Um dos dois [modelos de implantação](./azure-resource-manager/management/deployment-models.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
@@ -58,7 +58,7 @@ Um dos dois [modelos de implantação](./azure-resource-manager/management/deplo
 
 ## <a name="fault-domain"></a>domínio de falha
 A coleção de máquinas virtuais em um conjunto de disponibilidade que podem falhar ao mesmo tempo. Um exemplo disso é um grupo de máquinas em um rack que compartilham uma fonte de alimentação e um comutador de rede comum. No Azure, as máquinas virtuais em um conjunto de disponibilidade são separadas automaticamente em vários domínios de falha.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## <a name="geo"></a>área geográfica
 Um limite definido para a residência dos dados e que geralmente contém duas ou mais regiões. Os limites podem ser dentro ou fora de fronteiras nacionais e são influenciados pela regulamentação fiscal. Cada área geográfica tem pelo menos uma região. Entre os exemplos de áreas geográficas estão Pacífico Asiático e Japão. Também é chamada de *geografia*.  
@@ -135,7 +135,7 @@ Veja [Usando marcas para organizar os recursos do Azure](./azure-resource-manage
 
 ## <a name="update-domain"></a>domínio de atualização
 A coleção de máquinas virtuais em um conjunto de disponibilidade que são atualizadas ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas juntas durante a manutenção planejada. O Azure nunca reinicia mais de um domínio de atualização por vez. Isso também é chamado de domínio de upgrade.  
-Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-machine"></a><a name="vm"></a>máquina virtual
 A implementação de software de um computador físico que executa um sistema operacional. Diversas máquinas virtuais podem ser executadas simultaneamente no mesmo hardware. No Azure, as máquinas virtuais estão disponíveis em vários tamanhos.  
@@ -153,7 +153,7 @@ Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md
 ## <a name="web-app"></a>Aplicativo Web
 Outro nome para o [Aplicativo de Serviço de Aplicativo](#app-service-app).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Introdução ao Azure](https://azure.microsoft.com/get-started/)
 * [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  

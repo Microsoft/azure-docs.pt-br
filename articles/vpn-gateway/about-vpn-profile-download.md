@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: cherylmc
 ms.openlocfilehash: 9bb66363d525648df08f32451842402ad1d0d93b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99979056"
 ---
 # <a name="working-with-p2s-vpn-client-profile-files"></a>Trabalhando com arquivos de perfil de cliente VPN P2S

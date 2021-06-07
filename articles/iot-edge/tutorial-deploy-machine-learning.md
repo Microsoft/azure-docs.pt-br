@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fd297ec5cfb7831a438fc51e72e3c2fc163eff49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3192c3ee8458623f3724da5f875cc09032a42bf
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271253"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219409"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Machine Learning como um módulo do IoT Edge (versão prévia)
 
-Use os Azure Notebooks para desenvolver um módulo de aprendizado de máquina e para implantá-lo em um dispositivo Linux executando o Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Use os Azure Notebooks para desenvolver um módulo de machine learning e para implantá-lo em um dispositivo que executa o Azure IoT Edge com contêineres Linux.
 Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial mostra todas as etapas necessárias para implantar um módulo do Azure Machine Learning que prevê quando um dispositivo falhará com base nos dados de temperatura do computador simulado. Para saber mais sobre o Azure Machine Learning no IoT Edge, confira a [Documentação do Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 >[!NOTE]
@@ -41,7 +43,7 @@ Neste tutorial, você aprenderá como:
 
 Um dispositivo do Azure IoT Edge:
 
-* Você pode usar uma máquina virtual do Azure como um dispositivo do IoT Edge seguindo as etapas no início rápido do [Linux](quickstart-linux.md).
+* Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
 * O módulo do Azure Machine Learning não dá suporte a contêineres do Windows.
 * O módulo do Azure Machine Learning não dá suporte a processadores ARM.
 

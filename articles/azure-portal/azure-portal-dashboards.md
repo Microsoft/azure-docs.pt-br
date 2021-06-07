@@ -1,23 +1,23 @@
 ---
-title: Criar e compartilhar painéis no Portal do Azure
-description: Este artigo descreve como criar, personalizar, publicar e compartilhar painéis no portal do Azure.
+title: Criar um painel no portal do Azure
+description: Este artigo descreve como criar e personalizar um painel no portal do Azure.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/16/2021
+ms.openlocfilehash: fa7f1813d86571b568d23d64cab5705f8a117faa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745818"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774556"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
+# <a name="create-a-dashboard-in-the-azure-portal"></a>Criar um painel no portal do Azure
 
-Os painéis são uma exibição focada e organizada dos seus recursos de nuvem no portal do Azure. Use os painéis como um workspace no qual você possa iniciar rapidamente tarefas para operações diárias e monitorar recursos. Crie painéis personalizados com base em projetos, tarefas ou funções de usuário, por exemplo.
+Os painéis são uma exibição focada e organizada dos seus recursos de nuvem no portal do Azure. Use painéis como um espaço de trabalho onde você pode monitorar recursos e iniciar tarefas rapidamente para operações cotidianas. Crie painéis personalizados com base em projetos, tarefas ou funções de usuário, por exemplo.
 
-O portal do Azure fornece um painel padrão como um ponto de partida. Você pode editar o painel padrão. Crie e personalize painéis adicionais e publique e compartilhe painéis para torná-los disponíveis para outros usuários. Este artigo descreve como criar um novo painel, personalizar a interface e publicar e compartilhar painéis.
+O portal do Azure fornece um painel padrão como um ponto de partida. Você pode editar o painel padrão e criar e personalizar painéis adicionais. Este artigo descreve como criar um novo painel e personalizá-lo. Para obter informações sobre o compartilhamento de painéis, consulte [compartilhar painéis do Azure usando o controle de acesso baseado em função do Azure](azure-portal-dashboard-share-access.md).
 
-## <a name="create-a-new-dashboard"></a>Crie um novo painel
+## <a name="create-a-new-dashboard"></a>Criar um painel
 
 Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estas etapas para começar:
 
@@ -27,17 +27,19 @@ Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estas 
 
     ![Abrir o painel](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. Selecione **novo painel**.
+1. Selecione **novo painel** e, em seguida, **painel em branco**.
 
     ![Captura de tela do novo painel](./media/azure-portal-dashboards/create-new-dashboard.png)
 
     Essa ação abre a **Galeria** de blocos, na qual você selecionará blocos e uma grade vazia na qual você organizará os blocos.
 
-    ![Captura de tela da Galeria de blocos e da grade vazia](./media/azure-portal-dashboards/dashboard-name.png)
-
 1. Selecione o texto **meu painel** no rótulo do painel e insira um nome que o ajudará a identificar facilmente o painel personalizado.
 
-1. Selecione **personalização concluída** no cabeçalho da página para sair do modo de edição.
+    ![Captura de tela da Galeria de blocos e da grade vazia](./media/azure-portal-dashboards/dashboard-name.png)
+
+1. No cabeçalho da página, selecione **personalização concluída** para sair do modo de edição e, em seguida, selecione **salvar**.
+
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Captura de tela do processo de salvamento do painel":::
 
 A exibição de painel agora mostra o novo painel. Selecione a seta ao lado do nome do painel para ver os painéis disponíveis para você. A lista pode incluir painéis que outros usuários criaram e compartilharam.
 
@@ -45,7 +47,7 @@ A exibição de painel agora mostra o novo painel. Selecione a seta ao lado do n
 
 Agora, vamos editar o painel para adicionar, redimensionar e organizar os blocos que representam os recursos do Azure.
 
-### <a name="add-tiles-from-the-dashboard"></a>Adicionar blocos do painel
+### <a name="add-tiles-from-the-tile-gallery"></a>Adicionar blocos da Galeria de blocos
 
 Para adicionar blocos a um painel, siga estas etapas:
 
@@ -55,10 +57,13 @@ Para adicionar blocos a um painel, siga estas etapas:
 
 1. Navegue pela **Galeria de blocos** ou use o campo de pesquisa para localizar o bloco desejado.
 
-1. Selecione **Adicionar** para adicionar o bloco ao painel com um tamanho e um local padrão. Ou arraste o bloco até a grade e coloque-o onde desejar.
+1. Selecione **Adicionar** para adicionar o bloco ao painel com um tamanho e um local padrão. Ou arraste o bloco até a grade e coloque-o onde desejar. Adicione os blocos desejados, mas aqui estão algumas ideias:
 
-> [!TIP]
-> Se você trabalhar com mais de uma organização, adicione o bloco **identidade da organização** ao seu painel para mostrar claramente a qual organização os recursos pertencem.
+    - Adicione **todos os recursos** para ver todos os recursos que você já criou.
+
+    - Se você trabalhar com mais de uma organização, adicione o bloco **identidade da organização** ao seu painel para mostrar claramente a qual organização os recursos pertencem.
+
+1. No cabeçalho da página, selecione **salvar**.
 
 ### <a name="add-tiles-from-a-resource-page"></a>Adicionar blocos de uma página de recursos
 
@@ -80,11 +85,11 @@ Para alterar o tamanho de um bloco ou reorganizar os blocos em um painel, siga e
 
 ### <a name="additional-tile-configuration"></a>Configuração de bloco adicional
 
-Alguns blocos podem exigir mais configuração para mostrar as informações desejadas. Por exemplo, o bloco de **gráfico de métricas** precisa ser configurado para exibir uma métrica de **Azure monitor**. Você também pode personalizar os dados do bloco para substituir as configurações de tempo padrão do painel.
+Alguns blocos podem exigir mais configuração para mostrar as informações desejadas. Por exemplo, o bloco de **gráfico de métricas** precisa ser configurado para exibir uma métrica de Azure monitor. Você também pode personalizar os dados do bloco para substituir as configurações de tempo padrão do painel.
 
-Qualquer bloco que precise ser configurado exibe uma faixa de **blocos de configuração** até que você personalize o bloco. Para personalizar o bloco:
+Qualquer bloco que precise ser configurado exibe uma faixa até que você personalize o bloco. Para o **gráfico de métricas**, a faixa é **editada em métricas**. Para personalizar o bloco:
 
-1. Selecione **personalização concluída** no cabeçalho da página para sair do modo de edição.
+1. No cabeçalho da página, selecione **salvar** para sair do modo de edição.
 
 1. Selecione a faixa e, em seguida, faça a configuração necessária.
 
@@ -97,7 +102,7 @@ Qualquer bloco que precise ser configurado exibe uma faixa de **blocos de config
 
 Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Para mostrar um período de tempo diferente apenas para este bloco, siga estas etapas:
 
-1. Selecione **personalizar dados de bloco** no menu de contexto ou no ![ ](./media/azure-portal-dashboards/dashboard-filter.png) filtro ícone de filtro no canto superior esquerdo do bloco.
+1. Selecione **personalizar dados de bloco** no menu de contexto ou no ![ filtro ícone de filtro ](./media/azure-portal-dashboards/dashboard-filter.png) no canto superior esquerdo do bloco.
 
     ![Captura de tela do menu de contexto do bloco](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -109,7 +114,7 @@ Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Pa
 
 1. Escolha a granularidade de tempo a ser exibida. Você pode mostrar qualquer lugar de incrementos de um minuto para um mês.
 
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
 
 ## <a name="delete-a-tile"></a>Excluir um bloco
 
@@ -166,6 +171,10 @@ Para excluir permanentemente um painel particular ou compartilhado, siga estas e
 1. Para um painel particular, selecione **OK** na caixa de diálogo de confirmação para remover o painel. Para um painel compartilhado, na caixa de diálogo de confirmação, marque a caixa de seleção para confirmar se o painel publicado não será mais visível para outras pessoas. Depois, selecione **OK**.
 
     ![Captura de tela da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+
+## <a name="recover-a-deleted-dashboard"></a>Recuperar um painel excluído
+
+Se você estiver na nuvem global do Azure e excluir um painel _publicado_ no portal do Azure, poderá recuperar esse painel dentro de 14 dias da exclusão. Para obter informações, consulte [recuperar um Dashboard excluído no portal do Azure](recover-shared-deleted-dashboard.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

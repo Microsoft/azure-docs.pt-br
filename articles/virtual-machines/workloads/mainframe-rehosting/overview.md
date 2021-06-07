@@ -1,7 +1,8 @@
 ---
 title: Hospedagem de mainframe em máquinas virtuais do Azure
 description: Rehospede suas cargas de trabalho de mainframe como sistemas IBM Z usando máquinas virtuais (VMs) em Microsoft Azure.
-services: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -9,13 +10,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1baba0afc08c6a4df63c38cafe9231411ecf8f1f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220744"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048843"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -98,7 +98,7 @@ Na nuvem, você tem uma variedade de opções de armazenamento flexíveis e esca
 
 Saiba como [mover o armazenamento de mainframe para o Azure](./concepts/mainframe-storage-azure.md).
 
-### <a name="backup-and-recovery"></a>Backup e recuperação
+### <a name="backup-and-recovery"></a>Backup e descoberta
 
 Manter seu próprio site de recuperação de desastre pode ser uma proposta cara. O Azure tem opções fáceis de implementar e econômicas para [backup](../../../backup/backup-overview.md), [recuperação](../../../site-recovery/site-recovery-overview.md)e [redundância](../../../storage/common/storage-redundancy.md) em níveis locais ou regionais, ou por meio de redundância geográfica.
 
@@ -118,7 +118,7 @@ Consulte também:
 
 - [White papers sobre tópicos de mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Solução de problemas](../../troubleshooting/index.yml)
+- [Solução de problemas](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

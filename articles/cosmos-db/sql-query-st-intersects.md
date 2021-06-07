@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2fca6e94f61ff4d21886bf81a56afa032c8773c1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c123446c7d7f654f0e3ace6c9d92983558509c75
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004442"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100559940"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -56,7 +56,7 @@ WHERE ST_INTERSECTS(a.location, {
 
 ## <a name="remarks"></a>Comentários
 
-Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
+Essa função do sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes) , exceto em consultas com agregações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

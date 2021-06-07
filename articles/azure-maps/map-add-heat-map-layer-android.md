@@ -3,17 +3,18 @@ title: Adicionar uma camada do mapa de calor aos mapas do Android | Mapas do Mic
 description: Saiba como criar um mapa de calor. Consulte como usar o SDK do MapsAndroid do Azure para adicionar uma camada do mapa de calor a um mapa. Descubra como personalizar as camadas do mapa de calor.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/01/2020
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4de59bd0b2a9dc9b11acf55a59b82724d2c7b862
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: fce2c2d007f92c43e763826f9345f773324e885e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681423"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100178"
 ---
 # <a name="add-a-heat-map-layer-android-sdk"></a>Adicionar uma camada do mapa de calor (SDK do Android)
 
@@ -43,6 +44,8 @@ Certifique-se de concluir as etapas no documento [início rápido: criar um apli
 Para renderizar uma fonte de dados de pontos como um mapa de calor, passe sua fonte de dados para uma instância da `HeatMapLayer` classe e adicione-a ao mapa.
 
 O exemplo de código a seguir carrega um feed geojson de terremotos da última semana e os renderiza como um mapa de calor. Cada ponto de dados é renderizado com um raio de 10 pixels em todos os níveis de zoom. Para garantir uma melhor experiência do usuário, o mapa de calor está abaixo da camada de rótulo para que os rótulos fiquem claramente visíveis. Os dados neste exemplo são do programa de [riscos de terremoto USGS](https://earthquake.usgs.gov/). Este exemplo carrega dados geojson da Web usando o bloco de código do utilitário de importação de dados fornecido no documento [criar uma fonte de dados](create-data-source-android-sdk.md) .
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -80,6 +83,49 @@ Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
     });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a heat map layer.
+val layer = HeatMapLayer(
+    source,
+    heatmapRadius(10f),
+    heatmapOpacity(0.8f)
+)
+
+//Add the layer to the map, below the labels.
+map.layers.add(layer, "labels")
+
+//Import the geojson data and add it to the data source.
+Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+    this
+) { result: String? ->
+    //Parse the data as a GeoJSON Feature Collection.
+    val fc = FeatureCollection.fromJson(result!!)
+
+    //Add the feature collection to the data source.
+    source.add(fc)
+
+    //Optionally, update the maps camera to focus in on the data.
+    //Calculate the bounding box of all the data in the Feature Collection.
+    val bbox = MapMath.fromData(fc)
+
+    //Update the maps camera so it is focused on the data.
+    map.setCamera(
+        bounds(bbox),
+        padding(20)
+    )
+}
+```
+
+::: zone-end
+
 A captura de tela a seguir mostra um mapa que carrega um mapa de calor usando o código acima.
 
 ![Mapear com a camada do mapa de calor de terremotos recentes](media/map-add-heat-map-layer-android/android-heat-map-layer.png)
@@ -110,6 +156,8 @@ O exemplo anterior personalizou o mapa de calor, definindo as opções de raio e
 - `visible`: Oculta ou mostra a camada.
 
 Este é um exemplo de um mapa de calor em que uma expressão de interpolação de uma capa é usada para criar um gradiente de cor suave. A `mag` propriedade definida nos dados é usada com uma interpolação exponencial para definir o peso ou a relevância de cada ponto de dados.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 HeatMapLayer layer = new HeatMapLayer(source,
@@ -143,6 +191,44 @@ HeatMapLayer layer = new HeatMapLayer(source,
 );
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+    heatmapRadius(10f),
+
+    //A linear interpolation is used to create a smooth color gradient based on the heat map density.
+    heatmapColor(
+        interpolate(
+            linear(),
+            heatmapDensity(),
+            stop(0, color(Color.TRANSPARENT)),
+            stop(0.01, color(Color.BLACK)),
+            stop(0.25, color(Color.MAGENTA)),
+            stop(0.5, color(Color.RED)),
+            stop(0.75, color(Color.YELLOW)),
+            stop(1, color(Color.WHITE))
+        )
+    ),
+
+    //Using an exponential interpolation since earthquake magnitudes are on an exponential scale.
+    heatmapWeight(
+       interpolate(
+            exponential(2),
+            get("mag"),
+            stop(0,0),
+
+            //Any earthquake above a magnitude of 6 will have a weight of 1
+            stop(6, 1)
+       )
+    )
+)
+```
+
+::: zone-end
+
 A captura de tela a seguir mostra a camada de mapa de calor personalizada acima usando os mesmos dados do exemplo de mapa de calor anterior.
 
 ![Mapear com a camada personalizada do mapa de calor de terremotos recentes](media/map-add-heat-map-layer-android/android-custom-heat-map-layer.png)
@@ -156,6 +242,8 @@ Por padrão, o raios de pontos de dados renderizados na camada do mapa de calor 
 Use uma `zoom` expressão para dimensionar o raio para cada nível de zoom, de modo que cada ponto de dados cubra a mesma área física do mapa. Essa expressão faz com que a camada do mapa de calor pareça mais estática e consistente. Cada nível de zoom do mapa tem duas vezes mais pixels vertical e horizontalmente como o nível de zoom anterior.
 
 Dimensionar o raio para que ele fique duplo com cada nível de zoom cria um mapa de calor que se parece consistente em todos os níveis de zoom. Para aplicar esse dimensionamento, use `zoom` com uma expressão base 2 `exponential interpolation` , com o conjunto de raio de pixel definido para o nível de zoom mínimo e um raio dimensionado para o nível máximo de zoom calculado como `2 * Math.pow(2, minZoom - maxZoom)` mostrado no exemplo a seguir. Aplique zoom no mapa para ver como o mapa de calor é dimensionado com o nível de zoom.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 HeatMapLayer layer = new HeatMapLayer(source,
@@ -174,6 +262,30 @@ HeatMapLayer layer = new HeatMapLayer(source,
   heatmapOpacity(0.75f)
 );
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = HeatMapLayer(source,
+  heatmapRadius(
+    interpolate(
+      exponential(2),
+      zoom(),
+
+      //For zoom level 1 set the radius to 2 pixels.
+      stop(1, 2f),
+
+      //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * (maxZoom - minZoom)^2 pixels.
+      stop(19, Math.pow(2.0, 19 - 1.0) * 2f)
+    )
+  ),
+  heatmapOpacity(0.75f)
+)
+```
+
+::: zone-end
 
 O vídeo a seguir mostra um mapa que executa o código acima, que dimensiona o raio enquanto o mapa está sendo ampliado para criar uma renderização de mapa de calor consistente nos níveis de zoom.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 02901e6b4a75257b2cda8dee84dbe3438dc15c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332365"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048639"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookie para o leitor de imersão
 
@@ -47,7 +47,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira o [Início rápido do Node.js](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
-* Veja o [tutorial do Android](../tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
-* Veja o [tutorial do iOS](../tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
-* Confira o [tutorial do Python](../tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
+* Veja o [tutorial do Android](../how-to-launch-immersive-reader.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
+* Veja o [tutorial do iOS](../how-to-launch-immersive-reader.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
+* Confira o [tutorial do Python](../how-to-launch-immersive-reader.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../reference.md)

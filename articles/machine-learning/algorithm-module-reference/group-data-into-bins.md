@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/13/2020
 ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91998503"
 ---
 # <a name="group-data-into-bins-module"></a>Agrupar dados em um módulo de compartimentos
@@ -70,7 +70,7 @@ Como há muitas maneiras de agrupar dados, tudo personalizável, recomendamos qu
     > [!Note]
     > O modo de *MDL de entropia* é definido no estúdio (clássico) e não há nenhum pacote de código-fonte aberto correspondente que possa ser utilizado para dar suporte no designer ainda.        
 
-4. Se você estiver usando os modos de compartimentalização **quantis** e de **largura igual** , use a opção **número de compartimentos** para especificar quantos compartimentos ou *quantis*deseja criar.
+4. Se você estiver usando os modos de compartimentalização **quantis** e de **largura igual** , use a opção **número de compartimentos** para especificar quantos compartimentos ou *quantis* deseja criar.
 
 5. Para **colunas para o compartimento**, use o seletor de coluna para escolher as colunas que têm os valores que você deseja bandeja. As colunas devem ser um tipo de dados numérico.
 

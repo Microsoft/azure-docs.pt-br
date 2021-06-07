@@ -3,17 +3,20 @@ title: Guia de Início Rápido – WildFly no CentOS
 description: Implantar aplicativos Java em WildFly na VM do CentOS
 author: Theresa-Nguyen
 ms.author: bicnguy
-ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 1140f765b21e68e206142cf341649af061ebdd33
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
+ms.topic: quickstart
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.custom:
+- mode-api
+ms.collection: linux
+ms.openlocfilehash: bad9331a6d9a0c0936b1458e3aa4a84559e4a107
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705295"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533562"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Início Rápido: WildFly no CentOS 8
 

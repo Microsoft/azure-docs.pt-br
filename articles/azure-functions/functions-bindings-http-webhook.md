@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 5236a3be9f8908d886274764dfc0c0da5b3565bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92104471"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Visão geral de gatilhos e associações HTTP Azure Functions
@@ -29,7 +29,7 @@ O código neste artigo usa como padrão a sintaxe do .NET Core, usada nas funç�
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Language                                        | Adicionar por...                                   | Comentários 
+| Idioma                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) é recomendada para uso com Visual Studio Code. |

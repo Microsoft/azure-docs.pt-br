@@ -4,10 +4,10 @@ description: Introdução ao Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85117855"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -27,7 +27,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 1. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
 
-1. Para obter recomendações para uma categoria específica, clique em uma das guias: **confiabilidade**, **segurança**, **desempenho**ou **custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **Confiabilidade**, **Segurança**, **Desempenho** ou **Custo**. 
 
    ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -88,9 +88,9 @@ Você pode ter grupos de recursos ou assinaturas para os quais você não deseja
 
 Este procedimento configura a regra média de utilização da CPU para a recomendação de máquina virtual de baixo uso.
 
-O Advisor monitora o uso de máquinas virtuais por 7 dias e identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e sua utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
+O Assistente monitora o uso da máquina virtual por sete dias e identifica as máquinas virtuais com baixa utilização. As máquinas virtuais serão consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e a utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
 
-Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de utilização da CPU pode ser definida como 5%, 10%, 15% ou 20%.
+Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de utilização da CPU pode ser definida para 5%, 10%, 15% ou 20%.
 
 > [!NOTE]
 > Para ajustar a regra de média de utilização da CPU para identificar as máquinas virtuais de baixo uso, você deve ser um *Proprietário* da assinatura.  Se você não tiver as permissões necessárias para uma assinatura ou grupo de recursos, a opção para incluí-la ou excluí-la estará desabilitada na interface do usuário. 
@@ -124,7 +124,7 @@ A opção de download respeita eventuais filtros que você tenha aplicado no pai
 Para saber mais sobre o Assistente, consulte:
 
 - [Introdução ao Assistente do Azure](advisor-overview.md)
-- [Recomendações de confiabilidade do Advisor](advisor-high-availability-recommendations.md)
+- [Recomendações de confiabilidade do Assistente](advisor-high-availability-recommendations.md)
 - [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 - [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 - [Recomendações de custo do Advisor](advisor-cost-recommendations.md)

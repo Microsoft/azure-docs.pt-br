@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b5358ec6bf0f41c860501c70ad175d7cf4bfe97
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569775"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062838"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do mecanismo de regras do Azure Front Door
 

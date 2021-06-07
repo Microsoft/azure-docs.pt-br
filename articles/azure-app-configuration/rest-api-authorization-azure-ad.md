@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f144c1f09f87e0b915daf86ba0391c2934e60095
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c028dcf6649da9abd196997d077b58386a5e6dd9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932669"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101092793"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Autorização de Azure Active Directory – referência da API REST
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>Gerenciando atribuições de função
 
-Você pode gerenciar atribuições de função usando [procedimentos RBAC](../role-based-access-control/overview.md) que são padrão em todos os serviços do Azure. Você pode fazer isso por meio do CLI do Azure, do PowerShell e do portal do Azure. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Você pode gerenciar atribuições de função usando os [procedimentos do RBAC do Azure](../role-based-access-control/overview.md) que são padrão em todos os serviços do Azure. Você pode fazer isso por meio do CLI do Azure, do PowerShell e do portal do Azure. Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).

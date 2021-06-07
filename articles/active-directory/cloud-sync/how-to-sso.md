@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c052b0f2ac822de20cf543152f56d4956015a935
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613006"
 ---
 # <a name="using-single-sign-on-with-cloud-sync"></a>Usando Sign-On único com sincronização de nuvem
@@ -30,4 +30,4 @@ O documento a seguir descreve como usar o logon único com a sincronização de 
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)

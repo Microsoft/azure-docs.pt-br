@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: allensu
-ms.openlocfilehash: 1c596bf10d8afbce504b5abf04eacb877989521a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: b94798580b2d4ba746c152486c0de753cf64d2c9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887545"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102564893"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurar o mecanismo de regras Standard para a CDN do Azure
 

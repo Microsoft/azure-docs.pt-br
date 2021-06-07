@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
 ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100099227"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem

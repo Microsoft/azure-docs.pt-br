@@ -6,14 +6,14 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 34ee7eb25b1d106ea8bb53197d69ca5a9d528773
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941365"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871598"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consultar o Apache Hive com ODBC e PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consultar o Apache Hive com o ODBC e o PowerShell
 
 Os drivers ODBC da Microsoft fornecem uma maneira flexível de interagir com tipos diferentes de fonte de dados, inclusive o Apache Hive. Você pode escrever código em linguagens de script, como o PowerShell, que usam os drivers ODBC para abrir uma conexão com o seu cluster do Hive, passar uma consulta de sua escolha e exibir os resultados.
 
@@ -42,7 +42,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
 
 1. No Windows, navegue até **Iniciar** > **Ferramentas Administrativas do Windows** > **Fontes de Dados ODBC (32 bits)/(64 bits)** .  Uma janela **Administrador de Fonte de Dados ODBC** é aberta.
 
-    ![Administrador de fonte de dados ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurar um DSN usando o administrador de fonte de dados ODBC")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="Administrador de fonte de dados ODBC" border="true":::
 
 1. Na guia **DSN de Usuário**, selecione **Adicionar** para abrir a janela **Criar Nova Fonte de Dados**.
 
@@ -58,9 +58,9 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
    |  Banco de dados |Use **padrão**. |
    |  Mecanismo |Selecione **Serviço do Microsoft Azure HDInsight** |
    |  Nome do Usuário |Insira o nome de usuário HTTP do cluster HDInsight. O nome de usuário padrão é **admin**. |
-   |  Senha |Insira a senha do usuário do cluster HDInsight. Marque a caixa de seleção **Salvar Senha (Criptografada)** .|
+   |  Senha |Insira a senha do usuário do cluster HDInsight. Marque a caixa de seleção **Salvar Senha (Criptografada)**.|
 
-1. Opcional: Selecione **Opções Avançadas**.  
+1. Opcional: selecione **Opções Avançadas**.  
 
    | Parâmetro | Descrição |
    | --- | --- |
@@ -68,7 +68,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Apache Hive.
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
    |  Comprimento de coluna de cadeia de caracteres padrão, Comprimento da coluna binária e Escala da coluna decimal |Os tamanhos e as precisões dos tipos de dados podem afetar a maneira como os dados são retornados. Eles farão com que informações incorretas sejam retornadas devido à perda de precisão e truncamento. |
 
-    ![Opções de configuração avançada de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Opções de configuração avançada de DSN")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Opções de configuração avançada de DSN" border="true":::
 
 1. Selecione **Testar** para testar a fonte de dados. Quando a fonte de dados estiver configurada corretamente, o resultado do teste mostrará **SUCESSO**.  
 
@@ -118,7 +118,7 @@ $query = "select count(distinct clientid) AS total_clients from hivesampletable"
 Get-ODBC-Data -query $query -dsn $dsn
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o cluster HDInsight e a conta de armazenamento. Para fazer isso, selecione o grupo de recursos em que o cluster foi criado e clique em **Excluir**.
 

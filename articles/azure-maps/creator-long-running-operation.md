@@ -10,16 +10,16 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906192"
 ---
 # <a name="creator-preview-long-running-operation-api"></a>API de operação do criador (versão prévia) Long-Running
 
 > [!IMPORTANT]
-> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Os serviços do Criador do Azure Mapas estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Algumas APIs no Azure Maps usam um [padrão de Request-Reply assíncrona](/azure/architecture/patterns/async-request-reply). Esse padrão permite que o Azure Mapas forneça serviços altamente disponíveis e responsivos. Este artigo explica a implementação específica do processamento em segundo plano assíncrono de execução prolongada do Azure Mapa.

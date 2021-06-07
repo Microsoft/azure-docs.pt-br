@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452228"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
@@ -102,7 +102,7 @@ A seguir, são apresentadas as três principais opções recomendadas para orque
 |---------|---------|---------|---------|
 |**Limites de escala**     | Limitado por nós de trabalho        | Limitado por unidades de Movimentação de Dados de Nuvem        | Limitado por unidades do Analytics        |
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
-|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Yes        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
+|**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
 |**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
 |**Suporte SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 

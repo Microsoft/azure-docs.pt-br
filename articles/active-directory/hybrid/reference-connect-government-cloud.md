@@ -11,11 +11,11 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97504348"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbrida para a nuvem do Azure Governamental
@@ -24,9 +24,6 @@ Este artigo descreve as considerações para a integração de um ambiente híbr
 
 > [!NOTE]
 > Para integrar um ambiente de Active Directory da Microsoft (local ou hospedado em uma IaaS que faz parte da mesma instância de nuvem) com a nuvem do Azure governamental, você precisa atualizar para a versão mais recente do [Azure ad Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-
-> [!NOTE]
-> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Para obter uma lista completa dos pontos de extremidade do departamento de defesa do governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 

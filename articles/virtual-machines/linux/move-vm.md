@@ -7,14 +7,14 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291095"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889290"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover uma VM para outra assinatura ou grupo de recursos
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover uma VM para outro grupo de recursos ou outra assinatura
 Este artigo explica como mover uma VM (máquina virtual) entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
 > [!IMPORTANT]
@@ -38,6 +38,7 @@ Para mover uma VM com êxito, você precisa mover a VM e todos os seus recursos 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+A `table` saída não estará disponível se você usar `--interactive` . Altere a saída para outra opção, como `json` .
 
 Para mover uma VM e seus recursos para outro grupo de recursos, use [az resource move](/cli/azure/resource). O exemplo a seguir mostra como mover uma VM e os recursos mais comuns que ela exige. Use o parâmetro **-ids** e passe-o em uma lista de IDs separadas por vírgulas (sem espaços) para os recursos a serem movidos.
 

@@ -4,10 +4,10 @@ description: Explicação passo a passo para restaurar o estado do sistema do Wi
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97008462"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server

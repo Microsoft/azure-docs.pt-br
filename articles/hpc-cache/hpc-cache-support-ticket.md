@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: v-erkel
 ms.openlocfilehash: 95247985be955b71403a5c2c78962792c6451183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87061437"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Abrir um tíquete de suporte para o cache do Azure HPC
@@ -21,7 +21,7 @@ Para abrir um tíquete quando você não tem um cache ativo, use a página princ
 
 Escolha **nova solicitação de suporte** e selecione **técnico** para obter ajuda específica para o cache do HPC do Azure.
 
-Selecione sua assinatura na lista.
+Selecione a assinatura na lista.
 
 Para localizar o serviço de cache do HPC do Azure, clique no botão **todos os serviços** e procure HPC.
 

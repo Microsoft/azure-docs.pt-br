@@ -3,12 +3,12 @@ title: Sobre o processo de restauração da máquina virtual do Azure
 description: Saiba como o serviço de backup do Azure restaura as máquinas virtuais do Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 62d1ff7973693f29c77c77fe2ad4fbbb598a5fa4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806837"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101738405"
 ---
 # <a name="about-azure-vm-restore"></a>Sobre a restauração da VM do Azure
 
@@ -50,6 +50,6 @@ Este artigo descreve como o [serviço de backup do Azure](./backup-overview.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Perguntas frequentes sobre a restauração da VM](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
+- [Perguntas frequentes sobre a restauração da VM](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Métodos de restauração compatíveis](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Solucionar problemas de restauração](./backup-azure-vms-troubleshoot.md#restore)

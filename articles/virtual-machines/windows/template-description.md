@@ -2,17 +2,17 @@
 title: Máquinas virtuais em um modelo do Azure Resource Manager | Microsoft Azure
 description: Saiba mais sobre como o recurso de máquina virtual é definido em um modelo do Azure Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 2726ba3b337dc785de58b06fb5e8372058f71879
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
-ms.translationtype: MT
+ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202089"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555985"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -277,7 +277,7 @@ Vários elementos de perfil são usados ao definir um recurso de máquina virtua
 - [size](../sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - disco e [configurações do sistema operacional](cli-ps-findimage.md)
-- [interface de rede](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
+- [adaptador de rede](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - diagnóstico de inicialização
 
 ## <a name="disks-and-images"></a>Discos e imagens

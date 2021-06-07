@@ -4,7 +4,7 @@ description: Este tópico fornece uma visão geral e mostra como usar os Serviç
 services: media-services
 keywords: HBS, gerenciamento de direitos digitais, Streaming de FairPlay (FPS), Offline, iOS 10
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ae1d4ef81d14d5adfb728cf7a59534cb376a0eb1
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 2d05810da6abfd33ff6605fa7a6f3bfb6a0c202b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695077"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103009555"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS
 

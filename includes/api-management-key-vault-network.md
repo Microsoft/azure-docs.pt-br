@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/26/2021
 ms.author: danlep
 ms.openlocfilehash: a9dbedd8516f3a3a592c7fd4f4f5563011d6c6db
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99490997"
 ---
 #### <a name="requirements-for-key-vault-firewall"></a>Requisitos para Key Vault firewall

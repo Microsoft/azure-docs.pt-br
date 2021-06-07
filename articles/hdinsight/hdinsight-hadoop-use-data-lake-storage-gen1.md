@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945402"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
@@ -39,7 +39,7 @@ Atualmente, apenas alguns dos tipos/versões de cluster HDInsight dão suporte a
 
 | Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| Observações |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versão 4,0 | Não | Não |ADLS Gen1 não tem suporte com o HDInsight 4,0 |
+| HDInsight versão 4.0 | Não | Não |ADLS Gen1 não tem suporte com o HDInsight 4,0 |
 | HDInsight versão 3.6 | Sim | Sim | Exceto HBase|
 | HDInsight versão 3.5 | Sim | Sim | Exceto HBase|
 | HDInsight versão 3.4 | Não | Sim | |

@@ -3,19 +3,23 @@ title: Início rápido do Azure – criar um HSM gerenciado usando um modelo do 
 description: Início rápido mostrando como criar um HSM Gerenciado do Azure Key Vault usando o modelo do Resource Manager
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
+ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2020
-ms.author: mbaldwin
-ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+tags:
+- azure-resource-manager
+ms.custom:
+- mvc
+- devx-track-azurecli
+- mode-arm
+ms.openlocfilehash: 33c262c61d50b45663a627e40ea186f1f0dcde41
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831745"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532957"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um HSM Gerenciado do Key Vault usando um modelo do Azure Resource Manager
 
@@ -43,7 +47,7 @@ Para entrar no Azure usando a CLI, você pode digitar:
 az login
 ```
 
-Para obter mais informações sobre as opções de logon por meio da CLI, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para obter mais informações sobre as opções de logon por meio da CLI, confira [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="create-a-manage-hsm"></a>Criar um HSM de gerenciamento
 
@@ -55,13 +59,13 @@ O recurso do Azure definido no modelo:
 
 Mais exemplos de modelos do Azure Key Vault podem ser encontrados [aqui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
-O modelo requer a ID de objeto associada à sua conta. Para encontrá-la, use o comando [az ad user show](/cli/azure/ad/user?view=azure-cli-latest&preserve-view=true#az_ad_user_show) da CLI do Azure, passando seu endereço de email para o parâmetro `--id`. Você pode limitar a saída à ID de objeto somente com o parâmetro `--query`.
+O modelo requer a ID de objeto associada à sua conta. Para encontrá-la, use o comando [az ad user show](/cli/azure/ad/user#az_ad_user_show) da CLI do Azure, passando seu endereço de email para o parâmetro `--id`. Você pode limitar a saída à ID de objeto somente com o parâmetro `--query`.
 
 ```azurecli-interactive
 az ad user show --id <your-email-address> --query "objectId"
 ```
 
-Talvez você também precise da sua ID de locatário. Para encontrá-la, use o comando [az ad user show](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_show) da CLI do Azure. Você pode limitar a saída à ID de locatário somente com o parâmetro `--query`.
+Talvez você também precise da sua ID de locatário. Para encontrá-la, use o comando [az ad user show](/cli/azure/account#az_account_show) da CLI do Azure. Você pode limitar a saída à ID de locatário somente com o parâmetro `--query`.
 
  ```azurecli-interactive
  az account show --query "tenantId"

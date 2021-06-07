@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
 ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585710"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como usar o armazenamento de fila do Java
@@ -36,7 +36,7 @@ Primeiro, verifique se o sistema de desenvolvimento atende aos pré-requisitos l
 
 Para criar um aplicativo Java chamado `queues-how-to-v12` :
 
-1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome `queues-how-to-v12` . Digite o seguinte `mvn` comando para criar um projeto Java "Olá, mundo".
+1. Em uma janela do console (como cmd, PowerShell ou Bash), use o Maven para criar um novo aplicativo do console com o nome `queues-how-to-v12`. Digite o comando `mvn` a seguir para criar um projeto "Olá, Mundo!" em Java.
 
    ```bash
     mvn archetype:generate \
@@ -101,7 +101,7 @@ Para criar um aplicativo Java chamado `queues-how-to-v12` :
 
 ### <a name="install-the-package"></a>Instalar o pacote
 
-Abra o `pom.xml` arquivo em seu editor de texto. Adicione o seguinte elemento de dependência ao grupo de dependências.
+Abra o arquivo `pom.xml` no seu editor de texto. Adicione o seguinte elemento de dependência ao grupo de dependências.
 
 ```xml
 <dependency>

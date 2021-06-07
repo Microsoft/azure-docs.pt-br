@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
 ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99979837"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar com um pipeline de CI/CD

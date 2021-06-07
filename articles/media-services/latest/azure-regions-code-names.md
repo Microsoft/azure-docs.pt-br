@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
 ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954320"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Nomes de código regionais e pontos de extremidade
@@ -46,7 +46,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="global-azure"></a>Azure Global
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autenticação | `https://login.microsoftonline.com/` |
@@ -54,7 +54,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-government"></a>Azure Government
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
@@ -67,7 +67,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 > [!NOTE]
 > Os pontos de extremidade do Azure Alemanha só se aplicam às nuvens soberanas na Alemanha.
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
@@ -75,7 +75,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-| Serviço | Ponto de Extremidade |
+| Serviço | Ponto de extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |

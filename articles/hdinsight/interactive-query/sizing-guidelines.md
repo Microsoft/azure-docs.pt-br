@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a7baa9340a1f0a99b94bfcbe535c73d0b502e2a0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98933061"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Guia de dimensionamento do cluster de Consulta Interativa no Azure HDInsight
@@ -31,7 +31,7 @@ Os valores de configuração recomendados se baseiam no nó de trabalho do tipo 
 |---|---|---|
 | yarn.nodemanager.resource.memory-mb | 102400 (MB) | Memória total fornecida, em MB, para todos os contêineres de YARN em um nó. |
 | yarn.scheduler.maximum-allocation-mb | 102400 (MB) | A alocação máxima de cada solicitação de contêiner no RM, em MBs. As solicitações de memória maiores que esse valor não entrarão em vigor. |
-| yarn.scheduler.maximum-allocation-vcores | 12 |O número máximo de núcleos de CPU de cada solicitação de contêiner no Azure Resource Manager. As solicitações maiores que esse valor não entrarão em vigor. |
+| yarn.scheduler.maximum-allocation-vcores | 12 |O número máximo de núcleos de CPU de cada solicitação de contêiner no Resource Manager. As solicitações maiores que esse valor não entrarão em vigor. |
 | yarn.scheduler.capacity.root.llap.capacity | 90% | Alocação de capacidade do YARN para fila de LLAP.  |
 | hive.server2.tez.sessions.per.default.queue | number_of_worker_nodes |O número de sessões de cada fila chamada no hive.server2.tez.default.queues. Esse número corresponde ao número de coordenadores de consulta (Tez AMs). |
 | tez.am.resource.memory.mb | 4096 (MB) | A quantidade de memória em MB a ser usada pelo tez AppMaster. |

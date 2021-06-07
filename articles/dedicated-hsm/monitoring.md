@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 4c3d062d615208177fcb9c7df511f598613bf6a6
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092696"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Monitoramento do HSM Dedicado do Azure

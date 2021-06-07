@@ -10,10 +10,10 @@ ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9c63e5e24495f373f288d2789780a6c671a7cc24
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98218392"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Início Rápido: Vincular um workspace do Power BI a um workspace do Synapse

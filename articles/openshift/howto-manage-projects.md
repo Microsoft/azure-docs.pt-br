@@ -7,13 +7,13 @@ author: mjudeikis
 ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
-ms.service: container-service
-ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.service: azure-redhat-openshift
+ms.openlocfilehash: bf2cf5a0d41af15821035c615fe071c8580e125f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216922"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100633097"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift
 

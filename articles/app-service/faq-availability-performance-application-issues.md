@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88958983"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
@@ -32,11 +32,11 @@ Vários fatores podem contribuir para diminuir o desempenho do aplicativo. Para 
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de CPU?
 
-Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
+Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória.Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
+Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar a Aplicativos Web do Serviço de Aplicativo usando o PowerShell?
 
@@ -59,13 +59,13 @@ Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 1. Entre no site do **kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selecione o menu **Process Explorer**.
 3. Clique com botão direito no processo **w3wp.exe** ou no seu processo WebJob.
-4. Selecione **baixar memória**despejo de despejo  >  **completo**.
+4. Selecione **baixar memória** despejo de despejo  >  **completo**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como exibir informações de nível de processo para meu aplicativo web?
 
 Você tem duas opções para exibir as informações de nível de processo para seu aplicativo web:
 
-*   No Portal do Azure:
+*   No portal do Azure:
     1. Abra o **Process Explorer** para o aplicativo web.
     2. Para ver os detalhes, selecione o **w3wp.exe** processo.
 *   No console do Kudu:
@@ -142,7 +142,7 @@ Para ativar o rastreamento de solicitação com falha:
     </tracing>
     ```
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), vá para seu site.
-15. Selecione **ferramentas**  >  **kudu**  >  **ir**para.
+15. Selecione **ferramentas**  >  **kudu**  >  **ir** para.
 18. No menu, selecione **console de depuração**  >  **cmd**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.

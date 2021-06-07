@@ -2,18 +2,18 @@
 title: Guia de início rápido – Biblioteca de clientes da Chave do Azure Key Vault para Java
 description: Fornece um guia de início rápido para usar a biblioteca de clientes de Chaves do Azure Key Vault para Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935267"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777177"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Início Rápido: biblioteca de clientes da Chave do Azure Key Vault para Java
 Introdução à biblioteca de clientes da Chave do Azure Key Vault para Java. Siga as etapas abaixo para instalar o pacote e testar o código de exemplo para tarefas básicas.
@@ -176,7 +176,7 @@ Agora que seu aplicativo está autenticado, será possível criar uma chave no c
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Confirme se a chave foi definida com o comando [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show):
+Confirme se a chave foi definida com o comando [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show):
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -201,7 +201,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-É possível verificar se a chave foi excluída usando o comando [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show):
+É possível verificar se a chave foi excluída usando o comando [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show):
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -271,4 +271,4 @@ Neste guia de início rápido, você criou um cofre de chaves e uma chave, bem c
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Leia a [visão geral de segurança do Key Vault](../general/security-overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Como [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- Como [Proteger o acesso a um cofre de chaves](../general/security-overview.md)

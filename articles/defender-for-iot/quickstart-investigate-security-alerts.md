@@ -1,24 +1,14 @@
 ---
 title: 'Início Rápido: Investigar alertas de segurança'
 description: Entenda, faça uma busca detalhada e investigue os alertas de segurança do Defender para IoT em seus dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/30/2020
-ms.author: mlottner
-ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2eb4a10372680348536231aa0333c43199b8d883
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943092"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104780983"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Início Rápido: Investigar alertas de segurança
 
@@ -44,12 +34,12 @@ Ao abrir cada alerta agregado, você verá a descrição detalhada do alerta, as
 
 1. Selecione e abra qualquer alerta de segurança na lista **Hub IoT** > **Segurança** > **Alertas**. 
 1. Examine a **descrição** do alerta, a **severidade**, a **origem da detecção** e os **detalhes do dispositivo** de todos os dispositivos que emitiram esse alerta no período de agregação.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Investigar novos alertas de segurança da IoT usando o novo sinalizador de alerta"::: 
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Fazer uma busca detalhada e examinar os detalhes de cada dispositivo em um alerta agregado "::: 
 1. Depois de examinar as especificações do alerta, use as instruções da **etapa de correção manual** para ajudar a corrigir e/ou resolver o problema que causou o alerta. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Investigar novos alertas de segurança da IoT usando o novo sinalizador de alerta":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Seguir as etapas de correção manual para ajudar a resolver ou corrigir os alertas de segurança do dispositivo":::
 
 1. Se for necessária uma investigação adicional, **investigue os alertas no Log Analytics** usando o link. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Investigar novos alertas de segurança da IoT usando o novo sinalizador de alerta":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Para investigar um alerta mais detalhadamente, use o link Investigar usando o Log Analytics fornecido na tela":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

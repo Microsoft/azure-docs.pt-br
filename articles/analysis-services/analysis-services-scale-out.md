@@ -8,10 +8,10 @@ ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019419"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
@@ -85,7 +85,7 @@ Outra boa métrica a ser observada é a média de QPU por ServerResourceType. Es
 **Para configurar o QPU by ServerResourceType**
 
 1. Em um gráfico de linhas de métricas, clique em **Adicionar métrica**. 
-2. Em **recurso**, selecione o servidor e, em seguida, em **namespace de métrica**, selecione **Analysis Services métricas padrão**e, em **métrica**, selecione **QPU**e, em **agregação**, selecione **Méd**. 
+2. Em **recurso**, selecione o servidor e, em seguida, em **namespace de métrica**, selecione **Analysis Services métricas padrão** e, em **métrica**, selecione **QPU** e, em **agregação**, selecione **Méd**. 
 3. Clique em **aplicar divisão**. 
 4. Em **valores**, selecione **ServerResourceType**.  
 
@@ -139,7 +139,7 @@ Códigos de status de retorno:
 |0     | Replicating        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Failed (Falha)      |
+|3     |   Com falha      |
 |4     |    Finalizando     |
 |||
 

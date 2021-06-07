@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541497"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conectar um Serviço de Aplicativo do Azure existente ao Banco de Dados do Azure para MySQL server
@@ -28,7 +28,7 @@ O Banco de Dados do Azure para MySQL fornece segurança de acesso usando um fire
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portal do Azure - clique em Segurança de Conexão":::
 
-2. Selecione **ATIVAR** em **Permitir o acesso aos serviços do Azure** , depois **Salvar**.
+2. Selecione **ATIVAR** em **Permitir o acesso aos serviços do Azure**, depois **Salvar**.
    :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portal do Azure – Permitir acesso ao Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solução 2: Criar uma regra de firewall para permitir explicitamente IPs de saída

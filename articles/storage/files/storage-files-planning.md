@@ -4,16 +4,16 @@ description: Entenda o planejamento de uma implantação de arquivos do Azure. V
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879840"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023513"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -65,7 +65,7 @@ Embora, de uma perspectiva técnica, seja consideravelmente mais fácil montar o
 
 - O **túnel de rede usando o ExpressRoute, site a site ou VPN ponto a site**: o túnel para uma rede virtual permite acessar compartilhamentos de arquivos do Azure do local, mesmo se a porta 445 estiver bloqueada.
 - **Pontos de extremidade privados**: pontos de extremidade privados dão à sua conta de armazenamento um endereço IP dedicado de dentro do espaço de endereço da rede virtual. Isso habilita o túnel de rede sem a necessidade de abrir redes locais até todos os intervalos de endereços IP pertencentes aos clusters de armazenamento do Azure. 
-- **Encaminhamento de DNS**: configure seu DNS local para resolver o nome da sua conta de armazenamento (ou seja, `storageaccount.file.core.windows.net` para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos de extremidade privados.
+- **Encaminhamento de DNS**: configure seu DNS local para resolver o nome da sua conta de armazenamento ( `storageaccount.file.core.windows.net` para as regiões de nuvem pública) para resolver o endereço IP dos seus pontos de extremidade privados.
 
 Para planejar a rede associada à implantação de um compartilhamento de arquivos do Azure, consulte [considerações de rede de arquivos do Azure](storage-files-networking-overview.md).
 
@@ -94,7 +94,7 @@ Os arquivos do Azure têm uma abordagem de várias camadas para garantir que seu
 ### <a name="soft-delete"></a>Exclusão reversível
 A exclusão reversível para compartilhamentos de arquivos (visualização) é uma configuração de nível de conta de armazenamento que permite recuperar o compartilhamento de arquivos quando ele é excluído acidentalmente. Quando um compartilhamento de arquivos é excluído, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Você pode configurar a quantidade de tempo que os dados com exclusão reversível são recuperáveis antes de serem excluídos permanentemente e restaurar o compartilhamento a qualquer momento durante esse período de retenção. 
 
-É recomendável ativar a exclusão reversível para a maioria dos compartilhamentos de arquivos. Se você tiver um fluxo de trabalho em que o compartilhamento de exclusão é comum e esperado, você pode decidir ter um período de retenção muito curto ou não ter a exclusão reversível habilitada.
+É recomendável ativar a exclusão reversível para a maioria dos compartilhamentos de arquivos. Se você tiver um fluxo de trabalho em que o compartilhamento de exclusão é comum e esperado, você pode decidir ter um período de retenção curto ou não ter a exclusão reversível habilitada.
 
 Para obter mais informações sobre exclusão reversível, consulte [impedir a exclusão acidental de dados](./storage-files-prevent-file-share-deletion.md).
 
@@ -107,10 +107,10 @@ Você pode executar restaurações em nível de item e de compartilhamento no po
 
 Para obter mais informações sobre backup, consulte [sobre o backup de compartilhamento de arquivos do Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Proteção avançada contra ameaças para arquivos do Azure (versão prévia)
-A ATP (proteção avançada contra ameaças) para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que fornece alertas quando detecta atividade anômala em sua conta de armazenamento, por exemplo, tentativas incomuns de acessar a conta de armazenamento. ATP também executa a análise de reputação de hash de malware e alertará sobre o malware conhecido. Você pode configurar ATP em um nível de assinatura ou de conta de armazenamento por meio da central de segurança do Azure. 
+### <a name="azure-defender-for-azure-files"></a>Azure defender para arquivos do Azure 
+O Azure defender para armazenamento do Azure (anteriormente conhecido como proteção avançada contra ameaças para o armazenamento do Azure) fornece uma camada adicional de inteligência de segurança que fornece alertas quando detecta atividade anômala em sua conta de armazenamento, por exemplo, tentativas de acesso incomuns. Ele também executa a análise de reputação de hash de malware e emitirá um alerta sobre o malware conhecido. Você pode configurar o Azure defender em um nível de assinatura ou conta de armazenamento por meio da central de segurança do Azure. 
 
-Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](../common/azure-defender-storage-configure.md).
+Para obter mais informações, consulte [introdução ao Azure defender para armazenamento](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

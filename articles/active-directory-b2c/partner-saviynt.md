@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 99741a412ae02a2d30293e1aa254245f5ca7b662
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b1889a693c08ce78a8bd06b6fe348c0c67bf3812
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171425"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465667"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar o Saviynt com o Azure Active Directory B2C
 
@@ -69,7 +69,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 1. Para criar uma conta do Saviynt, entre em contato com [Saviynt](https://saviynt.com/contact-us/)
 
-2. Crie políticas de administração delegadas e atribua usuários como [administradores delegados](../active-directory/roles/concept-delegation.md) com várias funções.
+2. Crie políticas de administração delegadas e atribua usuários como administradores delegados com várias funções.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Configurar Azure AD B2C com Saviynt
 
@@ -95,7 +95,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 10. Selecione **adicionar permissões**. Revise as permissões adicionadas.
 
-11. Selecione **conceder consentimento do administrador para salvar o diretório padrão**  >  **Save**.
+11. Selecione **conceder consentimento do administrador para salvar o diretório padrão**  >  .
 
 12. Vá para **certificados e segredos** e selecione **+ Adicionar segredo do cliente**. Insira a descrição do segredo do cliente, selecione a opção expiração e selecione **Adicionar**.
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184570"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102215452"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -306,7 +306,7 @@ O preço da Exibição do Tráfego é baseado no número de pontos de dados usad
 
 Não é possível usar pontos de extremidade de várias assinaturas com Aplicativos Web do Azure. Os Aplicativos Web do Azure exigem que qualquer nome de domínio personalizado usado com Aplicativos Web seja usado somente em uma única assinatura. Não é possível usar Aplicativos Web de várias assinaturas com o mesmo nome de domínio.
 
-Para outros tipos de ponto de extremidade, é possível usar o Gerenciador de Tráfego com pontos de extremidade de mais de uma assinatura. No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md). Os pontos de extremidade de outras assinaturas podem ser adicionados usando [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [CLI do Azure](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Para outros tipos de ponto de extremidade, é possível usar o Gerenciador de Tráfego com pontos de extremidade de mais de uma assinatura. No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade. Essas permissões podem ser concedidas usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md). Os pontos de extremidade de outras assinaturas podem ser adicionados usando [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou o [CLI do Azure](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Posso usar o Gerenciador de Tráfego com os slots de “Preparo” do Serviço de Nuvem?
 
@@ -347,7 +347,7 @@ O Azure Resource Manager exige que todos os grupos de recursos especifiquem uma 
 
 O status de monitoramento atual de cada ponto de extremidade, bem como o perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](/rest/api/trafficmanager/) do Traffic Monitor, dos [cmdlets do PowerShell](/powershell/module/az.trafficmanager) e da [CLI do Azure entre plataformas](/cli/azure/install-classic-cli).
 
-Você também pode usar o Azure Monitor para controlar a integridade de seus pontos de extremidade e ver uma representação visual deles. Para obter mais informações sobre como usar o Azure Monitor, consulte a [Documentação de monitoramento do Azure](../azure-monitor/platform/data-platform.md).
+Você também pode usar o Azure Monitor para controlar a integridade de seus pontos de extremidade e ver uma representação visual deles. Para obter mais informações sobre como usar o Azure Monitor, consulte a [Documentação de monitoramento do Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorar os pontos de extremidade HTTPS?
 
@@ -447,7 +447,18 @@ Se nenhuma configuração de cabeçalho de host personalizado for fornecida, o c
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP dos quais as verificações de integridade se originam?
 
-Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) para exibir o arquivo JSON que lista os endereços IP dos quais as verificações de integridade do Gerenciador de Tráfego podem se originar. Examine os IPs listados no arquivo JSON para garantir que as conexões de entrada desses endereços IP sejam permitidas nos pontos de extremidades, possibilitando a verificação do status de integridade.
+Clique [aqui](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para saber como recuperar as listas de endereços IP das quais as verificações de integridade do Gerenciador de tráfego podem se originar. Você pode usar a API REST, CLI do Azure ou Azure PowerShell para recuperar a lista mais recente. Examine os IPs listados para garantir que as conexões de entrada desses endereços IP sejam permitidas nos pontos de extremidade para verificar seu status de integridade.
+
+Exemplo usando Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Os endereços IP públicos podem ser alterados sem aviso prévio. Certifique-se de recuperar as informações mais recentes usando a API de descoberta de marca de serviço ou o arquivo JSON baixável.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantas verificações de integridade no meu ponto de extremidade posso esperar do Gerenciador de Tráfego?
 
@@ -458,7 +469,7 @@ O número de verificações de integridade do Gerenciador de Tráfego que atinge
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso receber uma notificação se um dos meus pontos de extremidade ficar inativo?
 
-Um das métricas fornecidas pelo Gerenciador de Tráfego é o status de integridade dos pontos de extremidade em um perfil. Veja isso como uma agregação de todos os pontos de extremidade dentro de um perfil (por exemplo, 75% de seus pontos de extremidade estão íntegros), ou por nível de ponto de extremidade. As métricas do Gerenciador de Tráfego são expostas por meio do Azure Monitor, e você pode usar seus [recursos de alerta](../azure-monitor/platform/alerts-metric.md) para receber notificações quando há uma alteração no status de integridade de seu ponto de extremidade. Para obter mais detalhes, confira [Métricas e alertas do Gerenciador de Tráfego](traffic-manager-metrics-alerts.md).  
+Um das métricas fornecidas pelo Gerenciador de Tráfego é o status de integridade dos pontos de extremidade em um perfil. Veja isso como uma agregação de todos os pontos de extremidade dentro de um perfil (por exemplo, 75% de seus pontos de extremidade estão íntegros), ou por nível de ponto de extremidade. As métricas do Gerenciador de Tráfego são expostas por meio do Azure Monitor, e você pode usar seus [recursos de alerta](../azure-monitor/alerts/alerts-metric.md) para receber notificações quando há uma alteração no status de integridade de seu ponto de extremidade. Para obter mais detalhes, confira [Métricas e alertas do Gerenciador de Tráfego](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 

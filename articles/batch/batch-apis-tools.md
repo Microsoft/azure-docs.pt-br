@@ -4,12 +4,12 @@ description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvol
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146395"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219919"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Visão geral das ferramentas e APIs de Lote
 
@@ -43,11 +43,11 @@ Os aplicativos e serviços podem emitir chamadas da REST API diretamente ou usar
 
 | API | Referência de API | Baixar | Tutorial | Exemplos de código | Obter mais informações |
 | --- | --- | --- | --- | --- | --- |
-| **REST do Lote** |[API REST do Azure-documentos](/rest/api/batchservice/) |N/D |- |- | [Versões com suporte](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **.NET do Lote** |[SDK do Azure para .NET-docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Notas de versão](https://aka.ms/batch-net-dataplane-changelog) |
-| **Python em lotes** |[SDK do Azure para Python-docs](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[Tutorial](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Leiame](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Lote do Node.js** |[SDK do Azure para JavaScript-docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-nodejs-get-started.md) |- | [Leiame](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Lote Java** |[SDK do Azure para java-docs](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Leiame](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **REST do Lote** |[API REST do Azure – Documentação](/rest/api/batchservice/) |N/D |- |- | [Versões com suporte](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **.NET do Lote** |[SDK do Azure para .NET – Documentação](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Notas de versão](https://aka.ms/batch-net-dataplane-changelog) |
+| **Python em lotes** |[SDK do Azure para Python – Documentação](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[Tutorial](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Leiame](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
+| **JavaScript do Lote** |[SDK do Azure para JavaScript – Documentação](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-js-get-started.md) |- | [Leiame](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Lote Java** |[SDK do Azure para Java – Documentação](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Leiame](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>APIs de Gerenciamento do Lote
 
@@ -55,11 +55,11 @@ As APIs do Azure Resource Manager para o Lote fornecem acesso programático a co
 
 | API | Referência de API | Baixar | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
-| **REST do Gerenciamento do Lote** |[API REST do Azure-documentos](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **.NET de Gerenciamento do Lote** |[SDK do Azure para .NET-docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
-| **Python de Gerenciamento do Lote** |[SDK do Azure para Python-docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Node.js de Gerenciamento do Lote** |[SDK do Azure para JavaScript-docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
-| **Java de Gerenciamento do Lote** |[SDK do Azure para java-docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
+| **REST do Gerenciamento do Lote** |[API REST do Azure – Documentação](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **.NET de Gerenciamento do Lote** |[SDK do Azure para .NET – Documentação](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
+| **Python de Gerenciamento do Lote** |[SDK do Azure para Python – Documentação](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
+| **JavaScript do Gerenciamento de Lote** |[SDK do Azure para JavaScript – Documentação](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Java de Gerenciamento do Lote** |[SDK do Azure para Java – Documentação](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## <a name="batch-command-line-tools"></a>Ferramentas de linha de comando do Lote
 
@@ -86,5 +86,5 @@ Essas ferramentas adicionais podem ser úteis para compilar e depurar seus aplic
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
-- [Introdução à biblioteca do Lote do Azure para .NET](tutorial-parallel-dotnet.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
+- [Introdução à biblioteca do Lote do Azure para .NET](tutorial-parallel-dotnet.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do JavaScript](batch-js-get-started.md) também estão disponíveis.
 - Baixe os [exemplos de código no GitHub](https://github.com/Azure-Samples/azure-batch-samples) para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.

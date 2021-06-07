@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 01/14/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e600439d54a89dd9bd2510b2e47b71b60ee93a7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624751"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557676"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -32,14 +32,17 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |ResourceContainers |Yes |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
 |AlertsManagementResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
+|ExtendedLocationResources |No |Inclui recursos _relacionados_ ao `Microsoft.ExtendedLocation`. |
+|GuestConfigurationResources |No |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
+|KubernetesConfigurationResources |No |Inclui recursos _relacionados_ ao `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
-|PatchAssessmentResources|Não |Inclui recursos _relacionados_ à avaliação de patch de máquinas virtuais do Azure. |
-|PatchInstallationResources|Não |Inclui recursos _relacionados_ à instalação de patch de máquinas virtuais do Azure. |
-|PolicyResources |Não |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
+|PatchAssessmentResources|No |Inclui recursos _relacionados_ à avaliação de patch de máquinas virtuais do Azure. |
+|PatchInstallationResources|No |Inclui recursos _relacionados_ à instalação de patch de máquinas virtuais do Azure. |
+|PolicyResources |No |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
 |RecoveryServicesResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.DataProtection` e ao `Microsoft.RecoveryServices` . |
 |SecurityResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
-|ServiceHealthResources |Não |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
+|ServiceHealthResources |No |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
+|WorkloadMonitorResources |No |Inclui recursos _relacionados_ ao `Microsoft.WorkloadMonitor`. |
 
 Para obter uma lista completa, incluindo tipos de recursos, consulte [referência: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 
@@ -132,7 +135,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta, 1 de que pode ser uma tabela cruzada `join` . Se todo o uso de tabela cruzada `join` estiver entre o _recurso_ e o _ResourceContainers_, 3 tabelas cruzadas `join` serão permitidas. Estratégias de união personalizadas, como união difundida, não são permitidas. Para as tabelas que podem ser usadas `join` , consulte [tabelas de gráfico de recursos](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador herdado, use `mv-expand` como substituto. _RowLimit_ com limite máximo de 400. O padrão é 128. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ com limite máximo de 400. O padrão é 128. Há um limite de 3 `mv-expand` em uma única consulta.|
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ com limite máximo de 400. O padrão é 128. Limite de 2 `mv-expand` em uma única consulta.|
 |[order](/azure/kusto/query/orderoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) |Sinônimo de `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Listar recursos classificados por nome](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Remover colunas dos resultados](../samples/advanced.md#remove-column) | |

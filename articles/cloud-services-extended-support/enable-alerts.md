@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 4591253e1a305632b7f41afe692f297d71366382
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744192"
 ---
 # <a name="enable-monitoring-for-cloud-services-extended-support-using-the-azure-portal"></a>Habilitar o monitoramento de serviços de nuvem (suporte estendido) usando o portal do Azure
@@ -40,5 +40,5 @@ Este artigo explica como habilitar alertas em implantações de serviço de nuve
 6. Quando você terminar de configurar alertas, salve as alterações e com base nas métricas configuradas, você começará a ver a folha **alertas** popular ao longo do tempo.
 
 ## <a name="next-steps"></a>Próximas etapas 
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).

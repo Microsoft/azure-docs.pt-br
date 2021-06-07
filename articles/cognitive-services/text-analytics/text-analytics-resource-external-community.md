@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94364999"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo externo e da comunidade para o Serviço Cognitivo do Text Analytics
@@ -39,7 +39,7 @@ ms.locfileid: "94364999"
 
 
 
-## <a name="videos"></a>vídeos
+## <a name="videos"></a>Vídeos
 
 + [Aplicativo Lógico de aplicativo para detectar sentimento e extrair frases-chave do seu texto](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
@@ -51,7 +51,7 @@ ms.locfileid: "94364999"
 
 Você está procurando informações sobre um recurso ou caso de uso que não abordamos? Considere solicitar ou votar nele em [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
  [StackOverflow: API de Análise de Texto do Azure](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços Cognitivos do Azure](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

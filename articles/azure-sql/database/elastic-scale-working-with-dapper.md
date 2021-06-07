@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793357"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
@@ -23,7 +23,7 @@ ms.locfileid: "92793357"
 
 Este documento é destinado aos desenvolvedores que usam Dapper na compilação de aplicativos, mas que também desejam adotar as [ferramentas de banco de dados elástico](elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para escalar horizontalmente sua camada de dados.  Este documento ilustra as alterações em aplicativos baseados em Dapper que são necessários para integrar as ferramentas de banco de dados elástico. Nosso foco é em criar o gerenciamento de fragmento de banco de dados elástico e o roteamento dependente de dados com o Dapper. 
 
-**Código de exemplo** : [ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de exemplo**: [ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 É muito fácil integrar o **Dapper** e **DapperExtensions** com a biblioteca de cliente de banco de dados elástico do Banco de Dados SQL do Azure. Seus aplicativos podem usar roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) para usar a chamada [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) na [biblioteca de cliente](/previous-versions/azure/dn765902(v=azure.100)). Isso limita as alterações em seu aplicativo apenas quando novas conexões forem criadas e abertas. 
 
@@ -39,7 +39,7 @@ Outro benefício do Dapper e também das DapperExtensions é que o aplicativo co
 Para obter os assemblies do Dapper, consulte [Dapper dot net](https://www.nuget.org/packages/Dapper/). Para ver as extensões do Dapper, consulte [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Uma visão rápida da biblioteca de cliente do banco de dados elástico
-Com a biblioteca de cliente do banco de dados elástico, você define partições de dados do aplicativo chamadas *shardlets* , faz o mapeamento para bancos de dados e as identifica por *chaves de fragmentação* . Você pode ter quantos bancos de dados conforme necessário e distribuir seu shardlets entre esses bancos de dados. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Essa funcionalidade é chamada de **gerenciamento de mapa de fragmentos** . O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Essa funcionalidade é conhecida como **roteamento dependente de dados** .
+Com a biblioteca de cliente do banco de dados elástico, você define partições de dados do aplicativo chamadas *shardlets*, faz o mapeamento para bancos de dados e as identifica por *chaves de fragmentação*. Você pode ter quantos bancos de dados conforme necessário e distribuir seu shardlets entre esses bancos de dados. O mapeamento de valores chave de fragmentação para os bancos de dados é armazenado por um mapa de fragmentos fornecido pelas APIs da biblioteca. Essa funcionalidade é chamada de **gerenciamento de mapa de fragmentos**. O mapa do fragmento também serve como o agente de conexões de banco de dados para solicitações que carregam uma chave de fragmentação. Essa funcionalidade é conhecida como **roteamento dependente de dados**.
 
 ![Mapas de fragmentos e roteamento dependente de dados][1]
 
@@ -50,11 +50,11 @@ Em vez de usar a maneira tradicional de criar conexões para Dapper, precisamos 
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração do Dapper
 Ao trabalhar com a biblioteca de cliente do banco de dados elástico e as APIs do Dapper, queremos manter as seguintes propriedades:
 
-* **Escala horizontal** : queremos adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. 
-* **Consistência** : como nosso aplicativo é dimensionado horizontalmente com o uso de fragmentação, é necessário executar roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Você deseja reter especialmente a validação e garantir a consistência fornecida pelas conexões intermediadas por meio do gerenciador de mapa de fragmentos para evitar corrompimento ou resultados de consulta incorretos. Isso garante que conexões para um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet é movido num momento para um fragmento diferente usando APIs de divisão/mesclagem.
-* **Mapeamento de objetos** : queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre classes no aplicativo e as estruturas de banco de dados subjacente. 
+* **Escala horizontal**: queremos adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. 
+* **Consistência**: como nosso aplicativo é dimensionado horizontalmente com o uso de fragmentação, é necessário executar roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Você deseja reter especialmente a validação e garantir a consistência fornecida pelas conexões intermediadas por meio do gerenciador de mapa de fragmentos para evitar corrompimento ou resultados de consulta incorretos. Isso garante que conexões para um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet é movido num momento para um fragmento diferente usando APIs de divisão/mesclagem.
+* **Mapeamento de objetos**: queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre classes no aplicativo e as estruturas de banco de dados subjacente. 
 
-A seção a seguir fornece diretrizes para esses requisitos de aplicativos com base em **Dapper** e **DapperExtensions** .
+A seção a seguir fornece diretrizes para esses requisitos de aplicativos com base em **Dapper** e **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Diretrizes técnicas
 ### <a name="data-dependent-routing-with-dapper"></a>Roteamento dependente de dados com Dapper

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95992996"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para exibir os trabalhos para a Matriz Virtual StorSimple
@@ -64,5 +64,5 @@ Você verá o seguinte erro: "A hora do dispositivo está fora de sincronia com 
 Essas falhas aplicam-se aos trabalhos de backup, restauração, atualização e failover. Se sua máquina virtual for provisionada no Hyper-V, ela eventualmente sincroniza a hora com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba como usar a interface do usuário da Web local para administrar sua matriz virtual StorSimple](storsimple-ova-web-ui-admin.md).
+[Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

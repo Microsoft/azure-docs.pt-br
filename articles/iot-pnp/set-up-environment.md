@@ -7,14 +7,14 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5446f8481439dabffe67f9b00b5f65b1da495746
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831884"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101742646"
 ---
-# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Guia de Início Rápido – Configurar o ambiente para os guias de início rápido e tutoriais do IoT Plug and Play
+# <a name="quickstart-set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Início Rápido: Configurar o ambiente para os inícios rápidos e tutoriais do IoT Plug and Play
 
 Para concluir qualquer um dos tutoriais e guias de início rápido do IoT Plug and Play, você precisa configurar um hub IoT e o DPS (Serviço de Provisionamento de Dispositivos) na assinatura do Azure. Você também precisará de cópias locais dos arquivos de modelo usados pelos aplicativos de exemplo e pela ferramenta Azure IoT Explorer.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99536926"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerenciar chaves de API para um serviço de Pesquisa Cognitiva do Azure
@@ -97,7 +97,7 @@ A chave de segurança é protegida restringindo o acesso por meio do portal ou i
 
 Membros das funções a seguir podem exibir e regenerar chaves: Proprietário, Colaborador, [Colaboradores do Serviço de Pesquisa](../role-based-access-control/built-in-roles.md#search-service-contributor)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Segurança no Azure Pesquisa Cognitiva](search-security-overview.md)
 + [Controle de acesso baseado em função do Azure no Azure Pesquisa Cognitiva](search-security-rbac.md)

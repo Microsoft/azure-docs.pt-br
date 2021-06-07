@@ -4,10 +4,10 @@ description: Aprenda a configurar seu cluster autônomo ou local do Azure Servic
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91843151"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
@@ -167,7 +167,7 @@ Na seção fabricSettings, você pode definir os diretórios raiz para os dados 
 Recomendamos que você use uma unidade que não seja a do SO, como o FabricDataRoot e o FabricLogRoot. Ela oferece mais confiabilidade para evitar situações de falta de resposta do SO. Se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
 
 ### <a name="stateful-reliable-services-settings"></a>Configurações de serviço confiável com estado
-Na seção KtlLogger, você pode definir as configurações globais dos Reliable Services. Para saber mais sobre essas configurações, confira [Configurar serviços confiáveis com estado](service-fabric-reliable-services-configuration.md). O exemplo a seguir mostra como alterar o log de transações compartilhado criado para fazer backup de quaisquer coleções confiáveis para serviços com estado:
+Na seção KtlLogger, você pode definir as configurações globais dos Reliable Services. Para saber mais sobre essas configurações, confira [Configurar serviços confiáveis com estado](service-fabric-reliable-services-configuration.md). O exemplo abaixo mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado:
 
 ```json
 "fabricSettings": [{

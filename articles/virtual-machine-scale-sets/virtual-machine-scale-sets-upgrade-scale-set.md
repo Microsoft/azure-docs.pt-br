@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684586"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023921"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -340,7 +340,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
 ### <a name="create-time-properties"></a>Propriedades do momento da criação
 Algumas propriedades só podem ser definidas ao criar o conjunto de dimensionamento. Essas propriedades incluem:
 
-- Zonas de Disponibilidade
+- Zonas de Disponibilidades
 - Publicador de referência de imagem
 - Oferta de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
@@ -350,7 +350,7 @@ Algumas propriedades podem ser alteradas, com exceções dependendo do valor atu
 
 - **singlePlacementGroup** - se singlePlacementGroup for true, ele pode ser modificado para false. No entanto, se singlePlacementGroup for false, ele **não poderá** ser modificado para true.
 - **sub-rede** - a sub-rede de um conjunto de dimensionamento pode ser modificada desde que a sub-rede original e a nova sub-rede estejam na mesma rede virtual.
-- **imageReferenceSku** -o SKU de referência de imagem pode ser atualizado para [distribuições do Linux](../virtual-machines/linux/endorsed-distros.md)endossado, imagens do Windows Server/cliente e imagens sem informações do [plano](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** -o SKU de referência de imagem pode ser atualizado para [distribuições do Linux](../virtual-machines/linux/endorsed-distros.md)endossado, imagens do Windows Server/cliente e imagens sem informações do [plano](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriedades que exigem desalocação para serem alteradas
 Algumas propriedades só podem ser alteradas para determinados valores se as VMs no conjunto de dimensionamento forem desalocadas. Essas propriedades incluem:
@@ -417,7 +417,7 @@ Como alternativa, você talvez queira alterar a imagem que seu conjunto de dimen
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Atualizar o balanceador de carga para o conjunto de dimensionamento
 Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balancer e você queira substituir o Azure Load Balancer por um Gateway de Aplicativo do Azure. As propriedades do balanceador de carga e do gateway do aplicativo referentes a um conjunto de dimensionamento são parte de uma lista, logo você pode usar os comandos para remover e adicionar elementos da lista em vez de modificar as propriedades diretamente:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

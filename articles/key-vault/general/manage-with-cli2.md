@@ -3,19 +3,18 @@ title: Gerenciar o Azure Key Vault usando a CLI - Azure Key Vault | Microsoft Do
 description: Use este artigo para automatizar tarefas comuns no Key Vault usando a CLI do Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4037e66e653bc6e958020a5ef8722f2febb53d0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289898"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772164"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar o Key Vault usando a CLI do Azure 
 
@@ -65,7 +64,7 @@ Leia também os artigos a seguir para se familiarizar com o Azure Resource Manag
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Como criar um contêiner protegido (um cofre) no Azure
 
-Os cofres são contêineres protegidos que contam com módulos de segurança de hardware. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e da renovação de certificados TLS, fornecendo os recursos necessários para uma solução de gerenciamento de ciclo de vida de certificados robusta. Nas próximas etapas, você criará um cofre.
+Os cofres são contêineres protegidos que contam com módulos de segurança de hardware. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram em log o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e da renovação de certificados TLS, fornecendo os recursos necessários para uma solução de gerenciamento de ciclo de vida de certificados robusta. Nas próximas etapas, você criará um cofre.
 
 ### <a name="connect-to-your-subscriptions"></a>Conectar-se às suas assinaturas
 
@@ -120,7 +119,7 @@ az provider register -n Microsoft.KeyVault
 
 Use o comando `az keyvault create` para criar um cofre de chave. Esse script tem três parâmetros obrigatórios: um nome do grupo de recursos, um nome do cofre da chave e a localização geográfica.
 
-Para criar um novo cofre de chaves com o nome **ContosoKeyVault** , no grupo de recursos **ContosoResourceGroup** , residindo no local **Leste da Ásia** , digite: 
+Para criar um novo cofre de chaves com o nome **ContosoKeyVault**, no grupo de recursos **ContosoResourceGroup**, residindo no local **Leste da Ásia**, digite: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +127,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 A saída do comando mostra as propriedades do cofre da chave que você criou. As duas propriedades mais importantes são:
 
-* **nome** : no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
-* **vaultUri** : no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
+* **nome**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
+* **vaultUri**: no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais tem autorização.
 
@@ -147,7 +146,7 @@ Se você já tiver uma chave em um arquivo .pem, carregue-a no Azure Key Vault. 
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para sempre obter a versão atual. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obter essa versão específica. Por exemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
+Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` para sempre obter a versão atual. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obter essa versão específica. Por exemplo, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
 
 Adicione um segredo ao cofre, que é uma senha chamada SQLPassword, com o valor "hVFkk965BuUv" para Azure Key Vaults. 
 
@@ -221,7 +220,7 @@ az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 ## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Definir as políticas de acesso avançado do cofre de chaves
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar políticas avançadas para o cofre de chaves.
+Use [az keyvault update](/cli/azure/keyvault#az_keyvault_update) para habilitar políticas avançadas para o cofre de chaves.
 
  Habilitar o Key Vault para a implantação: Permitir que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
 

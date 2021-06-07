@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97915888"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric

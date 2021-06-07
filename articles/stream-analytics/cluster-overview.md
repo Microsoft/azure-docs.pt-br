@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos clusters do Azure Stream Analytics (versão prévia)
+title: Visão geral dos clusters do Azure Stream Analytics
 description: Saiba mais sobre a oferta dedicada de locatário único do Cluster do Stream Analytics.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019526"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101709284"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Cluster do Azure Stream Analytics (versão prévia)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Visão geral do cluster do Azure Stream Analytics
 
 O Cluster do Azure Stream Analytics oferece uma implantação de locatário único para cenários de streaming complexos e mais rígidos. Em grande escala, os clusters do Stream Analytics podem processar mais de 200 MB/segundo em tempo real. Os trabalhos do Stream Analytics executados em clusters dedicados podem aproveitar todos os recursos da oferta Standard e incluem suporte para conectividade de link privado com entradas e saídas.
 

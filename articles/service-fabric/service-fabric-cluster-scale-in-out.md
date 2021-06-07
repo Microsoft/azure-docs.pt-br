@@ -4,10 +4,10 @@ description: Dimensione um cluster de Service Fabric de entrada ou saída para c
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94409936"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente

@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas do Azure Functions que você preci
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386893"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614812"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
@@ -42,7 +42,7 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 
 | Propriedade    | Valores | Digite | Comentários|
 |---|---|---|---|
-| tipo  | Nome da associação.<br><br>Por exemplo, `queueTrigger`. | string | |
+| type  | Nome da associação.<br><br>Por exemplo, `queueTrigger`. | string | |
 | direction | `in`, `out`  | string | Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
 | name | Identificador de função.<br><br>Por exemplo, `myQueue`. | string | O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
 
@@ -116,10 +116,11 @@ Algumas conexões no Azure Functions são configuradas para usar uma identidade 
 
 As conexões baseadas em identidade são suportadas pelo gatilho e extensões de associação a seguir:
 
-| Nome da extensão | Versão da extensão                                                                                     | Oferece suporte a conexões baseadas em identidade no plano de consumo |
+| Nome da extensão | Versão da extensão                                                                                     | Com suporte no plano de consumo |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Blob do Azure     | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Não                                    |
 | Fila do Azure    | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Não                                    |
+| Hubs de eventos do Azure    | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Não                                    |
 
 > [!NOTE]
 > O suporte para conexões baseadas em identidade ainda não está disponível para conexões de armazenamento usadas pelo tempo de execução do Functions para comportamentos de núcleo. Isso significa que a `AzureWebJobsStorage` configuração deve ser uma cadeia de conexão.
@@ -128,9 +129,10 @@ As conexões baseadas em identidade são suportadas pelo gatilho e extensões de
 
 Uma conexão baseada em identidade para um serviço do Azure aceita as seguintes propriedades:
 
-| Propriedade    | Variável de ambiente | Obrigatório | Descrição |
+| Propriedade    | Necessário para extensões | Variável de ambiente | Descrição |
 |---|---|---|---|
-| URI de serviço | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sim | O URI do plano de dados do serviço ao qual você está se conectando. |
+| URI de serviço | Blob do Azure, fila do Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  O URI do plano de dados do serviço ao qual você está se conectando. |
+| Namespace totalmente qualificado | Hubs de Eventos | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | O namespace totalmente qualificado do hub de eventos. |
 
 Outras opções podem ter suporte para um determinado tipo de conexão. Consulte a documentação do componente que está fazendo a conexão.
 
@@ -152,14 +154,26 @@ Em alguns casos, talvez você queira especificar o uso de uma identidade diferen
 > [!NOTE]
 > As opções de configuração a seguir não têm suporte quando hospedadas no serviço de Azure Functions.
 
-Para se conectar usando uma entidade de serviço Azure Active Directory com uma ID do cliente e um segredo, defina a conexão com as seguintes propriedades:
+Para se conectar usando uma entidade de serviço Azure Active Directory com uma ID do cliente e um segredo, defina a conexão com as seguintes propriedades necessárias além das [Propriedades de conexão](#connection-properties) acima:
 
-| Propriedade    | Variável de ambiente | Obrigatório | Descrição |
-|---|---|---|---|
-| URI de serviço | `<CONNECTION_NAME_PREFIX>__serviceUri` | Sim | O URI do plano de dados do serviço ao qual você está se conectando. |
-| ID do locatário | `<CONNECTION_NAME_PREFIX>__tenantId` | Sim | A ID do locatário do Azure Active Directory (diretório). |
-| ID do Cliente | `<CONNECTION_NAME_PREFIX>__clientId` | Sim |  A ID do cliente (aplicativo) de um registro de aplicativo no locatário. |
-| Segredo do cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Sim | Um segredo do cliente que foi gerado para o registro do aplicativo. |
+| Propriedade    | Variável de ambiente | Descrição |
+|---|---|---|
+| ID do locatário | `<CONNECTION_NAME_PREFIX>__tenantId` | A ID do locatário do Azure Active Directory (diretório). |
+| ID do Cliente | `<CONNECTION_NAME_PREFIX>__clientId` |  A ID do cliente (aplicativo) de um registro de aplicativo no locatário. |
+| Segredo do cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Um segredo do cliente que foi gerado para o registro do aplicativo. |
+
+Exemplo de `local.settings.json` Propriedades necessárias para a conexão baseada em identidade com o blob do Azure: 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Conceder permissão para a identidade
 

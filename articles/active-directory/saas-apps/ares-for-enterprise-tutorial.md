@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ARES for Enterprise | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ARES for Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o ARES for Enterprise.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 7cd8faece0d737e97f1c5809f27840f1d9192548
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673392"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Tutorial: Integração do Microsoft Azure Active Directory com o ARES for Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ARES for Enterprise
 
 Neste tutorial, você aprenderá a integrar o ARES for Enterprise com o Azure AD (Azure Active Directory).
 A integração do ARES for Enterprise com o Azure AD oferece os benefícios a seguir:
@@ -180,4 +180,4 @@ Ao clicar no bloco do ARES for Enterprise no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

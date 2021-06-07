@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: a7fad0af26d15bc77a52d55309c594937ba3be13
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao NS1 SSO for Azure
@@ -48,16 +48,16 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do NS1 SSO for Azure ao Azure AD, é necessário adicionar o NS1 SSO for Azure da galeria à lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **NS1 SSO for Azure** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **NS1 SSO for Azure** na caixa de pesquisa.
 1. Selecione **NS1 SSO for Azure** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-ns1-sso-for-azure"></a>Configurar e testar o logon único do Azure AD para o NS1 SSO for Azure
 
-Configure e teste o SSO do Azure AD com o NS1 SSO for Azure usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, estabeleça uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do NS1 SSO for Azure.
+Configure e teste o SSO do Azure AD com o NS1 SSO for Azure usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, estabeleça uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do NS1 SSO for Azure.
 
 Aqui estão as etapas gerais para configurar e testar o SSO do Azure AD com o NS1 SSO for Azure:
 
@@ -75,26 +75,26 @@ Aqui estão as etapas gerais para configurar e testar o SSO do Azure AD com o NS
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **NS1 SSO for Azure** , localize a seção **Gerenciar** . Selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **NS1 SSO for Azure**, localize a seção **Gerenciar**. Selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
    ![Captura de tela da página Configurar o logon único com SAML, com o ícone de lápis realçado](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IdP** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IdP**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **Identificador** , digite a seguinte URL: `https://api.nsone.net/saml/metadata`
+    a. Na caixa de texto **Identificador**, digite a seguinte URL: `https://api.nsone.net/saml/metadata`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL que use o seguinte padrão: `https://api.nsone.net/saml/sso/<ssoid>`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL que use o seguinte padrão: `https://api.nsone.net/saml/sso/<ssoid>`
 
-1. Selecione **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP** :
+1. Selecione **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP**:
 
-    Na caixa de texto **URL de Logon** , digite a seguinte URL: `https://my.nsone.net/#/login/sso`
+    Na caixa de texto **URL de Logon**, digite a seguinte URL: `https://my.nsone.net/#/login/sso`
 
     > [!NOTE]
-    > O valor da URL de Resposta não é real. Atualize o valor da URL de Resposta com a URL de Resposta real. Entre em contato com a [equipe de suporte ao cliente do NS1 SSO for Azure](mailto:techops@nsone.net) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor URL de Resposta não é real. Atualize o valor da URL de Resposta com a URL de Resposta real. Entre em contato com a [equipe de suporte ao cliente do NS1 SSO for Azure](mailto:techops@nsone.net) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. O aplicativo NS1 SSO for Azure espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos do Usuário e Declarações** na página de integração de aplicativos. Na página **Definir logon único com SAML** , selecione o ícone de lápis para abrir a caixa de diálogo **Atributos de Usuário** .
+1. O aplicativo NS1 SSO for Azure espera as declarações SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos do Usuário e Declarações** na página de integração de aplicativos. Na página **Definir logon único com SAML**, selecione o ícone de lápis para abrir a caixa de diálogo **Atributos de Usuário**.
 
     ![Captura de tela da seção Atributos do Usuário e Declarações com o ícone de lápis realçado](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
 
@@ -102,23 +102,23 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Captura de tela da seção Atributos do Usuário e Declarações com o nome do atributo realçado](./media/ns1-sso-for-azure-tutorial/attribute-claim-edit.png)
 
-1. Selecione **Transformação** .
+1. Selecione **Transformação**.
 
     ![Captura de tela da seção Gerenciar declaração, com Transformação realçada](./media/ns1-sso-for-azure-tutorial/prefix-edit.png)
 
-1. Na seção **Gerenciar transformação** , execute as seguintes etapas:
+1. Na seção **Gerenciar transformação**, execute as seguintes etapas:
 
     ![Captura de tela da seção Gerenciar transformação, com vários campos realçados](./media/ns1-sso-for-azure-tutorial/prefix-added.png)
 
-    1. Selecione **ExactMailPrefix()** como **Transformação** .
+    1. Selecione **ExactMailPrefix()** como **Transformação**.
 
-    1. Selecione **user.userprincipalname** como **Parâmetro 1** .
+    1. Selecione **user.userprincipalname** como **Parâmetro 1**.
 
-    1. Selecione **Adicionar** .
+    1. Selecione **Adicionar**.
 
-    1. Clique em **Salvar** .
+    1. Clique em **Salvar**.
 
-1. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , selecione o botão de copiar. Isso copia a **URL de metadados de federação de aplicativos** e salva em seu computador.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o botão de copiar. Isso copia a **URL de metadados de federação de aplicativos** e salva em seu computador.
 
     ![Captura de tela do Certificado de Autenticação SAML, com o botão de cópia realçado](common/copy-metadataurl.png)
 
@@ -126,32 +126,32 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
+1. Nas propriedades do **Usuário**, siga estas etapas:
 
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor mostrado no campo **Senha** .
-   1. Selecione **Criar** .
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor mostrado no campo **Senha**.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo-lhe acesso ao NS1 SSO for Azure.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **NS1 SSO for Azure** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **NS1 SSO for Azure**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
 
    ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** . Na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos** .
+1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![Captura de tela da página Usuários e grupos, com a função Adicionar usuário destacada](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ## <a name="configure-ns1-sso-for-azure-sso"></a>Configurar o SSO do NS1 SSO for Azure
 

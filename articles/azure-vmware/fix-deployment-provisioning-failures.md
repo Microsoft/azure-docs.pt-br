@@ -4,10 +4,10 @@ description: Obtenha informações de sua nuvem privada da solução Azure VMwar
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.openlocfilehash: 27b645f4ca225fdd74bca6499b6581b3803e41a4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542398"
 ---
 # <a name="open-a-support-request-for-an-azure-vmware-solution-deployment-or-provisioning-failure"></a>Abrir uma solicitação de suporte para uma implantação de solução do Azure VMware ou falha de provisionamento
@@ -55,7 +55,7 @@ Para acessar o log de implantação:
 
    :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Captura de tela que mostra o ícone de notificações no portal do Azure.":::
 
-1. No painel **notificações** , selecione **mais eventos no log de atividades** :
+1. No painel **notificações** , selecione **mais eventos no log de atividades**:
 
     :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Captura de tela que mostra mais eventos no link do log de atividades selecionado no painel notificações.":::
 
@@ -84,7 +84,7 @@ Talvez você esteja tentando dimensionar ou emparelhar uma nuvem privada existen
 Para copiar a ID do ExpressRoute:
 
 1. Na portal do Azure, selecione sua nuvem privada.
-1. No menu à esquerda, em **gerenciar** , selecione **conectividade**. 
+1. No menu à esquerda, em **gerenciar**, selecione **conectividade**. 
 1. No painel direito, selecione a guia **ExpressRoute** .
 1. Selecione o ícone de cópia para a **ID do ExpressRoute** e salve o valor a ser usado em sua solicitação de suporte.
  
@@ -96,8 +96,8 @@ Se a verificação de pré-validação da nuvem privada falhou (antes da implant
 
 - Mensagens de erro e falha. Essas mensagens podem ser úteis em muitas falhas, por exemplo, para problemas relacionados à cota. É importante copiar essas mensagens e incluí-las na solicitação de suporte, conforme descrito neste artigo.
 - Informações usadas para criar a nuvem privada da solução Azure VMware, incluindo:
-  - Localização
-  - Grupo de recursos
+  - Location
+  - Resource group
   - Nome do recurso
 
 ## <a name="create-your-support-request"></a>Criar sua solicitação de suporte
@@ -112,11 +112,11 @@ Para criar uma solicitação de suporte para uma implantação de solução do A
 
 1. Insira ou selecione as informações necessárias:
 
-   1. Na guia **Informações Básicas** :
+   1. Na guia **Informações Básicas**:
 
-      1. Para **tipo de problema** , selecione **problemas de configuração e** configuração.
+      1. Para **tipo de problema**, selecione **problemas de configuração e** configuração.
 
-      1. Para **subtipo de problema** , selecione **provisionar uma nuvem privada**.
+      1. Para **subtipo de problema**, selecione **provisionar uma nuvem privada**.
 
    1. Na guia **detalhes** :
 

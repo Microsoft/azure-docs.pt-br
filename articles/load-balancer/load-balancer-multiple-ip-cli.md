@@ -13,14 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 06dfa65236bf1aa5cfde626c5574ffdf487eb045
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
-ms.translationtype: MT
+ms.openlocfilehash: 67f3ffa15b46eec9f352e08b0fe7c8b1bb15ac7e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698352"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103417783"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Balanceamento de carga em várias configurações de IP usando a CLI do Azure
+
+> [!div class="op_single_selector"]
+> * [Portal](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
 Este artigo descreve como usar o Azure Load Balancer com vários endereços IP em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada uma das NICs secundárias tem duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site está associado a uma das configurações de IP na NIC secundária. Usamos o Azure Load Balancer para expor dois endereços IP front-end, um para cada site, a fim de distribuir o tráfego para a respectiva configuração de IP do site. Esse cenário usa o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
 
@@ -30,7 +35,7 @@ Este artigo descreve como usar o Azure Load Balancer com vários endereços IP e
 
 Para obter o cenário descrito neste artigo conclua as seguintes etapas:
 
-1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas no artigo vinculado e faça logon em sua conta do Azure.
+1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli) seguindo as etapas no artigo vinculado e faça logon em sua conta do Azure.
 2. [Crie um grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) chamado *contosofabrikam* da seguinte maneira:
 
     ```azurecli

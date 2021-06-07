@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Usar R em um contexto de computação do Spark Azure HDInsight'
+title: 'Tutorial: Usar R em um contexto de computação do Spark no Azure HDInsight'
 description: Tutorial-introdução ao R e ao Spark em um cluster de serviços de Machine Learning do Azure HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 07c004fa5f03c53ed0778613a0c16a0ba2aff11f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935664"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869490"
 ---
-# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Usar R em um contexto de computação do Spark Azure HDInsight
+# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Usar R em um contexto de computação do Spark no Azure HDInsight
 
 Este tutorial apresenta uma introdução passo a passo para usar as funções de R no Apache Spark em execução em um cluster de serviços de Machine Learning no Azure HDInsight.
 
@@ -56,7 +56,7 @@ O *Conjunto de Dados no Horário de Companhias Aéreas para 2012* consiste em 12
 
 1. No painel à direita, selecione a guia **Ambiente**. As variáveis são exibidas em **Valores**.
 
-    ![Console Web do HDInsight R Studio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    :::image type="content" source="./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png" alt-text="Console Web do HDInsight R Studio" border="true":::
 
 1. Crie um diretório local e baixe os dados de exemplo. Insira o seguinte código no RStudio:
 
@@ -222,14 +222,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
     ---
-    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)
@@ -352,7 +352,7 @@ Ao usar um contexto de computação `RxSpark`, `createFileSet` usa `TRUE` como p
     quit()
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Já que os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estão em uso.
 

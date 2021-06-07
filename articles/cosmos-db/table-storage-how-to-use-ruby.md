@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93101112"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com Ruby
@@ -55,7 +55,7 @@ require "azure/storage/table"
 
 ## <a name="add-your-connection-string"></a>Adicionar sua cadeia de conexão
 
-Você pode se conectar à conta do Armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
+Você pode se conectar à conta de armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
 
 ### <a name="add-an-azure-storage-connection"></a>Adicionar uma conexão do Armazenamento do Azure
 
@@ -76,7 +76,7 @@ Para obter esses valores de uma conta de armazenamento clássico ou do Resource 
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma conexão do Azure Cosmos DB
 
-Para se conectar ao Azure Cosmos DB, copie a cadeia de conexão principal do Portal do Azure e crie um objeto **Client** usando a cadeia de conexão copiada. Você pode passar o objeto **Client** quando criar um objeto **TableService** :
+Para se conectar ao Azure Cosmos DB, copie a cadeia de conexão principal do Portal do Azure e crie um objeto **Client** usando a cadeia de conexão copiada. Você pode passar o objeto **Client** quando criar um objeto **TableService**:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -150,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>Consultar um conjunto de entidades
 
-Para consultar um conjunto de entidades em uma tabela, crie um objeto de hash de consulta e use o método **query_entities()** . O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey** :
+Para consultar um conjunto de entidades em uma tabela, crie um objeto de hash de consulta e use o método **query_entities()** . O exemplo a seguir demonstra como obter todas as entidades com o mesmo **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }

@@ -4,16 +4,16 @@ description: Para criar aplicativos altamente disponíveis e resilientes no Azur
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226617"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601178"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -50,12 +50,13 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Américas           | Europa               | África              | Pacífico Asiático   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canadá Central     | França Central       | Norte da África do Sul * | Japan East     |
-| Centro dos EUA         | Centro-Oeste da Alemanha |                     | Sudeste Asiático |
-| Leste dos EUA            | Norte da Europa         |                     | Leste da Austrália |
-| Leste dos EUA 2          | Sul do Reino Unido             |                     |                |
-| EUA Central do Sul | Europa Ocidental          |                     |                |
-| US Gov-Virgínia * |                      |                     |                |
+| Brazil South       | França Central       | Norte da África do Sul * | Japan East     |
+| Canadá Central     | Centro-Oeste da Alemanha |                     | Sudeste Asiático |
+| Centro dos EUA         | Norte da Europa         |                     | Leste da Austrália |
+| Leste dos EUA            | Sul do Reino Unido             |                     |                |
+| Leste dos EUA 2          | Europa Ocidental          |                     |                |
+| EUA Central do Sul |                      |                     |                |
+| Gov. dos EUA – Virgínia     |                      |                     |                |
 | Oeste dos EUA 2        |                      |                     |                |
 
 
@@ -88,7 +89,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     IP público do Azure                                           | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Uso Geral camada)                 | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Premium & camada de Comercialmente Crítico)     | : large_blue_diamond:  |
-|     Armazenamento em disco                                                | : large_blue_diamond:  |
+|     Armazenamento em Disco                                                | : large_blue_diamond:  |
 |     Hubs de Eventos                                                  | : large_blue_diamond:  |
 |     Key Vault                                                   | : large_blue_diamond:  |
 |     Load Balancer                                               | : large_blue_diamond:  |
@@ -106,6 +107,8 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Máquinas virtuais: Dv3-Series                              | : large_blue_diamond:  |
 |     Máquinas virtuais: ESv3-Series                             | : large_blue_diamond:  |
 |     Máquinas virtuais: Ev3-Series                              | : large_blue_diamond:  |
+|     Máquinas virtuais: série F                                | : large_blue_diamond:  |
+|     Máquinas virtuais: FS-Series                               | : large_blue_diamond:  |
 |     Rede virtual                                           | : large_blue_diamond:  |
 |     Gateway de VPN                                                 | : large_blue_diamond:  |
 
@@ -123,17 +126,24 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Banco de dados do Azure para MySQL – servidor flexível      |      : large_blue_diamond:  |
 | Banco de dados do Azure para PostgreSQL – servidor flexível |      : large_blue_diamond:  |
 | Proteção contra DDoS do Azure                           |      : large_blue_diamond:  |
+| Azure Disk Encryption                           |      : large_blue_diamond:  |
 | Firewall do Azure                                  |      : large_blue_diamond:  |
 | Gerenciador de Firewall do Azure                          |      : large_blue_diamond:  |
 | AKS (Serviço de Kubernetes do Azure)                  |      : large_blue_diamond:  |
 | Link Privado do Azure                              |      : large_blue_diamond:  |
 | Red Hat OpenShift no Azure                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |
+| SQL do Azure: máquina virtual                      |      : large_blue_diamond:  |
+| Azure Search                                    |      : large_blue_diamond:  |
+| Firewall do aplicativo Web do Azure                  |      : large_blue_diamond:  |
 | Registro de Contêiner                              |      : large_blue_diamond:  |
 | Grade de Eventos                                      |      : large_blue_diamond:  |
 | Observador de Rede                                 |      : large_blue_diamond:  |
+| Observador de rede: Análise de Tráfego              |      : large_blue_diamond:  |
 | Power BI Embedded                               |      : large_blue_diamond:  |
 | Armazenamento de blob Premium                            |      : large_blue_diamond:  |
+| Armazenamento: arquivos premium do Azure                    |      : large_blue_diamond:  |
+| Máquinas virtuais: host dedicado do Azure          |      : large_blue_diamond:  |
 | Máquinas virtuais: Ddsv4-Series                  |      : large_blue_diamond:  |
 | Máquinas virtuais: Ddv4-Series                   |      : large_blue_diamond:  |
 | Máquinas virtuais: Dsv4-Series                   |      : large_blue_diamond:  |
@@ -145,6 +155,9 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Máquinas virtuais: Fsv2-Series                   |      : large_blue_diamond:  |
 | Máquinas virtuais: série M                      |      : large_blue_diamond:  |
 | WAN Virtual                                     |      : large_blue_diamond:  |
+| WAN virtual: ExpressRoute                       |      : large_blue_diamond:  |
+| WAN virtual: gateway de VPN ponto a site          |      : large_blue_diamond:  |
+| WAN virtual: gateway de VPN site a site           |      : large_blue_diamond:  |
 
 
 **Não regional**
@@ -153,21 +166,31 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |-----------------------------------------------|:-------------------:|
 |     DNS do Azure                                 |     : globe_with_meridians:             |
 |     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Proteção Avançada contra Ameaças do Azure          |     : globe_with_meridians:             |
 |     Assistente do Azure                             |     : globe_with_meridians:             |
+|     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Serviços de Bot do Azure                        |     : globe_with_meridians:             |
+|     Porta da frente do Azure                          |     : globe_with_meridians:             |
 |     Azure defender para IoT                  |     : globe_with_meridians:             |
+|     Porta da frente do Azure                           |     : globe_with_meridians:             |
 |     Proteção de informações do Azure            |     : globe_with_meridians:             |
 |     Lighthouse do Azure                        |     : globe_with_meridians:             |
 |     Aplicativos gerenciados do Azure              |     : globe_with_meridians:             |
 |     Mapas do Azure                                |     : globe_with_meridians:             |
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Grafo de recursos do Azure                    |     : globe_with_meridians:             |
+|     Azure Sentinel                            |     : globe_with_meridians:             |
 |     Azure Stack Hub                               |     : globe_with_meridians:             |
 |     Borda do Azure Stack                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
+|     Rede de Distribuição de Conteúdo                  |     : globe_with_meridians:             |
+|     Gerenciamento de Custos                           |     : globe_with_meridians:             |
 |     Sistema de Proteção de Dados do Cliente para Microsoft Azure    |     : globe_with_meridians:             |
+|     Intune                                    |     : globe_with_meridians:             |
 |     Serviço de emparelhamento Microsoft Azure         |     : globe_with_meridians:             |
 |     portal do Microsoft Azure                  |     : globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     : globe_with_meridians:             |
+|     Microsoft Graph                           |     : globe_with_meridians:             |
 |     Central de segurança                         |     : globe_with_meridians:             |
 |     Gerenciador de tráfego                         |     : globe_with_meridians:             |
 

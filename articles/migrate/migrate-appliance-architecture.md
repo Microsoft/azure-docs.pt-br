@@ -1,95 +1,71 @@
 ---
 title: Arquitetura do dispositivo de Migrações para Azure
-description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
-author: vikram1988
-ms.author: vibansa
+description: Fornece uma visão geral do dispositivo de migrações para Azure usado na descoberta de servidor, avaliação e migração.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: 42d4a722be25eec4b3e27012350346018fdba0f3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/18/2021
+ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754106"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785233"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
 
-Este artigo descreve a arquitetura e os processos do dispositivo de migração do Azure. O dispositivo de migrações para Azure é um dispositivo leve que é implantado localmente, para descobrir VMs e servidores físicos para migração para o Azure. 
+Este artigo descreve a arquitetura e os processos do dispositivo de migração do Azure. O dispositivo de migrações para Azure é um dispositivo leve que é implantado localmente, para descobrir servidores para migração para o Azure.
 
 ## <a name="deployment-scenarios"></a>Cenários de implantação
 
 O dispositivo de Migrações para Azure é usado nos cenários a seguir.
 
-**Cenário** | **Ferramenta** | **Usada para** 
+**Cenário** | **Ferramenta** | **Usado para**
 --- | --- | ---
-**Avaliação da VM do VMware** | Migrações para Azure: Avaliação de Servidor | Descubra VMs VMware.<br/><br/> Descubra aplicativos e dependências de computador.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
-**Migração de VM VMware (sem agente)** | Migrações para Azure: Migração de Servidor | Descobrir as VMs do VMware<br/><br/>  Replique VMs VMware com [migração sem agente](server-migrate-overview.md).
-**Avaliação da VM do Hyper-V** | Migrações para Azure: Avaliação de Servidor | Descubra as VMs do Hyper-V.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
-**Computador físico** |  Migrações para Azure: Avaliação de Servidor |  Descobrir servidores físicos.<br/><br/> Coletar metadados de computador e metadados de desempenho e enviar para o Azure.
+**Descoberta e avaliação de servidores em execução no ambiente VMware** | Migrações para Azure: descoberta e avaliação | Descobrir servidores em execução em seu ambiente VMware<br/><br/> Execute a descoberta de inventário de software instalado, análise de dependência sem agente e descubra SQL Server instâncias e bancos de dados.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
+**Migração sem agente de servidores em execução no ambiente VMware** | Migrações para Azure: Migração de Servidor | Descubra servidores em execução em seu ambiente VMware.<br/><br/> Replique servidores sem instalar agentes neles.
+**Descoberta e avaliação de servidores em execução no ambiente do Hyper-V** | Migrações para Azure: descoberta e avaliação | Descobrir servidores em execução no ambiente do Hyper-V.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
+**Descoberta e avaliação de servidores físicos ou virtualizados locais** |  Migrações para Azure: descoberta e avaliação |  Descubra servidores físicos ou virtualizados localmente.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
 
-## <a name="appliance-components"></a>Componentes do dispositivo
+## <a name="deployment-methods"></a>Métodos de implantação
 
-O dispositivo tem vários componentes.
+O dispositivo pode ser implantado usando alguns métodos:
 
-- **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.
-- **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure. 
-- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.
-- **Agente DRA**: orquestra a replicação da VM e coordena a comunicação entre computadores replicados e o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
-- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
-- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
+- O dispositivo pode ser implantado usando um modelo para servidores em execução no VMware ou no ambiente do Hyper-V ([modelo OVA para VMware](how-to-set-up-appliance-vmware.md) ou [VHD para Hyper-v](how-to-set-up-appliance-hyper-v.md)).
+- Se você não quiser usar um modelo, poderá implantar o dispositivo para o ambiente do VMware ou do Hyper-V usando um [script do instalador do PowerShell](deploy-appliance-script.md).
+- No Azure governamental, você deve implantar o dispositivo usando um script do instalador do PowerShell. Consulte as etapas de implantação [aqui](deploy-appliance-script-government.md).
+- Para servidores físicos ou virtualizados locais ou qualquer outra nuvem, você sempre implanta o dispositivo usando um script do instalador do PowerShell. Consulte as etapas de implantação [aqui](how-to-set-up-appliance-physical.md).
+- Links para download estão disponíveis nas tabelas a seguir.
 
+## <a name="appliance-services"></a>Serviços de dispositivo
 
+O dispositivo tem os seguintes serviços:
 
-## <a name="appliance-deployment"></a>Implantação do dispositivo
+- **Gerenciador de configuração de dispositivo**: Este é um aplicativo Web que pode ser configurado com detalhes de origem para iniciar a descoberta e a avaliação de servidores. 
+- **Agente de descoberta**: o agente coleta metadados de configuração do servidor que podem ser usados para criação como avaliações locais.
+- **Agente de avaliação**: o agente coleta metadados de desempenho do servidor que podem ser usados para criar avaliações baseadas em desempenho.
+- **Serviço de atualização automática**: o serviço mantém todos os agentes em execução no dispositivo atualizados. Ele é executado automaticamente uma vez a cada 24 horas.
+- **Agente Dra**: Orquestra a replicação de servidor e coordena a comunicação entre servidores replicados e o Azure. Usado somente ao replicar servidores no Azure usando a migração sem agente.
+- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar servidores no Azure usando a migração sem agente.
+- **Descoberta e agente de avaliação do SQL**: envia os metadados de configuração e desempenho de instâncias de SQL Server e bancos de dados para o Azure.
 
-- O dispositivo de migrações para Azure pode ser configurado usando um modelo para [Hyper-v](how-to-set-up-appliance-hyper-v.md) ou [VMware](how-to-set-up-appliance-vmware.md) ou usando um instalador de script do PowerShell para [VMware/Hyper-V](deploy-appliance-script.md)e para [servidores físicos](how-to-set-up-appliance-physical.md). 
-- Os requisitos de suporte do dispositivo e os pré-requisitos de implantação são resumidos na [matriz de suporte do dispositivo](migrate-appliance.md).
-
-
-## <a name="appliance-registration"></a>Registro de dispositivo
-
-Durante a configuração do dispositivo, você registra o dispositivo com as migrações para Azure e as ações resumidas na tabela ocorrem.
-
-**Ação** | **Detalhes** | **Permissões**
---- | --- | ---
-**Registrar provedores de origem** | Esses provedores de recursos são registrados na assinatura que você escolhe durante a instalação do dispositivo: Microsoft. OffAzure, Microsoft. migrar e Microsoft. keyvault.<br/><br/> O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. | Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.
-**Criar aplicativo do Azure AD – comunicação** | As migrações para Azure criam um aplicativo Azure Active Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo e seus respectivos serviços em execução no Azure.<br/><br/> Este aplicativo não tem privilégios para fazer chamadas Azure Resource Manager ou o acesso RBAC do Azure em qualquer recurso. | Você precisa [dessas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para a migração do Azure para criar o aplicativo.
-**Criar aplicativos do Azure AD – cofre de chaves** | Esse aplicativo é criado somente para a migração sem agente de VMs do VMware para o Azure.<br/><br/> Ele é usado exclusivamente para acessar o cofre de chaves criado na assinatura do usuário para a migração sem agente.<br/><br/> Ele tem acesso RBAC do Azure no cofre de chaves do Azure (criado no locatário do cliente) quando a descoberta é iniciada do dispositivo. | Você precisa [dessas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para a migração do Azure para criar o aplicativo.
-
-
-
-## <a name="collected-data"></a>Dados coletados
-
-Os dados coletados pelo cliente para todos os cenários de implantação são resumidos na [matriz de suporte do dispositivo](migrate-appliance.md).
+> [!Note]
+> Os últimos 3 serviços estão disponíveis apenas no dispositivo usado para descoberta e avaliação de servidores em execução em seu ambiente VMware.<br/> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 ## <a name="discovery-and-collection-process"></a>Processo de descoberta e coleta
 
-![Arquitetura](./media/migrate-appliance-architecture/architecture1.png)
+:::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Arquitetura do dispositivo":::
 
-O dispositivo se comunica com servidores vCenter e hosts/cluster do Hyper-V usando o processo a seguir.
+O dispositivo se comunica com as fontes de descoberta usando o processo a seguir.
 
-1. **Iniciar descoberta**:
-    - Quando você inicia a descoberta no dispositivo Hyper-V, ele se comunica com os hosts Hyper-V na porta WinRM 5985 (HTTP).
-    - Quando você inicia a descoberta no dispositivo VMware, ela se comunica com o servidor vCenter na porta TCP 443 por padrão. Se o servidor vCenter escuta em uma porta diferente, você pode configurá-lo no aplicativo Web do dispositivo.
-2. **Coletar metadados e dados de desempenho**:
-    - O dispositivo usa uma sessão de modelo CIM (CIM) para coletar dados de VM do Hyper-V do host Hyper-V na porta 5985.
-    - O dispositivo se comunica com a porta 443 por padrão, para coletar dados de VM do VMware do vCenter Server.
-3. **Enviar dados**: o dispositivo envia os dados coletados para a avaliação de servidor de migrações para Azure e migração de servidor de migrações para Azure por meio da porta SSL 443. O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).
-    - Para dados de desempenho, o dispositivo coleta dados de utilização em tempo real.
-        - Os dados de desempenho são coletados a cada 20 segundos para VMware e a cada 30 segundos para o Hyper-V, para cada métrica de desempenho.
-        - Os dados coletados são acumulados para criar um único ponto de dados por 10 minutos.
-        - O valor de pico de utilização é selecionado de todos os pontos de dados de 20/30 segundos e enviado ao Azure para cálculo da avaliação.
-        - Com base no valor de percentil especificado nas propriedades de avaliação (50 º/90 º/95 º/99 º), os pontos de dez minutos são classificados em ordem crescente e o valor de percentil apropriado é usado para calcular a avaliação
-    - Para a migração de servidor, o dispositivo inicia a coleta de dados da VM e o Replica no Azure.
-4. **Avaliar e migrar**: agora você pode criar avaliações dos metadados coletados pelo dispositivo usando a avaliação do servidor de migrações para Azure. Além disso, você também pode começar a migrar VMs VMware usando a migração de servidor de migração do Azure para orquestrar a replicação de VM sem agente.
-
-## <a name="appliance-upgrades"></a>Atualizações de dispositivo
-
-O dispositivo é atualizado conforme os agentes de Migrações para Azure em execução no dispositivo são atualizados. Isso ocorre automaticamente porque a atualização automática está habilitada no dispositivo por padrão. Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
-
-Desative a atualização automática no registro definindo a chave "AutoUpdate" do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance como 0 (DWORD).
-
+**Processo** | **Dispositivo VMware** | **Dispositivo Hyper-V** | **Dispositivo físico**
+---|---|---|---
+**Iniciar descoberta** | O dispositivo se comunica com o servidor vCenter na porta TCP 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá configurá-lo no Gerenciador de configuração de dispositivo. | O dispositivo se comunica com os hosts Hyper-V na porta WinRM 5985 (HTTP). | O dispositivo se comunica com servidores Windows pela porta WinRM 5985 (HTTP) com servidores Linux pela porta 22 (TCP).
+**Coletar metadados de configuração e desempenho** | O dispositivo coleta os metadados de servidores em execução no vCenter Server usando APIs vSphere conectando-se na porta 443 (porta padrão) ou em qualquer outra porta vCenter Server escuta. | O dispositivo coleta os metadados de servidores em execução em hosts Hyper-V usando uma sessão modelo CIM (CIM) com hosts na porta 5985.| O dispositivo coleta metadados de servidores Windows usando a sessão modelo CIM (CIM) com servidores na porta 5985 e de servidores Linux usando a conectividade SSH na porta 22.
+**Enviar dados de descoberta** | O dispositivo envia os dados coletados para migrações para Azure: descoberta e avaliação e migrações para Azure: migração de servidor pela porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft). | O dispositivo envia os dados coletados para migrações para Azure: descoberta e avaliação sobre a porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).| O dispositivo envia os dados coletados para migrações para Azure: descoberta e avaliação sobre a porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).
+**Frequência de coleta de dados** | Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 20 segundos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos. <br/><br/> Os dados de inventário de software são enviados para o Azure uma vez a cada 12 horas. <br/><br/> Os dados de dependência sem agente são coletados a cada 5 minutos, agregados no dispositivo e enviados ao Azure a cada 6 horas. <br/><br/> Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.| Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 30 segundos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos.|  Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 5 minutos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos.
+**Avaliar e migrar** | Você pode criar avaliações dos metadados coletados pelo dispositivo usando as migrações para Azure: ferramenta de descoberta e avaliação.<br/><br/>Além disso, você também pode iniciar a migração de servidores em execução em seu ambiente VMware usando migrações para Azure: ferramenta de migração de servidor para orquestrar a replicação de servidor sem agente.| Você pode criar avaliações dos metadados coletados pelo dispositivo usando as migrações para Azure: ferramenta de descoberta e avaliação. | Você pode criar avaliações dos metadados coletados pelo dispositivo usando as migrações para Azure: ferramenta de descoberta e avaliação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

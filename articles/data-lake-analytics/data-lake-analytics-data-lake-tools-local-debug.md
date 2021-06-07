@@ -6,17 +6,17 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 1c7218deac9efba6df6c1284f2578a744e768284
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92221019"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Depurar o código do Azure Data Lake Analytics localmente
 
 Você pode usar Ferramentas do Azure Data Lake para Visual Studio para executar e depurar código do Azure Data Lake Analytics em sua estação de trabalho local, assim como no serviço do Azure Data Lake Analytics.
 
-Saiba como [executar o script U-SQL em seu computador local](data-lake-analytics-data-lake-tools-local-run.md).
+Saiba [como executar um script U-SQL no computador local](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## <a name="debug-scripts-and-c-assemblies-locally"></a>Depurar scripts e assemblies do C# localmente
 
@@ -25,7 +25,7 @@ Você pode depurar assemblies do C# sem enviar e registrá-los para o serviço A
 ### <a name="debug-local-code-in-a-code-behind-file"></a>Depurar o código local no arquivo code-behind
 
 1. Definir pontos de interrupção no arquivo code-behind.
-2. Selecione **F5**para depurar o script localmente.
+2. Selecione **F5** para depurar o script localmente.
 
 > [!NOTE]
    > O procedimento a seguir só funciona no Visual Studio 2015. Nas versões mais antigas do Visual Studio, talvez seja necessário adicionar manualmente os arquivos **PDB**.  
@@ -48,5 +48,5 @@ Você pode depurar assemblies do C# sem enviar e registrá-los para o serviço A
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para ver um exemplo de consulta mais complexa, consulte [Analisar logs de site usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- Para exibir detalhes do trabalho, consulte [usar o navegador de trabalho e a exibição de trabalho para trabalhos de Azure data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-- Para usar o modo de exibição de execução de vértice, consulte [usar o modo de exibição de execução de vértice em ferramentas de data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+- Para ver detalhes do trabalho, confira [Usar o Navegador de Trabalhos e o Modo de Exibição de Trabalho para trabalhos do Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
+- Para usar o modo de exibição de execução de vértice, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9cd3fc9353c684ec6617761616b958477ca83ee3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387608"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102183634"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics versus Azure Data Factory
 
@@ -36,6 +36,7 @@ Verifique a tabela abaixo para obter a disponibilidade dos recursos:
 | **Integração de repositório GIT** | Integração do GIT | ✓ | ✓ |
 | **Monitoring**           | Monitoramento de trabalhos do Spark para fluxo de dados | ✗ | ✓<br><small>*Aproveite os pools do Spark Synapse* |
 |                          | Integração com o Azure Monitor | ✓ | ✗ |
+| **Linhagem** | Dá suporte à publicação de dados de linhagem de pipeline para alcance  | ✓ | ✗ |  
 
 > [!Note]
 > A **vida** útil é uma configuração Azure Integration Runtime que permite que o cluster do Spark *permaneça quente* por um período de tempo após uma execução do fluxo de dados.

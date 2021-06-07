@@ -2,14 +2,14 @@
 title: Excluir o grupo de recursos e os recursos
 description: Descreve como excluir recursos e grupos de recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos. Descreve os códigos de resposta e como o Resource Manager os manipula para determinar se a exclusão teve êxito.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 244d59ffc096b5e219e27fd376b07baecde3670e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614403"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587654"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager o grupo de recursos e a exclusão de recursos
 
@@ -119,6 +119,13 @@ az resource delete \
 
 ---
 
+## <a name="required-access"></a>Acesso necessário
+
+Para excluir um grupo de recursos, você precisa ter acesso à ação Excluir para o recurso **Microsoft. Resources/subscriptions/resourceGroups** . Você também precisa excluir para todos os recursos no grupo de recursos.
+
+Para obter uma lista de operações, consulte [operações do provedor de recursos do Azure](../../role-based-access-control/resource-provider-operations.md). Para obter uma lista de funções internas, consulte [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
+
+Se você tiver o acesso necessário, mas a solicitação de exclusão falhar, talvez seja porque há um [bloqueio](lock-resources.md) no grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369822"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101699752"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -39,9 +39,9 @@ Na maioria dos casos, é uma boa prática criar seus fluxos de dados no modo de 
 
 ## <a name="cluster-status"></a>Status do cluster
 
-O indicador de status do cluster na parte superior da superfície de design fica verde quando o cluster está pronto para depuração. Se o seu cluster já está em estado passivo, o indicador verde aparece quase que instantaneamente. Se o cluster ainda não estava em execução quando você inseriu o modo de depuração, você terá que aguardar 5-7 minutos para que o cluster seja girado. O indicador será girado até seu pronto.
+O indicador de status do cluster na parte superior da superfície de design fica verde quando o cluster está pronto para depuração. Se o seu cluster já está em estado passivo, o indicador verde aparece quase que instantaneamente. Se o cluster ainda não estava em execução quando você inseriu o modo de depuração, o cluster Spark executará uma inicialização a frio. O indicador será girado até que o ambiente esteja pronto para depuração interativa.
 
-Quando terminar de usar a depuração, desative a opção de depuração para que seu Azure Databricks cluster possa ser encerrado e você não será mais cobrado pela atividade de depuração.
+Quando terminar de usar a depuração, desative a opção de depuração para que o cluster Spark possa ser encerrado e você não será mais cobrado pela atividade de depuração.
 
 ## <a name="debug-settings"></a>Configurações de depuração
 
@@ -50,6 +50,8 @@ Depois de ativar o modo de depuração, você pode editar como um fluxo de dados
 ![Configurações de depuração](media/data-flow/debug-settings.png "Configurações de depuração")
 
 Se você tiver parâmetros em seu fluxo de dados ou em qualquer um de seus DataSets referenciados, poderá especificar quais valores usar durante a depuração, selecionando a guia **parâmetros** .
+
+Use as configurações de amostragem aqui para apontar para arquivos de exemplo ou tabelas de dados de exemplo, de modo que você não precise alterar seus conjuntos de fontes de origem. Usando um arquivo ou tabela de exemplo aqui, você pode manter as mesmas configurações de lógica e propriedade em seu fluxo de dados durante o teste em um subconjunto de dados.
 
 ![Parâmetros de configurações de depuração](media/data-flow/debug-settings2.png "Parâmetros de configurações de depuração")
 

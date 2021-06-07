@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209722"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100586408"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um Ambiente do Serviço de Aplicativo
 
@@ -143,7 +143,7 @@ Se você se integrar com o Log Analytics, poderá ver os logs selecionando **log
 
 **Criando um alerta**
 
-Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/platform/alerts-log.md). Em resumo:
+Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gerenciar alertas de log usando Azure monitor](../../azure-monitor/alerts/alerts-log.md). Em resumo:
 
 * Abra a página alertas em seu portal do ASE
 * Selecionar **nova regra de alerta**
@@ -206,4 +206,4 @@ Para excluir um ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
 ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750795"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
@@ -149,7 +149,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 
 ### <a name="common-errors"></a>Erros comuns
 
-**Código do erro** | **Message** | **Detalhes**
+**Código do erro** | **Mensagem** | **Detalhes**
 --- | --- | ---
 **0x800700EA** | "Falha do Hyper-V em gerar o conjunto de instantâneo do VSS para a máquina virtual: há mais dados disponíveis. (0x800700EA). A geração do conjunto de instantâneos de VSS pode falhar se a operação de backup estiver em andamento.<br/><br/> A operação de replicação para a máquina virtual falhou: mais dados estão disponíveis." | Verifique se sua VM tem um disco dinâmico habilitado. Não há suporte para isso.
 **0x80070032** | "Falha do solicitante de cópia de sombra de volume do Hyper-V em se conectar à máquina virtual <./VMname> porque a versão não corresponde à versão esperada pelo Hyper-V | Verifique se as atualizações mais recentes do Windows estão instaladas.<br/><br/> [Atualize](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) para a versão mais recente do Integration Services.

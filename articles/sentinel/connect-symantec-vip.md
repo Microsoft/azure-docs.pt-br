@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: c7429108f70d735cb6e314a0d4daa27ba0d31637
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100090404"
 ---
 # <a name="connect-your-symantec-vip-to-azure-sentinel"></a>Conectar seu Symantec VIP ao Azure Sentinel
@@ -38,7 +38,7 @@ Configure o VIP da Symantec para encaminhar mensagens de syslog para seu espaço
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione conector de **VIP da Symantec** .
 
-1. Selecione a **página abrir conector**.
+1. Clique em **Abrir página do conector**.
 
 1. Siga as instruções na página de **VIP da Symantec** .
 

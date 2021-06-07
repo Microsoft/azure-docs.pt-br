@@ -6,20 +6,19 @@ documentationcenter: ''
 author: saghorpa
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b34a7665770308b45732711f5d8328eb1d0a785f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3dd2a618f22036fd0826a99207d83a3add390c7d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965061"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645315"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
@@ -541,7 +540,7 @@ Após a correção anterior, o node2 deve ser adicionado ao cluster
 ## <a name="10-general-documentation"></a>10. Documentação geral
 Você pode encontrar mais informações sobre a configuração de HA do SUSE nos seguintes artigos: 
 
-- [Cenário otimizado para desempenho da SR SAP HANA](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
+- [Cenário otimizado para desempenho da SR SAP HANA](https://www.suse.com/support/kb/doc/?id=000019450 )
 - [Isolamento baseado em armazenamento](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [Blog - Usando o Pacemaker Cluster para SAP HANA - Parte 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [Blog - Usando o Pacemaker Cluster para SAP HANA - Parte 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

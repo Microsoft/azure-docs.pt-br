@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
 ms.openlocfilehash: 72c344c0a5c9cca278fe8c633309b1195a0454b0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91941410"
 ---
 Biblioteca do cliente     |Versão com suporte     | Link   |     Especificação do ponto de extremidade      |

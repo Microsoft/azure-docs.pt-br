@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02062edd1a940bcc6588ab53457e0af91fedd9a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75651742"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100578278"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorar uma instância implantada de um aplicativo gerenciado
 
@@ -44,7 +44,7 @@ Depois de implantar um aplicativo gerenciado em sua assinatura do Azure, você p
 
    ![Criar alerta](./media/monitor-managed-application-portal/create-new-alert.png)
 
-É possível criar alertas para a instância do aplicativo gerenciado ou para os recursos no aplicativo gerenciado. Confira mais informações sobre como criar alertas em [Visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+É possível criar alertas para a instância do aplicativo gerenciado ou para os recursos no aplicativo gerenciado. Confira mais informações sobre como criar alertas em [Visão geral dos alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

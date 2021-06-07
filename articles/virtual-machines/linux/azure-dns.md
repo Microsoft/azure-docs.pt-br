@@ -2,16 +2,18 @@
 title: Opções de resolução de nomes DNS para VMs Linux
 description: Cenários de resolução de nomes para máquinas virtuais Linux no Azure IaaS, incluindo serviços DNS fornecidos, o servidor traga seu próprio DNS e DNS externo híbrido.
 author: RicksterCDN
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: aa007888c68df41242f937e1062a90ec1b7fc3ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.collection: linux
+ms.openlocfilehash: e689e934f11e3cc2a621f25525e507a72a7044b8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372817"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556784"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
 O Azure fornece resolução de nomes DNS por padrão para todas as máquinas virtuais que estão em uma única rede virtual. Você pode implementar sua própria solução de resolução de nomes DNS configurando seus próprios serviços DNS em suas máquinas virtuais que o Azure hospeda. Os cenários a seguir devem ajudá-lo a escolher a que funciona para sua situação.
@@ -29,7 +31,7 @@ A tabela a seguir ilustra os cenários e as soluções de resolução de nomes c
 | Resolução de nomes entre as instâncias de função ou as máquinas virtuais em redes virtuais diferentes |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de serviço e de computador locais em instâncias de função ou máquinas virtuais no Azure |Servidores DNS gerenciados pelo cliente (por exemplo, controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizados usando transferências de zona). Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
 | Resolução de nomes de host do Azure de computadores locais |Encaminhe consultas para um servidor de proxy de DNS gerenciada pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para o Azure para resolução. Consulte [resolução de nomes usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
-| DNS inverso para IPs internos |[Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |n/a |
+| DNS inverso para IPs internos |[Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |N/D |
 
 ## <a name="name-resolution-that-azure-provides"></a>Resolução de nomes que o Azure fornece
 Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução de nomes interna para máquinas virtuais e instâncias de função que estão na mesma rede virtual. Em redes virtuais baseadas no Azure Resource Manager, o sufixo DNS é consistente em toda a rede virtual; o FQDN não é necessário. Os nomes DNS podem ser atribuídos a máquinas virtuais e placas de adaptador de rede (NICs). Embora a resolução de nomes que o Azure fornece não solicite qualquer configuração, ela não é a escolha apropriada para todos os cenários de implantação, como mostrado na tabela acima.

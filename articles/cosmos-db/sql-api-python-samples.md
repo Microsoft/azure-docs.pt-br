@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 4a1cd5b1773a58cf385fc6cc5c22be8df7b21e20
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 947a958b7cce6909332ebdb1832be168bfdd0bde
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018948"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801801"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Soluções de exemplo que realizam operações CRUD e outras operações comuns 
     * Sem uma assinatura do Azure:
         * [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/), um ambiente de testes que dura 30 dias.
         * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7+ ou 3.5.3+](https://www.python.org/downloads/), com o executável `python` em seu `PATH`.
+- [Python 2.7 ou 3.6+](https://www.python.org/downloads/) com o executável `python` em seu `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - A [extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 

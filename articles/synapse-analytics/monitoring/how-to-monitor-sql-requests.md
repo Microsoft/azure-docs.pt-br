@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 7296fec91decaf1bd80829f9f3a743a518fbb7a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96465986"
 ---
 # <a name="use-synapse-studio-to-monitor-your-sql-requests"></a>Use o Synapse Studio para monitorar suas solicitações SQL

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: ce11fe5b65cd49cc880713eb4e47b081b6f3b44f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3495d0bd2a446b6b3255887d9b4523eb5a70ac53
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855966"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102557311"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-starter"></a>Tutorial: Implantar o aplicativo ASP.NET em máquinas virtuais do Azure com o Azure DevOps Starter
 
@@ -198,4 +198,4 @@ Neste tutorial, você aprendeu a:
 Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
-> [Definir seu pipeline de CD (implantação contínua) de vários estágios](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definir seu pipeline de CD (implantação contínua) de vários estágios](/azure/devops/pipelines/release/define-multistage-release-process)

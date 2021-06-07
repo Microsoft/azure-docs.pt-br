@@ -3,12 +3,12 @@ title: Visão geral da integração do parceiro (grade de eventos do Azure)
 description: Fornece uma visão geral de como você pode integrar o como um parceiro de grade de eventos.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081188"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109332"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Visão geral da integração do parceiro (grade de eventos do Azure)
 
@@ -102,7 +102,7 @@ Publique eventos na grade de eventos do Azure usando o esquema CloudEvents 1,0. 
 1.  O serviço de publicação faz um HTTP POST para `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 1.  Na solicitação, inclua um valor de cabeçalho chamado aeg-sas-key que contém uma chave para autenticação. Essa chave é provisionada durante a criação do namespace do parceiro. Por exemplo, um valor de cabeçalho válido é aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==.
 1.  Defina o cabeçalho Content-Type como "Application/cloudevents-batch + JSON; charset = UTF-8a ".
-1.  Execute uma consulta HTTP POST para a URL de publicação com um lote de eventos que correspondem a essa região. Por exemplo: 
+1.  Execute uma consulta HTTP POST para a URL de publicação com um lote de eventos que correspondem a essa região. Por exemplo:
 
 ``` json
 [
@@ -152,7 +152,7 @@ Após o lançamento no ponto de extremidade do namespace do parceiro, você rece
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modelo de ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de modelo ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [APIs REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [APIs REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
   * [Extensão da CLI](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>SDKs

@@ -1,18 +1,18 @@
 ---
 title: Como usar o armazenamento de objeto (Blob) do C++ - Azure | Microsoft Docs
-description: Saiba como armazenar dados não estruturados (BLOBs) na nuvem com o armazenamento de BLOBs do Azure (objeto) usando o C++.
-author: mhopkins-msft
-ms.author: mhopkins
+description: Saiba como armazenar dados não estruturados (blobs) na nuvem com o armazenamento de blobs do Azure (objeto) usando o C++.
+author: twooley
+ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 64069292ea0059216d06bfc41316c2aed7484dd0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.openlocfilehash: 61c7dca25e90450c695a5137dd2ee900c1282bf0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011091"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278041"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como usar o armazenamento de Blobs do C++
 
@@ -32,13 +32,13 @@ Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
 - **Linux:** Siga as instruções fornecidas na página [LEIAME da Biblioteca de Clientes do Armazenamento do Microsoft Azure para C++: Introdução ao Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
-- **Windows:** No Windows, use [vcpkg](https://github.com/microsoft/vcpkg) como o gerenciador de dependências. Siga o guia de [início rápido](https://github.com/microsoft/vcpkg#quick-start) para inicializar o vcpkg. Em seguir, use este comando para instalar a biblioteca:
+- **Windows:** No Windows, use [vcpkg](https://github.com/microsoft/vcpkg) como o gerenciador de dependências. Siga o [início rápido](https://github.com/microsoft/vcpkg#quick-start) para inicializar o vcpkg. Em seguir, use este comando para instalar a biblioteca:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-Você pode encontrar um guia sobre como criar o código-fonte e exportar para o NuGet no arquivo [Leiame](https://github.com/Azure/azure-storage-cpp#download--install) .
+Você pode encontrar um guia de criação do código-fonte e exportá-lo para o NuGet no arquivo [LEIAME](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurar seu aplicativo para acessar o armazenamento de blobs
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar os blobs:
@@ -51,26 +51,26 @@ Adicione as seguintes instruções include à parte superior do arquivo C++ no q
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar em um aplicativo cliente, você deve fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento para a conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey* . Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [sobre contas de armazenamento do Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar em um aplicativo cliente, é necessário informar a cadeia de conexão de armazenamento no formato a seguir, usando o nome e a chave de acesso da sua conta de armazenamento listada no [portal do Azure](https://portal.azure.com) nos valores *AccountName* e *AccountKey*. Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Para testar seu aplicativo no computador local do Windows, você pode usar o [emulador de armazenamento azurite](../common/storage-use-azurite.md). Azurite é um utilitário que simula os serviços BLOB e fila disponíveis no Azure em seu computador de desenvolvimento local. Este exemplo mostra como você pode declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:
+Para testar um aplicativo no computador local do Windows, você pode usar o [emulador de armazenamento do Azure](../common/storage-use-azurite.md). O Azurite é um utilitário que simula os serviços de blob e de fila disponíveis no Azure no computador local de desenvolvimento. Este exemplo mostra como você pode declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:
 
 ```cpp
 // Define the connection-string with Azurite.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));
 ```
 
-Para iniciar o azurite, consulte [usar o emulador azurite para o desenvolvimento de armazenamento local do Azure](../common/storage-use-azurite.md).
+Para iniciar o Azurite, confira [Usar o emulador Azurite para o desenvolvimento local do Armazenamento do Azure](../common/storage-use-azurite.md).
 
 Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
 
-## <a name="retrieve-your-storage-account"></a>Recuperar sua conta de armazenamento
-Você pode usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
+## <a name="retrieve-your-storage-account"></a>Recupere sua conta de armazenamento
+É possível usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Como alternativa, você pode usar o método **upload_from_file** para carregar um arquivo em um blob de blocos.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Como: listar os blobs em um contêiner
-Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Em seguida, você pode usar o método **list_blobs** do contêiner para recuperar os BLOBs e/ou diretórios dentro dele. Para acessar o conjunto avançado de propriedades e métodos para um **list_blob_item** retornado, você deve chamar o método **list_blob_item.as_blob** para obter um objeto **cloud_blob** ou o método **list_blob.as_directory** para obter um objeto cloud_blob_directory. O código a seguir demonstra como recuperar e apresentar a URI de cada item no contêiner **my-sample-container** :
+Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode usar o método **list_blobs** do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o conjunto avançado de propriedades e métodos para um **list_blob_item** retornado, você deve chamar o método **list_blob_item.as_blob** para obter um objeto **cloud_blob** ou o método **list_blob.as_directory** para obter um objeto cloud_blob_directory. O código a seguir demonstra como recuperar e apresentar a URI de cada item no contêiner **my-sample-container** :
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -187,7 +187,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 Para obter mais detalhes sobre a lista de operações, consulte [Listar recursos de Armazenamento do Azure em C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## <a name="how-to-download-blobs"></a>Como: baixar blobs
-Para baixar BLOBs, primeiro recupere uma referência de BLOB e, em seguida, chame o método **download_to_stream** . O exemplo a seguir usa o método **download_to_stream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
+Para baixar blobs, primeiro recupere uma referência do blob, em seguida, chame o método **download_to_stream**. O exemplo a seguir usa o método **download_to_stream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -259,7 +259,7 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga e
 
 - [Como usar o armazenamento de filas do C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [Listar recursos de armazenamento do Azure em C++](../common/storage-c-plus-plus-enumeration.md)
-- [Referência da biblioteca de cliente de armazenamento para C++](https://azure.github.io/azure-storage-cpp)
-- [Documentação do armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+- [Listar recursos de Armazenamento do Azure em C++](../common/storage-c-plus-plus-enumeration.md)
+- [Referência da Biblioteca de Cliente de Armazenamento para C++](https://azure.github.io/azure-storage-cpp)
+- [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 - [Transferir dados com o utilitário de linha de comando AzCopy](../common/storage-use-azcopy-v10.md)

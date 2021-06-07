@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 6fdc9c70d1c9fc67c38edfd794354f9e03321c73
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56f2eea9dc485c69b6070fda6e9519887f7b30cb
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731393"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519507"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EasySSO for BitBucket
 
@@ -50,7 +50,6 @@ Para configurar a integração do EasySSO for BitBucket ao Azure AD, é necessá
 1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **EasySSO for BitBucket** na caixa de pesquisa.
 1. Escolha **EasySSO for BitBucket** nos resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bitbucket"></a>Configurar e testar o SSO do Azure AD para o EasySSO for BitBucket
 
@@ -129,9 +128,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **EasySSO for BitBucket**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
-
 1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista **Usuários** e clique em **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.

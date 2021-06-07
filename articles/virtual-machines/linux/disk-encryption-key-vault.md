@@ -1,18 +1,20 @@
 ---
 title: Criar e configurar um cofre de chaves para Azure Disk Encryption
 description: Este artigo fornece etapas para criar e configurar um cofre de chaves para uso com Azure Disk Encryption em uma VM do Linux.
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03536bbfedc7f5ecf2fe8d8bb6bd3035f27b72c7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d163ee552d95322a45acd571966a22e99aa1512e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737873"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102562598"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para Azure Disk Encryption
 

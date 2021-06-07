@@ -2,21 +2,21 @@
 title: Azure PowerShell-habilitar chaves gerenciadas pelo cliente com discos gerenciados por SSE
 description: Habilite a criptografia do lado do servidor usando chaves gerenciadas pelo cliente em seus discos gerenciados com o Azure PowerShell.
 author: roygara
-ms.date: 08/24/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2eed2ee11f3a90e81d9ee845af2aa28620567603
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 37d248fd61cd8fb99259e3776447a719ae365ab9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488299"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042876"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-habilitar chaves gerenciadas pelo cliente com discos gerenciados por criptografia do lado do servidor
 
-Armazenamento em Disco do Azure permite que você gerencie suas próprias chaves ao usar a criptografia do lado do servidor (SSE) para discos gerenciados, se você escolher. Para obter informações conceituais sobre o SSE com chaves gerenciadas pelo cliente, bem como outros tipos de criptografia de disco gerenciado, consulte a seção [chaves gerenciadas pelo cliente](../disk-encryption.md#customer-managed-keys) do nosso artigo sobre criptografia de disco.
+Armazenamento em Disco do Azure permite que você gerencie suas próprias chaves ao usar a criptografia do lado do servidor (SSE) para discos gerenciados, se você escolher. Para obter informações conceituais sobre o SSE com chaves gerenciadas pelo cliente e outros tipos de criptografia de disco gerenciado, consulte a seção [chaves gerenciadas pelo cliente](../disk-encryption.md#customer-managed-keys) do nosso artigo sobre criptografia de disco.
 
 ## <a name="restrictions"></a>Restrições
 
@@ -26,11 +26,53 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
     Se uma solução alternativa for necessária, você deve [copiar todos os dados](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) para um disco gerenciado totalmente diferente que não use chaves gerenciadas pelo cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## <a name="set-up-your-azure-key-vault-and-diskencryptionset"></a>Configurar seu Azure Key Vault e DiskEncryptionSet
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation"></a>Configurar um Azure Key Vault e DiskEncryptionSet sem rotação de chaves automática
 
 Para usar chaves gerenciadas pelo cliente com o SSE, você deve configurar um Azure Key Vault e um recurso DiskEncryptionSet.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
+
+## <a name="set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview"></a>Configurar um Azure Key Vault e DiskEncryptionSet com a rotação de chaves automática (visualização)
+
+1. Verifique se você instalou a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e se está conectado a uma conta do Azure no com `Connect-AzAccount` .
+1. Crie uma instância do Azure Key Vault e a chave de criptografia.
+
+    Ao criar a instância de Key Vault, você deve habilitar a proteção de limpeza. A proteção de limpeza garante que uma chave excluída não seja excluída permanentemente até que o período de retenção termine. Essa configuração protege você contra a perda de dados devido à exclusão acidental e é obrigatória para criptografar discos gerenciados.
+    
+    ```powershell
+    $ResourceGroupName="yourResourceGroupName"
+    $LocationName="westcentralus"
+    $keyVaultName="yourKeyVaultName"
+    $keyName="yourKeyName"
+    $keyDestination="Software"
+    $diskEncryptionSetName="yourDiskEncryptionSetName"
+
+    $keyVault = New-AzKeyVault -Name $keyVaultName -ResourceGroupName $ResourceGroupName -Location $LocationName -EnablePurgeProtection
+
+    $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
+    ```
+
+1.  Crie um DiskEncryptionSet usando a versão da API `2020-12-01` e definindo a propriedade `rotationToLatestKeyVersionEnabled` como true por meio do modelo de Azure Resource Manager [CreateDiskEncryptionSetWithAutoKeyRotation.jsem](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
+    
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $($keyVault.ResourceId) `
+    -keyVaultKeyUrl $($key.Key.Kid) `
+    -encryptionType "EncryptionAtRestWithCustomerKey" `
+    -region $LocationName
+    ```
+
+1.  Conceda o acesso ao recurso DiskEncryptionSet para o Key Vault.
+
+    > [!NOTE]
+    > Pode levar alguns minutos para o Azure criar a identidade do DiskEncryptionSet no Azure Active Directory. Se você receber um erro como "não é possível encontrar o objeto Active Directory" ao executar o comando a seguir, aguarde alguns minutos e tente novamente.
+
+    ```powershell
+    $des=Get-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+    ```
 
 ## <a name="examples"></a>Exemplos
 
@@ -113,6 +155,30 @@ $diskEncryptionSetName = "yourDiskEncryptionSetName"
 $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
  
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+```
+
+### <a name="encrypt-an-existing-virtual-machine-scale-set-with-sse-and-customer-managed-keys"></a>Criptografar um conjunto de dimensionamento de máquinas virtuais existente com SSE e chaves gerenciadas pelo cliente 
+
+Copie o script, substitua todos os valores de exemplo pelos seus próprios parâmetros e, em seguida, execute-o:
+
+```powershell
+#set variables 
+$vmssname = "name of the vmss that is already created"
+$diskencryptionsetname = "name of the diskencryptionset already created"
+$vmssrgname = "vmss resourcegroup name"
+$diskencryptionsetrgname = "diskencryptionset resourcegroup name"
+
+#get vmss object and create diskencryptionset object attach to vmss os disk
+$ssevmss = get-azvmss -ResourceGroupName $vmssrgname -VMScaleSetName $vmssname
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.DiskEncryptionSetParameters
+
+#get diskencryption object and retrieve the resource id
+$des = Get-AzDiskEncryptionSet -ResourceGroupName $diskencryptionsetrgname -Name $diskencryptionsetname
+write-host "the diskencryptionset resource id is:" $des.Id
+
+#associate DES resource id to os disk and update vmss 
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet.id = $des.Id
+$ssevmss | update-azvmss
 ```
 
 ### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Crie um conjunto de dimensionamento de máquinas virtuais usando uma imagem do Marketplace, criptografando o sistema operacional e os discos de dados com chaves gerenciadas pelo cliente

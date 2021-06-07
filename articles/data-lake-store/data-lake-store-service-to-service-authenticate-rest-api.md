@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 4947bab58a6d23bcc3e3212a9e3e7dc0c4fa8578
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106698"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de serviço a serviço com Azure Data Lake Storage Gen1 usando API REST
@@ -18,7 +18,7 @@ ms.locfileid: "92106698"
 > * [Usando Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Usando o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 > 
 

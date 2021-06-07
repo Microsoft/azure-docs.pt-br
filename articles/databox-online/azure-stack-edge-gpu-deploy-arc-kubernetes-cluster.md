@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 53ef73c70f5d20133e7b408ad7af91c3778e5568
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787444"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567518"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar o arco do Azure no cluster kubernetes no dispositivo de GPU pro do Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo mostra como habilitar o arco do Azure em um cluster kubernetes existente em seu dispositivo Azure Stack Edge pro. 
 
@@ -72,7 +74,7 @@ Antes de habilitar o arco do Azure no cluster kubernetes, você precisará habil
     
     ![Registrar provedores de recursos do kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-Você também pode registrar provedores de recursos por meio do `az cli` . Para obter mais informações, consulte [registrar os dois provedores do Azure Arc habilitado kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
+Você também pode registrar provedores de recursos por meio do `az cli` . Para obter mais informações, consulte [registrar os dois provedores do Azure Arc habilitado kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 
 ## <a name="create-service-principal-assign-role"></a>Criar entidade de serviço, atribuir função
 
@@ -86,7 +88,7 @@ Você também pode registrar provedores de recursos por meio do `az cli` . Para 
 
 1. Para criar uma entidade de serviço, use o comando a seguir por meio do `az cli` .
 
-    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
 
     Para obter informações sobre como fazer logon no `az cli` , [inicie o Cloud Shell no portal do Azure](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
@@ -224,8 +226,8 @@ Para remover o gerenciamento de arco do Azure, siga estas etapas:
 
 
 > [!NOTE]
-> Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes. Você precisa definir `--sync-garbage-collection`  em Arc OperatorParams para permitir a exclusão de recursos quando excluídos do repositório git. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
+> Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes. Você precisa definir `--sync-garbage-collection`  em Arc OperatorParams para permitir a exclusão de recursos quando excluídos do repositório git. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para entender como executar uma implantação do Azure Arc, consulte [implantar um aplicativo de livro de visitas sem monitoração de estado do PHP com o Redis via GitOps em um dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+Para entender como executar uma implantação do Azure Arc, consulte [implantar um aplicativo PHP sem estado `Guestbook` com o Redis via GitOps em um dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

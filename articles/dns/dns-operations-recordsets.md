@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: f4e713f54ab4702b21763dc9fc6c7b606f94a945
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011584"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
@@ -44,7 +44,7 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-new-dns-record"></a>Criar um novo registro DNS
 
-Se o novo registro tiver o mesmo nome e tipo de um registro existente, você precisará [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
+Se o novo registro tem o mesmo nome e tipo de um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Criar registros 'A' em um novo conjunto de registros
 

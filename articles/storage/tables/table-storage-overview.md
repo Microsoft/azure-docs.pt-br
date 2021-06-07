@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 01/07/2021
 ms.subservice: tables
 ms.openlocfilehash: 292104651c6bb9b63e9d8cbe26fea2bf8c6acbf1
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98027733"
 ---
 # <a name="what-is-azure-table-storage-"></a>O que é o armazenamento de Tabelas do Azure? 

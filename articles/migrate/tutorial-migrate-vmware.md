@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879454"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567111"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMs VMware para o Azure (sem agente)
 
@@ -57,7 +57,7 @@ Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Mig
 
 Depois de configurar o dispositivo e concluir a descoberta, você pode começar a replicação de VMs VMware no Azure. 
 
-- Você pode executar até 300 replicações simultaneamente.
+- Você pode executar até 500 replicações simultaneamente.
 - No portal, é possível selecionar até dez VMs simultaneamente para migração. Para migrar mais computadores, adicione-os a grupos em lotes de dez.
 
 Habilite a replicação da seguinte maneira:
@@ -88,6 +88,7 @@ Habilite a replicação da seguinte maneira:
 9. Em **Tipo de criptografia de disco**, selecione:
     - Criptografia em repouso com chave de criptografia gerenciada pela plataforma
     - Criptografia em repouso com a chave gerenciada pelo cliente
+    - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
 
    > [!NOTE]
    > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
@@ -110,7 +111,7 @@ Habilite a replicação da seguinte maneira:
     > Se você quiser selecionar uma opção de disponibilidade diferente para um conjunto de máquinas virtuais, vá para a etapa 1 e repita as etapas selecionando opções de disponibilidade diferentes depois de iniciar a replicação para um conjunto de máquinas virtuais.
 
 
- ![Configurações de computação da VM](./media/tutorial-migrate-vmware/compute-settings.png)
+
 
 12. Em **Discos**, especifique se os discos da VM devem ser replicados no Azure e selecione o tipo de disco (discos gerenciados Premium ou HDD/SSD Standard) no Azure. Em seguida, clique em **Próximo**.
    
@@ -188,7 +189,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 ## <a name="complete-the-migration"></a>Concluir a migração
 
 1. Depois que a migração for concluída, clique com o botão direito do mouse na VM > **Interromper Replicação**. Isso interromperá a replicação para o computador local e limpará as informações de estado da replicação da VM.
-2. Instale o agente do [Linux](../virtual-machines/extensions/agent-linux.md) para a VM do Azure nos computadores migrados se o computador tiver o sistema operacional Linux. Instalamos automaticamente o agente de VM para as VMs do Windows durante a migração.
+2. Instalamos automaticamente o agente de VM para as VMs Windows e Linux durante a migração. Examine os [requisitos](../virtual-machines/extensions/agent-linux.md#requirements) do agente Linux da VM do Azure nos computadores migrados, se o computador tiver o sistema operacional Linux, para garantir que a instalação do agente de VM Linux tenha sido feita corretamente. 
 3. Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web.
 4. Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.
 5. Transfira o tráfego para a instância migrada da VM do Azure.
@@ -201,6 +202,8 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 - Para aumentar a resiliência:
     - Proteja os dados fazendo backup das VMs do Azure por meio do serviço Backup do Azure. [Saiba mais](../backup/quick-backup-vm-portal.md).
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar as VMs do Azure em uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- Para desempenho superior:
+    - Por padrão, os discos de dados são criados com o cache de host definido como "Nenhum". Examine e ajuste o cache de disco de dados de acordo com suas necessidades de carga de trabalho. [Saiba mais](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - Para aumentar a segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com a [Central de Segurança do Azure – Administração just-in-time](../security-center/security-center-just-in-time.md).
     - Restrinja o tráfego de rede a pontos de extremidade com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).

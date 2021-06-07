@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperf-fy20q4, devx-track-python
-ms.openlocfilehash: 8222f88f5118c4ac8f489bb05ee5ca2724dbf067
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 570bfed5ae5fc6fafea36b9ed1f2673a0daae22b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184077"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521502"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
@@ -138,7 +138,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os pipelines de aprendizado de máquina não podem ser executados localmente; portanto, execute-os nos recursos de nuvem ou nos *destinos de computação remota*. Um destino de computação remota é um ambiente de computação virtual reutilizável em que você executa experimentos e fluxos de trabalho de aprendizado de máquina. 
 
-Execute o código a seguir para criar um destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](./concept-compute-target.md).
+Execute o código a seguir para criar um destino [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](./concept-compute-target.md).
 
 
 ```python
@@ -301,7 +301,7 @@ Uma etapa de pipeline é um objeto que encapsula tudo o que você precisa para e
 * Dados de entrada e de saída e parâmetros personalizados
 * Referência a um script ou lógica de SDK a ser executada durante a etapa
 
-Várias classes herdam da classe pai [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py). É possível escolher classes para usar estruturas específicas ou pilhas para criar uma etapa. Neste exemplo, você usará a classe `ParallelRunStep` para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, ele precisará ser definido *igualmente* na matriz `arguments`*e* no parâmetro `input` ou `output`, respectivamente. 
+Várias classes herdam da classe pai [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep). É possível escolher classes para usar estruturas específicas ou pilhas para criar uma etapa. Neste exemplo, você usará a classe `ParallelRunStep` para definir a lógica da etapa usando um script Python personalizado. Se um argumento para o script for uma entrada para a etapa ou uma saída da etapa, ele precisará ser definido *igualmente* na matriz `arguments`*e* no parâmetro `input` ou `output`, respectivamente. 
 
 Nos cenários em que há mais de uma etapa, uma referência de objeto na matriz `outputs` torna-se disponível como uma *entrada* para uma etapa de pipeline seguinte.
 
@@ -325,7 +325,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-Para obter uma lista de todas as classes que podem ser usadas para diferentes tipos de etapa, confira o [pacote de etapas](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
+Para obter uma lista de todas as classes que podem ser usadas para diferentes tipos de etapa, confira o [pacote de etapas](/python/api/azureml-pipeline-steps/azureml.pipeline.steps).
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -382,9 +382,9 @@ published_pipeline
 
 Para executar o pipeline no ponto de extremidade REST, é necessário um cabeçalho de autenticação do tipo Portador do OAuth2. O exemplo a seguir usa a autenticação interativa (para fins de ilustração), mas para a maioria dos cenários de produção que exigem autenticação automatizada ou sem periféricos, use a autenticação da entidade de serviço [descrita neste artigo](how-to-setup-authentication.md).
 
-A autenticação de entidade de serviço envolve a criação de um *Registro de Aplicativo* no *Azure Active Directory*. Primeiro, gere um segredo do cliente e, em seguida, conceda à sua entidade de serviço *acesso de função* ao Workspace do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) para gerenciar o fluxo de autenticação. 
+A autenticação de entidade de serviço envolve a criação de um *Registro de Aplicativo* no *Azure Active Directory*. Primeiro, gere um segredo do cliente e, em seguida, conceda à sua entidade de serviço *acesso de função* ao Workspace do Machine Learning. Use a classe [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) para gerenciar o fluxo de autenticação. 
 
-Ambos [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) da mesma maneira para buscar o cabeçalho:
+Ambos [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication) e `ServicePrincipalAuthentication` são herdados de `AbstractAuthentication`. Em ambos os casos, você usa a função [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication#get-authentication-header--) da mesma maneira para buscar o cabeçalho:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

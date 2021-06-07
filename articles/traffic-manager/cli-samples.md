@@ -14,10 +14,10 @@ ms.date: 10/23/2018
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f547305dd492f8e8587514474e4602f2214009cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89400827"
 ---
 # <a name="azure-cli-samples-for-traffic-manager"></a>Exemplos da CLI do Azure para o Gerenciador de Tráfego

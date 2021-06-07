@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040744"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizando os fluxos de dados de mapeamento
@@ -28,7 +28,7 @@ Use essa capacidade para tornar seus fluxos de dados de uso geral, flexíveis e 
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Criar parâmetros em um fluxo de dados de mapeamento
 
-Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela fluxo de dados para ver as propriedades gerais. No painel configurações, você verá uma guia chamada **parâmetro** . Selecione **novo** para gerar um novo parâmetro. Para cada parâmetro, você deve atribuir um nome, selecionar um tipo e, opcionalmente, definir um valor padrão.
+Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela fluxo de dados para ver as propriedades gerais. No painel configurações, você verá uma guia chamada **parâmetro**. Selecione **novo** para gerar um novo parâmetro. Para cada parâmetro, você deve atribuir um nome, selecionar um tipo e, opcionalmente, definir um valor padrão.
 
 ![Criar parâmetros de fluxo de dados](media/data-flow/create-params.png "Criar parâmetros de fluxo de dados")
 
@@ -52,7 +52,7 @@ Ao atribuir valores de parâmetro, você pode usar a linguagem de [expressão de
 
 ### <a name="pipeline-expression-parameters"></a>Parâmetros de expressão de pipeline
 
-Os parâmetros de expressão de pipeline permitem que você referencie variáveis de sistema, funções, parâmetros de pipeline e variáveis semelhantes a outras atividades de pipeline. Quando você clicar em **expressão de pipeline** , uma navegação lateral será aberta permitindo que você insira uma expressão usando o construtor de expressões.
+Os parâmetros de expressão de pipeline permitem que você referencie variáveis de sistema, funções, parâmetros de pipeline e variáveis semelhantes a outras atividades de pipeline. Quando você clicar em **expressão de pipeline**, uma navegação lateral será aberta permitindo que você insira uma expressão usando o construtor de expressões.
 
 ![Captura de tela mostra o painel Construtor de expressões.](media/data-flow/parameter-pipeline.png "Definindo um parâmetro de fluxo de dados")
 

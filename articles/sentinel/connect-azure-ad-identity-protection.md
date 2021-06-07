@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 06/24/2020
 ms.author: yelevin
 ms.openlocfilehash: f420e80f10072c440f5401c042d6370a061b1a7f
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632234"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Conectar dados da proteção de identidade do Azure Active Directory (AD do Azure)

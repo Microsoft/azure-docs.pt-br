@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0d218d0227670bbe8f4396bfcaa796649337656f
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 5fa2d8a8ffdb154464f091c9612ea3bf0f2efbfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242488"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612931"
 ---
 <!--Feature availability in region-->
 ## <a name="switzerland"></a>Suíça
 
 | Recurso | Norte da Suíça | Oeste da Suíça |
 | --- | :---: | :---: |
-| [EventGrid do Azure](../reacting-to-media-services-events.md) |![EventGrid do Azure Norte da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg)  |![EventGrid do Azure Oeste da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
+| [Grade de Eventos do Azure](../monitoring/reacting-to-media-services-events.md) |![EventGrid do Azure Norte da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg)  |![EventGrid do Azure Oeste da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Norte da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset Oeste da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Norte da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset Oeste da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Norte da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset Oeste da Suíça disponibilidade geral](../media/azure-clouds-regions/ga.svg) |

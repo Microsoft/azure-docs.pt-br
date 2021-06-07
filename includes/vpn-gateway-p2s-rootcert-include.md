@@ -9,10 +9,10 @@ ms.date: 10/28/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 59d18c89a8f66f781f01d1dace9d8968df17a626
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93041556"
 ---
 Obtenha o arquivo .cer do certificado raiz. Você pode usar um certificado raiz que foi gerado com uma solução corporativa (recomendado) ou gerar um certificado autoassinado. Depois de criar o certificado raiz, exporte os dados de certificado público (não a chave privada) como o arquivo .cer X.509 codificado em Base64. Você carrega esse arquivo mais tarde no Azure.

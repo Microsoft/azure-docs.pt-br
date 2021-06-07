@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032025"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100547308"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -174,5 +174,6 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Crie seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
+- Se tiver interesse em usar o portal do Azure para gerenciar o acesso aos recursos, confira [Tutorial: Gerenciar acesso a recursos – portal do Azure](entitlement-management-access-package-first.md).
+- Se tiver interesse em usar o Microsoft Graph para gerenciar o acesso aos recursos, confira [Tutorial: gerenciar o acesso a recursos – Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Cenários comuns](entitlement-management-scenarios.md)

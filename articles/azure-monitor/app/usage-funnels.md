@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: c09667e0493fc39e8a2679a698f06301bab6ba45
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323716"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024941"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
@@ -46,7 +46,6 @@ A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos d
   * [Visão geral do uso](usage-overview.md)
   * [Usuários, Sessões e Eventos](usage-segmentation.md)
   * [Retenção](usage-retention.md)
-  * [Pastas de trabalho](../platform/workbooks-overview.md)
-  * [Adicionar contexto de usuário](usage-send-user-context.md)
+  * [Pastas de trabalho](../visualize/workbooks-overview.md)
+  * [Adicionar contexto de usuário](./usage-overview.md)
   * [Exportar para o Power BI](./export-power-bi.md)
-

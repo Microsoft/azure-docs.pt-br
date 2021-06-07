@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 09/16/2020
-ms.openlocfilehash: da3c70baccc3c86f2ac57d61539456464e3042b6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/22/2021
+ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493399"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625255"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Alterar a camada de serviço ou o tamanho da computação envolve principalmente
 > [!IMPORTANT]
 > Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho. Verifique se você implementou alguma [lógica de repetição](troubleshoot-common-connectivity-issues.md) nos aplicativos e componentes que estão usando o banco de dados SQL do Azure enquanto a camada de serviço é alterada.
 
-## <a name="latency"></a>Latência
+## <a name="latency"></a>Latency
 
 A latência estimada para alterar a camada de serviço, dimensionar o tamanho de computação de um único banco de dados ou pool elástico, mover um banco de dados para dentro/para fora de um pool elástico ou mover um banco de dados entre pools elásticos é parametrizada da seguinte maneira:
 
@@ -61,7 +61,10 @@ A latência estimada para alterar a camada de serviço, dimensionar o tamanho de
 > Além disso, para os bancos de dados Standard (S2-S12) e Uso Geral, a latência para mover um banco de dados para dentro/para fora de um pool elástico ou entre pools elásticos será proporcional ao tamanho do banco de dados se o banco de dados estiver usando o armazenamento de compartilhamento de arquivos Premium ([PFS](../../storage/files/storage-files-introduction.md)).
 >
 > Para determinar se um banco de dados está usando o armazenamento PFS, execute a consulta a seguir no contexto do banco de dados. Se o valor na coluna AccountType for `PremiumFileStorage` ou `PremiumFileStorage-ZRS` , o banco de dados estará usando o armazenamento PFS.
- 
+
+[!NOTE]
+ A propriedade com redundância de zona permanecerá a mesma por padrão ao Dimensionar da Comercialmente Crítico para a camada de Uso Geral. A latência para esse downgrade quando a redundância de zona é habilitada, bem como a latência para alternar para a redundância de zona para a camada de Uso Geral será proporcional ao tamanho do banco de dados.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,
@@ -112,6 +115,7 @@ else {
 - Ao fazer downgrade de um banco de dados com [replicação geográfica](active-geo-replication-configure-portal.md) habilitada, faça downgrade dos seus bancos de dados primários para a camada de serviço e o tamanho da computação desejados antes de atualizar o banco de dados secundário (orientação geral para o melhor desempenho). Ao fazer downgrade para uma edição diferente, é um requisito de que o banco de dados primário seja rebaixado primeiro.
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se você estiver fazendo downgrade para a camada **básica** , haverá um período de retenção de backup menor. Consulte [Backups de Banco de Dados SQL do Azure](automated-backups-overview.md).
 - As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
+- Quando a cópia de dados é necessária para dimensionar um banco de dado (consulte [latência](#latency)) ao alterar a camada de serviço, a alta utilização de recursos simultâneas para a operação de dimensionamento pode causar tempos de dimensionamento mais longos. Com a [ADR (recuperação de banco de dados acelerada)](/sql/relational-databases/accelerated-database-recovery-concepts), a reversão de transações de longa execução não é uma fonte de atraso significativa, mas o alto uso simultâneo de recursos pode deixar menos recursos de computação, armazenamento e largura de banda de rede para dimensionamento, especialmente para tamanhos de computação menores.
 
 ## <a name="billing"></a>Cobrança
 

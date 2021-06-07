@@ -7,10 +7,10 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: c8b9a2251d7923fe1919b7b934f6c97877cd5b37
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745478"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Cota de spot: aumentar os limites para todas as séries de VM

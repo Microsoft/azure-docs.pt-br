@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 502776e85eaafa46fb2b5ce45ca3bd937e303566
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366195"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601076"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -137,11 +137,11 @@ Provavelmente, você precisará implantar várias contas de armazenamento do Azu
 > [!IMPORTANT]
 > Não defina as configurações de rede e firewall para suas contas de armazenamento agora. Fazer essas configurações neste ponto tornaria uma migração impossível. Defina essas configurações de armazenamento do Azure após a conclusão da migração.
 
-#### <a name="subscription"></a>Assinatura
+#### <a name="subscription"></a>Subscription
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário apropriado antes de iniciar uma migração. Você só pode mover a assinatura inteira, recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
-#### <a name="resource-group"></a>Grupo de recursos
+#### <a name="resource-group"></a>Resource group
 
 Os grupos de recursos estão ajudando com a organização de recursos e permissões de gerenciamento de administração. Saiba mais sobre [grupos de recursos no Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -427,7 +427,7 @@ Sua instância do Windows Server local registrada deve estar pronta e conectada 
 
 :::row:::
     :::column:::
-        [![Guia passo a passo e demonstração sobre como expor com segurança compartilhamentos de arquivos do Azure diretamente para os operadores de informações e aplicativos-clique para jogar!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
         Este vídeo é um guia e uma demonstração sobre como expor com segurança compartilhamentos de arquivos do Azure diretamente para os operadores de informações e aplicativos em cinco etapas simples.</br>
@@ -637,6 +637,6 @@ A migração foi concluída.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Familiarize-se com o [sincronização de arquivos do Azure: aka.ms/AFS](./storage-sync-files-planning.md).
-* Entenda a flexibilidade das políticas de [camadas de nuvem](storage-sync-cloud-tiering.md) .
+* Entenda a flexibilidade das políticas de [camadas de nuvem](storage-sync-cloud-tiering-overview.md) .
 * [Habilite o backup do Azure](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) nos compartilhamentos de arquivos do Azure para agendar instantâneos e definir agendamentos de retenção de backup.
 * Se você vir na portal do Azure de que alguns arquivos estão permanentemente sem sincronização, examine o [Guia de solução de problemas](storage-sync-files-troubleshoot.md) para obter as etapas para resolver esses problemas.

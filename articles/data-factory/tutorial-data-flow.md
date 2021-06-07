@@ -7,22 +7,25 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2019
-ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/11/2021
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497037"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563286"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Azure Data Factory](introduction.md).
 
 Neste tutorial, você usará a interface do usuário do Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Gen2 de Azure Data Lake Storage (ADLS) para um coletor ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido após a transformação de dados usando o fluxo de dados de mapeamento
 
+ >[!NOTE]
+   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis nos pipelines Azure Data Factory e Synapse. Se você for novo em fluxos de dados em pipelines do Azure Synapse, siga o [fluxo de dados usando pipelines Synapse do Azure](../synapse-analytics/concepts-data-flow-overview.md) 
+   
 Neste tutorial, você executa as seguintes etapas:
 
 > [!div class="checklist"]
@@ -51,7 +54,7 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
-     ![Novo data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 5. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
@@ -109,7 +112,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
 1. Depois de voltar à tela de criação do conjunto de arquivos, insira onde o arquivo está localizado no campo **caminho do arquivo** . Neste tutorial, o arquivo moviesDB.csv está localizado em contêiner-dados de exemplo. Como o arquivo tem cabeçalhos, marque **a primeira linha como cabeçalho**. Selecione **do repositório/conexão** para importar o esquema de cabeçalho diretamente do arquivo no armazenamento. Toque em OK quando terminar.
 
-    ![Conjuntos de dados](media/tutorial-data-flow/dataset4.png)
+    ![Conjunto de dados](media/tutorial-data-flow/dataset4.png)
 1. Se o cluster de depuração for iniciado, vá para a guia **visualização de dados** da transformação origem e clique em **Atualizar** para obter um instantâneo dos dados. Você pode usar a visualização de dados para verificar se a transformação está configurada corretamente.
 
     ![Captura de tela que mostra onde você pode visualizar seus dados para verificar se a transformação está configurada corretamente.](media/tutorial-data-flow/dataflow4.png)
@@ -168,7 +171,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Captura de tela que mostra o bloco Azure Data Lake Storage Gen2 que você pode escolher.](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continuar.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Conjunto de dados](media/tutorial-data-flow/dataset2.png)
 1. Nomeie seu conjunto de **MoviesSink** de banco de seu coletor. Para o serviço vinculado, escolha o serviço vinculado ADLS Gen2 que você criou na etapa 6. Insira uma pasta de saída na qual os dados são gravados. Neste tutorial, estamos gravando na pasta ' output ' no contêiner ' sample-data '. A pasta não precisa existir com antecedência e pode ser criada dinamicamente. Defina **a primeira linha como o cabeçalho** como verdadeiro e selecione **nenhum** para o **esquema de importação**. Clique em Concluir.
 
     ![Coletor](media/tutorial-data-flow/sink3.png)

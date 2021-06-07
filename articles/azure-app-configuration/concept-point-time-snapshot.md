@@ -9,10 +9,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.openlocfilehash: fa2dbb11b3b8b9afd90c7f6fe3ffe77e2e57c4e6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929890"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo pontual

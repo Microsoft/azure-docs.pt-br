@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094994"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642106"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Conecte-se a aplicativos e inicie-os no portal Meus Aplicativos
 
@@ -39,11 +39,12 @@ Se você não tiver acesso ao portal **meus aplicativos** , contate a assistênc
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
 
-Você pode acessar o portal **Meus Aplicativos** de qualquer um dos seguintes navegadores da Web:
+Você pode acessar o portal **meus aplicativos** de qualquer um dos seguintes navegadores da Web. A Microsoft recomenda que você use o navegador mais atualizado que seja compatível com seu sistema operacional.
 
-- Microsoft Edge (a versão móvel do Edge é atualmente o único navegador móvel com suporte)
-- Google Chrome
-- Mozilla Firefox, versão 26.0 ou posterior
+- Microsoft Edge (versão mais recente, área de trabalho e móvel)
+- Safari (versão mais recente, Mac e iOS)
+- Chrome (versão mais recente, área de trabalho e móvel)
+- Firefox (última versão)
 
 Você pode acessar e usar o portal meus aplicativos em seu computador ou a partir da versão móvel do navegador Edge em um dispositivo móvel iOS ou Android.
 

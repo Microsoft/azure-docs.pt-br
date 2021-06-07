@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487391"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure
@@ -119,7 +119,7 @@ Se você precisar comprar um domínio personalizado, acesse [Comprar um nome de 
 
 As etapas a seguir o conduzem pela configuração de um registro CNAME para uma conta de armazenamento de blobs usando o método asverify. Esse método garante que não haja tempo de inatividade.
 
-Navegue até **armazenamento**  >  **contas**de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Marque o FQDN na etapa 2. Esse valor é usado para criar o primeiro registro CNAME
+Navegue até **armazenamento**  >  **contas** de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Marque o FQDN na etapa 2. Esse valor é usado para criar o primeiro registro CNAME
 
 ![domínio personalizado de armazenamento de blobs](./media/dns-custom-domain/blobcustomdomain.png)
 
@@ -134,7 +134,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por padrão para a conta de armazenamento.        |
 
-Navegue de volta para sua conta de armazenamento **clicando em**  >  **contas de armazenamento**de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Digite o alias que você criou sem o prefixo asverify na caixa de texto, marque **usar validação de CNAME indireto**e clique em **salvar**. Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify.
+Navegue de volta para sua conta de armazenamento **clicando em**  >  **contas de armazenamento** de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Digite o alias que você criou sem o prefixo asverify na caixa de texto, marque **usar validação de CNAME indireto** e clique em **salvar**. Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify.
 
 ![Captura de tela que mostra a página de domínio personalizada.](./media/dns-custom-domain/indirectvalidate.png)
 
@@ -162,7 +162,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS cdnverify.adatumcdnendpoint.azureedge.net fornecido por padrão para a conta de armazenamento.        |
 
-Navegue de volta para o ponto de extremidade da CDN clicando em **rede**  >  **perfis de CDN**e selecione seu perfil CDN. Clique em **+ Domínio personalizado** e insira o alias de registro CNAME sem o prefixo cdnverify e clique em **Adicionar**.
+Navegue de volta para o ponto de extremidade da CDN clicando em **rede**  >  **perfis de CDN** e selecione seu perfil CDN. Clique em **+ Domínio personalizado** e insira o alias de registro CNAME sem o prefixo cdnverify e clique em **Adicionar**.
 
 Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo cdnverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify. Para obter mais informações sobre CDN e como configurar um domínio personalizado sem a etapa de registro intermediária, acesse [Mapear conteúdo da CDN do Azure para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 

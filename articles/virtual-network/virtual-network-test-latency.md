@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99226398"
 ---
 # <a name="test-vm-network-latency"></a>Testar latência da rede de VMs
@@ -139,7 +139,7 @@ Execute os seguintes comandos:
     sudo yum install -y autoconf
 ```
 
-#### <a name="for-ubuntu"></a>Para Ubuntu
+#### <a name="for-ubuntu"></a>Para o Ubuntu
 
 Execute os seguintes comandos:
 

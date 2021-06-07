@@ -1,31 +1,52 @@
 ---
 title: Suporte do sistema de arquivos de rede 3,0 no armazenamento de BLOBs do Azure (visualização) | Microsoft Docs
-description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que os clientes Windows e Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador que é executado no local.
+description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador que é executado no local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250801"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224587"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
-O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Windows ou Linux montem um contêiner no armazenamento de blob de uma VM (máquina virtual) do Azure ou um computador local. 
+O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte fornece compatibilidade do sistema de arquivos do Linux em escala e preços de armazenamento de objetos e permite que os clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. 
 
 > [!NOTE]
 > O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública. Ele dá suporte a contas de armazenamento GPV2 com desempenho de camada Standard nas seguintes regiões: leste da Austrália, centro da Coreia e EUA Central do Sul. A visualização também dá suporte ao blob de blocos com o nível de desempenho premium em todas as regiões públicas.
 
+Sempre foi um desafio executar cargas de trabalho herdadas em grande escala, como HPC (computação de alto desempenho) na nuvem. Um motivo é que os aplicativos geralmente usam protocolos de arquivo tradicionais, como NFS ou SMB (protocolo de mensagens de servidor) para acessar dados. Além disso, os serviços de armazenamento em nuvem nativos se concentram no armazenamento de objetos que têm um namespace simples e metadados extensivos em vez de sistemas de arquivos que fornecem um namespace hierárquico e operações de metadados eficientes. 
+
+O armazenamento de BLOBs agora dá suporte a um namespace hierárquico e, quando combinado com o suporte ao protocolo NFS 3,0, o Azure torna muito mais fácil executar aplicativos herdados sobre o armazenamento de objetos em nuvem em larga escala. 
+
+## <a name="applications-and-workloads-suited-for-this-feature"></a>Aplicativos e cargas de trabalho adequados para esse recurso
+
+O recurso de protocolo NFS 3,0 é mais adequado para processar alta taxa de transferência, alta escala, cargas de trabalho pesadas de leitura, como processamento de mídia, simulações de risco e sequenciamento de genoma. Você deve considerar o uso desse recurso para qualquer outro tipo de carga de trabalho que usa vários leitores e muitos threads, que exigem alta largura de banda. 
+
+## <a name="nfs-30-and-the-hierarchical-namespace"></a>NFS 3,0 e o namespace hierárquico
+
+O suporte ao protocolo NFS 3,0 requer que os BLOBs sejam organizados em um namespace hierárquico. Você pode habilitar um namespace hierárquico ao criar uma conta de armazenamento. A capacidade de usar um namespace hierárquico foi introduzida por Azure Data Lake Storage Gen2. Ele organiza os objetos (arquivos) em uma hierarquia de diretórios e subdiretórios da mesma maneira que o sistema de arquivos em seu computador é organizado.  O namespace hierárquico é dimensionado linearmente e não prejudica a capacidade ou o desempenho dos dados. Protocolos diferentes se estendem do namespace hierárquico. O protocolo NFS 3,0 é um dos protocolos disponíveis.   
+
+> [!div class="mx-imgBorder"]
+> ![namespace hierárquico](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
+  
+## <a name="data-stored-as-block-blobs"></a>Dados armazenados como BLOBs de blocos
+
+Se você habilitar o suporte ao protocolo NFS 3,0, todos os dados em sua conta de armazenamento serão armazenados como BLOBs de blocos. Blobs de blocos são otimizados para processar com eficiência grandes quantidades de dados de leitura intensa. Blobs de blocos são compostos de blocos. Cada bloco é identificado por uma ID de bloco. Um blob de blocos pode incluir até 50.000 blocos. Cada bloco em um blob de blocos pode ter um tamanho diferente, até o tamanho máximo permitido para a versão de serviço que sua conta usa.
+
+Quando seu aplicativo faz uma solicitação usando o protocolo NFS 3,0, essa solicitação é convertida em combinação de operações de blob de blocos. Por exemplo, as solicitações de leitura RPC (chamada de procedimento remoto) do NFS 3,0 são convertidas em operação [obter blob](/rest/api/storageservices/get-blob) . As solicitações de RPC de gravação de NFS 3,0 são convertidas em uma combinação de lista de [blocos Get](/rest/api/storageservices/get-block-list), [bloco Put](/rest/api/storageservices/put-block)e [lista de blocos Put](/rest/api/storageservices/put-block-list).
+
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Fluxo de trabalho geral: montando um contêiner de conta de armazenamento
 
-Para montar um contêiner de conta de armazenamento, você precisará fazer essas coisas.
+Seus clientes Linux podem montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. Para montar um contêiner de conta de armazenamento, você precisará fazer essas coisas.
 
 1. Registre o recurso de protocolo NFS 3,0 com sua assinatura.
 
@@ -58,7 +79,7 @@ Um cliente pode se conectar por meio de um [ponto de extremidade](../common/stor
 
 - A VNet que você configura para sua conta de armazenamento. 
 
-  Para a finalidade deste artigo, vamos nos referir à VNet como a *vnet primária*. Para saber mais, confira [conceder acesso de uma rede virtual](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+  Neste artigo, vamos nos referir a essa VNet como a *vnet primária*. Para saber mais, confira [conceder acesso de uma rede virtual](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
 - Uma VNet emparelhada que está na mesma região que a VNet primária.
 
@@ -91,7 +112,7 @@ Os recursos de armazenamento do Azure a seguir não têm suporte quando você ha
   
 ## <a name="nfs-30-features-not-yet-supported"></a>Recursos do NFS 3,0 ainda não suportados
 
-Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake Storage Gen2.
+Os seguintes recursos de NFS 3,0 ainda não têm suporte.
 
 - NFS 3,0 sobre UDP. Somente o NFS 3,0 sobre TCP tem suporte.
 
@@ -107,6 +128,12 @@ Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake S
 
 - Exportando um contêiner como somente leitura
 
+## <a name="nfs-30-clients-not-yet-supported"></a>Clientes NFS 3,0 ainda não suportados
+
+Os seguintes clientes NFS 3,0 ainda não têm suporte.
+
+- Cliente do Windows para NFS
+
 ## <a name="pricing"></a>Preços
 
 Durante a visualização, os dados armazenados em sua conta de armazenamento são cobrados com a mesma taxa de capacidade que o armazenamento de BLOBs cobra por GB por mês. 
@@ -115,4 +142,6 @@ Uma transação não é cobrada durante a visualização. O preço das transaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, consulte [montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
+- Para começar, consulte [montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
+
+- Para otimizar o desempenho, consulte [considerações de desempenho do NFS (Network File System) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support-performance.md).

@@ -8,10 +8,10 @@ ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1d63d21f4c49e3c7aef035208477ac9fc79f2e51
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94637176"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Configurar o acesso a Azure Cosmos DB de redes virtuais (VNet)
@@ -38,11 +38,11 @@ As seções a seguir descrevem como configurar o ponto de extremidade do serviç
 
 ### <a name="configure-a-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurar um ponto de extremidade de serviço para uma rede virtual e sub-rede do Azure existente
 
-1. No blade **Todos os recursos** , localize a conta do Azure Cosmos DB que você deseja proteger.
+1. No blade **Todos os recursos**, localize a conta do Azure Cosmos DB que você deseja proteger.
 
 1. Selecione **Firewalls e redes virtuais** no menu de configurações e opte por permitir o acesso a partir de **Redes selecionadas**.
 
-1. Para conceder acesso à sub-rede de uma rede virtual existente, em **Redes virtuais** , selecione **Adicionar rede virtual existente do Azure**.
+1. Para conceder acesso à sub-rede de uma rede virtual existente, em **Redes virtuais**, selecione **Adicionar rede virtual existente do Azure**.
 
 1. Selecione a **Assinatura** da qual você deseja adicionar uma rede virtual do Azure. Selecione as **Redes virtuais** do Azure e as **Sub-redes** que você deseja fornecer acesso à sua conta do Azure Cosmos DB. Em seguida, selecione **Habilitar** para habilitar as redes selecionadas com pontos de extremidade de serviço para "Microsoft.AzureCosmosDB". Quando estiver concluído, selecione **Adicionar**.
 
@@ -62,11 +62,11 @@ Aqui estão as instruções para registrar a assinatura com o provedor de recurs
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto de extremidade de serviço para uma rede virtual do Azure e uma sub-rede novas
 
-1. No blade **Todos os recursos** , localize a conta do Azure Cosmos DB que você deseja proteger.  
+1. No blade **Todos os recursos**, localize a conta do Azure Cosmos DB que você deseja proteger.  
 
 1. Selecione **Firewalls e redes virtuais do Azure** no menu de configurações e escolha permitir o acesso a partir de **Redes selecionadas**.  
 
-1. Para conceder acesso a uma nova rede virtual do Azure, em **Redes virtuais** , selecione **Adicionar nova rede virtual**.  
+1. Para conceder acesso a uma nova rede virtual do Azure, em **Redes virtuais**, selecione **Adicionar nova rede virtual**.  
 
 1. Forneça os detalhes necessários para criar uma nova rede virtual e, em seguida, selecione **Criar**. A sub-rede será criada com um ponto de extremidade de serviço para "Microsoft.AzureCosmosDB" habilitado.
 
@@ -78,7 +78,7 @@ Para garantir que você tenha acesso às métricas do Microsoft Azure Cosmos DB 
 
 ## <a name="remove-a-virtual-network-or-subnet"></a><a id="remove-vnet-or-subnet"></a>Remover uma rede virtual ou sub-rede
 
-1. No blade **Todos os recursos** , localize a conta do Microsoft Azure Cosmos DB para a qual você atribuiu pontos de extremidade de serviço.  
+1. No blade **Todos os recursos**, localize a conta do Microsoft Azure Cosmos DB para a qual você atribuiu pontos de extremidade de serviço.  
 
 1. Para saber mais sobre essas opções, consulte o artigo **Configurar um firewall IP**.  
 

@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b7c097306ba46d4f0024aecc55994508e2d8a090
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011671"
 ---
 Para proteger os dados em seus compartilhamentos de arquivo do Azure contra perda ou corrupção de dados, todos os compartilhamentos de arquivos do Azure armazenam várias cópias de cada arquivo conforme eles são gravados. Será possível selecionar graus adicionais de redundância dependendo dos requisitos de sua carga de trabalho. No momento, os Arquivos do Azure são compatíveis com as seguintes opções de redundância de dados:

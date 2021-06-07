@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
 ms.openlocfilehash: 43d57eac94cabb5c648183911e0c0bf72889946d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946064"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters do Azure HDInsight

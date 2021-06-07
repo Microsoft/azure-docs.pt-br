@@ -1,14 +1,14 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 4 do DoD
 description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 4345cd67cda5b00d89d9eae1f8abaedb40228759
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 5e022f4cea10be628d7d58c85ac10eb960d8ffa0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035097"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386968"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
 

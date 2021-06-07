@@ -1,30 +1,29 @@
 ---
-title: Usar a Área de Trabalho Remota para uma VM do Linux no Azure
+title: Usar o xrdp com Linux
 description: Saiba como instalar e configurar a Área de Trabalho Remota (xrdp) para conectar-se a uma VM do Linux no Azure usando ferramentas gráficas
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196377"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580361"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
-As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Instalar e configurar o xrdp para usar o Área de Trabalho Remota com o Ubuntu
 
+As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](http://xrdp.org)) para sua VM Linux que executa o Ubuntu.
+
+O artigo foi gravado e testado usando uma VM Ubuntu 18, 4. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Este artigo exige uma VM do Ubuntu 18.04 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
 - A [CLI do Azure](quick-create-cli.md)
@@ -32,6 +31,7 @@ Este artigo exige uma VM do Ubuntu 18.04 LTS existente no Azure. Se você precis
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM do Linux
+
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são gerenciadas normalmente usando conexões SSH, em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux para sua escolha. Dependendo de sua escolha de ambiente de área de trabalho, ele pode consumir de um a 2 GB de espaço em disco e demorar de cinco a 10 minutos para instalar e configurar todos os pacotes necessários.
 
 O exemplo a seguir instala o ambiente de área de trabalho leve [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 18.04 LTS. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
@@ -94,9 +94,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Conectar-se a sua VM do Linux com um cliente de Área de Trabalho Remota
-Abra o cliente da área de trabalho remota local e conecte-se ao endereço IP ou nome DNS de sua VM do Linux. Insira o nome de usuário e a senha da conta de usuário em sua VM da seguinte maneira:
 
-![Conectar-se ao xrdp usando seu cliente de Área de Trabalho Remota](./media/use-remote-desktop/remote-desktop-client.png)
+Abra o cliente da área de trabalho remota local e conecte-se ao endereço IP ou nome DNS de sua VM do Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Captura de tela do cliente de área de trabalho remota.":::
+
+Insira o nome de usuário e a senha da conta de usuário em sua VM da seguinte maneira:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Captura de tela do xrdp de logon de entrada.":::
 
 Após a autenticação, o ambiente de área de trabalho xfce carregará e será semelhante ao exemplo a seguir:
 
@@ -133,7 +138,7 @@ tail -f /var/log/syslog
 
 Outras distribuições do Linux como Red Hat Enterprise Linux e SUSE podem ter maneiras diferentes de reiniciar serviços e locais alternativos de arquivos de log para examinar.
 
-Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não ver quaisquer eventos no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não consegue alcançar a VM. Examine suas regras de grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para saber mais, veja [Solucionar problemas de conectividade do aplicativo](../troubleshooting/troubleshoot-app-connection.md).
+Se você não receber nenhuma resposta em seu cliente de área de trabalho remota e não ver quaisquer eventos no log do sistema, esse comportamento indicará que o tráfego da área de trabalho remota não consegue alcançar a VM. Examine suas regras de grupo de segurança de rede para garantir que você tenha uma regra para permitir o TCP na porta 3389. Para saber mais, veja [Solucionar problemas de conectividade do aplicativo](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection).
 
 
 ## <a name="next-steps"></a>Próximas etapas

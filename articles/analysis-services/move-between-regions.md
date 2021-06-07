@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96497921"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover Analysis Services para uma região diferente
@@ -203,7 +203,7 @@ Para implantar um novo recurso de servidor em uma região diferente, você usar�
 
 7. Verifique se o editor de modelo mostra as propriedades corretas para o novo servidor de destino.
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 9. Insira ou selecione os valores de propriedade:
 

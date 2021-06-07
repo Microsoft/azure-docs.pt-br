@@ -1,18 +1,14 @@
 ---
 title: Ativar e configurar seu sensor
 description: Este artigo descreve como entrar e ativar um console do sensor.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 56f6c9d3ff3093c3acd28b670e37f823ad5e9f9a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2fdfa0dd7048bf39ae5b53a729aef578054b30ac
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522505"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779181"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -179,7 +175,7 @@ Você acessa as ferramentas do console no menu lateral.
 
 | Janela | ícone | Descrição |
 | -----------|--|--|
-| Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
+| Painel | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Exiba os dispositivos de rede, as conexões de dispositivo e as propriedades de dispositivo em um mapa. Várias opções de zoom, realce e filtro estão disponíveis para exibir a rede. |
 | Inventário de dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário de dispositivo exibe uma lista de atributos de dispositivo que esse sensor detecta. As opções estão disponíveis para: <br /> -Classifique ou filtre as informações de acordo com os campos de tabela e veja as informações filtradas exibidas. <br /> -Exportar informações para um arquivo CSV. <br /> -Importar detalhes do registro do Windows.|
 | Alertas | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Exibe alertas quando ocorrem violações de política, desvios do comportamento de linha de base ocorrem ou qualquer tipo de atividade suspeita na rede é detectada. |
@@ -214,9 +210,9 @@ Você acessa as ferramentas do console no menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contate a [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
-[Integrar um sensor](getting-started.md#4-onboard-a-sensor)
+[Integrar um sensor](getting-started.md#onboard-a-sensor)
 
 [Gerenciar arquivos de ativação do sensor](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

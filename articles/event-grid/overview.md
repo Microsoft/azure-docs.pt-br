@@ -3,12 +3,12 @@ title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 ms.topic: overview
 ms.date: 01/28/2021
-ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055120"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934845"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -22,7 +22,8 @@ Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quis
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model-big.png":::
 
-Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis.
+> [!NOTE]
+> Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis. Para obter uma lista de todas as origens de eventos com suporte, confira a seção a seguir. 
 
 ## <a name="event-sources"></a>Origens de eventos
 
@@ -38,6 +39,7 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Mapas do Azure](event-schema-azure-maps.md)
 - [Serviços de Mídia do Azure](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Grupos de recursos do Azure](event-schema-resource-groups.md)
 - [Barramento de Serviço do Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 58cda3f2bfc76f00deaa85347c059040e39f9ef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729006"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102506558"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O controlador de entrada é configurado com um endereço IP público estático. O projeto [cert-manager][cert-manager] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, dois aplicativos são executados no cluster do AKS, cada um dos quais é acessível em um único endereço IP.
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*. Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
+> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a identidade do cluster usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*. Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
 
 Agora, implemente o gráfico *nginx -gresso* com o Helm. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
@@ -458,7 +458,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 913ffc0670e40e749bd28382d492a16891fdc5c9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92522250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Azure Active Directory ao Percolate
@@ -49,11 +49,11 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Percolate ao Azure AD, é necessário adicionar o Percolate da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory** :
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
     ![Selecione Azure Active Directory](common/select-azuread.png)
 
-2. Acesse **Aplicativos empresariais** > **Todos os aplicativos** :
+2. Acesse **Aplicativos empresariais** > **Todos os aplicativos**:
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,7 +61,7 @@ Para configurar a integração do Percolate ao Azure AD, é necessário adiciona
 
     ![Selecionar Novo aplicativo](common/add-new-app.png)
 
-4. Digite **Percolate** na caixa de pesquisa. Selecione **Percolate** nos resultados da pesquisa e selecione **Adicionar** .
+4. Digite **Percolate** na caixa de pesquisa. Selecione **Percolate** nos resultados da pesquisa e selecione **Adicionar**.
 
      ![Resultados da Pesquisa](common/search-new-app.png)
 
@@ -85,72 +85,72 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Percolate, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Percolate** , selecione **Logon único** :
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Percolate**, selecione **Logon único**:
 
     ![Selecionar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único:
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único:
 
     ![Selecionar um método de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar logon único com SAML** , selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML** :
+3. Na página **Configurar logon único com SAML**, selecione o ícone **Editar** para abrir a caixa de diálogo **Configuração Básica de SAML**:
 
     ![Ícone Editar](common/edit-urls.png)
 
-4. Na caixa de diálogo **Configuração Básica de SAML** , não é necessário nenhuma ação para configurar o aplicativo no modo iniciado por IdP. O aplicativo já está integrado com o Azure.
+4. Na caixa de diálogo **Configuração Básica de SAML**, não é necessário nenhuma ação para configurar o aplicativo no modo iniciado por IdP. O aplicativo já está integrado com o Azure.
 
     ![Informações de logon único de URLs e Domínio do Percolate](common/preintegrated.png)
 
-5. Se quiser configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais** e, na caixa **URL de logon** , digite **https://percolate.com/app/login** :
+5. Se quiser configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais** e, na caixa **URL de logon**, digite **https://percolate.com/app/login** :
 
    ![Uma captura de tela que mostra a opção "Definir URLs adicionais" selecionada com a caixa de texto "URL de Entrada" realçada.](common/metadata-upload-additional-signon.png)
-6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , selecione o ícone **Copiar** para a **URL de metadados de federação de aplicativos** . Salve essa URL.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o ícone **Copiar** para a **URL de metadados de federação de aplicativos**. Salve essa URL.
 
     ![Copiar a URL de metadados de federação de aplicativos](common/copy-metadataurl.png)
 
-7. Na seção **Configurar Percolate** , copie as URLs adequadas, de acordo com suas necessidades.
+7. Na seção **Configurar Percolate**, copie as URLs adequadas, de acordo com suas necessidades.
 
     ![Copiar as URLs de configuração](common/copy-configuration-urls.png)
 
-    1. **URL de Logon** .
+    1. **URL de Logon**.
 
-    1. **Identificador do Azure AD** .
+    1. **Identificador do Azure AD**.
 
-    1. **URL de Logoff** .
+    1. **URL de Logoff**.
 
 ### <a name="configure-percolate-single-sign-on"></a>Configurar logon único do Percolate
 
 1. Em uma nova janela do navegador da Web, entre no Percolate como administrador.
 
-2. No lado esquerdo da Página Inicial, selecione **Configurações** :
+2. No lado esquerdo da Página Inicial, selecione **Configurações**:
     
     ![Escolha Configurações](./media/percolate-tutorial/configure01.png)
 
-3. No painel esquerdo, selecione **SSO** em **Organização** :
+3. No painel esquerdo, selecione **SSO** em **Organização**:
 
     ![Selecionar SSO em Organização](./media/percolate-tutorial/configure02.png)
 
-    1. Na caixa **URL de Logon** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    1. Na caixa **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    1. Na caixa **ID de Entidade** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    1. Na caixa **ID de Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    1. No Bloco de Notas, abra o certificado codificado em Base 64 que você baixou pelo portal do Azure. Copie seu conteúdo e cole-o na caixa **Certificados x509** .
+    1. No Bloco de Notas, abra o certificado codificado em Base 64 que você baixou pelo portal do Azure. Copie seu conteúdo e cole-o na caixa **Certificados x509**.
 
-    1. Na caixa **Atributo de email** , insira **emailaddress** .
+    1. Na caixa **Atributo de email**, insira **emailaddress**.
 
     1. A caixa **URL de metadados do provedor de identidade** é um campo opcional. Se você copiou uma **URL de metadados de federação do aplicativo** no portal do Azure, você pode colar nesta caixa.
 
-    1. Na lista **AuthNRequests deve ser assinado?** , selecione **Não** .
+    1. Na lista **AuthNRequests deve ser assinado?** , selecione **Não**.
 
-    1. Na lista **Habilitar provisionamento automático de SSO** , selecione **Não** .
+    1. Na lista **Habilitar provisionamento automático de SSO**, selecione **Não**.
 
-    1. Clique em **Salvar** .
+    1. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no portal do Azure.
 
-1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários** :
+1. No portal do Azure, selecione **Azure Active Directory** no painel esquerdo, **Usuários** e, em seguida, **Todos os usuários**:
 
     ![Selecionar Todos os usuários](common/users.png)
 
@@ -158,43 +158,43 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     ![Selecionar Novo usuário](common/new-user.png)
 
-3. Na caixa de diálogo **Usuário** , execute as etapas a seguir.
+3. Na caixa de diálogo **Usuário**, execute as etapas a seguir.
 
     ![Caixa de diálogo Usuário](common/user-properties.png)
 
-    1. Na caixa **Nome** , insira **BrendaFernandes** .
+    1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário** , insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
-    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha** .
+    1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 
-    1. Selecione **Criar** .
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure AD concedendo a ela o acesso ao Percolate.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** , **Todos os aplicativos** e, em seguida, selecione **Percolate** .
+1. No portal do Azure, selecione **Aplicativos empresariais**, **Todos os aplicativos** e, em seguida, selecione **Percolate**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Percolate** .
+2. Na lista de aplicativos, selecione **Percolate**.
 
     ![Lista de aplicativos](common/all-applications.png)
 
-3. No painel esquerdo, selecione **Usuários e grupos** :
+3. No painel esquerdo, selecione **Usuários e grupos**:
 
     ![Uma captura de tela que mostra a opção "Usuários e grupos" selecionada no painel esquerdo.](common/users-groups-blade.png)
 
-4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![Selecionar Usuários e grupos](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da tela.
+6. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ### <a name="create-a-percolate-test-user"></a>Criar um usuário de teste do Percolate
 
@@ -204,19 +204,19 @@ Para criar uma conta de usuário, siga estas etapas:
 
 1. Entre no Percolate como administrador.
 
-2. No painel esquerdo, selecione **Usuários** em **Organização** . Selecione **Novos usuários** :
+2. No painel esquerdo, selecione **Usuários** em **Organização**. Selecione **Novos usuários**:
 
     ![Selecionar Novos usuários](./media/percolate-tutorial/configure03.png)
 
-3. Na página **Criar usuários** , realize as seguintes etapas.
+3. Na página **Criar usuários**, realize as seguintes etapas.
 
     ![Página Criar usuários](./media/percolate-tutorial/configure04.png)
 
-    1. Na caixa **Email** , insira o endereço de email do usuário. Por exemplo, brittasimon@contoso.com.
+    1. Na caixa **Email**, insira o endereço de email do usuário. Por exemplo, brittasimon@contoso.com.
 
-    1. Na caixa **Nome completo** , digite o nome do usuário. Por exemplo, **Brendafernandes** .
+    1. Na caixa **Nome completo**, digite o nome do usuário. Por exemplo, **Brendafernandes**.
 
-    1. Selecione **Criar usuários** .
+    1. Selecione **Criar usuários**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -230,4 +230,4 @@ Ao selecionar o bloco do Percolate no Painel de Acesso, você deverá entrar aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9bf0a9ca193be9fd61d0b284338c0f581c9f91e3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742091"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103012047"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo de funções atribuídas no Azure Active Directory
 
@@ -51,14 +51,14 @@ O grupo é criado com qualquer função que você tenha atribuído a ele.
 ### <a name="install-the-azure-ad-preview-module"></a>Instalar o módulo de visualização do Azure AD
 
 ```powershell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 Para verificar se o módulo está pronto para uso, emita o seguinte comando:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
 ```
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Criar um grupo que possa ser atribuído à função
@@ -73,9 +73,9 @@ Para esse tipo de grupo, `isPublic` sempre será false e `isSecurityEnabled` ser
 
 ```powershell
 #Basic set up
-install-module azureadpreview
-import-module azureadpreview
-get-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
+Get-Module -Name AzureADPreview
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -107,7 +107,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 
 ### <a name="create-a-role-assignable-group-in-azure-ad"></a>Criar um grupo de funções atribuíveis no Azure AD
 
-```powershell
+```http
 POST https://graph.microsoft.com/beta/groups
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",

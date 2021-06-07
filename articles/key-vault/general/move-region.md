@@ -2,21 +2,20 @@
 title: Mover um cofre de chaves para uma região diferente – Azure Key Vault | Microsoft Docs
 description: Este artigo apresenta orientações sobre como mover um cofre de chaves para uma região diferente.
 services: key-vault
-author: ShaneBala-keyvault
+author: msmbaldwin
 manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
-ms.translationtype: MT
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: ac2f6347776c2f5d230065b80b1c0336e21e181c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285204"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751788"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Mover um cofre de chaves do Azure entre regiões
 
@@ -35,7 +34,7 @@ Antes de começar, lembre-se dos seguintes conceitos:
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opção 1: Usar os comandos de backup e restauração do cofre de chaves
 
-É possível fazer backup de cada segredo, chave e certificado individual em seu cofre usando o comando de backup. Seus segredos são baixados como um blob criptografado. Em seguida, é possível restaurar o blob em seu novo cofre de chaves. Para obter uma lista de comandos, consulte [Comandos do Azure Key Vault](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+É possível fazer backup de cada segredo, chave e certificado individual em seu cofre usando o comando de backup. Seus segredos são baixados como um blob criptografado. Em seguida, é possível restaurar o blob em seu novo cofre de chaves. Para obter uma lista de comandos, consulte [Comandos do Azure Key Vault](/powershell/module/azurerm.keyvault#key_vault).
 
 O uso dos comandos de backup e restauração tem duas limitações:
 

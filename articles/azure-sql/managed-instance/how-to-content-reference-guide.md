@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779757"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referência de conteúdo do Azure SQL Instância Gerenciada
@@ -79,9 +79,9 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 
 - [Criar alertas na instância gerenciada](alerts-create.md)
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
-- [Failover manual iniciado pelo usuário no SQL Instância Gerenciada](user-initiated-failover.md)
+- [Failover manual iniciado pelo usuário na Instância Gerenciada de SQL](user-initiated-failover.md)
 
 ## <a name="develop-applications"></a>Desenvolver aplicativos
 

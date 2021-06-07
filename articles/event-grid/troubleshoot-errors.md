@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de códigos de erro, mensagens de err
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592984"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Solucionar erros de grade de eventos do Azure
@@ -26,7 +26,7 @@ Este guia de solução de problemas fornece as seguintes informações:
 | HttpStatusCode. BadRequest<br/>400 | Tempo de expiração inválido. | O tempo de expiração da assinatura de evento determina quando a assinatura do evento será desativada. Esse valor deve ser um valor DateTime válido no futuro.| Verifique se o tempo de expiração da assinatura do evento está em um formato válido de DateTime e se está definido como no futuro. |
 
 ## <a name="error-code-409"></a>Código de erro: 409
-| Código do erro | Mensagem de erro | Description | Ação recomendada |
+| Código do erro | Mensagem de erro | Descrição | Ação recomendada |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. Conflict <br/>409 | Já existe um tópico com o nome especificado. Escolha um nome de tópico diferente.   | O nome do tópico personalizado deve ser exclusivo em uma única região do Azure para garantir uma operação de publicação correta. O mesmo nome pode ser usado em diferentes regiões do Azure. | Escolha um nome diferente para o tópico. |
 | HttpStatusCode. Conflict <br/> 409 | Já existe um domínio com o especificado. Escolha um nome de domínio diferente. | O nome de domínio deve ser exclusivo em uma única região do Azure para garantir uma operação de publicação correta. O mesmo nome pode ser usado em diferentes regiões do Azure. | Escolha um nome diferente para o domínio. |
@@ -34,7 +34,7 @@ Este guia de solução de problemas fornece as seguintes informações:
 
 ## <a name="error-code-403"></a>Código de erro: 403
 
-| Código do erro | Mensagem de erro | Description | Ação recomendada |
+| Código do erro | Mensagem de erro | Descrição | Ação recomendada |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode. proibido <br/>403 | A publicação em {topic/Domain} pelo cliente {IpAddress} foi rejeitada devido às regras de filtragem IpAddress. | O tópico ou domínio tem regras de firewall IP configuradas e o acesso é restrito apenas a endereços IP configurados. | Adicionar o endereço IP às regras de firewall de IP, consulte [Configurar o firewall de IP](configure-firewall.md) |
 | HttpStatusCode. proibido <br/> 403 | A publicação em {topic/Domain} pelo cliente é rejeitada, pois a solicitação provém do ponto de extremidade privado e nenhuma conexão de ponto de extremidade privada correspondente foi encontrada para o recurso. | O tópico ou domínio tem pontos de extremidade privados e a solicitação de publicação veio de um ponto de extremidades privado que não está configurado ou aprovado. | Configure um ponto de extremidade privado para o tópico/domínio. [Configurar pontos de extremidade privados](configure-private-endpoints.md) |

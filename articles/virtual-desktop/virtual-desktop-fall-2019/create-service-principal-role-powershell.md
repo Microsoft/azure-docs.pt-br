@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
-manager: lizross
-ms.openlocfilehash: 91bb14a174d5bd5c16b38513825579097e1d6f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+manager: femila
+ms.openlocfilehash: 535ee2dace742a57877c9673e77bee64fd81c456
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078521"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445033"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell na Área de Trabalho Virtual do Windows (clássica)
 

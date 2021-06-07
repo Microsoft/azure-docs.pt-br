@@ -4,10 +4,10 @@ description: O Azure Policy é um serviço no Azure que você pode usar para cri
 ms.date: 01/14/2021
 ms.topic: overview
 ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98220721"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?

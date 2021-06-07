@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792592"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641388"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ A primeira parte deste artigo examina várias técnicas de envio em lote para ap
 ### <a name="note-about-timing-results-in-this-article"></a>Observação sobre os resultados de tempo neste artigo
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo** . Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 
 ### <a name="transactions"></a>Transactions
 
@@ -93,22 +93,22 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
+Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote para as gravações no log de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
-**De Local para o Azure** :
+**De Local para o Azure**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Do Azure para o Azure (mesmo datacenter)** :
+**Do Azure para o Azure (mesmo datacenter)**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -128,7 +128,7 @@ Para saber mais sobre transações no ADO.NET, consulte [Transações locais no 
 
 ### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 
-Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType** .
+Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@ TestTvp** . O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add** . O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@ TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -191,11 +191,11 @@ SqlCommand cmd = new SqlCommand("sp_InsertRows", connection);
 cmd.CommandType = CommandType.StoredProcedure;
 ```
 
-Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equivalente ou superior às outras técnicas de envio em lote. Normalmente, a preferência fica com os parâmetros com valor de tabela, pois são mais flexíveis do que as outras opções. Por exemplo, outras técnicas, como cópia em massa do SQL, só permitem a inserção de novas linhas. Porém, com os parâmetros com valor de tabela, você pode usar lógica no procedimento armazenado para determinar quais linhas serão atualizações e quais serão inserções. O tipo de tabela também pode ser modificado para conter uma coluna "Operação" que indica se a linha especificada deve ser inserida, atualizada ou excluída.
+Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equivalente ou superior às outras técnicas de envio em lote. Normalmente, a preferência fica com os parâmetros com valor de tabela, pois são mais flexíveis do que as outras opções. Por exemplo, outras técnicas, como cópia em massa do SQL, só permitem a inserção de novas linhas. Porém, com os parâmetros com valor de tabela, você pode usar lógica no procedimento armazenado para determinar quais linhas serão atualizações e quais serão inserções. O tipo de tabela também pode ser modificado para conter uma coluna de "operação" que indica se a linha especificada deve ser inserida, atualizada ou excluída.
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -212,7 +212,7 @@ Para saber mais sobre parâmetros com valor de tabela, consulte [Parâmetros com
 
 ### <a name="sql-bulk-copy"></a>Cópia em massa do SQL
 
-Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe** , ou à instrução Transact-SQL, **BULK INSERT** . O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable** de origem, tabela, para a tabela de destino, MyTable.
+Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe**, ou à instrução Transact-SQL, **BULK INSERT**. O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable** de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,7 +233,7 @@ Há alguns casos nos quais é preferível usar a cópia em massa do que os parâ
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais real
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -368,17 +368,17 @@ Se você usar a execução paralela, considere a possibilidade de controlar o n�
 
 As orientações típicas sobre o desempenho do banco de dados também dizem respeito ao envio em lote. Por exemplo, ocorre a redução do desempenho de inserção para tabelas com uma chave primária grande ou vários índices não clusterizados.
 
-Se parâmetros com valor de tabela usarem um procedimento armazenado, você poderá usar o comando **SET NOCOUNT ON** no início do procedimento. Essa instrução suprime o retorno da contagem de linhas afetadas no procedimento. No entanto, em nossos testes, o uso de **SET NOCOUNT ON** não teve qualquer efeito ou diminuiu o desempenho. O procedimento armazenado de teste foi simples com um único comando **INSERT** do parâmetro com valor de tabela. É possível que outros procedimentos armazenados mais complexos possam se beneficiar dessa instrução. Mas não suponha que a adição de **SET NOCOUNT ON** ao procedimento armazenado aprimorará automaticamente o desempenho. Para entender o efeito, teste o procedimento armazenado com e sem a instrução **SET NOCOUNT ON** instrução.
+Se parâmetros com valor de tabela usarem um procedimento armazenado, você poderá usar o comando **SET NOCOUNT ON** no início do procedimento. Essa instrução suprime o retorno da contagem de linhas afetadas no procedimento. No entanto, em nossos testes, o uso de **SET NOCOUNT ON** não teve qualquer efeito ou diminuiu o desempenho. O procedimento armazenado de teste foi simples com um único comando **INSERT** do parâmetro com valor de tabela. É possível que outros procedimentos armazenados mais complexos possam se beneficiar dessa instrução. Mas não presuma que a adição de **SET NOCOUNT ON** ao seu procedimento armazenado melhora o desempenho automaticamente. Para entender o efeito, teste o procedimento armazenado com e sem a instrução **SET NOCOUNT ON** instrução.
 
 ## <a name="batching-scenarios"></a>Cenários de envio em lote
 
-As seções a seguir descrevem como usar os parâmetros com valor de tabela em três cenários de aplicativo. O primeiro cenário mostra como o armazenamento em buffer e o envio em lote podem trabalhar juntos. O segundo cenário melhora o desempenho por meio da execução de operações mestre-detalhes em uma chamada com um único procedimento armazenado. O cenário final mostra como usar os parâmetros com valor de tabela em uma operação "UPSERT".
+As seções a seguir descrevem como usar os parâmetros com valor de tabela em três cenários de aplicativo. O primeiro cenário mostra como o armazenamento em buffer e o envio em lote podem trabalhar juntos. O segundo cenário melhora o desempenho por meio da execução de operações mestre-detalhes em uma chamada com um único procedimento armazenado. O cenário final mostra como usar parâmetros com valor de tabela em uma operação "UPSERT".
 
 ### <a name="buffering"></a>de resposta
 
 Embora alguns cenários sejam candidatos óbvios ao envio em lote, há muitos cenários que poderiam se beneficiar do envio em lote por meio do processamento atrasado. No entanto, o processamento atrasado também representa um risco maior de que os dados sejam perdidos no caso de uma falha inesperada. É importante entender esse risco e considerar as consequências.
 
-Por exemplo, considere um aplicativo Web que controla o histórico de navegação de cada usuário. Em cada solicitação de página, o aplicativo pode fazer uma chamada de banco de dados para registrar o modo de exibição de página do usuário. Mas é possível obter mais desempenho e escalabilidade por meio do armazenamento em buffer das atividades de navegação dos usuários e enviar esses dados para o banco de dados em lotes. Você pode disparar a atualização do banco de dados por tempo decorrido e/ou tamanho do buffer. Por exemplo, uma regra poderia especificar que o lote deve ser processado após 20 segundos, ou quando o buffer atingir 1000 itens.
+Por exemplo, considere um aplicativo Web que controla o histórico de navegação de cada usuário. Em cada solicitação de página, o aplicativo pode fazer uma chamada de banco de dados para registrar a exibição de página do usuário. Mas o desempenho e a escalabilidade mais altos podem ser obtidos armazenando em buffer as atividades de navegação dos usuários e enviando esses dados para o banco de dado em lotes. Você pode disparar a atualização do banco de dados por tempo decorrido e/ou tamanho do buffer. Por exemplo, uma regra poderia especificar que o lote deve ser processado após 20 segundos, ou quando o buffer atingir 1000 itens.
 
 O exemplo de código a seguir usa [Extensões Reativas - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) para processar eventos em buffer gerados por uma classe de monitoramento. Quando o buffer é preenchido ou um tempo limite é atingido, o lote de dados do usuário é enviado ao banco de dados com um parâmetro com valor de tabela.
 
@@ -476,7 +476,7 @@ Para usar essa classe de armazenamento em buffer, o aplicativo cria um objeto Na
 
 ### <a name="master-detail"></a>Detalhes da tabela mestra
 
-Parâmetros com valor de tabela são úteis para cenários INSERT simples. No entanto, pode ser mais desafiador executar inserções em lotes que envolvem mais de uma tabela. O cenário "mestre/detalhes" é um bom exemplo. A tabela mestra identifica a entidade principal. Uma ou mais tabelas de detalhes armazenam mais dados sobre a entidade. Nesse cenário, as relações de chave estrangeiras impõem a relação de detalhes a uma entidade mestre exclusiva. Considere uma versão simplificada de uma tabela PurchaseOrder e sua tabela associada OrderDetail. O Transact-SQL a seguir cria a tabela PurchaseOrder com quatro colunas: OrderID, OrderDate, CustomerID e Status.
+Parâmetros com valor de tabela são úteis para cenários INSERT simples. No entanto, pode ser mais desafiador executar inserções em lotes que envolvem mais de uma tabela. O cenário de "mestre/detalhes" é um bom exemplo. A tabela mestra identifica a entidade principal. Uma ou mais tabelas de detalhes armazenam mais dados sobre a entidade. Nesse cenário, as relações de chave estrangeiras impõem a relação de detalhes a uma entidade mestre exclusiva. Considere uma versão simplificada de uma tabela PurchaseOrder e sua tabela associada OrderDetail. O Transact-SQL a seguir cria a tabela PurchaseOrder com quatro colunas: OrderID, OrderDate, CustomerID e Status.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -602,7 +602,7 @@ Este exemplo demonstra que até mesmo as operações de banco de dados mais comp
 
 ### <a name="upsert"></a>UPSERT
 
-Outro cenário de envio em lote envolve a atualização simultânea de linhas existentes e a inserção de novas linhas. Essa operação é chamada às vezes de operação "UPSERT" (atualização + inserção). Em vez de fazer chamadas separadas para INSERT e UPDATE, a instrução MERGE é mais adequada para essa tarefa. A instrução MERGE pode executar as duas operações, inserção e atualização, em uma única chamada.
+Outro cenário de envio em lote envolve a atualização simultânea de linhas existentes e a inserção de novas linhas. Essa operação às vezes é chamada de operação "UPSERT" (atualização + inserção). Em vez de fazer chamadas separadas para INSERT e UPDATE, a instrução MERGE é mais adequada para essa tarefa. A instrução MERGE pode executar as duas operações, inserção e atualização, em uma única chamada.
 
 Parâmetros com valor de tabela podem ser usados com a instrução MERGE para executar atualizações e inserções. Por exemplo, considere uma tabela simplificada de funcionários que contém as seguintes colunas: EmployeeID, FirstName, LastName, SocialSecurityNumber:
 

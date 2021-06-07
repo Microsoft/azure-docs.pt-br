@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ceb242dcd05105b533e365e91afd9601cc550392
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8af6802f785718ca6064a34c98d9f6dafc046a2c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116721"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594760"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Usar transações com um pool SQL dedicado no Azure Synapse Analytics
 
@@ -204,4 +204,4 @@ O pool SQL dedicado tem algumas outras restrições relacionadas às transaçõe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a otimização das transações, consulte [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Melhores práticas de transações). Os guias de práticas recomendadas adicionais também são fornecidos para o [pool SQL dedicado](best-practices-sql-pool.md) e o [pool SQL sem servidor](best-practices-sql-on-demand.md).
+Para saber mais sobre a otimização das transações, consulte [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Melhores práticas de transações). Os guias de práticas recomendadas adicionais também são fornecidos para o [pool SQL dedicado](best-practices-dedicated-sql-pool.md) e o [pool SQL sem servidor](best-practices-serverless-sql-pool.md).

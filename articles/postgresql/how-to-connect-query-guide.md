@@ -7,14 +7,14 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1506ce311fe443247050a36e1b9fa4600360ac6e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546544"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604134"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para PostgreSQL-servidor único
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Conectar e consultar a visão geral para o banco de dados do Azure para PostgreSQL – Servidor Único
 
 O documento a seguir inclui links para exemplos que mostram como se conectar e consultar com o banco de dados do Azure para PostgreSQL servidor único. Este guia também inclui recomendações e extensões de TLS que você pode usar para se conectar ao servidor em idiomas com suporte abaixo.
 
@@ -44,7 +44,6 @@ O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de d
 - [Extensões do postgres 11](./concepts-extensions.md#postgres-11-extensions)
 - [Extensões do postgres 10](./concepts-extensions.md#postgres-10-extensions)
 - [Extensões do postgres 9,6](./concepts-extensions.md#postgres-96-extensions)
-- [Extensões do postgres 9,5](./concepts-extensions.md#postgres-95-extensions)
 
 Para obter mais detalhes, consulte [como usar as extensões do PostgreSQL em um único servidor](concepts-extensions.md).
 

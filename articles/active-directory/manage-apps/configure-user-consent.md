@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b6dd95dafbd079e79247110ee227121483dc372e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101643602"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar como os usuários finais consentem nos aplicativos
 
@@ -36,9 +36,9 @@ As políticas de consentimento do aplicativo descrevem as condições que devem 
 
 Ao escolher quais políticas de consentimento do aplicativo se aplicam a todos os usuários, você pode definir limites quando os usuários finais têm permissão para conceder consentimento aos aplicativos e quando eles serão solicitados a solicitar a revisão e a aprovação do administrador:
 
-* **Desabilitar o consentimento do usuário**: os usuários não podem conceder permissões a aplicativos. Os usuários podem continuar a entrar em aplicativos que tinham consentido anteriormente ou cujo consentimento tenha sido feito por administradores em seu nome, mas eles não terão permissão para dar consentimento a novas permissões ou a novos aplicativos por conta própria. Somente os usuários que receberam uma função de diretório que inclui a permissão para conceder consentimento poderão consentir os novos aplicativos.
+* **Desabilitar o consentimento do usuário**: os usuários não podem conceder permissões a aplicativos. Os usuários podem continuar a entrar em aplicativos que tinham consentido anteriormente ou cujo consentimento tenha sido feito por administradores em seu nome, mas eles não terão permissão para dar consentimento a novas permissões ou a novos aplicativos por conta própria. Somente os usuários que receberam uma função de diretório que inclua a permissão para conceder consentimento poderão consentir novos aplicativos.
 
-* **Os usuários podem consentir aplicativos de editores verificados ou de sua organização, mas somente para permissões que você selecionar** – todos os usuários só podem dar consentimento a aplicativos que foram publicados por um [Publicador verificado](../develop/publisher-verification-overview.md) e aplicativos que são registrados em seu locatário. Os usuários só podem consentir as permissões que você classificou como "impacto baixo". Você deve [classificar permissões](configure-permission-classifications.md) para selecionar quais permissões os usuários têm permissão para consentir.
+* **Os usuários podem consentir aplicativos de editores verificados ou de sua organização, mas somente para permissões que você selecionar** – todos os usuários só podem dar consentimento a aplicativos que foram publicados por um [Publicador verificado](../develop/publisher-verification-overview.md) e aplicativos que são registrados em seu locatário. Os usuários só podem consentir com as permissões que você classificou como de "baixo impacto". Você deve [classificar permissões](configure-permission-classifications.md) para selecionar quais permissões os usuários têm permissão para consentir.
 
 * **Os usuários podem consentir com todos os aplicativos** – essa opção permite que todos os usuários consentim em qualquer permissão que não exija o consentimento do administrador, para qualquer aplicativo.
 
@@ -97,9 +97,9 @@ Set-AzureADMSAuthorizationPolicy `
 ---
 
 > [!TIP]
-> [Habilite o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md) para permitir que os usuários solicitem uma revisão e aprovação do administrador de um aplicativo ao qual o usuário não tenha permissão para consentir — por exemplo, quando o consentimento do usuário foi desabilitado ou quando um aplicativo está solicitando permissões que o usuário não tem permissão para conceder.
+> [Habilite o fluxo de trabalho de consentimento do administrador](configure-admin-consent-workflow.md) para permitir que os usuários solicitem revisão e aprovação do administrador de um aplicativo com o qual o usuário não está autorizado a consentir, por exemplo, quando o consentimento do usuário foi desabilitado ou quando um aplicativo está solicitando permissões que o usuário não está autorizado a conceder.
 
-## <a name="risk-based-step-up-consent"></a>Consentimento em etapas com base em risco
+## <a name="risk-based-step-up-consent"></a>Consentimento de step-up baseado em risco
 
 O consentimento de step-up baseado em risco ajuda a reduzir a exposição do usuário a aplicativos mal-intencionados que fazem [solicitações de consentimento ilícitas](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se a Microsoft detectar uma solicitação arriscada de consentimento ao usuário final, a solicitação exigirá um "step-up" para o consentimento do administrador. Esse recurso é habilitado por padrão, mas só resultará em uma alteração de comportamento quando o consentimento do usuário final estiver habilitado.
 
@@ -185,4 +185,4 @@ Para saber mais:
 * [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Azure AD no Microsoft Q&A.](/answers/topics/azure-active-directory.html)

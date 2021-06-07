@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121027"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675950"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparar aplicativos móveis para produção
 
@@ -34,18 +34,9 @@ Para cada tipo de MSAL (biblioteca de autenticação da Microsoft), você pode e
 - [Wiki do MSAL iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigate-and-investigate-issues"></a>Atenuar e investigar problemas
-
-Para diagnosticar melhor os problemas em seu aplicativo, colete dados. Para obter informações sobre os tipos de dados que você pode coletar, consulte [Logging in MSAL Applications](./msal-logging.md).
-
-Aqui estão algumas sugestões para a coleta de dados:
-
-- Os usuários podem pedir ajuda quando tiverem problemas. Uma prática recomendada é capturar e armazenar logs temporariamente. Forneça um local onde os usuários possam carregar os logs. O MSAL fornece extensões de log para capturar informações detalhadas sobre a autenticação.
-
-- Se a telemetria estiver disponível, habilite-a por meio do MSAL para coletar dados sobre como os usuários entram no seu aplicativo.
-
-## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## <a name="next-steps"></a>Próximas etapas
 
 Para experimentar exemplos adicionais, consulte [aplicativos cliente públicos móveis e de desktop](sample-v2-code.md#desktop-and-mobile-public-client-apps).

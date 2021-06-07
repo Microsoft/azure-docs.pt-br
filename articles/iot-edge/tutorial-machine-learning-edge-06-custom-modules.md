@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5c096b26f31bdf92bb5ab91c8dad7876f228ff14
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932329"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462789"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos do IoT Edge personalizados
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Neste artigo, criamos três módulos do IoT Edge que recebem mensagens de dispositivos IoT folha, executamos os dados por meio do seu modelo de machine learning e encaminhamos os insights para o Hub IoT.
 

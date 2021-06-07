@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147649"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
@@ -46,9 +46,9 @@ Para saber mais sobre a leitura de pontos de extremidade personalizados, confira
 
 * Leitura de [contêineres de Armazenamento do Azure](../storage/blobs/storage-blobs-introduction.md).
 
-* Leitura dos [hubs de eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+* Leitura de [Hubs de Eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
-* Leitura de [filas do barramento de serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+* Leitura de [Filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 * Leitura de [tópicos do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
 

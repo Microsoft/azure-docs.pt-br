@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 784929e50d25a07ae92cf388be5ac14f6fa820a6
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221506"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Habilitar e gerenciar métricas de Análise de Armazenamento do Azure (clássico)
@@ -187,7 +187,7 @@ As métricas que você selecionou em **Diagnósticos** determinam a resolução 
 
 Se você quiser baixar as métricas para armazenamento a longo prazo ou para analisá-las localmente, você deve usar uma ferramenta ou escrever um código para ler as tabelas. As tabelas não aparecem quando você lista todas as tabelas em sua conta de armazenamento, mas você pode acessá-las diretamente por nome. Muitas ferramentas de navegação de armazenamento reconhecem essas tabelas e permitem que você as exiba diretamente. Para obter uma lista das ferramentas disponíveis, confira as [ferramentas do cliente de Armazenamento do Microsoft Azure](./storage-explorers.md).
 
-|Métricas|Nomes da tabela|Anotações| 
+|Métricas|Nomes da tabela|Observações| 
 |-|-|-|  
 |Métricas por hora|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nas versões anteriores a 15 de agosto de 2013, essas tabelas eram conhecidas como:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> As métricas do serviço de arquivo estão disponíveis a partir da versão de 5 de abril de 2015.|  
 |Métricas por minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só podem ser habilitadas usando o PowerShell ou programaticamente.<br /><br /> As métricas do serviço de arquivo estão disponíveis a partir da versão de 5 de abril de 2015.|  

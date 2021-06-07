@@ -8,10 +8,10 @@ author: nabhishek
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389426"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory

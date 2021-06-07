@@ -4,15 +4,15 @@ description: Saiba como criar um gateway de aplicativo com o tráfego redirecion
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/19/2020
+ms.date: 03/24/2021
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 61a47f691d453218f06a5db4ad433b4760ebe265
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397041"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105038373"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
 
@@ -31,7 +31,7 @@ O exemplo a seguir mostra o tráfego do site proveniente de ambas as portas 8080
 
 Se preferir, você pode concluir este procedimento usando a [CLI do Azure](tutorial-url-redirect-cli.md).
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -390,7 +390,9 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+
+Substitua \<username> e \<password> pelos seus próprios valores antes de executar o script.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -447,8 +449,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `

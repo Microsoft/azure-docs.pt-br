@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 58ee9b682bc97dc4044d811392cf4ff5b51a69fd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491351"
 ---
 # <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
@@ -55,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Aqui está a associação de saída no arquivo *function.json* :
+Aqui está a associação de saída no arquivo *function.json*:
 
 ```json
 {
@@ -88,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 # <a name="f"></a>[F#](#tab/fsharp)
 
-Aqui está a associação de saída no arquivo *function.json* :
+Aqui está a associação de saída no arquivo *function.json*:
 
 ```json
 {
@@ -110,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aqui está a associação de saída no arquivo *function.json* :
+Aqui está a associação de saída no arquivo *function.json*:
 
 ```json
 {
@@ -132,7 +132,7 @@ module.exports = function (context, input) {
 ```
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-Aqui está a associação de saída no arquivo *function.json* :
+Aqui está a associação de saída no arquivo *function.json*:
 
 ```json
 {
@@ -154,7 +154,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aqui está a associação de saída no arquivo *function.json* :
+Aqui está a associação de saída no arquivo *function.json*:
 
 ```json
 {

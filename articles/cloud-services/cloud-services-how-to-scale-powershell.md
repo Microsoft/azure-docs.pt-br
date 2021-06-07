@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743297"
 ---
 # <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Como dimensionar um serviço de nuvem do Azure (clássico) no PowerShell

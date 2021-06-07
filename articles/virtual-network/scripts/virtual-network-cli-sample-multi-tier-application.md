@@ -14,10 +14,10 @@ ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 54ad2327af40041c7bde07095e7f5d8ed1375015
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91313919"
 ---
 # <a name="create-a-virtual-network-for-multi-tier-applications-using-an-azure-cli-script-sample"></a>Criar uma rede virtual para aplicativos de várias camadas usando um exemplo de script da CLI do Azure

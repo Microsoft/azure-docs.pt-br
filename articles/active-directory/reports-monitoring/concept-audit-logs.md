@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995974"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
@@ -48,7 +48,7 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **logs de auditoria** na seção **monitoramento** de **Azure Active Directory**. 
+Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **Logs de auditoria** na seção **Monitoramento** do **Azure Active Directory**. 
 
 
 
@@ -57,13 +57,13 @@ Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 - a data e a hora da ocorrência
 - o serviço que registrou a ocorrência
 - a categoria e o nome da atividade (*o que*) 
-- o status da atividade (êxito ou falha)
+- o status da atividade (sucesso ou falha)
 - o destino
 - o iniciador/ator (quem) de uma atividade
 
 ![Logs de auditoria](./media/concept-audit-logs/listview.png "Logs de auditoria")
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Colunas de auditoria](./media/concept-audit-logs/columns.png "Colunas de auditoria")
 
@@ -99,7 +99,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 - Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso Condicional
+- Acesso condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -127,7 +127,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Rotular
+- Label
 - Outro
 - PermissionGrantPolicy
 - Política
@@ -207,7 +207,7 @@ Com relatórios de auditoria baseados em aplicativos, você pode obter respostas
 * Os nomes de aplicativos foram alterados?
 * Quem deu permissão a um aplicativo?
 
-Se você quiser revisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditorias** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **aplicativos empresariais** selecionados como o **tipo de aplicativo**.
+Se você quiser revisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditorias** na seção **Atividade** da folha **Aplicativos empresariais**. Este ponto de entrada possui **Aplicativos empresariais** pré-selecionados como o **Tipo de Aplicativo**.
 
 ![Aplicativos empresariais](./media/concept-audit-logs/enterpriseapplications.png "Aplicativos empresariais")
 

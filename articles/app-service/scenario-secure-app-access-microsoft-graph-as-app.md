@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 06837ab0f4685787f8d2615e81d0405fdb8ec711
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99062553"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>Tutorial: Acessar o Microsoft Graph em um aplicativo protegido como o aplicativo

@@ -4,10 +4,10 @@ description: Saiba como configurar uma identidade de laboratório no Azure DevTe
 ms.topic: article
 ms.date: 08/20/2020
 ms.openlocfilehash: a652eb5751f9b723911a1c1baaaaf9860febc5b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88719607"
 ---
 # <a name="configure-a-lab-identity"></a>Configurar uma identidade de laboratório
@@ -50,7 +50,7 @@ Esta seção demonstra como configurar a política de identidade do laboratório
 
 Uma identidade gerenciada atribuída pelo usuário é criada como um recurso autônomo do Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure AD confiado pela assinatura em uso. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida das instâncias de serviço do Azure a que ela é atribuída. 
 
-O DevTest Labs dá suporte a identidades de usuário atribuídas para máquinas virtuais e ambientes baseados em Azure Resource Manager.  Para obter mais informações, consulte estes tópicos:
+O DevTest Labs dá suporte a identidades de usuário atribuídas para máquinas virtuais e ambientes baseados em Azure Resource Manager.  Para mais informações, consulte os seguintes tópicos:
 
 - [Adicionar uma identidade atribuída pelo usuário para implantar ambientes de Azure Resource Manager de laboratório](use-managed-identities-environments.md)
 - [Adicionar identidades atribuídas ao usuário para implantar máquinas virtuais do laboratório](enable-managed-identities-lab-vms.md)

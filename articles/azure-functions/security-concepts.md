@@ -4,10 +4,10 @@ description: Saiba mais sobre como tornar o código de função em execução no
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368482"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
@@ -76,7 +76,7 @@ Para saber mais sobre as chaves de acesso, consulte o [Artigo de associação de
 
 Por padrão, as chaves são armazenadas em um contêiner de armazenamento de BLOBs na conta fornecida pela `AzureWebJobsStorage` configuração. Você pode usar configurações de aplicativo específicas para substituir esse comportamento e armazenar as chaves em um local diferente.
 
-|Location  |Setting | Valor | Descrição  |
+|Location  |Configuração | Valor | Descrição  |
 |---------|---------|---------|---------|
 |Conta de armazenamento diferente     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Armazena chaves no armazenamento de blobs de uma segunda conta de armazenamento, com base na URL da SAS fornecida. As chaves são criptografadas antes de serem armazenadas usando um segredo exclusivo para seu aplicativo de funções. |
 |Sistema de arquivos   | `AzureWebJobsSecretStorageType`   |  `files`       | As chaves são mantidas no sistema de arquivos, criptografadas antes do armazenamento usando um segredo exclusivo para seu aplicativo de funções. |

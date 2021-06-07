@@ -1,39 +1,63 @@
 ### YamlMime:Landing
-title: Kubernetes do Azure Arc (versão prévia)
+title: Kubernetes habilitado para Azure Arc
 summary: Aprenda a gerenciar clusters do Kubernetes com o Azure Arc
 metadata:
-  title: Kubernetes do Azure Arc
+  title: Kubernetes habilitado para Azure Arc
   description: Aprenda a gerenciar computadores locais no Azure
-  author: 
+  author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
-  ms.author: 
-  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
-  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+  ms.date: 03/02/2021
+  ms.author: shasb
+  ms.openlocfilehash: fbad5cafb22960a56a4ba76e2dc331c399193ddc
+  ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97674365"
+  ms.lasthandoff: 04/06/2021
+  ms.locfileid: "106443181"
 landingContent:
-- title: Conectar clusters do Kubernetes ao Azure usando o Azure Arc
+- title: Sobre o Kubernetes habilitado para Azure Arc
   linkLists:
   - linkListType: overview
     links:
     - text: O que é o Kubernetes habilitado para Azure Arc?
       url: overview.md
+    - text: Programa de validação do Azure Arc
+      url: validation-program.md
+  - linkListType: concept
+    links:
+    - text: Arquitetura de agente
+      url: conceptual-agent-architecture.md
+    - text: Configurações e GitOps
+      url: conceptual-configurations.md
+    - text: Fluxo de trabalho de CI/CD usando GitOps
+      url: conceptual-gitops-ci-cd.md
+    - text: Perguntas frequentes
+      url: faq.md
+- title: Introdução
+  linkLists:
   - linkListType: quickstart
     links:
-    - text: Conectar cluster
-      url: connect-cluster.md
-  - linkListType: how-to-guide
+    - text: Conectar um cluster ao Azure Arc
+      url: quickstart-connect-cluster.md
+- title: Implantar configurações usando GitOps
+  linkLists:
+  - linkListType: tutorial
     links:
     - text: Implantar configurações usando GitOps
-      url: use-gitops-connected-cluster.md
+      url: tutorial-use-gitops-connected-cluster.md
+    - text: Implementar CI/CD com GitOps
+      url: tutorial-gitops-ci-cd.md
+- title: Configurar, controlar e monitorar clusters
+  linkLists:
+  - linkListType: how-to-guide
+    links:
     - text: Implantar gráficos do Helm usando GitOps
       url: use-gitops-with-helm.md
     - text: Impor GitOps usando o Azure Policy
       url: use-azure-policy.md
+    - text: Implantar extensões em clusters
+      url: extensions.md
     - text: Implantar cargas de trabalho do Azure IoT Edge
       url: deploy-azure-iot-edge-workloads.md
 - title: Prova de conceito

@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370824"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Exibir histórico de auditoria para funções do Azure AD no Privileged Identity Management
@@ -98,7 +98,7 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
     | Justificativa | Texto inserido no campo motivo durante a ativação. |
     | Expiração | Quando uma função ativada expira. Aplica-se somente a atribuições de função qualificadas. |
 
-1. Para classificar o histórico de auditoria, clique nos botões de **hora**, **ação**e **função** .
+1. Para classificar o histórico de auditoria, clique nos botões de **hora**, **ação** e **função** .
 
 ## <a name="filter-audit-history"></a>Filtrar histórico de auditoria
 

@@ -2,18 +2,18 @@
 title: Solucionar problemas usando Cloud-init
 description: Solucionar problemas de provisionamento de uma VM do Azure usando Cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582146"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solucionando problemas de provisionamento de VM com Cloud-init
 
@@ -56,11 +56,11 @@ Quando a VM não puder ser provisionada, o Azure mostrará o status ' criando ',
 
 Enquanto a VM estiver em execução, você precisará dos logs da VM para entender por que houve falha no provisionamento.  Para entender por que o provisionamento de VM falhou, não pare a VM. Mantenha a VM em execução. Você precisará manter a VM com falha em um estado de execução para coletar logs. Para coletar os logs, use um dos seguintes métodos:
 
-- [Console Serial](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Console serial](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
-- [Habilite o diagnóstico de inicialização](./tutorial-monitor.md#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](./tutorial-monitor.md#view-boot-diagnostics) -las durante a inicialização.
+- [Habilite o diagnóstico de inicialização](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) -las durante a inicialização.
 
-- [Execute AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para anexar e montar o disco do sistema operacional, o que permitirá que você colete esses logs:
+- [Execute AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) para anexar e montar o disco do sistema operacional, o que permitirá que você colete esses logs:
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Depois de encontrar um erro ou aviso, leia para trás no log de inicialização 
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se você tiver acesso ao [console serial](../troubleshooting/serial-console-grub-single-user-mode.md), poderá tentar executar novamente o comando que a Cloud-init estava tentando realizar.
+Se você tiver acesso ao [console serial](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), poderá tentar executar novamente o comando que a Cloud-init estava tentando realizar.
 
 O registro em log para `/var/log/cloud-init.log` também pode ser reconfigurado em/etc/cloud/cloud.cfg.d/05_logging. cfg. Para obter mais detalhes sobre o log de inicialização de nuvem, consulte a [documentação de inicialização de nuvem](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -133,4 +133,4 @@ Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações. 
+Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações.

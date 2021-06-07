@@ -4,7 +4,6 @@ description: Este artigo de início rápido descreve como criar um perfil do Ger
 services: traffic-manager
 author: duongau
 mnager: twooley
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed3f6c96f6c02d5dad686947ee7f61e8852b559f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631555"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063807"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando o Azure PowerShell
 

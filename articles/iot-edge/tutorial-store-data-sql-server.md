@@ -9,16 +9,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 361a151d1f1835f82e440704105cf8b3844a4c54
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047940"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221616"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
-Implante um módulo do SQL Server para armazenar dados em um dispositivo Linux que executa o Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Implante um módulo do SQL Server para armazenar dados em um dispositivo que executa o Azure IoT Edge com contêineres Linux.
 
 Use o Azure IoT Edge e o SQL Server para armazenar e consultar dados na borda. O Azure IoT Edge tem recursos de armazenamento básicos que armazenam mensagens em cache caso um dispositivo fique offline e depois as encaminha quando a conexão for restabelecida. No entanto, talvez você queira recursos mais avançados de armazenamento, como a capacidade de consultar dados localmente. Seus dispositivos IoT Edge podem usar bancos de dados locais para realizar computações mais complexa sem necessidade de manter uma conexão ao Hub IoT.
 
@@ -40,7 +42,7 @@ Neste tutorial, você aprenderá como:
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
-* Um [dispositivo Linux AMD64 que executa o Azure IoT Edge](quickstart-linux.md).
+* Um dispositivo do AMD64 que executa o Azure IoT Edge com contêineres Linux. Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
   * Dispositivos ARM, como Raspberry PIS, não podem executar o SQL Server. Se quiser usar o SQL em um dispositivo ARM, poderá se inscrever para experimentar o [SQL do Azure no Edge](https://azure.microsoft.com/services/sql-edge/) na versão prévia.
 * Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).

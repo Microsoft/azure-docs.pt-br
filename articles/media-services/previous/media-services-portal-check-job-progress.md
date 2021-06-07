@@ -3,7 +3,7 @@ title: Monitorar o andamento do trabalho codificação com o portal do Azure
 description: Este tutorial orienta você pelas etapas de monitorar o andamento do trabalho usando o portal do Azure.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: ec14e59e748e74709b909b0590bc750cf5f075b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: b59d64607c60b9b09e5c962cd706e7e00404266b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695485"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103008324"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o andamento do trabalho codificação com o portal do Azure
 

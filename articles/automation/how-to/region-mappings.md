@@ -1,20 +1,24 @@
 ---
 title: Regiões compatíveis com o workspace do Log Analytics vinculado
 description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de automação e um Log Analytics espaço de trabalho, pois ele se relaciona a determinados recursos da automação do Azure.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704314"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101720164"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
 Na automação do Azure, você pode habilitar o Gerenciamento de Atualizações, Controle de Alterações e inventário e recursos de Iniciar/Parar VMs fora do horário comercial para seus servidores e máquinas virtuais. Esses recursos têm uma dependência em um espaço de trabalho Log Analytics e, portanto, exigem a vinculação do espaço de trabalho com uma conta de automação. No entanto, somente determinadas regiões têm suporte para vinculá-las. Em geral, o mapeamento *não* é aplicável se você planeja vincular uma conta de automação a um espaço de trabalho que não terá esses recursos habilitados.
+
+Os mapeamentos discutidos aqui se aplicam apenas à vinculação do espaço de trabalho Log Analytics a uma conta de automação. Eles não se aplicam às máquinas virtuais (VMs) que estão conectadas ao espaço de trabalho vinculado à conta de automação. As VMs não são limitadas às regiões com suporte em determinado espaço de trabalho Log Analytics. Eles podem estar em qualquer região. Tenha em mente que ter as VMs em uma região diferente pode afetar os requisitos regulatórios de estado, local e país ou os requisitos de conformidade da sua empresa. Ter VMs em uma região diferente também poderia introduzir cobranças de largura de banda de dados.
+
+Antes de conectar as VMs a um espaço de trabalho em uma região diferente, você deve examinar os requisitos e os custos potenciais para confirmar e entender as implicações legais e de custo.
 
 Este artigo fornece os mapeamentos com suporte para habilitar e usar com êxito esses recursos em sua conta de automação.
 

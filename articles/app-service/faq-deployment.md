@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080466"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
@@ -86,7 +86,7 @@ Você tem duas opções para usar a implantação contínua com o Azure DevOps:
 *   Use um projeto Git. Conecte-se por meio do serviço de aplicativo usando o centro de implantação.
 *   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de build do Serviço de Aplicativo.
 
-A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, consulte estes artigos: 
+A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, confira estes tópicos: 
 
 *   [Implementar a implantação contínua do aplicativo em um site do Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Configurar uma organização do Azure DevOps para que ela possa implantar em um aplicativo Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

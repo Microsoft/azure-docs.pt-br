@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4e61a15b86d1d2d05889253f615eec0865c87a70
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878945"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102520380"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com Azure Machine Learning
 
@@ -189,7 +189,6 @@ Azure Machine Learning cria recursos em sua assinatura do (cliente), mas alguns 
  Nos cenários a seguir, talvez seja necessário solicitar uma concessão de cota na assinatura de propriedade da Microsoft:
 
 * Espaço de trabalho habilitado para link privado do Azure com uma chave gerenciada pelo cliente (CMK)
-* Registro de Contêiner do Azure para o workspace atrás da rede virtual
 * Como anexar um cluster do Serviço de Kubernetes do Azure habilitado para Link Privado ao workspace
 
 Para solicitar uma concessão para esses cenários, use as seguintes etapas:

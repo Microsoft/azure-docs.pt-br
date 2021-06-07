@@ -4,10 +4,10 @@ description: Mostra como os tipos de recurso lidam com a exclusão de modo compl
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.openlocfilehash: e0c67bfcda81ad128e0018c4ab37c4b0cbe680f0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184018"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
@@ -920,7 +920,7 @@ Pule para um namespace de provedor de recursos:
 > | Departments | Não |
 > | Dimensões | Não |
 > | EnrollmentAccounts | Não |
-> | Port | Não |
+> | Exportações | Não |
 > | ExternalBillingAccounts | Não |
 > | ExternalBillingAccounts/alertas | Não |
 > | ExternalBillingAccounts/dimensões | Não |

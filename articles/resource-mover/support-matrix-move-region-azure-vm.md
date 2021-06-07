@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
 ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99980483"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
@@ -127,10 +127,10 @@ Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados
 Tamanho mínimo do disco de dados |  2 GB para discos gerenciados |
 Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior do que o máximo, a preparação não será atualizada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a preparação poderá ser atualizada, mas você poderá ver pontos de recuperação ligeiramente atrasados.
-Disco de dados (conta de armazenamento Standard) | Não há suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
+Disco de dados (conta de armazenamento Standard) | Sem suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
 Disco de dados (conta de armazenamento Premium) | Sem suporte | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
-Disco gerenciado (Standard) | Suportado  |
-Disco gerenciado (Premium) | Suportado |
+Disco gerenciado (Standard) | Com suporte  |
+Disco gerenciado (Premium) | Com suporte |
 SSD Standard | Com suporte |
 Geração 2 (inicialização de UEFI) | Com suporte
 Conta de armazenamento de diagnóstico de inicialização | Sem suporte | Habilite-a novamente depois de mover a VM para a região de destino.
@@ -154,14 +154,14 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1\.684 GB por
 
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-NIC | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação. 
-Balanceador de carga interno | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
-Balanceador de carga público | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+NIC | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação. 
+Balanceador de carga interno | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+Balanceador de carga público | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Endereço IP público | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.<br/><br/> O endereço IP público é específico da região e não será retido na região de destino após a movimentação. Tenha isso em mente ao modificar as configurações de rede (incluindo regras de balanceamento de carga) no local de destino.
-Grupo de segurança de rede | Suportado | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
+Grupo de segurança de rede | Com suporte | Especifique um recurso existente na região de destino ou crie um novo recurso durante o processo de preparação.  
 Endereço IP reservado (estático) | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem. <br/><br/> Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM de destino.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, a movimentação de início para a VM falhará.
 Endereço IP dinâmico | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem.<br/><br/> Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM de destino também será dinâmica por padrão.
-Configurações de IP | Suportado | Você não pode configurar isso no momento. O valor padrão é o valor de origem.
+Configurações de IP | Com suporte | Você não pode configurar isso no momento. O valor padrão é o valor de origem.
 
 ## <a name="outbound-access-requirements"></a>Requisitos de acesso de saída
 

@@ -3,15 +3,15 @@ title: Link privado-banco de dados do Azure para MariaDB
 description: Saiba como o link privado funciona para o banco de dados do Azure para MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98665133"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867450"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para o banco de dados do Azure para MariaDB
 
@@ -85,7 +85,8 @@ Depois que o administrador de rede cria o PE (ponto de extremidade particular), 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Casos de uso de link privado para o banco de dados do Azure para MariaDB
 
-Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
+
+Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, [rede virtual emparelhada](../virtual-network/virtual-network-peering-overview.md) na mesma região ou entre regiões, ou via [conexão vnet a vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
 ![Selecione a visão geral do ponto de extremidade privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

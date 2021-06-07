@@ -7,10 +7,10 @@ ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97930779"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurar um compartilhamento de arquivos para anexação do aplicativo MSIX (versão prévia)
@@ -33,7 +33,7 @@ A tabela a seguir fornece um exemplo de quantos recursos uma única imagem MSIX 
 |----------------------|--------------|
 | IOPs de estado estável    | 1 IOPs       |
 | Entrada de inicialização do computador | 10 IOPs      |
-| Latência              | 400 MS       |
+| Latency              | 400 MS       |
 
 Os requisitos podem variar muito dependendo de quantos aplicativos MSIXdos são armazenados na imagem do MSIX. Para imagens MSIX maiores, você precisará alocar mais largura de banda.
 

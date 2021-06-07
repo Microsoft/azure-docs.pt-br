@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96009017"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
@@ -74,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>Configurações de DNS do cluster
 
-Especifique o servidor DNS que o cluster vFXT usa na página **Cluster** de configurações de  >  **rede administrativa** do cluster. As configurações na página incluem:
+Especifique o servidor DNS que o cluster do vFXT usa na página de configuração **Cluster** > **Rede Administrativa**. As configurações na página incluem:
 
 * Endereço do servidor DNS
 * Nome de domínio DNS

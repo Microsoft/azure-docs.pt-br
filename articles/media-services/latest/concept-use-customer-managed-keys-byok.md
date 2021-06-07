@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428547"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101698851"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
 
@@ -42,7 +42,7 @@ Você pode especificar um nome de chave e uma versão de chave, ou apenas um nom
 Os serviços de mídia dão suporte automaticamente à criptografia dupla. Para dados em repouso, a primeira camada de criptografia usa uma chave gerenciada pelo cliente ou uma chave gerenciada da Microsoft, dependendo da `AccountEncryption` configuração da conta.  A segunda camada de criptografia para dados em repouso é fornecida automaticamente usando uma chave gerenciada da Microsoft separada. Para saber mais sobre a criptografia dupla, confira [criptografia dupla do Azure](../../security/fundamentals/double-encryption.md).
 
 > [!NOTE]
-> A criptografia dupla é habilitada automaticamente na conta dos serviços de mídia. No entanto, você precisa configurar a chave gerenciada pelo cliente e a criptografia dupla em sua conta de armazenamento separadamente. Consulte [Storege Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+> A criptografia dupla é habilitada automaticamente na conta dos serviços de mídia. No entanto, você precisa configurar a chave gerenciada pelo cliente e a criptografia dupla em sua conta de armazenamento separadamente. Consulte [Storege Encryption](../../storage/common/storage-service-encryption.md).
 
 ## <a name="tutorials"></a>Tutoriais
 

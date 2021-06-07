@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7195a126938deabf542e6fa3e52b72c2efdddac2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92515212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: integração do Azure Active Directory com o Recognize
@@ -49,11 +49,11 @@ Para configurar a integração do Recognize ao Azure AD, você precisará adicio
 
 **Para adicionar o Recognize da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Recognize ao Azure AD, você precisará adicio
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Recognize** , selecione **Recognize** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Recognize**, selecione **Recognize** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Recognize na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Recognize, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Recognize, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Recognize.
 
 Para configurar e testar o logon único do Azure AD com o Recognize, você precisa concluir os seguintes blocos de construção:
@@ -85,28 +85,28 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Recognize, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Recognize** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Recognize**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , se você tiver um **arquivo de metadados do provedor de serviços** , execute as seguintes etapas:
+4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
     >[!NOTE]
-    >Você obterá o **arquivo de metadados do provedor de serviço** , da seção **Configurar o logon único do Recognize** do tutorial.
+    >Você obterá o **arquivo de metadados do provedor de serviço**, da seção **Configurar o logon único do Recognize** do tutorial.
 
-    a. Clique em **Carregar arquivo de metadados** .
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
-    b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar** .
+    b. Clique no **logotipo da pasta** para selecionar o arquivo de metadados e depois em **Carregar**.
 
     ![Escolha o arquivo de metadados](common/browse-upload-metadata.png)
 
@@ -114,16 +114,16 @@ Para configurar o logon único do Azure AD com o Recognize, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Recognize](common/sp-identifier.png)
 
-     Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/sso`
+     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/sso`
 
     > [!Note]
     > Se o valor de **Identificador** não for preenchido automaticamente, você o receberá ao abrir a URL de metadados do provedor de serviços na seção "Configurações de SSO", explicada posteriormente na seção **Configurar o logon único do Recognize** do tutorial. O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Recognize](mailto:support@recognizeapp.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Recognize** , copie as URLs corretas, de acordo com seus requisitos.
+6. Na seção **Configurar o Recognize**, copie as URLs corretas, de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -137,31 +137,31 @@ Para configurar o logon único do Azure AD com o Recognize, execute as seguintes
 
 1. Em uma janela diferente do navegador da Web, entre no locatário do Recognize como um administrador.
 
-2. No canto superior direito, clique em **Menu** . Vá para **Administrador da Empresa** .
+2. No canto superior direito, clique em **Menu**. Vá para **Administrador da Empresa**.
    
     ![Captura de tela que mostra a opção Administrador da Empresa selecionada no menu Configurações.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-3. No painel de navegação esquerdo, clique em **Configurações** .
+3. No painel de navegação esquerdo, clique em **Configurações**.
    
     ![Captura de tela que mostra a opção Configurações selecionada na página de navegação.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-4. Realize as seguintes etapas na seção **Configurações do SSO** .
+4. Realize as seguintes etapas na seção **Configurações do SSO**.
    
     ![Captura de tela que mostra a opção Configurações do SAML, na qual você pode inserir os valores descritos.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. Em **Habilitar SSO** , selecione **ATIVADO** .
+    a. Em **Habilitar SSO**, selecione **ATIVADO**.
 
-    b. Na caixa de texto **ID da Entidade de IdP** , cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
+    b. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
     
-    c. Na caixa de texto **URL de Destino de SSO** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    c. Na caixa de texto **URL de Destino de SSO**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
     
-    d. Na caixa de texto **URL de Destino de SLO** , cole o valor da **URL de Logon** que você copiou do portal do Azure. 
+    d. Na caixa de texto **URL de Destino de SLO**, cole o valor da **URL de Logon** que você copiou do portal do Azure. 
     
-    e. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado** .
+    e. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado**.
     
-    f. Clique no botão **Salvar configurações** . 
+    f. Clique no botão **Salvar configurações**. 
 
-5. Ao lado da seção **Configurações de SSO** , copie a URL em **URL de metadados do provedor de serviço** .
+5. Ao lado da seção **Configurações de SSO**, copie a URL em **URL de metadados do provedor de serviço**.
    
     ![Captura de tela que mostra a opção Observações, na qual você pode copiar os Metadados do Provedor de Serviços.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
@@ -173,7 +173,7 @@ Para configurar o logon único do Azure AD com o Recognize, execute as seguintes
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -185,39 +185,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Recognize.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Recognize** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Recognize**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escolha **Recognize** .
+2. Na lista de aplicativos, escolha **Recognize**.
 
     ![O link do Recognize na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-recognize-test-user"></a>Criar um usuário de teste do Recognize
 
@@ -229,19 +229,19 @@ Este aplicativo não dá suporte ao provisionamento de SCIM, mas tem uma sincron
 
 1. Entre no site de empresa do Recognize como um administrador.
 
-2. No canto superior direito, clique em **Menu** . Vá para **Administrador da Empresa** .
+2. No canto superior direito, clique em **Menu**. Vá para **Administrador da Empresa**.
 
-3. No painel de navegação esquerdo, clique em **Configurações** .
+3. No painel de navegação esquerdo, clique em **Configurações**.
 
-4. Execute as seguintes etapas na seção **Sincronização de usuário** .
+4. Execute as seguintes etapas na seção **Sincronização de usuário**.
    
     ![Novo usuário](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")
    
-    a. Em **Sincronização habilitada** , selecione **ATIVADO** .
+    a. Em **Sincronização habilitada**, selecione **ATIVADO**.
    
-    b. Em **Escolher o provedor de sincronização** , selecione **Microsoft / Office 365** .
+    b. Em **Escolher o provedor de sincronização**, selecione **Microsoft / Office 365**.
    
-    c. Clique em **Executar Sincronização de Usuário** .
+    c. Clique em **Executar Sincronização de Usuário**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490774"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usar o emulador azurite para o desenvolvimento de armazenamento local do Azure
@@ -136,7 +136,7 @@ Depois de instalar e compilar o azurite, consulte [executar o azurite de uma lin
 > [!NOTE]
 > Azurite não pode ser executado na linha de comando se você instalou apenas a extensão Visual Studio Code. Em vez disso, use a paleta de comandos Visual Studio Code. Para obter mais informações, consulte [instalar e executar a extensão de Visual Studio Code azurite](#install-and-run-the-azurite-visual-studio-code-extension).
 
-Para começar imediatamente com a linha de comando, crie um diretório chamado *c:\azurite*e, em seguida, inicie o azurite emitindo o seguinte comando:
+Para começar imediatamente com a linha de comando, crie um diretório chamado *c:\azurite* e, em seguida, inicie o azurite emitindo o seguinte comando:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
@@ -148,7 +148,7 @@ Esse comando informa ao azurite para armazenar todos os dados em um diretório e
 
 Esta seção detalha as opções de linha de comando disponíveis ao iniciar o azurite.
 
-### <a name="help"></a>Ajuda
+### <a name="help"></a>Help
 
 **Opcional** -Obtenha ajuda de linha de comando usando a `-h` `--help` opção ou.
 
@@ -480,7 +480,7 @@ Em Gerenciador de Armazenamento, conecte-se ao azurite seguindo estas etapas:
 
 #### <a name="connect-to-azurite-using-https"></a>Conectar-se ao azurite usando HTTPS
 
-Por padrão Gerenciador de Armazenamento não abrirá um ponto de extremidade HTTPS que usa um certificado autoassinado. Se você estiver executando o azurite com HTTPS, provavelmente está usando um certificado autoassinado. Em Gerenciador de armazenamento, importe certificados SSL por meio da caixa de diálogo **Editar**  ->  certificados de importação de**certificados SSL**  ->  **Import Certificates** .
+Por padrão Gerenciador de Armazenamento não abrirá um ponto de extremidade HTTPS que usa um certificado autoassinado. Se você estiver executando o azurite com HTTPS, provavelmente está usando um certificado autoassinado. Em Gerenciador de armazenamento, importe certificados SSL por meio da caixa de diálogo **Editar**  ->  certificados de importação de **certificados SSL**  ->   .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importar certificado para Gerenciador de Armazenamento
 

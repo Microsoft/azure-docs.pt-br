@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.custom: devx-track-js
 ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99509394"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Início Rápido: Criar um índice de Azure Cognitive Search usando o SDK do JavaScript

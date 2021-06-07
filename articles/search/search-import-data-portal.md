@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935204"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de importação de dados para o Azure Pesquisa Cognitiva
@@ -69,7 +69,7 @@ Você deve criar essa tabela ou exibição única antes de executar o assistente
 | **SQL Server na VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. Para obter instruções, consulte [conexão de VM do SQL para o Azure pesquisa cognitiva](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para achatar ou filtrar o conjunto de linhas ou deixar a consulta em branco. Uma consulta não é necessária neste assistente.|
 | [**Armazenamento do Blobs do Azure**](search-howto-indexing-azure-blob-storage.md) |Os requisitos incluem a conta de armazenamento e um contêiner. Como opção, se os nomes de blob seguirem uma convenção de nomenclatura virtual para fins de agrupamento, você poderá especificar a parte do diretório virtual do nome como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md) para saber mais. |
-| [**Armazenamento de tabelas do Azure**](search-howto-indexing-azure-tables.md) |Os requisitos incluem a conta de armazenamento e um nome de tabela. Como opção, você pode especificar uma consulta para recuperar um subconjunto das tabelas. Confira [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md) para saber mais. |
+| [**Armazenamento de Tabelas do Azure**](search-howto-indexing-azure-tables.md) |Os requisitos incluem a conta de armazenamento e um nome de tabela. Como opção, você pode especificar uma consulta para recuperar um subconjunto das tabelas. Confira [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md) para saber mais. |
 
 ## <a name="wizard-output"></a>Saída do assistente
 
@@ -79,7 +79,7 @@ Nos bastidores, o assistente cria, configura e invoca os objetos a seguir. Depoi
 |--------|-------------|
 | [Fonte de Dados](/rest/api/searchservice/create-data-source)  | Persiste informações de conexão para dados de origem, incluindo credenciais. Um objeto de fonte de dados é usado exclusivamente com indexadores. | 
 | [Index](/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
-| [Conjunto de habilidades](/rest/api/searchservice/create-skillset) | Um conjunto completo de instruções para manipular, transformar e formatar conteúdo, incluindo a análise e extração de informações de arquivos de imagem. Exceto por estruturas muito simples e limitadas, ele inclui uma referência a um recurso de serviços cognitivas que fornece enriquecimento. Opcionalmente, ele também pode conter uma definição de repositório de conhecimento.  | 
+| [Qualificações](/rest/api/searchservice/create-skillset) | Um conjunto completo de instruções para manipular, transformar e formatar conteúdo, incluindo a análise e extração de informações de arquivos de imagem. Exceto por estruturas muito simples e limitadas, ele inclui uma referência a um recurso de serviços cognitivas que fornece enriquecimento. Opcionalmente, ele também pode conter uma definição de repositório de conhecimento.  | 
 | [Indexador](/rest/api/searchservice/create-indexer)  | Um objeto de configuração que especifica uma fonte de dados, um índice de destino, um conjunto de qualificações opcional, um agendamento opcional e definições de configuração opcionais para a transmissão de erro e a codificação de base 64. |
 
 

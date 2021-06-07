@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
 ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98747283"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemplos de CLI para o Serviço de Aplicativo do Azure

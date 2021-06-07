@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 0414aaad5a1cf6edb9c2152eed70f8753946cca1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546425"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para MySQL-servidor único

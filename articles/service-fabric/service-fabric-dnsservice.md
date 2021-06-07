@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91268036"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric

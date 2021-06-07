@@ -11,10 +11,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97386860"
 ---
 # <a name="sub-journeys"></a>Sub-viagens
@@ -124,8 +124,8 @@ O elemento **Subjornadas** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O identificador de sub jornada que pode ser usado pelo percurso do usuário para fazer referência à sub-rotina na política. O elemento **SubJourneyReferenceId** do elemento [candidato](userjourneys.md#journeylist) aponta para este atributo. |
-| Tipo | Sim | Valores possíveis: `Call` , ou `Transfer` . Para obter mais informações, consulte [ramificação de jornada do usuário](#user-journey-branching)|
+| ID | Sim | O identificador de sub jornada que pode ser usado pelo percurso do usuário para fazer referência à sub-rotina na política. O elemento **SubJourneyReferenceId** do elemento [candidato](userjourneys.md#journeylist) aponta para este atributo. |
+| Type | Sim | Valores possíveis: `Call` , ou `Transfer` . Para obter mais informações, consulte [ramificação de jornada do usuário](#user-journey-branching)|
 
 O elemento **subjornada** contém o seguinte elemento:
 

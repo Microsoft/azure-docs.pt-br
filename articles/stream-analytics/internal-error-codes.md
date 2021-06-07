@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: ddea74997850ff080f6c82d55d1be3cfb851deda
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019373"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Códigos de erro interno do Azure Stream Analytics

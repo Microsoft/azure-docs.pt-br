@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397613"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuração de infraestrutura do gateway de aplicativo
@@ -37,7 +37,7 @@ O SKU do gateway de aplicativo (Standard ou WAF) pode dar suporte a até 32 inst
 
 O gateway de aplicativo (Standard_v2 ou WAF_v2 SKU) pode dar suporte a até 125 instâncias (125 instância endereços IP + 1 IP de front-end privado + 5 Azure reservado) – portanto, é recomendado um tamanho mínimo de sub-rede de/24
 
-## <a name="network-security-groups"></a>Grupos de Segurança de Rede
+## <a name="network-security-groups"></a>Grupos de segurança de rede
 
 Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há algumas restrições:
 
@@ -78,7 +78,7 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
    > Uma configuração incorreta da tabela de rotas pode resultar no roteamento assimétrico no gateway de aplicativo v2. Verifique se todo o tráfego do plano de gerenciamento/controle é enviado diretamente para a Internet e não por meio de um dispositivo virtual. O log e as métricas também podem ser afetados.
 
 
-  **Cenário 1** : UDR para desabilitar a propagação de rota de Border Gateway Protocol (BGP) para a sub-rede do gateway de aplicativo
+  **Cenário 1**: UDR para desabilitar a propagação de rota de Border Gateway Protocol (BGP) para a sub-rede do gateway de aplicativo
 
    Às vezes, a rota de gateway padrão (0.0.0.0/0) é anunciada por meio dos gateways de ExpressRoute ou VPN associados à rede virtual do gateway de aplicativo. Isso interrompe o tráfego do plano de gerenciamento, que requer um caminho direto para a Internet. Nesses cenários, um UDR pode ser usado para desabilitar a propagação de rota BGP. 
 
@@ -90,11 +90,11 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
 
    Habilitar o UDR para esse cenário não deve interromper nenhuma configuração existente.
 
-  **Cenário 2** : UDR para direcionar 0.0.0.0/0 para a Internet
+  **Cenário 2**: UDR para direcionar 0.0.0.0/0 para a Internet
 
    Você pode criar um UDR para enviar o tráfego 0.0.0.0/0 diretamente para a Internet. 
 
-  **Cenário 3** : UDR para o serviço kubernetes do Azure com kubenet
+  **Cenário 3**: UDR para o serviço kubernetes do Azure com kubenet
 
   Se você estiver usando o kubenet com o AKS (serviço kubernetes do Azure) e o AGIC (controlador de entrada do gateway de aplicativo), precisará de uma tabela de rotas para permitir que o tráfego enviado para o pods do gateway de aplicativo seja roteado para o nó correto. Isso não será necessário se você usar o CNI do Azure. 
 
@@ -109,7 +109,7 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
     
   **v2 cenários sem suporte**
 
-  **Cenário 1** : UDR para dispositivos virtuais
+  **Cenário 1**: UDR para dispositivos virtuais
 
   Qualquer cenário em que o 0.0.0.0/0 precisa ser redirecionado por meio de qualquer dispositivo virtual, uma rede virtual hub/spoke ou local (túnel forçado) não tem suporte para a v2.
 

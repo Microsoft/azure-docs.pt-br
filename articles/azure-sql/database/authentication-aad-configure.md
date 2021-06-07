@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094936"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643413"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o Azure SQL
 
@@ -115,7 +115,7 @@ Para conceder ao SQL Instância Gerenciada permissão de leitura do AD do Azure 
 
     O processo de alteração do administrador pode levar vários minutos. Em seguida, o novo administrador é exibido na caixa de administração do Active Directory.
 
-Depois de provisionar um administrador do Azure AD para seu Instância Gerenciada do SQL, você pode começar a criar entidades de segurança do servidor do Azure AD (logons) com a sintaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create login</a> . Para obter mais informações, consulte [visão geral do SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Depois de provisionar um administrador do Azure AD para seu Instância Gerenciada do SQL, você pode começar a criar entidades de segurança do servidor do Azure AD (logons) com a sintaxe [Create login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . Para obter mais informações, consulte [visão geral do SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Para remover um Administrador mais tarde, na parte superior da página Administrador do Active Directory, selecione **Remover administrador** e, em seguida, selecione **Salvar**.
@@ -345,8 +345,8 @@ Em todos os computadores cliente, dos quais seus aplicativos ou usuários se con
 - .NET Framework 4,6 ou posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
 - Azure Active Directory biblioteca de autenticação para SQL Server (*ADAL.DLL*). Abaixo estão os links de download para instalar o driver SSMS, ODBC e OLE DB mais recente que contém a biblioteca *ADAL.DLL* .
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
-  - [Driver OLE DB 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [Driver OLE DB 18 para SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 Você pode atender a esses requisitos:
 
@@ -357,7 +357,7 @@ Você pode atender a esses requisitos:
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar usuários contidos mapeados para identidades do Azure AD
 
-Como o SQL Instância Gerenciada dá suporte a entidades de segurança do Azure AD Server (logons), o uso de usuários de banco de dados independente não é necessário. As entidades de segurança do servidor do Azure AD (logons) permitem que você crie logons de usuários, grupos ou aplicativos do Azure AD. Isso significa que você pode autenticar com o seu Instância Gerenciada SQL usando o logon do servidor do Azure AD em vez de um usuário de banco de dados independente. Para obter mais informações, consulte [visão geral do SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para obter a sintaxe na criação de entidades de segurança do servidor do Azure AD (logons), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+Como o SQL Instância Gerenciada dá suporte a entidades de segurança do Azure AD Server (logons), o uso de usuários de banco de dados independente não é necessário. As entidades de segurança do servidor do Azure AD (logons) permitem criar logons de usuários, grupos ou aplicativos do Azure AD. Isso significa que você pode autenticar com o seu Instância Gerenciada SQL usando o logon do servidor do Azure AD em vez de um usuário de banco de dados independente. Para obter mais informações, consulte [visão geral do SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para obter a sintaxe na criação de entidades de segurança do servidor do Azure AD (logons), consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 No entanto, usar Azure Active Directory autenticação com o banco de dados SQL e o Azure Synapse requer o uso de usuários de banco de dados independente com base em uma identidade do Azure Um usuário de banco de dados independente não tem um logon no banco de dados mestre e é mapeado para uma identidade no Azure AD que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

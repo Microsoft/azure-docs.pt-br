@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4b8c52b03cb6dec6096565e9eac26b7b2c4a30e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89073243"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável
@@ -134,4 +134,4 @@ Na primeira parte da série, você aprendeu como criar uma conta de armazenament
 Vá para a parte dois da série para carregar grandes quantidades de dados para uma conta de armazenamento usando repetição exponencial e paralelismo.
 
 > [!div class="nextstepaction"]
-> [Carregar grandes quantidades de arquivos grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)
+> [Fazer upload de grandes quantidades de arquivos grandes em paralelo para uma conta de armazenamento](storage-blob-scalable-app-upload-files.md)

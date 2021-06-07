@@ -13,10 +13,10 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081052"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gerenciamento de API do Azure
@@ -52,7 +52,7 @@ A **capacidade** é um indicador de carga em uma instância de gerenciamento de 
 
 A **capacidade** total de é uma média de seus próprios valores de cada unidade de uma instância de gerenciamento de API.
 
-Embora a **métrica de capacidade** seja projetada para a superfície de problemas com sua instância de gerenciamento de API, há casos em que os problemas não serão refletidos nas alterações na **métrica de capacidade** .
+Embora a **métrica de capacidade** seja projetada para a superfície de problemas com sua instância de gerenciamento de API, há casos em que os problemas não serão refletidos nas alterações na **métrica de capacidade**.
 
 ## <a name="capacity-metric-behavior"></a>Comportamento da métrica de capacidade
 
@@ -62,7 +62,7 @@ Por causa de sua construção, a capacidade **real** pode ser afetada por muitas
 + tamanho de uma solicitação e resposta
 + políticas configuradas em cada API ou número de pedidos de envio de clientes.
 
-Quanto mais complexas forem as operações nas solicitações, maior será o consumo de **capacidade** . Por exemplo, políticas de transformação complexas consomem muito mais CPU do que um simples encaminhamento de solicitação. Respostas de serviço de back-end lentas aumentarão também.
+Quanto mais complexas forem as operações nas solicitações, maior será o consumo de **capacidade**. Por exemplo, políticas de transformação complexas consomem muito mais CPU do que um simples encaminhamento de solicitação. Respostas de serviço de back-end lentas aumentarão também.
 
 > [!IMPORTANT]
 > **Capacidade** não é uma medida direta do número de solicitações processadas.
@@ -78,8 +78,8 @@ A **métrica** de baixa capacidade não significa necessariamente que sua instâ
 ![Métrica de capacidade](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navegue para sua instância do APIM no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Métricas** .
-3. Na seção roxa, selecione a métrica **Capacidade** das métricas disponíveis e deixe a agregação padrão **Média** .
+2. Selecione **Métricas**.
+3. Na seção roxa, selecione a métrica **Capacidade** das métricas disponíveis e deixe a agregação padrão **Média**.
 
     > [!TIP]
     > Você deve sempre analisar uma divisão de **capacidade** por local para evitar interpretações erradas.

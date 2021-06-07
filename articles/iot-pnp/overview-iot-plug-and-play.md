@@ -3,18 +3,18 @@ title: Introdução ao IoT Plug and Play | Microsoft Docs
 description: Saiba mais sobre o IoT Plug and Play. O IoT Plug and Play baseia-se em uma linguagem de programação de modelagem aberta que permite aos dispositivos IoT inteligentes declarar as respectivas funcionalidades. Os dispositivos IoT apresentam essa declaração, chamada de modelo de dispositivo, quando se conectam a soluções de nuvem. A solução de nuvem pode, então, entender automaticamente o dispositivo e começar a interagir com ele, tudo sem que nenhum código seja escrito.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 03/21/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 91a09db16524ebc7e4c04069b69b1c42c67538c6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594562"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739702"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é IoT Plug and Play?
 
@@ -68,7 +68,7 @@ Como desenvolvedor de dispositivos, você pode desenvolver um produto de hardwar
 
 ## <a name="device-certification"></a>Certificado de dispositivo
 
-O [programa de certificação de dispositivo do IoT Plug and Play](howto-certify-device.md) verifica se um dispositivo atende aos requisitos de certificação do IoT Plug and Play. Você pode adicionar um dispositivo certificado ao [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/devicecatalog).
+O [programa de certificação de dispositivo do IoT Plug and Play](../certification/program-requirements-pnp.md) verifica se um dispositivo atende aos requisitos de certificação do IoT Plug and Play. Você pode adicionar um dispositivo certificado ao [catálogo de dispositivos Azure Certified para IoT](https://aka.ms/devicecatalog).
 
 ## <a name="next-steps"></a>Próximas etapas
 

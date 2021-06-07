@@ -4,12 +4,12 @@ description: Saiba como criar uma função JavaScript da linha de comando e publ
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b14b7d9f97be12a73ffcb2416a00cd4a51bca5f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937239"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787531"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função JavaScript no Azure da linha de comando
 
@@ -96,7 +96,7 @@ Se preferir, você poderá ir diretamente para [Executar a função localmente](
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função recebe dados de solicitação na variável `req`, conforme definido em *function.json*. O objeto de retorno, definido como `$return` em *function.json*, é a resposta. Para saber mais, confira [Gatilhos e associações HTTP do Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de solicitação na variável `req`, conforme definido em *function.json*. A resposta está definida como `res` em *function.json* e pode ser acessada usando `context.res`. Para saber mais, confira [Gatilhos e associações HTTP do Azure Functions](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### <a name="functionjson"></a>function.json
 
@@ -118,7 +118,7 @@ Cada associação exige uma direção, um tipo e um nome exclusivo. O gatilho HT
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    O comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) cria o aplicativo de funções no Azure. Se você estiver usando o Node.js 10, altere também `--runtime-version` para `10`.
+    O comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) cria o aplicativo de funções no Azure. Se você estiver usando o Node.js 10, altere também `--runtime-version` para `10`.
     
     # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
     

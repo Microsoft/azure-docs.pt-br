@@ -12,10 +12,10 @@ ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99253095"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gerenciamento de consentimento para aplicativos e avaliação de solicitações de consentimento

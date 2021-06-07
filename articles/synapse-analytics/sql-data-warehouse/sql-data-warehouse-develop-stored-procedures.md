@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e28eeac131c737d673cac947a3fda30239180a62
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98673579"
 ---
 # <a name="using-stored-procedures-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Usando procedimentos armazenados para pools dedicados do SQL no Azure Synapse Analytics

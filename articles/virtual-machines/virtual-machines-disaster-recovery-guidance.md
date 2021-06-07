@@ -8,10 +8,10 @@ ms.date: 05/31/2017
 ms.author: cynthn
 ms.reviewer: ''
 ms.openlocfilehash: 5c6036a65fa449986f5c085202fefa752e3a414a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98701026"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma interrupção do serviço do Azure impactar as VMs do Azure

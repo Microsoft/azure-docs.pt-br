@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 9c192a5f84f36fbdea0dd1d280928aa40186d4ee
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386978"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA usando o Azure Data Factory
@@ -291,10 +291,10 @@ NVARCHAR | String
 CLOB | Byte[]
 ALPHANUM | String
 BLOB | Byte[]
-DATE | Datetime
+DATE | DateTime
 TIME | TimeSpan
-timestamp | Datetime
-SECONDDATE | Datetime
+timestamp | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Há algumas limitações conhecidas ao copiar dados do SAP HANA:

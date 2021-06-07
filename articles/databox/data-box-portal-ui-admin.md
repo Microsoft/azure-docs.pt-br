@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337998"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
@@ -63,7 +63,7 @@ Você talvez queira excluir um pedido quando ele é concluído. O pedido contém
 
 Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Execute as etapas a seguir para excluir um pedido.
 
-1. Vá para **todos os recursos**. Pesquise seu pedido.
+1. Acesse **Todos os recursos**. Pesquise seu pedido.
 
     ![Pesquisar ordens](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 

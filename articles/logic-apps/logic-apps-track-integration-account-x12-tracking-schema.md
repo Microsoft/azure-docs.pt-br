@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76905293"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens X12 em aplicativos lógicos do Azure
@@ -74,7 +74,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | isTechnicalAcknowledgmentExpected | Sim | Boolean | Se a confirmação técnica está configurada no contrato X12 |
 | isFunctionalAcknowledgmentExpected | Sim | Boolean | Se a confirmação funcional está configurada no contrato X12 |
 | needAk2LoopForValidMessages | Sim | Boolean | Se o loop AK2 é necessário para uma mensagem válida |
-| segmentsCount | Não | Integer | Número de segmentos no conjunto de transações X12 |
+| segmentsCount | Não | Inteiro | Número de segmentos no conjunto de transações X12 |
 |||||
 
 ## <a name="x12-transaction-set-acknowledgment-tracking-schema"></a>Esquema de acompanhamento de confirmação do conjunto de transações X12
@@ -181,7 +181,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | direction | Sim | Enumeração | Direção do fluxo de mensagens, que é `receive` ou `send` |
 | interchangeControlNumber | Não | String | Número de controle de intercâmbio |
 | isaSegment | Não | String | Segmento ISA de mensagem |
-| isTechnicalAcknowledgmentExpected | Booliano | Se a confirmação técnica está configurada no contrato X12  |
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no contrato X12  |
 | isMessageFailed | Sim | Boolean | Se a mensagem X12 falhou |
 | isa09 | Não | String | Data de intercâmbio do documento X12 |
 | isa10 | Não | String | Horário de intercâmbio do documento X12 |
@@ -345,7 +345,7 @@ Você pode usar esses esquemas de acompanhamento X12 em sua conta de integraçã
 | gsSegment | Não | String | Mesmo que o número de controle de grupo funcional, mas preenchido somente em casos específicos |
 | respondingfunctionalGroupControlNumber | Não | String | Número de controle do grupo funcional original |
 | respondingFunctionalGroupId | Não | String | Mapeia para AK101 na ID do grupo funcional de confirmação |
-| isMessageFailed | Booliano | Se a mensagem X12 falhou |
+| isMessageFailed | Boolean | Se a mensagem X12 falhou |
 | statusCode | Sim | Enumeração | Código de status de confirmação com estes valores permitidos: `Accepted` , `Rejected` e `AcceptedWithErrors` |
 | processingStatus | Sim | Enumeração | Status de processamento da confirmação com estes valores permitidos: `Received` , `Generated` e `Sent` |
 | ak903 | Não | String | Número de conjuntos de transações recebidos |

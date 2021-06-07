@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
 ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655333"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Conectar o Windows Defender firewall com segurança avançada ao Azure Sentinel

@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea2baa897efb5c1a01b32e92e76a69c9d1f231c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497844"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775467"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implantar um aplicativo gerenciado no catálogo de serviços com a CLI do Azure
 
@@ -34,7 +34,7 @@ Este script usa o comando a seguir para implantar o aplicativo gerenciado. Cada 
 
 | Comando | Observações |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Crie um aplicativo gerenciado. Forneça a ID de definição e os parâmetros para o modelo. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | Crie um aplicativo gerenciado. Forneça a ID de definição e os parâmetros para o modelo. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

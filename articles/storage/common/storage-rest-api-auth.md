@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010895"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
@@ -66,7 +66,7 @@ Examine a referência para a operação [ListContainers](/rest/api/storageservic
 
 **Método de solicitação**: Get. Esse verbo é o método HTTP que você especifica como uma propriedade do objeto de solicitação. Outros valores para esse verbo incluem HEAD, PUT e DELETE, dependendo da API chamada.
 
-**URI da solicitação**: `https://myaccount.blob.core.windows.net/?comp=list` .O URI de solicitação é criado do ponto de extremidade da conta de armazenamento de BLOBs `https://myaccount.blob.core.windows.net` e da cadeia de caracteres do recurso `/?comp=list` .
+**URI da solicitação**: `https://myaccount.blob.core.windows.net/?comp=list` .  O URI de solicitação é criado do ponto de extremidade da conta de armazenamento de BLOBs `https://myaccount.blob.core.windows.net` e da cadeia de caracteres do recurso `/?comp=list` .
 
 [Parâmetros de URI](/rest/api/storageservices/List-Containers2#uri-parameters): há parâmetros de consulta adicionais que você pode usar ao chamar ListContainers. Alguns desses parâmetros são *timeout* para a chamada (em segundos) e *prefix*, que é usado para filtragem.
 
@@ -286,24 +286,24 @@ Este snippet de código mostra o formato da cadeia de caracteres de assinatura d
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 A maioria desses campos é usada raramente. Para o armazenamento de Blobs, você pode especificar VERBO, md5, tamanho do conteúdo, cabeçalhos canonizados e recurso canonizado. Você pode deixar os outros em branco (mas colocar `\n` para que ele saiba que estão em branco).
 
-O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonização](https://en.wikipedia.org/wiki/Canonicalization): * Na ciência da computação, a canonização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
+O que são CanonicalizedHeaders e CanonicalizedResource? Boa pergunta. Na verdade, o que canonizado significa? Não é uma palavra comum nesse contexto. Aqui está o que a [Wikipédia diz (em inglês) sobre a canonização](https://en.wikipedia.org/wiki/Canonicalization): *Na ciência da computação, a canonização (às vezes, padronização ou normalização) é um processo de conversão de dados que tem mais de uma possível representação em forma canônica, "normal" ou "padrão".* Em linguagem normal, isso significa fazer a lista de itens (como cabeçalhos no caso de cabeçalhos canonizados) e padronizá-los em um formato obrigatório. Basicamente, a Microsoft decidiu-se por um formato e você precisa corresponder a ele.
 
 Vamos começar com esses dois campos canonizados, pois eles são necessários para criar o cabeçalho de autorização.
 

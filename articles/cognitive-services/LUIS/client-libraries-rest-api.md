@@ -2,7 +2,7 @@
 title: 'Início Rápido: Bibliotecas de clientes do SDK do LUIS (Reconhecimento vocal) e API REST'
 description: Crie e consulte um aplicativo do LUIS com as bibliotecas de cliente do SDK do LUIS e a API REST.
 ms.topic: quickstart
-ms.date: 12/09/2020
+ms.date: 03/29/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
@@ -11,12 +11,12 @@ author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: 7ff5844cf9f1bce45df438fc00e24da28c438b05
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ca45266ce4b8ca784c3d54aafb80a66efaf2a1da
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941507"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278908"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>Início Rápido: Bibliotecas de clientes do LUIS (Reconhecimento vocal) e API REST
 
@@ -61,9 +61,5 @@ Outros erros – se você receber um erro não abordado na lista anterior, infor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a API do LUIS (Reconhecimento Vocal)?](what-is-luis.md)
-* [Novidades](whats-new.md)
-* [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), [exemplos de enunciados](luis-concept-utterance.md) e [entidades predefinidas](luis-reference-prebuilt-entities.md)
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-* Noções básicas do idioma natural: [NLU (reconhecimento de idioma natural) e NLP (processamento de idioma natural)](artificial-intelligence.md)
-* Bots: [Chatbots de IA](luis-csharp-tutorial-bf-v4.md "tutorial do chatbot maker")
+> [!div class="nextstepaction"]
+> [Desenvolvimento de aplicativo iterativo para LUIS](./luis-concept-app-iteration.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
 ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040225"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Acessar e gerenciar arquivos no conector do OneDrive usando aplicativos lógicos do Azure

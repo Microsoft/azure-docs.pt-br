@@ -8,20 +8,19 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 51bfd632e854132be27a7b971cf03e9fe5b00138
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871512"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102504296"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -69,7 +68,7 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
            O uso do clustering de failover do Windows Server com uma configuração de disco compartilhado para a camada DBMS como, por exemplo, [descrito para SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), não tem suporte. Em vez disso, use soluções como:
            - [AlwaysOn do SQL Server](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
-           - [Replicação de sistema do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+           - [Replicação do sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         - Para a recuperação de desastres em regiões do Azure, examine as soluções oferecidas por diferentes fornecedores de DBMS. A maioria deles oferece suporte à replicação assíncrona ou ao envio de logs.
         - Para a camada de aplicativo SAP, determine se você executará seus sistemas de teste de regressão de negócios, que, idealmente, são réplicas de suas implantações de produção, na mesma região do Azure ou em sua região de DR. No segundo caso, você pode direcionar esse sistema de regressão de negócios como o destino de DR para suas implantações de produção.
         - Se você decidir não posicionar os sistemas de não produção no site de recuperação de desastres, procure Azure Site Recovery como um método para replicar a camada do aplicativo SAP na região de recuperação de desastres do Azure. Para obter mais informações, consulte uma [configuração de recuperação de desastre para uma implantação de aplicativo SAP NetWeaver de várias camadas](../../../site-recovery/site-recovery-sap.md).
@@ -139,7 +138,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Se você estiver usando Azure Load Balancer junto com os sistemas operacionais convidados do Linux, verifique se o parâmetro de rede do Linux **net.IPv4.tcp_timestamps** está definido como **0**. Essa recomendação entra em conflito com recomendações em versões mais antigas do [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP agora é atualizada para declarar que esse parâmetro precisa ser definido como **0** para funcionar com os balanceadores de carga do Azure.
         - Considere usar [grupos de posicionamento de proximidade do Azure](../../co-location.md) para obter a latência de rede ideal. Para obter mais informações, consulte [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
    4. Implantações de alta disponibilidade e recuperação de desastres.
-        - Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade do Azure específica, certifique-se de que todas as VMs que executam instâncias de diálogo do SAP ou instâncias de middleware de um único sistema SAP sejam implantadas em um [conjunto de disponibilidade](../../manage-availability.md).
+        - Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade do Azure específica, certifique-se de que todas as VMs que executam instâncias de diálogo do SAP ou instâncias de middleware de um único sistema SAP sejam implantadas em um [conjunto de disponibilidade](../../availability-set-overview.md).
         - Se você não precisar de alta disponibilidade para os serviços centrais do SAP e o DBMS, poderá implantar essas VMs no mesmo conjunto de disponibilidade que a camada de aplicativo SAP.
         - Se você proteger os serviços SAP central e a camada do DBMS para alta disponibilidade usando a replicação passiva, coloque os dois nós para os serviços centrais do SAP em um conjunto de disponibilidade separado e os dois nós DBMS em outro conjunto de disponibilidade.
         - Se você implantar o no Zonas de Disponibilidade do Azure, não poderá usar conjuntos de disponibilidade. Mas você precisa se certificar de implantar os nós de serviços centrais ativos e passivos em duas Zonas de Disponibilidade diferentes. Use Zonas de Disponibilidade que tenham a menor latência entre eles.

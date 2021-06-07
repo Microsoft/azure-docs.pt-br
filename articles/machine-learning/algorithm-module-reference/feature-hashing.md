@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420777"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
@@ -90,7 +90,7 @@ As saídas numéricas também possibilitam o uso de métodos comuns de aprendiza
     
     O tamanho de bit padrão é 10. Para muitos problemas, esse valor é adequado. Talvez seja necessário mais espaço para evitar colisões, dependendo do tamanho do vocabulário de n-grams no texto de treinamento.
     
-1. Para **N-grams** , insira um número que defina o comprimento máximo dos N-grams a serem adicionados ao dicionário de treinamento. Um n-Gram é uma sequência de *n* palavras, tratada como uma unidade exclusiva.
+1. Para **N-grams**, insira um número que defina o comprimento máximo dos N-grams a serem adicionados ao dicionário de treinamento. Um n-Gram é uma sequência de *n* palavras, tratada como uma unidade exclusiva.
 
     Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
 

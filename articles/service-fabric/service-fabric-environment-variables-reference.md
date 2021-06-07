@@ -4,10 +4,10 @@ description: Saiba mais sobre variáveis de ambiente no Azure Service Fabric. Co
 ms.topic: reference
 ms.date: 12/07/2017
 ms.openlocfilehash: b70249daa439b5a631b5a84b10c47f082ce75985
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574574"
 ---
 # <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric

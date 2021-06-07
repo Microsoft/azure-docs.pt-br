@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594297"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -212,7 +212,7 @@ As contas da Microsoft de outros programas, como Xbox, Live e Outlook não devem
 
 #### <a name="monitor-azure-activity"></a>Monitorar a atividade do Azure
 
-O Log de Atividades do Azure fornece um histórico de eventos no nível da assinatura no Azure. Oferece informações sobre quem criou, atualizou ou excluiu quais recursos e quando fez isso. Para obter mais informações, consulte [Auditar e receber notificações sobre ações importantes em sua assinatura do Azure](../../azure-monitor/platform/alerts-activity-log.md).
+O Log de Atividades do Azure fornece um histórico de eventos no nível da assinatura no Azure. Oferece informações sobre quem criou, atualizou ou excluiu quais recursos e quando fez isso. Para obter mais informações, consulte [Auditar e receber notificações sobre ações importantes em sua assinatura do Azure](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Etapas adicionais para as organizações a gerenciar o acesso do Azure
 

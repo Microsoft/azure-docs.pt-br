@@ -9,14 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 468f1b91d6c6157cd2af6de9599bad7f43c1ad8f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042993"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103492550"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gerenciador de segurança do Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 O gerenciador de segurança do Azure IoT Edge é um núcleo de segurança bem delimitado para proteger o dispositivo IoT Edge e todos os seus componentes, abstraindo o hardware de silício seguro. O Gerenciador de segurança é o ponto focal para a proteção de segurança e fornece ponto de integração de tecnologia para OEMs (fabricantes originais de equipamento).
 

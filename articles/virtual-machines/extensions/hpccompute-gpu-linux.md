@@ -1,25 +1,26 @@
 ---
 title: Extensão do Driver GPU NVIDIA — VMs do Linux no Azure
 description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em série N de computação VMs que executam o Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 manager: gwallace
 editor: ''
 ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: amverma
-ms.openlocfilehash: a241086e6a590096cf40cbdb7a84838b14889f73
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fa2b82f3246fd87830010f572ba23aa2df075053
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678281"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102566219"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 

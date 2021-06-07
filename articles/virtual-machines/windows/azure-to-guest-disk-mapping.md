@@ -2,18 +2,19 @@
 title: Como mapear discos do Azure para discos convidados da VM do Windows
 description: Como determinar os discos do Azure que underlaym os discos convidados de uma VM do Windows.
 author: timbasham
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: 373fd26c36bf2f77de6a376f738bd3caaf735f00
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7a4fad066af37217eb42060d5fc5a7ef716770c6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881865"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560983"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Como mapear discos do Azure para discos convidados da VM do Windows
 

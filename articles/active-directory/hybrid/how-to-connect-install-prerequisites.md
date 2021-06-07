@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e758933b80efbf36dc263b7bd7d2d3c45a59a9f8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368958"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102426783"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -102,6 +102,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 
 ### <a name="connectivity"></a>Conectividade
 * O servidor do Azure AD Connect precisa da resolução de DNS para a intranet e a Internet. O servidor DNS deve conseguir resolver nomes tanto para o Active Directory local quanto para os pontos de extremidade do Azure AD.
+* Azure AD Connect requer conectividade de rede para todos os domínios configurados
 * Se você tiver firewalls em sua intranet e precisar abrir portas entre os servidores de Azure AD Connect e seus controladores de domínio, consulte [Azure ad Connect portas](reference-connect-ports.md) para obter mais informações.
 * Se o seu proxy ou firewall limitar quais URLs podem ser acessadas, as URLs documentadas em [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devem ser abertas. Consulte também [as URLs do portal do Azure no seu firewall ou servidor proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Se você estiver usando a nuvem da Microsoft na Alemanha ou na Microsoft Azure Governamental nuvem, consulte [Azure ad Connect as considerações de instâncias do serviço de sincronização](reference-connect-instances.md) para URLs.
@@ -141,7 +142,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 Para obter mais informações, consulte o MSDN sobre o [elemento proxy padrão](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outras
+### <a name="other"></a>Outro
 Opcional: Use uma conta de usuário de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos do componente
@@ -168,8 +169,19 @@ Antes da versão 1.1.614.0, o Azure AD Connect usa TLS 1.0 por padrão para crip
     ```
 1. Se você também quiser habilitar o TLS 1,2 entre o servidor do mecanismo de sincronização e um SQL Server remoto, verifique se você tem as versões necessárias instaladas para o [suporte a TLS 1,2 para Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
+### <a name="dcom-prerequisites-on-the-synchronization-server"></a>Pré-requisitos do DCOM no servidor de sincronização
+Durante a instalação do serviço de sincronização, o Azure AD Connect verifica a presença da seguinte chave do registro:
+
+- HKEY_LOCAL_MACHINE: Software\Microsoft\Ole
+
+Nessa chave do registro, Azure AD Connect verificará se os seguintes valores estão presentes e não corrompedos: 
+
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
+
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a configuração e instalação de federação
-### <a name="windows-remote-management"></a>Gerenciamento Remoto do Windows
+### <a name="windows-remote-management"></a>Windows Remote Management
 Ao usar Azure AD Connect para implantar AD FS ou o proxy de aplicativo Web (WAP), verifique estes requisitos:
 
 * Se o servidor de destino estiver ingressado no domínio, verifique se o Windows Remote gerenciado está habilitado.

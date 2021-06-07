@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf68406d4b0806e1d533e0bb8669a01939387989
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997742"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
@@ -40,7 +40,7 @@ As contas de empresas de TI sofisticadas incluem centenas de parâmetros que def
 | --- | --- | --- | --- |
 | Provisionamento e gerenciamento de contas |Usando a função de servidor dos Serviços de Domínio do Active Directory® (AD DS), crie uma infraestrutura escalonável, segura e fácil de gerenciar para o usuário e para o gerenciamento de recursos, e ofereça suporte para aplicativos habilitados por diretório, como o Microsoft® Exchange Server. <br><br> [Você pode provisionar grupos no AD DS por meio de um gerenciador de identidades](/previous-versions/mim/ff686261(v=ws.10)) <br>[Você pode provisionar usuários no AD DS](/previous-versions/mim/ff686263(v=ws.10)) <br><br> Os administradores podem usar o controle de acesso para gerenciar o acesso de usuários e compartilhar recursos de segurança. No Active Directory, o controle de acesso é administrado no nível do objeto, estabelecendo diferentes níveis de acesso ou permissões para objetos, como Controle total, Gravação, Leitura ou Sem acesso. O controle de acesso no Active Directory determina como os usuários podem usar os objetos do Active Directory. As permissões para objetos no Active Directory são definidas com a configuração mais segura por padrão. |Você precisa criar uma conta para cada usuário que acessará um serviço de nuvem da Microsoft. Você também pode alterar as contas de usuário ou excluí-las quando elas não forem mais necessárias. Por padrão, os usuários não têm permissões de administrador, mas, opcionalmente, você pode atribuí-las. <br><br>  Um dos principais recursos no Active Directory do Azure é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório ou podem ser externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. <br><br>  No centro da solução de gerenciamento de acesso do Active Directory do Azure está o grupo de segurança. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso e o proprietário do recurso pode delegar a outra pessoa o direito de gerenciar a lista de membros de um grupo, como um gerente de departamento ou um administrador de assistência técnica<br> <br> A seção Gerenciando grupos no Azure AD fornece mais informações sobre o gerenciamento de acesso por meio dos grupos. |Estender as identidades do Active Directory para a nuvem através de sincronização e federação |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 O Azure RBAC (controle de acesso baseado em função) do Azure usa funções e políticas de provisionamento para avaliar, testar e impor seus processos de negócios e regras para conceder acesso aos usuários. Os principais administradores criam políticas de provisionamento e atribuem usuários a funções, além de definir conjuntos de qualificações de recursos para essas funções. O RBAC do Azure estende a solução de gerenciamento de identidade para usar processos baseados em software e reduzir a interação manual do usuário no processo de provisionamento.
 O RBAC do Azure permite que a empresa restrinja o número de operações que um indivíduo pode fazer quando eles têm acesso ao portal do Azure. Usando o RBAC do Azure para controlar o acesso ao portal, os administradores de ti delegam acesso de delegação usando as seguintes abordagens de gerenciamento de acesso:
 

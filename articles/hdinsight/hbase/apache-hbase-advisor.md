@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
 ms.openlocfilehash: acb7a6aeb4084949be3b0ad40e770a414a13ab6d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943016"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Conselhos do Apache HBase no Azure HDInsight

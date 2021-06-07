@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: 7f251e6ba2d94c0fcede3387ac12461951de40f1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108738"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerenciar recursos do Armazenamento de Dados do Azure Data Lake Gen1 usando o Storage Explorer
@@ -58,7 +58,7 @@ Você se conectou Gen1 de armazenamento do Data Lake para sua assinatura do Azur
 
 É possível acessar os recursos que não existem na sua assinatura se alguém lhe fornecer o URI para os recursos. Em seguida, você pode se conectar ao Data Lake Storage Gen1 usando o URI depois de entrar.
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 2. No painel esquerdo, expanda **Local e Conectado**.
 3. Clique com o botão direito do mouse em **Data Lake Store** e selecione **Conectar-se ao Data Lake Store**.
 
@@ -76,7 +76,7 @@ Os recursos de uma conta do Data Lake Storage Gen1 contêm pastas e arquivos.
 
 As etapas a seguir ilustram como exibir o conteúdo de uma conta do Data Lake Storage Gen1 no Storage Explorer:
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 2. No painel esquerdo, expanda a assinatura que contém a conta do Data Lake Storage Gen1 que você deseja exibir.
 3. Expanda o **Data Lake Store**.
 4. Clique com o botão direito do mouse no nó da conta Data Lake Storage Gen1 que você deseja visualizar e, em seguida, selecione **Open**. Você também pode clicar duas vezes a conta do Data Lake armazenamento Gen1 para abri-lo.

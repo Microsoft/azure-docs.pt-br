@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95542993"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Mover VMs do Azure para uma zona de disponibilidade em outra região
@@ -55,7 +55,7 @@ Se você quiser mover VMs para uma zona de disponibilidade diferente na mesma re
     - Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - Caso esteja usando regras de NSG (grupo de segurança de rede) para controlar a conectividade de saída, crie essas [regras de marcação de serviço](support-matrix-move-region-azure-vm.md#nsg-rules).
 
-## <a name="select-resources-to-move"></a>Selecionar os recursos a serem movidos
+## <a name="select-resources-to-move"></a>Selecionar recursos a serem movidos
 
 Selecione os recursos que deseja mover.
 

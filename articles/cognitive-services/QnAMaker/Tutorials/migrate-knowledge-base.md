@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350918"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import

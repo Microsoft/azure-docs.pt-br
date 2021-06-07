@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93079692"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
@@ -70,7 +70,7 @@ var azure = require('azure-storage');
 
 ## <a name="add-your-connection-string"></a>Adicionar sua cadeia de conexão
 
-Você pode se conectar à conta do Armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
+Você pode se conectar à conta de armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
 
 ### <a name="add-an-azure-storage-connection"></a>Adicionar uma conexão do Armazenamento do Azure
 
@@ -116,7 +116,7 @@ Você pode aplicar uma filtragem opcional às operações executadas usando `Tab
 function handle (requestOptions, next)
 ```
 
-Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next** , passando um retorno de chamada com a assinatura abaixo:
+Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar **next**, passando um retorno de chamada com a assinatura abaixo:
 
 ```javascript
 function (returnObject, finalCallback, next)
@@ -133,12 +133,12 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey** , que são identificadores exclusivos da entidade.
+Para adicionar uma entidade, primeiro crie um objeto que defina as propriedades da entidade. Todas as entidades devem conter uma **PartitionKey** e **RowKey**, que são identificadores exclusivos da entidade.
 
 * **PartitionKey** - determina a partição na qual a entidade está armazenada.
 * **RowKey** - identifica exclusivamente a entidade dentro da partição.
 
-Ambas, **PartitionKey** e **RowKey** , devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Ambas, **PartitionKey** e **RowKey**, devem ser valores de cadeia de caracteres. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 A seguir, um exemplo de definição de uma entidade. O **dueDate** é definido como um tipo de `Edm.DateTime`. A especificação do tipo é opcional, e os tipos são inferidos, se não forem especificados.
 
@@ -269,7 +269,7 @@ Inspecione as operações adicionadas a um lote exibindo a propriedade `operatio
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperar uma entidade por chave
 
-Para retornar uma entidade específica com base em **PartitionKey** e **RowKey** , use o método **retrieveEntity**.
+Para retornar uma entidade específica com base em **PartitionKey** e **RowKey**, use o método **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){

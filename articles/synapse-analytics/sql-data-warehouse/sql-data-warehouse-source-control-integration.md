@@ -2,20 +2,20 @@
 title: Integração de controle do código-fonte
 description: Experiência de DevOps de banco de dados corporativo para o pool de SQL dedicado com integração do controle do código-fonte nativo usando Azure Repos (Git e GitHub).
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 ms.date: 08/23/2019
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 0eeea04cd42498c5ba066a3a3e977c92b2906292
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 53adbc0288c28c3b18632539c3f812bbca82da92
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738026"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566147"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração do controle do código-fonte para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -51,7 +51,7 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
    ![Clonar repositório](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clonar repositório")
 
-Para obter mais informações sobre como conectar projetos usando o Visual Studio, confira [Conectar-se a projetos no Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). Para obter diretrizes sobre como clonar um repositório usando o Visual Studio, examine o artigo [Clonar um repositório Git de saída](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true). 
+Para obter mais informações sobre como conectar projetos usando o Visual Studio, confira [Conectar-se a projetos no Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). Para obter diretrizes sobre como clonar um repositório usando o Visual Studio, examine o artigo [Clonar um repositório Git de saída](/azure/devops/repos/git/clone?tabs=visual-studio). 
 
 ## <a name="create-and-connect-your-project"></a>Criar e conectar o projeto
 

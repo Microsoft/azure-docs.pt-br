@@ -8,19 +8,21 @@ ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, devx-track-python, devx-track-js
-ms.openlocfilehash: 5c8918995675cae8e70ca9fc1efb0cf4c7cb233b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 77e7edfba94c7b428e59dadfd9f0824608941d7a
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959400"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223244"
 ---
-# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js para dispositivos Linux
+# <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-using-linux-containers"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js usando contêineres Linux
 
-Use o Visual Studio Code para desenvolver código do Node.js e implantá-lo em um dispositivo Linux executando o Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor. Você usará o dispositivo do IoT Edge simulado que criou nos inícios rápidos. Neste tutorial, você aprenderá como:
+Use o Visual Studio Code para desenvolver código em Node.js e implantá-lo em um dispositivo que executa o Azure IoT Edge.
+
+Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor. Você usa o dispositivo IoT Edge que criou nos inícios rápidos. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
@@ -35,7 +37,9 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como desenvolver um módulo em **Node.js** usando o **Visual Studio Code** e como implantá-lo em um **dispositivo Linux**. O IoT Edge não é compatível com módulos do Node.js para dispositivos Windows.
+Este tutorial demonstra como desenvolver um módulo em **Node.js** usando o **Visual Studio Code** e como implantá-lo em um dispositivo IoT Edge.
+
+O IoT Edge não dá suporte a módulos do Node.js usando contêineres Windows.
 
 Use a tabela a seguir para entender suas opções para desenvolver e implantar módulos do Node.js:
 
@@ -44,10 +48,10 @@ Use a tabela a seguir para entender suas opções para desenvolver e implantar m
 | **Linux AMD64** | ![Use o VS Code para módulos do Node.js no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use o VS Code para módulos do Node.js no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos implementados:
+Antes de iniciar este tutorial, você deve ter percorrido o tutorial anterior para configurar o ambiente de desenvolvimento para o desenvolvimento de contêiner Linux: [Desenvolver módulos do IoT Edge usando contêineres Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
-* Um [dispositivo Linux que executa o Azure IoT Edge](quickstart-linux.md)
+* Um dispositivo que executa o Azure IoT Edge. Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
 * Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.

@@ -1,24 +1,14 @@
 ---
-title: 'Início Rápido: Investigar recomendações de segurança'
+title: Investigar as recomendações de segurança
 description: Investigue as recomendações de segurança com o serviço de segurança Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 66b5694823096f0747ea099b631a53198a819816
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e7a9e8160c809fd53b681900b2283778b0023610
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835033"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104780966"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Início Rápido: Investigar recomendações de segurança
 
@@ -46,22 +36,19 @@ A lista de recomendações do Hub IoT exibe todas as recomendações de seguran�
 
 Abra cada recomendação agregada para exibir a descrição detalhada da recomendação, as etapas de correção, a ID do dispositivo de cada dispositivo que disparou uma recomendação. Isso também exibe a severidade da recomendação e o acesso de investigação direto usando o Log Analytics.
 
-1.  Selecione e abra qualquer recomendação de segurança da lista **Hub IoT** \> **Segurança** \> **Recomendações**.
+1.  Selecione e abra qualquer recomendação de segurança da lista **Hub IoT** > **Segurança** > **Recomendações**.
 
 1.  Examine a **descrição** da recomendação, a **severidade**, os **detalhes do dispositivo** de todos os dispositivos que emitiram essa recomendação no período de agregação. 
 
 1.  Depois de examinar as especificidades da recomendação, use as instruções da **etapa de correção manual** para ajudar a corrigir e resolver o problema que causou a recomendação. 
 
-    [:::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Corrigir as recomendações de segurança com o ASC para IoT] (media/quickstart/remediate-security-recommendations-inline.png)":::
-
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Corrigir recomendações de segurança com o ASC para IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1.  Explore os detalhes da recomendação para um dispositivo específico selecionando o dispositivo desejado na página de busca detalhada.
 
-    [:::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Investigar as recomendações de segurança específicas para um dispositivo com o ASC para IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
-
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigar recomendações de segurança específicas para um dispositivo com ASC para IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1.  Se for necessária uma investigação adicional, **investigue a recomendação no Log Analytics** usando o link. 
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

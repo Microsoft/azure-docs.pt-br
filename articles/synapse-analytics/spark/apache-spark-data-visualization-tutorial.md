@@ -9,10 +9,10 @@ ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
 ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942261"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analisar dados com Apache Spark
@@ -38,7 +38,7 @@ Crie um Pool do Apache Spark seguindo o [tutorial Criar um Pool do Apache Spark]
    import pandas as pd
    ```
 
-3. Como os dados brutos estão em um formato parquet, você pode usar o contexto do Spark para efetuar pull do arquivo na memória como um dataframe diretamente. Crie um dataframe do Spark recuperando os dados por meio da API de conjuntos de dados abertos. Aqui, usamos o esquema do dataframe do Spark nas propriedades de *leitura* para inferir os tipos de texto e o esquema.
+3. Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um DataFrame. Crie um DataFrame do Spark recuperando os dados por meio da API do Open Datasets. Aqui, usamos o esquema do dataframe do Spark nas propriedades de *leitura* para inferir os tipos de texto e o esquema.
 
    ```python
    from azureml.opendatasets import NycTlcYellow

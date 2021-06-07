@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/24/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4554ca64dccaa69e3a6fb63e5c28a6bcbb1a32e4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4a341e9772c67da7781a5cec92f286c037c55ce9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930833"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768882"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Criar um repositório de configurações de aplicativo do Azure
 
@@ -69,9 +69,9 @@ Este script usa os comandos a seguir para criar um grupo de recursos e um reposi
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Cria um recurso do repositório de Configuração de Aplicativos. |
-| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Listar chaves de acesso para um repositório de Configurações de Aplicativos. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az appconfig create](/cli/azure/appconfig#az_appconfig_create) | Cria um recurso do repositório de Configuração de Aplicativos. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az_appconfig_credential_list) | Listar chaves de acesso para um repositório de Configurações de Aplicativos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

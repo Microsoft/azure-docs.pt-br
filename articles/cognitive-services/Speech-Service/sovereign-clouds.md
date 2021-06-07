@@ -12,10 +12,10 @@ ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
 ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98061745"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Serviços de fala em nuvens soberanass
@@ -31,7 +31,7 @@ Disponível apenas para entidades do governo dos EUA e seus parceiros. Veja mais
   - Gov. dos EUA – Virgínia
 - **Tipos de preço disponíveis:**
   - Free (F0) e Standard (S0). Veja mais detalhes [aqui](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
-- **Recursos com suporte:**
+- **Recursos compatíveis:**
   - Conversão de fala em texto
     - Fala personalizada (adaptação do modelo acústico (AM) e do modelo de linguagem (LM))
       - [Estúdio de Fala](https://speech.azure.us/)
@@ -84,10 +84,10 @@ Substitua `subscriptionKey` pela sua chave de recurso de fala. Substituir `usGov
 |--|--|
 | **Governo dos EUA do Arizona** | |
 | Conversão de fala em texto | `wss://usgovarizona.stt.speech.azure.us` |
-| Conversão de texto em fala | `https://usgovarizona.tts.speech.azure.us` |
+| Conversão de Texto em Fala | `https://usgovarizona.tts.speech.azure.us` |
 | **Gov. dos EUA – Virgínia** | |
 | Conversão de fala em texto | `wss://usgovvirginia.stt.speech.azure.us` |
-| Conversão de texto em fala | `https://usgovvirginia.tts.speech.azure.us` |
+| Conversão de Texto em Fala | `https://usgovvirginia.tts.speech.azure.us` |
 
 
 ## <a name="azure-china"></a>Azure China
@@ -101,7 +101,7 @@ Disponível para organizações com presença de negócios na China. Veja mais i
   - Leste da China 2
 - **Tipos de preço disponíveis:**
   - Free (F0) e Standard (S0). Veja mais detalhes [aqui](https://www.azure.cn/pricing/details/cognitive-services/index.html)
-- **Recursos com suporte:**
+- **Recursos compatíveis:**
   - Conversão de fala em texto
     - Fala personalizada (adaptação do modelo acústico (AM) e do modelo de linguagem (LM))
       - [Estúdio de Fala](https://speech.azure.cn/)
@@ -153,4 +153,4 @@ Substitua `subscriptionKey` pela sua chave de recurso de fala. Substituir `azCnH
 |--|--|
 | **Leste da China 2** | |
 | Conversão de fala em texto | `wss://chinaeast2.stt.speech.azure.cn` |
-| Conversão de texto em fala | `https://chinaeast2.tts.speech.azure.cn` |
+| Conversão de Texto em Fala | `https://chinaeast2.tts.speech.azure.cn` |

@@ -1,30 +1,26 @@
 - name: Documentação da Leitura Avançada
   href: index.yml
-- name: O que é a Leitura Avançada?
-  href: Overview.md
-- name: Guia de Início Rápido
-  href: ./quickstarts/client-libraries.md
-- name: Tutoriais
+- name: Visão geral
   items:
-    - name: Iniciar a Leitura Avançada (Android)
-      href: tutorial-android.md
-    - name: Iniciar a Leitura Avançada (iOS)
-      href: tutorial-ios.md
-    - name: Iniciar a Leitura Avançada (Python)
-      href: tutorial-python.md
-    - name: Usar vários recursos de Leitura Avançada
-      href: tutorial-multiple-resources.md
+    - name: O que é a Leitura Avançada?
+      href: Overview.md
+    - name: Suporte ao idioma
+      href: language-support.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
+    - name: Notas de versão
+      href: release-notes.md
+- name: Início Rápido
+  href: ./quickstarts/client-libraries.md
 - name: Instruções
   items:
     - name: Criar um recurso de Leitura Avançada
       href: how-to-create-immersive-reader.md
-    - name: Definir a política de cookies
-      href: how-to/set-cookie-policy.md
-    - name: Exibir matemática
-      href: how-to/display-math.md
-    - name: Iniciar a Leitura Avançada com conteúdo de HTML
-      href: how-to-launch-with-html.md
-    - name: Botão Personalizar a Leitura Avançada
+    - name: Iniciar a Leitura Avançada
+      href: how-to-launch-immersive-reader.md
+    - name: Preparar conteúdo HTML
+      href: how-to-prepare-html.md
+    - name: Editar o botão de inicialização da Leitura Avançada
       href: how-to-customize-launch-button.md
     - name: Armazenar o token de autenticação em cache
       href: how-to-cache-token.md
@@ -32,21 +28,33 @@
       href: how-to-configure-read-aloud.md
     - name: Configurar a tradução
       href: how-to-configure-translation.md
+    - name: Exibir matemática
+      href: how-to/display-math.md
+    - name: Definir a política de cookies
+      href: how-to/set-cookie-policy.md
     - name: Armazenar preferências do usuário
       href: how-to-store-user-preferences.md
+    - name: Usar vários recursos de Leitura Avançada
+      href: how-to-multiple-resources.md
+    - name: Preparação corporativa
+      items:
+        - name: Configuração de redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        - name: Usar a autenticação do Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: Referência
   items:
     - name: SDK do JavaScript
       href: reference.md
-    - name: Notas de versão
-      href: release-notes.md
 - name: Recursos
   items:
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
-    - name: Roteiro do Azure
+    - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Suporte ao idioma
-      href: language-support.md
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

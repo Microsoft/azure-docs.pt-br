@@ -2,17 +2,18 @@
 title: Perguntas frequentes sobre VMs do Linux no Azure
 description: Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais Linux criadas com o modelo do Resource Manager.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: f55b5d9093e2e8e78d3841c332d67f26e5106d38
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d510fa35163a4c4a79352f5f35af9c384bf85304
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200814"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596307"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre as Máquinas Virtuais Linux
 Este artigo trata de algumas das perguntas mais comuns feitas sobre as máquinas virtuais Linux criadas no Azure com o modelo de implantação do Gerenciador de Recursos. Para a versão deste tópico para o Windows, confira [Perguntas frequentes sobre Máquinas Virtuais do Windows](../windows/faq.md)
@@ -30,7 +31,7 @@ As contas de armazenamento do Azure também podem fornecer o armazenamento para 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Como posso acessar minha máquina virtual?
 Estabeleça uma conexão remota para fazer logon na máquina virtual usando Secure Shell (SSH). Veja as instruções sobre como conectar [do Windows](ssh-from-windows.md) ou [do Linux e do Mac](mac-create-ssh-keys.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
-Se você estiver tendo problemas, confira [Solucionar problemas de conexões SSH (Secure Shell)](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+Se você estiver tendo problemas, confira [Solucionar problemas de conexões SSH (Secure Shell)](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Posso usar o disco temporário (/dev/sdb1) para armazenar os dados?
 Não use o disco temporário (/dev/sdb1) para armazenar os dados. Ele existe somente para armazenamento temporário. Você corre o risco de perder dados que não podem ser recuperados.

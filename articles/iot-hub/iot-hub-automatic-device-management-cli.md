@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545405"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gerenciamento automático de módulos e dispositivos IoT usando a CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_ , que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
+O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_, que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ O gerenciamento automático de dispositivo trabalha atualizando um conjunto de d
 
 * O **conteúdo de destino** define as propriedades desejadas para serem adicionadas ou atualizadas nos dispositivos gêmeos ou módulos gêmeos de destino. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
 
-* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito** , **em andamento** , e **erro** . Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
+* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
 
 As configurações automáticas são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 

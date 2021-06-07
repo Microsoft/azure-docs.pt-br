@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953478"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteger uma API de Gerenciamento de API do Azure com Azure AD B2C

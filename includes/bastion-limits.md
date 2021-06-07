@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40f8f5b234a6aecb1b44e4c565873b3badbd139a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4f8a66034990cd3e105759b9a5dad721ad3cb0a9
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183866"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988195"
 ---
-| Recurso | Limite |
+| Tipo de carga de trabalho* | Limite** |
 | --- | --- |
-| Conexões RDP simultâneas |25* |
-| Conexões SSH simultâneas |50** |
+| Claro |100 |
+| Médio |50 |
+| Intenso |5 |
 
-*Pode variar devido a outras sessões RDP em andamento ou a outras sessões SSH em andamento.<br>
-**Poderá variar se houver conexões RDP ou uso de outras sessões SSH em andamento.
+\* Esses tipos de carga de trabalho são definidos aqui: [Cargas de trabalho da Área de Trabalho Remota](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+**Esses limites se baseiam em testes de desempenho de RDP do Azure Bastion. Os números podem variar devido a outras sessões RDP em andamento ou a outras sessões SSH em andamento. 

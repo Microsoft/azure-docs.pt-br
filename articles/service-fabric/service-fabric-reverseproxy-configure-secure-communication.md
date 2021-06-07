@@ -4,10 +4,10 @@ description: Configure o proxy reverso para habilitar a comunicação de ponta a
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256128"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy inverso
@@ -20,7 +20,7 @@ Este artigo explica como estabelecer uma conexão segura entre o proxy reverso e
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de conexão segura entre o proxy reverso e os serviços 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Autenticação do proxy reverso nos serviços:
-O proxy reverso identifica-se aos serviços usando seu certificado. Para clusters do Azure o certificado é especificado com a propriedade ***reverseProxyCertificate*** em [**servicefabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [Seção de tipo de recurso](../azure-resource-manager/templates/template-syntax.md) do modelo do Gerenciador de Recursos. Para clusters autônomos, o certificado é especificado com o ***ReverseProxyCertificate*** ou a propriedade ***ReverseProxyCertificateCommonNames*** na seção **Segurança**seção de ClusterConfig.json. Para obter mais informações, consulte [Habilitar o proxy reverso nos clusters autônomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+O proxy reverso identifica-se aos serviços usando seu certificado. Para clusters do Azure, o certificado é especificado com a propriedade ***reverseProxyCertificate** _ na [seção do tipo de recurso](../azure-resource-manager/templates/template-syntax.md) [_ *Microsoft.* * /clusters](/azure/templates/microsoft.servicefabric/clusters) do modelo do Resource Manager. Para clusters autônomos, o certificado é especificado com a **propriedade _ReverseProxyCertificate_*_ ou _*_ReverseProxyCertificateCommonNames_*_ na seção _* Security** de ClusterConfig.jsem. Para obter mais informações, consulte [Habilitar o proxy reverso nos clusters autônomos](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Os serviços podem implementar a lógica para verificar o certificado apresentado pelo proxy reverso. Os serviços podem especificar os detalhes do certificado de cliente aceito como definições de configuração no pacote de configuração. Isso pode ser lido em runtime e usado para validar o certificado apresentado pelo proxy reverso. Consulte [Gerenciar parâmetros do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para adicionar as definições de configuração. 
 
@@ -168,7 +168,7 @@ Proxy reverso seleciona um dos pontos de extremidade para encaminhar a solicita�
 ```
 
 > [!NOTE]
-> Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **ListenerName ** correspondente a um ponto de extremidade HTTP (não seguro), o proxy reverso falhará na solicitação com um código de status HTTP 404 (Não encontrado).
+> Ao operar em **SecureOnlyMode**, se um cliente tiver especificado um **ListenerName** correspondente a um ponto de extremidade HTTP (não seguro), o proxy reverso falhará na solicitação com um código de status HTTP 404 (Não encontrado).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Configurar a autenticação de certificado do cliente através do proxy reverso
 A terminação de TLS ocorre no proxy reverso e todos os dados de certificado do cliente são perdidos. Para os serviços realizar a autenticação de certificado do cliente, especifique o **ForwardClientCertificate** definindo na seção [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).

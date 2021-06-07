@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, seodec18
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508264"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611643"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Solução de problemas do serviço de HSM Dedicado do Azure
 
-O serviço HSM Dedicado do Azure tem duas facetas distintas. Em primeiro lugar, o registro e a implantação no Azure dos dispositivos HSM com seus componentes de rede subjacentes. Em segundo lugar, a configuração dos dispositivos HSM em preparação para o uso/integração com uma determinada carga de trabalho ou aplicativo. Embora os dispositivos HSM de Rede da Thales Luna sejam os mesmos no Azure, como você compraria diretamente da Thales, o fato de que eles são um recurso no Azure cria algumas considerações exclusivas. Essas considerações e informações de solução de problemas resultantes ou melhores práticas são documentadas aqui para garantir alta visibilidade e acesso a informações críticas. Depois que o serviço estiver em uso, as informações definitivas estarão disponíveis por meio de solicitações de suporte à Microsoft ou diretamente à Thales. 
+O serviço HSM Dedicado do Azure tem duas facetas distintas. Em primeiro lugar, o registro e a implantação no Azure dos dispositivos HSM com seus componentes de rede subjacentes. Em segundo lugar, a configuração dos dispositivos HSM em preparação para o uso/integração com uma determinada carga de trabalho ou aplicativo. Embora os dispositivos [HSM 7 da Thales Luna](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) sejam os mesmos no Azure, como você compraria diretamente da Thales, o fato de que eles são um recurso no Azure cria algumas considerações exclusivas. Essas considerações e informações de solução de problemas resultantes ou melhores práticas são documentadas aqui para garantir alta visibilidade e acesso a informações críticas. Depois que o serviço estiver em uso, as informações definitivas estarão disponíveis por meio de solicitações de suporte à Microsoft ou diretamente à Thales. 
 
 > [!NOTE]
 > Deve-se observar que, antes de executar qualquer configuração em um dispositivo HSM implantado recentemente, ele deve ser atualizado com todos os patches relevantes. Um patch necessário específico é [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) no portal de suporte da Thales, que trata de um problema em que o sistema deixa de responder durante a reinicialização.
@@ -33,7 +33,7 @@ O HSM dedicado não está disponível gratuitamente para uso, pois ele está for
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Como obter acesso ao HSM dedicado
 
-Se você acreditar que o HSM dedicado será adequado aos seus requisitos de armazenamento de chaves, envie um email para HSMrequest@microsoft.com para solicitar acesso. Descreva seu aplicativo, as regiões em que você gostaria de ter os HSMs e o volume de HSMs que está procurando. Se você trabalha com um representante da Microsoft, como um executivo de conta ou arquiteto de soluções de nuvem, inclua-o em qualquer solicitação.
+Primeiro, pergunte-se quais casos de uso você tem que não podem ser resolvidos pelo [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) ou pelo [HSM gerenciado do Azure](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Depois, se você acreditar que somente o HSM Dedicado será adequado aos seus requisitos de armazenamento de chaves, envie um email para HSMrequest@microsoft.com para solicitar acesso. Descreva seu aplicativo e os casos de uso, as regiões em que você gostaria de ter os HSMs e o volume de HSMs que está procurando. Se você trabalha com um representante da Microsoft, como um executivo de conta ou arquiteto de soluções de nuvem, inclua-o em qualquer solicitação.
 
 ## <a name="hsm-provisioning"></a>Provisionamento de HSM
 
@@ -56,7 +56,7 @@ O modelo do ARM padrão fornecido para implantação tem recursos relacionados a
 
 ### <a name="hsm-deployment-using-terraform"></a>Implantação do HSM usando o Terraform
 
-Alguns clientes usaram Terraform como um ambiente de automação, em vez de modelos do ARM, conforme fornecido ao registrarem-se para esse serviço. Os HSMs não podem ser implantados dessa maneira, mas os recursos de rede dependentes podem. O Terraform tem um módulo para chamar um modelo de ARM mínimo que tem a implantação do HSM.  Nessa situação, é preciso cuidado para garantir que os recursos de rede, como o gateway do ExpressRoute necessário, sejam totalmente implantados antes da implantação de HSMs. O comando da CLI a seguir pode ser usado para testar a implantação concluída e ser integrado conforme necessário. Substitua os espaços reservados em colchetes angulares pela sua nomenclatura específica. Você deve procurar um resultado "provisioningState is Succeeded"
+Alguns clientes usaram Terraform como um ambiente de automação, em vez de modelos do ARM, conforme fornecido ao registrarem-se para esse serviço. Os HSMs não podem ser implantados dessa maneira, mas os recursos de rede dependentes podem. O Terraform tem um módulo para chamar um modelo do ARM mínimo que tem a implantação do HSM.  Nessa situação, é preciso cuidado para garantir que os recursos de rede, como o gateway do ExpressRoute necessário, sejam totalmente implantados antes da implantação de HSMs. O comando da CLI a seguir pode ser usado para testar a implantação concluída e ser integrado conforme necessário. Substitua os espaços reservados em colchetes angulares pela sua nomenclatura específica. Você deve procurar um resultado "provisioningState is Succeeded"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -66,10 +66,10 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 As implantações poderão falhar se você exceder dois HSMs por selo e quatro HSMs por região. Para evitar essa situação, verifique se você excluiu recursos de implantações anteriormente com falha antes de implantá-los novamente. Consulte o item "Como faço para ver HSMs" abaixo para verificar os recursos. Se você acreditar que precisa exceder essa cota, que é principalmente estabelecida como uma proteção, envie um email para HSMrequest@microsoft.com com detalhes.
 
 ### <a name="deployment-failure-based-on-capacity"></a>Falha na implantação com base na capacidade
-Quando um selo ou região específica está ficando cheia, ou seja, quase todos os HSMs livres são provisionados, isso pode levar a falhas de implantação. Cada selo tem 11 HSMs disponíveis para clientes, o que significa 22 HSMs por região. Há também três sobressalentes e um dispositivo de teste em cada selo. Se você acreditar que pode ter atingido um limite, envie um email para HSMrequest@microsoft.com para obter informações sobre o nível de preenchimento de selos específicos.
+Quando um selo ou região específica está ficando cheia, ou seja, quase todos os HSMs livres são provisionados, isso pode levar a falhas de implantação. Cada selo tem 12 HSMs disponíveis para clientes, o que significa 24 HSMs por região. Há também dois sobressalentes e um dispositivo de teste em cada selo. Se você acreditar que pode ter atingido um limite, envie um email para HSMrequest@microsoft.com para obter informações sobre o nível de preenchimento de selos específicos.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Como faço para ver HSMs quando provisionados?
-Uma vez que o HSM dedicado é um serviço de inclusão na lista de permitidos, ele é considerado um "Tipo Oculto" no portal do Azure. Para ver os recursos do HSM, marque a caixa de seleção "Mostrar tipos ocultos", conforme mostrado abaixo. O recurso NIC sempre segue o HSM e é um bom local para descobrir o endereço IP do HSM antes de usar o SSH para se conectar.
+Uma vez que o HSM Dedicado é um serviço de inclusão na lista de permitidos, ele é considerado um "Tipo Oculto" no portal do Azure. Para ver os recursos do HSM, marque a caixa de seleção "Mostrar tipos ocultos", conforme mostrado abaixo. O recurso NIC sempre segue o HSM e é um bom local para descobrir o endereço IP do HSM antes de usar o SSH para se conectar.
 
 ![Captura de tela que realça a verificação Mostrar tipos ocultos](./media/troubleshoot/hsm-provisioned.png)
 
@@ -112,7 +112,7 @@ Fornecer credenciais incorretas para HSMs pode ter consequências destrutivas. A
 Os seguintes itens são uma situação em que os erros de configuração são comuns ou têm um impacto que vale a pena destacar:
 
 ### <a name="hsm-documentation-and-software"></a>Software e documentação do HSM
-O software e a documentação dos dispositivos HSM Thales SafeNet Luna 7 não estão disponíveis na Microsoft e devem ser baixados diretamente da Thales. O registro é necessário usando a ID do Cliente da Thales recebida durante o processo de registro. Os dispositivos, conforme fornecidos pela Microsoft, têm a versão de software 7.2 e a versão de firmware 7.0.3. No início de 2020, a Thales tornou a documentação pública e ela pode ser encontrada [aqui](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
+O software e a documentação dos dispositivos [HSM 7 da Thales Luna](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) não estão disponíveis na Microsoft e precisam ser baixados diretamente da Thales. O registro é necessário usando a ID do Cliente da Thales recebida durante o processo de registro. Os dispositivos, conforme fornecidos pela Microsoft, têm a versão de software 7.2 e a versão de firmware 7.0.3. No início de 2020, a Thales tornou a documentação pública e ela pode ser encontrada [aqui](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
 
 ### <a name="hsm-networking-configuration"></a>Configuração de rede do HSM
 
@@ -120,7 +120,7 @@ Tenha cuidado ao configurar a rede no HSM.  O HSM tem uma conexão por meio do g
 
 ### <a name="hsm-device-reboot"></a>Reinicialização de dispositivo do HSM
 
-Algumas alterações de configuração exigem que o HSM seja desligado ou reinicializado. Os testes da Microsoft do HSM no Azure determinaram que, em algumas ocasiões, a reinicialização poderia parar de responder. A implicação é que uma solicitação de suporte deve ser criada no portal do Azure solicitando a reinicialização física e que pode levar até 48 horas para ser concluída, considerando que se trata de um processo manual em um datacenter do Azure.  Para evitar essa situação, verifique se você implantou o patch de reinicialização disponível diretamente da Thales. Confira [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nos Downloads do HSM 7.2 de Rede Thales Luna para obter um patch recomendado para um problema em que o sistema deixa de responder durante a reinicialização (observação: você precisará ter se registrado no portal de suporte da Thales para download).
+Algumas alterações de configuração exigem que o HSM seja desligado ou reinicializado. Os testes da Microsoft do HSM no Azure determinaram que, em algumas ocasiões, a reinicialização poderia parar de responder. A implicação é que uma solicitação de suporte deve ser criada no portal do Azure solicitando a reinicialização física e que pode levar até 48 horas para ser concluída, considerando que se trata de um processo manual em um datacenter do Azure.  Para evitar essa situação, verifique se você implantou o patch de reinicialização disponível diretamente da Thales. Confira [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) nos Downloads do HSM 7 da Thales Luna 7.2 para obter um patch recomendado para um problema em que o sistema deixa de responder durante a reinicialização (observação: você precisará ter se registrado no [portal de suporte ao cliente da Thales](https://supportportal.thalesgroup.com/csm) para download).
 
 ### <a name="ntls-certificates-out-of-sync"></a>Certificados NTLS fora de sincronia
 Um cliente pode perder a conectividade com um HSM quando um certificado expira ou é substituído por meio de atualizações de configuração. A configuração do cliente de troca de certificado deve ser reaplicada a cada HSM.

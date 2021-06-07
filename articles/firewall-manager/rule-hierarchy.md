@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331729"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Usar a política de firewall do Azure para definir uma hierarquia de regra
@@ -48,7 +48,7 @@ Crie políticas para cada uma das equipes de aplicativos:
 - Uma política de firewall de banco de dados. A política de firewall de banco de dados herda a política de firewall base.
 - Uma política de firewall de engenharia. A política de firewall de engenharia também herda a política base de firewall.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipes e requisitos" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarquia de política" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Criar funções personalizadas para acessar os grupos de coleção de regras 
 
@@ -59,7 +59,7 @@ Use o seguinte procedimento de alto nível para definir funções personalizadas
 1. Obter a assinatura:
 
    `Select-AzSubscription -SubscriptionId xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
-2. Execute o seguinte comando:
+2. Execute o comando a seguir:
 
    `Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize`
 3. Use o comando Get-AzRoleDefinition para gerar a função leitor no formato JSON. 
@@ -97,7 +97,7 @@ Use o seguinte procedimento de alto nível para definir funções personalizadas
 
    Você deve adicionar IDs de assinatura explícitas; caso contrário, não será possível importar a função para a assinatura.
 7. Exclua a linha de propriedade **ID**   e altere a propriedade **IsCustom**   para true.
-8. Altere as **Name**   Propriedades nome e **Descrição**   para o grupo de coleção de *regras AZFM autor* e *os usuários nessa função podem editar grupos de coleta de regras de política de firewall*
+8. Altere as  ****   Propriedades nome e  **Descrição**   para o grupo de coleção de *regras AZFM autor* e *os usuários nessa função podem editar grupos de coleta de regras de política de firewall*
 
 O arquivo JSON deve ser semelhante ao exemplo a seguir:
 
@@ -134,9 +134,9 @@ Para listar todas as funções personalizadas, você pode usar o comando Get-AzR
 
 Você também pode ver as funções personalizadas na portal do Azure. Acesse sua assinatura, selecione **controle de acesso (iam)**, **funções**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipes e requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipes e requisitos":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Permissão de leitura de SalesAppPolicy":::
 
 Para obter mais informações, consulte [tutorial: criar uma função personalizada do Azure usando Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

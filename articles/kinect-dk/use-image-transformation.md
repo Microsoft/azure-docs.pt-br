@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: Kinect, Azure, sensor, SDK, sistema de coordenadas, calibragem, projeto, desprojeto, transformação, RGB-d, nuvem de ponto
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276330"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Usar transformações de imagem do SDK do sensor Kinect do Azure

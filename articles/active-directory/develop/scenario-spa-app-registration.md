@@ -13,10 +13,10 @@ ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100103168"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicativo de página única: Registro do aplicativo
@@ -32,7 +32,7 @@ Para aplicativos baseados em MSAL.js 1.0 e 2.0, comece concluindo as etapas a se
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
-1. Escolha os **tipos de conta com suporte** para o aplicativo. **NÃO** insira **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, consulte [registrar um aplicativo](quickstart-register-app.md).
+1. Selecione os **Tipos de conta compatíveis** para o aplicativo. **NÃO** insira **URI de redirecionamento**. Veja a descrição dos diferentes tipos de conta em [Registrar um aplicativo](quickstart-register-app.md).
 1. Selecione **Registrar** para criar o registro do aplicativo.
 
 Em seguida, configure o registro do aplicativo com um **URI de redirecionamento** para especificar para onde a plataforma de identidade da Microsoft deve redirecionar o cliente juntamente com os tokens de segurança. Use as etapas apropriadas para a versão do MSAL.js que você está usando em seu aplicativo:
@@ -40,21 +40,21 @@ Em seguida, configure o registro do aplicativo com um **URI de redirecionamento*
 - [MSAL.js 2.0 com fluxo de código de autorização](#redirect-uri-msaljs-20-with-auth-code-flow) (recomendado)
 - [MSAL.js 1.0 com fluxo implícito](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirecionamento: [MSAL.js 2,0 com fluxo de código de autenticação](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirecionamento: [MSAL.js 2.0 com fluxo de código de autorização](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo que usa MSAL.js 2.0 ou posterior. O MSAL.js 2.0+ é compatível com o fluxo de código de autorização com PKCE e CORS em resposta às [restrições de cookie de terceiros do navegador](reference-third-party-cookies-spas.md). O fluxo de concessão implícita não é compatível com o MSAL.js 2.0+.
 
 1. No portal do Azure, selecione o registro de aplicativo que você criou anteriormente em [Criar o registro do aplicativo](#create-the-app-registration).
 1. Em **Gerenciar**, escolha **Autenticação** > **Adicionar uma plataforma**.
 1. Em **Aplicativos Web**, selecione o bloco **Aplicativo de página única**.
-1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md). Não **marque nenhuma** das caixas de seleção em **concessão implícita e fluxos híbridos**.
+1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md). **NÃO** marque as caixas de seleção em **Concessão implícita e fluxos híbridos**.
 1. Selecione **Configurar** para concluir a adição do URI de redirecionamento.
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Ao configurar o URI de redirecionamento usando o bloco **Aplicativo de página única** no painel **Adicionar uma plataforma**, o registro do aplicativo é configurado para compatibilidade com o fluxo de código de autorização com PKCE e CORS.
 
-Siga o [tutorial](tutorial-v2-javascript-auth-code.md) para obter mais diretrizes.
+Siga o [tutorial](tutorial-v2-javascript-auth-code.md) para maiores orientações.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirecionamento: [MSAL.js 1,0 com fluxo implícito](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirecionamento: [MSAL.js 1.0 com fluxo implícito](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo de página única que usa MSAL.js 1.3 ou anterior e o fluxo de concessão implícita. Os aplicativos que usam MSAL.js 1.3 ou anterior não são compatíveis com o fluxo de código de autorização.
 
@@ -62,14 +62,14 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo d
 1. Em **Gerenciar**, escolha **Autenticação** > **Adicionar uma plataforma**.
 1. Em **Aplicativos Web**, selecione o bloco **Aplicativo de página única**.
 1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md).
-1. Habilite a **concessão implícita e os fluxos híbridos**:
+1. Habilite **Concessão implícita e fluxos híbridos**:
     - Se o seu aplicativo conectar usuários, selecione **Tokens de ID**.
     - Se o seu aplicativo também precisar chamar uma API Web protegida, selecione **Tokens de acesso**. Para obter mais informações sobre esses tipos de token, confira [Tokens de ID](id-tokens.md) e [Tokens de acesso](access-tokens.md).
 1. Selecione **Configurar** para concluir a adição do URI de redirecionamento.
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Quando selecionou **Tokens de ID**, **Tokens de acesso** ou as duas opções, você habilitou o fluxo de concessão implícita.
 
-Siga o [tutorial](tutorial-v2-javascript-spa.md) para obter mais diretrizes.
+Siga o [tutorial](tutorial-v2-javascript-spa.md) para maiores orientações.
 
 ## <a name="note-about-authorization-flows"></a>Observação sobre fluxos de autorização
 
@@ -81,4 +81,4 @@ Se todos os aplicativos de uma página de produção representados por um regist
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Configure o código do aplicativo para usar o registro do aplicativo criado nas etapas anteriores: [configuração de código do aplicativo](scenario-spa-app-configuration.md).
+Configure o código do aplicativo para usar o registro do aplicativo criado nas etapas anteriores: [configuração do código do aplicativo](scenario-spa-app-configuration.md).

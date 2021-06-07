@@ -3,16 +3,16 @@ title: Atividade do Azure Functions no Azure Data Factory
 description: Saiba como usar a atividade de função do Azure para executar uma função do Azure em um pipeline do Data Factory
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 13f00907737a99bc5dcd8c21d660ce83aa681908
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383392"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783788"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,10 +35,10 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Lembre-se
 
 ## <a name="azure-function-activity"></a>Atividade do Azure Function
 
-| **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessária** |
+| **Propriedade**  | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
 | name  | Nome da atividade no pipeline  | String | sim |
-| tipo  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | sim |
 | nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
 | method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |

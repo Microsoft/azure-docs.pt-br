@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518969"
 ---
 # <a name="azure-role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função do Azure para StorSimple
@@ -58,7 +58,7 @@ No exemplo a seguir, vamos começar com a função interna de **Leitor** que per
     Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
-4. Abra o arquivo JSON no Visual Studio. Você verá que uma função típica do Azure consiste em três seções principais, **ações**, não **ações**e **AssignableScopes**.
+4. Abra o arquivo JSON no Visual Studio. Você verá que uma função típica do Azure consiste em três seções principais, **ações**, não **ações** e **AssignableScopes**.
 
     Na seção **Action**, são listadas todas as operações permitidas para essa função. Cada ação é atribuída de um provedor de recursos. Para um administrador de infraestrutura do StorSimple, use o provedor de recursos `Microsoft.StorSimple`.
 

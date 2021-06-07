@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
 ms.openlocfilehash: a8cf58f49cba1bcc77c96a0da2061a037bb62bf2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92504730"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Teamphoria
@@ -49,7 +49,7 @@ Para configurar a integração do Teamphoria com o Azure AD, você precisará ad
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **Teamphoria** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **Teamphoria** na caixa de pesquisa.
 1. Selecione **Teamphoria** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-teamphoria"></a>Configurar e testar o logon único do Azure AD para o Teamphoria
@@ -69,24 +69,24 @@ Para configurar e testar o SSO do Azure AD com o Teamphoria, conclua os seguinte
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Teamphoria** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Teamphoria**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<sub-domain>.teamphoria.com/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<sub-domain>.teamphoria.com/login`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Teamphoria](https://www.teamphoria.com/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o Teamphoria** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Teamphoria**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -94,11 +94,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -116,9 +116,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-teamphoria-sso"></a>Configurar o SSO do Teamphoria
 
@@ -144,13 +144,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![A captura de tela mostra a página em que você pode inserir os valores descritos.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **NOME DE EXIBIÇÃO** : insira o nome de exibição do plug-in na página de administração.
+    a. **NOME DE EXIBIÇÃO**: insira o nome de exibição do plug-in na página de administração.
 
-    b. **NOME DO BOTÃO** : o nome da guia que será exibida na página de logon para entrar usando SSO.
+    b. **NOME DO BOTÃO**: o nome da guia que será exibida na página de logon para entrar usando SSO.
 
-    c. **CERTIFICADO** : abra o certificado baixado anteriormente do portal do Azure no bloco de notas, copie o conteúdo e cole-o nesta caixa.
+    c. **CERTIFICADO**: abra o certificado baixado anteriormente do portal do Azure no bloco de notas, copie o conteúdo e cole-o nesta caixa.
 
-    d. **PONTO DE ENTRADA** : Cole a **URL de logon** copiada anteriormente do portal do Azure.
+    d. **PONTO DE ENTRADA**: Cole a **URL de logon** copiada anteriormente do portal do Azure.
 
     e. Alterne a opção para **LIGADO** e clique em **SALVAR**.
 
@@ -162,7 +162,7 @@ Para permitir que usuários do Azure AD entrem no Teamphoria, eles deverão ser 
 
 1. Entre em seu site de empresa do Teamphoria como administrador.
 
-1. Clique nas configurações de **ADMIN** na barra de ferramentas à esquerda e, na guia **GERENCIAR** , clique em **USUÁRIOS** para abrir a página de administração para usuários.
+1. Clique nas configurações de **ADMIN** na barra de ferramentas à esquerda e, na guia **GERENCIAR**, clique em **USUÁRIOS** para abrir a página de administração para usuários.
 
     ![Adicionar Funcionário](./media/teamphoria-tutorial/admin_manage_users.png)
 
@@ -174,11 +174,11 @@ Para permitir que usuários do Azure AD entrem no Teamphoria, eles deverão ser 
 
     ![A captura de tela mostra a página CONVITE MANUAL DO USUÁRIO, em que você pode inserir o nome e o endereço de email.](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. Na caixa de texto **ENDEREÇO DE EMAIL** , insira o **endereço de email** do usuário como B.Fernandes.
+    a. Na caixa de texto **ENDEREÇO DE EMAIL**, insira o **endereço de email** do usuário como B.Fernandes.
 
-    b. Na caixa de texto **NOME** , insira o nome do usuário como **B**.
+    b. Na caixa de texto **NOME**, insira o nome do usuário como **B**.
 
-    c. Na caixa de texto **SOBRENOME** , digite o sobrenome do usuário como **Fernandes**.
+    c. Na caixa de texto **SOBRENOME**, digite o sobrenome do usuário como **Fernandes**.
 
     d. Clique em **CONVIDAR 1 USUÁRIO**. O usuário deve aceitar o convite para ser criado no sistema.
 

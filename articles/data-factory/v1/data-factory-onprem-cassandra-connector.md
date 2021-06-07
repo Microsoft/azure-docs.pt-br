@@ -8,10 +8,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387403"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de um banco de dados Cassandra local usando o Azure Data Factory
@@ -77,7 +77,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para o conjunto de dados do tipo **CassandraTable** tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | keyspace |Nome do keyspace ou do esquema no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
 | tableName |Nome da tabela no banco de dados Cassandra. |Sim (se a **consulta** para **CassandraSource** não estiver definida). |
@@ -266,7 +266,7 @@ Confira [Propriedades do tipo RelationalSource](#copy-activity-properties) para 
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
@@ -294,7 +294,7 @@ Você pode usar o [Assistente de Cópia](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, a "ExampleTable" a seguir é uma tabela de banco de dados Cassandra que contém uma coluna de chave primária de inteiro chamada "pk_int", uma coluna de texto chamada valor, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (chamada "StringSet").
 
-| pk_int | Valor | List | Mapeamento | StringSet |
+| pk_int | Valor | Lista | Map | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

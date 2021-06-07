@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008139"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490209"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -163,7 +163,7 @@ Você usou o Visual Studio Code para criar e publicar um aplicativo de funções
 
 ::: zone pivot="code-editor-visualstudio"
 
-Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "olá, mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, você publicará o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
+Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar localmente uma função durável "Olá, Mundo".  Essa função orquestrará e encadeará chamadas para outras funções. Em seguida, você publicará o código de função no Azure. Essas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
 ![A captura de tela mostra uma janela do Visual Studio 2019 com uma função durável.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 

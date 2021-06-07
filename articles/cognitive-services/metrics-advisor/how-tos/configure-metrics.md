@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048246"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Como configurar métricas e ajuste fino da configuração de detecção
@@ -45,7 +45,7 @@ Essa configuração será aplicada a todas as séries nessa métrica, exceto aqu
 
 Há parâmetros adicionais, como **direção**, e **anomalias válidas** que podem ser usadas para ajustar ainda mais a configuração. Você também pode combinar métodos de detecção diferentes. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Selecione uma métrica" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Combinação de configuração" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>Ajustar a configuração de uma série ou grupo específico
 
@@ -53,7 +53,7 @@ Clique em **Configuração avançada** abaixo das opções de configuração de 
 
 Essa configuração será aplicada ao grupo de séries ou séries específicas, em vez da configuração de nível de métrica. Depois de definir as condições para esse grupo, salve-o.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Selecione uma métrica" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Configuração avançada" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>Métodos de detecção de anomalias
 
@@ -68,11 +68,11 @@ No modo de detecção inteligente, os parâmetros de versão de sensibilidade e 
 
 A sensibilidade pode afetar a largura do intervalo de valores esperado de cada ponto. Quando aumentado, o intervalo de valores esperado será mais rígido e mais anomalias serão relatadas:
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Selecione uma métrica":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Detecção inteligente com alta sensibilidade":::
 
 Quando a sensibilidade for desativada, o intervalo de valores esperado será mais largo e menos anomalias serão relatadas:
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Selecione uma métrica":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Detecção inteligente com baixa sensibilidade":::
 
 **Alterar limite** 
 
@@ -85,16 +85,16 @@ Use as seguintes etapas para usar este modo:
 
 1. Selecione o **limite de alteração** como seu método de detecção de anomalias ao definir as configurações de detecção de anomalias para suas métricas ou série temporal.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="Selecione uma métrica":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="alterar limite":::
 
 2. Selecione o **fora do intervalo** ou **no parâmetro intervalo** com base em seu cenário.
 
     Se você quiser detectar flutuações, selecione **fora do intervalo**. Por exemplo, com as configurações abaixo, todos os pontos de dados que forem alterados em 10% em comparação com o anterior serão detectados como uma exceção.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="Selecione uma métrica":::
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="parâmetro fora do intervalo":::
 
     Se você quiser detectar linhas simples em seus dados, selecione **no intervalo**. Por exemplo, com as configurações abaixo, todos os pontos de dados que forem alterados em 0, 1% em comparação com o anterior serão detectados como uma exceção. Como o limite é tão pequeno (0, 1%), ele detecta linhas simples nos dados como exceções.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Selecione uma métrica":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="No parâmetro de intervalo":::
 
 3. Defina a porcentagem de alterações que serão contadas como uma anomalia e quais pontos de dados capturados anteriormente serão usados para comparação. Essa comparação sempre está entre o ponto de dados atual e um único ponto de dados N aponta antes dele.
     
@@ -117,7 +117,7 @@ Use as seguintes etapas para usar este modo:
 
 Clique no botão **Configurar evento predefinido** ao lado da lista suspensa métricas em cada página de detalhes de métrica.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Selecione uma métrica":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="botão de evento predefinido":::
 
 Na janela que aparece, configure as opções de acordo com seu uso. Verifique se **habilitar evento de feriado** está selecionado para usar a configuração. 
 
@@ -146,7 +146,7 @@ Nem todas as opções são selecionáveis para cada granularidade. As opções d
 | Granularidade | YoY | MoM | WoW | DoD |
 |:-|:-|:-|:-|:-|
 | Anualmente | X | X | X | X |
-| Mensalmente | X | X | X | X |
+| Mensal | X | X | X | X |
 | Semanalmente | ✔ | X | X | X |
 | Diariamente | ✔ | ✔ | ✔ | X |
 | A cada hora | ✔ | ✔ | ✔ | ✔ |
@@ -161,13 +161,13 @@ X-não disponível.
 
 O ciclo de evento é usado para reduzir anomalias se eles seguirem um padrão cíclico, mas ele relatará uma anomalia se vários pontos de dados não seguirem o padrão. O **modo estrito** é usado para habilitar o relatório de anomalias se mesmo um ponto de dados não seguir o padrão. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="Selecione uma métrica":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="configuração de evento predefinida":::
 
 ## <a name="view-recent-incidents"></a>Exibir incidentes recentes
 
 O Metrics Advisor detecta anomalias em todos os seus dados de série temporal à medida que eles são ingeridos. No entanto, nem todas as anomalias precisam ser escalonadas, pois podem não ter um grande impacto. A agregação será executada em anomalias para agrupar os relacionados a incidentes. Você pode exibir esses incidentes na guia **incidente** da página de detalhes de métricas. 
 
-Clique em um incidente para ir para a página **análise de incidentes** , em que você pode ver mais detalhes sobre ele. Clique em **gerenciar incidentes no novo hub de incidente**para localizar a página do [Hub de incidentes](diagnose-incident.md) , na qual você pode encontrar todos os incidentes sob a métrica específica. 
+Clique em um incidente para ir para a página **análise de incidentes** , em que você pode ver mais detalhes sobre ele. Clique em **gerenciar incidentes no novo hub de incidente** para localizar a página do [Hub de incidentes](diagnose-incident.md) , na qual você pode encontrar todos os incidentes sob a métrica específica. 
 
 ## <a name="subscribe-anomalies-for-notification"></a>Assinar anomalias para notificação
 

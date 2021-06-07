@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: b8c6c6e33577fe3d49d8f0c7a94a941827f5cf68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: fe132c5f80e138ef47db758ad42c04b8e854ca00
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523427"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104674794"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrar fontes de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introdução
 O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e descoberta para fontes de dados da empresa. Em outras palavras, o Catálogo de Dados ajuda as pessoas a descobrir, entender e usar fontes de dados, além de ajudar as organizações a obterem mais valor dos seus dados existentes. A primeira etapa para tornar uma fonte de dados passível de ser descoberta por meio do Catálogo de Dados é registrá-la.
 

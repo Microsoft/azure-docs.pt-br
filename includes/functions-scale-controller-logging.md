@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: glenga
 ms.openlocfilehash: 906413d0a6702e6146779f79d628b5cebf383af1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92165751"
 ---
 | | |

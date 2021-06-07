@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: facial recognition, facial recognition software, facial analysis, face matching, face recognition app, face search by image, facial recognition search
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532249"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285460"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço de Detecção Facial do Azure?
 
@@ -28,6 +28,12 @@ ms.locfileid: "95532249"
 O serviço de Detecção Facial do Azure fornece algoritmos de IA para detectar, reconhecer e analisar rostos humanos em imagens. O software de reconhecimento facial é importante em diversos cenários, como segurança, interface natural do usuário, análise e gerenciamento de conteúdo de imagem, aplicativos móveis e robótica.
 
 O serviço de Detecção Facial fornece várias funções de análise facial diferentes, que são descritas nas seções a seguir.
+
+Esta documentação contém os seguintes tipos de artigos:
+* Os [inícios rápidos](./Quickstarts/client-libraries.md) são instruções passo a passo que permitem fazer chamadas para o serviço e obter resultados em um período curto. 
+* Os [guias de instruções](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contêm instruções para usar o serviço de maneiras mais específicas ou personalizadas.
+* Os [artigos conceituais](./concepts/face-detection.md) fornecem explicações detalhadas sobre a funcionalidade e os recursos do serviço.
+* Os [tutoriais](./Tutorials/FaceAPIinCSharpTutorial.md) são guias mais longos que mostram como usar o serviço como um componente de soluções de negócios mais amplas.
 
 ## <a name="face-detection"></a>Detecção facial
 

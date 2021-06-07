@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066235"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100593101"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
 
@@ -50,7 +50,7 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    | **Assinatura** | *seu-nome-da-assinatura-do-Azure* | Selecione a assinatura do Azure que você deseja usar. | 
    | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
    | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter para implantar seu aplicativo lógico, por exemplo, Oeste dos EUA. | 
-   | **Log Analytics** | **Off** (padrão) ou **On** | Configure o [log de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para seu aplicativo lógico usando os [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md). É necessário que você já tenha um workspace do Log Analytics. | 
+   | **Log Analytics** | **Off** (padrão) ou **On** | Configure o [log de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para seu aplicativo lógico usando os [logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md). É necessário que você já tenha um workspace do Log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel**. Dessa forma, seu aplicativo lógico aparece automaticamente no painel do Azure e é aberto após a implantação. Escolha **Criar**.
@@ -97,9 +97,9 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    > [!NOTE] 
    > Muitos modelos incluem conectores que já podem ter as propriedades obrigatórias pré-populadas. No entanto, alguns modelos ainda podem exigir que você forneça valores para poder implantar o aplicativo lógico corretamente. Se você tentar implantá-lo sem preencher os campos de propriedades ausentes, receberá uma mensagem de erro. 
 
-## <a name="update-logic-apps-with-templates"></a>Atualizar aplicativos lógicos com modelos
+## <a name="update-logic-apps-with-templates&quot;></a>Atualizar aplicativos lógicos com modelos
 
-1. No [portal do Azure](https://portal.azure.com "Portal do Azure"), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
+1. No [portal do Azure](https://portal.azure.com &quot;Portal do Azure"), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
 2. Na barra de ferramentas do designer, escolha **Modelos**. Essa ação descartará as alterações não salvas, por isso uma mensagem de aviso será exibida para você poder confirmar que deseja continuar. Para confirmar, escolha **OK**. Por exemplo:
 

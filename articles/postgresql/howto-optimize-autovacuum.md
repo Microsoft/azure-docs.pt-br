@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012554"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
@@ -106,7 +106,7 @@ Com o PostgreSQL, você pode definir esses parâmetros no nível de tabela ou no
 
 ## <a name="optimize-autovacuum-per-table"></a>Otimizar o vácuo automático por tabela
 
-Você pode configurar todos os parâmetros de configuração anteriores por tabela. Aqui está um exemplo:
+Você pode configurar todos os parâmetros de configuração anteriores por tabela. Veja um exemplo:
 
 ```sql
 ALTER TABLE t SET (autovacuum_vacuum_threshold = 1000);

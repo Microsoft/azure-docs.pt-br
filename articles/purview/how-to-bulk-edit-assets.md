@@ -1,5 +1,5 @@
 ---
-title: Como marcar vários termos do glossário em uma lista de ativos selecionados
+title: Como editar ativos em massa para marcar classificações, termos do glossário e modificar contatos
 description: Aprenda ativos de edição em massa no Azure alcance.
 author: nayenama
 ms.author: nayenama
@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372072"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024227"
 ---
-# <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Como editar ativos em massa para marcar os termos do glossário
+# <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>Como editar ativos em massa para anotar classificações, termos do glossário e modificar contatos
 
-Este artigo descreve como marcar vários termos de glossário em uma lista de ativos selecionados em uma única ação.
+Este artigo descreve como marcar vários termos de Glossário, classificações, proprietários e especialistas em uma lista de ativos selecionados em uma única ação.
 
 ### <a name="add-assets-to-view-selected-list-using-search"></a>Adicionar ativos para exibir a lista selecionada usando a pesquisa
 
@@ -63,11 +63,15 @@ Este artigo descreve como marcar vários termos de glossário em uma lista de at
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Captura de tela dos termos de remoção.":::
 
-7. Depois de concluir, feche a folha de edição em massa selecionando **fechar** ou **remover tudo e fechar**. Fechar não removerá os ativos selecionados, enquanto remover tudo e fechar removerá todos os ativos selecionados.
+7. Repita o procedimento acima para classificações, proprietários e especialistas.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Captura de tela das classificações e dos contatos.":::
+
+8. Depois de concluir, feche a folha de edição em massa selecionando **fechar** ou **remover tudo e fechar**. Fechar não removerá os ativos selecionados, enquanto remover tudo e fechar removerá todos os ativos selecionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Captura de tela do fechamento.":::
 
    > [!Important]
-   > O número recomendado de ativos para edição em massa é 15. A seleção de mais de 15 pode causar problemas de desempenho.
+   > O número recomendado de ativos para edição em massa é 25. A seleção de mais de 25 pode causar problemas de desempenho.
    > A caixa **Exibir selecionado** ficará visível somente se houver pelo menos um ativo selecionado.
 
 

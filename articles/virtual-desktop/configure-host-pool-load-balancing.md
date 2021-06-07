@@ -7,10 +7,10 @@ ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91951648"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga da Área de Trabalho Virtual do Windows
@@ -83,8 +83,8 @@ Para configurar o balanceamento de carga:
 
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. Procure e selecione **área de trabalho virtual do Windows** em serviços.
-3. Na página área de trabalho virtual do Windows, selecione **pools de hosts**.
-4. Selecione o nome do pool de hosts que você deseja editar.
+3. Na página Área de Trabalho Virtual do Windows, selecione **Pools de host**.
+4. Selecione o nome do pool de host que deseja editar.
 5. Selecione **Propriedades**.
 6. Insira o **limite máximo de sessão** no campo e selecione o **algoritmo de balanceamento de carga** desejado para esse pool de hosts no menu suspenso.
 7. Selecione **Salvar**. Isso aplica as novas configurações de balanceamento de carga.

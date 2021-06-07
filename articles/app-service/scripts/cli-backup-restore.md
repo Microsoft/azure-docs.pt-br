@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Restaurar um aplicativo usando um backup'
+title: 'CLI: restaurar um aplicativo de um backup'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como restaurar um aplicativo de um backup.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: mvc, seodec18
-ms.openlocfilehash: a8b7d20c3eee57d10a7025b05605603f82437cdb
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: dd9013e77699deddb680ca1e74c654bac757093f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006405"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782552"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>Restaurar um aplicativo Web de um backup usando a CLI
 
@@ -38,8 +38,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo Web. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az-webapp-config-backup-restore) | Restaura um aplicativo Web a partir de um backup. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Obtém uma lista de backups para um aplicativo Web. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup#az_webapp_config_backup_restore) | Restaura um aplicativo Web a partir de um backup. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Monitore chamadas de dependência de seu aplicativo Web local ou Mi
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263922"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102045285"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
 
@@ -89,6 +89,9 @@ Para páginas da Web, Application Insights SDK do JavaScript coleta automaticame
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Acompanhamento de SQL avançado para obter a consulta SQL completa
 
+> [!NOTE]
+> Azure Functions requer configurações separadas para habilitar a coleta de texto SQL, consulte [Configurar monitoramento para Azure Functions](../../azure-functions/configure-monitoring.md) para saber mais.
+
 Para chamadas SQL, o nome do servidor e do banco de dados é sempre coletado e armazenado como o nome do coletado `DependencyTelemetry` . Há um campo adicional chamado ' data ', que pode conter o texto completo da consulta SQL.
 
 Para aplicativos ASP.NET Core, agora é necessário aceitar a coleta de texto SQL usando
@@ -109,9 +112,10 @@ Para aplicativos ASP.NET, o texto completo da consulta SQL é coletado com a aju
 Além das etapas específicas da plataforma acima, você **também deve optar explicitamente por habilitar a coleção de comandos SQL** modificando o arquivo de applicationInsights.config com o seguinte:
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 Nos casos acima, a maneira correta de validar esse mecanismo de instrumentação está instalada corretamente é Validando que a versão do SDK coletada `DependencyTelemetry` é ' rddp '. ' rdddsd ' ou ' rddf ' indica que as dependências são coletadas por meio de retornos de chamada de Diagnostic ou EventSource e, portanto, a consulta SQL completa não será capturada.
@@ -144,7 +148,7 @@ Clique no botão **amostras** azuis na parte inferior direita e, em seguida, em 
 
 Não sabe para onde o tempo vai? O [criador de perfil Application insights](../../azure-monitor/app/profiler.md) RASTREIA chamadas http para seu site ativo e mostra as funções em seu código que levaram a hora mais longa.
 
-## <a name="failed-requests"></a>Solicitações falhas
+## <a name="failed-requests"></a>Solicitações com falha
 
 As solicitações com falha também podem ser associadas a chamadas com falha para as dependências.
 
@@ -156,7 +160,7 @@ Aqui você poderá ver a contagem de dependências com falha. Para obter mais de
 
 ## <a name="logs-analytics"></a>Logs (Análise)
 
-Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/query/). Veja alguns exemplos.
+Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/query/). Aqui estão alguns exemplos.
 
 * Localize todas as chamadas com falha de dependência:
 

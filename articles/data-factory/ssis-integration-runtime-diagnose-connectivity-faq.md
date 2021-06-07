@@ -8,10 +8,10 @@ author: meiyl
 ms.reviewer: sawinark
 ms.date: 06/07/2020
 ms.openlocfilehash: 1fb9a0c77a7cdc286c7c206d6eb33e43917ee719
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361845"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Usar o recurso diagnosticar conectividade no Integration Runtime do SSIS

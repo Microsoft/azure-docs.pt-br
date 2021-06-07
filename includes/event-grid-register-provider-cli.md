@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
 ms.date: 08/17/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 579ea74c4767ba1afb6e0128c9f12ff83f7f3998
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: cd778da5fd53cb8744a9f267384fcc8e11941582
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826610"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645399"
 ---
 ## <a name="enable-the-event-grid-resource-provider"></a>Habilitar o provedor de recursos da Grade de Eventos
 

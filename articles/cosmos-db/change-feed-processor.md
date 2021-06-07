@@ -11,10 +11,10 @@ ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340219"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
@@ -64,7 +64,7 @@ O ciclo de vida normal de uma instância de host é:
 1. Ler o feed de alterações.
 1. Se não houver alteração, suspenda por um período de tempo predefinido (personalizável com `WithPollInterval` no Construtor) e vá para 1.
 1. Se houver alterações, envie-as para o **delegado**.
-1. Quando o delegado terminar de processar as alterações **com êxito** , atualize o repositório de concessão com o último ponto processado no tempo e vá para 1.
+1. Quando o delegado terminar de processar as alterações **com êxito**, atualize o repositório de concessão com o último ponto processado no tempo e vá para 1.
 
 ## <a name="error-handling"></a>Tratamento de erros
 
@@ -106,7 +106,7 @@ Por padrão, quando um processador do feed de alterações é iniciado pela prim
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Lendo de uma data e hora anteriores
 
-É possível inicializar o processador do feed de alterações para ler as alterações de uma **data e hora específicas** , passando uma instância de um `DateTime` para a extensão do construtor `WithStartTime`:
+É possível inicializar o processador do feed de alterações para ler as alterações de uma **data e hora específicas**, passando uma instância de um `DateTime` para a extensão do construtor `WithStartTime`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 

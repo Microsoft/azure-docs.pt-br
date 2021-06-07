@@ -2,13 +2,13 @@
 title: Camadas Premium e Standard do barramento de serviço do Azure
 description: Este artigo descreve as camadas Standard e Premium do barramento de serviço do Azure. Compara essas camadas e fornece diferenças técnicas.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90966789"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607544"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -26,9 +26,9 @@ Algumas diferenças de alto nível são destacadas na tabela a seguir.
 | Capacidade de escalar a carga de trabalho verticalmente |N/D |
 | Tamanho da mensagem de até 1 MB. Esse limite pode ser gerado no futuro. Para obter atualizações importantes mais recentes para o serviço, consulte o [blog do sistema de mensagens no Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Até 256 KB de tamanho de mensagem |
 
-O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recursos é chamado de *unidade de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
+O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recursos é chamado de *unidade de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode comprar 1, 2, 4, 8 ou 16 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
 
-Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. As mensagens Premium do barramento de serviço são compiladas no mecanismo de armazenamento introduzido nos [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Com o Sistema de Mensagens Premium, o desempenho de pico é muito mais rápido do que com a camada Standard.
+Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. Com o Sistema de Mensagens Premium, o desempenho de pico é muito mais rápido do que com a camada Standard.
 
 ## <a name="premium-messaging-technical-differences"></a>Diferenças técnicas do sistema de mensagens Premium
 
@@ -40,9 +40,7 @@ Não há suporte para filas e tópicos particionados em mensagens Premium. Para 
 
 ### <a name="express-entities"></a>Entidades expressas
 
-Como as mensagens Premium são executadas em um ambiente de tempo de execução isolado, não há suporte para entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
-
-Se você tiver código em execução no sistema de mensagens padrão e deseja portá-lo para a camada Premium, verifique se a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **false** (o valor padrão).
+Como as mensagens Premium são executadas em um ambiente de tempo de execução isolado, não há suporte para entidades expressas em namespaces Premium. Uma entidade expressa mantém uma mensagem na memória temporariamente antes de gravá-la no armazenamento persistente. Se você tiver código em execução em mensagens padrão e desejar portá-lo para a camada Premium, verifique se o recurso de entidade expressa está desabilitado.
 
 ## <a name="premium-messaging-resource-usage"></a>Uso de recursos do sistema de mensagens Premium
 Em geral, qualquer operação em uma entidade pode causar o uso de CPU e memória. Aqui estão algumas dessas operações: 
@@ -69,8 +67,8 @@ Há vários fatores a serem levados em consideração ao decidir o número de un
 
 - Comece com ***1 ou 2 unidades de mensagens*** alocadas para seu namespace.
 - Estudar as métricas de uso da CPU dentro das [métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para seu namespace.
-    - Se o uso da CPU estiver ***abaixo de 20%***, você poderá ***reduzir verticalmente*** o número de unidades de mensagens alocadas para o namespace.
-    - Se o uso da CPU estiver ***acima de 70%***, seu aplicativo se beneficiará do ***aumento*** do número de unidades de mensagens alocadas para o namespace.
+    - Se o uso da CPU for ***abaixo de 20%** _, você poderá ser capaz de _ *_reduzir verticalmente_** o número de unidades de mensagens alocadas para o namespace.
+    - Se o uso da CPU for ***acima de 70%** _, seu aplicativo se beneficiará de _ *_escalar verticalmente_** o número de unidades de mensagens alocadas para o namespace.
 
 Para saber como configurar um namespace do barramento de serviço para dimensionar automaticamente (aumentar ou diminuir as unidades de mensagens), consulte [atualizar automaticamente as unidades de mensagens](automate-update-messaging-units.md).
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
 ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791435"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configuração de regras de aplicativo do Firewall do Azure com FQDNs do SQL

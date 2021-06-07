@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a95e1658c3633f4ae8d09b71e9d3b0c82446754a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680613"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727579"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Início Rápido: Como criar seu primeiro site estático usando a CLI do Azure
 
@@ -60,7 +60,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -72,7 +72,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -85,7 +85,7 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -98,14 +98,19 @@ Agora que o repositório foi criado, você pode criar um aplicativo Web estátic
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > A URL passada para o parâmetro `s` não deve incluir o sufixo `.git`.
 
-    - `<RESOURCE_GROUP_NAME>`: substitua esse valor pelo nome de um grupo de recursos existente do Azure.
+    - `<RESOURCE_GROUP_NAME>`: substitua esse valor pelo [nome de um grupo de recursos do Azure](../azure-resource-manager/management/manage-resources-cli.md) existente.
+
+      - Confira a documentação de [az group](/cli/azure/group#az_group_list) para obter detalhes sobre como listar grupos de recursos.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: substitua esse valor pelo seu nome de usuário do GitHub.
 

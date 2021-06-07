@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 4dfe284a00052cbd1915d62355e1d7772f3712ab
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94591862"
 ---
 # <a name="one-vs-all-multiclass"></a>Multiclasse uma-vs-todas
@@ -42,7 +42,7 @@ Você conecta o modelo binário ao módulo Multiclasse Um contra Todos. Em segui
 
 Quando você combina os modelos, Multiclasse Um contra Todos cria vários modelos de classificação binária, otimiza o algoritmo para cada classe e, em seguida, mescla os modelos. O módulo executa essas tarefas, embora o conjunto de módulos de treinamento possa ter vários valores de classe.
 
-1. Adicione o módulo Multiclasse Um contra Todos ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize** , na categoria **classificação** .
+1. Adicione o módulo Multiclasse Um contra Todos ao seu pipeline no designer. Você pode encontrar esse módulo em **Machine Learning-Initialize**, na categoria **classificação** .
 
    O classificador de Multiclasse Um contra Todos não tem nenhum parâmetro configurável. Todas as personalizações devem ser feitas no modelo de classificação binária que é fornecido como entrada.
 

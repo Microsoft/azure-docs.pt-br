@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: f12c823f609ac309d4b5ddbbaa7d5a076a7bb9ad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96447294"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo multilocatário

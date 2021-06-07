@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349037"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
@@ -174,4 +174,4 @@ Se você não continuar a usar esse aplicativo, exclua todos os recursos criados
 
 * [Importar dados do MongoDB no Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Configurar o banco de dados distribuído globalmente com a API do Azure Cosmos DB para MongoDB](tutorial-global-distribution-mongodb.md)
-* [Desenvolver localmente com o emulador de Azure Cosmos DB](local-emulator.md)
+* [Desenvolver localmente com o emulador do Azure Cosmos DB](local-emulator.md)

@@ -7,15 +7,15 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.openlocfilehash: f89635a74b82cfc34d55a662de8f7372aabd3162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91708128"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Banco de dados do Azure para Vídeos PostgreSQL
 
-Esta página fornece conteúdo de vídeo para aprender sobre o banco de dados do Azure para PostgreSQL.
+Esta página fornece conteúdos em vídeo para o aprendizado sobre o Banco de dados do Azure para PostgreSQL.
 
 ## <a name="overview-azure-database-for-postgresql-and-mysql"></a>Visão geral: Banco de Dados do Azure para PostgreSQL e MySQL
 
@@ -25,11 +25,11 @@ Esta página fornece conteúdo de vídeo para aprender sobre o banco de dados do
 O Banco de Dados do Azure para PostgreSQL e o Banco de Dados do Azure para MySQL reúnem os mecanismos de banco de dados da Community Edition e as funcionalidades de um serviço totalmente gerenciado – assim, você pode se concentrar em seus aplicativos em vez de ter que gerenciar um banco de dados. Prepare-se para obter uma breve visão geral das vantagens de usar o serviço e veja algumas funcionalidades em ação.
 
 ## <a name="create-a-postgresql-or-mysql-server"></a>Criar um servidor PostgreSQL ou MySQL
-O banco de dados do Azure para PostgreSQL e o banco de dados do Azure para MySQL são serviços gerenciados que você usa para executar, gerenciar e dimensionar mecanismos de banco de dados da Community Edition altamente disponíveis na nuvem. Esses tutoriais de vídeo mostram como criar um servidor PostgreSQL ou MySQL em cerca de três minutos usando o portal do Azure. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
+O Banco de Dados do Azure para PostgreSQL e para MySQL são serviços gerenciados que você usa para executar, gerenciar e escalonar mecanismos de banco de dados do Community Edition altamente disponíveis na nuvem. Esses tutoriais em vídeo mostram como criar um servidor PostgreSQL ou MySQL em cerca de três minutos usando o portal do Azure. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-* [Tutorial de vídeo do PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
+* [Tutorial em vídeo do PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
 
-* [Tutorial de vídeo do MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)
+* [Tutorial em vídeo do MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)
 
 ## <a name="deep-dive-on-managed-service-capabilities-for-mysql-and-postgresql"></a>Conheça com profundidade as funcionalidades de serviço gerenciado para MySQL e PostgreSQL
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
 ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356186"
 ---
 Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:

@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629590"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Como configurar detalhes de listagem de oferta de máquina virtual
@@ -55,8 +55,8 @@ Insira o endereço web (URL) da política de privacidade da sua organização. G
 
 Forneça documentos online complementares sobre sua oferta. Para adicionar um link, selecione **Adicionar um link** e preencha os seguintes campos:
 
-- **Name** : os clientes verão o nome na página de detalhes.
-- **Link** : Insira um endereço Web que permita aos clientes exibir seu documento online.
+- **Name**: os clientes verão o nome na página de detalhes.
+- **Link**: Insira um endereço Web que permita aos clientes exibir seu documento online.
 
 ## <a name="customer-support-links"></a>Links de atendimento ao cliente
 
@@ -67,15 +67,15 @@ Forneça o site de suporte em que os clientes podem entrar em contato com sua eq
 
 ## <a name="partner-support-contact"></a>Contato de suporte para parceiros
 
-Forneça o **nome** , o **email** e o **telefone** para que os parceiros da Microsoft usem quando os clientes abrirem um tíquete de suporte. Essas informações não estão listadas no Azure Marketplace.
+Forneça o **nome**, o **email** e o **telefone** para que os parceiros da Microsoft usem quando os clientes abrirem um tíquete de suporte. Essas informações não estão listadas no Azure Marketplace.
 
 ## <a name="engineering-contact"></a>Contato de engenharia
 
-Forneça o **nome** , o **email** e o **telefone** para que a Microsoft Use quando houver problemas com sua oferta, incluindo problemas com a certificação. Essas informações não estão listadas no Azure Marketplace.
+Forneça o **nome**, o **email** e o **telefone** para que a Microsoft Use quando houver problemas com sua oferta, incluindo problemas com a certificação. Essas informações não estão listadas no Azure Marketplace.
 
 ## <a name="cloud-solution-provider-program-contact"></a>Contato do programa do provedor de soluções na nuvem
 
-Forneça o **nome** , o **email** e o **telefone** da pessoa que lida com seu programa CSP (se aplicável). Essas informações não estão listadas no Azure Marketplace. Para **materiais de marketing do programa CSP** , insira o endereço da Web em que os parceiros neste programa podem exibir seus materiais de marketing.
+Forneça o **nome**, o **email** e o **telefone** da pessoa que lida com seu programa CSP (se aplicável). Essas informações não estão listadas no Azure Marketplace. Para **materiais de marketing do programa CSP**, insira o endereço da Web em que os parceiros neste programa podem exibir seus materiais de marketing.
 
 ## <a name="marketplace-media"></a>Mídia do marketplace
 

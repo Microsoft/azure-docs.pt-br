@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
 ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999411"
 ---
-O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o **Tools**  >  **console** de ferramentas.
+O recurso é fácil de configurar, mas isso não significa que sua experiência estará livre de problemas. Se você encontrar problemas para acessar o ponto de extremidade desejado, há alguns utilitários que podem ser usados para testar a conectividade no console do aplicativo. Há dois consoles que você pode usar. Um é o console do Kudu e o outro é o console do na portal do Azure. Para acessar o console do kudu do seu aplicativo, acesse **ferramentas**  >  **kudu**. Você também pode acessar o console do Kudo em [SiteName]. SCM. azurewebsites. net. Depois que o site for carregado, vá para a guia **console de depuração** . Para acessar o console do portal do Azure hospedado do seu aplicativo, vá para o   >  **console** de ferramentas.
 
 #### <a name="tools"></a>Ferramentas
 Em aplicativos nativos do Windows, as ferramentas **ping**, **nslookup** e **tracert** não funcionarão no console do devido a restrições de segurança (elas funcionam em [contêineres personalizados do Windows](../articles/app-service/quickstart-custom-container.md)). Para preencher o void, duas ferramentas separadas são adicionadas. Para testar a funcionalidade do DNS, adicionamos uma ferramenta chamada **nameresolver.exe**. A sintaxe do é:

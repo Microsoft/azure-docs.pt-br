@@ -14,10 +14,10 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: d847e38a6114b0e5f8d56f6e994aa47dfbe929e7
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99583698"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Suporte Serviços de Federação do Active Directory (AD FS) no MSAL para Python

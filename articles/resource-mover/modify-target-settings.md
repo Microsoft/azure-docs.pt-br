@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
 ms.openlocfilehash: 936a667948c888f3ca7c53eaa5be9cc97facf5f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375350"
 ---
 # <a name="modify-destination-settings"></a>Modificar configurações de destino

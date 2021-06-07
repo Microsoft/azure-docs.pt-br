@@ -1,16 +1,14 @@
 ---
 title: Solucionar problemas com relatórios de integridade do sistema
 description: Descreve os relatórios de integridade enviados por componentes do Service Fabric do Azure e o seu uso para solucionar problemas de cluster ou de aplicativos
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 483483746b2cce66588e9481bca7e0de391070b8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000650"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625884"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.

@@ -4,10 +4,10 @@ description: Saiba como codificar e testar Azure Functions em seu computador loc
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c37d51abcc8d612b777b845515cf07666369d4f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96168127"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente

@@ -1,29 +1,24 @@
 ---
 title: Suporte e desativação de recursos
-titleSuffix: Azure Defender for IoT
 description: O defender para IoT continuará a dar suporte a C, C# e Edge até 1º de março de 2022.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 2779a73d3a5f77e3a3b144309baf6d2788565443
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 782e2e8ab0c54e21da643ca73f647a7ea21e4223
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809697"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784519"
 ---
 # <a name="feature-support-and-retirement"></a>Suporte e desativação de recursos
 
 Este artigo descreve os recursos do Azure defender para IoT e o suporte para diferentes recursos no defender para IoT.
 
-## <a name="defender-for-iot-c-c-and-edge-security-module-deprecation"></a>Defender para IoT C, C# e borda do módulo de segurança do Edge
+## <a name="defender-for-iot-c-c-and-edge-defender-iot-micro-agent-deprecation"></a>Defender para IoT C, C# e Edge defender-reprovando o micro-agente
 
-O novo micro Agent substituirá o módulo de segurança atual do C, do C# e do Edge.  
+O novo micro Agent substituirá o atual C, C# e Edge defender-IoT-micro-Agent.  
 
-O novo micro Agent baseia-se no conhecimento e na experiência coletada dos comentários de desenvolvimento, clientes e parceiros do módulo de segurança com quatro aprimoramentos importantes: 
+O novo micro Agent baseia-se no conhecimento e na experiência obtida com os comentários de desenvolvimento do defender-IoT-micro-Agent, clientes e parceiros de saída com quatro aprimoramentos importantes: 
 
 - **Valor de segurança de profundidade**: o novo agente será executado no nível do host, o que fornecerá mais visibilidade para as operações subjacentes do dispositivo e para permitir uma melhor cobertura de segurança.
 

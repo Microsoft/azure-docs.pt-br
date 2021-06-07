@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure – Ruby'
 description: Crie uma conta de armazenamento e um contêiner no Armazenamento de Blobs do Azure. Use a biblioteca de clientes de armazenamento para Ruby para criar um blob, baixar um blob e listar os blobs em um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ec3fc490466f5fce36b67b2f3744e4ee5cc0ae79
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 96b47afb11a0105e8f6d6b58e8862994493389f4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781089"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277969"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-ruby"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure para Ruby
 

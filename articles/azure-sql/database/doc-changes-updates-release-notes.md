@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703760"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640088"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,13 +50,10 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 | Recurso | Detalhes |
 | ---| --- |
-| Recuperação acelerada do banco de dados com pools elásticos e bancos de dados individuais | Para obter mais informações, confira [Recuperação acelerada de banco de dados](../accelerated-database-recovery.md).|
-| Descoberta e classificação de dados  |Para obter informações, consulte [Azure SQL Database e Azure Synapse Analytics data discovery & classificação](data-discovery-and-classification-overview.md).|
 | Trabalhos de banco de dados elástico (visualização) | Para obter mais informações, consulte [Criar, configurar e gerenciar trabalhos elásticos](elastic-jobs-overview.md). |
 | Consultas elásticas | Para obter mais informações, consulte [Visão geral de consulta elástica](elastic-query-overview.md). |
 | Transações elásticas | [Transações distribuídas entre bancos de dados na nuvem](elastic-transactions-overview.md). |
 | Editor de consultas no Portal do Azure |Para obter mais informações, confira como [Usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](connect-query-portal.md).|
-| Serviços de R / Machine Learning com bancos de dados individuais e pools elásticos |Para obter mais informações, consulte o artigo [Serviços de Machine Learning no Banco de Dados SQL do Azure](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |Análise de SQL|Para obter mais informações, consulte o artigo [Análise de SQL do Azure](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -64,12 +61,12 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 | Recurso | Detalhes |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas entre instâncias gerenciadas. |
-| <a href="/azure/sql-database/sql-database-instance-pools">Pools da instância</a> | Uma maneira conveniente e econômica de migrar instâncias do SQL menores para a nuvem. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Entidades de segurança do servidor do Azure AD (logons) de nível de entidade</a> | Crie logons em nível de instância usando uma instrução <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create login from external Provider</a> . |
+| [Transações distribuídas](/azure/azure-sql/database/elastic-transactions-overview) | Transações distribuídas entre instâncias gerenciadas. |
+| [Pools da instância](/azure/sql-database/sql-database-instance-pools) | Uma maneira conveniente e econômica de migrar instâncias do SQL menores para a nuvem. |
+| [Entidades de segurança do servidor do Azure AD (logons) de nível de entidade](/sql/t-sql/statements/create-login-transact-sql) | Crie logons em nível de instância usando uma instrução [Create login from external Provider](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações de suas tabelas em outros bancos de dados do SQL Instância Gerenciada, do SQL Database ou do SQL Server. Ou atualize suas tabelas quando algumas linhas forem alteradas em outras instâncias do SQL Instância Gerenciada ou SQL Server. Para obter informações, consulte [Configurar a replicação no Azure SQL instância gerenciada](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Detecção de ameaças |Para obter informações, consulte [Configurar a detecção de ameaças no Azure SQL instância gerenciada](../managed-instance/threat-detection-configure.md).|
-| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo no Azure SQL instância gerenciada](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em visualização pública limitada. | 
+| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo no Azure SQL instância gerenciada](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em visualização pública limitada. |
 
 ---
 
@@ -89,7 +86,7 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
   - Suporte para <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 e sharepoint 2019 </a> e <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business central. </a>
   - Crie uma instância gerenciada com <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">agrupamento em nível de instância</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> de sua escolha.
   - Instâncias gerenciadas são protegidas com [firewall interno](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configure o SQL Instância Gerenciada para usar [pontos de extremidade públicos](../managed-instance/public-endpoint-configure.md), conexão de [substituição de proxy](connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 VCores na geração de hardware Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) está atualmente em visualização pública limitada.  
+  - Configure o SQL Instância Gerenciada para usar [pontos de extremidade públicos](../managed-instance/public-endpoint-configure.md), conexão de [substituição de proxy](connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 VCores na geração de hardware Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. A [retenção de backup de longo prazo](long-term-retention-overview.md) (até 10 anos) está atualmente em visualização pública.  
   - As novas funcionalidades permitem que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">faça a restauração geográfica de seu banco de dados para outro data center usando o PowerShell</a>, [renomeie o banco de dados](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) e [excluir o cluster virtual](../managed-instance/virtual-cluster-delete.md).
   - A nova [função de colaborador de instância](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) interna permite a conformidade de SoD (separação de imposto) com princípios de segurança e conformidade com os padrões corporativos.
   - O SQL Instância Gerenciada está disponível nas seguintes regiões do Azure governamental para GA (US Gov Texas, US Gov Arizona) e no Norte da China 2 e no Leste da China 2. Ele também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, sul do Brasil, sul da França, EAU Central, Norte dos EAU, norte da África do Sul, oeste da África do Sul.
@@ -101,7 +98,7 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 |[O procedimento sp_send_dbmail pode falhar transitóriomente quando o @query parâmetro é usado](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Tem solução alternativa||
 |[As transações distribuídas podem ser executadas após a remoção de Instância Gerenciada do grupo de confiança do servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Outubro de 2020|Tem solução alternativa||
 |[As transações distribuídas não podem ser executadas após Instância Gerenciada operação de dimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Outubro de 2020|Tem solução alternativa||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) no SQL do Azure e `BACKUP` / `RESTORE` na instrução no instância gerenciada não é possível usar o Azure ad gerenciar identidade para autenticar no armazenamento do Azure|Setembro de 2020|Tem solução alternativa||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) no SQL do Azure e `BACKUP` / `RESTORE` na instrução no instância gerenciada não é possível usar o Azure ad gerenciar identidade para autenticar no armazenamento do Azure|Setembro de 2020|Tem solução alternativa||
 |[A entidade de serviço não pode acessar o Azure AD e o AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 de agosto|Tem solução alternativa||
 |[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
@@ -174,7 +171,7 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solução alternativa**: use [a assinatura de acesso compartilhado para autenticar no armazenamento](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Solução alternativa**: use [a assinatura de acesso compartilhado para autenticar no armazenamento](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>A entidade de serviço não pode acessar o Azure AD e o AKV
 

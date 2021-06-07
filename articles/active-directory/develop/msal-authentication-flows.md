@@ -13,10 +13,10 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755025"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
@@ -76,7 +76,7 @@ No diagrama anterior, o aplicativo:
 
     `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-## <a name="client-credentials"></a>Credenciais de cliente
+## <a name="client-credentials"></a>Credenciais do cliente
 
 O [fluxo de credenciais do cliente OAuth 2](v2-oauth2-client-creds-grant-flow.md) permite que você acesse recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativo normalmente são chamados de daemons ou contas de serviço.
 

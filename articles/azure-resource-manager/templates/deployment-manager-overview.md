@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627492"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Gerenciador de Implantação (visualização pública)
@@ -30,7 +30,7 @@ Você implanta o modelo de topologia antes de implantar o modelo de implementaç
 
 Recursos adicionais:
 
-* [Referência da API REST do Azure Gerenciador de implantação](/rest/api/deploymentmanager/).
+* a [referência da API REST do Gerenciador de Implantação do Azure](/rest/api/deploymentmanager/).
 * [Tutorial: usar o Azure Gerenciador de implantação com modelos do Resource Manager](./deployment-manager-tutorial.md).
 * [Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure](./deployment-manager-tutorial-health-check.md).
 * [Exemplo de Gerenciador de implantação do Azure](https://github.com/Azure-Samples/adm-quickstart).

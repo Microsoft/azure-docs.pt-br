@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: f59e4238c983cdb336500a68c52730ae5346b1c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91612414"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual modelo de chave de criptografia de armazenamento do Azure está em uso para a conta de armazenamento
@@ -33,7 +33,7 @@ Para obter mais informações sobre chaves de criptografia, consulte [criptograf
 
 Para determinar se uma conta de armazenamento está usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente para criptografia, use uma das abordagens a seguir.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para verificar o modelo de criptografia para a conta de armazenamento usando o portal do Azure, siga estas etapas:
 

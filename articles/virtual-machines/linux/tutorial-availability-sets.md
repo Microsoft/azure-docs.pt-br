@@ -1,28 +1,23 @@
 ---
-title: Tutorial – Alta disponibilidade para VMs do Linux no Azure
+title: Implantar VMs em um conjunto de disponibilidade usando a CLI do Azure
 description: Neste tutorial, você aprenderá como usar a CLI do Azure para implantar máquinas virtuais altamente disponíveis em Conjuntos de Disponibilidade
 documentationcenter: ''
-services: virtual-machines-linux
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.topic: tutorial
-ms.date: 01/17/2020
-ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4b3817bd33c72ce6d1c3426aa8379101c84f5bc5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961503"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765963"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
+# <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Criar e implantar máquinas virtuais em um conjunto de disponibilidade usando a CLI do Azure
 
 Neste tutorial, você aprenderá a aumentar a disponibilidade e a confiabilidade de suas soluções de Máquina Virtual no Azure usando uma funcionalidade chamada Conjuntos de Disponibilidade. Os Conjuntos de disponibilidade garantem que as VMs implantadas no Azure sejam distribuídas entre vários clusters de hardware isolados. Isso garante que, se ocorrer uma falha de hardware ou de software no Azure, apenas um subconjunto de suas VMs será afetado e a solução geral permanecerá disponível e operacional.
 
@@ -37,18 +32,11 @@ Este tutorial usa a CLI dentro do [Azure Cloud Shell](../../cloud-shell/overview
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="overview"></a>Visão geral
-
-Um Conjunto de disponibilidade é uma funcionalidade de agrupamento lógico que você pode usar no Azure para garantir que os recursos da VM colocados nele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um Conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se uma falha de hardware ou software do Azure ocorrer, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral permanecerá disponível e ativo para seus clientes. Os Conjuntos de Disponibilidade são uma funcionalidade essencial quando você deseja compilar soluções de nuvem confiáveis.
-
-Vamos considerar uma solução comum baseada em VM na qual você pode ter quatro servidores Web front-end e usar duas VMs de back-end que hospedam um banco de dados. Com o Azure, convém definir dois conjuntos de disponibilidade antes de implantar suas VMs: um conjunto de disponibilidade para a camada "Web" e um conjunto de disponibilidade para a camada "banco de dados". Ao criar uma nova VM, você pode especificar o conjunto de disponibilidade como um parâmetro para o comando az vm create e o Azure garantirá automaticamente que as VMs criadas dentro do conjunto de disponibilidade sejam isoladas em vários recursos de hardware físico. Se o hardware físico no qual um de seus servidores Web ou VMs do servidor de banco de dados estiverem em execução enfrentar um problema, você saberá que outras instâncias de seu servidor Web e VMs de banco de dados permanecerão em execução, pois estão em um hardware diferente.
-
-
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
 Crie um conjunto de disponibilidade usando [az vm availability-set create](/cli/azure/vm/availability-set). Nesse exemplo, o número de domínios de atualização e de falha são definidos para *2* para o conjunto de disponibilidade chamado *myAvailabilitySet* no grupo de recursos *myResourceGroupAvailability*.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create), em seguida, crie um conjunto de disponibilidade:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create), em seguida, crie um conjunto de disponibilidade:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -92,7 +80,7 @@ A distribuição do conjunto de disponibilidade pode ser exibida no portal, vá 
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis
 
-VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
+VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \
@@ -116,5 +104,5 @@ Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilida
 > [Criar um conjunto de dimensionamento de máquinas virtuais](tutorial-create-vmss.md)
 
 * Para saber mais sobre as zonas de disponibilidade, confira a [Documentação das Zonas de Disponibilidade](../../availability-zones/az-overview.md).
-* Mais documentação sobre conjuntos de disponibilidade e Zonas de Disponibilidade também está disponível [aqui](../manage-availability.md).
+* Mais documentação sobre conjuntos de disponibilidade e Zonas de Disponibilidade também está disponível [aqui](../availability.md).
 * Para experimentar zonas de disponibilidade, visite [Criar uma máquina virtual do Linux em uma zona de disponibilidade com a CLI do Azure](./create-cli-availability-zone.md)

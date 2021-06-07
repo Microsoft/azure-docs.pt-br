@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
 ms.openlocfilehash: 5f3749be36f5f035e49fcb862f92180e4902101f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010133"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows a máquinas virtuais do host de sessão

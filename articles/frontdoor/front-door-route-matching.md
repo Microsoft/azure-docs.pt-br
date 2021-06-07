@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449214"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Como as solicitações são correspondidas a uma regra de roteamento
@@ -50,7 +50,7 @@ Para explicar esse processo ainda mais, vamos examinar um exemplo de configuraç
 
 | Regra de roteamento | Hosts de front-end | Caminho |
 |-------|--------------------|-------|
-| Um | foo.contoso.com | /\* |
+| A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
 | C | www \. fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
@@ -80,7 +80,7 @@ Para explicar melhor, vejamos outro conjunto de exemplos:
 
 | Regra de roteamento | Host de front-end    | Caminho     |
 |-------|---------|----------|
-| Um     | www\.contoso.com | /        |
+| A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 
 | Solicitação de entrada    | Rota correspondente |
 |---------------------|---------------|
-| \.contoso.com/www            | Um             |
+| \.contoso.com/www            | A             |
 | \.contoso.com/a www           | B             |
 | \.contoso.com/AB www          | C             |
 | \.contoso.com/ABC www         | D             |
@@ -114,7 +114,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 >
 > | Rota | Host             | Caminho    |
 > |-------|------------------|---------|
-> | Um     | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > Tabela de correspondência:
 >

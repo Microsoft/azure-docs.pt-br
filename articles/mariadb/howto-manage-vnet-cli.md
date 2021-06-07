@@ -3,16 +3,16 @@ title: Gerenciar pontos de extremidade de VNet-CLI do Azure-banco de dados do Az
 description: Este artigo descreve como criar e gerenciar o Banco de Dados do Azure para MariaDB para pontos de extremidade e regras de serviço do VNet usando a linha de comando da CLI do Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bee4af12b30b64409812d6758521a9ec29b2b61f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 43d1b7700395bd06960737eae4f318d61aa03717
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665082"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerenciar o Banco de Dados do Azure para MariaDB para pontos de extremidade de serviço do MariaDB VNet usando a CLI do Azure

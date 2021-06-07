@@ -11,10 +11,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 12/01/2020
 ms.openlocfilehash: 1425003c718ca52c0bea712e9d25cd3e4c035cf1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453977"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Configurar a proteção avançada contra ameaças para o banco de dados SQL do Azure
@@ -28,7 +28,7 @@ A [proteção avançada contra ameaças](threat-detection-overview.md) faz parte
 
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurar a proteção avançada contra ameaças no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a página de configuração do servidor que você deseja proteger. Em configurações de segurança, selecione **central de segurança**.
 3. Na página de configuração do **Azure defender para SQL** :
 
@@ -45,7 +45,7 @@ Para obter um exemplo de script, consulte [Configurar a auditoria e a proteção
 
 - Saiba mais sobre a [proteção avançada contra ameaças](threat-detection-overview.md).
 - Saiba mais sobre a [proteção avançada contra ameaças no SQL instância gerenciada](../managed-instance/threat-detection-configure.md).  
-- Saiba mais sobre o [Azure defender para SQL](azure-defender-for-sql.md).
+- Saiba mais sobre o [Azure Defender para SQL](azure-defender-for-sql.md).
 - Saiba mais sobre [auditoria](../../azure-sql/database/auditing-overview.md)
 - Saiba mais sobre a [central de segurança do Azure](../../security-center/security-center-introduction.md)
 - Para obter mais informações sobre preços, consulte a [página de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)

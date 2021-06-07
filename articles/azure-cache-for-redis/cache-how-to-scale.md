@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382388"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581636"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Dimensionar um cache do Azure para a instância do Redis
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Para um cache básico, Standard ou Premium, você pode alterar seu tamanho e camada após sua criação para acompanhar suas necessidades de aplicativo. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -45,7 +45,7 @@ Você pode dimensionar para um tipo de preço diferente com as restrições a se
   * Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
 * É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
-* Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** .
+* Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** . No entanto, você pode reduzir verticalmente para qualquer outro tamanho dentro do mesmo tipo de preço. Por exemplo, você pode reduzir verticalmente de C5 padrão para o padrão C1.
  
 Enquanto o cache é dimensionado para a nova camada de preços, é exibido um status **Dimensionando** na folha do **Cache Redis do Azure**.
 

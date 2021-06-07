@@ -6,15 +6,14 @@ ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8c8a7b357efc2e30d1ca93d0b45fd2563c980045
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444921"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752742"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Criar definição SAS e buscar tokens de assinatura de acesso compartilhado no código
 

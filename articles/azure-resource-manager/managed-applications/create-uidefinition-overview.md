@@ -3,14 +3,14 @@ title: CreateUiDefinition.jsno arquivo para o painel do portal
 description: Descreve como criar definições de interface do usuário para o portal do Azure. Usado ao definir aplicativos gerenciados do Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319553"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641647"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para a experiência de criação do aplicativo gerenciado do Azure
 
@@ -63,25 +63,29 @@ A propriedade `config` é opcional. Use-o para substituir o comportamento padrã
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,9 +107,11 @@ A propriedade `config` é opcional. Use-o para substituir o comportamento padrã
 },
 ```
 
+Para a `isValid` propriedade, escreva uma expressão que seja resolvida como true ou false. Para a `permission` propriedade, especifique uma das [ações do provedor de recursos](../../role-based-access-control/resource-provider-operations.md).
+
 ### <a name="wizard"></a>Assistente
 
-A `isWizard` propriedade permite que você exija uma validação bem-sucedida de cada etapa antes de prosseguir para a próxima etapa. Quando a `isWizard` propriedade não é especificada, o padrão é **false**e a validação passo a passo não é necessária.
+A `isWizard` propriedade permite que você exija uma validação bem-sucedida de cada etapa antes de prosseguir para a próxima etapa. Quando a `isWizard` propriedade não é especificada, o padrão é **false** e a validação passo a passo não é necessária.
 
 Quando `isWizard` está habilitado, definido como **true**, a guia **noções básicas** está disponível e todas as outras guias estão desabilitadas. Quando o botão **Avançar** é selecionado, o ícone da guia indica se a validação de uma guia foi aprovada ou falhou. Depois que os campos obrigatórios de uma guia são concluídos e validados, o botão **Avançar** permite a navegação para a próxima guia. Quando todas as guias são aprovadas na validação, você pode ir para a página **revisar e criar** e selecionar o botão **criar** para iniciar a implantação.
 
@@ -117,7 +123,7 @@ A configuração de noções básicas permite que você personalize a etapa bás
 
 Para `description` o, forneça uma cadeia de caracteres habilitada para fins de redução que descreve seu recurso. Há suporte para o formato e os links de várias linhas.
 
-Os `subscription` `resourceGroup` elementos e permitem que você especifique validações adicionais. A sintaxe para especificar validações é idêntica à validação personalizada para a [caixa de texto](microsoft-common-textbox.md). Você também pode especificar `permission` validações na assinatura ou no grupo de recursos.  
+Os `subscription` `resourceGroup` elementos e permitem que você especifique mais validações. A sintaxe para especificar validações é idêntica à validação personalizada para a [caixa de texto](microsoft-common-textbox.md). Você também pode especificar `permission` validações na assinatura ou no grupo de recursos.  
 
 O controle de assinatura aceita uma lista de namespaces do provedor de recursos. Por exemplo, você pode especificar **Microsoft. Compute**. Ele mostra uma mensagem de erro quando o usuário seleciona uma assinatura que não dá suporte ao provedor de recursos. O erro ocorre quando o provedor de recursos não está registrado nessa assinatura e o usuário não tem permissão para registrar o provedor de recursos.  
 
@@ -129,7 +135,7 @@ Para `location` , especifique as propriedades para o controle de localização q
 
 A etapa **básico** é a primeira etapa gerada quando o portal do Azure analisa o arquivo. Por padrão, a etapa básico permite que os usuários escolham a assinatura, o grupo de recursos e o local para implantação.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Assistente de guia":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Noções básicas padrão":::
 
 Você pode adicionar mais elementos nesta seção. Quando possível, adicione elementos que consultam parâmetros de toda a implantação, como o nome de um cluster ou credenciais de administrador.
 
@@ -150,7 +156,7 @@ O exemplo a seguir mostra uma caixa de texto que foi adicionada aos elementos pa
 
 ## <a name="steps"></a>Etapas
 
-A propriedade Steps contém zero ou mais etapas adicionais a serem exibidas após noções básicas. Cada etapa contém um ou mais elementos. Considere adicionar etapas por função ou camada do aplicativo que está sendo implantado. Por exemplo, adicione uma etapa para entradas de nó mestre e uma etapa para os nós de trabalho em um cluster.
+A propriedade Steps contém zero ou mais etapas a serem exibidas após noções básicas. Cada etapa contém um ou mais elementos. Considere adicionar etapas por função ou camada do aplicativo que está sendo implantado. Por exemplo, adicione uma etapa para entradas de nó primário e uma etapa para os nós de trabalho em um cluster.
 
 ```json
 "steps": [
@@ -164,7 +170,7 @@ A propriedade Steps contém zero ou mais etapas adicionais a serem exibidas apó
 ]
 ```
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 O portal do Azure usa a propriedade `outputs` para mapear os elementos de `basics` e `steps` para os parâmetros do modelo de implantação do Azure Resource Manager. As chaves do dicionário são os nomes dos parâmetros do modelo, e os valores são propriedades dos objetos da saída dos elementos referenciados.
 

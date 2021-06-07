@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.openlocfilehash: 3e5ab1667ee0cda459785efa624bd7f4fc6818b8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97562949"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure

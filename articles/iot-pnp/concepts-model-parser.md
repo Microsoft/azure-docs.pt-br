@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331780"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Entender o analisador do modelo dos Gêmeos Digitais

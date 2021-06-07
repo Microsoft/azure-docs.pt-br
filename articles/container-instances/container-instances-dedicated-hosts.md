@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98034264"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implantar em hosts dedicados

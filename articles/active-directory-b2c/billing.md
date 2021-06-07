@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225201"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
@@ -125,7 +125,7 @@ Veja como fazer a mudança para a cobrança de MAU para um recurso de Azure AD B
 
 A medição baseada em MAU é habilitada assim que você, o proprietário da assinatura/recurso, confirma a alteração. Sua fatura mensal refletirá as unidades de autenticação cobradas até a alteração e as novas unidades de MAU começando com a alteração.
 
-Os usuários não são contados duas vezes durante o mês de transição. Usuários ativos exclusivos que se autenticam antes da alteração são cobrados por uma taxa por autenticação em um mês civil. Esses mesmos usuários não estão incluídos no cálculo de MAU para o restante do ciclo de cobrança da assinatura. Por exemplo: 
+Os usuários não são contados duas vezes durante o mês de transição. Usuários ativos exclusivos que se autenticam antes da alteração são cobrados por uma taxa por autenticação em um mês civil. Esses mesmos usuários não estão incluídos no cálculo de MAU para o restante do ciclo de cobrança da assinatura. Por exemplo:
 
 * O locatário contoso B2C tem 1.000 usuários. 250 os usuários estão ativos em um determinado mês. O administrador da assinatura muda de por autenticação para usuários ativos mensais (MAU) no décimo do mês.
 * A cobrança por 1º-10 é cobrada usando o modelo por autenticação.

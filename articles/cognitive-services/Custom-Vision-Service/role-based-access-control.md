@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94616885"
 ---
 # <a name="azure-role-based-access-control"></a>Controle de acesso baseado em função do Azure
@@ -30,9 +30,9 @@ O RBAC do Azure pode ser atribuído a um recurso de Visão Personalizada. Para c
    > Você também pode configurar o RBAC do Azure para grupos de recursos, assinaturas ou grupos de gerenciamento inteiros. Faça isso selecionando o nível de escopo desejado e, em seguida, navegando até o item desejado (por exemplo, selecionando **grupos de recursos** e, em seguida, clicando até o grupo de recursos desejado).
 1. Selecione **controle de acesso (iam)** no painel de navegação à esquerda.
 1. Selecione a guia **atribuições de função** para exibir as atribuições de função para esse escopo.
-1. Selecione **Adicionar**  ->  **Adicionar atribuição de função**.
+1. Selecione **Adicionar** -> **Adicionar atribuição de função**.
 1. Na lista suspensa **função** , selecione uma função que você deseja adicionar.
-1. Na lista **Selecionar** , selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se você não vir a entidade de segurança na lista, poderá digitar a caixa Selecionar para pesquisar o diretório em busca de nomes de exibição, endereços de email e identificadores de objeto.
+1. Na lista **Selecionar**, selecione um usuário, grupo, entidade de serviço ou identidade gerenciada. Se você não vir a entidade de segurança na lista, poderá digitar a caixa Selecionar para pesquisar o diretório em busca de nomes de exibição, endereços de email e identificadores de objeto.
 1. Selecione **Salvar** para atribuir a função.
 
 Em alguns minutos, o destino será atribuído à função selecionada no escopo selecionado.

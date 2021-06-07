@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 34a11679626653afd04b0cd17c77188cbc995308
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463575"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061716"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutorial: Configurar a rede para o Azure Stack Edge Mini R
 
@@ -50,7 +49,7 @@ Siga estas etapas para configurar a rede para seu dispositivo.
 
 2. Se uma atualização de dia zero for necessária, você poderá fazer isso aqui configurando uma porta de dados com uma conexão com fio. Para saber mais sobre como configurar uma conexão com fio para o dispositivo, confira [Cabear o dispositivo](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Quando a atualização terminar, você poderá remover a conexão com fio.
 
-3. Crie certificados para a Wi-Fi e a cadeia de assinatura. Os certificados da cadeia de assinatura e da Wi-Fi devem estar no formato DER com uma extensão de arquivo *.cer*. Para obter instruções, confira [Criar certificados](azure-stack-edge-j-series-manage-certificates.md).
+3. Crie certificados para a Wi-Fi e a cadeia de assinatura. Os certificados da cadeia de assinatura e da Wi-Fi devem estar no formato DER com uma extensão de arquivo *.cer*. Para obter instruções, confira [Criar certificados](azure-stack-edge-gpu-manage-certificates.md).
 
 4. Na IU da Web local, acesse **Introdução**. No bloco **Segurança**, selecione **Certificados** e escolha **Configurar**. 
 
@@ -126,6 +125,7 @@ Siga estas etapas para configurar a rede para seu dispositivo.
    - Se o DHCP estiver ativado em seu ambiente, as interfaces de rede serão configuradas automaticamente. Um endereço IP, sub-rede, gateway e DNS são atribuídos automaticamente.
    - Se o DHCP não estiver ativado, você poderá atribuir IPs estáticos, se necessário.
    - Você pode configurar sua interface de rede como IPv4.
+   - O agrupamento NIC (adaptador de rede) ou a agregação de link não tem suporte com o Azure Stack Edge.
    - O número de série de qualquer porta corresponde ao número de série do nó. Para um dispositivo da série K, apenas um número de série é exibido.
 
      >[!NOTE] 
@@ -152,7 +152,7 @@ Siga estas etapas para habilitar a computação e configurar a rede de computaç
     > O Kubernetes no Azure Stack Edge usa a sub-rede 172.27.0.0/16 para pod e a sub-rede 172.28.0.0/16 para o serviço. Verifique se elas não estão em uso na sua rede. Se essas sub-redes já estiverem em uso em sua rede, você poderá alterar essas sub-redes executando o cmdlet `Set-HcsKubeClusterNetworkInfo` da interface do PowerShell do dispositivo. Para obter mais informações, confira [Alterar o pod do Kubernetes e as sub-redes de serviço](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
 
 
-1. Atribuir **IPs de serviço externo do Kubernetes**. Esses também são os endereços IP de balanceamento de carga. Esses endereços IP contíguos são para serviços que você deseja expor fora do cluster Kubernetes e você especifica o intervalo de IP estático com base no número de serviços expostos. 
+1. Atribuir **IPs de serviço externo do Kubernetes**. Esses também são os endereços IP de balanceamento de carga. Esses endereços IP contíguos são usados nos serviços que você deseja expor fora do cluster do Kubernetes e você especifica o intervalo de IP estático com base no número de serviços expostos. 
     
     > [!IMPORTANT]
     > É altamente recomendável que você especifique no mínimo um endereço IP para o serviço de Hub do Azure Stack Edge Mini R para acessar os módulos de computação. Opcionalmente, você pode especificar mais endereços IP para outros serviços/módulos do IoT Edge (um por serviço/módulo) que precisam ser acessados de fora do cluster. Os endereços IP do serviço podem ser atualizados mais tarde. 

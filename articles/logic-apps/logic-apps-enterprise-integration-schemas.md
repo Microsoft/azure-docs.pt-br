@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75979369"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -97,11 +97,11 @@ Para adicionar esquemas maiores, você pode carregar seu esquema em um contêine
 
 1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access)
+   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar** e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access)
 
      ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#public-access)
+   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar** e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#public-access)
 
      ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -161,7 +161,7 @@ Para atualizar um esquema existente, você precisa carregar um novo arquivo de e
 1. Na página **Visão geral** da conta de integração, em **Componentes**, selecione o bloco **Esquemas**.
 
 1. Após abrir a página **Esquemas**, selecione seu esquema. 
-   Para baixar e editar o esquema primeiro, escolha **Baixar**e salve o esquema.
+   Para baixar e editar o esquema primeiro, escolha **Baixar** e salve o esquema.
 
 1. Quando estiver pronto para carregar o esquema atualizado, na página **Esquemas**, selecione o esquema que deseja atualizar e, em seguida, escolha **Atualizar**.
 

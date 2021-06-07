@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536825"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951497"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Criando consultas no Azure Pesquisa Cognitiva
 
@@ -21,18 +21,21 @@ Se você estiver criando uma consulta pela primeira vez, este artigo descreve ab
 
 ## <a name="whats-a-query-request"></a>O que é uma solicitação de consulta?
 
-Uma consulta é uma solicitação somente leitura em relação à coleção docs de um único índice de pesquisa. Ele especifica um ' QueryType ' e uma expressão de consulta, por meio do parâmetro ' Search '. A expressão de consulta pode ter termos de pesquisa, uma frase entre aspas e operadores.
+Uma consulta é uma solicitação somente leitura em relação à coleção docs de um único índice de pesquisa. Ele especifica que um parâmetro ' Search ' contém a expressão de consulta, que consiste em termos, frases entre aspas e operadores.
 
-Uma consulta também pode ter ' count ' para retornar o número de correspondências encontradas no índice, ' Select ' para escolher quais campos são retornados no resultado da pesquisa e ' OrderBy ' para classificar os resultados. O exemplo a seguir fornece uma ideia geral de uma solicitação de consulta mostrando um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre composição de consulta, consulte [tipos de consulta e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
+Parâmetros adicionais fornecem mais definição para a consulta e a resposta. Por exemplo, os escopos ' searchFields ' consultam a execução em campos específicos, ' Select ' especifica quais campos são retornados nos resultados e ' count ' retorna o número de correspondências encontradas no índice.
+
+O exemplo a seguir fornece uma ideia geral de uma solicitação de consulta mostrando um subconjunto dos parâmetros disponíveis. Para obter mais informações sobre composição de consulta, consulte [tipos de consulta e composições](search-query-overview.md) e [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
-    "count": "true",
-    "orderby": "Rating desc"
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
 }
 ```
 
@@ -71,7 +74,7 @@ Por Pesquisa Cognitiva, os SDKs do Azure implementam recursos geralmente dispon�
 |-----------|--------|----------|
 | .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
 | Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample. java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
-| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
+| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | Pendente. |
 | Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query. py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
 
 ## <a name="choose-a-query-type-simple--full"></a>Escolha um tipo de consulta: simples | completo

@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Conectar – MySQL Workbench – Banco de Dados do Azure para MySQL – Servidor Flexível'
 description: Este Início Rápido fornecerá as etapas necessárias para usar o MySQL Workbench para se conectar ao Banco de Dados do Azure para MySQL – Servidor Flexível e consultar dados dele.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95ecb64165075a7effe0c6eaf568ee172ad67b9b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90943573"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226287"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Início Rápido: Usar o MySQL Workbench para se conectar ao Banco de Dados do Azure para MySQL – Servidor Flexível (Versão Prévia) e consultar dados dele
 
@@ -53,7 +53,7 @@ Para se conectar ao Servidor Flexível do Banco de Dados do Azure para MySQL usa
 
 2. Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
-    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurar nova conexão":::
 
     | **Parâmetros** | **Valor sugerido** | **Descrição do campo** |
     |---|---|---|
@@ -108,7 +108,7 @@ Para se conectar ao Servidor Flexível do Banco de Dados do Azure para MySQL usa
 
     A captura de tela mostra um exemplo do código SQL no SQL Workbench e a saída após sua execução.
 
-    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL Flexible Server name":::
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Guia de SQL do MySQL Workbench para executar código SQL de exemplo":::
 
 2. Para executar o código SQL de exemplo, clique no ícone de raio na barra de ferramentas da guia **Arquivo SQL**.
 3. Observe os resultados em três guias na seção **Grade de Resultados** no meio da página.

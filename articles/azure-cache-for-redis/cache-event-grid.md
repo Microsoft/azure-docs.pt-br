@@ -7,10 +7,10 @@ ms.date: 12/21/2020
 ms.topic: conceptual
 ms.service: cache
 ms.openlocfilehash: 0a0809076367356739dfeadcf8dd63f88866a987
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055658"
 ---
 # <a name="azure-cache-for-redis-event-grid-overview"></a>Visão geral da grade de eventos do cache do Azure para Redis 
@@ -23,9 +23,9 @@ Se você quiser experimentar o cache do Azure para eventos Redis, consulte qualq
 
 |Se você quiser usar essa ferramenta:    |Consulte este guia de início rápido: |
 |--|-|
-|Portal do Azure    |[Início rápido: encaminhar o cache do Azure para eventos Redis para o ponto de extremidade da Web com o portal do Azure](cache-event-grid-quickstart-portal.md)|
-|PowerShell    |[Início rápido: encaminhe o cache do Azure para eventos Redis para o ponto de extremidade da Web com o PowerShell](cache-event-grid-quickstart-powershell.md)|
-|CLI do Azure    |[Início rápido: encaminhar o cache do Azure para eventos Redis para o ponto de extremidade da Web com CLI do Azure](cache-event-grid-quickstart-cli.md)|
+|Portal do Azure    |[Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o portal do Azure](cache-event-grid-quickstart-portal.md)|
+|PowerShell    |[Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o PowerShell](cache-event-grid-quickstart-powershell.md)|
+|CLI do Azure    |[Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com a CLI do Azure](cache-event-grid-quickstart-cli.md)|
 
 ## <a name="the-event-model"></a>O modelo de evento
 

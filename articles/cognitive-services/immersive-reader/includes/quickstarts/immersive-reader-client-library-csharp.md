@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 442f51759b136200fd61706864568e580265e572
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947402"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619182"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Você pode usar a Leitura Avançada em seus aplicativos para isolar texto e aprimorar o foco, exibir imagens para palavras usadas com frequência, realçar partes de fala, ler o texto selecionado em voz alta, traduzir palavras e frases em tempo real e muito mais.
 
@@ -306,4 +306,5 @@ Ao clicar no botão "Leitura Avançada", você verá a Leitura Avançada iniciad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../../reference.md)
+> [!div class="nextstepaction"]
+> [Criar um recurso e configurar o AAD](../../how-to-create-immersive-reader.md)

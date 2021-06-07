@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/06/2021
 ms.topic: conceptual
 ms.openlocfilehash: 6924a9a9394d237b08db878ef910de6767ca9b39
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055615"
 ---
 # <a name="delete-an-azure-automation-run-as-account"></a>Excluir uma conta Executar como da automação do Azure

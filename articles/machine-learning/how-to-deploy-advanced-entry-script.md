@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: de0a62ead6e1f40755daa068bf779b5391cf66a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f88b6bd79e1004c108ef868f910a4e5a974cc08a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371967"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508530"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de scripts de entrada avançados
 
@@ -76,27 +76,27 @@ def init():
     model = joblib.load(model_path)
 
 
-    # providing 3 sample inputs for schema generation
-    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-    standard_sample_input = StandardPythonParameterType(0.0)
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
-                                            'input2': pandas_sample_input, 
-                                            'input3': standard_sample_input})
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                        'input2': pandas_sample_input, 
+                                        'input3': standard_sample_input})
 
-    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
-    sample_output = StandardPythonParameterType([1.0, 1.0])
-    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
+sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
+outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-    @input_schema('Inputs', sample_input) 
-    # 'Inputs' is case sensitive
-    
-    @input_schema('GlobalParameters', sample_global_parameters) 
-    # this is optional, 'GlobalParameters' is case sensitive
+@input_schema('Inputs', sample_input) 
+# 'Inputs' is case sensitive
 
-    @output_schema(outputs)
+@input_schema('GlobalParameters', sample_global_parameters) 
+# this is optional, 'GlobalParameters' is case sensitive
+
+@output_schema(outputs)
 
 def run(Inputs, GlobalParameters): 
     # the parameters here have to match those in decorator, both 'Inputs' and 
@@ -291,7 +291,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Ao registrar um modelo, você fornece um nome de modelo que é usado para gerenciar o modelo no registro. Use esse nome com o método [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do arquivo de modelo ou arquivos no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho do diretório que contém esses arquivos.
+Ao registrar um modelo, você fornece um nome de modelo que é usado para gerenciar o modelo no registro. Use esse nome com o método [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do arquivo de modelo ou arquivos no sistema de arquivos local. Se você registrar uma pasta ou uma coleção de arquivos, essa API retornará o caminho do diretório que contém esses arquivos.
 
 Ao registrar um modelo, você lhe dá um nome. O nome corresponde ao local em que o modelo é colocado, seja localmente ou durante a implantação do serviço.
 

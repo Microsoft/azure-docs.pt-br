@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274105"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
@@ -176,7 +176,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     Depois de escolher o domínio, o assistente fornece as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Confira [Adicionar seu nome de domínio personalizado ao Azure Active Directory](../fundamentals/add-custom-domain.md) para obter mais detalhes.
 
-5. Clique em **Avançar**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
+5. Clique em **Próximo**. A página **Pronto para configurar** mostra a lista de ações que o Azure AD Connect executará. Clique em **Instalar** para concluir a configuração.
 
    ![Pronto para configurar](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 

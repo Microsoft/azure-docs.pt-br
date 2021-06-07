@@ -4,10 +4,10 @@ description: Descreve o desenvolvimento, implantação, testes, atualização, m
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: ae0c79cdaafc8fc016d463a01046f0a02121330a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785728"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida do aplicativo Service Fabric
@@ -48,7 +48,7 @@ Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) 
 
 Consulte [Introduction to the Fault Analysis Service (Introdução ao Fault Analysis Service)](service-fabric-testability-overview.md) para obter mais informações.
 
-## <a name="upgrade"></a>Atualizar
+## <a name="upgrade"></a>Atualização
 1. Um *desenvolvedor de serviço* atualiza os serviços membros do aplicativo instanciado e/ou corrige erros e fornece uma nova versão do manifesto do serviço.
 2. Um *desenvolvedor de aplicativos* substitui e parametriza as configurações de implantação e configuração dos serviços membros e fornece uma nova versão do manifesto do aplicativo. O desenvolvedor do aplicativo incorpora as novas versões dos manifestos do serviço no aplicativo e fornece uma nova versão do tipo de aplicativo em um pacote de aplicativo atualizado.
 3. Um *administrador de aplicativos* incorpora a nova versão do tipo de aplicativo para o aplicativo de destino atualizando os parâmetros apropriados.
@@ -81,7 +81,7 @@ Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) 
 Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativos e serviços da Malha do Serviço, confira:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Serviços confiáveis](service-fabric-reliable-services-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 * [Atualização de aplicativo](service-fabric-application-upgrade.md)
 * [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)

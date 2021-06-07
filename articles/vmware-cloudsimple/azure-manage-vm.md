@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895182"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerenciar suas máquinas virtuais de nuvem privada do CloudSimple no Azure
@@ -28,8 +28,8 @@ Os seguintes controles estão disponíveis na página **visão geral** da máqui
 | Conectar | Conecte-se à VM especificada.  |
 | Iniciar | Inicie a VM especificada.  |
 | Reiniciar | Desligue e, em seguida, ligue a VM especificada.  |
-| Stop | Desligue a VM específica.  |
-| Captura | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).   |
+| Parar | Desligue a VM específica.  |
+| Capturar | Capture uma imagem da VM especificada para que ela possa ser usada como uma imagem para criar outras VMs. Consulte [criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Mover | Mover para a VM especificada.  |
 | Excluir | Remova a VM especificada.  |
 | Atualizar | Atualize os dados na exibição.  |
@@ -56,7 +56,7 @@ Para adicionar um disco de VM, abra a página **discos** da VM selecionada. Para
    | Nome | Insira um nome para identificar o disco.  |
    | Tamanho | Selecione um dos tamanhos disponíveis.  |
    | Controlador SCSI | Selecione um controlador SCSI. Os controladores disponíveis variam para os diferentes sistemas operacionais com suporte.  |
-   | Mode | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> -Independente, não persistente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  Esse modo permite que você sempre reinicie a VM no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> – Persistente independente: todos os dados gravados no disco são gravados permanentemente.<br> -Independente, não persistente: as alterações gravadas no disco são descartadas quando você desliga ou redefine a máquina virtual.  Esse modo permite que você sempre reinicie a VM no mesmo estado. Saiba mais na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Para excluir um disco, selecione-o e clique em **excluir**.
 

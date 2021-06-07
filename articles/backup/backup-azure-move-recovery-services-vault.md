@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos serviços de recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 4f75bec533181b29625fb0a10cc26d03f2875036
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325767"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466364"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -23,7 +23,7 @@ Há suporte para todas as regiões públicas e regiões soberanas, exceto Franç
 
 - Durante a movimentação do cofre entre grupos de recursos, os grupos de recursos de origem e de destino são bloqueados, impedindo as operações de gravação e exclusão. Para obter mais informações, consulte este [artigo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Somente a assinatura de administrador tem as permissões para mover um cofre.
-- Para mover cofres entre assinaturas, a assinatura de destino deve residir no mesmo locatário que a assinatura de origem e seu estado deve ser habilitado.
+- Para mover cofres entre assinaturas, a assinatura de destino deve residir no mesmo locatário que a assinatura de origem e seu estado deve ser habilitado. Para mover um cofre para um diretório diferente do Azure AD, consulte [transferir assinatura para um diretório diferente](../role-based-access-control/transfer-subscription.md) e [perguntas frequentes do cofre do serviço de recuperação](backup-azure-backup-faq.md#recovery-services-vault).
 - Você deve ter permissão para executar operações de gravação no grupo de recursos de destino.
 - Mover cofre altera apenas o grupo de recursos. O cofre dos serviços de recuperação residirá no mesmo local e não poderá ser alterado.
 - Você pode mover apenas um cofre dos serviços de recuperação, por região, por vez.

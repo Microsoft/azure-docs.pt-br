@@ -16,10 +16,10 @@ ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: d36a2804519e5728dd068cc6c06ad005244e8c95
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95524089"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
@@ -55,7 +55,7 @@ O Azure oferece muitos recursos que permitem resolver os principais problemas en
   * Funções de trabalho que normalmente processam dados no back-end de um aplicativo.
   * Funções Web que geralmente agem como o front-end de aplicativos.
 
-**Armazenamento**
+**Storage**
 
 O gerenciamento de dados, como o Azure SQL Database ou os serviços de armazenamento do Azure, como o serviço tabela, que fornece serviços para o armazenamento de grandes quantidades de dados não estruturados e o serviço BLOB, que fornece serviços para armazenar grandes quantidades de texto não estruturado ou dados binários, como vídeo, áudio e imagens.
 

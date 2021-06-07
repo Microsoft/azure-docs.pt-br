@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
 ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994852"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
@@ -39,7 +39,7 @@ Para resolver esse problema, siga estas etapas:
 
 2. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot. cer    | Local Computer\Trusted Root Certification Authorities|
@@ -115,7 +115,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 1. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -178,7 +178,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro:
 
-**Falha ao salvar o nome do gateway de gateway de rede virtual &lt; *gateway name* &gt; . Os dados da &lt; *ID do certificado* de certificado &gt; são inválidos.**
+**Falha ao salvar o nome do gateway de gateway de rede virtual &lt;  &gt; . Os dados da &lt; *ID do certificado* de certificado &gt; são inválidos.**
 
 ### <a name="cause"></a>Causa 
 
@@ -215,7 +215,7 @@ e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro: 
 
-**Falha ao salvar o nome do gateway de gateway de rede virtual &lt; *gateway name* &gt; . Nome do recurso &lt; *nome do certificado que você tentar carregar* &gt; é inválido**.
+**Falha ao salvar o nome do gateway de gateway de rede virtual &lt;  &gt; . Nome do recurso &lt; *nome do certificado que você tentar carregar* &gt; é inválido**.
 
 ### <a name="cause"></a>Causa
 

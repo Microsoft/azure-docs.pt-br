@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910467"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorar o Azure Data Share  
@@ -36,7 +36,7 @@ Há três Estados em que seu convite pode estar:
 
 ## <a name="monitor-share-subscriptions"></a>Monitorar assinaturas de compartilhamento
 
-Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar* . 
+Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar*. 
 
 ## <a name="snapshot-history"></a>Histórico de instantâneos 
 
@@ -50,7 +50,7 @@ São exibidos até 30 dias de histórico de instantâneo. Se você precisar salv
 
 ## <a name="diagnostic-setting"></a>Configuração de diagnóstico
 
-Você pode definir a configuração de diagnóstico para salvar dados de log ou eventos. Navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico** . Selecione os dados de log ou eventos nos quais você está interessado e onde deseja armazená-los ou enviá-los. 
+Você pode definir a configuração de diagnóstico para salvar dados de log ou eventos. Navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Selecione os dados de log ou eventos nos quais você está interessado e onde deseja armazená-los ou enviá-los. 
 
 ![Captura de tela mostra a página Configurações de diagnóstico no portal do Azure.](./media/diagnostic-settings.png "Configurações de Diagnóstico") 
 

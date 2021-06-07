@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: f61d99a61cb50886d70489b586d948bfa751e196
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eb1d59ae41b04be60dec90aaee4b2305b6d39ca6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576767"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102095843"
 ---
 # <a name="glossary-insights-on-your-data-in-azure-purview"></a>Informações de Glossário sobre seus dados no Azure alcance
 
@@ -54,19 +54,27 @@ No Azure alcance, você pode criar termos do glossário e anexá-los aos ativos.
 
 1. Na área **insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: , selecione **Glossário** para exibir o relatório de **informações do glossário** do alcance.
 
-A página de **informações do glossário** exibe as seguintes áreas:
-1. **KPIs de alto nível** para mostrar os termos do glossário e os usuários do catálogo
+O **Glossário insights** fornece uma informação valiosa para o usuário comercial, a fim de manter um glossário bem definido para sua organização.
 
-2. Os **principais termos do glossário e a contagem de ativos** mostra os cinco primeiros termos do glossário com ativos anexados a eles. Todos os outros ativos são contabilizados na categoria "outros" no grafo.
+1. O relatório começa com **KPIs de alto nível** que mostra **o _total de termos_*na sua conta do alcance,* com termos _aprovados sem_ os termos de ativos *e _*_expirados com ativos_**. Cada um desses valores ajudará a identificar a integridade do seu Glossário.
 
-3. Os **termos do glossário por status do termo** mostram a distribuição de termos do glossário por status, como "rascunho", "aprovado", "alerta" e "expirado". 
+   :::image type="content" source="./media/glossary-insights/glossary-kpi.png" alt-text="Exibir KPI de informações do glossário"::: 
 
-1. Focalize ou clique na fatia do grafo com um status e anote a contagem de termos com esse status.
 
-1. **A distribuição de funções por número de usuários** mostra a distribuição de funções por número de usuários por função no alcance.
+2. O **instantâneo da seção de termos** (exibido acima) mostra o status do termo como **_rascunho_*_, _*_aprovado_*_, _*_alerta_*_ e _*_expirado_** para termos com ativos e termos sem ativos.
 
-   :::image type="content" source="./media/glossary-insights/glossary-insights1.png" alt-text="Exibir informações do glossário":::
+3. Clique em **Exibir mais** para ver os nomes dos termos com vários status e mais detalhes sobre os especialistas em **_Administração_*_ e _***. 
+
+   :::image type="content" source="./media/glossary-insights/glossary-view-more.png" alt-text="Instantâneo de termos com e sem ativos":::  
+
+4. Quando você clica em "exibir mais" para ***termos aprovados com ativos**, as informações permitem que você navegue até a página de detalhes do termo _ *Glossário**, de onde você pode navegar ainda mais para a lista de ativos com os termos anexados. 
+
+   :::image type="content" source="./media/glossary-insights/navigate-to-glossary-detail.png" alt-text="Informações sobre o Glossário"::: 
+
+4. Na página insights do glossário, exiba uma distribuição de **termos incompletos** por tipo de informações ausentes. O grafo mostra a contagem de termos com a **_definição ausente_*_, _* o _expert_*_, _* is ausentes de _Administração_ _ *e _* estão faltando _vários_** campos.
+
+1. Clique em ***Exibir mais** _ de _ * termos incompletos * * para exibir os termos com informações ausentes. Você pode navegar até a página de detalhes do termo do glossário para inserir as informações ausentes e garantir que o termo do glossário esteja concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os relatórios do Azure alcance Insight por meio de [insights de ativos](./asset-insights.md)
+Saiba mais sobre como criar um termo do glossário por meio do [Glossário](./how-to-create-import-export-glossary.md)

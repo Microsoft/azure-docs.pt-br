@@ -4,10 +4,10 @@ description: Saiba como serviços de laboratório podem facilitar a criação, o
 ms.topic: overview
 ms.date: 09/16/2020
 ms.openlocfilehash: ad17ebb3a803a15d1ac9ef8cb71cf8ca7976243b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91333929"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Uma introdução ao Azure Lab Services
@@ -27,9 +27,9 @@ As seções a seguir fornecem mais detalhes sobre esses laboratórios.
 ## <a name="managed-lab-types"></a>Tipos de laboratório gerenciado
 O Azure Lab Services permite que você crie laboratórios cuja infraestrutura é gerenciada pelo Azure. Este artigo se refere a eles como tipos de laboratório gerenciado. Os tipos de laboratório gerenciado oferecem tipos diferentes de laboratórios de acordo com sua necessidade específica. Atualmente, o único tipo de laboratório gerenciado com suporte é o **laboratório de sala de aula**. 
 
-Os tipos de laboratório gerenciado permitem o início imediato, com o mínimo de configuração. O próprio serviço administra todo o gerenciamento da infraestrutura do laboratório, desde a execução das VMs até o tratamento de erros e o dimensionamento da infraestrutura. Para criar um tipo de laboratório gerenciado, como um laboratório de sala de aula, primeiro você precisa criar uma conta de laboratório para sua organização. A conta de laboratório serve como a conta central no qual todos os laboratórios na organização são gerenciados. 
+Os tipos de laboratório gerenciado permitem o início imediato, com o mínimo de configuração. O próprio serviço administra todo o gerenciamento da infraestrutura do laboratório, desde a execução das VMs até o tratamento de erros e o dimensionamento da infraestrutura.  Para criar um tipo de laboratório gerenciado, como um laboratório de sala de aula, primeiro você precisa criar uma conta de laboratório para sua organização. A conta de laboratório serve como a conta central no qual todos os laboratórios na organização são gerenciados. 
 
-Quando você cria e usa recursos do Azure nesses tipos de laboratório gerenciado, o serviço cria e gerencia os recursos em assinaturas internas da Microsoft. Eles não são criados em sua própria assinatura do Azure. O serviço mantém o controle de uso desses recursos em assinaturas internas da Microsoft. Esse uso é debitado na sua assinatura do Azure que contém a conta de laboratório.   
+Quando você cria e usa recursos do Azure nesses tipos de laboratório gerenciado, o serviço cria e gerencia os recursos em assinaturas internas da Microsoft. Eles não são criados em sua própria assinatura do Azure. O serviço mantém o controle de uso desses recursos em assinaturas internas da Microsoft. Esse uso é debitado na sua assinatura do Azure que contém a conta de laboratório.   
 
 Estes são alguns dos **casos de uso dos tipos de laboratório gerenciado**: 
 

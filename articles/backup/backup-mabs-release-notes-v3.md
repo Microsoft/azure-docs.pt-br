@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91254254"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Serviço de Backup do Azure

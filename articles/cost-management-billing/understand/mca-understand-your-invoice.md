@@ -9,18 +9,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690486"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050436"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termos em sua fatura do Contrato de Cliente da Microsoft
 
 Este artigo se aplica a uma conta de cobrança do Azure para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Sua fatura fornece um resumo de seus encargos e instruções para pagamento. Ela está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com/) ou pode ser enviada via email. Para obter mais informações, confira [Exibir e baixar sua fatura do Microsoft Azure](download-azure-invoice.md).
+
+Assista ao vídeo [Noções básicas da sua fatura do Contrato de Cliente da Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) para saber mais sobre sua fatura e como analisar os preços nela.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Período de pagamento
 
@@ -52,7 +56,7 @@ O **Resumo da Cobrança** mostra os encargos em relação ao perfil de cobrança
 
 ![Seção Resumo da cobrança](./media/mca-understand-your-invoice/billingsummary.png)
 
-| Termo | DESCRIÇÃO |
+| Termo | Descrição |
 | --- | --- |
 | Charges|Número total de encargos da Microsoft desse perfil de cobrança desde o último período de cobrança |
 | Credits |Créditos recebidos de retornos |
@@ -76,7 +80,7 @@ O valor total devido para cada família de serviços é calculado subtraindo os 
 
 ![Seção Detalhes por fatura](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| Termo |DESCRIÇÃO |
+| Termo |Descrição |
 | --- | --- |
 | Preço unitário | O preço unitário efetivo do serviço (na moeda do preço) usado à razão do uso. Ele é exclusivo para um produto, uma família de serviços, um medidor e uma oferta. |
 | Qtd | Quantidade comprada ou consumida durante o período de cobrança |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
 ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94564694"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitetura de conectividade SD-WAN com WAN Virtual do Azure

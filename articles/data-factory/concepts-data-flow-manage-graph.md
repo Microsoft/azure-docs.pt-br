@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
 ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97590453"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Gerenciando o grafo de fluxo de dados de mapeamento

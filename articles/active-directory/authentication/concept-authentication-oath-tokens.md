@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 03/26/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 45b3d5155befe005a6af68355426883b63a8c410
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99536994"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611779"
 ---
-# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticação em tokens Azure Active Directory OATH
+# <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticação em tokens Azure Active Directory OATH 
 
 O OATH TOTP (senha de uso único por tempo limitado) é um padrão aberto que especifica os códigos de OTP (senha de uso único) são gerados. O OATH TOTP pode ser implementado usando software ou hardware para gerar os códigos. O Azure AD não dá suporte a HOTP OATH, um padrão diferente de geração de código.
 
@@ -29,7 +29,7 @@ O aplicativo Authenticator gera códigos automaticamente quando configurado para
 
 Alguns tokens de hardware OATH TOTP são programáveis, o que significa que eles não vêm com uma chave secreta ou semente previamente programada. Esses tokens de hardware programáveis podem ser configurados usando a chave secreta ou semente obtida do fluxo de configuração do token de software. Os clientes podem comprar esses tokens do fornecedor que preferirem e usar a chave secreta ou semente no processo de configuração do fornecedor.
 
-## <a name="oath-hardware-tokens-preview"></a>Tokens de hardware OATH (versão prévia)
+## <a name="oath-hardware-tokens-preview"></a>Tokens de hardware OATH (visualização)
 
 O Azure AD dá suporte ao uso de tokens OATH-TOTP SHA-1 que atualizam códigos a cada 30 ou 60 segundos. Os clientes podem adquirir esses tokens do fornecedor que preferirem.
 
@@ -45,13 +45,13 @@ Depois que os tokens são adquiridos, eles devem ser carregados em um formato de
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
 > Verifique se você incluiu a linha de cabeçalho no arquivo CSV. Se um UPN tiver uma aspa simples, escape-o com outra aspa simples. Por exemplo, se o UPN for my ' user@domain.com , altere-o para meu ' ' user@domain.com ao carregar o arquivo.
 
-Após a formatação correta com um arquivo CSV, um administrador pode entrar no portal do Azure, navegar para **Azure Active Directory > Segurança > MFA > Tokens OATH** e carregar o arquivo CSV resultante.
+Uma vez formatado corretamente como um arquivo CSV, um administrador global pode entrar no portal do Azure, navegar até **Azure Active Directory > Security > MFA > tokens OATH** e carregar o arquivo CSV resultante.
 
 Dependendo do tamanho do arquivo CSV, ele poderá levar alguns minutos para ser processado. Selecione o botão **Atualizar** para obter o status atual. Se houver erros no arquivo, você poderá baixar um arquivo CSV que lista os erros para que você possa resolvê-los. Os nomes de campo no arquivo CSV baixado são diferentes da versão carregada.  
 

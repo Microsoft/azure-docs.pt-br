@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3cf97039983ecec44a7c3a32e178fdcf9f9c45ff
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945609"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872176"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta logs do Azure Monitor para monitorar clusters do HDInsight
 
@@ -37,13 +37,13 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
     search *
     ```
 
-    ![O Apache Ambari Analytics pesquisa todas as métricas](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Pesquisar todas as métricas")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="O Apache Ambari Analytics pesquisa todas as métricas":::
 
 1. No menu à esquerda, selecione a guia **filtro** .
 
 1. Em **tipo**, selecione **pulsação**. Em seguida, selecione **aplicar & executar**.
 
-    ![métricas específicas de pesquisa do log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Pesquisar métricas específicas")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="métricas específicas de pesquisa do log Analytics":::
 
 1. Observe que a consulta na caixa de texto muda para:
 
@@ -54,13 +54,13 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 1. Você pode se aprofundar usando as opções disponíveis no menu à esquerda. Por exemplo:
 
-    - Para ver os logs de um nó específico:
+   - Para ver os logs de um nó específico:
 
-        ![Pesquisar erros específicos Saída1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Pesquisar erros específicos Saída1")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Pesquisar erros específicos Saída1":::
 
-    - Para ver os logs em determinados momentos:
+   - Para ver os logs em determinados momentos:
 
-        ![Pesquisar erros específicos output2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Pesquisar erros específicos output2")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Pesquisar erros específicos output2":::
 
 1. Selecione **aplicar & executar** e revisar os resultados. Observe também que a consulta foi atualizada para:
 
@@ -102,11 +102,11 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 1. Selecione **nova regra de alerta** na parte superior da página.
 
-    ![Inserir consulta para criar um alert1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Inserir consulta para criar um alert1")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="Nova regra de alerta":::
 
 1. Na janela **Criar regra**, digite a consulta e outros detalhes para criar um alerta e, em seguida, selecione **Criar regra de alerta**.
 
-    ![Inserir consulta para criar um alert2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Inserir consulta para criar um alert2")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Defina a condição de alerta.":::
 
 ### <a name="edit-or-delete-an-existing-alert"></a>Editar ou excluir um alerta existente
 
@@ -120,11 +120,11 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 1. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar**, e **Excluir**.
 
-    ![Log de Azure Monitor do HDInsight logs de exclusão de alertas](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png" alt-text="Log de Azure Monitor do HDInsight logs de exclusão de alertas":::
 
-Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
-* [Introdução às consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Introdução às consultas de log no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Criar exibições personalizadas usando o designer de exibição no Azure Monitor](../azure-monitor/visualize/view-designer.md)

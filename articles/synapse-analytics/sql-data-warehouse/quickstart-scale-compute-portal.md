@@ -3,20 +3,23 @@ title: 'Início Rápido: Dimensionar a computação para o pool de SQL do Synaps
 description: Você pode dimensionar a computação para o pool de SQL do Synapse (data warehouse) usando o portal do Azure.
 services: synapse-analytics
 author: Antvgski
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 04/28/2020
 ms.author: anvang
+manager: craigg
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 26a8a865a787a9c9b17031f94456272c93380704
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 04/28/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: aa339274a1ff68764fa5573d9c031e84f290e57c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117037"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534229"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Início Rápido: Dimensionar a computação para o pool de SQL do Synapse com o portal do Azure
 

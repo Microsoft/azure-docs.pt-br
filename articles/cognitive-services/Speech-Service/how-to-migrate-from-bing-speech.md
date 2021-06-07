@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d6b7b298e7e4d18e68985ec3cf536c90ef773608
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499128"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644375"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Fala do Bing para o serviço de fala
 
@@ -26,7 +26,7 @@ Este artigo descreve as diferenças entre as APIs de Fala do Bing e o serviço d
 Uma única chave de assinatura do serviço de fala concede acesso aos recursos a seguir. Cada um deles é medido separadamente e, portanto, você será cobrado somente pelos recursos que usar.
 
 * [Conversão de fala em texto](speech-to-text.md)
-* [Conversão de fala em texto Personalizada](https://cris.ai)
+* [Conversão de fala em texto Personalizada](/azure/cognitive-services/speech-service/custom-speech-overview)
 * [Conversão de texto em fala](text-to-speech.md)
 * [Conversão de texto em vozes de fala personalizada](./how-to-custom-voice-create-voice.md)
 * [Tradução de fala](speech-translation.md) (não inclui [Tradução de texto](../translator/translator-info-overview.md))
@@ -87,7 +87,7 @@ Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suport
 * [Introdução à conversão de fala em texto](get-started-speech-to-text.md)
 * [Introdução à conversão de texto em fala](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Notas de versão do serviço de fala](releasenotes.md)
 * [O que é o serviço de fala](overview.md)

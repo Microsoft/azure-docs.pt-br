@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: cade888d951c2071f8f40c145e28eed3c3a5d27c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d23df80a3f80ed96779297bac12ef0ed8d2927d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384241"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101687916"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Criar uma instância gerenciada do SQL do Azure usando ferramentas de kubernetes
 
@@ -93,10 +93,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### <a name="customizing-the-name"></a>Personalizando o nome

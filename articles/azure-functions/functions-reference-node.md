@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674126"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614897"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou desenvolvedor de JavaScript, se você for novo no
 
 | Introdução | Conceitos| Aprendizagem orientada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li><li>[Node.js função usando o portal do Azure](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Noções básicas da função JavaScript
 
@@ -507,20 +507,20 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
-| 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
-| 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
+| 3. x (recomendado) | `~14` aconselhável<br/>`~12`<br/>`~10` | `node|14` aconselhável<br/>`node|12`<br/>`node|10` |
+| 2. x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
 
 Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
 ### <a name="setting-the-node-version"></a>Configurando a versão do nó
 
-Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~12` .
+Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~14` .
 
 Para aplicativos de funções do Linux, execute o seguinte comando CLI do Azure para atualizar a versão do nó.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>Gerenciamento de dependência
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>Módulos ECMAScript (versão prévia)
+
+> [!NOTE]
+> Como os módulos ECMAScript são atualmente rotulados como *experimentais* no Node.js 14, eles estão disponíveis como um recurso de visualização no Node.js 14 Azure functions. Até Node.js 14 suporte para módulos ECMAScript se tornar *estável*, espere possíveis alterações em sua API ou comportamento.
+
+Os [módulos do ECMAScript](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (módulos es) são o novo sistema oficial de módulo padrão para Node.js. Até agora, os exemplos de código neste artigo usam a sintaxe CommonJS. Ao executar Azure Functions no Node.js 14, você pode optar por gravar suas funções usando a sintaxe dos módulos ES.
+
+Para usar os módulos ES em uma função, altere seu nome de arquivo para usar uma `.mjs` extensão. O exemplo de arquivo *index. MJS* a seguir é uma função disparada por http que usa a sintaxe de módulos es para importar a `uuid` biblioteca e retornar um valor.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 
@@ -745,7 +762,7 @@ Ao trabalhar com funções JavaScript, lembre-se das considerações nas seçõe
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Escolher Planos do Serviço de Aplicativo de vCPU único
 
-Ao criar um aplicativo de funções que usa o Plano do Serviço de Aplicativo, recomendamos que você selecione um plano de vCPU único em vez de um plano com vários vCPUs. Atualmente, o Functions executa funções em JavaScript com mais eficiência em VMs de vCPU único, e o uso de VMs maiores não produz os aprimoramentos de desempenho esperados. Quando necessário, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM de vCPU único ou pode habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json).
+Ao criar um aplicativo de funções que usa o Plano do Serviço de Aplicativo, recomendamos que você selecione um plano de vCPU único em vez de um plano com vários vCPUs. Atualmente, o Functions executa funções em JavaScript com mais eficiência em VMs de vCPU único, e o uso de VMs maiores não produz os aprimoramentos de desempenho esperados. Quando necessário, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM de vCPU único ou pode habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json).
 
 ### <a name="cold-start"></a>Inicialização a frio
 

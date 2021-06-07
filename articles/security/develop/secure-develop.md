@@ -4,7 +4,7 @@ description: Este artigo aborda as melhores práticas a serem consideradas duran
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,14 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576609"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782394"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
+
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
 
 As seguintes fases do SDL são abordadas neste artigo:
@@ -29,12 +30,13 @@ As seguintes fases do SDL são abordadas neste artigo:
 - Verificação
 
 ## <a name="implementation"></a>Implementação
+
 O foco da fase de implementação é estabelecer as práticas recomendadas para prevenção antecipada, detecção e remoção problemas de segurança do código.
 Imagine que seu aplicativo venha a ser usado de maneiras que você não pretendia. Isso ajuda você a se proteger contra o uso indevido acidental ou intencional do aplicativo.
 
 ### <a name="perform-code-reviews"></a>Executar revisões de código
 
-Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerenciar o processo de revisão de código.
+Antes de fazer verificar o código, faça [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar sua qualidade geral e reduzir o risco de criar bugs. Você pode usar o [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) para gerenciar o processo de revisão de código.
 
 ### <a name="perform-static-code-analysis"></a>Executar análise de código estático
 
@@ -89,11 +91,11 @@ Isso significa que menos pessoas têm acesso aos dados reais, o que reduz a supe
 
 Para se defender contra ataques de força bruta e adivinhação baseada em dicionário, você precisará implementar uma política de senha forte para fazer com que os usuários criem uma senha complexa (por exemplo, tamanho mínimo de 12 caracteres e exigência de caracteres alfanuméricos e especiais).
 
-Você pode usar uma estrutura de identidade para criar e impor políticas de senha. O Azure AD B2C ajuda no gerenciamento de senhas com a oferta de [políticas internas](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [redefinição de senha self-service](../../active-directory-b2c/user-flow-self-service-password-reset.md) e muito mais.
+Azure Active Directory B2C ajuda você com o gerenciamento de senhas, fornecendo [redefinição de senha por autoatendimento](../../active-directory-b2c/add-password-reset-policy.md), [forçando a redefinição de senha](../../active-directory-b2c/force-password-reset.md)e muito mais.
 
 Para se proteger contra ataques em contas padrão, verifique se todas as chaves e senhas são substituíveis e se são geradas ou substituídas depois que você instala recursos.
 
-Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas geradas são aleatórias e se têm alta entropia.
+Se o aplicativo precisar gerar senhas automaticamente, verifique se as senhas geradas são aleatórias e se elas têm uma entropia alta.
 
 ### <a name="validate-file-uploads"></a>Validar uploads de arquivos
 
@@ -108,6 +110,7 @@ O [Microsoft Antimalware](../fundamentals/antimalware.md) inclui recursos como p
 Não armazenar conteúdo confidencial no navegador. Os navegadores podem armazenar informações em seus caches e históricos. Os arquivos armazenados em cache são salvos em uma pasta, como a pasta Arquivos de Internet Temporários no caso do Internet Explorer. Quando essas páginas são consultadas novamente, o navegador as exibe por meio do cache. Se informações confidenciais (endereço, detalhes do cartão de crédito, número do seguro social, nome de usuário) forem exibidas para o usuário, elas poderão ser armazenadas no cache do navegador e ser recuperadas no exame do cache do navegador ou simplesmente com o botão **Voltar** do navegador.
 
 ## <a name="verification"></a>Verificação
+
 A fase de verificação envolve um esforço abrangente para fazer com que o código atenda aos princípios de segurança e privacidade que foram estabelecidos nas fases anteriores.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Localizar e corrigir vulnerabilidades em suas dependências de aplicativo
@@ -151,6 +154,7 @@ Verificar se seu aplicativo é seguro é tão importante quanto testar qualquer 
 O [AzSK](https://azsk.azurewebsites.net/index.html) (Secure DevOps Kit para Azure) contém SVTs para vários serviços da plataforma Azure. Execute esses SVTs periodicamente para ter certeza de que sua assinatura do Azure e os diferentes recursos que compõem seu aplicativo estão em um estado seguro. Você também pode automatizar esses testes usando o recurso de extensões de CI/CD (integração contínua/implantação contínua) do AzSK, que torna o SVTs disponível como extensão do Visual Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Nos artigos a seguir, recomendamos os controles de segurança e as atividades que podem ajudá-lo a projetar e implantar aplicativos seguros.
 
 - [Criar aplicativos seguros](secure-design.md)

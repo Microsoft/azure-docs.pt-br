@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537653"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Perguntas frequentes sobre o cache do Azure para gerenciamento Redis
 Este artigo fornece respostas a perguntas comuns sobre como gerenciar o cache do Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
+## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
 Esta seção aborda as seguintes perguntas frequentes:
 
 * [Quando devo habilitar a porta não TLS/SSL para conexão ao Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -147,7 +147,7 @@ Como definir essa configuração:
 * Também é possível especificar a configuração de threads mínimos usando a configuração [*minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) no elemento de configuração `<processModel>` no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos assim geralmente não é recomendado, pois é uma configuração de todo o sistema.**
 
   > [!NOTE]
-  > O valor especificado nesse elemento de configuração é uma *configuração por núcleo* . Por exemplo, se você tivesse um computador com quatro núcleos e desejar que sua configuração *minIoThreads* seja de 200 no runtime, usaria `<processModel minIoThreads="50"/>`.
+  > O valor especificado nesse elemento de configuração é uma *configuração por núcleo*. Por exemplo, se você tivesse um computador com quatro núcleos e desejar que sua configuração *minIoThreads* seja de 200 no runtime, usaria `<processModel minIoThreads="50"/>`.
   >
 
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilitar a GC (coleta de lixo) do servidor para obter mais produtividade no cliente ao usar o StackExchange.Redis

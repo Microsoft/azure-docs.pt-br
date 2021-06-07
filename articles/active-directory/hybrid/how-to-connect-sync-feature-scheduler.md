@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084729"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
@@ -169,7 +169,7 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 
    ![A captura de tela mostra Synchronization Service Manager com conectores selecionados e um conector em execução realçado com a ação parar selecionada.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
 
-   * Inicie o **serviço de sincronização** no menu iniciar. Acesse **conectores**, realce o conector com o estado **em execução**e selecione **parar** nas ações.
+   * Inicie o **serviço de sincronização** no menu iniciar. Acesse **conectores**, realce o conector com o estado **em execução** e selecione **parar** nas ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 

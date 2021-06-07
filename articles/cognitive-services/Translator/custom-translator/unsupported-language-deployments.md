@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
 ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898063"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
@@ -45,7 +45,7 @@ Depois de enviado, o modelo não estará mais disponível na guia **treinamentos
 
 ![Como migrar do Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>E agora?
+## <a name="whats-next"></a>O que vem a seguir?
 
 Os modelos selecionados para implantação são salvos depois que o Hub é encerrado e todos os modelos são desimplantados.  Você tem até 24 de maio para enviar solicitações de implantação de modelos sem suporte.  Implantaremos esses modelos em 15 de junho, em que eles poderão ser acessados por meio da API do Translator v3.  Além disso, eles estarão disponíveis por meio da API v2 até 1º de julho.  
 

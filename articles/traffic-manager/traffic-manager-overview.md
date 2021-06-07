@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624902"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182155"
 ---
 # <a name="what-is-traffic-manager"></a>O que é o Gerenciador de Tráfego?
 O Gerenciador de Tráfego do Azure é um balanceador de carga de tráfego baseado no DNS. Esse serviço permite distribuir o tráfego para seus aplicativos voltados ao público nas regiões globais do Azure. O Gerenciador de Tráfego também fornece alta disponibilidade e rápida capacidade de resposta aos seus pontos de extremidade públicos.
@@ -24,8 +24,12 @@ O Gerenciador de Tráfego do Azure é um balanceador de carga de tráfego basead
 O Gerenciador de Tráfego usa o DNS para direcionar as solicitações do cliente para o ponto de extremidade de serviço apropriado com base em um método de roteamento de tráfego. O Gerenciador de Tráfego também fornece monitoramento de integridade para cada ponto de extremidade. O ponto de extremidade pode ser qualquer serviço para a Internet hospedado dentro ou fora do Azure. O Gerenciador de Tráfego oferece uma variedade de [métodos de roteamento de tráfego](traffic-manager-routing-methods.md) e [opções de monitoramento de ponto de extremidade](traffic-manager-monitoring.md) para atender às diferentes necessidades dos aplicativos e modelos de failover automático. O Gerenciador de Tráfego é resistente a falhas, incluindo a falha de toda a região do Azure.
 
 >[!NOTE]
-> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. Se estiver em busca de informações sobre o encerramento de protocolo TLS ("descarregamento de SSL") ou sobre o processamento de camada de aplicativo por solicitação HTTP/HTTPS, consulte [Gateway de Aplicativo](../application-gateway/overview.md). Caso esteja procurando por balanceamento de carga regional, examine [Load Balancer](../load-balancer/load-balancer-overview.md). Cenários de ponta a ponta podem se beneficiar da combinação dessas soluções conforme for necessário.
->
+> O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. 
+> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine o [Gateway de Aplicativo](../application-gateway/overview.md).
+> * Se você precisar otimizar o roteamento global do seu tráfego da Web e otimizar o desempenho e a confiabilidade do usuário final de nível superior por meio de um failover global rápido, confira [Front Door](../frontdoor/front-door-overview.md).
+> * Para fazer o balanceamento de carga de camada de rede, examine [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Os cenários de ponta a ponta podem se beneficiar da combinação dessas soluções, conforme necessário.
 > Para obter uma comparação das opções de balanceamento de carga do Azure, confira [Visão geral das opções de balanceamento de carga no Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 O Gerenciador de Tráfego oferece os seguintes recursos:

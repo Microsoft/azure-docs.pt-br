@@ -1,16 +1,21 @@
 ---
 title: Usar filas do Barramento de Serviço do Azure com Java
 description: Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: d24645ada2ef4ac12101aa747aacc1bbf90f123e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 38657f333fea4ca18fb76eb5832649067bfd01b4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509250"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538258"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Java para enviar e receber mensagens
 
@@ -185,7 +190,7 @@ Se houver falha do aplicativo após o processamento da mensagem, mas antes de a 
 ## <a name="next-steps"></a>Próximas etapas
 Encontre exemplos de Java no GitHub no [repositório `azure-service-bus`](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

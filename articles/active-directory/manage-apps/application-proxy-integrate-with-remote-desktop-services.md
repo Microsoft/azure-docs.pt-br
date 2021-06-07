@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259331"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101687661"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -57,7 +57,7 @@ Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicar o ponto de extremidade do host de Área de Trabalho Remota
 
 1. [Publicar um novo aplicativo de Proxy de Aplicativo](application-proxy-add-on-premises-application.md) com os seguintes valores:
-   - URL interna: `https://\<rdhost\>.com/`, em que `\<rdhost\>` é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
+   - URL interna: `https://<rdhost>.com/`, em que `<rdhost>` é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
    - URL externa: esse campo é preenchido automaticamente com base no nome do aplicativo, mas você pode modificá-lo. Os usuários serão levados a essa URL quando acessarem o RDS.
    - Método de pré-autenticação: Azure Active Directory
    - Converter cabeçalhos de URL: não
@@ -69,7 +69,7 @@ Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, 
 
 4. Selecione **Azure Active Directory** e, em seguida, **registros do aplicativo**. Escolha seu aplicativo na lista.
 5. Em **gerenciar**, selecione **identidade visual**.
-6. Atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da área de trabalho remota (como `https://\<rdhost\>.com/RDWeb` ).
+6. Atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da área de trabalho remota (como `https://<rdhost>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego do RDS para o Proxy de Aplicativo
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/18/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9123ca6a1bfa90737bb1ce83ee365d1ecf514e1f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220985"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure
@@ -63,7 +63,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
 * **Nome da conta de data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
-* **Local**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
+* **Localização**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
 * **Conta padrão do Data Lake Store**: cada conta do Data Lake Analytics tem uma conta padrão do Data Lake Store.
 
 Para listar a conta existente do Data Lake Store:

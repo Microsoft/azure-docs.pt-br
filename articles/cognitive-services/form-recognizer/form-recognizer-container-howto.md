@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584780"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467469"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Instalar e executar contêineres do reconhecedor de formulário (aposentando)
 
@@ -264,7 +264,7 @@ formrecognizer_config =
 
 ### <a name="form-recognizer"></a>Reconhecimento de Formulários
 
-O contêiner fornece as APIs do ponto de extremidade REST, que podem ser encontradas na página [API de Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
+O contêiner fornece APIs de ponto de extremidade REST, que podem ser encontradas na página de referência do [API do reconhecedor de formulário] https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) .
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

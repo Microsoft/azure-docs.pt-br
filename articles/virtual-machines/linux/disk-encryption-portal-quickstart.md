@@ -3,16 +3,16 @@ title: Criar e criptografar uma VM do Linux com o portal do Azure
 description: Neste início rápido, você aprende a usar o portal do Azure para criar e criptografar uma máquina virtual Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 188ba72f4da4e5a24554f895473f1c74e48d50fa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896014"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102558348"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual com o portal do Azure
 
@@ -30,10 +30,10 @@ Entre no [portal do Azure](https://portal.azure.com).
 1. Na página Novo, em Popular, selecione **Ubuntu Server 18.04 LTS**.
 1. Na guia Informações Básicas, em Detalhes do projeto, confirme se a assinatura correta está selecionada.
 1. Em "Grupo de Recursos", selecione **Criar**. Insira *myResourceGroup* como o nome e selecione **OK**.
-1. Para **Nome da máquina virtual** , insira *MyVM*.
-1. Em **Região** , selecione *EUA (Leste dos EUA)* .
+1. Para **Nome da máquina virtual**, insira *MyVM*.
+1. Em **Região**, selecione *EUA (Leste dos EUA)* .
 1. Verifique se o **Tamanho** é *Standard D2s v3*.
-1. Em **Conta de administrador** , selecione *Senha* como o **Tipo de autenticação**. Digite um nome de usuário e uma senha.
+1. Em **Conta de administrador**, selecione *Senha* como o **Tipo de autenticação**. Digite um nome de usuário e uma senha.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Tela de criação de VM do Linux":::
 
@@ -42,12 +42,12 @@ Entre no [portal do Azure](https://portal.azure.com).
     >
     > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial.
 
-1. Selecione a guia "Gerenciamento" e verifique se você tem uma Conta de Armazenamento de Diagnóstico. Se você não tiver contas de armazenamento, selecione *Criar* , nomeie sua conta de armazenamento *myStorageAccount* e selecione "OK"
+1. Selecione a guia "Gerenciamento" e verifique se você tem uma Conta de Armazenamento de Diagnóstico. Se você não tiver contas de armazenamento, selecione *Criar*, nomeie sua conta de armazenamento *myStorageAccount* e selecione "OK"
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Tela de criação ResourceGroup":::
 
 1. Clique em "Examinar + Criar".
-1. Na página **Criar uma máquina virtual** , você pode ver os detalhes sobre a VM que você está prestes a criar. Quando estiver pronto, selecione **Criar**.
+1. Na página **Criar uma máquina virtual**, você pode ver os detalhes sobre a VM que você está prestes a criar. Quando estiver pronto, selecione **Criar**.
 
 Levará alguns minutos para que sua VM seja implantada. Quando a implantação for concluída, vá para a próxima seção.
 
@@ -56,19 +56,19 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
 1. Depois que a implantação da VM estiver concluída, selecione **Ir para o recurso**.
 1. No lado esquerdo, selecione **Discos**.
 1. Na barra superior, selecione **Configurações Adicionais**.
-1. Em **Configurações de criptografia** > **Discos para criptografia** , selecione **Discos do sistema operacional e de dados**.
+1. Em **Configurações de criptografia** > **Discos para criptografia**, selecione **Discos do sistema operacional e de dados**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Captura de tela que realça o sistema operacional e os discos de dados.":::
 
-1. Em **Configurações de criptografia** , escolha **Selecionar um cofre de chaves e uma chave para criptografia**.
-1. Na tela **Selecionar chave no Azure Key Vault** , selecione **Criar**.
+1. Em **Configurações de criptografia**, escolha **Selecionar um cofre de chaves e uma chave para criptografia**.
+1. Na tela **Selecionar chave no Azure Key Vault**, selecione **Criar**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Captura de tela que realça o botão Criar.":::
 
-1. À esquerda de **Cofre de chaves e chave** , selecione **Clique aqui para selecionar uma chave**.
-1. Em **Selecionar chave no Azure Key Vault** , no campo **Key Vault** , selecione **Criar**.
-1. Na tela **Criar um cofre de chaves** , verifique se o Grupo de Recursos é *myResourceGroup* e dê um nome ao cofre de chaves.  Cada cofre de chaves no Azure deve ter um nome exclusivo.
-1. Na guia **Políticas de Acesso** , marque a caixa **Azure Disk Encryption para a criptografia de volume**.
+1. À esquerda de **Cofre de chaves e chave**, selecione **Clique aqui para selecionar uma chave**.
+1. Em **Selecionar chave no Azure Key Vault**, no campo **Key Vault**, selecione **Criar**.
+1. Na tela **Criar um cofre de chaves**, verifique se o Grupo de Recursos é *myResourceGroup* e dê um nome ao cofre de chaves.  Cada cofre de chaves no Azure deve ter um nome exclusivo.
+1. Na guia **Políticas de Acesso**, marque a caixa **Azure Disk Encryption para a criptografia de volume**.
 
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="seleção de discos e criptografia":::
 

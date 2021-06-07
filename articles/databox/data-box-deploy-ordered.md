@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: eae8cca0302993c16ea29adddf6e4ee9b5b24be8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797614"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770873"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -59,7 +59,7 @@ Antes de começar, verifique se:
 
 **Entrar no Azure**
 
-Abra uma janela Comando do Windows PowerShell e entre no Azure com o comando [az login](/cli/azure/reference-index#az-login):
+Abra uma janela Comando do Windows PowerShell e entre no Azure com o comando [az login](/cli/azure/reference-index#az_login):
 
 ```azurecli
 PS C:\Windows> az login
@@ -164,7 +164,7 @@ Você verá esta saída:
     WSManStackVersion              3.0
 ```
 
-Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Instalar os módulos do Azure PowerShell e Data Box**
 
@@ -355,22 +355,34 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     ![Opções de Traga a própria senha expandidas para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Para usar a própria senha para o novo dispositivo, em **Definir preferência para a senha do dispositivo**, selecione **Usar a própria senha** e digite uma senha que atenda aos requisitos de segurança.
+     
+     A senha deverá ser alfanumérica e conter de 12 a 15 caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um caractere especial e um número. 
+
+     - Os caracteres especiais permitidos são: @ # - $ % ^ ! + = ; : _ ( )
+     - Estes caracteres não são permitidos: i L o O 0
    
      ![Opções para usar a própria senha do dispositivo na tela de Segurança para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Para usar as próprias senhas para compartilhamentos:
 
-   - Em **Definir preferência para senhas de compartilhamento**, selecione **Usar as próprias senhas** e **Selecionar senhas para os compartilhamentos**.
+   1. Em **Definir preferência para senhas de compartilhamento**, selecione **Usar as próprias senhas** e **Selecionar senhas para os compartilhamentos**.
      
-        ![Opções para usar as próprias senhas de compartilhamento na tela de Segurança para pedidos de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opções para usar as próprias senhas de compartilhamento na tela de Segurança para pedidos de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Digite uma senha para cada conta de armazenamento no pedido. A senha será usada em todos os compartilhamentos para a conta de armazenamento.
-     
-        Para usar a mesma senha para todas as contas de armazenamento, selecione **Copiar para todos**. Quando terminar, selecione **Salvar**.
-     
-        ![Tela para inserir senhas de compartilhamento para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Digite uma senha para cada conta de armazenamento no pedido. A senha será usada em todos os compartilhamentos para a conta de armazenamento.
+    
+       A senha deverá ser alfanumérica e conter de 12 a 64 caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um caractere especial e um número.
 
-       Na tela de **Segurança**, será possível usar a opção **Exibir ou alterar senhas** para alterar as senhas.
+       - Os caracteres especiais permitidos são: @ # - $ % ^ ! + = ; : _ ( )
+       - Estes caracteres não são permitidos: i L o O 0
+     
+    1. Para usar a mesma senha para todas as contas de armazenamento, selecione **Copiar para todos**. 
+
+    1. Quando terminar, selecione **Salvar**.
+     
+       ![Tela para inserir senhas de compartilhamento para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    Na tela de **Segurança**, será possível usar a opção **Exibir ou alterar senhas** para alterar as senhas.
 
 16. Em **Segurança**, caso queira habilitar uma criptografia dupla baseada em software, expanda **Criptografia dupla (para ambientes altamente seguros)** e selecione **Habilitar criptografia dupla para o pedido**.
 
@@ -437,7 +449,7 @@ Execute as seguintes etapas usando a CLI do Azure para solicitar um dispositivo:
    |Consulta| A cadeia de caracteres de consulta JMESPath. Para obter mais informações, confira [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Incluir o registro em log detalhado. | --verbose |
 
-2. No prompt de comando ou terminal escolhido, execute [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) para criar seu pedido do Azure Data Box.
+2. No prompt de comando ou terminal escolhido, execute [az data box job create](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-create) para criar seu pedido do Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -605,7 +617,7 @@ Em seguida, a Microsoft preparará e enviará seu dispositivo por meio de uma op
 
 ### <a name="track-a-single-order"></a>Acompanhar um pedido
 
-Para obter informações de acompanhamento sobre um só pedido do Azure Data Box existente, execute [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
+Para obter informações de acompanhamento sobre um só pedido do Azure Data Box existente, execute [`az databox job show`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-show). O comando exibe informações sobre o pedido como, entre outras: nome, grupo de recursos, informações de acompanhamento, ID da assinatura, informações de contato, tipo de remessa e SKU do dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -646,7 +658,7 @@ Para obter informações de acompanhamento sobre um só pedido do Azure Data Box
 
 ### <a name="list-all-orders"></a>Listar todos os pedidos
 
-Se você tiver pedido vários dispositivos, execute [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) para ver todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
+Se você tiver pedido vários dispositivos, execute [`az databox job list`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-list) para ver todos os pedidos do Azure Data Box. O comando lista todos os pedidos que pertencem a um grupo de recursos específico. Também exibido na saída: nome do pedido, status da remessa, região do Azure, tipo de entrega, status do pedido. Pedidos cancelados também são incluídos na lista.
 O comando também exibe carimbos de data/hora de cada pedido.
 
 ```azurecli
@@ -765,7 +777,7 @@ Para excluir um pedido cancelado, vá para **Visão geral** e selecione **Exclui
 
 ### <a name="cancel-an-order"></a>Cancelar um pedido
 
-Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Você precisa especificar o motivo para cancelar o pedido.
+Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-cancel). Você precisa especificar o motivo para cancelar o pedido.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -778,7 +790,7 @@ Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cl
    |resource-group [Obrigatório]| O nome do grupo de recursos associado ao pedido a ser excluído. Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos. | "myresourcegroup"|
    |name [Obrigatório]| O nome do pedido a ser excluído. | "mydataboxorder"|
    |reason [Obrigatório]| O motivo para cancelar o pedido. | "Inseri informações incorretas e precisei cancelar o pedido". |
-   |sim| Não solicite confirmação. | --yes (-y)| --yes -y |
+   |sim| Não solicite confirmação. | --yes (-y)| 
    |depurar| Incluir informações de depuração para registro em log detalhado | --debug |
    |ajuda| Exibir informações de ajuda para esse comando. | --help -h |
    |only-show-errors| Mostrar apenas erros, suprimindo avisos. | --only-show-errors |
@@ -802,7 +814,7 @@ Para cancelar um pedido do Azure Data Box, execute [`az databox job cancel`](/cl
 
 ### <a name="delete-an-order"></a>Excluir um pedido
 
-Se você cancelou um pedido do Azure Data Box, execute [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) para excluir o pedido.
+Se você cancelou um pedido do Azure Data Box, execute [`az databox job delete`](/cli/azure/ext/databox/databox/job#ext-databox-az-databox-job-delete) para excluir o pedido.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -815,7 +827,7 @@ Se você cancelou um pedido do Azure Data Box, execute [`az databox job delete`]
    |resource-group [Obrigatório]| O nome do grupo de recursos associado ao pedido a ser excluído. Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos. | "myresourcegroup"|
    |name [Obrigatório]| O nome do pedido a ser excluído. | "mydataboxorder"|
    |subscription| O nome ou a ID (GUID) da sua assinatura do Azure. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |sim| Não solicite confirmação. | --yes (-y)| --yes -y |
+   |sim| Não solicite confirmação. | --yes (-y)|
    |depurar| Incluir informações de depuração para registro em log detalhado | --debug |
    |ajuda| Exibir informações de ajuda para esse comando. | --help -h |
    |only-show-errors| Mostrar apenas erros, suprimindo avisos. | --only-show-errors |

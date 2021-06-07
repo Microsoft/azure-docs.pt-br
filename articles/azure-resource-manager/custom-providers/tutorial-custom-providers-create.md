@@ -7,10 +7,10 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4f425af7681b666b42fbcc70ac0e4c31d9df6d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87503745"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Criar e usar um provedor personalizado
@@ -220,5 +220,5 @@ Parâmetro | Obrigatório | Descrição
 
 Neste artigo, você aprendeu sobre provedores personalizados. Para obter mais informações, consulte:
 
-- [Como: Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [Como: Como adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [Como adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)

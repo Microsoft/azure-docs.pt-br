@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – mover aplicativos do Proxy de Aplicativo para o
 description: Exemplo do PowerShell do Proxy de Aplicativo do Azure AD (Azure Active Directory) usado para mover todos os aplicativos atualmente atribuídos a um grupo de conectores para outro grupo de conectores.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9a3338c01a6e665706ff7733be8fdc9f904c5a56
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: eb421a1a8040a406c8f3e4be04f9a99d881237d9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253590"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376895"
 ---
 # <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>Mover todos os aplicativos atribuídos a um grupo de conectores para outro grupo de conectores
 
@@ -28,7 +28,7 @@ Este exemplo de script do PowerShell move todos os aplicativos do Proxy de Aplic
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 

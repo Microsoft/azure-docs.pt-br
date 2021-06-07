@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367904"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593849"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação fluxo de dados de mapeamento
 
@@ -28,9 +28,10 @@ Veja abaixo uma lista das transformações com suporte no fluxo de dados de mape
 | [Exists](data-flow-exists.md) | Várias entradas/saídas | Verifique se os dados existem em outra fonte ou fluxo. | 
 | [Filter](data-flow-filter.md) | Modificador de linha | Filtrar uma linha com base em uma condição. |
 | [Mesclar](data-flow-flatten.md) | Modificador de esquema |  Pegue valores de matriz dentro de estruturas hierárquicas, como JSON, e os registre em linhas individuais. |
-| [Unir](data-flow-join.md) | Várias entradas/saídas |  Combine dados de duas origens ou fluxos. |
+| [Join](data-flow-join.md) | Várias entradas/saídas |  Combine dados de duas origens ou fluxos. |
 | [Pesquisar](data-flow-lookup.md) | Várias entradas/saídas | Dados de referência de outra fonte. |
 | [Novo branch](data-flow-new-branch.md) | Várias entradas/saídas | Aplique vários conjuntos de operações e transformações no mesmo fluxo de dados. |
+| [Analisar](data-flow-new-branch.md) | Formatador | Analise as colunas de texto no fluxo de dados que são cadeias de caracteres JSON, texto delimitado ou texto formatado XML. |
 | [Pivô](data-flow-pivot.md) | Modificador de esquema | Uma agregação em que uma ou mais colunas de Agrupamento têm seus valores de linha distintos transformados em colunas individuais. |
 | [Fique](data-flow-rank.md) | Modificador de esquema | Gerar uma classificação ordenada com base nas condições de classificação |
 | [Selecionar](data-flow-select.md) | Modificador de esquema | Colunas de alias e nomes de fluxo, e soltar ou reordenar colunas |

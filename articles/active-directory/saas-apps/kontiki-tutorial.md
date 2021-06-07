@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95019833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Active Directory do Azure com o Kontiki
@@ -74,7 +74,7 @@ Nesta seção, você configurará e testará o logon único do Azure AD com o Ko
 
 Para configurar e testar o logon único do Azure AD com o Kontiki, você deve concluir os seguintes blocos de construção:
 
-| Tarefa | DESCRIÇÃO |
+| Tarefa | Descrição |
 | --- | --- |
 | **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** | Permite que os usuários usem esse recurso. |
 | **[Configurar o logon único do Kontiki](#configure-kontiki-single-sign-on)** | Define as configurações de logon único no aplicativo. |

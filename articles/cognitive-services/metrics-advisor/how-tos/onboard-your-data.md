@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043182"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como: carregar seus dados de métrica para o assistente de métricas
@@ -77,7 +77,7 @@ Se o carimbo de data/hora de um ponto de dados for omitido, o supervisor de mét
 | **Nome de Exibição** | Nome a ser exibido em seu espaço de trabalho em vez do nome da coluna original. | |
 |**Timestamp**     | O carimbo de data/hora de um ponto de dados. Se omitido, o Assistente de Métricas usará o carimbo de data/hora de quando o ponto de dados for ingerido. Para cada feed de dados, você pode especificar no máximo uma coluna como carimbo de data/hora.        | Opcional. Deve ser especificado com, no máximo, uma coluna. Se você receber uma **coluna não pode ser especificada como** erro de carimbo de hora, verifique sua consulta ou fonte de dados para obter carimbos de data/hora duplicados.      |
 |**Medida**     |  Os valores numéricos no feed de dados. Para cada feed de dados, você pode especificar várias medidas, mas pelo menos uma coluna deve ser selecionada como medida.        | Deve ser especificado com, pelo menos, uma coluna.        |
-|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série temporal de dimensão única em particular, por exemplo: país, idioma, locatário. Você pode selecionar zero ou mais colunas como dimensões. Observação: tenha cuidado ao selecionar uma coluna que não seja de cadeia de caracteres como uma dimensão. | Opcional.        |
+|**Dimensão**     | Valores categóricos. Uma combinação de diferentes valores identifica uma série temporal de dimensão única em particular, por exemplo: país/região, idioma, locatário. Você pode selecionar zero ou mais colunas como dimensões. Observação: tenha cuidado ao selecionar uma coluna que não seja de cadeia de caracteres como uma dimensão. | Opcional.        |
 |**Ignorar**     | Ignorar a coluna selecionada.        | Opcional. Consulte o texto abaixo.       |
 
 Se você quiser ignorar colunas, é recomendável atualizar sua consulta ou fonte de dados para excluir essas colunas. Você também pode ignorar colunas usando **ignorar colunas** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é definida erroneamente como *ignorada*, o Orientador de métrica pode acabar ingerindo dados parciais. Por exemplo, suponha que os dados da consulta sejam os seguintes:
@@ -99,7 +99,7 @@ Se *Country* for uma dimensão e o *idioma* for definido como *ignorado*, a prim
 
 O assistente de métricas pode executar automaticamente a agregação (por exemplo, SUM, MAX, MIN) em cada dimensão durante a ingestão e cria uma hierarquia que será usada na análise de caso raiz e outros recursos de diagnóstico. 
 
-Considere os seguintes cenário:
+Considere os seguintes cenários:
 
 * *Não preciso incluir a análise de acúmulo para meus dados.*
 
@@ -188,7 +188,7 @@ Para verificar os detalhes da falha de ingestão:
 2. Clique em **status** e escolha **falha** ou **erro**.
 3. Focalize uma falha de ingestão e exiba a mensagem de detalhes que aparece.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progresso da ingestão":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Verificar a ingestão com falha":::
 
 Um status de *falha* indica que a ingestão dessa fonte de dados será repetida mais tarde.
 Um status de *erro* indica que o supervisor de métrica não tentará novamente a fonte de dados. Para recarregar os dados, você precisa disparar um aterramento/recarregamento manualmente.

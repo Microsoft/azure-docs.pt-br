@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 97051e97ec9868f6941b579241e16e62fdd2162b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751777"
 ---
 # <a name="add-migration-tools"></a>Adicionar ferramentas de migração
@@ -69,7 +69,7 @@ Se você criou um projeto de migrações para Azure usando a opção **avaliar e
 
 Se você criou um projeto de migrações para Azure usando a opção **explorar mais**  >  **webapps** no portal, a ferramenta de migração de aplicativo Web será adicionada automaticamente ao projeto. 
 
-1. Se a ferramenta de migração de aplicativo Web não estiver no projeto, em ferramentas de avaliação de **aplicativos Web**  >  **Assessment tools**, selecione **clique aqui**.
+1. Se a ferramenta de migração de aplicativo Web não estiver no projeto, em ferramentas de avaliação de **aplicativos Web**  >  , selecione **clique aqui**.
 
     ![Adicionar ferramentas de migração de aplicativo Web](./media/how-to-migrate/no-web-app-migration-tool.png)
  

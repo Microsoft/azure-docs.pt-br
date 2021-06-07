@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95561457"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Para configurar e registrar o dispositivo
 
 1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
 
-2. Na sessão que é aberta, pressione **Enter** uma vez para obter um prompt de comando.
+2. Na sessão aberta, pressione **Enter** uma vez para obter um prompt de comando.
 
-3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique o idioma e pressione **Enter**.
+3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique a linguagem e pressione **Enter**.
 
 4. No menu do console serial apresentado, escolha a opção 1 para **Fazer logon com acesso completo**.
      Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.**  O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.

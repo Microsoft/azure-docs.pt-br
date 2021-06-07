@@ -1,17 +1,17 @@
 ---
 title: Notificação de manutenção planejada-banco de dados do Azure para MySQL-servidor único
 description: Este artigo descreve o recurso de notificação de manutenção planejada no banco de dados do Azure para MySQL-servidor único
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: c6d1bfbf1592da3a5e632eb875221225630aed3f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919617"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108665"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planejada no banco de dados do Azure para MySQL-servidor único
 
@@ -23,13 +23,13 @@ O serviço banco de dados do Azure para MySQL executa aplicação de patch autom
 
 Uma manutenção planejada é uma janela de manutenção quando essas atualizações de serviço são implantadas em servidores em uma determinada região do Azure. Durante a manutenção planejada, um evento de notificação é criado para informar os clientes quando a atualização de serviço é implantada na região do Azure que hospeda os servidores. A duração mínima entre duas manutenções planejadas é de 30 dias. Você receberá uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
-## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
+## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada – Duração e impacto sobre o cliente
 
-Uma manutenção planejada para uma determinada região do Azure normalmente deve ser executada 15 h. A janela também inclui o tempo de buffer para executar um plano de reversão, se necessário. Durante a manutenção planejada, pode haver reinicializações ou failovers do servidor de banco de dados, o que pode levar a uma breve indisponibilidade dos servidores de banco de dados para os usuários finais. Os servidores do banco de dados do Azure para MySQL estão em execução em contêineres, portanto, as reinicializações do servidor de banco de dados normalmente são rápidas, esperadas normalmente em 60-120 segundos. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende do tempo de recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
+Normalmente, a manutenção planejada de determinada região do Azure é executada por 15 horas. A janela também inclui o tempo de buffer para executar um plano de reversão, se necessário. Durante a manutenção planejada, pode haver reinicializações ou failovers do servidor de banco de dados, o que pode levar a uma breve indisponibilidade dos servidores de banco de dados para os usuários finais. Os servidores do banco de dados do Azure para MySQL estão em execução em contêineres, portanto, as reinicializações do servidor de banco de dados normalmente são rápidas, esperadas normalmente em 60-120 segundos. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende do tempo de recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
 
 Em resumo, enquanto o evento de manutenção planejada é executado por 15 horas, o impacto do servidor individual geralmente dura 60 segundos, dependendo da atividade transacional no servidor. Uma notificação é enviada 72 horas de calendário antes do início da manutenção planejada e outra, enquanto a manutenção está em andamento para uma determinada região.
 
-## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Como posso ser notificado sobre a manutenção planejada?
+## <a name="how-can-i-get-notified-of-planned-maintenance"></a>Como fazer para ser notificado sobre a manutenção planejada?
 
 Você pode utilizar o recurso de notificações de manutenção planejada para receber alertas para um próximo evento de manutenção planejada. Você receberá a notificação sobre as próximas horas de manutenção 72 do calendário antes do evento e de outra, enquanto a manutenção está em andamento para uma determinada região.
 

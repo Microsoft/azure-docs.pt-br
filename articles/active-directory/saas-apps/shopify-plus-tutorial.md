@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/18/2020
+ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: d7a5d160fa8a0209478fe81d2880e8956828350d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 65f4963f23d97ca2e3af34febb0d5dbea652fc12
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993492"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101646955"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shopify-plus"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Shopify Plus
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Shopify Plus ao Azure AD (Azure Ac
 * Controlar no Azure AD quem tem acesso ao Shopify Plus.
 * Permitir que os usuários sejam conectados automaticamente ao Shopify Plus com as contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,27 +37,24 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Shopify Plus é compatível com SSO iniciado por **SP e IDP**
+* O Shopify Plus é compatível com SSO iniciado por **SP e IDP**.
 
-* Após configurar o Shopify Plus, você poderá impor controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-shopify-plus-from-the-gallery"></a>Adicionando o Shopify Plus por meio da galeria
+## <a name="add-shopify-plus-from-the-gallery"></a>Adicionar o Shopify Plus por meio da galeria
 
 Para configurar a integração do Shopify Plus ao Azure AD, você precisará adicionar o Shopify Plus por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Shopify Plus** na caixa de pesquisa.
 1. Selecione **Shopify Plus** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-shopify-plus"></a>Configurar e testar o logon único do Azure AD para o Shopify Plus
+## <a name="configure-and-test-azure-ad-sso-for-shopify-plus"></a>Configurar e testar o SSO do Azure AD para o Shopify Plus
 
 Configure e teste o SSO do Azure AD com o Shopify Plus com um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Shopify Plus.
 
-Para configurar e testar o SSO do Azure AD com o Shopify Plus, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Shopify Plus, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -72,9 +67,9 @@ Para configurar e testar o SSO do Azure AD com o Shopify Plus, conclua os seguin
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Shopify Plus**, localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Shopify Plus**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -123,15 +118,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Shopify Plus**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-shopify-plus-sso"></a>Configurar o SSO do Shopify Plus
@@ -164,20 +153,20 @@ Para todos os usuários em um domínio de email:
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Shopify Plus no Painel de Acesso, você deverá ser conectado automaticamente ao Shopify Plus, para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Shopify Plus, na qual poderá iniciar o fluxo de logon.  
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+* Acesse a URL de Logon do Shopify Plus diretamente e inicie o fluxo de logon nela.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar este aplicativo** no portal do Azure e entre automaticamente no Shopify Plus para o qual você configurou o SSO. 
 
-- [Experimentar o Shopify Plus com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do Shopify Plus nos Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao Shopify Plus para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Como proteger o Shopify Plus com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)
+Após configurar o Shopify Plus, você poderá impor controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

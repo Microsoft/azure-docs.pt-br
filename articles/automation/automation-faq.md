@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.openlocfilehash: 2b40cc3d4cea4476ffde8bee8cec694975eb5083
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97724265"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Perguntas frequentes sobre a Automação do Azure

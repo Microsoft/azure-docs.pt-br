@@ -1,15 +1,15 @@
 ---
-title: Depurar código C# para Azure Data Lake trabalhos U-SQL
+title: Depurar o código C# para trabalhos do U-SQL do Azure Data Lake
 description: Este artigo descreve como depurar um vértice U-SQL com falha usando as Ferramentas do Azure Data Lake para Visual Studio.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218010"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
@@ -76,7 +76,7 @@ Se o código do usuário não está incluído no arquivo code-behind ou se você
 
 2. Obter o caminho da pasta do projeto **FailedVertexDebugHost**. 
 
-3. Clique com o botão direito do mouse no **projeto de código-fonte do assembly adicionado > Propriedades**, selecione a guia **Compilar** à esquerda e cole o final do caminho copiado com \bin\debug como **Saída > Caminho de saída**. O caminho de saída final é como `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` .
+3. Clique com o botão direito do mouse no **projeto de código-fonte do assembly adicionado > Propriedades**, selecione a guia **Compilar** à esquerda e cole o final do caminho copiado com \bin\debug como **Saída > Caminho de saída**. O caminho de saída final é `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Definir caminho pdb da depuração do U-SQL do Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

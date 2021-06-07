@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397301"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usar o IP privado para roteamento interno para um ponto de extremidade de entrada 

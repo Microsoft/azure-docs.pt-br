@@ -1,18 +1,18 @@
 ---
 title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o Go | Microsoft Docs
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Go a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: aa1c4aea2966e70728fbde22fdcbe1e8d78cb166
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544642"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280608"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar blobs usando Go
 
@@ -149,9 +149,9 @@ O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e bl
 
 Para carregar um arquivo em um blob, abra o arquivo usando **os.Open**. Depois, você pode carregar o arquivo no caminho especificado usando uma das APIs REST: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-Como alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de nível inferior. Por exemplo, a função **_UploadFileToBlockBlob_* _ function usa operações StageBlock (PutBlock) para carregar um arquivo em partes, simultaneamente, a fim de otimizar a taxa de transferência. Se o arquivo for menor que 256 MB, ele usa o Upload (PutBlob) para concluir a transferência em uma única transação.
+Como alternativa, o SDK oferece [APIs de alto nível](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) que são criadas sobre as APIs REST de nível inferior. Por exemplo, a função ***UploadFileToBlockBlob*** usa operações StageBlock (PutBlock) para carregar um arquivo em partes, simultaneamente, para otimizar a taxa de transferência. Se o arquivo for menor que 256 MB, ele usa o Upload (PutBlob) para concluir a transferência em uma única transação.
 
-O exemplo a seguir carrega o arquivo para seu contêiner chamado _*quickstartblobs-[randomstring]**.
+O exemplo a seguir carrega o arquivo para seu contêiner chamado **quickstartblobs-[randomstring]** .
 
 ```go
 // Create a file to test the upload and download.

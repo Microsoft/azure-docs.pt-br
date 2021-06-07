@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
 ms.openlocfilehash: 3dea9b885e67fd6ed5c771ef6fe187cc5111ab32
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96748253"
 ---
 > [!div class="op_single_selector" title1="Selecione a linguagem da função: "]

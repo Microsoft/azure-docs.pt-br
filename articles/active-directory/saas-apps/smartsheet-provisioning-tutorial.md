@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181434"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100103525"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configurar o Smartsheet para o provisionamento automático de usuário
 
@@ -137,22 +137,20 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 9. Examine os atributos de usuário sincronizados do Azure AD para o Smartsheet na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário do Smartsheet em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-   |Atributo|Type|
-   |---|---|
+   |Atributo|Type|Com suporte para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
    |ativo|Boolean|
    |título|String|
-   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
+   |emails[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
    |funções|String|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
@@ -188,6 +186,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 ## <a name="change-log"></a>Log de alterações
 
 * 16/06/2020 – Adição de suporte aos atributos de extensão empresariais "Centro de Custo", "Divisão", "Gerente" e "Departamento" para os usuários.
+* 10/02/2021 – Adição de suporte para atributos básicos "emails[type eq "work"]" para usuários.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

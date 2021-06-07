@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: charwen
 ms.openlocfilehash: beb4f8fc5b9e22bc3e2bdd4732c8321dfcd70780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980733"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitoramento e gerenciamento de sessão para Azure Bastion

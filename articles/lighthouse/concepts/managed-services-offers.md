@@ -1,14 +1,14 @@
 ---
 title: Ofertas de serviço gerenciado no Azure Marketplace
 description: As ofertas de serviço gerenciado permitem que você venda ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375537"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101092994"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de serviço gerenciado no Azure Marketplace
 
@@ -20,9 +20,12 @@ O serviço gerenciado oferece simplificar o processo de integração de clientes
 
 Depois disso, os usuários em sua organização poderão trabalhar nesses recursos em seu locatário de gerenciamento por meio do [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), de acordo com o acesso que você definiu ao criar a oferta. Isso é feito por meio de um manifesto que especifica os usuários do Azure Active Directory (Azure AD), os grupos e as entidades de serviço que terão acesso aos recursos do cliente, juntamente com as [funções](tenants-users-roles.md) que definem seu nível de acesso.
 
+> [!NOTE]
+> As ofertas de serviço gerenciado podem não estar disponíveis no Azure governamental e em outras nuvens nacionais.
+
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 
-Cada oferta de serviços gerenciados inclui um ou mais planos. Os planos podem ser privados ou públicos.
+Cada oferta de serviço gerenciado inclui um ou mais planos. Os planos podem ser privados ou públicos.
 
 Se desejar limitar sua oferta a clientes específicos, será possível publicar um plano privado. Quando você fizer isso, o plano só poderá ser adquirido para as IDs de assinatura específicas que você fornecer. Para saber mais, confira [Ofertas privadas](../../marketplace/private-offers.md).
 
@@ -38,9 +41,9 @@ Se apropriado, você pode incluir planos públicos e privados na mesma oferta.
 
 ## <a name="publish-managed-service-offers"></a>Publicar ofertas de serviço gerenciado
 
-Para saber como publicar uma oferta de serviços gerenciados, consulte [publicar uma oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md).
+Para saber como publicar uma oferta de serviço gerenciado, consulte [publicar uma oferta de serviço gerenciado no Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md) e [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
-- [Publicar ofertas de serviços gerenciados](../how-to/publish-managed-services-offers.md) no Azure Marketplace.
+- [Publicar ofertas de serviço gerenciado](../how-to/publish-managed-services-offers.md) no Azure Marketplace.

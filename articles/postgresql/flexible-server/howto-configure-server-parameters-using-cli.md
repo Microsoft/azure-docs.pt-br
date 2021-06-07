@@ -1,19 +1,19 @@
 ---
 title: Configurar parâmetros-banco de dados do Azure para PostgreSQL-servidor flexível
 description: Este artigo descreve como configurar parâmetros do postgres no banco de dados do Azure para PostgreSQL – servidor flexível usando o CLI do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315e4439ca66a3fbadac228c013797f516bc2940
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933790"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605757"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Personalizar parâmetros de servidor para o banco de dados do Azure para PostgreSQL-servidor flexível usando o CLI do Azure
 
@@ -29,7 +29,7 @@ Para seguir este guia de instruções, você precisa:
 
 Para listar todos os parâmetros modificáveis em um servidor e seus valores, execute o comando [AZ postgres Flexible-Server Parameter List](/cli/azure/postgres/flexible-server/parameter) .
 
-Você pode listar os parâmetros de servidor para o servidor **mydemoserver.Postgres.Database.Azure.com** em grupo de recursos **MyResource**Group.
+Você pode listar os parâmetros de servidor para o servidor **mydemoserver.Postgres.Database.Azure.com** em grupo de recursos **MyResource** Group.
 
 ```azurecli-interactive
 az postgres flexible-server parameter list --resource-group myresourcegroup --server-name mydemoserver

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/02/2020
 ms.author: Zhchia
 ms.openlocfilehash: 6b00067e7f13e609c2999d6949429038e9a7dfd8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96181740"
 ---
 # <a name="tutorial-configure-printerlogic-saas-for-automatic-user-provisioning"></a>Tutorial: configurar o SaaS PrinterLogic para o provisionamento automático de usuário
@@ -39,7 +39,7 @@ Este tutorial descreve as etapas que você precisa executar tanto no PrinterLogi
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Um locatário [PrinterLogic SaaS](https://www.printerlogic.com/) .
 
@@ -126,9 +126,9 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: authPin|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: authPinUser|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: cracháid|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: authPin|String|
+   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: authPinUser|String|
+   |urn: IETF: params: SCIM: schemas: Extension: printercloud: 2.0: User: cracháid|String|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para PrinterLogic SaaS**.
 

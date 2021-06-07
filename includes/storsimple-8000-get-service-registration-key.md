@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 984efe73b072a356b738acc9f162ecaded995ef1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360659"
 ---
 #### <a name="to-get-the-storsimple-service-registration-key"></a>Para obter a chave de registro do serviço StorSimple
 
-1. Na folha **StorSimple Device Manager** , clique no serviço que você criou. Isso abre uma nova folha à direita.
+1. Na folha **StorSimple Device Manager**, clique no serviço que você criou. Isso abre uma nova folha à direita.
    
      ![Folha do Gerenciador de Dispositivos StorSimple](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
 

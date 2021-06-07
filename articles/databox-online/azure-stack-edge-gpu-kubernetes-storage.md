@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: d848d663121474085935c68e62b8aa38f195ba8d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063291"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102442172"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gerenciamento de armazenamento kubernetes em seu dispositivo de GPU pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Há maneiras distintas de fornecer armazenamento a pods no cluster kubernetes. 
 

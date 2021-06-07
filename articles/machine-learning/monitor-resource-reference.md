@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585119"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102521332"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
 
@@ -23,7 +23,7 @@ Saiba mais sobre os dados e recursos coletados por Azure Monitor do seu espaço 
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
+Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Modelo**
 
@@ -74,7 +74,7 @@ Informações sobre execuções de treinamento.
 
 ## <a name="metric-dimensions"></a>Dimensões de métrica
 
-Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 
@@ -88,7 +88,7 @@ Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 | NodeId | ID do nó criado onde o trabalho está em execução. Disponível somente para CpuUtilization e GpuUtilization. |
 | RunId | ID da execução/trabalho. Disponível somente para CpuUtilization e GpuUtilization. |
 | ComputeType | O tipo de computação usado pela execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
-| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
+| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | PublishedPipelineId | A ID do pipeline publicado usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | RunType | O tipo de execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 
@@ -117,7 +117,7 @@ A tabela a seguir lista as operações relacionadas a Azure Machine Learning que
 
 Esta seção lista os tipos de logs de recursos que você pode coletar para Azure Machine Learning espaço de trabalho.
 
-Provedor de recursos e tipo: [Microsoft. MachineLearningServices/Workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+Provedor de recursos e tipo: [Microsoft. MachineLearningServices/Workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Categoria | Nome de exibição |
 | ----- | ----- |
@@ -179,7 +179,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Editor | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -215,7 +215,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Editor | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -229,7 +229,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | TotalE2ETimeInSeconds | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
-- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.
+- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

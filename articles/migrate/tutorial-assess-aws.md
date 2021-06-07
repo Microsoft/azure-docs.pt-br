@@ -1,28 +1,28 @@
 ---
-title: Avaliar instâncias da AWS a fim de obter uma migração para o Azure com a Avaliação de Servidor das Migrações para Azure
-description: Saiba como acessar instâncias da AWS a fim de obter uma migração para o Azure com a Avaliação de Servidor das Migrações para Azure.
+title: Avaliar instâncias da AWS quanto à migração para o Azure com as Migrações para Azure
+description: Saiba como acessar instâncias da AWS quanto à migração para o Azure com as Migrações para Azure.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: fe2deba007f987af466fcec53e1670e9d0b0460f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 942adacf5b9a3b1b717e28def5752591ef22ec52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567514"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782326"
 ---
 # <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>Tutorial: Avaliar instâncias da AWS para migração para o Azure
 
 Como parte do seu percurso de migração para o Azure, avalie as suas cargas de trabalho locais para medir a preparação para a nuvem, identificar riscos e estimar custos e complexidade.
 
-Este artigo mostrará como avaliar as instâncias da AWS (Amazon Web Services) a fim de obter uma migração para o Azure usando as Migrações para Azure: Avaliação de Servidor.
+Este artigo mostra como avaliar as instâncias da AWS (Amazon Web Services) quanto à migração para o Azure usando a ferramenta Migrações para Azure: descoberta e avaliação.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-- Executar uma avaliação com base nos metadados do computador e nas informações de configuração.
+- Executar uma avaliação com base nos metadados do servidor e nas informações de configuração.
 - Executar uma avaliação com base nos dados de desempenho.
 
 > [!NOTE]
@@ -34,36 +34,36 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de seguir as etapas deste tutorial, conclua o primeiro tutorial desta série para [descobrir seu inventário local](tutorial-discover-aws.md). 
-- Certifique-se de que as instâncias da AWS não estejam em execução no Windows Server 2003 nem no SUSE Linux. A avaliação não é compatível com esses computadores.
+- Certifique-se de que as instâncias da AWS não estejam em execução no Windows Server 2003 nem no SUSE Linux. Não há suporte para a avaliação nesses servidores.
 
 
 ## <a name="decide-which-assessment-to-run"></a>Decidir qual avaliação executar
 
 
-Decida se deseja executar uma avaliação usando critérios de dimensionamento com base nos dados/metadados de configuração do computador, que são coletados como estão no local, ou em dados de desempenho dinâmicos.
+Decida se deseja executar uma avaliação usando critérios de dimensionamento com base nos dados/metadados de configuração do servidor que são coletados no estado em que se encontram localmente ou nos dados de desempenho dinâmicos.
 
 **Avaliação** | **Detalhes** | **Recomendação**
 --- | --- | ---
-**No estado em que se encontra localmente** | Avaliar com base nos dados/metadados de configuração do computador.  | A recomendação de tamanho da VM do Azure é baseada no tamanho da VM local.<br/><br> O tipo de disco recomendado do Azure é baseado no que você seleciona na configuração de tipo de armazenamento na avaliação.
+**No estado em que se encontra localmente** | Avaliação com base nos dados/metadados de configuração do servidor.  | A recomendação de tamanho da VM do Azure é baseada no tamanho da VM local.<br/><br> O tipo de disco recomendado do Azure é baseado no que você seleciona na configuração de tipo de armazenamento na avaliação.
 **Com base no desempenho** | Avaliar com base nos dados de desempenho dinâmicos coletados. | A recomendação de tamanho da VM do Azure é baseada nos dados de utilização da CPU e da memória.<br/><br/> A recomendação do tipo de disco é baseada na IOPS e na taxa de transferência dos discos locais.
 
 ## <a name="run-an-assessment"></a>Ler uma avaliação
 
 Execute uma avaliação da seguinte maneira:
 
-1. Na página **Servidores** > **Servidores Windows e Linux**, clique em **Avaliar e migrar servidores**.
+1. Na página **Visão geral** > **Windows, Linux e SQL Server**, clique em **Avaliar e migrar servidores**.
 
    ![Localização do botão Avaliar e migrar servidores](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
+2. Em **Migrações para Azure: descoberta e avaliação**, clique em **Avaliar**.
 
     ![Localização do botão Avaliar](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **VM do Azure**.
 4. Em **Origem da descoberta**:
 
-    - Se você descobriu computadores usando o dispositivo, selecione **Computadores descobertos no dispositivo de Migrações para Azure**.
-    - Se você descobriu computadores usando um arquivo CSV importado, selecione **Computadores importados**. 
+    - Se você tiver descoberto servidores usando o dispositivo, selecione **Servidores descobertos no dispositivo de Migrações para Azure**.
+    - Se você tiver descoberto servidores usando um arquivo CSV importado, selecione **Servidores importados**. 
     
 1. Clique em **Editar** para examinar as propriedades da avaliação.
 
@@ -80,7 +80,7 @@ Execute uma avaliação da seguinte maneira:
         - Se você optar por usar uma instância reservada, não poderá especificar **Desconto (%)** nem **Tempo de atividade da VM**. 
         - [Saiba mais](https://aka.ms/azurereservedinstances).
  1. Em **Tamanho da VM**:
-     - Em **Critério de dimensionamento**, selecione se você deseja basear a avaliação em metadados/dados de configuração de computador ou em dados baseados no desempenho. Se você optar por usar dados de desempenho:
+     - Em **Critério de dimensionamento**, selecione se deseja basear a avaliação em metadados/dados de configuração do servidor ou em dados baseados no desempenho. Se você optar por usar dados de desempenho:
         - Em **Histórico de desempenho**, indique a duração dos dados em que você deseja basear a avaliação
         - Em **Utilização de percentual**, especifique o valor percentual que você deseja usar para a amostragem de desempenho. 
     - Em **Série de VMs**, especifique a série de VMs do Azure que você deseja considerar.
@@ -94,7 +94,7 @@ Execute uma avaliação da seguinte maneira:
         Memória | 8 GB | 16 GB
    
 1. Em **Preços**:
-    - Em **Oferta**, especifique a [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) se você estiver registrado. A Avaliação de Servidor estima o custo dessa oferta.
+    - Em **Oferta**, especifique a [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) se você estiver registrado. A avaliação estima o custo dessa oferta.
     - Em **Moeda**, selecione a moeda de cobrança para sua conta.
     - Em **Desconto (%)** , adicione quaisquer descontos específicos à assinatura recebidos sobre a oferta do Azure. A configuração padrão é 0%.
     - Em **Tempo de atividade da VM**, especifique a duração (dias por mês/hora por dia) em que as VMs serão executadas.
@@ -110,17 +110,15 @@ Execute uma avaliação da seguinte maneira:
 
 1. Em **Avaliar Servidores** > clique em **Avançar**.
 
-1. Em **Selecionar os computadores a serem avaliados** > **Nome da avaliação** > especifique um nome para a avaliação. 
+1. Em **Selecionar os servidores a serem avaliados** > **Nome da avaliação** > especifique um nome para a avaliação. 
 
 1. Em **Selecionar ou criar um grupo** > selecione **Criar** e especifique um nome de grupo. 
     
-    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="Adicionar VMs a um grupo":::
-
 1. Selecione o dispositivo e as VMs que você deseja adicionar ao grupo. Em seguida, clique em **Próximo**.
 
 1. Em **Examinar + criar avaliação**, examine os detalhes da avaliação e clique em **Criar Avaliação** para criar o grupo e executar a avaliação.
 
-1. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: Avaliação de Servidor** > **Avaliações**.
+1. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: descoberta e avaliação** > **Avaliações**.
 
 1. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
     > [!NOTE]
@@ -136,7 +134,7 @@ Uma avaliação descreve:
 
 Para exibir uma avaliação:
 
-1. Em **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no número ao lado de **Avaliações**.
+1. Em **Windows, Linux e SQL Server** > **Migrações para Azure: descoberta e avaliação**, clique no número ao lado de **Avaliações**.
 2. Em **Avaliações**, selecione uma avaliação para abri-la. Como exemplo (estimativas e custos somente para exemplo): 
 
     ![Resumo da avaliação](./media/tutorial-assess-aws/assessment-summary.png)
@@ -161,7 +159,7 @@ O resumo da avaliação mostra o custo estimado de computação e armazenamento 
 
 1. Examinar os custos totais mensais. Os custos são agregados para todas as VMs no grupo avaliado.
 
-    - As estimativas de custo são baseadas nas recomendações de tamanho para um computador, seus discos e suas propriedades.
+    - As estimativas de custo são baseadas nas recomendações de tamanho para um servidor, bem como para os respectivos discos e as propriedades.
     - Os custos mensais estimados de computação e armazenamento são mostrados.
     - A estimativa de custo refere-se à execução das VMs locais em VMs do Azure. A estimativa não considera os custos de PaaS ou SaaS.
 
@@ -170,7 +168,7 @@ O resumo da avaliação mostra o custo estimado de computação e armazenamento 
 
 ### <a name="review-confidence-rating"></a>Revisar classificação de confiança
 
-A Avaliação de Servidor atribui uma classificação de confiança às avaliações baseadas no desempenho. A classificação varia de uma estrela (mais baixa) a cinco estrelas (mais alta).
+As Migrações para Azure atribuem uma classificação de confiança às avaliações baseadas no desempenho. A classificação varia de uma estrela (mais baixa) a cinco estrelas (mais alta).
 
 ![Classificação de confiança](./media/tutorial-assess-aws/confidence-rating.png)
 
@@ -194,5 +192,5 @@ As classificações de confiança são as mostradas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Encontre dependências de computador usando o [mapeamento de dependências](concepts-dependency-visualization.md).
+- Encontre dependências de servidor usando o [mapeamento de dependências](concepts-dependency-visualization.md).
 - Configure o mapeamento de dependências [baseado em agente](how-to-create-group-machine-dependencies.md).

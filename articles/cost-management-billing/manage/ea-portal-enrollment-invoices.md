@@ -3,18 +3,18 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598070"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430795"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -98,29 +98,41 @@ O Azure Enterprise Portal filtra os registros inativos, deixando-os fora da exib
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Alterar o número da OC de uma fatura de excedente a vencer
 
-O Azure Enterprise Portal gera automaticamente uma OC (ordem de compra) padrão, a menos que o administrador corporativo configure uma antes da data da fatura. Um administrador corporativo pode atualizar o número da OC até sete dias após receber um email de notificação automático com a fatura.
+O Azure Enterprise Portal gera automaticamente uma OC (ordem de compra) padrão, a menos que o administrador corporativo configure uma antes da data da fatura. Um administrador corporativo pode atualizar o número da OC até sete dias após receber um email de notificação automático com a fatura. 
 
-### <a name="to-update-the-azure-services-purchase-order-number"></a>Para atualizar o número da ordem de compra dos serviços do Azure:
+Para evitar a geração automática dos números da OC todos os meses, você pode bloquear o número da OC. Confira [Bloquear número da OC](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### <a name="update-the-azure-services-purchase-order-number"></a>Atualize o número da ordem de compra dos serviços do Azure
 
 1. No Azure Enterprise Portal, selecione **Relatório** > **Resumo do Uso**.
 1. Selecione **Editar números da OC** no canto superior direito.
 1. Selecione o botão de opção **Serviços do Azure**.
 1. Selecione um **Período da fatura** no menu suspenso com intervalos de datas.
-
    É possível editar um número de OC durante um período de sete dias depois de obter uma notificação de fatura, mas antes de pagar a fatura.
 1. Insira um novo número da OC no campo **Número da OC**.
 1. Selecione **Salvar** para enviar a alteração.
 
-### <a name="to-update-the-azure-marketplace-purchase-order-number"></a>Para atualizar o número da ordem de compra do Azure Marketplace:
+### <a name="update-the-azure-marketplace-purchase-order-number"></a>Atualize o número da ordem de compra do Azure Marketplace
 
 1. No Azure Enterprise Portal, selecione **Relatório** > **Resumo do Uso**.
 1. Selecione **Editar números da OC** no canto superior direito.
 1. Selecione o botão de opção do **Marketplace**.
-1. Selecione um **Período da fatura** no menu suspenso com intervalos de datas.
-
-   É possível editar um número de OC durante um período de sete dias depois de obter uma notificação de fatura, mas antes de pagar a fatura.
+1. Selecione um **Período da fatura** no menu suspenso com intervalos de datas.  
+    É possível editar um número de OC durante um período de sete dias depois de obter uma notificação de fatura, mas antes de pagar a fatura.
 1. Insira um novo número da OC no campo **Número da OC**.
 1. Selecione **Salvar** para enviar a alteração.
+
+### <a name="lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles"></a>Bloquear número da OC para evitar a atualização automática nos próximos ciclos de cobrança
+
+Depois que você bloquear o número da OC, ele permanecerá bloqueado para todas as novas faturas e você não precisará atualizar o número da OC.
+
+1.  No portal do Azure Enterprise, selecione **Relatório** > **Resumo do Uso**.
+2.  Selecione **Editar números da OC** no canto superior direito.
+3.  Digite um novo número da OC no campo **Número da OC**.
+4.  Selecione a caixa **Bloquear número da OC**.
+5.  Selecione **Salvar** para enviar a alteração.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Captura de tela mostrando a caixa Exibir/editar números da OC." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## <a name="azure-enterprise-billing-frequency"></a>Frequência da cobrança do Azure Enterprise
 

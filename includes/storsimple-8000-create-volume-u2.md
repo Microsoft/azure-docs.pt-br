@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67171975"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100552827"
 ---
 #### <a name="to-create-a-volume"></a>Para criar um volume
-1. Na lista tabular de dispositivos na folha **Dispositivos**, selecione seu dispositivo. Clique em **+ Adicionar volume**.
+1. Na lista tabular de dispositivos na folha **Dispositivos**, selecione seu dispositivo. Clique em **+ Adicionar volume**.<!--Note to reviewer. No screen updates. Had to rename screens to be able to correct a formatting error.-->
 
-    ![Adicionar um novo volume](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
+    ![Adicionar um novo volume](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
 
 2. Na folha **Adicionar um volume**:
    
@@ -35,19 +35,19 @@ ms.locfileid: "67171975"
        É possível provisionar volumes fixados localmente de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB. Como o espaço local no dispositivo é necessário para hospedar o conjunto de trabalho de volumes em camadas, a criação de volumes fixados localmente afetará o espaço disponível para o provisionamento de volumes em camadas. Portanto, se você criar um volume fixado localmente, o espaço disponível para a criação de volumes em camadas será reduzido. Da mesma forma, se um volume em camadas é criado, o espaço disponível para a criação de volumes localmente fixados será reduzido.
       
        Se você provisionar um volume fixado localmente de 8.5 TB (tamanho máximo permitido) em seu dispositivo 8100, você esgotará todo o espaço local disponível no dispositivo. Você não pode criar um volume em camadas desse ponto em diante, pois não há espaço local no dispositivo para hospedar o conjunto de trabalho do volume em camadas. Os volumes existentes em camadas também afetam o espaço disponível. Por exemplo, se você tiver um dispositivo 8100 que já tem volumes em camadas de 106 TB, somente 4 TB de espaço estarão disponíveis para volumes fixados localmente.
-
+ 
       1. No campo **Hosts conectados**, clique na seta. 
 
-         ![Hosts conectados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Hosts conectados](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
 
       1. Na folha **Hosts conectados**, escolha um ACR existente ou adicionar um novo ACR executando as seguintes etapas:
 
          1. Forneça um **Nome** para seu ACR.
-         2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado do iSCSI (IQN) do seu host do Windows. Se você não tiver o IQN, vá para [obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
+         2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado do iSCSI (IQN) do seu host do Windows. Se você não tiver o IQN, vá para [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host).
 
       1. Clique em **Criar**. Será criado um volume com as configurações especificadas.
 
-         ![Clique em Criar. ](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Clique em Criar. ](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
 
          > [!NOTE]
          > Lembre-se de que o volume que você criou aqui não está protegido. Você precisará criar e associar políticas de backup a este volume para fazer backups agendados. 

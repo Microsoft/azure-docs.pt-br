@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jpalma
 ms.openlocfilehash: 83d7d48922806334e2b49494fe0ef1d15e1a7a6a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96531472"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Atualização de imagem de nó do AKS (serviço kubernetes do Azure)

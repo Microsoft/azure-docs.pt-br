@@ -4,12 +4,12 @@ description: Esse script da CLI do Azure inicia uma máquina virtual em um labor
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 793027916fb0d923cfd4052a4ecfc36fb24c7db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82d43fc212da034d978ee3d65236d806daeb008
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136110"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764973"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Use a CLI do Azure para iniciar uma máquina virtual em um laboratório no Azure DevTest Labs
 
@@ -30,7 +30,7 @@ Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
-| [az lab vm start](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | Inicia uma VM (máquina virtual) em um laboratório. Essa operação pode demorar um pouco para ser concluída. |
+| [az lab vm start](/cli/azure/lab/vm#az_lab_vm_start) | Inicia uma VM (máquina virtual) em um laboratório. Essa operação pode demorar um pouco para ser concluída. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

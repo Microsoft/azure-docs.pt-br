@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e195c005676df27385e5e00736b04bdb689fafc5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240317"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101727100"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Negar acesso à rede pública no banco de dados do Azure para PostgreSQL servidor único usando portal do Azure
 
@@ -21,7 +21,7 @@ Este artigo descreve como você pode configurar um servidor único do banco de d
 
 Para concluir este guia de instruções, você precisa:
 
-* Um [servidor único do banco de dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md)
+* Um [servidor único do banco de dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md) com uso geral ou tipo de preço com otimização de memória.
 
 ## <a name="set-deny-public-network-access"></a>Definir acesso de rede pública de negação
 
@@ -29,9 +29,9 @@ Siga estas etapas para definir o acesso de rede pública de negação de servido
 
 1. Na [portal do Azure](https://portal.azure.com/), selecione seu banco de dados do Azure existente para PostgreSQL servidor único.
 
-1. Na página servidor único PostgreSQL, em **configurações** , clique em **segurança de conexão** para abrir a página configuração de segurança de conexão.
+1. Na página servidor único PostgreSQL, em **configurações**, clique em **segurança de conexão** para abrir a página configuração de segurança de conexão.
 
-1. Em **negar acesso à rede pública** , selecione **Sim** para habilitar o acesso público negado para o servidor único PostgreSQL.
+1. Em **negar acesso à rede pública**, selecione **Sim** para habilitar o acesso público negado para o servidor único PostgreSQL.
 
     :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Banco de dados do Azure para PostgreSQL servidor único negar acesso à rede":::
 

@@ -1,32 +1,34 @@
 ---
-title: Suporte para Linux de área de trabalho virtual do Windows – Azure
-description: Uma breve visão geral do suporte ao Linux para área de trabalho virtual do Windows.
+title: Suporte ao cliente fino da Área de Trabalho Virtual do Windows – Azure
+description: Uma breve visão geral do suporte ao cliente fino para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/01/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 502a89c5a2c0384e34ee35346332a4dd6adc38aa
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 25f89b91aeb6e721c91356ef13b456455d4d3c98
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185420"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446053"
 ---
-# <a name="linux-support"></a>Suporte para Linux
+# <a name="thin-client-support"></a>Suporte ao cliente fino
 
-Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos Linux com o [cliente Web](connect-web.md) ou os seguintes clientes com suporte, fornecidos por nossos parceiros de cliente fino do Linux. Estamos trabalhando com vários parceiros para habilitar clientes de área de trabalho virtual do Windows com suporte em mais sistemas operacionais e dispositivos baseados em Linux. Se você precisar de suporte para área de trabalho virtual do Windows em uma plataforma Linux que não está listada aqui, informe-nos em nossa [página uservoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Você pode acessar os recursos da Área de Trabalho Virtual do Windows de seus dispositivos de cliente fino com o [cliente Web](connect-web.md) ou com os clientes com suporte a seguir, fornecidos por nossos parceiros. Estamos trabalhando com vários parceiros para habilitar clientes da Área de Trabalho Virtual do Windows com suporte em outras plataformas.
 
-## <a name="connect-with-your-linux-device"></a>Conecte-se ao seu dispositivo Linux
+## <a name="connect-with-your-thin-client-device"></a>Conectar-se com seu dispositivo de cliente fino
 
-Os parceiros a seguir aprovaram clientes de área de trabalho virtual do Windows para dispositivos Linux.
+Os parceiros a seguir aprovaram clientes da Área de Trabalho Virtual do Windows.
 
 |Partner (parceiro)|Documentação do parceiro|Suporte a parceiros|
 |:------|:--------------------|:--------------|
-|![Logotipo da Dell](./media/partners/dell.png)|[Documentação do cliente Dell](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Suporte da Dell](https://www.dell.com/support)|
-|![Logotipo do IGEL](./media/partners/igel.png)|[Documentação do cliente do IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte do IGEL](https://www.igel.com/support/)|
-|![Logotipo do NComputing](./media/partners/ncomputing.png)|[Documentação do cliente do NComputing](https://www.ncomputing.com/microsoft)|[Suporte do NComputing](https://www.ncomputing.com/support/support-options)|
-|![Logotipo do Stratodesk](./media/partners/stratodesk.png)|[Documentação do cliente do Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Suporte do Stratodesk](https://www.stratodesk.com/support/)|
+|10ZiG |[Documentação do cliente 10ZiG](https://www.10zig.com/about/microsoft-windows-virtual-desktop)|[Suporte da 10ZiG](https://www.10zig.com/resources/support_faq)|
+|Dell |[Documentação do cliente Dell](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Suporte da Dell](https://www.dell.com/support)|
+|HP |[Documentação do cliente HP](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[Suporte da HP](https://support.hp.com/us-en/products/workstations-thin-clients)|
+|IGEL |[Documentação do cliente IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte da IGEL](https://www.igel.com/support/)|
+|NComputing |[Documentação do cliente NComputing](https://www.ncomputing.com/microsoft)|[Suporte da NComputing](https://www.ncomputing.com/support/support-options)|
+|Stratodesk |[Documentação do cliente Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Suporte da Stratodesk](https://www.stratodesk.com/support/)|
 
 ## <a name="next-steps"></a>Próximas etapas
 

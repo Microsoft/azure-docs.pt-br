@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387675"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584388"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas de desempenho da atividade de cópia
 
@@ -168,7 +168,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
   - Considere o ajuste gradual das [cópias paralelas](copy-activity-performance-features.md), observe que muitas cópias paralelas podem até mesmo prejudicar o desempenho.
 
 
-## <a name="connector-and-ir-performance"></a>Desempenho do conector e do IR
+## <a name="connector-and-ir-performance"></a>Desempenho do conector e do IR 
 
 Esta seção explora alguns guias de solução de problemas de desempenho para determinado tipo de conector ou tempo de execução de integração.
 
@@ -176,9 +176,11 @@ Esta seção explora alguns guias de solução de problemas de desempenho para d
 
 O tempo de execução da atividade varia quando o conjunto de base é baseado em diferentes Integration Runtime.
 
-- **Sintomas**: simplesmente alternar a lista suspensa serviço vinculado no conjunto de um executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de informações é baseado na Integration Runtime de rede virtual gerenciada, demora mais de 2 minutos para concluir a execução, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Integration Runtime padrão.
+- **Sintomas**: simplesmente alternar a lista suspensa serviço vinculado no conjunto de um executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de informações é baseado na Integration Runtime rede virtual gerenciada, leva mais tempo em média do que a execução quando com base no Integration Runtime padrão.  
 
-- **Causa**: verificando os detalhes das execuções de pipeline, você pode ver que o pipeline lento está em execução no ir (rede virtual) da VNet gerenciada enquanto o normal está em execução no Azure ir. Por design, o IR para VNet gerenciada leva tempo de fila maior do que Azure IR, pois não estamos reservando um nó de computação por data factory, portanto, há um aquecimento de cerca de 2 minutos para que cada atividade de cópia seja iniciada e ela ocorre principalmente na junção VNet, em vez de Azure IR.
+- **Causa**: verificando os detalhes das execuções de pipeline, você pode ver que o pipeline lento está em execução no ir (rede virtual) da VNet gerenciada enquanto o normal está em execução no Azure ir. Por design, o IR da VNet gerenciada leva tempo de fila maior do que Azure IR, pois não estamos reservando um nó de computação por data factory, portanto, há um aquecimento para cada atividade de cópia iniciar e ocorre principalmente na junção VNet, em vez de Azure IR. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Baixo desempenho durante o carregamento de dados no Azure SQL Database

@@ -4,19 +4,19 @@ description: Adicione um pool elástico do Banco de Dados SQL do Azure a um grup
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/27/2019
-ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: dd0532469cd4390d9a72900dcebc22994239325b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593970"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479144"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicionar um pool elástico do Banco de Dados SQL do Azure a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,16 +55,16 @@ Crie o pool elástico usando o portal do Azure.
     ![Selecionar o pool elástico](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configure o pool elástico com os seguintes valores:
-   - **Nome** : forneça um nome exclusivo para o pool elástico, como `myElasticPool`.
-   - **Assinatura** : Selecione sua assinatura na lista suspensa.
-   - **ResourceGroup** : escolha `myResourceGroup` na lista suspensa, o grupo de recursos criado na seção 1.
-   - **Servidor** : escolha o servidor criado na seção 1 na lista suspensa.  
+   - **Nome**: forneça um nome exclusivo para o pool elástico, como `myElasticPool`.
+   - **Assinatura**: Selecione sua assinatura na lista suspensa.
+   - **ResourceGroup**: escolha `myResourceGroup` na lista suspensa, o grupo de recursos criado na seção 1.
+   - **Servidor**: escolha o servidor criado na seção 1 na lista suspensa.  
 
        ![Criar um servidor para o pool elástico](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Computação + armazenamento** : escolha **Configurar o pool elástico** para configurar a computação, o armazenamento e adicionar seu banco de dados individual ao pool elástico. Na guia **Configurações do Pool** , mantenha o padrão de Gen5, com 2 vCores e 32 GB.
+   - **Computação + armazenamento**: escolha **Configurar o pool elástico** para configurar a computação, o armazenamento e adicionar seu banco de dados individual ao pool elástico. Na guia **Configurações do Pool**, mantenha o padrão de Gen5, com 2 vCores e 32 GB.
 
-1. Na página **Configurar** , selecione a guia **Bancos de Dados** e escolha **Adicionar banco de dados**. Escolha o banco de dados criado na seção 1 e selecione **Aplicar** para adicioná-lo ao pool elástico. Selecione **Aplicar** novamente para aplicar as configurações do pool elástico e feche a página **Configurar**.
+1. Na página **Configurar**, selecione a guia **Bancos de Dados** e escolha **Adicionar banco de dados**. Escolha o banco de dados criado na seção 1 e selecione **Aplicar** para adicioná-lo ao pool elástico. Selecione **Aplicar** novamente para aplicar as configurações do pool elástico e feche a página **Configurar**.
 
     ![Adicionar um banco de dados ao pool elástico](./media/failover-group-add-elastic-pool-tutorial/add-database-to-elastic-pool.png)
 
@@ -135,7 +135,7 @@ Crie o grupo de failover usando o portal do Azure.
 
 1. Selecione **SQL do Azure** no menu de navegação do [portal do Azure](https://portal.azure.com) à esquerda. Se o **SQL do Azure** não estiver na lista, selecione **Todos os serviços** e, em seguida, digite SQL do Azure na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda.
 1. Selecione o pool elástico criado na seção anterior, como `myElasticPool`.
-1. No painel **Visão Geral** , escolha o nome do servidor em **Nome do servidor** para abrir as configurações do servidor.
+1. No painel **Visão Geral**, escolha o nome do servidor em **Nome do servidor** para abrir as configurações do servidor.
   
     ![Abrir o servidor para o pool elástico](./media/failover-group-add-elastic-pool-tutorial/server-for-elastic-pool.png)
 
@@ -143,13 +143,13 @@ Crie o grupo de failover usando o portal do Azure.
 
     ![Adicionar um novo grupo de failover](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. Na página **Grupo de Failover** , insira ou selecione os seguintes valores e selecione **Criar** :
-    - **Nome do grupo de failover** : digite um nome de grupo de failover exclusivo, como `failovergrouptutorial`.
-    - **Servidor secundário** : selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os seguintes valores para o novo servidor secundário, escolha **Selecionar**.
-        - **Nome do servidor** : digite um nome exclusivo para o servidor secundário, como `mysqlsecondary`.
-        - **Logon de administrador do servidor** : Digite `azureuser`
-        - **Senha** : Digite uma senha complexa que atenda aos requisitos de senha.
-        - **Localização** : Escolha uma localização na lista suspensa, como `East US`. Essa localização não pode ser a mesma do servidor primário.
+1. Na página **Grupo de Failover**, insira ou selecione os seguintes valores e selecione **Criar**:
+    - **Nome do grupo de failover**: digite um nome de grupo de failover exclusivo, como `failovergrouptutorial`.
+    - **Servidor secundário**: selecione a opção para *definir as configurações necessárias* e escolha **Criar um servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os seguintes valores para o novo servidor secundário, escolha **Selecionar**.
+        - **Nome do servidor**: digite um nome exclusivo para o servidor secundário, como `mysqlsecondary`.
+        - **Logon de administrador do servidor**: Digite `azureuser`
+        - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha.
+        - **Localização**: Escolha uma localização na lista suspensa, como `East US`. Essa localização não pode ser a mesma do servidor primário.
 
        > [!NOTE]
        > As configurações de logon e firewall do servidor precisam corresponder àquelas do servidor primário.
@@ -209,11 +209,11 @@ Crie o grupo de failover usando o PowerShell.
    # Create a failover group between the servers
    Write-host "Creating failover group..."
    New-AzSqlDatabaseFailoverGroup `
-     –ResourceGroupName $resourceGroupName `
+     â€“ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      –FailoverGroupName $failoverGroupName `
-      –FailoverPolicy Automatic `
+      â€“FailoverGroupName $failoverGroupName `
+      â€“FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    Write-host "Failover group created successfully."
 

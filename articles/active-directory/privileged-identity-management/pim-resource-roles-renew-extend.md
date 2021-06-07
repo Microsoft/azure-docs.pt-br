@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f0d22fc540aae448a3da731b709a3b4ea13a69d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84742226"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Estender ou renovar atribuições de função de recurso do Azure no Privileged Identity Management
@@ -47,15 +47,15 @@ Os usuários ou grupos atribuídos a uma função podem estender as atribuiçõe
 
 ![Recursos do Azure – página minhas funções listando funções qualificadas com uma coluna de ação](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
-Quando a data e a hora de término da atribuição estiverem dentro de 14 dias, o botão para ** Estender ** se tornará um link ativo na interface do usuário. No exemplo a seguir, suponha que a data atual seja 27 de março.
+Quando a data e a hora de término da atribuição estiverem dentro de 14 dias, o botão para **Estender** se tornará um link ativo na interface do usuário. No exemplo a seguir, suponha que a data atual seja 27 de março.
 
 ![Coluna de ação com links para ativar ou estender](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 
-Para solicitar uma extensão dessa atribuição de função, selecione ** Estender ** para abrir o formulário de solicitação.
+Para solicitar uma extensão dessa atribuição de função, selecione **Estender** para abrir o formulário de solicitação.
 
 ![Estender o painel de atribuição de função com uma caixa de motivo](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
 
-Para visualizar informações sobre a atribuição original, expanda ** Detalhes da atribuição **. Digite uma razão para a solicitação de extensão e, em seguida, selecione ** Estender **.
+Para visualizar informações sobre a atribuição original, expanda **Detalhes da atribuição**. Digite uma razão para a solicitação de extensão e, em seguida, selecione **Estender**.
 
 >[!NOTE]
 >Recomendamos incluir os detalhes de por que a extensão é necessária e por quanto tempo a extensão deve ser concedida (se você tiver essa informação).
@@ -82,7 +82,7 @@ Quando um administrador seleciona **aprovar** ou **negar**, os detalhes da solic
 
 ![Aprovar solicitação de atribuição de função com motivo do solicitante, tipo de atribuição, hora de início, hora de término e motivo](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
-Ao aprovar uma solicitação para estender a atribuição de função, os administradores de recursos podem escolher uma nova data de início, uma data de término e um tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de ** Qualificado ** para ** Ativo **. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
+Ao aprovar uma solicitação para estender a atribuição de função, os administradores de recursos podem escolher uma nova data de início, uma data de término e um tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de **Qualificado** para **Ativo**. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
 
 ### <a name="admin-initiated-extension"></a>Extensão iniciada pelo administrador
 
@@ -102,9 +102,9 @@ Os usuários que não podem mais acessar recursos podem acessar até 30 dias de 
 
 ![Página minhas funções-guia funções expiradas](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
 
-A lista de papéis mostrada é padronizada para ** Funções elegíveis **. Use o menu suspenso para alternar entre as funções atribuídas Elegíveis e Ativas.
+A lista de papéis mostrada é padronizada para **Funções elegíveis**. Use o menu suspenso para alternar entre as funções atribuídas Elegíveis e Ativas.
 
-Para solicitar a renovação de qualquer uma das atribuições de função na lista, selecione a ação ** Renovar **. Em seguida, forneça um motivo para a solicitação. É útil fornecer uma duração além de qualquer contexto adicional ou uma justificativa de negócios que possa ajudar o administrador de recursos a decidir aprovar ou negar.
+Para solicitar a renovação de qualquer uma das atribuições de função na lista, selecione a ação **Renovar**. Em seguida, forneça um motivo para a solicitação. É útil fornecer uma duração além de qualquer contexto adicional ou uma justificativa de negócios que possa ajudar o administrador de recursos a decidir aprovar ou negar.
 
 ![Painel renovar atribuição de função mostrando a caixa de motivo](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-request-form.png)
 
@@ -124,9 +124,9 @@ Ao aprovar uma solicitação para renovar a atribuição de função, os adminis
 
 ### <a name="admin-renew"></a>Renovação pelo administrador
 
-Os administradores de recursos podem renovar atribuições de função expiradas da guia ** Members ** no menu de navegação à esquerda de um recurso. Eles também podem renovar atribuições de função expiradas de dentro do **expirado** guia funções de uma função de recurso.
+Os administradores de recursos podem renovar atribuições de função expiradas da guia **Members** no menu de navegação à esquerda de um recurso. Eles também podem renovar atribuições de função expiradas de dentro do **expirado** guia funções de uma função de recurso.
 
-Para visualizar uma lista de todas as atribuições de funções expiradas, na tela ** Members **, selecione ** Expired roles **.
+Para visualizar uma lista de todas as atribuições de funções expiradas, na tela **Members**, selecione **Expired roles**.
 
 ![Recursos do Azure-página Membros listando funções expiradas com links para renovar](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 

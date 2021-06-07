@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d05c95c22d75e4287283318095c4d053763f349e
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 73bef1648b08f5c1e0664ef1da15375bc44149cc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702368"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045341"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -147,7 +147,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro SkuName  |
 |---------|---------|
-|LRS (armazenamento com redundância local)     |Standard_LRS         |
+|Armazenamento com redundância local (LRS)     |Standard_LRS         |
 |ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
@@ -190,7 +190,7 @@ Para criar uma conta de armazenamento de uso geral V2 com uma opção de replica
 
 |Opção de replicação  |Parâmetro sku  |
 |---------|---------|
-|LRS (armazenamento com redundância local)     |Standard_LRS         |
+|Armazenamento com redundância local (LRS)     |Standard_LRS         |
 |ZRS (armazenamento com redundância de zona)     |Standard_ZRS         |
 |Armazenamento com redundância geográfica (GRS)     |Standard_GRS         |
 |Armazenamento com redundância geográfica com acesso de leitura (GRS)     |Standard_RAGRS         |
@@ -215,7 +215,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -279,7 +279,7 @@ Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de 
 > [!WARNING]
 > Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
 >
-> Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](../../virtual-machines/troubleshooting/index.yml).
+> Se você tentar excluir uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro indicando que a conta de armazenamento ainda está em uso. Para obter ajuda para solucionar esse erro, consulte [solucionar erros ao excluir contas de armazenamento](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 ## <a name="next-steps"></a>Próximas etapas
 

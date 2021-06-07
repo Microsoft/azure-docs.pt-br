@@ -2,14 +2,14 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: 63fd0af819fde7d78df289a1b8f5cefa2e415101
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 43e3463a3284f57825073888146b38fa14cbf5d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779556"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109022"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -23,7 +23,7 @@ ms.locfileid: "91779556"
 ### <a name="prerequisite-check"></a>Verificação de pré-requisitos
 
 - Para exibir os números de telefone associados ao seu recurso dos Serviços de Comunicação, entre no [portal do Azure](https://portal.azure.com/), localize o recurso em questão e abra a guia **números de telefone** no painel de navegação esquerdo.
-- Você pode criar e executar seu aplicativo com a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS:
+- Você pode compilar e executar o aplicativo usando o SDK de Chamada dos Serviços de Comunicação do Azure para iOS:
 
 ## <a name="setting-up"></a>Configurando
 
@@ -42,7 +42,7 @@ func startCall() {
         if granted {
             let startCallOptions = ACSStartCallOptions()
             startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
             self.callDelegate = CallDelegate(self)
             self.call!.delegate = self.callDelegate
         }

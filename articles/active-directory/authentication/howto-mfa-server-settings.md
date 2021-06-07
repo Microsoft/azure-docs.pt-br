@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742690"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101689038"
 ---
 # <a name="configure-mfa-server-settings"></a>Definir configurações do servidor MFA
 
@@ -44,7 +44,7 @@ Para criar um bypass único, conclua as seguintes etapas:
 1. Procure e selecione **Azure Active Directory** e, em seguida, navegue até **segurança**  >  **MFA** de  >  **passagem única**.
 1. Selecione **Adicionar**.
 1. Se necessário, selecione o grupo de replicação para o bypass.
-1. Insira o nome de usuário como `username\@domain.com`. Insira o número de segundos que o bypass deve durar e o motivo do bypass.
+1. Insira o nome de usuário como `username@domain.com`. Insira o número de segundos que o bypass deve durar e o motivo do bypass.
 1. Selecione **Adicionar**. O tempo limite entra em vigor imediatamente. O usuário precisa entrar antes que o bypass avulso se expire.
 
 Você também pode exibir o relatório de bypass único nessa mesma janela.

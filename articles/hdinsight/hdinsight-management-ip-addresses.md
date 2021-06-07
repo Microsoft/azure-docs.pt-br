@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 5f694dec6deffde9efb32fefbab91ae3b7a44a2c
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99490853"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight

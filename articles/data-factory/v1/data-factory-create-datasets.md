@@ -3,16 +3,16 @@ title: Criar conjuntos de os Azure Data Factory
 description: Saiba como criar conjuntos de dados no Azure Data Factory, com exemplos que usam propriedades como offset e anchorDateTime.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376829"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785335"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de valores no Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -73,7 +73,7 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-| Propriedade | Descrição | Necessária | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | name |Nome do conjunto de dados. Confira [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura. |Sim |NA |
 | type |Tipo de conjunto de dados. Especifique um dos tipos compatíveis com o Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto](#Type)de informações. |Sim |NA |
@@ -227,7 +227,7 @@ O conjunto de dados de saída é gerado de hora em hora, dentro dos horários de
 
 A tabela a seguir descreve as propriedades que você pode usar na seção de disponibilidade:
 
-| Propriedade | Descrição | Necessária | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |NA |
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>“Frequência x intervalo” determina a frequência com que a fatia é gerada. Por exemplo, se você precisa que o conjunto de dados seja dividido por hora, defina <b>frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, caso você especifique a **frequência** como **Minuto**, deverá definir o intervalo como não inferior a 15. |Sim |NA |
@@ -274,7 +274,7 @@ O seguinte conjunto de dados é mensal e é gerado no terceiro de cada mês às 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome de política | Descrição | Aplicado a | Necessária | Padrão |
+| Nome de política | Descrição | Aplicado a | Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida se os dados em um **armazenamento de Blobs do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Armazenamento de Blobs do Azure |Não |NA |
 | minimumRows |Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |NA |

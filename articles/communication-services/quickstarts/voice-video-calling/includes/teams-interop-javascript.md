@@ -1,20 +1,23 @@
 ---
-title: Guia de Início Rápido – Participar de uma reunião do Teams
+title: Início Rápido – Participar de uma reunião no Teams usando um aplicativo Web
+description: Neste tutorial, você aprende a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para JavaScript
 author: chpalm
 ms.author: mikben
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dbba87be839d7f172d42827698a8e485c2edddd8
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 6747d1d3cfba1c9e2bee7a8a7a48d67d6bed9f8e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256296"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564524"
 ---
+Neste guia de início rápido, você aprenderá a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para JavaScript.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [aplicativo funcional de chamadas dos Serviços de Comunicação](../getting-started-with-calling.md).
+- Um [aplicativo Web de chamadas dos Serviços de Comunicação](../getting-started-with-calling.md) funcional.
 - Uma [implantação do Teams](/deployoffice/teams-install).
 
 
@@ -35,6 +38,7 @@ A caixa de texto será usada para inserir o contexto da reunião do Teams, e o b
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
+        <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
         <button id="join-meeting-button" type="button" disabled="false">
             Join Teams Meeting
@@ -55,7 +59,8 @@ Substitua o conteúdo do arquivo client.js pelo snippet a seguir.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { Features } from "@azure/communication-calling";
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -63,10 +68,11 @@ const meetingLinkInput = document.getElementById('teams-link-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
+const recordingStateElement = document.getElementById('recording-state');
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
     teamsMeetingJoinButton.disabled = false;
 }
@@ -86,9 +92,18 @@ teamsMeetingJoinButton.addEventListener("click", () => {
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
-    call.on('callStateChanged', () => {
+    call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
     })
+
+    call.api(Features.Recording).on('isRecordingActiveChanged', () => {
+        if (call.api(Features.Recording).isRecordingActive) {
+            recordingStateElement.innerText = "This call is being recorded";
+        }
+        else {
+            recordingStateElement.innerText = "";
+        }
+    });
     // toggle button states
     hangUpButton.disabled = false;
     teamsMeetingJoinButton.disabled = true;
@@ -97,8 +112,8 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 
 ## <a name="get-the-teams-meeting-link"></a>Obter o link de reunião do Teams
 
-O link de reunião do Teams pode ser recuperado usando APIs do Graph. Isso é detalhado na [documentação do Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-O SDK de Chamada de Serviços de Comunicação aceita um link de reunião completo do Teams. Esse link é retornado como parte do recurso `onlineMeeting`, acessível na propriedade [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta) Você também pode obter as informações da reunião necessárias da URL **Ingressar na Reunião** no próprio convite da reunião do Teams.
+O link de reunião do Teams pode ser recuperado usando APIs do Graph. Isso é detalhado na [documentação do Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+O SDK de Chamada de Serviços de Comunicação aceita um link de reunião completo do Teams. Esse link é retornado como parte do recurso `onlineMeeting`, acessível na propriedade [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) Você também pode obter as informações da reunião necessárias da URL **Ingressar na Reunião** no próprio convite da reunião do Teams.
 
 ## <a name="run-the-code"></a>Executar o código
 

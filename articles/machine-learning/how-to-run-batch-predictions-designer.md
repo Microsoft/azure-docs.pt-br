@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553939"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101657343"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões em lote usando o designer do Azure Machine Learning
 
@@ -51,7 +51,7 @@ O pipeline de treinamento deve ser executado pelo menos uma vez para poder criar
 
 Agora que o pipeline de treinamento foi executado, você pode criar um pipeline de inferência em lote.
 
-1. Ao lado de **Enviar** , selecione a nova lista suspensa **Criação de pipeline de inferência**.
+1. Ao lado de **Enviar**, selecione a nova lista suspensa **Criação de pipeline de inferência**.
 
 1. Selecione **Pipeline de inferência em lote**.
 
@@ -144,6 +144,22 @@ Quando publica um pipeline, você pode optar por torná-lo o novo pipeline padr�
 Você também pode definir um novo pipeline padrão na guia **Pipelines publicados** do ponto de extremidade.
 
 ![Definir pipeline padrão na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+
+## <a name="limitations"></a>Limitações
+
+Se você fizer algumas modificações em seu pipeline de treinamento, deverá enviar novamente o pipeline de treinamento, **Atualizar**  o pipeline de inferência e executar o pipeline de inferência novamente.
+
+Observe que somente os modelos serão atualizados no pipeline de inferência, enquanto a transformação de dados não será atualizada.
+
+Para usar a transformação atualizada no pipeline de inferência, você precisa registrar a saída da transformação do módulo de transformação como um conjunto de dados.
+
+![Captura de tela mostrando como registrar o conjunto de dados de transformação](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Em seguida, substitua manualmente o módulo **td** no pipeline de inferência com o conjunto de dados registrado.
+
+![Captura de tela mostrando como substituir o módulo de transformação](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Em seguida, você pode enviar o pipeline de inferência com o modelo e a transformação atualizados e publicar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

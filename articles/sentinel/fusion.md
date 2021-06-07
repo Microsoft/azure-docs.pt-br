@@ -12,19 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 23e116eba6393f834b3368901d4440e668b16fca
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746177"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101724278"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detecção avançada de ataques de multiestágio no Azure Sentinel
 
-
 > [!IMPORTANT]
-> Alguns recursos do Fusion no Azure Sentinel estão atualmente em **Visualização pública**.
-> Esses recursos são fornecidos sem um contrato de nível de serviço e não são recomendados para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Algumas detecções de fusão (veja as que estão indicadas abaixo) estão atualmente em versão **prévia**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 Usando a tecnologia de fusão com base no aprendizado de máquina, o Azure Sentinel pode detectar automaticamente ataques de várias etapas identificando combinações de comportamentos anormais e atividades suspeitas que são observadas em vários estágios da cadeia de eliminação. Com base nessas descobertas, o Azure Sentinel gera incidentes que, de outra forma, seriam difíceis de detectar. Esses incidentes incluem dois ou mais alertas ou atividades. Por design, esses incidentes são de baixo volume, alta fidelidade e alta gravidade.
 
@@ -60,12 +58,12 @@ Conforme mencionado acima, como a Fusion correlaciona vários alertas de seguran
 Para habilitar esses cenários de detecção de ataque com capacidade de fusão, todas as fontes de dados listadas devem ser ingeridas usando os conectores de dados associados do Azure Sentinel.
 
 > [!NOTE]
-> Alguns desses cenários estão em **Visualização pública**. Eles serão indicados.
+> Alguns desses cenários estão em versão **prévia**. Eles serão indicados.
 
 ## <a name="compute-resource-abuse"></a>Abuso de recursos de computação
 
 ### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>Várias atividades de criação de VM seguindo o Azure Active Directory de entrada suspeitas
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, impacto 
 
@@ -214,7 +212,7 @@ Este cenário está atualmente em **Visualização pública**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Regras de manipulação de caixa de entrada suspeitas definidas após o logon suspeito do Azure AD
 Este cenário pertence a duas classificações de ameaças nesta lista: **Data vazamento** e **movimento lateral**. Para fins de clareza, ele aparece em ambas as seções.
 
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, movimento lateral, vazamento
 
@@ -235,7 +233,7 @@ Este cenário está atualmente em **Visualização pública**.
 - **Evento de entrada do usuário com credenciais vazadas que levam à regra de manipulação de caixa de entrada suspeita**
 
 ### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>Várias Power BI atividades de compartilhamento de relatório após a entrada suspeita do Azure AD 
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, vazamento 
 
@@ -256,7 +254,7 @@ Este cenário está atualmente em **Visualização pública**.
 - **Evento de entrada do usuário com credenciais vazadas que levam a várias Power BI atividades de compartilhamento de relatório**
 
 ### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>Suspeita de Power BI compartilhamento de relatório seguindo o logon suspeito do Azure AD
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, vazamento 
 
@@ -299,7 +297,7 @@ Este cenário está atualmente em **Visualização pública**.
 - **Evento de entrada do usuário com credenciais vazadas levando à exclusão de arquivos em massa**
 
 ### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>Atividade de exclusão de email suspeita após entrada suspeita do Azure AD
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, impacto 
 
@@ -322,7 +320,7 @@ Este cenário está atualmente em **Visualização pública**.
 ## <a name="denial-of-service"></a>Negação de serviço
 
 ### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>Várias atividades de exclusão de VM após o logon suspeito do Azure AD
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, impacto
 
@@ -367,7 +365,7 @@ Este cenário está atualmente em **Visualização pública**.
 ### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Regras de manipulação de caixa de entrada suspeitas definidas após o logon suspeito do Azure AD
 Este cenário pertence a duas classificações de ameaças nesta lista: **movimentação lateral** e **vazamento de dados**. Para fins de clareza, ele aparece em ambas as seções.
 
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, movimento lateral, vazamento
 
@@ -412,7 +410,7 @@ Este cenário está atualmente em **Visualização pública**.
 ## <a name="malicious-execution-with-legitimate-process"></a>Execução mal-intencionada com processo legítimo
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>O PowerShell fez uma conexão de rede suspeita, seguida pelo tráfego anômala sinalizado pelo firewall do Palo Alto Networks.
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Chão
 
@@ -423,7 +421,7 @@ Este cenário está atualmente em **Visualização pública**.
 **Descrição:** Os incidentes de fusão desse tipo indicam que uma solicitação de conexão de saída foi feita por meio de um comando do PowerShell e, depois disso, a atividade de entrada anômala foi detectada pelo firewall de redes Palo Alto. Isso fornece uma indicação de que um invasor provavelmente obteve acesso à sua rede e está tentando executar ações mal-intencionadas. As tentativas de conexão pelo PowerShell que seguem esse padrão podem ser uma indicação de atividade de controle e comando de malware, solicitações de download de malware adicional ou um invasor que estabelece acesso interativo remoto. Assim como acontece com todos os ataques "viver com o terreno", essa atividade pode ser um uso legítimo do PowerShell. No entanto, a execução do comando do PowerShell seguida por atividade suspeita de firewall de entrada aumenta a confiança de que o PowerShell está sendo usado de maneira mal-intencionada e deve ser investigado mais detalhadamente. Nos logs do Palo Alto, o Azure Sentinel se concentra nos [logs de ameaças](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando ameaças são permitidas (dados suspeitos, arquivos, inundações, pacotes, exames, spyware, URLs, vírus, vulnerabilidades, incêndio-vírus, Wildfires). Também faça referência ao log de ameaças do Palo Alto correspondente ao [tipo de risco/ameaça](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de fusão para obter detalhes adicionais do alerta.
 
 ### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Execução de WMI remota suspeita seguida pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Execução, descoberta
 
@@ -456,7 +454,7 @@ Este cenário está atualmente em **Visualização pública**.
 ## <a name="malware-c2-or-download"></a>Malware C2 ou download
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Solicitação de rede para TOR o serviço de anonimato seguido pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks.
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Comando e controle
 
@@ -467,7 +465,7 @@ Este cenário está atualmente em **Visualização pública**.
 **Descrição:** Os incidentes de fusão desse tipo indicam que uma solicitação de conexão de saída foi feita ao serviço de anonimato TOR, e depois disso, a atividade de entrada anômala foi detectada pelo firewall do Palo Alto Networks. Isso fornece uma indicação de que um invasor provavelmente obteve acesso à sua rede e está tentando ocultar suas ações e suas intenções. As conexões com a rede TOR seguindo esse padrão podem ser uma indicação de atividade de controle e comando de malware, solicitações de download de malware adicional ou um invasor que estabelece acesso interativo remoto. Nos logs do Palo Alto, o Azure Sentinel se concentra nos [logs de ameaças](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando ameaças são permitidas (dados suspeitos, arquivos, inundações, pacotes, exames, spyware, URLs, vírus, vulnerabilidades, incêndio-vírus, Wildfires). Também faça referência ao log de ameaças do Palo Alto correspondente ao [tipo de risco/ameaça](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de fusão para obter detalhes adicionais do alerta.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Conexão de saída com o IP com um histórico de tentativas de acesso não autorizado seguido pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Comando e controle
 
@@ -502,7 +500,7 @@ Este cenário está atualmente em **Visualização pública**.
 ## <a name="remote-exploitation"></a>Exploração remota
 
 ### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Uso suspeito da estrutura de ataque seguida pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks
-Este cenário está atualmente em **Visualização pública**.
+Este cenário está atualmente em **Visualização**.
 
 **Táticas de Mitre ATT&CK:** Acesso inicial, execução, movimentação lateral, elevação de privilégio
 

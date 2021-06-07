@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: e0d7310c4863c8dd431b991a2c249f2d8e257aeb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: df658a95069f39026daab7afb14c5f1d0f47c5a5
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852346"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713886"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Tutorial: Criar e executar uma simulação de dispositivo IoT
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para seguir este tutorial, você precisará de uma instância implantada da Simulação de Dispositivo em sua assinatura do Azure.
 
-Se você ainda não implantou a Simulação de Dispositivo, confira [Implantação da Simulação de Dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) no GitHub.
+Se você ainda não implantou a Simulação de Dispositivo, confira [Implantação da Simulação de Dispositivo](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) no GitHub.
 
 ## <a name="view-simulations"></a>Exibir simulações
 

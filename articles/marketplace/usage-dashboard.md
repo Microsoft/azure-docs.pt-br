@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 765f4f358d593cd5fcc021fbf4ec2276c422c4d8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934404"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102555118"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial
 
@@ -62,7 +62,7 @@ Há duas representações de horas de uso: uso normalizado da VM e uso bruto da 
 
 Esta seção fornece as horas de uso total e a tendência para suas ofertas baseadas em uso no Azure Marketplace. O gráfico de uso normalizado por ofertas é descrito abaixo.
 
-- O gráfico de colunas empilhadas de **uso normalizado** exibe uma divisão de horas de uso normalizadas das 5 principais ofertas de acordo com o período de computação selecionado. As cinco principais ofertas são exibidas em um grafo, enquanto o restante é agrupado na categoria **REST All** .
+- O gráfico de colunas empilhadas de **uso normalizado** exibe uma divisão de horas de uso normalizadas das cinco principais ofertas de acordo com o período de computação selecionado. As cinco principais ofertas são exibidas em um grafo, enquanto o restante é agrupado na categoria **REST All** .
 - O gráfico de colunas empilhadas representa uma tendência de crescimento mês a mês para o intervalo de datas selecionado. As colunas de mês representam horas de uso das ofertas com as horas de uso mais alto para o respectivo mês. O gráfico de linhas mostra a tendência de percentual de crescimento plotada no eixo Y secundário.
 - Você pode selecionar ofertas específicas na legenda para exibir somente essas ofertas no grafo.
 
@@ -117,46 +117,45 @@ A tabela **detalhes de uso** exibe uma lista numerada dos principais registros d
 
 _**Tabela 1: dicionário de termos de dados**_
 
-| Nome da coluna | Nome do atributo | Definição |
-| ------------ | ------------- | ------------- |
-| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Anteriormente, a identificação era o GUID da assinatura do Azure. |
-| MonthStartDate | Data de início do mês | Data de início do mês representa o mês de compra. |
-| Tipo de Oferta | Tipo de Oferta | O tipo de oferta do Marketplace comercial. |
-| Tipo de licença do Azure | Tipo de licença do Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como canal. Os valores possíveis são:<ui><li>Provedor de soluções de nuvem</li><li>Enterprise</li><li>Enterprise por meio do revendedor</li><li>Pré-pago</li></ul> |
-| Tipo de licença do Marketplace | Tipo de licença do Marketplace | O método de cobrança da oferta do Marketplace comercial. Os valores possíveis são:<ul><li>Cobrado por meio do Azure</li><li>Traga sua própria licença</li><li>Gratuita</li><li>Microsoft como revendedor</li></ul> |
-| SKU | SKU | O plano associado à oferta. |
-| País/Região do cliente | País/região do cliente | O nome do país/região fornecido pelo cliente. O país/região pode ser diferente do país/região na assinatura do Azure de um cliente. |
-| É SKU de versão prévia | É SKU de versão prévia | O valor mostra se você marcou a SKU como "visualização". O valor será "Sim" se o SKU tiver sido devidamente marcado e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "Não" se o SKU não tiver sido identificado como "versão prévia". |
-| Tipo de cobrança da SKU | Tipo de cobrança da SKU | O tipo de cobrança associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Grátis</li><li>Pago</li></ul> |
-| Que IsInternal | Preterido | Preterido |
-| Tamanho da VM | Tamanho da Máquina Virtual | Para tipos de oferta com base em VM, essa entidade representa o tamanho da VM associada à SKU da oferta. |
-| Nome da instância de nuvem | Nome da instância de nuvem | A Microsoft Cloud em que ocorreu uma implantação de VM. |
-| Mesmo Planoname | Preterido | Preterido (mesma definição que o SKU) |
-| Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. |
-| DeploymentMethod | Preterido | Preterido (mesma definição que o tipo de oferta)
- |
-| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na assinatura do Azure de um cliente. |
-| Data de Uso | Data de Uso | A data de geração de evento de uso para ativos baseados em uso. |
-| IsMultisolution | É multisolução | Significa se a oferta é um tipo de oferta de multisolução. |
-| É cliente novo | Preterido | Preterido |
-| Tamanho do núcleo | Tamanho do núcleo | Número de núcleos associados à oferta baseada em VM. |
-| Tipo de uso | Tipo de uso | Significa se o evento de uso associado à oferta é um dos seguintes:<ul><li>Uso normalizado</li><li>Uso bruto</li><li>Uso limitado</li></ul> |
-| Data de término da avaliação gratuita | Data de término da avaliação gratuita | A data em que o período de avaliação gratuita deste pedido terminará ou terminou. |
-| CC (Moeda do cliente) | Moeda do cliente | A moeda usada pelo cliente para a transação do Marketplace comercial. |
-| Preço (CC) | Preço | Preço unitário da SKU mostrada na moeda do cliente. |
-| PC (Moeda de pagamento) | Moeda do pagamento | O Publicador é pago pelos eventos de uso associados ao ativo na moeda configurada pelo Publicador. |
-| Preço estimado (PC) | Preço estimado | Preço unitário da SKU na moeda configurada pelo Publicador. |
-| Referência do uso | Referência do uso | Um GUID concatenado que é usado para conectar o relatório de uso (na análise do Marketplace comercial) com o relatório de transação de pagamento. A referência de uso é conectada a OrderId e LineItemId no relatório de transação de pagamento. |
-| Unidade de uso | Unidade de uso | Unidade de consumo associada à SKU. |
-| Customer Id | ID do Cliente | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace. |
-| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Mapeie a **ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios de cliente, de pedido e de uso. |
-| Quantidade de uso | Quantidade de uso | As unidades de uso total consumidas pelo ativo que é implantado pelo cliente.<br>Isso se baseia no item de tipo de uso. Por exemplo, se o tipo de uso for uso normalizado, a quantidade de uso será para uso normalizado. |
-| NormalizedUsage | Uso normalizado | O total de unidades de uso normalizadas consumidas pelo ativo que é implantado pelo cliente.<br>As horas de uso normalizadas são definidas como as horas de uso normalizadas para contabilizar o número de núcleos da VM ([número de núcleos da VM] x [horas brutas de uso]). As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM]. |
-| MeteredUsage | Uso medido | As unidades de uso total consumidas pelos medidores configurados com a oferta que é implantada pelo cliente. |
-| RawUsage | Uso bruto | As unidades de uso bruto total consumidas pelo ativo que é implantado pelo cliente.<br>Horas de uso brutos são definidas como a quantidade de tempo que as VMs estão em execução em termos de unidades de uso. |
-| Custo estendido estimado (CC) | Encargo estendido estimado na moeda do cliente | Significa os encargos associados ao uso. A coluna é o produto de preço (CC) e quantidade de uso. |
-| Custo estendido estimado (PC) | Encargo estendido estimado na moeda do pagamento | Significa os encargos associados ao uso. A coluna é o produto de preço estimado (PC) e quantidade de uso. |
-||||
+| Nome da coluna em<br>interface do usuário | Nome do atributo | Definição | Nome da coluna em programação<br>relatórios do Access |
+| ------------ | ------------- | ------------- | ------------- |
+| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Anteriormente, a identificação era o GUID da assinatura do Azure. | MarketplaceSubscriptionId |
+| MonthStartDate | Data de início do mês | Data de início do mês representa o mês de compra. | MonthStartDate |
+| Tipo de Oferta | Tipo de Oferta | O tipo de oferta do Marketplace comercial. | OfferType |
+| Tipo de licença do Azure | Tipo de licença do Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como canal. Os valores possíveis são:<ui><li>Provedor de soluções de nuvem</li><li>Enterprise</li><li>Enterprise por meio do revendedor</li><li>Pré-pago</li></ul> | AzureLicenseType |
+| Tipo de licença do Marketplace | Tipo de licença do Marketplace | O método de cobrança da oferta do Marketplace comercial. Os valores possíveis são:<ul><li>Cobrado por meio do Azure</li><li>Traga sua própria licença</li><li>Gratuita</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | O plano associado à oferta. | SKU |
+| País/Região do cliente | País/região do cliente | O nome do país/região fornecido pelo cliente. O país/região pode ser diferente do país/região na assinatura do Azure de um cliente. | CustomerCountry |
+| É SKU de versão prévia | É SKU de versão prévia | O valor mostra se você marcou a SKU como "visualização". O valor será "Sim" se o SKU tiver sido devidamente marcado e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "Não" se o SKU não tiver sido identificado como "versão prévia". | IsPreviewSKU |
+| Tipo de cobrança da SKU | Tipo de cobrança da SKU | O tipo de cobrança associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Grátis</li><li>Pago</li></ul> | SKUBillingType |
+| Que IsInternal | Preterido | Preterido | Preterido |
+| Tamanho da VM | Tamanho da Máquina Virtual | Para tipos de oferta baseados em VM, essa entidade representa o tamanho da VM associada à SKU da oferta. | VMSize |
+| Nome da instância de nuvem | Nome da instância de nuvem | A Microsoft Cloud em que ocorreu uma implantação de VM. | Nome da instância na nuvem |
+| Mesmo Planoname | Preterido | Preterido (mesma definição que o SKU) | Mesmo Planoname |
+| Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. | OfferName |
+| DeploymentMethod | Preterido | Preterido (mesma definição que o tipo de oferta) | DeploymentMethod |
+| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na assinatura do Azure de um cliente. | CustomerCompanyName |
+| Data de Uso | Data de Uso | A data de geração de evento de uso para ativos baseados em uso. | UsageDate |
+| IsMultisolution | É multisolução | Significa se a oferta é um tipo de oferta de multisolução. | IsMultisolution |
+| É cliente novo | Preterido | Preterido | IsNewCustomer |
+| Tamanho do núcleo | Tamanho do núcleo | Número de núcleos associados à oferta baseada em VM. | Redimensionar |
+| Tipo de uso | Tipo de uso | Significa se o evento de uso associado à oferta é um dos seguintes:<ul><li>Uso normalizado</li><li>Uso bruto</li><li>Uso limitado</li></ul> | UsageType |
+| Data de término da avaliação gratuita | Data de término da avaliação gratuita | A data em que o período de avaliação gratuita deste pedido terminará ou terminou. | TrialEndDate |
+| CC (Moeda do cliente) | Moeda do cliente | A moeda usada pelo cliente para a transação do Marketplace comercial. | CustomerCurrencyCC |
+| Preço (CC) | Preço | Preço unitário da SKU mostrada na moeda do cliente. | PriceCC |
+| PC (Moeda de pagamento) | Moeda do pagamento | O Publicador é pago pelos eventos de uso associados ao ativo na moeda configurada pelo Publicador. | PayoutCurrencyPC |
+| Preço estimado (PC) | Preço estimado | Preço unitário da SKU na moeda configurada pelo Publicador. | EstimatedPricePC |
+| Referência do uso | Referência do uso | Um GUID concatenado que é usado para conectar o relatório de uso (na análise do Marketplace comercial) com o relatório de transação de pagamento. A referência de uso é conectada a OrderId e LineItemId no relatório de transação de pagamento. | UsageReference |
+| Unidade de uso | Unidade de uso | Unidade de consumo associada à SKU. | UsageUnit |
+| ID do Cliente | ID do Cliente | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace. | CustomerId |
+| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Mapeie a **ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios de cliente, de pedido e de uso. | BillingAccountId |
+| Quantidade de uso | Quantidade de uso | As unidades de uso total consumidas pelo ativo implantado pelo cliente.<br>Isso se baseia no item de tipo de uso. Por exemplo, se o tipo de uso for uso normalizado, a quantidade de uso será para uso normalizado. | UsageQuantity |
+| NormalizedUsage | Uso normalizado | O total de unidades de uso normalizadas consumidas pelo ativo que é implantado pelo cliente.<br>As horas de uso normalizadas são definidas como as horas de uso normalizadas para contabilizar o número de núcleos da VM ([número de núcleos da VM] x [horas brutas de uso]). As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM]. | NormalizedUsage |
+| MeteredUsage | Uso medido | As unidades de uso total consumidas pelos medidores configurados com a oferta implantada pelo cliente. | MeteredUsage |
+| RawUsage | Uso bruto | As unidades de uso bruto total consumidas pelo ativo que é implantado pelo cliente.<br>Horas de uso brutos são definidas como a quantidade de tempo que as VMs estão em execução em termos de unidades de uso. | RawUsage |
+| Custo estendido estimado (CC) | Encargo estendido estimado na moeda do cliente | Significa os encargos associados ao uso. A coluna é o produto de preço (CC) e quantidade de uso. | EstimatedExtendedChargeCC |
+| Custo estendido estimado (PC) | Encargo estendido estimado na moeda do pagamento | Significa os encargos associados ao uso. A coluna é o produto de preço estimado (PC) e quantidade de uso. | EstimatedExtended ChargePC |
+|||||
 
 ### <a name="usage-page-filters"></a>Filtros de página de uso
 

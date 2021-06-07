@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352109"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100573222"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
 
@@ -71,14 +71,14 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Logs de diagnóstico-armazenamento." border="true":::
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
 Para usar Log Analytics para os logs, siga estas etapas:
 
 >[!NOTE] 
->Um espaço de trabalho do log Analytics é necessário para concluir estas etapas. Consulte: **[criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md)** para obter mais informações.
+>Um espaço de trabalho do log Analytics é necessário para concluir estas etapas. Consulte: **[criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md)** para obter mais informações.
     
 1. Para **nome da configuração de diagnóstico**, insira um nome para as configurações de log de diagnóstico.
 
@@ -88,7 +88,7 @@ Para usar Log Analytics para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Logs de diagnóstico-Log Analytics." border="true":::
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
 
@@ -105,7 +105,7 @@ Para usar um hub de eventos para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Logs de diagnóstico-Hub de eventos." border="true":::
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
@@ -249,7 +249,7 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um provedor. As métricas estão disponíveis somente para os terminais CDN que possuem tráfego neles.
 
 
-|Metric                     | Descrição | Microsoft | Verizon | Akamai |
+|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | Sim | Sim |Sim |
 | RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
@@ -369,7 +369,7 @@ Propriedades de exemplo:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Análise principal por meio do portal suplementar da CDN do Azure](./cdn-analyze-usage-patterns.md)
-* [Logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [API REST do Log Analytics do Azure](/rest/api/loganalytics)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84323307"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>CDN do Azure nas condições de correspondência do mecanismo de regras da Verizon Premium
@@ -31,15 +31,15 @@ Por exemplo, você pode usar uma condição de correspondência para:
 * [Always](#always)
 * [Dispositivo](#device)
 * [Localidade](#location)
-* [Origem](#origin)
+* [Ter](#origin)
 * [Solicitação](#request)
 * [URL](#url)
 
-### <a name="always"></a><a name="always"></a>Constante
+### <a name="always"></a><a name="always"></a>Sempre
 
 [A condição de correspondência sempre](https://docs.vdms.com/cdn/Content/HRE/M/Always.htm) é projetada para aplicar um conjunto padrão de recursos a todas as solicitações.
 
-### <a name="device"></a><a name="device"></a>Vice
+### <a name="device"></a><a name="device"></a>Dispositivo
 
 Essas condições de correspondência são projetadas para identificar solicitações baseadas no agente do usuário do cliente.
 
@@ -73,7 +73,7 @@ Essas condições de correspondência são projetadas para identificar solicita�
 
 **[Voltar ao início](#top)**
 
-### <a name="location"></a><a name="location"></a>Local
+### <a name="location"></a><a name="location"></a>Location
 
 Essas condições de correspondência são projetadas para identificar solicitações baseadas na localização do solicitante.
 
@@ -96,7 +96,7 @@ Ambas as condições de correspondência fornecem o mesmo recurso. No entanto, r
 
 **[Voltar ao início](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Origem
+### <a name="origin"></a><a name="origin"></a>Ter
 
 Essas condições de correspondência são projetadas para identificar solicitações que apontem para o armazenamento CDN ou para um servidor de origem do cliente.
 
@@ -118,7 +118,7 @@ Essas condições de correspondência são projetadas para identificar solicita�
 | [CNAME de borda](https://docs.vdms.com/cdn/Content/HRE/M/Edge-CNAME.htm) | Identifica solicitações que apontam para um CNAME de borda específico. |
 | Domínio de Referência | Identifica uma solicitação por se ela foi referenciada por um nome de host que corresponde a: <br> **-** Valor específico ([literal de domínio de referência](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Literal.htm)) <br> **-** Padrão específico ([referência de domínio curinga](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Wildcard.htm)) |
 | Cabeçalho da solicitação | Identifica uma solicitação por se ela contiver um cabeçalho que corresponda a: <br> **-** Valor específico ([literal de cabeçalho de solicitação](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Literal.htm)) <br> **-** Expressão regular ([Regex de cabeçalho de solicitação](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Regex.htm)) <br> **-** Padrão específico ([caractere curinga de cabeçalho de solicitação](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Wildcard.htm)) |
-| [Método de solicitação](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifica solicitações pelo método HTTP. |
+| [Método Request](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifica solicitações pelo método HTTP. |
 | [Esquema de Solicitação](https://docs.vdms.com/cdn/Content/HRE/M/Request-Scheme.htm) | Identifica solicitações pelo protocolo HTTP. |
 
 **[Voltar ao início](#top)**

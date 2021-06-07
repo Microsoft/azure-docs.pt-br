@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 4c6bd62e96d85305036626a8672c39ff1b9f6b26
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98201086"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
@@ -142,7 +142,7 @@ Nas tabelas a seguir:
 | Criptografia e algoritmos de hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
 | Tempo de vida da SA (Tempo)            |3.600 segundos  |27.000 segundos                               |
 | Tempo de vida da SA (Bytes)           |102.400.000 KB |102.400.000 KB                               |
-| PFS (Perfect Forward Secrecy) |No             |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
+| PFS (Perfect Forward Secrecy) |Não             |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
 | Detecção de par inativo (DPD)     |Sem suporte  |Com suporte                                    |
 
 

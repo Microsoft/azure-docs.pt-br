@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
 ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94369968"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Carregar um domínio raiz ou Apex para um ponto de extremidade da CDN do Azure existente
@@ -35,14 +35,14 @@ Você pode usar a portal do Azure para carregar um domínio de Apex em sua CDN e
 
 2. Selecione **+ Conjunto de registros**.
 
-3. Em **Adicionar conjunto de registros** , insira ou selecione as seguintes informações:
+3. Em **Adicionar conjunto de registros**, insira ou selecione as seguintes informações:
 
     | Configuração | Valor |
     | ------- | ------|
     | Nome | Insira **@** . |
     | Type | Selecione **um**. |
-    | Conjunto de registros de alias | Selecione **Sim** na barra superior. |
-    | Tipo de alias | Selecione **recurso do Azure**. |
+    | Conjunto de registros de alias | Selecione **Sim**. |
+    | Tipo de alias | Clique em **Recurso do Azure**. |
     | Escolha uma assinatura | Selecione sua assinatura. |
     | Recursos do Azure | Selecione seu ponto de extremidade CDN. |
 
@@ -62,18 +62,18 @@ Depois de registrar seu domínio personalizado, adicione-o ao ponto de extremida
 
 1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o perfil CDN contendo o ponto de extremidade que você deseja mapear para um domínio personalizado.
     
-2. Na página **Perfil CDN** , selecione o ponto de extremidade da CDN a ser associado ao domínio personalizado.
+2. Na página **Perfil CDN**, selecione o ponto de extremidade da CDN a ser associado ao domínio personalizado.
 
-    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="Seleção de ponto de extremidade CDN" border="true":::
+    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="Seleção do ponto de extremidade CDN" border="true":::
     
-3. Selecione **+ domínio personalizado**. 
+3. Selecione **+Domínio personalizado**. 
 
    :::image type="content" source="media/onboard-apex-domain/cdn-custom-domain-button.png" alt-text="Botão Adicionar domínio personalizado" border="true":::
 
-4. Em **Adicionar um domínio personalizado** , o **nome do host do ponto de extremidade** é preenchido previamente e derivado da URL do ponto de extremidade da CDN: **\<endpoint-hostname>** . azureedge.net. Ele não pode ser alterado.
+4. Em **Adicionar um domínio personalizado**, o **Nome do host do ponto de extremidade** é preenchido previamente e será derivado da URL do ponto de extremidade CDN: **\<endpoint-hostname>** .azureedge.net. Ele não pode ser alterado.
 
-5. Para **nome de host personalizado** , insira seu domínio raiz personalizado ou Apex para usar como o domínio de origem do seu registro CNAME. 
-    1. Por exemplo, **contoso.com**. **Não use o nome de subdomínio cdnverify**.
+5. Para **nome de host personalizado**, insira seu domínio raiz personalizado ou Apex para usar como o domínio de origem do seu registro CNAME. 
+    1. Por exemplo, **contoso.com**. **Não use o nome do subdomínio cdnverify**.
 
     :::image type="content" source="media/onboard-apex-domain/cdn-add-custom-domain.png" alt-text="Adicionar domínio personalizado" border="true":::
 
@@ -82,9 +82,9 @@ Depois de registrar seu domínio personalizado, adicione-o ao ponto de extremida
    O Azure verifica se o registro CNAME existe para o nome de domínio personalizado digitado. Se o CNAME estiver correto, seu domínio personalizado será validado. 
 
    Pode levar algum tempo para que as novas configurações de domínio personalizado sejam propagadas para todos os nós de borda da CDN: 
-    - Para perfis da **CDN Standard do Azure da Microsoft** , a propagação geralmente é concluída em dez minutos. 
-    - Para perfis da **CDN Standard do Azure da Akamai** , a propagação normalmente é concluída em um minuto. 
-    - Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon** , a propagação geralmente é concluída em 10 minutos.   
+    - Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
+    - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+    - Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos.   
 
 ## <a name="enable-https-on-your-custom-domain"></a>Habilitar HTTPS em seu domínio personalizado
 

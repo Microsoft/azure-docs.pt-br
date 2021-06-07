@@ -7,35 +7,35 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: cynthn
-ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 6432c125c4fedd962faa28a4c84c7494300b0472
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: MT
+ms.custom: include file
+ms.openlocfilehash: 83d70a8d4c5806120ddb4ea776a8f4a6f7e63857
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756066"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800036"
 ---
 ## <a name="list-information"></a>Listar informações
 
-Obtenha informações de local, status e outras sobre as galerias de imagens disponíveis usando [az sig list](/cli/azure/sig#az-sig-list).
+Obtenha informações de local, status e outras sobre as galerias de imagens disponíveis usando [az sig list](/cli/azure/sig#az_sig_list).
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-Liste as definições de imagem em uma galeria, incluindo informações sobre o tipo e o status do sistema operacional, usando [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
+Liste as definições de imagem em uma galeria, incluindo informações sobre o tipo e o status do sistema operacional, usando [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list).
 
 ```azurecli-interactive 
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-Liste as versões da imagem compartilhada em uma galeria usando [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list).
+Liste as versões da imagem compartilhada em uma galeria usando [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Obtenha a ID de uma versão de imagem usando [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Obtenha a ID de uma versão de imagem usando [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).
 
 ```azurecli-interactive
 az sig image-version show \

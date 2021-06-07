@@ -3,12 +3,12 @@ title: Criar uma função no Go ou Rust usando o Visual Studio Code – Azure Fu
 description: Saiba como criar uma função Go como um manipulador personalizado do Azure Functions e publicar o projeto local por meio da hospedagem sem servidor no Azure Functions usando a extensão do Azure Functions no Visual Studio Code.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 8b53031315cce3651a2de581d71da6ef6fe909c1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809552"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103470363"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Início rápido: Criar uma função Go ou Rust no Azure usando o Visual Studio Code
 
@@ -89,14 +89,14 @@ O arquivo *function.json* na pasta *HttpExample* declara uma função de gatilho
 
     ```go
     package main
-
+    
     import (
         "fmt"
         "log"
         "net/http"
         "os"
     )
-
+    
     func helloHandler(w http.ResponseWriter, r *http.Request) {
         message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
         name := r.URL.Query().Get("name")
@@ -105,7 +105,7 @@ O arquivo *function.json* na pasta *HttpExample* declara uma função de gatilho
         }
         fmt.Fprint(w, message)
     }
-
+    
     func main() {
         listenAddr := ":8080"
         if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
@@ -141,8 +141,8 @@ O arquivo *function.json* na pasta *HttpExample* declara uma função de gatilho
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. Em *src/main.rs*, adicione o código a seguir e salve o arquivo. Este é o manipulador personalizado do Rust.

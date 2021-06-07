@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: contperf-fy21q2
 ms.date: 11/09/2020
 ms.openlocfilehash: bcaba4274b0e6b423e9fa490c80fc57204d4e153
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97708544"
 ---
 # <a name="manage-dhcp-for-azure-vmware-solution"></a>Gerenciar o DHCP para a solução do Azure VMware

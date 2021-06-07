@@ -4,13 +4,13 @@ description: Aprenda os conceitos básicos do Lab Services e como ele pode facil
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96435511"
 ---
-# <a name="labs-concepts"></a>Conceitos de laboratórios
+# <a name="labs-concepts"></a>Conceitos dos laboratórios
 
 A lista a seguir contém as principais definições e conceitos do Lab Services:
 

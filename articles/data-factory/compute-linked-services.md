@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368516"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565934"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -21,7 +21,7 @@ Este artigo explica diferentes ambientes de computação que você pode usar par
 
 A tabela a seguir fornece uma lista dos ambientes de computação com suporte do Data Factory e as atividades que podem ser executadas neles. 
 
-| Ambiente de computação                                          | atividades                                                   |
+| Ambiente de computação                                          | Atividades                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Lote do Azure](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
@@ -323,6 +323,9 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 * cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para criar uma conta do Lote do Azure (ou) o [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Lote do Azure usando o portal do Azure. Consulte o artigo [Usando o PowerShell para gerenciar a conta do Lote do Azure](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) para obter instruções detalhadas sobre como usar este cmdlet.
 * Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar um pool do Lote do Azure.
 
+> [!IMPORTANT]
+> Ao criar um novo pool do lote do Azure, ' VirtualMachineConfiguration ' deve ser usado e não ' CloudServiceConfiguration '. Para obter mais detalhes, consulte as [diretrizes de migração do pool do lote do Azure](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+
 ### <a name="example"></a>Exemplo
 
 ```json
@@ -433,6 +436,7 @@ Você cria um serviço vinculado do Azure Machine Learning para conectar um work
 ```
 
 ### <a name="properties"></a>Propriedades
+
 | Propriedade               | Descrição                              | Obrigatório                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | A propriedade de tipo deve ser configurada como: **AzureMLService**. | Sim                                      |
@@ -441,7 +445,7 @@ Você cria um serviço vinculado do Azure Machine Learning para conectar um work
 | mlWorkspaceName        | Nome de workspace do Azure Machine Learning | Sim  |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Não |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Não |
-| locatário                 | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Necessária se a updateResourceEndpoint for especificada | Não |
+| locatário                 | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Necessária se a updateResourceEndpoint for especificada |
 | connectVia             | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado. Você pode usar o Integration Runtime do Azure ou Integration Runtime auto-hospedado. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço vinculado do Azure Data Lake Analytics
@@ -543,8 +547,8 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | name                 | Nome do serviço vinculado               | Sim   |
 | type                 | A propriedade de tipo deve ser configurada como: **Azure Databricks**. | Sim                                      |
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
-| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | Não                                       |
-| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | Não                                       |
+| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | No                                       |
+| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | No                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do Databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele cria um cluster de trabalho no Databricks. | Não  |

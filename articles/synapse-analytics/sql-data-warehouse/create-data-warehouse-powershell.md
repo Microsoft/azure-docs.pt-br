@@ -3,20 +3,24 @@ title: 'Início rápido: Criar um pool de SQL dedicado (antigo SQL DW) com o Azu
 description: Crie rapidamente um pool de SQL dedicado (antigo SQL DW) com uma regra de firewall no nível do servidor usando o Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 4/11/2019
 ms.author: xiaoyul
+manager: craigg
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 18fba46e4e8de14d9b3ec43455ba2abcc4218dc1
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 4/11/2019
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 65bf509c8eb654a9f7712fdf7b94ff7fa26a3d32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120182"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537447"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Início rápido: Criar um pool de SQL dedicado (antigo SQL DW) com o Azure PowerShell
 

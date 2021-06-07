@@ -2,13 +2,13 @@
 title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 03/15/2021
+ms.openlocfilehash: da59d62cb7060389ea94b3af5e6f66a4b6347d7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791939"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602614"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -47,7 +47,19 @@ Os hubs de eventos garantem que todos os eventos que compartilham um valor de ch
 
 ### <a name="event-retention"></a>Retenção de eventos
 
-Os eventos publicados são removidos de um hub de eventos com base em uma política de retenção com base em tempo configurável. O valor padrão e o período de retenção mais curto possível é 1 dia (24 horas). Para os hubs de eventos Standard, o período de retenção máximo é de 7 dias. Por Hubs de Eventos Dedicados, o período de retenção máximo é de 90 dias.
+Os eventos publicados são removidos de um hub de eventos com base em uma política de retenção com base em tempo configurável. Aqui estão alguns pontos importantes:
+
+- O valor **padrão** e o período de retenção **mais curto** possível é **1 dia (24 horas)**.
+- Para os hubs de eventos **Standard**, o período de retenção máximo é de **7 dias**. 
+- Para os hubs de eventos **dedicados**, o período de retenção máximo é de **90 dias**.
+- Se você alterar o período de retenção, ele se aplicará a todas as mensagens, incluindo mensagens que já estão no Hub de eventos. 
+
+Os Hubs de Eventos mantêm os eventos por um período de retenção configurado que se aplica a todas as partições. Os eventos são removidos automaticamente quando o período de retenção é atingido. Se você especificar um período de retenção de um dia, o evento ficará indisponível exatamente 24 horas depois de ser aceito. Não é possível excluir eventos explicitamente. 
+
+Se você precisar arquivar eventos além do período de retenção permitido, é possível tê-los [armazenados automaticamente no Armazenamento do Azure ou Azure Data Lake ativando o recurso de Captura dos Hubs de Eventos](event-hubs-capture-overview.md) e, se precisar pesquisar ou analisar esses arquivos detalhados, é possível [importá-los facilmente para o Azure Synapse](store-captured-data-data-warehouse.md) ou outras lojas semelhantes e plataformas de análise. 
+
+O motivo para o limite dos Hubs de Eventos na retenção de dados com base no tempo é evitar que grandes volumes de dados históricos do cliente sejam interceptados em um repositório profundo que está indexado apenas por um carimbo de data/hora e que permita acesso sequencial. A filosofia arquitetônica aqui é que os dados históricos precisam de indexação mais avançada e mais acesso direto do que a interface de eventos em tempo real que os Hubs de Eventos ou Kafka fornecem. Os mecanismos de fluxo de eventos não são adequados para desempenhar a função de data lakes ou arquivos de longo prazo para fornecimento de eventos. 
+ 
 
 > [!NOTE]
 > Os hubs de eventos são um mecanismo de fluxo de eventos em tempo real e não são projetados para serem usados em vez de um banco de dados e/ou como um armazenamento permanente para fluxos de eventos infinitamente mantidos. 
@@ -69,7 +81,7 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Ao usar as políticas do publicador, o valor **PartitionKey** é definido como o nome do publicador. Para funcionar adequadamente, esses valores devem corresponder.
 
-## <a name="capture"></a>Captura
+## <a name="capture"></a>Capturar
 
 A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que você capture automaticamente os dados de streaming em Hubs de Eventos e salve-os em uma conta de armazenamento de blobs ou em uma conta de serviço do Azure Data Lake de sua escolha. Você pode habilitar a Captura do Portal do Azure e especificar um tamanho mínimo e a janela de tempo para executar a captura. A Captura de Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner, ou conta de serviço do Azure Data Lake, uma das quais será usada para armazenar os dados capturados. Os dados capturados são gravados no formato Apache Avro.
 
@@ -118,6 +130,9 @@ Um *deslocamento* é a posição de um evento dentro de uma partição. Você po
 
 Se um leitor se desconecta de uma partição, ao se reconectar, ele começa a ler no ponto de verificação que foi anteriormente enviado pelo último leitor dessa partição nesse grupo de consumidores. Quando o leitor se conecta, ele passa esse deslocamento para o hub de eventos para especificar o local para começar a ler. Assim, você pode usar o ponto de verificação para marcar eventos como "concluídos" por aplicativos de downstream e oferecer resiliência caso ocorra um failover entre leitores em execução em máquinas diferentes. É possível retornar aos dados mais antigos, especificando um deslocamento inferior desse processo de ponto de verificação. Por meio desse mecanismo, o ponto de verificação permite resiliência de failover e reprodução de fluxo de eventos.
 
+> [!IMPORTANT]
+> Os deslocamentos são fornecidos pelo serviço de hubs de eventos. É responsabilidade do consumidor fazer o ponto de verificação conforme os eventos são processados.
+
 > [!NOTE]
 > Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
@@ -159,7 +174,7 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
     - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

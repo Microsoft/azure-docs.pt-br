@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
 ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91827771"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança

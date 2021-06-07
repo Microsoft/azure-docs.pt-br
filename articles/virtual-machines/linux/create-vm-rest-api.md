@@ -2,16 +2,17 @@
 title: Criar uma VM do Linux com a API REST
 description: Saiba como criar uma máquina virtual do Linux no Azure que use Managed Disks e autenticação SSH com a API REST do Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: b3eeaf5f343b6026e02d17e4d3bd90dba4b991c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737038"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554557"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
 
@@ -128,7 +129,7 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Descrição |
+| Nome        | Type                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

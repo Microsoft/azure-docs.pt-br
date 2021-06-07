@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89003619"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
@@ -52,7 +52,7 @@ A parte mais importante neste diagrama de arquitetura é o Barramento de Serviç
 1. Aplicativo Móvel
    * Recebe e exibe a notificação
 
-### <a name="benefits"></a>Vantagens
+### <a name="benefits"></a>Benefícios
 
 1. A separação entre o receptor (aplicativo/serviço móvel via Hub de Notificação) e o remetente (sistemas de back-end) permite que os sistemas de back-end adicionais sejam integrados com alterações mínimas.
 1. Isso também cria o cenário de vários aplicativos móveis, podendo receber eventos de um ou mais sistemas de back-end.  
@@ -237,7 +237,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
     Captura de tela da caixa de diálogo Publicar Web com a opção Microsoft Azure sites selecionada, uma seta verde apontando para a caixa de diálogo Selecionar site existente com a nova opção contornada em vermelho, e uma seta verde apontando para a caixa de diálogo criar sites na Microsoft Azure com o nome do site e as opções de criação descritas em vermelho.
     :::image-end:::
 
-    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
+    (por exemplo, Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
 
     ![Captura de tela do portal do Azure com os trabalhos Web de back-end do Enterprise Push exibidos e os valores de nome, agendamento e logs descritos em vermelho.][4]
 

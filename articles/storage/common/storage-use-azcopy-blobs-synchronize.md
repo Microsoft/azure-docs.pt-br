@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ab1da88899ba2b90e303da107631e3878b3a8b58
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617265"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102635868"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>Sincronizar com o armazenamento de BLOBs do Azure usando AzCopy v10
 
@@ -33,7 +33,7 @@ Consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixa
 > [!NOTE] 
 > Os exemplos neste artigo pressupõem que você forneceu credenciais de autorização usando Azure Active Directory (Azure AD).
 >
-> Se você preferir usar um token SAS para autorizar o acesso a dados BLOB, poderá acrescentar esse token à URL do recurso em cada comando AzCopy. Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'` . ken> ' '.
+> Se você preferir usar um token SAS para autorizar o acesso a dados BLOB, poderá acrescentar esse token à URL do recurso em cada comando AzCopy. Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="guidelines"></a>Diretrizes
 

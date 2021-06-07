@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851707"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
@@ -30,11 +30,11 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 -   [Lista de APIs](#APIList)  
 -   [Operação](#Product)  
 -   [Exemplos de código](#CodeSamples)  
-    -   [Curl](#Curl)  
+    -   [cURL](#Curl)  
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
-    -   [Objetivo C](#ObjectiveC)  
+    -   [Objective C](#ObjectiveC)  
     -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
@@ -90,7 +90,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`apis`|Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).|As APIs visíveis para o usuário atual.|  
   
@@ -345,7 +345,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`apiId`|string|A ID da API atual.|  
 |`apiName`|string|O nome da API.|  
@@ -649,7 +649,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
  ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor APIM")  
   
--   [Curl](#Curl)  
+-   [cURL](#Curl)  
   
 -   [C#](#CSharp)  
   
@@ -657,7 +657,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 -   [JavaScript](#JavaScript)  
   
--   [Objetivo C](#ObjectiveC)  
+-   [Objective C](#ObjectiveC)  
   
 -   [PHP](#PHP)  
   
@@ -1082,7 +1082,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="objective-c"></a><a name="ObjectiveC"></a> Objective C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Objetivo C  
  O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  

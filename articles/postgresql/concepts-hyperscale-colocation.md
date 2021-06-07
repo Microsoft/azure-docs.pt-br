@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90884429"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
@@ -96,7 +96,7 @@ Posteriormente, os resultados das duas etapas precisam ser combinados pelo aplic
 
 Executar as consultas deve consultar dados em fragmentos espalhados entre nós.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Fragmentos":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Consultas ineficientes":::
 
 Nesse caso, a distribuição de dados cria desvantagens substanciais:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 Devido ao filtro e à junção em tenant_id, o Citus (hiperescala) sabe que toda a consulta pode ser respondida usando o conjunto de fragmentos colocalizados que contêm os dados para esse locatário específico. Um único nó PostgreSQL pode responder à consulta em uma única etapa.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Fragmentos":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Consulta melhor":::
 
 Em alguns casos, as consultas e os esquemas de tabela devem ser alterados para incluir a ID do locatário em restrições exclusivas e condições de junção. Essa alteração é normalmente simples.
 

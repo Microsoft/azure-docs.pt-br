@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
 ms.openlocfilehash: f6acf23742b8d4c5c31a5ea952aba5c76b64cae0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896724"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do Lote com a biblioteca de clientes do Gerenciamento de Lotes para .NET

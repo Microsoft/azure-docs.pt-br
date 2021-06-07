@@ -2,18 +2,18 @@
 title: Implementar Oracle Golden Gate em uma VM Linux do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um Oracle Golden Gate no seu ambiente do Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 6b3f4ef82813fd4c0e5b3b24be59b68a2dc5b2a7
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fee6770108cbcc2334b2d8fb3ccc3b1e923772d9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880382"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101673239"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
@@ -164,7 +164,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
+### <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 
 Use o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP pelo `publicIpAddress` de sua máquina virtual.
 

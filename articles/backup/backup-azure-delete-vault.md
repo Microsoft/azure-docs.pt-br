@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre dos serviços de recuperação de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520452"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864951"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -48,6 +48,7 @@ Para excluir um cofre corretamente, você deve seguir as etapas nesta ordem:
   - **Servidores de gerenciamento do mAbs ou do DPM**: Vá para o menu do painel do cofre > backup **Infrastructure**  >  **Management Servers**. Se você tiver o DPM ou o Servidor de Backup do Azure (MABS), todos os itens listados aqui deverão ser excluídos ou desregistrados junto com seus dados de backup. [Siga estas etapas](#delete-protected-items-on-premises) para excluir os servidores de gerenciamento.
 
 - **Etapa 4**: você deve garantir que todas as contas de armazenamento registradas sejam excluídas. Acesse o menu do painel do cofre >  >  **as contas de armazenamento** de infraestrutura de backup. Se você tiver contas de armazenamento listadas aqui, deverá cancelar o registro de todas elas. Para saber como cancelar o registro da conta, consulte [cancelar o registro de uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
+- **Etapa 5**: Verifique se não há nenhum ponto de extremidade privado criado para o cofre. Vá para o menu do painel do cofre > **conexões de ponto de extremidade privado** em ' configurações ' > se o cofre tiver conexões de ponto de extremidade privadas criadas ou tentar ser criadas, verifique se elas foram removidas antes de continuar com a exclusão do cofre. 
 
 Depois de concluir essas etapas, você poderá continuar a [excluir o cofre](#delete-the-recovery-services-vault).
 
@@ -73,6 +74,7 @@ Para interromper a proteção e excluir os dados de backup, execute as seguintes
 
          ![O painel excluir dados de backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   Essa opção exclui backups agendados, também exclui backups sob demanda.
 3. Verifique o ícone de **notificação** : ![ o ícone de notificação.](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: *parando backup e excluindo dados de backup para "* item de backup *"*. *Operação concluída com êxito*.
 4. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 

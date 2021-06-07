@@ -5,10 +5,10 @@ ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
 ms.openlocfilehash: 4a45e02a861ff20a4dc774668a4e008f9b42aeea
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90530430"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Usar o MetaMask para se conectar e implantar um contrato inteligente
@@ -17,7 +17,7 @@ Neste início rápido, você usará o MetaMask para se conectar a uma rede do Az
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos:
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir [Início Rápido: Criar um membro do blockchain usando o portal do Azure](create-member.md) ou [Início Rápido: Criar um membro do blockchain do Azure Blockchain Service usando a CLI do Azure](create-member-cli.md)
 * Instalar a [extensão do navegador MetaMask](https://metamask.io)

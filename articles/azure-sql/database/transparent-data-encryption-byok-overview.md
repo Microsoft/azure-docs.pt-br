@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223433"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101691239"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -164,13 +164,13 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). Um banco de dados inacessível que perdeu o acesso ao protetor de TDE aparecerá como "indisponível" após a negação da primeira conexão com o banco de dados.
 - [Log de atividades](../../service-health/alerts-activity-log-service-notifications-portal.md) quando o acesso ao protetor de TDE no cofre de chaves gerenciado pelo cliente falha, as entradas são adicionadas ao log de atividades.  A criação de alertas para esses eventos permitirá que você reinstale o acesso assim que possível.
-- Os [grupos de ações](../../azure-monitor/platform/action-groups.md) podem ser definidos para enviar notificações e alertas com base em suas preferências, por exemplo, email/SMS/Push/voz, aplicativo lógico, webhook, ITSM ou runbook de automação.
+- Os [grupos de ações](../../azure-monitor/alerts/action-groups.md) podem ser definidos para enviar notificações e alertas com base em suas preferências, por exemplo, email/SMS/Push/voz, aplicativo lógico, webhook, ITSM ou runbook de automação.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup e restauração de banco de dados com TDE gerenciados pelo cliente
 
 Depois que um banco de dados é criptografado com TDE usando uma chave de Key Vault, todos os backups gerados recentemente também são criptografados com o mesmo protetor de TDE. Quando o protetor de TDE é alterado, os backups antigos do banco de dados **não são atualizados** para usar o protetor de TDE mais recente.
 
-Para restaurar um backup criptografado com um protetor TDE do Key Vault, verifique se o material da chave está disponível para o servidor de destino. Portanto, recomendamos que você mantenha todas as versões antigas do protetor de TDE no Key Vault, para que os backups de banco de dados possam ser restaurados.
+Para restaurar um backup criptografado com um protetor TDE do Key Vault, verifique se o material da chave está disponível para o servidor de destino. Portanto, é recomendável manter todas as versões antigas do protetor de TDE no cofre de chaves para que os backups do banco de dados possam ser restaurados.
 
 > [!IMPORTANT]
 > A qualquer momento, não pode haver mais de um conjunto de protetor TDE para um servidor. É a chave marcada com "tornar a chave o protetor de TDE padrão" na folha portal do Azure. No entanto, várias chaves adicionais podem ser vinculadas a um servidor sem marcá-las como um protetor de TDE. Essas chaves não são usadas para proteger DEK, mas podem ser usadas durante a restauração de um backup, se o arquivo de backup for criptografado com a chave com a impressão digital correspondente.
@@ -187,7 +187,7 @@ Considerações adicionais para arquivos de log: Arquivos de log de backup perma
 
 Mesmo em casos em que não haja redundância geográfica configurada para o servidor, é altamente recomendável configurar o servidor para usar dois cofres de chaves diferentes em duas regiões diferentes com o mesmo material de chave. A chave no cofre de chaves secundários na outra região não deve ser marcada como um protetor TDE e nem mesmo é permitida. Se houver uma interrupção afetando o cofre de chaves primário e, somente em seguida, o sistema alternará automaticamente para a outra chave vinculada com a mesma impressão digital no cofre de chaves secundário, se existir. Observe que essa opção não ocorrerá se o protetor de TDE estiver inacessível devido a direitos de acesso revogados ou porque a chave ou o cofre de chaves é excluído, pois pode indicar que o cliente queria intencionalmente restringir o acesso do servidor à chave. Fornecer o mesmo material de chave para dois cofres de chaves em diferentes regiões pode ser feito criando a chave fora do cofre de chaves e importando-os para os dois cofres de chaves. 
 
-Como alternativa, ele pode ser realizado pela geração de chave usando o cofre de chaves primários localizado na mesma região que o servidor e clonando a chave em um cofre de chaves em uma região diferente do Azure. Use o cmdlet [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A operação de backup/restauração de chave só é permitida entre cofres de chaves na mesma assinatura do Azure e [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Como alternativa, ele pode ser realizado pela geração de chave usando o cofre de chaves primários localizado na mesma região que o servidor e clonando a chave em um cofre de chaves em uma região diferente do Azure. Use o cmdlet [backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave no formato criptografado do cofre de chaves primárias e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre de chaves na segunda região para clonar a chave. Como alternativa, use o portal do Azure para fazer backup e restaurar a chave. A operação de backup/restauração de chave só é permitida entre cofres de chaves na mesma assinatura do Azure e [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

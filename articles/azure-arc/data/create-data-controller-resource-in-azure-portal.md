@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737296"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101686471"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Criar um controlador de dados de arco do Azure no portal do Azure
 
@@ -48,6 +48,10 @@ Siga as etapas abaixo para criar um controlador de dados de arco do Azure usando
 1. Selecione um perfil de configuração de implantação.
 1. Clique no botão **abrir no Azure Studio** .
 1. Na próxima tela, você verá um resumo de suas seleções e um bloco de anotações que é gerado.  Você pode clicar no botão **baixar o bloco de anotações de provisionamento** para baixar o bloco de anotações.
+
+   > [!IMPORTANT]
+   > Na plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, você deve aplicar a restrição de contexto de segurança antes de criar o controlador de dados. Siga as instruções em [aplicar uma restrição de contexto de segurança para serviços de dados habilitados para o Azure Arc no OpenShift](how-to-apply-security-context-constraint.md).
+
 1. Abra o bloco de anotações no Azure Data Studio e clique no botão **executar tudo** na parte superior.
 1. Siga os prompts e as instruções no bloco de anotações para concluir a criação do controlador de dados.
 

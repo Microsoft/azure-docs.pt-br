@@ -1,18 +1,18 @@
 ---
 title: Limites-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve os limites no banco de dados do Azure para PostgreSQL-servidor único, como o número de opções de mecanismo de armazenamento e conexão.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cee2be3c1d7a97b87560873d6cef07ec361ee99
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707516"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605171"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recurso (computação, memória, armazenamento), consulte o artigo [tipos de preço](concepts-pricing-tiers.md) .
@@ -68,9 +68,12 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. A
 - Em alguns cenários, não há suporte completo para caracteres UTF-8 no PostgreSQL de software livre no Windows, o que afeta o Banco de Dados do Azure para PostgreSQL. Confira o thread [Bug nº 15476 nos arquivos do PostgreSQL](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
 ### <a name="gss-error"></a>Erro de GSS
-Se você vir um erro relacionado a **GSS**, provavelmente usará uma versão de cliente/driver mais recente que o servidor único do Azure postgres ainda não dá suporte total. Esse erro é conhecido por afetar [as versões 42.2.15 e 42.2.16 do driver JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
-   - Planejamos concluir a atualização até o final de novembro. Considere usar uma versão de driver de trabalho enquanto isso.
-   - Ou, considere desabilitar a solicitação de GSS.  Use um parâmetro de conexão como `gssEncMode=disable` .
+Se aparecer um erro relacionado a **GSS**, provavelmente você está usando uma versão de cliente/driver mais recente que o servidor único do Azure Postgres ainda não oferece compatibilidade total. Esse erro é conhecido por afetar [versões 42.2.15 e 42.2.16 do driver JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Planejamos concluir a atualização até o final de novembro. Considere usar uma versão de driver que esteja funcionando enquanto isso.
+   - Ou, considere desabilitar a solicitação de GSS.  Use um parâmetro de conexão como `gssEncMode=disable`.
+
+### <a name="storage-size-reduction"></a>Redução do tamanho do armazenamento
+O tamanho do armazenamento não pode ser reduzido. Você precisa criar um novo servidor com o tamanho de armazenamento desejado, executar [despejo manual e restaurar](./howto-migrate-using-dump-and-restore.md) e migrar seus bancos de dados para o novo servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [o que está disponível em cada tipo de preço](concepts-pricing-tiers.md)

@@ -4,10 +4,10 @@ description: Saiba como fornecer uma prova de conceito para que Azure DevTest La
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288021"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fornecer uma prova de conceito 
@@ -37,7 +37,7 @@ Para começar a fornecer uma prova de conceito. É importante dedicar algum temp
 
 Para concluir com êxito um piloto ou uma prova de conceito com o DevTest Labs, há alguns pré-requisitos: 
 
-* **Assinatura do Azure**: as empresas geralmente têm um [Enterprise Agreement](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) existente no local que permite o acesso ao Azure, e eles podem usar uma assinatura nova ou existente para DevTest Labs. Como alternativa, as empresas podem usar uma [assinatura do Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante o piloto (aproveitando os créditos gratuitos do Azure). Se nenhuma dessas opções estiver disponível, uma empresa poderá criar e usar uma [conta gratuita do Azure](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se houver um Enterprise Agreement em vigor, usar uma [assinatura do desenvolvimento/teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) é uma ótima opção para obter acesso a sistemas operacionais cliente do Windows 10/Windows 8.1 e tarifas com desconto para cargas de trabalho de desenvolvimento e teste. 
+* **Assinatura do Azure**: as empresas geralmente têm um [contrato Enterprise](https://azure.microsoft.com/pricing/purchase-options/enterprise-agreement/) existente no local que permite o acesso ao Azure, e eles podem usar uma assinatura nova ou existente para DevTest Labs. Como alternativa, as empresas podem usar uma [assinatura do Visual Studio](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) durante o piloto (aproveitando os créditos gratuitos do Azure). Se nenhuma dessas opções estiver disponível, uma empresa poderá criar e usar uma [conta gratuita do Azure](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ). Se houver um Contrato Enterprise em vigor, usar uma [assinatura do desenvolvimento/teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) é uma ótima opção para obter acesso a sistemas operacionais cliente do Windows 10/Windows 8.1 e tarifas com desconto para cargas de trabalho de desenvolvimento e teste. 
 * **Azure Active Directory locatário**: para habilitar o gerenciamento de usuários (por exemplo, adição de usuários ou adição de proprietários de laboratório), esses usuários devem fazer parte do [locatário Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usado na assinatura do Azure para o piloto. Muitas vezes, as empresas configurarão [identidade híbrida](../active-directory/hybrid/whatis-hybrid-identity.md) para permitir que os usuários usem sua identidade local na nuvem, mas isso não é necessário para o piloto do DevTest Labs. 
 
 ## <a name="scoping-of-the-pilot"></a>Escopo do piloto 

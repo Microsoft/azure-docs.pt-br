@@ -4,10 +4,10 @@ description: Neste tutorial, você acessa as máquinas virtuais em um laboratór
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: dacfa34c0d3ab637ef513342bc5ce5fe81038e11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85443461"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acessar um laboratório de sala de aula no Azure Lab Services

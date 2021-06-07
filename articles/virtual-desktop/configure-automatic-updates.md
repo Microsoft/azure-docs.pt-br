@@ -8,10 +8,10 @@ ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
 ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88010116"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Configurar o Microsoft Endpoint Configuration Manager
@@ -48,7 +48,7 @@ Para criar uma coleção:
 1. Selecione **ativos e conformidade**.
 2. Acesse **visão geral**  >  **coleções de dispositivos** e clique com o botão direito do mouse em **coleções de dispositivos** e selecione **criar coleção de dispositivos** no menu suspenso.
 3. Na guia **geral** do menu que é aberto, insira um nome que descreva sua coleção no campo **nome** . No campo **Comentário** , você pode fornecer informações adicionais que descrevem o que é a coleção. Em **limitando a coleta**, defina quais computadores você está incluindo na consulta de coleção.
-4. Na guia **regras de associação** , adicione uma regra para sua consulta selecionando **Adicionar regra**e, em seguida, selecionando **regra de consulta**.
+4. Na guia **regras de associação** , adicione uma regra para sua consulta selecionando **Adicionar regra** e, em seguida, selecionando **regra de consulta**.
 5. Em **Propriedades da regra de consulta**, insira um nome para a regra e defina os parâmetros da regra selecionando **Editar instrução de consulta**.
 6. Selecione **Mostrar instrução de consulta**.
 7. Na instrução, insira a seguinte cadeia de caracteres:

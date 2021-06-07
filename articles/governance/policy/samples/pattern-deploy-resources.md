@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Implantar recursos com uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como implantar recursos com uma definição de política deployIfNotExists.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dda3d5f2d4bef57919931ec3c1635310723e0c8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89649983"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093393"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Padrão do Azure Policy: implantar recursos
 

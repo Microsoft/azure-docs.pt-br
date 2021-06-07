@@ -4,12 +4,12 @@ description: Saiba como criar uma conexão SSH com o nós de cluster do Serviço
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: c044b552cd0c28a7073364c48b9572045a290331
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4c068dc1521d19793d42b6788d0439dd11499a91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662872"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605895"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conectar com SSH aos nós de cluster do Serviço de Kubernetes do Azure (AKS) para manutenção ou solução de problemas
 
@@ -141,14 +141,14 @@ Para criar uma conexão SSH para um nó do AKS, execute um pod auxiliar no clust
 1. Execute uma imagem de contêiner `debian` e anexe uma sessão de terminal a ela. Esse contêiner pode ser usado para criar uma sessão SSH com qualquer nó no cluster do AKS:
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     ```
 
     > [!TIP]
     > Se você usar nós do Windows Server, adicione um seletor de nó ao comando para agendar o contêiner Debian em um nó do Linux:
     >
     > ```console
-    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > kubectl run -it --rm aks-ssh --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
     > ```
 
 1. Depois que a sessão de terminal estiver conectada ao contêiner, instale um cliente SSH usando `apt-get` :
@@ -168,7 +168,7 @@ Para criar uma conexão SSH para um nó do AKS, execute um pod auxiliar no clust
 1. Retorne à sessão de terminal para seu contêiner, atualize as permissões na `id_rsa` chave SSH privada copiada para que ela seja somente leitura do usuário:
 
     ```console
-    chmod 0600 id_rsa
+    chmod 0400 id_rsa
     ```
 
 1. Crie uma conexão SSH para o nó AKS. Novamente, o nome de usuário para os nós do AKS é *azureuser*. Aceite o prompt para continuar com a conexão quando a chave SSH for definida como confiável pela primeira vez. Você receberá o prompt de bash do seu nó do AKS:
@@ -211,7 +211,7 @@ Se precisar de dados adicionais de solução de problemas, você poderá [exibir
 [az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: ./view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

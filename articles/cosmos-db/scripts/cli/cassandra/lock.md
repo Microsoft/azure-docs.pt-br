@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 94ff29d2c3272b61ff09fa0e564fcf2fcd281130
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b2c1e663c659935e7e820f30a281099058a4cf34
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566031"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770983"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-cli"></a>Criar um bloqueio de recurso para um keyspace e uma tabela da API do Cassandra para o Azure Cosmos usando a CLI do Azure
 [!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
@@ -34,10 +34,10 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [az lock create](/cli/azure/lock#az-lock-create) | Cria um bloqueio. |
-| [az lock list](/cli/azure/lock#az-lock-list) | Lista informações sobre o bloqueio. |
-| [az lock show](/cli/azure/lock#az-lock-show) | Mostra as propriedades de um bloqueio. |
-| [az lock delete](/cli/azure/lock#az-lock-delete) | Exclui um bloqueio. |
+| [az lock create](/cli/azure/lock#az_lock_create) | Cria um bloqueio. |
+| [az lock list](/cli/azure/lock#az_lock_list) | Lista informações sobre o bloqueio. |
+| [az lock show](/cli/azure/lock#az_lock_show) | Mostra as propriedades de um bloqueio. |
+| [az lock delete](/cli/azure/lock#az_lock_delete) | Exclui um bloqueio. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793272"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
@@ -60,16 +60,16 @@ Implante o aplicativo para os três locatários fornecidos:
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. **Crie um novo grupo de recursos** para cada implantação de aplicativo.  Não use um grupo de recursos existente. Não use este aplicativo ou todos os recursos que cria, para a produção. Exclua todos os grupos de recursos quando terminar com os aplicativos para interromper a cobrança relacionada.
 
     É melhor usar apenas letras minúsculas, números e hifens nos nomes de recursos.
-    * Para Grupo de recursos, selecione Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **wingtip-sa-\<venueName\>-\<user\>** é o padrão recomendado.  Para \<venueName\>, substitua o nome do local por nenhum espaço. Para \<user\>, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* , *wingtip-sa-fabrikamjazzclub-af1* .
+    * Para Grupo de recursos, selecione Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **wingtip-sa-\<venueName\>-\<user\>** é o padrão recomendado.  Para \<venueName\>, substitua o nome do local por nenhum espaço. Para \<user\>, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selecione uma **Localização** na lista suspensa.
 
-    * Para **Usuário** – Recomendamos um valor de usuário curto, como as iniciais mais um dígito: por exemplo, *af1* .
+    * Para **Usuário** – Recomendamos um valor de usuário curto, como as iniciais mais um dígito: por exemplo, *af1*.
 
 
-3. **Implantar o aplicativo** .
+3. **Implantar o aplicativo**.
 
     * Clique se você concordar com os termos e condições.
-    * Clique em **Comprar** .
+    * Clique em **Comprar**.
 
 4. Monitore o status de todas as três implantações clicando em **Notificações** (o ícone de sino à direita da caixa de pesquisa). A implantação dos aplicativos leva cerca de cinco minutos.
 
@@ -102,7 +102,7 @@ Vamos examinar alguns dos recursos que foram implantados:
 
 1. No [portal do Azure](https://portal.azure.com), procure a lista de grupos de recursos.
 2. Você deverá ver os três grupos de recursos de locatários.
-3. Abra o grupo de recursos **wingtip-sa-fabrikam-&lt;user&gt;** , que contém os recursos para a implantação do Fabrikam Jazz Club.  O servidor **fabrikamjazzclub-&lt;user&gt;** contém o banco de dados **fabrikamjazzclub** .
+3. Abra o grupo de recursos **wingtip-sa-fabrikam-&lt;user&gt;**, que contém os recursos para a implantação do Fabrikam Jazz Club.  O servidor **fabrikamjazzclub-&lt;user&gt;** contém o banco de dados **fabrikamjazzclub**.
 
 Cada banco de dados de locatários é um banco de dados *autônomo* de 50 DTUs.
 

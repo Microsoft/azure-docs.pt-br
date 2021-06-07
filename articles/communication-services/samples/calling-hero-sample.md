@@ -6,16 +6,16 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios
-ms.openlocfilehash: 81947371fa07fcd4afcb89eaf8efe8be998d0357
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+zone_pivot_groups: acs-web-ios-android
+ms.openlocfilehash: 694d4cb69575121b9ab89e4ce680d1140914b2c2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475600"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783522"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introdução ao exemplo de destaque de chamadas em grupo
 
@@ -25,4 +25,8 @@ ms.locfileid: "99475600"
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
 ::: zone-end

@@ -4,10 +4,10 @@ description: Você pode usar a análise de vídeo ao vivo em IoT Edge para grava
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99490887"
 ---
 # <a name="playback-of-recordings"></a>Reprodução de gravações 
@@ -77,7 +77,7 @@ Se a duração do tempo especificada pelos parâmetros for maior do que o permit
 
 Supondo que o intervalo de tempo seja válido para os parâmetros fornecidos, nenhum erro será retornado para consultas fora da janela de tempo dos dados na gravação.  O que significa que se a gravação iniciou 7 horas, mas o cliente solicitar a mídia disponível de {UtcNow – 24 horas} para UtcNow, então, retornaremos as {UtcNow – 7} horas de dados.
 
-### <a name="response-format"></a>Formato de resposta  
+### <a name="response-format"></a>Formato da resposta  
 
 A chamada availableMedia retorna um conjunto de valores de tempo.
 
@@ -216,7 +216,7 @@ O comprimento máximo (em tempo) desse manifesto não pode exceder 24 horas.
 
 Aqui estão as restrições nos filtros.
 
-|startTime| endTime |Result|
+|startTime| endTime |Resultado|
 |---|---|---|
 |Absent |Absent |Retorna a parte mais recente do vídeo no ativo, até um comprimento máximo de 4 horas.<br/><br/>Se o ativo não tiver sido gravado (nenhum novo dado de vídeo chegando) recentemente, um manifesto sob demanda (VoD) será retornado. Caso contrário, um manifesto ao vivo será retornado.|
 |Presente|Absent|    Retorne um manifesto com qualquer vídeo disponível que seja mais recente do que o StartTime, se esse manifesto fosse menor do que 24 horas.<br/>Se o tamanho do manifesto exceder 24 horas, retorne um erro.<br/>Se o ativo não tiver sido gravado (nenhum novo dado de vídeo chegando) recentemente, um manifesto sob demanda (VoD) será retornado. Caso contrário, um manifesto ao vivo será retornado.

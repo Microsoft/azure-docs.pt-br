@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021921"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674964"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introdução
 **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de dados do Azure** está prestes a ajudar as pessoas a descobrir, compreender e usar fontes de dados e ajudar as organizações a obter mais valor de seus dados existentes. Um aspecto fundamental deste cenário está usando os dados – quando um usuário descobrir uma fonte de dados e compreender sua finalidade, a próxima etapa será se conectar à fonte de dados para colocar seus dados em uso.
 
@@ -28,7 +31,7 @@ Quando o modo de exibição de bloco padrão for usado, esse menu estará dispon
 
 Quando o modo de exibição de lista for usado, o menu estará disponível na barra de pesquisa na parte superior da janela do portal.
 
- ![Abrir um relatório de SQL Server Reporting Services no Report Manager](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Abrir um relatório de SQL Server Reporting Services no Gerenciador de Relatórios](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Aplicativos do Cliente com Suporte
 Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de Dados do Azure, o aplicativo cliente correto deve ser instalado no computador do cliente.

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: eee59d906da46e315ede52796bd89c7827833ede
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f41a895aef3476386b8b530fc3e265ffaa21e8c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095723"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597571"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API do .NET Standard de Tabela do Azure Cosmos DB: download e notas de versão
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "93095723"
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
 
-|   |   |
+|   | Links  |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Amostra**|[Exemplo de Cosmos DB API de Tabela .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|

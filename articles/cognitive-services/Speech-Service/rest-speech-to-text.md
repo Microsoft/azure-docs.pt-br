@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790606"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606898"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -28,7 +28,7 @@ As APIs REST de conversão de fala em texto são:
 
 ## <a name="speech-to-text-rest-api-v30"></a>API REST de conversão de fala em texto v 3.0
 
-A API REST de fala em texto v 3.0 é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . Se você precisar se comunicar com a transcrição OnLine via REST, use a [API REST de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
+A API REST de fala em texto v 3.0 é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . Se você precisar se comunicar com a transcrição online via REST, use a [API REST de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
 
 Use a API REST v 3.0 para:
 - Copie modelos para outras assinaturas caso você queira que os colegas tenham acesso a um modelo que você criou ou nos casos em que você deseja implantar um modelo em mais de uma região
@@ -51,7 +51,8 @@ Consulte a referência completa da API REST de fala em texto v 3.0 [aqui](https:
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST de conversão de fala em texto para áudio curto
 
-Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar. A API REST para áudio curto é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não possa.
+Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST.
+A API REST para áudio curto é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não possa.
 
 Antes de usar a API REST de fala em texto para áudio curto, considere o seguinte:
 
@@ -86,21 +87,21 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Necessária |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](./custom-speech-overview.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de fala em texto.
 
-|Cabeçalho| Descrição | Obrigatório/Opcional |
+|parâmetro| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
 | `Pronunciation-Assessment` | Especifica os parâmetros para mostrar as pontuações de pronúncia nos resultados de reconhecimento, que avaliam a qualidade de pronúncia da entrada de fala, com indicadores de precisão, fluência, integridade, etc. Esse parâmetro é um JSON codificado em base64 contendo vários parâmetros detalhados. Consulte [parâmetros de avaliação de pronúncia](#pronunciation-assessment-parameters) para saber como criar esse cabeçalho. | Opcional |
-| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessária |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept` . | Opcional, mas recomendado. |
@@ -123,7 +124,7 @@ Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de p
 
 | Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
-| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Necessária |
+| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
 | GradingSystem | O sistema de ponto para a calibragem de pontuação. O `FivePoint` sistema fornece uma pontuação de ponto flutuante de 0-5 e `HundredMark` fornece uma pontuação de ponto flutuante de 0-100. Padrão: `FivePoint`. | Opcional |
 | Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceitos são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, Pontuação fluência e pontuação de integridade no nível de texto completo, tipo de erro no nível de palavra). Verifique os [parâmetros de resposta](#response-parameters) para ver as definições de diferentes dimensões de Pontuação e tipos de erro do Word. A configuração padrão é `Basic`. | Opcional |
@@ -152,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 É altamente recomendável o carregamento de streaming (em partes) durante o lançamento dos dados de áudio, o que pode reduzir significativamente a latência. Consulte o [código de exemplo em linguagens de programação diferentes](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) para saber como habilitar o streaming.
 
 >[!NOTE]
->No momento, o recurso avaliação de pronúncia está disponível apenas nas `westus` `eastasia` `centralindia` regiões e. E esse recurso está atualmente disponível apenas no `en-US` idioma.
+>O recurso de avaliação de pronúncia está disponível apenas no momento no `en-US` idioma.
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 
@@ -341,3 +342,4 @@ Uma resposta típica para reconhecimento com avaliação de pronúncia:
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalizar modelos de linguagem](./how-to-custom-speech-train-model.md)
 - [Familiarize-se com a transcrição do lote](batch-transcription.md)
+

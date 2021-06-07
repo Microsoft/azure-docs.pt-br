@@ -1,26 +1,26 @@
 ---
-title: Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
-description: Visão geral do exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
-ms.date: 01/27/2021
+title: Exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark v1.1.0
+description: Visão geral do exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark v1.1.0. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
+ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918409"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103197796"
 ---
-# <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
+# <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark v1.1.0
 
-O exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark fornece diretrizes de governança usando o [Azure Policy](../../policy/overview.md) que ajudam você a avaliar recomendações específicas do CIS Microsoft Azure Foundations Benchmark. Esse blueprint ajuda os clientes a implantarem um conjunto principal de políticas para qualquer arquitetura implantada pelo Azure que precise implementar as recomendações do CIS Microsoft Azure Foundations Benchmark.
+O exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark v1.1.0 fornece diretrizes de governança usando o [Azure Policy](../../policy/overview.md) que ajudam você a avaliar recomendações específicas do CIS Microsoft Azure Foundations Benchmark. Esse blueprint ajuda os clientes a implantar um conjunto principal de políticas para qualquer arquitetura implantada pelo Azure que precise implementar as recomendações do CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 ## <a name="recommendation-mapping"></a>Mapeamento de recomendação
 
-O [mapeamento de recomendação do Azure Policy](../../policy/samples/cis-azure-1-1-0.md) fornece detalhes sobre as definições de política incluídas neste projeto e como essas definições de política são mapeadas para **domínios de conformidade** e **controles** no CIS Microsoft Azure Foundations Benchmark v1.1.0. Quando atribuídos a uma arquitetura, os recursos são avaliados pelo Azure Policy para verificar a não conformidade com definições de política atribuídas. Para saber mais, veja [Azure Policy](../../policy/overview.md).
+O [mapeamento de recomendação do Azure Policy](../../policy/samples/cis-azure-1-1-0.md) fornece detalhes sobre as definições de política incluídas neste blueprint e como essas definições de política mapeiam para as **recomendações** no CIS Microsoft Azure Foundations Benchmark v1.1.0. Quando atribuídos a uma arquitetura, os recursos são avaliados pelo Azure Policy para verificar a não conformidade com definições de política atribuídas. Para saber mais, veja [Azure Policy](../../policy/overview.md).
 
 ## <a name="deploy"></a>Implantar
 
-Para implantar a amostra de blueprint do CIS Microsoft Azure Foundations Benchmark do Azure Blueprints, é necessário executar as seguintes etapas:
+Para implantar o exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark do Azure Blueprints v1.1.0, é necessário executar as seguintes etapas:
 
 > [!div class="checklist"]
 > - Criar um blueprint com base na amostra
@@ -50,7 +50,7 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 ### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 
-Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia da amostra de blueprint pode ser personalizada de acordo com seu ambiente e suas necessidades, mas essa modificação poderá desviá-lo do que é recomendado pelo CIS Microsoft Azure Foundations Benchmark.
+Agora a cópia do exemplo de blueprint foi criada em seu ambiente. Ela é criada no modo **Rascunho** e deve ser **Publicada** antes de ser atribuída e implantada. A cópia do exemplo de blueprint pode ser personalizada de acordo com seu ambiente e suas necessidades, mas essa modificação poderá desviá-lo do que é recomendado pelo CIS Microsoft Azure Foundations Benchmark v1.1.0.
 
 1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
@@ -101,8 +101,8 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark 1.1.0 e implantar Extensões de VM de suporte específicas|Atribuição de política|Lista de regiões em que o Observador de Rede deve ser habilitado|Uma lista de regiões separada por ponto e vírgula. Para ver uma lista completa de regiões, use Get-AzLocation. Por exemplo: eastus; eastus2|
-|Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark 1.1.0 e implantar Extensões de VM de suporte específicas|Atribuição de política|Lista de extensões da máquina virtual aprovadas para uso|Uma lista de extensões separada por ponto e vírgula. Para ver uma lista completa de extensões da máquina virtual, use Get-AzVMExtensionImage. Por exemplo: AzureDiskEncryption; IaaSAntimalware|
+|Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark v1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de regiões em que o Observador de Rede deve ser habilitado|Uma lista de regiões separada por ponto e vírgula. Para ver uma lista completa de regiões, use Get-AzLocation. Por exemplo: eastus; eastus2|
+|Auditar as recomendações do CIS Microsoft Azure Foundations Benchmark v1.1.0 e implantar extensões de VM de suporte específicas|Atribuição de política|Lista de extensões da máquina virtual aprovadas para uso|Uma lista de extensões separada por ponto e vírgula. Para ver uma lista completa de extensões da máquina virtual, use Get-AzVMExtensionImage. Por exemplo: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Próximas etapas
 

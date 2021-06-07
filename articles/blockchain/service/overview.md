@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Azure Blockchain Service
 description: Visão geral do Azure Blockchain Service
-ms.date: 01/04/2021
+ms.date: 03/15/2021
 ms.topic: overview
-ms.reviewer: ravastra
-ms.openlocfilehash: 15d1126a98a4d3194a256ed07de3918cb066a4e2
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.reviewer: patricka
+ms.openlocfilehash: 035e2c1df5912f291ad241ade25361f9cc098b22
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963871"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103573618"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ O Azure Blockchain Service é um serviço contábil totalmente gerenciado que pe
 * Gerenciamento do consórcio interno
 * Desenvolva contratos inteligentes com ferramentas de desenvolvimento conhecidas
 
-O Azure Blockchain Service foi projetado para oferecer suporte a vários protocolos razão. Atualmente, ele fornece suporte ao razão Ethereum [Quorum](https://www.goquorum.com/) usando o mecanismo de consenso [IBFT (Tolerância a falhas Bizantinas de Istambul)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+O Azure Blockchain Service foi projetado para oferecer suporte a vários protocolos razão. Atualmente, ele fornece suporte ao razão Ethereum [Quorum](https://www.goquorum.com/) usando o mecanismo de consenso [IBFT (Tolerância a falhas Bizantinas de Istambul)](https://docs.goquorum.consensys.net/en/stable/Concepts/Consensus/IBFT/).
 
 Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Você pode se concentrar no desenvolvimento de aplicativos e na lógica comercial, em vez de alocar tempo e recursos para gerenciar máquinas virtuais e infraestrutura. Além disso, você pode continuar desenvolvendo seu aplicativo com as ferramentas de código aberto e a plataforma de sua escolha para fornecer suas soluções sem precisar aprender novas habilidades.
 

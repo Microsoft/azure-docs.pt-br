@@ -1,22 +1,17 @@
 ---
 title: Copiar dados usando a ferramenta de Copiar Dados do Azure
 description: Crie um Azure Data Factory e use a ferramenta Copiar Dados para copiar dados de uma localização no Armazenamento de Blobs do Azure para outra.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 78bc815aff195124d3e79a83445b8d12506fc70d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013425"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613083"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início Rápido: Use a ferramenta Copy Data para copiar dados
 
@@ -62,7 +57,7 @@ Neste guia de início rápido, você usa o Portal do Azure para criar um data fa
 
 1. Após a criação, a página do **Data Factory** será exibida. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário (IU) do Azure Data Factory em uma guia separada.
    
-   ![Página inicial do Data Factory, com o bloco “Criar e Monitorar"](./media/doc-common-process/data-factory-home-page.png)
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 
 ## <a name="start-the-copy-data-tool"></a>Iniciar a ferramenta Copy Data
 

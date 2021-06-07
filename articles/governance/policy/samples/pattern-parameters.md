@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Parâmetros em uma definição de política'
-description: Esse padrão do Azure Policy fornece um exemplo de como usar parâmetros de cadeia de caracteres e de matriz em uma definição de política, bem como parametrizar o efeito.
-ms.date: 08/17/2020
+description: Esse padrão do Azure Policy fornece um exemplo de como usar parâmetros de cadeia de caracteres e de matriz em uma definição de política, além de como parametrizar o efeito.
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b742aaaf950e2b5670edbaa1f0134da144e675b6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89649940"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092765"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão do Azure Policy: parâmetros
 
@@ -16,7 +16,7 @@ Uma definição de política pode ser dinamizada para reduzir o número de defin
 
 ## <a name="sample-1-string-parameters"></a>Exemplo 1: Parâmetros de cadeia de caracteres
 
-Essa definição de política usa dois parâmetros, **tagName** e **tagValue** para definir o que a atribuição de política está procurando em recursos. Esse formato permite que a definição de política seja usada para qualquer número de combinações de nome e valor de marca, mas mantém apenas uma única definição de política.
+Essa definição de política usa dois parâmetros, **tagName** e **tagValue**, para definir o que a atribuição de política está procurando nos recursos. Esse formato permite que a definição de política seja usada para qualquer número de combinações de nome e valor de marca, mas mantém apenas uma única definição de política.
 
 > [!NOTE]
 > Para ver um exemplo de marca que usa o **modo** _Todos_ e funciona com um grupo de recursos, confira [Padrão: Marcas – Exemplo #1](./pattern-tags.md#sample-1-parameterize-tags).

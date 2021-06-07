@@ -4,16 +4,17 @@ description: Este artigo cataloga os erros e as atenuações mais comuns durante
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 8b56d7294237c39d085a30a701ead3bde309759a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6d803d1a66c069f5eb42deead453a8526577f76b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882358"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615203"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>Erros que normalmente ocorrem durante a migração do clássico para Azure Resource Manager
 
@@ -41,7 +42,7 @@ Este artigo cataloga os erros e mitigações mais comuns durante a migração de
 | A implantação {deployment-name} em HostedService {hosted-service-name} contém uma VM {vm-name} com Disco de Dados {data-disk-name} cujo tamanho de blob físico de {size-of-the-vhd-blob-backing-the-data-disk} bytes não corresponde ao tamanho lógico do Disco de Dados da VM de {size-of-the-data-disk-specified-in-the-vm-api} bytes. A migração continuará sem especificar um tamanho para o disco de dados para a VM do Azure Resource Manager. | Esse erro ocorre se você redimensionar o blob VHD sem atualizar o tamanho do modelo da API da VM. As etapas de atenuação detalhadas estão descritas [abaixo](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
 | Ocorreu uma exceção de armazenamento ao validar o disco de dados {nome do disco de dados} com link de mídia {Uri do disco de dados} para VM {nome da VM} no Serviço de Nuvem {nome do Serviço de Nuvem}. Assegure-se de que o link de mídia VHD possa ser acessado para esta máquina virtual | Esse erro poderá ocorrer se os discos da VM tiverem sido excluídos ou não estiverem mais acessíveis. Verifique se os discos para a VM existem.|
 | A VM {vm-name} em HostedService {cloud-service-name} contém o Disco com MediaLink {vhd-uri} que tem o nome do blob {vhd-blob-name}, que não é suportado no Azure Resource Manager. | Esse erro ocorre quando o nome do blob tem um "/" dentro dele que não tem suporte no Provedor de Recursos de Computação no momento. |
-| A migração não é permitida para a Implantação {nome-implantação} no HostedService {nome-serviço-nuvem}, pois não está no escopo regional. Consulte https: \/ /aka.ms/regionalscope para mover essa implantação para o escopo regional. | Em 2014, o Azure anunciou que os recursos de rede seriam movidos de um escopo no nível do cluster para um escopo regional. Consulte [https://aka.ms/regionalscope](https://aka.ms/regionalscope) para obter mais detalhes. Esse erro ocorre quando a implantação sendo migrada não teve uma operação de atualização que a move automaticamente para um escopo regional. A melhor solução alternativa é adicionar um ponto de extremidade a uma VM ou um disco de dados à VM e, em seguida, tentar a migração novamente. <br> Consulte [Como configurar os pontos de extremidade em uma máquina virtual clássica do Windows no Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) ou [Anexar um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico](./linux/attach-disk-portal.md)|
+| A migração não é permitida para a Implantação {nome-implantação} no HostedService {nome-serviço-nuvem}, pois não está no escopo regional. Consulte https: \/ /aka.ms/regionalscope para mover essa implantação para o escopo regional. | Em 2014, o Azure anunciou que os recursos de rede seriam movidos de um escopo no nível do cluster para um escopo regional. Consulte [https://aka.ms/regionalscope](https://aka.ms/regionalscope) para obter mais detalhes. Esse erro ocorre quando a implantação sendo migrada não teve uma operação de atualização que a move automaticamente para um escopo regional. A melhor solução alternativa é adicionar um ponto de extremidade a uma VM ou um disco de dados à VM e, em seguida, tentar a migração novamente. <br> Veja [como configurar pontos de extremidade em uma máquina virtual clássica no Azure](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#create-an-endpoint) ou [anexar um disco de dados a uma máquina virtual criada com o modelo de implantação clássico](./linux/attach-disk-portal.md)|
 | A migração não é compatível com a Rede Virtual {vnet-name}  porque ela contém implantações e PaaS de não gateway. | Esse erro ocorre quando você tem implantações PaaS de não gateway como os serviços de gerenciamento de API ou Gateway do aplicativo que estão conectados à Rede Virtual.|
 
 

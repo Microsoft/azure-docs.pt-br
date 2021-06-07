@@ -2,20 +2,21 @@
 title: Tutorial – Criar e gerenciar redes virtuais do Azure para VMs Windows
 description: Neste tutorial, você aprende a usar Microsoft Azure PowerShell para criar e gerenciar redes virtuais do Azure para máquinas virtuais Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: networking
+ms.collection: windows
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4e7f08e3c9869eae76f6c2e0127cfdab8f770d04
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730033"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102562173"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerenciar redes virtuais do Microsoft Azure para as máquinas virtuais do Windows com o Microsoft Azure PowerShell
 
@@ -280,4 +281,4 @@ Neste tutorial, você criou e protegeu redes do Azure em relação às máquinas
 > * Protegem o tráfego de rede
 > * Criar uma VM de back-end
 
-Para saber como proteger seus discos de VM, confira [Backup e recuperação de desastre para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber como proteger seus discos de VM, confira [Backup e recuperação de desastre para discos](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

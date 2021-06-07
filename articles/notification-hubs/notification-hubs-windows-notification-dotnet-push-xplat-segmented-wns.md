@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320582"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutorial: Enviar notificações para dispositivos específicos que executam aplicativos da Plataforma Universal do Windows
@@ -49,7 +49,7 @@ Neste tutorial, você executará as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o [Tutorial: Enviar notificações aos aplicativos da Plataforma Universal do Windows usando os Hubs de Notificação do Azure][get-started] antes de iniciar este tutorial.  
+Concluir o [Tutorial: Enviar notificações a aplicativos de Plataforma Universal do Windows usando Hubs de Notificação do Azure][get-started] antes de iniciar este tutorial.  
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias ao aplicativo
 
@@ -197,7 +197,7 @@ Nesta seção, você se registra no hub de notificação após a inicialização
 1. Para usar a classe `notifications` para assinar com base em categorias, abra o arquivo *App.xaml.cs* e atualize o método `InitNotificationsAsync`.
 
     ```csharp
-    // *** Remove or comment out these lines **_
+    // *** Remove or comment out these lines ***
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);

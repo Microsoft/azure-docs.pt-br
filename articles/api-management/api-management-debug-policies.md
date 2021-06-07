@@ -12,21 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: apimpm
-ms.openlocfilehash: a8ed834c9ab093ae063e386978bca4d73fa46543
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 2e45d1274cf7332dbca70eaa8fc51f0ac98e5359
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400719"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101648009"
 ---
 # <a name="debug-azure-api-management-policies-in-visual-studio-code"></a>Depurar políticas de gerenciamento de API do Azure no Visual Studio Code
 
 [As políticas](api-management-policies.md) no gerenciamento de API do Azure fornecem recursos avançados que ajudam os editores de API a resolverem questões abrangentes, como autenticação, autorização, limitação, cache e transformação. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. 
 
 Este artigo descreve como depurar políticas de gerenciamento de API usando a [extensão de gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
-
-> [!NOTE]
-> Esse recurso está em uma versão prévia.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

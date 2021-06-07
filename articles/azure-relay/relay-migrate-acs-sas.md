@@ -4,10 +4,10 @@ description: Descreve como migrar aplicativos de retransmissão do Azure usando 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87532859"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Retransmissão do Azure-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado

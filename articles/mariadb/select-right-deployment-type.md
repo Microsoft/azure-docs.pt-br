@@ -3,14 +3,14 @@ title: Selecionando o tipo de implantação certo-banco de dados do Azure para M
 description: Este artigo descreve quais fatores devem ser considerados antes de implantar o banco de dados do Azure para MariaDB como IaaS (infraestrutura como serviço) ou PaaS (plataforma como um serviço).
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 921ad8d187f6c2478bdf92aab0ee0ec3c9e75bce
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664511"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Escolha a opção de servidor MariaDB correta no Azure
@@ -49,7 +49,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 
 Há vários fatores que podem influenciar sua decisão de escolher PaaS ou IaaS para hospedar seus bancos de dados do MariaDB.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 
 O financiamento limitado geralmente é a principal consideração que determina a melhor solução para hospedar seus bancos de dados. Isso é verdadeiro tanto se você for uma startup com pouco dinheiro como uma equipe em uma empresa estabelecida que opere sob restrições de orçamento rígidas. Esta seção descreve as noções básicas de cobrança e licenciamento no Azure, pois elas se aplicam ao banco de dados do Azure para MariaDB e MariaDB em VMs do Azure.
 

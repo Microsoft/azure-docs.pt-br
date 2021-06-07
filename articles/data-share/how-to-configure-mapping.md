@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/14/2020
 ms.openlocfilehash: eed3e8275400a3e677df53b9d62cf0e0bc70271c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88257842"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Como configurar um mapeamento de DataSet para um compartilhamento recebido no compartilhamento de dados do Azure

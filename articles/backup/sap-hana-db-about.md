@@ -4,10 +4,10 @@ description: Neste artigo, saiba mais sobre como fazer backup de bancos de dados
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: efb9c3f786e429df404e261f053a9c9a9b032e11
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96296447"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre o backup de banco de dados SAP HANA em VMs do Azure

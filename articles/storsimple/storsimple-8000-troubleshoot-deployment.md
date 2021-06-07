@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: f1bce5c0ecdab4a9c96c3f2cc0e9734247bdfd66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808036"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102566338"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Solucionar problemas de implantação do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -189,7 +189,7 @@ Quando você configura as interfaces de rede para uma implantação de dispositi
    * Se a interface está íntegra, mas não está habilitada, o status **ifIndex** é mostrado como **NotPresent**.
    * Se a interface não existir, ele não aparecerá na lista. A interface do usuário do serviço Gerenciador de Dispositivos StorSimple ainda mostrará essa interface em estado de falha.
 
-Para obter mais informações sobre como usar esse cmdlet, vá para [Get-netadapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) na referência de cmdlet do Windows PowerShell.
+Para obter mais informações sobre como usar esse cmdlet, vá para [Get-netadapter](/powershell/module/netadapter/get-netadapter) na referência de cmdlet do Windows PowerShell.
 
 As seções a seguir mostram exemplos de saída do cmdlet `Get-NetAdapter` .
 

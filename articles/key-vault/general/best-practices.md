@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
 ms.openlocfilehash: e81cbd7e6584f4a280ab9507a989b52d3b188f2d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072544"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566601"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar Key Vault
 
@@ -39,13 +39,13 @@ Certifique-se de fazer backups regulares de seu cofre em atualizar/excluir/criar
 ### <a name="azure-powershell-backup-commands"></a>Azure PowerShell comandos de backup
 
 * [Certificado de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Chave de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
+* [Chave de Backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
 * [Segredo de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
 
 ### <a name="azure-cli-backup-commands"></a>CLI do Azure comandos de backup
 
 * [Certificado de backup](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Chave de backup](/cli/azure/keyvault/key#az-keyvault-key-backup)
+* [Chave de Backup](/cli/azure/keyvault/key#az-keyvault-key-backup)
 * [Segredo de backup](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
 
 

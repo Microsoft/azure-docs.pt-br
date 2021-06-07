@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379974"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027390"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer usando Azure Data Factory
 
@@ -52,7 +52,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-O conector de Data Explorer do Azure usa a autenticação de entidade de serviço. Siga estas etapas para obter uma entidade de serviço e conceder permissões:
+O conector de Data Explorer do Azure dá suporte aos seguintes tipos de autenticação. Consulte as seções correspondentes para obter detalhes:
+
+- [Autenticação de entidade de serviço](#service-principal-authentication)
+- [Identidades gerenciadas para autenticação de recursos do Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
+
+Para usar a autenticação de entidade de serviço, siga estas etapas para obter uma entidade de serviço e conceder permissões:
 
 1. Registre uma entidade de aplicativo no Azure Active Directory seguindo as etapas em [registrar seu aplicativo com um locatário do Azure ad](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anote os seguintes valores, que são usados para definir o serviço vinculado:
 
@@ -66,20 +73,21 @@ O conector de Data Explorer do Azure usa a autenticação de entidade de serviç
     - **Como coletor**, conceda pelo menos a função de **ingestão de banco de dados** ao seu banco de dados
 
 >[!NOTE]
->Quando você usa a interface do usuário do Data Factory para criar, sua conta de logon é usada para listar clusters, bancos de dados e tabelas do Azure Data Explorer. Insira o nome manualmente se você não tiver permissão para essas operações.
+>Quando você usa a interface do usuário do Data Factory para criar, por padrão, sua conta de logon é usada para listar clusters, bancos de dados e tabelas do Azure Data Explorer. Você pode optar por listar os objetos usando a entidade de serviço clicando na lista suspensa ao lado do botão atualizar ou inserir manualmente o nome se você não tiver permissão para essas operações.
 
 As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Explorer:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** deve ser definida como **AzureDataExplorer**. | Sim |
+| type | A propriedade **Type** deve ser definida como **AzureDataExplorer**. | Yes |
 | endpoint | URL de ponto de extremidade do cluster do Azure Data Explorer com o formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
 | Banco de Dados | Nome do banco de dados. | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Isso é conhecido como "ID de autoridade" na [cadeia de conexão Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o passando o ponteiro do mouse no canto superior direito do portal do Azure. | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. Isso é conhecido como "ID do cliente do aplicativo do AAD" na [cadeia de conexão Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Isso é conhecido como "chave de aplicativo do AAD" na [cadeia de conexão Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como uma **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a dados seguros armazenados no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Azure Integration Runtime ou um runtime de integração auto-hospedada se o seu armazenamento de dados estiver em uma rede privada. Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
-**Exemplo de propriedades do serviço vinculado:**
+**Exemplo: usando a autenticação de chave de entidade de serviço**
 
 ```json
 {
@@ -100,6 +108,44 @@ As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Ex
 }
 ```
 
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identidades gerenciadas para autenticação de recursos do Azure
+
+Para usar identidades gerenciadas para a autenticação de recursos do Azure, siga estas etapas para conceder permissões:
+
+1. [Recuperar as informações de identidade gerenciada do Data Factory](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor de **ID do objeto de identidade gerenciada** gerado junto com seu alocador.
+
+2. Conceda à identidade gerenciada as permissões corretas no Azure Data Explorer. Consulte [gerenciar permissões de banco de dados do Azure data Explorer](/azure/data-explorer/manage-database-permissions) para obter informações detalhadas sobre funções e permissões e sobre como gerenciar permissões. Em geral, você deve:
+
+    - **Como fonte**, conceda pelo menos a função de **Visualizador de banco de dados** ao seu banco de dados
+    - **Como coletor**, conceda pelo menos a função de **ingestão de banco de dados** ao seu banco de dados
+
+>[!NOTE]
+>Quando você usa a interface do usuário do Data Factory para criar, sua conta de logon é usada para listar clusters, bancos de dados e tabelas do Azure Data Explorer. Insira o nome manualmente se você não tiver permissão para essas operações.
+
+As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Explorer:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| type | A propriedade **Type** deve ser definida como **AzureDataExplorer**. | Yes |
+| endpoint | URL de ponto de extremidade do cluster do Azure Data Explorer com o formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
+| Banco de Dados | Nome do banco de dados. | Sim |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Azure Integration Runtime ou um runtime de integração auto-hospedada se o seu armazenamento de dados estiver em uma rede privada. Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
+
+**Exemplo: usando a autenticação de identidade gerenciada**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [DataSets in Azure data Factory](concepts-datasets-linked-services.md). Esta seção lista as propriedades às quais o conjunto de Data Explorer do Azure oferece suporte.
@@ -110,7 +156,7 @@ Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** deve ser definida como **AzureDataExplorerTable**. | Sim |
+| type | A propriedade **Type** deve ser definida como **AzureDataExplorerTable**. | Yes |
 | table | O nome da tabela à qual o serviço vinculado se refere. | Não para coletor; não para fonte |
 
 **Exemplo de propriedades de DataSet:**
@@ -143,9 +189,9 @@ Para copiar dados do Azure Data Explorer, defina a propriedade **type** na fonte
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
-| Consulta | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como referência. | Sim |
-| queryTimeout | O tempo de espera antes que a solicitação de consulta expire. O valor padrão é 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | Não |
-| notruncamento | Indica se o conjunto de resultados retornado deve ser truncado. Por padrão, o resultado é truncado após 500.000 registros ou 64 megabytes (MB). O truncamento é altamente recomendável para garantir o comportamento correto da atividade. |Não |
+| Consulta | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como referência. | Yes |
+| queryTimeout | O tempo de espera antes que a solicitação de consulta expire. O valor padrão é 10 min (00:10:00); o valor máximo permitido é de 1 hora (01:00:00). | No |
+| notruncamento | Indica se o conjunto de resultados retornado deve ser truncado. Por padrão, o resultado é truncado após 500.000 registros ou 64 megabytes (MB). O truncamento é altamente recomendável para garantir o comportamento correto da atividade. |No |
 
 >[!NOTE]
 >Por padrão, a fonte de Data Explorer do Azure tem um limite de tamanho de 500.000 registros ou 64 MB. Para recuperar todos os registros sem truncamento, você pode especificar `set notruncation;` no início da consulta. Para obter mais informações, consulte [limites de consulta](/azure/kusto/concepts/querylimits).
@@ -189,8 +235,8 @@ Para copiar dados do Azure Data Explorer, defina a propriedade type no coletor d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink**. | Sim |
-| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) criado previamente em uma tabela Kusto. Para mapear as colunas da origem para o Azure Data Explorer (que se aplica a [todos os formatos e repositórios de origem com suporte](copy-activity-overview.md#supported-data-stores-and-formats), incluindo os formatos CSV/JSON/Avro), você pode usar o [mapeamento de coluna](copy-activity-schema-and-type-mapping.md) de atividade de cópia (implicitamente por nome ou explicitamente como configurado) e/ou mapeamentos de data Explorer do Azure. | Não |
+| type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink**. | Yes |
+| ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) criado previamente em uma tabela Kusto. Para mapear as colunas da origem para o Azure Data Explorer (que se aplica a [todos os formatos e repositórios de origem com suporte](copy-activity-overview.md#supported-data-stores-and-formats), incluindo os formatos CSV/JSON/Avro), você pode usar o [mapeamento de coluna](copy-activity-schema-and-type-mapping.md) de atividade de cópia (implicitamente por nome ou explicitamente como configurado) e/ou mapeamentos de data Explorer do Azure. | No |
 | additionalProperties | Um recipiente de propriedades que pode ser usado para especificar qualquer uma das propriedades de ingestão que não estão sendo definidas já pelo coletor de Data Explorer do Azure. Especificamente, isso pode ser útil para especificar marcas de ingestão. Saiba mais no [documento de ingestão de dados do Azure data Explore](/azure/data-explorer/ingestion-properties). | Não |
 
 **Exemplo:**

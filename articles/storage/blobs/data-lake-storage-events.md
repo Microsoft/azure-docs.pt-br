@@ -9,18 +9,18 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 738ed3b819a62760408341184daca8a8ba555029
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913667"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100516389"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do data lake para atualizar uma tabela do Databricks Delta
 
 Este tutorial mostra como manipular eventos em uma conta de armazenamento que tem um namespace hierárquico.
 
-Você criará uma pequena solução que permite que um usuário preencha uma tabela do Databricks Delta carregando um arquivo CSV (de valores separados por vírgula) que descreve uma ordem de venda. Você criará essa solução conectando uma assinatura de Grade de Eventos, uma função do Azure e um [trabalho](https://docs.azuredatabricks.net/user-guide/jobs.html) no Azure Databricks.
+Você criará uma pequena solução que permite que um usuário preencha uma tabela do Databricks Delta carregando um arquivo CSV (de valores separados por vírgula) que descreve uma ordem de venda. Você criará essa solução conectando uma assinatura de Grade de Eventos, uma função do Azure e um [trabalho](/azure/databricks/jobs) no Azure Databricks.
 
 Neste tutorial, você irá:
 
@@ -116,7 +116,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
 4. Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
-Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Para obter mais informações sobre como criar clusters, consulte [Criar um cluster Spark no Azure Databricks](/azure/databricks/clusters/create).
 
 ### <a name="create-a-notebook"></a>Criar um notebook
 
@@ -153,7 +153,7 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
     Esse código cria um widget chamado **source_file**. Posteriormente, você criará uma função do Azure que chama esse código e passa um caminho de arquivo para esse widget.  Esse código também autentica a entidade de serviço com a conta de armazenamento e cria algumas variáveis que você usará em outras células.
 
     > [!NOTE]
-    > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. <br><br>Por exemplo, em vez de usar esta linha de código `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`:, você usaria a seguinte linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Depois de concluir este tutorial, confira o artigo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site Azure Databricks para ver exemplos dessa abordagem.
+    > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. <br><br>Por exemplo, em vez de usar esta linha de código `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`:, você usaria a seguinte linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>Depois de concluir este tutorial, confira o artigo [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) no site Azure Databricks para ver exemplos dessa abordagem.
 
 2. Pressione as teclas **SHIFT+ENTER** para executar o código nesse bloco.
 

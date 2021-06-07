@@ -4,10 +4,10 @@ description: Saiba como o serviço de backup do Azure gerencia pontos de recuper
 ms.topic: conceptual
 ms.date: 11/08/2020
 ms.openlocfilehash: 256df693aba0f799c24bcba6defe846e5c37ccaa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94428558"
 ---
 # <a name="manage-recovery-points"></a>Gerenciar pontos de recuperação
@@ -75,14 +75,14 @@ Quando o ponto de recuperação inicial expira, ele é mesclado com o próximo p
 
 ### <a name="case-2-in-between-incremental-recovery-point-expires"></a>Caso 2: o ponto de recuperação incremental entre-entre expira
 
-- Se o *ponto de recuperação 2* expirar antes do *ponto de recuperação 1* , os dados do *ponto de recuperação 2* serão mesclados com o próximo ponto de recuperação disponível: *ponto de recuperação 3*. Portanto, o bloco D3 é mesclado com o *ponto de recuperação 3*.
+- Se o *ponto de recuperação 2* expirar antes do *ponto de recuperação 1*, os dados do *ponto de recuperação 2* serão mesclados com o próximo ponto de recuperação disponível: *ponto de recuperação 3*. Portanto, o bloco D3 é mesclado com o *ponto de recuperação 3*.
 - O *ponto de recuperação 1* ainda é o backup completo com o bloco D1 e D2.
 
 ![Segundo caso](./media/manage-recovery-points/second-case.png)
 
 ### <a name="case-3-on-demand-recovery-point-expires"></a>Caso 3: o ponto de recuperação sob demanda expira
 
-Neste exemplo, uma política de agendamento (backup diário) está agendada para ser executada com período de retenção de *n* dias.  Se um backup sob demanda for disparado no quarto dia antes do próximo backup agendado e seu período de retenção for especificado como 10 dias, ele ainda será um backup incremental. Um ponto de recuperação ( *RP1 sob demanda* ) será criado após o *ponto de recuperação 3* e antes do *ponto de recuperação 4*.  No final do dia 14, o ponto de recuperação sob demanda ( *RP1 sob demanda* ) fica expirado e será mesclado com o próximo ponto de recuperação disponível. Os blocos de dados que ainda estão presentes no servidor são mesclados, enquanto os blocos de dados alterados (substituídos ou excluídos) são excluídos do ponto de recuperação expirado.
+Neste exemplo, uma política de agendamento (backup diário) está agendada para ser executada com período de retenção de *n* dias.  Se um backup sob demanda for disparado no quarto dia antes do próximo backup agendado e seu período de retenção for especificado como 10 dias, ele ainda será um backup incremental. Um ponto de recuperação (*RP1 sob demanda*) será criado após o *ponto de recuperação 3* e antes do *ponto de recuperação 4*.  No final do dia 14, o ponto de recuperação sob demanda (*RP1 sob demanda*) fica expirado e será mesclado com o próximo ponto de recuperação disponível. Os blocos de dados que ainda estão presentes no servidor são mesclados, enquanto os blocos de dados alterados (substituídos ou excluídos) são excluídos do ponto de recuperação expirado.
 
 ![Terceiro caso](./media/manage-recovery-points/third-case.png)
 

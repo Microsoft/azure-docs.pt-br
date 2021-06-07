@@ -1,6 +1,6 @@
 ---
 title: Como usar Hubs de notificação com Python
-description: Saiba como usar os hubs de notificação do Azure de um aplicativo Python.
+description: Saiba como usar Hubs de Notificação do Azure de um aplicativo Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: MT
+ms.openlocfilehash: f964957b916c6841da097f93173b0306bb65c8a4
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424836"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576016"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como usar Hubs de notificação do Python
 
@@ -145,12 +145,12 @@ Primeiro, vamos definir uma classe que representa uma notificação.
 ```python
 class Notification:
     def __init__(self, notification_format=None, payload=None, debug=0):
-        valid_formats = ['template', 'apple', 'fcm',
+        valid_formats = ['template', 'apple', 'gcm',
                          'windows', 'windowsphone', "adm", "baidu"]
         if not any(x in notification_format for x in valid_formats):
             raise Exception(
                 "Invalid Notification format. " +
-                "Must be one of the following - 'template', 'apple', 'fcm', 'windows', 'windowsphone', 'adm', 'baidu'")
+                "Must be one of the following - 'template', 'apple', 'gcm', 'windows', 'windowsphone', 'adm', 'baidu'")
 
         self.format = notification_format
         self.payload = payload
@@ -206,7 +206,7 @@ def make_http_request(self, url, payload, headers):
 def send_notification(self, notification, tag_or_tag_expression=None):
     url = self.Endpoint + self.HubName + '/messages' + self.API_VERSION
 
-    json_platforms = ['template', 'apple', 'fcm', 'adm', 'baidu']
+    json_platforms = ['template', 'apple', 'gcm', 'adm', 'baidu']
 
     if any(x in notification.format for x in json_platforms):
         content_type = "application/json"
@@ -242,8 +242,8 @@ def send_apple_notification(self, payload, tags=""):
     self.send_notification(nh, tags)
 
 
-def send_fcm_notification(self, payload, tags=""):
-    nh = Notification("fcm", payload)
+def send_google_notification(self, payload, tags=""):
+    nh = Notification("gcm", payload)
     self.send_notification(nh, tags)
 
 
@@ -342,13 +342,13 @@ hub.send_apple_notification(alert_payload)
 ### <a name="android"></a>Android
 
 ```python
-fcm_payload = {
+gcm_payload = {
     'data':
         {
             'msg': 'Hello!'
         }
 }
-hub.send_fcm_notification(fcm_payload)
+hub.send_google_notification(gcm_payload)
 ```
 
 ### <a name="kindle-fire"></a>Kindle Fire
@@ -383,7 +383,7 @@ Executar o código do Python deve produzir uma notificação que aparece em seu 
 
 Quando habilitar o sinalizador de depuração ao inicializar o NotificationHub, você verá a solicitação HTTP detalhada e o despejo de resposta, bem como NotificationOutcome semelhante ao seguinte, em que você poderá entender quais cabeçalhos HTTP são passados na solicitação e qual a resposta HTTP foi recebida do Hub de notificação:
 
-![Captura de tela de um console com detalhes da solicitação H T T e do despejo de resposta e das mensagens de resultado de notificação descritos em vermelho.][1]
+![Captura de tela de um console com detalhes da solicitação HTTP e do despejo de resposta e das mensagens de Resultado de Notificação destacados em vermelho.][1]
 
 Você verá o resultado do Hub de Notificação detalhado, por exemplo.
 
@@ -404,7 +404,7 @@ Observe os cabeçalhos que são enviados quando você está enviando uma transmi
 hub.send_windows_notification(wns_payload)
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço e dos valores de tipo X W N S descritos em vermelho.][2]
+![Captura de tela de um console com detalhes da solicitação HTTP e do Formato de Notificação do Barramento de Serviço e dos valores de tipo X W N S destacados em vermelho.][2]
 
 ### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Enviar notificação especificando uma marca (ou expressão de marca)
 
@@ -414,7 +414,7 @@ Observe as Marcas do cabeçalho HTTP que são adicionadas à solicitação HTTP 
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, uma marca de notificação do barramento de serviço e valores de tipo X W N S descritos em vermelho.][3]
+![Captura de tela de um console com detalhes da solicitação HTTP, do Formato de Notificação do Barramento de Serviço, da Marcas de Notificação de Barramento de Serviço e dos valores de tipo X W N S destacados em vermelho.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Enviar notificação especificando várias marcas
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e do formato de notificação do barramento de serviço, várias marcas de notificação do barramento de serviço e valores de tipo X W N S descritos em vermelho.][4]
+![Captura de tela de um console com detalhes da solicitação HTTP, do Formato de Notificação do Barramento de Serviço, de várias Marcas de Notificação de Barramento de Serviço e dos valores de tipo X W N S destacados em vermelho.][4]
 
 ### <a name="templated-notification"></a>Notificação modelada
 
@@ -444,14 +444,14 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![Captura de tela de um console com detalhes da solicitação H T T e os valores de tipo de conteúdo e de formato de notificação do barramento de serviço descritos em vermelho.][5]
+![Captura de tela de um console com detalhes da solicitação HTTP e dos valores de Formato de Notificação do Barramento de Serviço e tipo de Conteúdo destacados em vermelho.][5]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo mostra como criar um cliente REST do Python para os Hubs de Notificação. A partir daqui, você pode:
 
 - Baixe o [amostra de wrapper REST Python]completo, que contém todo o código neste artigo.
-- Continue aprendendo sobre o recurso de marcação de hubs de notificação no [tutorial de últimas notícias]
+- Continue a aprender sobre o recurso de marcação dos Hubs de Notificação no [tutorial Últimas notícias]
 - Continue a aprender sobre o recurso de modelos de Hubs de notificação no [tutorial Localização de notícias]
 
 <!-- URLs -->

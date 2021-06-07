@@ -8,18 +8,18 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 742cff544886a1499bccfa575684edef708da7bd
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028352"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103490969"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para o gêmeos digital do Azure
 
 Lembre-se de que o centro do Azure digital gêmeos é o [gráfico de entrelaçamento](concepts-twins-graph.md), construído de gêmeos e relações digitais. 
 
-Esse grafo pode ser consultado para obter informações sobre o gêmeos digital e as relações que ele contém. Essas consultas são escritas em uma linguagem de consulta do tipo SQL personalizada, conhecida como a **linguagem de consulta do Azure digital gêmeos**. Isso é semelhante à [linguagem de consulta do Hub IOT](../iot-hub/iot-hub-devguide-query-language.md) com muitos recursos comparáveis.
+Esse grafo pode ser consultado para obter informações sobre o gêmeos digital e as relações que ele contém. Essas consultas são escritas em uma linguagem de consulta do tipo SQL personalizada, chamada de **linguagem de consulta dos Gêmeos Digitais do Azure**. Isso é semelhante à [linguagem de consulta do Hub IOT](../iot-hub/iot-hub-devguide-query-language.md) com muitos recursos comparáveis.
 
 Este artigo descreve os conceitos básicos da linguagem de consulta e seus recursos. Para obter exemplos mais detalhados de sintaxe de consulta e como executar solicitações de consulta, consulte [*como consultar o grafo de entrelaçamento*](how-to-query-graph.md).
 
@@ -33,12 +33,17 @@ Você pode usar a linguagem de consulta gêmeos digital do Azure para recuperar 
 
 Para enviar uma consulta ao serviço de um aplicativo cliente, você usará a [**API de consulta**](/rest/api/digital-twins/dataplane/query)do gêmeos digital do Azure. Uma maneira de usar a API é por meio de um dos [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) do Azure digital gêmeos.
 
+### <a name="considerations-for-querying"></a>Considerações para consulta
+
+Ao escrever consultas para o gêmeos digital do Azure, tenha em mente as seguintes considerações:
+* **Lembre-se da diferenciação de maiúsculas** e minúsculas: todas as operações de consulta do Azure digital gêmeos diferenciam maiúsculas de minúsculas. portanto, tome cuidado para usar os nomes exatos definidos Se os nomes de propriedade forem digitados incorretamente ou em maiúsculas e minúsculas, o conjunto de resultados estará vazio sem erros retornados.
+* **Escapar aspas simples**: se o texto da consulta incluir um caractere de aspa simples nos dados, a cotação precisará ser substituída pelo `\` caractere. Aqui está um exemplo que lida com um valor de propriedade de *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## <a name="reference-expressions-and-conditions"></a>Referência: expressões e condições
 
 Esta seção descreve os operadores e funções que estão disponíveis para gravar consultas do Azure digital gêmeos. Por exemplo, consultas que ilustram o uso desses recursos, consulte [*instruções: consultar o grafo de entrelaçamento*](how-to-query-graph.md).
-
-> [!NOTE]
-> Todas as operações de consulta do Azure digital gêmeos diferenciam maiúsculas de minúsculas, portanto, tome cuidado para usar os nomes exatos definidos nos modelos. Se os nomes de propriedade forem digitados incorretamente ou em maiúsculas e minúsculas, o conjunto de resultados estará vazio sem erros retornados.
 
 ### <a name="operators"></a>Operadores
 
@@ -80,7 +85,7 @@ Esta seção descreve as limitações da linguagem de consulta.
 * Nenhuma subconsulta é suportada na `FROM` instrução.
 * `OUTER JOIN` Não há suporte para semântica, o que significa que, se a relação tiver uma classificação igual a zero, a "linha" inteira será eliminada do conjunto de resultados de saída.
 * A profundidade de percurso do grafo é restrita a cinco `JOIN` níveis por consulta.
-* A origem das `JOIN` operações é restrita: a consulta deve declarar o gêmeos onde a consulta começa.
+* As relações no Azure digital gêmeos não podem ser consultadas como entidades independentes; Você também precisa fornecer informações sobre a fonte de dados de origem de los da qual a relação vem. Isso significa que há algumas restrições na `JOIN` operação, que é usada para consultar relações, para certificar-se de que a consulta declarará a (s) teleposição (ões) onde a consulta começa. Para obter exemplos disso, consulte [*consultar por relação*](how-to-query-graph.md#query-by-relationship) no artigo *como: consultar o gráfico de entrelaçamento* .
 
 ## <a name="next-steps"></a>Próximas etapas
 

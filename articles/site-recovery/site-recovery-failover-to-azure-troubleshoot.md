@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371980"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043896"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -78,9 +78,9 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível conectar/RDP/SSH para a máquina virtual com failover devido ao botão Conectar esmaecido na máquina virtual
 
-Para obter instruções de solução de problemas detalhadas sobre problemas de RDP, consulte nossa documentação [aqui](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Para obter instruções de solução de problemas detalhadas sobre problemas de RDP, consulte nossa documentação [aqui](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
-Para obter instruções de solução de problemas detalhadas sobre problemas de SSH, consulte nossa documentação [aqui](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+Para obter instruções de solução de problemas detalhadas sobre problemas de SSH, consulte nossa documentação [aqui](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 
@@ -94,7 +94,7 @@ Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você n
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>Não é possível conectar/RDP/SSH – Botão Conectar da VM disponível
 
-Se o botão **Conectar** da VM com failover no Azure estiver disponível (não esmaecido), verifique o **Diagnóstico de inicialização** em sua máquina virtual e verifique se há erros conforme listado [neste artigo](../virtual-machines/troubleshooting/boot-diagnostics.md).
+Se o botão **Conectar** da VM com failover no Azure estiver disponível (não esmaecido), verifique o **Diagnóstico de inicialização** em sua máquina virtual e verifique se há erros conforme listado [neste artigo](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. Se a máquina virtual não foi iniciada, tente fazer o failover para um ponto de recuperação mais antigo.
 2. Se o aplicativo na máquina virtual não responder, tente o failover para um ponto de recuperação consistente do aplicativo.
@@ -182,7 +182,7 @@ Como resolver o problema:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Solucionar problemas da [conexão de RDP para a VM Windows](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
-- Solucionar problemas da [conexão de SSH para VM Linux](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas da [conexão de RDP para a VM Windows](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Solucionar problemas da [conexão de SSH para VM Linux](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
 Se precisar de mais ajuda, poste sua consulta na [página de perguntas de P e R da Microsoft para o Site Recovery](/answers/topics/azure-site-recovery.html) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.

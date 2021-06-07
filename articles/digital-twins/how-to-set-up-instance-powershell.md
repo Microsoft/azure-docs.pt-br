@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 024b238ef9a6330831ae6cf4dcd6bb72d72dcc74
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98044264"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (PowerShell)

@@ -12,10 +12,10 @@ ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
 ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610430"
 ---
 # <a name="feature-engineering-in-machine-learning"></a>Engenharia de recursos no Machine Learning

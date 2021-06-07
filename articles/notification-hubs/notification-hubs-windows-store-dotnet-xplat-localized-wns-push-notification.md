@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314631"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push localizadas para aplicativos Windows usando Hubs de Notificação do Azure
@@ -32,7 +32,7 @@ ms.locfileid: "92314631"
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial mostra como enviar notificações localizadas para dispositivos móveis registrados com o serviço de Hubs de Notificação. No tutorial, atualize os aplicativos criados no [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para dar suporte aos seguintes cenários:
+Este tutorial mostra como enviar notificações localizadas para dispositivos móveis registrados com o serviço de Hubs de Notificação. No tutorial, você atualiza aplicativos criados no [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para suportar os seguintes cenários:
 
 - O aplicativo da Windows Store permite que dispositivos cliente especifiquem um idioma e se inscrevam em diferentes categorias de últimas notícias.
 - O aplicativo de back-end transmite notificações usando os recursos **tag** e **template** dos Hubs de Notificação do Microsoft Azure.
@@ -48,9 +48,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+Concluir o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-No [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), você criou um aplicativo que usou **tags** para assinar notificações para diferentes **categorias** de notícias. Neste tutorial, você usa o recurso **modelo** de Hubs de Notificação para entregar facilmente notificações de últimas notícias **localizadas**.
+No [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), você criou um aplicativo usando **tags** para assinar notificações para diferentes **categorias** de notícias. Neste tutorial, você usa o recurso **modelo** de Hubs de Notificação para entregar facilmente notificações de últimas notícias **localizadas**.
 
 Em um alto nível, os modelos são uma maneira de especificar o formato no qual um dispositivo específico deve receber uma notificação. O modelo especifica o formato exato da carga referindo-se às propriedades que fazem parte da mensagem enviada por seu aplicativo de back-end. Neste tutorial, o aplicativo de back-end envia uma mensagem que não reconhece a localidade que contém todos os idiomas suportados:
 
@@ -199,7 +199,7 @@ Para saber mais sobre modelos, confira [Push Templates](notification-hubs-templa
 1. Execute o aplicativo da Plataforma Universal do Windows. Aguarde até ver a mensagem **registro bem-sucedido**.
 
     ![Registro e aplicativos móveis](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. Selecione as **categorias** e a **localidade**e clique em **Assinar**. O aplicativo converte as categorias selecionadas em rótulos e solicita um novo registro do dispositivo para os rótulos selecionados do hub de notificação.
+2. Selecione as **categorias** e a **localidade** e clique em **Assinar**. O aplicativo converte as categorias selecionadas em rótulos e solicita um novo registro do dispositivo para os rótulos selecionados do hub de notificação.
 
     ![Aplicativo móvel](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
 3. Você verá uma mensagem de **confirmação** sobre as **assinaturas**.

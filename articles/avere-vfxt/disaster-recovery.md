@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
 ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342239"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Diretrizes de recuperação de desastre para avere vFXT para Azure

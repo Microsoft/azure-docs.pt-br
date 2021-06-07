@@ -1,17 +1,17 @@
 ---
 title: Gerenciar redes virtuais-CLI do Azure-banco de dados do Azure para MySQL-servidor flexível
 description: Criar e gerenciar redes virtuais para o banco de dados do Azure para MySQL-servidor flexível usando o CLI do Azure
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a41cd2ce14ceb452d783b472955de347199d0870
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e60f9010b8fbfb3766aea6b5cffa1e7c001c6eca
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109463"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106727"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Criar e gerenciar redes virtuais para o banco de dados do Azure para MySQL-servidor flexível usando o CLI do Azure
 

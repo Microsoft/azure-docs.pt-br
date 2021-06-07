@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519952"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para usar o logon do Facebook
@@ -54,7 +54,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Faceboo
 
 1. Entre no [portal do Azure] e navegue até o aplicativo do serviço de aplicativo.
 1. Selecione **Configurações** > **Autenticação/Autorização** e verifique se a **Autenticação do Serviço de Aplicativo** está **Ativada**.
-1. Selecione **Facebook**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
+1. Selecione **Facebook** e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
 
    ![Captura de tela das configurações do Facebook do aplicativo móvel][0]

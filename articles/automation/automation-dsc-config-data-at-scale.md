@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bc55a4c5ab20cac041a00a0f924b207eb256ae8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86186513"
 ---
 # <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Configurar dados em escala para a State Configuration da Automação do Azure
@@ -51,6 +51,6 @@ Para experimentar a Datum, visite a [Galeria do PowerShell](https://www.powershe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre o PowerShell DSC, confira [Visão geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Para obter informações sobre o PowerShell DSC, consulte [Visão geral das configurações de Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Saiba mais sobre os recursos de DSC do PowerShell em [Recursos de DSC](/powershell/scripting/dsc/resources/resources).
-- Para obter mais detalhes sobre a configuração do Configuration Manager local, confira [Configurar o Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).
+- Para obter detalhes sobre as definições do Configuration Manager local, consulte [Definir o Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).

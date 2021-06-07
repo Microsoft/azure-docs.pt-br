@@ -8,10 +8,10 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92489567"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início Rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
@@ -63,15 +63,15 @@ Até agora, você criou uma conta de armazenamento do Azure e um compartilhament
 ### <a name="deploy-a-vm"></a>Implantar uma máquina virtual
 
 1. Em seguida, expanda o menu no lado esquerdo do portal e escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
-1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace** , procure e selecione **Windows Server 2016 Datacenter** , em seguida, escolha **Criar**.
-1. Na guia **Básico** , em **Detalhes do projeto** , selecione o grupo de recursos que você criou para este início rápido.
+1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace**, procure e selecione **Windows Server 2016 Datacenter**, em seguida, escolha **Criar**.
+1. Na guia **Básico**, em **Detalhes do projeto**, selecione o grupo de recursos que você criou para este início rápido.
 
    ![Insira as informações básicas sobre sua VM na folha do portal](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
-1. Em **Detalhes da instância** , nomeie a VM *qsVM*.
-1. Deixe as configurações padrão para **Região** , **Opções de disponibilidade** , **Imagem** e **Tamanho**.
-1. Em **Conta de administrador** , adicione *VMadmin* como **Nome de usuário** e insira uma **Senha** para a VM.
-1. Em **Regras de porta de entrada** , escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** na lista suspensa.
+1. Em **Detalhes da instância**, nomeie a VM *qsVM*.
+1. Deixe as configurações padrão para **Região**, **Opções de disponibilidade**, **Imagem** e **Tamanho**.
+1. Em **Conta de administrador**, adicione *VMadmin* como **Nome de usuário** e insira uma **Senha** para a VM.
+1. Em **Regras de porta de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP** na lista suspensa.
 1. Selecione **Examinar + criar**.
 1. Selecione **Criar**. A criação de uma nova VM levará alguns minutos para ser concluída.
 
@@ -85,9 +85,9 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
 
    ![Conecte-se a uma VM do Azure no portal](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. Na página **Conectar-se à máquina virtual** , mantenha as opções padrão para se conectar por **endereço IP** no **número da porta** *3389* e selecione **Baixar arquivo RDP**.
+1. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por **endereço IP** no **número da porta** *3389* e selecione **Baixar arquivo RDP**.
 1. Abra o arquivo RDP baixado e selecione **Conectar** quando solicitado.
-1. Na janela **Segurança do Windows** , selecione **Mais opções** e **Usar uma conta diferente**. Digite o nome de usuário como *localhost\nome de usuário* ,em que &lt;nome de usuário&gt; é o nome do usuário administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e selecione **OK**.
+1. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite o nome de usuário como *localhost\nome de usuário*,em que &lt;nome de usuário&gt; é o nome do usuário administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e selecione **OK**.
 
    ![Mais opções](./media/storage-files-quick-create-use-windows/local-host2.png)
 
@@ -100,7 +100,7 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
 
    ![Captura de tela que mostra o conteúdo da caixa segundos que você deve copiar e colar no Bloco de Notas.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
-1. Na VM, abra **Explorador de Arquivos** e selecione **Este PC** na janela. Esta seleção alterará os menus disponíveis na faixa de opções. No menu **Computador** , selecione **Mapear unidade de rede**.
+1. Na VM, abra **Explorador de Arquivos** e selecione **Este PC** na janela. Esta seleção alterará os menus disponíveis na faixa de opções. No menu **Computador**, selecione **Mapear unidade de rede**.
 1. Selecione a letra da unidade e digite o caminho UNC. Se você seguiu as sugestões de nomenclatura deste início rápido, copie *\\qsstorageacct.file.core.windows.net\qsfileshare* do **Bloco de notas**.
 
    Verifique se as duas caixas de seleção estão marcadas.
@@ -108,7 +108,7 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
    ![Uma captura de tela da caixa de diálogo "Mapear unidade de rede"](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
 
 1. Selecione **Concluir**.
-1. Na caixa de diálogo **Segurança do Windows** :
+1. Na caixa de diálogo **Segurança do Windows**:
 
    - No Bloco de notas, copie o nome da conta de armazenamento iniciada por AZURE\ e cole-o na caixa de diálogo **Segurança do Windows** como o nome de usuário. Se você seguiu as sugestões de nomenclatura neste início rápido, copie *AZURE\qsstorageacct*.
    - No Bloco de notas, copie a chave da conta de armazenamento e cole-a na caixa de diálogo **Segurança do Windows** como a senha.
@@ -129,7 +129,7 @@ Agora que mapeou a unidade, você pode criar um instantâneo.
 ## <a name="browse-a-share-snapshot"></a>Procurar um instantâneo de compartilhamento
 
 1. Em seu compartilhamento de arquivo, selecione **Exibir instantâneos**.
-1. No painel **Instantâneos de compartilhamento de arquivo** , selecione o primeiro instantâneo da lista.
+1. No painel **Instantâneos de compartilhamento de arquivo**, selecione o primeiro instantâneo da lista.
 
    ![Instantâneo selecionado na lista de carimbos de data/hora](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
@@ -147,7 +147,7 @@ Agora que mapeou a unidade, você pode criar um instantâneo.
 ## <a name="delete-a-share-snapshot"></a>Excluir um instantâneo de compartilhamento
 
 1. Em seu compartilhamento de arquivo, selecione **Exibir instantâneos**.
-1. No painel **Instantâneos de compartilhamento de arquivo** , selecione o último instantâneo da lista e clique em **Excluir**.
+1. No painel **Instantâneos de compartilhamento de arquivo**, selecione o último instantâneo da lista e clique em **Excluir**.
 
    ![Botão Excluir](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 

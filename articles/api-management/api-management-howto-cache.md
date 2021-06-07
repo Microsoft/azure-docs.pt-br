@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2020
 ms.author: apimpm
 ms.openlocfilehash: 732abed830afdb759ed52fd933673edd8e5cade6
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94638726"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
@@ -59,11 +59,11 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
 4. Clique em **API de Conferência de Demonstração** na sua lista de APIs.
 5. Selecione **GetSpeakers**.
 6. Na parte superior da tela, selecione a guia **Design**.
-7. Na seção **Processamento de entrada** , clique no ícone **</>** .
+7. Na seção **Processamento de entrada**, clique no ícone **</>** .
 
     ![editor de códigos](media/api-management-howto-cache/code-editor.png)
 
-8. No elemento de **entrada** , adicione a seguinte política:
+8. No elemento de **entrada**, adicione a seguinte política:
 
    ```
    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
@@ -73,7 +73,7 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
    </cache-lookup>
    ```
 
-9. No elemento de **saída** , adicione a seguinte política:
+9. No elemento de **saída**, adicione a seguinte política:
 
    ```
    <cache-store duration="20" />

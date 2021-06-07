@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
 ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420624"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
 Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning. O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
 
-O *parâmetro* de termos e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que você definiu no painel direito do módulo. Basicamente, esse módulo executa uma *varredura de parâmetro* sobre as configurações de parâmetro especificadas. Ele aprende um conjunto ideal de _hiperparâmetros_ , que podem ser diferentes para cada árvore de decisão, conjunto de informações ou método de regressão específico. O processo de encontrar a configuração ideal às vezes é chamado de *ajuste*. 
+O *parâmetro* de termos e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que você definiu no painel direito do módulo. Basicamente, esse módulo executa uma *varredura de parâmetro* sobre as configurações de parâmetro especificadas. Ele aprende um conjunto ideal de _hiperparâmetros_, que podem ser diferentes para cada árvore de decisão, conjunto de informações ou método de regressão específico. O processo de encontrar a configuração ideal às vezes é chamado de *ajuste*. 
 
 O módulo dá suporte ao seguinte método para localizar as configurações ideais para um modelo: *treinamento e ajuste integrados.* Nesse método, você configura um conjunto de parâmetros a ser usado. Em seguida, permita que o módulo Itere em várias combinações. O módulo mede a precisão até encontrar um modelo "melhor". Com a maioria dos módulos do aprendiz, você pode escolher quais parâmetros devem ser alterados durante o processo de treinamento e quais devem permanecer fixos.
 
@@ -49,27 +49,27 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 3.  Adicione o conjunto de dados que você deseja usar para treinamento e conecte-o à entrada intermediária de hiperparâmetros de modelo de ajuste.  
 
-    Opcionalmente, se você tiver um conjunto de dados marcado, você poderá conectá-lo à porta de entrada mais à direita (conjunto de informações de **validação opcional** ). Isso permite que você meça a precisão durante o treinamento e o ajuste.
+    Opcionalmente, se você tiver um conjunto de dados marcado, você poderá conectá-lo à porta de entrada mais à direita (conjunto de informações de **validação opcional**). Isso permite que você meça a precisão durante o treinamento e o ajuste.
 
 4.  No painel direito de ajustar hiperparâmetros de modelo, escolha um valor para o **modo de limpeza de parâmetro**. Esta opção controla como os parâmetros são selecionados.
 
-    - **Grade inteira** : quando você seleciona essa opção, o módulo executa um loop em uma grade predefinida pelo sistema, para tentar combinações diferentes e identificar o melhor aprendiz. Essa opção é útil quando você não sabe quais são as melhores configurações de parâmetro e deseja tentar todas as combinações de valores possíveis.
+    - **Grade inteira**: quando você seleciona essa opção, o módulo executa um loop em uma grade predefinida pelo sistema, para tentar combinações diferentes e identificar o melhor aprendiz. Essa opção é útil quando você não sabe quais são as melhores configurações de parâmetro e deseja tentar todas as combinações de valores possíveis.
 
-    - **Varredura aleatória** : quando você seleciona essa opção, o módulo seleciona os valores de parâmetro aleatoriamente em um intervalo definido pelo sistema. Você deve especificar o número máximo de execuções que deseja que o módulo execute. Essa opção é útil quando você deseja aumentar o desempenho do modelo usando as métricas de sua escolha, mas ainda conservar recursos de computação.    
+    - **Varredura aleatória**: quando você seleciona essa opção, o módulo seleciona os valores de parâmetro aleatoriamente em um intervalo definido pelo sistema. Você deve especificar o número máximo de execuções que deseja que o módulo execute. Essa opção é útil quando você deseja aumentar o desempenho do modelo usando as métricas de sua escolha, mas ainda conservar recursos de computação.    
 
-5.  Para **coluna de rótulo** , abra o seletor de coluna para escolher uma única coluna de rótulo.
+5.  Para **coluna de rótulo**, abra o seletor de coluna para escolher uma única coluna de rótulo.
 
 6.  Escolha o número de execuções:
 
-    - **Número máximo de execuções em varredura aleatória** : se você escolher uma varredura aleatória, poderá especificar quantas vezes o modelo deve ser treinado, usando uma combinação aleatória de valores de parâmetro.
+    - **Número máximo de execuções em varredura aleatória**: se você escolher uma varredura aleatória, poderá especificar quantas vezes o modelo deve ser treinado, usando uma combinação aleatória de valores de parâmetro.
 
-7.  Para **classificação** , escolha uma única métrica a ser usada para classificar os modelos.
+7.  Para **classificação**, escolha uma única métrica a ser usada para classificar os modelos.
 
     Quando você executa uma varredura de parâmetro, o módulo calcula todas as métricas aplicáveis para o tipo de modelo e as retorna no relatório de **resultados de varredura** . O módulo usa métricas separadas para modelos de regressão e classificação.
 
     No entanto, a métrica que você escolhe determina como os modelos são classificados. Somente o modelo superior, conforme classificado pela métrica escolhida, é a saída como um modelo treinado a ser usado para pontuação.
 
-8.  Para **semente aleatória** , insira um número a ser usado para iniciar a limpeza de parâmetro. 
+8.  Para **semente aleatória**, insira um número a ser usado para iniciar a limpeza de parâmetro. 
 
 9. Envie o pipeline.
 
@@ -92,11 +92,11 @@ Esta seção contém detalhes e dicas de implementação.
 
 Ao configurar uma varredura de parâmetro, você define o escopo da pesquisa. A pesquisa pode usar um número finito de parâmetros selecionados aleatoriamente. Ou pode ser uma pesquisa exaustiva em um espaço de parâmetro que você definir.
 
-+ **Varredura aleatória** : essa opção treina um modelo usando um número definido de iterações. 
++ **Varredura aleatória**: essa opção treina um modelo usando um número definido de iterações. 
 
   Você especifica um intervalo de valores para iteração e o módulo usa um subconjunto escolhido aleatoriamente desses valores. Os valores são escolhidos com substituição, o que significa que números anteriormente escolhidos em Random não são removidos do pool de números disponíveis. Portanto, a possibilidade de qualquer valor selecionado permanece a mesma em todos os passos.  
 
-+ **Grade inteira** : a opção de usar a grade inteira significa que cada combinação é testada. Essa opção é a mais completa, mas requer mais tempo. 
++ **Grade inteira**: a opção de usar a grade inteira significa que cada combinação é testada. Essa opção é a mais completa, mas requer mais tempo. 
 
 ### <a name="controlling-the-length-and-complexity-of-training"></a>Controlando o tamanho e a complexidade do treinamento
 
@@ -142,7 +142,7 @@ No entanto, durante o treinamento, você deve escolher uma *única* métrica a s
 
 -   **Erro quadrado relativo** normaliza o erro quadrado total dividindo pelo erro quadrado total dos valores previstos.  
 
--   O **coeficiente de determinação** é um único número que indica quão bem os dados se ajustam a um modelo. Um valor de um significa que o modelo corresponde exatamente aos dados. Um valor de zero significa que os dados são aleatórios ou não podem ser ajustados para o modelo. Ele é frequentemente chamado de *r <sup>2</sup>* , *r <sup>2</sup>* ou *r-quadrado*.  
+-   O **coeficiente de determinação** é um único número que indica quão bem os dados se ajustam a um modelo. Um valor de um significa que o modelo corresponde exatamente aos dados. Um valor de zero significa que os dados são aleatórios ou não podem ser ajustados para o modelo. Ele é frequentemente chamado de *r <sup>2</sup>*, *r <sup>2</sup>* ou *r-quadrado*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Módulos que não dão suporte a uma varredura de parâmetro
 

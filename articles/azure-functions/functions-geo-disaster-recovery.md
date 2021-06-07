@@ -5,10 +5,10 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.openlocfilehash: 446a76b823ce3592a83d0c2f898041951361b47e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86506274"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions recuperação de desastres geograficamente

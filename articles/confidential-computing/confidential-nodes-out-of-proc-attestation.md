@@ -1,19 +1,20 @@
 ---
-title: Suporte a atestado out-of-proc com o DaemonSet do auxiliar de cotação do Intel SGX no Azure
-description: DaemonSet para gerar a cotação out-of-proc do aplicativo SGX. Este artigo explica como o recurso de atestado out-of-proc é fornecido para cargas de trabalho confidenciais em execução dentro de um contêiner.
+title: Suporte a um atestado out-of-proc usando um DaemonSet do auxiliar de cotação do Intel SGX no Azure (versão prévia)
+description: DaemonSet para gerar a cotação out-of-proc do aplicativo SGX. Este artigo explicará de que modo um recurso do atestado out-of-proc será fornecido para cargas de trabalho confidenciais em execução dentro de um contêiner.
 ms.service: container-service
+ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564150"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932617"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Gerenciamento de software de plataforma com o conjunto de daemons do auxiliar de cotação do SGX
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gerenciamento de Software de Plataforma usando um DaemonSet do auxiliar de cotação do SGX (versão prévia)
 
 Os [aplicativos de enclave](confidential-computing-enclaves.md) que executam o atestado remoto exigem uma COTAÇÃO gerada. Essa COTAÇÃO fornece uma prova criptográfica da identidade e do estado do aplicativo, bem como o ambiente no qual o enclave está sendo executado. A geração da COTAÇÃO requer componentes de software confiáveis que fazem parte do PSW (componentes de software da plataforma).
 
@@ -27,6 +28,13 @@ A Intel dá suporte a dois modos de atestado para executar a geração de cotaç
 Aplicativos SGX criados usando o SDK do Open Enclave por padrão usam o modo de atestado in-proc. Os aplicativos baseados em SGX permitem out-of-proc e exigem hospedagem extra, expondo os componentes obrigatórios, como AESM (Architectural Enclave Service Manager), externos ao aplicativo.
 
 A utilização desse recurso é **altamente recomendável**, pois aprimora o tempo de atividade para seus aplicativos de enclave durante as atualizações de plataforma Intel ou atualizações de driver DCAP.
+
+Para habilitar esse recurso em um Cluster do AKS, modifique a opção Adicionar comando --enable-sgxquotehelper para a CLI ao habilitar um complemento de computação confidencial. Instruções detalhadas da CLI estão disponíveis [aqui](confidential-nodes-aks-get-started.md): 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Por que usar e quais são os benefícios do out-of-proc?
 

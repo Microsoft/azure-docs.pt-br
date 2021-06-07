@@ -1,26 +1,16 @@
 ---
-title: Agregação de evento clássico do módulo de segurança
+title: Agregação de eventos clássicos do defender-IoT-micro-Agent
 description: Saiba mais sobre o defender para agregação de eventos de IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/20/2021
-ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 3/23/2021
+ms.openlocfilehash: e6c0f0e6e1f4027716ff8e3ca99f1c8803f33260
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809211"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779130"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Agregação de evento clássico do módulo de segurança
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregação de eventos clássicos do defender-IoT-micro-Agent
 
 Os agentes de segurança do defender para IoT coletam dados e eventos do sistema do seu dispositivo local e enviam esses dados para a nuvem do Azure para processamento e análise. O agente de segurança coleta muitos tipos de eventos de dispositivo, incluindo novo processo e novos eventos de conexão. Os novos eventos de processo e de conexão podem ocorrer legitimamente com frequência em um dispositivo em um segundo e, embora sejam importantes para segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode atingir rapidamente ou exceder a cota e os limites de custos do Hub IoT. No entanto, esses eventos contêm informações de segurança altamente valiosas que são cruciais para proteger seu dispositivo.
 
@@ -69,11 +59,11 @@ Faça alterações na configuração do defender para agregação de eventos de 
 
 | Nome da configuração | Valores possíveis | Detalhes | Comentários |
 |:-----------|:---------------|:--------|:--------|
-| aggregationEnabledProcessCreate | boolean | Habilitar/desabilitar a agregação de eventos para processar eventos de criação |
+| aggregationEnabledProcessCreate | booleano | Habilitar/desabilitar a agregação de eventos para processar eventos de criação |
 | aggregationIntervalProcessCreate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para processo cria eventos |
-| aggregationEnabledConnectionCreate | boolean| Habilitar/desabilitar a agregação de eventos para conexão criar eventos |
+| aggregationEnabledConnectionCreate | booleano| Habilitar/desabilitar a agregação de eventos para conexão criar eventos |
 | aggregationIntervalConnectionCreate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para conexão cria eventos |
-| aggregationEnabledProcessTerminate | boolean | Habilitar/desabilitar a agregação de eventos para processar eventos de término | Somente Windows|
+| aggregationEnabledProcessTerminate | booleano | Habilitar/desabilitar a agregação de eventos para processar eventos de término | Somente Windows|
 | aggregationIntervalProcessTerminate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para eventos de término de processo | Somente Windows|
 |
 
@@ -93,7 +83,7 @@ Faça alterações na configuração do defender para agregação de eventos de 
 
 Neste artigo, você aprendeu sobre a agregação do agente de segurança do defender para IoT e as opções de configuração de evento disponíveis.
 
-Para continuar a introdução à implantação do defender para IoT, use os seguintes artigos:
+Para continuar com a introdução à implantação do Defender para IoT, use os seguintes artigos:
 
 - Entender os [métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)
 - Selecionar e implantar um [agente de segurança](how-to-deploy-agent.md)

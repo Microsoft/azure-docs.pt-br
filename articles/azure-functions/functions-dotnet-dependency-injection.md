@@ -4,15 +4,15 @@ description: Saiba como usar a injeção de dependência para registrar e usar s
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955081"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608112"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -21,6 +21,11 @@ O Azure Functions dá suporte ao padrão de design de software injeção de depe
 - A injeção de dependência no Azure Functions é desenvolvida usando como base os recursos de injeção de dependência do .NET Core. Recomendamos conhecer bem a injeção de dependência do [.NET Core](/aspnet/core/fundamentals/dependency-injection). Há diferenças em como substituir dependências e como os valores de configuração são lidos com o Azure Functions no plano de consumo.
 
 - O suporte para injeção de dependência começa com Azure Functions 2.x.
+
+- Padrões de injeção de dependência diferem dependendo se suas funções C# são executadas [em processo](functions-dotnet-class-library.md) ou [fora de processo](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> As diretrizes neste artigo se aplicam somente a [funções de biblioteca de classes C#](functions-dotnet-class-library.md), que são executadas em processo com o tempo de execução. Este modelo de injeção de dependência personalizado não se aplica a [funções isoladas do .net](dotnet-isolated-process-guide.md), o que permite executar as funções do .NET 5,0 fora do processo. O modelo de processo isolado do .NET depende de padrões de injeção de dependência ASP.NET Core regulares. Para saber mais, confira [injeção de dependência](dotnet-isolated-process-guide.md#dependency-injection) no guia de processo isolado do .net.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

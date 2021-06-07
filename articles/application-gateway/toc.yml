@@ -158,6 +158,8 @@
           href: ingress-controller-install-existing.md
         - name: Entrada para AKS via Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Migrar da implantação do Helm para o complemento AKS
+          href: ingress-controller-migration.md
         - name: Desabilitar e reabilitar o complemento do Controlador de Entrada do AKS
           href: ingress-controller-disable-addon.md
         - name: Habilitar afinidade de cookie

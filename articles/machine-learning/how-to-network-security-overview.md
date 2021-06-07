@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980568"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573465"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -36,7 +36,6 @@ Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
 + [Link Privado do Azure](how-to-configure-private-link.md)
 + [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Cenário de exemplo
 
 Nesta seção, você aprenderá como um cenário de rede comum é configurado para proteger Azure Machine Learning comunicação com endereços IP privados.
@@ -62,16 +61,21 @@ As próximas cinco seções mostram como proteger o cenário de rede descrito ac
 1. Proteja o [**ambiente de treinamento**](#secure-the-training-environment).
 1. Proteja o [**ambiente inferência**](#secure-the-inferencing-environment).
 1. Opcionalmente: [**habilitar a funcionalidade do estúdio**](#optional-enable-studio-functionality).
-1. Definir [ **configurações de firewall**](#configure-firewall-settings)
-
+1. Defina [**as configurações de firewall**](#configure-firewall-settings).
+1. Configurar a [resolução de nomes DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger o espaço de trabalho e os recursos associados
 
 Use as etapas a seguir para proteger seu espaço de trabalho e os recursos associados. Essas etapas permitem que seus serviços se comuniquem na rede virtual.
 
 1. Crie um [espaço de trabalho habilitado para vínculo privado](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar a comunicação entre a VNet e o espaço de trabalho.
-1. Adicione Azure Key Vault à rede virtual com um [ponto de extremidade de serviço](../key-vault/general/overview-vnet-service-endpoints.md) ou um ponto de [extremidade privado](../key-vault/general/private-link-service.md). Defina Key Vault como ["permitir que os serviços confiáveis da Microsoft ignorem esse firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Adicione sua conta de armazenamento do Azure à rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou um ponto de [extremidade privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configure o registro de contêiner do Azure para usar um ponto de extremidade privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e [habilitar a delegação de sub-rede em instâncias de contêiner do Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. Adicione os seguintes serviços à rede virtual usando um ponto _de_ __extremidade de serviço__ ou um __ponto de extremidade privado__. Você também deve permitir que os serviços confiáveis da Microsoft acessem esses serviços:
+    
+    | Serviço | Informações do ponto de extremidade | Permitir informações confiáveis |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Ponto de extremidade de serviço](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Ponto de extremidade privado](../key-vault/general/private-link-service.md) | [Permitir que os serviços confiáveis da Microsoft ignorem esse firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Conta de Armazenamento do Azure__ | [Ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Ponto de extremidade privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Conceder acesso a serviços confiáveis do Azure](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Registro de Contêiner do Azure__ | [Ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Ponto de extremidade privado](../container-registry/container-registry-private-link.md) | [Permitir serviços confiáveis](../container-registry/allow-access-trusted-services.md) |
+
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados se comunicam entre si em pontos de extremidade de serviço ou pontos de extremidade privados dentro de uma VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 
@@ -106,10 +110,7 @@ Nesta seção, você aprenderá como o Azure Machine Learning se comunica com se
 
 1. Os serviços do lote do Azure recebem o trabalho do espaço de trabalho e enviam o trabalho de treinamento para o ambiente de computação por meio do balanceador de carga público provisionado com o recurso de computação. 
 
-1. O recurso de computação recebe o trabalho e começa o treinamento. Os recursos de computação acessam contas de armazenamento seguro para baixar arquivos de treinamento e carregar a saída. 
-
-![Diagrama de arquitetura mostrando como um trabalho de treinamento de Azure Machine Learning é enviado ao usar uma VNet](./media/how-to-network-security-overview/secure-training-job-submission.png)
-
+1. O recurso de computação recebe o trabalho e começa o treinamento. Os recursos de computação acessam contas de armazenamento seguro para baixar arquivos de treinamento e carregar a saída.
 
 ### <a name="limitations"></a>Limitações
 
@@ -178,9 +179,11 @@ Para obter mais informações sobre os nomes de domínio e endereços IP necess�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo faz parte de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo faz parte de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 2: visão geral da rede virtual](how-to-secure-workspace-vnet.md)
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)
 * [Parte 4: proteger o ambiente inferência](how-to-secure-inferencing-vnet.md)
 * [Parte 5: habilitar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+
+Consulte também o artigo sobre como usar o [DNS personalizado](how-to-custom-dns.md) para a resolução de nomes.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4c9eaf68036531530f844e919bacfae922441b79
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92453817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integração do Azure Active Directory com ExcelityGlobal
@@ -61,7 +61,7 @@ Para configurar a integração do ExcelityGlobal ao Azure AD, você precisará a
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ExcelityGlobal** , selecione **ExcelityGlobal** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **ExcelityGlobal**, selecione **ExcelityGlobal** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![ExcelityGlobal na lista de resultados](common/search-new-app.png)
 
@@ -85,29 +85,29 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o ExcelityGlobal, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **ExcelityGlobal** , clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **ExcelityGlobal**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Configurar Logon Único com SAML** , execute as seguintes etapas:
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do ExcelityGlobal](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     **Para o ambiente de produção** : `https://ess.excelityglobal.com`
 
     **Para o ambiente de área restrita** : `https://s6.excelityglobal.com`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
     **Para o ambiente de produção** : `https://ess.excelityglobal.com/ACS`
 
@@ -117,15 +117,15 @@ Para configurar o logon único do Azure AD com o ExcelityGlobal, execute as segu
  
     ![image](common/edit-attribute.png)
 
-6. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+6. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-7. Na seção **Certificado de Autenticação SAML** , copie a **Impressão Digital** e salve-a no computador.
+7. Na seção **Certificado de Autenticação SAML**, copie a **Impressão Digital** e salve-a no computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-8. Na seção **Configurar o ExcelityGlobal** , copie as URLs apropriadas de acordo com suas necessidades.
+8. Na seção **Configurar o ExcelityGlobal**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -137,13 +137,13 @@ Para configurar o logon único do Azure AD com o ExcelityGlobal, execute as segu
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurar o logon único do ExcelityGlobal
 
-Para configurar o logon único no **ExcelityGlobal** , é necessário enviar o **valor da impressão digital** e as URLs copiadas adequadamente do portal do Azure para [a equipe de suporte do ExcelityGlobal](https://www.excelityglobal.com/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no **ExcelityGlobal**, é necessário enviar o **valor da impressão digital** e as URLs copiadas adequadamente do portal do Azure para [a equipe de suporte do ExcelityGlobal](https://www.excelityglobal.com/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -155,9 +155,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -168,7 +168,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao ExcelityGlobal.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, selecione **ExcelityGlobal**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **ExcelityGlobal**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -184,11 +184,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-excelityglobal-test-user"></a>Criar usuário de teste do ExcelityGlobal
 
@@ -206,4 +206,4 @@ Ao clicar no bloco do ExcelityGlobal no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

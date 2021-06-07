@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b8f0cfdf3ca6e3b0bb0b455a5690d6a2727786ce
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392367"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100586766"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Linha de base de segurança do Azure para bastiões do Azure
 
@@ -376,9 +376,9 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede) e logs d
 
 **Diretrizes**: logs de atividade, que estão disponíveis automaticamente, contêm todas as operações de gravação (put, post, Delete) para seus recursos de bastiões do Azure, exceto operações de leitura (Get). Os logs de atividades podem ser usados para encontrar um erro ao solucionar problemas ou para monitorar como um usuário em sua organização modificou um recurso.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Habilitar logs de recursos do Azure para bastiões do Azure](diagnostic-logs.md)
 
@@ -396,7 +396,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiro
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -410,9 +410,9 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização.
 
-- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 - [Habilitar e trabalhar com os logs de bastiões do Azure](diagnostic-logs.md)
 

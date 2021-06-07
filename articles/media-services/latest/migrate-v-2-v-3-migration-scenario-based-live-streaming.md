@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955285"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563119"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Diretrizes de migração baseadas em cenários de transmissão ao vivo
 
@@ -42,7 +42,7 @@ Teste a nova maneira de fornecer eventos ao vivo com os serviços de mídia ante
 - Se você precisar de início rápido de eventos ao vivo, explore os novos recursos do [modo de espera](live-events-outputs-concept.md#standby-mode) .
 - Se você quiser transcrever seu evento ao vivo enquanto ele estiver acontecendo, explore o novo recurso de [transcrição ao vivo](live-transcription.md) .
 - Crie eventos ao vivo 24x7x365 na v3 se precisar de uma duração de streaming maior.
-- Use a [grade de eventos](monitor-events-portal-how-to.md) para monitorar seus eventos ao vivo.
+- Use a [grade de eventos](monitoring/monitor-events-portal-how-to.md) para monitorar seus eventos ao vivo.
 
 Veja os conceitos de eventos ao vivo, tutoriais e guias de instruções abaixo para obter etapas específicas.
 
@@ -62,7 +62,7 @@ Veja os conceitos de eventos ao vivo, tutoriais e guias de instruções abaixo p
 
 ### <a name="tutorials-and-quickstarts"></a>Tutoriais e guias de início rápido
 
-- [Tutorial: transmitir ao vivo com os serviços de mídia](stream-live-tutorial-with-api.md)
+- [Tutorial: Transmissão ao vivo com os Serviços de Mídia](stream-live-tutorial-with-api.md)
 - [Criar uma transmissão ao vivo dos Serviços de Mídia do Azure com o OBS](live-events-obs-quickstart.md)
 - [Início Rápido: Carregar, codificar e transmitir o conteúdo com o portal](manage-assets-quickstart.md)
 - [Início rápido: criar uma transmissão ao vivo dos serviços de mídia do Azure com Wirecast](live-events-wirecast-quickstart.md)
@@ -70,7 +70,3 @@ Veja os conceitos de eventos ao vivo, tutoriais e guias de instruções abaixo p
 ## <a name="samples"></a>Exemplos
 
 Você também pode [comparar o código V2 e v3 nos exemplos de código](migrate-v-2-v-3-migration-samples.md).
-
-## <a name="next-steps"></a>Próximas etapas
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

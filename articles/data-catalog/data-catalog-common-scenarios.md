@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 4f76a9696d613a4a974c9ae7c7b2578e56f2fcfa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736453"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104674607"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns de Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 Este artigo apresenta cenários comuns nos quais o Catálogo de Dados do Azure pode ajudar a sua organização a obter mais valor de suas fontes de dados existentes.
 
 ## <a name="scenario-1-registration-of-central-data-sources"></a>Cenário 1 – Registro de fontes de dados centrais

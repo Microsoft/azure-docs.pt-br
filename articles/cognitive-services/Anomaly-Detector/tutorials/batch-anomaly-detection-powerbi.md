@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc2667dfddf4442acaf39f6783190e8640b22a89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006193"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561722"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 * Uma [assinatura do Azure](https://azure.microsoft.com/free/cognitive-services)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponível gratuitamente.
 * Um arquivo do Excel (.xlsx) contendo pontos de dados de série temporal. Os dados de exemplo deste início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Crie um recurso de Detector de Anomalias"  target="_blank">Crie um recurso de detector de anomalias <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade.
+* Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Crie um recurso de Detector de Anomalias"  target="_blank">Crie um recurso de detector de anomalias </a> no portal do Azure para obter a chave e o ponto de extremidade.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API do Detector de Anomalias. Você fará isso posteriormente no início rápido.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
@@ -175,4 +175,4 @@ Aplique cores ao gráfico clicando na ferramenta **Formato** e **Cores de dados*
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Detecção de anomalias de streaming com o Azure Databricks](anomaly-detection-streaming-databricks.md)
+>[Detecção de anomalias de streaming com o Azure Databricks](../overview.md)

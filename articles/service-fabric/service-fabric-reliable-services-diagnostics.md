@@ -4,10 +4,10 @@ description: Funcionalidade de diagnóstico para Reliable Services com estado no
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789323"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649255"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
@@ -34,8 +34,9 @@ Este artigo fornece instruções para criar e configurar uma política de IPsec/
 
 > [!IMPORTANT]
 > 1. Observe que a política IPsec/IKE só funciona nas seguintes SKUs de gateway:
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (baseado em rota) _ ***Standard** _ e _*_HighPerformance_*_ (baseado em rota)
-> 2. Você só pode especificar _*_uma_*_ combinação de política para uma determinada conexão.
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (baseado em rotas)
+>    * ***Standard** _ e _ *_HighPerformance_** (baseado em rota)
+> 2. Você só pode especificar ***uma*** combinação de políticas para uma determinada conexão.
 > 3. Você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
 > 4. Consulte as especificações do fornecedor do dispositivo VPN para garantir que a política tem suporte em seus dispositivos VPN local. S2S ou conexões VNet para VNet não podem estabelecer se as políticas são incompatíveis.
 
@@ -55,7 +56,7 @@ As instruções neste artigo ajudam você a instalar e configurar políticas de 
 
 A tabela a seguir lista os algoritmos de criptografia compatíveis e restrições de chave configuráveis pelos clientes:
 
-| _ *IPSec/IKEv2**  | **Opções**    |
+| **IPsec/IKEv2**  | **Opções**    |
 | ---  | --- 
 | Criptografia IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5  |

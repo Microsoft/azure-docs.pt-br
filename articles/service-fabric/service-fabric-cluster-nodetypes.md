@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97095246"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
@@ -74,7 +74,7 @@ A seguir estão as descrições de propriedade:
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 | name | string | Nome exclusivo para a extensão |
-| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
+| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | editor | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
 | clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |

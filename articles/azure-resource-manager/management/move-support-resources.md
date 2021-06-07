@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: fe8f6705fdce1a692dd8a969cfc4b3b21d2d2a11
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 3a15ddc62c19d74871de33003d46ec2fc5437f51
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072098"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584679"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -850,7 +850,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sim | Sim |
+> | flexibleServers | Não | Não |
 > | servers | Sim | Sim |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
@@ -858,7 +858,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sim | Sim |
+> | flexibleServers | Não | Não |
 > | servergroups | Não | Não |
 > | servers | Sim | Sim |
 > | serversv2 | Sim | Sim |

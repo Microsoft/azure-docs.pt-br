@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241728"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gerenciar alta disponibilidade redundante de zona no banco de dados do Azure para MySQL servidor flexível (versão prévia)
@@ -32,18 +32,18 @@ Esta página fornece diretrizes de como você pode habilitar ou desabilitar a al
 
 Esta seção fornece detalhes especificamente para campos relacionados à HA. Você pode seguir estas etapas para implantar a alta disponibilidade ao criar seu servidor flexível.
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha servidor flexível e clique em **criar** .  Para obter detalhes sobre como preencher detalhes como **assinatura** , **grupo de recursos** , **nome do servidor** , **região** e outros campos, consulte a documentação de instruções para a criação do servidor.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha servidor flexível e clique em **criar**.  Para obter detalhes sobre como preencher detalhes como **assinatura**, **grupo de recursos**, **nome do servidor**, **região** e outros campos, consulte a documentação de instruções para a criação do servidor.
 
 2.  Clique na caixa de seleção de **alta disponibilidade com redundância de zona** na opção disponibilidade.
 
-3.  Se você quiser alterar a computação e o armazenamento padrão, clique em  **Configurar servidor** .
+3.  Se você quiser alterar a computação e o armazenamento padrão, clique em  **Configurar servidor**.
 
 4.  Se a opção de alta disponibilidade estiver marcada, a camada expansível não estará disponível para escolher. Você pode escolher as camadas de computação de **uso geral** ou **otimizado para memória** .
 
     > [!IMPORTANT]
-    > Há suporte apenas para alta disponibilidade redundante de zona para o tipo de preço * *_uso geral_* _ e com _*_otimização de memória_*_ .
+    > Há suporte apenas para alta disponibilidade redundante de zona para o tipo de preço ***uso geral** de *_memória otimizada_**.
 
-5.  Selecione o _ *tamanho da computação* * para sua escolha na lista suspensa.
+5.  Selecione o **tamanho de computação** para sua escolha no menu suspenso.
 
 6.  Selecione o **tamanho do armazenamento** em GIB usando a barra deslizante e selecione o período de retenção de **backup** entre 7 dias e 35 dias.   
 

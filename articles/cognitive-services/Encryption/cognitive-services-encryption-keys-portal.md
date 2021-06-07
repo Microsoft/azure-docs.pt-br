@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: fca3fc80411432f2e82a68faa3b6f297b8ca5f9c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 88a723abc606a527232b7c1949f35c1fedfdba50
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521995"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101706836"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurar chaves gerenciadas pelo cliente com Azure Key Vault para serviços cognitivas
 
@@ -21,8 +21,8 @@ O processo para habilitar chaves de Customer-Managed com Azure Key Vault para se
 
 ## <a name="vision"></a>Visão
 
-* [Visão Personalizada criptografia de dados em repouso](../Custom-Vision-Service/encrypt-data-at-rest.md)
-* [Criptografia de serviços de face de dados em repouso](../Face/encrypt-data-at-rest.md)
+* [Visão Personalizada criptografia de dados em repouso](../custom-vision-service/encrypt-data-at-rest.md)
+* [Criptografia de serviços de face de dados em repouso](../face/encrypt-data-at-rest.md)
 * [Criptografia do reconhecedor de formulário de dados em repouso](../form-recognizer/encrypt-data-at-rest.md)
 
 ## <a name="language"></a>Idioma

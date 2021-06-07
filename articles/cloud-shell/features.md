@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c707a6522d037ba3926b55579e501eadd2764416
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470146"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798265"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
@@ -57,7 +57,7 @@ O PowerShell no Cloud Shell contém uma compilação particular do módulo do Ex
 
 ![Captura de tela de um Azure Cloud Shell executando os comandos Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
- Executar `Get-Command -Module tmp_*`
+ Execute `Get-Command -Module tmp_*`
 > [!NOTE]
 > O nome do módulo deve começar com `tmp_` , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
 
@@ -78,7 +78,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Ferramentas de build            |Make<br> Maven<br> npm<br> pip         |
 |Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|
+|Outro                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)<br> [CLI do Office 365](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Suporte ao idioma
 
@@ -89,7 +89,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 e 3.5 (padrão)|
+|Python     |2,7 e 3,7 (padrão)|
 
 ## <a name="next-steps"></a>Próximas etapas
 [Bash no guia de início rápido Cloud Shell](quickstart.md) <br>

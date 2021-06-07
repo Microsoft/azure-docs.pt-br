@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ae7fd5a7c9bc858cb18473374e7bd5589717eac6
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742073"
 ---
 # <a name="get-started-with-azure-cloud-services-classic-and-aspnet"></a>Introdução aos serviços de nuvem do Azure (clássico) e ASP.NET
@@ -407,10 +407,10 @@ Para adicionar arquivos a um projeto ou uma pasta, clique com o botão direito d
 1. No projeto ContosoAdsCommon, exclua o arquivo *Class1.cs* e substitua-o pelos arquivos *Ad.cs* e *ContosoAdscontext.cs* do projeto baixado.
 2. No projeto ContosoAdsWeb, adicione os seguintes arquivos do projeto baixado.
 
-   * *Global.asax.cs*.  
+   * *Global. asax. cs*.  
    * Na pasta *Views\Shared*: *\_Layout.cshtml*.
    * Na pasta *views\home* : *index. cshtml*.
-   * Na pasta *controladores* : *AdController.cs*.
+   * Na pasta *controladores* : *AdController. cs*.
    * Na pasta *Views\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*.
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto baixado.
 
@@ -534,7 +534,7 @@ O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os li
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência ao contêiner de blobs de *imagens* como visto anteriormente em *global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de repetição de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas para uma falha transitória. A política de recuperação especificada aqui aguarda três segundos após cada tentativa, até três tentativas.
+Em seguida, o código obtém uma referência ao contêiner de blobs de *imagens* como vimos anteriormente em *global. asax. cs*. Enquanto faz isso ele define uma [política de recuperação](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de repetição de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas para uma falha transitória. A política de recuperação especificada aqui aguarda três segundos após cada tentativa, até três tentativas.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();

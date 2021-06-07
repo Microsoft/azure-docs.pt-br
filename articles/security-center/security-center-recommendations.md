@@ -1,57 +1,22 @@
 ---
 title: Recomendações de segurança na Central de Segurança do Azure
 description: Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure e a cumprir as políticas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 57760443746e111750e74ef55fc18729f6ba32c4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526478"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100331"
 ---
-# <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
+# <a name="review-your-security-recommendations"></a>Examinar as recomendações de segurança
 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
-
-
-## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
-
-A Central de Segurança analisa periodicamente o estado de segurança dos seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Em seguida, ela fornece recomendações sobre como corrigir essas vulnerabilidades.
-
-As recomendações são ações a serem executadas para proteger e proteger seus recursos. 
-
-Cada recomendação fornece:
-
-- Uma descrição breve do problema
-- As etapas de correção para executar a fim de implementar a recomendação
-- Os recursos afetados
-
-## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Como a Microsoft decide o que precisa de proteção e proteção?
-
-As recomendações da Central de Segurança baseiam-se no Azure Security Benchmark. Quase todas as recomendações têm uma política subjacente que é derivada de um requisito no parâmetro de comparação.
-
-O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem. Saiba mais sobre o [Azure Security Benchmark](../security/benchmarks/introduction.md).
-
-Quando você estiver examinando os detalhes de uma recomendação, muitas vezes é útil poder ver a política subjacente. Para cada recomendação com suporte de uma política, use o link **Exibir definição de política** da página de detalhes de recomendação para ir diretamente para a entrada de Azure Policy para a política relevante:
-
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link para a página de Azure Policy para a política específica que dá suporte a uma recomendação":::
-
-Use este link para exibir a definição de política e examinar a lógica de avaliação. 
-
-Se você estiver examinando a lista de recomendações em nosso [Guia de referência de recomendações de segurança](recommendations-reference.md), você também verá links para as páginas de definição de política:
-
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Acessando a página de Azure Policy para uma política específica diretamente da página de referência de recomendações da central de segurança do Azure":::
 
 ## <a name="monitor-recommendations"></a>Recomendações de monitor <a name="monitor-recommendations"></a>
 

@@ -3,14 +3,14 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632454"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669671"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -21,6 +21,9 @@ Em cada cenário, a implantação que você cria tem como destino o computador o
 * O sistema operacional é previamente selecionado automaticamente com base no sistema operacional do computador
 * O computador de destino para atualizar está definido para o próprio destino automaticamente
 * Ao configurar o agendamento, você pode especificar **Atualizar agora**, ocorre uma vez ou usa um agendamento recorrente.
+
+> [!IMPORTANT]
+> Ao criar uma implantação de atualização, você aceita os termos dos termos de licença de software (EULA) fornecidos pelas atualizações de oferta da empresa para seu sistema operacional.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -59,7 +62,7 @@ Para agendar uma nova implantação de atualização, execute as etapas a seguir
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
 
-6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Você pode incluir até um máximo de 1000 computadores em uma implantação de atualização agendada.
+6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/logs/computer-groups.md). Você pode incluir até um máximo de 1000 computadores em uma implantação de atualização agendada.
 
     > [!NOTE]
     > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.

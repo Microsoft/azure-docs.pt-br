@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88923391"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData para `$filter` , `$orderby` e `$select` no Azure pesquisa cognitiva
 
-O Azure Pesquisa Cognitiva dá suporte a um subconjunto da sintaxe de expressão OData para expressões **$Filter**, **$OrderBy**e **$Select** . As expressões Filter são avaliadas durante a análise da consulta, restringindo a pesquisa a campos específicos ou adicionando critérios de correspondência usados durante as verificações de índice. As expressões order-by são aplicadas como uma etapa de pós-processamento em um conjunto de resultados para classificar os documentos que são retornados. As expressões Select determinam quais campos de documento são incluídos no conjunto de resultados. A sintaxe dessas expressões é distinta da sintaxe de consulta [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) usada no parâmetro de **pesquisa** , embora haja sobreposição na sintaxe para fazer referência a campos.
+O Azure Pesquisa Cognitiva dá suporte a um subconjunto da sintaxe de expressão OData para expressões **$Filter**, **$OrderBy** e **$Select** . As expressões Filter são avaliadas durante a análise da consulta, restringindo a pesquisa a campos específicos ou adicionando critérios de correspondência usados durante as verificações de índice. As expressões order-by são aplicadas como uma etapa de pós-processamento em um conjunto de resultados para classificar os documentos que são retornados. As expressões Select determinam quais campos de documento são incluídos no conjunto de resultados. A sintaxe dessas expressões é distinta da sintaxe de consulta [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) usada no parâmetro de **pesquisa** , embora haja sobreposição na sintaxe para fazer referência a campos.
 
 Este artigo fornece uma visão geral da linguagem de expressão OData usada em filtros, pedidos e expressões SELECT. O idioma é apresentado "de baixo para cima", começando com os elementos mais básicos e criando-os. A sintaxe de nível superior para cada parâmetro é descrita em um artigo separado:
 
@@ -79,7 +79,7 @@ Exemplos de caminhos de campo são mostrados na tabela a seguir:
 | `room/Type` | Refere-se ao `Type` subcampo da `room` variável de intervalo, por exemplo, na expressão de filtro `Rooms/any(room: room/Type eq 'deluxe')` |
 | `store/Address/Country` | Refere-se ao `Country` subcampo do `Address` subcampo da `store` variável de intervalo, por exemplo, na expressão de filtro `Stores/any(store: store/Address/Country eq 'Canada')` |
 
-O significado de um caminho de campo difere dependendo do contexto. Em filtros, um caminho de campo refere-se ao valor de uma *única instância* de um campo no documento atual. Em outros contextos, como **$OrderBy**, **$Select**ou na pesquisa de [campo na sintaxe Lucene completa](query-lucene-syntax.md#bkmk_fields), um caminho de campo se refere ao próprio campo. Essa diferença tem algumas conseqüências para a forma como você usa caminhos de campo em filtros.
+O significado de um caminho de campo difere dependendo do contexto. Em filtros, um caminho de campo refere-se ao valor de uma *única instância* de um campo no documento atual. Em outros contextos, como **$OrderBy**, **$Select** ou na pesquisa de [campo na sintaxe Lucene completa](query-lucene-syntax.md#bkmk_fields), um caminho de campo se refere ao próprio campo. Essa diferença tem algumas conseqüências para a forma como você usa caminhos de campo em filtros.
 
 Considere o caminho do campo `Address/City` . Em um filtro, isso se refere a uma única cidade para o documento atual, como "San Francisco". Por outro lado, `Rooms/Type` o se refere ao `Type` subcampo para muitas salas (como "padrão" na primeira sala, "Deluxe" para a segunda sala e assim por diante). Como `Rooms/Type` o não se refere a uma *única instância* do subcampo `Type` , ele não pode ser usado diretamente em um filtro. Em vez disso, para filtrar o tipo de sala, você usaria uma [expressão lambda](search-query-odata-collection-operators.md) com uma variável de intervalo, desta forma:
 
@@ -211,7 +211,7 @@ Caminhos de campo e constantes são a parte mais básica de uma expressão OData
 
 No entanto, na maioria das vezes você precisará de expressões mais complexas que se refiram a mais de um campo e constante. Essas expressões são criadas de maneiras diferentes, dependendo do parâmetro.
 
-O EBNF a seguir ([formulário Backus-Naur estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para os parâmetros **$Filter**, **$OrderBy**e **$Select** . Elas são criadas a partir de expressões mais simples que se referem a caminhos e constantes de campo:
+O EBNF a seguir ([formulário Backus-Naur estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para os parâmetros **$Filter**, **$OrderBy** e **$Select** . Elas são criadas a partir de expressões mais simples que se referem a caminhos e constantes de campo:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -233,7 +233,7 @@ Um diagrama de sintaxe interativa também está disponível:
 
 Os parâmetros **$OrderBy** e **$Select** são listas separadas por vírgulas de expressões mais simples. O parâmetro **$Filter** é uma expressão booliana composta por subexpressãos mais simples. Essas subexpressãos são combinadas usando operadores lógicos, como [ `and` , `or` e `not` ](search-query-odata-logical-operators.md), operadores de comparação como [ `eq` ,, `lt` `gt` e assim por diante](search-query-odata-comparison-operators.md), e operadores de coleção, como [ `any` e `all` ](search-query-odata-collection-operators.md).
 
-Os parâmetros **$Filter**, **$OrderBy**e **$Select** são explorados com mais detalhes nos seguintes artigos:
+Os parâmetros **$Filter**, **$OrderBy** e **$Select** são explorados com mais detalhes nos seguintes artigos:
 
 - [Sintaxe de $filter OData no Azure Pesquisa Cognitiva](search-query-odata-filter.md)
 - [Sintaxe de $orderby OData no Azure Pesquisa Cognitiva](search-query-odata-orderby.md)

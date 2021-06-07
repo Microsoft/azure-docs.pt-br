@@ -14,10 +14,10 @@ ms.reviewer: vanto, sstein
 ms.date: 12/01/2020
 tags: azure-synapse
 ms.openlocfilehash: 931e914cd3c184136395a9bb9a7e148a90e9fb91
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461922"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção avançada contra ameaças para o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse Analytics
@@ -67,7 +67,7 @@ Clique em **alerta de proteção avançada contra ameaças** para iniciar a pág
 
 - Saiba mais sobre a [proteção avançada contra ameaças no banco de dados SQL do azure & Azure Synapse](threat-detection-configure.md).
 - Saiba mais sobre a [proteção avançada contra ameaças no Azure SQL instância gerenciada](../managed-instance/threat-detection-configure.md).
-- Saiba mais sobre o [Azure defender para SQL](azure-defender-for-sql.md).
+- Saiba mais sobre o [Azure Defender para SQL](azure-defender-for-sql.md).
 - Saiba mais sobre a [auditoria do banco de dados SQL do Azure](../../azure-sql/database/auditing-overview.md)
 - Saiba mais sobre a [central de segurança do Azure](../../security-center/security-center-introduction.md)
 - Para obter mais informações sobre preços, consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/)

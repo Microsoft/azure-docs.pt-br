@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541990"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurar e acessar os logs de auditoria no CLI do Azure
@@ -26,7 +26,7 @@ Para percorrer este guia de instruções:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="configure-audit-logging"></a>Configurar o log de auditoria
 

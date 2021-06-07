@@ -4,12 +4,12 @@ description: 'Início Rápido: use a Grade de Eventos do Azure e a CLI do Azure 
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0a3d8f5a1614704cea4242ce64ecc6c4504da754
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d97c956e0b3da556ea9fc58ef61e0d1da984c055
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97701997"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786757"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o ponto de extremidade da Web com a CLI do Azure e com a Grade de Eventos
 
@@ -31,7 +31,7 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 
 Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
 
 O exemplo a seguir cria um grupo de recursos chamado *gridResourceGroup* no local *westus2*.
 

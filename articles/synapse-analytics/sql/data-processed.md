@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de custos para pool de SQL sem servidor
+title: Gerenciamento de custos para o pool de SQL sem servidor
 description: Este documento descreve como gerenciar o custo do pool SQL sem servidor e como os dados processados são calculados ao consultar dados no armazenamento do Azure.
 services: synapse analytics
 author: filippopovic
@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491555"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gerenciamento de custos para o pool de SQL sem servidor no Azure Synapse Analytics
@@ -71,23 +71,23 @@ Imagine três tabelas.
 - A tabela population_parquet tem os mesmos dados que a tabela population_csv. Ele tem o suporte de 1 TB de arquivos parquet. Esta tabela é menor do que a anterior porque os dados são compactados no formato parquet.
 - A tabela de very_small_csv tem o suporte de 100 KB de arquivos CSV.
 
-**Consulta 1** : selecione Sum (população) de population_csv
+**Consulta 1**: selecione Sum (população) de population_csv
 
 Esta consulta lê e analisa arquivos inteiros para obter valores para a coluna de população. Nós processam fragmentos dessa tabela e a soma da população para cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
 
 Essa consulta processa 5 TB de dados mais uma pequena sobrecarga de valor para transferir somas de fragmentos.
 
-**Consulta 2** : selecione Sum (população) de population_parquet
+**Consulta 2**: selecione Sum (população) de population_parquet
 
 Quando você consulta formatos compactados e baseados em colunas como parquet, menos dados são lidos do que na consulta 1. Você verá esse resultado porque o pool SQL sem servidor lê uma única coluna compactada em vez de todo o arquivo. Nesse caso, 0,2 TB é lido. (Cinco colunas igualmente dimensionadas são 0,2 TB cada.) Nós processam fragmentos dessa tabela e a soma da população para cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
 
 Essa consulta processa 0,2 TB mais uma pequena quantidade de sobrecarga para a transferência de somas de fragmentos.
 
-**Consulta 3** : selecionar * de population_parquet
+**Consulta 3**: selecionar * de population_parquet
 
 Essa consulta lê todas as colunas e transfere todos os dados em um formato descompactado. Se o formato de compactação for 5:1, a consulta processará 6 TB porque ela lê 1 TB e transfere 5 TB de dados descompactados.
 
-**Consulta 4** : selecionar contagem (*) de very_small_csv
+**Consulta 4**: selecionar contagem (*) de very_small_csv
 
 Essa consulta lê arquivos inteiros. O tamanho total dos arquivos no armazenamento para esta tabela é de 100 KB. Nós processam fragmentos dessa tabela e a soma de cada fragmento é transferida entre nós. A soma final é transferida para o ponto de extremidade. 
 

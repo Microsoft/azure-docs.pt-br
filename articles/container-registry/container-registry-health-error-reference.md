@@ -4,10 +4,10 @@ description: Códigos de erro e possíveis soluções para problemas encontrados
 ms.topic: article
 ms.date: 01/25/2021
 ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99061861"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade

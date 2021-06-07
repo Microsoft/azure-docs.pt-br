@@ -16,22 +16,29 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e81cb9018d817fb206915a81fdc3bdd60f6b08c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661444"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611881"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renovar certificados de Federação para Microsoft 365 e Azure Active Directory
 ## <a name="overview"></a>Visão geral
 Para a federação bem-sucedida entre o Azure AD (Azure Active Directory) e o AD FS (Serviços de Federação do Active Directory), os certificados usados pelo AD FS para assinar tokens de segurança no Azure AD devem corresponder ao que está configurado no Azure AD. Qualquer incompatibilidade pode interromper a relação de confiança. O Azure AD garante que essas informações sejam mantidas em sincronia quando você implanta o AD FS e o Proxy de Aplicativo Web (para acesso à extranet).
+
+> [!NOTE]
+> Este artigo fornece informações sobre como gerenciar seu cerficates de Federação.  Para na rotação de emergência, consulte [rotação de emergência dos certificados de AD FS](how-to-connect-emergency-ad-fs-certificate-rotation.md)
 
 Este artigo fornece informações adicionais para o gerenciamento de seus certificados de assinatura de token e as mantém em sincronia com o Azure AD nestes casos:
 
 * Você não está implantando o Proxy de Aplicativo Web e, assim, os metadados de federação não estão disponíveis na extranet.
 * Você não está usando a configuração padrão do AD FS para certificados de assinatura de token.
 * Você está usando um provedor de identidade de terceiros.
+
+> [!IMPORTANT]
+> A Microsoft recomenda o uso de um HSM (módulo de segurança de hardware) para proteger e proteger certificados.
+> Para obter mais informações, consulte [módulo de segurança de hardware](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) em práticas recomendadas para proteger AD FS.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuração padrão do AD FS para certificados de assinatura de token
 Os certificados de assinatura de token e de descriptografia de token geralmente são autoassinados e têm validade de um ano. Por padrão, o AD FS inclui um processo de renovação automática chamado **AutoCertificateRollover**. Se você estiver usando o AD FS 2,0 ou posterior, Microsoft 365 e o Azure AD atualizarão automaticamente seu certificado antes que ele expire.
@@ -157,7 +164,7 @@ Por outro lado, se **AutoCertificateRollover** estiver definido como **True**, m
    >
 3. Examine a saída do comando em todos os certificados listados. Se o AD FS tiver gerado um novo certificado, você verá dois certificados na saída: um para o qual o valor **IsPrimary** é **True** e a data **NotAfter** está dentro de cinco dias e um para o qual **IsPrimary** é **False** e **NotAfter** está cerca de um ano no futuro.
 4. Se você vir apenas um certificado e a data **NotAfter** for dentro de cinco dias, precisará gerar um novo certificado.
-5. Para gerar um novo certificado, execute o seguinte comando em um prompt de comando do PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. Para gerar um novo certificado, execute o seguinte comando em um prompt de comando do PowerShell: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Verifique a atualização executando o seguinte comando novamente: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 Dois certificados deverão ser listados agora, um dos quais tem uma data **NotAfter** de aproximadamente um ano no futuro e para o qual o valor **IsPrimary** é **False**.

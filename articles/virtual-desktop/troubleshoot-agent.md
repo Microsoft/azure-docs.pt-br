@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099941"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604178"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solucionar problemas comuns do agente de área de trabalho virtual do Windows
 
@@ -21,6 +21,14 @@ O agente de área de trabalho virtual do Windows pode causar problemas de conex�
    - Problemas de instalação durante a instalação do agente, o que interrompe a conexão com o host da sessão.
 
 Este artigo guiará você pelas soluções para esses cenários comuns e como abordar problemas de conexão.
+
+>[!NOTE]
+>Para solucionar problemas relacionados à conectividade de sessão e ao agente de área de trabalho virtual do Windows, recomendamos que você examine os logs de eventos no aplicativo **Visualizador de eventos**  >  **logs do Windows**  >  . Procure eventos que tenham uma das seguintes fontes para identificar seu problema:
+>
+>- WVD-Agent
+>- WVD-agente-atualizador
+>- RDAgentBootLoader
+>- MsiInstaller
 
 ## <a name="error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running"></a>Erro: o carregador do agente RDAgentBootLoader e/ou Área de Trabalho Remota parou de funcionar
 
@@ -63,9 +71,9 @@ Para resolver esse problema, crie um token de registro válido:
    > [!div class="mx-imgBorder"]
    > ![Captura de tela de IsRegistered 1](media/isregistered-registry.png)
 
-## <a name="error-agent-cannot-connect-to-broker-with-invalid_form-or-not_found-url"></a>Erro: o agente não pode se conectar ao agente com INVALID_FORM ou NOT_FOUND. URL
+## <a name="error-agent-cannot-connect-to-broker-with-invalid_form"></a>Erro: o agente não pode se conectar ao agente com INVALID_FORM
 
-Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com ID 3277, que diz **INVALID_FORM** ou **not_found. URL** na descrição, algo deu errado com a comunicação entre o agente e o agente. O agente não pode se conectar ao agente e não consegue acessar uma URL específica. Isso pode ser devido às suas configurações de firewall ou de DNS.
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3277 que diga "INVALID_FORM" na descrição, algo deu errado com a comunicação entre o agente e o agente. O agente não pode se conectar ao agente ou alcançar uma URL específica devido a determinadas configurações de firewall ou DNS.
 
 Para resolver esse problema, verifique se você pode alcançar o BrokerURI e o BrokerURIGlobal:
 1. Abra o editor do registro. 
@@ -100,13 +108,43 @@ Para resolver esse problema, verifique se você pode alcançar o BrokerURI e o B
 8. Se a rede estiver bloqueando essas URLs, será necessário desbloquear as URLs necessárias. Para obter mais informações, consulte a [lista de URL necessária](safe-url-list.md).
 9. Se isso não resolver o problema, verifique se você não tem nenhuma política de grupo com codificações que bloqueiem a conexão do agente com o agente. A área de trabalho virtual do Windows usa as mesmas codificações TLS 1,2 que o [Azure front door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Para obter mais informações, consulte [segurança de conexão](network-connectivity.md#connection-security).
 
-## <a name="error-3703-or-3019"></a>Erro: 3703 ou 3019
+## <a name="error-3703"></a>Erro: 3703
 
-Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3703, que informa a **URL do gateway RD: não está acessível** ou qualquer evento com a ID 3019 na descrição, o agente não poderá acessar as URLs de gateway ou as URLs de transporte de soquete da Web. Para se conectar com êxito ao seu host de sessão e permitir que o tráfego de rede para esses pontos de extremidade ignore as restrições, você deve desbloquear as URLs na [lista de URL necessária](safe-url-list.md). Além disso, verifique se suas configurações de firewall ou proxy não bloqueiam essas URLs. É necessário desbloquear essas URLs para usar a área de trabalho virtual do Windows.
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3703 que diz "URL do gateway RD: não está acessível" na descrição, o agente não poderá acessar as URLs do gateway. Para se conectar com êxito ao seu host de sessão e permitir que o tráfego de rede para esses pontos de extremidade ignore as restrições, você deve desbloquear as URLs na [lista de URL necessária](safe-url-list.md). Além disso, verifique se suas configurações de firewall ou proxy não bloqueiam essas URLs. É necessário desbloquear essas URLs para usar a área de trabalho virtual do Windows.
 
 Para resolver esse problema, verifique se as configurações de firewall e/ou DNS não estão bloqueando essas URLs:
 1. [Use o Firewall do Azure para proteger implantações de área de trabalho virtual do Windows.](../firewall/protect-windows-virtual-desktop.md).
 2. Defina [as configurações de DNS do firewall do Azure](../firewall/dns-settings.md).
+
+## <a name="error-3019"></a>Erro: 3019
+
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3019, isso significa que o agente não pode acessar as URLs de transporte de soquete da Web. Para se conectar com êxito ao seu host de sessão e permitir que o tráfego de rede ignore essas restrições, você deve desbloquear as URLs listadas na [lista URL necessária](safe-url-list.md). Trabalhe com a equipe de rede do Azure para verificar se suas configurações de firewall, proxy e DNS não estão bloqueando essas URLs. Você também pode verificar os logs de rastreamento de rede para identificar onde o serviço de área de trabalho virtual do Windows está sendo bloqueado. Se você abrir uma solicitação de suporte para esse problema específico, certifique-se de anexar os logs de rastreamento de rede à solicitação.
+
+## <a name="error-installationhealthcheckfailedexception"></a>Erro: InstallationHealthCheckFailedException
+
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3277 que diga "InstallationHealthCheckFailedException" na descrição, isso significa que o ouvinte de pilha não está funcionando porque o servidor de terminal alternau a chave do registro para o ouvinte de pilha.
+
+Para resolver o problema:
+1. Verifique se [o ouvinte de pilha está funcionando](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. Se o ouvinte de pilha não estiver funcionando, [desinstale e reinstale manualmente o componente de pilha](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+
+## <a name="error-endpoint_not_found"></a>Erro: ENDPOINT_NOT_FOUND
+
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3277 que diga "ENDPOINT_NOT_FOUND" na descrição, o que significa que o agente não pôde encontrar um ponto de extremidade para estabelecer uma conexão. Esse problema de conexão pode ocorrer por um dos seguintes motivos:
+
+- Não há VMs no pool de hosts
+- As VMs em seu pool de hosts não estão ativas
+- Todas as VMs em seu pool de hosts excederam o limite máximo de sessões
+- Nenhuma das VMs em seu pool de hosts tem o serviço do Agent em execução neles
+
+Para resolver o problema:
+
+1. Verifique se a VM está ligada e não foi removida do pool de hosts.
+2. Certifique-se de que a VM não exceda o limite máximo de sessão.
+3. Verifique se o [serviço Agent está em execução](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) e se o [ouvinte de pilha está funcionando](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+4. Verifique se [o agente pode se conectar ao agente](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Verifique se [sua VM tem um token de registro válido](#error-invalid_registration_token).
+6. Verifique se [o token de registro da VM não expirou](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## <a name="error-installmsiexception"></a>Erro: InstallMsiException
 
@@ -125,7 +163,7 @@ Para desabilitar uma política:
 3. Na janela **conjunto de políticas resultante** que aparece, vá para o caminho da categoria.
 4. Selecione a política.
 5. Selecione **Desabilitado**.
-6. Selecione **Aplicar**.   
+6. Escolha **Aplicar**.   
 
    > [!div class="mx-imgBorder"]
    > ![Captura de tela da política de Windows Installer no conjunto de políticas resultante](media/gpo-policy.png)
@@ -147,7 +185,7 @@ Para desabilitar uma política:
 3. Na janela **conjunto de políticas resultante** que aparece, vá para o caminho da categoria.
 4. Selecione a política.
 5. Selecione **Desabilitado**.
-6. Selecione **Aplicar**.   
+6. Escolha **Aplicar**.   
 
 ## <a name="error-stack-listener-isnt-working-on-windows-10-2004-vm"></a>Erro: o ouvinte de pilha não está funcionando na VM do Windows 10 2004
 
@@ -170,29 +208,38 @@ Para resolver o problema:
 >Para alterar o modo **fReverseConnectMode** ou **FEnableWinStation** para várias VMs de cada vez, você pode executar uma das duas ações a seguir:
 >
 >- Exporte a chave do registro do computador que você já está trabalhando e importe-a para todos os outros computadores que precisam dessa alteração.
->- Crie um objeto de política geral (GPO) que define o valor da chave do registro para os computadores que precisam da alteração.
+>- Crie um GPO (objeto de diretiva de grupo) que defina o valor da chave do registro para os computadores que precisam da alteração.
 
 7. Vá para **HKEY_LOCAL_MACHINE**  >  controle CurrentControlSet do **sistema**  >    >    >  **Terminal Server**  >  **ClusterSettings**.
 8. Em **ClusterSettings**, localize **SessionDirectoryListener** e verifique se seu valor de dados é **RDP-SXS..**..
 9. Se **SessionDirectoryListener** não estiver definido como **RDP-SXS..**., você precisará seguir as etapas na seção [desinstalar o agente e o carregador de inicialização](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) para primeiro desinstalar o agente, o carregador de inicialização e os componentes de pilha e, em seguida, [reinstalar o agente e o carregador de inicialização](#step-4-reinstall-the-agent-and-boot-loader). Isso reinstalará a pilha lado a lado.
 
-## <a name="error-users-keep-getting-disconnected-from-session-hosts"></a>Erro: os usuários continuam sendo desconectados dos hosts de sessão
+## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Erro: problema de pulsação em que os usuários continuam sendo desconectados dos hosts de sessão
 
-Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 0, que diz **CheckSessionHostDomainIsReachableAsync** na descrição e/ou os usuários continuam sendo desconectados de seus hosts de sessão, o servidor não está selecionando uma pulsação do serviço de área de trabalho virtual do Windows.
+Se o servidor não estiver selecionando uma pulsação do serviço de área de trabalho virtual do Windows, você precisará alterar o limite de pulsação. Siga as instruções nesta seção se um ou mais dos seguintes cenários se aplicarem a você:
 
-Para resolver esse problema, altere o limite de pulsação:
+- Você está recebendo um erro **CheckSessionHostDomainIsReachableAsync**
+- Você está recebendo um erro **ConnectionBrokenMissedHeartbeatThresholdExceeded**
+- Você está recebendo um erro **ConnectionEstablished: UnexpectedNetworkDisconnect**
+- Os clientes do usuário continuam sendo desconectados
+- Os usuários continuam sendo desconectados de seus hosts de sessão
+
+Para alterar o limite de pulsação:
 1. Abra o prompt de comando como administrador.
 2. Insira o comando **Qwinsta** e execute-o.
 3. Deve haver dois componentes de pilha exibidos: **RDP-TCP** e **RDP-SxS**. 
-   - Dependendo da versão do sistema operacional que você está usando, o **RDP-SxS** pode ser seguido pelo número da compilação. Se for, certifique-se de gravar esse número para mais tarde.
+   - Dependendo da versão do sistema operacional que você está usando, o **RDP-SxS** pode ser seguido pelo número da compilação. Se for, certifique-se de anotar esse número para mais tarde.
 4. Abra o Editor do Registro.
 5. Vá para **HKEY_LOCAL_MACHINE**  >  controle CurrentControlSet do **sistema**  >    >    >  **Terminal Server**  >  **WinStations**.
-6. Em **WinStations** , você pode ver várias pastas para diferentes versões de pilha. Selecione a pasta que corresponde ao número de versão da etapa 3.
+6. Em **WinStations**, você pode ver várias pastas para diferentes versões de pilha. Selecione a pasta que corresponde ao número de versão da etapa 3.
 7. Crie um novo registro DWORD clicando com o botão direito do mouse no editor do registro e selecionando **novo**  >  **valor DWORD (32 bits)**. Ao criar o DWORD, insira os seguintes valores:
    - HeartbeatInterval: 10000
    - HeartbeatWarnCount: 30 
    - HeartbeatDropCount: 60 
 8. Reinicie a VM.
+
+>[!NOTE]
+>Se a alteração do limite de pulsação não resolver o problema, você poderá ter um problema de rede subjacente que precisará entrar em contato com a equipe de rede do Azure.
 
 ## <a name="error-downloadmsiexception"></a>Erro: DownloadMsiException
 
@@ -202,6 +249,11 @@ Para resolver esse problema, libere espaço em seu disco:
    - Excluindo arquivos que não estão mais no usuário
    - Aumentando a capacidade de armazenamento de sua VM
 
+## <a name="error-agent-fails-to-update-with-missingmethodexception"></a>Erro: o agente falha ao atualizar com MissingMethodException
+
+Vá para **Visualizador de eventos**  >  aplicativo de **logs do Windows**  >  . Se você vir um evento com a ID 3389 que diga "MissingMethodException: método não encontrado" na descrição, isso significa que o agente de área de trabalho virtual do Windows não foi atualizado com êxito e revertido para uma versão anterior. Isso pode ocorrer porque o número de versão do .NET Framework instalado atualmente em suas VMs é inferior a 4.7.2. Para resolver esse problema, você precisa atualizar o .NET para a versão 4.7.2 ou posterior seguindo as instruções de instalação na [documentação do .NET Framework](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+
+
 ## <a name="error-vms-are-stuck-in-unavailable-or-upgrading-state"></a>Erro: as VMs estão presas no estado indisponível ou atualizando
 
 Abra uma janela do PowerShell como administrador e execute o seguinte cmdlet:
@@ -210,7 +262,7 @@ Abra uma janela do PowerShell como administrador e execute o seguinte cmdlet:
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-Se o status listado para o host de sessão ou hosts em seu pool de hosts sempre diz não **disponível** ou **atualizando**, a instalação do agente ou da pilha pode ter falhado
+Se o status listado para host de sessão ou hosts em seu pool de hosts sempre diz "não disponível" ou "Atualizando", o agente ou pilha não foi instalado com êxito.
 
 Para resolver esse problema, reinstale a pilha lado a lado:
 1. Abra um prompt de comando como administrador.
@@ -253,7 +305,7 @@ O nome da VM já foi registrado e provavelmente é uma duplicata.
 Para resolver o problema:
 1. Siga as etapas na seção [remover o host de sessão do pool de hosts](#step-2-remove-the-session-host-from-the-host-pool) .
 2. [Crie outra VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Certifique-se de escolher um nome exclusivo para essa VM.
-3. Vá para a portal do Azure] ( https://portal.azure.com) e abra a página **visão geral** do pool de hosts em que sua VM estava. 
+3. Vá para a [portal do Azure](https://portal.azure.com) e abra a página **visão geral** do pool de hosts em que sua VM estava. 
 4. Abra a guia **hosts de sessão** e verifique se todos os hosts de sessão estão no pool de hosts.
 5. Aguarde 5-10 minutos para que o status do host da sessão **fique disponível**.
 
@@ -269,6 +321,7 @@ Se você não encontrar o problema neste artigo ou se as instruções não ajuda
 - Você não está vendo suas VMs aparecem na lista de hosts de sessão
 - Você não vê o **carregador do agente de área de trabalho remota** na janela Serviços
 - Você não vê o componente **RdAgentBootLoader** no Gerenciador de tarefas
+- Você está recebendo um **agente de conexão não foi possível validar o** erro de configurações em VMs de imagem personalizada
 - As instruções neste artigo não resolveram o problema
 
 ### <a name="step-1-uninstall-all-agent-boot-loader-and-stack-component-programs"></a>Etapa 1: desinstalar todos os programas do agente, do carregador de inicialização e do componente de pilha
@@ -319,12 +372,12 @@ Você deve gerar uma nova chave de registro que é usada para registrar novament
 ### <a name="step-4-reinstall-the-agent-and-boot-loader"></a>Etapa 4: reinstalar o agente e o carregador de inicialização
 
 Reinstalando a versão mais atualizada do agente e do carregador de inicialização, a pilha lado a lado e o agente de monitoramento Geneva também são instalados automaticamente. Para reinstalar o agente e o carregador de inicialização:
-1. Entre em sua VM como administrador e siga as instruções em [registrar máquinas virtuais](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) para baixar o agente de **área de trabalho virtual do Windows** e o carregador de VMs do **agente de área de trabalho virtual do Windows**.
+1. Entre em sua VM como administrador e use a versão correta do instalador do agente para sua implantação, dependendo da versão do Windows que sua VM está executando. Se você tiver uma VM do Windows 10, siga as instruções em [registrar máquinas virtuais](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) para baixar o **agente de área de trabalho virtual do Windows** e o carregador de janelas do agente de área de **trabalho virtual do Windows**. Se você tiver uma VM do Windows 7, siga as etapas 13-14 em [registrar máquinas virtuais](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) para baixar o **agente de área de trabalho virtual do windows** e o Gerenciador de agentes de área de **trabalho virtual do Windows**.
 
    > [!div class="mx-imgBorder"]
    > ![Captura de tela da página de download do agente e do carregador de páginas](media/download-agent.png)
 
-2. Clique com o botão direito do mouse nos instaladores agente e boot loader que você acabou de baixar.
+2. Clique com o botão direito do mouse no agente e nos instaladores do carregador de inicialização baixados.
 3. Selecione **Propriedades**.
 4. Escolha **Desbloquear**.
 5. Selecione **OK**.

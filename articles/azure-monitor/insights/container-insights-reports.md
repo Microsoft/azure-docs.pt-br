@@ -1,25 +1,25 @@
 ---
-title: Relatórios em Azure Monitor para contêineres
-description: Descreve os relatórios disponíveis para analisar os dados coletados por Azure Monitor para contêineres.
+title: Relatórios em informações de contêiner
+description: Descreve os relatórios disponíveis para analisar os dados coletados por informações de contêiner.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907452"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102032782"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Relatórios em Azure Monitor para contêineres
-Os relatórios em Azure Monitor para contêineres são [pastas de trabalho do Azure](../platform/workbooks-overview.md)prontas para uso. Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
+# <a name="reports-in-container-insights"></a>Relatórios em informações de contêiner
+Os relatórios em insights de contêiner são [pastas de trabalho do Azure](../visualize/workbooks-overview.md)prontas para uso. Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
 
 ## <a name="viewing-reports"></a>Visualizando relatórios
-No menu **Azure monitor** na portal do Azure, selecione **contêineres**. Selecione **insights** na seção **monitoramento** , escolha um cluster específico e, em seguida, selecione a página **relatórios (versão prévia)** . 
+No menu **Azure monitor** na portal do Azure, selecione **contêineres**. Selecione **insights** na seção **monitoramento** , escolha um cluster específico e, em seguida, selecione a página **relatórios** . 
 
 [![Página de relatórios](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Criar uma pasta de trabalho personalizada
-Para criar uma pasta de trabalho personalizada com base em qualquer uma dessas pastas de trabalho, selecione a lista suspensa **exibir pastas de trabalho** e **vá para a galeria do AKS** na parte inferior da lista suspensa. Consulte [Azure monitor pastas de trabalho](../platform/workbooks-overview.md) para obter mais informações sobre pastas de trabalho e o uso de modelos de pasta de trabalho.
+Para criar uma pasta de trabalho personalizada com base em qualquer uma dessas pastas de trabalho, selecione a lista suspensa **exibir pastas de trabalho** e **vá para a galeria do AKS** na parte inferior da lista suspensa. Consulte [Azure monitor pastas de trabalho](../visualize/workbooks-overview.md) para obter mais informações sobre pastas de trabalho e o uso de modelos de pasta de trabalho.
 
 [![Galeria de AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Para criar uma pasta de trabalho personalizada com base em qualquer uma dessas p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira [Azure monitor pastas de trabalho](../platform/workbooks-overview.md) para obter detalhes sobre pastas de trabalho no Azure monitor.
+- Confira [Azure monitor pastas de trabalho](../visualize/workbooks-overview.md) para obter detalhes sobre pastas de trabalho no Azure monitor.

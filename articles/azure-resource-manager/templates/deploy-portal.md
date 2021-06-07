@@ -4,10 +4,10 @@ description: Use portal do Azure e o gerenciamento de recursos do Azure para imp
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028668"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Implantar recursos com modelos ARM e portal do Azure
@@ -112,7 +112,7 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. Selecione **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
+1. Clique em **Salvar**. Agora você vê a interface de implantação de modelo do Portal. Observe os dois parâmetros que você definiu no modelo.
 1. Insira ou selecione os valores de propriedade:
 
     - **Assinatura**: Selecione uma assinatura do Azure.
@@ -129,4 +129,4 @@ Se quiser executar uma implantação, mas não usar nenhum dos modelos no Market
 - Para exibir os logs de auditoria, confira [Operações de auditoria com o Gerenciador de Recursos](../management/view-activity-logs.md).
 - Para solucionar erros de implantação, confira [View deployment operations](deployment-history.md) (Exibir operações de implantação).
 - Para exportar um modelo de uma implantação ou grupo de recursos, consulte [exportar modelos do ARM](export-template-portal.md).
-- Para distribuir com segurança seu serviço em várias regiões, consulte [Deployment Manager do Azure](deployment-manager-overview.md).
+- Para distribuir com segurança seu serviço em várias regiões, consulte [Gerenciador de implantação do Azure](deployment-manager-overview.md).

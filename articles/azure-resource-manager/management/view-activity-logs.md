@@ -4,10 +4,10 @@ description: Use os logs de atividade para examinar erros e ações do usuário.
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91371585"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Exibir logs de atividade para monitorar ações em recursos
@@ -30,7 +30,7 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
 
 Para exibir os logs de atividade por meio do portal, siga estas etapas:
 
-1. No menu portal do Azure, selecione **Monitor**ou pesquise e selecione **Monitor** em qualquer página.
+1. No menu portal do Azure, selecione **Monitor** ou pesquise e selecione **Monitor** em qualquer página.
 
     ![Selecionar monitor](./media/view-activity-logs/select-monitor-from-menu.png)
 

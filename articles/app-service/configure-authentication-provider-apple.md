@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
 ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603096"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Configure seu serviço de aplicativo ou Azure Functions aplicativo para entrar usando uma entrada com o provedor Apple (versão prévia)

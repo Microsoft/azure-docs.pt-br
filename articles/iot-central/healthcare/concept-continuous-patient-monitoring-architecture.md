@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 6f7359b2b2fb0a1ea6ce92ec52bba15fc74fc75a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831171"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103017147"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura do monitoramento contínuo do paciente
 
@@ -37,7 +37,7 @@ A função principal do aplicativo de celular é coletar os dados do BLE dos dis
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Exportar para a API do Azure para FHIR&reg;
 
-O Azure IoT Central tem conformidade com HIPAA e é certificado pelo HITRUST&reg;. Você também pode enviar dados de saúde dos pacientes para outros serviços usando a [API do Azure para FHIR](../../healthcare-apis/overview.md). A API do Azure para FHIR é uma API baseada em padrões para dados clínicos de saúde. O [Conector do Azure IoT para FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) permite que você use a API do Azure para FHIR como um destino de exportação de dados contínuos provenientes do IoT Central.
+O Azure IoT Central tem conformidade com HIPAA e é certificado pelo HITRUST&reg;. Você também pode enviar dados de saúde dos pacientes para outros serviços usando a [API do Azure para FHIR](../../healthcare-apis/fhir/overview.md). A API do Azure para FHIR é uma API baseada em padrões para dados clínicos de saúde. O [Conector do Azure IoT para FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) permite que você use a API do Azure para FHIR como um destino de exportação de dados contínuos provenientes do IoT Central.
 
 ### <a name="machine-learning"></a>Aprendizado de máquina
 
@@ -45,7 +45,7 @@ Use modelos de machine learning com os dados do FHIR para gerar insights e dar s
 
 ### <a name="provider-dashboard"></a>Dashboard do provedor
 
-Use os dados da API do Azure para FHIR para criar um dashboard de informações de pacientes ou integrá-lo diretamente a um registro médico eletrônico usado por equipes de cuidados. As equipes de cuidados podem usar o dashboard para dar assistência aos pacientes e identificar os sinais antecipados de aviso de deterioração. Para saber mais, confira o tutorial [Criar um dashboard de provedor do Power BI](howto-health-data-triage.md).
+Use os dados da API do Azure para FHIR para criar um dashboard de informações de pacientes ou integrá-lo diretamente a um registro médico eletrônico usado por equipes de cuidados. As equipes de cuidados podem usar o dashboard para dar assistência aos pacientes e identificar os sinais antecipados de aviso de deterioração. Para saber mais, confira o tutorial [Criar um dashboard de provedor do Power BI](tutorial-health-data-triage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

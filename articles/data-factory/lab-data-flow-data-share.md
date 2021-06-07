@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
 ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97006118"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados usando o Azure Data Factory e o Azure Data Share

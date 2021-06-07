@@ -2,20 +2,20 @@
 title: Configurar redes virtuais e firewalls do Azure Key Vault - Azure Key Vault
 description: Instruções passo a passo para configurar redes virtuais e firewalls do Key Vault
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: sudbalas
+ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936338"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101742629"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -39,7 +39,7 @@ Para determinar se um serviço que você está tentando usar está na lista de s
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall do Key Vault habilitado (intervalos e endereços IPv4 – IPs estáticos)
 
-Se quiser autorizar um serviço específico a acessar o cofre de chaves por meio do Firewall do Key Vault, você poderá adicionar o endereço IP dele à lista de permissões do firewall do cofre de chaves. Essa configuração é melhor para serviços que usam endereços IP estáticos ou intervalos bem conhecidos.
+Se quiser autorizar um serviço específico a acessar o cofre de chaves por meio do Firewall do Key Vault, você poderá adicionar o endereço IP dele à lista de permissões do firewall do cofre de chaves. Essa configuração é melhor para serviços que usam endereços IP estáticos ou intervalos bem conhecidos. Há um limite de 1000 intervalos de CIDR para esse caso.
 
 Para permitir um intervalo ou um endereço IP de um recurso do Azure, como um Aplicativo Web ou Aplicativo Lógico, execute as etapas a seguir.
 

@@ -8,10 +8,10 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 1e01db73f58c77ff62f7abe707884fc2649fd042
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "67172289"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos

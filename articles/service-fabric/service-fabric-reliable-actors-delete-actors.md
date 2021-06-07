@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16d4ab6a3c155f897cf9212fb1cd6c34d977b9ec
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574013"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e o respectivo estado

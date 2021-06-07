@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678122"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os serviços meteorológicos do Azure Maps (versão prévia)

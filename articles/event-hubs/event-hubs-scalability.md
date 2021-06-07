@@ -2,13 +2,13 @@
 title: Escalabilidade-hubs de eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como dimensionar os hubs de eventos do Azure usando partições e unidades de produtividade.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/16/2021
+ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521948"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601264"
 ---
 # <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
 
@@ -39,11 +39,7 @@ Para obter mais informações sobre o recurso de inflar automaticamente, consult
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-### <a name="partition-key"></a>Chave de partição
 
-Use uma [chave de partição](event-hubs-programming-guide.md#partition-key) para mapear dados de evento de entrada em partições específicas para fins de organização de dados. A chave de partição é um valor fornecido pelo remetente passado para um hub de eventos. Ela é processada por meio de uma função de hash estática, que cria a atribuição de partição. Se você não especificar uma chave de partição ao publicar um evento, uma atribuição de round robin será usada.
-
-O editor de eventos só está ciente da sua chave de partição, não da partição para a qual os eventos são publicados. Essa desassociação de chave e partição isenta o remetente da necessidade de saber muito sobre o processamento de downstream. Uma identidade por dispositivo ou exclusiva do usuário é uma boa chave de partição, mas outros atributos, como geografia, também podem ser usados para agrupar eventos relacionados em uma única partição.
 
 
 ## <a name="next-steps"></a>Próximas etapas

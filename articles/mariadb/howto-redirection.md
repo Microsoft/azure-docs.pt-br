@@ -3,14 +3,14 @@ title: Conectar-se ao redirecionamento-banco de dados do Azure para MariaDB
 description: Este artigo descreve como você pode configurar seu aplicativo para se conectar ao banco de dados do Azure para MariaDB com o redirecionamento.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 29f2ab8f70af2ca19cbffcbba6db39c5a93445fe
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664895"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>Conectar-se ao banco de dados do Azure para MariaDB com redirecionamento

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049121"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
@@ -27,11 +27,11 @@ As organizações que implantaram Microsoft Intune podem usar as informações r
 * Exigindo uma versão mínima ou máxima do sistema operacional
 * Exigir um dispositivo não está desbloqueado ou com raiz
 
-Essas informações de conformidade de política são encaminhadas ao Azure AD, em que o acesso condicional pode tomar decisões para conceder ou bloquear o acesso a recursos. Mais informações sobre as políticas de conformidade do dispositivo podem ser encontradas no artigo [definir regras em dispositivos para permitir o acesso a recursos em sua organização usando o Intune](/intune/protect/device-compliance-get-started)
+Essas informações de conformidade da política são encaminhadas ao Azure AD, em que o Acesso condicional pode tomar decisões para conceder ou bloquear o acesso a recursos. Mais informações sobre as políticas de conformidade do dispositivo podem ser encontradas no artigo [definir regras em dispositivos para permitir o acesso a recursos em sua organização usando o Intune](/intune/protect/device-compliance-get-started)
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que os dispositivos que acessam os recursos sejam marcados como em conformidade com as políticas de conformidade do Intune da sua organização.
+As etapas a seguir ajudarão a criar uma política de Acesso condicional para exigir que os dispositivos que acessam os recursos sejam marcados como em conformidade com as políticas de conformidade do Intune da sua organização.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
@@ -41,11 +41,11 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
-   1. Se você precisar excluir aplicativos específicos de sua política, poderá selecioná-los na guia **excluir** em **selecionar aplicativos de nuvem excluídos** e escolher **selecionar**.
+1. Em **Aplicativos ou ações de nuvem** > **Incluir**, selecione **Todos os aplicativos de nuvem**.
+   1. Caso precise excluir aplicativos específicos de sua política, você poderá selecioná-los na guia **Excluir** em **Selecionar aplicativos de nuvem excluídos** e escolha **Selecionar**.
    1. Selecione **Concluído**.
-1. Em **condições**  >  **aplicativos de cliente (versão prévia)**  >  **Selecione os aplicativos cliente aos quais essa política será aplicada**, deixe todos os padrões selecionados e selecione **concluído**.
-1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **exigir que o dispositivo seja marcado como compatível**.
+1. Em **Condições** > **Aplicativos de cliente (versão prévia)** > **Selecione os aplicativos cliente aos quais essa política será aplicada**, deixe todos os padrões selecionados e selecione **Concluído**.
+1. Em **Controles de acesso** > **Conceder**, selecione **Exigir que o dispositivo seja marcado como em conformidade**.
    1. Selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
@@ -55,7 +55,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 
 ### <a name="known-behavior"></a>Comportamento conhecido
 
-No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar esse certificado antes que possa continuar a usar o navegador.
+No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar este certificado antes que possa continuar usando o navegador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

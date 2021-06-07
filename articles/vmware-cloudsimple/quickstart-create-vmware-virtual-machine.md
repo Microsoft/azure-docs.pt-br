@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77019546"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Início rápido – consumir VMs VMware no Azure
@@ -40,10 +40,10 @@ Crie uma máquina virtual em sua nuvem privada na interface do usuário do vCent
 
     | Campo | Descrição |
     | ------------ | ------------- |
-    | Subscription | Assinatura do Azure associada à sua nuvem privada.  |
+    | Assinatura | Assinatura do Azure associada à sua nuvem privada.  |
     | Grupo de recursos | Grupo de recursos ao qual a VM será atribuída. Selecione um grupo existente ou crie um novo. |
     | Nome | Nome para identificar a VM.  |
-    | Location | Região do Azure na qual essa VM está hospedada.  |
+    | Local | Região do Azure na qual essa VM está hospedada.  |
     | Nuvem privada | CloudSimple nuvem privada em que você deseja criar a máquina virtual. |
     | Pool de recursos | Pool de recursos mapeados para a VM. Selecione entre os pools de recursos disponíveis. |
     | Modelo do vSphere | modelo de vSphere para a VM.  |

@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: cb0dd8eb879c5511da3c79a3dee6a715fb1275e4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358632"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Teste de desempenho e escala com o Azure Cosmos DB

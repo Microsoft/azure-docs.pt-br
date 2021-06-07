@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ms.openlocfilehash: 593b809813f949cd1d0bcc17e1d1b7255ea19130
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944279"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
@@ -560,7 +560,7 @@ A saída para o trabalho **Pig** deve ser parecida com os seguintes dados:
 ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 ```
 
-## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="errors-when-running-jobs"></a>Erros durante a execução de trabalhos
 

@@ -1,22 +1,18 @@
 ---
-title: Trabalhar com alertas em seu sensor
+title: Sobre alertas de sensor
 description: Trabalhe com alertas para ajudá-lo a aprimorar a segurança e a operação da sua rede.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523542"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781340"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>Trabalhar com alertas em seu sensor
+# <a name="about-sensor-alerts"></a>Sobre alertas de sensor
 
-Trabalhe com alertas para ajudá-lo a aprimorar a segurança e a operação da sua rede. Os alertas fornecem informações sobre:
+Os alertas ajudam a aprimorar a segurança e a operação da sua rede. Os alertas fornecem informações sobre:
 
 - Desvios da atividade de rede autorizada
 
@@ -68,9 +64,9 @@ Por exemplo:
 
   - Os eventos de malware detectados em dispositivos de rede são relatados em relatórios de avaliação de risco. Quando os alertas sobre eventos de malware estiverem *sem áudio*, os dispositivos afetados não serão calculados no relatório de avaliação de risco.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
-[Aprendizado e modos](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
- inteligentes de aprendizado de ti [Exibir informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md) 
- [Gerenciar o evento](how-to-manage-the-alert-event.md) 
- de alerta [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)
+- [Aprendizado e modos inteligentes de aprendizado de ti](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+- [Exibir informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md)
+- [Gerenciar o evento de alertas](how-to-manage-the-alert-event.md)
+- [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)

@@ -13,10 +13,10 @@ ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contêiner, streaming, algoritmos
 ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97862306"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalar e executar contêineres do Docker para a API do detector de anomalias 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar contêineres de detector de anomalias:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
@@ -59,7 +59,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar contêineres de d
 
 A tabela a seguir descreve os núcleos e memória de CPU mínimos e recomendados para alocar para o contêiner do detector de anomalias.
 
-| QPS (consultas por segundo) | Mínimo | Recomendado |
+| QPS (consultas por segundo) | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | 10 QPS | 4 núcleos, 1 GB de memória | 8 núcleos de memória de 2 GB |
 | 20 QPS | 8 núcleos, 2 GB de memória | 16 núcleos de 4 GB de memória |

@@ -3,13 +3,13 @@ title: Usar Azure Active Directory identidades gerenciadas por pod no serviço k
 description: Saiba como usar identidades gerenciadas gerenciadas pelo Pod do AAD no serviço de kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.date: 3/12/2021
+ms.openlocfilehash: f3d0db5b085fcdb9a24310cb2fe310d390b1790a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557357"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574366"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Usar Azure Active Directory identidades gerenciadas por pod no serviço kubernetes do Azure (versão prévia)
 
@@ -24,13 +24,13 @@ Azure Active Directory identidades gerenciadas pelo Pod usam primitivos kubernet
 
 Você deve ter o seguinte recurso instalado:
 
-* O CLI do Azure, versão 2.8.0 ou posterior
-* A `azure-preview` versão de extensão 0.4.68 ou posterior
+* O CLI do Azure, versão 2.20.0 ou posterior
+* A `azure-preview` versão de extensão 0.5.5 ou posterior
 
 ### <a name="limitations"></a>Limitações
 
-* Um máximo de 50 identidades de Pod são permitidas para um cluster.
-* Um máximo de 50 exceções de identidade de Pod são permitidas para um cluster.
+* Um máximo de 200 identidades de Pod são permitidas para um cluster.
+* Um máximo de 200 exceções de identidade de Pod são permitidas para um cluster.
 * As identidades gerenciadas por Pod estão disponíveis somente em pools de nós do Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registrar o `EnablePodIdentityPreview`
@@ -53,19 +53,75 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades gerenciadas
+## <a name="create-an-aks-cluster-with-azure-cni"></a>Criar um cluster AKS com o Azure CNI
 
-Crie um cluster AKS com identidade gerenciada e identidade gerenciada por Pod habilitada. Os comandos a seguir usam [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group e o comando [AZ AKs Create][az-aks-create] para criar um cluster AKs chamado *myAKSCluster* no grupo de recursos *MyResource* Group.
+> [!NOTE]
+> Esta é a configuração padrão recomendada
+
+Crie um cluster AKS com a identidade gerenciada por pod e CNI do Azure habilitada. Os comandos a seguir usam [AZ Group Create][az-group-create] para criar um grupo de recursos chamado *MyResource* Group e o comando [AZ AKs Create][az-aks-create] para criar um cluster AKs chamado *myAKSCluster* no grupo de recursos *MyResource* Group.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
+az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 Use [AZ AKs Get-Credentials][az-aks-get-credentials] para entrar no seu cluster do AKS. Esse comando também baixa e configura o certificado do `kubectl` cliente em seu computador de desenvolvimento.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+
+## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Atualizar um cluster AKS existente com o Azure CNI
+
+Atualize um cluster AKS existente com o CNI do Azure para incluir a identidade gerenciada por Pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+```
+## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Usando o plug-in de rede Kubenet com Azure Active Directory identidades gerenciadas por Pod 
+
+> [!IMPORTANT]
+> A execução do AAD-Pod-Identity em um cluster com Kubenet não é uma configuração recomendada devido à implicação de segurança. Siga as etapas de mitigação e configure as políticas antes de habilitar o AAD-Pod-Identity em um cluster com Kubenet.
+
+## <a name="mitigation"></a>Atenuação
+
+Para atenuar a vulnerabilidade no nível do cluster, você pode usar o controlador de admissão OpenPolicyAgent junto com o webhook de validação do gatekeeper. Desde que você já tenha o gatekeeper instalado em seu cluster, adicione o Constrainttemplate do tipo K8sPSPCapabilities:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/capabilities/template.yaml
+```
+Adicione um modelo para limitar a geração de pods com o recurso de NET_RAW:
+
+```
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPCapabilities
+metadata:
+  name: prevent-net-raw
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - "kube-system"
+  parameters:
+    requiredDropCapabilities: ["NET_RAW"]
+```
+
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Criar um cluster AKS com o plug-in de rede Kubenet
+
+Crie um cluster AKS com o plug-in de rede Kubenet e a identidade gerenciada por Pod habilitada.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Atualizar um cluster AKS existente com o plug-in de rede Kubenet
+
+Atualize um cluster AKS existente com o plug-in de rede Kubnet para incluir a identidade gerenciada por Pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Criar uma identidade
@@ -79,6 +135,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## <a name="assign-permissions-for-the-managed-identity"></a>Atribuir permissões para a identidade gerenciada
+
+A identidade gerenciada *IDENTITY_CLIENT_ID* deve ter permissões de leitor no grupo de recursos que contém o conjunto de dimensionamento de máquinas virtuais do cluster AKs.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## <a name="create-a-pod-identity"></a>Criar uma identidade de Pod
@@ -176,11 +242,11 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 Para obter mais informações sobre identidades gerenciadas, consulte [Identidades gerenciadas para recursos do Azure][az-managed-identities].
 
 <!-- LINKS - external -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
-[az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

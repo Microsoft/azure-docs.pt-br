@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/01/2020
 ms.author: tomfitz
 ms.openlocfilehash: 543aa50d72de5a06a9a1c7ac88ac5ecae993bc9d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98698132"
 ---
 | Recurso | Limite |

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343971"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100557526"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -71,7 +71,7 @@ Os usuários convidados aos quais foi atribuída a função Co-Administrator pod
 
 Você esperava que o usuário B pudesse gerenciar tudo. O motivo para essa diferença é que a conta da Microsoft é adicionada à assinatura como um usuário convidado, em vez de um usuário membro. Os usuários convidados têm permissões padrão diferentes no Azure AD em comparação com os usuários membros. Por exemplo, usuários membros podem ler outros usuários no Azure AD, e os usuários convidados não podem. Os usuários membros podem registrar novas entidades de serviço no Azure AD, e os usuários convidados não podem.
 
-Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/roles/permissions-reference.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/roles/permissions-reference.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure](role-assignments-external-users.md).
+Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/roles/permissions-reference.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/roles/permissions-reference.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [atribuir funções do Azure a usuários convidados externos usando o portal do Azure](role-assignments-external-users.md).
 
 Observe que as [funções internas do Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções do [Azure ad](../active-directory/roles/permissions-reference.md). As funções internas não concedem acesso ao Azure AD. Para saber mais, consulte [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -151,5 +151,5 @@ Siga estas etapas para exibir o Administrador da Conta.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Entender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Adicionar ou alterar administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

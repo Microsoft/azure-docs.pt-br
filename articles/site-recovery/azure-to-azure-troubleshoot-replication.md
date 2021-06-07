@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007351"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
@@ -28,7 +28,7 @@ As seções a seguir descrevem as causas e soluções.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Alta taxa de alteração de dados na máquina virtual de origem
 
-Azure Site Recovery criará um evento se a taxa de alteração de dados na máquina virtual de origem for maior do que os limites com suporte. Para ver se o problema é devido à alta rotatividade, acesse **itens replicados**  >  **VM**  >  **eventos de VM – últimas 72 horas**.
+Azure Site Recovery criará um evento se a taxa de alteração de dados na máquina virtual de origem for maior do que os limites com suporte. Para ver se o problema é devido à alta rotatividade, acesse **itens replicados**  >    >  **eventos de VM – últimas 72 horas**.
 Você deve ver a taxa de alteração de dados do evento **além dos limites com suporte**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Azure Site Recovery página que mostra uma alta taxa de alteração de dados que é muito alta.":::

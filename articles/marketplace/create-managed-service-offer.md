@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 46a9c9d953a2311d83b5fd18b83727d6765734fa
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97918075"
 ---
 # <a name="how-to-create-a-managed-service-offer-for-the-commercial-marketplace"></a>Como criar uma oferta de serviço gerenciado para o Marketplace comercial

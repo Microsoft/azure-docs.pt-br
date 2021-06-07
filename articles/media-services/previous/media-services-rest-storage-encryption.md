@@ -3,7 +3,7 @@ title: Como criptografar seu conteúdo com a criptografia de armazenamento usand
 description: Saiba como criptografar seu conteúdo com criptografia de armazenamento usando as APIs REST do AMS.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ae1d19ee3da59c43722ca1ea720eb441f6dd484
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 885390d9246937247107128114e9242aa5e2dc01
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696203"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103015448"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento
 
@@ -116,7 +116,7 @@ A seguir, estão as etapas gerais para gerar chaves de conteúdo que você assoc
 
     Propriedade do corpo da solicitação    | Descrição
     ---|---
-    Id | A ID de ContentKey é gerada usando o seguinte formato, “nb:kid:UUID:\<NEW GUID>”.
+    ID | A ID de ContentKey é gerada usando o seguinte formato, “nb:kid:UUID:\<NEW GUID>”.
     ContentKeyType | O tipo de chave de conteúdo é um inteiro que define a chave. Para o formato de criptografia de armazenamento, o valor é 1.
     EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. Como um exemplo, confira o seguinte código do .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.

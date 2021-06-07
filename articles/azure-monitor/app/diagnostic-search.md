@@ -3,18 +3,18 @@ title: Usar a Pesquisa no Azure Application Insights | Microsoft Docs
 description: Pesquise e filtre telemetria bruta enviada pelo seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187010"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579548"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 
 A Pesquisa é um recurso do [Application Insights](./app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
-(Para consultas mais complexas sobre os dados, use o [Analytics](../log-query/log-analytics-tutorial.md).)
+(Para consultas mais complexas sobre os dados, use o [Analytics](../logs/log-analytics-tutorial.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde você vê o Search?
 
@@ -81,7 +81,7 @@ Para localizar todos os itens com o mesmo valor de propriedade, digite-os na bar
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para gravar consultas mais complexas, abra [**logs (análise)**](../log-query/log-analytics-tutorial.md) na parte superior da folha de pesquisa.
+> Para gravar consultas mais complexas, abra [**logs (análise)**](../logs/log-analytics-tutorial.md) na parte superior da folha de pesquisa.
 >
 
 Você pode pesquisar termos em qualquer um dos valores de propriedade. Isso será útil se você tiver escrito [eventos personalizados](./api-custom-events-metrics.md) com valores de propriedade.
@@ -92,7 +92,7 @@ Você talvez queira definir um tempo de intervalo, já que pesquisas em um inter
 
 Pesquisar por palavras inteiras, não subcadeias de caracteres. Use aspas para delimitar caracteres especiais.
 
-| Cadeia de caracteres | *Não* encontrado | Encontrado |
+| String | *Não* encontrado | Encontrado |
 | --- | --- | --- |
 | ControladorInicial.Sobre |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -145,7 +145,7 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 
 ## <a name="next-steps"></a><a name="add"></a>Próximas etapas
 
-* [Escrever consultas complexas no Analytics](../log-query/log-analytics-tutorial.md)
+* [Escrever consultas complexas no Analytics](../logs/log-analytics-tutorial.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](./asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](./monitor-web-app-availability.md)
 * [Solução de problemas](../faq.md)

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203255"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091478"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA
 
@@ -21,7 +21,7 @@ A fim de fornecer uma só fatura combinada para os serviços gerenciados e o con
 
 Esse recurso só está disponível para Parceiros de Cobrança Direta do CSP certificados como [MSP Especialista do Azure](https://partner.microsoft.com/membership/azure-expert-msp). Ele está sujeito à governança e às políticas da Microsoft e pode exigir análise e aprovação para determinados clientes.
 
-Para solicitar a propriedade de cobrança, é necessário ter a função **Administrador Global** ou **Agentes Administrativos** . Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
+Para solicitar a propriedade de cobrança, é necessário ter a função **Administrador Global** ou **Agentes Administrativos**. Para saber mais, confira [Partner Center – Atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
 Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Microsoft. Essas contas são criadas para CSPs (Provedores de Soluções na Nuvem) para gerenciar a cobrança dos clientes na nova experiência de comércio. A nova experiência só está disponível para parceiros que têm, pelo menos, um cliente que tenha aceitado um MCA (Contrato de Cliente da Microsoft) e tenha um plano do Azure. [Verifique se você tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
@@ -34,18 +34,18 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 ## <a name="request-billing-ownership"></a>Solicitar propriedade de cobrança
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando as credenciais de Agente Administrativo do CSP no locatário do CSP.
-1. Pesquise **Gerenciamento de Custos + Cobrança** .  
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra a pesquisa no portal do Azure de gerenciamento de custos e cobrança para solicitar a propriedade da cobrança.](./media/mpa-request-ownership/search-cmb.png)
 1. Selecione **Clientes** do lado esquerdo e, em seguida, selecione um cliente na lista.  
     [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação** .  
+1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.  
     [![Captura de tela que mostra a seleção de solicitações de transferência](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. Insira o endereço de email do usuário na organização do cliente que aceitará a solicitação de transferência. O usuário precisa ser um proprietário da conta em um Contrato Enterprise. Selecione **Enviar solicitação de transferência** .  
+1. Insira o endereço de email do usuário na organização do cliente que aceitará a solicitação de transferência. O usuário precisa ser um proprietário da conta em um Contrato Enterprise. Selecione **Enviar solicitação de transferência**.  
     [![Captura de tela que mostra o envio de uma solicitação de transferência](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. O usuário recebe um email com instruções para revisar sua solicitação de transferência.  
     ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções.  
-    [![Captura de tela que mostra a revisão da solicitação de transferência](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) O usuário pode selecionar a conta de cobrança da qual deseja transferir produtos do Azure. Depois de selecionados, os produtos qualificados que podem ser transferidos são mostrados. **Observação:** assinaturas desabilitadas não podem ser transferidas e aparecerão na lista "Produtos não transferíveis do Azure", se aplicável. Depois que os produtos do Azure a serem transferidos estiverem selecionados, selecione **Validar** .
+    [![Captura de tela que mostra a revisão da solicitação de transferência](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) O usuário pode selecionar a conta de cobrança da qual deseja transferir produtos do Azure. Depois de selecionados, os produtos qualificados que podem ser transferidos são mostrados. **Observação:** assinaturas desabilitadas não podem ser transferidas e aparecerão na lista "Produtos não transferíveis do Azure", se aplicável. Depois que os produtos do Azure a serem transferidos estiverem selecionados, selecione **Validar**.
 1. A área **Resultado da validação da transferência** mostrará o impacto dos produtos do Azure que serão transferidos. Estes são os estados possíveis:
     * **Aprovado** – a validação deste produto do Azure foi aprovada e pode ser transferida.
     * **Aviso** – há um aviso relacionado ao produto do Azure selecionado. Embora o produto ainda possa ser transferido, fazer isso causará algum impacto do qual o usuário precisa estar ciente caso queira adotar medidas de mitigação. Por exemplo, a assinatura do Azure que está sendo transferida é beneficiada por uma RI. Após a transferência, a assinatura não terá mais esse benefício. Para maximizar a economia, verifique se a RI está associada a outra assinatura que pode aproveitar os benefícios. Em vez disso, o usuário também pode optar por voltar à página de seleção e desmarcar essa assinatura do Azure.
@@ -55,7 +55,7 @@ Este artigo se aplica às contas de cobrança para Contratos de Parceiro da Micr
 ## <a name="check-the-transfer-request-status"></a>Verifique o status da solicitação de transferência
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Pesquise **Gerenciamento de Custos + Cobrança** .  
+1. Pesquise **Gerenciamento de Custos + Cobrança**.  
     ![Captura de tela que mostra a pesquisa no portal do Azure de gerenciamento de custos e cobrança para solicitar o status de transferência.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Selecione **Clientes** no lado esquerdo.  
     [![Captura de tela que mostra a seleção de clientes](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
@@ -174,4 +174,4 @@ Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Micro
 ## <a name="next-steps"></a>Próximas etapas
 
 * A propriedade de cobrança das assinaturas do Azure é transferida para você. Controle os encargos dessas assinaturas no [portal do Azure](https://portal.azure.com).
-* Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+* Trabalhe com o cliente para obter acesso às assinaturas transferidas do Azure. [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005275"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimize os custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure
@@ -53,7 +53,7 @@ Você pode adicionar, editar ou remover uma política usando qualquer um dos seg
 Uma política pode ser lida ou gravada por completo. Não há suporte para atualizações parciais. 
 
 > [!NOTE]
-> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](../common/storage-network-security.md#exceptions).
+> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções para serviços Microsoft confiáveis. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](../common/storage-network-security.md#exceptions).
 
 Este artigo mostra como gerenciar a política usando os métodos do portal e do PowerShell.
 
@@ -247,10 +247,10 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | True |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas. Ela deve ser exclusiva em uma política. | Verdadeiro |
 | `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | True |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle` . | Verdadeiro |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
 
 ## <a name="rules"></a>Regras
 
@@ -317,9 +317,9 @@ Filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob` e `appendBlob` . Somente a exclusão tem suporte para o `appendBlob` , não há suporte para a camada de conjunto. | Yes |
-| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
-| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | No |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob` e `appendBlob` . Somente a exclusão tem suporte para o `appendBlob` , não há suporte para a camada de conjunto. | Sim |
+| prefixMatch | Uma matriz de cadeias de caracteres para correspondência de prefixos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo` . | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
+| blobIndexMatch | Uma matriz de valores de dicionário que consiste na chave de marca de índice de BLOB e condições de valor a serem correspondidas. Cada regra pode definir até 10 condições de marca de índice de BLOB. Por exemplo, se você quiser corresponder a todos os BLOBs com `Project = Contoso` em `https://myaccount.blob.core.windows.net/` para uma regra, o blobIndexMatch será `{"name": "Project","op": "==","value": "Contoso"}` . | Se você não definir blobIndexMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
 
 > [!NOTE]
 > O índice de blob está em visualização pública e está disponível nas regiões do **Canadá central**, **leste do Canadá**, **França central** e **França** . Para saber mais sobre esse recurso juntamente com limitações e problemas conhecidos, confira [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blob (versão prévia)](storage-manage-find-blobs.md).
@@ -342,7 +342,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs, ver
 
 As condições de execução se baseiam na idade. Os blobs de base usam a hora da última modificação, as versões de blob usam a hora de criação da versão e os instantâneos de blob usam o tempo de criação do instantâneo para controlar a idade.
 
-| Condição de execução de ação               | Valor de condição                          | Description                                                                      |
+| Condição de execução de ação               | Valor de condição                          | Descrição                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valor inteiro que indica a idade em dias | A condição para ações de blob de base                                              |
 | daysAfterCreationGreaterThan       | Valor inteiro que indica a idade em dias | A condição para a versão do blob e ações de instantâneo de BLOB                         |
@@ -596,4 +596,4 @@ Saiba como recuperar dados após uma exclusão acidental:
 
 Saiba como gerenciar e localizar dados com o índice de blob:
 
-- [Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índice de BLOB](storage-manage-find-blobs.md)
+- [Gerenciar e localizar dados no Armazenamento de Blobs do Azure com o Índice de Blobs](storage-manage-find-blobs.md)

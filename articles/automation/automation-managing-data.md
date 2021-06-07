@@ -3,14 +3,14 @@ title: Segurança de dados da automação do Azure
 description: Este artigo ajuda você a aprender como a automação do Azure protege sua privacidade e protege seus dados.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046032"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954666"
 ---
 # <a name="management-of-azure-automation-data"></a>Gerenciamento de dados da Automação do Azure
 
@@ -22,13 +22,13 @@ Para garantir a segurança dos dados em trânsito para a automação do Azure, r
 
 * Chamadas de webhook
 
-* Hybrid runbook Workers, que inclui computadores gerenciados por Gerenciamento de Atualizações e Controle de Alterações e inventário.
+* Hybrid runbook Workers, que incluem computadores gerenciados por Gerenciamento de Atualizações e Controle de Alterações e inventário.
 
 * Nós DSC
 
-Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. Não é recomendável definir explicitamente seu agente para usar somente o TLS 1.2, a menos que absolutamente necessário, pois ele pode separar os recursos de segurança em nível de plataforma que permitem que você detecte e use os protocolos mais seguros e mais recentes assim que estiverem automaticamente disponíveis como TLS 1.3.
+Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. Não recomendamos definir explicitamente seu agente para usar somente o TLS 1,2, a menos que seja necessário, pois ele pode interromper os recursos de segurança no nível da plataforma que permitem detectar e aproveitar automaticamente os protocolos mais seguros à medida que eles se tornam disponíveis, como o TLS 1,3.
 
-Para obter informações sobre o suporte a TLS 1,2 com o agente de Log Analytics para Windows e Linux, que é uma dependência para a função de Hybrid Runbook Worker, consulte [visão geral do agente de log Analytics-TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
+Para obter informações sobre o suporte a TLS 1,2 com o agente de Log Analytics para Windows e Linux, que é uma dependência para a função de Hybrid Runbook Worker, consulte [visão geral do agente de log Analytics-TLS 1,2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Diretrizes específicas da plataforma
 
@@ -41,7 +41,7 @@ Para obter informações sobre o suporte a TLS 1,2 com o agente de Log Analytics
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Quando você exclui um recurso na Automação do Azure, ele é mantido por vários dias para fins de auditoria antes da remoção permanente. Você não pode ver nem usar o recurso durante esse período. Essa política também se aplica aos recursos que pertencem a uma conta da Automação excluída.
+Quando você exclui um recurso na automação do Azure, ele é retido por muitos dias para fins de auditoria antes da remoção permanente. Você não pode ver nem usar o recurso durante esse período. Essa política também se aplica aos recursos que pertencem a uma conta da Automação excluída. A política de retenção se aplica a todos os usuários e atualmente não pode ser personalizada. No entanto, se você precisar manter os dados por um longo período, [poderá encaminhar os dados do trabalho de Automação do Azure para os logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 A tabela a seguir resume a política de retenção para diferentes recursos.
 
@@ -54,9 +54,9 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 | Módulos |Um módulo é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
 | Arquivos de configurações/MOF de nó |Uma configuração de nó antigo é removida permanentemente 30 dias depois que uma nova configuração de nó é gerada. |
 | Relatórios de Nó |Um relatório de nó é removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó. |
-| Runbooks |Um runbook é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
+| Runbooks |Um runbook é removido permanentemente 30 dias depois que um usuário exclui o recurso ou 30 dias depois que um usuário exclui a conta que contém o recurso<sup>1</sup>. |
 
-A política de retenção se aplica a todos os usuários e atualmente não pode ser personalizada. No entanto, se você precisar manter os dados por um longo período, [poderá encaminhar os dados do trabalho de Automação do Azure para os logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup> O runbook pode ser recuperado dentro do período de 30 dias, criando um incidente de suporte do Azure com suporte Microsoft Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Enviar uma solicitação de suporte**.
 
 ## <a name="data-backup"></a>Backup de dados
 
@@ -68,7 +68,7 @@ Você pode exportar seus runbooks para arquivos de script usando o Portal do Azu
 
 ### <a name="integration-modules"></a>Módulos de integração
 
-Você não pode exportar módulos de integração da Automação do Azure. Você deve torná-los disponíveis fora da conta da Automação.
+Você não pode exportar módulos de integração da automação do Azure, eles precisam ser disponibilizados fora da conta de automação.
 
 ### <a name="assets"></a>Ativos
 
@@ -84,7 +84,10 @@ Você pode exportar suas configurações DSC para arquivos de script usando o po
 
 A replicação geográfica é padrão nas contas da Automação do Azure. Você escolhe uma região primária ao configurar sua conta. O serviço de replicação geográfica interna da Automação atribui automaticamente uma região secundária à conta. Em seguida, o serviço faz o backup contínuo dos dados da conta da região primária para a região secundária. A lista completa de regiões primária e secundária pode ser encontrada em [Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Combinadas do Azure](../best-practices-availability-paired-regions.md).
 
-O backup criado pelo serviço de replicação geográfica de automação é uma cópia completa dos ativos, configurações e similares da automação. Esse backup pode ser usado se a região principal falhar e perder dados. No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se a empresa não conseguir recuperar os dados principais, ela usa failover automático e informa a situação por meio da sua assinatura do Azure.
+O backup criado pelo serviço de replicação geográfica de automação é uma cópia completa dos ativos, configurações e similares da automação. Esse backup pode ser usado se a região principal falhar e perder dados. No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los.
+
+> [!NOTE]
+> A automação do Azure armazena dados do cliente na região selecionada pelo cliente. Para a finalidade de BCDR, para todas as regiões, exceto sul do Brasil e sudeste asiático, os dados de automação do Azure são armazenados em uma região diferente (região emparelhada do Azure). Somente para a região do Sul do Brasil (estado de São Paulo) da geografia do Brasil e da região da Ásia do Sudeste (Cingapura) da geografia Pacífico Asiático, armazenamos dados de automação do Azure na mesma região para acomodar os requisitos de residência de dados para essas regiões.
 
 O serviço de replicação geográfica da Automação não pode ser acessado diretamente por clientes externos se houver uma falha regional. Se você deseja manter a configuração da Automação e os runbooks durante falhas regionais:
 

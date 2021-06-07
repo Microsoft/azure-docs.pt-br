@@ -4,10 +4,10 @@ description: Saiba como criar uma função do PowerShell e publique o projeto lo
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.openlocfilehash: 9833b154cdba24f8760e7e8d9040bfc72bbcd271
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99493577"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Início rápido: criar uma função do PowerShell no Azure usando o Visual Studio Code

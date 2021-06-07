@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172744"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670419"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -83,7 +83,7 @@ Configure uma política de backup para o cofre.
 
       ![Adicionar máquinas virtuais](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. O painel **Selecionar máquinas virtuais** será aberto. Selecione as VMs que você deseja fazer backup usando a política. Depois, selecione **OK**.
+1. O painel **Selecionar máquinas virtuais** será aberto. Selecione as VMs que você deseja fazer backup usando a política. Em seguida, selecione **OK**.
 
    * As VMs selecionadas são validadas.
    * Você só pode escolher máquinas virtuais na mesma região que o cofre.
@@ -117,6 +117,8 @@ Se você optou por criar uma política de backup, preencha as configurações de
 4. Em **Período de retenção**, especifique por quanto tempo deseja manter seus pontos de backup diários ou semanais.
 5. Em **retenção de ponto de backup mensal** e **retenção do ponto de backup anual**, especifique se deseja manter um backup mensal ou anual de seus backups diários ou semanais.
 6. Selecione **OK** para salvar a política.
+    > [!NOTE]
+    > Para armazenar a coleção de pontos de restauração (RPC), o serviço de backup cria um grupo de recursos separado (RG). Esse RG é diferente do RG da VM. [Saiba mais](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Nova política de backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -131,7 +133,7 @@ O backup inicial será executado de acordo com o agendamento, mas você poderá 
 2. Em **itens de backup**, selecione **máquina virtual do Azure**.
 3. Na lista **itens de backup** , selecione as reticências (...).
 4. Selecione **fazer backup agora**.
-5. Em **Fazer Backup Agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Depois, selecione **OK**.
+5. Em **Fazer Backup Agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, selecione **OK**.
 6. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho da VM, a criação do backup inicial pode demorar um pouco.
 
 ## <a name="verify-backup-job-status"></a>Verificar o status do trabalho de backup

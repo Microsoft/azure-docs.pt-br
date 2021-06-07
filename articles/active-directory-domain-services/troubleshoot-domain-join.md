@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 86d6ca79a12e4706f558e92c3c83c5bddaa99b3c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618596"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Solucionar problemas de ingresso no domínio com um Azure Active Directory Domain Services domínio gerenciado

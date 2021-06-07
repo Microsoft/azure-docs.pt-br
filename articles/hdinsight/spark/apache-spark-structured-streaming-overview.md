@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 9f92007c271da5b6d2cb8db6c3904a62b114e7c2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929499"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864594"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do streaming estruturado do Apache Spark
 
@@ -20,7 +20,7 @@ Aplicativos de Fluxo Estruturado são executados em clusters do HDInsight Spark 
 
 O Structured Streaming cria uma consulta de longa execução durante a qual você aplica operações aos dados de entrada, como seleção, projeção, agregação, janelas e união de DataFrame de streaming com referência de DataFrames. Em seguida, você gera os resultados para o armazenamento de arquivo (Azure Storage Blobs ou Data Lake Storage) ou para qualquer repositório de dados usando código personalizado (como banco de dados SQL ou Power BI). Structured Streaming também fornece a saída para o console para depuração local e para uma tabela na memória para que você possa ver os dados gerados para depuração no HDInsight.
 
-![Processamento de Stream com o HDInsight e o Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png" alt-text="Processamento de Stream com o HDInsight e o Spark Structured Streaming" border="false":::
 
 > [!NOTE]  
 > O Spark Structured Streaming substitui o Spark Streaming (DStreams). No futuro, Structured Streaming receberá aprimoramentos e manutenção, enquanto DStreams estará apenas no modo de manutenção. O Structured Streaming não tem no momento todos os recursos do DStreams para as fontes e coletores compatíveis instantaneamente, então avalie os requisitos para escolher a opção adequada de processamento de transmissão do Spark.
@@ -29,9 +29,9 @@ O Structured Streaming cria uma consulta de longa execução durante a qual voc�
 
 O Structured Streaming do Spark representa um fluxo de dados como tabela que não é vinculada em camadas, ou seja, a tabela continuará a crescer conforme novos dados chegam. Essa *tabela de entrada* é processada continuamente por uma consulta de execução longa e os resultados são enviados a uma *tabela de saída*:
 
-![Conceito de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png" alt-text="Conceito de Structured Streaming" border="false":::
 
-No Structured Streaming, os dados chegam ao sistema e são ingeridos imediatamente em uma tabela de entrada. Você grava as consultas (usando as APIs de DataFrame e conjuntos de dados) que executam operações nessa tabela de entrada. O resultado da consulta produz outra tabela, a *tabela de resultados*. A tabela de resultados contém os resultados da sua consulta, a partir da qual você extrai dados para um armazenamento de dados externo, como um banco de dados relacional. O tempo de quando os dados serão processados a partir da tabela de entrada é controlado pelo *intervalo do gatilho*. Por padrão, o intervalo do gatilho é zero, para que o Structured Streaming tente processar os dados assim que eles chegam. Na prática, isso significa que assim que o Structured Streaming termina de processar a execução da consulta anterior, ele inicia outro processamento executado quaisquer dados recebidos recentemente. É possível configurar o gatilho para executar em um intervalo, de modo que os dados de streaming sejam processados em lotes baseados em tempo.
+No Structured Streaming, os dados chegam ao sistema e são ingeridos imediatamente em uma tabela de entrada. Você grava as consultas (usando as APIs de DataFrame e conjuntos de dados) que executam operações nessa tabela de entrada. A saída da consulta produz outra tabela, a *tabela de resultados*. A tabela de resultados contém os resultados da sua consulta, a partir da qual você extrai dados para um armazenamento de dados externo, como um banco de dados relacional. O tempo de quando os dados são processados da tabela de entrada é controlado pelo *intervalo de gatilho*. Por padrão, o intervalo do gatilho é zero, para que o Structured Streaming tente processar os dados assim que eles chegam. Na prática, isso significa que assim que o Structured Streaming termina de processar a execução da consulta anterior, ele inicia outro processamento executado quaisquer dados recebidos recentemente. É possível configurar o gatilho para executar em um intervalo, de modo que os dados de streaming sejam processados em lotes baseados em tempo.
 
 Os dados nas tabelas de resultados podem conter apenas os dados que são novos desde a última vez em que a consulta foi processada (*modo de acréscimo*) ou a tabela pode ser atualizada sempre que houver novos dados para que a tabela inclua todos os dados de saída desde que a consulta de streaming começou (*modo completo*).
 
@@ -41,17 +41,17 @@ No modo de acréscimo, apenas as linhas adicionadas à tabela de resultados, des
 
 Considere um cenário em que você esteja processando a telemetria de sensores de temperatura, como um termostato. Suponha que o primeiro gatilho processou um evento no tempo 00:01 para o dispositivo 1 com uma leitura de temperatura de 95 graus. No primeiro gatilho da consulta, apenas a linha com tempo 00:01 é exibida na tabela de resultados. No tempo 00:02 quando outro evento chega, apenas a nova linha é a linha com tempo 00:02 e assim a tabela de resultados conterá somente essa única linha.
 
-![Modo de acréscimo do Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png" alt-text="Modo de acréscimo do Structured Streaming" border="false":::
 
 Ao usar o modo de acréscimo, sua consulta aplicaria projeções (selecionando as colunas que são importantes), filtragem (separando somente linhas que correspondam a determinadas condições) ou associação (aumentando os dados com dados de uma tabela de pesquisa estática). O modo de acréscimo facilita o envio de somente novos pontos de dados relevantes para o armazenamento externo.
 
 ### <a name="complete-mode"></a>Modo completo
 
-Considere o mesmo cenário, desta vez usando o modo completo. No modo completo, a tabela de saída inteira é atualizada em cada gatilho de modo que a tabela inclui dados não apenas da execução de gatilho mais recente, mas de todas as execuções. Você pode usar o modo completo para copiar os dados inalterados da tabela de entrada para a tabela de resultados. Em cada execução disparada, as novas linhas de resultado aparecem junto com todas as linhas anteriores. A tabela de resultados de saída acabarão armazenando todos os dados coletados desde o início da consulta e uma hora você ficaria sem memória. O modo completo destina-se ao uso com consultas de agregação que resumem os dados de entrada de alguma forma, assim, em cada gatilho, a tabela de resultados é atualizada com um novo Resumo.
+Considere o mesmo cenário, desta vez usando o modo completo. No modo completo, a tabela de saída inteira é atualizada em cada gatilho de modo que a tabela inclui dados não apenas da execução de gatilho mais recente, mas de todas as execuções. Você pode usar o modo completo para copiar os dados inalterados da tabela de entrada para a tabela de resultados. Em cada execução disparada, as novas linhas de resultado aparecem junto com todas as linhas anteriores. A tabela de resultados de saída acabarão armazenando todos os dados coletados desde o início da consulta e uma hora você ficaria sem memória. O modo completo é destinado ao uso com consultas de agregação que resumem os dados de entrada de alguma forma, assim, a cada gatilho, a tabela de resultados é atualizada com um novo resumo.
 
 Suponha que até agora há cinco segundos de dados já processados, e é hora de processar os dados para o sexto segundo. A tabela de entrada tem eventos para o tempo 00:01 e o tempo 00:03. O objetivo dessa consulta de exemplo é apresentar a temperatura média do dispositivo a cada cinco segundos. A implementação dessa consulta se aplica a uma agregação que usa todos os valores que se enquadram em cada janela de 5 segundos, calcula a média da temperatura e produz uma linha para a temperatura média durante esse intervalo. No final da primeira janela de 5 segundos, há duas tuplas: (00:01, 1, 95) e (00:03, 1, 98). Portanto, para a janela 00:00-00:05, a agregação produz uma tupla com a temperatura média de 96,5 graus. Na próxima janela de 5 segundos, há apenas um ponto de dados no momento 00:06, portanto, a temperatura média resultante é de 98 graus. No tempo 00:10, usando o modo completo, a tabela de resultados tem linhas para as duas janelas 00:00-00:05 e 05:00-00:10 porque a consulta produz todas as linhas agregadas, não apenas as novas. Portanto, a tabela de resultados continua a crescer à medida que novas janelas são adicionadas.
 
-![Modo completo do Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png" alt-text="Modo completo do Structured Streaming" border="false":::
 
 Nem todas as consultas usando o modo completo farão com que a tabela cresça sem limites.  Considere o exemplo anterior que, em vez de calcular a média de temperatura pela janela de tempo, a média é calculada, em vez disso, por ID do dispositivo. A tabela de resultados contém um número fixo de linhas (um por dispositivo) com a temperatura média para o dispositivo em todos os pontos de dados recebidos do dispositivo. Conforme novas temperaturas são recebidas, a tabela de resultados é atualizada para que as médias na tabela fiquem sempre atuais.
 
@@ -141,7 +141,7 @@ Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta 
 
 Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo JAR e, em seguida, implanta-o no Spark no HDInsight copiando o arquivo JAR para o armazenamento padrão anexado ao cluster HDInsight. Você pode iniciar seu aplicativo com as APIs REST do [Apache Livy](https://livy.incubator.apache.org/) disponíveis em seu cluster usando uma operação POST. O corpo do POST inclui um documento JSON que fornece o caminho para o JAR, o nome da classe cujo método principal define e executa o aplicativo de streaming e, opcionalmente, os requisitos de recursos do trabalho (como a quantidade de executores, memória e núcleos) e as definições de configuração exigidas pelo código do aplicativo.
 
-![Implantando um aplicativo Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Implantando um aplicativo Spark Streaming" border="false":::
 
 O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [ Trabalhos remotos com o Apache LIVY ](apache-spark-livy-rest-interface.md)
 

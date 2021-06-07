@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92122970"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerenciar usuários e funções em seu aplicativo IoT Central
@@ -78,7 +78,7 @@ Os usuários na função **operador** podem monitorar a integridade e o status d
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Se sua solução exigir controles de acesso mais refinados, você poderá criar funções personalizadas com conjuntos personalizados de permissões. Para criar uma função personalizada, navegue até a página **funções** na seção **Administração** do seu aplicativo. Em seguida, selecione **+ nova função**e adicione um nome e uma descrição para sua função. Selecione as permissões que sua função requer e, em seguida, selecione **salvar**.
+Se sua solução exigir controles de acesso mais refinados, você poderá criar funções personalizadas com conjuntos personalizados de permissões. Para criar uma função personalizada, navegue até a página **funções** na seção **Administração** do seu aplicativo. Em seguida, selecione **+ nova função** e adicione um nome e uma descrição para sua função. Selecione as permissões que sua função requer e, em seguida, selecione **salvar**.
 
 Você pode adicionar usuários à sua função personalizada da mesma maneira que adiciona usuários a uma função interna.
 
@@ -97,7 +97,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | ---- | -------- |
 | Visualizar | Nenhum     |
 | Gerenciar | Visualizar <br/> Outras dependências: exibir instâncias de dispositivo  |
-| Controle Total | Exibir, gerenciar <br/> Outras dependências: exibir instâncias de dispositivo |
+| Controle total | Exibir, gerenciar <br/> Outras dependências: exibir instâncias de dispositivo |
 
 **Permissões de instância de dispositivo**
 
@@ -108,7 +108,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Criar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 | Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 | Executar comandos | Atualizar, exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
-| Controle Total | Exibir, atualizar, criar, excluir, executar comandos <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Controle total | Exibir, atualizar, criar, excluir, executar comandos <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 
 **Permissões de grupos de dispositivos**
 
@@ -118,7 +118,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
 | Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
-| Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
+| Controle total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
 
 **Permissões de gerenciamento de conectividade do dispositivo**
 
@@ -128,7 +128,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Gerenciar instância | Nenhum |
 | Ler global | Nenhum   |
 | Gerenciar global | Ler global |
-| Controle Total | Ler instância, gerenciar instância, ler global, gerenciar global. <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
+| Controle total | Ler instância, gerenciar instância, ler global, gerenciar global. <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
 
 **Permissões de trabalhos**
 
@@ -139,7 +139,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
 | Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
 | Execute (executar) | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
-| Controle Total | Exibir, atualizar, criar, excluir, executar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
+| Controle total | Exibir, atualizar, criar, excluir, executar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
 
 **Permissões de regras**
 
@@ -149,7 +149,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo |
 | Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo |
 | Excluir | Visualizar <br/> Outras dependências: exibir modelos de dispositivo |
-| Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo |
+| Controle total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo |
 
 #### <a name="managing-the-app"></a>Gerenciando o aplicativo
 
@@ -161,7 +161,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar   |
 | Copiar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 | Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, copiar, excluir <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Controle total | Exibir, atualizar, copiar, excluir <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
 **Permissões de exportação de modelo de aplicativo**
 
@@ -169,14 +169,14 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | ---- | -------- |
 | Visualizar | Nenhum     |
 | Exportação | Visualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
-| Controle Total | Exibir, exportar <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Controle total | Exibir, exportar <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
 **Permissões de cobrança**
 
 | Nome | Dependências |
 | ---- | -------- |
 | Gerenciar | Nenhum     |
-| Controle Total | Gerenciar |
+| Controle total | Gerenciar |
 
 #### <a name="managing-users-and-roles"></a>Gerenciando usuários e funções
 
@@ -188,7 +188,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar |
 | Criar | Exibir, atualizar |
 | Excluir | Visualizar |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de gerenciamento do usuário**
 
@@ -197,7 +197,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Visualizar | Nenhum <br/> Outras dependências: exibir funções personalizadas |
 | Adicionar | Visualizar <br/> Outras dependências: exibir funções personalizadas |
 | Excluir | Visualizar <br/> Outras dependências: exibir funções personalizadas |
-| Controle Total | Exibir, adicionar, excluir <br/> Outras dependências: exibir funções personalizadas |
+| Controle total | Exibir, adicionar, excluir <br/> Outras dependências: exibir funções personalizadas |
 
 > [!NOTE]
 > Um usuário que está em uma função personalizada que concede a eles a permissão para adicionar outros usuários só pode adicionar usuários a uma função com as mesmas ou menos permissões do que sua própria função.
@@ -212,7 +212,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar   |
 | Criar | Exibir, atualizar |
 | Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de painéis pessoais**
 
@@ -222,7 +222,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar   |
 | Criar | Exibir, atualizar   |
 | Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de identidade visual, favicon e cores**
 
@@ -230,7 +230,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | ---- | -------- |
 | Visualizar | Nenhum     |
 | Atualizar | Visualizar   |
-| Controle Total | Exibir, atualizar |
+| Controle total | Exibir, atualizar |
 
 **Permissões de links de ajuda**
 
@@ -238,7 +238,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | ---- | -------- |
 | Visualizar | Nenhum     |
 | Atualizar | Visualizar   |
-| Controle Total | Exibir, atualizar |
+| Controle total | Exibir, atualizar |
 
 #### <a name="extending-the-app"></a>Estendendo o aplicativo
 
@@ -250,7 +250,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Atualizar | Visualizar   |
 | Criar | Exibir, atualizar  |
 | Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de token de API**
 
@@ -259,7 +259,7 @@ Ao definir uma função personalizada, você escolhe o conjunto de permissões q
 | Visualizar | Nenhum     |
 | Criar | Visualizar   |
 | Excluir | Visualizar   |
-| Controle Total | Exibir, criar, excluir |
+| Controle total | Exibir, criar, excluir |
 
 ## <a name="next-steps"></a>Próximas etapas
 

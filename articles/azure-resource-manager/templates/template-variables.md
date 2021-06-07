@@ -2,13 +2,13 @@
 title: Variáveis em modelos
 description: Descreve como definir variáveis em um modelo de Azure Resource Manager (modelo ARM) e arquivo bicep.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364453"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102123370"
 ---
 # <a name="variables-in-arm-templates"></a>Variáveis em modelos ARM
 
@@ -20,7 +20,7 @@ O Gerenciador de recursos resolve as variáveis antes de iniciar as operações 
 
 ## <a name="define-variable"></a>Definir variável
 
-Ao definir uma variável, você não especifica um [tipo de dados](template-syntax.md#data-types) para a variável. Em vez disso, forneça um valor ou uma expressão de modelo. O tipo de variável é inferido a partir do valor resolvido. O exemplo a seguir define uma variável para uma cadeia de caracteres.
+Ao definir uma variável, você não especifica um [tipo de dados](data-types.md) para a variável. Em vez disso, forneça um valor ou uma expressão de modelo. O tipo de variável é inferido a partir do valor resolvido. O exemplo a seguir define uma variável para uma cadeia de caracteres.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 Você pode usar [funções de modelo](template-functions.md) para construir o valor da variável.
 
-Em modelos JSON, você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na declaração de variável. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
-
-As funções Reference e List são válidas ao declarar uma variável em um arquivo bicep.
-
 O exemplo a seguir cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro e concatena-o a uma cadeia de caracteres exclusiva.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+Em modelos JSON, você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na declaração de variável. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
+
+Em arquivos bicep, as funções de referência e lista são válidas ao declarar uma variável.
+
 ## <a name="use-variable"></a>Usar uma variável
 
 O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
@@ -101,6 +101,9 @@ O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
 Em um modelo JSON, você faz referência ao valor da variável usando a função [Variables](template-functions-deployment.md#variables) .
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ Em um modelo JSON, você faz referência ao valor da variável usando a função
 Em um arquivo bicep, você faz referência ao valor da variável fornecendo o nome da variável.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

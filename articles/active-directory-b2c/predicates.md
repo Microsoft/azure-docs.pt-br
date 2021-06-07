@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108409"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
@@ -44,7 +44,7 @@ O elemento **Predicado** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
+| ID | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
 | Método | Sim | O tipo de método a ser usado para validação. Os valores possíveis: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters) ou [IsDateRange](#isdaterange).  |
 | HelpText | Não | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização de idioma](localization.md) |
 
@@ -65,7 +65,7 @@ O elemento **Parâmetro** contém os seguintes atributos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Id | 1:1 | O identificador do parâmetro. |
+| ID | 1:1 | O identificador do parâmetro. |
 
 ### <a name="predicate-methods"></a>Métodos de predicado
 
@@ -180,7 +180,7 @@ O elemento **PredicateValidation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
+| ID | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
 
 O elemento **PredicateValidation** contém o seguinte elemento:
 
@@ -198,7 +198,7 @@ O elemento **PredicateGroup** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para o grupo de predicados.  |
+| ID | Sim | Um identificador usado para o grupo de predicados.  |
 
 O elemento **PredicateGroup** contém os seguintes elementos:
 
@@ -223,7 +223,7 @@ O elemento **PredicateReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para a validação do predicado.  |
+| ID | Sim | Um identificador usado para a validação do predicado.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha

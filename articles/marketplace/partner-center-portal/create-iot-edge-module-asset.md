@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93346767"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare seus recursos técnicos do módulo IoT Edge

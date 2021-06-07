@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 69a36f38cc76693f596b45d4df6e232bc01584d5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.openlocfilehash: 0e25d41fbf6a9683f178cbfd1b07fde1b6796509
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967968"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104656814"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usar o serviço de Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple
 
@@ -47,6 +47,8 @@ O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Az
 A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e fluxos de trabalho complexos que podem ser executados na interface do usuário do serviço do StorSimple Device Manager. Essas tarefas são organizadas com base nas folhas da interface do usuário nas quais elas foram iniciadas.
 
 Para obter mais informações sobre cada fluxo de trabalho, clique no procedimento apropriado na tabela.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### <a name="storsimple-device-manager-workflows"></a>Fluxos de trabalho do StorSimple Device Manager
 

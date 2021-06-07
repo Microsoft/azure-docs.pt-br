@@ -7,10 +7,10 @@ ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8a034cb8371972c2c7908cdba4dd491c17d8cc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008535"
 ---
 # <a name="windows-virtual-desktop-classic-service-connections"></a>Conexões de serviço da área de trabalho virtual (clássica) do Windows

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 89296b3d0ee4e4339553d22d2ae53ee470ecad31
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1ff047c44833a94ae9db0a410f501a1f23a369f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807573"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100576238"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -60,7 +60,7 @@ Você também pode proteger seu servidor de Banco de Dados do Azure para Postgre
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteger aplicativos Web críticos
 
-**Diretriz**: não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
+**Diretriz**: Não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -104,13 +104,13 @@ Habilite a Proteção contra DDoS Padrão nas redes virtuais do Azure associadas
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: gerenciar o tráfego para aplicativos Web
 
-**Diretriz**: não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
+**Diretriz**: Não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
 **Responsabilidade**: Não aplicável
 
-### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: minimizar a complexidade e a sobrecarga administrativa de regras de segurança de rede
+### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa de regras de segurança de rede
 
 **Diretriz**: Para recursos que precisam de acesso às instâncias do Banco de Dados do Azure para PostgreSQL, use as marcas de serviço de rede virtual para definir os controles de acesso à rede em grupos de segurança de rede ou no Firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, SQL.WestUs) no campo correto de origem ou destino de uma regra, você poderá permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
@@ -124,7 +124,7 @@ Observação: O Banco de Dados do Azure para PostgreSQL usa a marca de serviço 
 
 **Responsabilidade**: Cliente
 
-### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: manter configurações de segurança padrão para dispositivos de rede
+### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
 **Diretriz**: Defina e implemente configurações de segurança padrão para configurações de rede e recursos de rede associados às instâncias do Banco de Dados do Azure para PostgreSQL com o Azure Policy. Use aliases do Azure Policy nos namespaces “Microsoft.DBforPostgreSQL” e “Microsoft.Network” para criar políticas personalizadas para auditar ou impor a configuração de rede de suas instâncias do Banco de Dados do Azure para PostgreSQL. Você também usar as definições de política integradas relacionadas à rede ou às instâncias do Banco de Dados do Azure para PostgreSQL, como:
 
@@ -142,7 +142,7 @@ Observação: O Banco de Dados do Azure para PostgreSQL usa a marca de serviço 
 
 **Responsabilidade**: Cliente
 
-### <a name="110-document-traffic-configuration-rules"></a>1.10: documentar regras de configuração de tráfego
+### <a name="110-document-traffic-configuration-rules"></a>1.10: Documentar regras de configuração de tráfego
 
 **Diretriz**: Use marcas para recursos relacionados à segurança de rede e ao fluxo de tráfego para as instâncias do Banco de Dados do Azure para PostgreSQL para fornecer metadados e organização lógica.
 
@@ -156,13 +156,13 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Responsabilidade**: Cliente
 
-### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usar ferramentas automatizadas para monitorar as configurações de recursos de rede e detectar alterações
+### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Usar ferramentas automatizadas para monitorar as configurações de recursos de rede e detectar alterações
 
 **Diretriz**: Use o Log de Atividades do Azure para monitorar configurações de recursos de rede e detectar alterações de recursos de rede relacionadas às suas instâncias do Banco de Dados do Azure para PostgreSQL. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -172,7 +172,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md).*
 
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usar fontes de sincronização de tempo aprovadas
+### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Usar fontes de sincronização de tempo aprovadas
 
 **Diretriz**: A Microsoft mantém a fonte de tempo usada para recursos do Azure, como o Banco de Dados do Azure para PostgreSQL para carimbos de data/hora nos logs.
 
@@ -180,9 +180,9 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Responsabilidade**: Microsoft
 
-### <a name="22-configure-central-security-log-management"></a>2.2: configurar o gerenciamento central de log de segurança
+### <a name="22-configure-central-security-log-management"></a>2.2: Configurar o gerenciamento central de log de segurança
 
-**Diretriz**: Habilite as configurações de diagnóstico e os logs de servidor e os logs de ingestão para agregar dados de segurança gerados pelas suas instâncias do Banco de Dados do Azure para PostgreSQL. No Azure Monitor, use o Workspace do Log Analytics para consultar e realizar análises, e use contas de Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento. Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
+**Diretriz**: Habilite as configurações de diagnóstico e os logs de servidor e os logs de ingestão para agregar dados de segurança gerados pelas suas instâncias do Banco de Dados do Azure para PostgreSQL. No Azure Monitor, use o Workspace do Log Analytics para consultar e realizar análises, e use contas de armazenamento do Azure para armazenamento de longo prazo/arquivamento. Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
 - [Como configurar e acessar logs de servidor para o banco de dados do Azure para PostgreSQL](howto-configure-server-logs-in-portal.md)
 
@@ -202,7 +202,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 - [Como configurar e acessar os logs de auditoria do banco de dados do Azure para PostgreSQL](concepts-audit.md)
 
-- [Como definir configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como definir configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -216,13 +216,13 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Responsabilidade**: Não aplicável
 
-### <a name="25-configure-security-log-storage-retention"></a>2.5: configurar a retenção de armazenamento do log de segurança
+### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento do log de segurança
 
-**Diretriz**: No Azure Monitor, para o workspace do Log Analytics que está sendo usado para armazenar os logs do Banco de Dados do Azure para PostgreSQL, defina o período de retenção de acordo com os regulamentos de conformidade da sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
+**Diretriz**: No Azure Monitor, para o workspace do Log Analytics que está sendo usado para armazenar os logs do Banco de Dados do Azure para PostgreSQL, defina o período de retenção de acordo com os regulamentos de conformidade da sua organização. Use contas do armazenamento do Azure para armazenamento de longo prazo/arquivamento.
 
-- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -234,9 +234,9 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Para obter mais informações sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Para obter mais informações sobre o Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -254,7 +254,7 @@ Além disso, você pode habilitar os logs do servidor e as configurações de di
 
 - [Como configurar e acessar os logs de auditoria do banco de dados do Azure para PostgreSQL](concepts-audit.md)
 
-- [Como definir configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como definir configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -464,7 +464,7 @@ Você também pode ingerir logs no Azure Sentinel para uma investigação mais a
 
 **Responsabilidade**: Cliente
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornecer à Microsoft acesso a dados relevantes do cliente durante cenários de suporte
+### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Fornecer à Microsoft acesso a dados relevantes do cliente durante cenários de suporte
 
 **Diretriz**: Não disponível no momento; o Sistema de Proteção de Dados do Cliente ainda não é suportado no Banco de Dados do Azure para PostgreSQL.
 
@@ -478,7 +478,7 @@ Você também pode ingerir logs no Azure Sentinel para uma investigação mais a
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: manter um inventário de informações confidenciais
+### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informações confidenciais
 
 **Diretriz**: Use marcas para auxiliar no rastreamento de instâncias do Banco de Dados do Azure para PostgreSQL ou recursos relacionados que armazenam ou processam informações confidenciais.
 
@@ -490,7 +490,7 @@ Você também pode ingerir logs no Azure Sentinel para uma investigação mais a
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolar sistemas que armazenam ou processam informações confidenciais
 
-**Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Use uma combinação de link privado, pontos de extremidade de serviço e/ou regras de firewall para isolar e limitar o acesso à rede para suas instâncias do Banco de Dados do Azure para PostgreSQL.
+**Diretriz**: Implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Use uma combinação de link privado, pontos de extremidade de serviço e/ou regras de firewall para isolar e limitar o acesso à rede para suas instâncias do Banco de Dados do Azure para PostgreSQL.
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
@@ -506,7 +506,7 @@ Você também pode ingerir logs no Azure Sentinel para uma investigação mais a
 
 **Responsabilidade**: Cliente
 
-### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorar e bloquear a transferência não autorizada de informações confidenciais
+### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitore e bloqueie a transferência não autorizada de informações confidenciais
 
 **Diretriz**: Ao usar as máquinas virtuais do Azure para acessar instâncias do Banco de Dados do Azure para PostgreSQL, use o link privado, as configurações de rede do PostgreSQL, os grupos de segurança de rede e as marcas de serviço para atenuar a possibilidade de vazamento de dados.
 
@@ -520,7 +520,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Banco de Dados do Azure 
 
 **Responsabilidade**: Compartilhado
 
-### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: criptografar todas as informações confidenciais em trânsito
+### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações confidenciais em trânsito
 
 **Diretriz**: O Banco de Dados do Azure para PostgreSQL dá suporte à conexão do seu servidor do PostgreSQL para aplicativos clientes que usam o protocolo TLS, anteriormente conhecido como protocolo SSL. Impor conexões TLS entre seu servidor de banco de dados e os aplicativos clientes ajuda a proteger contra ataques de “intermediários” ao criptografar o fluxo de dados entre o servidor e seu aplicativo. No portal do Azure, certifique-se de que “Impor conexão SSL” esteja habilitado para todas as instâncias do Banco de Dados do Azure para PostgreSQL por padrão.
 
@@ -532,7 +532,7 @@ Atualmente, a versão do TLS com suporte para o Banco de Dados do Azure para Pos
 
 **Responsabilidade**: Compartilhado
 
-### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usar uma ferramenta de descoberta ativa para identificar dados confidenciais
+### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Usar uma ferramenta de descoberta ativa para identificar dados confidenciais
 
 **Diretriz**: Os recursos de identificação de dados, classificação e prevenção de perdas ainda não estão disponíveis para o Banco de Dados do Azure para PostgreSQL. Se necessário, implemente uma solução de terceiros para fins de conformidade.
 
@@ -558,7 +558,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usar a prevenção contra perda de dados baseada em host para impor controle de acesso
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável; esta recomendação destina-se a recursos de computação.
 
 A Microsoft gerencia a infraestrutura subjacente para o Banco de Dados do Azure para PostgreSQL e implementou controles rígidos para evitar a perda ou a exposição dos dados do cliente.
 
@@ -568,7 +568,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Banco de Dados do Azure 
 
 **Responsabilidade**: Microsoft
 
-### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: criptografar informações confidenciais em repouso
+### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Criptografar informações confidenciais em repouso
 
 **Diretriz**: O serviço Banco de Dados do Azure para PostgreSQL usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
@@ -588,7 +588,7 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 
 **Diretriz**: Use o Azure Monitor com o log de atividades do Azure para criar alertas para quando alterações ocorrerem nas instâncias de produção do Banco de Dados do Azure para PostgreSQL e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

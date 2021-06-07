@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
 ms.openlocfilehash: 86f18be73966cb07489630191420b846622e45b8
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98629820"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replicar computadores com pontos de extremidade privados

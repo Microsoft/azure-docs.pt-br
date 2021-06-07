@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3f0856f85e279f97934fff506a052c8fd214ff73
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964772"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641228"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrar zonas privadas do DNS do Azure herdadas para um novo modelo de recurso
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se que você instalou a versão mais recente do Azure PowerShell. Para saber mais sobre o Azure PowerShell (Az) e como instalá-lo, visite https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
@@ -102,14 +102,14 @@ Se você achar que as consultas DNS não estão sendo resolvidas, aguarde alguns
 
 Esta etapa excluirá as zonas DNS herdadas e deverá ser executada somente após verificar se a resolução DNS está funcionando conforme o esperado. A exclusão de cada zona DNS privada será solicitada individualmente. Digite “Y” em cada prompt após verificar se a resolução DNS para as zonas está funcionando corretamente.
 
-![Limpar](./media/private-dns-migration-guide/cleanup-migration-script.png)
+![Limpeza](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
 ## <a name="update-your-automation"></a>Atualizar sua automação
 
 Se você estiver usando automação que inclui modelos, scripts do PowerShell ou código personalizado desenvolvido com SDK, deverá atualizar sua automação a fim de usar o novo modelo de recurso para as zonas DNS privadas. Abaixo apresentamos os links para a nova documentação de SDK/PS/CLI do DNS privado.
 * [API REST das Zonas Privadas do DNS do Azure](/rest/api/dns/privatedns/privatezones)
-* [CLI das Zonas Privadas do DNS do Azure](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [PowerShell para Zonas Privadas do DNS do Azure](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [CLI das Zonas Privadas do DNS do Azure](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
+* [PowerShell para Zonas Privadas do DNS do Azure](/powershell/module/az.privatedns/)
 * [SDK das Zonas Privadas do DNS do Azure](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Caso precise de mais ajuda

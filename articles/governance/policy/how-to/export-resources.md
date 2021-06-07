@@ -5,10 +5,10 @@ ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 923b063244f6f47def1c3e6a63d6e4d6b3b88083
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94919558"
 ---
 # <a name="export-azure-policy-resources"></a>Exportar recursos do Azure Policy

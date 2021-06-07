@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80398471"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Visão geral dos provedores de recursos personalizados do Azure
@@ -37,11 +37,11 @@ Aqui estão alguns exemplos do que você pode obter com os provedores de recurso
 
 ## <a name="what-is-a-custom-resource-provider"></a>O que é um provedor de recursos personalizado
 
-Os provedores de recursos personalizados do Azure são criados por meio da criação de um contrato entre o Azure e um ponto de extremidade. Este contrato define uma lista de novos recursos e ações por meio de um novo recurso, **Microsoft. CustomProviders/resourceProviders**. O provedor de recursos personalizado irá expor essas novas APIs no Azure. Os provedores de recursos personalizados do Azure são compostos por três partes: provedor de recursos personalizados, **pontos de extremidade**e recursos personalizados.
+Os provedores de recursos personalizados do Azure são criados por meio da criação de um contrato entre o Azure e um ponto de extremidade. Este contrato define uma lista de novos recursos e ações por meio de um novo recurso, **Microsoft. CustomProviders/resourceProviders**. O provedor de recursos personalizado irá expor essas novas APIs no Azure. Os provedores de recursos personalizados do Azure são compostos por três partes: provedor de recursos personalizados, **pontos de extremidade** e recursos personalizados.
 
 ## <a name="how-to-build-custom-resource-providers"></a>Como criar provedores de recursos personalizados
 
-Os provedores de recursos personalizados são uma lista de contratos entre o Azure e os pontos de extremidade. Este contrato descreve como o Azure deve interagir com um ponto de extremidade. O provedor de recursos atua como um proxy e encaminhará solicitações e respostas de e para o **ponto de extremidade**especificado. Um provedor de recursos pode especificar dois tipos de contratos: [**ResourceTypes**](./custom-providers-resources-endpoint-how-to.md) e [**ações**](./custom-providers-action-endpoint-how-to.md). Elas são habilitadas por meio de definições de ponto de extremidade. Uma definição de ponto de extremidade é composta de três campos: **nome**, **Roteamento**e **ponto de extremidade**.
+Os provedores de recursos personalizados são uma lista de contratos entre o Azure e os pontos de extremidade. Este contrato descreve como o Azure deve interagir com um ponto de extremidade. O provedor de recursos atua como um proxy e encaminhará solicitações e respostas de e para o **ponto de extremidade** especificado. Um provedor de recursos pode especificar dois tipos de contratos: [**ResourceTypes**](./custom-providers-resources-endpoint-how-to.md) e [**ações**](./custom-providers-action-endpoint-how-to.md). Elas são habilitadas por meio de definições de ponto de extremidade. Uma definição de ponto de extremidade é composta de três campos: **nome**, **Roteamento** e **ponto de extremidade**.
 
 Ponto de extremidade de exemplo:
 

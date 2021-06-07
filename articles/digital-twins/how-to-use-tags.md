@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045403"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555148"
 ---
 # <a name="add-tags-to-digital-twins"></a>Adicionar marcas ao gêmeos digital 
 
@@ -91,7 +91,7 @@ Aqui está uma consulta para obter todas as entidades que são pequenas (marca d
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia mais sobre como projetar e gerenciar modelos de entrelaçamento digital:
-* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
+* [*Como: gerenciar modelos de DTDL*](how-to-manage-model.md)
 
 Leia mais sobre como consultar o grafo de entrelaçamento:
 * [*Como consultar o gráfico de entrelaçamento*](how-to-query-graph.md)

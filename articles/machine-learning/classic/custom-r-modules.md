@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100520469"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definir módulos R personalizados para Machine Learning Studio (clássico)
@@ -306,10 +306,10 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * Booliano
     * Categóricos
     * String
-    * Rótulo
+    * Label
     * Recurso
     * Pontuação
-    * Todos
+    * Tudo
   * **padrão** – seleções padrão válidas para o seletor de coluna incluem: 
     
     * Nenhum
@@ -332,7 +332,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * AllLabel
     * AllFeature
     * AllScore
-    * Todos
+    * Tudo
 
 **Suspensa**: uma lista (suspensa) enumerada especifica pelo usuário. Os itens de lista suspensa são especificados dentro do elemento **Propriedades** usando um elemento de **Item**. A **ID** de cada **Item** deve ser exclusiva e uma variável R válida. O valor do **nome** de um **Item** serve como o texto que você vê e o valor que é passado para a função R.
 

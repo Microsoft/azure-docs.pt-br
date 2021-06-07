@@ -3,12 +3,12 @@ title: Implantar recursos em grupos de recursos
 description: Descreve como implantar recursos em um modelo de Azure Resource Manager. Ele mostra como direcionar mais de um grupo de recursos.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 1d636be9ffab5a4398e3e12867e601ce6df382bf
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491547"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889783"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implantações de grupo de recursos com modelos ARM
 
@@ -301,7 +301,7 @@ De uma implantação de grupo de recursos, você pode alternar para o nível de 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('newResourceGroupName')]",
                             "location": "[parameters('location')]",
                             "properties": {}

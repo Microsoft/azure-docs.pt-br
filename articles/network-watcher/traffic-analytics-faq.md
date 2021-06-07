@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895216"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579233"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -126,7 +126,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../azure-monitor/log-query/log-query-overview.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
@@ -262,7 +262,7 @@ Análise de Tráfego não tem suporte interno para alertas. No entanto, como An�
 - Você pode usar o Shortlink para Log Analytics no Análise de Tráfego. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever suas consultas 
 - Clique em "nova regra de alerta" para criar o alerta
-- Consulte a [documentação de alertas de log](../azure-monitor/platform/alerts-log.md) para criar o alerta
+- Consulte a [documentação de alertas de log](../azure-monitor/alerts/alerts-log.md) para criar o alerta
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Como fazer verificar quais VMs estão recebendo o tráfego local?
 
@@ -403,4 +403,4 @@ A página de topologia de sub-redes virtuais contém duas seções principais:
 - Na seleção de tais nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco se move para a **Caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
 
 ## <a name="are-classic-nsgs-supported"></a>Há suporte para NSGs clássicas?
-Não, Análise de Tráfego não dá suporte a NSG clássicas. É recomendável migrar recursos de IaaS do clássico para o Azure Resource Manager, pois os recursos clássicos serão [preteridos](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consulte este artigo para entender [como migrar](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
+Não, Análise de Tráfego não dá suporte a NSG clássicas. É recomendável migrar recursos de IaaS do clássico para o Azure Resource Manager, pois os recursos clássicos serão [preteridos](../virtual-machines/classic-vm-deprecation.md). Consulte este artigo para entender [como migrar](../virtual-machines/migration-classic-resource-manager-overview.md).

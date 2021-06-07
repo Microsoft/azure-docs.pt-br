@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792167"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerenciar trabalhos elásticos (visualização)
@@ -50,11 +50,11 @@ Os trabalhos usam [credenciais no escopo do banco de dados](/sql/t-sql/statement
 
 A configuração das devidas credenciais para executar um trabalho pode ser um pouco confusa e, portanto, tenha os seguintes pontos em mente:
 
-- As credenciais no escopo do banco de dados devem ser criadas no *banco de dados do trabalho* .
+- As credenciais no escopo do banco de dados devem ser criadas no *banco de dados do trabalho*.
 - **Todos os bancos de dados de destino devem ter um logon com [permissões suficientes](/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com êxito** (`jobuser` no diagrama abaixo).
 - As credenciais podem ser reutilizadas entre os trabalhos e as senhas de credencial são criptografadas e protegidas contra usuários que têm acesso somente leitura a objetos de trabalho.
 
-A imagem a seguir foi criada para ajudar na compreensão e na configuração das credenciais de trabalho adequadas. **Lembre-se de criar o usuário em cada banco de dados (todos os *bancos de dados de usuário de destino* ) em que o trabalho será executado** .
+A imagem a seguir foi criada para ajudar na compreensão e na configuração das credenciais de trabalho adequadas. **Lembre-se de criar o usuário em cada banco de dados (todos os *bancos de dados de usuário de destino*) em que o trabalho será executado**.
 
 ![Credenciais de trabalhos elásticos](./media/elastic-jobs-overview/job-credentials.png)
 

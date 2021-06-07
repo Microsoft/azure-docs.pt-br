@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 tags: connectors
 ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013440"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para um banco de dados SQL usando aplicativos lógicos do Azure
@@ -91,8 +91,8 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome do servidor** | Sim | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome do banco de dados** | Yes | O nome do banco de dados SQL, por exemplo, `Fabrikam-Azure-SQL-DB` |
-   | **Nome da tabela** | Yes | A tabela que você deseja usar, por exemplo, `SalesLT.Customer` |
+   | **Nome do banco de dados** | Sim | O nome do banco de dados SQL, por exemplo, `Fabrikam-Azure-SQL-DB` |
+   | **Nome da tabela** | Sim | A tabela que você deseja usar, por exemplo, `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -137,8 +137,8 @@ Na primeira vez que você adicionar um [gatilho SQL](#add-sql-trigger) ou uma [a
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome do SQL Server** | Yes | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Nome do Banco de Dados SQL** | Yes | O nome para seu banco de dados SQL Server, por exemplo, `Fabrikam-Azure-SQL-DB` |
+   | **Nome do SQL Server** | Sim | O endereço do SQL Server, por exemplo, `Fabrikam-Azure-SQL.database.windows.net` |
+   | **Nome do Banco de Dados SQL** | Sim | O nome para seu banco de dados SQL Server, por exemplo, `Fabrikam-Azure-SQL-DB` |
    | **Nome de usuário** | Sim | Seu nome de usuário para o SQL Server e o banco de dados |
    | **Senha** | Sim | Sua senha para o SQL Server e o banco de dados |
    | **Assinatura** |  Sim, para autenticação do Windows | A assinatura do Azure para o recurso de gateway de dados que você criou anteriormente no Azure |

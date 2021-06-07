@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e7f38e4bbc95e04bf54f8f7a2dd80e21891e8df
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624992"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102215486"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: localizar e exibir rotas para diferentes modos de viagem usando o Azure Mapas
 
@@ -117,7 +117,7 @@ As etapas a seguir mostram como criar e exibir o Controle de Mapeamento em uma p
     });
     ```
 
-    No manipulador `ready` de eventos do mapa, a configuração do fluxo de tráfego no mapa é definida como `relative`, que é a velocidade da estrada em relação ao fluxo livre. Confira mais opções de tráfego na [Interface TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions?preserve-view=false&view=azure-maps-typescript-latest).
+    No manipulador `ready` de eventos do mapa, a configuração do fluxo de tráfego no mapa é definida como `relative`, que é a velocidade da estrada em relação ao fluxo livre. Confira mais opções de tráfego na [Interface TrafficOptions](/javascript/api/azure-maps-control/atlas.trafficoptions).
 
 2. Salve o arquivo **MapTruckRoute.html** e atualize a página em seu navegador. Se você ampliar o mapa de qualquer cidade, como Los Angeles, verá que as ruas aparecem com o fluxo de tráfego atual.
 
@@ -193,7 +193,7 @@ Neste tutorial, duas rotas serão calculadas e renderizadas no mapa. A primeira 
 
     Esse código cria dois [objetos de Ponto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar os pontos inicial e final, que são então adicionados à fonte de dados.
 
-    O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    O último bloco de código define a exibição da câmera usando a latitude e a longitude dos pontos inicial e final. Os pontos de partida e chegada são adicionados à fonte de dados. A caixa delimitadora dos pontos de partida e chegada é calculada com a função `atlas.data.BoundingBox.fromData`. Essa caixa delimitadora é usada para definir o modo de exibição das câmeras por toda a rota usando a função `map.setCamera`. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo. Para obter mais informações sobre a propriedade setCamera do Controle de Mapeamento, confira a propriedade [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 
 3. Salve **TruckRoute.html** e atualize o navegador. Agora o mapa está centralizado em Seattle. O alfinete azul em formato de lágrima marca o ponto inicial. O alfinete azul redondo marca o ponto final.
 

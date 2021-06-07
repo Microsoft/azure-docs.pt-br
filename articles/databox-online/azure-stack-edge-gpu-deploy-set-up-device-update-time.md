@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b00ac57e04ca52f662e097799dcbc831f82d927
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976060"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062923"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Definir as configurações do dispositivo para o Azure Stack Edge Pro com GPU
 
@@ -82,7 +81,7 @@ Siga estas etapas para definir as configurações relacionadas ao dispositivo:
         ![Página "Servidor de Atualização" da IU da Web local 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > Se um servidor do Windows Update separado for configurado e se optar por se conectar via *HTTPS* (em vez de *HTTP*), você precisará dos certificados de cadeia de assinatura requeridos para se conectar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, acesse [Gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md). 
+        > Se um servidor do Windows Update separado for configurado e se optar por se conectar via *HTTPS* (em vez de *HTTP*), você precisará dos certificados de cadeia de assinatura requeridos para se conectar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, acesse [Gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md). 
 
 2. Selecione **Aplicar**.
 3. Depois que o servidor de atualização estiver configurado, selecione **Avançar: Hora**.

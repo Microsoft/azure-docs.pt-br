@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87458174"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
@@ -153,7 +153,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
       > [!IMPORTANT]
       > Se você estiver usando o Visual Studio e não vir nenhum receptor de lote para selecionar, verifique se você criou e implantou o seu destinatário do lote no Azure. Se você ainda não fez isso, saiba [como implantar seu aplicativo lógico do receptor do lote no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure).
 
-   1. Na lista de ações, selecione esta ação: **Batch_messages-<*Your-Logic-app-Name* > **
+   1. Na lista de ações, selecione esta ação: **Batch_messages-<*Your-Logic-app-Name* >**
 
       ![Selecione esta ação: "Batch_messages - < your--aplicativo lógico >"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509546"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100586093"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [serviço de Azure app](./overview.md) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -136,7 +136,7 @@ Há duas métricas que refletem o uso da CPU:
 **Percentual de CPU**: útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
-As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço e [mantidas de acordo com essas regras](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
+As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço e [mantidas de acordo com essas regras](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no portal do Azure
 Para examinar o status das várias cotas e métricas que afetam um aplicativo, acesse o [portal do Azure](https://portal.azure.com).
@@ -153,14 +153,14 @@ Para localizar cotas, selecione **configurações**  >  **cotas**. No gráfico, 
 
 Clicar em qualquer um desses gráficos levará você para a exibição de métricas, na qual você pode criar gráficos personalizados, consultar diferentes métricas e muito mais. 
 
-Para saber mais sobre as métricas, confira [Monitorar as métricas do serviço](../azure-monitor/platform/data-platform.md).
+Para saber mais sobre as métricas, confira [Monitorar as métricas do serviço](../azure-monitor/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
-As métricas para um aplicativo ou Plano do Serviço de Aplicativo podem ser vinculadas a alertas. Para obter mais informações, consulte [receber notificações de alerta](../azure-monitor/platform/alerts-classic-portal.md).
+As métricas para um aplicativo ou Plano do Serviço de Aplicativo podem ser vinculadas a alertas. Para obter mais informações, consulte [receber notificações de alerta](../azure-monitor/alerts/alerts-classic-portal.md).
 
 Os aplicativos do serviço de aplicativo hospedados em planos do serviço de aplicativo básico ou superior dão suporte a autoescala. Com o dimensionamento automático, você pode configurar regras que monitoram as métricas do Plano do Serviço de Aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias, o que pode fornecer recursos adicionais, conforme o necessário. As regras também podem ajudar você a economizar dinheiro quando o aplicativo for excessivamente provisionado.
 
-Para saber mais sobre o dimensionamento automático, confira [Como dimensionar](../azure-monitor/platform/autoscale-get-started.md) e [Melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Para saber mais sobre o dimensionamento automático, confira [Como dimensionar](../azure-monitor/autoscale/autoscale-get-started.md) e [Melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

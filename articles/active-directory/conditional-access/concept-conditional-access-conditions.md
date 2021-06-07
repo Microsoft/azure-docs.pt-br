@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362413"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579120"
 ---
 # <a name="conditional-access-conditions"></a>Acesso condicional: condições
 
@@ -174,13 +174,13 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 
 ### <a name="exchange-activesync-clients"></a>Clientes do Exchange ActiveSync
 
-- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos** ou **funções de diretório** fará com que todos os usuários se tornem bloqueados.
+- As organizações só podem selecionar clientes do Exchange ActiveSync ao atribuir a política a usuários ou grupos. Selecionar **todos os usuários**, **todos os usuários convidados e externos** ou **funções de diretório** fará com que todos os usuários estejam sujeitos à política.
 - Ao criar uma política atribuída aos clientes do Exchange ActiveSync, o **Exchange Online** deve ser o único aplicativo de nuvem atribuído à política. 
 - As organizações podem restringir o escopo dessa política a plataformas específicas usando a condição de **plataformas de dispositivo** .
 
-Se o controle de acesso atribuído à política usar **exigir aplicativo cliente aprovado**, o usuário será direcionado para instalar e usar o cliente móvel do Outlook. No caso de a **autenticação multifator** ser necessária, os usuários afetados são bloqueados, pois a autenticação básica não oferece suporte à autenticação multifator.
+Se o controle de acesso atribuído à política usar **exigir aplicativo cliente aprovado**, o usuário será direcionado para instalar e usar o cliente móvel do Outlook. No caso de a **autenticação multifator**, **termos de uso** ou **controles personalizados** serem necessários, os usuários afetados são bloqueados, pois a autenticação básica não oferece suporte a esses controles.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 - [Bloquear a autenticação herdada com acesso condicional](block-legacy-authentication.md)
 - [Exigindo aplicativos cliente aprovados com acesso condicional](app-based-conditional-access.md)

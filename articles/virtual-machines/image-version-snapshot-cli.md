@@ -3,18 +3,18 @@ title: CLI – criar uma imagem de um instantâneo ou de um disco gerenciado em 
 description: Saiba como criar uma imagem de um instantâneo ou de um disco gerenciado em uma galeria de imagens compartilhada usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c809edd3699d0b9827fe15da53d5d18b12cbe6e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682674"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556954"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Criar uma imagem de um disco gerenciado ou instantâneo em uma galeria de imagens compartilhada usando o CLI do Azure
 

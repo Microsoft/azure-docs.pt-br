@@ -3,14 +3,14 @@ title: Execução de runbook na Automação do Azure
 description: Este artigo fornece uma visão geral do processamento de runbooks na automação do Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053900"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954336"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -34,7 +34,8 @@ O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbo
 
 Os runbooks na Automação do Azure podem ser executados em uma área restrita do Azure ou em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-Quando os runbooks são projetados para serem autenticados e executados em recursos no Azure, eles são executados em uma área restrita do Azure, que é um ambiente compartilhado que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. O ambiente de área restrita do Azure não oferece suporte a operações interativas. Ele impede o acesso a todos os servidores COM fora do processo. Além disso, requer o uso de arquivos MOF locais para runbooks que fazem chamadas Win32.
+Quando os runbooks são projetados para serem autenticados e executados em recursos no Azure, eles são executados em uma área restrita do Azure, que é um ambiente compartilhado que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. O ambiente de área restrita do Azure não oferece suporte a operações interativas. Ele impede o acesso a todos os servidores COM fora do processo e não dá suporte a [chamadas WMI](/windows/win32/wmisdk/wmi-architecture) para o provedor Win32 em seu runbook.  Esses cenários só têm suporte ao executar o runbook em um Hybrid Runbook Worker do Windows.
+
 
 Você também pode usar um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) para executar runbooks diretamente no computador que hospeda a função e em recursos locais no ambiente. A Automação do Azure armazena e gerencia runbooks e, em seguida, entrega-os a um ou mais computadores atribuídos.
 
@@ -85,18 +86,18 @@ Um runbook requer [credenciais](shared-resources/credentials.md) apropriadas par
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-A automação do Azure usa [Azure monitor](../azure-monitor/overview.md) para monitorar suas operações de máquina. As operações exigem um espaço de trabalho Log Analytics e um [agente log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+A automação do Azure usa [Azure monitor](../azure-monitor/overview.md) para monitorar suas operações de máquina. As operações exigem um espaço de trabalho Log Analytics e um [agente log Analytics](../azure-monitor/agents/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente do Log Analytics para Windows
 
-O [agente do Log Analytics para Windows](../azure-monitor/platform/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local.
+O [agente do Log Analytics para Windows](../azure-monitor/agents/agent-windows.md) funciona com o Azure Monitor para gerenciar VMs e computadores físicos Windows. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local.
 
 >[!NOTE]
 >O agente do Log Analytics para Windows era conhecido anteriormente como MMA (Microsoft Monitoring Agent).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente do Log Analytics para Linux
 
-O [agente do Log Analytics para Linux](../azure-monitor/platform/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário do **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
+O [agente do Log Analytics para Linux](../azure-monitor/agents/agent-linux.md) funciona de forma semelhante ao agente para Windows, mas conecta computadores Linux ao Azure Monitor. O agente é instalado com uma conta de usuário do **nxautomation** que permite a execução de comandos que exigem permissões raiz, por exemplo, em um Hybrid runbook Worker. A conta de **nxautomation** é uma conta do sistema que não requer senha.
 
 A conta de **nxautomation** com as permissões sudo correspondentes deve estar presente durante a [instalação de um Hybrid Runbook Worker do Linux](automation-linux-hrw-install.md). Se você tentar instalar o trabalho e a conta não estiver presente ou não tiver as permissões apropriadas, a instalação falhará.
 

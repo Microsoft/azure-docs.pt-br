@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541027"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Criar um aplicativo LUIS programaticamente usando o Node.js
@@ -35,7 +35,7 @@ Todo o código deste artigo está disponível no [repositório do GitHub Azure-s
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>Mapear dados preexistentes para entidades e intenções
 Mesmo se tiver um sistema que não foi criado considerando o LUIS, se ele contiver dados textuais que mapeiam diferentes coisas que os usuários desejam fazer, você poderá criar um mapeamento com base nas categorias existentes de entrada de usuário para as intenções no LUIS. Se for possível identificar palavras ou frases importantes no que os usuários disseram, essas palavras poderão ser mapeadas para entidades.
 
-Abra o [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) arquivo. Ele contém um log de consultas de usuário para um serviço de automação residencial hipotético, incluindo como elas foram classificadas, o que o usuário disse e algumas colunas com informações úteis extraídas delas.
+Abra o arquivo [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv). Ele contém um log de consultas de usuário para um serviço de automação residencial hipotético, incluindo como elas foram classificadas, o que o usuário disse e algumas colunas com informações úteis extraídas delas.
 
 ![Arquivo CSV de dados pré-existentes](./media/luis-tutorial-node-import-utterances-csv/csv.png)
 

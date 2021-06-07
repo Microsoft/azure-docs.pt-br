@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242850"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863557"
 ---
-# <a name="private-link-for-azure-database-for-mysql"></a>Link privado para o banco de dados do Azure para MySQL
+# <a name="private-link-for-azure-database-for-mysql"></a>Link Privado para o Banco de Dados do Azure para MySQL
 
 O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um ponto de extremidade privado. O Link Privado do Azure essencialmente traz os serviços do Azure dentro de sua VNet (Rede Virtual privada). Os recursos de PaaS podem ser acessados usando o endereço IP privado, assim como qualquer outro recurso na VNet.
 
@@ -84,7 +84,7 @@ Depois que o administrador de rede cria o ponto de extremidade privado (PE), o a
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casos de uso de link privado para o banco de dados do Azure para MySQL
 
-Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, rede virtual emparelhada na mesma região ou via conexão VNet a VNet entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
+Os clientes podem se conectar ao ponto de extremidade privado da mesma VNet, [rede virtual emparelhada](../virtual-network/virtual-network-peering-overview.md) na mesma região ou entre regiões, ou via [conexão vnet a vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selecione a visão geral do ponto de extremidade privado":::
 
@@ -115,7 +115,7 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 Se você quiser confiar apenas nos pontos de extremidade privados para acessar seu banco de dados do Azure para MySQL, você pode desabilitar a configuração de todos os pontos de extremidade públicos (ou seja, [regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-and-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
 
-Quando essa configuração é definida como *Sim* , somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MySQL. Quando essa configuração é definida como *não* , os clientes podem se conectar ao banco de dados do Azure para MySQL com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
+Quando essa configuração é definida como *Sim*, somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MySQL. Quando essa configuração é definida como *não*, os clientes podem se conectar ao banco de dados do Azure para MySQL com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
 
 > [!Note]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL-o servidor único dá suporte a tipos de preço Uso Geral e com otimização de memória.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365796"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578032"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -39,7 +39,7 @@ Este artigo fornece orientação para solução de possíveis problemas.
 **O que você deve saber:** 
 
 - O ingresso de dispositivos Windows de versões anteriores no Azure AD híbrido funciona de forma um pouco diferente do que no Windows 10. Muitos clientes não percebem que precisam do AD FS (para domínios federados) ou do SSO contínuo configurado (para domínios gerenciados).
-- O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
+- O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Microsoft Edge. Ele também não funcionará no Internet Explorer se o navegador estiver sendo executado no modo protegido avançado ou se a configuração de segurança aprimorada estiver habilitada.
 - Para clientes com domínios federados, se o SCP (Ponto de Conexão do Serviço) tiver sido configurado de modo a apontar para o nome de domínio gerenciado (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), o Ingresso no Azure AD Híbrido de dispositivos Windows de versões anteriores não funcionará.
 - O mesmo dispositivo físico é exibido várias vezes no Azure AD quando vários usuários de domínio entram nos dispositivos de versões anteriores ingressados no Azure AD híbrido.  Por exemplo, se *jdoe* e *jharnett* entrarem no dispositivo, um registro separado (DeviceID) será criado para cada um desses usuários na guia de informações do **USUÁRIO**. 
 - Você também pode obter várias entradas para um dispositivo na guia Informações do usuário devido a uma reinstalação do sistema operacional ou a um novo registro manual.

@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618685"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043743"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de inscrição e entrada no Azure Active Directory B2C
 
@@ -66,6 +67,7 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
     ![Página Seleção de atributos e declarações com três declarações selecionadas](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é anexado automaticamente ao nome.
+2. Siga as etapas para [lidar com o fluxo para "esqueceu sua senha?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) na política de inscrição ou entrada.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
@@ -73,7 +75,7 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 1. Para **Aplicativo**, selecione o aplicativo Web denominado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **Executar o fluxo do usuário** e, em seguida, selecione **Inscreva-se agora**.
 
-    ![Página Executar fluxo de usuários no portal com o botão Executar fluxo de usuário realçado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Página Executar fluxo de usuários no portal com o botão Executar fluxo de usuário realçado](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Insira um endereço de email válido, clique em **Enviar código de verificação**, insira o código de verificação que você receber e, em seguida selecione **Verificar código**.
 1. Insira uma nova senha e confirme-a.

@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
 ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98859831"
 ---
 | Nome do filtro | Descrição | Filtrar esquema de texto | Valores com suporte | 
 | --- | --- | --- | --- |
 | Verdadeiro/falso | Permite criar uma rota sem filtragem ou desabilitar uma rota para que nenhum evento seja enviado | `<true/false>` | `true` = a rota está habilitada sem filtragem <br> `false` = a rota está desabilitada |
-| Tipo | O [tipo de evento](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) que flui pela sua instância de cópia digital | `type = '<eventType>'` | Estes são os valores de tipo de evento possíveis: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Type | O [tipo de evento](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) que flui pela sua instância de cópia digital | `type = '<eventType>'` | Estes são os valores de tipo de evento possíveis: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Fonte | Nome da instância do gêmeos digital do Azure | `source = '<hostname>'`| Estes são os possíveis valores de nome de host: <br> **Para notificações**: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net` <br> **Para telemetria**: `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>`|
 | Assunto | Uma descrição do evento no contexto da origem do evento acima | `subject = '<subject>'` | Estes são os possíveis valores de assunto: <br>**Para notificações**: o assunto é `<twinid>` <br> ou um formato de URI para entidades, que são identificadas exclusivamente por várias partes ou IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **Para telemetria**: o assunto é o caminho do componente (se a telemetria for emitida de um componente de entrelaçamento), como `comp1.comp2` . Se a telemetria não for emitida de um componente, o campo assunto estará vazio. |
 | Esquema de dados | ID do modelo DTDL | `dataschema = '<model-dtmi-ID>'` | **Para telemetria**: o esquema de dados é a ID do modelo de a/ou o componente que emite a telemetria. Por exemplo, `dtmi:example:com:floor4;2` <br>**Para notificações (criar/excluir)**: o esquema de dados pode ser acessado no corpo da notificação em `$body.$metadata.$model` . <br>**Para notificações (atualização)**: o esquema de dados pode ser acessado no corpo da notificação em `$body.modelId`|

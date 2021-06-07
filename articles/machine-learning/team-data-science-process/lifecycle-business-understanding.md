@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710341"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>O estágio de entendimento empresarial do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -61,10 +61,10 @@ Há duas tarefas principais abordadas neste estágio:
 4. Defina as métricas de sucesso. Por exemplo, pode ser útil obter uma previsão de variação de cliente. Você precisa de uma taxa de precisão de “x” por cento no final deste projeto de três meses. Com esses dados, você pode oferecer promoções aos clientes para reduzir a variação. As métricas devem ser **SMART** (INTELIGENTES): 
 
    * Pecíficas **S** 
-   * **M**ensuráveis
-   * **A**lcançáveis 
+   * **M** ensuráveis
+   * **A** lcançáveis 
    * Elevantes **R** 
-   * Com limite de **T**empo 
+   * Com limite de **T** empo 
 
 ### <a name="identify-data-sources"></a>Identificar as fontes de dados
 Identifique as fontes de dados que contêm exemplos conhecidos de respostas para as perguntas inteligentes. Procure os seguintes dados:

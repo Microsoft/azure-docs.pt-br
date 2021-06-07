@@ -17,15 +17,15 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317838"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns no gerenciamento de direitos do Azure AD
 
-Há várias maneiras de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, proprietários de catálogo, gerenciadores de pacotes de acesso, Aprovadores e solicitantes.
+Há várias formas de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, proprietários de catálogo, gerenciadores de pacotes de acesso, aprovadores e solicitantes.
 
 ## <a name="delegate"></a>Delegar
 
@@ -48,7 +48,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 1. [Assista ao vídeo: Delegação do proprietário do catálogo para acessar o Gerenciador de pacotes](https://www.microsoft.com/videoplayer/embed/RE3Lq08)
 1. [Delegar usuários a acessar a função do Gerenciador de pacotes](entitlement-management-delegate-managers.md)
 
-## <a name="govern-access-for-users-in-your-organization"></a>Controlar o acesso para usuários em sua organização
+## <a name="govern-access-for-users-in-your-organization"></a>Controlar o acesso dos usuários em sua organização
 
 ### <a name="access-package-manager-allow-employees-in-your-organization-to-request-access-to-resources"></a>Gerenciador de pacotes do Access: permitir que os funcionários em sua organização solicitem acesso aos recursos
 
@@ -73,7 +73,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. Exibir pacotes do Access ativos
 
-## <a name="govern-access-for-users-outside-your-organization"></a>Controlar o acesso para usuários fora da sua organização
+## <a name="govern-access-for-users-outside-your-organization"></a>Controlar o acesso dos usuários fora da sua organização
 
 ### <a name="administrator-collaborate-with-an-external-partner-organization"></a>Administrador: colaborar com uma organização de parceiro externo
 
@@ -106,7 +106,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. Exibir pacotes do Access ativos
 
-## <a name="day-to-day-management"></a>Gerenciamento de dia a dia
+## <a name="day-to-day-management"></a>Gerenciamento diário
 
 ### <a name="access-package-manager-update-the-resources-for-a-project"></a>Gerenciador de pacotes do Access: atualizar os recursos de um projeto
 
@@ -154,7 +154,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 
 ## <a name="programmatic-administration"></a>Administração programática
 
-Você também pode gerenciar pacotes de acesso, catálogos, políticas, solicitações e atribuições usando Microsoft Graph.  Um usuário em uma função apropriada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a [API de gerenciamento de direitos](/graph/tutorial-access-package-api?view=graph-rest-beta).
+Você também pode gerenciar pacotes de acesso, catálogos, políticas, solicitações e atribuições usando Microsoft Graph.  Um usuário em uma função adequada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a [API de gerenciamento de direitos](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Próximas etapas
 

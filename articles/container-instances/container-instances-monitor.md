@@ -3,12 +3,12 @@ title: Monitorar instâncias de contêiner
 description: Como monitorar o consumo de recursos de computação, como CPU e memória, pelos contêineres nas Instâncias de Contêiner do Azure.
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916059"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589288"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorar os recursos de contêiner em Instâncias de Contêiner do Azure
 
@@ -146,6 +146,6 @@ Saiba como criar [alertas de métrica][metric-alert] para ser notificado quando 
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../azure-monitor/overview.md
-[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
-[monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
-[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups
+[metric-alert]: ..//azure-monitor/alerts/alerts-metric.md
+[monitor-dimension]: ../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups

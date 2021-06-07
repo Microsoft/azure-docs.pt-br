@@ -3,12 +3,12 @@ title: Modelo de dados de logs do Azure Monitor
 description: Este artigo aborda detalhes de modelo de dados do Log Analytics do Azure Monitor para dados de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020942"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102500981"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do Log Analytics para dados de Backup do Azure
 
@@ -18,7 +18,8 @@ Use o modelo de dados do Log Analytics para criar alertas personalizados do Log 
 
 > [!NOTE]
 >
-> Esse modelo de dados se refere ao modo do Diagnóstico do Azure de envio de eventos de diagnóstico para o Log Analytics (LA). Para saber o modelo de dados para o novo modo específico do recurso, é possível consultar o seguinte artigo: [Modelo de dados dos eventos de diagnóstico do Backup do Azure](./backup-azure-reports-data-model.md)
+> * Esse modelo de dados se refere ao modo do Diagnóstico do Azure de envio de eventos de diagnóstico para o Log Analytics (LA). Para saber o modelo de dados para o novo modo específico do recurso, é possível consultar o seguinte artigo: [Modelo de dados dos eventos de diagnóstico do Backup do Azure](./backup-azure-reports-data-model.md)
+> * Para criar exibições de relatório personalizadas, é recomendável usar [funções do sistema em logs de Azure monitor](backup-reports-system-functions.md) em vez de trabalhar com as tabelas brutas listadas abaixo.
 
 ## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de Backup do Azure
 
@@ -462,7 +463,7 @@ Abaixo estão alguns exemplos para ajudá-lo a gravar consultas em dados de back
 
 ## <a name="v1-schema-vs-v2-schema"></a>Esquema V1 em comparação com esquema V2
 
-Anteriormente, os dados de diagnóstico para o agente de backup do Azure e o backup de VM do Azure eram enviados para a tabela Diagnóstico do Azure em um esquema conhecido como ***esquema V1***. Subsequentemente, novas colunas foram adicionadas para permitir outros cenários e cargas de trabalho, e os dados de diagnóstico foram enviados por push em um novo esquema conhecido como ***esquema V2***.  
+Anteriormente, os dados de diagnóstico para o agente de backup do Azure e o backup de VM do Azure foram enviados para Diagnóstico do Azure tabela em um esquema referido como ***v1 Schema** _. Subsequentemente, novas colunas foram adicionadas para dar suporte a outros cenários e cargas de trabalho, e os dados de diagnóstico foram enviados por push em um novo esquema referido como _ *_v2 Schema_* *.  
 
 Por motivos de compatibilidade com versões anteriores, os dados de diagnóstico para o agente de backup do Azure e o backup de VM do Azure atualmente são enviados para a tabela Diagnóstico do Azure nos esquemas V1 e V2 (com o esquema v1 agora em um caminho de substituição). É possível identificar quais registros no Log Analytics são do esquema V1 filtrando registros para SchemaVersion_s=="V1" em suas consultas de log.
 
@@ -495,4 +496,4 @@ Como o esquema v1 está em um caminho de reprovação, é recomendável usar ape
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de examinar o modelo de dados, você pode começar a [criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) nos logs do Azure Monitor para criar seu próprio painel.
+Depois de examinar o modelo de dados, você pode começar a [criar consultas personalizadas](../azure-monitor/visualize/tutorial-logs-dashboards.md) nos logs do Azure Monitor para criar seu próprio painel.

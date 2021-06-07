@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573357"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100593978"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planejar e gerenciar custos para Azure App serviço
 
@@ -38,7 +38,7 @@ Dependendo do recurso que você usa no serviço de aplicativo, os seguintes recu
 - **Plano do serviço de aplicativo**  Necessário para hospedar um aplicativo do serviço de aplicativo.
 - **Camada isolada**  Uma [rede virtual](../virtual-network/index.yml) é necessária para um ambiente do serviço de aplicativo.
 - **Backup**  do  Uma [conta de armazenamento](../storage/index.yml) é necessária para fazer backups.
-- **Logs de diagnóstico**  Você pode selecionar a [conta de armazenamento](../storage/index.yml) como a opção de log ou integrá-la ao [Azure log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Logs de diagnóstico**  Você pode selecionar a [conta de armazenamento](../storage/index.yml) como a opção de log ou integrá-la ao [Azure log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **Certificados do serviço de aplicativo**  Os certificados comprados no Azure devem ser mantidos em [Azure Key Vault](../key-vault/index.yml).
 
 Outros recursos de custo para o serviço de aplicativo são (consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) para obter detalhes):
@@ -114,7 +114,7 @@ As cargas de trabalho de produção são fornecidas com a recomendação do tipo
 > [!NOTE]
 > O **Premium v3** dá suporte a contêineres do Windows e contêineres do Linux. 
 
-Depois de escolher o tipo de preço desejado, você deve minimizar as instâncias ociosas. Em uma implantação em expansão, você pode desperdiçar dinheiro em instâncias de computação subutilizadas. Você deve [Configurar o dimensionamento](../azure-monitor/platform/autoscale-get-started.md)automático, disponível na camada **Standard** e superior. Ao criar agendamentos de expansão, bem como as regras de expansão com base em métricas, você paga apenas pelas instâncias de que realmente precisa em um determinado momento.
+Depois de escolher o tipo de preço desejado, você deve minimizar as instâncias ociosas. Em uma implantação em expansão, você pode desperdiçar dinheiro em instâncias de computação subutilizadas. Você deve [Configurar o dimensionamento](../azure-monitor/autoscale/autoscale-get-started.md)automático, disponível na camada **Standard** e superior. Ao criar agendamentos de expansão, bem como as regras de expansão com base em métricas, você paga apenas pelas instâncias de que realmente precisa em um determinado momento.
 
 ### <a name="azure-reservations"></a>Reservas do Azure
 

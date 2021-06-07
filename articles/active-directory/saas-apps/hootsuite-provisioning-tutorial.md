@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: b371baec663ffc7ff5909e04965353e79acb9708
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96177065"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o HootSuite para provisionamento automático de usuários
@@ -90,7 +90,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Captura de tela mostrando a caixa de diálogo Credenciais de Administrador, em que você pode inserir a URL do Locatário e o Token Secreto.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
-6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou um grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 

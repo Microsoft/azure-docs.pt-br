@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d9a4da6fe65fda07609c7399518fa324017ea44c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052237"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101649338"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
 
@@ -111,11 +111,11 @@ Para saber mais sobre a experiência de avaliação do AppSource, confira [este 
 - Para obter mais informações sobre como compilar aplicativos que dão suporte a entradas do Azure AD, consulte [Cenários de autenticação do Azure AD](./v1-authentication-scenarios.md).
 - Para saber mais sobre como listar seu aplicativo SaaS no AppSource, confira [Informações de parceiro do AppSource](https://appsource.microsoft.com/partners)
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
-Para a integração do Azure AD, usamos o [Microsoft Q&](https://docs.microsoft.com/answers/products/) a com a Comunidade para fornecer suporte.
+Para a integração do Azure AD, usamos o [Microsoft Q&](/answers/products/) a com a Comunidade para fornecer suporte.
 
-É altamente recomendável que você faça suas perguntas no Microsoft Q&um primeiro e navegue pelos problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+É altamente recomendável que você faça suas perguntas no Microsoft Q&um primeiro e navegue pelos problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

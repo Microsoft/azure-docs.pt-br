@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: c30051008474a32ae6c847ee3f840c8ae35b469b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c0c1bf83bf5a816debe61cab0ceab856bfbd062f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726791"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181169"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de posicionamento de proximidade
 
@@ -136,7 +136,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 714fb92e8757fed6e11a09528b60cda3e945175e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696856"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102218886"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 usando a CLI do Azure
 
@@ -58,7 +58,7 @@ Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
 Neste exemplo, você executa as ferramentas da CLI do Azure em uma janela de comando do PowerShell. Para melhorar a legibilidade e a reutilização, use os recursos de script do PowerShell, não os cmdlets do Azure PowerShell.
 
-1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguindo as etapas do artigo relacionado e entre em sua conta do Azure.
+1. [Instale e configure a CLI do Azure](/cli/azure/install-azure-cli) seguindo as etapas do artigo relacionado e entre em sua conta do Azure.
 
 2. Configure variáveis do PowerShell para uso com os comandos da CLI do Azure:
 

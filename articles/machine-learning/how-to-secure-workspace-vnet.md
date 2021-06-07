@@ -8,20 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029525"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584323"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
 Neste artigo, você aprenderá a proteger um espaço de trabalho Azure Machine Learning e seus recursos associados em uma rede virtual.
-
 
 Este artigo é a parte dois de uma série de cinco partes que orienta você pela proteção de um fluxo de trabalho Azure Machine Learning. É altamente recomendável que você leia a [parte um: visão geral da VNet](how-to-network-security-overview.md) para entender a arquitetura geral primeiro. 
 
@@ -34,7 +33,7 @@ Neste artigo, você aprenderá a habilitar os seguintes recursos de espaços de 
 > - Workspace do Azure Machine Learning
 > - Contas de armazenamento do Azure
 > - Azure Machine Learning de armazenamentos e conjuntos de itens
-> - Cofre de Chave do Azure
+> - Azure Key Vault
 > - Registro de Contêiner do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -57,16 +56,12 @@ O link privado do Azure permite que você se conecte ao seu espaço de trabalho 
 
 Para obter mais informações sobre a configuração de um espaço de trabalho de link privado, consulte [como configurar o link privado](how-to-configure-private-link.md).
 
+> [!Warning]
+> Proteger um espaço de trabalho com pontos de extremidade privados não garante a segurança de ponta a ponta por si só. Você deve seguir as etapas no restante deste artigo e a série de VNet para proteger os componentes individuais da sua solução.
+
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Proteger contas de armazenamento do Azure com pontos de extremidade de serviço
 
 O Azure Machine Learning dá suporte a contas de armazenamento configuradas para usar pontos de extremidade de serviço ou pontos de extremidade privados. Nesta seção, você aprenderá a proteger uma conta de armazenamento do Azure usando pontos de extremidade de serviço. Para pontos de extremidade privados, consulte a próxima seção.
-
-> [!IMPORTANT]
-> Você pode colocar a _conta de armazenamento padrão_ para o Azure Machine Learning ou as _contas de armazenamento não padrão_ em uma rede virtual.
->
-> A conta de armazenamento padrão é provisionada automaticamente quando você cria um workspace.
->
-> O parâmetro `storage_account` na função [`Workspace.create()`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
 
 Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtual, siga as seguintes etapas:
 
@@ -74,18 +69,18 @@ Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtu
 
    [![O armazenamento anexado ao workspace do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na página conta de serviço de armazenamento, selecione __firewalls e redes virtuais__.
+1. Na página conta de serviço de armazenamento, selecione __rede__.
 
-   ![A área “Firewalls e redes virtuais” na página Armazenamento do Azure no portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![A área de rede na página armazenamento do Azure na portal do Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Na página __Firewalls e redes virtuais__, execute as seguintes ações:
+1. Na guia __firewalls e redes virtuais__ , execute as seguintes ações:
     1. Selecione __Redes selecionadas__.
     1. Em __Redes virtuais__, selecione o link __Adicionar rede virtual existente__. Essa ação adiciona a rede virtual onde sua computação reside (consulte a etapa 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias ou clusters de computação usados para treinamento ou inferência.
 
-    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__. Isso não dá a todos os serviços do Azure acesso à sua conta de armazenamento.
+    1. Marque a caixa de seleção __Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento__. Essa alteração não dá acesso a todos os serviços do Azure à sua conta de armazenamento.
     
         * Os recursos de alguns serviços, **registrados em sua assinatura**, podem acessar a conta de armazenamento **na mesma assinatura** para operações de seleção. Por exemplo, gravando logs ou criando backups.
         * Os recursos de alguns serviços podem receber acesso explícito à sua conta de armazenamento __atribuindo uma função do Azure__ à sua identidade gerenciada atribuída pelo sistema.
@@ -119,7 +114,7 @@ Para acessar dados usando o SDK, você deve usar o método de autenticação exi
 
 ### <a name="disable-data-validation"></a>Desabilitar validação de dados
 
-Por padrão, Azure Machine Learning executa as verificações de validade e credencial de dados quando você tenta acessar dados usando o SDK. Se os dados estiverem atrás de uma rede virtual, Azure Machine Learning não poderá concluir essas verificações. Para evitar isso, você deve criar repositórios de armazenamento e conjuntos de valores que ignoram a validação.
+Por padrão, Azure Machine Learning executa as verificações de validade e credencial de dados quando você tenta acessar dados usando o SDK. Se os dados estiverem atrás de uma rede virtual, Azure Machine Learning não poderá concluir essas verificações. Para ignorar essa verificação, você deve criar repositórios de armazenamento e conjuntos de valores que ignoram a validação.
 
 ### <a name="use-datastores"></a>Usar repositórios de armazenamento
 
@@ -180,7 +175,7 @@ Para usar os recursos de experimentação do Azure Machine Learning com Azure Ke
 1. Na guia __firewalls e redes virtuais__ , execute as seguintes ações:
     1. Em __permitir acesso de__, selecione __ponto de extremidade privado e redes selecionadas__.
     1. Em __Redes virtuais__, selecione __Adicionar redes virtuais existentes__ para adicionar a rede virtual onde reside a sua computação de experimentação.
-    1. Em __permitir que os serviços confiáveis da Microsoft ignorem esse firewall?__, selecione __Sim__.
+    1. Em __Permitir que serviços confiáveis da Microsoft ignorem esse firewall__, selecione __Sim__.
 
    [![A seção “Firewalls e redes virtuais” no painel do Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -196,9 +191,13 @@ Para usar o registro de contêiner do Azure dentro de uma rede virtual, você de
 
     Quando o ACR está atrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para criar imagens do Docker diretamente. Em vez disso, o cluster de cálculo é usado para compilar as imagens.
 
-* Antes de usar o ACR com Azure Machine Learning em uma rede virtual, você deve abrir um incidente de suporte para habilitar essa funcionalidade. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+    > [!IMPORTANT]
+    > O cluster de computação usado para criar imagens do Docker precisa ser capaz de acessar os repositórios de pacote que são usados para treinar e implantar seus modelos. Talvez seja necessário adicionar regras de segurança de rede que permitam o acesso ao repositórios público, [usar pacotes python privados](how-to-use-private-python-packages.md)ou usar [imagens personalizadas do Docker](how-to-train-with-custom-image.md) que já incluem os pacotes.
 
 Depois que esses requisitos forem atendidos, use as etapas a seguir para habilitar o registro de contêiner do Azure.
+
+> [!TIP]
+> Se você não usou um registro de contêiner do Azure existente ao criar o espaço de trabalho, talvez ele não exista. Por padrão, o espaço de trabalho não criará uma instância de ACR até que ela precise de uma. Para forçar a criação de uma, treine ou implante um modelo usando seu espaço de trabalho antes de usar as etapas nesta seção.
 
 1. Localize o nome do registro de contêiner do Azure para seu espaço de trabalho, usando um dos seguintes métodos:
 
@@ -220,6 +219,8 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
 
 1. Limite o acesso à sua rede virtual usando as etapas em [Configurar o acesso à rede para o registro](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Ao adicionar a rede virtual, selecione a rede virtual e a sub-rede para seus recursos do Azure Machine Learning.
 
+1. Configure o ACR para o espaço de trabalho para [permitir o acesso por serviços confiáveis](../container-registry/allow-access-trusted-services.md).
+
 1. Use o SDK do Python do Azure Machine Learning para configurar um cluster de cálculo para compilar imagens do Docker. O seguinte trecho de código demonstra como fazer isso:
 
     ```python
@@ -228,77 +229,22 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]
     > A conta de armazenamento, o cluster de cálculo e o Registro de Contêiner do Azure devem estar todos na mesma sub-rede da rede virtual.
     
-    Para obter mais informações, consulte a referência do método [update()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true).
-
-1. Aplique o modelo de Azure Resource Manager a seguir. Este modelo permite que seu workspace se comunique com o ACR.
-
-    ```json
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "keyVaultArmId": {
-        "type": "string"
-        },
-        "workspaceName": {
-        "type": "string"
-        },
-        "containerRegistryArmId": {
-        "type": "string"
-        },
-        "applicationInsightsArmId": {
-        "type": "string"
-        },
-        "storageAccountArmId": {
-        "type": "string"
-        },
-        "location": {
-        "type": "string"
-        }
-    },
-    "resources": [
-        {
-        "type": "Microsoft.MachineLearningServices/workspaces",
-        "apiVersion": "2019-11-01",
-        "name": "[parameters('workspaceName')]",
-        "location": "[parameters('location')]",
-        "identity": {
-            "type": "SystemAssigned"
-        },
-        "sku": {
-            "tier": "basic",
-            "name": "basic"
-        },
-        "properties": {
-            "sharedPrivateLinkResources":
-    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
-            "keyVault": "[parameters('keyVaultArmId')]",
-            "containerRegistry": "[parameters('containerRegistryArmId')]",
-            "applicationInsights": "[parameters('applicationInsightsArmId')]",
-            "storageAccount": "[parameters('storageAccountArmId')]"
-        }
-        }
-    ]
-    }
-    ```
-
-    Este modelo cria um _ponto de extremidade privado_ para acesso à rede do espaço de trabalho para o ACR. A captura de tela abaixo mostra um exemplo desse ponto de extremidade privado.
-
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Configurações de ponto de extremidade privado do ACR":::
-
-    > [!IMPORTANT]
-    > Não exclua este ponto de extremidade! Se você excluí-lo acidentalmente, poderá aplicar novamente o modelo nesta etapa para criar um novo.
+    Para obter mais informações, consulte a referência do método [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo faz parte de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte dois de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)
 * [Parte 4: proteger o ambiente inferência](how-to-secure-inferencing-vnet.md)
 * [Parte 5: habilitar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+
+Consulte também o artigo sobre como usar o [DNS personalizado](how-to-custom-dns.md) para a resolução de nomes.

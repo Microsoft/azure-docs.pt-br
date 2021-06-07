@@ -3,17 +3,17 @@ title: Tamanhos de máquina virtual do Azure para FPGA (matrizes de porta progra
 description: Lista os diferentes tamanhos otimizados para FPGA disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho nessa série.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-fpga
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: vikancha
-ms.openlocfilehash: b05c3198f6c3d84f852d9535a3cf0b67f66e01f6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d9eb0d5bc93cbe9c2a7cbae56c336115bb227b04
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416942"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102557668"
 ---
 # <a name="fpga-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual FPGA otimizados
 

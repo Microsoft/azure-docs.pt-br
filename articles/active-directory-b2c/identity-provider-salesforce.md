@@ -1,26 +1,26 @@
 ---
 title: Configurar a inscrição e a entrada com uma conta do Salesforce
 titleSuffix: Azure AD B2C
-description: Forneça inscrição e entrada para clientes com contas do Salesforce em seus aplicativos usando o Azure Active Directory B2C.
+description: Forneça inscrição e entrada para clientes que usam contas do Salesforce em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0981687b03344daf7a447cc4d9e50f0923341340
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
-ms.translationtype: MT
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952284"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579919"
 ---
-# <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Salesforce usando Azure Active Directory B2C
+# <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Salesforce usando o Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -37,35 +37,35 @@ ms.locfileid: "98952284"
 
 ## <a name="create-a-salesforce-application"></a>Criar um aplicativo do Salesforce
 
-Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [Gerenciador de aplicativos](https://login.salesforce.com/)do Salesforce. Para obter mais informações, consulte [definir configurações básicas do aplicativo conectado](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)e [habilitar as configurações do OAuth para integração de API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
+Para habilitar a entrada de usuários com um conta do Salesforce no Azure AD B2C (Azure Active Directory B2C), você precisa criar um aplicativo do Salesforce no [Gerenciador de Aplicativos](https://login.salesforce.com/). Para obter mais informações, confira [Definir configurações básicas do aplicativo conectado](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm) e [Habilitar configurações de OAuth para integração de API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
 1. [Entre no Salesforce](https://login.salesforce.com/).
-1. No menu, selecione **instalação**.
-1.  Expanda **aplicativos** e, em seguida, selecione **Gerenciador de aplicativos**.
-1. Selecione **novo aplicativo conectado**.
-1. Sob as **informações básicas**, digite:
-    1. **Nome do aplicativo conectado** -o nome do aplicativo conectado é exibido no Gerenciador de aplicativos e no bloco do inicializador de aplicativo. O nome deve ser exclusivo em sua organização. 
+1. No menu, selecione **Instalação**.
+1.  Expanda **Aplicativos** e selecione **Gerenciador de Aplicativos**.
+1. Selecione **Novo Aplicativo Conectado**.
+1. Nas **Informações Básicas**, insira:
+    1. **Nome do Aplicativo Conectado** – o nome do aplicativo conectado é exibido no Gerenciador de Aplicativos e no bloco Inicializador de Aplicativos. O nome precisa ser exclusivo dentro da organização. 
     1. **Nome da API** 
-    1. **Email de contato** -o email de contato do Salesforce
-1. Em **API (Habilitar configurações do OAuth)**, selecione **Habilitar configurações do OAuth**
-    1. Em **URL de retorno de chamada**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário. Todas as letras que você usar ao inserir o nome do locatário precisarão ser minúsculas, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
-    1. Nos **escopos de OAuth selecionados**, selecione **acessar suas informações básicas (ID, perfil, email, endereço, telefone)** e **permitir acesso ao seu identificador exclusivo (OpenID)**.
-    1. Selecione **exigir segredo para o fluxo do servidor Web**.
-1. Selecione **Configurar token de ID** 
-    1. Defina o **token válido por** 5 minutos.
-    1. Selecione **incluir declarações padrão**.
+    1. **Email de Contato** – o email de contato do Salesforce
+1. Em **API (Habilitar Configurações de OAuth)** , selecione **Habilitar Configurações de OAuth**
+    1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` como o valor da **URL de Retorno de Chamada**. Se você usa um [domínio personalizado](custom-domain.md), insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-tenant-name` pelo nome do locatário e `your-domain-name` pelo nome do domínio personalizado. Todas as letras que você usar ao inserir o nome do locatário precisarão ser minúsculas, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
+    1. Nos **Escopos de OAuth Selecionados**, selecione **Acessar suas informações básicas (ID, perfil, email, endereço, telefone)** e **Permitir acesso ao seu identificador exclusivo (OpenID)** .
+    1. Selecione **Exigir Segredo para Fluxo do Servidor Web**.
+1. Selecione **Configurar Token de ID** 
+    1. Defina **Token Válido por** 5 minutos.
+    1. Selecione **Incluir Declarações Padrão**.
 1. Clique em **Salvar**.
-1. Copie os valores da **chave do consumidor** e do **segredo do consumidor**. Você precisará de ambos para configurar o Salesforce como um provedor de identidade em seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
+1. Copie os valores de **Chave do Consumidor** e **Segredo do Consumidor**. Você precisará de ambas para configurar o Salesforce como provedor de identidade em seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como um provedor de identidade
+## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como provedor de identidade
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Selecione **Provedores de identidade** e **Novo provedor do OpenID Connect**.
 1. Insira um **Nome**. Por exemplo, insira *Salesforce*.
-1. Para **URL de metadados**, insira a URL do [documento de configuração do Salesforce OpenID Connect](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). Para uma área restrita, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, o login.salesforce.com é substituído pela URL da Comunidade, como username.force.com/.well-known/openid-configuration. A URL deve ser HTTPS.
+1. Para **URL de Metadados**, insira a URL do [Documento de configuração do OpenID Connect do Salesforce](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). Para uma área restrita, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, login.salesforce.com é substituído pela URL da comunidade, por exemplo, username.force.com/.well-known/openid-configuration. A URL deve ser HTTPS.
 
     ```
     https://login.salesforce.com/.well-known/openid-configuration
@@ -86,15 +86,20 @@ Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Act
 
 1. Selecione **Salvar**.
 
-## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Salesforce a um fluxo de usuário 
+## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicionar provedor de identidade do Salesforce a um fluxo de usuário 
+
+Neste ponto, o provedor de identidade do Salesforce foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do Salesforce a um fluxo de usuário:
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Salesforce.
-1. Em **provedores de identidade social**, selecione **Salesforce**.
+1. Clique no fluxo de usuário para o qual deseja adicionar o provedor de identidade do Salesforce.
+1. Em **Provedores de identidade social**, selecione **Salesforce**.
 1. Selecione **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Para testar a política, selecione **Executar fluxo de usuário**.
+1. Para **Aplicativo**, selecione o aplicativo Web denominado *testapp1* registrado anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **Executar fluxo de usuário**.
+1. Na página de entrada ou de inscrição, selecione **Salesforce** para entrar com a conta do Salesforce.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado pelo Azure AD B2C.
 
 ::: zone-end
 
@@ -115,9 +120,9 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
-## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como um provedor de identidade
+## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como provedor de identidade
 
-Para permitir que os usuários entrem usando uma conta do Salesforce, você precisa definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta do Salesforce, defina a conta como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta da Salesforce como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -166,7 +171,7 @@ Você pode definir uma conta da Salesforce como um provedor de declarações adi
     </ClaimsProvider>
     ```
 
-4. Os **metadados** são definidos para a URL do [documento de configuração do Salesforce OpenID Connect](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). Para uma área restrita, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, o login.salesforce.com é substituído pela URL da Comunidade, como username.force.com/.well-known/openid-configuration. A URL deve ser HTTPS.
+4. Os **METADADOS** são definidos como a URL do [Documento de configuração do OpenID Connect do Salesforce](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). Para uma área restrita, login.salesforce.com é substituído por test.salesforce.com. Para uma comunidade, login.salesforce.com é substituído pela URL da comunidade, por exemplo, username.force.com/.well-known/openid-configuration. A URL deve ser HTTPS.
 5. Defina **client_id** para a ID do aplicativo de registro de aplicativo.
 6. Salve o arquivo.
 
@@ -192,10 +197,18 @@ Você pode definir uma conta da Salesforce como um provedor de declarações adi
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo, `B2C_1A_signup_signin`.
+1. Para **Aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **Executar agora**.
+1. Na página de entrada ou de inscrição, selecione **Salesforce** para entrar com a conta do Salesforce.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado pelo Azure AD B2C.
+
 
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [passar o token do Salesforce para seu aplicativo](idp-pass-through-user-flow.md).
+Saiba como [passar um token do Salesforce para seu aplicativo](idp-pass-through-user-flow.md).

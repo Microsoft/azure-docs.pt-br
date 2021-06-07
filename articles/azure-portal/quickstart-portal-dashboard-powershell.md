@@ -3,13 +3,13 @@ title: Criar um painel no portal do Azure com o PowerShell
 description: Saiba como criar um painel no portal do Azure usando o Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/25/2021
+ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745727"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557429"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Início Rápido: Criar um painel no portal do Azure com o PowerShell
 
@@ -23,7 +23,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Enquanto o módulo **Az.Portal** do PowerShell está na versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
+> Enquanto o módulo **Az.Portal** do PowerShell estiver em versão prévia, será preciso instalá-lo de modo separado do módulo Az do PowerShell usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.Portal
@@ -104,7 +104,7 @@ Como os painéis do Azure são recursos, eles podem ser representados como JSON.
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -146,19 +146,7 @@ Verifique se o painel foi criado com êxito.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Verifique se você pode ver dados sobre a VM de dentro do portal do Azure.
-
-1. No portal do Azure, selecione **Painel**.
-
-   ![Navegação do portal do Azure até o painel](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Na página do painel, selecione **Painel de VM Simples**.
-
-   ![Navegar até o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Examine o painel. Você pode ver que parte do conteúdo é estático, mas também há gráficos que mostram o desempenho da VM.
-
-   ![Examinar o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -170,6 +158,7 @@ Para remover a VM e o painel associado, exclua o grupo de recursos que os conté
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

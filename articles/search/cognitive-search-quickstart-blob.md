@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 03/21/2021
+ms.openlocfilehash: d3e1b73789d6bd4df3dfe9a0e05048f9bbbb25bb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179258"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104770964"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 
-Um conjunto de habilidades é um recurso baseado em IA que usa modelos de aprendizado profundo para extrair informações e estrutura de grandes arquivos de texto não diferenciado ou de imagens, tornando o conteúdo indexável e pesquisável no Azure Cognitive Search. 
+Este guia de início rápido demonstrará de que modo funciona o suporte ao conjunto de habilidades no portal. Ele também mostrará de que modo o OCR (Reconhecimento Óptico de Caracteres) e o reconhecimento de entidades poderão ser usados para criar um conteúdo de texto pesquisável de imagens e arquivos de aplicativos.
 
-Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar o conjunto de habilidades. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal do Azure para reunir tudo. O resultado final é um índice pesquisável populado com dados criados pelo processamento de IA que você pode consultar no portal ([Gerenciador de pesquisa](search-explorer.md)).
+Será necessário criar alguns recursos, bem como carregar imagens de exemplo e arquivos de conteúdo do aplicativo para iniciar a preparação. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal do Azure para reunir tudo. O resultado final é um índice pesquisável populado com dados criados pelo processamento de IA que você pode consultar no portal ([Gerenciador de pesquisa](search-explorer.md)).
+
+Prefere iniciar com o código? Confira o [Tutorial: usar a REST e a IA para gerar um conteúdo pesquisável de blobs do Azure](cognitive-search-tutorial-blob.md). Como alternativa, confira o [Tutorial: usar o .NET e a IA para gerar um conteúdo pesquisável de blobs do Azure](cognitive-search-tutorial-blob-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,11 +46,11 @@ Nas etapas a seguir, configure um contêiner de blobs no Armazenamento do Azure 
 
    + Escolha a mesma região do Azure Cognitive Search para evitar preços de largura de banda. 
 
-   + Escolha o tipo de conta StorageV2 (uso geral V2) se quiser experimentar o recurso de repositório de conhecimento mais tarde, em outro passo a passo. Caso contrário, escolha qualquer tipo.
+   + Escolha o StorageV2 (V2 de uso geral).
 
 1. Abra as páginas dos serviços Blob e crie um contêiner. Você pode usar o nível de acesso público padrão. 
 
-1. No contêiner, clique em **Carregar** para carregar os arquivos de exemplo baixados na primeira etapa. Observe que você tem uma ampla variedade de tipos de conteúdo, incluindo arquivos de aplicativo e imagens que não são pesquisáveis com texto completo em seus formatos nativos.
+1. No Contêiner, clique em **Carregar** para carregar os arquivos de exemplo baixados na primeira etapa. Observe que você tem uma ampla variedade de tipos de conteúdo, incluindo arquivos de aplicativo e imagens que não são pesquisáveis com texto completo em seus formatos nativos.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Arquivos de origem no armazenamento de blobs do Azure" border="false":::
 

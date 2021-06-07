@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 084592a8db47a94a0fcd683105f749f514c05ea3
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 70766fd93f0a70ecf6b5ee54dbdba3571f783878
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247566"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101646037"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar a Sincronização de Destinatário do Cofense para provisionamento automático de usuário
 
@@ -116,20 +116,20 @@ Esta seção descreve as etapas para configurar o serviço de provisionamento do
    |name.formatted|String|
    |name.givenName|String|
    |name.familyName|String|
-   |name.honorificSuffix|Cadeia de caracteres|
-   |phoneNumbers[type eq"work"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq"home"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq"other"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq"pager"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq"mobile"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq"fax"].value|Cadeia de caracteres|
-   |addresses[type eq"other"].formatted|Cadeia de caracteres|
-   |addresses[type eq"work"].formatted|Cadeia de caracteres|
-   |addresses[type eq"work"].streetAddress|Cadeia de caracteres|
-   |addresses[type eq"work"].locality|Cadeia de caracteres|
-   |addresses[type eq"work"].region|Cadeia de caracteres|
-   |addresses[type eq"work"].postalCode|Cadeia de caracteres|
-   |addresses[type eq"work"].country|String|
+   |name.honorificSuffix|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "home"].value|String|
+   |phoneNumbers[type eq "other"].value|String|
+   |phoneNumbers[type eq "pager"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |addresses[type eq "other"].formatted|String|
+   |addresses[type eq "work"].formatted|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].country|String|
    |título|String|
    |emails[type eq "work"].value|String|
    |emails[type eq "home"].value|String|

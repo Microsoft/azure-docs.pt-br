@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94410531"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
 
 O recurso de sincronização do Azure AD Connect tem dois componentes:
 
-* O componente local denominado **Sincronização do Azure AD Connect** , também chamado de **mecanismo de sincronização**.
+* O componente local denominado **Sincronização do Azure AD Connect**, também chamado de **mecanismo de sincronização**.
 * O serviço que reside no Azure AD, também conhecido como **Serviço de sincronização do Azure AD Connect**
 
 Este tópico explica como os seguintes recursos do **Serviço de sincronização do Azure AD Connect** funcionam e como você pode configurá-los usando o Windows PowerShell.

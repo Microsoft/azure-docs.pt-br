@@ -1,14 +1,14 @@
 ---
 title: Obter alterações de recurso
 description: Entenda como localizar quando um recurso foi alterado, obter uma lista das propriedades que foram alteradas e avaliar as diferenças.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 58dcb7256b0876d5e7fa9d7569db102538f92bab
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
-ms.translationtype: MT
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917413"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219069"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
 
@@ -25,7 +25,7 @@ A detecção de alterações e os detalhes são importantes para os seguintes ce
 - Manter um banco de dados de gerenciamento de configuração, conhecido como CMDB, atualizado. Em vez de atualizar todos os recursos e seus conjuntos de propriedades completos em uma frequência agendada, só obtenha o que foi alterado.
 - Entender quais outras propriedades podem ter sido alteradas quando um estado de conformidade de um recurso mudou. A avaliação dessas propriedades adicionais pode fornecer informações sobre outras propriedades que talvez precisem ser gerenciadas por meio de uma definição de Azure Policy.
 
-Este artigo mostra como reunir essas informações por meio do SDK do Resource Graph. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history) de Azure Policy ou o [histórico de alterações](../../../azure-monitor/platform/activity-log.md#view-the-activity-log) do log de atividades do Azure. Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [Usar a Análise de Alterações de Aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure Monitor.
+Este artigo mostra como reunir essas informações por meio do SDK do Resource Graph. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history) de Azure Policy ou o [histórico de alterações](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log) do log de atividades do Azure. Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [Usar a Análise de Alterações de Aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure Monitor.
 
 > [!NOTE]
 > Os detalhes de alteração no Resource Graph para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [Controlar alterações](../../../automation/change-tracking/overview.md) da Automação do Azure ou [Configuração de convidado para VMs](../../policy/concepts/guest-configuration.md) de Azure Policy.
@@ -145,6 +145,10 @@ Cada evento de alteração detectado para o **resourceId** tem as seguintes prop
 - **beforeSnapshot** - Contém o **snapshotid** e **carimbo de data/hora** do instantâneo de recursos que foi realizado antes de uma alteração ser detectada.
 - **beforeSnapshot** - Contém o **snapshotid** e **carimbo de data/hora** do instantâneo de recursos que foi feito antes de uma alteração ser detectada.
 - **ChangeType**-descreve o tipo de alteração detectada para todo o registro de alteração entre o **beforeSnapshot** e **afterSnapshot**. Os valores são: _Criar_, _Atualizar_ e _Excluir_. A matriz de propriedades **propertyChanges** só é incluída quando **ChangeType** é _Update_.
+
+  > [!IMPORTANT]
+  > _Create_ só está disponível em recursos que anteriormente existiam e foram excluídos nos últimos 14 dias.
+
 - **propertyChanges** - Essa matriz de propriedades detalha todas as propriedades de recurso que foram atualizadas entre **beforeSnapshot**  e **afterSnapshot**:
   - **propertyName** - O nome da propriedade de recurso que foi alterada.
   - **changeCategory** - Descreve o que fez a alteração. Os valores são: _Sistema_ e _Usuário_.
@@ -285,7 +289,7 @@ Para comparar os resultados, use a propriedade **changes** no **resourceChanges*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o idioma em uso em [Consultas iniciais](../samples/starter.md).
+- Consulte a linguagem em uso em [Consultas iniciais](../samples/starter.md).
 - Consulte os usos avançados em [Consultas avançadas](../samples/advanced.md).
 - Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).
 - Para obter orientação sobre como trabalhar com consultas em alta frequência, consulte [Diretrizes para solicitações limitadas](../concepts/guidance-for-throttled-requests.md).

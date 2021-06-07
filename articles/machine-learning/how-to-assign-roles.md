@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 01/20/2020
+ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 4d037bdf266e70a2621b2627bc88abce30af652c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624533"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612612"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 
@@ -174,16 +174,16 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
-| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Criar novo workspace | Não é necessária | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
 | Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que `/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
-| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
-| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
-| Enviando qualquer tipo de execução | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicando pipelines e pontos de extremidade | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Implantando um modelo registrado em um recurso AKS/ACI | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Pontuação em relação a um ponto de extremidade AKS implantado | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
-| Acessando o armazenamento usando blocos de anotações interativos | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
-| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite `Microsoft.Authorization/roleDefinitions/write` | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Criar nova instância de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Enviando qualquer tipo de execução | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicando pipelines e pontos de extremidade | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Implantando um modelo registrado em um recurso AKS/ACI | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
+| Acessando o armazenamento usando blocos de anotações interativos | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
+| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite `Microsoft.Authorization/roleDefinitions/write` | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se você receber uma falha ao tentar criar um espaço de trabalho pela primeira vez, certifique-se de que sua função permite `Microsoft.MachineLearningServices/register/action` . Essa ação permite que você registre o provedor de recursos Azure Machine Learning com sua assinatura do Azure.
@@ -464,12 +464,13 @@ Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de ac
 - Quando há duas atribuições de função para o mesmo Azure Active Directory usuário com seções conflitantes de ações/não ações, suas operações listadas em não ações de uma função podem não entrar em vigor se também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - Para implantar seus recursos de computação dentro de uma VNet, você precisa ter permissões explicitamente para as seguintes ações:
-    - `Microsoft.Network/virtualNetworks/join/action` no recurso de VNet.
+    - `Microsoft.Network/virtualNetworks/*/read` nos recursos de VNet.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` no recurso de sub-rede.
     
     Para obter mais informações sobre o RBAC do Azure com rede, consulte [funções internas de rede](../role-based-access-control/built-in-roles.md#networking).
 
 - Às vezes, pode levar até 1 hora para que as novas atribuições de função entrem em vigor em todas as permissões armazenadas em cache em toda a pilha.
+- Não há suporte para [acesso condicional](../role-based-access-control/conditional-access-azure-management.md) no momento com Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,26 +1,19 @@
 ---
 title: Início Rápido – Criar um ponto de extremidade e um perfil de CDN do Azure
 description: Este início rápido mostra como habilitar a CDN do Azure criando um novo ponto de extremidade de CDN e perfil de CDN.
-services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: e8b3b5c28d00b4d7c81fa3e245113119ae3134ad
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165919"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555696"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto de extremidade da CDN do Azure
 
@@ -81,7 +74,4 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)
+> [Tutorial: usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)

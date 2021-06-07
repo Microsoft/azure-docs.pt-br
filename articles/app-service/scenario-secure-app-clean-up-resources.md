@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/27/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: bf03fe9d920298d49e79a9a0febf7e09e94eb6ff
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cfb42b82943f03c3633ff69662ab841bf587ede4
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905512"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221850"
 ---
 # <a name="tutorial-clean-up-resources"></a>Tutorial: Limpar os recursos
 

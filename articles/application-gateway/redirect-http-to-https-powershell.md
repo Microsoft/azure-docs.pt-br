@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
 ms.openlocfilehash: 86eaa645cd6a81b9180d1241695240a71aa8202d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397256"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o Azure PowerShell
@@ -20,19 +20,19 @@ Você pode usar o Azure PowerShell para criar um [Gateway de aplicativo](overvie
 
 Neste artigo, você aprenderá como:
 
-* Criará um certificado autoassinado
+* Crie um certificado autoassinado
 * Configurar uma rede
 * Criar um gateway de aplicativo com o certificado
 * Adicionar um ouvinte e uma regra de direcionamento
 * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
-Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este tutorial, você cria um certificado autoassinado usando o [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
 

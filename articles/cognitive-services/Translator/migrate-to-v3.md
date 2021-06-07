@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: 13c4d39284fad293c945f8b7e31076dccee84fda
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896826"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Conversor v2 para migração v3
@@ -114,7 +114,7 @@ Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como t
 
 A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
 
-| Versão | Ponto de Extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
+| Versão | Ponto de extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Tradutor versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
 |Tradutor versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|

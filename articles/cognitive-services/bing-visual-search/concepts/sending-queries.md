@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
 ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96490968"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Enviar consultas de pesquisa para a API da Pesquisa Visual do Bing
@@ -78,7 +78,7 @@ As solicitações precisam ser enviadas como apenas solicitações HTTP POST.
 
 Veja a seguir os parâmetros de consulta que devem ser especificados pela solicitação. No mínimo, você deve incluir o `mkt` parâmetro de consulta:
 
-| Nome | Valor | Tipo | Obrigatório |
+| Nome | Valor | Type | Obrigatório |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se você definir esse parâmetro, também precisará especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing usa o primeiro idioma compatível encontrado na lista de idiomas e combina o idioma com o código do país especificado para determinar o mercado do qual os resultados são retornados. Se a lista de idiomas não incluir um idioma compatível, o Bing encontrará o idioma e o mercado mais próximos que dão suporte à solicitação. Ou ele pode usar um mercado agregado ou padrão para os resultados, em vez daquele especificado.<br /><br /> Você deverá usar esse parâmetro de consulta e o parâmetro de consulta `Accept-Language` somente se especificar vários idiomas; caso contrário, use os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Esse parâmetro e o parâmetro de consulta [](#mkt)mkt&mdash; são mutuamente exclusivos – não especifique ambos. | String | Não       |
 | <a name="mkt"></a>mkt   | O mercado do qual os resultados são obtidos. <br /><br /> **Observação:** Você sempre deve especificar o mercado, se for conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [](#cc)cc&mdash; são mutuamente exclusivos – não especifique ambos. | String | Sim      |
@@ -89,7 +89,7 @@ Veja a seguir os parâmetros de consulta que devem ser especificados pela solici
 
 Veja a seguir os cabeçalhos que devem ser especificados pela solicitação. Os `Content-Type` `Ocp-Apim-Subscription-Key` cabeçalhos e são os únicos cabeçalhos necessários, mas você também deve incluir `User-Agent` , `X-MSEdge-ClientID` , `X-MSEdge-ClientIP` e `X-Search-Location` .
 
-| Cabeçalho | Descrição |
+| parâmetro | Descrição |
 | --- | --- |
 | <a name="acceptlanguage"></a>Accept-Language  | Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por vírgula de idiomas a serem usados para as cadeias de caracteres de interface do usuário. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, confira [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Esse cabeçalho e o parâmetro de consulta [](#setlang)setLang&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta [CC](#cc) . Para determinar o mercado para o qual retornar os resultados, o Bing usa o primeiro idioma compatível suporte encontrado na lista e combina-o com o valor de parâmetro `cc`. Se a lista não inclui um idioma compatível, o Bing encontra o idioma e o mercado mais próximos que dão suporte à solicitação ou usa um mercado padrão ou agregado para os resultados. Para determinar o mercado usado pelo Bing, consulte o `BingAPIs-Market` cabeçalho.<br /><br /> Use esse cabeçalho e o parâmetro de consulta `cc` somente se você especificar vários idiomas. Caso contrário, use os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.  |
 | <a name="contenttype"></a>Content-Type  |     |

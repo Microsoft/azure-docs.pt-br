@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92503480"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Acesso do indexador ao conteúdo protegido pelos recursos de segurança de rede do Azure (Azure Pesquisa Cognitiva)
@@ -119,7 +119,7 @@ Para permitir que os indexadores acessem recursos por meio de conexões de ponto
 Essas etapas são descritas mais detalhadamente em [conexões do indexador por meio de um ponto de extremidade privado](search-indexer-howto-access-private.md).
 Depois de ter um ponto de extremidade privado aprovado para um recurso, os indexadores que estão definidos para serem uma tentativa *privada* de obter acesso por meio da conexão de ponto de extremidade privado.
 
-### <a name="limits"></a>limites
+### <a name="limits"></a>Limites
 
 Para garantir o desempenho ideal e a estabilidade do serviço de pesquisa, as restrições são impostas (por camada de serviço de pesquisa) nas seguintes dimensões:
 

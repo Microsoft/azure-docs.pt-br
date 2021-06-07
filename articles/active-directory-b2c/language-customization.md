@@ -1,6 +1,6 @@
 ---
 title: Personalização de idioma no Azure Active Directory B2C
-description: Saiba mais sobre como personalizar a experiência de idioma em seus fluxos de usuário em Azure Active Directory B2C.
+description: Saiba mais sobre como personalizar a experiência de idioma nos seus fluxos dos usuários no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e2aab537c2235fe3e008fa619c96a3098cfa7a27
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361206"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101686403"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -31,9 +31,9 @@ Você usa a personalização de idioma para selecionar em quais idiomas o fluxo 
 
 Talvez você não precise desse nível de controle sobre quais idiomas seu cliente vê. Se você não fornecer um parâmetro `ui_locales` a experiência do cliente será determinada pelas configurações do navegador. Você ainda poderá controlar para quais idiomas o fluxo do usuário será traduzido, adicionando-o como um idioma com suporte. Se o navegador de um cliente estiver configurado para mostrar um idioma que você não deseja fornecer suporte, o idioma que você selecionou como padrão nas culturas com suporte será mostrado.
 
-* **idioma especificado da interface do** usuário: depois de habilitar a personalização de idioma, o fluxo do usuário é convertido para o idioma especificado aqui.
-* **Idioma solicitado pelo navegador**: se nenhum `ui_locales` parâmetro tiver sido especificado, seu fluxo de usuário será convertido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
-* **Idioma padrão da política**: se o navegador não especificar um idioma ou especificar um que não tenha suporte, o fluxo do usuário será convertido para o idioma padrão do fluxo de usuário.
+* **Idioma especificado por ui-locales**: após habilitar a personalização do idioma, o fluxo do usuário será traduzido para o idioma especificado aqui.
+* **Idioma solicitado pelo navegador**: se nenhum parâmetro `ui_locales` for especificado, o fluxo do usuário será traduzido para o idioma solicitado pelo navegador, *se houver suporte para o idioma*.
+* **Idioma padrão da política**: se o navegador não especificar um idioma ou especificar um que não tenha suporte, o fluxo do usuário será traduzido para o idioma padrão do fluxo do usuário.
 
 > [!NOTE]
 > Se você estiver usando atributos de usuário personalizados, precisará fornecer suas próprias traduções. Para obter mais informações, consulte [Personalizar as cadeias de caracteres](#customize-your-strings).
@@ -44,7 +44,7 @@ A localização requer três etapas:
 
 1. Configurar a lista explícita de idiomas com suporte
 1. Fornecer coleções e cadeias de caracteres específicas a um idioma
-1. Edite a [definição de conteúdo](contentdefinitions.md) da página. 
+1. Editar a [definição de conteúdo](contentdefinitions.md) da página. 
 
 ::: zone-end 
 
@@ -115,6 +115,7 @@ Se você quiser alterar a cadeia de caracteres de um atributo de usuário person
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
+  ]
 }
 ```
 
@@ -129,22 +130,24 @@ Se você quiser fornecer uma lista configurada de valores para respostas, será 
 ```json
 {
   "LocalizedStrings": [...],
-  "LocalizedCollections": [{
+  "LocalizedCollections": [
+    {
       "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
       "Items":[
-           {
-                "Name":"<Response1>",
-                "Value":"<Value1>"
-           },
-           {
-                "Name":"<Response2>",
-                "Value":"<Value2>"
-           }
-     ]
-  }]
+        {
+          "Name":"<Response1>",
+          "Value":"<Value1>"
+        },
+        {
+          "Name":"<Response2>",
+          "Value":"<Value2>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -165,7 +168,7 @@ As alterações são salvas no fluxo de usuário automaticamente.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personalizar a interface do usuário da página usando personalização de idioma
 
-Há duas maneiras de localizar seu [conteúdo HTML](customize-ui-with-html.md). Uma maneira é ativar a [personalização de idioma](language-customization.md). Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect, `ui-locales` , para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML personalizadas que são específicas a um idioma.
+Há duas maneiras de localizar o [conteúdo HTML](customize-ui-with-html.md). Uma maneira é ativar a [personalização de idioma](language-customization.md). Habilitar esse recurso permite que o Azure AD B2C encaminhe o parâmetro do OpenID Connect `ui-locales` para o seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML personalizadas que são específicas a um idioma.
 
 Como alternativa, é possível extrair conteúdo de lugares diferentes com base na localidade que está sendo usada. No ponto de extremidade habilitado para CORS, é possível configurar uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará adequadamente se usar o valor curinga `{Culture:RFC5646}`. Por exemplo, suponha que essa é a sua URI de página personalizada:
 
@@ -181,7 +184,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Será necessário fornecer as traduções para todas as cadeias de caracteres no fluxo de usuário. Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. O formato de código de localidade deve ser "ISO_639-1_code"-"CountryCode" por exemplo: en-GB. Para obter mais informações sobre formatos de ID de localidade, consulte https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+Também é possível adicionar idiomas para os quais a Microsoft atualmente não oferece traduções. Será necessário fornecer as traduções para todas as cadeias de caracteres no fluxo de usuário. Códigos de idioma e localidade são limitados a esses no padrão ISO 639-1. O formato de código de localidade deve ser "ISO_639-1_code"-"CountryCode", por exemplo, `en-GB`. Para obter mais informações sobre formatos de identificação de localidade, confira https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 2. Clique no fluxo de usuário no qual você quer adicionar idiomas personalizados e, em seguida, clique em **Idiomas**.
@@ -223,7 +226,7 @@ O [LocalizedResources](localization.md#localizedresources) do elemento `Localiza
 Você configura elementos de recursos localizados para a definição de conteúdo e a qualquer idioma ao qual você deseje dar suporte. Para personalizar as páginas de inscrição ou de entrada unificadas para inglês e espanhol, adicione os seguintes elementos de `LocalizedResources` após o fechamento do elemento `</SupportedLanguages>`.
 
 > [!NOTE]
-> No exemplo a seguir, adicionamos o símbolo de libra `#` no início de cada linha, para que você possa localizar facilmente os rótulos localizados na tela.
+> No exemplo a seguir, adicionamos o símbolo de tralha `#` no início de cada linha, para que você possa localizar facilmente os rótulos localizados na tela.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->
@@ -466,7 +469,7 @@ Ambos Chrome e o Firefox solicitam o idioma definido. Se for um idioma com supor
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-O Azure AD B2C inclui suporte para os seguintes idiomas. As linguagens de fluxo de usuário são fornecidas pelo Azure AD B2C. As linguagens de notificação da MFA (autenticação multifator) são fornecidas pelo [Azure ad MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+O Azure AD B2C inclui suporte para os idiomas a seguir. Os idiomas do fluxo do usuário são fornecidos pelo Azure AD B2C. Os idiomas de notificação da MFA (Autenticação Multifator) são fornecidos pela [MFA do Azure AD](../active-directory/authentication/concept-mfa-howitworks.md).
 
 | Linguagem              | Código de idioma | Fluxos de usuário         | Notificações da MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -529,7 +532,7 @@ O Azure AD B2C inclui suporte para os seguintes idiomas. As linguagens de fluxo 
 
 ::: zone pivot="b2c-user-flow"
 
-Encontre mais informações sobre como você pode personalizar a interface do usuário de seus aplicativos em [Personalizar a interface do usuário do seu aplicativo no Azure Active Directory B2C](customize-ui-with-html.md).
+Encontre mais informações sobre como personalizar a interface do usuário dos seus aplicativos em [Personalizar a interface do usuário do aplicativo no Azure Active Directory B2C](customize-ui-with-html.md).
 
 ::: zone-end 
 

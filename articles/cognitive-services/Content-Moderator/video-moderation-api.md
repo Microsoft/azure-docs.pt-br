@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
-ms.translationtype: MT
+ms.openlocfilehash: dff3bbaf7584b161dec5b9c6eaeb7da1bf6de170
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853525"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055596"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para material censurável em C#
 
@@ -41,7 +41,7 @@ Navegue até sua nova assinatura do AMS no portal do Azure e selecione **Acesso 
 
 No **aplicativo do Azure AD** seção, selecione **criar novo** e nomeie o novo registro de aplicativo do Azure AD (por exemplo, "VideoModADApp"). Clique em **salvar** e aguarde alguns minutos enquanto o aplicativo está configurado. Em seguida, você deverá ver o novo registro do aplicativo sob o **aplicativo do Azure AD** seção da página.
 
-Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **configurações**  >  **chaves** e insira uma descrição para uma nova chave (como "VideoModKey"). Clique em **salvar** e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
+Selecione o registro do aplicativo e clique no botão **Gerenciar aplicativo** abaixo dele. Observe o valor de **ID do aplicativo** campo; você precisará dele mais tarde. Selecione **as configurações** > **chaves** e insira uma descrição para uma nova chave (por exemplo, "VideoModKey"). Clique em **salvar** e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salvá-lo em algum lugar seguro.
 
 Para obter uma explicação mais completa do processo acima, consulte [Introdução à autenticação do Azure AD](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências de recurso
 
-Adicione os campos estáticos a seguir à classe **Program** no _Program.cs_. Esses campos contêm as informações necessárias para se conectar à sua assinatura do AMS. Preencha-os com os valores que você obteve nas etapas acima. Observe que `CLIENT_ID` é o **valor do ID do aplicativo** do seu aplicativo do Azure AD e `CLIENT_SECRET` é o valor do "VideoModKey" que você criou para esse aplicativo.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Esses campos contêm as informações necessárias para se conectar à sua assinatura do AMS. Preencha-os com os valores que você obteve nas etapas acima. Observe que `CLIENT_ID` é o **valor do ID do aplicativo** do seu aplicativo do Azure AD e `CLIENT_SECRET` é o valor do "VideoModKey" que você criou para esse aplicativo.
 
 ```csharp
 // declare constants and globals

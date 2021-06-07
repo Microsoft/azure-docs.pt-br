@@ -55,7 +55,7 @@
     - name: Visão geral
       items:
         - name: O que é o Azure Stack Edge Pro R?
-          href: azure-stack-edge-j-series-overview.md
+          href: azure-stack-edge-pro-r-overview.md
     - name: Conceitos
       items:
         - name: Segurança pronta
@@ -102,7 +102,7 @@
     - name: Visão geral
       items:
         - name: O que é o Azure Stack Edge Mini R?
-          href: azure-stack-edge-k-series-overview.md
+          href: azure-stack-edge-mini-r-overview.md
     - name: Conceitos
       items:
         - name: Segurança pronta
@@ -146,6 +146,8 @@
               href: azure-stack-edge-pro-r-configure-vpn-bcdr.md
         - name: Gerenciar o Wi-Fi
           href: azure-stack-edge-mini-r-manage-wifi.md
+        - name: Usar perfis de Wi-Fi
+          href: azure-stack-edge-mini-r-use-wifi-profiles.md
 - name: 'GPU Pro compartilhada, Pro R, Mini R'
   items:
     - name: Conceitos compartilhados
@@ -162,6 +164,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Cargas de trabalho do Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: O que é o compartilhamento de GPU?
+          href: azure-stack-edge-gpu-sharing.md
         - name: Exibir integração do Key Vault
           href: azure-stack-edge-gpu-activation-key-vault.md
         - name: Habilitar o registro em log proativo
@@ -171,7 +175,7 @@
         - name: Implantar exemplos do IoT Edge
           items:
             - name: Módulo da galeria Nvidia
-              href: azure-stack-edge-j-series-configure-gpu-modules.md
+              href: azure-stack-edge-gpu-configure-gpu-modules.md
             - name: Módulo de GPU do repositório Git
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: Módulo de GPU por meio do Marketplace
@@ -189,31 +193,37 @@
                 - name: Aceleração de computação
                   href: azure-stack-edge-gpu-deploy-compute-acceleration.md
                 - name: Aplicativo sem estado
-                  href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
+                  href: azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md
                 - name: Aplicativo com estado provisionado estaticamente
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
                 - name: Aplicativo com estado provisionado dinamicamente
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
+                - name: Carga de trabalho de GPU compartilhada
+                  href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md
             - name: Via IoT Edge
               items:
                 - name: Aplicativo sem estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
+                - name: Carga de trabalho de GPU compartilhada
+                  href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md
                 - name: Desenvolver um módulo C#
-                  href: azure-stack-edge-j-series-create-iot-edge-module.md
+                  href: azure-stack-edge-gpu-create-iot-edge-module.md
             - name: Via Azure Arc (versão prévia)
               items:
                 - name: Habilitar o Arc no cluster do Kubernetes
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Implantar o aplicativo sem estado por meio do GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Implantar o Controlador de Dados do Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurar o Azure Resource Manager (versão prévia)
           items:
             - name: Conectar-se por meio do Azure PowerShell
-              href: azure-stack-edge-j-series-connect-resource-manager.md
+              href: azure-stack-edge-gpu-connect-resource-manager.md
             - name: Configurar a senha do Azure Resource Manager
-              href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
+              href: azure-stack-edge-gpu-set-azure-resource-manager-password.md
             - name: Definir as configurações de TLS do cliente
-              href: azure-stack-edge-j-series-configure-tls-settings.md
+              href: azure-stack-edge-gpu-configure-tls-settings.md
         - name: Implantar VMs (versão prévia)
           items:
             - name: Implantar VMs – Portal do Azure
@@ -227,41 +237,51 @@
             - name: Implantar VMs – Script do Azure PowerShell
               href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
             - name: Implantar VMs – CLI do Azure/Python
-              href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
             - name: Implantar extensão de script personalizado em VMs
               href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: Criar a imagem de VM
               href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: Usar a imagem generalizada do Windows
+              href: azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md
             - name: 'Tamanhos de VM com suporte, tipos'
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
+            - name: Conectar ao console de VM
+              href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+            - name: Gerenciar adaptadores de rede
+              href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
+            - name: Gerenciar discos
+              href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+            - name: Gerenciar tamanhos de VM
+              href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
         - name: Gerenciar certificados
           items:
             - name: Requisitos
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Traga seu próprio
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Criar por meio da ferramenta Verificador de Preparação do Azure Stack
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Solucionar erros de certificado
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gerenciar a computação de borda
-          href: azure-stack-edge-j-series-manage-compute.md
+          href: azure-stack-edge-gpu-manage-compute.md
         - name: Gerenciar o Registro de contêiner do Edge
           href: azure-stack-edge-gpu-edge-container-registry.md
         - name: Gerenciar o gateway de armazenamento
           items:
             - name: Adicionar e conectar para compartilhar
-              href: azure-stack-edge-j-series-deploy-add-shares.md
+              href: azure-stack-edge-gpu-deploy-add-shares.md
             - name: Adicionar contas de armazenamento e conectar-se a elas
-              href: azure-stack-edge-j-series-deploy-add-storage-accounts.md
+              href: azure-stack-edge-gpu-deploy-add-storage-accounts.md
             - name: Compartilhamentos
-              href: azure-stack-edge-j-series-manage-shares.md
+              href: azure-stack-edge-gpu-manage-shares.md
             - name: Usuários
-              href: azure-stack-edge-j-series-manage-users.md
+              href: azure-stack-edge-gpu-manage-users.md
             - name: Contas de armazenamento
-              href: azure-stack-edge-j-series-manage-storage-accounts.md
+              href: azure-stack-edge-gpu-manage-storage-accounts.md
             - name: Agenda da largura de banda
-              href: azure-stack-edge-j-series-manage-bandwidth-schedules.md
+              href: azure-stack-edge-gpu-manage-bandwidth-schedules.md
         - name: Gerenciar dispositivo
           items:
             - name: 'Potência, acesso, conectividade'
@@ -270,6 +290,8 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Aplicar atualizações
               href: azure-stack-edge-gpu-install-update.md
+            - name: 'Redefinir, reativar dispositivo'
+              href: azure-stack-edge-reset-reactivate-device.md
             - name: Devolução do dispositivo
               href: azure-stack-edge-return-device.md
             - name: Substituir dispositivo
@@ -300,20 +322,25 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas compartilhadas sobre a versão
       items:
-        - name: 2101 – Atual
+        - name: 2103 – Atual
+          href: azure-stack-edge-gpu-2103-release-notes.md
+        - name: 2101
           href: azure-stack-edge-gpu-2101-release-notes.md
         - name: 2010
-          href: azure-stack-edge-gpu-2009-release-notes.md
+          href: azure-stack-edge-gpu-2010-release-notes.md
         - name: 2008
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Referência compartilhada
       items:
         - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+          href: /powershell/module/az.stackedge/#stack_edge
         - name: API REST
           href: /rest/api/databoxedgegateway
         - name: SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+          href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+        - name: Itens internos do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
 - name: Azure Stack Edge Pro – FPGA
   items:
     - name: Visão geral
@@ -383,6 +410,8 @@
           href: azure-stack-edge-return-device.md
         - name: Substituir dispositivo
           href: azure-stack-edge-replace-device.md
+        - name: Migrar para o dispositivo GPU
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Notas de versão
       items:
         - name: 2101 – Atual
@@ -397,23 +426,10 @@
           href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
         - name: Disponibilidade Geral (GA)
           href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: Referência
-      items:
-        - name: Azure PowerShell
-          href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
-        - name: API REST
-          href: /rest/api/databoxedgegateway
-        - name: SDK .NET
-          href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
 - name: Segurança
   items:
     - name: Linha de base de segurança
       href: security-baseline.md
-- name: Referências
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Exemplos de módulo C# do Azure Stack Edge Pro (.NET)

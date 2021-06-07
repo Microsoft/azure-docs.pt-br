@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b773241fdff41323272422f99e88f0d01e884055
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321960"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889545"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.
@@ -32,7 +32,7 @@ Este tópico fornece instruções sobre como:
 A biblioteca de cliente do Python foi testada nos ambientes a seguir:
 
 * Windows, Mac e Linux
-* Python 2.7, 3.3 e 3.4
+* Python 2,7 e 3.6 +
 
 Ela tem uma dependência nos seguintes pacotes:
 
@@ -73,7 +73,7 @@ Por motivos de segurança, a funcionalidade do snippet de código está disponí
 
 ![Captura de tela mostra as configurações na página usuários do Azure Machine Learning Studio.][security]
 
-Se a sua função não estiver definida como **Proprietário** , você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do workspace para fornecer o snippet de código.
+Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do workspace para fornecer o snippet de código.
 
 Para obter o token de autorização, você pode escolher uma destas opções:
 

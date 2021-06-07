@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 545359cd68c18fea8bf1369a57226d024489f293
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258907"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101091300"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar/Atualizar online o BD do Azure para PostgreSQL – Servidor Único para o BD do Azure para PostgreSQL – Servidor Único usando o DMS por meio do portal do Azure
 
@@ -54,7 +54,7 @@ Para concluir este tutorial, você precisará:
 * [Crie um servidor do Banco de Dados do Azure para PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) ou [Crie um Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)](../postgresql/quickstart-create-hyperscale-portal.md) como o servidor de banco de dados de destino para o qual os dados serão migrados.
 * Crie uma Rede Virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager. Para obter mais informações sobre como criar uma rede virtual, confira a [Documentação da Rede Virtual](../virtual-network/index.yml) e, especificamente, os artigos de Início Rápido com detalhes passo a passo.
 
-* Verifique se as regras do NSG (Grupo de Segurança de Rede) da sua rede virtual não bloqueiam as seguintes portas de comunicação de saída para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Verifique se as regras do NSG (grupo de segurança de rede) para a sua rede virtual não bloqueiam a porta de saída 443 de ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Crie uma [regra de firewall](../azure-sql/database/firewall-configure.md) no nível do servidor para que o Banco de Dados do Azure para PostgreSQL de origem permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * Crie uma [regra de firewall](../azure-sql/database/firewall-configure.md) no nível do servidor para que o Banco de Dados do Azure para PostgreSQL de destino permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * [Habilitar replicação lógica](../postgresql/concepts-logical.md) na origem do BD do Azure para PostgreSQL. 
@@ -210,7 +210,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
       ![Localize todas as instâncias do Serviço de Migração de Banco de Dados do Azure](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-search.png)
 
-2. Na tela **Serviços de Migração de Banco de Dados do Azure**, pesquise pelo nome da instância do Serviço de Migração de Banco de Dados do Azure que você criou, selecione a instância e, em seguida, selecione + **Novo Projeto de Migração**.
+2. Na tela **Serviços de Migração de Banco de Dados do Azure**, procure o nome da instância do Serviço de Migração de Banco de Dados do Azure que você criou, selecione a instância e, em seguida, selecione + **Novo Projeto de Migração**.
 
 3. Na tela **Novo projeto de migração**, especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **PostgreSQL**, na caixa de texto **Tipo de servidor de destino**, selecione **Banco de Dados do Azure para PostgreSQL**.
     > [!NOTE]
@@ -238,7 +238,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1. Na tela **Detalhes do destino**, especifique os detalhes da conexão para o servidor de destino Hiperescala (Citus), que é a instância pré-provisionada da Hiperescala (Citus) na qual o esquema de **Aluguel de DVDs** foi implantado usando pg_dump.
+1. Na tela **Detalhes do destino**, especifique os detalhes da conexão para o servidor de destino Hiperescala (Citus), que é a instância pré-provisionada da Hiperescala (Citus) na qual o esquema de **DVD Rentals** foi implantado usando pg_dump.
 
     ![Tela de detalhes do destino](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-add-target-details.png)
 
@@ -263,7 +263,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 * Selecione **Executar migração**.
 
-A janela de atividade de migração é exibida e o **Status** da atividade deve ser atualizado para **Backup em Andamento**. Você poderá encontrar o seguinte erro ao atualizar do BD do Azure para PostgreSQL 9.5 ou 9.6:
+A janela de atividade de migração é exibida e o **Status** da atividade deve ser atualizado para **Backup em andamento**. Você poderá encontrar o seguinte erro ao atualizar do BD do Azure para PostgreSQL 9.5 ou 9.6:
 
 **Um cenário relatou um erro desconhecido. 28000: sem entrada pg_hba.conf para conexão de replicação do host "40.121.141.121", usuário "sr"**
 

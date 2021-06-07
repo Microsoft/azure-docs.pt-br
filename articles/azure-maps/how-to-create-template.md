@@ -7,10 +7,10 @@ ms.date: 10/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 ms.openlocfilehash: c715c0639e962f76f669515c1d2c826c8cf6cc9e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92525043"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Criar sua conta do Azure Maps usando um modelo do ARM
@@ -72,7 +72,7 @@ Você pode usar o portal do Azure para verificar sua conta do Azure Maps e exibi
 az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos, que também exclui a conta do Azure Maps. Para excluir o grupo de recursos usando CLI do Azure:
 

@@ -1,17 +1,16 @@
 ---
 title: Direcionamento de soluções de monitoramento no Azure Monitor | Microsoft Docs
 description: O direcionamento de soluções de monitoramento permite limitar as soluções de monitoramento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498671"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101728562"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
 Quando você adiciona uma solução de monitoramento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e do Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
@@ -23,7 +22,7 @@ Há três etapas para direcionar uma solução, conforme descrito nas próximas 
 
 
 ### <a name="1-create-a-computer-group"></a>1. criar um grupo de computadores
-Especifique os computadores que deseja incluir no escopo criando um [grupo de computadores](../platform/computer-groups.md) no Azure Monitor.  O grupo de computadores pode se basear em uma consulta de logs ou pode ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente computadores conectados diretamente ao Azure Monitor serão incluídos no escopo.
+Especifique os computadores que deseja incluir no escopo criando um [grupo de computadores](../logs/computer-groups.md) no Azure Monitor.  O grupo de computadores pode se basear em uma consulta de logs ou pode ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente computadores conectados diretamente ao Azure Monitor serão incluídos no escopo.
 
 Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
@@ -69,4 +68,4 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as soluções de monitoramento, incluindo as soluções disponíveis para instalação em seu ambiente, em [Adicionar soluções de monitoramento do Azure Log Analytics a seu workspace](solutions.md).
-- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em consultas de logs do Azure Monitor](../platform/computer-groups.md).
+- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em consultas de logs do Azure Monitor](../logs/computer-groups.md).

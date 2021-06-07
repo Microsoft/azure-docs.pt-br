@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c833d87b8d85c75c4f050f0130ddfd74342f4c52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 8aa5a52a06713b4f00b43205a57148049a8ef8da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566681"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101711953"
 ---
 # <a name="connect-your-akamai-security-events-collector-to-azure-sentinel"></a>Conectar seu coletor de eventos de segurança do Akamai ao Azure Sentinel
 
@@ -35,7 +35,7 @@ Este artigo explica como conectar seu coletor de eventos de segurança do Akamai
 
 - Você deve ter permissões de leitura e gravação em seu espaço de trabalho do Azure Sentinel.
 
-- Você deve ter permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Você deve ter permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## <a name="send-akamai-security-events-logs-to-azure-sentinel"></a>Enviar logs de eventos de segurança da Akamai para o Azure Sentinel
 
@@ -168,7 +168,7 @@ Esse conector de dados depende de um analisador baseado em uma função Kusto pa
 
     1. Em **categoria**, insira **funções**.
 
-    1. Clique em **Salvar**.
+    1. Clique em **Save** (Salvar).
 
     Os aplicativos de funções normalmente levam entre 10 e 15 minutos para serem ativados.
 

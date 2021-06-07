@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127780"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  

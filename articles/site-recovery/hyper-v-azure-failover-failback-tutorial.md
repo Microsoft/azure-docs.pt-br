@@ -1,19 +1,16 @@
 ---
 title: Configurar o failover de VMs do Hyper-V para o Azure no Azure Site Recovery
 description: Saiba como fazer failover de VMs do Hyper-V no Azure com o Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b46a2ea12a697afde8223cc3595365c1286512c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb012f7cc5faa5e286b617785512ffa463c213bb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86132451"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579539"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Fazer failover de VMs do Hyper-V no Azure
 

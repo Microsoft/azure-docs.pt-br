@@ -3,16 +3,16 @@ title: Alternar atividade no Azure Data Factory
 description: A atividade switch permite controlar o fluxo de processamento com base em uma condição.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 4d58b032fe0371c9b54cf66ab13f525880867fb6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 08d93bd3d49dc345b35a942d4d5db4eef937d3de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385346"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786134"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Alternar atividade no Azure Data Factory
 

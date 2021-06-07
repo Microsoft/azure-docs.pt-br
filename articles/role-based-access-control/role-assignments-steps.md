@@ -1,5 +1,5 @@
 ---
-title: Etapas para adicionar uma atribuição de função-RBAC do Azure
+title: Etapas para atribuir uma função do Azure-RBAC do Azure
 description: Conheça as etapas para atribuir funções do Azure a usuários, grupos, entidades de serviço ou identidades gerenciadas usando o Azure RBAC (controle de acesso baseado em função do Azure).
 services: active-directory
 author: rolyon
@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117241"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100556038"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
+# <a name="steps-to-assign-an-azure-role"></a>Etapas para atribuir uma função do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve as etapas de alto nível para adicionar uma atribuição de função usando o [portal do Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [CLI do Azure](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve as etapas de alto nível para atribuir funções do Azure usando o [portal do Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [CLI do Azure](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Etapa 1: determinar quem precisa de acesso
 
@@ -79,16 +79,16 @@ Para atribuir funções, você deve estar conectado com um usuário que recebe u
 
 Se a sua conta de usuário não tiver permissão para atribuir uma função na sua assinatura, você verá uma mensagem de erro informando que sua conta "não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write'." Nesse caso, entre em contato com os administradores da sua assinatura, pois eles podem atribuir as permissões em seu nome.
 
-## <a name="step-5-add-role-assignment"></a>Etapa 5. Adicionar atribuição de função
+## <a name="step-5-assign-role"></a>Etapa 5. Atribuir função
 
-Depois de saber a entidade de segurança, a função e o escopo, você pode atribuir a função. Você pode adicionar atribuições de função usando o portal do Azure, Azure PowerShell, CLI do Azure, SDKs do Azure ou APIs REST. Em cada assinatura, você pode ter até **2 mil** atribuições de função. Esse limite inclui atribuições de função na assinatura, no grupo de recursos e nos escopos de recursos. Você pode ter até **500** atribuições de função em cada grupo de gerenciamento.
+Depois de saber a entidade de segurança, a função e o escopo, você pode atribuir a função. Você pode atribuir funções usando o portal do Azure, Azure PowerShell, CLI do Azure, SDKs do Azure ou APIs REST. Em cada assinatura, você pode ter até **2 mil** atribuições de função. Esse limite inclui atribuições de função na assinatura, no grupo de recursos e nos escopos de recursos. Você pode ter até **500** atribuições de função em cada grupo de gerenciamento.
 
-Confira os artigos a seguir para obter as etapas detalhadas de como adicionar atribuições de função.
+Confira os artigos a seguir para obter as etapas detalhadas de como atribuir funções.
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
-- [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](role-assignments-powershell.md)
-- [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](role-assignments-cli.md)
-- [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o Azure PowerShell](role-assignments-powershell.md)
+- [Atribuir funções do Azure usando CLI do Azure](role-assignments-cli.md)
+- [Atribuir funções do Azure usando a API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

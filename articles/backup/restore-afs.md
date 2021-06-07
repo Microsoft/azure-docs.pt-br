@@ -4,10 +4,10 @@ description: Saiba como usar o portal do Azure para restaurar um compartilhament
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376767"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar compartilhamentos de arquivos do Azure
@@ -68,7 +68,7 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
 
 #### <a name="restore-to-the-original-location-full-share-recovery"></a>Restaurar no local original (recuperação de compartilhamento completo)
 
-1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
+1. Selecione **local original** como o **destino de recuperação** e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
@@ -108,7 +108,7 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 
 #### <a name="restore-to-the-original-location-item-level-recovery"></a>Restaurar para o local original (recuperação em nível de item)
 
-1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
+1. Selecione **local original** como o **destino de recuperação** e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
     ![Local original para recuperação em nível de item](./media/restore-afs/original-location-item-level.png)
 

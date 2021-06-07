@@ -3,14 +3,14 @@ title: Gerenciar pré-scripts e pós-scripts na implantação do Gerenciamento d
 description: Este artigo informa como configurar e gerenciar pré-scripts e pós-scripts para implantações de atualizações.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4c37fe107d9256461e5aa632f859ae02c5dc42f5
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683418"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102485530"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
@@ -19,6 +19,8 @@ Pré-scripts e pós-scripts são runbooks para execução na sua conta da Automa
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de pré-script e pós-script
 
 Para que um runbook seja usado como pré-script ou pós-script, você deve importá-lo para sua conta da Automação e [publicar o runbook](../manage-runbooks.md#publish-a-runbook).
+
+Atualmente, somente os runbooks do PowerShell e do Python 2 têm suporte como scripts de pré/pós. Outros tipos de runbook como o Python 3, o fluxo de trabalho do PowerShell, fluxo de trabalho gráfico do PowerShell atualmente não têm suporte como scripts de pré/pós.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parâmetros de pré-script e pós-script
 
@@ -59,40 +61,37 @@ Além dos parâmetros padrão do runbook, o parâmetro `SoftwareUpdateConfigurat
 A seguir há um exemplo de cadeia de caracteres JSON passada para o parâmetro **SoftwareUpdateConfigurationRunContext**:
 
 ```json
-"SoftwareUpdateConfigurationRunContext":{
-      "SoftwareUpdateConfigurationName":"sampleConfiguration",
-      "SoftwareUpdateConfigurationRunId":"00000000-0000-0000-0000-000000000000",
-      "SoftwareUpdateConfigurationSettings":{
-         "operatingSystem":"Windows",
-         "duration":"PT2H0M",
-         "windows":{
-            "excludedKbNumbers":[
-               "168934",
-               "168973"
-            ],
-            "includedUpdateClassifications":"Critical",
-            "rebootSetting":"IfRequired"
-         },
-         "azureVirtualMachines":[
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ],
-         "nonAzureComputerNames":[
-            "box1.contoso.com",
-            "box2.contoso.com"
-         ]
-      }
-   }
+"SoftwareUpdateConfigurationRunContext": {
+    "SoftwareUpdateConfigurationName": "sampleConfiguration",
+    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
+    "SoftwareUpdateConfigurationSettings": {
+      "operatingSystem": "Windows",
+      "duration": "PT2H0M",
+      "windows": {
+        "excludedKbNumbers": [
+          "168934",
+          "168973"
+        ],
+        "includedUpdateClassifications": "Critical",
+        "rebootSetting": "IfRequired"
+      },
+      "azureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+      ],
+      "nonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+      ]
+    }
+  }
 ```
 
 Um exemplo completo com todas as propriedades pode ser encontrado em: [Obter configuração de atualização de software por nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
 > O objeto `SoftwareUpdateConfigurationRunContext` pode conter entradas duplicadas para computadores. Isso pode fazer com que os pré-scripts e os pós-scripts sejam executados várias vezes no mesmo computador. Para contornar esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes de VM exclusivos.
-
-> [!NOTE]
-> Atualmente, somente os runbooks do PowerShell têm suporte como scripts de pré/pós. Outros tipos de runbook como Python, gráfico, fluxo de trabalho do PowerShell, fluxo de trabalho gráfico do PowerShell atualmente não têm suporte como scripts de pré/pós.
 
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Usar um pré-script ou pós-script em uma implantação
 
@@ -120,7 +119,7 @@ Ao selecionar a execução da implantação de atualizações, você verá detal
 
 ## <a name="stop-a-deployment"></a>Interromper uma implantação
 
-Se você deseja interromper uma implantação com base em um pré-script, [lance](../automation-runbook-execution.md#throw) uma exceção. Se não, a implantação e o post-script ainda serão executados. O snippet de código a seguir mostra como lançar uma exceção.
+Se você deseja interromper uma implantação com base em um pré-script, [lance](../automation-runbook-execution.md#throw) uma exceção. Se não, a implantação e o post-script ainda serão executados. O trecho de código a seguir mostra como lançar uma exceção usando o PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+No Python 2, a manipulação de exceção é gerenciada em um bloco [try](https://www.python-course.eu/exception_handling.php) .
 
 ## <a name="interact-with-machines"></a>Interação com computadores
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+No Python 2, se você quiser gerar um erro quando uma determinada condição ocorrer, use uma instrução [Raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) .
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Exemplos

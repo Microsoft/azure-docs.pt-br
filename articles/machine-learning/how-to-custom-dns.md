@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.custom: how-to, contperf-fy21q3
+ms.openlocfilehash: c3f21471e486f88daf8d79b74633c076d27ac8e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871088"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557574"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como usar seu workspace com um servidor DNS personalizado
 
@@ -37,32 +37,32 @@ Ao usar um espaço de trabalho Azure Machine Learning com um ponto de extremidad
 
 - Opcionalmente, [CLI do Azure](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="fqdns-in-use"></a>FQDNs em uso
-### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Esses FQDNs estão em uso nas seguintes regiões: lesteus, southcentralus e westus2.
-A lista a seguir contém os nomes de domínio totalmente qualificados (FQDN) usados pelo seu espaço de trabalho:
+## <a name="public-regions"></a>Regiões públicas
+
+A lista a seguir contém os nomes de domínio totalmente qualificados (FQDN) usados pelo seu espaço de trabalho se ele estiver em uma região pública::
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* Se você criar uma instância de computação, também deverá adicionar uma entrada para `<instance-name>.<region>.instances.azureml.ms` com o IP privado do ponto de extremidade privado do espaço de trabalho.
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > As instâncias de computação podem ser acessadas somente de dentro da rede virtual.
-    
-### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Esses FQDNs estão em uso em todas as outras regiões
-A lista a seguir contém os nomes de domínio totalmente qualificados (FQDN) usados pelo seu espaço de trabalho:
-
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+    > O nome do espaço de trabalho para esse FQDN pode estar truncado. O truncamento é feito para manter o FQDN menor ou igual a 63 caracteres.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
     > As instâncias de computação podem ser acessadas somente de dentro da rede virtual.
 
+## <a name="azure-china-21vianet-regions"></a>Regiões da 21Vianet do Azure na China
+
+Os FQDNs a seguir são para as regiões da 21Vianet do Azure na China:
+
+* `<workspace-GUID>.workspace.<region>.cert.api.ml.azure.cn`
+* `<workspace-GUID>.workspace.<region>.api.ml.azure.cn`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
+
+    > [!NOTE]
+    > O nome do espaço de trabalho para esse FQDN pode estar truncado. O truncamento é feito para manter o FQDN menor ou igual a 63 caracteres.
+* `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Localizar os endereços IP
 
 Para localizar os endereços IP internos para os FQDNs na VNet, use um dos seguintes métodos:
@@ -94,7 +94,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-As informações retornadas de todos os métodos são as mesmas; uma lista de FQDN e endereço IP privado para os recursos.
+As informações retornadas de todos os métodos são as mesmas; uma lista de FQDN e endereço IP privado para os recursos. O exemplo a seguir é de uma região global do Azure:
 
 | FQDN | Endereço IP |
 | ----- | ----- |
@@ -112,6 +112,12 @@ As informações retornadas de todos os métodos são as mesmas; uma lista de FQ
 >
 > Para todos esses endereços IP, use o mesmo endereço que as `*.api.azureml.ms` entradas retornadas das etapas anteriores.
 
+A tabela a seguir mostra os IPs de exemplo das regiões da 21Vianet do Azure na China:
+
+| FQDN | Endereço IP |
+| ----- | ----- |
+| `52882c08-ead2-44aa-af65-08a75cf094bd.workspace.chinaeast2.api.ml.azure.cn` | `10.1.0.5` |
+| `ml-mype-pltest-chinaeast2-52882c08-ead2-44aa-af65-08a75cf094bd.notebooks.chinacloudapi.cn` | `10.1.0.6` |
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como usar Azure Machine Learning com uma rede virtual, consulte a [visão geral da rede virtual](how-to-network-security-overview.md).

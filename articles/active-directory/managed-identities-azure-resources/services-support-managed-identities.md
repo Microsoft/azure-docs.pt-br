@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373667"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594539"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -73,7 +73,19 @@ Veja a lista a seguir para configurar a identidade gerenciada para Serviço de A
 | Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
-O kubernetes habilitado para Arc do Azure atualmente [dá suporte à identidade atribuída pelo sistema](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). O certificado de identidade de serviço gerenciado é usado por todos os agentes kubernetes habilitados para o Azure ARC para comunicação com o Azure.
+O kubernetes habilitado para Arc do Azure atualmente [dá suporte à identidade atribuída pelo sistema](../../azure-arc/kubernetes/quickstart-connect-cluster.md). O certificado de identidade de serviço gerenciado é usado por todos os agentes kubernetes habilitados para o Azure ARC para comunicação com o Azure.
+
+### <a name="azure-arc-enabled-servers"></a>Servidores habilitados para Azure Arc
+
+| Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Todos os servidores habilitados para Arc do Azure têm uma identidade atribuída pelo sistema. Não é possível desabilitar ou alterar a identidade atribuída do sistema em um servidor habilitado para Arc do Azure. Consulte os seguintes recursos para saber mais sobre como consumir identidades gerenciadas em servidores habilitados para Arc do Azure:
+
+- [Autenticar em recursos do Azure com servidores habilitados para Arc](../../azure-arc/servers/managed-identity-authentication.md)
+- [Usando uma identidade gerenciada com servidores habilitados para Arc](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
 
 ### <a name="azure-automanage"></a>Autogerenciamento do Azure
 
@@ -176,7 +188,7 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 Consulte a lista a seguir para configurar a identidade gerenciada para o gêmeos digital do Azure (em regiões onde disponível):
 
-- [Portal do Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Portal do Azure](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
@@ -221,7 +233,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para o Hub IoT
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Visualizar | Disponível | Disponível |
+| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Versão Prévia | Disponível | Disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
@@ -234,6 +246,14 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 Para obter mais informações, confira [Usar identidades gerenciadas no Serviço de Kubernetes do Azure](../../aks/use-managed-identity.md).
 
+### <a name="azure-log-analytics-cluster"></a>Cluster de Log Analytics do Azure
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+| Atribuído pelo usuário | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
+
+Para obter mais informações, consulte [como a identidade funciona no Azure monitor](../../azure-monitor/logs/customer-managed-keys.md)
 
 ### <a name="azure-logic-apps"></a>Aplicativos Lógicos do Azure
 
@@ -252,7 +272,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Aplicativos L
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Visualizar | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo sistema | Versão Prévia | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Visualização | Não disponível | Não disponível | Não disponível |
 
 Para obter mais informações, consulte [usar identidades gerenciadas com Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).

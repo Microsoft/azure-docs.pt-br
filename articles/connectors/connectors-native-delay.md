@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74787329"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Atraso ao executar a próxima ação nos aplicativos lógicos do Azure
@@ -53,7 +53,7 @@ Aqui estão alguns exemplos de maneiras de usar essas ações:
    | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
    |----------|-----------|----------|------|-------------|
    | Contagem | count | Sim | Integer | O número de unidades de tempo a serem atrasadas |
-   | Unit | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , `Minute` , `Hour` , `Day` , `Week` ou `Month` |
+   | Unidade | unit | Sim | String | A unidade de tempo, por exemplo: `Second` , `Minute` , `Hour` , `Day` , `Week` ou `Month` |
    ||||||
 
 1. Adicione outras ações que você deseja executar em seu fluxo de trabalho.

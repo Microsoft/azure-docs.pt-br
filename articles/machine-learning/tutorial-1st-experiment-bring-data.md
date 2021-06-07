@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
-ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 02/11/2021
+ms.custom: tracking-python, contperf-fy21q3
+ms.openlocfilehash: 503d1d1220cd4704a6e70d0b7e575a70275e5e4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622788"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936828"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Usar seus dados (parte 4 de 4)
 
@@ -39,7 +39,12 @@ Neste tutorial, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da [parte 3](tutorial-1st-experiment-sdk-train.md) da série.
+Você precisará dos dados e de uma versão atualizada do ambiente do PyTorch criado no tutorial anterior.  Lembre-se de concluir estas etapas:
+
+1. [Criar o script de treinamento](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+1. [Criar um ambiente do Python](tutorial-1st-experiment-sdk-train.md#environment)
+1. [Testá-lo localmente](tutorial-1st-experiment-sdk-train.md#test-local)
+1. [Atualizar o arquivo do ambiente Conda](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## <a name="adjust-the-training-script"></a>Ajustar o script de treinamento
 
@@ -75,6 +80,7 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+
 > [!div class="nextstepaction"]
 > [Ajustei o script de treinamento](?success=adjust-training-script#test-locally) [Encontrei um problema](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
@@ -82,43 +88,29 @@ optimizer = optim.SGD(
 
 Seu script agora aceita _caminho de dados_ como um argumento. Para começar, teste-o localmente. Adicione à estrutura do diretório do tutorial uma pasta chamada `data`. A estrutura do diretório deve ser semelhante a:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="A estrutura de diretório mostra subdiretórios .azureml, data e src":::
 
-Se você não executou `train.py` localmente no tutorial anterior, não tem o diretório `data/`. Nesse caso, execute o método `torchvision.datasets.CIFAR10` localmente com `download=True` no script `train.py`.
+1. Saia do ambiente atual.
 
-Além disso, para execução local, saia do ambiente do tutorial e ative o novo ambiente do Conda:
+    ```bash
+    conda deactivate
 
-```bash
-conda deactivate                # If you are still using the tutorial environment, exit it
-```
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
-```bash
-conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-```
 
-```bash
-conda activate pytorch-aml-env          # activate new conda environment
-```
+    ```bash
+    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+    ```
 
-Para executar o script de treinamento modificado localmente, chame:
+    ```bash
+    conda activate pytorch-aml-env          # activate new conda environment
+    ```
 
-```bash
-python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-```
+1. Por fim, execute o script de treinamento modificado localmente.
+
+    ```bash
+    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+    ```
 
 Você evita precisar baixar o conjunto de dados CIFAR10 passando um caminho local para os dados. Experimente também valores diferentes para os hiperparâmetros _taxa de aprendizado_ e _dinâmica_ sem precisar embuti-los em código no script de treinamento.
 
@@ -213,7 +205,7 @@ O script de controle é semelhante àquele da [parte 3 desta série](tutorial-1s
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Um [conjunto de dados](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) é usado para referenciar os dados carregados no Armazenamento de Blobs do Azure. Os conjuntos de dados são uma camada de abstração sobre seus dados projetada para melhorar a confiabilidade e a confiança.
+      Um [conjunto de dados](/python/api/azureml-core/azureml.core.dataset.dataset) é usado para referenciar os dados carregados no Armazenamento de Blobs do Azure. Os conjuntos de dados são uma camada de abstração sobre seus dados projetada para melhorar a confiabilidade e a confiança.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -221,7 +213,7 @@ O script de controle é semelhante àquele da [parte 3 desta série](tutorial-1s
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) é modificado para incluir uma lista de argumentos que serão passados para `train.py`. O argumento `dataset.as_named_input('input').as_mount()` significa que o diretório especificado será _montado_ no destino de computação.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) é modificado para incluir uma lista de argumentos que serão passados para `train.py`. O argumento `dataset.as_named_input('input').as_mount()` significa que o diretório especificado será _montado_ no destino de computação.
    :::column-end:::
 :::row-end:::
 

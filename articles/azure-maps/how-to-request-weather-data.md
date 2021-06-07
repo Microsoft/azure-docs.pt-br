@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: fe1b337fe3e1dcf499f9a7428f66543108d0c050
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680410"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services-preview"></a>Solicitar dados meteorológicos em tempo real e previsão usando os serviços meteorológicos do Azure Maps (versão prévia) 

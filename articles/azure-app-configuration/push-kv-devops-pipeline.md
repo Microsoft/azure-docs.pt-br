@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979599"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101718175"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de push para configuração de aplicativo com Azure Pipelines
 
@@ -80,7 +80,7 @@ Os parâmetros a seguir são usados pela tarefa de push de configuração de apl
 
 - **Assinatura do Azure**: uma lista suspensa que contém as conexões de serviço do Azure disponíveis. Para atualizar e atualizar sua lista de conexões de serviço do Azure disponíveis, pressione o botão **Atualizar assinatura do Azure** à direita da caixa de texto.
 - **Nome da configuração do aplicativo**: uma lista suspensa que carrega os armazenamentos de configuração disponíveis na assinatura selecionada. Para atualizar e atualizar sua lista de repositórios de configuração disponíveis, pressione o botão **Atualizar nome de configuração do aplicativo** à direita da caixa de texto.
-- **Caminho do arquivo de configuração**: o caminho para o arquivo de configuração. Você pode navegar pelo seu artefato de compilação para selecionar um arquivo de configuração. ( `...` botão à direita da caixa de texto).
+- **Caminho do arquivo de configuração**: o caminho para o arquivo de configuração. Você pode navegar pelo seu artefato de compilação para selecionar um arquivo de configuração. ( `...` botão à direita da caixa de texto). Os formatos de arquivo com suporte são: YAML, JSON, Properties.
 - **Separador**: o separador usado para mesclar arquivos. JSON e. yml.
 - **Profundidade**: a profundidade para a qual os arquivos. JSON e. yml serão mesclados.
 - **Prefix**: uma cadeia de caracteres que é acrescentada ao início de cada chave enviada por push para o repositório de configuração do aplicativo.

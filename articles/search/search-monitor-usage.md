@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935000"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709915"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorar operações e atividades do Azure Pesquisa Cognitiva
 
@@ -38,9 +38,9 @@ A captura de tela a seguir o ajuda a localizar informações de monitoramento no
 
 * Guia **monitoramento** , na página Visão geral principal, mostra volume de consulta, latência e se o serviço está sob pressão.
 * O **log de atividades**, no painel de navegação esquerdo, está conectado a Azure Resource Manager. O log de atividades relata sobre as ações realizadas pelo Resource Manager: disponibilidade e status do serviço, alterações de capacidade (réplicas e partições) e atividades relacionadas à chave de API.
-* As configurações de **monitoramento** , mais adiante, fornecem alertas, métricas e logs de diagnóstico configuráveis. Crie-os quando precisar deles. Depois que os dados são coletados e armazenados, você pode consultar ou visualizar as informações de insights.
+* As configurações de **monitoramento** , mais adiante, fornecem alertas configuráveis, visualização de métricas e logs de diagnóstico. Crie-os quando precisar deles. Depois que os dados são coletados e armazenados, você pode consultar ou visualizar as informações de insights.
 
-![Integração de Azure Monitor em um serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
+  ![Integração de Azure Monitor em um serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
  "Integração de Azure Monitor em um serviço de pesquisa")
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Você pode usar as seguintes APIs para recuperar as mesmas informações encontr
 
 ### <a name="activity-logs-and-service-health"></a>Logs de atividade e integridade do serviço
 
-A página [**log de atividades**](../azure-monitor/platform/activity-log.md#view-the-activity-log) no portal coleta informações de Azure Resource Manager e relata sobre alterações na integridade do serviço. Você pode monitorar o log de atividades em busca de condições críticas, de erro e de aviso relacionadas à integridade do serviço.
+A página [**log de atividades**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) no portal coleta informações de Azure Resource Manager e relata sobre alterações na integridade do serviço. Você pode monitorar o log de atividades em busca de condições críticas, de erro e de aviso relacionadas à integridade do serviço.
 
 As entradas comuns incluem referências a chaves de API – notificações informativas genéricas, como *obter chave de administração* e *obter chaves de consulta*. Essas atividades indicam solicitações que foram feitas usando a chave de administração (criar ou excluir objetos) ou a chave de consulta, mas não mostram a solicitação em si. Para obter informações sobre esse detalhamento, você deve configurar o log de diagnósticos.
 
@@ -90,11 +90,11 @@ Azure Monitor fornece várias opções de armazenamento e sua escolha determina 
 * Escolha armazenamento de BLOBs do Azure se desejar [Visualizar dados de log](search-monitor-logs-powerbi.md) em um relatório de Power bi.
 * Escolha Log Analytics se desejar explorar dados por meio de consultas Kusto.
 
-Azure Monitor tem sua própria estrutura de cobrança e os logs de diagnóstico referenciados nesta seção têm um custo associado. Para obter mais informações, consulte [uso e custos estimados em Azure monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor tem sua própria estrutura de cobrança e os logs de diagnóstico referenciados nesta seção têm um custo associado. Para obter mais informações, consulte [uso e custos estimados em Azure monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Monitorar o acesso do usuário
 
-Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna para controlar ou monitorar o acesso por usuário a um índice. As solicitações são consideradas provenientes de um aplicativo cliente, para solicitações de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
+Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna para controlar ou monitorar o acesso por usuário a um índice. As solicitações são consideradas provenientes de um aplicativo cliente que apresenta uma solicitação de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
 
 Assim, o que você verá nos logs de atividade são referências a chamadas usando chaves de administração ou chaves de consulta. A chave apropriada é incluída em solicitações originadas do código do cliente. O serviço não está equipado para manipular tokens de identidade ou representação.
 
@@ -107,4 +107,4 @@ Não é possível registrar essas informações separadamente da cadeia de carac
 O fluência com Azure Monitor é essencial para supervisão de qualquer serviço do Azure, incluindo recursos como o Pesquisa Cognitiva do Azure. Se você não estiver familiarizado com Azure Monitor, Reserve um tempo para revisar os artigos relacionados aos recursos. Além dos tutoriais, o artigo a seguir é um bom ponto de partida.
 
 > [!div class="nextstepaction"]
-> [Monitorar recursos do Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Monitorar recursos do Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)

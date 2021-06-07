@@ -14,10 +14,10 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86254649"
 ---
 # <a name="about-api-management"></a>Sobre o Gerenciamento de API
@@ -42,13 +42,13 @@ O sistema é composto pelos seguintes componentes:
   
   * Aceita chamadas de API e as direciona para seu back-ends.
   * Verifica chaves de API, tokens JWT, certificados e outras credenciais.
-  * Impõe o uso de cotas e limites de taxa.
-  * Transforma sua API imediatamente sem modificações no código.
-  * Armazena respostas de back-end em cache em que a instalação.
+  * Impõe cotas de uso e limites de taxa.
+  * Transforma sua API em tempo real, sem modificações de código.
+  * Armazena em cache respostas de back-end, quando houver respostas desse tipo configuradas.
   * Registra logs de metadados de chamadas para fins de análise.
 * O **Portal do Azure** é a interface administrativa na qual você configura seu programa de API. Use-o para:
   
-  * Definir ou importar esquema de API.
+  * Definir ou importar esquemas de API.
   * Empacotar APIs em produtos.
   * Políticas de configuração como cotas ou transformações em APIs.
   * Obter insights por meio de análises.
@@ -56,11 +56,11 @@ O sistema é composto pelos seguintes componentes:
 * O **Portal do desenvolvedor** serve como a presença da web principal para desenvolvedores, na qual eles podem:
   
   * Ler a documentação da API.
-  * Experimentar uma API por meio do console interativo.
-  * Criar uma conta e fazer uma assinatura para obter chaves de API.
+  * Experimente uma API por meio do console interativo.
+  * Crie uma conta e assine para obter chaves de API.
   * Acessar a análise do seu próprio uso.
 
-Para obter mais informações, confira o white paper em PDF intitulado [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) (Gerenciamento de API baseado em nuvem: aproveitando o poder das APIs). Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange: 
+Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](https://j.mp/ms-apim-whitepaper) . Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange: 
  
  * Desafios e requisitos comuns de API
  * Dissociação de APIs e apresentação de fachadas
@@ -74,7 +74,7 @@ Para obter mais informações, confira o white paper em PDF intitulado [Cloud-ba
 ## <a name="apis-and-operations"></a><a name="apis"> </a>APIs e operações
 As APIs são a fundação de uma instância de serviço de Gerenciamento de API. Cada API representa um conjunto de operações disponíveis para desenvolvedores. Cada API contém uma referência para serviço back-end que implementa a API, e suas operações são mapeadas para as operações implementadas pelo serviço de back-end. As operações no Gerenciamento de API são altamente configuráveis, com controle sobre o mapeamento de URL, parâmetros de consulta e caminho, conteúdo de solicitação e resposta e caching de resposta de operação. As políticas de limite de taxa, cotas e restrições de IP podem também ser implementadas no nível de operação individual ou da API.
 
-Para obter mais informações, consulte [Como criar APIs][How to create APIs] e [Como adicionar operações a uma API][How to add operations to an API].
+Para obter mais informações, confira [Como criar APIs][How to create APIs] e [Como adicionar operações a uma API][How to add operations to an API].
 
 ## <a name="products"></a><a name="products"> </a> Produtos
 Os produtos são como as APIs são exibidas para os desenvolvedores. Os produtos no Gerenciamento de API têm uma ou mais APIs e são configurados com título, descrição e termos de uso. Produtos podem ser **Abertos** ou **Protegidos**. Produtos protegidos devem ser assinados antes que possam ser usados, enquanto produtos abertos podem ser usados sem uma assinatura. Quando um produto fica pronto para uso pelo desenvolvedor ele pode ser publicado. Após ele ser publicado, pode ser visualizado (e em caso de produtos protegidos, assinado) pelos desenvolvedores. A aprovação de assinatura é configurada no nível do produto e pode requere a aprovação do administrador ou ser aprovada automaticamente.
@@ -84,8 +84,8 @@ Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvo
 ## <a name="groups"></a><a name="groups"> </a> Grupos
 Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. O Gerenciamento de API tem os grupos de sistema imutáveis a seguir:
 
-* **Administradores** - os administradores de assinatura do Azure são membros desse grupo. Os administradores gerenciam instâncias de serviço de Gerenciamento de API, criando as APIs, operações e produtos que são usados pelos desenvolvedores.
-* **Desenvolvedores** - usuários autenticados do portal do desenvolvedor se enquadram nesse grupo. Os desenvolvedores são clientes que compilam aplicativos usando suas APIs. Os desenvolvedores têm acesso ao portal do desenvolvedor e criam aplicativos que chamam as operações de uma API.
+* **Administradores** – Os administradores de assinatura do Azure são membros desse grupo. Os administradores gerenciam instâncias de serviço de Gerenciamento de API, criando as APIs, operações e produtos que são usados pelos desenvolvedores.
+* **Desenvolvedores** – Os usuários autenticados no portal do desenvolvedor se enquadram nesse grupo. Os desenvolvedores são clientes que compilam aplicativos usando suas APIs. Os desenvolvedores têm acesso ao portal do desenvolvedor e criam aplicativos que chamam as operações de uma API.
 * **Convidados** - os usuários não autenticados no portal do desenvolvedor, tais como potenciais clientes visitando o portal do desenvolvedor de uma instância de Gerenciamento de API, pertencem a esse grupo. Eles podem receber certos acessos somente leitura, como a capacidade de exibir APIs, mas não de chamá-las.
 
 Além desses grupos de sistema, os administradores podem criar grupos personalizados ou [aproveitar grupos externos em locatários do Active Directory do Azure](api-management-howto-aad.md). Grupos personalizados e externos podem ser usados juntamente com grupos de sistema oferecendo visibilidade aos desenvolvedores e acesso a produtos de API. Por exemplo, você poderia criar um grupo personalizado para os desenvolvedores associados a uma organização parceira específica e conceder acesso às APIs de um produto que contém apenas as APIs relevantes. Um usuário pode ser um membro de mais de um grupo.
@@ -97,7 +97,7 @@ Os desenvolvedores representam as contas de usuários em uma instância de servi
 
 Quando os desenvolvedores assinam um produto, recebem as chaves principal e secundária para esse produto. Essa chave é usada quando eles fazem chamadas às APIs dos produtos.
 
-Para obter mais informações, consulte [Como criar ou convidar desenvolvedores][How to create or invite developers] e [Como associar grupos aos desenvolvedores][How to associate groups with developers].
+Para obter mais informações, confira [Como criar ou convidar desenvolvedores][How to create or invite developers] e [Como associar grupos aos desenvolvedores][How to associate groups with developers].
 
 ## <a name="policies"></a><a name="policies"> </a> Políticas
 As políticas são um poderoso recurso de Gerenciamento de API que permite ao Portal do Azure alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
@@ -105,7 +105,7 @@ As políticas são um poderoso recurso de Gerenciamento de API que permite ao Po
 Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](./api-management-advanced-policies.md#choose) e [Definir variável](./api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](./api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](./api-management-policy-expressions.md).
 
 
-Para obter uma lista completa de políticas de Gerenciamento de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como usar e configurar políticas, consulte [Políticas de Gerenciamento de API][API Management policies]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, consulte [Como criar e definir configurações avançadas de produto][How create and configure advanced product settings].
+Para obter uma lista completa de políticas de Gerenciamento de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como usar e configurar políticas, consulte [Políticas de Gerenciamento de API][API Management policies]. Para obter um tutorial sobre como criar um produto com políticas de cota e limite de taxa, confira [Como criar e definir configurações avançadas de produto][How create and configure advanced product settings].
 
 
 ## <a name="developer-portal"></a><a name="developer-portal"> </a> Portal do desenvolvedor

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98246699"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
@@ -94,7 +94,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [FormatDateTime](#formatdatetime)
   * [Agora](#now)
   * [NumFromDate](#numfromdate)
-* **Diretório**
+* **Active**
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
@@ -117,7 +117,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [Count](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
-  * [Unir](#join)
+  * [Join](#join)
   * [RemoveDuplicates](#removeduplicates)
   * [Split](#split)
 * **Fluxo do Programa**
@@ -904,7 +904,7 @@ Gera um erro se o índice está fora dos limites.
 Se o índice estiver fora dos limites, retornará um valor Null.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Ingressar
 **Descrição:**  
  a função Join obtém uma cadeia de caracteres de valores múltiplos e retorna uma cadeia de caracteres de um único valor com um separador especificado inserido entre cada item.
 
@@ -1275,7 +1275,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Opção
+### <a name="switch"></a>Comutador
 **Descrição:**  
  a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 

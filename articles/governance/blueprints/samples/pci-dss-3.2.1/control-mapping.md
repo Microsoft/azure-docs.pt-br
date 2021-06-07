@@ -1,14 +1,14 @@
 ---
 title: Controles de amostra de blueprint do PCI-DSS v3.2.1
 description: Mapeamento de controle da amostra de blueprint do Padrão de Segurança de Dados do Setor de Cartões de Pagamento v3.2.1 para Azure Policy e Azure RBAC.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9b1cf7702b627ae073f0172dde4694060004cb3f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 028981e7c6fc6e3886781d33079dcdfa0aebcc39
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045148"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386067"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PCI-DSS v3.2.1
 

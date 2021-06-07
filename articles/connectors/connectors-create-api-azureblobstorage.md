@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677720"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure usando o aplicativo lógico do Azure
@@ -27,13 +27,13 @@ Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que sã
 
 <a name="blob-storage-limits"></a>
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
-* Por padrão, as ações do armazenamento de BLOBs do Azure podem ler ou gravar arquivos que são *50 MB ou menores* . Para lidar com arquivos com mais de 50 MB, mas até 1024 MB, as ações do armazenamento de BLOBs do Azure dão suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). A ação **obter conteúdo do blob** usa implicitamente o agrupamento.
+* Por padrão, as ações do armazenamento de BLOBs do Azure podem ler ou gravar arquivos que são *50 MB ou menores*. Para lidar com arquivos com mais de 50 MB, mas até 1024 MB, as ações do armazenamento de BLOBs do Azure dão suporte ao [agrupamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). A ação **obter conteúdo do blob** usa implicitamente o agrupamento.
 
 * Os gatilhos do armazenamento de BLOBs do Azure não dão suporte ao agrupamento. Ao solicitar o conteúdo do arquivo, os gatilhos selecionam apenas os arquivos que são 50 MB ou menores. Para obter arquivos maiores que 50 MB, siga este padrão:
 
-  * Use um gatilho de armazenamento de BLOBs do Azure que retorne Propriedades de arquivo, como **quando um blob é adicionado ou modificado (somente Propriedades)** .
+  * Use um gatilho de armazenamento de BLOBs do Azure que retorne Propriedades de arquivo, como **quando um blob é adicionado ou modificado (somente Propriedades)**.
 
   * Siga o gatilho com a ação **obter conteúdo de blob** do armazenamento de BLOBs do Azure, que lê o arquivo completo e usa implicitamente o agrupamento.
 
@@ -65,7 +65,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    Neste exemplo, selecione o contêiner e a pasta que você deseja monitorar.
 
-   1. Na caixa **Contêiner** , selecione o ícone de pasta.
+   1. Na caixa **Contêiner**, selecione o ícone de pasta.
 
    2. Na lista de pastas, escolha o colchete angular direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
 
@@ -85,11 +85,11 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No [Portal do Azure](https://portal.azure.com) ou no Visual Studio, abra seu aplicativo lógico no Designer do Aplicativo Lógico. Este exemplo usa o portal do Azure.
 
-2. No designer do aplicativo lógico, no gatilho ou na ação, escolha **nova etapa** .
+2. No designer do aplicativo lógico, no gatilho ou na ação, escolha **nova etapa**.
 
    ![Adicionar nova etapa ao fluxo de trabalho do aplicativo lógico](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação** .
+   Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, digite "blob do azure" como filtro. Na lista de ações, selecione a ação desejada.
 
@@ -102,7 +102,7 @@ Ou, se a conexão já existir, forneça as informações necessárias para a aç
 
    Neste exemplo, selecione o arquivo desejado.
 
-   1. Na caixa **Blob** , selecione o ícone de pasta.
+   1. Na caixa **Blob**, selecione o ícone de pasta.
   
       ![Selecione a pasta de armazenamento a ser usada com a ação](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
@@ -183,9 +183,9 @@ Para conceder aos serviços confiáveis da Microsoft acesso a uma conta de armaz
 
 Para configurar a exceção e o suporte de identidade gerenciada, siga estas etapas gerais:
 
-1. Em sua conta de armazenamento, em **configurações** , selecione **firewalls e redes virtuais** . Em **permitir acesso de** , selecione a opção **redes selecionadas** para que as configurações relacionadas sejam exibidas.
+1. Em sua conta de armazenamento, em **configurações**, selecione **firewalls e redes virtuais**. Em **permitir acesso de**, selecione a opção **redes selecionadas** para que as configurações relacionadas sejam exibidas.
 
-1. Em **exceções** , selecione **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** e, em seguida, selecione **salvar** .
+1. Em **exceções**, selecione **permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** e, em seguida, selecione **salvar**.
 
    ![Selecione uma exceção que permita que os serviços confiáveis da Microsoft](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 

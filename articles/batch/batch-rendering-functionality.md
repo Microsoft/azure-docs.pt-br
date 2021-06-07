@@ -3,14 +3,14 @@ title: Recursos de renderização
 description: Os recursos padrão do Lote do Azure são usados para executar cargas de trabalho e aplicativos de renderização. O lote inclui recursos específicos para dar suporte às cargas de trabalho de renderização.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429795"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496330"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -27,6 +27,9 @@ As cadeias de caracteres de linha de comando da tarefa precisarão fazer referê
 A maioria dos aplicativos de renderização exigirá licenças obtidas de um servidor de licença. Se houver um servidor de licença local existente, o pool e o servidor de licença precisarão estar na mesma [rede virtual](../virtual-network/virtual-networks-overview.md). Também é possível executar um servidor de licença em uma VM do Azure, com o pool do lote e a VM do servidor de licença na mesma rede virtual.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Pools do lote usando imagens de VM de renderização
+
+> [!IMPORTANT]
+> As imagens de renderização da VM e o licenciamento de pagamento por uso foram [preteridos e serão desativados em 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar o lote para renderização, [uma imagem de VM personalizada e o licenciamento de aplicativo padrão devem ser usados.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Instalação de aplicativos de renderização
 

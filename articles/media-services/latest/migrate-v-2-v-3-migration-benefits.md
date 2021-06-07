@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955064"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559750"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Etapa 1-entender os benefícios da migração para a API do Media Services V3
 
@@ -23,6 +23,8 @@ ms.locfileid: "98955064"
 <hr color="#5ea0ef" size="10">
 
 ![etapas de migração 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Usar a API mais recente
 
 Incentivamos você a começar a usar a versão 2020-05-01 da API dos serviços de mídia do Azure v3 agora para obter os benefícios porque novos recursos, funcionalidades e otimizações de desempenho estão disponíveis apenas na API v3 atual.
 
@@ -34,11 +36,11 @@ Houve melhorias significativas nos serviços de mídia com v3.
 
 | **Recurso v3** | **Benefício** |
 | --- | --- |
-| **Azure portal** | |
+| **Portal do Azure** | |
 | Atualizações de portal do Azure | O portal do Azure foi atualizado para incluir o gerenciamento de entidades da API v3. Ele permite que os clientes usem o portal para iniciar a transmissão ao vivo, enviar trabalhos de transformação v3, gerenciar políticas de proteção de conteúdo, pontos de extremidade de streaming, obter acesso à API, gerenciar contas de armazenamento vinculadas e executar tarefas de monitoramento. |
 | **Contas e armazenamento** | |
 | RBAC (controle de acesso baseado em função) do Azure | Agora, os clientes podem definir suas próprias funções e controlar o acesso a cada entidade na API ARM dos serviços de mídia. Isso ajuda a controlar o acesso a recursos por contas do AAD. |
-| Identidades gerenciadas | Identidades gerenciadas eliminam a necessidade de os desenvolvedores gerenciarem credenciais fornecendo uma identidade para o recurso do Azure no Azure AD. Veja detalhes sobre identidades gerenciadas [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Identidades gerenciadas | Identidades gerenciadas eliminam a necessidade de os desenvolvedores gerenciarem credenciais fornecendo uma identidade para o recurso do Azure no Azure AD. Veja detalhes sobre identidades gerenciadas [aqui](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Suporte a link privado | Os clientes acessarão pontos de extremidade dos serviços de mídia para distribuição de chave, LiveEvents e StreamingEndpoints por meio de um PrivateEndpoint em sua VNet. |
 | Suporte [a chaves gerenciadas pelo cliente](concept-use-customer-managed-keys-byok.md) ou BYOK (traga sua própria chave) | Os clientes podem criptografar os dados em sua conta de serviços de mídia usando uma chave em seus Azure Key Vault. |
 | **Ativos** | |
@@ -58,9 +60,5 @@ Houve melhorias significativas nos serviços de mídia com v3.
 |**Proteção de conteúdo** ||
 | [Proteção](content-key-policy-concept.md)   de conteúdo dá suporte a recursos de várias chaves. | Agora, os clientes podem usar várias chaves de criptografia de conteúdo em seus localizadores de streaming. |
 | **Monitoring** | |
-| Suporte à notificação [do Azure EventGrid](reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em recursos. Há mais tipos de notificações, suporte mais amplo ao SDK para receber as notificações em seu próprio aplicativo e mais serviços do Azure existentes que podem atuar como manipuladores de eventos. |
-| [Suporte a Azure Monitor e integração no portal do Azure](monitor-events-portal-how-to.md) | Isso permite que os clientes visualizem o uso de cota de contas dos serviços de mídia, estatísticas em tempo real de pontos de extremidade de streaming e ingestão e arquivamento de estatísticas para eventos ao vivo. Agora, os clientes podem definir alertas e executar as ações necessárias com base em dados de métrica em tempo real. |
-
-## <a name="next-steps"></a>Próximas etapas
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+| Suporte à notificação [do Azure EventGrid](monitoring/reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em recursos. Há mais tipos de notificações, suporte mais amplo ao SDK para receber as notificações em seu próprio aplicativo e mais serviços do Azure existentes que podem atuar como manipuladores de eventos. |
+| [Suporte a Azure Monitor e integração no portal do Azure](monitoring/monitor-events-portal-how-to.md) | Isso permite que os clientes visualizem o uso de cota de contas dos serviços de mídia, estatísticas em tempo real de pontos de extremidade de streaming e ingestão e arquivamento de estatísticas para eventos ao vivo. Agora, os clientes podem definir alertas e executar as ações necessárias com base em dados de métrica em tempo real. |

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b981352dcfc5d3d2de2d773e2936feb27b6ba3d4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500264"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064691"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conectar um módulo IoT Plug and Play (C#)
 
@@ -20,7 +20,12 @@ Este tutorial mostra como conectar um [módulo](../iot-hub/iot-hub-devguide-modu
 
 Um dispositivo é IoT Plug and Play se ele publica a ID de modelo quando se conecta a um hub IoT e implementa as propriedades e os métodos descritos no modelo DTDL (Linguagem de Definição de Gêmeos Digitais) identificado pela ID do modelo. Para saber mais sobre como os dispositivos usam uma DTDL e uma ID de modelo, confira o [Guia do desenvolvedor do IoT Plug and Play](./concepts-developer-guide-device.md). Os módulos usam IDs de modelo e modelos de DTDL da mesma maneira.
 
-Para demonstrar como implementar um módulo de IoT Plug and Play, este tutorial mostra como converter o dispositivo termostato de exemplo do C# em um módulo genérico.
+Para demonstrar como implementar um módulo de IoT Plug and Play, este tutorial mostra como:
+
+> [!div class="checklist"]
+> * Adicionar um dispositivo com um módulo ao seu hub IoT.
+> * Converter a amostra de dispositivo de termostato em C# em um módulo genérico.
+> * Usar o SDK do serviço para interagir com o módulo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -232,6 +237,10 @@ Você pode usar a ferramenta Explorer de IoT do Azure para ver:
 * Telemetria enviada pelo dispositivo do IoT Edge.
 * Atualizações de propriedade do módulo gêmeo do IoT Edge que disparam notificações do IoT Plug and Play.
 * A reação do módulo do IoT Edge aos seus comandos do IoT Plug and Play.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

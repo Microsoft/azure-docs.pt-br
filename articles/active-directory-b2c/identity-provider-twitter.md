@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050440"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579817"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Twitter usando o Azure Active Directory B2C
 
@@ -45,8 +45,12 @@ Para habilitar a entrada para usuários com uma conta do Twitter no Azure AD B2C
 1. Em **configurações de autenticação**, selecione **Editar**
     1. Selecione **habilitar a caixa de seleção OAuth de 3 pernas** .
     1. Marque a caixa **de seleção solicitar endereço de email dos usuários** .
-    1. Para as **URLs de retorno de chamada**, insira `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Substitua `your-tenant` pelo nome do locatário e `your-user-flow-Id` pelo identificador do fluxo de usuário. Por exemplo, `b2c_1a_signup_signin_twitter`. Use todas as letras minúsculas ao inserir o nome do locatário e a ID do fluxo do usuário, mesmo que elas estejam definidas com letras maiúsculas no Azure AD B2C.
-    1. Para a **URL do site**, digite `https://your-tenant.b2clogin.com` . Substitua `your-tenant` pelo nome do seu locatário. Por exemplo, `https://contosob2c.b2clogin.com`.
+    1. Para as **URLs de retorno de chamada**, insira `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` .  Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Use todas as letras minúsculas ao inserir o nome do locatário e a ID do fluxo do usuário, mesmo que elas estejam definidas com letras maiúsculas no Azure AD B2C. Substitua:
+        - `your-tenant-name` pelo nome do seu nome de locatário.
+        - `your-domain-name` com seu domínio personalizado.
+        - `your-user-flow-Id` pelo identificador do seu fluxo de usuário. Por exemplo, `b2c_1a_signup_signin_twitter`. 
+    
+    1. Para a **URL do site**, digite `https://your-tenant.b2clogin.com` . Substitua `your-tenant` pelo nome do seu locatário. Por exemplo, `https://contosob2c.b2clogin.com`. Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name` .
     1. Insira uma URL para os **termos de serviço**, por exemplo `http://www.contoso.com/tos` . A URL da política é uma página que você mantém para fornecer os termos e condições do seu aplicativo.
     1. Insira uma URL para a **política de privacidade**, por exemplo `http://www.contoso.com/privacy` . A URL da política é uma página que você mantém para fornecer informações de privacidade para o seu aplicativo.
     1. Selecione **Salvar**.
@@ -66,13 +70,18 @@ Para habilitar a entrada para usuários com uma conta do Twitter no Azure AD B2C
 
 ## <a name="add-twitter-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Twitter a um fluxo de usuário 
 
+Neste ponto, o provedor de identidade do Twitter foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do Twitter a um fluxo de usuário:
+
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione o fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Twitter.
 1. Em **provedores de identidade social**, selecione **Twitter**.
 1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Selecione o botão **executar fluxo de usuário** .
+1. Na página inscrever-se ou entrar, selecione **Twitter** para entrar com a conta do Twitter.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end
 
@@ -167,7 +176,13 @@ Você pode definir uma conta do Twitter como um provedor de declarações, adici
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
 
+1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
+1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **Twitter** para entrar com a conta do Twitter.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end

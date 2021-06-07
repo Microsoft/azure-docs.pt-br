@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724264"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
@@ -34,7 +34,7 @@ O conjunto de permissões padrão recebido depende de se o usuário é um membro
 ------------ | --------- | ---------- | ----------
 Usuários e contatos | <ul><li>Enumerar lista de todos os usuários e contatos<li>Ler todas as propriedades públicas de usuários e contatos</li><li>Convidar pessoas<li>Alterar a própria senha<li>Gerenciar o próprio número de celular<li>Gerenciar a própria foto<li>Invalidar os próprios tokens de atualização</li></ul> | <ul><li>Ler as próprias propriedades<li>Ler nome de exibição, email, nome de entrada, foto, nome principal de usuário e propriedades de tipo de usuário de outros usuários e contatos<li>Alterar a própria senha<li>Pesquisar outro usuário por ObjectId (se permitido)<li>Gerenciador de leitura e informações de relatório direto de outros usuários</li></ul> | <ul><li>Ler as próprias propriedades<li>Alterar a própria senha</li></ul>
 Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos de Microsoft 365<li>Enumerar lista de todos os grupos<li>Ler todas as propriedades de grupos<li>Ler associações de grupos não ocultos<li>Ler associações de grupo de Microsoft 365 ocultas para o grupo associado<li>Gerenciar propriedades, posse e associação de grupos pertencentes ao usuário<li>Adicionar convidados a grupos próprios<li>Gerenciar configurações de associação dinâmica<li>Excluir grupos próprios<li>Restaurar grupos de Microsoft 365 de propriedade</li></ul> | <ul><li>Ler propriedades de grupos não ocultos, incluindo associação e Propriedade (até mesmo grupos não associados)<li>Ler associações de grupo de Microsoft 365 ocultas para grupos associados<li>Pesquisar grupos por nome de exibição ou ObjectId (se permitido)</li></ul> | <ul><li>Ler ID de objeto para grupos Unidos<li>Ler associação e propriedade de grupos Unidos em alguns Microsoft 365 aplicativos (se permitido)</li></ul>
-Aplicativo | <ul><li>Registrar (criar) novo aplicativo<li>Enumerar lista de todos os aplicativos<li>Ler propriedades de aplicativos registrados e corporativos<li>Gerenciar propriedades do aplicativo, atribuições e credenciais para aplicativos próprios<li>Criar ou excluir senha de aplicativo do usuário<li>Excluir aplicativos próprios<li>Restaurar aplicativos próprios</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos
+Aplicativos | <ul><li>Registrar (criar) novo aplicativo<li>Enumerar lista de todos os aplicativos<li>Ler propriedades de aplicativos registrados e corporativos<li>Gerenciar propriedades do aplicativo, atribuições e credenciais para aplicativos próprios<li>Criar ou excluir senha de aplicativo do usuário<li>Excluir aplicativos próprios<li>Restaurar aplicativos próprios</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos
 Dispositivos</li></ul> | <ul><li>Enumerar lista de todos os dispositivos<li>Ler todas as propriedades de dispositivos<li>Gerenciar todas as propriedades de dispositivos próprios</li></ul> | Nenhuma permissão | Nenhuma permissão
 Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiro</li></ul> | <ul><li>Ler nome de exibição da empresa<li>Ler todos os domínios</li></ul> | <ul><li>Ler nome de exibição da empresa<li>Ler todos os domínios</li></ul>
 Funções e escopos | <ul><li>Ler todas as funções e associações administrativas<li>Ler todas as propriedades e associação de unidades administrativas</li></ul> | Nenhuma permissão | Nenhuma permissão

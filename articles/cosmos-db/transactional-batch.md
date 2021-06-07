@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347550"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operações de lote transacionais no Azure Cosmos DB usando o SDK do .NET

@@ -3,19 +3,18 @@ title: Registro em Log do Azure Key Vault | Microsoft Docs
 description: Saiba como monitorar o acesso aos seus cofres de chaves habilitando o log no Azure Key Vault, que salva as informações em uma conta de armazenamento do Azure fornecida por você.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bc9601dbea5c73c6909bd658f322c345143a526c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5847fcb2cf553e1fcc744877e52dbbdf1f24d992
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790267"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751824"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -197,4 +196,4 @@ Para obter mais informações, incluindo como configurar isso, confira [Azure Ke
 - [Azure Monitor](../../azure-monitor/index.yml)
 - Para obter um tutorial que usa o Azure Key Vault em um aplicativo Web .NET, confira [Usar o Azure Key Vault em um aplicativo Web](tutorial-net-create-vault-azure-web-app.md).
 - Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](developers-guide.md).
-- Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Azure Key Vault, confira [Cmdlets do Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Azure Key Vault, confira [Cmdlets do Azure Key Vault](/powershell/module/az.keyvault/#key_vault).

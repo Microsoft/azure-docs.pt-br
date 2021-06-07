@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85551558"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OpenID Connect e o Azure Active Directory
@@ -39,7 +39,7 @@ Primeiro, Registre seu aplicativo com seu locatário do Azure Active Directory (
    
 1. Na portal do Azure, procure e selecione **Azure Active Directory**.
    
-1. No menu **Azure Active Directory** à esquerda, selecione **registros do aplicativo**e, em seguida, selecione **novo registro**.
+1. No menu **Azure Active Directory** à esquerda, selecione **registros do aplicativo** e, em seguida, selecione **novo registro**.
    
 1. Siga os prompts e crie um novo aplicativo. Não importa se é um aplicativo Web ou um cliente público (Mobile & Desktop) para este tutorial, mas se você quiser exemplos específicos para aplicativos Web ou aplicativos cliente públicos, Confira nossos [guias de início rápido](v1-overview.md).
    
@@ -50,7 +50,7 @@ Primeiro, Registre seu aplicativo com seu locatário do Azure Active Directory (
    
 1. Depois de concluir o registro, o Azure AD atribuirá ao seu aplicativo um identificador de cliente exclusivo (a **ID do aplicativo**). Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
    
-1. Para localizar seu aplicativo no portal do Azure, selecione **registros de aplicativo**e, em seguida, selecione **Exibir todos os aplicativos**.
+1. Para localizar seu aplicativo no portal do Azure, selecione **registros de aplicativo** e, em seguida, selecione **Exibir todos os aplicativos**.
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
 
@@ -108,15 +108,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
-| client_id |necessárias |A ID do Aplicativo atribuída para o aplicativo ao registrá-lo no Azure Active Directory. Você pode encontrar isso no Portal do Azure. Clique em **Azure Active Directory**, clique em **registros do aplicativo**, escolha o aplicativo e localize a ID do aplicativo na página do aplicativo. |
+| client_id |obrigatório |A ID do Aplicativo atribuída para o aplicativo ao registrá-lo no Azure Active Directory. Você pode encontrar isso no Portal do Azure. Clique em **Azure Active Directory**, clique em **registros do aplicativo**, escolha o aplicativo e localize a ID do aplicativo na página do aplicativo. |
 | response_type |necessárias |Deve incluir `id_token` para conexão do OpenID Connect. Também pode incluir outros response_types, como `code` ou `token`. |
-| escopo | recomendável | A especificação do OpenID Connect requer o escopo `openid` , que se traduz na permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
+| scope | recomendável | A especificação do OpenID Connect requer o escopo `openid` , que se traduz na permissão "entrar" na interface do usuário de consentimento. Esse e outros escopos OIDC são ignorados no ponto de extremidade v 1.0, mas ainda é uma prática recomendada para clientes em conformidade com os padrões. |
 | nonce |necessárias |Um valor incluído na solicitação, gerado pelo aplicativo, que é incluído no `id_token` resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva ou um GUID que pode ser usado para identificar a origem da solicitação. |
 | redirect_uri | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Se estiver ausente, o agente do usuário será enviado de volta para um dos URIs de redirecionamento registrados para o aplicativo, aleatoriamente. O comprimento máximo é de 255 bytes |
-| response_mode |opcionais |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para * post do formulário HTTP * e `fragment` para o * fragmento de URL *. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
+| response_mode |opcionais |Especifica o método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Os valores suportados são `form_post` para *post do formulário HTTP* e `fragment` para o *fragmento de URL*. Em aplicativos Web, é recomendável usar `response_mode=form_post` a fim de garantir a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
 | state |recomendável |Um valor incluído na solicitação que retorna na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que ele estava. |
 | prompt |opcionais |Indica o tipo de interação do usuário que é necessário. Atualmente, os únicos valores válidos são "login", "none" e "consent". `prompt=login` força o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto — ele garante que nenhum prompt interativo seja apresentado ao usuário. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade retornará um erro. `prompt=consent` dispara a caixa de diálogo de consentimento do OAuth depois que o usuário se conecta, solicitando que ele conceda permissões ao aplicativo. |
 | login_hint |opcionais |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, caso você saiba o nome de usuário com antecedência. Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
@@ -154,7 +154,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
+| erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto de extremidade de autorização
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendável |A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida.  Essa URL deve corresponder a um dos URIs de redirecionamento registrados para seu aplicativo no portal de registro de aplicativo.  Se *post_logout_redirect_uri* não for incluído, o usuário será exibido como uma mensagem genérica. |
 
@@ -208,7 +208,7 @@ Quando você redireciona o usuário para o `end_session_endpoint`, o Azure AD li
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 2. Escolha seu Active Directory clicando em sua conta no canto superior direito da página.
 3. No painel de navegação esquerdo, escolha **Azure Active Directory** e, em seguida, escolha **Registros de aplicativo** e selecione seu aplicativo.
-4. Clique em ** Configurações **, em ** Propriedades ** e encontre a caixa de texto ** URL de saída **. 
+4. Clique em **Configurações**, em **Propriedades** e encontre a caixa de texto **URL de saída**. 
 
 ## <a name="token-acquisition"></a>Aquisição de token
 Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto adquire simultaneamente um `authorization_code` que pode ser usado para obter `access_tokens` usando o [Fluxo do Código de Autorização do OAuth](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
@@ -264,7 +264,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
+| erro |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
 Para obter uma descrição dos possíveis códigos de erro e sua ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).

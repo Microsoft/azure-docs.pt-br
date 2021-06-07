@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 74392fbf0b2c0b81898410af8027a4f13fc52b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89013989"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
@@ -25,7 +25,7 @@ Você pode usar as bibliotecas de gerenciamento de Hubs de eventos podem provisi
 
 Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Use o portal do Azure para criar Active Directory aplicativo e entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -68,5 +68,5 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Exemplo de gerenciamento do .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [Exemplo do Gerenciamento do .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referência de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

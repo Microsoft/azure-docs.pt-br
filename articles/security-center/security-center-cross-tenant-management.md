@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922914"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102099481"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gerenciamento entre locatários na central de segurança
 
@@ -51,8 +51,4 @@ As exibições e ações são basicamente as mesmas. Estes são alguns exemplos:
 - **Gerencie recursos avançados de defesa de nuvem e muito mais**: Gerencie os vários serviços de proteção contra ameaças, como [acesso à VM just-in-time (JIT)](security-center-just-in-time.md), [proteção de rede adaptável](security-center-adaptive-network-hardening.md), [controles de aplicativos adaptáveis](security-center-adaptive-application.md)e muito mais.
  
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo explica como o gerenciamento entre locatários funciona na central de segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
-
-* [Fortaleça sua postura de segurança com a central de segurança do Azure](security-center-monitoring.md) -saiba como monitorar a integridade dos recursos do Azure.
-* [Perguntas frequentes da central de segurança do Azure](faq-general.md) -encontre perguntas frequentes sobre como usar o serviço.
-* [Saiba mais sobre o Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md) – Descubra como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
+Este artigo explica como o gerenciamento entre locatários funciona na central de segurança. Para descobrir como o Azure Lighthouse pode simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD, consulte [Azure Lighthouse em cenários empresariais](../lighthouse/concepts/enterprise.md).

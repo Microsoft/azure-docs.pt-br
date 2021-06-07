@@ -1,18 +1,18 @@
 ---
 title: Exemplos do Armazenamento do Azure usando C++ | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do C++.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 158f908dfd52a3365d19f65eb00faf1787893af5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d82b31cde0e8df5db2d073abcec8ea44f13bd0f0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372871"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276664"
 ---
 # <a name="azure-storage-samples-using-v12-c-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de clientes C++ v12
 

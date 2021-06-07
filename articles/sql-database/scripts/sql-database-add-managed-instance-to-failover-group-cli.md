@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.openlocfilehash: f196db537ef0a64d14930ed6bc67696ee4614c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86528889"
 ---
 # <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Usar a CLI para adicionar uma Instância Gerenciada de SQL do Azure a um grupo de failover

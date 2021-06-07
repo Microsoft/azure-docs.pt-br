@@ -5,13 +5,15 @@ services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.custom: mvc
-ms.openlocfilehash: 948ca820347c7cdcd560ade46e850f66b25bc88e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: 151199d8389130b85e917a09fd8e8d7b5f56d90c
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987294"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536551"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Criar um runbook de Automação do Azure
 

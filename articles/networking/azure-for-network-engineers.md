@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
 ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234198"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para engenheiros de rede
@@ -54,7 +54,7 @@ Quando você cria uma ou várias sub-redes dentro de uma rede virtual, o Azure c
 
 quando você cria um emparelhamento de rede virtual entre duas redes virtuais, uma rota é adicionada a cada intervalo de endereços dentro do espaço de endereço de cada rede virtual para a qual um emparelhamento é criado.
 
-Se o gateway de rede local troca as rotas do protocolo BGP (Border Gateway Protocol) com um gateway de rede virtual do Azure, uma rota é adicionada para cada rota propagada do gateway de rede virtual local. Essas rotas aparecem na tabela de roteamento como rotas BGP.
+Se o gateway de rede local trocar as rotas de BGP (Border Gateway Protocol) por um gateway de rede virtual do Azure, uma rota será adicionada para cada rota propagada do gateway de rede local. Essas rotas aparecem na tabela de roteamento como rotas BGP.
 
 os endereços IP públicos para determinados serviços são adicionados à tabela de rotas pelo Azure quando você habilita um ponto de extremidade de serviço para o serviço. Os pontos de extremidade de serviço são habilitados para sub-redes individuais em uma rede virtual. Quando você habilita um ponto de extremidade de serviço, a rota é adicionada somente à tabela de rotas do para a sub-rede que pertence a esse serviço. O Azure gerencia os endereços na tabela de rotas automaticamente quando os endereços mudam.
 

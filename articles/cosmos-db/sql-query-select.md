@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: 072e17b1c0ea312b4adfa1687e447fd2cadde233
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335408"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Cada consulta consiste em uma `SELECT` cláusula e em [FROM](sql-query-from.md) cláusulas opcional e [Where](sql-query-where.md) , por padrões SQL ANSI. Normalmente, a origem na `FROM` cláusula é enumerada e a `WHERE` cláusula aplica um filtro na origem para recuperar um subconjunto de itens JSON. `SELECT`Em seguida, a cláusula projeta os valores JSON solicitados na lista de seleção.
+Cada consulta consiste em uma `SELECT` cláusula e em [](sql-query-from.md) cláusulas opcional e [Where](sql-query-where.md) , por padrões SQL ANSI. Normalmente, a origem na `FROM` cláusula é enumerada e a `WHERE` cláusula aplica um filtro na origem para recuperar um subconjunto de itens JSON. `SELECT`Em seguida, a cláusula projeta os valores JSON solicitados na lista de seleção.
 
 ## <a name="syntax"></a>Sintaxe
 

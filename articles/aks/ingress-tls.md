@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX qu
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 1faabdda869bbaba8027df121d080b0fb421e9f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aa03558196527e320ecba249dd22af19fec7a90c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728885"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592329"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço de Kubernetes do Azure (AKS)
 
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O projeto [cert-manager][cert-manager] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, dois aplicativos são executados no cluster do AKS, cada um dos quais é acessível em um único endereço IP.
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -128,7 +128,6 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version v0.16.1 \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set webhook.nodeSelector."kubernetes\.io/os"=linux \
@@ -144,7 +143,7 @@ Antes dos certificados poderem ser emitidos, o cert-manager requer um [Emissor][
 Crie um emissor de cluster, como `cluster-issuer.yaml`, usando o manifesto a seguir. Atualize o endereço de email com um endereço válido da sua organização:
 
 ```yaml
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -349,7 +348,7 @@ tls-secret   True    tls-secret   11m
 
 Abra um navegador da Web para *Hello-World-ingress. MY_CUSTOM_DOMAIN* do controlador de entrada do kubernetes. Observe que você está Redirecionado para usar HTTPS e o certificado é confiável e o aplicativo de demonstração é mostrado no navegador da Web. Adicione o caminho */Hello-World-Two* e observe que o segundo aplicativo de demonstração com o título personalizado é mostrado.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
@@ -415,7 +414,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]

@@ -1,20 +1,16 @@
 ---
 title: Aprimorar a resolução de nomes de porta e de VLAN
 description: Personalize os nomes de porta e VLAN em seus sensores para enriquecer a resolução do dispositivo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803586"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784162"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Aprimorar a resolução de nomes de porta e de VLAN
+# <a name="enhance-port-vlan-and-os-resolution"></a>Melhorar a resolução de porta, VLAN e so
 
 Você pode personalizar os nomes de porta e VLAN em seus sensores para enriquecer a resolução do dispositivo.
 
@@ -72,7 +68,7 @@ Os nomes de VLAN podem conter até 50 caracteres ASCII.
 > Os nomes de VLAN não são sincronizados entre o sensor e o console de gerenciamento. Você também precisa definir o nome no console de gerenciamento.  
 Para switches Cisco, adicione a seguinte linha à configuração de span: `monitor session 1 destination interface XX/XX encapsulation dot1q` . Nesse comando, *XX/XX* é o nome e o número da porta.
 
-Para configurar VLANs:
+Para configurar os nomes de VLAN:
 
 1. No menu lateral, selecione **configurações do sistema**.
 
@@ -81,6 +77,21 @@ Para configurar VLANs:
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Use as configurações do sistema para editar suas VLANs.":::
 
 3. Adicione um nome exclusivo ao lado de cada ID de VLAN.
+
+## <a name="improve-device-operating-system-classification-data-enhancement"></a>Melhorar a classificação do sistema operacional do dispositivo: aprimoramento de dados
+
+Os sensores detectam automaticamente novos dispositivos, bem como alterações em dispositivos descobertos anteriormente, incluindo tipos de sistema operacional.
+
+Em determinadas circunstâncias, os conflitos podem ser detectados em sistemas operacionais descobertos. Isso pode acontecer, por exemplo, se você tiver uma versão de sistemas operacionais que se refere a sistemas de desktop ou de servidor. Se isso acontecer, você receberá uma notificação com classificações opcionais de sistemas operacionais.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Aprimore os dados.":::
+
+Investigue as recomendações para enriquecer a classificação do sistema operacional. Essa classificação aparece no inventário do dispositivo, nos relatórios de mineração de dados e em outros monitores. Verificar se essas informações estão atualizadas pode melhorar a precisão de alertas, ameaças e relatórios de análise de risco.
+
+Para acessar as recomendações do sistema operacional:
+
+1. Selecione **configurações do sistema**.
+1. Selecione **aprimoramento de dados**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

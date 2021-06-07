@@ -4,16 +4,16 @@ description: Saiba mais sobre as camadas de desempenho para discos gerenciados.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 28980756ac9e41c9477d687ea9df608b512759e3
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: af1509073248b46575881beef7b9800107e7fed7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94986769"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101677313"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>Níveis de desempenho para discos gerenciados
 

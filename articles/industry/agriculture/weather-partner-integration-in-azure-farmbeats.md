@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147072"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Integração de parceiros meteorológicos com o FarmBeats
@@ -75,7 +75,7 @@ O serviço de API serializa esse dicter e o armazena em um [cofre de chaves](../
 
 [Azure data Factory](../../data-factory/introduction.md) é usado para orquestrar trabalhos meteorológicos. Ele gira os recursos para executar o código do Docker. Data Factory também fornece um mecanismo para enviar dados por push com segurança para a VM na qual o trabalho do Docker é executado. As credenciais de API são armazenadas com segurança no cofre de chaves. 
 
-As credenciais são lidas como cadeias de caracteres seguras do cofre de chaves. Eles são fornecidos como propriedades estendidas no diretório de trabalho do contêiner do Docker. O caminho do arquivo é */mnt/working_dir/activity.js* . 
+As credenciais são lidas como cadeias de caracteres seguras do cofre de chaves. Eles são fornecidos como propriedades estendidas no diretório de trabalho do contêiner do Docker. O caminho do arquivo é */mnt/working_dir/activity.js*. 
 
 O código do Docker pode ler as credenciais de *activity.js* durante o tempo de execução para acessar as APIs do lado do parceiro para o cliente. No arquivo JSON, as credenciais são parecidas com este exemplo de código:
 
@@ -99,7 +99,7 @@ Para obter mais informações sobre como Data Factory pipelines e atividades fun
 
 A tabela a seguir mostra os cabeçalhos de solicitação mais comuns que você precisa especificar ao fazer uma chamada à API para FarmBeats.
 
-Cabeçalho | Descrição e exemplo
+parâmetro | Descrição e exemplo
 --- | ---
 Tipo de conteúdo | O formato da solicitação. Exemplo: `Content-Type: application/<format>` <br/>Para APIs do Datahub do FarmBeats, o formato é JSON. Exemplo: ` Content-Type: application/json`
 Autorização | O token de acesso necessário para fazer uma chamada à API. Exemplo: `Authorization: Bearer <Access-Token>`
@@ -117,8 +117,8 @@ O programa Docker precisa de dois componentes: a inicialização e o trabalho. O
 
 O componente Bootstrap deve ser executado quando o cliente inicia o registro do Docker no FarmBeats. Os seguintes argumentos ( `arg1` e `arg2` ) são passados para o programa:
 
-- **Ponto de extremidade de API FarmBeats** : o ponto de extremidade de API do FarmBeats para solicitações de API. Esse ponto de extremidade faz chamadas à API para a implantação do FarmBeats.
-- **URL de Azure Functions** : seu próprio ponto de extremidade. Essa URL fornece seu token de acesso para APIs FarmBeats. Você pode chamar nessa `GET` URL para buscar o token de acesso.
+- **Ponto de extremidade de API FarmBeats**: o ponto de extremidade de API do FarmBeats para solicitações de API. Esse ponto de extremidade faz chamadas à API para a implantação do FarmBeats.
+- **URL de Azure Functions**: seu próprio ponto de extremidade. Essa URL fornece seu token de acesso para APIs FarmBeats. Você pode chamar nessa `GET` URL para buscar o token de acesso.
 
 A inicialização cria os metadados que os usuários precisam para executar seus trabalhos para obter dados meteorológicos. Para obter mais informações, consulte a [implementação de referência](https://github.com/azurefarmbeats/noaa_docker). 
 
@@ -127,8 +127,8 @@ Se você personalizar o *bootstrap_manifest.jsno* arquivo, o programa de inicial
  > [!NOTE]
  > Se você atualizar o *bootstrap_manifest.jsno* arquivo conforme descrito na [implementação de referência](https://github.com/azurefarmbeats/noaa_docker) , não será necessário criar os metadados a seguir. O programa de inicialização usará o arquivo de manifesto para criar os metadados necessários.
 
-- /**WeatherDataModel** : os metadados de WeatherDataModel representam os dados meteorológicos. Ele corresponde aos conjuntos de dados que a fonte fornece. Por exemplo, um DailyForecastSimpleModel pode fornecer informações de temperatura média, umidade e precipitação uma vez por dia. Por outro lado, um DailyForecastAdvancedModel pode fornecer muito mais informações em granularidade por hora. Você pode criar qualquer número de modelos de dados meteorológicos.
-- /**JobType** : o FarmBeats tem um sistema de gerenciamento de trabalhos extensível. Como um provedor de dados meteorológicos, você terá vários DataSets e APIs (por exemplo, GetDailyForecasts). Você pode habilitar esses conjuntos de e APIs em FarmBeats usando JobType. Depois que um tipo de trabalho é criado, um cliente pode disparar trabalhos desse tipo para obter dados meteorológicos para seu local ou seu farm de interesse. Para obter mais informações, consulte JobType e APIs de trabalho no [Swagger do FarmBeats](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel**: os metadados de WeatherDataModel representam os dados meteorológicos. Ele corresponde aos conjuntos de dados que a fonte fornece. Por exemplo, um DailyForecastSimpleModel pode fornecer informações de temperatura média, umidade e precipitação uma vez por dia. Por outro lado, um DailyForecastAdvancedModel pode fornecer muito mais informações em granularidade por hora. Você pode criar qualquer número de modelos de dados meteorológicos.
+- /**JobType**: o FarmBeats tem um sistema de gerenciamento de trabalhos extensível. Como um provedor de dados meteorológicos, você terá vários DataSets e APIs (por exemplo, GetDailyForecasts). Você pode habilitar esses conjuntos de e APIs em FarmBeats usando JobType. Depois que um tipo de trabalho é criado, um cliente pode disparar trabalhos desse tipo para obter dados meteorológicos para seu local ou seu farm de interesse. Para obter mais informações, consulte JobType e APIs de trabalho no [Swagger do FarmBeats](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>Trabalhos
 
@@ -142,7 +142,7 @@ Como parte do trabalho, o programa deve criar um/WeatherDataLocation com base no
 
 WeatherDataModel | Descrição |
 --- | ---
-Name  | Nome do modelo de dados meteorológico. |
+Nome  | Nome do modelo de dados meteorológico. |
 Descrição  | Uma descrição significativa do modelo. |
 Propriedades  | Propriedades adicionais definidas pelo provedor de dados. |
 Nome > weatherMeasures  | Nome da medida do clima. Por exemplo, humidity_max. |
@@ -156,7 +156,7 @@ Descrição de > weatherMeasures  | Uma descrição significativa da medida.
 
 JobType | Descrição |
 --- | ---
-Name  | Nome do trabalho. Por exemplo, Get_Daily_Forecast. O cliente executará esse trabalho para obter dados meteorológicos.|
+Nome  | Nome do trabalho. Por exemplo, Get_Daily_Forecast. O cliente executará esse trabalho para obter dados meteorológicos.|
 pipelineDetails > parâmetros > nome  | Nome do parâmetro. |
 pipelineDetails > > tipo de parâmetros | O tipo de parâmetro. Os valores possíveis incluem cadeia de caracteres, int, float, bool e matriz. |
 parâmetros de > pipelineDetails > IsRequired | O valor booliano do parâmetro. O valor será true se o parâmetro for necessário. Caso contrário, o valor será false. O padrão é true. |
@@ -169,7 +169,7 @@ WeatherDataLocation | Descrição |
 --- | ---
 weatherDataModelId  | ID do WeatherDataModel correspondente que foi criado durante o processo de inicialização.|
 local  | Latitude, longitude e elevação. |
-Name | Nome do objeto. |
+Nome | Nome do objeto. |
 Descrição | Descrição do local dos dados meteorológicos. |
 farmid | Adicional ID do farm. O cliente fornece essa ID como parte do parâmetro de trabalho. |
 Propriedades  | Propriedades adicionais do fabricante.

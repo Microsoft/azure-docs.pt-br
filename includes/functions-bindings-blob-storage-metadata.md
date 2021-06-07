@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f4e6d5fb41769544b7be0f689447364988d0380d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c6b038297945ca900508a822460e1358a2524d23
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95998814"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102455900"
 ---
-O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet).
+O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblob).
 
-|Propriedade  |Tipo  |Description  |
+|Propriedade  |Tipo  |Descrição  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|

@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 037b9746571678e24e80bd76e7e2ed173ab8eb90
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: feb79d047a6c3b25176a13dcc3c3afd53a51459e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97677600"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102444734"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detector de Anomalias
 
-1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
-1. Selecione <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">criar recurso de detector <span class="docon docon-navigate-external x-hidden-focus"></span> de anomalias</a> .
+1. Faça logon no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
+1. Selecione <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank">criar recurso de detector de anomalias</a> .
 1. Insira todas as configurações necessárias:
 
     |Configuração|Valor|

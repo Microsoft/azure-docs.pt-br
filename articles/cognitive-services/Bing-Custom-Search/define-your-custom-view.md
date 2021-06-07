@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96338632"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
@@ -32,7 +32,7 @@ Ao definir fatias da web, use o seguinte:
 
 | Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
+| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com` , o Bing também retorna resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 

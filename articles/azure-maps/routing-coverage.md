@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896167"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
@@ -90,7 +90,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Barbados                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brasil                         |        ✓       |         ✓            |     ✓       | 
-| Canada                         |        ✓       |         ✓            |     ✓      |
+| Canadá                         |        ✓       |         ✓            |     ✓      |
 | Chile                          |        ✓       |         ✓            |     ✓      |
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
@@ -214,7 +214,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Suíça                    |        ✓       |         ✓            |     ✓      | 
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
-| United Kingdom                 |        ✓       |         ✓            |     ✓      | 
+| Reino Unido                 |        ✓       |         ✓            |     ✓      | 
 | + Anguila                      |        ✓       |                      |             |
 | + Bermuda                       |        ✓       |                      |             |
 | + Ilhas Virgens Britânicas        |        ✓       |                      |             |

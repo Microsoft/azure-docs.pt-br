@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: harshacs
 ms.openlocfilehash: ff1f80641dc3db1f6b69fc0223c60022f8cf8435
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95811640"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereçamento IP para VNets

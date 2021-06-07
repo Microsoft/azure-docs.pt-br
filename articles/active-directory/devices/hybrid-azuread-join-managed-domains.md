@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4545e92767a427b8cd89af07ed4d06053685977a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577998"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -59,6 +59,9 @@ Familiarize-se com estes artigos:
 
 Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a UOs (unidades organizacionais) específicas, configure as UOs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, veja [Filtragem baseada em unidade organizacional](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
+> [!NOTE]
+> Para que a junção de sincronização de registro de dispositivo tenha sucesso, como parte da configuração de registro de dispositivo, não exclua os atributos de dispositivo padrão da configuração de sincronização do Azure AD Connect. Para saber mais sobre os atributos de dispositivo padrão sincronizados com o AAD, confira [Atributos sincronizados pelo Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+
 Na versão 1.1.819.0 e em versões posteriores, o Azure AD Connect inclui um assistente para configurar o ingresso no Azure AD híbrido. O assistente simplifica significativamente o processo de configuração. O assistente configura os SCPs (pontos de conexão do serviço) para registro do dispositivo.
 
 As etapas de configuração neste artigo se baseiam no uso do assistente no Azure AD Connect.
@@ -82,7 +85,7 @@ Se você não usa a WPAD, pode configurar as definições de proxy WinHTTP no co
 
 Se a organização exigir acesso à Internet por meio de um proxy de saída autenticado, assegure que os computadores com Windows 10 possam ser autenticados com êxito no proxy de saída. Como computadores com Windows 10 executam o registro de dispositivos usando o contexto do computador, configure a autenticação de proxy de saída usando o contexto do computador. Acompanhe com o provedor de proxy de saída nos requisitos de configuração.
 
-Verifique se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, usando o script de [conectividade de registro de dispositivo de teste](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0).
+Verifique se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, usando o script de [conectividade de registro de dispositivo de teste](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar ingresso no Azure AD híbrido
 

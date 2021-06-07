@@ -8,10 +8,10 @@ ms.service: azure-vmware-cloudsimple
 author: divka78
 ms.author: dikamath
 ms.openlocfilehash: 81a09a9cfe749de56f7306a8d5e1ae5db01295fc
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92915385"
 ---
 # <a name="forbidden-actions-during-elevated-access"></a>Ações proibidas durante o acesso elevado

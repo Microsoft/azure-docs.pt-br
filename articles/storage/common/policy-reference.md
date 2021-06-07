@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Armazenamento do Microsoft Azure
 description: Lista as definições de políticas internas do Azure Policy para o Armazenamento do Microsoft Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9a47965cdc96e83c47217a5718c5127a062b3709
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.openlocfilehash: 462fd6b6651a4c40f8b1420b2295341db65ebc8e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098412"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504252"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definições internas do Azure Policy para o Armazenamento do Azure
 
@@ -23,6 +23,14 @@ O nome de cada definição de política interna leva à definição da política
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 [!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+
+## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
+
+[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 

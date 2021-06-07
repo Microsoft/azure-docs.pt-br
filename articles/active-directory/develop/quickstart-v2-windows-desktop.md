@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754001"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075008"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -36,7 +36,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -45,7 +45,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -54,12 +54,12 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Selecione **Registrar** para criar o aplicativo.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
 > 1. Selecione **Adicionar uma plataforma** > **Aplicativos móveis e de área de trabalho**.
-> 1. Na seção **URIs de Redirecionamento**, selecione `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Na seção **URI de Redirecionamento**, clique em `https://login.microsoftonline.com/common/oauth2/nativeclient`. Além disso, em **URI de redirecionamento personalizado** adicione `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`, desse modo `{client_id}` será a ID do aplicativo (cliente) do seu aplicativo (o mesmo GUID que será exibido na caixa de seleção `msal{client_id}://auth`).
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisa adicionar uma URL de resposta como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> Para que o exemplo de código funcione neste guia de início rápido, adicione um **URI de Redirecionamento** de `https://login.microsoftonline.com/common/oauth2/nativeclient` e `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
@@ -75,6 +75,8 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > Execute o projeto usando o Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Baixe o exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
@@ -97,13 +99,15 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 >
 > Em que:
 > - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** que você registrou.
+>    
+>    Para encontrar o valor da **ID do Aplicativo (cliente)** , acesse a página **Visão Geral** do aplicativo no portal do Azure.
 > - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
 >   - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
 >   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`
+>   - Se o seu aplicativo der suporte a **Contas em qualquer diretório organizacional e contas pessoais Microsoft**, substitua esse valor por `common`.
 >
-> > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
+>     Para encontrar os valores da **ID do Diretório (locatário)** e dos **Tipos de conta compatíveis**, acesse a página **Visão geral** no portal do Azure.
+>
 
 ## <a name="more-information"></a>Mais informações
 
@@ -135,9 +139,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Em que: | Descrição |
-> |---------|---------|
-> | `ClientId` | É a **ID do aplicativo (cliente)** relativa ao aplicativo registrado no portal do Azure. Você pode encontrar esse valor na página **Visão Geral** do aplicativo no portal do Azure. |
+|Em que: | Descrição |
+|---------|---------|
+| `ClientId` | É a **ID do aplicativo (cliente)** relativa ao aplicativo registrado no portal do Azure. Você pode encontrar esse valor na página **Visão Geral** do aplicativo no portal do Azure. |
 
 ### <a name="requesting-tokens"></a>Solicitando tokens
 
@@ -157,9 +161,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Em que:| Descrição |
-> |---------|---------|
-> | `_scopes` | Contém os escopos que estão sendo solicitados, por exemplo, `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para APIs Web personalizadas. |
+|Em que:| Descrição |
+|---------|---------|
+| `_scopes` | Contém os escopos que estão sendo solicitados, por exemplo, `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para APIs Web personalizadas. |
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
@@ -172,10 +176,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: | Descrição |
-> |---------|---------|
-> | `scopes` | Contém os escopos que estão sendo solicitados, por exemplo, `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para APIs Web personalizadas. |
-> | `firstAccount` | Especifica primeiro usuário no cache (a MSAL dá suporte a vários usuários em um mesmo aplicativo). |
+|Em que: | Descrição |
+|---------|---------|
+| `scopes` | Contém os escopos que estão sendo solicitados, por exemplo, `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para APIs Web personalizadas. |
+| `firstAccount` | Especifica primeiro usuário no cache (a MSAL dá suporte a vários usuários em um mesmo aplicativo). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

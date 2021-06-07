@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395216"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configurar a replicação para o Azure SQL Edge 
@@ -83,7 +83,7 @@ As seguintes opções não têm suporte para as assinaturas do Azure SQL Edge:
 Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
   
 - [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma assinatura push](/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do Azure SQL Edge e o IP como o assinante (por exemplo, **myEdgeinstance, 1433** ) e um nome de banco de dados na instância do Azure SQL Edge como o banco de dados de destino (por exemplo, **AdventureWorks** ).  
+- [Crie uma assinatura push](/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do Azure SQL Edge e o IP como o assinante (por exemplo, **myEdgeinstance, 1433**) e um nome de banco de dados na instância do Azure SQL Edge como o banco de dados de destino (por exemplo, **AdventureWorks**).  
 
 ## <a name="next-steps"></a>Próximas etapas  
 

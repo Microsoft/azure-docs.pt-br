@@ -1,20 +1,16 @@
 ---
-title: API de horizonte
+title: API do Horizon
 description: Este guia descreve os métodos de horizonte comumente usados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/5/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 39770fe7aa7b11cae03304fda8901e81e0f1877a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: b65f7663df29e2c82faa5d1aeec3b820d5fbaf70
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208397"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786780"
 ---
-# <a name="horizon-api"></a>API de horizonte 
+# <a name="horizon-api"></a>API do Horizon 
 
 Este guia descreve os métodos de horizonte comumente usados.
 
@@ -43,7 +39,7 @@ A primeira função que é chamada para o plug-in cria uma instância do analisa
 
 Nenhum.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 shared_ptr à instância do analisador.
 
@@ -57,7 +53,7 @@ Na maioria dos casos, isso estará vazio. Lance uma exceção para que o horizon
 
 - Um mapa que contém a estrutura de dissect_as, conforme definido na config.jsde outro plug-in que deseja registrar sobre você.
 
-### <a name="return-value"></a>Valor retornado 
+### <a name="return-value"></a>Retornar valor 
 
 Uma matriz de uint64_t, que é o registro processado em um tipo de uint64_t. Isso significa que, no mapa, você terá uma lista de portas cujos valores serão os uin64_t.
 
@@ -74,7 +70,7 @@ Seu plug-in deve ser thread-safe, pois essa função pode ser chamada de threads
 - A unidade de controle do SDK responsável por armazenar os dados e criar objetos relacionados ao SDK, como ILayer e campos.
 - Um auxiliar para ler os dados do pacote bruto. Ele já está definido com a ordem de byte que você definiu no config.jsem.
 
-### <a name="return-value"></a>Valor retornado 
+### <a name="return-value"></a>Retornar valor 
 
 O resultado do processamento. Isso pode ser *êxito*, *malformado* ou de *sanidade*.
 
@@ -143,7 +139,7 @@ Converte uma referência baseada em cadeia de caracteres em um nome de campo (po
 
 - Cadeia de caracteres a ser convertida.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 - Horizonteid criado a partir da cadeia de caracteres.
 
@@ -151,7 +147,7 @@ Converte uma referência baseada em cadeia de caracteres em um nome de campo (po
 
 Cria uma nova camada para que o horizonte saiba que o plug-in deseja armazenar alguns dados. Esta é a unidade de armazenamento base que você deve usar.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma referência a uma camada criada, para que você possa adicionar dados a ela.
 
@@ -159,7 +155,7 @@ Uma referência a uma camada criada, para que você possa adicionar dados a ela.
 
 Obtém o objeto de gerenciamento de campo, que é responsável pela criação de campos em diferentes objetos, por exemplo, em ILayer.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma referência ao gerente.
 
@@ -203,7 +199,7 @@ Cria um campo de valor de matriz (matriz) na camada do tipo especificado com a I
 - Horizonteid criado pela macro **HORIZON_FIELD** .
 - O tipo de valores que serão armazenados dentro da matriz.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Referência a uma matriz à qual você deve acrescentar valores.
 
@@ -242,7 +238,7 @@ Verifica se o buffer contém pelo menos X bytes.
 
 O número de bytes que devem existir.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 True se o buffer contiver pelo menos X bytes. Caso contrário, será `False`.
 
@@ -250,7 +246,7 @@ True se o buffer contiver pelo menos X bytes. Caso contrário, será `False`.
 
 Lê o valor de uint8 (1 byte), do buffer, de acordo com a ordem de bytes.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor lido do buffer.
 
@@ -258,7 +254,7 @@ O valor lido do buffer.
 
 Lê o valor UInt16 (2 bytes) do buffer, de acordo com a ordem de bytes.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor lido do buffer.
 
@@ -266,7 +262,7 @@ O valor lido do buffer.
 
 Lê o valor UInt32 (4 bytes) do buffer de acordo com a ordem de bytes.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor lido do buffer.
 
@@ -274,7 +270,7 @@ O valor lido do buffer.
 
 Lê o valor UInt64 (8 bytes) do buffer, de acordo com a ordem de bytes.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor lido do buffer.
 
@@ -295,7 +291,7 @@ Lê uma cadeia de caracteres do buffer.
 
 - O número de bytes que devem ser lidos.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 A referência à região de memória da cadeia de caracteres.
 
@@ -303,7 +299,7 @@ A referência à região de memória da cadeia de caracteres.
 
 Informa quantos bytes são deixados no buffer.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Tamanho restante do buffer.
 

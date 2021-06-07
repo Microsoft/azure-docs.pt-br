@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625192"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768063"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e logs com um hub IoT
 
@@ -219,7 +219,7 @@ Para configurar alertas de métrica:
 
 1. Primeiro, configure a condição em que o alerta será disparado.
 
-    1. Em **Condição**, escolha **Selecionar condição**. No painel **Configurar lógica de sinal**, digite "telemetria" na caixa de pesquisa e selecione **Mensagens de telemetria enviadas**.
+    1. Em **Condição**, selecione **Adicionar condição**. No painel **Configurar lógica de sinal**, digite "telemetria" na caixa de pesquisa e selecione **Mensagens de telemetria enviadas**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Captura de tela mostrando a seleção da métrica.":::
 
@@ -245,7 +245,7 @@ Para configurar alertas de métrica:
 
 1. Agora, configure a ação para o alerta.
 
-    1. De volta ao painel **Criar regra de alerta**, em **Ações**, selecione **Selecionar grupo de ações**. No painel **Selecionar um grupo de ações para anexar a esta regra de alerta**, clique em **Criar grupo de ações**.
+    1. De volta ao painel **Criar regra de alerta**, em **Ações**, selecione **Adicionar grupos de ações**. No painel **Selecionar um grupo de ações para anexar a esta regra de alerta**, clique em **Criar grupo de ações**.
 
     1. Na guia **Básico** no painel **Criar grupo de ações**, atribua um nome e um nome de exibição ao grupo de ações.
 
@@ -313,7 +313,7 @@ Com essas configurações, um alerta será disparado e você receberá uma notif
 
 ## <a name="run-the-simulated-device-app"></a>Executar um aplicativo de dispositivo simulado
 
-Na seção [Configurar recursos](#set-up-resources), você registrou uma identidade do dispositivo para usar para simular o uso de um dispositivo IoT. Nesta seção, você baixa um aplicativo de console do .NET que simula um dispositivo que envia mensagens do dispositivo para nuvem para um Hub IoT, configura-o para enviar essas mensagens ao seu hub IoT e, em seguida, executa-o. 
+Na seção [Configurar recursos](#set-up-resources), você registrou uma identidade do dispositivo para usar para simular o uso de um dispositivo IoT. Nesta seção, você baixa um aplicativo de console do .NET que simula um dispositivo que envia mensagens do dispositivo para nuvem para um Hub IoT, configura-o para enviar essas mensagens ao seu hub IoT e, em seguida, executa-o.
 
 > [!IMPORTANT]
 >
@@ -409,7 +409,7 @@ Na seção [Coletar logs de conexões e telemetria de dispositivo](#collect-logs
 
 Para remover todos os recursos que você criou neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, o workspace do Log Analytics e o próprio grupo de recursos. Se você tiver fixado gráficos de métricas no painel, precisará removê-las manualmente clicando nos três pontos no canto superior direito de cada gráfico e selecionar **Remover**. Salve as alterações depois de excluir os gráficos.
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group#az-group-delete).
+Para remover o grupo de recursos, use o comando [excluir grupo az](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name ContosoResources

@@ -7,12 +7,12 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3f81ae72af48ec934d1c2c2567ebdd212d8e0499
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763320"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101702718"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migrar seu aplicativo IoT Central v2 para v3
 
@@ -104,7 +104,7 @@ Depois que a movimentação for concluída, reinicie todos os seus dispositivos 
 Depois de validar que tudo funciona conforme o esperado em seu novo aplicativo v3, exclua seu aplicativo v2 antigo. Essa etapa garante que você não seja cobrado por um aplicativo que não usa mais.
 
 > [!Note]
-> Para excluir um aplicativo, você deve ter permissões para excluir recursos na assinatura do Azure que você escolheu ao criar o aplicativo. Para saber mais, confira [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](../../active-directory/role-based-access-control-configure.md).
+> Para excluir um aplicativo, você deve ter permissões para excluir recursos na assinatura do Azure que você escolheu ao criar o aplicativo. Para saber mais, confira [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. Em seu aplicativo v2, selecione a guia **Administração** no menu
 2. Selecione **excluir** para excluir permanentemente seu aplicativo IOT central. Essa opção exclui permanentemente todos os dados associados a esse aplicativo.

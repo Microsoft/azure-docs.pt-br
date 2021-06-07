@@ -8,19 +8,21 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
-ms.openlocfilehash: cb2c168786ee4cb14f93544d4cd9632b86ba5156
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.reviewer: arvinh
+ms.openlocfilehash: f899c4d67321482dab62729632fe031bb23f71ea
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255518"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99830661"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>O que é o provisionamento de usuários automatizado no aplicativo SaaS no Azure AD?
 
 No Azure AD (Azure Active Directory), o termo **provisionamento de aplicativo** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre outros.
+
+Apenas começando com o gerenciamento de aplicativos e o SSO (logon único) no Azure AD? Confira a [série de guias de início rápido](../manage-apps/view-applications-portal.md).
 
 Para saber mais sobre o SCIM e participar da conversa da Tech Community, confira [Provisionamento com a Tech Community do SCIM](https://aka.ms/scimoverview).
 

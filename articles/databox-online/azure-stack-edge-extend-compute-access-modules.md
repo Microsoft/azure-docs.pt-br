@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894122"
 ---
 # <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Habilitar a rede de computação em seu Azure Stack Edge pro

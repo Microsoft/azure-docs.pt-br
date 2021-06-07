@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como autorizar o acesso aos
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910790"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
@@ -46,11 +46,11 @@ Antes de atribuir uma função do Azure a uma entidade de segurança, determine 
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso a recursos de hubs de eventos, começando com o escopo mais estreito:
 
-- **Grupo de consumidores** : nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 
-- **Hub de eventos** : a atribuição de função se aplica à entidade do hub de eventos e ao grupo de consumidores sob ela.
-- **Namespace** : a atribuição de função abrange toda a topologia de hubs de eventos no namespace e no grupo de consumidores associado a ela.
-- **Grupo de recursos** : a atribuição de função se aplica a todos os recursos de hubs de eventos no grupo de recursos.
-- **Assinatura** : a atribuição de função se aplica a todos os recursos de hubs de eventos em todos os grupos de recursos na assinatura.
+- **Grupo de consumidores**: nesse escopo, a atribuição de função se aplica somente a essa entidade. Atualmente, o portal do Azure não dá suporte à atribuição de uma função do Azure a uma entidade de segurança nesse nível. 
+- **Hub de eventos**: a atribuição de função se aplica à entidade do hub de eventos e ao grupo de consumidores sob ela.
+- **Namespace**: a atribuição de função abrange toda a topologia de hubs de eventos no namespace e no grupo de consumidores associado a ela.
+- **Grupo de recursos**: a atribuição de função se aplica a todos os recursos de hubs de eventos no grupo de recursos.
+- **Assinatura**: a atribuição de função se aplica a todos os recursos de hubs de eventos em todos os grupos de recursos na assinatura.
 
 > [!NOTE]
 > - Tenha em mente que as atribuições de função do Azure podem levar até cinco minutos para serem propagadas. 
@@ -64,7 +64,7 @@ Para obter mais informações sobre como as funções internas são definidas, c
 ## <a name="samples"></a>Exemplos
 - [Exemplos de Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Esses exemplos usam a antiga biblioteca **Microsoft. Azure. EventHubs** , mas você pode atualizá-lo facilmente para usar a biblioteca **Azure. Messaging. EventHubs** mais recente. Para mover o exemplo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar de Microsoft. Azure. EventHubs para Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Esses exemplos usam a biblioteca antiga **Microsoft.Azure.EventHubs**, mas você pode atualizá-los com facilidade para que usem a biblioteca **Azure.Messaging.EventHubs** mais recente. Para migrar o exemplo da biblioteca antiga para a nova, confira o [Guia de migração de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Exemplos do Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Este exemplo foi atualizado para usar a biblioteca **Azure. Messaging. EventHubs** mais recente.

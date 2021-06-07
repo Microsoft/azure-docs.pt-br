@@ -14,10 +14,10 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 7569606429740de23b56767d490b9bb14283d468
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93331685"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Node.js para conectar-se e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
@@ -48,7 +48,7 @@ npm list
 ## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
-1. No [portal do Azure](https://portal.azure.com/), pesquise e selecione o servidor que você criou (como **mydemoserver** ).
+1. No [portal do Azure](https://portal.azure.com/), pesquise e selecione o servidor que você criou (como **mydemoserver**).
 
 1. No painel **Visão geral** do servidor, anote o **Nome do servidor** e **Nome do usuário administrador**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
 

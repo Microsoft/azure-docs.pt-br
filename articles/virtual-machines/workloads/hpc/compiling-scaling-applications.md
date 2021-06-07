@@ -3,23 +3,63 @@ title: Dimensionamento de aplicativos HPC-máquinas virtuais do Azure | Microsof
 description: Saiba como dimensionar aplicativos HPC em VMs do Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7e05d64420cd920242a887b206fd38cd4a655509
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966999"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606769"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
 
 O desempenho ideal de expansão e escalabilidade horizontal de aplicativos HPC no Azure requer testes de desempenho e de otimização para a carga de trabalho específica. Esta seção e as páginas específicas da série de VMs oferecem diretrizes gerais para dimensionar seus aplicativos.
 
+## <a name="application-setup"></a>Instalação do aplicativo
+O [repositório azurehpc](https://github.com/Azure/azurehpc) contém muitos exemplos de:
+- Configurando e executando [aplicativos](https://github.com/Azure/azurehpc/tree/master/apps) de maneira ideal.
+- Configuração de [sistemas de arquivos e clusters](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Tutoriais](https://github.com/Azure/azurehpc/tree/master/tutorials) sobre como começar facilmente com alguns fluxos de trabalho de aplicativo comuns.
+
+## <a name="optimally-scaling-mpi"></a>Dimensionamento de MPI de maneira ideal 
+
+As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistência de dimensionamento de aplicativos:
+
+- Para trabalhos de escala menores (ou seja, < conexões de 256K), use a opção:
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- Para trabalhos de escala maiores (ou seja, > conexões de 256K), use a opção:
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- No acima, para calcular o número de conexões para seu trabalho MPI, use:
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="adaptive-routing"></a>Roteamento adaptável
+O AR (roteamento adaptável) permite que as VMs (máquinas virtuais) do Azure executando EDR e HDR InfiniBand detectem e evitem automaticamente o congestionamento da rede, selecionando dinamicamente caminhos de rede mais ideais. Como resultado, o AR oferece maior latência e largura de banda na rede InfiniBand, que, por sua vez, impulsiona o desempenho e a eficiência de dimensionamento. Para obter mais detalhes, consulte o [artigo TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
+
+## <a name="process-pinning"></a>Fixação de processo
+
+- Fixe processos em núcleos usando uma abordagem de fixação sequencial (em oposição a uma abordagem de autoequilíbrio). 
+- A associação por numa/Core/HwThread é melhor que a associação padrão.
+- Para aplicativos paralelos híbridos (OpenMP + MPI), use 4 threads e uma classificação MPI por CCX nos tamanhos de VM HB e HBv2.
+- Para aplicativos MPI puros, experimente com 1-4 classificações MPI por CCX para obter um desempenho ideal nos tamanhos de VM HB e HBv2.
+- Alguns aplicativos com extrema sensibilidade à largura de banda da memória podem se beneficiar do uso de um número reduzido de núcleos por CCX. Para esses aplicativos, usar 3 ou 2 núcleos por CCX pode reduzir a contenção de largura de banda de memória e gerar um desempenho do mundo real maior ou uma escalabilidade mais consistente. Em particular, a MPI irreduza pode se beneficiar dessa abordagem.
+- Para execuções de escala significativamente maiores, é recomendável usar transportes UD ou RC do UD híbrido. Muitas bibliotecas MPI/bibliotecas de tempo de execução fazem isso internamente (como UCX ou MVAPICH2). Verifique suas configurações de transporte para execuções em larga escala.
+
 ## <a name="compiling-applications"></a>Compilando aplicativos
+<br>
+<details>
+<summary>Clique para expandir</summary>
 
 Embora não seja necessário, a compilação de aplicativos com sinalizadores de otimização apropriados fornece o melhor desempenho de expansão nas VMs da série HB e HC.
 
@@ -68,17 +108,7 @@ Para HPC, a AMD recomenda o compilador GCC 7,3 ou mais recente. As versões mais
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Dimensionamento de aplicativos 
-
-As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistência de dimensionamento de aplicativos:
-
-* Fixe processos em núcleos 0-59 usando uma abordagem de fixação sequencial (em oposição a uma abordagem de balanceamento automático). 
-* A associação por numa/Core/HwThread é melhor que a associação padrão.
-* Para aplicativos paralelos híbridos (OpenMP + MPI), use 4 threads e uma classificação MPI por CCX.
-* Para aplicativos MPI puros, experimente a 1-4 classificações MPI por CCX para obter um desempenho ideal.
-* Alguns aplicativos com extrema sensibilidade à largura de banda da memória podem se beneficiar do uso de um número reduzido de núcleos por CCX. Para esses aplicativos, usar 3 ou 2 núcleos por CCX pode reduzir a contenção de largura de banda de memória e gerar um desempenho do mundo real maior ou uma escalabilidade mais consistente. Em particular, a MPI irreduza pode se beneficiar disso.
-* Para execuções de escala significativamente maiores, é recomendável usar transportes UD ou RC do UD híbrido. Muitas bibliotecas MPI/bibliotecas de tempo de execução fazem isso internamente (como UCX ou MVAPICH2). Verifique suas configurações de transporte para execuções em larga escala.
+</details>
 
 ## <a name="next-steps"></a>Próximas etapas
 

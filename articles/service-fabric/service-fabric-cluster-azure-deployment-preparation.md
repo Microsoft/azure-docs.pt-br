@@ -3,24 +3,24 @@ title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109616"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046310"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
 O planejamento e a preparação para uma implantação de cluster de produção são muito importantes.  Há muitos fatores a serem considerados.  Este artigo orienta você pelas etapas de preparação de sua implantação de cluster.
 
 ## <a name="read-the-best-practices-information"></a>Leia as informações de práticas recomendadas
-Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há operações que recomendamos que você execute para otimizar a confiabilidade do seu ambiente de produção.  Para obter mais informações, leia [Service Fabric práticas recomendadas de aplicativo e cluster](service-fabric-best-practices-overview.md).
+Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há operações que recomendamos que você execute para otimizar a confiabilidade do seu ambiente de produção.  Para obter mais informações, leia [Service Fabric práticas recomendadas de aplicativo e cluster](./service-fabric-best-practices-security.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
 O Service Fabric permite a criação de clusters do Service Fabric em qualquer VM ou computador que esteja executando o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
 
-## <a name="capacity-planning"></a>Planejamento da capacidade
+## <a name="capacity-planning"></a>planejamento de capacidade
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns pontos a serem considerados como parte desse processo.
 
 * O número inicial de tipos de nó para o cluster 
@@ -117,7 +117,7 @@ Uma parte crítica da entrega de alta disponibilidade é garantir que os serviç
 O aplicativo e o cluster estão prontos para receber tráfego de produção? Antes de implantar o cluster para produção, execute a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md). Mantenha seu aplicativo e o cluster em execução sem problemas trabalhando nos itens desta lista de verificação. É altamente recomendável que todos esses itens sejam verificados antes de entrar em produção.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um Cluster Service Fabric executando o Windows](service-fabric-best-practices-overview.md)
+* [Criar um Cluster Service Fabric executando o Windows](./service-fabric-best-practices-security.md)
 * [Criar um Cluster Service Fabric executando o Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

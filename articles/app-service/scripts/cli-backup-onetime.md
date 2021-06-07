@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: a5771882e85c69ae54212b2ea8eb1e9482f27821
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747535"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782631"
 ---
 # <a name="back-up-an-app-using-cli"></a>Fazer backup de um aplicativo usando a CLI
 
@@ -38,14 +38,14 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Cria um contêiner de armazenamento do Azure. |
-| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Gera um token SAS para um contêiner de armazenamento do Azure.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | Cria um backup para um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtém uma lista de backups para um aplicativo do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az storage account create`](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento. |
+| [`az storage container create`](/cli/azure/storage/container#az_storage_container_create) | Cria um contêiner de armazenamento do Azure. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az_storage_container_generate_sas) | Gera um token SAS para um contêiner de armazenamento do Azure.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az_webapp_config_backup_create) | Cria um backup para um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az_webapp_config_backup_list) | Obtém uma lista de backups para um aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

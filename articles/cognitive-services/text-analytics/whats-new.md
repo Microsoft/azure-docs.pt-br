@@ -8,19 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220693"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598891"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="march-2021"></a>Março de 2021
+
+### <a name="general-api-updates"></a>Atualizações de API gerais
+* Lançamento da nova API v 3.1-Preview. 4, que inclui 
+   * Alterações no corpo da resposta JSON de mineração de opinião: 
+      * `aspects` Agora é `targets` e `opinions` agora é `assessments` . 
+   * Alterações no corpo da resposta JSON da API web hospedada do Análise de Texto para fins de integridade: 
+      * O `isNegated` nome booliano de um objeto de entidade detectado para negação é preterido e substituído pela detecção de asserção.
+      * Uma nova propriedade chamada `role` agora faz parte da relação extraída entre um atributo e uma entidade, bem como a relação entre entidades.  Isso adiciona a especificidade ao tipo de relação detectado.
+   * A vinculação de entidade agora está disponível como uma tarefa assíncrona no `/analyze` ponto de extremidade.
+   * Um novo `pii-categories` parâmetro agora está disponível no `/pii` ponto de extremidade.
+      * Esse parâmetro permite que você especifique entidades PII e não suportadas por padrão para o idioma de entrada.
+* Bibliotecas de cliente atualizadas, que incluem análise assíncrona e Análise de Texto para operações de integridade. Você pode encontrar exemplos no GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o API de Análise de Texto v 3.1-Preview. 4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### <a name="text-analytics-for-health-updates"></a>Análise de Texto para atualizações de integridade
+
+* Uma nova versão `2021-03-01` de modelo para o `/health` ponto de extremidade e o contêiner local que fornece
+    * Uma renomeação do `Gene` tipo de entidade como `GeneOrProtein` .
+    * Um novo `Date` tipo de entidade.
+    * Detecção de asserção que substitui a detecção de negação (disponível somente na API v 3.1-Preview. 4).
+    * Uma nova `name` Propriedade preferida para entidades vinculadas que é normalizada de vários sistemas de ontologies e codificação (disponível somente na API v 3.1-Preview. 4). 
+* Uma nova imagem de contêiner com marca `3.0.015370001-onprem-amd64` e a nova versão de modelo foi `2021-03-01` liberada para o repositório de visualização de contêiner. 
+* O Análise de Texto para a imagem de contêiner de integridade será movido para um novo repositório no próximo mês.  Aguarde uma comunicação por email no local de sua nova casa.
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o Análise de Texto para integridade](how-tos/text-analytics-for-health.md)
+>
+
+### <a name="text-analytics-resource-portal-update"></a>Análise de Texto atualização do portal de recursos
+* Os **registros de texto processados** agora estão disponíveis como uma métrica na seção **monitoramento** para seu recurso de análise de texto no portal do Azure.  
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+* A `2021-01-15` versão do modelo para o ponto de extremidade PII no [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) v 3.1-Preview. x, que fornece 
+  * Suporte expandido para 9 novos idiomas
+  * Qualidade de ia aprimorada de categorias de entidade nomeada para idiomas com suporte.
+* Os tipos de preço S0 a S4 estão sendo desativados em 8 de março de 2021. Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, deverá atualizá-lo para usar o [tipo de preço](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)Standard (S).
+* O [contêiner de detecção de idioma](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) já está disponível para o público geral.
+* a v 2.1 da API está sendo desativada. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -37,7 +84,7 @@ Essas versões de modelo não estão disponíveis no momento na região leste do
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
-* Detalhes de [preços atualizados](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para o API de análise de texto
+* Detalhes de [preços atualizados](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para o API de análise de texto.
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -50,8 +97,7 @@ Essas versões de modelo não estão disponíveis no momento na região leste do
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o API de Análise de Texto v 3.1-Preview. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
@@ -209,7 +255,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
     * Habilidade
 
 * Reconhecimento dos seguintes tipos de entidade de informações pessoais (somente em inglês):
-    * Person
+    * Pessoa
     * Organização
     * Idade como um subtipo em quantidade
     * Data como um subtipo em DateTime
@@ -250,7 +296,7 @@ Ele dá suporte a Inglês ( `en` ), japonês (), `ja` chinês simplificado ( `zh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o API de Análise de Texto?](overview.md)  
+* [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Detecção de idioma](how-tos/text-analytics-how-to-language-detection.md)

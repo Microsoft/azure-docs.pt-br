@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 61b45d6f6414b1e8e1f48f6d46957b21b9b8c58b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99052491"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Habilitar Controle de Alterações e Inventário de uma VM do Azure

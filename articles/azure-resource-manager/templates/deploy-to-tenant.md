@@ -4,10 +4,10 @@ description: Descreve como implantar recursos no escopo do locatário em um mode
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491479"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de locatário com modelos ARM

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
-ms.openlocfilehash: 1e3fc23dd220a8d9764a64c453e9fb856307ac47
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ad1f7422919f224889db84a2599ad3c1c48efcc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946508"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104863803"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é o Apache Hadoop no Azure HDInsight?
 
@@ -30,7 +30,7 @@ O [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapred
 
 Um exemplo básico de trabalho de contagem de palavras do MapReduce está ilustrado no diagrama abaixo:
 
- ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
+ :::image type="content" source="./media/apache-hadoop-introduction/hdi-word-count-diagram.gif" alt-text="HDI.WordCountDiagram" border="true":::
 
 A saída deste trabalho é uma contagem de quantas vezes cada palavra ocorreu no texto.
 

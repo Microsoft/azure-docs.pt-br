@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682963"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101667500"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool de SQL sem servidor no Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ A segurança pode ser imposta usando:
 
 T-SQL compatível:
 
-- A área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa é compatível, incluindo a maioria das funções SQL
+- A área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa é compatível, incluindo a maioria das funções SQL
 - CETAS – CREATE EXTERNAL TABLE AS SELECT
 - Instruções DDL relacionadas somente a exibições e segurança
 
@@ -89,7 +89,7 @@ O pool de SQL sem servidor não tem armazenamento local, somente objetos de meta
 
 ### <a name="extensions"></a>Extensões
 
-Para permitir uma experiência tranquila para a consulta no local de dados que residem em arquivos no data lake, o pool de SQL sem servidor estende a função [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) existente adicionando as seguintes funcionalidades:
+Para permitir uma experiência tranquila para a consulta no local de dados que residem em arquivos no data lake, o pool de SQL sem servidor estende a função [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) existente adicionando as seguintes funcionalidades:
 
 [Consultar vários arquivos ou pastas](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ O pool de SQL sem servidor oferece mecanismos para proteger o acesso aos seus da
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
-O pool de SQL sem servidor permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure AD (Azure Active Directory) é compatível com [MFA](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dá suporte a um processo de logon único.
+O pool de SQL sem servidor permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure AD (Azure Active Directory) é compatível com [MFA](../../azure-sql/database/authentication-mfa-ssms-configure.md) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dá suporte a um processo de logon único.
 
 #### <a name="authentication"></a>Autenticação
 
@@ -125,7 +125,7 @@ A autenticação do pool de SQL sem servidor refere-se a como os usuários compr
 
 - **Autenticação do Active Directory do Azure**:
 
-  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory. Para usuários do Azure AD, a autenticação multifator pode ser habilitada. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory. Para usuários do Azure AD, a autenticação multifator pode ser habilitada. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="authorization"></a>Autorização
 

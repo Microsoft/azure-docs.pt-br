@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009493"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar Durable Functions como trabalhos Web
@@ -27,7 +27,7 @@ Este artigo pressupõe que você está familiarizado com os conceitos básicos d
 
 * [Introdução ao WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
 * [Criar sua primeira função usando o Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Funções duráveis](durable-functions-sequence.md)
+* [Durable Functions](durable-functions-sequence.md)
 
 Para completar as etapas neste artigo:
 
@@ -43,7 +43,7 @@ Para completar as etapas neste artigo:
 
 Este artigo explica como desenvolver um projeto de 2. x do SDK do WebJobs (equivalente a versão do Azure Functions 1. x). Para obter informações sobre versão 3. x, consulte [SDK do WebJobs 3. x](#webjobs-sdk-3x) posteriormente neste artigo.
 
-## <a name="create-a-console-app"></a>Criar um aplicativo do console
+## <a name="create-a-console-app"></a>Criar um aplicativo de console
 
 Para executar Durable Functions como trabalhos Web, você deve primeiro criar um aplicativo de console. Um projeto do SDK do WebJobs é apenas um projeto de aplicativo de console com os pacotes do NuGet apropriados instalados.
 
@@ -216,7 +216,7 @@ Este artigo explica como desenvolver um projeto do SDK de trabalhos Web 2. x. Se
 
 A principal alteração introduzida é o uso do .NET Core em vez de .NET Framework. Para criar um projeto webjobs SDK 3. x, as instruções são as mesmas, com estas exceções:
 
-1. Criar um aplicativo de console do aplicativo .NET Core. Na caixa de diálogo **novo projeto** do Visual Studio, selecione **.NET Core**  >  **aplicativo de console do .NET Core (.NET Core)**. O arquivo de projeto especifica que `TargetFramework` é `netcoreapp2.x`.
+1. Criar um aplicativo de console do aplicativo .NET Core. Na caixa de diálogo **novo projeto** do Visual Studio, selecione   >  **aplicativo de console do .NET Core (.NET Core)**. O arquivo de projeto especifica que `TargetFramework` é `netcoreapp2.x`.
 
 1. Escolha a versão de lançamento SDK 3. x dos seguintes pacotes:
 
@@ -224,7 +224,7 @@ A principal alteração introduzida é o uso do .NET Core em vez de .NET Framewo
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Defina a cadeia de conexão de armazenamento e a chave de instrumentação de Application Insights em um *appsettings.jsno* arquivo, usando a estrutura de configuração do .NET Core. Aqui está um exemplo:
+1. Defina a cadeia de conexão de armazenamento e a chave de instrumentação de Application Insights em um *appsettings.jsno* arquivo, usando a estrutura de configuração do .NET Core. Veja um exemplo:
 
     ```json
         {

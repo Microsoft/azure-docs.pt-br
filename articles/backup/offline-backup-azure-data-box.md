@@ -4,10 +4,10 @@ description: Saiba como você pode usar Azure Data Box para propagar grandes dad
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752576"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline do Backup do Azure usando Azure Data Box
@@ -21,7 +21,7 @@ Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar 
 
 Este artigo explica como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 O processo para propagar dados do agente MARS usando Azure Data Box tem suporte nas seguintes SKUs do Windows.
 

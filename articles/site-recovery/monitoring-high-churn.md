@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359859"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Monitorando padrões de rotatividade em máquinas virtuais

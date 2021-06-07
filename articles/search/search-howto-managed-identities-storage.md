@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358364"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada
@@ -34,7 +34,7 @@ Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure 
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Habilitar a identidade gerenciada atribuída ao sistema")
 
-Depois de selecionar **Salvar** , você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
+Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
  
@@ -77,7 +77,7 @@ Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes
 * **credentials**
     * Ao usar uma identidade gerenciada para autenticar, o formato **credentials** é diferente de quando não usa uma identidade gerenciada. Aqui, você fornecerá um ResourceId sem chave de conta ou senha. O ResourceId deve incluir a ID da assinatura da conta de armazenamento, o grupo de recursos da conta de armazenamento e o nome da conta de armazenamento.
     * Formato da identidade gerenciada: 
-        * *ResourceId=/subscriptions/ **your subscription ID** /resourceGroups/ **your resource group name** /providers/Microsoft.Storage/storageAccounts/ **your storage account name** /;*
+        * *ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Storage/storageAccounts/**your storage account name**/;*
 * **container** especifica um contêiner ou tabela na conta de armazenamento. Por padrão, todos os blobs no contêiner são recuperáveis. Se você quiser apenas blobs de índice em um diretório virtual específico, especifique o diretório usando o parâmetro opcional **query**.
 
 Exemplo de como criar um objeto de fonte de dados de blob usando a [API REST](/rest/api/searchservice/create-data-source):

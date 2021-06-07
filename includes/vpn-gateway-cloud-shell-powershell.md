@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3a4946e39bb5f14708cf462f5f2c2a64ed6c0033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "79137136"
 ---
 Este artigo usa cmdlets do PowerShell. Para executar os cmdlets, você pode usar o Azure Cloud Shell. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.

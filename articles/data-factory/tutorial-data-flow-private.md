@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249424"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformar dados com segurança usando o fluxo de dados de mapeamento
@@ -40,7 +40,7 @@ Neste tutorial, você executa as seguintes etapas:
 
 O arquivo que iremos transformar neste tutorial é moviesDB.csv, que pode ser encontrado neste [site de conteúdo do GitHub](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvá-lo localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contêiner denominado **Data-Sample**.
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 Nesta etapa, você cria um data factory e abre a interface do usuário do Data Factory para criar um pipeline no data factory.
 
@@ -71,8 +71,8 @@ Nesta etapa, você cria um Azure IR e habilita Data Factory rede virtual gerenci
 1. No portal de Data Factory, vá para **gerenciar** e selecione **novo** para criar um novo Azure ir.
 
    ![Captura de tela que mostra a criação de uma nova Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Na página **instalação do Integration Runtime** , escolha qual tempo de execução de integração deve ser criado com base nos recursos necessários. Neste tutorial, selecione **Azure, auto-hospedado** e clique em **continuar**. 
-1. Selecione **Azure** e clique em **continuar** para criar um tempo de execução de integração do Azure.
+1. Na página **Instalação do runtime de integração**, escolha o runtime de integração a ser criado com base nas funcionalidades necessárias. Neste tutorial, selecione **Azure, Auto-hospedado** e clique em **Continuar**. 
+1. Selecione **Azure** e clique em **Continuar** para criar um Azure Integration Runtime.
 
    ![Captura de tela que mostra um novo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

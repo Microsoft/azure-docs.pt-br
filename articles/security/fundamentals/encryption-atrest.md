@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920791"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados do Azure em repouso

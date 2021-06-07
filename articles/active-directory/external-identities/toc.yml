@@ -41,7 +41,7 @@
           href: b2b-fundamentals.md
         - name: B2B e compartilhamento externo do Office 365
           href: o365-external-user.md
-        - name: Resgate do convite
+        - name: Resgate de convite e credenciais
           href: redemption-experience.md
         - name: Email de convite
           href: invitation-email-elements.md
@@ -57,9 +57,9 @@
           href: hybrid-organizations.md
         - name: Provedores de identidade para Identidades Externas
           href: identity-providers.md
-        - name: Fluxos dos usuários de inscrição por autoatendimento (versão prévia)
+        - name: Fluxos dos usuários de inscrição por autoatendimento
           href: self-service-sign-up-overview.md
-        - name: Conectores de API de inscrição por autoatendimento (versão prévia)
+        - name: Conectores de API de inscrição por autoatendimento
           href: api-connectors-overview.md
         - name: Gerenciamento de direitos do Azure AD
           href: self-service-portal.md
@@ -68,24 +68,28 @@
     - name: Guias de instruções
       expanded: true
       items:
-        - name: Definir configurações de colaboração externa
-          href: delegate-invitations.md
+        - name: Configurar colaboração B2B
+          items:
+            - name: Definir configurações de colaboração externa
+              href: delegate-invitations.md
+            - name: Permitir ou bloquear domínios
+              href: allow-deny-list.md
         - name: Convidar usuários convidados
           items:
-            - name: Administradores adicionando usuários de B2B
+            - name: Adicionar e convidar usuários convidados (para administradores)
               href: add-users-administrator.md
-            - name: Operadores de informação adicionando usuários de B2B
+            - name: Convidar usuários convidados para um aplicativo (restrito a proprietários de aplicativos)
               href: add-users-information-worker.md
             - name: Convidar usuários internos para a B2B
               href: invite-internal-users.md
-            - name: Permitir ou bloquear convites
-              href: allow-deny-list.md
             - name: Adicionar usuários de B2B sem um convite
               href: add-user-without-invite.md
-            - name: API e personalização do convite
+            - name: Personalizar convites usando a API
               href: customize-invitation-api.md
-        - name: Federar com provedores de identidade
+        - name: Provedores de identidade
           items:
+            - name: Conta Microsoft (versão prévia)
+              href: microsoft-account.md
             - name: Federação do Google
               href: google-federation.md
             - name: Federação do Facebook
@@ -94,9 +98,9 @@
               href: direct-federation.md
             - name: Exemplo de federação direta com o AD FS
               href: direct-federation-adfs.md
-        - name: Autenticação de senha avulsa
+        - name: Habilitar OTP (senha de uso único)
           href: one-time-passcode.md
-        - name: Inscrição para autoatendimento de usuários convidados (versão prévia)
+        - name: Adicionar inscrição para autoatendimento para usuários convidados
           items:
             - name: Adicionar um fluxo dos usuários de inscrição por autoatendimento
               href: self-service-sign-up-user-flow.md

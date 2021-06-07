@@ -8,17 +8,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693618"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta do aplicativo Power BI
 
 Este artigo descreve como criar e publicar uma oferta de aplicativo Power BI para [Microsoft AppSource](https://appsource.microsoft.com/).
 
-Antes de começar, [crie uma conta do marketplace comercial no Partner Center](create-account.md) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
+Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](create-account.md) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
 
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
@@ -38,14 +38,14 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
-- Essa ID é visível para os clientes no endereço Web para a oferta do marketplace e nos modelos do Azure Resource Manager, se aplicável.
+- Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** aqui, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
-- O Alias da oferta não pode ser alterado depois que você seleciona **Criar**.
+- O Alias da oferta não poderá ser alterado depois que você selecionar a opção **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -56,8 +56,8 @@ Esta página mostra uma representação visual das etapas necessárias para publ
 Ela inclui links para executar operações nessa oferta com base na seleção feita por você. Por exemplo:
 
 - Se a oferta for um rascunho – Excluir oferta rascunho
-- Se a oferta estiver ativa - [Parar de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em versão prévia - [Ativar](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Se a oferta estiver ativa – [Parar de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em versão prévia – [Ativar](../review-publish-offer.md#previewing-and-approving-your-offer)
 - Se você ainda não tiver concluído a desconexão do editor – [Cancelar publicação.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração da oferta
@@ -68,7 +68,7 @@ Quando você publica sua oferta no marketplace com o Partner Center, conecte-a a
 
 1. Escolha um destino de cliente potencial para o qual você deseja que enviemos vendas potenciais de clientes. O Partner Center dá suporte aos seguintes sistemas de CRM:
 
-    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) para Participação do Usuário
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
     - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
@@ -76,7 +76,7 @@ Quando você publica sua oferta no marketplace com o Partner Center, conecte-a a
     > Se o sistema CRM não estiver nessa lista, use a [tabela do Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou o [ponto de extremidade https](commercial-marketplace-lead-management-instructions-https.md) para armazenar os dados do cliente potencial. Em seguida, exporte os dados para o sistema de CRM.
 
 2. Conecte sua oferta ao destino do cliente potencial ao publicá-la na Central de Parceiros.
-3. Confirme se a conexão com o destino do cliente potencial está configurada corretamente. Depois de publicá-la na Central de Parceiros, validaremos a conexão e enviaremos um cliente potencial de teste para você. Quando você coloca a oferta em versão prévia antes de ela ficar ativa, pode também testar a conexão do cliente potencial tentando comprar a oferta por conta própria no ambiente de versão prévia.
+3. Confirme se a conexão com o destino do cliente potencial está configurada corretamente. Depois de publicá-la no Partner Center, validaremos a conexão e enviaremos um cliente potencial de teste para você. Ao colocar a oferta em versão prévia antes de ela ficar ativa, você também pode testar a conexão do cliente potencial tentando comprar a oferta por conta própria no ambiente de versão prévia.
 4. A conexão com o destino do cliente potencial deve permanecer atualizada para que você não perca nenhum cliente potencial.
 
 Veja alguns recursos adicionais de gerenciamento de clientes potenciais:

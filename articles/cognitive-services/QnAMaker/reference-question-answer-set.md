@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94505998"
 ---
 # <a name="question-and-answer-pair"></a>Par de perguntas e respostas
@@ -28,8 +28,8 @@ Cada par é representado por uma **ID**.
 As configurações **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** – isso ajuda a QnA Maker retornar a resposta correta para uma variedade maior de frases de pergunta
-* **Metadados** : os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
-* **Prompts de múltipla ativação** , usados para continuar uma conversa com vários folheios
+* **Metadados**: os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+* **Prompts de múltipla ativação**, usados para continuar uma conversa com vários folheios
 
 ![Bases de conhecimento do QnA Maker](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

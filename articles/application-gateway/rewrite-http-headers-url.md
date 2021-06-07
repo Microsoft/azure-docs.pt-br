@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216667"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101726505"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com o gateway de aplicativo
 
@@ -60,9 +60,9 @@ Para saber como reescrever a URL com o gateway de aplicativo usando portal do Az
 Você usa ações de reescrita para especificar a URL, cabeçalhos de solicitação ou cabeçalhos de resposta que você deseja reescrever e o novo valor para o qual você pretende regravá-los. O valor de uma URL ou um cabeçalho novo ou existente pode ser definido para esses tipos de valores:
 
 * Texto
-* Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_*HeaderName*}
-* Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_*HeaderName*}
-* Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_*serverVariable*}. Consulte a lista de variáveis de servidor com suporte
+* Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_ *HeaderName*}
+* Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_ *HeaderName*}
+* Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_ *serverVariable*}. Consulte a lista de variáveis de servidor com suporte
 * Uma combinação de texto, um cabeçalho de solicitação, um cabeçalho de resposta e uma variável de servidor. 
 
 ## <a name="rewrite-conditions"></a>Condições de regravação
@@ -100,7 +100,7 @@ Se você quiser usar o valor inteiro, não deverá mencionar o número. Basta us
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_*serverVariableName*}
+O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_ *serverVariableName*}
 
 O gateway de aplicativo dá suporte às seguintes variáveis de servidor:
 
@@ -164,7 +164,7 @@ Quando um aplicativo de back-end envia uma resposta de redirecionamento, talvez 
 
 Como o serviço de aplicativo é um serviço multilocatário, ele usa o cabeçalho de host na solicitação para rotear a solicitação para o ponto de extremidade correto. Os serviços de aplicativos têm um nome de domínio padrão *. azurewebsites.net (digamos, contoso.azurewebsites.net) diferente do nome de domínio do gateway de aplicativo (digamos contoso.com). Como a solicitação original do cliente tem o nome de domínio do gateway de aplicativo (contoso.com) como o hostname, o gateway de aplicativo altera o nome do host para contoso.azurewebsites.net. Ele faz essa alteração para que o serviço de aplicativo possa encaminhar a solicitação para o ponto de extremidade correto.
 
-Quando o serviço de aplicativo envia uma resposta de redirecionamento, ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação que recebe do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
+Quando o serviço de aplicativo envia uma resposta de redirecionamento, ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação que recebe do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente em `contoso.azurewebsites.net/path2` vez de passar pelo gateway de aplicativo ( `contoso.com/path2` ). Ignorar o gateway de aplicativo não é desejável.
 
 Você pode resolver esse problema definindo o nome do host no cabeçalho Location como o nome de domínio do gateway de aplicativo.
 
@@ -211,13 +211,13 @@ Para realizar cenários em que você deseja escolher o pool de back-end com base
 
 * A terceira regra tem uma condição que verifica a variável de *QUERY_STRING*  para *Category = Accessories* e tem uma ação que reescreve o caminho da URL para/*listing3* e **reavalia o mapa de caminho** habilitado
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Cenário de reescrita de URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Cenário de reescrita de URL 1-2.":::
 
  
 
 **Etapa 2 (b):** Associar esse conjunto de regravação ao caminho padrão da regra com base no caminho acima
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Cenário de reescrita de URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Cenário de reescrita de URL 1-3.":::
 
 Agora, se o usuário solicitar *contoso.com/Listing?Category=any*, ele será correspondido com o caminho padrão, já que nenhum dos padrões de caminho no mapa de caminho (/listing1,/listing2,/listing3) será correspondido. Como você associou o conjunto de regravação acima com esse caminho, esse conjunto de regravação será avaliado. Como a cadeia de caracteres de consulta não corresponderá à condição em nenhuma das três regras de reescrita nesse conjunto de regravação, nenhuma ação de regravação ocorrerá e, portanto, a solicitação será roteada inalterada para o back-end associado ao caminho padrão (que é *GenericList*).
 
@@ -234,11 +234,11 @@ Nesse caso, o gateway de aplicativo pode capturar parâmetros da URL e adicionar
 
 **Condição** – se a variável de servidor `uri_path` for igual ao padrão `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Cenário de reescrita de URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Cenário de reescrita de URL 2-1.":::
 
 **Ação** -defina o caminho da URL para `buy.aspx` e a cadeia de caracteres de consulta para `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Cenário de reescrita de URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Cenário de reescrita de URL 2-2.":::
 
 Para obter um guia passo a passo para obter o cenário descrito acima, consulte [regravar URL com o gateway de aplicativo usando portal do Azure](rewrite-url-portal.md)
 
@@ -248,7 +248,7 @@ No caso de regravação de URL, o gateway de aplicativo reescreve a URL antes qu
 
 No caso de redirecionamento de URL, o gateway de aplicativo envia uma resposta de redirecionamento para o cliente com a nova URL. Isso, por sua vez, requer que o cliente reenvie sua solicitação para a nova URL fornecida no redirecionamento. A URL que o usuário vê no navegador será atualizada para a nova URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Cenário de reescrita de URL 1-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Reescreva o redirecionamento do vs.":::
 
 ## <a name="limitations"></a>Limitações
 

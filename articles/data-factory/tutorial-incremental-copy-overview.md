@@ -1,27 +1,22 @@
 ---
-title: Copiar dados incrementalmente por
+title: Copiar dados incrementalmente de um armazenamento de dados de origem para um armazenamento de dados de destino
 description: Estes tutoriais mostram como copiar incrementalmente os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. O primeiro deles copia dados de uma tabela.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
-ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/18/2021
+ms.openlocfilehash: 7161fb30c8b445681b4cd577d8f8ac9fff5106df
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194484"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739238"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carregar dados incrementalmente de um armazenamento de dados de origem para um armazenamento de dados de destino
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Em uma solução de integração de dados, o carregamento incremental (ou delta) de dados depois de uma carga inicial completa de dados é um cenário amplamente usado. Os tutoriais nesta seção mostram maneiras diferentes de carregamento incremental de dados com o uso do Azure Data Factory.
 

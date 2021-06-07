@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: d3be7d18f55400cf5f9bf85c6fcb767bee05044f
-  ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+  ms.openlocfilehash: 867d0872237f26a5a8b65585bb02b8a26b938d88
+  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/08/2021
-  ms.locfileid: "98028430"
+  ms.lasthandoff: 03/09/2021
+  ms.locfileid: "102499094"
 landingContent:
 - title: simétricas
   linkLists:
@@ -57,13 +57,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Biblioteca de clientes do .NET
-      url: /dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+      url: /dotnet/api/azure.security.keyvault.keys
     - text: Biblioteca de clientes Python
-      url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+      url: /python/api/overview/azure/keyvault-keys-readme
     - text: Biblioteca de clientes Java
       url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
     - text: Biblioteca de clientes Node.js
-      url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
+      url: /javascript/api/@azure/keyvault-keys/
 - title: Mais sobre o Key Vault
   linkLists:
   - linkListType: overview

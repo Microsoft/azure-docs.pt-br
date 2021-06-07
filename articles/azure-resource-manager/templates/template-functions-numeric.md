@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359703"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos de ARM
@@ -40,7 +40,7 @@ Retorna a soma dos dois inteiros fornecidos. `add`Não há suporte para a funç�
 |operand1 |Sim |INT |Primeiro número a ser adicionado. |
 |operand2 |Sim |INT |Segundo número a ser adicionado. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que contém a soma dos parâmetros.
 
@@ -94,7 +94,7 @@ output addResult int = first + second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -168,7 +168,7 @@ O exemplo a seguir mostra um loop de cópia e o valor de índice incluído no no
 
 ---
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o índice atual da iteração.
 
@@ -185,7 +185,7 @@ Retorna a divisão de inteiros dos dois inteiros fornecidos. `div`Não há supor
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número usado para dividir. Não pode ser 0. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa a divisão.
 
@@ -239,7 +239,7 @@ output addResult int = first / second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -255,7 +255,7 @@ Converte o valor em um número de ponto flutuante. Você só usa essa função a
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um número de ponto flutuante. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um número de ponto flutuante.
 
@@ -298,7 +298,7 @@ Converte o valor especificado em um inteiro.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um inteiro. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro do valor convertido.
 
@@ -341,7 +341,7 @@ output inResult int = int(stringToConvert)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -357,7 +357,7 @@ Retorna o valor máximo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor máximo. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o valor máximo da coleção.
 
@@ -410,7 +410,7 @@ output intOutput int = max(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -427,7 +427,7 @@ Retorna o valor mínimo de uma matriz de inteiros ou uma lista de inteiros separ
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz de inteiros ou lista de inteiros separados por vírgulas |A coleção para obtenção do valor mínimo. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o valor mínimo da coleção.
 
@@ -480,7 +480,7 @@ output intOutput int = min(0,3,2,5,4)
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -498,7 +498,7 @@ Retorna o restante da divisão de inteiros usando os dois inteiros fornecidos. `
 | operand1 |Sim |INT |O número que está sendo dividido. |
 | operand2 |Sim |INT |O número que é usado para dividir, não pode ser 0. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa o resto.
 
@@ -552,7 +552,7 @@ output modResult int = first % second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -569,7 +569,7 @@ Retorna a multiplicação de dois inteiros fornecidos. `mul`Não há suporte par
 | operand1 |Sim |INT |Primeiro número a ser multiplicado. |
 | operand2 |Sim |INT |Segundo número a ser multiplicado. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa a multiplicação.
 
@@ -623,7 +623,7 @@ output mulResult int = first * second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -640,7 +640,7 @@ Retorna a subtração dos dois inteiros fornecidos. `sub`Não há suporte para a
 | operand1 |Sim |INT |O número do qual é subtraído. |
 | operand2 |Sim |INT |O número subtraído. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro que representa a subtração.
 
@@ -694,7 +694,7 @@ output subResult int = first - second
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

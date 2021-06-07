@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999308"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958099"
 ---
 Comece a usar o reconhecimento facial usando a biblioteca de clientes de Detecção Facial para Go. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -22,7 +22,7 @@ Use a biblioteca de clientes do serviço de Detecção Facial para Go para:
 
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
+* [Criar e treinar um PersonGroup](#create-and-train-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 
 [Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Download do SDK](https://github.com/Azure/azure-sdk-for-go)
@@ -31,7 +31,7 @@ Use a biblioteca de clientes do serviço de Detecção Facial para Go para:
 
 * A versão mais recente do [Go](https://golang.org/dl/)
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Crie um recurso da Detecção Facial"  target="_blank">crie um recurso da Detecção Facial </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API de Detecção Facial. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 * Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
@@ -106,7 +106,7 @@ Esses exemplos de código mostram como concluir tarefas básicas usando a biblio
 * [Autenticar o cliente](#authenticate-the-client)
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
-* [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group)
+* [Criar e treinar um PersonGroup](#create-and-train-a-persongroup)
 * [Identificar um rosto](#identify-a-face)
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
@@ -161,7 +161,7 @@ O código a seguir imprime os detalhes de correspondência no console.
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_similar_print)]
 
 
-## <a name="create-and-train-a-person-group"></a>Criar e treinar um grupo de pessoas
+## <a name="create-and-train-a-persongroup"></a>Criar e treinar um PersonGroup
 
 Para percorrer esse cenário, você precisa salvar as seguintes imagens no diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
@@ -202,11 +202,11 @@ Depois de atribuir os rostos, treine o **PersonGroup** para que ele possa identi
 A operação Identificar usa uma imagem de uma pessoa (ou de várias pessoas) e procura encontrar a identidade de cada rosto na imagem (pesquisa de reconhecimento facial). Ele compara cada rosto detectado com um **PersonGroup**, um banco de dados de diferentes objetos **Person** cujas características faciais são conhecidas.
 
 > [!IMPORTANT]
-> Para executar este exemplo, você deve primeiro executar o código em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group).
+> Para executar este exemplo, primeiro você precisa executar o código em [Criar e treinar um PersonGroup](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 
-O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e a carrega para a memória do programa. Você pode encontrar essa imagem no mesmo repositório que as imagens usadas em [Criar e treinar um grupo de pessoas](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+O código a seguir procura na raiz do projeto uma imagem _test-image-person-group.jpg_ e a carrega para a memória do programa. Você pode encontrar essa imagem no mesmo repositório que as imagens usadas em [Criar e treinar um PersonGroup](#create-and-train-a-persongroup): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 

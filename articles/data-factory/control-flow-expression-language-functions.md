@@ -3,16 +3,16 @@ title: Expressão e funções no Azure Data Factory
 description: Este artigo fornece informações sobre expressões e funções que você pode usar na criação de entidades do data factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385618"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786287"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 
@@ -59,13 +59,33 @@ As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracte
 |"A resposta é: @{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: 42`.|  
 |"\@ concat ('Resposta é:', string (pipeline (). Parameters.myNumber))"| Retorna a cadeia de caracteres `Answer is: 42`|  
 |"A resposta é: \@\@{pipeline().parameters.myNumber}"| Retorna a cadeia de caracteres `Answer is: @{pipeline().parameters.myNumber}`.|  
-  
+
 ## <a name="examples"></a>Exemplos
 
 ### <a name="complex-expression-example"></a>Exemplo de expressão complexa
 O exemplo abaixo mostra um exemplo complexo que faz referência a um subcampo profundo da saída da atividade. Para fazer referência a um parâmetro de pipeline que é avaliado como um subcampo, use a sintaxe [] em vez do operador ponto (.) (como no caso de subfield1 e subfield2)
 
-@activity('*ActivityName*'). saída. *subfield1*. *subfield2*[pipeline (). Parameters.*subfield3*]. *subfield4*
+`@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+### <a name="dynamic-content-editor"></a>Editor de conteúdo dinâmico
+
+O editor de conteúdo dinâmico escapa automaticamente os caracteres no seu conteúdo quando você conclui a edição. Por exemplo, o conteúdo a seguir no editor de conteúdo é uma interpolação de cadeia de caracteres com duas funções de expressão. 
+
+```json
+{ 
+  "type": "@{if(equals(1, 2), 'Blob', 'Table' )}",
+  "name": "@{toUpper('myData')}"
+}
+```
+
+O editor de conteúdo dinâmico converte o conteúdo acima em expressão `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` . O resultado dessa expressão é uma cadeia de caracteres de formato JSON mostrada abaixo.
+
+```json
+{
+  "type": "Table",
+  "name": "MYDATA"
+}
+```
 
 ### <a name="a-dataset-with-a-parameter"></a>Um conjunto de dados com um parâmetro
 No exemplo a seguir, o BlobDataset usa um parâmetro denominado **path**. Seu valor é usado para definir um valor para a propriedade **folderPath** usando as expressões: `dataset().path`. 

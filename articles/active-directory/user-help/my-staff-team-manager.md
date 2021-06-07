@@ -1,5 +1,5 @@
 ---
-title: Gerenciar senhas e números de telefone com Minha Equipe (versão prévia) – Azure AD | Microsoft Docs
+title: Gerenciar senhas e números de telefone com minha equipe – Azure AD | Microsoft Docs
 description: Gerenciar senhas e números de telefone para seus usuários com Minha Equipe
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537083"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583591"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegar o gerenciamento de usuários com Minha Equipe (versão prévia)
+# <a name="delegate-user-management-with-my-staff"></a>Delegar o gerenciamento de usuários com minha equipe
 
 Sua organização pode usar **Minha Equipe** para delegar tarefas de gerenciamento de usuários a figuras de autoridade, como um gerente de loja ou líder de equipe, para ajudar os membros da equipe a acessar os aplicativos de que precisam. Se o membro da equipe não puder acessar um aplicativo porque esqueceu uma senha, a produtividade será perdida. Isso também aumenta os custos de suporte e causa um gargalo em seus processos administrativos.  Com a Minha Equipe, um membro da equipe que não conseguir acessar a conta dele poderá obter acesso com apenas alguns cliques, sem a necessidade de ajuda do administrador.
 

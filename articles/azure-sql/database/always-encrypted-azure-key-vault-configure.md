@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
 ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841454"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurar Always Encrypted usando Azure Key Vault 
@@ -146,7 +146,7 @@ GO
 
 O SSMS fornece um assistente que ajuda você a configurar facilmente o Always Encrypted ao configurar a chave mestra da coluna, a chave de criptografia de coluna e colunas criptografadas para você.
 
-1. Expandir **Databases**  >  **tabelas clínicas** de bancos de dados  >  **Tables**.
+1. Expandir   >  **tabelas clínicas** de bancos de dados  >  .
 2. Clique com o botão direito do mouse na tabela **Pacientes** e selecione **Criptografar Colunas** para abrir o Assistente Sempre Criptografado:
 
     ![Captura de tela que realça as colunas de criptografia... opção de menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)

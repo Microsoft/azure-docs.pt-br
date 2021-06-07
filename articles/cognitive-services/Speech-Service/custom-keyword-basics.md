@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
 ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021942"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introdução à Palavra-chave Personalizada

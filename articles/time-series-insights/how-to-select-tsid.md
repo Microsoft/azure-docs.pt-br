@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016744"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950732"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
@@ -25,6 +25,11 @@ Este artigo resume a importância da ID da série temporal para seu ambiente de 
 
 A seleção de uma ID de série temporal apropriada é crítica. Escolher uma ID do Time Series é como escolher uma chave de partição para um banco de dados. É necessário quando você cria um ambiente de Azure Time Series Insights Gen2.
 
+Assista ao tutorial de provisionamento de ambiente para obter uma explicação detalhada da ID da série temporal. Você exibirá dois exemplos diferentes de conteúdo de telemetria JSON e a seleção de ID de série temporal correta para cada um.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
+
 > [!IMPORTANT]
 > As IDs de série temporal são:
 >
@@ -32,11 +37,11 @@ A seleção de uma ID de série temporal apropriada é crítica. Escolher uma ID
 > * Uma propriedade *imutável* : uma vez criada, ela não pode ser alterada.
 
 > [!TIP]
-> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID** _.
+> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID***.
 
 As principais práticas recomendadas a serem seguidas incluem:
 
-_ Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
+* Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
 * A ID do Time Series deve ser exclusiva no nível do nó folha do seu [Modelo do Time Series](./concepts-model-overview.md).
 * O limite de caracteres para a cadeia de caracteres do nome da propriedade da ID da série temporal é 128. Para o valor da propriedade da ID da série temporal, o limite de caracteres é 1.024.
 * Se um valor de propriedade exclusivo para a ID da série temporal estiver ausente, ele será tratado como um valor nulo e seguirá a mesma regra da restrição de exclusividade.

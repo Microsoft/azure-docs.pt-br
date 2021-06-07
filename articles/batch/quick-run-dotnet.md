@@ -4,12 +4,12 @@ description: Neste guia de início rápido, você executará um trabalho e taref
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48166faa016defb719d8b48c2fff84de32f6c2e4
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921640"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168239"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 
@@ -108,7 +108,7 @@ Confira o arquivo `Program.cs` e as seções a seguir para obter mais detalhes.
 
 ### <a name="preliminaries"></a>Etapas preliminares
 
-Para interagir com a conta de armazenamento, o aplicativo usa a Biblioteca de Clientes de Armazenamento do Azure para .NET. Podemos criar uma referência à conta com [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) e dela criar um [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
+Para interagir com a conta de armazenamento, o aplicativo usa a Biblioteca de Clientes de Armazenamento do Azure para .NET. Podemos criar uma referência à conta com [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) e dela criar um [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

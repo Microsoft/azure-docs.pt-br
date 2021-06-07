@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 4b379bb76eaf7587c53ec55972ccee3f54a55f22
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534238"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.6 em seu StorSimple Virtual Array
@@ -95,11 +95,11 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0** , não será necessário atualizar o agente MDS na etapa 6.
+1. Na interface do usuário da Web local, vá para **manutenção**  >  **atualização de software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
    
     ![Captura de tela mostra a atualização de software selecionada no menu manutenção.](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
-2. Em **Caminho de arquivo de atualização** , digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
+2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
    
     ![Captura de tela mostra a caixa de texto atualizar caminho do arquivo na página atualização de software.](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
@@ -118,9 +118,9 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![Captura de tela mostra a página de atualização de software com a versão atual do software.](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
-6. Ignore esta etapa se você executou a Atualização 0.5 da Matriz Virtual do StorSimple ( **10.0.10290.0** ) antes de aplicar essa atualização. Você fez uma anotação da versão do software na etapa 1 antes de começar a atualizar. Se você executou a Atualização 0.5, seu agente do MDS já está atualizado.
+6. Ignore esta etapa se você executou a Atualização 0.5 da Matriz Virtual do StorSimple (**10.0.10290.0**) antes de aplicar essa atualização. Você fez uma anotação da versão do software na etapa 1 antes de começar a atualizar. Se você executou a Atualização 0.5, seu agente do MDS já está atualizado.
 
-    Se você estiver executando uma versão do software antes da Atualização 0.5, a próxima etapa será a atualização do agente do MDS. Na página **Atualização de Software** , vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
+    Se você estiver executando uma versão do software antes da Atualização 0.5, a próxima etapa será a atualização do agente do MDS. Na página **Atualização de Software**, vá até o **Caminho do arquivo de atualização** e navegue até o arquivo `GenevaMonitoringAgentPackageInstaller.msi`. Repita as etapas de 2 a 4. Depois que a matriz virtual for reiniciada, entre na interface do usuário da Web local.
 
 7. Repita a etapa 2 a 4 para instalar as correções de segurança do Windows usando arquivos os `windows8.1-kb4012213-x64`, `windows8.1-kb3205400-x64` e `windows8.1-kb4019213-x64`. A matriz virtual reinicia após cada instalação e você precisa entrar na interface do usuário da Web local.
 

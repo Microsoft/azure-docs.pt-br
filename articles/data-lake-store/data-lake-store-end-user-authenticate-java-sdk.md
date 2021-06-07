@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: ece996f7edb8d37cea47756c5b7e635e02409b35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87318854"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação de usuário final com Azure Data Lake Storage Gen1 usando Java
@@ -19,7 +19,7 @@ ms.locfileid: "87318854"
 > * [Usando Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Usando o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-end-user-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >   
 

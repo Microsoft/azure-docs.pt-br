@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: cfeb19fa36bf65021fadc7ac3bc60a9f3a620602
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 588c12addbdbd686038699026bb9dccd8671717c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349071"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765225"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Início Rápido: Migre um aplicativo Web Node.js do MongoDB existente para o Azure Cosmos DB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "96349071"
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -80,7 +80,7 @@ O aplicativo tentará se conectar a uma fonte do MongoDB e falhará; prossiga e 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Se estiver usando uma CLI do Azure instalada, entre em sua assinatura do Azure com o comando [az login](/cli/azure/reference-index#az-login) e siga as instruções na tela. Você poderá ignorar esta etapa se estiver usando o Azure Cloud Shell.
+Se estiver usando uma CLI do Azure instalada, entre em sua assinatura do Azure com o comando [az login](/cli/azure/reference-index#az_login) e siga as instruções na tela. Você poderá ignorar esta etapa se estiver usando o Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -94,7 +94,7 @@ Se `cosmosdb` não estiver na lista de comandos base, reinstale a [CLI do Azure]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos](../azure-resource-manager/management/overview.md) com o [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados. 
+Crie um [grupo de recursos](../azure-resource-manager/management/overview.md) com o [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos na região da Europa Ocidental. Escolha um nome exclusivo para o grupo de recursos.
 
@@ -106,7 +106,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Crie uma conta do Cosmos com o comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
+Crie uma conta do Cosmos com o comando [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 No comando a seguir, substitua os espaços reservados `<cosmosdb-name>` pelo seu próprio nome exclusivo da conta do Cosmos. Esse nome exclusivo será usado como parte do ponto de extremidade do Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`), portanto, o nome precisa ser exclusivo entre todas as contas do Cosmos no Azure. 
 
@@ -176,7 +176,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Recuperar a chave
 
-Para conectar-se a um banco de dados Cosmos, você precisa da chave de banco de dados. Use o comando [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) para recuperar a chave primária.
+Para conectar-se a um banco de dados Cosmos, você precisa da chave de banco de dados. Use o comando [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) para recuperar a chave primária.
 
 ```azurecli-interactive
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

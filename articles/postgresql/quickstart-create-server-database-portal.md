@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar servidor – Portal do Azure – Banco de Dados do Azure para PostgreSQL – servidor único'
 description: Neste guia de início rápido, você criará e gerenciará um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b5b145e84a3844b646ec9adfb46f8a221c6d0a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492379"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606497"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure
 

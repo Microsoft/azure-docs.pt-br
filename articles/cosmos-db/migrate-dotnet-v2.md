@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.openlocfilehash: 88c40452da72ed4ab43d2d7613636136a5b78cfe
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94550044"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v2"></a>Migrar seu aplicativo para usar o SDK do .NET Azure Cosmos DB v2

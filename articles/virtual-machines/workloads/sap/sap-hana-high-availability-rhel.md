@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 03/16/2021
 ms.author: radeltch
-ms.openlocfilehash: 277ed8ad5f9888daa911cb3b5c7dcf00fd285bf4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: daa0a6b15d4c187efdea96fd8067b08c89fa0e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489149"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599860"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -583,7 +582,7 @@ clone clone-max=2 clone-node-max=1 interleave=true
 Em seguida, crie os recursos HANA.
 
 > [!NOTE]
-> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 Se estiver criando um cluster no **RHEL 7. x**, use os seguintes comandos:  
 
@@ -648,6 +647,112 @@ Certifique-se de que o status do cluster está correto e que todos os recursos f
 #      nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
+
+
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurar a replicação de sistema habilitada para leitura/ativo do HANA no cluster pacemaker
+
+Começando com o SAP HANA 2,0 SPS 01, o SAP permite as configurações ativas/de leitura habilitadas para replicação de sistema SAP HANA, em que os sistemas secundários de replicação de sistema SAP HANA podem ser usados ativamente para cargas de trabalho com uso intenso de leitura. Para dar suporte a essa configuração em um cluster, um segundo endereço IP virtual é necessário, o que permite que os clientes acessem o banco de dados de SAP HANA habilitado para leitura secundário. Para garantir que o site de replicação secundária ainda possa ser acessado depois que um tomada tiver ocorrido, o cluster precisará mover o endereço IP virtual com o secundário do recurso SAPHana.
+
+Esta seção descreve as etapas adicionais necessárias para gerenciar a replicação de sistema habilitada para leitura/ativação do HANA em um cluster de alta disponibilidade do Red Hat com o segundo IP virtual.    
+
+Antes de continuar, verifique se você configurou totalmente o cluster de alta disponibilidade do Red Hat, gerenciando SAP HANA banco de dados, conforme descrito nos segmentos acima da documentação.  
+
+![SAP HANA alta disponibilidade com o secundário habilitado para leitura](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configuração adicional no Azure Load Balancer para a instalação ativa/de leitura habilitada
+
+Para continuar com etapas adicionais sobre o provisionamento do segundo IP virtual, verifique se você configurou o Azure Load Balancer conforme descrito na seção [implantação manual](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#manual-deployment) .
+
+1. Para o balanceador de carga **padrão** , siga as etapas adicionais abaixo no mesmo balanceador de carga que você criou na seção anterior.
+
+   a. Crie um segundo pool de IPS de front-end: 
+
+   - Abra o balanceador de carga, selecione **pool de front-end** e selecione **Adicionar**.
+   - Insira o nome do segundo pool de IPS de front-end (por exemplo, **Hana-secondaryIP**).
+   - Defina a **atribuição** como **estática** e insira o endereço IP (por exemplo, **10.0.0.14**).
+   - Selecione **OK**.
+   - Depois que o novo pool de IP de front-end for criado, anote o endereço IP do pool.
+
+   b. Em seguida, crie uma investigação de integridade:
+
+   - Abra o balanceador de carga, selecione **investigações de integridade** e selecione **Adicionar**.
+   - Insira o nome da nova investigação de integridade (por exemplo, **Hana-secondaryhp**).
+   - Selecione **TCP** como o protocolo e a porta **62603**. Mantenha o valor do **Intervalo** como 5 e o valor **Limite não íntegro** como 2.
+   - Selecione **OK**.
+
+   c. Em seguida, crie as regras de balanceamento de carga:
+
+   - Abra o balanceador de carga, selecione **Regras de balanceamento de carga** e selecione **Adicionar**.
+   - Insira o nome da nova regra do balanceador de carga (por exemplo, **Hana-secondarylb**).
+   - Selecione o endereço IP de front-end, o pool de back-ends e a investigação de integridade que você criou anteriormente (por exemplo, **Hana-secondaryIP**, **Hana-backend** e **Hana-secondaryhp**).
+   - Selecione **Portas de HA**.
+   - Aumente o **tempo limite de ociosidade** para 30 minutos.
+   - Certifique-se de **habilitar IP Flutuante**.
+   - Selecione **OK**.
+
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurar a replicação de sistema habilitada para leitura/ativo do HANA
+
+As etapas para configurar a replicação do sistema HANA são descritas em [configurar SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) seção de replicação do sistema do 2,0. Se você estiver implantando o cenário secundário habilitado para leitura, ao configurar a replicação do sistema no segundo nó, execute o comando a seguir como **hanasid** ADM:
+
+```
+sapcontrol -nr 03 -function StopWait 600 10 
+
+hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
+```
+
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Adicionando um recurso de endereço IP virtual secundário para uma instalação ativa/de leitura habilitada
+
+O segundo IP virtual e a restrição de colocalização apropriada podem ser configurados com os seguintes comandos:
+
+```
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
+
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+RHEL 8.x: 
+pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-clone 4000
+RHEL 7.x:
+pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 4000
+
+pcs property set maintenance-mode=false
+```
+Certifique-se de que o status do cluster está correto e que todos os recursos foram iniciados. O segundo IP virtual será executado no site secundário junto com o recurso secundário SAPHana.
+
+```
+sudo pcs status
+
+# Online: [ hn1-db-0 hn1-db-1 ]
+#
+# Full List of Resources:
+#   rsc_hdb_azr_agt     (stonith:fence_azure_arm):      Started hn1-db-0
+#   Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]:
+#     Started: [ hn1-db-0 hn1-db-1 ]
+#   Clone Set: SAPHana_HN1_03-clone [SAPHana_HN1_03] (promotable):
+#     Masters: [ hn1-db-0 ]
+#     Slaves: [ hn1-db-1 ]
+#   Resource Group: g_ip_HN1_03:
+#     nc_HN1_03         (ocf::heartbeat:azure-lb):      Started hn1-db-0
+#     vip_HN1_03        (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+#   Resource Group: g_secip_HN1_03:
+#     secnc_HN1_03      (ocf::heartbeat:azure-lb):      Started hn1-db-1
+#     secvip_HN1_03     (ocf::heartbeat:IPaddr2):       Started hn1-db-1
+```
+
+Na próxima seção, você pode encontrar o conjunto típico de testes de failover a serem executados.
+
+Lembre-se do segundo comportamento de IP virtual, ao testar um cluster HANA configurado com secundário habilitado para leitura:
+
+1. Quando você migra **SAPHana_HN1_HDB03** recurso de cluster para **HN1-DB-1**, o segundo IP virtual será movido para o outro servidor **HN1-dB-0**. Se você tiver configurado AUTOMATED_REGISTER = "false" e a replicação do sistema HANA não for registrada automaticamente, o segundo IP virtual será executado em **hn1-dB-0,** pois o servidor está disponível e os serviços de cluster estão online.  
+
+2. Ao testar a falha do servidor, os segundos recursos de IP virtual (**rsc_secip_HN1_HDB03**) e o recurso de porta do Azure Load Balancer (**rsc_secnc_HN1_HDB03**) serão executados no servidor primário junto com os recursos de IP virtual primários.  Enquanto o servidor secundário está inativo, os aplicativos que estão conectados ao banco de dados HANA habilitado para leitura se conectarão ao banco de dados HANA primário. O comportamento é esperado porque você não deseja que os aplicativos conectados ao banco de dados HANA habilitado para leitura fiquem inacessíveis enquanto o servidor secundário não estiver disponível.
+
+3. Quando o servidor secundário estiver disponível e os serviços de cluster estiverem online, o segundo IP virtual e os recursos de porta serão movidos automaticamente para o servidor secundário, mesmo que a replicação do sistema HANA não possa ser registrada como secundária. Você precisa se certificar de registrar o banco de dados do HANA secundário como habilitado para leitura antes de iniciar os serviços de cluster nesse servidor. Você pode configurar o recurso de cluster da instância do HANA para registrar automaticamente o secundário, definindo o parâmetro AUTOMATED_REGISTER = true.
+   
+4. Durante o failover e o fallback, as conexões existentes para aplicativos, usando o segundo IP virtual para se conectar ao banco de dados do HANA, podem ser interrompidas.  
 
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
@@ -724,7 +829,7 @@ Resource Group: g_ip_HN1_03
 ### <a name="test-the-azure-fencing-agent"></a>Testar o agente de isolamento do Azure
 
 > [!NOTE]
-> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.  
+> Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.  
 
 Estado do recurso antes de iniciar o teste:
 

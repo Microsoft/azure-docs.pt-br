@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
 ms.openlocfilehash: 461acc07ee2217a38f7bb59805d4c7e0de4a1e22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91617642"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Configurar uma rede virtual existente para uma Instância Gerenciada de SQL do Azure

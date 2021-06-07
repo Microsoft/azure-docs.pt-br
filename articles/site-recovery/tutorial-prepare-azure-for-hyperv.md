@@ -1,19 +1,16 @@
 ---
 title: Preparar o Azure para a recuperação de desastre do Hyper-V com o Azure Site Recovery
 description: Saiba como preparar o Azure para a recuperação de desastre de VMs locais do Hyper-V usando o Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec1c41935d200ad220716940f898549d835510ba
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653844"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579285"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparar recursos do Azure para recuperação de desastre do Hyper-V
 
@@ -56,7 +53,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 2. Em **Criar conta de armazenamento**, insira um nome para a conta.  O nome escolhido precisa ser exclusivo no Azure, ter de 3 a 24 caracteres e apenas usar letras minúsculas e números. Neste tutorial, use **contosovmsacct1910171607**.
 3. Em **Modelo de implantação**, selecione **Gerenciador de Recursos**.
 4. Em **Tipo de conta**, selecione **Armazenamento (uso geral v1)** . Não selecione armazenamento de blobs.
-5. Em **Replicação**, selecione o padrão **Armazenamento com redundância geográfica com acesso de leitura** para redundância de armazenamento. Mantenha a configuração Transferência segura obrigatória como Desabilitada.
+5. Em **Replicação**, selecione o padrão **Armazenamento com redundância geográfica com acesso de leitura** para redundância de armazenamento.
 6. Em **Desempenho**, selecione **Padrão**. Em seguida, em **Camada de acesso**, selecione a opção padrão **Frequente**.
 7. Em **Assinatura**, escolha a assinatura na qual deseja criar a conta de armazenamento.
 8. Em **Grupo de recursos**, digite um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Neste tutorial, use **ContosoRG**.

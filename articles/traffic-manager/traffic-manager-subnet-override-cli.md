@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 7a448afb85a35674921ce74a25eaf2a97430dc61
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 2e289728c7fde9b98256d079d45067aba1d4d805
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201409"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102211321"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Substituição de sub-rede do Gerenciador de tráfego usando CLI do Azure
 
@@ -39,7 +39,7 @@ Para criar uma substituição de sub-rede do Gerenciador de tráfego, você pode
 - Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto de extremidade do Gerenciador de tráfego com a substituição de sub-rede.
-Use CLI do Azure para atualizar seu ponto de extremidade com [AZ Network Traffic-Manager Endpoint Update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+Use CLI do Azure para atualizar seu ponto de extremidade com [AZ Network Traffic-Manager Endpoint Update](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update).
 
 ```azurecli-interactive
 ### Add a range of IPs ###
@@ -59,7 +59,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 ```
 
-Você pode remover os intervalos de endereços IP executando a [atualização de ponto de extremidade AZ Network Traffic-Manager](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) com a opção **--Remove** .
+Você pode remover os intervalos de endereços IP executando a [atualização de ponto de extremidade AZ Network Traffic-Manager](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-update) com a opção **--Remove** .
 
 ```azurecli-interactive
 az network traffic-manager endpoint update \

@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 04/14/2020
 ms.openlocfilehash: 02e64c6c6e5ab2ef77f02959ada6f95d1042b76d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94488750"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Suporte para o Marketplace comercial da Microsoft

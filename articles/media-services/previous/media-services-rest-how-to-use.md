@@ -1,9 +1,9 @@
 ---
 title: Visão geral da API REST das Operações dos Serviços de Mídia | Microsoft Docs
-description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
+description: A API REST das Operações dos Serviços de Mídia é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia do Azure. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.reviewer: johndeu
-ms.openlocfilehash: f48a01bb81829ff2bc10b4db1ed543382f992b58
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696220"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010041"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia
 
@@ -62,7 +62,7 @@ As seguintes considerações se aplicam ao usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| Cabeçalho | Type | Valor |
+| parâmetro | Type | Valor |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -76,7 +76,7 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 
 Este é um conjunto de cabeçalhos opcional:
 
-| Cabeçalho | Type | Valor |
+| parâmetro | Type | Valor |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
 | Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
@@ -90,7 +90,7 @@ Este é um conjunto de cabeçalhos opcional:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
-| Cabeçalho | Type | Valor |
+| parâmetro | Type | Valor |
 | --- | --- | --- |
 | ID da solicitação |String |Um identificador exclusivo para a operação atual, serviço gerado. |
 | ID da solicitação de cliente |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
@@ -106,7 +106,7 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 | GET |Retorna o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| DELETE |Exclui um objeto. |
+| Delete (excluir) |Exclui um objeto. |
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: trbye
 ms.openlocfilehash: dc569050b78a5797808f2e2e000019ba516ba22e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97739222"
 ---
 **Interativo**
@@ -29,7 +29,7 @@ ms.locfileid: "97739222"
 - O carbono reconectará e repetirá o áudio não confirmado.
 - Chamado em carbono com `StartContinuousRecognition` .
 
-**Comandos**
+**Ditado**
 - Permite que os usuários especifiquem a pontuação falando nisso.
 - Chamado em carbono especificando `EnableDictation` no objeto, `SpeechConfig` independentemente da chamada à API que inicia o reconhecimento.
 - O cluster de parte 1<sup>St</sup> retorna `speech.fragment` mensagens para resultados intermediários,<sup></sup> os 3 mensagens de retorno de terceiros `speech.hypothesis` .

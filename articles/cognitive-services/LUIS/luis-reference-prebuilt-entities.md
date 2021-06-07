@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541995"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798792"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
 
@@ -30,7 +30,7 @@ A menos que indicado de outra forma, entidades predefinidas estão disponíveis 
 
 |Cultura|Subculturas|Observações|
 |--|--|--|
-|Chinês|[zh-CN](#chinese-entity-support)||
+|Chinês|[ZH-CN](#chinese-entity-support)||
 |Holandês|[nl-NL](#dutch-entity-support)||
 |Inglês|[en-US (Americano)](#english-american-entity-support)||
 |Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), ||
@@ -40,7 +40,7 @@ A menos que indicado de outra forma, entidades predefinidas estão disponíveis 
 |Coreano|[ko-KR](#korean-entity-support)||
 |Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)||
 |Espanhol|[es-ES (Espanha)](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)||
-|Turco|[Turco](#turkish-entity-support)|Não há suporte para entidades predefinidas em Turco|
+|Turco|[Turco](#turkish-entity-support)||
 
 ## <a name="prediction-endpoint-runtime"></a>Tempo de execução de ponto de extremidade de previsão
 
@@ -94,7 +94,7 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-| Entidade predefinida | pt-BR |
+| Entidade predefinida | en-US |
 | --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |
@@ -268,6 +268,8 @@ Há suporte para as seguintes entidades:
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
+A frase-chave não está disponível em todas as subculturas de Português (Brasil) - ```pt-BR```.
+
 ## <a name="spanish-spain-entity-support"></a>Suporte de entidade de espanhol (Espanha)
 
 Há suporte para as seguintes entidades:
@@ -314,34 +316,25 @@ Há suporte para as seguintes entidades:
 
 Veja as observações sobre [Entidades predefinidas preteridas](luis-reference-prebuilt-deprecated.md)
 
-A frase-chave não está disponível em todas as subculturas de Português (Brasil) - ```pt-BR```.
-
 ## <a name="turkish-entity-support"></a>Suporte de entidades turcas
 
-**Não há entidades predefinidas com suporte em Turco.**
-
-<!--
-
-| Prebuilt entity | tr-tr |
+| Entidade predefinida | tr-tr |
 | --------------- | :---: |
-[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
-[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
-[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   |
+[Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milhas por hora)  |    -   |
 [Email](luis-reference-prebuilt-email.md)   |    -   |
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
-[Number](luis-reference-prebuilt-number.md)   |    -   |
+[Número](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    -   |
-[PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
+[Percentual](luis-reference-prebuilt-percentage.md)   |    -   |
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
+<!---
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
-
-
 KeyPhrase is not available.
 -->
 

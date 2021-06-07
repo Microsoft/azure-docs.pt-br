@@ -2,18 +2,20 @@
 title: Início Rápido do Serviço do Azure SignalR sem servidor – Python
 description: Um guia de início rápido de como usar o Serviço do Azure SignalR e o Azure Functions para criar uma sala de chat usando o Python.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
-ms.openlocfilehash: aaaf9011d38e7ec02e83db63757c434329b835e0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960284"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536630"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando Python
 
@@ -27,7 +29,7 @@ Certifique-se de ter um editor de código, como [Visual Studio Code](https://cod
 
 Instale [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2.7.1505 ou superior) para executar aplicativos do Azure Function do Python localmente.
 
-O Azure Functions requer o [Python 3.6 ou 3.7](https://www.python.org/downloads/).
+O Azure Functions exige o [Python 3.6 e posterior](https://www.python.org/downloads/). (Confira [Versões do Python compatíveis](/azure/azure-functions/functions-reference-python#python-version))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -116,4 +118,3 @@ Neste início rápido, você criou e executou um aplicativo sem servidor em temp
 
 > [!div class="nextstepaction"]
 > [Implantar o Azure Functions com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

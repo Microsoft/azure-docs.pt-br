@@ -1,22 +1,22 @@
 ---
 title: Gerenciar regras de firewall-portal do Azure-banco de dados do Azure para MySQL-servidor flexível
 description: Criar e gerenciar regras de firewall para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 132319575147c2ff1075881b1f1faec8bc5029f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b26ce91b005fc7bd4d5b89ccf5306dc03a040b0f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933743"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106743"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Criar e gerenciar regras de firewall para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
 
 > [!IMPORTANT]
-> O banco de dados do Azure para MySQL servidor flexível está atualmente em visualização pública.
+> Atualmente, o servidor flexível do Banco de Dados do Azure para MySQL está em versão prévia pública.
 
 O servidor flexível do banco de dados do Azure para MySQL é compatível com tipos de métodos de conectividade de rede mutuamente exclusivos, para se conectar ao seu servidor flexível. As duas opções são:
 
@@ -48,21 +48,21 @@ Neste artigo, nos concentraremos na criação do servidor MySQL com **acesso pú
 
 3. Clique em **Adicionar endereço IP do cliente atual** nas regras de firewall. Isso cria automaticamente uma regra de firewall com o endereço IP público do seu computador, como visto pelo sistema do Azure.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/2-add-my-ip.png" alt-text="Azure portal - click Add My IP":::-->
 
 4. Verifique seu endereço IP antes de salvar a configuração. Em algumas situações, o endereço IP observado pelo Portal do Azure é diferente do endereço IP usado ao acessar a Internet e os servidores do Azure. Portanto, talvez seja necessário alterar o endereço IP inicial e o endereço IP final para que a regra funcione conforme o esperado.
 
    Você pode usar um mecanismo de pesquisa ou outra ferramenta online para verificar seu próprio endereço IP. Por exemplo, pesquise "qual é meu IP".
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::-->
 
 5. Adicionar outros intervalos de endereço. Nas regras de firewall para o servidor flexível do banco de dados do Azure para MySQL, você pode especificar um único endereço IP ou um intervalo de endereços. Se você quiser limitar a regra a um único endereço IP, digite o mesmo endereço no campo para endereço IP inicial e endereço IP final. Abrir o firewall permite que administradores, usuários e aplicativos acessem qualquer banco de dados no servidor MySQL ao qual tenham credenciais válidas.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/4-specify-addresses.png" alt-text="Azure portal - firewall rules":::-->
 
 6. Clique em **salvar** na barra de ferramentas para salvar esta regra de firewall. Aguarde a confirmação de que a atualização das regras de firewall foi bem-sucedida.
 
-   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Connection Security":::-->
+   <!--:::image type="content" source="./media/howto-manage-firewall-portal/5-save-firewall-rule.png" alt-text="Azure portal - click Save":::-->
 
 ## <a name="connect-from-azure"></a>Conectar do Azure
 

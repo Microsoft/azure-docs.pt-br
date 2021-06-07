@@ -3,7 +3,7 @@ title: Configurando a telemetria dos Serviços de Mídia do Azure com o .NET | M
 description: Este artigo mostra como usar a telemetria dos Serviços de Mídia do Azure usando o SDK do .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 263bf1cd2a7e2a37a1c4fae172ce4f66b1e59b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 6bd7b472d8f42bd7872aeacf8b78aac8b249f4bd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265970"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103013719"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurando a telemetria dos Serviços de Mídia do Azure com o .NET
 
@@ -70,7 +70,7 @@ Para saber mais sobre o consumo de telemetria, consulte [este](media-services-te
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 2. Adicione o seguinte elemento às **appSettings** definidas no seu arquivo app.config:
 

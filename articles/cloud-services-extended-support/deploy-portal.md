@@ -8,19 +8,15 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9c1abe1323bc095fe4dfbfc559ef7e159d1f7532
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 306294cc654e46dbe8af80b25cb9c709071fad20
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880668"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166319"
 ---
 # <a name="deploy-a-azure-cloud-services-extended-support-using-the-azure-portal"></a>Implantar Serviços de Nuvem do Azure (suporte estendido) usando o portal do Azure
 Este artigo explica como usar o portal do Azure para criar uma implantação do Serviço de Nuvem (suporte estendido). 
-
-> [!IMPORTANT]
-> No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

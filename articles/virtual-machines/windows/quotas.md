@@ -3,17 +3,17 @@ title: Cotas de vCPU para o Azure
 description: Saiba mais sobre as cotas de vCPU para máquinas virtuais do Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: quota
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: b00d84e1c2dc8f104046fe24360d79e6952dfacc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca7d95a9916aafdab2550eee48ea05ddfa5874c1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950282"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560711"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>Verifique as cotas do vCPU usando Azure PowerShell
 

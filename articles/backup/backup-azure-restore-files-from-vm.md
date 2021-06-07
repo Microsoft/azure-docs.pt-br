@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567128"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864883"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -35,7 +35,7 @@ Para restaurar arquivos ou pastas do ponto de recuperação, vá para a máquina
 
 3. No menu painel de backup, selecione **recuperação de arquivo**.
 
-    ![Selecionar recuperação de arquivo](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Selecionar recuperação de arquivo](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     O menu **Recuperação de Arquivo** é aberto.
 
@@ -60,22 +60,28 @@ Para restaurar arquivos ou pastas do ponto de recuperação, vá para a máquina
 
 ## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Etapa 2: Verifique se o computador atende aos requisitos antes de executar o script
 
-Depois que o script for baixado com êxito, verifique se você tem o computador certo para executar esse script. A VM em que você está planejando executar o script não deve ter nenhuma das seguintes configurações sem suporte. Se tiver, escolha uma máquina alternativa preferencialmente da mesma região que atenda aos requisitos.  
+Depois que o script for baixado com êxito, verifique se você tem o computador certo para executar esse script. A VM em que você está planejando executar o script não deve ter nenhuma das seguintes configurações sem suporte. **Se tiver, escolha uma máquina alternativa preferencialmente da mesma região que atenda aos requisitos**.  
 
 ### <a name="dynamic-disks"></a>Discos dinâmicos
 
-Você não pode executar o script executável na VM com qualquer uma das seguintes características:
+Você não pode executar o script executável na VM com qualquer uma das seguintes características: escolha um computador alternativo
 
 - Volumes que abrangem vários discos (volumes estendidos e distribuídos).
 - Volumes tolerantes a falhas (volumes espelhados e RAID-5) em discos dinâmicos.
 
 ### <a name="windows-storage-spaces"></a>Espaços de Armazenamento do Windows
 
-Não é possível executar o executável baixado na VM configurada para espaços de armazenamento do Windows.
+Você não poderá executar o executável baixado na mesma VM de backup se a VM com backup tiver espaços de armazenamento do Windows. Escolha um computador alternativo.
 
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backups de máquina virtual com discos grandes
 
 Se o computador com backup tiver um grande número de discos (>16) ou discos grandes (> 4 TB cada), não é recomendável executar o script no mesmo computador para restauração, pois ele terá um impacto significativo na VM. Em vez disso, é recomendável ter uma VM separada somente para recuperação de arquivos (VMs D2v3 de VM do Azure) e, em seguida, desligá-la quando não for necessário. 
+
+Consulte os requisitos para restaurar arquivos de VMs com backup com disco grande:<br>
+[Sistema operacional Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[Sistema operacional Linux](#for-backed-up-vms-with-large-disks-linux)
+
+Depois de escolher o computador correto para executar o script ILR, verifique se ele atende aos [requisitos de sistema operacional](#step-3-os-requirements-to-successfully-run-the-script) e aos [requisitos de acesso](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Etapa 3: requisitos do sistema operacional para executar o script com êxito
 
@@ -121,6 +127,8 @@ O script também exige componentes Python e bash para executar e se conectar com
 | .NET | 4.6.2 e acima |
 | TLS | 1.2 deve ser compatível  |
 
+Além disso, verifique se você tem o [computador certo para executar o script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e se ele atende aos [requisitos de acesso](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Etapa 4: requisitos de acesso para executar o script com êxito
 
 Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
@@ -143,12 +151,13 @@ Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conect
 
 É necessário ter acesso a `download.microsoft.com` para fazer download dos componentes usados para criar um canal seguro entre o computador em que o script é executado e os dados no ponto de recuperação.
 
+Além disso, verifique se você tem o [computador certo para executar o script ILR](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) e atende aos [requisitos do sistema operacional](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>Etapa 5: executar o script e identificar os volumes
 
 ### <a name="for-windows"></a>Para Windows
 
-Depois de atender a todos os requisitos listados na etapa 2, etapa 3 e etapa 4, copie o script do local baixado (geralmente a pasta downloads), clique com o botão direito do mouse no executável ou no script e execute-o com credenciais de administrador. Quando solicitado, digite a senha ou cole a senha a partir da memória e pressione Enter. Quando a senha válida é inserida, o script conecta-se ao ponto de recuperação.
+Depois de atender a todos os requisitos listados na [etapa 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [etapa 3](#step-3-os-requirements-to-successfully-run-the-script) e [etapa 4](#step-4-access-requirements-to-successfully-run-the-script), copie o script do local baixado (geralmente a pasta de downloads), consulte a [etapa 1 para saber como gerar e baixar o script](#step-1-generate-and-download-script-to-browse-and-recover-files). Clique com o botão direito do mouse no arquivo executável e execute-o com credenciais de administrador. Quando solicitado, digite a senha ou cole a senha a partir da memória e pressione Enter. Quando a senha válida é inserida, o script conecta-se ao ponto de recuperação.
 
   ![Saída executável](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -175,7 +184,7 @@ Se o processo de recuperação de arquivo parar depois de executar o script de r
 
 ### <a name="for-linux"></a>Para Linux
 
-Para computadores Linux, um script Python é gerado. Baixe o script e copie-o para o servidor Linux relevante/compatível. Talvez seja necessário modificar as permissões para executá-lo com ```chmod +x <python file name>```. Em seguida, execute o arquivo Python com ```./<python file name>```.
+Depois de atender a todos os requisitos listados na [etapa 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [etapa 3](#step-3-os-requirements-to-successfully-run-the-script) e [etapa 4](#step-4-access-requirements-to-successfully-run-the-script), gere um script Python para computadores Linux. Consulte a [etapa 1 para saber como gerar e baixar o script](#step-1-generate-and-download-script-to-browse-and-recover-files). Baixe o script e copie-o para o servidor Linux relevante/compatível. Talvez seja necessário modificar as permissões para executá-lo com ```chmod +x <python file name>```. Em seguida, execute o arquivo Python com ```./<python file name>```.
 
 
 No Linux, os volumes do ponto de recuperação são montados para a pasta onde o script é executado. Os discos anexados, volumes e os caminhos de montagem correspondente são mostrados adequadamente. Esses caminhos de montagem ficam visíveis aos usuários que têm acesso ao nível raiz. Percorra os volumes mencionados na saída do script.

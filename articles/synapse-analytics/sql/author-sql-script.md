@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
 ms.openlocfilehash: 4ed02901aa0d6948e9c6443e5bbcf4ebfbc872f7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98118686"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Scripts SQL do Synapse Studio no Azure Synapse Analytics 

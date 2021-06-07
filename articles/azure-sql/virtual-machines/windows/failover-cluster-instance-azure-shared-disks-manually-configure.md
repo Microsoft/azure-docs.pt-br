@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 70f4ac69721db57aa06c0d8fda12189f43e79686
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ce77021e74507ead6d225081debc7024cb89a15a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537823"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102042395"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -205,7 +205,9 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso. 
+Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 (ou posterior) e o Windows Server 2016 (ou posterior), poderá usar o recurso de [nome de rede distribuída](failover-cluster-instance-distributed-network-name-dnn-configure.md) em vez disso.  
+
+Para obter mais detalhes sobre as opções de conectividade de cluster, confira [Rotear conexões HADR para o SQL Server em VMs do Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ## <a name="limitations"></a>Limitações
 

@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma assinatura do Azure existente ao seu locatário-Azure AD
-description: Instruções sobre como adicionar uma assinatura do Azure existente ao seu locatário do Azure Active Directory.
+description: Instruções sobre como adicionar uma assinatura do Azure existente ao seu locatário do Azure Active Directory (Azure AD).
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a39340f44e2c6eeae5b5f1a8e687bc73b3b0fe
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028403"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594624"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -43,19 +43,19 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
 
 - Examine a seguinte lista de alterações que ocorrerão depois que você associar ou adicionar sua assinatura e como você pode ser afetado:
 
-  - Usuários aos quais foram atribuídas funções usando o RBAC do Azure perderão seu acesso
-  - O administrador de serviços e o Co-Administrators perderão o acesso
-  - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
-  - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação
-  - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação
+  - Os usuários aos quais foram atribuídas funções usando o RBAC do Azure perderão seu acesso.
+  - O administrador de serviços e o Co-Administrators perderão o acesso.
+  - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação.
+  - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação.
+  - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação.
   - Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 - Entre usando uma conta que:
 
-  - Tem uma atribuição de função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura. Para obter informações sobre como atribuir a função de proprietário, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+  - Tem uma atribuição de função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura. Para obter informações sobre como atribuir a função de proprietário, consulte [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
   - Existe no diretório atual e no novo diretório. O diretório atual está associado à assinatura. Você associará o novo diretório à assinatura. Para obter mais informações sobre como obter acesso a outro diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../external-identities/add-users-administrator.md).
 
-- Verifique se você não está usando uma assinatura de Provedor de Serviços de Nuvem do Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma assinatura Interna da Microsoft (MS-AZR-0015P) ou Assinatura do Microsoft Imagine (MS-AZR-0144P).
+- Certifique-se de que você não está usando uma assinatura do CSP (provedores de serviços de nuvem) do Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma assinatura interna da Microsoft (MS-AZR-0015P) ou uma assinatura Microsoft Azure for Students Starter (MS-AZR-0144P).
 
 ## <a name="associate-a-subscription-to-a-directory"></a>Associar uma assinatura a um diretório<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Para associar uma assinatura existente ao seu diretório do Azure AD, siga estas
 
 1. Selecione **Alterar diretório**.
 
-   ![Página de assinaturas, com a opção Alterar diretório destacada](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Captura de tela que mostra a página assinaturas, com a opção Alterar diretório realçada.":::
 
 1. Revise todos os avisos que aparecem e, em seguida, selecione **alterar**.
 
-   ![Altere a página do diretório, mostrando o diretório para alterar para](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Captura de tela que mostra a página alterar o diretório com um diretório de exemplo e o botão Alterar realçado.":::
 
    Depois que o diretório for alterado para a assinatura, você receberá uma mensagem de êxito.
 
 1. Selecione **alternar diretórios** na página de assinatura para ir para o novo diretório.
 
-   ![Página de seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Captura de tela que mostra a página de seletor de diretório com informações de exemplo.":::
 
    Pode levar várias horas para que tudo seja exibido corretamente. Se parecer que está demorando muito, verifique o **filtro de assinatura global**. Verifique se a assinatura movida não está oculta. Talvez seja necessário sair do portal do Azure e entrar novamente para ver o novo diretório.
 
@@ -87,9 +87,9 @@ Depois de associar uma assinatura a um diretório diferente, talvez seja necess�
 
 - Se você tiver qualquer cofre de chaves, deverá alterar a ID de locatário do cofre de chaves. Para obter mais informações, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../../key-vault/general/move-subscription.md).
 
-- Se você usou identidades gerenciadas atribuídas pelo sistema para recursos, você deve reabilitar essas identidades. Se você usou identidades gerenciadas atribuídas pelo usuário, deverá recriar essas identidades. Depois de habilitar novamente ou recriar as identidades gerenciadas, você deve restabelecer as permissões atribuídas a essas identidades. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
+- Se você usou identidades gerenciadas atribuídas pelo sistema para recursos, você deve reabilitar essas identidades. Se você usou identidades gerenciadas atribuídas pelo usuário, deverá recriar essas identidades. Depois de habilitar novamente ou recriar as identidades gerenciadas, você deve restabelecer as permissões atribuídas a essas identidades. Para obter mais informações, consulte [O que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
-- Se você tiver registrado um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
+- Se você tiver registrado um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack Hub com o Azure](/azure-stack/operator/azure-stack-registration).
 
 - Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD](../../role-based-access-control/transfer-subscription.md).
 

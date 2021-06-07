@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: d352fc86f4451f60951b84929ad5d9450c1003d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 72c82e8f425b05dde37352225dd7167b089ba48a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942799"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104868453"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Apache Spark com o Apache Kafka no HDInsight
 
@@ -113,7 +113,7 @@ O Apache Kafka no HDInsight não fornece acesso para agentes de Kafka pela Inter
 
 O diagrama a seguir mostra como a comunicação flui entre o Spark e o Kafka:
 
-![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagrama de clusters Spark e Kafka em uma rede virtual do Azure" border="false":::
 
 > [!NOTE]  
 > O serviço Kafka é limitado a comunicação dentro da rede virtual. Outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -149,7 +149,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e Sp
     | Nome de usuário do SSH | O usuário do SSH para criar os clusters. |
     | Senha SSH | A senha para o usuário do SSH. |
 
-    ![Captura de tela do modelo personalizado](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
+    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Captura de tela do modelo personalizado":::
 
 3. Leia os **Termos e Condições** e, em seguida, selecione **Concordo com os termos e condições declarados acima**.
 

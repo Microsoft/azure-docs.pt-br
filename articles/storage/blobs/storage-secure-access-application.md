@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: f7c5dbaf30965fdd5f438f0351cfa2cd60e05b70
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92746555"
 ---
 # <a name="secure-access-to-application-data"></a>Proteger o acesso aos dados do aplicativo

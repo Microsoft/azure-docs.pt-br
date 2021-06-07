@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: bef59ea9e7de77e7f9a80cc3950762ea70238b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380593"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045239"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Como testar e publicar uma oferta de SaaS no Marketplace comercial
 
 Este artigo explica como usar o Partner Center para enviar sua oferta de SaaS para publicar, Visualizar sua oferta, testá-la e, em seguida, publicá-la ao mercado comercial. Você já deve ter criado uma oferta que deseja publicar.
+
+> [!NOTE]
+> É recomendável que você crie uma oferta de desenvolvimento e teste (DEV) separada como uma forma de baixo risco de teste antes de publicar sua oferta de produção (PROD). Siga estas etapas para criar e testar a oferta de desenvolvimento antes de publicar sua oferta do (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Envie sua oferta para publicação
 
@@ -32,7 +35,7 @@ Este artigo explica como usar o Partner Center para enviar sua oferta de SaaS pa
 
 1. Se qualquer uma das páginas tiver um status diferente de **concluído**, selecione o nome da página, corrija o problema, salve a página e, em seguida, selecione **revisar e publicar** novamente para retornar a esta página.
 1. Depois que todas as páginas forem concluídas, na caixa **notas de certificação** , forneça instruções de teste para a equipe de certificação para garantir que seu aplicativo seja testado corretamente. Forneça notas suplementares úteis para entender seu aplicativo.
-1. Para iniciar o processo de publicação para sua oferta, selecione **publicar**. A página **visão geral da oferta** é exibida e mostra o **status de publicação**da oferta.
+1. Para iniciar o processo de publicação para sua oferta, selecione **publicar**. A página **visão geral da oferta** é exibida e mostra o **status de publicação** da oferta.
 
 O status de publicação de sua oferta será alterado conforme ele se mover pelo processo de publicação. Para obter informações detalhadas sobre esse processo, consulte [etapas de validação e publicação](review-publish-offer.md#validation-and-publishing-steps).
 
@@ -42,31 +45,33 @@ Quando a oferta estiver pronta para sua aprovação, enviaremos um email para so
 
 A captura de tela a seguir mostra a página **visão geral da oferta** para uma oferta de SaaS, com dois links de visualização sob o botão **Go Live** . As etapas de validação que você verá nessa página variam de acordo com as seleções feitas quando você criou a oferta.
 
-![Ilustra a página Visão geral da oferta para uma oferta no Partner Center. O botão Go Live e os links de visualização são mostrados.](media/publish-status-publisher-signoff.png)
+![Ilustra a página Visão geral da oferta para uma oferta no Partner Center. O botão Go Live e os links de visualização são mostrados. O link Exibir relatório de validação também é mostrado em validação automatizada.](./media/review-publish-offer/publish-status-saas.png)
 
 Use as etapas a seguir para visualizar sua oferta.
 
-1. Na página **visão geral da oferta** , selecione um link de visualização no botão **ir ao vivo** . 
+1. Na página **visão geral da oferta** , selecione um link de visualização no botão **ir ao vivo** .
 
-1. Para validar o fluxo de compra e configuração de ponta a ponta, compre sua oferta enquanto ela estiver em versão prévia. Primeiro, notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança.
+1. Para validar o fluxo de compra e configuração de ponta a ponta, compre os planos em sua oferta enquanto estiver em versão prévia. Primeiro, notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança.
 
 1. Se sua oferta de SaaS oferecer suporte à [cobrança limitada usando o serviço de medição do Marketplace comercial](./partner-center-portal/saas-metered-billing.md), examine e siga as práticas recomendadas de teste detalhadas em [APIs de cobrança limitadas do Marketplace](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Examine e siga as instruções de teste em [APIs de preenchimento de SaaS versão 2 no Microsoft Commercial Marketplace](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) para garantir que sua oferta seja integrada com êxito às APIs antes de publicar sua oferta ao vivo.
 
+1. Se a etapa de validação da oferta resultar em avisos, um link **Exibir relatório de validação** aparecerá na página **visão geral da oferta** . Certifique-se de examinar o relatório e resolver os problemas antes de selecionar o botão **ir ao vivo** . Caso contrário, a certificação provavelmente falhará e atrasará a sua oferta de entrar em funcionamento.
+
 1. Se você precisar fazer alterações depois de Visualizar e testar a oferta, poderá editar e reenviar para publicar uma nova visualização. Para obter mais informações, consulte [atualizar uma oferta existente no Marketplace comercial](./partner-center-portal/update-existing-offer.md).
 
 ## <a name="publish-your-offer-live"></a>Publicar sua oferta em tempo real
 
-Depois de concluir todos os testes em sua versão prévia, selecione **entrar em tempo real** para publicar sua oferta ao vivo no Marketplace comercial.
+Depois de concluir todos os testes em sua versão prévia, selecione **entrar em tempo real** para publicar sua oferta ao vivo no Marketplace comercial. Se sua oferta já estiver ativa no Marketplace comercial, todas as atualizações feitas não entrarão em operação até que você selecione **entrar em ativação**.
 
-   > [!TIP]
-   > Se sua oferta já estiver ativa no Marketplace comercial, todas as atualizações feitas não entrarão em operação até que você selecione **entrar em ativação**.
+> [!IMPORTANT]
+> Nunca selecione **entrar em ativação** para uma [oferta de desenvolvimento/teste](create-saas-dev-test-offer.md).
 
 Agora que você optou por disponibilizar sua oferta no Marketplace comercial, realizamos uma série de verificações de validação finais para garantir que a oferta ao vivo seja configurada como a versão de visualização da oferta. Para obter detalhes sobre essas verificações de validação, consulte [fase de publicação](review-publish-offer.md#publish-phase).
 
 Depois que essas verificações de validação forem concluídas, sua oferta estará ativa no Marketplace.
 
-## <a name="next-step"></a>Próxima etapa
+## <a name="next-steps"></a>Próximas etapas
 
-[Acessar relatórios analíticos para o mercado comercial no Partner Center](./partner-center-portal/analytics.md)
+- [Acessar relatórios analíticos para o mercado comercial no Partner Center](./partner-center-portal/analytics.md)

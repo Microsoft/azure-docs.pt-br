@@ -1,17 +1,17 @@
 ---
 title: Tipos de preço-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para PostgreSQL-servidor único.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 119a68c4081cfc4fff6dc35b21badfac0397970b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791131"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605103"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no Banco de Dados do Azure para PostgreSQL - Servidor único
 

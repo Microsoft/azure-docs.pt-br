@@ -2,18 +2,18 @@
 title: Red Hat Enterprise Linux imagens disponíveis no Azure
 description: Saiba mais sobre imagens do Red Hat Enterprise Linux no Microsoft Azure
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411607"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676035"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) imagens disponíveis no Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -41,7 +41,7 @@ RHEL          | 6.7      | RAW    | Agente do Linux | Suporte estendido ao ciclo
 |             | 7.3      | RAW    | Agente do Linux |
 |             | 7.4      | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão a partir de abril de 2019.
 |             | 74-Gen2  | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão.
-|             | 7,5      | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão a partir de junho de 2019.
+|             | 7.5      | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão a partir de junho de 2019.
 |             | 75-Gen2  | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão.
 |             | 7.6      | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão a partir de maio de 2019.
 |             | 76-Gen2  | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão.
@@ -65,7 +65,7 @@ RHEL          | 6.7      | RAW    | Agente do Linux | Suporte estendido ao ciclo
 |             | 83-Gen2   | LVM    | Agente do Linux |Hyper-V geração 2-anexado a repositórios regulares (EUS não disponível para RHEL 8,3)
 RHEL-SAP      | 7.4      | LVM    | Agente do Linux | RHEL 7,4 para aplicativos de SAP HANA e de negócios. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
 |             | 74sap-Gen2| LVM    | Agente do Linux | RHEL 7,4 para aplicativos de SAP HANA e de negócios. Imagem de geração 2. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
-|             | 7,5       | LVM    | Agente do Linux | RHEL 7,5 para aplicativos de SAP HANA e de negócios. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
+|             | 7.5       | LVM    | Agente do Linux | RHEL 7,5 para aplicativos de SAP HANA e de negócios. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
 |             | 75sap-Gen2| LVM    | Agente do Linux | RHEL 7,5 para aplicativos de SAP HANA e de negócios. Imagem de geração 2. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
 |             | 7.6       | LVM    | Agente do Linux | RHEL 7,6 para aplicativos de SAP HANA e de negócios. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
 |             | 76sap-Gen2| LVM    | Agente do Linux | RHEL 7,6 para aplicativos de SAP HANA e de negócios. Imagem de geração 2. Anexados aos repositórios do E4S, o cobrará um Premium para SAP e RHEL, bem como a taxa de computação base.
@@ -84,11 +84,11 @@ RHEL-SAP-APPS | 6,8       | RAW    | Agente do Linux | RHEL 6,8 para SAP Busines
 |             | 8.2       | LVM    | Agente do Linux | RHEL 8,2 para SAP Business Applications.
 |             | 82-Gen2      | LVM    | Agente do Linux | RHEL 8,2 para SAP Business Applications. Imagem de geração 2.
 RHEL-HA       | 7.4       | LVM    | Agente do Linux | RHEL 7,4 com complemento de alta disponibilidade. Cobrará uma Premium para HA e RHEL sobre a taxa de computação base. Desatualizado em favor das imagens RHEL-SAP-HA.
-|             | 7,5       | LVM    | Agente do Linux | RHEL 7,5 com complemento de alta disponibilidade. Cobrará uma Premium para HA e RHEL sobre a taxa de computação base. Desatualizado em favor das imagens RHEL-SAP-HA.
+|             | 7.5       | LVM    | Agente do Linux | RHEL 7,5 com complemento de alta disponibilidade. Cobrará uma Premium para HA e RHEL sobre a taxa de computação base. Desatualizado em favor das imagens RHEL-SAP-HA.
 |             | 7.6       | LVM    | Agente do Linux | RHEL 7,6 com complemento de alta disponibilidade. Cobrará uma Premium para HA e RHEL sobre a taxa de computação base. Desatualizado em favor das imagens RHEL-SAP-HA.
 RHEL-SAP-HA   | 7.4          | LVM    | Agente do Linux | RHEL 7,4 para SAP com HA e serviços de atualização. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
 |             | 74sapha-Gen2 | LVM    | Agente do Linux | RHEL 7,4 para SAP com HA e serviços de atualização. Imagem de geração 2. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
-|             | 7,5          | LVM    | Agente do Linux | RHEL 7,5 para SAP com HA e serviços de atualização. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
+|             | 7.5          | LVM    | Agente do Linux | RHEL 7,5 para SAP com HA e serviços de atualização. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
 |             | 7.6          | LVM    | Agente do Linux | RHEL 7,6 para SAP com HA e serviços de atualização. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
 |             | 76sapha-Gen2 | LVM    | Agente do Linux | RHEL 7,6 para SAP com HA e serviços de atualização. Imagem de geração 2. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.
 |             | 7.7          | LVM    | Agente do Linux | RHEL 7,7 para SAP com HA e serviços de atualização. Anexado a repositórios do E4S. Cobrará um prêmio Premium para repositórios SAP e HA, bem como RHEL, sobre as taxas de computação base.

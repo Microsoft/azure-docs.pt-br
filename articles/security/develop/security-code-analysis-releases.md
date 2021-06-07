@@ -4,7 +4,7 @@ description: Este artigo descreve as versões futuras para a extensão de análi
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/24/2020
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7596df66dbcbe1b7cdefab4811da7174bc83ac65
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362033"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801172"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Roteiros e lançamentos de análise de código de segurança da Microsoft
+
+> [!Note]
+> A partir de 1º de março de 2022, a extensão MSCA (análise de código de segurança da Microsoft) será desativada. Os clientes MSCA existentes manterão seu acesso ao MSCA até 1º de março de 2022. Consulte as ferramentas de [análise de código-fonte OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) para obter opções alternativas no Azure DevOps. Para os clientes que planejam migrar para o GitHub, você pode conferir a [segurança avançada do GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 A equipe de análise de código de segurança da Microsoft em parceria com Suporte Developer tem o orgulho de anunciar aprimoramentos recentes e futuros em nossa extensão MSCA.
 

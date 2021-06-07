@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: tomfitz
 ms.openlocfilehash: 2fdbbad467d8c762db485fc7935e9cef78313fd0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184443"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento de interface do usuário Microsoft. Common. ServicePrincipalSelector

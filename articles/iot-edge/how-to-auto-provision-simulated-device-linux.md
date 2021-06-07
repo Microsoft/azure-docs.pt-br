@@ -8,16 +8,23 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 9356da9516ea17243be8e0e5519ec4b19e06db8a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430621"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200867"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e provisionar um dispositivo IoT Edge com um TPM no Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Este artigo mostra como testar o provisionamento automático em um dispositivo IoT Edge Linux usando um Trusted Platform Module (TPM). Você pode provisionar automaticamente Azure IoT Edge dispositivos com o [serviço de provisionamento de dispositivos](../iot-dps/index.yml). Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Atualmente, o provisionamento automático usando a autenticação do TPM não tem suporte na versão IoT Edge 1,2.
+:::moniker-end
 
 As tarefas são as seguintes:
 

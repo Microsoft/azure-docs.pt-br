@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154739"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
@@ -47,7 +47,7 @@ Nesse cenário, quando o usuário faz logon, o front-end de JavaScript usa a [Bi
 
 Veja os [exemplos de código para cenários de aplicativo de página única](sample-v1-code.md#single-page-applications). Volte sempre, pois novos exemplos são adicionados com frequência.
 
-## <a name="app-registration"></a>Registro do aplicativo
+## <a name="app-registration"></a>Registro de aplicativo
 
 * Locatário único – se você estiver criando um aplicativo apenas para sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário – se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.

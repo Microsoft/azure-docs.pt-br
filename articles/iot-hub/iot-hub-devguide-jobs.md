@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730101"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
@@ -183,7 +183,7 @@ A lista a seguir mostra as propriedades e descrições correspondentes que podem
 | **jobId** |ID fornecida pelo aplicativo para o trabalho. |
 | **startTime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
 | **Final** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
-| **type** |Tipos de trabalhos: |
+| **tipo** |Tipos de trabalhos: |
 | | **scheduleUpdateTwin**: um trabalho usado para atualizar um conjunto de propriedades ou marcas desejadas. |
 | | **scheduleDeviceMethod**: um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. |
 | **status** |Estado atual do trabalho. Valores possíveis para o status: |

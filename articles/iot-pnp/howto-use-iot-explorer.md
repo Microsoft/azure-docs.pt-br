@@ -9,10 +9,10 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: b0a86a32148086a3b644d0bf147d12be0d812536
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97030308"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
@@ -33,7 +33,7 @@ Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 
 ## <a name="install-azure-iot-explorer"></a>Instalar o Azure IoT Explorer
 
-Vá para [versões do Azure IOT Explorer](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para a versão mais recente. Baixe e instale a versão mais recente do aplicativo.
+Acesse as [versões do Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para a versão mais recente. Baixe e instale a versão mais recente do aplicativo.
 
 >[!Important]
 > Atualize para a versão 0,13. x para resolver modelos de qualquer repositório com base em [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)

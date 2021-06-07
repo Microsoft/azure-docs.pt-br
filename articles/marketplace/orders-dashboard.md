@@ -1,5 +1,5 @@
 ---
-title: Painel de pedidos do Partner Center em análise de Marketplace comercial, Microsoft AppSource e Azure Marketplace
+title: Painel de pedidos do Partner Center na análise do Marketplace comercial | Microsoft AppSource e o Azure Marketplace
 description: Saiba como acessar relatórios analíticos sobre seus pedidos de oferta do Marketplace comercial em um formato gráfico e baixável.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955018"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561374"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos na análise do marketplace comercial
 
@@ -111,32 +111,32 @@ A tabela detalhes do pedido exibe uma lista numerada dos 1.000 principais pedido
 - Aplique filtros à tabela **detalhes do pedido** para exibir apenas os dados dos quais você está interessado. Filtrar por país/região, tipo de licença do Azure, tipo de licença do Marketplace comercial, tipo de oferta, status do pedido, trilhas gratuitas, ID da assinatura do Marketplace comercial, ID do cliente e nome da empresa.
 - Quando um pedido é adquirido por um cliente protegido, as informações em **pedidos dados detalhados** são mascaradas (* * * * * * * * * * * *).
 
-**_Tabela 1: dicionário de termos de dados_* _
+***Tabela 1: dicionário de termos de dados***
 
-| Nome da coluna | Nome do atributo | Definição |
-| ------------ | ------------- | ------------- |
-| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Para ofertas de infraestrutura, esse é o GUID de assinatura do Azure do cliente. Para ofertas de SaaS, isso é mostrado como zeros, pois as compras de SaaS não exigem uma assinatura do Azure. |
-| MonthStartDate | Data de início do mês | Data de início do mês representa o mês de compra. |
-| Tipo de Oferta | Tipo de Oferta | O tipo de oferta do Marketplace comercial. |
-| Tipo de licença do Azure | Tipo de licença do Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de soluções de nuvem</li><li>Enterprise</li><li>Enterprise por meio do revendedor</li><li>Pré-pago</li></ul> |
-| Tipo de licença do Marketplace | Tipo de licença do Marketplace | O método de cobrança da oferta do Marketplace comercial. Os valores diferentes são:<ul><li>Cobrado por meio do Azure</li><li>Traga sua própria licença</li><li>Gratuita</li><li>Microsoft como revendedor</li></ul> |
-| SKU | SKU | O plano associado à oferta |
-| País/Região do cliente | País/região do cliente | O nome do país/região fornecido pelo cliente. O país/região pode ser diferente do país/região na assinatura do Azure de um cliente. |
-| É SKU de versão prévia | É SKU de versão prévia | O valor informará se você marcou o SKU como "versão prévia". O valor será "Sim" se o SKU tiver sido devidamente marcado e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "Não" se o SKU não tiver sido identificado como "versão prévia". |
-| ID do pedido | ID do pedido | O identificador exclusivo da ordem do cliente para seu serviço do Marketplace comercial. As ofertas baseadas no uso da máquina virtual não estão associadas a um pedido. |
-| Order Quantity | Order Quantity | Número de ativos associados à ID do pedido para pedidos ativos |
-| Nome da instância de nuvem | Nome da instância de nuvem | A Microsoft Cloud em que ocorreu uma implantação de VM. |
-| É cliente novo | É cliente novo | O valor identifica se um novo cliente adquiriu uma ou mais de suas ofertas pela primeira vez. O valor será "Sim" se estiver no mesmo mês do calendário que a "data de aquisição". O valor será "não" se o cliente tiver comprado uma das suas ofertas antes do mês do calendário informado. |
-| Status do pedido | Status do pedido | O status de uma ordem de Marketplace comercial no momento em que os dados foram atualizados pela última vez. |
-| Data de cancelamento do pedido | Data de cancelamento do pedido | A data em que a ordem do Marketplace comercial foi cancelada. |
-| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente. |
-| Data de compra do pedido | Data de compra do pedido | A data em que a ordem do Marketplace comercial foi criada. |
-| Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. |
-| Data de término da avaliação gratuita | Data de término da avaliação gratuita | A data em que o período de avaliação gratuita deste pedido terminará ou terminou. |
-| Customer Id | ID do Cliente | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace. |
-| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Map _ *ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios Customer, Order e Usage. |
-| AssetCount | Contagem de ativos | O número de ativos associados à ID do pedido. |
-||||
+| Nome da coluna em<br>interface do usuário | Nome do atributo | Definição | Nome da coluna em programação<br>relatórios do Access |
+| ------------ | ------------- | ------------- | ------------- |
+| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Para ofertas de infraestrutura, esse é o GUID de assinatura do Azure do cliente. Para ofertas de SaaS, isso é mostrado como zeros, pois as compras de SaaS não exigem uma assinatura do Azure. | ID da assinatura do Marketplace |
+| MonthStartDate | Data de início do mês | Data de início do mês representa o mês de compra. O formato é aaaa-mm-dd. | MonthStartDate |
+| Tipo de Oferta | Tipo de Oferta | O tipo de oferta do Marketplace comercial. | OfferType |
+| Tipo de licença do Azure | Tipo de licença do Azure | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como Canal. Os valores possíveis são:<ul><li>Provedor de soluções de nuvem</li><li>Enterprise</li><li>Enterprise por meio do revendedor</li><li>Pré-pago</li></ul> | AzureLicenseType |
+| Tipo de licença do Marketplace | Tipo de licença do Marketplace | O método de cobrança da oferta do Marketplace comercial. Os valores diferentes são:<ul><li>Cobrado por meio do Azure</li><li>Traga sua própria licença</li><li>Gratuita</li><li>Microsoft como revendedor</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | O plano associado à oferta | SKU |
+| País/Região do cliente | País/região do cliente | O nome do país/região fornecido pelo cliente. O país/região pode ser diferente do país/região na assinatura do Azure de um cliente. | CustomerCountry |
+| É SKU de versão prévia | É SKU de versão prévia | O valor informará se você marcou o SKU como "versão prévia". O valor será "Sim" se o SKU tiver sido devidamente marcado e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "Não" se o SKU não tiver sido identificado como "versão prévia". | IsPreviewSKU |
+| ID do pedido | ID do pedido | O identificador exclusivo da ordem do cliente para seu serviço do Marketplace comercial. As ofertas baseadas no uso da máquina virtual não estão associadas a um pedido. | OrderId |
+| Order Quantity | Order Quantity | Número de ativos associados à ID do pedido para pedidos ativos | OrderQuantity |
+| Nome da instância de nuvem | Nome da instância de nuvem | A Microsoft Cloud em que ocorreu uma implantação de VM. | Nome da instância na nuvem |
+| É cliente novo | É cliente novo | O valor identifica se um novo cliente adquiriu uma ou mais de suas ofertas pela primeira vez. O valor será "Sim" se estiver no mesmo mês do calendário que a "data de aquisição". O valor será "não" se o cliente tiver comprado uma das suas ofertas antes do mês do calendário informado. | IsNewCustomer |
+| Status do pedido | Status do pedido | O status de uma ordem de Marketplace comercial no momento em que os dados foram atualizados pela última vez. | OrderStatus |
+| Data de cancelamento do pedido | Data de cancelamento do pedido | A data em que a ordem do Marketplace comercial foi cancelada. | OrderCancelDate |
+| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente. | CustomerCompanyName |
+| Data de compra do pedido | Data de compra do pedido | A data em que a ordem do Marketplace comercial foi criada. O formato é aaaa-mm-dd. | OrderPurchaseDate |
+| Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. | OfferName |
+| Data de término da avaliação gratuita | Data de término da avaliação gratuita | A data em que o período de avaliação gratuita deste pedido terminará ou terminou. | TrialEndDate |
+| ID do Cliente | ID do Cliente | O identificador exclusivo atribuído a um cliente. Um cliente pode ter zero ou mais assinaturas do Azure Marketplace. | CustomerId |
+| ID da conta de cobrança | ID da conta de cobrança | O identificador da conta na qual a cobrança é gerada. Mapeie a **ID da conta de cobrança** para **CustomerID** para conectar seu relatório de transação de pagamento com os relatórios de cliente, de pedido e de uso. | BillingAccountId |
+| AssetCount | Contagem de ativos | O número de ativos associados à ID do pedido. | Preterido |
+|||||
 
 ### <a name="orders-page-filters"></a>Filtros de página de pedidos
 

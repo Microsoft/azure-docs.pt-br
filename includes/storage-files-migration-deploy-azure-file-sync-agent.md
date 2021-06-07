@@ -8,15 +8,15 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: f038392f03b94aa2c2450531c9da4a11d9900295
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93043191"
 ---
 Nesta seção, você instalará o agente de Sincronização de Arquivos do Azure em sua instância do Windows Server.
 
-O [Guia de implantação](../articles/storage/files/storage-sync-files-deployment-guide.md) ilustra que você precisa desativar a **configuração de segurança reforçada do Internet Explorer** . Essa medida de segurança não é aplicável com Sincronização de Arquivos do Azure. Desativá-lo permite que você se autentique no Azure sem problemas.
+O [Guia de implantação](../articles/storage/files/storage-sync-files-deployment-guide.md) ilustra que você precisa desativar a **configuração de segurança reforçada do Internet Explorer**. Essa medida de segurança não é aplicável com Sincronização de Arquivos do Azure. Desativá-lo permite que você se autentique no Azure sem problemas.
 
 Abra o PowerShell e instale os módulos do PowerShell necessários usando os comandos a seguir. Certifique-se de instalar o módulo completo e o provedor do NuGet quando for solicitado.
 
@@ -37,4 +37,4 @@ Essas etapas são descritas mais detalhadamente no guia de implantação, que in
 
 Use o agente mais recente. Você pode baixá-lo no centro de download da Microsoft: [agente de sincronização de arquivos do Azure](https://aka.ms/AFS/agent "Download do agente de Sincronização de Arquivos do Azure").
 
-Após uma instalação bem-sucedida e um registro de servidor, você pode verificar se concluiu com êxito esta etapa. Vá para o recurso serviço de sincronização de armazenamento no portal do Azure. No menu à esquerda, vá para **servidores registrados** . Você verá o servidor listado lá.
+Após uma instalação bem-sucedida e um registro de servidor, você pode verificar se concluiu com êxito esta etapa. Vá para o recurso serviço de sincronização de armazenamento no portal do Azure. No menu à esquerda, vá para **servidores registrados**. Você verá o servidor listado lá.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: f4fa1e64e00f2ae027d80960072da7d73d3a89cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 713559a747b58e65d04c8310755baedc93db929e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946831"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104863149"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -66,7 +66,7 @@ As ofertas de conformidade do Azure baseiam-se em vários tipos de garantia, inc
 
 A imagem a seguir resume as principais áreas de segurança do sistema e as soluções de segurança que estão disponíveis para você em cada uma delas. Ele também realça quais áreas de segurança são de sua responsabilidade como um cliente. E quais áreas são de responsabilidade do HDInsight como o provedor de serviços.
 
-![Diagrama de responsabilidades compartilhadas do HDInsight](./media/hdinsight-security-overview/hdinsight-shared-responsibility.png)
+:::image type="content" source="./media/hdinsight-security-overview/hdinsight-shared-responsibility.png" alt-text="Diagrama de responsabilidades compartilhadas do HDInsight" border="false":::
 
 A tabela a seguir fornece links para recursos para cada tipo de solução de segurança.
 

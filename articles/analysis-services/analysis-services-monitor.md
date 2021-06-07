@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84690369"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100582676"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
 
-Analysis Services fornece métricas no Azure Metrics Explorer, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a integridade de seus servidores. Por exemplo, monitore a memória e o uso da CPU, o número de conexões de cliente e o consumo de recursos de consulta. O Analysis Services usa a mesma estrutura de monitoramento que a maioria dos outros serviços do Azure. Para saber mais, confira [introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
+Analysis Services fornece métricas no Azure Metrics Explorer, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a integridade de seus servidores. Por exemplo, monitore a memória e o uso da CPU, o número de conexões de cliente e o consumo de recursos de consulta. O Analysis Services usa a mesma estrutura de monitoramento que a maioria dos outros serviços do Azure. Para saber mais, confira [introdução ao Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
 Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar tendências em vários recursos de serviço em um grupo de recursos ou assinatura, use o [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (serviço) pode resultar em um serviço faturável.
 
@@ -37,7 +37,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
 Use essa tabela para determinar quais métricas são melhores para o seu cenário de monitoramento. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: Conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|
@@ -89,5 +89,5 @@ Use essa tabela para determinar quais métricas são melhores para o seu cenári
 
 ## <a name="next-steps"></a>Próximas etapas
 [Visão geral de Azure Monitor](../azure-monitor/overview.md)      
-[Introdução ao Metrics Explorer do Azure](../azure-monitor/platform/metrics-getting-started.md)      
+[Introdução ao Metrics Explorer do Azure](../azure-monitor/essentials/metrics-getting-started.md)      
 [Métricas na API REST do Azure Monitor](/rest/api/monitor/metrics)

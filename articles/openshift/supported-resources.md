@@ -3,15 +3,15 @@ title: Recursos com suporte para o Red Hat OpenShift 3.11 no Azure
 description: Entenda quais regiões do Azure e tamanhos de máquina virtual têm suporte Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0837ae110b84cdff690fe76e13923a0ab60996
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82203668"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100635601"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos do Azure Red Hat OpenShift
 

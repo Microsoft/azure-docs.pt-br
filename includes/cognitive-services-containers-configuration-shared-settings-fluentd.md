@@ -5,17 +5,17 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96001130"
 ---
 O Fluentd é um coletor de dados de software livre para registro em log unificado. As configurações do `Fluentd` gerenciam a conexão do contêiner com um servidor [Fluentd](https://www.fluentd.org). O contêiner inclui um provedor de registro em log do Fluentd, que permite que seu contêiner grave logs e, opcionalmente, dados de métrica para um servidor do Fluentd.
 
 A tabela a seguir descreve as definições de configuração com suporte sob o `Fluentd` seção.
 
-| Name | Tipo de dados | Descrição |
+| Nome | Tipo de dados | Descrição |
 |------|-----------|-------------|
 | `Host` | String | O endereço IP ou o nome do host DNS do servidor Fluentd. |
 | `Port` | Integer | A porta do servidor Fluentd.<br/> O valor padrão é 24224. |

@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.openlocfilehash: 694acc0005e90d8299d46528f83ba68ea3fcf1c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931183"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0

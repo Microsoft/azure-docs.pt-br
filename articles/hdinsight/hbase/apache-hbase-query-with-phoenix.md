@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Apache HBase e Apache Phoenix - Azure HDInsight'
+title: 'Guia de início rápido: usar o Apache HBase e o Apache Phoenix – Azure HDInsight'
 description: Neste início rápido, você aprendeu a usar o Apache Phoenix no HDInsight. Além disso, saiba como instalar e configurar o SQLLine no seu computador para se conectar a um cluster HBase no HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: 6b9196d9ad5cf07cd210726bc1af7121c08094a8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98935994"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Início Rápido: Consulta do Apache HBase no Azure HDInsight com o Apache Phoenix
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Guia de início rápido: consultar o Apache HBase no Azure HDInsight usando o Apache Phoenix
 
 Neste início rápido, você aprenderá a usar o Apache Phoenix para executar consultas do HBase no Azure HDInsight. O Apache Phoenix é um mecanismo de consulta SQL para o Apache HBase. Ele é acessado como um driver JDBC e permite consultar e gerenciar tabelas do HBase utilizando o SQL. [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
 
@@ -56,7 +56,7 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o Ap
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Altere o diretório para o cliente do Phoenix. Insira o seguinte comando:
+2. Altere o diretório para o cliente do Phoenix. Digite o seguinte comando:
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
@@ -68,44 +68,44 @@ Você pode usar o SSH para se conectar a clusters HBase e, em seguida, usar o Ap
     ./sqlline.py ZOOKEEPER:2181:/hbase-unsecure
     ```
 
-4. Crie uma tabela do HBase. Insira o seguinte comando:
+4. Crie uma tabela do HBase. Digite o seguinte comando:
 
     ```sql
     CREATE TABLE Company (company_id INTEGER PRIMARY KEY, name VARCHAR(225));
     ```
 
-5. Use o comando `!tables` do SQLLine para listar todas as tabelas no HBase. Insira o seguinte comando:
+5. Use o comando `!tables` do SQLLine para listar todas as tabelas no HBase. Digite o seguinte comando:
 
     ```sqlline
     !tables
     ```
 
-6. Insira os valores na tabela. Insira o seguinte comando:
+6. Insira os valores na tabela. Digite o seguinte comando:
 
     ```sql
     UPSERT INTO Company VALUES(1, 'Microsoft');
     UPSERT INTO Company VALUES(2, 'Apache');
     ```
 
-7. Consulte a tabela. Insira o seguinte comando:
+7. Consulte a tabela. Digite o seguinte comando:
 
     ```sql
     SELECT * FROM Company;
     ```
 
-8. Exclua um registro. Insira o seguinte comando:
+8. Exclua um registro. Digite o seguinte comando:
 
     ```sql
     DELETE FROM Company WHERE COMPANY_ID=1;
     ```
 
-9. Descarte a tabela. Insira o seguinte comando:
+9. Descarte a tabela. Digite o seguinte comando:
 
     ```hbase
     DROP TABLE Company;
     ```
 
-10. Use o comando `!quit` do SQLLine para sair do SQLLine. Insira o seguinte comando:
+10. Use o comando `!quit` do SQLLine para sair do SQLLine. Digite o seguinte comando:
 
     ```sqlline
     !quit

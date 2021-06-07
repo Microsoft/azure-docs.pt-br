@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102539"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteca de autenticação na Web do Microsoft Identity

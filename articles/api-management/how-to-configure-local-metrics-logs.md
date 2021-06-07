@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526663"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594178"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurar métricas locais e logs para o gateway auto-hospedado do gerenciamento de API do Azure
 
@@ -152,9 +152,9 @@ Agora que ambas as estatísticas e Prometheus foram implantadas, podemos atualiz
 | Campo  | Padrão | Descrição |
 | ------------- | ------------- | ------------- |
 | telemetria. métricas. local  | `none` | Habilita o registro em log por meio de estatísticas. O valor pode ser `none` , `statsd` . |
-| telemetria. métricas. local. stats. EndPoint  | n/a | Especifica o ponto de extremidade com estatísticas. |
-| telemetria. métricas. local. stats. amostragem  | n/a | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo, `0.5`|
-| telemetria. Metrics. local. stated. Tag-Format  | n/a | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
+| telemetria. métricas. local. stats. EndPoint  | N/D | Especifica o ponto de extremidade com estatísticas. |
+| telemetria. métricas. local. stats. amostragem  | N/D | Especifica a taxa de amostragem de métricas. O valor pode estar entre 0 e 1. por exemplo, `0.5`|
+| telemetria. Metrics. local. stated. Tag-Format  | N/D | [Formato de marcação](https://github.com/prometheus/statsd_exporter#tagging-extensions)de exportador com estatísticas. O valor pode ser `none` , `librato` , `dogStatsD` , `influxDB` . |
 
 Aqui está uma configuração de exemplo:
 
@@ -204,7 +204,7 @@ O gateway auto-hospedado gera logs para `stdout` e `stderr` por padrão. Você p
 kubectl logs <pod-name>
 ```
 
-Se o seu gateway auto-hospedado for implantado no serviço kubernetes do Azure, você poderá habilitar [Azure monitor para contêineres](../azure-monitor/insights/container-insights-overview.md) coletar `stdout` e `stderr` de suas cargas de trabalho e exibir os logs em log Analytics. 
+Se o seu gateway auto-hospedado for implantado no serviço kubernetes do Azure, você poderá habilitar [Azure monitor para contêineres](../azure-monitor/containers/container-insights-overview.md) coletar `stdout` e `stderr` de suas cargas de trabalho e exibir os logs em log Analytics. 
 
 O gateway auto-hospedado também dá suporte a vários protocolos `localsyslog` , incluindo, `rfc5424` e `journal` . A tabela abaixo resume todas as opções com suporte. 
 
@@ -212,11 +212,11 @@ O gateway auto-hospedado também dá suporte a vários protocolos `localsyslog` 
 | ------------- | ------------- | ------------- |
 | telemetria. logs. STD  | `text` | Habilita o registro em log para fluxos padrão. O valor pode ser `none` , `text` , `json` |
 | telemetria. logs. local  | `none` | Habilita o log local. O valor pode ser `none` , `auto` ,, `localsyslog` `rfc5424` , `journal`  |
-| telemetria. logs. local. localsyslog. EndPoint  | n/a | Especifica o ponto de extremidade localsyslog.  |
-| telemetria. logs. local. localsyslog. Facility  | n/a | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo, `7` 
-| telemetria. logs. local. rfc5424. EndPoint  | n/a | Especifica o ponto de extremidade rfc5424.  |
-| telemetria. logs. local. rfc5424. Facility  | n/a | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo, `7`  |
-| telemetria. logs. local. Journal. EndPoint  | n/a | Especifica o ponto de extremidade do diário.  |
+| telemetria. logs. local. localsyslog. EndPoint  | N/D | Especifica o ponto de extremidade localsyslog.  |
+| telemetria. logs. local. localsyslog. Facility  | N/D | Especifica o [código de instalação](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. por exemplo, `7` 
+| telemetria. logs. local. rfc5424. EndPoint  | N/D | Especifica o ponto de extremidade rfc5424.  |
+| telemetria. logs. local. rfc5424. Facility  | N/D | Especifica o código de instalação por [rfc5424](https://tools.ietf.org/html/rfc5424). por exemplo, `7`  |
+| telemetria. logs. local. Journal. EndPoint  | N/D | Especifica o ponto de extremidade do diário.  |
 
 Aqui está um exemplo de configuração de log local:
 

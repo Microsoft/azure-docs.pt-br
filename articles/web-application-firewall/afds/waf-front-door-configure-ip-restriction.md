@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 65e378c0380804c13e4b42d855aede7781b93592
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746755"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102211661"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para a porta frontal do Azure
 
@@ -37,8 +37,8 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |Configuração  |Valor  |
    |---------|---------|
    |Política para     |WAF global (porta frontal)|
-   |Assinatura     |Selecionar sua assinatura|
-   |Grupo de recursos     |Selecione o grupo de recursos onde está a sua porta frontal.|
+   |Subscription     |Selecionar sua assinatura|
+   |Resource group     |Selecione o grupo de recursos onde está a sua porta frontal.|
    |Nome de política     |Digite um nome para a política|
    |Estado da política     |habilitado|
 
@@ -54,7 +54,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
    |---------|---------|
    |Nome da regra personalizada     |FdWafCustRule|
    |Status     |habilitado|
-   |Tipo de regra     |Correspondência|
+   |Tipo de regra     |Corresponder a|
    |Prioridade    |100|
    |Tipo de correspondência     |Endereço IP|
    |Variável de correspondência|RemoteAddr|
@@ -95,7 +95,7 @@ Crie um perfil de porta frontal do Azure seguindo as instruções descritas em [
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-Crie uma política de WAF usando o comando [AZ Network front-door WAF-Policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) . No exemplo a seguir, substitua o nome da política *IPAllowPolicyExampleCLI* por um nome de política exclusivo.
+Crie uma política de WAF usando o comando [AZ Network front-door WAF-Policy Create](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-create) . No exemplo a seguir, substitua o nome da política *IPAllowPolicyExampleCLI* por um nome de política exclusivo.
 
 ```azurecli-interactive 
 az network front-door waf-policy create \
@@ -105,7 +105,7 @@ az network front-door waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Adicionar uma regra de controle de acesso de IP personalizada
 
-Use o comando [AZ Network front-door WAF-Policy personalizada-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) para adicionar uma regra de controle de acesso de IP personalizada para a política de WAF que você acabou de criar.
+Use o comando [AZ Network front-door WAF-Policy personalizada-Rule Create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule#ext-front-door-az-network-front-door-waf-policy-rule-create) para adicionar uma regra de controle de acesso de IP personalizada para a política de WAF que você acabou de criar.
 
 Nos exemplos a seguir:
 -  Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva criada anteriormente.
@@ -138,7 +138,7 @@ az network front-door waf-policy rule match-condition add \
   ```
                                                    
 ### <a name="find-the-id-of-a-waf-policy"></a>Localizar a ID de uma política de WAF 
-Localize a ID de uma política de WAF usando o comando [AZ Network front-door WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) . Substitua *IPAllowPolicyExampleCLI* no exemplo a seguir pela sua política exclusiva que você criou anteriormente.
+Localize a ID de uma política de WAF usando o comando [AZ Network front-door WAF-Policy show](/cli/azure/ext/front-door/network/front-door/waf-policy#ext-front-door-az-network-front-door-waf-policy-show) . Substitua *IPAllowPolicyExampleCLI* no exemplo a seguir pela sua política exclusiva que você criou anteriormente.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -148,7 +148,7 @@ Localize a ID de uma política de WAF usando o comando [AZ Network front-door WA
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Vincular uma política do WAF a um host front-end da porta do Azure
 
-Defina a ID de *WebApplicationFirewallPolicyLink* da porta frontal do Azure para a ID da política usando o comando [AZ Network front-door Update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) . Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva que você criou anteriormente.
+Defina a ID de *WebApplicationFirewallPolicyLink* da porta frontal do Azure para a ID da política usando o comando [AZ Network front-door Update](/cli/azure/ext/front-door/network/front-door#ext-front-door-az-network-front-door-update) . Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva que você criou anteriormente.
 
    ```azurecli
    az network front-door update \

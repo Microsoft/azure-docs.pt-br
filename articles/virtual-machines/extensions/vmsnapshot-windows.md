@@ -1,21 +1,22 @@
 ---
 title: Extensão de janelas de VM instantânea para Azure Backup
 description: Fazer backup consistente de aplicativo da máquina virtual para o Azure Backup usando a extensão de VM instantânea
-services: backup, virtual-machines-windows
+services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: trinadhk
-ms.openlocfilehash: 1d1342cffc6bc8743c34cb4c028c0790de91dc50
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 834c886c15e50870ec008dbb5ceab38132cc4649
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965860"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561052"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão de janelas de VM instantânea para Azure Backup
 

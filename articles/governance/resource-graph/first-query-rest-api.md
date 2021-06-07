@@ -4,10 +4,10 @@ description: Neste guia de início rápido, você seguirá as etapas para chamar
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920043"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Início Rápido: Execute sua primeira consulta ao Resource Graph usando a API REST

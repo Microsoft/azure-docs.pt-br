@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452337"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Previsão do tempo usando os dados do sensor do seu hub IoT no Azure Machine Learning Studio (clássico)
@@ -106,7 +106,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
    ![Execute o experimento para validar as etapas](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Selecione **configurar serviço Web de previsão de serviço Web**  >  **Predictive Web Service**. O diagrama de experimento preditivo é aberto.
+1. Selecione **configurar serviço Web de previsão de serviço Web**  >  . O diagrama de experimento preditivo é aberto.
 
    ![Implante o modelo de previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
@@ -133,7 +133,7 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
 ### <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso**. Digite "trabalho do Stream Analytics" na caixa de pesquisa e selecione **Stream Analytics trabalho** na lista suspensa resultados. Quando o painel **Stream Analytics trabalho** for aberto, selecione **criar**.
+1. No [portal do Azure](https://portal.azure.com/), selecione **Criar um recurso**. Digite "trabalho do Stream Analytics" na caixa de pesquisa e selecione **Stream Analytics trabalho** na lista suspensa resultados. Quando o painel **Stream Analytics trabalho** for aberto, selecione **criar**.
 1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: O nome do trabalho. O nome deve ser globalmente exclusivo.

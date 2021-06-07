@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588018"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Conectar o Trend Micro Deep Security
@@ -32,9 +32,9 @@ O conector Trend Micro Deep Security permite que você conecte facilmente seus l
 
 ## <a name="connect-azure-sentinel-to-trend-micro-deep-security"></a>Conectar o Azure Sentinel à Trend Micro Deep Security
 
-1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector **Trend Micro Deep Security** .
+1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >   e selecione o conector **Trend Micro Deep Security** .
 
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 
 3. Siga as instruções e as próximas etapas.
 

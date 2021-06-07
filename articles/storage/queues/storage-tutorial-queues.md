@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Trabalhar com filas do Armazenamento de Filas do Azure no .NET'
 description: Um tutorial sobre o uso do Armazenamento de Filas do Azure para criar filas, bem como inserir, obter e excluir mensagens usando código .NET.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 06/09/2020
 ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c41b218ac0d347b2e58931421493755346b13d7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: dda6fb816fcba4ab9350edd956d895a3b9b204d4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591966"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276120"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutorial: Trabalhar com filas do Armazenamento de Filas do Azure no .NET
 

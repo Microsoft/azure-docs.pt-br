@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Copiar dados para o Azure Data Box Heavy por meio de serviço de cópia de dados'
+title: 'Tutorial: Copiar dados para o Azure Data Box Heavy por meio do serviço de cópia de dados'
 description: Neste tutorial, você aprenderá a copiar dados para o dispositivo Azure Data Box Heavy por meio do serviço de cópia de dados
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006552"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box Heavy (versão prévia)

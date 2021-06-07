@@ -4,10 +4,10 @@ description: Este artigo explica como suspender e reativar temporariamente as en
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543044"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
@@ -21,15 +21,15 @@ Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema.
 ## <a name="queue-status"></a>Status da fila 
 Os Estados que podem ser definidos para uma **fila** são:
 
--   **Active** : a fila está ativa. Você pode enviar mensagens para e receber mensagens da fila. 
--   **Disabled** : a fila está suspensa. É equivalente a definir **SendDisabled** e **ReceiveDisabled**. 
--   **SendDisabled** : não é possível enviar mensagens para a fila, mas você pode receber mensagens dela. Você receberá uma exceção se tentar enviar mensagens para a fila. 
--   **ReceiveDisabled** : você pode enviar mensagens para a fila, mas não pode receber mensagens dela. Você receberá uma exceção se tentar receber mensagens para a fila.
+-   **Active**: a fila está ativa. Você pode enviar mensagens para e receber mensagens da fila. 
+-   **Disabled**: a fila está suspensa. É equivalente a definir **SendDisabled** e **ReceiveDisabled**. 
+-   **SendDisabled**: não é possível enviar mensagens para a fila, mas você pode receber mensagens dela. Você receberá uma exceção se tentar enviar mensagens para a fila. 
+-   **ReceiveDisabled**: você pode enviar mensagens para a fila, mas não pode receber mensagens dela. Você receberá uma exceção se tentar receber mensagens para a fila.
 
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Altere o status da fila no portal do Azure: 
 
-1. Na portal do Azure, navegue até o namespace do barramento de serviço. 
+1. No portal do Azure, acesse o namespace do Barramento de Serviço. 
 1. Selecione a fila para a qual você deseja alterar o status. Você vê as filas no painel inferior no meio. 
 1. Na página **fila do barramento de serviço** , consulte o status atual da fila como um hiperlink. Se a **visão geral** não estiver selecionada no menu à esquerda, selecione-a para ver o status da fila. Selecione o status atual da fila para alterá-la. 
 
@@ -57,9 +57,9 @@ Você pode alterar o status do tópico na portal do Azure. Selecione o status at
 :::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="Alterar status do tópico":::
 
 Os Estados que podem ser definidos para um **tópico** são:
-- **Ativo** : o tópico está ativo. Você pode enviar mensagens para o tópico. 
-- **Desabilitado** : o tópico é suspenso. Você não pode enviar mensagens para o tópico. 
-- **SendDisabled** : mesmo efeito como **desabilitado**. Você não pode enviar mensagens para o tópico. Você receberá uma exceção se tentar enviar mensagens para o tópico. 
+- **Ativo**: o tópico está ativo. Você pode enviar mensagens para o tópico. 
+- **Desabilitado**: o tópico é suspenso. Você não pode enviar mensagens para o tópico. 
+- **SendDisabled**: mesmo efeito como **desabilitado**. Você não pode enviar mensagens para o tópico. Você receberá uma exceção se tentar enviar mensagens para o tópico. 
 
 ## <a name="subscription-status"></a>Status da assinatura
 Você pode alterar o status da assinatura no portal do Azure. Selecione o status atual da assinatura para ver a página a seguir, que permite alterar o status. 
@@ -67,9 +67,9 @@ Você pode alterar o status da assinatura no portal do Azure. Selecione o status
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="Alterar status da assinatura":::
 
 Os Estados que podem ser definidos para uma **assinatura** são:
-- **Ativo** : a assinatura está ativa. Você pode receber mensagens de frm da assinatura.
-- **Desabilitado** : a assinatura está suspensa. Você não pode receber mensagens da assinatura. 
-- **ReceiveDisabled** : mesmo efeito como **desabilitado**. Você não pode receber mensagens da assinatura. Você receberá uma exceção se tentar receber mensagens para a assinatura.
+- **Ativo**: a assinatura está ativa. Você pode receber mensagens de frm da assinatura.
+- **Desabilitado**: a assinatura está suspensa. Você não pode receber mensagens da assinatura. 
+- **ReceiveDisabled**: mesmo efeito como **desabilitado**. Você não pode receber mensagens da assinatura. Você receberá uma exceção se tentar receber mensagens para a assinatura.
 
 | Status do tópico | Status da assinatura | Comportamento | 
 | ------------ | ------------------- | -------- | 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185658"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951327"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 
@@ -69,7 +69,7 @@ O serviço de aplicativo tem [entrega contínua interna](deploy-continuous-deplo
 
 ### <a name="use-github-actions"></a>Usar ações do GitHub
 
-Você também pode automatizar a implantação de contêiner [com as ações do GitHub](deploy-container-github-action.md).  O arquivo de fluxo de trabalho abaixo criará e marcará o contêiner com a ID de confirmação, a enviará por push a um registro de contêiner e atualizará o slot de site especificado com a nova marca de imagem.
+Você também pode automatizar a implantação de contêiner [com as ações do GitHub](./deploy-ci-cd-custom-container.md).  O arquivo de fluxo de trabalho abaixo criará e marcará o contêiner com a ID de confirmação, a enviará por push a um registro de contêiner e atualizará o slot de site especificado com a nova marca de imagem.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

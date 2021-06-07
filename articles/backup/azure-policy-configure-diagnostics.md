@@ -4,10 +4,10 @@ description: Definir Log Analytics configurações de diagnóstico para todos os
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171521"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
@@ -22,7 +22,7 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de **proprietário** à assinatura à qual a política é atribuída.
 
-* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador**ou **proprietário** à assinatura na qual o espaço de trabalho especificado existe.
+* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador** ou **proprietário** à assinatura na qual o espaço de trabalho especificado existe.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
 

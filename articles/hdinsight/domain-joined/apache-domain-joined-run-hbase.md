@@ -4,12 +4,12 @@ description: Tutorial - Aprenda a configurar as políticas do Apache Ranger para
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933717"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104866991"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas do Apache HBase no HDInsight com o Enterprise Security Package
 
@@ -86,7 +86,7 @@ Você pode usar o SSH para se conectar a clusters do HBase e, em seguida, usar o
     scan 'Customers'
     ```
 
-    ![Saída do shell do HBase do HDInsight Hadoop](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="Saída do shell do HBase do HDInsight Hadoop" border="true":::
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 
@@ -94,11 +94,11 @@ Crie uma política do Ranger para **sales_user1** e **marketing_user1**.
 
 1. Abra o **interface do usuário administrador do Ranger**. Clique em **\<ClusterName>_hbase** em **HBase**.
 
-   ![Interface do usuário de administração do HDInsight Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="Interface do usuário de administração do HDInsight Apache Ranger" border="true":::
 
 2. A tela **Lista de Políticas** exibirá todas as políticas do Ranger criadas para esse cluster. Uma política previamente configurada pode estar listada. Clique em **Adicionar Nova Política**.
 
-    ![Lista de políticas do Apache Ranger HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Lista de políticas do Apache Ranger HBase" border="true":::
 
 3. Na página **Criar Política**, insira os seguintes valores:
 
@@ -117,7 +117,7 @@ Crie uma política do Ranger para **sales_user1** e **marketing_user1**.
    * `*` indica zero ou mais ocorrências de caracteres.
    * `?` indica um caractere único.
 
-   ![Política de criação de vendas do Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Política de criação de vendas do Apache Ranger" border="true":::
 
    >[!NOTE]
    >Aguarde alguns instantes para que o Ranger sincronize com o Azure AD se um usuário do domínio não for preenchido automaticamente para **Selecionar usuário**.
@@ -136,7 +136,7 @@ Crie uma política do Ranger para **sales_user1** e **marketing_user1**.
    |Selecionar usuário  | marketing_user1 |
    |Permissões  | Ler |
 
-   ![Política de criação de marketing do Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Política de criação de marketing do Apache Ranger" border="true":::  
 
 6. Clique em **Adicionar** para salvar a política.
 
@@ -226,7 +226,7 @@ Com base nas políticas do Ranger configuradas, **sales_user1** pode exibir todo
 
 1. Exiba os eventos de auditoria de acesso da interface do usuário do Ranger.
 
-   ![Auditoria da política de interface do usuário do HDInsight Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="Auditoria da política de interface do usuário do HDInsight Ranger" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

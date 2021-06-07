@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
 ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734786"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
@@ -64,7 +64,7 @@ Dependendo da preferência de backup e os tipos de backups (completo/diferencial
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Registro |  Primário
+Log |  Primário
 Completo somente de cópia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: somente secundário
@@ -73,7 +73,7 @@ Completo somente de cópia |  Primário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Registro |  Secundário
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: secundária
@@ -82,7 +82,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Registro |  Secundário
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 #### <a name="no-backup-preference"></a>Nenhuma preferência de Backup
@@ -91,7 +91,7 @@ Completo somente de cópia |  Secundário
 --- | ---
 Completo | Primário
 Diferencial | Primário
-Registro |  Secundário
+Log |  Secundário
 Completo somente de cópia |  Secundário
 
 ## <a name="next-steps"></a>Próximas etapas

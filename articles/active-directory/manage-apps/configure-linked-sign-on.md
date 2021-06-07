@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.openlocfilehash: 3e2d3ab6a23ce588c3aa393e5096ac75e88a5365
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255270"
 ---
 # <a name="understand-linked-sign-on"></a>Entender o logon vinculado

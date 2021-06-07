@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93395284"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Implantar um contêiner do SQL do Azure no Edge no Kubernetes
@@ -108,7 +108,7 @@ Configure um [volume persistente](https://kubernetes.io/docs/concepts/storage/pe
          storage: 8Gi
    ```
 
-   Salve o arquivo (por exemplo, **pvc.yaml** ).
+   Salve o arquivo (por exemplo, **pvc.yaml**).
 
 2. Crie a declaração de volume persistente no Kubernetes.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >Usando o tipo de serviço `LoadBalancer`, a instância do SQL do Azure no Edge pode ser acessada remotamente (pela Internet) na porta 1433.
 
-   Salve o arquivo (por exemplo, **sqledgedeploy.yaml** ).
+   Salve o arquivo (por exemplo, **sqledgedeploy.yaml**).
 
 2. Crie a implantação.
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
 ms.openlocfilehash: 2f31eddab1070d073d3fd5a4761dad597e42a2e0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181876"
 ---
 # <a name="tutorial-configure-opentext-directory-services-for-automatic-user-provisioning"></a>Tutorial: Configurar o OpenText Directory Services para provisionamento automático de usuário
@@ -39,7 +39,7 @@ Este tutorial descreve as etapas que você precisa executar no OpenText Director
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma instalação do OTDS acessível no Azure AD.
 

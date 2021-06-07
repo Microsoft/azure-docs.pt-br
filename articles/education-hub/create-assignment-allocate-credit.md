@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92332460"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Criar uma atribuição e alocar crédito
@@ -26,7 +26,7 @@ Depois de configurar um curso e criar uma sala de aula no Hub de Educação do M
 
 ### <a name="accounts"></a>Contas
 
-O Hub de Educação do Azure aceita qualquer endereço de email no formato _____@ ___.___ . Atualmente, ele *não* verifica se há uma conta válida na sua organização ou se a conta Microsoft é atual ou válida. Verifique atentamente cada endereço de email antes de continuar.
+O Hub de Educação do Azure aceita qualquer endereço de email no formato _____@___.___ . Atualmente, ele *não* verifica se há uma conta válida na sua organização ou se a conta Microsoft é atual ou válida. Verifique atentamente cada endereço de email antes de continuar.
 
 > [!IMPORTANT]
 > As contas corporativas e de estudante estão sujeitas às próprias políticas, incluindo se um endereço de email de um domínio diferente da organização é permitido (por exemplo, a adição de student2@outlook.com ao domínio @school.edu). Lembre-se de verificar essas políticas antes de adicionar novos usuários.
@@ -39,7 +39,7 @@ Quando uma conta corporativa ou de estudante (por exemplo, student1@school.edu) 
 
 1. Escolha o valor dos fundos a ser creditado na assinatura do aluno. Se nem todos os alunos receberem o mesmo valor, você poderá selecionar **Alterar** e aplicar um valor personalizado a cada aluno ou grupo de projetos.
 
-1. Selecione **Criar atribuição** .
+1. Selecione **Criar atribuição**.
 1. (Opcional) Remova também os alunos existentes clicando em **Remover** ao lado do nome do aluno.
 1. Selecione o botão **Fechar** quando terminar. As permissões adicionais são exibidas na página Gerenciamento de Crédito do Patrocinador.
 

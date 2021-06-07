@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100416955"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformar dados no Delta Lake usando fluxos de dados de mapeamento
@@ -28,7 +28,7 @@ Neste tutorial, você usará a tela de fluxo de dados para criar fluxos de dados
 
 O arquivo que estamos transformando neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv). Para recuperar o arquivo do GitHub, copie o conteúdo para um editor de texto de sua escolha para salvar localmente como um arquivo. csv. Para carregar o arquivo em sua conta de armazenamento, consulte [carregar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos referenciarão um contêiner chamado ' sample-data '.
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um pipeline no data factory.
 

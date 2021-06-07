@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
 ms.openlocfilehash: cb6660585b5f2b9ab56eaf863f1ec431e5e85109
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895519"
 ---
 # <a name="translator-30-detect"></a>Tradutor 3,0: detectar
 
 Identifica o idioma de uma parte do texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 

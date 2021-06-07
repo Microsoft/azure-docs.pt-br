@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
 ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97814050"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Componentes de uma estratégia de resposta a DDoS

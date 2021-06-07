@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: c79846b0a5b675c34e4e7919e9ecd9d591bfefe5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356351"
 ---
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com o Azure Key Vault

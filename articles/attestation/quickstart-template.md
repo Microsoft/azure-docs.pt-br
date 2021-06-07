@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92144975"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Início Rápido: Criar um provedor do Atestado do Azure com um modelo do ARM
@@ -21,7 +21,7 @@ O [Atestado do Microsoft Azure](overview.md) é uma solução usada para atestar
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
@@ -49,11 +49,11 @@ Os recursos do Azure definidos no modelo:
 
     A menos que o valor seja especificado, use o valor padrão para criar o provedor de atestado.
 
-    - **Nome do Provedor de Atestado** : escolha um nome para o provedor do Atestado do Azure.
-    - **Localização** : Selecione um local. Por exemplo, **Centro dos EUA** .
-    - **Marcas** : Selecione um local. Por exemplo, **Centro dos EUA** .
+    - **Nome do Provedor de Atestado**: escolha um nome para o provedor do Atestado do Azure.
+    - **Localização**: Selecione um local. Por exemplo, **Centro dos EUA**.
+    - **Marcas**: Selecione um local. Por exemplo, **Centro dos EUA**.
 
-1. Selecione **Comprar** . Depois que o recurso de atestado for implantado com êxito, você receberá uma notificação.
+1. Selecione **Comprar**. Depois que o recurso de atestado for implantado com êxito, você receberá uma notificação.
 
 O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você também pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-powershell.md).
 

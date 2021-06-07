@@ -5,13 +5,13 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/16/2020
-ms.openlocfilehash: b9768bacf8d29b37f479ea080afddd494b506262
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/15/2021
+ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013933"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574247"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Dimensionar seu trabalho do Stream Analytics com funções do Azure Machine Learning Studio (clássico)
 
@@ -24,7 +24,7 @@ Este artigo discute como dimensionar com eficiência Azure Stream Analytics trab
 
 Uma função Machine Learning Studio (clássica) no Stream Analytics pode ser usada como uma chamada de função regular na linguagem de consulta Stream Analytics. Nos bastidores, no entanto, essas chamadas de função são, na verdade, as solicitações de serviço Web do Studio (clássico).
 
-Você pode melhorar a taxa de transferência de solicitações de serviço Web do estúdio (clássico) por meio de "envio em lote" de várias linhas na mesma chamada à API do serviço Web. Esse agrupamento é chamado de minilote. Para saber mais, confira [Serviços Web do Machine Learning Studio (clássico)](../machine-learning/classic/consume-web-services.md). O suporte para Studio (clássico) no Stream Analytics está em versão prévia.
+Você pode melhorar a taxa de transferência de solicitações de serviço Web do estúdio (clássico) por meio de "envio em lote" de várias linhas na mesma chamada à API do serviço Web. Esse agrupamento é chamado de minilote. Para saber mais, confira [Serviços Web do Machine Learning Studio (clássico)](../machine-learning/classic/consume-web-services.md). Suporte para Studio (clássico) no Stream Analytics.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>Configurar um trabalho de Stream Analytics com as funções do Studio (clássico)
 
@@ -51,7 +51,7 @@ Para processar 200.000 eventos por segundo, o trabalho do Stream Analytics preci
 
 ![Dimensionar Stream Analytics com funções do Studio (clássico) dois exemplos de trabalho](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Dimensionar Stream Analytics com funções do Studio (clássico) dois exemplos de trabalho")
 
-Em geral, **_B_* _ para tamanho do lote, _*_L_*_ para a latência do serviço Web no tamanho do lote B em milissegundos, a taxa de transferência de um trabalho de Stream Analytics com _*_N_*_ SUS é:
+Em geral, ***B** _ para tamanho do lote, _*_L_*_ para a latência do serviço Web no tamanho do lote B em milissegundos, a taxa de transferência de um trabalho de Stream Analytics com _ *_N_** SUS é:
 
 ![Dimensionar Stream Analytics com fórmula de funções do estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Dimensionar Stream Analytics com fórmula de funções do estúdio (clássico)")
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre essa configuração, examine o [artigo de di
 ## <a name="example--sentiment-analysis"></a>Exemplo – análise de sentimento
 O exemplo a seguir inclui um trabalho Stream Analytics com a função de análise de sentimentos (clássico), conforme descrito no [tutorial de integração do Stream Analytics Machine Learning Studio (clássico)](stream-analytics-machine-learning-integration-tutorial.md).
 
-A consulta é uma consulta particionada simples, seguida da *função _ atenção**, conforme mostrado no exemplo a seguir:
+A consulta é uma consulta simples e totalmente particionada, seguida pela função **sentimento**, conforme mostrado abaixo:
 
 ```SQL
     WITH subquery AS (

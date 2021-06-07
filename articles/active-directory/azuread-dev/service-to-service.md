@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154756"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos serviço a serviço
@@ -59,9 +59,9 @@ O fluxo discutido abaixo pressupõe que um usuário tenha sido autenticado em ou
 
 Consulte os exemplos de código para o aplicativo daemon ou de servidor para cenários da API Web: [servidor ou aplicativo daemon para API da Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Registro do aplicativo
+## <a name="app-registration"></a>Registro de aplicativo
 
-* Locatário único – Para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo daemon ou para servidores deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas. Na página **permissão de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões delegadas**e, em seguida, selecione suas permissões. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
+* Locatário único – Para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo daemon ou para servidores deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas. Na página **permissão de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões delegadas** e, em seguida, selecione suas permissões. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
 * Multilocatário – Primeiro, o aplicativo daemon ou para servidores é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede permissão, ambas as APIs Web são registradas no diretório delas.
 
 ## <a name="token-expiration"></a>Expiração do token

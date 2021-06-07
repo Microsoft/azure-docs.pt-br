@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: db4b676e65d36a9476fd72b66cc8ccfa38af4d85
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144491"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Criar um Hub IoT usando um modelo do Azure Resource Manager (.NET)

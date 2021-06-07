@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678654"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
@@ -60,7 +60,7 @@ Você talvez queira excluir um pedido quando ele é concluído. O pedido contém
 
 Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Execute as etapas a seguir para excluir um pedido.
 
-1. Vá para **todos os recursos**. Pesquise seu pedido.
+1. Acesse **Todos os recursos**. Pesquise seu pedido.
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
@@ -219,7 +219,7 @@ Aqui estão os status de uma ordem de importação.
 |Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
 |Canceled            |Pedido cancelado. <br> Você cancelou a ordem ou o serviço cancelou a ordem após um erro. Se o pedido não puder ser atendido em 90 dias, o pedido também será cancelado e você será notificado.     |
-|Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
+|Limpeza | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 ### <a name="statuses-for-export-order"></a>Status da ordem de exportação
 
@@ -240,7 +240,7 @@ Aqui estão os status de uma ordem de exportação.
 |Recolhido     |A remessa de devolução foi recolhida e verificada pela transportadora.         |
 |Recebido     | O dispositivo foi recebido e verificado no datacenter do Azure. <br> A remessa é inspecionada.      |
 |Concluído           |A ordem foi concluída.     |
-|Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
+|Limpeza | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
 > [!NOTE]
 > Se o trabalho de cópia para exportar dados das contas de armazenamento do Azure para Data Box for concluído com erros ou avisos, o dispositivo ainda será enviado. Somente no caso de uma falha de cópia, a ordem é encerrada e o dispositivo não é enviado.

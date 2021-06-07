@@ -3,12 +3,12 @@ title: Criar Resource Health alertas usando o portal do Azure
 description: Crie um alerta usando portal do Azure que o notifique quando os recursos do Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e48c400e5be3516b08496db7a4cb6a19e45d6c97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540669"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594632"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas do Resource Health usando o portal do Azure
 
@@ -16,7 +16,7 @@ Este artigo mostra como configurar alertas do log de atividades para notificaç�
 
 O Azure Resource Health mantém você informado sobre o status de integridade atual e histórico de seus recursos do Azure. Os alertas do Azure Resource Health podem notificar você quase em tempo real quando esses recursos tiverem uma alteração no seu status de integridade. Criar alertas do Resource Health por meio de programação permite que usuários criem e personalizem alertas em massa.
 
-As notificações do Resource Health são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) , considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas em notificações do Resource Health.
+As notificações do Resource Health são armazenadas no [log de atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md) , considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas em notificações do Resource Health.
 Você pode receber um alerta quando o recurso do Azure envia notificações de integridade de recursos para sua assinatura do Azure. Você pode configurar o alerta de acordo com:
 
 * A assinatura afetada.
@@ -32,7 +32,7 @@ Também é possível configurar para quem o alerta deve ser enviado:
 * Selecione um grupo de ações existente.
 * Crie um novo grupo de ações (que pode ser usado posteriormente para futuros alertas).
 
-Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 Para obter informações sobre como configurar alertas de notificação do Resource Health usando modelos de Azure Resource Manager, consulte [modelos do Resource Manager](./resource-health-alert-arm-template-guide.md).
 Resource Health alerta usando portal do Azure
@@ -56,12 +56,12 @@ Resource Health alerta usando portal do Azure
     1. **Nome da regra de alerta**: o nome da nova regra de alerta.
     2. **Descrição**: a descrição para a nova regra de alerta.
     3. **Salvar o alerta para o grupo de recursos**: selecione o grupo de recursos no qual deseja salvar essa nova regra.
-7. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um grupo de ações](../azure-monitor/platform/action-groups.md) e atribua à nova regra. Para criar um novo grupo, selecione + **novo grupo**.
+7. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um grupo de ações](../azure-monitor/alerts/action-groups.md) e atribua à nova regra. Para criar um novo grupo, selecione + **novo grupo**.
 8. Para habilitar as regras após criá-lo, selecione **Sim** da opção **Habilitar regra após a criação**.
 9. Selecione **Criar regra de alerta**.
 
 A regra de alerta para o log de atividades é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
-É possível habilitar, desabilitar, editar ou excluir uma regra. Saiba mais sobre [como gerenciar regras de log de atividades](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
+É possível habilitar, desabilitar, editar ou excluir uma regra. Saiba mais sobre [como gerenciar regras de log de atividades](../azure-monitor/alerts/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -73,5 +73,5 @@ Saiba mais sobre o Resource Health:
 Criar alertas de Integridade do Serviço:
 
 * [Configurar alertas para a Integridade do Serviço](./alerts-activity-log-service-notifications-portal.md) 
-* [Esquema de eventos do log de atividades do Azure](../azure-monitor/platform/activity-log-schema.md)
+* [Esquema de eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log-schema.md)
 * [Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager](./resource-health-alert-arm-template-guide.md)

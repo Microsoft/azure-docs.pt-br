@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899296"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitorar a solução VMware por atividade de CloudSimple
@@ -106,7 +106,7 @@ As colunas de informações a seguir estão disponíveis para alertas. Clique em
 | Nome do Recurso | Nome atribuído ao recurso. |
 | Tipo de recurso | Categoria de recurso: nuvem privada, rack de nuvem. |
 | ID de Recurso | Identificador do recurso. |
-| Result | Resultado da atividade, como **êxito**. |
+| Resultado | Resultado da atividade, como **êxito**. |
 | Tempo decorrido | Tempo para concluir a tarefa. |
 | Descrição | Descrição da ação. |
 

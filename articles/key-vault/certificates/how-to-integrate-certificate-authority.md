@@ -3,19 +3,18 @@ title: Como integrar o Key Vault à autoridade de certificação DigiCert
 description: Como integrar o Key Vault à autoridade de certificação DigiCert
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4351526c77961856b118bdeae07cecf48340f5fe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789003"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749304"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Como integrar o Key Vault à autoridade de certificação DigiCert
 

@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147259"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739361"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no fluxo de dados de mapeamento
 
@@ -39,13 +39,11 @@ Uma transformação de pesquisa é semelhante a uma união externa esquerda. Tod
 
 **Condições de pesquisa:** Escolha a quais colunas será feita a correspondência. Se a condição de igualdade for atendida, as linhas serão consideradas uma correspondência. Focalize e selecione "Coluna computada" para extrair um valor usando a [linguagem de expressão do fluxo de dados](data-flow-expression-functions.md).
 
-A transformação de pesquisa só dá suporte a correspondências de igualdade. Para personalizar a expressão de pesquisa a incluir outros operadores, como maior que, é recomendável usar uma [união cruzada na transformação de união](data-flow-join.md#custom-cross-join). Uma união cruzada evitará erros de produto cartesiano possíveis na execução.
-
 Todas as colunas de ambos os fluxos são incluídas nos dados de saída. Para remover colunas duplicadas ou indesejadas, adicione um [Selecionar transformação](data-flow-select.md) após a transformação de pesquisa. As colunas também podem ser descartadas ou renomeadas em uma transformação de coletor.
 
 ### <a name="non-equi-joins"></a>Uniões não equivalentes
 
-Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar** .
+Para usar um operador condicional como diferente de (!=) ou maior que (>) em suas condições de pesquisa, altere a lista suspensa do operador entre as duas colunas. Uniões não equivalentes exigem que pelo menos um dos dois fluxos sejam transmitidos usando a transmissão **Fixa** na guia **Otimizar**.
 
 ![Pesquisa sem equivalência](media/data-flow/non-equi-lookup.png "Pesquisa sem equivalência")
 
@@ -65,9 +63,9 @@ Ao testar a transformação de pesquisa com a visualização de dados no modo de
 
 ![União de transmissão](media/data-flow/broadcast.png "União de transmissão")
 
-Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão** . Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo** .
+Em transformação de junções, pesquisas e ocorrências, se um ou ambos os fluxos de dados se ajustarem à memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **Difusão**. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não transmitir um lado. Para escolher manualmente o lado a ser transmitido, selecione **Fixo**.
 
-Não é recomendável desabilitar a transmissão por meio da opção **Desativar** , a menos que suas uniões estejam tendo erros de tempo limite.
+Não é recomendável desabilitar a transmissão por meio da opção **Desativar**, a menos que suas uniões estejam tendo erros de tempo limite.
 
 ## <a name="cached-lookup"></a>Pesquisa armazenada em cache
 

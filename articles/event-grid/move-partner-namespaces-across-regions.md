@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89083040"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Mover namespaces de parceiro de grade de eventos do Azure para outra região
@@ -31,7 +31,7 @@ Aqui estão as etapas de alto nível abordadas neste artigo:
 Para começar, exporte um modelo do Resource Manager para o namespace do parceiro. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na barra de pesquisa na parte superior, digite **namespaces de parceiro de grade de eventos**e selecione **namespaces de parceiro de grade de eventos** na lista de resultados. 
+2. Na barra de pesquisa na parte superior, digite **namespaces de parceiro de grade de eventos** e selecione **namespaces de parceiro de grade de eventos** na lista de resultados. 
 3. Selecione o **namespace de parceiro** que você deseja exportar para um modelo do Resource Manager. 
 4. Na página **namespace do parceiro de grade de eventos** , selecione **Exportar modelo** em **configurações** no menu à esquerda e, em seguida, selecione **baixar** na barra de ferramentas. 
 
@@ -56,15 +56,15 @@ Para começar, exporte um modelo do Resource Manager para o namespace do parceir
 ## <a name="recreate"></a>Recriar 
 Implante o modelo para criar um namespace de parceiro na região de destino. 
 
-1. Na portal do Azure, selecione **criar um recurso**.
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+1. No portal do Azure, selecione **Criar um recurso**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
 3. Selecione **implantação de modelo**.
 4. Selecione **Criar**.
 5. Selecione **Criar seu próprio modelo no editor**.
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 7. Selecione **salvar** para salvar o modelo. 
 8. Na página **implantação personalizada** , siga estas etapas: 
-    1. Selecione uma **assinatura**do Azure. 
+    1. Selecione uma **assinatura** do Azure. 
     1. Selecione um **grupo de recursos** existente na região de destino ou crie um. 
     1. Para **local**, selecione a região de destino. Se você selecionou um grupo de recursos existente, essa configuração será somente leitura. 
     1. Para o **nome do namespace do parceiro**, insira um nome para o novo namespace do parceiro. 
@@ -80,7 +80,7 @@ Se você quiser reiniciar, exclua o namespace do parceiro na região de destino 
 
 Para excluir um namespace de parceiro usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **namespaces de parceiro de grade de eventos**e selecione **namespaces de parceiro de grade de eventos** dos resultados da pesquisa. 
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **namespaces de parceiro de grade de eventos** e selecione **namespaces de parceiro de grade de eventos** dos resultados da pesquisa. 
 2. Selecione o namespace do parceiro a ser excluído e selecione **excluir** na barra de ferramentas. 
 3. **Confirme** a exclusão para excluir o namespace do parceiro. 
 

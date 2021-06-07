@@ -1,17 +1,23 @@
 ---
-title: 'Início Rápido: Criar um aplicativo Java no Azure Service Fabric'
+title: 'Guia de início rápido: criar um aplicativo Java no Azure Service Fabric'
 description: Neste guia de início rápido, você cria um aplicativo Java para o Azure usando um aplicativo de exemplo dos serviços confiáveis do Service Fabric.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 199fe459ec8fd58d05b4946dda4291c46a4881c3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91529840"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530909"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Início Rápido:  Implantar um aplicativo Java no Azure Service Fabric no Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guia de início rápido: implantar um aplicativo Java no Azure Service Fabric do Linux
 
 Neste início rápido, você implantará um aplicativo Java no Azure Service Fabric usando o IDE do Eclipse em um computador de desenvolvedor Linux. Ao terminar, você terá um aplicativo de votação com um front-end da Web em Java que salva os resultados da votação em um serviço de back-end com estado do cluster.
 
@@ -71,7 +77,7 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no cluster. Por exemplo, `https://localhost:19080`.
-2. Selecione as reticências ( **...** ) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e selecione **Dimensionar Serviço**.
+2. Selecione as reticências (**...**) ao lado do nó **fabric:/Voting/VotingWeb** no modo de exibição de árvore e selecione **Dimensionar Serviço**.
 
     ![Dimensionar um serviço no Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 

@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab63bc5bd2819a239741da525eebb2404a47bbf9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92441191"
 ---
 # <a name="azure-active-directory-integrations-with-authentication-and-synchronization-protocols"></a>Azure Active Directory integrações com protocolos de autenticação e sincronização
@@ -40,14 +40,14 @@ A tabela a seguir apresenta autenticação de integração do Azure AD com proto
 
  
 
-| Protocolo de autenticação| Autenticação| Autorização| Autenticação Multifator| Acesso Condicional |
+| Protocolo de autenticação| Autenticação| Autorização| Autenticação Multifator| Acesso condicional |
 | - |- | - | - | - |
 | [Autenticação baseada em cabeçalho](auth-header-based.md)|![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Autenticação LDAP](auth-ldap.md)| ![marca de seleção](./media/authentication-patterns/check.png)| | |  |
 | [Autenticação OAuth 2.0](auth-oauth2.md)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Autenticação OIDC](auth-oidc.md)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Autenticação SSO baseada em senha](auth-password-based-sso.md )| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
-| [Autenticação Radius]( auth-radius.md)| ![marca de seleção](./media/authentication-patterns/check.png)| | ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
+| [Autenticação RADIUS]( auth-radius.md)| ![marca de seleção](./media/authentication-patterns/check.png)| | ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Serviços de gateway Área de Trabalho Remota](auth-remote-desktop-gateway.md)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Secure Shell (SSH)](auth-ssh.md) |  ![marca de seleção](./media/authentication-patterns/check.png)| | ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |
 | [Autenticação SAML](auth-saml.md)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png)| ![marca de seleção](./media/authentication-patterns/check.png) |

@@ -6,20 +6,20 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491215"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100591071"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions de monitoramento com logs de Azure Monitor
 
-O Azure Functions oferece uma integração com [Azure monitor logs](../azure-monitor/platform/data-platform-logs.md) para monitorar funções. Este artigo mostra como configurar Azure Functions para enviar logs gerados pelo sistema e pelo usuário a logs do Azure Monitor.
+O Azure Functions oferece uma integração com [Azure monitor logs](../azure-monitor/logs/data-platform-logs.md) para monitorar funções. Este artigo mostra como configurar Azure Functions para enviar logs gerados pelo sistema e pelo usuário a logs do Azure Monitor.
 
-Os logs de Azure Monitor fornecem a capacidade de consolidar logs de diferentes recursos no mesmo espaço de trabalho, onde podem ser analisados com [consultas](../azure-monitor/log-query/log-query-overview.md) para recuperar, consolidar e analisar rapidamente os dados coletados.  É possível criar e testar consultas usando o [Log Analytics](../azure-monitor/log-query/log-query-overview.md) no portal do Azure e, em seguida, analisar diretamente os dados usando essas ferramentas ou salvar consultas para uso com [visualizações](../azure-monitor/visualizations.md) ou [regras de alerta](../azure-monitor/platform/alerts-overview.md).
+Os logs de Azure Monitor fornecem a capacidade de consolidar logs de diferentes recursos no mesmo espaço de trabalho, onde podem ser analisados com [consultas](../azure-monitor/logs/log-query-overview.md) para recuperar, consolidar e analisar rapidamente os dados coletados.  É possível criar e testar consultas usando o [Log Analytics](../azure-monitor/logs/log-query-overview.md) no portal do Azure e, em seguida, analisar diretamente os dados usando essas ferramentas ou salvar consultas para uso com [visualizações](../azure-monitor/visualizations.md) ou [regras de alerta](../azure-monitor/alerts/alerts-overview.md).
 
-O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/query/) usada pelo Azure Data Explorer que é adequada para consultas de log simples, mas também inclui funcionalidades avançadas como agregações, junções e análises inteligentes. É possível aprender a linguagem de consulta rapidamente por meio de [várias lições](../azure-monitor/log-query/get-started-queries.md).
+O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/query/) usada pelo Azure Data Explorer que é adequada para consultas de log simples, mas também inclui funcionalidades avançadas como agregações, junções e análises inteligentes. É possível aprender a linguagem de consulta rapidamente por meio de [várias lições](../azure-monitor/logs/get-started-queries.md).
 
 > [!NOTE]
 > A integração com os logs de Azure Monitor está atualmente em visualização pública para aplicativos de funções V2 e v3 em execução no consumo do Windows, Premium e planos de hospedagem dedicados.
@@ -30,11 +30,11 @@ O Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/qu
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selecionar configurações de diagnóstico":::
 
-1. Na página **configurações de diagnóstico** , em **detalhes da categoria** e **log** , escolha **FunctionAppLogs**.
+1. Na página **configurações de diagnóstico** , em **detalhes da categoria** e **log**, escolha **FunctionAppLogs**.
 
    A tabela **FunctionAppLogs** contém os logs desejados.
 
-1. Em **detalhes de destino** , escolha **Enviar para log Analytics**. em seguida, selecione o **espaço de trabalho log Analytics**. 
+1. Em **detalhes de destino**, escolha **Enviar para log Analytics**. em seguida, selecione o **espaço de trabalho log Analytics**. 
 
 1. Insira um **nome de configurações de diagnóstico** e, em seguida, selecione **salvar**.
 
@@ -124,5 +124,5 @@ FunctionAppLogs
 ## <a name="next-steps"></a>Próximas etapas
 
 - Examine a [Azure Functions visão geral](functions-overview.md).
-- Saiba mais sobre [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md).
-- Saiba mais sobre a [linguagem de consulta](../azure-monitor/log-query/get-started-queries.md).
+- Saiba mais sobre [os logs de Azure monitor](../azure-monitor/logs/data-platform-logs.md).
+- Saiba mais sobre a [linguagem de consulta](../azure-monitor/logs/get-started-queries.md).

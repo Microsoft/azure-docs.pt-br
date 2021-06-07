@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: a1f496d59fa626dc8750493591128f7363afa40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91620249"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Início Rápido: Configurar uma VM do Azure para se conectar à Instância Gerenciada de SQL do Azure

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: c79e32ed48ebdc4fbb05de91a5d4b900408fb154
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: bb4dd08b4f30982ec4572fd4e130a89112578175
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258737"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102203548"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar o PostgreSQL para o BD do Azure para PostgreSQL online usando o DMS por meio da CLI do Azure
 
@@ -58,11 +58,11 @@ Para concluir este tutorial, você precisará:
     >
     > Essa configuração é necessária porque o Serviço de Migração de Banco de Dados do Azure não tem conectividade com a internet.
 
-* Verifique se as regras do NSG (Grupo de Segurança de Rede) da rede virtual não bloqueiam as seguintes portas de comunicação de saída para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Verifique se as regras do NSG (grupo de segurança de rede) da rede virtual não bloqueiam a porta de saída 443 de ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) no nível de servidor para o Banco de Dados do Azure para PostgreSQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
+* Crie uma [regra de firewall](../postgresql/concepts-firewall-rules.md) no nível de servidor para o Banco de Dados do Azure para PostgreSQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * Há dois métodos para invocar a CLI:
 
   * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
@@ -71,7 +71,7 @@ Para concluir este tutorial, você precisará:
 
   * Instale e execute a CLI localmente. A CLI 2.0 é a ferramenta de linha de comando para gerenciar recursos do Azure.
 
-       Para baixar a CLI, siga as instruções no artigo [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). O artigo também lista as plataformas que dão suporte à CLI 2.0.
+       Para baixar a CLI, siga as instruções no artigo [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). O artigo também lista as plataformas que dão suporte à CLI 2.0.
 
        Para configurar o WSL (Subsistema do Windows para Linux), siga as instruções no [Guia de instalação do Windows 10](/windows/wsl/install-win10)
 

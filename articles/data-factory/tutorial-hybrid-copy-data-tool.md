@@ -6,20 +6,20 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 33dd1a1ca203ee57d3ef263bc5e8686841f03c1f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391245"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566737"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure usando a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-hybrid-copy-data-tool.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, use a ferramenta Copiar Dados para criar um pipeline que copia dados de um banco de dados do SQL Server para um Armazenamento de Blobs do Azure.
 
@@ -40,7 +40,7 @@ Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma 
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar instâncias de data factory, a conta de usuário usada para fazer logon no Azure deve ter uma função *Colaborador* ou *Proprietário* atribuída ou deve ser um *administrador* da assinatura do Azure.
 
-Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito, depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito, depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, você usa um banco de dados do SQL Server como um armazenamento de dados de *origem*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para um Armazenamento de Blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
@@ -88,21 +88,6 @@ Use o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o 
 
 1. Nas caixas **Nome da conta de armazenamento** e **key1**, copie os valores e depois cole-os no Bloco de Notas ou outro editor para uso posterior neste tutorial.
 
-#### <a name="create-the-adftutorial-container"></a>Criar o contêiner adftutorial
-Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu Armazenamento de blobs.
-
-1. Na janela **Conta de armazenamento**, alterne para **Visão geral** e depois selecione **Blobs**.
-
-1. Na janela **Blobs**, selecione **+ Contêiner**.
-
-1. Na janela **Novo contêiner**, em **Nome**, insira **adftutorial** e depois selecione **OK**.
-
-1. Na lista de contêineres, selecione **adftutorial**.
-
-
-1. Mantenha a janela **Contêiner** aberta para **adftutorial**. Você a usa para verificar a saída no final do tutorial. O Data Factory cria automaticamente a pasta de saída nesse contêiner, portanto você não precisa criar uma.
-
-
 ## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Integração** > **Data Factory**.
@@ -113,7 +98,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
    O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
-   ![Novo nome do data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
@@ -128,7 +113,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 1. Depois de finalizada a criação, a página **Data Factory** será exibida conforme mostrado na imagem.
 
-     ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 1. Selecione **Criar e Monitorar** para iniciar a interface do usuário Data Factory em uma guia separada.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usar a ferramenta Copy Data para criar um pipeline

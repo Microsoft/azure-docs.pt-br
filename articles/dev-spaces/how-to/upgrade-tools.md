@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-azurecli
 description: Saiba como atualizar as ferramentas de linha de comando do Azure Dev Spaces, a extensão do Visual Studio Code e a extensão do Visual Studio
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 2c2878f71deedd8df39316290735df734b97b92a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f17643e6130abbc9d5da8b484144c95b0e803f33
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960279"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199230"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas do Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Se houver uma nova versão e você já estiver usando o Azure Dev Spaces, talvez
 
 Quando você atualiza a CLI do Azure mais recente, também obtém a versão mais recente da extensão da CLI do Dev Spaces.
 
-Não é necessário desinstalar a versão anterior, apenas localize o download apropriado na [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Não é necessário desinstalar a versão anterior, apenas localize o download apropriado na [CLI do Azure](/cli/azure/install-azure-cli).
 
 
 ## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Atualizar a extensão da CLI e as ferramentas de linha de comando do Dev Spaces

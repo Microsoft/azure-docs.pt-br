@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 7a1aa061bb8c8be3a676e0e5bb690b2a9749b6c8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94536125"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimentos armazenados de gerenciamento do banco de dados do Azure para MySQL
@@ -23,7 +23,7 @@ A Replicação nos dados permite sincronizar dados de um Servidor MySQL em execu
 
 Os procedimentos armazenados a seguir são usados para configurar ou remover Replicação de Dados entre uma origem e uma réplica.
 
-|**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Observação de uso**|
+|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Observação de uso**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Para transferir dados com o modo SSL, passe o contexto do certificado de autoridade de certificação para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, passe uma cadeia de caracteres vazia para o parâmetro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Inicia a replicação.|
@@ -37,7 +37,7 @@ Para configurar Replicação de Dados entre uma origem e uma réplica no banco d
 
 Os procedimentos armazenados a seguir estão disponíveis no banco de dados do Azure para MySQL para gerenciar o servidor.
 
-|**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Observação de uso**|
+|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Observação de uso**|
 |-----|-----|-----|-----|
 |*mysql.az_kill*|processlist_id|N/D|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
 |*mysql.az_kill_query*|processlist_id|N/D|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|

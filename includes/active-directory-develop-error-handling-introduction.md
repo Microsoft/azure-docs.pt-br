@@ -6,10 +6,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.openlocfilehash: 2ff600429cefbfe0c9a4f0522ee49274000029ca
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98760651"
 ---
 Este artigo fornece uma visão geral dos diferentes tipos de erros e das recomendações para lidar com erros comuns de entrada.

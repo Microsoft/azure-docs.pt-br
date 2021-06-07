@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Criar um perfil e um ponto de extremidade – modelo do Resource Manager'
 titleSuffix: Azure Content Delivery Network
-description: Saiba como criar um perfil e um ponto de extremidade da Rede de Distribuição de Conteúdo do Azure usando um modelo do Resource Manager
+description: Neste guia de início rápido, saiba como criar um ponto de extremidade e um perfil de Rede de Distribuição de Conteúdo do Azure usando um modelo do Resource Manager
 services: cdn
 author: asudbring
 manager: KumudD
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: b215dfff3bf62b67b89aa260b0134381de6edeae
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 31f0510ed50c9d48a46524a353d7c872b368f75c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695715"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779031"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Início Rápido: Criar um perfil e um ponto de extremidade da CDN do Azure – modelo do Resource Manager
 
@@ -98,7 +98,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Quando não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos nele.
+Quando não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos contidos nele.
 
 ```azurecli-interactive 
   az group delete \
@@ -107,7 +107,7 @@ Quando não for mais necessário, você poderá usar o comando [az group delete]
 
 ### <a name="powershell"></a>PowerShell
 
-Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) para remover o grupo de recursos e todos os recursos contidos nele.
+Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos contidos nele.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -126,5 +126,5 @@ Neste início rápido, você criou:
 
 Para saber mais sobre a CDN do Azure e o Azure Resource Manager, prossiga para os artigos abaixo.
 
-* Leia uma [Visão geral da CDN do Azure](cdn-overview.md)
-* Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)

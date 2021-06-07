@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588787"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102200045"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real de seu hub IoT do Azure em um aplicativo Web
 
@@ -153,7 +153,7 @@ Você também deve ver a saída no console, que mostra as mensagens que seu apli
 
 O [recurso Aplicativos Web do Serviço de Aplicativo do Azure](../app-service/overview.md) fornece uma PAAS (plataforma como serviço) para hospedar aplicativos Web. Os aplicativos Web hospedados no Serviço de Aplicativo do Azure podem se beneficiar de recursos avançados do Azure, como segurança adicional, balanceamento de carga e escalabilidade, bem como soluções de DevOps do Azure e de parceiros, como implantação contínua, gerenciamento de pacotes e assim por diante. O Serviço de Aplicativo do Azure é compatível com aplicativos Web desenvolvidos em muitas linguagens populares e implantados na infraestrutura do Windows ou do Linux.
 
-Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e implanta seu código nele usando os comandos da CLI do Azure. Você pode encontrar detalhes dos comandos usados na documentação [az webapp](/cli/azure/webapp?view=azure-cli-latest). Antes de começar, verifique se você concluiu as etapas para [adicionar um grupo de recursos ao seu hub IoT](#add-a-consumer-group-to-your-iot-hub), [obter uma cadeia de conexão de serviço para seu hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [baixar o aplicativo Web do GitHub](#download-the-web-app-from-github).
+Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e implanta seu código nele usando os comandos da CLI do Azure. Você pode encontrar detalhes dos comandos usados na documentação [az webapp](/cli/azure/webapp). Antes de começar, verifique se você concluiu as etapas para [adicionar um grupo de recursos ao seu hub IoT](#add-a-consumer-group-to-your-iot-hub), [obter uma cadeia de conexão de serviço para seu hub IoT](#get-a-service-connection-string-for-your-iot-hub) e [baixar o aplicativo Web do GitHub](#download-the-web-app-from-github).
 
 1. Um [plano de Serviço de Aplicativo](../app-service/overview-hosting-plans.md) define um conjunto de recursos de computação para um aplicativo hospedado no Serviço de Aplicativo ser executado. Neste tutorial, usamos a Camada de desenvolvedor/gratuita para hospedar o aplicativo Web. Com a Camada gratuita, seu aplicativo Web é executado em recursos compartilhados do Windows com outros aplicativos do Serviço de Aplicativo, incluindo aplicativos de outros clientes. O Azure também oferece Planos do Serviço de Aplicativo para implantar aplicativos Web em recursos de computação do Linux. Caso já tenha um Plano do Serviço de Aplicativo que deseje usar, ignore esta etapa.
 

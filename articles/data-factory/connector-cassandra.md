@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383697"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
@@ -187,7 +187,7 @@ Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de d
 | INET |String |
 | INT |Int32 |
 | TEXT |String |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
@@ -214,7 +214,7 @@ As tabelas virtuais se referem aos dados na tabela real, permitindo que o driver
 
 Por exemplo, a "ExampleTable" a seguir é uma tabela de banco de dados Cassandra que contém uma coluna de chave primária de inteiro chamada "pk_int", uma coluna de texto chamada valor, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (chamada "StringSet").
 
-| pk_int | Valor | List | Mapeamento | StringSet |
+| pk_int | Valor | Lista | Map | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89263171"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure
@@ -36,7 +36,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > [!NOTE]
 > A autenticação do Azure Active Directory para Armazenamento do Azure está em versão prévia.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -94,7 +94,7 @@ Esta seção mostra como conceder à sua VM acesso a um contêiner do Armazename
 
     ![Atribuir permissões](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="access-data"></a>Acessar dados 
+## <a name="access-data"></a>Acessar dados 
 
 O Armazenamento do Azure tem suporte nativo para autenticação do Azure AD, de modo que ele pode aceitar diretamente os tokens de acesso obtidos por meio da identidade gerenciada. Isso faz parte da integração do Armazenamento do Azure com o Azure AD, e é diferente de fornecer as credenciais na cadeia de conexão.
 

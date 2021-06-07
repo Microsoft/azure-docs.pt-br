@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018215"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
@@ -46,13 +46,13 @@ Para concluir este tutorial, você precisará:
 + [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + Entender o [cache no Gerenciamento de API do Azure](api-management-howto-cache.md)
 
-## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Criar cache do Azure para Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"></a> Criar cache do Azure para Redis
 
 Esta seção explica como criar um Cache do Azure para Redis no Azure. Se você já tiver um Cache do Azure para Redis, dentro ou fora do Azure, <a href="#add-external-cache">ignore</a> esta seção e siga para a próxima.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Implantar o cache Redis no kubernetes
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"></a> Implantar o cache Redis no kubernetes
 
 Para caching, os gateways hospedados internamente dependem exclusivamente de caches externos. Para que o cache seja um gateway de hospedagem interna eficaz e o cache no qual eles dependem devem estar localizados próximos um do outro para minimizar as latências de pesquisa e armazenamento. Implantar um cache Redis no mesmo cluster kubernetes ou em um cluster separado próximo são as melhores opções. Siga este [link](https://github.com/kubernetes/examples/tree/master/guestbook) para aprender a implantar o cache Redis em um cluster kubernetes.
 

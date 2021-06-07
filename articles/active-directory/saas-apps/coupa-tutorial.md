@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d6a686b38c9b67ed8b1a7801c2a6ba95ef29558c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621322"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101652973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
 
@@ -28,10 +28,10 @@ Neste tutorial, você aprenderá a integrar o Coupa ao Azure AD (Azure Active Di
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Microsoft Azure AD ao Coupa, você precisa dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Caso não tenha um ambiente do Azure AD, obtenha uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Assinatura do Coupa habilitada para logon único.
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura habilitada para SSO (logon único) do Coupa.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -63,7 +63,7 @@ Para configurar e testar o SSO do Azure AD com o Coupa, execute as seguintes eta
     1. **[Criar um usuário de teste do Coupa](#create-coupa-test-user)** : para ter um equivalente de B.Fernandes no Coupa que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -116,7 +116,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Coupa.
 
@@ -125,20 +125,20 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função &quot;Acesso Padrão&quot; selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="configure-coupa-sso"></a>Configurar o SSO do Coupa
+## <a name=&quot;configure-coupa-sso&quot;></a>Configurar o SSO do Coupa
 
 1. Faça logon em seu site de empresa do Coupa como administrador.
 
 2. Vá para **Configuração \> Controle de Segurança**.
 
-    ![Controles de segurança](./media/coupa-tutorial/ic791900.png "Controles de Segurança")
+    ![Controles de segurança](./media/coupa-tutorial/setup.png &quot;Controles de Segurança")
 
 3. Na seção **Efetuar logon usando credenciais do Coupa**, execute as seguintes etapas:
 
-    ![Metadados de Coupa SP](./media/coupa-tutorial/ic791901.png "Metadados de Coupa SP")
+    ![Metadados de Coupa SP](./media/coupa-tutorial/login.png "Metadados de Coupa SP")
 
     a. Selecione **Efetuar logon usando o SAML**.
 
@@ -158,15 +158,15 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 
 2. Na parte superior do menu, clique em **Configurar** e em **Usuários**.
 
-    ![Usuários](./media/coupa-tutorial/ic791908.png "Usuários")
+    ![Usuários](./media/coupa-tutorial/user.png "Usuários")
 
 3. Clique em **Criar**.
 
-    ![Criar usuários](./media/coupa-tutorial/ic791909.png "Criar Usuários")
+    ![Criar usuários](./media/coupa-tutorial/create.png "Criar Usuários")
 
 4. Na seção **Criar Usuário**, execute as etapas a seguir:
 
-    ![Detalhes do Usuário](./media/coupa-tutorial/ic791910.png "Detalhes do Usuário")
+    ![Detalhes do Usuário](./media/coupa-tutorial/details.png "Detalhes do Usuário")
 
     a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único**, **Email** de uma conta válida do Active Directory do Azure que deseja provisionar nas caixas de texto relacionadas.
 
@@ -179,7 +179,7 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 >[!NOTE]
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do Coupa ou APIs fornecidas pelo Coupa para provisionar as contas de usuário do Azure AD.
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
@@ -187,8 +187,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Coupa e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Coupa em Meus Aplicativos, você será conectado automaticamente ao Coupa, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Coupa em Meus Aplicativos, você será conectado automaticamente ao Coupa, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Coupa, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Depois de configurar o Coupa, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)

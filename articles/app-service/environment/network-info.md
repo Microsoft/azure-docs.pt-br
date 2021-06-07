@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997334"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
@@ -53,7 +53,7 @@ Quando você escala ou reduz verticalmente, são adicionadas novas funções de 
 
 Apenas para que o ASE opere, o ASE exige que as seguintes portas sejam abertas:
 
-| Usar | De | Para |
+| Uso | De | Para |
 |-----|------|----|
 | Gerenciamento | Endereços de gerenciamento do Serviço de Aplicativo | Sub-rede ASE: 454, 455 |
 |  Comunicação interna ASE | Sub-rede ASE: todas as portas | Sub-rede ASE: todas as portas
@@ -69,7 +69,7 @@ Para a comunicação entre o balanceador de carga do Azure e a sub-rede do ASE, 
 
 As outras portas com as quais você precisa se preocupar são as portas do aplicativo:
 
-| Usar | Portas |
+| Uso | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -122,7 +122,7 @@ Se o ASE ILB for o nome de domínio *contoso.appserviceenvironment.net* e o nome
 
 ## <a name="ase-ip-addresses"></a>Endereços IP do ASE ##
 
-Um ASE tem alguns endereços IP para reconhecer. Eles são:
+Um ASE tem alguns endereços IP para reconhecer. São eles:
 
 - **Endereço IP público de entrada**: usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
 - **IP público de saída**: usado como o IP “de” das conexões de saída do ASE que saem da VNet, que não são roteadas por uma VPN.
@@ -169,7 +169,7 @@ Essas portas não incluem as portas que seus aplicativos exigem para uso bem-suc
 
 As portas de acesso normais do aplicativo são:
 
-| Usar | Portas |
+| Uso | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -180,9 +180,9 @@ Quando os requisitos de entrada e saída são levados em conta, os NSGs devem se
 
 ![Regras de segurança de entrada][4]
 
-Uma regra padrão permite que os IPs na VNet comuniquem-e com a sub-rede do ASE. Outra regra padrão permite que o balanceador de carga, também conhecido como o VIP público, comunique-se com o ASE. Para ver as regras padrão, selecione **Regras padrão** ao lado do ícone **Adicionar**. Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione suas próprias regras para permitir a entrada. Use uma origem igual a AzureLoadBalancer com um destino de **qualquer** e um intervalo de portas de * *\** _. Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico quanto ao destino.
+Uma regra padrão permite que os IPs na VNet comuniquem-e com a sub-rede do ASE. Outra regra padrão permite que o balanceador de carga, também conhecido como o VIP público, comunique-se com o ASE. Para ver as regras padrão, selecione **Regras padrão** ao lado do ícone **Adicionar**. Se você colocar uma regra negar tudo antes das regras padrão, você impedirá o tráfego entre o VIP e o ASE. Para evitar o tráfego proveniente de dentro da VNet, adicione suas próprias regras para permitir a entrada. Usar uma fonte igual ao AzureLoadBalancer com um destino de **Qualquer** e um intervalo de portas de **\***. Como a regra NSG é aplicada à sub-rede do ASE, você não precisa ser específico quanto ao destino.
 
-Se você tiver atribuído um endereço IP ao seu aplicativo, mantenha as portas abertas. Para ver as portas, selecione _ *ambiente do serviço de aplicativo** > **endereços IP**.  
+Se você tiver atribuído um endereço IP ao seu aplicativo, mantenha as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicativo**  >  **endereços IP**.  
 
 Todos os itens mostrados nas regras de saída a seguir são necessários, exceto pelo último item. Isso permite o acesso de rede às dependências do ASE que foram observadas anteriormente neste artigo. Se você bloquear qualquer uma delas, o ASE deixará de funcionar. O último item na lista permite que seu ASE se comunique com outros recursos em sua VNet.
 

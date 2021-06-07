@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392571"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564126"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usar o Azure SQL Instância Gerenciada com o SQL Server Integration Services (SSIS) no Azure Data Factory
 
@@ -22,7 +22,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
 - [Provisionar um Azure-SSIS IR com o catálogo do SSIS (SSISDB) hospedado pelo SQL Instância Gerenciada do Azure](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Executar pacotes SSIS pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpar logs do SSISDB pelo trabalho do Agente de Instância Gerenciada do SQL do Azure](#clean-up-ssisdb-logs)
-- [Failover de Azure-SSIS IR com o SQL do Azure Instância Gerenciada](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Failover de Azure-SSIS IR com o SQL do Azure Instância Gerenciada](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migrar cargas de trabalho SSIS locais para o SSIS no ADF com o Azure SQL Instância Gerenciada como destino de carga de trabalho de banco de dados](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Provisionar Azure-SSIS IR com o SSISDB hospedado pelo SQL Instância Gerenciada do Azure
@@ -39,7 +39,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
             - Dentro da mesma rede virtual que a instância gerenciada, com uma **sub-rede diferente**.
             - Dentro de uma rede virtual diferente da instância gerenciada, por meio do emparelhamento de rede virtual (que é limitado à mesma região devido a restrições de emparelhamento de VNet global) ou a uma conexão da rede virtual com a rede virtual.
 
-            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure a rede virtual](#configure-virtual-network).
 

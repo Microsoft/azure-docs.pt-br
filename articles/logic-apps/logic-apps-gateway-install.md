@@ -4,18 +4,18 @@ description: Antes de poder acessar dados nas instalações dos Aplicativos Lóg
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054764"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576791"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
-Antes de poder se [conectar a fontes de dados locais dos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o [gateway de dados](https://aka.ms/on-premises-data-gateway-installer) local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre fontes de dados locais e seus aplicativos lógicos. É possível usar a mesma instalação do gateway com outros serviços de nuvem, como Power BI, Power Automate, Power Apps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
+Antes de poder se [conectar a fontes de dados locais dos Aplicativos Lógicos do Azure](../logic-apps/logic-apps-gateway-connection.md), baixe e instale o [gateway de dados](https://aka.ms/on-premises-data-gateway-installer) local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre fontes de dados locais e seus aplicativos lógicos. Você pode usar a mesma instalação de gateway com outros serviços de nuvem, como Power Automate, Power BI, Power apps e Azure Analysis Services. Para obter informações sobre como usar o gateway com esses serviços, consulte estes artigos:
 
 * [Gateway de dados local do Microsoft Power Automate](/power-automate/gateway-reference)
 * [Gateway de dados local do Microsoft Power BI](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
   * Se você planeja usar a autenticação do Windows, lembre-se de instalar o gateway em um computador que seja membro do mesmo ambiente do AD DS que suas fontes de dados.
 
-  * Você deve selecionar a mesma região para a instalação do gateway e ao criar mais tarde o recurso de gateway do Azure para seu aplicativo lógico. Por padrão, essa região é o mesmo local do seu locatário do Azure Active Directory que gerencia sua conta do Azure. No entanto, você pode alterar o local durante a instalação do gateway.
+  * Você deve selecionar a mesma região para a instalação do gateway e ao criar mais tarde o recurso de gateway do Azure para seu aplicativo lógico. Por padrão, essa região é o mesmo local que o seu locatário do Azure AD que gerencia sua conta de usuário do Azure. No entanto, você pode alterar o local durante a instalação do gateway ou posterior.
+
+    > [!IMPORTANT]
+    > Durante a configuração do gateway, o comando **alterar região** não estará disponível se você tiver entrado com sua conta do Azure governamental, que está associada a um locatário do Azure Active Directory (Azure AD) na [nuvem do Azure governamental](../azure-government/compare-azure-government-global-azure.md). O gateway usa automaticamente a mesma região que o locatário do Azure AD da sua conta de usuário.
+    > 
+    > Para continuar usando sua conta do Azure governamental, mas configure o gateway para funcionar na nuvem comercial global multilocatário do Azure em vez disso, primeiro entre durante a instalação do gateway com o `prod@microsoft.com` nome de usuário. Essa solução força o gateway a usar a nuvem do Azure multilocatário global, mas ainda permite que você continue usando sua conta do Azure governamental.
 
   * Se estiver atualizando a instalação do gateway, desinstale primeiro o gateway atual para ter uma experiência mais limpa.
 

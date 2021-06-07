@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 9c0178ab1361d6a683aef606ccf1e3cac85620e4
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: e030e6466570d3fc2abf809ca09d46c9f596b765
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99244999"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105685"
 ---
 Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste início rápido, você aprende a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade. Este guia de início rápido aborda os tópicos, incluindo:
 
@@ -28,7 +28,7 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">obter o SDK <span class="docon docon-navigate-external x-hidden-focus"></span> de fala</a> do artigo _sobre o SDK de fala_ .
+Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, siga as instruções na seção <a href="/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">obter o SDK de fala</a> do artigo _sobre o SDK de fala_ .
 
 ## <a name="import-dependencies"></a>Importar dependências
 

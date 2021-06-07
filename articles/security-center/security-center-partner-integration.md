@@ -2,23 +2,18 @@
 title: Integrar soluções de segurança na Central de Segurança do Azure | Microsoft Docs
 description: Saiba como a Central de Segurança do Azure se integra aos parceiros para aprimorar a segurança geral dos recursos do Azure.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ff23a1fa4b631fc10163f22d94ccdbd8cbe657c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032670"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102099243"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -39,7 +34,7 @@ Para saber mais sobre a integração das ferramentas de verificação de vulnera
 
 A Central de Segurança também oferece análise de vulnerabilidades para:
 
-* Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
+* Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
 * Imagens do registro de contêiner do Azure-consulte [usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens](defender-for-container-registries-usage.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas
@@ -78,7 +73,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
    - **Console de solução** – abre a experiência de gerenciamento para esta solução.
    - **Vincular VM** – abre a página vincular aplicativos. Nela, você pode conectar recursos à solução de parceiro.
    - **Excluir solução**
-   - **Configure**
+   - **Configurar**
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-integration/partner-solutions-detail.png)
 
@@ -88,8 +83,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
 A central de segurança descobre automaticamente as soluções de segurança em execução no Azure, mas não está conectada à central de segurança e exibe as soluções na seção **soluções descobertas** . Essas soluções incluem soluções do Azure, como [Azure ad Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)e soluções de parceiros.
 
 > [!NOTE]
-> Habilite o **Azure defender** no nível de assinatura para o recurso de soluções descobertas. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
->
+> Habilite o **Azure defender** no nível de assinatura para o recurso de soluções descobertas. Saiba mais em [início rápido: habilitar o Azure defender](enable-azure-defender.md).
 
 Selecione **conectar** em uma solução para integrar com a central de segurança e ser notificado sobre alertas de segurança.
 
@@ -103,7 +97,4 @@ A seção **Adicionar fontes de dados** inclui outras fontes de dados disponíve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a integrar as soluções de parceiro à Central de Segurança. Para obter informações relacionadas, consulte os seguintes artigos:
-
-* [Exporte continuamente os dados da central de segurança](continuous-export.md). Saiba como configurar uma integração com o Azure Sentinel ou qualquer outro SIEM.
-* [Monitoramento da integridade de segurança na Central de Segurança](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
+Neste artigo, você aprendeu a integrar as soluções de parceiro à Central de Segurança. Para saber como configurar uma integração com o Azure Sentinel ou qualquer outro SIEM, consulte [Exportar continuamente os dados da central de segurança](continuous-export.md).

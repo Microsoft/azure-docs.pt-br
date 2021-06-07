@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316062"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
@@ -80,29 +80,29 @@ A próxima etapa é vincular o Serviço de Provisionamento de Dispositivos e o H
 
 4. Na página **Adicionar link ao Hub IoT**, forneça as informações a seguir e clique em **Salvar**:
 
-    * **Assinatura:** Certifique-se de que a assinatura que contém o hub IoT esteja selecionada. Você pode vincular ao Hub IoT que reside em uma assinatura diferente.
+    * **Assinatura:** Verifique se a assinatura que contém o Hub IoT está selecionada. Você pode vincular ao Hub IoT que reside em uma assinatura diferente.
 
-    * **Hub IoT:** Escolha o nome do Hub IoT que você quer vincular a essa instância de Serviço de Provisionamento de Dispositivos.
+    * **Hub IoT:** Escolha o nome do Hub IoT que você deseja vincular a essa instância de serviço de provisionamento do dispositivo.
 
-    * **Política de acesso:** Selecione **iothubowner** como as credenciais a serem usadas para estabelecer o link para o Hub IoT.
+    * **Política de acesso:** Selecione **iothubowner** como as credenciais para estabelecer o link com o Hub IoT.
 
    ![Vincular o nome do hub para vincular ao serviço Provisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço de Provisionamento de Dispositivos
 
-A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos no Hub IoT que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
+A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos no Hub IoT que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
 
-1. **Menor latência**: Os dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
+1. **Menor latência**: dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
 
-2. **Distribuição uniformemente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
+2. **Distribuição igualmente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Essa é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
 
-3. **Configuração estática através da lista de registro**: A especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
+3. **Configuração estática por meio da lista de registro**: a especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
 
 Para definir a política de alocação, na página do Serviço de Provisionamento de Dispositivos, clique em **Gerenciar política de alocação**. Verifique se a política de alocação está definida como **Distribuição igualmente ponderada** (o padrão). Se fizer alguma alteração, clique em **Salvar** quando terminar.
 
 ![Gerenciar a política de alocação](./media/tutorial-set-up-cloud/iot-dps-manage-allocation.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros tutoriais nesta coleção aproveitam esse tutorial. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse tutorial. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse tutorial no Portal do Azure.
 

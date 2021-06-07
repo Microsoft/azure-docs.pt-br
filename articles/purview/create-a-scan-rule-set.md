@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de regras de verificação
+title: Criar um conjunto de regras de exame
 description: Crie um conjunto de regras de verificação no Azure alcance para examinar rapidamente as fontes de dados em sua organização.
 author: chandrakavya
 ms.author: kchandra
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 9662652a6a40285ad382857975ec0dd04b8ba8be
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551559"
 ---
-# <a name="create-a-scan-rule-set"></a>Criar um conjunto de regras de verificação
+# <a name="create-a-scan-rule-set"></a>Criar um conjunto de regras de exame
 
 Em um catálogo alcance do Azure, você pode criar conjuntos de regras de verificação para permitir que você examine rapidamente as fontes de dados em sua organização.
 

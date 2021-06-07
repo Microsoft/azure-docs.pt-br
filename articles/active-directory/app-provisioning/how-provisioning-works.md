@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579443"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -138,7 +138,7 @@ Após o ciclo inicial, todos os outros ciclos vão:
 O serviço de provisionamento continua executando ciclos incrementais back-to-back indefinidamente, em intervalos definidos no tutorial [específico para cada aplicativo](../saas-apps/tutorial-list.md). Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 
 - O serviço é interrompido manualmente usando o portal do Azure ou o comando apropriado da API do Microsoft Graph.
-- Um novo ciclo inicial é disparado usando a opção **Limpar estado e reiniciar** no portal do Azure ou o comando apropriado da API do Microsoft Graph. Essa ação apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
+- Um novo ciclo inicial é disparado usando a opção de **provisionamento de reinicialização** no portal do Azure ou usando o comando de API de Microsoft Graph apropriado. Essa ação apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
 - Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou filtros de escopo. Essa ação também apaga qualquer marca d'água armazenada e faz todos os objetos de origem serem reavaliados.
 - O processo de provisionamento vai para quarentena (veja abaixo) devido à taxa de erros alta e permanece em quarentena por mais de quatro semanas. Neste caso, o serviço será desabilitado automaticamente.
 

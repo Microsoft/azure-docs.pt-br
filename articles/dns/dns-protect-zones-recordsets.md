@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: 8163fcb3b349e298bc89f06523e3e784bdc4ed49
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 85aaf40237b6b6687c54d4b036f280805c98e7b2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618960"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Proteger registros e zonas DNS
 
@@ -202,7 +202,7 @@ Bloqueios de recurso em nível de zona podem ser criados via Portal do Azure.  N
 
 ![Bloqueios de recurso em nível de zona via Portal do Azure](./media/dns-protect-zones-recordsets/locks1.png)
 
-Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
+Bloqueios de recursos de nível de zona também podem ser criados por meio de [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
 ```azurepowershell
 # Lock a DNS zone
@@ -216,7 +216,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-O comando equivalente também está [disponível por meio da CLI do Azure](/cli/azure/lock?view=azure-cli-latest#az-lock-create):
+O comando equivalente também está [disponível por meio da CLI do Azure](/cli/azure/lock#az-lock-create):
 
 ```azurecli
 # Lock a DNS zone

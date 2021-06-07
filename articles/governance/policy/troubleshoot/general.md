@@ -3,12 +3,12 @@ title: Solução de problemas comuns
 description: Saiba como solucionar problemas com a criação de definições de política, os vários SDKs e o complemento para kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917736"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100592610"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solucionar erros com o uso de Azure Policy
 
@@ -87,7 +87,7 @@ Se você ainda tiver um problema com sua definição de política interna duplic
 
 #### <a name="issue"></a>Problema
 
-Um recurso que você espera que Azure Policy atue não esteja sendo executado, e não há nenhuma entrada no log de [atividades do Azure](../../../azure-monitor/platform/platform-logs-overview.md).
+Um recurso que você espera que Azure Policy atue não esteja sendo executado, e não há nenhuma entrada no log de [atividades do Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### <a name="cause"></a>Causa
 
@@ -123,7 +123,7 @@ Uma atribuição de política para o escopo do recurso novo ou atualizado atende
 
 #### <a name="resolution"></a>Resolução
 
-A mensagem de erro de uma atribuição de política de negação inclui a definição de política e as IDs de atribuição de política. Se as informações de erro na mensagem forem perdidas, elas também estarão disponíveis no [log de atividades](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use essas informações para obter mais detalhes para entender as restrições de recursos e ajustar as propriedades de recurso em sua solicitação para corresponder os valores permitidos.
+A mensagem de erro de uma atribuição de política de negação inclui a definição de política e as IDs de atribuição de política. Se as informações de erro na mensagem forem perdidas, elas também estarão disponíveis no [log de atividades](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use essas informações para obter mais detalhes para entender as restrições de recursos e ajustar as propriedades de recurso em sua solicitação para corresponder os valores permitidos.
 
 ## <a name="template-errors"></a>Erros de modelo
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 04fe19960f01709562a47404373801715385e9c3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92318684"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-altamira-hrm"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Altamira HRM

@@ -10,10 +10,10 @@ ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100390347"
 ---
 # <a name="soft-delete-for-blobs"></a>Exclusão reversível para blobs
@@ -89,7 +89,7 @@ A tabela a seguir detalha o comportamento esperado quando a exclusão reversíve
 
 | Operação de API REST | Tipo de recurso | Descrição | Alteração no comportamento |
 |--------------------|---------------|-------------|--------------------|
-| [Delete (excluir)](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Nenhuma alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
+| [Excluir](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Nenhuma alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contêiner | Exclui o contêiner, incluindo todos os blobs que ele contém. | Nenhuma alteração. Os blobs no contêiner excluído não são recuperáveis. |
 | [Put Blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo blob ou substitui um blob existente dentro de um contêiner | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
 | [Excluir blob](/rest/api/storageservices/delete-blob) | Blobs de bloco, acréscimo e página | Marca um blob ou instantâneo de blob para exclusão. O blob ou o instantâneo é excluído depois durante a coleta de lixo | Se usado para excluir que um instantâneo de blob, esse instantâneo será marcado como com exclusão reversível. Se usado para excluir um blob, esse blob será marcado como com exclusão reversível. |

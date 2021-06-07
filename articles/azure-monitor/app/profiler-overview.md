@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499385"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicativos de produção de perfil no Azure com o Application Insights
@@ -120,7 +120,7 @@ Não há encargos para usar o serviço do Profiler. Para que você o use, seu ap
 O Profiler é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo com o Profiler habilitado para capturar rastreamentos. Quando o Profiler está em execução, ele adiciona de 5% a 15% de sobrecarga de CPU ao servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
-Habilite o Application Insights Profiler para seu aplicativo do Azure. Consulte também:
+Habilite o Application Insights Profiler para seu aplicativo do Azure. Veja também:
 * [Serviços de Aplicativos](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)

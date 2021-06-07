@@ -1,17 +1,20 @@
 ---
 title: Desenvolvimento iterativo e depuração no Azure Data Factory
 description: Saiba como desenvolver e depurar Data Factory pipelines iterativamente na UX do ADF
-ms.date: 10/29/2020
+ms.date: 02/23/2021
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: 90f3f57fa527c8aaeb32a7dcf41f461ff5f0bf77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+services: data-factory
+documentationcenter: ''
+ms.workload: data-services
+author: kromerm
+ms.author: makromer
+ms.openlocfilehash: ef47d311f5f096db962ea27792e7871dbf0ef81a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392520"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101712939"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,6 +76,8 @@ O mapeamento de fluxos de dados permite que você crie uma lógica de transforma
 Você pode monitorar sessões de depuração de fluxo de dados ativos em uma fábrica na experiência do **Monitor** .
 
 ![Exibir sessões de depuração do fluxo de dados](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+A visualização de dados no designer de fluxo de dados e a depuração de pipeline de fluxos de dados visam funcionar melhor com pequenos exemplos de dados. No entanto, se você precisar testar sua lógica em um pipeline ou fluxo de dados com base em grandes quantidades de dados, aumente o tamanho do Azure Integration Runtime que está sendo usado na sessão de depuração com mais núcleos e um mínimo de computação de uso geral.
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Depurando um pipeline com uma atividade de fluxo de dados
 
@@ -83,7 +88,7 @@ O uso de uma sessão de depuração existente reduzirá muito o tempo de inicial
 Usar o tempo de execução de atividade criará um novo cluster usando as configurações especificadas em cada tempo de execução de integração da atividade de fluxo de dados. Isso permite que cada trabalho seja isolado e deve ser usado para cargas de trabalhos complexas ou testes de desempenho. Você também pode controlar a TTL no Azure IR para que os recursos de cluster usados para depuração ainda estejam disponíveis para esse período de tempo para atender a solicitações de trabalho adicionais.
 
 > [!NOTE]
-> Se você tiver um pipeline com fluxos de dados em execução em paralelo, escolha "usar tempo de execução de atividade" para que Data Factory possa usar o Integration Runtime que você selecionou em sua atividade de fluxo de dados. Isso permitirá que os fluxos de dados sejam executados em vários clusters e possam acomodar suas execuções de fluxo de dados paralelos.
+> Se você tiver um pipeline com fluxos de dados em execução em paralelo ou em fluxos de dados que precisam ser testados com grandes DataSets, escolha "usar o tempo de execução de atividade" para que Data Factory possa usar o Integration Runtime que você selecionou em sua atividade de fluxo de dados. Isso permitirá que os fluxos de dados sejam executados em vários clusters e possam acomodar suas execuções de fluxo de dados paralelos.
 
 ![Executando um pipeline com um Dataflow](media/iterative-development-debugging/iterative-development-dataflow.png)
 

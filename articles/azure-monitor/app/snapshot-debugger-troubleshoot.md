@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732720"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026446"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
 
 Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode começar executando a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Verifique se você está usando o ponto de extremidade de Depurador de Instantâneos apropriado
+
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights) e o [Azure China](/azure/china/resources-developer-guide).
+
+Para aplicativos e serviço de aplicativo usando o SDK do Application Insights, você precisa atualizar a cadeia de conexão usando as substituições com suporte para Depurador de Instantâneos conforme definido abaixo:
+
+|Propriedade da cadeia de conexão    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+Por Aplicativo de funções, você precisa atualizar o `host.json` usando as substituições com suporte abaixo:
+
+|Propriedade    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Abaixo está um exemplo da `host.json` atualização com o ponto de extremidade do agente de nuvem do governo dos EUA:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Use a verificação de integridade do instantâneo
 Vários problemas comuns resultam na não exibição do Abrir Instantâneo de Depuração. Usando um Coletor de Instantâneo desatualizado, por exemplo; alcançando o limite de carregamento diário; ou talvez o instantâneo está simplesmente demorando muito para carregar. Use a Verificação de Integridade de Instantâneo para solucionar problemas comuns.
@@ -35,9 +72,10 @@ Se isso não resolver o problema, consulte as etapas manuais de solução de pro
 
 Certifique-se de que está usando a chave de instrumentação correta no aplicativo publicado. Normalmente, a chave de instrumentação é lida do arquivo ApplicationInsights.config. Verifique se o valor é o mesmo da chave de instrumentação para o recurso do Application Insights que você vê no portal.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Verificar as configurações do cliente SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Verificar as configurações do cliente TLS/SSL (ASP.NET)
 
-Se você tiver um aplicativo ASP.NET hospedado no serviço Azure App ou no IIS em uma máquina virtual, seu aplicativo poderá falhar ao se conectar ao serviço Depurador de Instantâneos devido a um protocolo de segurança SSL ausente.
+Se você tiver um aplicativo ASP.NET que esteja hospedado no serviço Azure App ou no IIS em uma máquina virtual, seu aplicativo poderá falhar ao se conectar ao serviço de Depurador de Instantâneos devido a um protocolo de segurança SSL ausente.
+
 [O ponto de extremidade depurador de instantâneos requer TLS versão 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). O conjunto de protocolos de segurança SSL é uma das sutilezas habilitadas pelo valor de targetFramework de httpRuntime na seção System. Web do web.config. Se o targetFramework de httpRuntime for 4.5.2 ou inferior, o TLS 1,2 não será incluído por padrão.
 
 > [!NOTE]
@@ -64,6 +102,10 @@ Se você estiver usando uma versão de visualização do .NET Core ou seu aplica
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Verificar a página de status da extensão de site dos serviços de diagnóstico
 Se Depurador de Instantâneos foi habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, ele foi habilitado pela extensão de site dos serviços de diagnóstico.
+
+> [!NOTE]
+> A instalação sem código do Application Insights Depurador de Instantâneos segue a política de suporte do .NET Core.
+> Para obter mais informações sobre tempos de execução com suporte, consulte [política de suporte do .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Você pode verificar a página de status dessa extensão indo para a seguinte URL: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 

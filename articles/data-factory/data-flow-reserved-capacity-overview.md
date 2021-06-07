@@ -6,27 +6,27 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 26a4692603d8e8a80a52ea77bdd56617131cea5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526299"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593876"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Economize custos para recursos com capacidade reservada-Azure Data Factory fluxos de dados
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Economize dinheiro com Azure Data Factory custos de fluxo de dados ao confirmar uma reserva de recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada, você faz um compromisso com o uso do fluxo de dados do ADF por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para comprar a capacidade reservada, você precisa especificar a região do Azure, o tipo de computação, a quantidade de contagem de núcleos e o termo.
 
 Você não precisa atribuir a reserva a uma fábrica ou tempo de execução de integração específico. Fábricas existentes ou fábricas recentemente implantadas obtêm o benefício automaticamente. Ao comprar uma reserva, você compromete o uso dos custos de computação do fluxo de dados por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação que corresponderem aos atributos de reserva não serão mais cobrados com as tarifas pagas conforme o uso. 
 
-Você pode comprar [capacidade reservada](https://portal.azure.com) escolhendo reservas [para frente ou para pagamentos mensais](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar uma capacidade reservada:
+Você pode comprar [capacidade reservada](https://portal.azure.com) escolhendo reservas [para frente ou para pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar uma capacidade reservada:
 
 - Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 - Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura. Capacidade reservada.
 
-Para obter mais informações sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) e [entender o uso de reserva do Azure para sua assinatura pré-paga](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
+Para obter mais informações sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [entender o uso de reserva do Azure para sua assinatura pré-paga](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 > [!NOTE]
 > A compra da capacidade reservada não aloca ou reserva recursos específicos de infraestrutura (clusters ou máquinas virtuais) para seu uso.
@@ -49,7 +49,7 @@ Por exemplo, vamos supor que você esteja executando um pipeline por hora usando
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 

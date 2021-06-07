@@ -1,21 +1,23 @@
 ---
-title: Implantar o `PHP Guestbook` aplicativo em Arc habilitado kubernetes no dispositivo de GPU Pro Azure Stack Edge | Microsoft Docs
+title: Implantar o `Guestbook` aplicativo PHP em Arc habilitado kubernetes no dispositivo de GPU Pro Azure Stack Edge | Microsoft Docs
 description: Descreve como implantar um `Guestbook` aplicativo sem monitoração de estado do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 920f7912a1289fe92618d893b94943784e4a9a3a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804873"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102520720"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um `Guestbook` aplicativo sem monitoração de estado do PHP com o Redis em Arc habilitado cluster kubernetes no Azure Stack GPU pro Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo mostra como criar e implantar um aplicativo Web simples de várias camadas usando o kubernetes e o Arc do Azure. Este exemplo consiste nos seguintes componentes:
 
@@ -49,7 +51,7 @@ Antes de implantar o aplicativo sem estado, verifique se você concluiu os segui
 
 1. Você tem um sistema cliente Windows que será usado para acessar o dispositivo Azure Stack Edge pro.
   
-    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
+    - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](/powershell/scripting/install/installing-windows-powershell).
     
     - Você também pode ter qualquer outro cliente com um [sistema operacional com suporte](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Este artigo descreve o procedimento ao usar um cliente do Windows. 
     
@@ -111,7 +113,7 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
     ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
-## <a name="verify-deployment"></a>Verificar a implantação
+## <a name="verify-deployment"></a>Verificar implantação
 
 A implantação por meio da configuração GitOps cria um `demotestguestbook` namespace conforme especificado nos arquivos de implantação `yaml` localizados no repositório git.
 

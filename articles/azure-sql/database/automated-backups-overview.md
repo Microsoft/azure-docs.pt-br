@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108051"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609916"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -34,7 +34,7 @@ O banco de dados SQL e o SQL Instância Gerenciada usam a tecnologia SQL Server 
 
 Quando você restaura um banco de dados, o serviço determina quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
-### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+### <a name="backup-storage-redundancy"></a>Redundância do armazenamento de backup
 
 Por padrão, o banco de dados SQL e o SQL Instância Gerenciada armazenam em [blobs de armazenamento](../../storage/common/storage-redundancy.md) com redundância geográfica que são replicados para uma [região emparelhada](../../best-practices-availability-paired-regions.md). Isso ajuda a proteger contra interrupções que afetam o armazenamento de backup na região primária e permite que você restaure o servidor para uma região diferente em caso de desastre. 
 
@@ -140,9 +140,12 @@ Para o banco de dados SQL e o SQL Instância Gerenciada, você pode configurar a
 
 Para obter mais informações sobre LTR, confira [Retenção de backup de longo prazo](long-term-retention-overview.md).
 
-## <a name="storage-costs"></a>Custos de armazenamento
+## <a name="backup-storage-costs"></a>Custos de armazenamento de backup
 
 O preço do armazenamento de backup varia e depende de seu modelo de compra (DTU ou vCore), da opção de redundância de armazenamento de backup escolhida e também de sua região. O armazenamento de backup é cobrado por GB/mês consumido, para preços, consulte página de [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e página de [preços do Azure SQL instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
+
+> [!NOTE]
+> A fatura do Azure mostrará apenas o armazenamento de backup em excesso consumido, não o consumo de armazenamento de backup inteiro. Por exemplo, em um cenário hipotético, se você tiver provisionado 4 TB de armazenamento de dados, receberá 4 TB de espaço livre de armazenamento de backup. Caso você tenha usado o total de 5,8 TB de espaço de armazenamento de backup, a fatura do Azure mostrará apenas 1,8 TB, pois somente o armazenamento de backup excessivo usado será cobrado.
 
 ### <a name="dtu-model"></a>Modelo de CPU
 
@@ -176,7 +179,7 @@ Os cenários de cobrança de backup reais são mais complexos. Como a taxa de al
 
 Você pode monitorar o consumo de armazenamento de backup total para cada tipo de backup (completo, diferencial, log de transações) ao longo do tempo, conforme descrito em [monitorar consumo](#monitor-consumption).
 
-### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+### <a name="backup-storage-redundancy"></a>Redundância do armazenamento de backup
 
 A redundância de armazenamento de backup afeta os custos de backup da seguinte maneira:
 - preço com redundância local = x
@@ -229,17 +232,15 @@ Você pode alterar o período de retenção de backup de PITR padrão usando o p
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Alterar o período de retenção de backup de PITR usando o portal do Azure
 
-Para alterar o período de retenção de backup PITR para bancos de dados ativos usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. 
+Para alterar o período de retenção de backup PITR para bancos de dados ativos usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. Selecione **backups** no painel esquerdo e, em seguida, selecione a guia **políticas de retenção** . Selecione os bancos de dados para os quais você deseja alterar a retenção de backup PITR. Em seguida, selecione **Configurar retenção** na barra de ação.
+
+
 
 #### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
-
-Alterações na retenção de backup PITR para banco de dados SQL são feitas na página servidor no Portal. Para alterar a retenção de PITR para bancos de dados em um servidor, vá para a folha visão geral do servidor. Selecione **gerenciar backups** no painel esquerdo, selecione os bancos de dados no escopo de sua alteração e, em seguida, selecione **Configurar retenção** na parte superior da tela:
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
-
-As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
 ![Alterar a retenção de PITR, instância gerenciada](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 
@@ -448,7 +449,7 @@ Uma lista completa de definições de políticas internas para o banco de dados 
 Para impor os requisitos de residência de dados em um nível organizacional, essas políticas podem ser atribuídas a uma assinatura. Depois que eles são atribuídos em um nível de assinatura, os usuários na assinatura específica não poderão criar um banco de dados ou uma instância gerenciada com armazenamento de backup com redundância geográfica via portal do Azure ou Azure PowerShell. 
 
 > [!IMPORTANT]
-> As políticas do Azure não são impostas ao criar um banco de dados via T-SQL. Para impor a residência de dados ao criar um banco de dados usando o T-SQL, [use ' local ' ou ' zona ' como entrada para BACKUP_STORAGE_REDUNDANCY parâmetro na instrução CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> As políticas do Azure não são impostas ao criar um banco de dados via T-SQL. Para impor a residência de dados ao criar um banco de dados usando o T-SQL, [use ' local ' ou ' zona ' como entrada para BACKUP_STORAGE_REDUNDANCY parâmetro na instrução CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Saiba como atribuir políticas usando o [portal do Azure](../../governance/policy/assign-policy-portal.md) ou [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -460,4 +461,5 @@ Saiba como atribuir políticas usando o [portal do Azure](../../governance/polic
 - Obtenha mais informações sobre como [restaurar um banco de dados para um momento determinado usando o PowerShell](scripts/restore-database-powershell.md).
 - Para obter informações sobre como configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no armazenamento de Blobs do Azure usando o portal do Azure, consulte [Gerenciar a retenção de backup de longo prazo usando o portal do Azure](long-term-backup-retention-configure.md).
 - Para obter informações sobre como configurar, gerenciar e restaurar a retenção de longo prazo de backups automatizados no armazenamento de Blobs do Azure usando o PowerShell, consulte [Gerenciar a retenção de backup de longo prazo usando o PowerShell](long-term-backup-retention-configure.md).
+- Para saber tudo sobre o consumo de armazenamento de backup no Azure SQL Instância Gerenciada, confira [consumo de armazenamento de backup em instância gerenciada explicado](https://aka.ms/mi-backup-explained).
 - Para saber como ajustar a retenção e os custos de armazenamento de backup para o Azure SQL Instância Gerenciada, consulte ajustar [os custos de armazenamento de backup em instância gerenciada](https://aka.ms/mi-backup-tuning).

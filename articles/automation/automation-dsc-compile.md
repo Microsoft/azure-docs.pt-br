@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.openlocfilehash: b45aad71e04418c7c7dda4fc3f0c84a5fe99ecdf
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896335"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações DSC na State Configuration da Automação do Azure
@@ -276,7 +276,7 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para começar, confira [Introdução à State Configuration da Automação do Azure](automation-dsc-getting-started.md).
+- Para começar, confira [Introdução ao State Configuration da Automação do Azure](automation-dsc-getting-started.md).
 - Para saber como compilar configurações DSC para que possam ser atribuídas a nós de destino, confira [Compilar configurações DSC no State Configuration da Automação do Azure](automation-dsc-compile.md).
 - Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation).
 - Para obter informações sobre preços, consulte [Preço da State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).

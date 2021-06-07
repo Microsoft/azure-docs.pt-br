@@ -3,18 +3,18 @@ title: Visão geral dos hubs de eventos dedicados – Hubs de Eventos do Azure |
 description: Este artigo fornece uma visão geral dos hubs de eventos dedicados do Azure, que oferece implantações de um único locatário de hubs de eventos.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 1a15206fc35f0d536c7105aa73dfdcfc9967124d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358857"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101715608"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
 Os *clusters de hubs de eventos* oferecem implantações de locatário único para clientes com as necessidades de streaming mais exigentes. Essa oferta de locatário único tem um SLA de 99,99% garantido e está disponível apenas em nosso tipo de preço dedicado. Um cluster de Hubs de Eventos possível insere milhões de eventos por segundo com latência de subsegundos e capacidade garantida. Os namespaces e os hubs de eventos criados no cluster dedicado incluem todos os recursos da oferta padrão e muito mais, mas sem nenhum limite de entrada. Ele também inclui o recurso popular de [captura de hubs de eventos](event-hubs-capture-overview.md) sem custo adicional. Esse recurso permite que você faça automaticamente o lote e o log de fluxos de dados para o armazenamento do Azure ou Azure Data Lake. 
 
-Os clusters são provisionados e cobrados por **unidades de capacidade (cus)** , uma quantidade alocada de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 UCS para cada cluster. O quanto você pode ingerir e transmitir por CU depende de uma variedade de fatores, como os seguintes: 
+Os clusters são provisionados e cobrados por **unidades de capacidade (cus)**, uma quantidade alocada de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 UCS para cada cluster. O quanto você pode ingerir e transmitir por CU depende de uma variedade de fatores, como os seguintes: 
 
 - Número de produtores e consumidores
 - Forma da carga
@@ -48,11 +48,11 @@ A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um
 | Namespaces |  1 | 50 por CU |
 | Hubs de Eventos |  10 por namespace | 1\.000 por namespace |
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
-| Tamanho da mensagem | 1 milhão bytes | 1 milhão bytes |
-| Partições | 32 por Hub de eventos | 1024 por Hub de eventos<br/>2\.000 por CU |
-| Grupos de consumidores | 20 por Hub de eventos | Nenhum limite por CU, 1000 por hub de eventos |
-| Conexões orientadas | 1.000 incluso, 5.000 máx. | 100 K incluídos e máximo |
-| Retenção de mensagem | 7 dias, 84 GB incluídos por TU | 90 dias, 10 TB incluídos por CU |
+| Tamanho da mensagem | 1 milhão de bytes | 1 milhão de bytes |
+| Partições | 32 por Hub de Eventos | 1\.024 por Hub de Eventos<br/>2\.000 por CU |
+| Grupos de consumidores | 20 por Hub de Eventos | Nenhum limite por CU, 1000 por hub de eventos |
+| Conexões orientadas | 1\.000 incluídos, 5.000 no máximo | 100 mil incluídos e máximo |
+| [Retenção de eventos](event-hubs-features.md#event-retention) | Sete dias, 84 GB incluídos por CU | 90 dias, 10 TB incluídos por CU |
 | Capturar | Pagamento por hora | Incluso |
 
 Para obter mais cotas e limites, consulte [limites e cotas de hubs de eventos](event-hubs-quotas.md)

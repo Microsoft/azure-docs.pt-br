@@ -10,10 +10,10 @@ ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93360523"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Compilar um aplicativo .NET Framework ou Core usando a conta da API do Gremlin do Azure Cosmos DB
@@ -105,7 +105,7 @@ Todos os snippets de código a seguir são retirados do arquivo Program.cs.
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral** , você pode ver dois pontos de extremidade - 
+1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral**, você pode ver dois pontos de extremidade - 
  
    **URI de SDK do .NET** - Esse valor é usado ao conectar-se à conta do Graph usando a biblioteca Microsoft.Azure.Graphs. 
 
@@ -113,7 +113,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar o ponto de extremidade":::
 
-   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin** , exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
+   Para executar este exemplo, copie o valor do **Ponto de Extremidade do Gremlin**, exclua o número da porta no final e o URI se tornará `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. O valor de ponto de extremidade deve ter esta aparência: `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Em seguida, navegue até a guia **Chaves** e copie o valor de **CHAVE PRIMÁRIA** do portal do Azure. 
 

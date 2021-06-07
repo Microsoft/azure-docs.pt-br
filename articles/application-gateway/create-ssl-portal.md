@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: victorh
 ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98986745"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com o encerramento de TLS usando o portal do Azure

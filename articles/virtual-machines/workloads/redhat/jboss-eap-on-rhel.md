@@ -3,17 +3,20 @@ title: Início Rápido – Implantar o JBoss EAP (Enterprise Application Platfor
 description: Como implantar aplicativos Java empresariais usando o JBoss EAP da Red Hat nas VMs e nos conjuntos de dimensionamento de máquinas virtuais RHEL do Azure.
 author: theresa-nguyen
 ms.author: bicnguy
-ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: bd6ff46807c22309679ba7e8518685bb05cc77e2
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
+ms.topic: quickstart
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.custom:
+- mode-api
+ms.collection: linux
+ms.openlocfilehash: 18cf093adad858f50b2b1fa1c97e38821bd1c949
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830710"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538678"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Implantar aplicativos Java empresariais no Azure com o EAP do JBoss no Red Hat Enterprise Linux
 

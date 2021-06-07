@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5c85095e767c0e92c22410054ac4f8fc5267660
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1f78d7185415b66445c78f3b4cdb54ed0d63cb0a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097134"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102216608"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>API do Spring data Azure Cosmos DB v2 para núcleo (SQL): notas de versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 > * [Spring Data Gremlin com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Quer começar a usar rapidamente?
-> 1. Instale o [tempo de execução Java mínimo com suporte, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), para que você possa usar o SDK.
+> 1. Instale o [tempo de execução Java mínimo com suporte, JDK 8](/java/azure/jdk/), para que você possa usar o SDK.
 > 2. Crie um aplicativo de Azure Cosmos DB Spring data usando o [iniciador](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). É fácil!
 > 3. Trabalhe no [Guia do desenvolvedor do Spring Data Azure Cosmos DB](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), que percorre as solicitações de Azure Cosmos DB básicas.
 >
@@ -85,11 +85,11 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 ### <a name="225-may-19-2020"></a>2.2.5 (19 de maio de 2020)
 #### <a name="new-features"></a>Novos recursos
 * Atualiza Azure Cosmos DB versão para 3.7.3.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Contém correções de vazamento de memória e atualizações de versão de sub-rede do Azure Cosmos DB SDK 3.7.3.
 
 ### <a name="224-april-6-2020"></a>2.2.4 (6 de abril de 2020)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige o `allowTelemetry` sinalizador a ser levado em conta de `CosmosDbConfig` .
 * Corrige a `TTL` propriedade no contêiner.
 
@@ -97,19 +97,19 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 #### <a name="new-features"></a>Novos recursos
 * Adiciona nova `findAll` pela API de chave de partição.
 * Atualiza Azure Cosmos DB versão para 3.7.0.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Correções `collectionName`  ->  `containerName` .
 * Correções `entityClass` e `domainClass`  ->  `domainType` .
 * Corrige a "coleção de entidades de retorno salva pelo repositório em vez da entidade de entrada".
 
 ### <a name="2110-february-25-2020"></a>2.1.10 (25 de fevereiro de 2020)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * A correção de backports para a "coleção de entidades de retorno salva pelo repositório em vez da entidade de entrada".
 
 ### <a name="222-january-15-2020"></a>2.2.2 (15 de janeiro de 2020)
 #### <a name="new-features"></a>Novos recursos
 * Atualiza a versão Azure Cosmos DB para o 3.6.0.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 
 ### <a name="221-december-31-2019"></a>2.2.1 (31 de dezembro de 2019)
 #### <a name="new-features"></a>Novos recursos
@@ -117,7 +117,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 * Adiciona o campo de anotação para habilitar ou desabilitar a criação de coleção automática.
 * Melhora o tratamento de exceção. Expõe `CosmosClientException` por meio de `CosmosDBAccessException` .
 * Expõe `requestCharge` e `activityId` até `ResponseDiagnostics` .
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * A atualização do SDK 3.5.0 corrige "exceção quando Cosmos DB cabeçalho de resposta HTTP é maior que 8192 bytes," "ConsistencyPolicy. defaultConsistencyLevel () falha na desatualização limitada e no prefixo consistente".
 * Corrige o `findById` comportamento do método. Anteriormente, esse método retornou vazio se a entidade não fosse encontrada em vez de lançar uma exceção.
 * Corrige um bug no qual a classificação não foi aplicada na próxima página quando `CosmosPageRequest` foi usada.
@@ -125,7 +125,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 ### <a name="219-december-26-2019"></a>2.1.9 (26 de dezembro de 2019)
 #### <a name="new-features"></a>Novos recursos
 * Adiciona o campo de anotação para habilitar ou desabilitar a criação de coleção automática.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 *  Corrige o `findById` comportamento do método. Anteriormente, esse método retornou vazio se a entidade não fosse encontrada em vez de lançar uma exceção.
 
 ### <a name="220-october-21-2019"></a>2.2.0 (21 de outubro de 2019)
@@ -138,7 +138,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 * Adiciona `findByIdAndPartitionKey` e `deleteByIdAndPartitionKey` APIs.
 * Remove a dependência do Azure-documentdb.
 * Remarca o DocumentDB para Azure Cosmos DB.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige "a classificação gera uma exceção quando pageSize é menor que o total de itens no repositório".
 
 ### <a name="218-october-18-2019"></a>2.1.8 (18 de outubro de 2019)
@@ -157,14 +157,14 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 * Adiciona outras alterações de configuração para o suporte ao repositório Cosmos reativo.
 
 ### <a name="212-march-19-2019"></a>2.1.2 (19 de março de 2019)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Remove `applicationInsights` a dependência para:
     * Risco potencial de dependências que poluam.
     * Incompatibilidade do Java 11.
     * Evitar o impacto potencial no desempenho na CPU e/ou na memória.
 
 ### <a name="207-march-20-2019"></a>2.0.7 (20 de março de 2019)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Backport remove `applicationInsights` a dependência para:
     * Risco potencial de dependências que poluam.
     * Incompatibilidade do Java 11.
@@ -186,7 +186,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 #### <a name="new-features"></a>Novos recursos
 * Adiciona palavras-chave `exists` e `startsWith` .
 * Atualizações Leiame.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige "não é possível chamar o autohref diretamente para a entidade".
 * Correções de "findAll falhará se a coleção não for criada".
 
@@ -198,7 +198,7 @@ Você pode usar o Spring data Azure Cosmos DB em seus aplicativos de [nuvem Spri
 * Simplifica a configuração do Spring-data-cosmosdb.
 * Adiciona `deleteCollection` e `deleteAll` APIs.
 
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Correção de bug e mitigação de defeito.
 
 ## <a name="faq"></a>Perguntas frequentes

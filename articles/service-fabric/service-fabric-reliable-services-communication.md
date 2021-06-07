@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97912607"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services

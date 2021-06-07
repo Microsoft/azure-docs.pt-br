@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/18/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e9189b6608b74be6a72dbdfe66276c5050f042f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 08ed02c65db201e18ce710633b421edb5ecb2db0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365456"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655692"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -28,7 +28,7 @@ Dependendo das necessidades da organização que convida, um usuário de colabor
 - Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
 
    > [!IMPORTANT]
-   > A **partir de outubro de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure ad não gerenciados para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
+   > **A partir de outubro de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários do Azure AD não gerenciados para cenários de colaboração B2B. Durante a preparação, incentivamos os clientes a aceitarem a [autenticação de senha avulsa por email](one-time-passcode.md). Agradecemos seus comentários sobre essa versão prévia do recurso pública e estamos empolgados em criar ainda mais maneiras de colaborar.
 
 - Estado 2: hospedado em uma conta da Microsoft ou outra e representada como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta Microsoft ou uma conta social (google.com ou semelhante). A identidade do usuário convidado é criada como uma conta Microsoft no diretório da organização que fez o convite durante o resgate de oferta.
 
@@ -106,7 +106,7 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 ![Captura de tela mostrando a opção usuários externos nas configurações do usuário](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter detalhes, consulte posso **tornar os objetos convidados visíveis na lista de endereços global?** em [gerenciar o acesso de convidado em grupos de Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups).
+Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter detalhes, consulte "adicionar convidados à lista de endereços global" no [artigo Microsoft 365 acesso de convidado por grupo](/microsoft-365/solutions/per-group-guest-access).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de email de um usuário convidado?
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698067"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582272"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -27,7 +27,7 @@ Siga estas etapas se desejar permitir que os usuários em seu diretório possam 
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Usuários e grupos específicos** | Escolha esta opção se desejar que apenas os usuários e grupos em seu diretório especificados possam solicitar esse pacote de acesso. |
     | **Todos os membros (exceto convidados)** | Escolha esta opção se desejar que todos os usuários Membros em seu diretório possam solicitar esse pacote de acesso. Essa opção não inclui nenhum usuário convidado que você possa ter convidado em seu diretório. |
@@ -62,7 +62,7 @@ Siga estas etapas se desejar permitir que os usuários que não estão em seu di
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas podem solicitar esse pacote de acesso. |
     | **Todas as organizações conectadas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso. |

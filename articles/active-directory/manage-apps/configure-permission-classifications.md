@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b2d851f0f4476cd4b24b6ba30c237f9a42252726
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 12a4ffb311e01ebb78b1ae392d1243c5d67eff6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255213"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101644557"
 ---
 # <a name="configure-permission-classifications"></a>Configurar as classificações de permissão
 
@@ -126,4 +126,4 @@ Para saber mais:
 * [Permissões e consentimento na plataforma de identidade da Microsoft](../develop/v2-permissions-and-consent.md)
 
 Para obter ajuda ou encontrar respostas às suas perguntas:
-* [Azure AD no Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Azure AD no Microsoft Q&A](/answers/topics/azure-active-directory.html)

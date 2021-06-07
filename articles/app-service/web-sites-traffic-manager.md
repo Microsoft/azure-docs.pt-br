@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
 ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80437889"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure

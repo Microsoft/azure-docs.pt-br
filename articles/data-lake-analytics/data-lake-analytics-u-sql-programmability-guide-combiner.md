@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: a6c560cf4ec11197183711656d69024591e7008c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512513"
 ---
-# <a name="use-user-defined-combiner"></a>Usar o combinador definido pelo usuário
+# <a name="use-user-defined-combiner"></a>Usar combinador definido pelo usuário
 
 ## <a name="u-sql-udo-user-defined-combiner"></a>UDO U-SQL: combinador definido pelo usuário
 O combinador definido pelo usuário, ou UDC, permite combinar linhas dos conjuntos de linhas esquerdo e direito, com base em lógica personalizada. O Combinador Definido pelo Usuário é usado com a expressão COMBINE.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493932"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver o Azure Functions usando o Visual Studio Code
@@ -138,7 +138,7 @@ Dependendo do seu idioma, esses outros arquivos serão criados:
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-* [Arquivo de biblioteca de classes HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa a função.
+* [Arquivo de biblioteca de classes HttpExample. cs](functions-dotnet-class-library.md#functions-class-library-project) que implementa a função.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -373,9 +373,9 @@ Para executar uma função no Azure de Visual Studio Code.
 
 1. Escolha seu aplicativo de funções no Azure na lista. Se você não vir seu aplicativo de funções, verifique se você está conectado à assinatura correta. 
 
-1. Escolha a função que você deseja executar na lista e digite o corpo da mensagem da solicitação em **Inserir corpo da solicitação**. Pressione Enter para enviar essa mensagem de solicitação para sua função. O texto padrão no **corpo da solicitação Enter** deve indicar o formato do corpo. Se seu aplicativo de funções não tiver funções, um erro de notificação será mostrado com esse erro. 
+1. Escolha a função que você deseja executar na lista e digite o corpo da mensagem da solicitação em **Inserir corpo da solicitação**. Clique em ENTER para enviar essa mensagem de solicitação à função. O texto padrão no **corpo da solicitação Enter** deve indicar o formato do corpo. Se seu aplicativo de funções não tiver funções, um erro de notificação será mostrado com esse erro. 
 
-1. Quando a função é executada no Azure e retorna uma resposta, uma notificação é gerada em Visual Studio Code.
+1. Quando a função é executada no Azure e retorna uma resposta, uma notificação é gerada no Visual Studio Code.
  
 Você também pode executar sua função na área **Azure: funções** clicando com o botão direito do mouse (Ctrl-clicando no Mac) a função que você deseja executar de seu aplicativo de funções em sua assinatura do Azure e escolhendo **Executar função agora...**.
 
@@ -409,9 +409,9 @@ Quando o projeto estiver em execução, você poderá usar o recurso **Executar 
 
 1. No palete de comando, insira **Azure Functions: execute a função agora** e escolha **projeto local**. 
 
-1. Escolha a função que você deseja executar em seu projeto e digite o corpo da mensagem da solicitação em **Inserir corpo da solicitação**. Pressione Enter para enviar essa mensagem de solicitação para sua função. O texto padrão no **corpo da solicitação Enter** deve indicar o formato do corpo. Se seu aplicativo de funções não tiver funções, um erro de notificação será mostrado com esse erro. 
+1. Escolha a função que você deseja executar em seu projeto e digite o corpo da mensagem da solicitação em **Inserir corpo da solicitação**. Clique em ENTER para enviar essa mensagem de solicitação à função. O texto padrão no **corpo da solicitação Enter** deve indicar o formato do corpo. Se seu aplicativo de funções não tiver funções, um erro de notificação será mostrado com esse erro. 
 
-1. Quando a função é executada localmente e depois que a resposta é recebida, uma notificação é gerada em Visual Studio Code. As informações sobre a execução da função são mostradas no painel do **terminal** .
+1. Quando a função é executada localmente e depois que a resposta é recebida, uma notificação é gerada em Visual Studio Code. As informações sobre a execução da função são mostradas no painel **Terminal**.
 
 A execução de funções localmente não requer o uso de chaves. 
 

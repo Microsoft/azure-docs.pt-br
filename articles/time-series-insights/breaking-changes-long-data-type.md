@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.custom: dpalled
 ms.openlocfilehash: 0f7ac9844bfe7eac7094d3b7fdf653e07f236599
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96780817"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionando suporte para o tipo de dados Long no Azure Time Series Insights Gen2

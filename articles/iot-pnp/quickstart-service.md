@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 2c39672c779c5aa27aae7271b8a903a1146118d9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f3873b2e1614d57416a472e955e6cf8aa8ab1d36
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487768"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062549"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution"></a>Início rápido: Fazer a interação com um dispositivo IoT Plug and Play conectado à sua solução
 
@@ -41,6 +41,10 @@ ms.locfileid: "95487768"
 [!INCLUDE [iot-pnp-service-python](../../includes/iot-pnp-service-python.md)]
 
 :::zone-end
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você tiver concluído os guias de início rápido e os tutoriais, confira [Limpar recursos](set-up-environment.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Próximas etapas
 

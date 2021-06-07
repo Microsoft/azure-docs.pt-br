@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
 ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242201"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
@@ -20,7 +20,7 @@ No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a rede de di
 
 O mecanismo de regras foi projetado para ser a autoridade final sobre como tipos específicos de solicitações são processados pela CDN do Azure padrão.
 
-**Usos comuns para as regras** :
+**Usos comuns para as regras**:
 
 - Substituir ou definir uma política de cache personalizada.
 - Solicitações de redirecionamento.
@@ -46,7 +46,7 @@ Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. Cada regra po
 - Solicitações processadas: $0.60 por milhão de solicitações
 - As primeiras 5 regras permanecerão livres
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 A forma como os caracteres especiais são tratados em uma regra varia de acordo com a forma como as condições de correspondência e as ações diferentes manipulam valores de texto. Uma condição de correspondência ou ação pode interpretar o texto de uma das seguintes maneiras:
 

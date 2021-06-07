@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: beed3ec50d0c7990168ee75976c732796cdbe246
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324432"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurar fluxos de saída e mensagens de runbook
@@ -117,9 +117,9 @@ O runbook inclui o tipo de saída `Microsoft.Azure.Commands.Profile.Models.PSAzu
 
 Embora esse runbook seja direto, há um item de configuração para chamar aqui. A última atividade executa o cmdlet `Write-Output` para gravar dados do perfil em uma variável usando uma expressão do PowerShell para o parâmetro `Inputobject`. Este parâmetro é obrigatório para `Write-Output`.
 
-O segundo runbook neste exemplo, chamado **Test-ChildOutputType** , simplesmente define duas atividades.<br> ![Runbook de tipo de saída de exemplo filho](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+O segundo runbook neste exemplo, chamado **Test-ChildOutputType**, simplesmente define duas atividades.<br> ![Runbook de tipo de saída de exemplo filho](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-A primeira atividade chama o runbook **AuthenticateTo-Azure**. A segunda atividade executa o cmdlet `Write-Verbose` com a **Fonte de dados** definida como **Saída de atividade**. Além disso, **Caminho de campo** é definido para **Context.Subscription.SubscriptionName** , a saída de contexto do runbook **AuthenticateTo-Azure**.<br> ![Fonte de dados de parâmetro do cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+A primeira atividade chama o runbook **AuthenticateTo-Azure**. A segunda atividade executa o cmdlet `Write-Verbose` com a **Fonte de dados** definida como **Saída de atividade**. Além disso, **Caminho de campo** é definido para **Context.Subscription.SubscriptionName**, a saída de contexto do runbook **AuthenticateTo-Azure**.<br> ![Fonte de dados de parâmetro do cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 A saída resultante é o nome da assinatura.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -277,9 +277,9 @@ Entretanto, a menos que você precise dessas informações para acompanhar o pro
 1. No portal do Azure, abra sua conta da Automação.
 2. Selecione **Runbooks** em **Automação de Processos** para abrir a lista de runbooks.
 3. Na página Runbooks, selecione um runbook gráfico na lista de runbooks.
-4. Em **Configurações** , clique em **Log e rastreamento**.
-5. Na página Log e rastreamento, em **Registros detalhados de log** , clique em **Ativar** para ativar o log detalhado.
-6. Em **Rastreamento no nível da atividade** , altere o nível de rastreamento para **Básico** ou **Detalhado** , com base no nível de rastreamento necessário.<br>
+4. Em **Configurações**, clique em **Log e rastreamento**.
+5. Na página Log e rastreamento, em **Registros detalhados de log**, clique em **Ativar** para ativar o log detalhado.
+6. Em **Rastreamento no nível da atividade**, altere o nível de rastreamento para **Básico** ou **Detalhado**, com base no nível de rastreamento necessário.<br>
 
    ![Página Registro e Rastreamento de Criação Gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

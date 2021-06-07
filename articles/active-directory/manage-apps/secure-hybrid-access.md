@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 9/10/2020
+ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 521439da044fb4fc3c2f578f28658215266138d9
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589388"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acesso híbrido seguro: proteger aplicativos herdados com o Azure Active Directory
 
 Agora você pode proteger seus aplicativos de autenticação herdados locais e na nuvem conectando-os ao Azure Active Directory (AD) com:
 
-- [Proxy de Aplicativo do Azure AD](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
+- [Proxy de Aplicativo do AD do Azure](#secure-hybrid-access-sha-through-azure-ad-application-proxy)
 
 - [Seus controladores e redes de entrega de aplicativos existentes](#sha-through-networking-and-delivery-controllers)
 
@@ -48,9 +48,11 @@ Os fornecedores de rede a seguir oferecem soluções predefinidas e diretrizes d
 
 - [ADC (Application Delivery Controller) Citrix](../saas-apps/citrix-netscaler-tutorial.md)
 
-- [F5 Big-IP APM](f5-aad-integration.md)
+- [F5 Big-IP APM](./f5-aad-integration.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
+
+- [Gerenciador de tráfego virtual de Pulse Secure (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
 ### <a name="sha-through-vpn-and-sdp-applications"></a>SHA por meio de aplicativos VPN e SDP
 
@@ -58,14 +60,27 @@ Usando soluções VPN e SDP, você pode fornecer acesso seguro à sua rede corpo
 
 ![Imagem mostra acesso híbrido seguro com parceiros VPN e proxy de aplicativo ](./media/secure-hybrid-access/app-proxy-vpn.png)
 
-Os seguintes fornecedores de VPN e SDP oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
+Os fornecedores de VPN a seguir oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
 
-• [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-• [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
-• [F5 Big-IP APM](f5-aad-password-less-vpn.md)
+- [F5 Big-IP APM](./f5-aad-password-less-vpn.md)
 
-• O [Palo Alto Networks global Protect](../saas-apps/paloaltoadmin-tutorial.md)
+- [Proteção global de redes Palo Alto](../saas-apps/paloaltoadmin-tutorial.md)
 
-• [ZPA (Zscaler Private Access)](../saas-apps/zscalerprivateaccess-tutorial.md)
+- [Proteção do Pulse Secure Pulse Connect (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
+
+Os seguintes fornecedores de SDP oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
+
+- [Agente de acesso do Datawiza](./add-application-portal-setup-oidc-sso.md)
+
+- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
+
+
+- [Plataforma de autenticação Silverfort](./add-application-portal-setup-oidc-sso.md)
+
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+
+- [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: fcaf427c2e0ab275a5a6e08306dda785bca690d6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4f905b7a08564eadb20d65d651c137ef3741376
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784160"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100314"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de preparação da central de segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -59,7 +59,6 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 Use os recursos a seguir para ajudá-lo a gerenciar alertas de segurança e a proteger seus recursos.
 
 Artigos    
-- [Monitoramento da integridade de segurança na Central de Segurança do Azure](./security-center-monitoring.md)
 - [Protegendo sua rede na Central de Segurança do Azure](./security-center-network-recommendations.md)
 - [Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure](./security-center-remediate-recommendations.md)
 

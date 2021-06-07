@@ -13,10 +13,10 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92282541"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Usar coleções no portal Meus Aplicativos

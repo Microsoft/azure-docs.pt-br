@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 40c3b8ab228c93fd4c681281d89d16f88ddf30f1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384360"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
@@ -111,7 +111,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
     1. Para **Função**, selecione **Colaborador**. 
     2. Para **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. 
     3. Para **Selecionar**, pesquise o nome do ADF e selecione-o. 
-    4. Clique em **Salvar**.
+    4. Clique em **Save** (Salvar).
     
    ![Atribuição de Função de Identidade Gerenciada do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 

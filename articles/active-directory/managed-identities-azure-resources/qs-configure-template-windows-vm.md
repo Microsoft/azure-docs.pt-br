@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 960e1fc19567b03024000e84217b3846f89f94f3
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4948e17d1e0e782a8fa18c3eb5a2185e816a459a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588549"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102631397"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando modelos
 
@@ -69,7 +69,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM, sua co
 3. Quando você terminar, as seguintes seções deverão ser adicionadas à seção `resource` do modelo e ela será semelhante à seguinte:
 
    ```JSON
-   "resources": [
+    "resources": [
         {
             //other resource provider properties...
             "apiVersion": "2018-06-01",
@@ -78,27 +78,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM, sua co
             "location": "[resourceGroup().location]",
             "identity": {
                 "type": "SystemAssigned",
-                },
-            },
-
-            //The following appears only if you provisioned the optional VM extension (to be deprecated)
-            {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2018-06-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
+                }                        
         }
     ]
    ```
@@ -235,7 +215,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    **Microsoft.Compute/virtualMachines API versão 2018-06-01**    
 
    ```JSON
-   "resources": [
+     "resources": [
         {
             //other resource provider properties...
             "apiVersion": "2018-06-01",
@@ -248,27 +228,8 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
                 }
             }
-        },
-        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2018-06-01-preview",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
         }
-    ]   
+    ] 
    ```
    **Microsoft.Compute/virtualMachines API versão 2017-12-01**
 
@@ -286,28 +247,8 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
                 ]
             }
-        },
-
-        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.ManagedIdentity",
-                "type": "ManagedIdentityExtensionForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "port": 50342
-                }
-            }
-       }
-    ]
+        }
+   ]
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Remover uma identidade gerenciada atribuída pelo usuário de uma VM do Azure

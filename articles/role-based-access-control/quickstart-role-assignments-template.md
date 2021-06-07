@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do Azure Resource Manager – RBAC do Azure'
+title: 'Início rápido: Atribuir uma atribuição de função do Azure usando um modelo do Azure Resource Manager – RBAC do Azure'
 description: Saiba como permitir acesso a um usuário aos recursos do Azure em um escopo do grupo de recursos usando os modelos do Azure Resource Manager e o RBAC do Azure (controle de acesso baseado em função do Azure).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690435"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100559269"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do ARM
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Início rápido: Atribuir uma função do Azure usando um modelo do ARM
 
 O [Azure RBAC (controle de acesso baseado em função do Azure)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste início rápido, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este guia de início rápido usa um modelo do ARM (Azure Resource Manager) para permitir o acesso.
 
@@ -29,11 +29,11 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar as atribuições de função, você precisa ter:
+Para atribuir funções do Azure e remover atribuições de função, você precisa ter:
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
-- Para adicionar uma atribuição de função você precisa especificar três elementos: entidade de segurança, definição de função e escopo. Para este início rápido, a entidade de segurança é você ou outro usuário no seu diretório, a definição de função é [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) e o escopo é um grupo de recursos especificado por você.
+- Para atribuir uma função você precisa especificar três elementos: entidade de segurança, definição de função e escopo. Para este início rápido, a entidade de segurança é você ou outro usuário no seu diretório, a definição de função é [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) e o escopo é um grupo de recursos especificado por você.
 
 ## <a name="review-the-template"></a>Examinar o modelo
 

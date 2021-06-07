@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566088"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de comandos personalizados para o aplicativo cliente
@@ -36,7 +36,7 @@ Você conclui as seguintes tarefas:
 ## <a name="setup-send-activity-to-client"></a>Configurar atividade de envio para o cliente 
 1. Abra o aplicativo de comandos personalizados que você criou anteriormente
 1. Selecione o comando **TurnOnOff** , selecione **ConfirmationResponse** em regra de conclusão e, em seguida, selecione **Adicionar uma ação**
-1. Em **nova ação-tipo** , selecione **Enviar atividade para o cliente**
+1. Em **nova ação-tipo**, selecione **Enviar atividade para o cliente**
 1. Copie o JSON abaixo para o **conteúdo da atividade**
    ```json
    {
@@ -57,7 +57,7 @@ Você conclui as seguintes tarefas:
 
 Em [como: configurar o aplicativo cliente com o SDK de fala (versão prévia)](./how-to-custom-commands-setup-speech-sdk.md), você criou um aplicativo cliente UWP com o SDK de fala que tratou comandos como `turn on the tv` , `turn off the fan` . Com alguns elementos visuais adicionados, você pode ver o resultado desses comandos.
 
-Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar** , adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
+Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar**, adicione o seguinte bloco XML de StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -85,8 +85,8 @@ Para adicionar caixas rotuladas com texto indicando **Ativar** ou **desativar** 
 Como você criou uma carga JSON, precisará adicionar uma referência à biblioteca [JSON.net](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 1. Cliente à sua solução.
-1. Escolha **gerenciar pacotes NuGet para solução** , selecione **procurar** 
-1. Se você já tiver instalado o **Newtonsoft.jsno** , verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações** , procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
+1. Escolha **gerenciar pacotes NuGet para solução**, selecione **procurar** 
+1. Se você já tiver instalado o **Newtonsoft.jsno**, verifique se sua versão é pelo menos 12.0.3. Caso contrário, vá para **gerenciar pacotes NuGet para solução-atualizações**, procure **Newtonsoft.jsem** para atualizá-lo. Este guia está usando a versão 12.0.3.
 
     > [!div class="mx-imgBorder"]
     > ![Enviar carga da atividade](media/custom-commands/send-activity-to-client-json-nuget.png)

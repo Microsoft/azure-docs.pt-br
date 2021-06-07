@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023476"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>WAN virtual do Azure e suporte ao trabalho remoto

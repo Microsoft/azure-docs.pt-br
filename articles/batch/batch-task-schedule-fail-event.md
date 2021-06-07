@@ -4,13 +4,13 @@ description: Referência do evento de falha na agenda de tarefas do lote. Esse e
 ms.topic: reference
 ms.date: 09/20/2020
 ms.openlocfilehash: 549281d2b2c371e8f09c584e771cf44f7abc8a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91852096"
 ---
-# <a name="task-schedule-fail-event"></a>Evento de falha no agendamento da tarefa
+# <a name="task-schedule-fail-event"></a>Evento de falha do agendamento da tarefa
 
  Esse evento é emitido quando uma tarefa não é agendada e será repetida mais tarde. Essa é uma falha temporária no tempo de agendamento de tarefa devido à limitação de recursos, por exemplo, não há slots suficientes disponíveis em nós para executar uma tarefa com o `requiredSlots` especificado.
 

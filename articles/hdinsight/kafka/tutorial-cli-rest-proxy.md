@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cfb9ff9e6b107c9da84b164a055453994fc29229
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944017"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786631"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um cluster habilitado para proxy REST do Apache Kafka no HDInsight usando a CLI do Azure
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
-1. Entre em sua assinatura do Azure.
+1. Entre na sua assinatura do Azure.
 
     ```azurecli
     az login
@@ -82,7 +82,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     export componentVersion=kafka=2.1
     ```
 
-1. [Crie o grupo de recursos](/cli/azure/group#az-group-create) inserindo o seguinte comando:
+1. [Crie o grupo de recursos](/cli/azure/group#az_group_create) inserindo o seguinte comando:
 
     ```azurecli
      az group create \
@@ -90,7 +90,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --name $resourceGroupName
     ```
 
-1. [Crie uma conta de Armazenamento do Azure](/cli/azure/storage/account#az-storage-account-create) inserindo o seguinte comando:
+1. [Crie uma conta de Armazenamento do Azure](/cli/azure/storage/account#az_storage_account_create) inserindo o seguinte comando:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -103,7 +103,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --sku Standard_LRS
     ```
 
-1. [Extraia a chave primária](/cli/azure/storage/account/keys#az-storage-account-keys-list) da conta de Armazenamento do Azure e armazene-a em uma variável, digitando o seguinte comando:
+1. [Extraia a chave primária](/cli/azure/storage/account/keys#az_storage_account_keys_list) da conta de Armazenamento do Azure e armazene-a em uma variável, digitando o seguinte comando:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -112,7 +112,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --query [0].value -o tsv)
     ```
 
-1. [Crie um contêiner de Armazenamento do Azure](/cli/azure/storage/container#az-storage-container-create) inserindo o seguinte comando:
+1. [Crie um contêiner de Armazenamento do Azure](/cli/azure/storage/container#az_storage_container_create) inserindo o seguinte comando:
 
     ```azurecli
     az storage container create \
@@ -121,7 +121,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
         --account-name $storageAccount
     ```
 
-1. [Criar o cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Antes de inserir o comando, observe os seguintes parâmetros:
+1. [Criar o cluster HDInsight](/cli/azure/hdinsight#az_hdinsight_create). Antes de inserir o comando, observe os seguintes parâmetros:
 
     1. Parâmetros necessários para clusters Kafka:
 
@@ -170,7 +170,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
     Pode levar vários minutos para que o processo de criação de cluster seja concluído. Geralmente, cerca de 15 minutos.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Após a conclusão do artigo, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 

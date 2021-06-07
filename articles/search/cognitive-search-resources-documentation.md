@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: eaafb9536a8667417c0abf4ab570609f2db290bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935340"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de IA na Pesquisa Cognitiva do Azure
@@ -100,4 +100,4 @@ A seguir está uma lista consolidada da documentação para o enriquecimento do 
 
 + [API REST do Azure Cognitive Search](/rest/api/searchservice/)
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
-+ [O que é o Azure Pesquisa Cognitiva?](search-what-is-azure-search.md)
++ [O que é o Azure Cognitive Search?](search-what-is-azure-search.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: db303d1e7bd5a9cb7b8441f0a5da634a13113066
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5d5aaf84482dae6786ac7fd9f9ee837efca71b34
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948528"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105910"
 ---
 A biblioteca de clientes da Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing ao seu aplicativo Python. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -21,9 +21,9 @@ Deseja ver o código agora mesmo? As amostras para as [bibliotecas de clientes d
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-O SDK de Pesquisa na Web do Bing é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6. É recomendável usar um ambiente virtual para este início rápido.
+O SDK da Pesquisa na Web do Bing é compatível com o Python 2.7 ou 3.6+. É recomendável usar um ambiente virtual para este início rápido.
 
-* Python 2.7, 3.3, 3.4, 3.5 ou 3.6
+* Python 2.7 ou 3.6+
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) para Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) para Python 3.x
 

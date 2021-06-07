@@ -9,14 +9,16 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80550338"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200612"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Como configurar opções de criação de contêiner para módulos de IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O parâmetro **CreateOptions** no manifesto de implantação permite que você configure os contêineres de módulo em tempo de execução. Esse parâmetro expande o controle sobre os módulos e permite tarefas como permitir ou restringir o acesso do módulo aos recursos do dispositivo host ou configurar a rede.
 
@@ -60,7 +62,7 @@ Se você usar as extensões das ferramentas do Azure IoT para Visual Studio ou V
 
 Uma dica para escrever opções de criação é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente usando `docker run <container name>` . Depois que o módulo estiver funcionando da maneira desejada, execute `docker inspect <container name>` . Esse comando gera os detalhes do módulo no formato JSON. Localize os parâmetros que você configurou e copie o JSON. Por exemplo:
 
-[![Resultados da inspeção de edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) do Docker](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Resultados da inspeção de edgeHub do Docker](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -131,5 +133,5 @@ Depois de em cadeias para o manifesto de implantação final, esses valores se p
 
 Para obter mais exemplos de criar opções em ação, consulte os seguintes IoT Edge exemplos:
 
-* [Visão Personalizada e Azure IoT Edge em um Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi)
+* [Visão Personalizada e Azure IoT Edge em um Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi)
 * [Exemplo de armazenamento de BLOBs Azure IoT Edge](https://github.com/Azure-Samples/azure-iotedge-blobstorage-sample)

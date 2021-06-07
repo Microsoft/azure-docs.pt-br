@@ -3,7 +3,7 @@ title: Usar o PowerShell para criar um aplicativo do Azure AD para acessar a API
 description: Saiba como usar o PowerShell para criar um aplicativo do Azure AD (Azure Active Directory) e configurá-lo para acessar a API dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 1be3de87493db61ebc901fe240b9eb109a3a90a3
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
-ms.translationtype: MT
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: d16c2bbb16a19e5cb22b2b2b0378880ec9aa48b5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695147"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103009650"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Usar o PowerShell para criar um aplicativo do Azure AD para usá-lo com a API dos Serviços de Mídia do Azure
 
@@ -60,7 +60,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 }
 ```
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 - [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 - [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a12fc991734fe74e450aa14a477f3a4500ba659c
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96937246"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
@@ -24,12 +24,12 @@ Ao listar os contêineres em uma conta de armazenamento do Azure do seu código,
 
 Para listar os contêineres em sua conta de armazenamento, chame um dos seguintes métodos:
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 - [GetBlobContainers](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
 - [GetBlobContainersAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
@@ -58,11 +58,11 @@ Para retornar metadados de contêiner com os resultados, especifique o valor de 
 
 O exemplo a seguir lista de forma assíncrona os contêineres em uma conta de armazenamento que começam com um prefixo especificado. O exemplo lista os contêineres que começam com o prefixo especificado e retorna o número especificado de resultados por chamada para a operação de listagem. Em seguida, ele usa o token de continuação para obter o próximo segmento de resultados. O exemplo também retorna metadados de contêiner com os resultados.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
@@ -119,7 +119,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Listar contêineres](/rest/api/storageservices/list-containers2)
 - [Enumerar recursos de blob](/rest/api/storageservices/enumerating-blob-resources)

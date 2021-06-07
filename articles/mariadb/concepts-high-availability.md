@@ -3,14 +3,14 @@ title: Alta disponibilidade-banco de dados do Azure para MariaDB
 description: Este artigo fornece informações sobre alta disponibilidade no banco de dados do Azure para MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: dc37474a56ddb7d2c48c7acfce881fb812f0b8a4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664326"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Alta disponibilidade no banco de dados do Azure para MariaDB

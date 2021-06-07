@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101622"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Criar um contêiner na API Azure Cosmos DB Gremlin
@@ -31,14 +31,14 @@ Este artigo explica as diferentes maneiras de criar um contêiner na API Azure C
 
 1. [Crie uma nova conta do Azure Cosmos](create-graph-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel de **Data Explorer** e selecione **novo grafo** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel de **Data Explorer** e selecione **novo grafo**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID do grafo.
-   * Selecione a capacidade de armazenamento **Ilimitada** .
+   * Selecione a capacidade de armazenamento **Ilimitada**.
    * Insira uma chave de partição para vértices.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Captura de tela da API do Gremlin, caixa de diálogo Adicionar grafo":::
 

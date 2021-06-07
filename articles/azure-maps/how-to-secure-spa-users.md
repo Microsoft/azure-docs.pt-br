@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: 60d8dc45fb26ea210b1827a6938716474faa0304
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895606"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Proteger um aplicativo de página única com entrada do usuário
@@ -27,19 +27,19 @@ O guia a seguir pertence a um aplicativo hospedado em um servidor de conteúdo o
 
 Crie o aplicativo Web no Azure AD para que os usuários entrem. O aplicativo Web delega o acesso do usuário às APIs REST do Azure Maps.
 
-1. Na portal do Azure, na lista de serviços do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro** .  
+1. Na portal do Azure, na lista de serviços do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**.  
 
     > [!div class="mx-imgBorder"]
     > ![Registro do Aplicativo](./media/how-to-manage-authentication/app-registration.png)
 
-2. Insira um **nome** , escolha um **tipo de conta de suporte** , forneça um URI de redirecionamento que representará a URL para a qual o Azure ad emitirá o token e é a URL onde o controle de mapa está hospedado. Para obter um exemplo detalhado, confira exemplos do Azure [AD do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Em seguida, selecione **Registrar** .  
+2. Insira um **nome**, escolha um **tipo de conta de suporte**, forneça um URI de redirecionamento que representará a URL para a qual o Azure ad emitirá o token e é a URL onde o controle de mapa está hospedado. Para obter um exemplo detalhado, confira exemplos do Azure [AD do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Em seguida, selecione **Registrar**.  
 
-3. Para atribuir permissões de API delegadas para mapas do Azure, vá para o aplicativo. Em **registros de aplicativo** , selecione **permissões**  >  **de API adicionar uma permissão** . Em **APIs que minha organização usa** , pesquise e selecione **mapas do Azure** .
+3. Para atribuir permissões de API delegadas para mapas do Azure, vá para o aplicativo. Em **registros de aplicativo**, selecione **permissões**  >  **de API adicionar uma permissão**. Em **APIs que minha organização usa**, pesquise e selecione **mapas do Azure**.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Marque a caixa de seleção ao lado de **acessar mapas do Azure** e, em seguida, selecione **adicionar permissões** .
+4. Marque a caixa de seleção ao lado de **acessar mapas do Azure** e, em seguida, selecione **adicionar permissões**.
 
     > [!div class="mx-imgBorder"]
     > ![Selecionar permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)

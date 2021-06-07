@@ -4,10 +4,10 @@ description: Saiba mais sobre os formatos de conteúdo com suporte no registro d
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100008325"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo com suporte no Registro de Contêiner do Azure

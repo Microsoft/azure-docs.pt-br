@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: alkohli
 ms.openlocfilehash: 203c977fe9109cd8b2b6de561e975e20aacf700e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185517"
 ---
 Se essa for a primeira vez que estiver usando o Gerenciador de Armazenamento, você precisará executar as etapas a seguir.

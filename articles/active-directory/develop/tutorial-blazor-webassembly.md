@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226415"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102552109"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
@@ -49,7 +49,7 @@ Após registrá-lo, em **Gerenciar**, selecione **Autenticação** > **Concessã
 Para criar o aplicativo, você precisa dos modelos mais recentes do Blazor. Você pode instalá-los para a CLI do .NET Core com o seguinte comando:
 
 ```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.6.0
 ```
 
 Em seguida, execute o comando a seguir para criar o aplicativo. Substitua os espaços reservados no comando pelas informações apropriadas da página de visão geral do aplicativo e execute o comando em um shell de comando. A localização de saída especificada com a opção `-o|--output` criará uma pasta de projeto se ela não existir e se tornará parte do nome do aplicativo.
@@ -102,7 +102,7 @@ Em seguida, adicione os itens a seguir ao arquivo *.csproj* do seu projeto em **
 
 Em seguida, modifique o código conforme especificado nas próximas etapas. Essas alterações adicionarão [tokens de acesso](access-tokens.md) às solicitações de saída enviadas para a API do Microsoft Graph. Esse padrão é abordado mais detalhadamente nos [cenários de segurança adicionais do Blazor WebAssembly do ASP.NET Core](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-Primeiro, crie um arquivo chamado *GraphAuthorizationMessageHandler.cs* com o código a seguir. Esse manipulador será o usuário para adicionar um token de acesso para os escopos `User.Read` e `Mail.Read` a solicitações de saída para a API do Microsoft Graph.
+Primeiro, crie um arquivo chamado *GraphAPIAuthorizationMessageHandler.cs* com o código a seguir. Esse manipulador será o usuário para adicionar um token de acesso para os escopos `User.Read` e `Mail.Read` a solicitações de saída para a API do Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

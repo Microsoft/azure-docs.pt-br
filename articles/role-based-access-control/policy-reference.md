@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure RBAC
 description: Lista as definições de políticas internas do Azure Policy para o Azure RBAC. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a8560f1b961bae81a877294333b9161fb828b675
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.openlocfilehash: 0517a273684c26001af5a8e7e11eb5df56e04f86
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092309"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500100"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Definições internas do Azure Policy para o RBAC do Azure
 

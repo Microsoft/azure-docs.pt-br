@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 11659bcbdf77d04c0f4e6f8bc7aca30c716fc924
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606882"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure

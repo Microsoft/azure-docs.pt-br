@@ -3,12 +3,12 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934876"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100578564"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Como estimar os custos do plano de Consumo
 
@@ -67,11 +67,11 @@ Em [sua fatura](../cost-management-billing/understand/download-azure-invoice.md)
 
 ### <a name="function-app-level-metrics"></a>Métricas de nível de aplicativo de função
 
-Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [portal do Azure] ou APIs REST para obter esses dados.
+Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/essentials/metrics-getting-started.md) no [portal do Azure] ou APIs REST para obter esses dados.
 
 #### <a name="monitor-metrics-explorer"></a>Monitorar métricas Explorer
 
-Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) para exibir dados relacionados ao custo para seus aplicativos de função de plano de consumo em um formato gráfico. 
+Use [Azure monitor métricas Explorer](../azure-monitor/essentials/metrics-getting-started.md) para exibir dados relacionados ao custo para seus aplicativos de função de plano de consumo em um formato gráfico. 
 
 1. Na parte superior da [portal do Azure] em **Pesquisar serviços, recursos e**  pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
 

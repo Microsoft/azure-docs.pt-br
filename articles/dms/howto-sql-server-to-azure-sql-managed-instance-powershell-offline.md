@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.openlocfilehash: 90663b6beb4f1e3f7ade32e603a53c8b9d9158f5
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98697769"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-offline-with-powershell--azure-database-migration-service"></a>Migrar SQL Server para o SQL Instância Gerenciada offline com o PowerShell & serviço de migração de banco de dados do Azure

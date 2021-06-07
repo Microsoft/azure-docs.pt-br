@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Biblioteca do Armazenamento de Blobs do Azure v12 - C++'
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para C++ para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 246d2677c784daee4cc6b083cff04b6993ab3818
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e6832cc835a464a2a3d17d5ed286e71b17bc980e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006482"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312273"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para C++
 
@@ -40,7 +40,7 @@ Recursos:
 - [Conta de Armazenamento do Azure](../common/storage-account-create.md)
 - [Compilador C++](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
-- [Gerenciador de pacotes Vcpkg-C e C++](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
+- [Gerenciador de pacotes Vcpkg-C e C++](https://github.com/microsoft/vcpkg/blob/master/docs/README.md)
 - [LibCurl](https://curl.haxx.se/libcurl/)
 - [LibXML2](http://www.xmlsoft.org/)
 

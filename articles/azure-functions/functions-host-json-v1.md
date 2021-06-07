@@ -3,12 +3,12 @@ title: Referência de host.json para as funções do Azure 1.x
 description: Documentação de referência para o arquivo host.json do Azure Functions com o runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832816"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608947"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
 
@@ -149,7 +149,7 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração para [gatilhos e associações de Hub de Eventos](functions-bindings-event-hubs-trigger.md#functions-1x).
+Definições de configuração para [gatilhos e associações de Hub de Eventos](functions-bindings-event-hubs.md#functions-1x).
 
 ## <a name="functions"></a>funções
 
@@ -189,7 +189,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|Habilitado|verdadeiro|Especifica se o recurso está habilitado. | 
+|Habilitado|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -251,7 +251,7 @@ Controla a filtragem de logs gravados por um objeto [ILogger](functions-dotnet-c
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |categoryFilter|N/D|Especifica a filtragem por categoria| 
-|defaultLevel|Informações|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
+|defaultLevel|Informações do|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
 |categoryLevels|N/D|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
 ## <a name="queues"></a>filas
@@ -314,7 +314,7 @@ Parâmetro de configuração para [gatilhos e associações do Barramento de Ser
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. | 
 |prefetchCount|n/a|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.| 
 |autoRenewTimeout|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|verdadeiro|Quando true, o gatilho concluirá o processamento da mensagem automaticamente na execução bem-sucedida da operação. Quando for falso, é responsabilidade da função concluir a mensagem antes de retornar.|
+|autoComplete|true|Quando true, o gatilho concluirá o processamento da mensagem automaticamente na execução bem-sucedida da operação. Quando for falso, é responsabilidade da função concluir a mensagem antes de retornar.|
 
 ## <a name="singleton"></a>singleton
 

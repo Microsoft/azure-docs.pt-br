@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944509"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102434426"
 ---
 :::row:::
     :::column span="3":::
@@ -24,13 +24,13 @@ ms.locfileid: "88944509"
     :::column-end:::
 :::row-end:::
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
-O SDK do Speech no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ redistribuível para o <span class="docon docon-navigate-external x-hidden-focus"></span> Visual Studio 2019</a> no sistema.
+O SDK do Speech no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ redistribuível para o Visual Studio 2019 </a> no sistema.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Instalar para x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Instalar para x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Instalar para ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Instalar para x86 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Instalar para x64 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Instalar para ARMx64 </a>
 
 ### <a name="c"></a>C#
 

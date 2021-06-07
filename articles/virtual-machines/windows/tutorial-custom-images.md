@@ -2,19 +2,19 @@
 title: Tutorial – Criar imagens personalizadas de VM com o Azure PowerShell
 description: Neste tutorial, você aprende a usar o Azure PowerShell para criar uma imagem de máquina virtual personalizada no do Windows armazenada em uma Galeria de Imagens Compartilhadas do Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e3521603c4651133f1420809e4921ad27279860
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 145b7300272243099cfccad0c99d8f69e83e6762
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873170"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555815"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Criar imagens de VM do Windows com o Azure PowerShell
 

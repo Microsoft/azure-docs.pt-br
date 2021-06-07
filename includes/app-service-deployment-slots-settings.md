@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 7458f6868d7fbee72b55ad002148691a113c269d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 922a34bd1a147d407041d2945b14df18a18d7287
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531846"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761097"
 ---
 Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Alguns elementos de configuração seguem o conteúdo em uma permuta (não específico do slot), enquanto outros elementos de configuração permanecem no mesmo slot após uma permuta (específica do slot). A lista a seguir mostra as configurações que serão alterada com a troca de slots.
 
@@ -39,6 +39,7 @@ Os recursos marcados com um asterisco (*) estão planejados para serem desaltern
 * Configurações de Diagnóstico
 * CORS (Compartilhamento de Recursos entre Origens)
 * Integração de rede virtual
+* Mapeamentos de caminho
 
 > [!NOTE]
 > Para tornar essas configurações intercambiáveis, adicione a configuração do aplicativo `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` em cada slot do aplicativo e defina seu valor como `0` ou `false` . Essas configurações podem ser trocadas ou não. Você não pode fazer apenas algumas configurações serem trocadas e não as outras.

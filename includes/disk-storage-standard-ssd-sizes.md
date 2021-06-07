@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 03/28/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3f49cc837e79903bb9e50cb630c5a1b9445437cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84637620"
 ---
 | Tamanhos de SSD Standard | E1 | E2 | E3 | E4 | E6 | E10 | E15 | E20 | E30 | E40 | E50 | E60 | E70 | E80 |

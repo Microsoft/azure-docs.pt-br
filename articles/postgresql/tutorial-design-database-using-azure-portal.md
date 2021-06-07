@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único – Portal do Azure'
 description: Este tutorial mostra como Criar seu primeiro Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: dd7ae71d8c3bc5415654527d5a650e0f09a99168
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337125"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605808"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure
 

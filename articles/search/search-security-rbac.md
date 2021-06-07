@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519492"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções do Azure para acesso administrativo ao Azure Pesquisa Cognitiva

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92899864"
 ---
 # <a name="expressroute-encryption"></a>Criptografia do ExpressRoute

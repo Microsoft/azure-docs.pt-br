@@ -3,7 +3,7 @@ title: Implementar streaming de failover com os Serviços de Mídia do Azure | M
 description: Este artigo mostra como implementar um cenário de streaming de failover com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68cd107b2606643d712c4de94b6d1a82e8ee614a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657253"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103011928"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com os serviços de mídia v2
 
@@ -68,7 +68,7 @@ Nesta seção, você cria e configura um projeto de aplicativo de console em C#.
 2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming. csproj** . Na pasta **SupportFiles** , crie as pastas **OutputFiles** e **MP4Files** . Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo de **ignite.mp4** é usado.) 
 3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador de pacotes**. Na janela do console, digite **install-Package WindowsAzure. mediaservices** e pressione Enter.
 4. Adicione outras referências que são necessárias para este projeto: System. Runtime. Serialization e System. Web.
-5. Substitua o **uso** de instruções que foram adicionadas ao arquivo **Programs.cs** por padrão com os seguintes itens:
+5. Substitua o **uso** de instruções que foram adicionadas ao arquivo **Programs. cs** por padrão com os seguintes itens:
 
 ```csharp
 using System;
@@ -755,7 +755,7 @@ O exemplo neste tópico mostra Clear streaming. Se você quiser fazer streaming 
 
 Para obter mais informações sobre a proteção de conteúdo, consulte [usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Usar WebHooks do Azure para monitorar notificações de trabalho dos serviços de mídia](media-services-dotnet-check-job-progress-with-webhooks.md)
 

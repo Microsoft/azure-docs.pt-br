@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
 ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660212"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
@@ -276,7 +276,7 @@ Os clientes geralmente são cobrados mensalmente por qualquer compra no ciclo de
 
 Os pagamentos acontecem mensalmente. Para obter detalhes sobre as agendas de pagamento, encontrar seus pagamentos futuros no Partner Center e como lidamos com os não-pagamentos do cliente, consulte [detalhes da política de pagamento](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
-- Para transações em que o cliente usou uma Enterprise Agreement, os pagamentos são emitidos no próximo ciclo de pagamento de 30 dias após a fatura do cliente. 
+- Para transações em que o cliente usou uma Contrato Enterprise, os pagamentos são emitidos no próximo ciclo de pagamento de 30 dias após a fatura do cliente. 
 - Para transações em que o cliente usou um cartão de crédito, há um período de caução adicional de 30 dias depois de receber o pagamento para garantir que os fundos sejam claros e não há estorno ou fraude suspeita.
 
 Os pagamentos são emitidos somente quando as vendas atingiram um valor mínimo combinado de $50.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87006935"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>Implantar um firewall do Azure com vários endereços IP públicos

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919622"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
@@ -59,7 +59,7 @@ Para usar e configurar as políticas de termos de uso do Azure AD, você deve te
 - Assinatura do Azure AD Premium P1, P2, EMS E3 ou EMS E5.
    - Se você não tiver uma dessas assinaturas, poderá [obter o Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [habilitar a avaliação do Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uma das seguintes contas de administrador para o diretório que você deseja configurar:
-   - Administrador global
+   - Administrador Global
    - Administrador de Segurança
    - Administrador de Acesso Condicional
 
@@ -85,14 +85,14 @@ Depois de ter finalizado o documento de política dos termos de uso, use o proce
 1. Para **termos de uso documento**, navegue até o PDF política de uso finalizado e selecione-o.
 1. Selecione o idioma do documento de política de termos de uso. A opção Language permite que você carregue vários termos de políticas de uso, cada um com um idioma diferente. A versão da política de termos de uso que um usuário final verá será baseada em suas preferências de navegador.
 1. Para exigir que os usuários finais exibam os termos de política de uso antes de aceitá-los, defina **exigir que os usuários expandam os termos de uso** para **ativado**.
-1. Para exigir que os usuários finais aceitem a política de termos de uso em todos os dispositivos que estão acessando, defina **exigir que os usuários consigam em cada dispositivo** para **o.** Os usuários podem ser solicitados a instalar aplicativos adicionais se essa opção estiver habilitada. Para obter mais informações, consulte [termos de uso por dispositivo](#per-device-terms-of-use).
+1. Para exigir que os usuários finais aceitem a política de termos de uso em todos os dispositivos que estão acessando, defina **exigir que os usuários consigam em cada dispositivo** para **o.** Os usuários poderão ser solicitados a instalar aplicativos adicionais se essa opção estiver habilitada. Para obter mais informações, consulte [termos de uso por dispositivo](#per-device-terms-of-use).
 1. Se você quiser expirar os termos de política de uso, configure a expiração em uma agenda, defina o **vencimento de reenvios** como **ativado**. Quando definido como On, duas configurações de cronograma adicionais são exibidas.
 
-    ![Expirar as configurações para definir a data de início, a frequência e a duração](./media/terms-of-use/expire-consents.png)
+    ![Expirar as configurações dos consentimentos para definir a data de início, a frequência e a duração](./media/terms-of-use/expire-consents.png)
 
 1. Use as configurações de **expiração de início** e de **frequência** para especificar o agendamento dos termos de expiração de política de uso. A tabela a seguir mostra o resultado para duas configurações de exemplo:
 
-   | Expirar a partir de | Frequência | Result |
+   | Expirar a partir de | Frequência | Resultado |
    | --- | --- | --- |
    | Data de hoje  | Mensal | A partir de hoje, os usuários devem aceitar os termos de política de uso e, em seguida, reaceitar todos os meses. |
    | Data no futuro  | Mensal | A partir de hoje, os usuários devem aceitar a política de termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
@@ -102,14 +102,14 @@ Depois de ter finalizado o documento de política dos termos de uso, use o proce
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
-   | Bob | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
+   | Roberto | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
 
 1. Use a configuração **duração antes da reaceitação requer (dias)** para especificar o número de dias antes que o usuário precise aceitar novamente a política de termos de uso. Isso permite que os usuários sigam seu próprio cronograma. Por exemplo, se você definir a duração como **30** dias, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 31 de janeiro | 2 de março | 1 de abril |
-   | Bob | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
+   | Roberto | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
 
    É possível usar os **consentidos expirar** e a **duração antes que a reaceitação exija (dias)** as configurações juntas, mas normalmente você usa uma ou outra.
 
@@ -122,12 +122,12 @@ Depois de ter finalizado o documento de política dos termos de uso, use o proce
    | **Acesso a aplicativos de nuvem para todos os convidados** | Uma política de acesso condicional será criada para todos os convidados e todos os aplicativos de nuvem. Essa política afeta o portal do Azure. Depois que isso for criado, talvez seja necessário sair e entrar. |
    | **Acesso a aplicativos de nuvem para todos os usuários** | Uma política de acesso condicional será criada para todos os usuários e todos os aplicativos de nuvem. Essa política afeta o portal do Azure. Depois que isso for criado, você será solicitado a sair e entrar. |
    | **Política personalizada** | Selecione os usuários, grupos e aplicativos aos quais esta política de termos de uso será aplicada. |
-   | **Criar política de acesso condicional mais tarde** | Esta política de termos de uso será exibida na lista de controle de concessão ao criar uma política de acesso condicional. |
+   | **Criar a política de acesso condicional mais tarde** | Esta política de termos de uso será exibida na lista de controle de concessão ao criar uma política de acesso condicional. |
 
    >[!IMPORTANT]
-   >Controles de política de acesso condicional (incluindo políticas de termos de uso) não dão suporte à imposição em contas de serviço. É recomendável excluir todas as contas de serviço da política de acesso condicional.
+   >Controles de política de acesso condicional (incluindo políticas de termos de uso) não dão suporte à imposição em contas de serviço. Recomenda-se excluir todas as contas de serviço da política de Acesso Condicional.
 
-    As políticas de acesso condicional personalizadas permitem termos granulares de políticas de uso, até um aplicativo de nuvem ou grupo de usuários específico. Para obter mais informações, consulte [início rápido: exigir que os termos de uso sejam aceitos antes de acessar aplicativos de nuvem](require-tou.md).
+    As políticas de acesso condicional personalizadas permitem termos granulares de políticas de uso, até um aplicativo de nuvem ou grupo de usuários específico. Para saber mais, confira [Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem](require-tou.md).
 
 1. Clique em **Criar**.
 
@@ -149,15 +149,15 @@ A folha Termos de uso mostra uma contagem de usuários que os aceitaram e recusa
 
 1. Para obter uma política de termos de uso, clique nos números em **aceito** ou **recusado** para exibir o estado atual dos usuários.
 
-    ![Termos de uso painel consentis listando os usuários que aceitaram](./media/terms-of-use/accepted-tou.png)
+    ![Painel de consentimentos dos termos de uso listando os usuários que aceitaram](./media/terms-of-use/accepted-tou.png)
 
 1. Para exibir o histórico de um usuário individual, clique no botão de reticências (**...**) e, em seguida **Exibir histórico**.
 
-    ![Exibir o menu de contexto do histórico para um usuário](./media/terms-of-use/view-history-menu.png)
+    ![Menu de contexto Exibir histórico para um usuário](./media/terms-of-use/view-history-menu.png)
 
    No painel de exibição de histórico, você vê um histórico de todos os aceites, recusas e expirações.
 
-   ![Painel exibir histórico lista o histórico aceita, recusa e expirações de um usuário](./media/terms-of-use/view-history-pane.png)
+   ![O painel Exibir histórico lista o histórico de aceitações, recusas e expirações de um usuário](./media/terms-of-use/view-history-pane.png)
 
 ## <a name="view-azure-ad-audit-logs"></a>Exibir logs de auditoria do Azure AD
 
@@ -181,11 +181,11 @@ Para começar a usar os logs de auditoria do Microsoft Azure AD, use o procedime
 
    ![Detalhes da atividade para um log que mostra a atividade, o status da atividade, iniciado por, política de destino](./media/terms-of-use/audit-log-activity-details.png)
 
-## <a name="what-terms-of-use-looks-like-for-users"></a>A aparência dos termos de uso para os usuários
+## <a name="what-terms-of-use-looks-like-for-users"></a>Como os termos de uso aparecem para os usuários
 
 Depois que uma política de ToU for criada e imposta, os usuários, que estão no escopo, verão a tela a seguir durante a entrada.
 
-![Exemplo de termos de uso que aparece quando um usuário entra](./media/terms-of-use/user-tou.png)
+![Exemplo de termos de uso que aparecem quando um usuário entra](./media/terms-of-use/user-tou.png)
 
 Os usuários podem exibir os termos de política de uso e, se necessário, usar os botões para ampliar e reduzir.
 
@@ -193,11 +193,11 @@ Os usuários podem exibir os termos de política de uso e, se necessário, usar 
 
 A tela a seguir mostra como uma política ToU procura em dispositivos móveis.
 
-![Exemplo de termos de uso que aparece quando um usuário entra em um dispositivo móvel](./media/terms-of-use/mobile-tou.png)
+![Exemplo de termos de uso que aparecem quando um usuário entra em um dispositivo móvel](./media/terms-of-use/mobile-tou.png)
 
 Os usuários só precisam aceitar os termos de política de uso uma vez e eles não verão a política de termos de uso novamente em entradas subsequentes.
 
-### <a name="how-users-can-review-their-terms-of-use"></a>Como os usuários podem revisar seus termos de uso
+### <a name="how-users-can-review-their-terms-of-use"></a>Como os usuários podem analisar os termos de uso
 
 Os usuários podem examinar e ver os termos de uso das políticas que aceitaram usando o procedimento a seguir.
 
@@ -212,7 +212,7 @@ Os usuários podem examinar e ver os termos de uso das políticas que aceitaram 
 
 1. A partir daí, você pode revisar os termos de políticas de uso que você aceitou.
 
-## <a name="edit-terms-of-use-details"></a>Editar detalhes dos termos de uso
+## <a name="edit-terms-of-use-details"></a>Editar os detalhes dos termos de uso
 
 Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode modificar um documento existente. O procedimento a seguir descreve como editar os detalhes.
 
@@ -220,8 +220,8 @@ Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode
 1. Selecione os termos de política de uso que você deseja editar.
 1. Clique em **editar termos**.
 1. No painel Editar termos de uso, você pode alterar o seguinte:
-    - **Nome** – este é o nome interno do ToU que não é compartilhado com os usuários finais
-    - **Nome de exibição** – esse é o nome que os usuários finais podem ver ao exibir o ToU
+    - **Nome** – é o nome interno dos termos de uso que não é compartilhado com os usuários finais
+    - **Nome de exibição** – é o nome que os usuários finais veem ao exibir os termos de uso
     - **Exigir que os usuários expandam os termos de uso** – definir como **on** forçará o uso final para expandir o documento de política de termos de uso antes de aceitá-lo.
     - Apresentação Você pode **atualizar um documento de termos de uso existente**
     - Você pode adicionar um idioma a um ToU existente
@@ -247,7 +247,7 @@ Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode
     ![Editar a opção de reaceitação dos termos de uso realçada](./media/terms-of-use/re-accept.png)
 
 7.  Depois de carregar o novo PDF e decidir sobre reaceitar, clique em Adicionar na parte inferior do painel.
-8.  Agora, você verá a versão mais recente na coluna documento.
+8.  Agora, você verá a versão mais recente na coluna Documento.
 
 ## <a name="view-previous-versions-of-a-tou"></a>Exibir versões anteriores de um ToU
 

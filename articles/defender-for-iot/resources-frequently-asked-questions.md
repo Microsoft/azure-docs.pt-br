@@ -1,24 +1,14 @@
 ---
 title: Perguntas frequentes sobre o defender for IoT
 description: Encontre respostas para as perguntas mais frequentes sobre os recursos e o serviço do Azure defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/07/2020
-ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/02/2021
+ms.openlocfilehash: 0ce8ded3eea344d72679e0f8b805f45b00279b58
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247458"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778586"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure defender para IoT
 
@@ -45,7 +35,7 @@ O hardware certificado foi testado em nossos laboratórios para estabilidade do 
 
 ## <a name="regulation-does-not-allow-us-to-connect-our-system-to-the-internet-can-we-still-utilize-defender-for-iot"></a>A regulamentação não nos permite conectar nosso sistema à Internet. Ainda podemos utilizar o defender para IoT?
 
-Sim, você pode! A solução local da plataforma Azure defender para IoT é implantada como um dispositivo sensor físico ou virtual que insome passivamente o tráfego de rede (por meio de SPAN, RSPAN ou TAP) para analisar, descobrir e monitorar continuamente as redes de ti, de OT e de IoT. Para empresas maiores, vários sensores podem agregar seus dados a um console de gerenciamento local.
+Sim, você pode. A solução local da plataforma Azure defender para IoT é implantada como um dispositivo sensor físico ou virtual que insome passivamente o tráfego de rede (por meio de SPAN, RSPAN ou TAP) para analisar, descobrir e monitorar continuamente as redes de ti, de OT e de IoT. Para empresas maiores, vários sensores podem agregar seus dados a um console de gerenciamento local.
 
 ## <a name="where-in-the-network-should-i-connect-monitoring-ports"></a>Em que local na rede devo conectar portas de monitoramento?
 
@@ -57,23 +47,17 @@ Por exemplo:
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>Como o defender for IoT se compara à competição?
 
-Enquanto outras soluções fornecem um conjunto de recursos que permitem que os clientes criem suas próprias soluções, o defender for IoT fornece uma solução de segurança de IoT de ponta a ponta exclusiva que fornece uma visão ampla da segurança de todos os seus recursos do Azure relacionados. O Azure habilita a implantação rápida e a integração total com os módulos gêmeos do Hub IoT para integração fácil com as ferramentas de gerenciamento de dispositivos existentes.
+O Azure defender para IoT fornece segurança abrangente em todos os seus dispositivos IoT/OT. Para **organizações de usuários finais**, o Azure defender para IOT oferece segurança sem agente e de camada de rede que é implantada rapidamente, funciona com diversos equipamentos proprietários e sistemas herdados do Windows e interopera com o Azure Sentinel e outras ferramentas SOC. Ele pode ser implantado localmente ou em ambientes conectados ao Azure. Para **criadores de dispositivos IOT**, o Azure defender para IOT oferece agentes leves para inserir a segurança da camada de dispositivo em novas iniciativas de IOT/OT.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>É necessário ser um cliente do Azure?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>É necessário ser um cliente do Azure IoT?
+Não, para a versão sem agente do Azure defender para IoT, você não precisa ser um cliente do Azure. No entanto, se você quiser enviar alertas para o Azure Sentinel; Provisione sensores de rede e monitore sua integridade na nuvem; e se beneficiar das atualizações automáticas de inteligência de software e ameaças, você precisará conectar o sensor ao Azure por meio do Hub IoT do Azure.
 
-Sim. Para implantações conectadas na nuvem, o Azure defender para IoT depende da conectividade e da infraestrutura do Azure IoT.
+Para a versão baseada em agente do Azure defender para IoT, você deve ser um cliente do Azure.
+
 ## <a name="can-i-create-my-own-alerts"></a>Posso criar meus próprios alertas?
 
-Sim. Você pode definir um alerta personalizado para um conjunto predeterminado de comportamentos, como endereço IP e portas abertas. Confira [Criar alertas personalizados](quickstart-create-custom-alerts.md) para saber mais sobre alertas personalizados e como criá-los.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Onde posso ver logs? Posso personalizar logs?
-
-- Exiba alertas e recomendações usando seu workspace conectado do Log Analytics. Configure o tamanho e a duração do armazenamento no workspace.
-
-- Os dados brutos do seu agente de segurança também podem ser armazenados em sua conta do Log Analytics. Considere o tamanho, a duração, os requisitos de armazenamento e os custos associados antes de alterar a configuração dessa opção.
-
-
+Sim, você pode criar alertas personalizados com base em vários parâmetros, incluindo endereço IP/MAC, tipo de protocolo, classe, serviço, função, comando, etc., bem como valores de marcas personalizadas contidas nas cargas.  Consulte [criar alertas personalizados](quickstart-create-custom-alerts.md) para saber mais sobre alertas personalizados e como criá-los.
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>O que acontece quando a conexão com a Internet é interrompida?
 

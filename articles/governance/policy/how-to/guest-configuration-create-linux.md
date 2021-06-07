@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525340"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux

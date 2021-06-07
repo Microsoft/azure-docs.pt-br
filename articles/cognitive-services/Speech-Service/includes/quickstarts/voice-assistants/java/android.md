@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: bc27c73fbf9e827ce9a95c8aaaddc82ffb0aec53
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fdc38e2572f7e5dcf1f116af1f67407ef1c80376
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187471"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271516"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +116,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.BotFrameworkConfig;
     import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
 
     import org.json.JSONException;

@@ -1,19 +1,19 @@
 ---
 title: Exemplos do Armazenamento do Azure usando Python | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas de clientes do armazenamento de Python.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f8e5a8593d5b473da8769c1fbeece8c9818e88fa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371351"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276680"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente Python v12
 

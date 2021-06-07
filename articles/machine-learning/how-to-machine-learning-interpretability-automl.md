@@ -11,10 +11,10 @@ ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
 ms.openlocfilehash: 709c85bed4a028c6c168c79cd9fffd6b7b40cb68
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100008036"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelo no machine learning automatizado (versão preliminar)

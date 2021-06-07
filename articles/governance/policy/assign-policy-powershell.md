@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Nova atribuição de política com o PowerShell'
+title: 'Guia de início rápido: nova atribuição de política usando o PowerShell'
 description: Neste início rápido, use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1043bd53fa2c494d34b0007a851b95afd937d991
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88548405"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091405"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guia de início rápido: criar uma atribuição de política para identificar recursos não compatíveis usando o Azure PowerShell
 
 A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. Neste guia de início rápido, você cria uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados. Ao concluir, você identificará máquinas virtuais que _não estão em conformidade_.
 
@@ -60,7 +60,7 @@ Os comandos anteriores usam as seguintes informações:
 
 Agora você está pronto para identificar recursos fora de conformidade para entender o estado de conformidade do ambiente.
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
+## <a name="identify-non-compliant-resources"></a>Identificar recursos fora de conformidade
 
 Use as informações a seguir para identificar recursos que não são compatíveis com a atribuição de política que você criou. Execute os seguintes comandos:
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 02/03/2021
 ms.openlocfilehash: d9e98a6a689fcab341ddb2c5193f06149fc2c8b0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097238"
 ---
 Alterar seu tipo de oferta pode exigir uma edição e republicação simples ou pode exigir que você crie uma nova oferta, conforme listado aqui.

@@ -5,28 +5,28 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078468"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801818"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Localizar o encargo de unidade de solicitação para operações executadas na API Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O Azure Cosmos DB dá suporte a muitas APIs como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem seu próprio conjunto de operações de banco de dados. Essas operações variam de simples leituras e gravações de pontos a consultas complexas. Cada operação de banco de dados consome recursos do sistema com base na complexidade da operação.
 
-O custo de todas as operações do banco de dados é normalizado pelo Azure Cosmos DB e expresso por Unidades de Solicitação (ou RUs, abreviado na sigla em inglês). Você pode considerar o RUs como uma moeda de desempenho abstraindo os recursos do sistema, como CPU, IOPS e memória, necessários para executar as operações de banco de dados com suporte pelo Azure Cosmos DB. Independentemente da API usada para interagir com o contêiner do Azure Cosmos DB, os custos sempre serão medidos por RUs. Se a operação do banco de dados é uma gravação, uma leitura de ponto ou uma consulta, os custos são sempre medidos em RUs. Para saber mais, consulte o artigo [sobre as unidades de solicitação e suas considerações](request-units.md) .
+O custo de todas as operações do banco de dados é normalizado pelo Azure Cosmos DB e expresso por Unidades de Solicitação (ou RUs, abreviado na sigla em inglês). O encargo da solicitação é as unidades de solicitação consumidas por todas as operações de banco de dados. Você pode considerar o RUs como uma moeda de desempenho abstraindo os recursos do sistema, como CPU, IOPS e memória, necessários para executar as operações de banco de dados com suporte pelo Azure Cosmos DB. Independentemente da API usada para interagir com o contêiner do Azure Cosmos DB, os custos sempre serão medidos por RUs. Se a operação do banco de dados é uma gravação, uma leitura de ponto ou uma consulta, os custos são sempre medidos em RUs. Para saber mais, consulte o artigo [sobre as unidades de solicitação e suas considerações](request-units.md) .
 
 Este artigo apresenta as diferentes maneiras pelas quais você pode encontrar o consumo da ru ( [unidade de solicitação](request-units.md) ) para qualquer operação executada em um contêiner na API Azure Cosmos DB para MongoDB. Se você estiver usando uma API diferente, consulte [API do SQL](find-request-unit-charge.md), [API do Cassandra](find-request-unit-charge-cassandra.md), [api Gremlin](find-request-unit-charge-gremlin.md)e artigos de [API de tabela](find-request-unit-charge-table.md) para encontrar a cobrança de ru/s.
 
 O preço de RU é exposto por um [comando de banco de dados](https://docs.mongodb.com/manual/reference/command/) personalizado chamado `getLastRequestStatistics`. O comando retorna um documento que contém o nome da última operação executada, seu preço de solicitação e sua duração. Se você usar a API do Azure Cosmos DB para MongoDB, você terá várias opções para recuperar o preço de RU.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -34,13 +34,17 @@ O preço de RU é exposto por um [comando de banco de dados](https://docs.mongod
 
 1. Acesse o painel do **Data Explorer** e, em seguida, selecione o contêiner no qual deseja trabalhar.
 
-1. Selecione **Nova Consulta** .
+1. Selecione o **...** ao lado do nome do contêiner e selecione **nova consulta**.
 
-1. Insira uma consulta válida e, em seguida, selecione **Executar Consulta** .
+1. Insira uma consulta válida e, em seguida, selecione **Executar Consulta**.
 
-1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada.
+1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada. Esse editor de consultas permite executar e exibir encargos de unidade de solicitação somente para predicados de consulta. Você não pode usar esse editor para comandos de manipulação de dados, como instruções INSERT.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
+
+1. Para obter encargos de solicitação para comandos de manipulação de dados, execute o `getLastRequestStatistics` comando de uma interface do usuário baseada em Shell, como Mongo Shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md)ou uma extensão vs Code com script de Shell.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Usar o driver do .NET do MongoDB
 

@@ -4,12 +4,12 @@ description: Saiba como habilitar e exibir os logs do plano de controle kubernet
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 7fce3db6f3636a5ee984c8be44f877c5636f4e16
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948716"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101735124"
 ---
 # <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Habilitar e examinar os logs do plano de controle do kubernetes no serviço kubernetes do Azure (AKS)
 
@@ -171,8 +171,8 @@ Neste artigo, você aprendeu como habilitar e examinar os logs dos componentes d
 <!-- LINKS - internal -->
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
-[log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
+[log-analytics-overview]: ../azure-monitor/logs/log-query-overview.md
+[analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

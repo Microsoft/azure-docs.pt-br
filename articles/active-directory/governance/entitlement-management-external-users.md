@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b356d5dff453b598eeb773af1a56fc50193e9e16
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746653"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102176783"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
 
@@ -84,7 +84,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 - Permitir que os convidados convidem outros convidados para seu diretório significa que os convites convidados podem ocorrer fora do gerenciamento de direitos. Recomendamos que a configuração de **convidados possa convidar** para **não** permitir apenas convites devidamente controlados.
 - Se você estiver usando a lista de permissões B2B, deverá ter certeza de que qualquer domínio ao qual você deseja usar o gerenciamento de direitos é adicionado à lista. Como alternativa, se você estiver usando a lista de negações de B2B, deverá certificar-se de que qualquer domínio com o qual você deseja fazer o parceiro não seja adicionado à lista.
 - Se você criar uma política de gerenciamento de direitos para **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos) e um usuário não pertencer a uma organização conectada em seu diretório, uma organização conectada será criada automaticamente para eles quando solicitarem o pacote. Qualquer configuração de lista de permissões ou de negação B2B terá precedência. Portanto, certifique-se de incluir os domínios que você pretende incluir nessa política na sua lista de permissões se você estiver usando um, e exclua-os da sua lista de negações se estiver usando uma lista de negações.
-- Se você quiser criar uma política de gerenciamento de direitos que inclua **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), primeiro você deve habilitar a autenticação de senha de uso único de email para seu diretório. Para obter mais informações, consulte [autenticação de senha de uso único de email (versão prévia)](../external-identities/one-time-passcode.md).
+- Se você quiser criar uma política de gerenciamento de direitos que inclua **todos os usuários** (todas as organizações conectadas + quaisquer novos usuários externos), primeiro você deve habilitar a autenticação de senha de uso único de email para seu diretório. Para obter mais informações, consulte [email de autenticação de senha de uso único](../external-identities/one-time-passcode.md).
 - Para obter mais informações sobre as configurações de colaboração externa B2B do Azure AD, consulte [habilitar colaboração externa B2B e gerenciar quem pode convidar convidados](../external-identities/delegate-invitations.md).
 
     ![Configurações de colaboração externa do Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
@@ -117,7 +117,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gerenciar o ciclo de vida de usuários externos
 
-Você pode selecionar o que acontece quando um usuário externo, que foi convidado para seu diretório por meio de uma solicitação de pacote de acesso que está sendo aprovada, não tem mais nenhuma atribuição de pacote de acesso. Isso pode acontecer se o usuário ceder todas as suas atribuições de pacote de acesso ou sua última atribuição de pacote de acesso expirar. Por padrão, quando um usuário externo não tem mais nenhuma atribuição de pacote de acesso, ele é impedido de entrar no seu diretório. Após 30 dias, sua conta de usuário convidado é removida do seu diretório.
+Você pode selecionar o que acontece quando um usuário externo, que foi convidado para seu diretório por meio de uma solicitação de pacote de acesso que está sendo aprovada, não tiver mais nenhuma atribuição de pacote de acesso. Isso pode acontecer se o usuário ceder todas as suas atribuições de pacote de acesso ou sua última atribuição de pacote de acesso expirar. Por padrão, quando um usuário externo não tem mais nenhuma atribuição de pacote de acesso, ele é impedido de entrar no seu diretório. Após 30 dias, a conta de usuário convidado dele é removida do seu diretório.
 
 **Função de pré-requisito:** Administrador global ou administrador de usuário
 
@@ -139,9 +139,9 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado nesse diretório, defina **remover usuário externo** como **Sim**.
 
     > [!NOTE]
-    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e remover esse diretório, mesmo que esse usuário tenha sido adicionado aos recursos nesse diretório que não tenham acesso às atribuições de pacote. Se o convidado estava presente nesse diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
+    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e removido desse diretório, mesmo que ele tenha sido adicionado a recursos desse diretório que não eram atribuições de pacote de acesso. Se o convidado estava no diretório antes de receber atribuições de pacote de acesso, ele permanecerá. Porém, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
 
-1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
+1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes de ela ser removida. Se você quiser remover a conta de usuário convidado assim que o usuário perder a última atribuição a qualquer pacote de acesso, defina **Número de dias antes de remover o usuário externo desse diretório** como **0**.
 
 1. Clique em **Save** (Salvar).
 

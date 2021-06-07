@@ -1,24 +1,30 @@
 ---
 title: 'Início Rápido: criar um pipeline de CI/CD para Java – Azure DevOps Starter'
 description: Aprenda a usar a experiência simplificada do Azure DevOps Starter para configurar um pipeline de CI (integração contínua) e CD (entrega contínua) para seu aplicativo Java no Azure Pipelines.
-ms.prod: devops
-ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
+ms.author: mlearned
 manager: gwallace
+ms.date: 03/24/2020
+ms.prod: devops
+ms.technology: devops-cicd
+ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 077730d63d388566bd842a4ba185bd5fd6637043
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom:
+- mvc
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 30ee97e0928f7b2995bd7bf02bec15bb8a46f7e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588991"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535423"
 ---
 # <a name="set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-starter"></a>Configurar um pipeline de CI/CD para um aplicativo Java com o Azure DevOps Starter
 
@@ -131,4 +137,4 @@ No painel **Histórico**, é exibida uma trilha de auditoria das alterações re
 Quando você configurou seu processo de CI/CD, os pipelines de build e de lançamento foram criados automaticamente. Você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Para saber mais sobre o pipeline de CI/CD, confira:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process)

@@ -3,12 +3,12 @@ title: Criar e executar testes de disponibilidade personalizados usando Azure Fu
 description: Este documento explicará como criar uma função do Azure com API trackavailability () que será executado periodicamente de acordo com a configuração fornecida na função TimerTrigger. Os resultados desse teste serão enviados para o recurso de Application Insights, no qual você poderá consultar e alertar sobre os dados de resultados de disponibilidade. Os testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que o possível usando a interface do usuário do portal, monitore um aplicativo dentro de sua VNET do Azure, altere o endereço do ponto de extremidade ou crie um teste de disponibilidade se ele não estiver disponível em sua região.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945644"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589944"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando Azure Functions
 
@@ -175,7 +175,7 @@ Se você executou tudo como está (sem adicionar lógica de negócios), verá qu
 
 ## <a name="query-in-logs-analytics"></a>Consulta em logs (análise)
 
-Você pode usar logs (análise) para exibir os resultados de disponibilidade, as dependências e muito mais. Para saber mais sobre logs, visite [visão geral de consultas de log](../log-query/log-query-overview.md).
+Você pode usar logs (análise) para exibir os resultados de disponibilidade, as dependências e muito mais. Para saber mais sobre logs, visite [visão geral de consultas de log](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)

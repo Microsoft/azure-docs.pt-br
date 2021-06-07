@@ -8,10 +8,10 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/04/2020
 ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945199"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>Tutorial: Criar uma conexão Site a Site no portal do Azure

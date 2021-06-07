@@ -4,12 +4,12 @@ description: Este artigo mostra como adicionar uma identidade gerenciada a um Se
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ff5d66160ddbb037469378634826fd9eeae0c54
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878419"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100651639"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adicionar uma identidade gerenciada a um Service Fabric tipo de nó de cluster gerenciado (versão prévia)
 
@@ -99,23 +99,28 @@ New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefi
 
 ## <a name="add-managed-identity-properties-to-node-type-definition"></a>Adicionar propriedades de identidade gerenciadas à definição de tipo de nó
 
-Por fim, adicione `vmManagedIdentity` as `userAssignedIdentities` Propriedades e à definição de tipo de nó do cluster gerenciado:
+Por fim, adicione `vmManagedIdentity` as `userAssignedIdentities` Propriedades e à definição de tipo de nó do cluster gerenciado. Certifique-se de usar **2021-01-01-Preview** ou posterior para o `apiVersion` .
 
 ```json
 
-"properties": {
-    "isPrimary" : true,
-    "vmInstanceCount": 5,
-    "dataDiskSizeGB": 100,
-    "vmSize": "Standard_D2",
-    "vmImagePublisher" : "MicrosoftWindowsServer",
-    "vmImageOffer" : "WindowsServer",
-    "vmImageSku" : "2019-Datacenter",
-    "vmImageVersion" : "latest",
-    "vmManagedIdentity": {
-        "userAssignedIdentities": [
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
-        ]
+ {
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "apiVersion": "2021-01-01-preview",
+    ...
+    "properties": {
+        "isPrimary" : true,
+        "vmInstanceCount": 5,
+        "dataDiskSizeGB": 100,
+        "vmSize": "Standard_D2_v2",
+        "vmImagePublisher" : "MicrosoftWindowsServer",
+        "vmImageOffer" : "WindowsServer",
+        "vmImageSku" : "2019-Datacenter",
+        "vmImageVersion" : "latest",
+        "vmManagedIdentity": {
+            "userAssignedIdentities": [
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
+            ]
+        }
     }
 }
 ```

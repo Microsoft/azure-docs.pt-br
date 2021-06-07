@@ -14,10 +14,10 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 977dfea28c5c0dc3f34ada0c138556d70c979e04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85551707"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço de chamadas de serviço usando as credenciais do cliente (segredo compartilhado ou certificados)
@@ -50,9 +50,9 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 Há dois casos, dependendo se o aplicativo cliente escolhe a ser protegida por um segredo compartilhado ou um certificado.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: solicitação de token de acesso com um segredo compartilhado
-Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
+Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço a serviço contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório |Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
 | client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
@@ -73,7 +73,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
 | client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |

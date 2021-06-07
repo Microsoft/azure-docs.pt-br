@@ -1,18 +1,19 @@
 ---
 title: Regiões do Azure
 description: Saiba mais sobre as regiões para executar máquinas virtuais no Azure.
-author: cynthn
-ms.author: cynthn
+author: mimckitt
+ms.author: mimckitt
+ms.reviewer: cynthnn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/8/2021
+ms.openlocfilehash: e874a76cc447158127da8482f23bf03d56961818
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650546"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102504602"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões para máquinas virtuais no Azure
 

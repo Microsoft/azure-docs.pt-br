@@ -3,7 +3,7 @@ title: Criação de um sistema de proteção de conteúdo com controle de acesso
 description: Saiba mais sobre como licenciar o Kit de Portabilidade de Cliente do Smooth Streaming da Microsoft.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010904"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103017130"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
 
@@ -156,7 +156,7 @@ A tabela abaixo mostra o mapeamento.
 | **STS (serviço de token de segurança)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
-| **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
+| **Ter** |Ponto de extremidade de streaming dos Serviços de Mídia |
 | **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 

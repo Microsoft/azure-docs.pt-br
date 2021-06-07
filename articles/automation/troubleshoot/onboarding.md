@@ -2,15 +2,14 @@
 title: Solucionar problemas de implantação do recurso de Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem ao implantar os recursos de Automação do Azure.
 services: automation
-ms.subservice: ''
-ms.date: 06/30/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100651112"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
 
@@ -82,7 +81,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para saber mais, confira [Monitorar o uso e os custos estimados no Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
+Este erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para saber mais, confira [Monitorar o uso e os custos estimados no Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
 
 #### <a name="resolution"></a>Resolução
 
@@ -243,4 +242,4 @@ Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite 
 
 * Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

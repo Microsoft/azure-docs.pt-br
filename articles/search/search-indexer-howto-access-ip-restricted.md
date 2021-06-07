@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98757236"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configurar regras de firewall IP para permitir conexões do indexador (Pesquisa Cognitiva do Azure)

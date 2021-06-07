@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 306a8d78caf36291573d021ed1d814aa4f7a2164
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089285"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642765"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ Para configurar uma regra de firewall de nível de banco de dados:
 1. Na barra de ferramentas, selecione **Executar** para criar a regra de firewall.
 
 > [!NOTE]
-> Crie também uma regra de firewall no nível do servidor no SSMS usando o comando [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), embora você precise estar conectado ao banco de dados *mestre*.
+> Crie também uma regra de firewall no nível do servidor no SSMS usando o comando [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current&preserve-view=true), embora você precise estar conectado ao banco de dados *mestre*.
 
 ## <a name="create-an-azure-ad-admin"></a>Criar um administrador do Azure AD
 
@@ -146,7 +146,7 @@ Para obter informações sobre como configurar o Azure AD, confira:
 - [Adicionar seu próprio nome de domínio ao Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [O Microsoft Azure agora dá suporte à federação com o Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrar seu diretório do Azure AD](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Gerenciar o Azure AD usando o PowerShell](/powershell/azure/?view=azureadps-2.0)
+- [Gerenciar o Azure AD usando o PowerShell](/powershell/azure/)
 - [Portas e protocolos necessários para a identidade híbrida](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Gerenciar o acesso ao banco de dados

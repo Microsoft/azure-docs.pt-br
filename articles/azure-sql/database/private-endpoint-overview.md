@@ -6,15 +6,15 @@ ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 7bc15b369bfa4964384d4f7910d6953bdfeaa664
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094158"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567705"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,6 +61,8 @@ Com o Link Privado, os clientes podem habilitar o acesso entre instalações ao 
 Os clientes podem se conectar ao ponto de extremidade privado da mesma rede virtual, rede virtual emparelhada na mesma região ou via rede virtual para conexão de rede virtual entre regiões. Além disso, os clientes podem se conectar localmente usando o ExpressRoute, o emparelhamento privado ou o túnel de VPN. Veja abaixo um diagrama simplificado que mostra os casos de uso comuns.
 
  ![Diagrama das opções de conectividade][1]
+
+Além disso, os serviços que não estão sendo executados diretamente na rede virtual, mas estão integrados a ela (por exemplo, aplicativos Web do Serviço de Aplicativo ou o Functions) também podem obter conectividade privada com o banco de dados. Para obter mais informações sobre esse caso de uso específico, confira o cenário de arquitetura [Aplicativo Web com conectividade privada com o banco de dados SQL do Azure](/azure/architecture/example-scenario/private-web-app/private-web-app).
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Testar a conectividade com o Banco de Dados SQL em uma VM do Azure na mesma rede virtual
 
@@ -183,6 +185,7 @@ O PolyBase e a instrução COPY costumam a ser usados para carregar dados no Azu
 
 - Para obter uma visão geral de segurança do Banco de Dados SQL do Azure, consulte [Protegendo seu banco de dados](security-overview.md)
 - Para obter uma visão geral da conectividade do Banco de Dados SQL do Azure, confira [Arquitetura de conectividade do SQL do Azure](connectivity-architecture.md)
+- Talvez você também esteja interessado no cenário de arquitetura de um [aplicativo Web com conectividade privada com o banco de dados SQL do Azure](/azure/architecture/example-scenario/private-web-app/private-web-app), que conecta um aplicativo Web fora da rede virtual ao ponto de extremidade privado de um banco de dados.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

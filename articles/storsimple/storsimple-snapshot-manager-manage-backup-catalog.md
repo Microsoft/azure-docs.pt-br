@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90054986"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
@@ -91,8 +91,8 @@ Use o procedimento a seguir para criar uma duplicata (clone) de um volume ou gru
 4. Conclua a caixa de diálogo **Clonar Instantâneo em Nuvem** da seguinte maneira: 
    
    1. Na caixa de texto **Nome**, digite um nome para o volume clonado. Esse nome aparecerá no nó **Volumes**. 
-   2. (Opcional) Selecione a **Unidade**e selecione uma letra da unidade na lista suspensa.
-   3. (Opcional) selecione **pasta (NTFS)** e digite um caminho de pasta ou clique em procurar e selecione um local para a pasta. 
+   2. (Opcional) Selecione a **Unidade** e selecione uma letra da unidade na lista suspensa.
+   3. (Opcional) Selecione **Pasta (NTFS)** e digite um caminho de pasta ou clique em Procurar e selecione um local para a pasta. 
    4. Clique em **Criar**.
 5. Quando o processo de clonagem for concluído, você precisa inicializar o volume clonado. Inicie o Gerenciador do Servidor e inicie o gerenciamento de disco. Para obter instruções detalhadas, consulte [Montar volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Depois de ser inicializado, o volume será listado no nó **Volumes** no painel **Escopo**. Se você não vir o volume listado, atualize a lista de volumes (clique com o botão direito do mouse no nó **Volumes** e clique em **Atualizar**).
 
@@ -124,7 +124,7 @@ Antes de começar, certifique-se de ter um backup atual do grupo de volumes. Em 
 4. Conclua a caixa de diálogo **Clonar Instantâneo em Nuvem** da seguinte maneira: 
    
    1. Na caixa de texto **Nome**, digite um nome para o volume clonado. Esse nome aparecerá no nó **Volumes**. 
-   2. Adicional Selecione **unidade**e, em seguida, selecione uma letra da unidade na lista suspensa. 
+   2. (Opcional) Selecione a **Unidade** e selecione uma letra da unidade na lista suspensa. 
    3. (Opcional) Selecione **Pasta (NTFS)** e digite um caminho de pasta ou clique em **Procurar** e selecione um local para a pasta. 
    4. Clique em **Criar**. 
 5. Quando o processo de clonagem for concluído, você precisa inicializar o volume clonado. Inicie o Gerenciador do Servidor e inicie o gerenciamento de disco. Para obter instruções detalhadas, consulte [Montar volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Depois de ser inicializado, o volume será listado no nó **Volumes** no painel **Escopo**. 
@@ -140,7 +140,7 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 1. Parar o Serviço de Gerenciamento do Microsoft StorSimple:
    
    1. Inicie o Gerenciador do Servidor.
-   2. No painel Gerenciador do Servidor, no menu **ferramentas** , selecione **Serviços**.
+   2. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
    3. Na janela **Serviços**, selecione o **Serviço de Gerenciamento Microsoft StorSimple**.
    4. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Parar o serviço**.
 2. No computador host, vá para C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -154,7 +154,7 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
     ![Arquivo de catálogo de backups do Azure StorSimple](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_bacatalog.png)
 4. Reinicie o Serviço de Gerenciamento do Microsoft StorSimple: 
    
-   1. No painel Gerenciador do Servidor, no menu **ferramentas** , selecione **Serviços**.
+   1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
    2. Na janela **Serviços**, selecione o **Serviço de Gerenciamento Microsoft StorSimple**.
    3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 5. No computador host, vá para C:\ProgramData\Microsoft\StorSimple\BACatalog. 

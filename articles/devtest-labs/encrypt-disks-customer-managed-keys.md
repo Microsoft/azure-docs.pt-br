@@ -4,10 +4,10 @@ description: Saiba como criptografar discos de sistema operacional (SO) usando c
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 26ef4ff1529483da9956c6dcc43807af0ffd6463
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341200"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografar discos do sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs
@@ -47,7 +47,7 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
     1. Selecione **Salvar** na barra de ferramentas. 
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Salvar atribuição de função":::
-3. Adicione a **identidade atribuída pelo sistema** do laboratório à função **colaborador da máquina virtual** usando a **Subscription**  ->  página **iam (controle de acesso à assinatura)** . As etapas são semelhantes àquelas nas etapas anteriores. 
+3. Adicione a **identidade atribuída pelo sistema** do laboratório à função **colaborador da máquina virtual** usando a   ->  página **iam (controle de acesso à assinatura)** . As etapas são semelhantes àquelas nas etapas anteriores. 
 
     
     1. Navegue até a página de **assinatura** no portal do Azure. 

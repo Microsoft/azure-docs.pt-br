@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878503"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
@@ -210,7 +210,7 @@ Para forçar o fechamento de um identificador de arquivo, use o cmdlet [Close-Az
 > Os cmdlets Get-AzStorageFileHandle e Close-AzStorageFileHandle estão incluídos no módulo AZ PowerShell versão 2,4 ou posterior. Para instalar o módulo AZ PowerShell mais recente, consulte [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Causa 2
-Uma concessão de arquivo é impedir que um arquivo seja modificado ou excluído. Você pode verificar se um arquivo tem uma concessão de arquivo com o seguinte PowerShell, substituindo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` pelos valores apropriados para o seu ambiente:
+Uma concessão de arquivo impede que um arquivo seja modificado ou excluído. Você pode verificar se um arquivo tem uma concessão de arquivo com o seguinte PowerShell, substituindo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` pelos valores apropriados para o seu ambiente:
 
 ```PowerShell
 # Set variables 
@@ -245,7 +245,7 @@ LeaseStatus           : Locked
 ```
 
 ### <a name="solution-2"></a>Solução 2
-Para remover uma concessão de um arquivo, você pode liberar a concessão ou interromper a concessão. Para liberar a concessão, você precisa da concessão de leasing da concessão, que você define ao criar a concessão. Você não precisa da concessão de leasing para interromper a concessão.
+Para remover uma concessão de um arquivo, você pode liberar ou interromper a concessão. Para liberar a concessão, você precisa da LeaseId da concessão, que você define ao criar a concessão. Você não precisa da LeaseId para interromper a concessão.
 
 O exemplo a seguir mostra como quebrar a concessão para o arquivo indicado na causa 2 (Este exemplo continua com as variáveis do PowerShell da causa 2):
 

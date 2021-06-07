@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f57d390ed71cb4e0e76972e02170afde7b13e4ae
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99253452"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
@@ -45,7 +45,7 @@ O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reiniciar o servidor
+1. Reinicie o servidor
 
 Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-add-on-premises-application.md).
 

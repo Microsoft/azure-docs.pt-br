@@ -13,15 +13,15 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
 ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100365933"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
 
-A biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) v 2.0 oferece suporte para o fluxo de código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
+A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) v2.0 dá suporte para o fluxo do código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
 
 A MSAL.js 2.x tem aprimoramentos em comparação com a MSAL.js 1.x, dando suporte ao fluxo do código de autorização no navegador em vez do fluxo de concessão implícita. A MSAL.js 2.x **NÃO** dá suporte ao fluxo implícito.
 
@@ -90,7 +90,7 @@ Quando você desmarca as configurações de concessão implícita no registro do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos de código implícito e de autenticação, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
+Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos de código implícito e de autenticação, confira [Plataforma de identidade da Microsoft e o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 Se quiser se aprofundar no desenvolvimento de aplicativos de página única JavaScript na plataforma de identidade da Microsoft, a série de artigos [Cenário: aplicativo de página única](scenario-spa-overview.md) em várias partes pode ajudar você a começar.
 

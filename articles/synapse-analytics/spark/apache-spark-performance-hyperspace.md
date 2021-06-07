@@ -11,10 +11,10 @@ ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 3aedef8452ad3e972f78958fc0765639692d76d6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121049"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperespaciai: um subsistema de indexação para Apache Spark

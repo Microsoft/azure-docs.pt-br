@@ -3,12 +3,12 @@ title: Gravação de vídeo contínua-Azure
 description: A CVR (gravação contínua de vídeo) refere-se ao processo de gravar continuamente o vídeo de uma fonte de vídeo. Este tópico discute o que é o CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566680"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102453743"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
@@ -19,7 +19,7 @@ ms.locfileid: "89566680"
 
 ## <a name="overview"></a>Visão geral
 
-A CVR (gravação contínua de vídeo) refere-se ao processo de gravar continuamente o vídeo de uma fonte de vídeo. A análise de vídeo ao vivo em IoT Edge dá suporte à gravação contínua de vídeo, em uma base 24x7, de uma câmera CCTV por meio de um [grafo de mídia](media-graph-concept.md) que consiste em um nó de origem RTSP e um nó de coletor de ativos. O diagrama a seguir mostra uma representação gráfica desse grafo de mídia. A representação JSON da [topologia do grafo](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) desse grafo de mídia pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
+A CVR (gravação contínua de vídeo) refere-se ao processo de gravar continuamente o vídeo de uma fonte de vídeo. A análise de vídeo ao vivo em IoT Edge dá suporte à gravação contínua de vídeo, em uma base 24x7, de uma câmera CCTV por meio de um [grafo de mídia](media-graph-concept.md) que consiste em um nó de origem RTSP e um nó de coletor de ativos. O diagrama a seguir mostra uma representação gráfica desse grafo de mídia. A representação JSON da [topologia do grafo](media-graph-concept.md#media-graph-topologies-and-instances) desse grafo de mídia pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Gravação de vídeo contínua":::
@@ -53,7 +53,7 @@ A propriedade segmentLength garante que o módulo de borda carregará vídeo no 
 > [!NOTE]
 > Consulte o artigo [gravações de reprodução](playback-recordings-how-to.md) para o efeito que o segmentLength tem na reprodução.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)

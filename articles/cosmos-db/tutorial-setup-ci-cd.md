@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a5b8842718aa2d9f90ac06283abc5fe2fdd925cb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c7246511a88e2d2756a8ef56c5adf51ddbfd3e58
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996994"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560524"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de Build do emulador Azure Cosmos DB no Azure DevOps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -33,13 +33,13 @@ Para usar a tarefa de build, primeiro precisamos instalá-la em nossa organizaç
 Em seguida, escolha a organização na qual instalar a extensão. 
 
 > [!NOTE]
-> Para instalar uma extensão para uma organização do Azure DevOps, você deve ser um proprietário da conta ou administrador de coleção de projeto. Se você não tiver permissões, mas for um membro da conta, poderá solicitar as extensões em vez disso. [Saiba mais.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
+> Para instalar uma extensão para uma organização do Azure DevOps, você deve ser um proprietário da conta ou administrador de coleção de projeto. Se você não tiver permissões, mas for um membro da conta, poderá solicitar as extensões em vez disso. [Saiba mais.](/azure/devops/marketplace/faq-extensions)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Escolha uma organização do Azure DevOps na qual instalar uma extensão":::
 
 ## <a name="create-a-build-definition"></a>Criar a definição de build
 
-Agora que a extensão está instalada, entre em sua organização do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
+Agora que a extensão está instalada, entre em sua organização do Azure DevOps e encontre o projeto no painel de projetos. Você pode adicionar um [pipeline de build](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav) ao projeto ou modificar um pipeline de build existente. Se você já tiver um pipeline de build, pule para [Adicionar a tarefa de build do Emulador a uma definição de build](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Para criar uma nova definição de build, navegue até a guia **Builds** no Azure DevOps. Selecione **+Novo.** \> **Novo pipeline de build**
 
@@ -52,7 +52,7 @@ Agora que a extensão está instalada, entre em sua organização do Azure DevOp
 3. Por fim, selecione o modelo desejado para o pipeline de build. Vamos selecionar o modelo do **ASP.NET** neste tutorial. Agora você tem um pipeline de compilação que pode ser configurado para usar a tarefa de Build de Azure Cosmos DB Emulator. 
 
 > [!NOTE]
-> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Confira o artigo [Agentes hospedados da Microsoft](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) para ver uma seleção de pools de agentes. Recomendamos começar com `Hosted VS2017`.
+> O pool de agente a ser selecionado para este CI deve ter o Docker for Windows instalado, a menos que a instalação seja feita manualmente em uma tarefa anterior como parte do CI. Confira o artigo [Agentes hospedados da Microsoft](/azure/devops/pipelines/agents/hosted?tabs=yaml) para ver uma seleção de pools de agentes. Recomendamos começar com `Hosted VS2017`.
 
 Atualmente, o emulador de Azure Cosmos DB não dá suporte ao pool de agentes VS2019 hospedado. No entanto, o emulador já vem com o VS2019 instalado e você o usa iniciando o emulador com os cmdlets do PowerShell a seguir. Se tiver problemas com o uso do VS2019, entre em contato com a equipe do [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) para obter ajuda:
 

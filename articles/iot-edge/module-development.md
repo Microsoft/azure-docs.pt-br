@@ -8,14 +8,16 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8907af07fff7b315eec263d38b686c17218ed9d2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a30b4b056d56e096f80b9494ab80a585fff76e66
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445465"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103489910"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Desenvolva seus próprios módulos do IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Os módulos do Azure IoT Edge podem conectar outros serviços do Azure e contribuir para o pipeline de dados em nuvem maior. Este artigo descreve como é possível desenvolver módulos para comunicação com o runtime do IoT Edge e Hub IoT e, portanto, com o restante da nuvem do Azure.
 

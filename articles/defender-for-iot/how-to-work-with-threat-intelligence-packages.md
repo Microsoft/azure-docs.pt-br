@@ -1,18 +1,14 @@
 ---
 title: Atualizar dados de inteligência contra ameaças
 description: O pacote de dados de inteligência contra ameaças é fornecido com cada nova versão do defender para IoT ou, se necessário, entre as versões.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: a210771d99d28a0e9c15d7952d491a5e5f94e704
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 386d59d33c4f9695b8fc5243dab345321cff4a5f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521400"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784043"
 ---
 # <a name="threat-intelligence-research-and-packages"></a>Pesquisa e pacotes de inteligência contra ameaças
 
@@ -73,6 +69,6 @@ Para atualizar um pacote em vários sensores simultaneamente:
 
 7. Carregue o pacote.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Versões de atualização](how-to-manage-sensors-from-the-on-premises-management-console.md#update-versions)

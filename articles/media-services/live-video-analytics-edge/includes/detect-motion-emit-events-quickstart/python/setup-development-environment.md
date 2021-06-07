@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 94111ae3b02da897b9544adaad384fd281a91b02
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 130e2f1b38dd4cfdcef1155eee493bb4ea40126c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99531958"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101750217"
 ---
 1. Clone o repositório deste local: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python.
 1. No Visual Studio Code, abra a pasta na qual o repositório foi baixado.
@@ -31,7 +31,7 @@ ms.locfileid: "99531958"
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  

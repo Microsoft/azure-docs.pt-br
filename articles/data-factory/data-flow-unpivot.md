@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
 ms.openlocfilehash: ef861cdf394716a70d85e43ce9c60f46af2cc2e4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040208"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Transformação não dinâmica no fluxo de dados de mapeamento

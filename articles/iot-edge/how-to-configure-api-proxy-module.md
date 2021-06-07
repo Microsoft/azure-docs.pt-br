@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 894398d63e326db3c6ee9de9bebc426a6e621600
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024663"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200574"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurar o módulo de proxy de API para seu cenário de hierarquia de gateway (versão prévia)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 O módulo proxy de API permite que IoT Edge dispositivos enviem solicitações HTTP por meio de gateways em vez de fazer conexões diretas com os serviços de nuvem. Este artigo percorre as opções de configuração para que você possa personalizar o módulo para dar suporte aos requisitos de hierarquia do gateway.
 
@@ -121,7 +123,7 @@ Configure os seguintes módulos na **camada superior**:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `DOCKER_REQUEST_ROUTE_ADDRESS` | O nome do módulo do registro e a porta aberta. Por exemplo, `registry:5000`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
@@ -147,7 +149,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
 
@@ -179,7 +181,7 @@ Configure os seguintes módulos na **camada superior**:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `BLOB_UPLOAD_ROUTE_ADDRESS` | O nome do módulo de armazenamento de BLOBs e a porta aberta. Por exemplo, `azureblobstorageoniotedge:1102`. |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
@@ -205,7 +207,7 @@ Configure o seguinte módulo em qualquer **camada inferior** para este cenário:
 * Um módulo de proxy de API
   * Configure as seguintes variáveis de ambiente:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | `NGINX_DEFAULT_PORT` | A porta que o proxy Nginx escuta para solicitações de dispositivos downstream. Por exemplo, `8000`. |
 

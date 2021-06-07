@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: bf01df2307796831dee602dad30455a4922ef90b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98873169"
 ---
 | Recurso | Descrição|

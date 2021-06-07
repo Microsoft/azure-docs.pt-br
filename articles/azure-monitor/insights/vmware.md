@@ -1,17 +1,16 @@
 ---
 title: Monitoramento do VMware solução no Azure Monitor | Microsoft Docs
 description: Saiba mais sobre como a solução de Monitoramento de VMware pode ajudar a gerenciar logs e monitorar hosts ESXi.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450402"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101704354"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
@@ -33,7 +32,7 @@ Use as informações a seguir para instalar e configurar a solução.
 Host vSphere ESXi 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparar um servidor Linux
-Crie um sistema operacional do Linux VM para receber todos os dados syslog de hosts ESXi. O [agente do Log Analytics para Linux](../learn/quick-collect-linux-computer.md) é o ponto de coleta para todos os dados syslog de hosts ESXi. Você pode usar vários hosts ESXi para encaminhar logs para um único servidor Linux, como no exemplo a seguir.
+Crie um sistema operacional do Linux VM para receber todos os dados syslog de hosts ESXi. O [agente do Log Analytics para Linux](../vm/quick-collect-linux-computer.md) é o ponto de coleta para todos os dados syslog de hosts ESXi. Você pode usar vários hosts ESXi para encaminhar logs para um único servidor Linux, como no exemplo a seguir.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -92,7 +91,7 @@ A tabela a seguir mostram exemplos de campos de dados coletados pela solução d
 | ResourceId_s |nome do host do VMware |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
-| ResourceType_s |Hyper-V |
+| ResourceType_s |Hyper-v |
 | SCSIStatus_s |Status de SCSI do VMware |
 | SyslogMessage_s |Dados syslog |
 | UserName_s |usuário que criou ou excluiu a VM |
@@ -122,7 +121,7 @@ No modo de exibição de painel **VMware**, as folhas são organizadas por:
 
 Clique em qualquer folha para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específicas para essa folha.
 
-A partir daqui, você pode editar a consulta de log para modificá-la para algo específico. Para obter detalhes sobre como criar consultas de log, consulte [Localizar dados usando consultas de log em Azure monitor](../log-query/log-query-overview.md).
+A partir daqui, você pode editar a consulta de log para modificá-la para algo específico. Para obter detalhes sobre como criar consultas de log, consulte [Localizar dados usando consultas de log em Azure monitor](../logs/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos do host ESXi
 Um único host ESXi gera vários logs, com base em seus processos. A solução de Monitoramento do VMware centraliza-os e resume as contagens de eventos. Essa exibição centralizada ajuda a entender qual host ESXi tem um alto volume de eventos e quais eventos ocorrem com mais frequência em seu ambiente.
@@ -151,12 +150,12 @@ A solução inclui outras consultas úteis que podem ajudá-lo a gerenciar seus 
 
 
 #### <a name="save-queries"></a>Salvar consultas
-Salvar consultas de log é um recurso padrão no Azure Monitor e pode ajudá-lo a manter todas as consultas que você encontrou úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](../learn/tutorial-logs-dashboards.md), na qual você pode criar seus próprios painéis personalizados.
+Salvar consultas de log é um recurso padrão no Azure Monitor e pode ajudá-lo a manter todas as consultas que você encontrou úteis. Depois de criar uma consulta você considerar útil, salve-a clicando em **Favoritos**. Uma consulta salva permite que você reutilize-a posteriormente com facilidade usando a página [Meu Painel](../visualize/tutorial-logs-dashboards.md), na qual você pode criar seus próprios painéis personalizados.
 
 ![A captura de tela mostra parte de um painel personalizado rotulado pesquisa de logs com ícones para desfazer, exportar, alerta, salvar, favoritos e histórico.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas com base em consultas
-Depois de criar as consultas, talvez você queira usá-las para alertá-lo quando eventos específicos ocorrem. Veja [Alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas de alertas e outros exemplos de consultas, veja a postagem de blog [Monitorar VMware usando o Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics).
+Depois de criar as consultas, talvez você queira usá-las para alertá-lo quando eventos específicos ocorrem. Veja [Alertas no Log Analytics](../alerts/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas de alertas e outros exemplos de consultas, veja a postagem de blog [Monitorar VMware usando o Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que é necessário na configuração do host de ESXi? Que impacto terá no meu ambiente atual?
@@ -190,14 +189,14 @@ Pode haver vários motivos:
 
     a. Verifique se o agente do Log Analytics está em execução usando `ps -ef | grep oms`. Se ele não está em execução, inicie o processo executando o comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
      c. Verifique se o usuário apropriado e a configuração do grupo são válidos, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Se o arquivo não existe ou o usuário e a configuração de grupo estão errados, tome uma ação corretiva ao [Preparar um servidor Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Usar [consultas de log](../log-query/log-query-overview.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
-* [Criar seus próprios painéis](../learn/tutorial-logs-dashboards.md) mostrando os dados de host do VMware.
-* [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos de host do VMware.
+* Usar [consultas de log](../logs/log-query-overview.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
+* [Criar seus próprios painéis](../visualize/tutorial-logs-dashboards.md) mostrando os dados de host do VMware.
+* [Criar alertas](../alerts/alerts-overview.md) quando ocorrem eventos específicos de host do VMware.
 

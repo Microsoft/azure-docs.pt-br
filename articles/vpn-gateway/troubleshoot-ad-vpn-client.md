@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84988106"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solucionar problemas de um cliente VPN de autenticação do Azure AD
@@ -35,7 +35,7 @@ Limpe as informações de entrada.
 ![entrar](./media/troubleshoot-ad-vpn-client/2.png)
 
 1. Selecione o... ao lado do perfil que você deseja solucionar problemas. Selecione **Configurar-> limpar conta salva**.
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 3. Tente se conectar.
 4. Se a conexão ainda falhar, prossiga para a próxima seção.
 

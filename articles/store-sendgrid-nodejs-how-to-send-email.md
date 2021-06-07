@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96015410"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar emails usando o SendGrid do Node.js
 
-Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de email, consulte a seção [próximas etapas](#next-steps) .
+Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas usando a API do Node.js. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de e-mails, consulte a seção [Próximas etapas](#next-steps) .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o serviço de email SendGrid?
 
@@ -188,7 +188,7 @@ sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Como atualizar as propriedades do e-mail
 
-Algumas propriedades de email podem ser substituídas usando **SetProperty** ou acrescentadas usando **AddProperty**. Por exemplo, você pode adicionar destinatários adicionais ao usar
+Algumas propriedades de email podem ser substituídas usando **setProperty** ou anexadas usando **addProperty**. Por exemplo, você pode adicionar destinatários adicionais ao usar
 
 ```javascript
 email.addTo('jeff@contoso.com');

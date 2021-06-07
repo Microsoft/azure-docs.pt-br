@@ -36,6 +36,8 @@
       href: front-door-quickstart-template-samples.md
 - name: Conceitos
   items:
+    - name: SKU Standard/Premium
+      href: standard-premium/overview.md
     - name: Segurança
       items:
         - name: Linha de base de segurança

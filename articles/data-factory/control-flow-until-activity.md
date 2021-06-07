@@ -3,16 +3,16 @@ title: Atividade Until no Azure Data Factory
 description: A atividade Until executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira ou atinja o tempo limite.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6431321d788e7311e076d302173ffffb96e07876
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.openlocfilehash: 2ac5474f1b20e409da01c531ef13060e72fd548c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385363"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104786117"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade Until no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -53,9 +53,9 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade `Until`. | String | Sim
 type | Deve ser definido como **Until**. | String | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
-tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  Sim
+expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Yes
+tempo limite | O loop do-until atinge o tempo limite após o tempo especificado aqui. | Cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é de 7 dias. Valor máximo é: 90 dias. | No
+Atividades | Conjunto de atividades que é executado até que a expressão seja avaliada como `true`. | Matriz de atividades. |  Yes
 
 ## <a name="example-1"></a>Exemplo 1
 

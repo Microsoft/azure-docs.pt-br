@@ -4,19 +4,19 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 578c43c62fe28d33072b50b52d1691943954e229
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: a9f4ce6fb008c47f81c6838188f53fec604c2122
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242480"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611826"
 ---
 <!--Feature availability in region-->
 ## <a name="canada"></a>Canadá
 
 | Recurso | Canadá Central | Leste do Canadá |
 | --- | :---: | :---: |
-| [EventGrid do Azure](../reacting-to-media-services-events.md) |![Disponibilidade geral central do Azure EventGrid Canada](../media/azure-clouds-regions/ga.svg)  |![Disponibilidade geral do Azure EventGrid no Canadá do leste](../media/azure-clouds-regions/ga.svg) |
+| [Grade de Eventos do Azure](../monitoring/reacting-to-media-services-events.md) |![Disponibilidade geral central do Azure EventGrid Canada](../media/azure-clouds-regions/ga.svg)  |![Disponibilidade geral do Azure EventGrid no Canadá do leste](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Disponibilidade geral central do VideoAnalyzerPreset Canadá](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do VideoAnalyzerPreset Canadá Oriental](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Disponibilidade geral central do AudioAnalyzerPreset Canadá](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do AudioAnalyzerPreset Canadá Oriental](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![Disponibilidade geral central do StandardEncoderPreset Canadá](../media/azure-clouds-regions/ga.svg)  | ![Disponibilidade geral do StandardEncoderPreset Canadá Oriental](../media/azure-clouds-regions/ga.svg) |

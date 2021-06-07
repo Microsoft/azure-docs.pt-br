@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: aeea2905b6bae094c92bd8b5d46523225c745494
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342259"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595627"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,17 +45,17 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *Início*  
     Valor de cadeia de caracteres UTC de data e hora do ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` em que:
   
-  |Formatar|Descrição|
-  |-|-|
-  |AAAA|ano de quatro dígitos|
-  |MM|mês de dois dígitos (01 = Janeiro, etc.)|
-  |DD|dia de dois dígitos do mês (01 a 31)|
-  |T|signifier para o início dos elementos de hora|
-  |hh|hora de dois dígitos (00 a 23)|
-  |mm|minutos de dois dígitos (00 a 59)|
-  |ss|segundos de dois dígitos (00 a 59)|
-  |. fffffff|segundos fracionários de sete dígitos|
-  |Z|Designador UTC (tempo Universal Coordenado)||
+|Formatar|Descrição|
+|-|-|
+|AAAA|ano de quatro dígitos|
+|MM|mês de dois dígitos (01 = Janeiro, etc.)|
+|DD|dia de dois dígitos do mês (01 a 31)|
+|T|signifier para o início dos elementos de hora|
+|hh|hora de dois dígitos (00 a 23)|
+|MM|minutos de dois dígitos (00 a 59)|
+|ss|segundos de dois dígitos (00 a 59)|
+|. fffffff|segundos fracionários de sete dígitos|
+|Z|Designador UTC (tempo Universal Coordenado)|
   
   Para obter mais informações sobre o formato ISO 8601, consulte [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

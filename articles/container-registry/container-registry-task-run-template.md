@@ -4,10 +4,10 @@ description: Enfileirar uma tarefa ACR executada para criar uma imagem usando um
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916058"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos do Resource Manager
@@ -63,7 +63,7 @@ az deployment group create \
 
 O comando anterior passa os parâmetros na linha de comando. Se desejar, passe-os em um [arquivo de parâmetros](../azure-resource-manager/templates/parameter-files.md).
 
-### <a name="verify-deployment"></a>Verificar a implantação
+### <a name="verify-deployment"></a>Verificar implantação
 
 Depois que a implantação for concluída com êxito, verifique se a imagem foi criada executando [AZ ACR Repository show-Tags][az-acr-repository-show-tags]:
 
@@ -211,7 +211,7 @@ az deployment group create \
 
 O comando anterior passa os parâmetros na linha de comando. Se desejar, passe-os em um [arquivo de parâmetros](../azure-resource-manager/templates/parameter-files.md).
 
-### <a name="verify-deployment"></a>Verificar a implantação
+### <a name="verify-deployment"></a>Verificar implantação
 
 Depois que a implantação for concluída com êxito, verifique se a imagem foi criada executando [AZ ACR Repository show-Tags][az-acr-repository-show-tags]:
 

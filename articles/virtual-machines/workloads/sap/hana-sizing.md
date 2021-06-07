@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1750f1d61028cb186b02251b551b7a798e1df9d6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.openlocfilehash: d49191abbba9c189672be4cd8bad4346e9689bf6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967526"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101675413"
 ---
 # <a name="sizing"></a>Dimensionamento
 
@@ -27,9 +26,9 @@ O dimensionamento do HANA em Instâncias Grandes não é diferente do dimensiona
 
 - [SAP Note nº 1793345 - dimensionamento do SAP Suite no HANA](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP Note nº 1872170 - relatório de dimensionamento do Suite no HANA e S/4 HANA](https://launchpad.support.sap.com/#/notes/1872170)
-- [Observação SAP #2121330-perguntas frequentes: SAP BW no relatório de dimensionamento do HANA](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP Note #1736976 relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP Note #2296290-novo relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [Nota SAP nº 2121330 – Perguntas frequentes: relatório de dimensionamento do SAP BW no HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [Nota SAP nº 1736976 – Relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [Nota SAP nº 2296290 – Novo relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
 Para implementações de campo verde Sizer rápida SAP está disponível para calcular os requisitos de memória da implementação de software SAP sobre HANA.
 

@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5076888e692ad16e89f30d455e7f8c4e22a41b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 92dfff13d964418ea5519d30c7a1b91621d5e98e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463590"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061631"
 ---
 # <a name="tutorial-activate-azure-stack-edge-mini-r"></a>Tutorial: Ativar o Azure Stack Edge Mini R
 
@@ -110,4 +109,4 @@ Neste tutorial, você aprendeu a:
 Para saber como transferir dados com o seu dispositivo Azure Stack Edge Mini R, confira:
 
 > [!div class="nextstepaction"]
-> [Transferir dados com o Azure Stack Edge Mini R](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transferir dados com o Azure Stack Edge Mini R](./azure-stack-edge-gpu-deploy-add-shares.md)

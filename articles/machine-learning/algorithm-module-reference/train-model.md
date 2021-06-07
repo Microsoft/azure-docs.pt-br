@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751930"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562759"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
@@ -60,12 +60,34 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
     > [!TIP] 
     > Se você tiver problemas ao usar o seletor de coluna, consulte o artigo [selecionar colunas no conjunto de linhas](./select-columns-in-dataset.md) para obter dicas. Ele descreve alguns cenários comuns e dicas para usar as opções **with Rules** e **by Name** .
   
-1.  Envie o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
+1.  Envie o pipeline. Se você tiver muitos dados, pode levar algum tempo.
 
     > [!IMPORTANT] 
     > Se você tiver uma coluna de ID que é a ID de cada linha, ou uma coluna de texto, que contém muitos valores exclusivos, o **modelo de treinamento** poderá atingir um erro como "número de valores exclusivos na coluna:" {column_name} "é maior que o permitido.
     >
     > Isso ocorre porque a coluna atingiu o limite de valores exclusivos e pode causar memória insuficiente. Você pode usar [Editar metadados](edit-metadata.md) para marcar essa coluna como **recurso claro** e ela não será usada no treinamento ou [extrair recursos de N-Gram do módulo de texto](extract-n-gram-features-from-text.md) para pré-processar coluna de texto. Consulte o [código de erro do designer](././designer-error-codes.md) para obter mais detalhes de erro.
+
+## <a name="model-interpretability"></a>Interpretação de modelo
+
+A interpretação de modelo fornece a possibilidade de compreender o modelo ML e apresentar a base subjacente para tomada de decisões de forma compreensível para os seres humanos.
+
+Atualmente, o módulo **modelo de treinamento** oferece suporte ao [uso do pacote de interpretação para explicar os modelos de ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Há suporte para os seguintes algoritmos internos:
+
+- Regressão Linear
+- Regressão de Rede Neural
+- Regressão Logística de Duas Classes
+- Computador de vetor de suporte de duas classes
+- Floresta de decisão de várias classes
+
+Para gerar explicações de modelo, você pode selecionar **true** na lista suspensa de **explicações de modelo** no módulo modelo de treinamento. Por padrão, ele é definido como false no módulo **modelo de treinamento** . Observe que a geração de explicações exige custo extra de computação.
+
+![Captura de tela mostrando a caixa de seleção explicação do modelo](./media/module/train-model-explanation-checkbox.png)
+
+Após a conclusão da execução do pipeline, você pode visitar a guia **explicações** no painel direito do módulo **modelo de treinamento** e explorar o desempenho do modelo, o conjunto de recursos e a importância do recurso.
+
+![Captura de tela mostrando gráficos de explicação do modelo](./media/module/train-model-explanations-tab.gif)
+
+Para saber mais sobre como usar explicações de modelo em Azure Machine Learning, consulte o artigo de instruções sobre [interpretar modelos de ml](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Resultados
 
@@ -79,4 +101,4 @@ Depois que o modelo for treinado:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
+Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning.

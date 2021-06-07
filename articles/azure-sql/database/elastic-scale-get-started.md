@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 74343b2f05bb4a59e475449c87524ff66cdd605d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919537"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
@@ -91,7 +91,7 @@ Para baixar e executar a amostra, siga estas etapas:
 
 4. No projeto *solução elasticscalestarterkit* , abra o arquivo *App.config* . Em seguida, siga as instruções no arquivo para adicionar o nome do servidor e suas informações de entrada (nome de usuário e senha).
 
-5. Compile e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
+5. Crie e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
 
 6. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
 

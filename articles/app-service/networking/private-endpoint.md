@@ -4,17 +4,17 @@ description: Conecte-se em particular a um aplicativo Web usando o Ponto de extr
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 03/16/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763032"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655896"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de pontos de extremidade privados para Aplicativo Web do Azure
 
@@ -68,31 +68,31 @@ Quando você usa o ponto de extremidade privado para o aplicativo Web, a URL sol
 Por padrão, sem o ponto de extremidade privado, o nome público do seu aplicativo Web é um nome canônico para o cluster.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |
+|Nome |Tipo |Valor |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
-|cloudservicename.cloudapp.net|Um|40.122.110.154| 
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
 
 Quando você implanta um ponto de extremidade privado, atualizamos a entrada DNS para apontar para o nome canônico mywebapp.privatelink.azurewebsites.net.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |Comentário |
+|Nome |Tipo |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
-|cloudservicename.cloudapp.net|Um|40.122.110.154|<--esse IP público não é seu ponto de extremidade privado, você receberá um erro 403|
+|cloudservicename.cloudapp.net|A|40.122.110.154|<--esse IP público não é seu ponto de extremidade privado, você receberá um erro 403|
 
 Você deve configurar um servidor DNS privado ou uma zona privada de DNS do Azure, para testes, você pode modificar a entrada de host do seu computador de teste.
 A zona DNS que você precisa criar é: **privatelink.azurewebsites.net**. Registre o registro para seu aplicativo Web com um registro a e o IP do ponto de extremidade privado.
 Por exemplo, a resolução de nome será:
 
-|Nome |Type |Valor |Comentário |
+|Nome |Tipo |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--o Azure cria essa entrada no DNS público do Azure para apontar o serviço de aplicativo para o privatelink e isso é gerenciado por nós|
-|mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
 
 Após essa configuração de DNS, você pode acessar seu aplicativo Web de forma privada com o nome padrão mywebappname.azurewebsites.net. Você deve usar esse nome, pois o certificado padrão é emitido para *. azurewebsites.net.
 
@@ -101,10 +101,10 @@ Se você precisar usar um nome DNS personalizado, deverá adicionar o nome perso
 
 Para o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), você deve criar dois registros em sua zona privada do DNS do Azure ou seu servidor DNS personalizado. 
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 |-----|-----|-----|
-| mywebapp.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
-| mywebapp.scm.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
 
 
@@ -118,9 +118,9 @@ Ao usar a Função do Azure no Elastic Premium Plan com ponto de extremidade pri
 
 Você pode conectar até 100 pontos de extremidade privados a um aplicativo Web específico.
 
-Os slots não podem usar o ponto de extremidade privado.
-
 A funcionalidade de depuração remota não está disponível quando o ponto de extremidade privado está habilitado para o aplicativo Web. A recomendação é implantar o código em um slot e depurá-lo remotamente.
+
+O acesso ao FTP é fornecido por meio do endereço IP público de entrada. O ponto de extremidade privado não dá suporte ao acesso FTP ao aplicativo Web.
 
 Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente, marque [este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 

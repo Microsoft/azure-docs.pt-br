@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 66a1e22282864d0425173504735d6beb42b76ad7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967254"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
@@ -55,7 +55,7 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**StorSimple tiering** 
+ 
  Camadas ![ do StorSimple Diagrama de camadas do StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
@@ -233,7 +233,7 @@ Configure sua solução de acordo com as diretrizes indicadas nas seções a seg
 -   O StorSimple dá suporte a backups completos e incrementais do Backup Exec. Não é recomendável usar backups diferenciais e sintéticos.
 -   Os arquivos de dados de backup devem conter apenas dados de um trabalho específico. Por exemplo, não são permitidos acréscimos de mídia em vários trabalhos diferentes.
 -   Desabilite a verificação do trabalho. Se necessário, a verificação deve ser agendada após o trabalho de backup mais recente. É importante compreender que esse trabalho afeta sua janela de backup.
--   Selecione **armazenamento**  >  **suas propriedades de detalhes do disco**  >  **Details**  >  **Properties**. Desligue **Pré-alocar espaço em disco**.
+-   Selecione **armazenamento**  >  **suas propriedades de detalhes do disco**  >    >  . Desligue **Pré-alocar espaço em disco**.
 
 Para as definições mais recentes do Backup Exec e as práticas recomendadas sobre como implementar esses requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -255,7 +255,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -314,7 +314,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
 | Mensal  | Sábado  |   |
-| Anual | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do Backup Exec
@@ -388,7 +388,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Mensal | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anual  |   |   |   |   |   |
+| Anualmente | StorSimple anual  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Atribuir volumes StorSimple a um trabalho de arquivamento e eliminação de duplicação do Backup Exec

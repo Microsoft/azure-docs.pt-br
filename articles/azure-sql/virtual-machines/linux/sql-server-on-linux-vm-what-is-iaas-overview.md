@@ -1,7 +1,7 @@
 ---
 title: Visão geral do SQL Server nas Máquinas Virtuais do Azure para Linux | Microsoft Docs
 description: Saiba mais sobre como executar as edições completas do SQL Server nas Máquinas Virtuais do Azure para Linux. Obtenha links diretos para todas as imagens de VM Linux SQL Server e conteúdo relacionado.
-services: virtual-machines-linux
+services: virtual-machines-sql
 documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c394fe2aa7639d32e5d79bcb22a01151f7666f5b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3613b8417c78d0a01582defb7396cc65521e2f4c
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324611"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449473"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Visão geral do SQL Server nas Máquinas Virtuais do Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -8,10 +8,10 @@ ms.service: virtual-machines
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 9c220814ae1f714e9eac0c0c11a50d9cf68a621d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897401"
 ---
 # <a name="tagging-a-vm-using-the-portal"></a>Marcando uma VM usando o portal

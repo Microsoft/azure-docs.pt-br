@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6dc91dc07d11f195092343e657911a884d8bf475
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930414"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865988"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar Jupyter Notebook no computador e conectar-se ao Apache Spark no HDInsight
 
@@ -142,7 +142,7 @@ Nesta seção, você configura a mágica do Spark que você instalou anteriormen
 
     a. Crie um novo bloco de anotações. No canto direito, selecione **novo**. Você deve ver o kernel padrão **Python 2** ou **Python 3** e os kernels que você instalou. Os valores reais podem variar dependendo das suas opções de instalação.  Selecione **PySpark**.
 
-    ![Kernels disponíveis no Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels no Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Kernels disponíveis no Jupyter Notebook" border="true":::
 
     > [!IMPORTANT]  
     > Depois de selecionar **nova** revisão, seu shell para quaisquer erros.  Se você vir o erro `TypeError: __init__() got an unexpected keyword argument 'io_loop'` , talvez esteja ocorrendo um problema conhecido com determinadas versões do tornado.  Nesse caso, pare o kernel e, em seguida, faça o downgrade da instalação do tornado com o seguinte comando: `pip install tornado==4.5.3` .

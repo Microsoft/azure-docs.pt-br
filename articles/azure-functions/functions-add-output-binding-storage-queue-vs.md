@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185123"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conectar funções ao Armazenamento do Azure usando o Visual Studio
@@ -19,7 +19,7 @@ Este artigo mostra como usar Visual Studio para conectar a função criada no [a
 
 A maioria das associações requer uma cadeia de conexão armazenada que o Functions usa para acessar o serviço vinculado. Para facilitar, use a Conta de armazenamento que você criou com o seu aplicativo de funções. A conexão com essa conta já está armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este artigo, você deve: 
 
@@ -79,7 +79,7 @@ Uma nova fila denominada `outqueue` é criada na conta de armazenamento pelo run
 
 1. Expanda o nó **Filas** e clique duas vezes na fila chamada **subfila** para exibir o conteúdo dela no Visual Studio. 
 
-   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você invocou a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
+   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você tiver invocado a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
 
     ![Mensagem da fila mostrada no Gerenciador de Armazenamento do Azure](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 

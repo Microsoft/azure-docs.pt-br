@@ -8,10 +8,10 @@ ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 5b09ce48226b3c31efce4966ec776c10931cc391
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348646"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gerenciar Azure Cosmos DB recursos usando Gerenciador de Armazenamento do Azure
@@ -278,7 +278,7 @@ Quando Gerenciador de Armazenamento encontra um certificado autoassinado, ele n�
 1. Execute `s_client -showcerts -connect microsoft.com:443`.
 1. Procurar certificados autoassinados. Se você não tiver certeza, que são autoassinados, procure em qualquer lugar que o assunto ("s:") e o emissor ("i:") sejam os mesmos.
 1. Se você encontrar certificados autoassinados, copie e cole tudo de e incluindo **-----iniciar o-----de certificado** para **----------de certificado final** para um novo. Arquivo CER para cada um.
-1. Abra Gerenciador de armazenamento e acesse editar certificados **Edit**  >  **SSL**  >  **importar certificados**. Use o seletor de arquivos para localizar, selecionar e abrir o. Arquivos CER que você criou.
+1. Abra Gerenciador de armazenamento e acesse editar certificados   >  **SSL**  >  **importar certificados**. Use o seletor de arquivos para localizar, selecionar e abrir o. Arquivos CER que você criou.
 
 Se você não encontrar nenhum certificado autoassinado, poderá enviar comentários para obter mais ajuda.
 

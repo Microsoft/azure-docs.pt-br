@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320229"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Use Azure Data Studio para gerenciar seu grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
@@ -68,7 +68,7 @@ Isso apresenta vários painéis listados no lado esquerdo do painel:
 
 ## <a name="work-with-your-data-and-schema"></a>Trabalhe com seus dados e esquema
 
-No lado esquerdo da janela Azure Data Studio, expanda os **servidores**de nó:
+No lado esquerdo da janela Azure Data Studio, expanda os **servidores** de nó:
 
 E selecione [Adicionar conexão] e preencha os detalhes da conexão com a instância do PostgreSQL:
 - **Tipo de conexão:** PostgreSQL
@@ -88,7 +88,7 @@ Selecione **[OK] e [conectar]** para se conectar ao servidor.
 
 Uma vez conectado, várias experiências estão disponíveis:
 - **Nova consulta**
-- **Novo bloco de anotações**
+- **Novo Notebook**
 - **Expanda a exibição do servidor e navegue/trabalhe nos objetos dentro do banco de dados**
 - **...**
 

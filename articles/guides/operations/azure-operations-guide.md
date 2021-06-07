@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895247"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101093054"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -200,7 +200,7 @@ Se você exceder a quantidade de crédito, seu serviço ficará desabilitado at�
 
 O Azure RBAC tem várias funções internas que você pode usar para atribuir permissões. Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) no escopo da assinatura. A função Proprietário permite ao usuário acesso completo a todos os recursos na assinatura, inclusive o direito de delegar acesso a outras pessoas.
 
-Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Exibir informações de cobrança no portal do Azure
 
@@ -304,7 +304,7 @@ Aqui estão alguns exemplos de [funções internas criadas no Azure](../../role-
 
 - **Colaborador da Conta de Armazenamento**: Um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
 
-Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 

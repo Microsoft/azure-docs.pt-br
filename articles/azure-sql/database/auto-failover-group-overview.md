@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792493"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594233"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Quando você estiver usando grupos de failover automático com a política de fa
 - [Portal do Azure](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
-- [API REST: grupo de failover](/rest/api/sql/failovergroups).
+- [API REST: grupo de failover](/rest/api/sql/failovergroups)
 
 Após o failover, verifique se os requisitos de autenticação para seu banco de dados e servidor ou instância estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md).
 
@@ -115,7 +115,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   - Executar a recuperação de desastre em produção quando a perda de dados não é aceitável
   - Relocar os bancos de dados para uma região diferente
-  - Retorne os bancos de dados para a região primária após a interrupção ter sido atenuada (failback).
+  - Retornar os bancos de dados para a região primária após a interrupção ser mitigada (failback)
 
 - **Failover não planejado**
 
@@ -176,7 +176,7 @@ Ao executar operações de OLTP, use `<fog-name>.database.windows.net` como a UR
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Usando o ouvinte somente leitura para carga de trabalho somente leitura
 
-Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para sessões somente leitura, use `<fog-name>.secondary.database.windows.net` como a URL do servidor e a conexão é direcionada automaticamente para o secundário. Também é recomendável que você indique na tentativa de leitura da cadeia de conexão usando `ApplicationIntent=ReadOnly` .
+Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para sessões somente leitura, use `<fog-name>.secondary.database.windows.net` como a URL do servidor e a conexão é direcionada automaticamente para o secundário. Também é recomendável que você indique a intenção de leitura na cadeia de conexão usando `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparando-se para degradação do desempenho
 

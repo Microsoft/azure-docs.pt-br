@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538588"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solucionar problemas de perda de dados do Cache do Azure para Redis
@@ -36,7 +36,7 @@ Se você descobrir que as chaves desapareceram do cache, verifique as seguintes 
 
 ### <a name="key-expiration"></a>Expiração da chave
 
-O Cache do Azure para Redis removerá uma chave automaticamente se a chave tiver um tempo limite atribuído e esse período tiver passado. Para obter mais informações sobre o término da chave Redis, confira a documentação do comando [EXPIRE](https://redis.io/commands/expire). Os valores de tempo limite também podem ser definidos usando o conjunto de comandos [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) e outros comandos **\*STORE** .
+O Cache do Azure para Redis removerá uma chave automaticamente se a chave tiver um tempo limite atribuído e esse período tiver passado. Para obter mais informações sobre o término da chave Redis, confira a documentação do comando [EXPIRE](https://redis.io/commands/expire). Os valores de tempo limite também podem ser definidos usando o conjunto de comandos [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset) e outros comandos **\*STORE**.
 
 Para obter estatísticas sobre quantas chaves expiraram, use o comando [INFO](https://redis.io/commands/info). A seção `Stats` mostra o número total de chaves expiradas. A seção `Keyspace` fornece mais informações sobre o número de chaves com tempos limite e o valor de tempo limite médio.
 
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Seleção de banco de dados incorreta
 
-O Cache do Azure para Redis usa o banco de dados **db0** por padrão. Se você alternar para outro banco de dados (por exemplo, **db1** ) e tentar ler chaves dele, o Cache do Azure para Redis não as encontrará. Cada banco de dados é uma unidade separada de maneira lógica e mantém um conjunto de dados diferente. Use o comando [SELECT](https://redis.io/commands/select) para usar outros bancos de dados disponíveis e procurar chaves em cada um deles.
+O Cache do Azure para Redis usa o banco de dados **db0** por padrão. Se você alternar para outro banco de dados (por exemplo, **db1**) e tentar ler chaves dele, o Cache do Azure para Redis não as encontrará. Cada banco de dados é uma unidade separada de maneira lógica e mantém um conjunto de dados diferente. Use o comando [SELECT](https://redis.io/commands/select) para usar outros bancos de dados disponíveis e procurar chaves em cada um deles.
 
 ### <a name="redis-instance-failure"></a>Falha na instância do Redis
 

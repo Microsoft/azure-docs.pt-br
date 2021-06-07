@@ -2,13 +2,13 @@
 title: Exibir e filtrar informações de recursos do Azure
 description: Filtre informações e use diferentes exibições para entender melhor seus recursos do Azure.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d1bd00a9e7f8c9c18484378f7c21d3bacdac2d3f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745886"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771627"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Exibir e filtrar informações de recursos do Azure
 
@@ -48,11 +48,23 @@ Para excluir uma exibição:
 
 1. Selecione **Gerenciar exibição** e, em seguida, **Procurar todas as exibições**.
 
-1. No painel **Exibições salvas para "Todos os recursos"** , selecione a exibição e o ícone **Excluir** ![ícone Excluir exibição](media/manage-filter-resource-views/icon-delete.png).
+1. No painel **Exibições salvas**, selecione a exibição e o ícone **Excluir** ![ícone Excluir exibição](media/manage-filter-resource-views/icon-delete.png).
+
+## <a name="export-information-from-a-view"></a>Exportar informações de uma exibição
+
+Você pode exportar as informações de recurso de uma exibição. Para exportar informações no formato CSV:
+
+1. Selecione **Exportar para CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Captura de tela da exportação para o formato CSV":::
+
+1. Salve o arquivo localmente e abra-o no Excel ou em outro aplicativo compatível com o formato CSV. 
+
+Ao navegar pelo portal, você verá outras áreas em que pode exportar informações, como um grupo de recursos individual.
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 
-As exibições que examinamos até agora foram _exibições de lista_, mas também há _exibições de resumo_ que incluem visuais. Você pode salvar e usar essas exibições assim como você pode listar exibições. Os filtros persistem entre os dois tipos de exibições. Há exibições padrão, como a exibição **Localização** mostrada abaixo, além de exibições relevantes para serviços específicos, como a exibição **Status** para o Armazenamento do Azure.
+As exibições que examinamos até agora foram _exibições de lista_, mas também há _exibições de resumo_ que incluem visuais. Você pode salvar e usar essas exibições assim como as exibições de lista. Os filtros persistem entre os dois tipos de exibições. Há exibições padrão, como a exibição **Localização** mostrada abaixo, além de exibições relevantes para serviços específicos, como a exibição **Status** para o Armazenamento do Azure.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Resumo de recursos em uma exibição de mapa":::
 

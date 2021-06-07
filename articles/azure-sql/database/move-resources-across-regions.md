@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: ae6c87c9eabea837ba9c43676d4ca712caa385cb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594157"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para uma nova região – banco de dados SQL do Azure & SQL do Azure Instância Gerenciada
@@ -68,7 +68,7 @@ Este artigo fornece um fluxo de trabalho geral para mover recursos para uma regi
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.
@@ -122,7 +122,7 @@ Quando a movimentação for concluída, remova os recursos na região de origem 
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.
@@ -170,7 +170,7 @@ A replicação de todos os bancos de dados em cada instância será iniciada aut
 
 ### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate** :
+Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**:
 
 - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança.
 - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará.

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/17/2021
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101104"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031759"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorando a integridade de entrada do aplicativo para resiliência
 
@@ -43,7 +43,7 @@ Durante um evento de impacto, duas coisas podem acontecer:
 
 Este artigo explica como configurar a pasta de trabalho de integridade de entrada para monitorar as interrupções nas entradas de seus usuários.
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um locatário do Azure AD.
 
@@ -51,13 +51,11 @@ Este artigo explica como configurar a pasta de trabalho de integridade de entrad
 
 * Um espaço de trabalho Log Analytics em sua assinatura do Azure para enviar logs para Azure Monitor logs. 
 
-   * Saiba como [criar um espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Saiba como [criar um espaço de trabalho log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Logs do Azure AD integrados a logs de Azure Monitor
 
    * Saiba como [integrar logs de entrada do Azure AD ao Azure monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
- 
 
 ## <a name="configure-the-app-sign-in-health-workbook"></a>Configurar a pasta de trabalho de integridade de entrada do aplicativo 
 
@@ -78,11 +76,11 @@ Por padrão, a pasta de trabalho apresenta dois gráficos. Esses gráficos compa
 
 **O primeiro grafo é o uso por hora (número de usuários bem-sucedidos)**. Comparar o número atual de usuários bem-sucedidos a um período de uso típico ajuda você a identificar uma queda no uso que pode exigir investigação. Uma queda na taxa de uso bem-sucedida pode ajudar a detectar problemas de desempenho e utilização que a taxa de falha não pode. Por exemplo, se os usuários não conseguem acessar seu aplicativo para tentar entrar, não haveria nenhuma falha, apenas uma queda de uso. Uma consulta de exemplo para esses dados pode ser encontrada na seção a seguir.
 
-O segundo grafo é a taxa de falha por hora. Um aumento na taxa de falha pode indicar um problema com os mecanismos de autenticação. A taxa de falha só pode ser medida se os usuários podem tentar autenticar. Se os usuários não conseguirem obter acesso para fazer a tentativa, as falhas não serão exibidas.
+**O segundo grafo é a taxa de falha por hora**. Um aumento na taxa de falha pode indicar um problema com os mecanismos de autenticação. A taxa de falha só pode ser medida se os usuários podem tentar autenticar. Se os usuários não conseguirem obter acesso para fazer a tentativa, as falhas não serão exibidas.
 
 Você pode configurar um alerta que notifique um grupo específico quando a taxa de uso ou falha exceder um limite especificado. Uma consulta de exemplo para esses dados pode ser encontrada na seção a seguir.
 
- ## <a name="configure-the-query-and-alerts"></a>Configurar a consulta e os alertas
+## <a name="configure-the-query-and-alerts"></a>Configurar a consulta e os alertas
 
 Você cria regras de alerta no Azure Monitor e pode executar automaticamente consultas salvas ou pesquisas de logs personalizadas em intervalos regulares.
 
@@ -94,118 +92,20 @@ Use as instruções a seguir para criar alertas de email com base nas consultas 
 
  Para configurar a consulta subjacente e definir alertas, conclua as etapas a seguir. Você usará a consulta de exemplo como base para sua configuração. Uma explicação da estrutura de consulta é exibida no final desta seção.
 
-Para obter mais informações sobre como criar, exibir e gerenciar alertas de log usando Azure Monitor consulte [Gerenciar alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Para obter mais informações sobre como criar, exibir e gerenciar alertas de log usando Azure Monitor consulte [Gerenciar alertas de log](../../azure-monitor/alerts/alerts-log.md).
 
- 
 1. Na pasta de trabalho, selecione **Editar** e, em seguida, selecione o **ícone de consulta** logo acima do lado direito do grafo.   
 
    [![Captura de tela mostrando editar pasta de trabalho.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    O log de consultas é aberto.
 
-  [![Captura de tela mostrando o log de consultas.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Captura de tela mostrando o log de consultas.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
-2. Copie um dos scripts de exemplo a seguir para uma nova consulta Kusto.
-
-**Consulta de Kusto para remoção de uso**
-
-```Kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1h)
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1h) - totimespan(2d))..(now() - totimespan(2d)))
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize usersPriorWeek = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join
-
-(
-
- lastWeek
-
-)
-
-on rn
-
-| project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
-
-| where (difference * 2.0) / max > 0.9
-
-```
-
- 
-
-**Consulta de Kusto para aumento na taxa de falha**
-
-
-```kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1 h)
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1 h) - totimespan(2d))..(ago(1h) - totimespan(2d)))
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRatePriorWeek = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join (lastWeek) on rn
-
-| project TimeGenerated, failureRate, failureRatePriorWeek
-
-| where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
-
-```
+2. Copie um dos scripts de exemplo para uma nova consulta Kusto.  
+   * [Consulta de Kusto para aumento na taxa de falha](#kusto-query-for-increase-in-failure-rate)
+   * [Consulta de Kusto para remoção de uso](#kusto-query-for-drop-in-usage)
 
 3. Cole a consulta na janela e selecione **executar**. Verifique se você vê a mensagem concluída mostrada na imagem abaixo e os resultados abaixo dessa mensagem.
 
@@ -222,7 +122,7 @@ thisWeek
  
    * **Valor do limite**: 0. Esse valor emitirá um alerta sobre os resultados.
 
-   * **Período de avaliação (em minutos)**: 60. Esse valor é examinado em uma hora de hora
+   * **Período de avaliação (em minutos)**: 2880. Esse valor é examinado em uma hora de hora
 
    * **Frequência (em minutos)**: 60. Esse valor define o período de avaliação como uma vez por hora para a hora anterior.
 
@@ -254,9 +154,8 @@ thisWeek
 
    [![Captura de tela mostrando o botão Salvar consulta.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
-
-
 ### <a name="refine-your-queries-and-alerts"></a>Refine suas consultas e alertas
+
 Modifique suas consultas e alertas para ter uma eficácia máxima.
 
 * Certifique-se de testar seus alertas.
@@ -267,11 +166,135 @@ Modifique suas consultas e alertas para ter uma eficácia máxima.
 
 * A consulta de alertas no Azure Monitor só pode incluir resultados das últimas 48 horas. [Essa é uma limitação atual por design](https://github.com/MicrosoftDocs/azure-docs/issues/22637).
 
+## <a name="sample-scripts"></a>Scripts de exemplo
+
+### <a name="kusto-query-for-increase-in-failure-rate"></a>Consulta de Kusto para aumento na taxa de falha
+
+   A proporção na parte inferior pode ser ajustada conforme necessário e representa a porcentagem de alteração no tráfego na última hora em comparação com o mesmo tempo ontem. 0,5 significa que há uma diferença de 50% no tráfego.
+
+```kusto
+
+let today = SigninLogs
+
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour
+ 
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
+
+| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+
+let yesterday = SigninLogs
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
+
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
+
+| project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+today
+| join (yesterday) on rowNumber // join data from same time today and yesterday
+
+| project TimeGenerated, failureRate, failureRateYesterday
+
+// Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
+
+| where abs(failureRate - failureRateYesterday) > 0.5
+
+```
+
+### <a name="kusto-query-for-drop-in-usage"></a>Consulta de Kusto para remoção de uso
+
+Na consulta a seguir, estamos comparando o tráfego na última hora ao mesmo tempo ontem.
+Estamos excluindo sábado, domingo e segunda-feira porque eles são esperados nos dias em que haveria grande variabilidade no tráfego ao mesmo tempo do dia anterior. 
+
+A proporção na parte inferior pode ser ajustada conforme necessário e representa a porcentagem de alteração no tráfego na última hora em comparação com o mesmo tempo ontem. 0,5 significa que há uma diferença de 50% no tráfego.
+
+*Você deve ajustar esses valores para se ajustar ao seu modelo de operação de negócios*.
+
+```Kusto
+ let today = SigninLogs // Query traffic in the last hour
+
+| where TimeGenerated > ago(1h)
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+let yesterday = SigninLogs // Query traffic at the same hour yesterday
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+today
+| join // Join data from today and yesterday together
+(
+yesterday
+)
+on rn
+
+// Calculate the difference in number of users in the last hour compared to the same time yesterday
+
+| project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
+
+ extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
+
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+
+| extend day = dayofweek(now())
+
+| where day != time(6.00:00:00) // exclude Sat
+
+| where day != time(0.00:00:00) // exclude Sun
+
+| where day != time(1.00:00:00) // exclude Mon
+
+| where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
+
+```
+
 ## <a name="create-processes-to-manage-alerts"></a>Criar processos para gerenciar alertas
 
 Depois de configurar a consulta e os alertas, crie processos de negócios para gerenciar os alertas.
 
 * Quem irá monitorar a pasta de trabalho e quando?
+
 * Quando um alerta é gerado, quem vai investigar?
 
 * Quais são as necessidades de comunicação? Quem vai criar as comunicações e quem as receberá?
@@ -280,10 +303,4 @@ Depois de configurar a consulta e os alertas, crie processos de negócios para g
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre pastas de trabalho](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
-
- 
-
- 
-
- 
+[Saiba mais sobre pastas de trabalho](../reports-monitoring/howto-use-azure-monitor-workbooks.md)

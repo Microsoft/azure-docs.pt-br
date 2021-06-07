@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358449"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
@@ -60,7 +60,7 @@ Este exemplo de aplicativo lógico envia um resumo diário para um RSS feed de u
 
       ![Adicionar o loop "for each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. Agora, compile o loop. Em **Selecionar uma saída das etapas anteriores** após a lista **Adicionar conteúdo dinâmico** aparecer, selecione a matriz de **Links de feed** , que é emitida pelo gatilho RSS. 
+3. Agora, compile o loop. Em **Selecionar uma saída das etapas anteriores** após a lista **Adicionar conteúdo dinâmico** aparecer, selecione a matriz de **Links de feed**, que é emitida pelo gatilho RSS. 
 
    ![Selecionar a partir da lista de conteúdo dinâmico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -128,7 +128,7 @@ Por padrão, os ciclos em um loop "Foreach" são executados em paralelo. Para ex
 
    ![No loop "Foreach" loop, escolha "..." > "Configurações"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Em **Controle de Simultaneidade** , defina a configuração **Controle de Simultaneidade** como **Ativado**. Mova o controle deslizante **Grau de Paralelismo** para **1** e escolha **Concluído**.
+1. Em **Controle de Simultaneidade**, defina a configuração **Controle de Simultaneidade** como **Ativado**. Mova o controle deslizante **Grau de Paralelismo** para **1** e escolha **Concluído**.
 
    ![Ativar o controle de simultaneidade](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -198,7 +198,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
    | **Valor** | 0 | Valor inicial de variável | 
    |||| 
 
-1. Na ação **Inicializar variável** , escolha **Nova etapa**. 
+1. Na ação **Inicializar variável**, escolha **Nova etapa**. 
 
 1. Na caixa de pesquisa, escolha **Tudo**. Pesquise por "until" e selecione esta ação: **Until – Controle**
 
@@ -215,7 +215,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
    ![Adicionar ação para incrementar a variável](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Para **Nome** , selecione a variável **Limite**. Para **Valor** , insira "1". 
+1. Para **Nome**, selecione a variável **Limite**. Para **Valor**, insira "1". 
 
      ![Incrementar "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -251,9 +251,9 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
 O loop "until" interrompe a execução com base nessas propriedades, portanto, certifique-se de definir seus valores adequadamente:
 
-* **Contagem** : esse valor é o número mais alto de loops executados antes de o loop ser encerrado. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Contagem**: esse valor é o número mais alto de loops executados antes de o loop ser encerrado. Para os limites padrão e máximo no número de loops de "until" que uma execução de aplicativo lógico pode ter, consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* **Tempo limite** : esse valor é a maior quantidade de tempo que o loop é executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obter os limites padrão e máximo do valor de **tempo limite** , consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+* **Tempo limite**: esse valor é a maior quantidade de tempo que o loop é executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para obter os limites padrão e máximo do valor de **tempo limite** , consulte [os limites de simultaneidade, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
   O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida.
 

@@ -1,17 +1,19 @@
 ---
 title: 'Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o portal do Azure'
 description: Use a Grade de Eventos do Azure para assinar eventos do Cache do Azure para Redis, enviar os eventos para um webhook e processar os eventos em um aplicativo Web
+author: curib
+ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-author: curib
-ms.author: cauribeg
-ms.openlocfilehash: 5bdd6b0e6f97f7e5a738ab17d68282cf402004b0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e021f386f255f1cef61e28cbd4fd6116fc2aa727
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056443"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529307"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o portal do Azure
 
@@ -123,4 +125,3 @@ Agora que você sabe como criar tópicos e assinaturas de evento personalizados,
 
 - [Como responder aos eventos do Cache do Azure para Redis](cache-event-grid.md)
 - [Sobre a Grade de Eventos](../event-grid/overview.md)
-

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789668"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
@@ -53,7 +53,7 @@ Funções internas que concedem permissões para chamar operações de gerenciam
 | **Administrador de Acesso do Usuário** | Pode gerenciar o acesso à conta de armazenamento.   | Sim, permite que uma entidade de segurança atribua qualquer permissão a si mesma e a outras. |
 | **Colaborador de Máquina Virtual** | Pode gerenciar máquinas virtuais, mas não a conta de armazenamento à qual elas estão conectadas.   | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
 
-A terceira coluna na tabela indica se a função interna dá suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** . Essa ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para acessar os recursos de gerenciamento de armazenamento do Azure também não incluem permissões para acessar dados. No entanto, se um usuário tiver acesso às chaves de conta, ele poderá usar as chaves de conta para acessar os dados do armazenamento do Azure por meio da autorização de chave compartilhada.
+A terceira coluna na tabela indica se a função interna dá suporte a **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa ação concede permissões para ler e regenerar as chaves da conta de armazenamento. As permissões para acessar os recursos de gerenciamento de armazenamento do Azure também não incluem permissões para acessar dados. No entanto, se um usuário tiver acesso às chaves de conta, ele poderá usar as chaves de conta para acessar os dados do armazenamento do Azure por meio da autorização de chave compartilhada.
 
 ### <a name="custom-roles-for-management-operations"></a>Funções personalizadas para operações de gerenciamento
 

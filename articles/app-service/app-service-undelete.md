@@ -6,10 +6,10 @@ ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
 ms.openlocfilehash: 71f762ac0effc9ad14510c02679109362163f66d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97008530"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo Serviço de Aplicativo excluído usando o PowerShell

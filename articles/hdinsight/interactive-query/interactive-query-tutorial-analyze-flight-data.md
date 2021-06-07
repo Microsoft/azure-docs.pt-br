@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1aab6b4fe4ffafb3cbba60b2b3774d2577d3d53c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935902"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103562460"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando a Consulta Interativa no Azure HDInsight
 
@@ -35,7 +35,7 @@ Este tutorial cobre as seguintes tarefas:
 
 ## <a name="download-the-flight-data"></a>Baixar os dados de voos
 
-1. Navegue até [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Navegue até [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. Na página, limpe todos os campos e, em seguida, selecione os seguintes valores:
 

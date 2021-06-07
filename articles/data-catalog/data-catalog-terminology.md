@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 008d0f106b07d61f0989a479457b12398000b5d9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151453"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674557"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Este artigo fornece uma introdução aos conceitos e termos usados na documentação do Catálogo de Dados do Azure.
 

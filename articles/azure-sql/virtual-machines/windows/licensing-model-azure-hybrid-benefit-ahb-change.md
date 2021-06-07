@@ -15,10 +15,10 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361546"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
@@ -58,7 +58,7 @@ Para alterar o modelo de licenciamento da VM do SQL Server, é preciso cumprir o
 
 ## <a name="change-license-model"></a>Alterar modelo de licença
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 

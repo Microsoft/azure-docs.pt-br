@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6b2b8e3374c362f937aa5cfe106e8da9f9aa39f
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547994"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory 
@@ -33,7 +33,7 @@ Quando grupos de segurança são criados no portal do Azure ou usando o PowerShe
 Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo de Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](../enterprise-users/groups-settings-cmdlets.md) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso | Abrir para ingressar para todos os usuários
-[Portal do Azure](https://portal.azure.com) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso<br>O proprietário não é atribuído automaticamente na criação do grupo | Abrir para ingressar para todos os usuários
+[Azure portal](https://portal.azure.com) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso<br>O proprietário não é atribuído automaticamente na criação do grupo | Abrir para ingressar para todos os usuários
 [Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado
 
 ## <a name="self-service-group-management-scenarios"></a>Cenários de gerenciamento de grupo de autoatendimento

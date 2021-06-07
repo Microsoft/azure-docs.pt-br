@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083762"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101735498"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
@@ -122,10 +122,10 @@ Cada site consiste em informações de associação. As informações de associa
 
 ![Captura de tela que mostra a configuração da Associação TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Se você associou o endereço IP a um site, atualize todas as associações do site com o novo endereço IP. Para alterar as associações do site, adicione um [script de atualização da camada Web do IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o Grupo 3 no plano de recuperação.
+Se você associou o endereço IP a um site, atualize todas as associações do site com o novo endereço IP. Para alterar as associações do site, adicione um [script de atualização da camada Web do IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) após o Grupo 3 no plano de recuperação.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Atualizar o endereço IP do balanceador de carga
-Se você tiver uma máquina virtual de ARR, para atualizar o endereço IP adicione um [script de failover de ARR do IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o Grupo 4.
+Se você tiver uma máquina virtual de ARR, para atualizar o endereço IP adicione um [script de failover de ARR do IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) após o Grupo 4.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Associação de certificado TLS/SSL para uma conexão HTTPS
 Um site pode ter um certificado TLS/SSL associado que ajuda a garantir uma comunicação segura entre o servidor Web e o navegador do usuário. Se o site tiver uma conexão HTTPS e também tiver uma associação de site HTTPS associada ao endereço IP do servidor IIS com uma associação de certificado TLS/SSL, você deverá adicionar uma nova associação de site para o certificado com o endereço IP da máquina virtual do IIS após o failover.
@@ -144,7 +144,7 @@ Se você tiver uma dependência específica do aplicativo baseada no endereço I
 
 1. No Portal do Azure, selecione seu cofre de Serviços de Recuperação.
 2. Selecione o plano de recuperação que você criou para o web farm do IIS.
-3. Selecione **Failover de Teste**.
+3. Selecione **failover de teste**.
 4. Para iniciar o processo de failover de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 5. Quando o ambiente secundário estiver ativado, você poderá realizar validações.
 6. Quando as validações forem concluídas, para limpar o ambiente de failover de teste, selecione **Validações concluídas**.

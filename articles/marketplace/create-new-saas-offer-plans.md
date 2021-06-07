@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746430"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044712"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Como criar planos para sua oferta de SaaS
 
@@ -149,6 +149,10 @@ As ações disponíveis na coluna **ação** da guia **visão geral do plano** v
 
 - Se o status do plano for **rascunho**, o link na coluna **ação** dirá **excluir rascunho**.
 - Se o status do plano for **dinâmico**, o link na coluna **ação** será parar de **vender plano** ou **sincronizar público privado**. O link **sincronizar audiência privada** publicará apenas as alterações em seus públicos privados, sem publicar outras atualizações que você tenha feito na oferta.
+
+## <a name="before-you-publish-your-offer"></a>Antes de publicar sua oferta
+
+Se você ainda não fez isso, crie uma oferta desenvolvimento e teste (desenvolvimento) para testar sua oferta antes de publicar sua oferta de produção ao vivo. Para saber mais, confira [criar uma oferta de desenvolvimento e teste](create-saas-dev-test-offer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

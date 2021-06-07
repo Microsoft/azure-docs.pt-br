@@ -1,18 +1,14 @@
 ---
 title: Gerenciar sensores individuais
 description: Saiba como gerenciar sensores individuais, incluindo o gerenciamento de arquivos de ativação, a realização de backups e a atualização de um sensor autônomo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526911"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781952"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -512,7 +508,7 @@ O console exibirá falhas de restauração.
 
 O procedimento a seguir descreve como atualizar um sensor autônomo usando o console do sensor. O processo de atualização leva cerca de 30 minutos.
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Vá para defender para IoT.
 
@@ -570,7 +566,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4160a9ab4edbac8584eab2d4e5b9bf1ba11a9aec
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515739"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568776"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do Apache ActiveMQ para o barramento de serviço do Azure
 
@@ -160,60 +160,6 @@ Para garantir a conectividade direta com o barramento de serviço, adicione o `a
 
 Essa parte é personalizada para o servidor de aplicativos que está hospedando os aplicativos cliente que se conectam ao ActiveMQ.
 
-#### <a name="tomcat"></a>Tomcat
-
-Aqui, você começa com a configuração específica para ActiveMQ, conforme mostrado no `/META-INF/context.xml` arquivo.
-
-```XML
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="org.apache.activemq.ActiveMQConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        brokerURL="tcp://localhost:61616"
-        brokerName="LocalActiveMQBroker"
-        useEmbeddedBroker="false"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQTopic"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQQueue"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
-Adapte isso para apontar para o barramento de serviço, da seguinte maneira:
-
-```xml
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        connectionString="<INSERT YOUR SERVICE BUS CONNECTION STRING HERE>"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsTopic"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsQueue"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
 #### <a name="spring-applications"></a>Aplicativos Spring
 
 ##### <a name="update-the-applicationproperties-file"></a>Atualizar o `application.properties` arquivo
@@ -266,7 +212,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
 Agora que você modificou o aplicativo para começar a enviar e receber mensagens do barramento de serviço, você deve verificar se ele funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
 

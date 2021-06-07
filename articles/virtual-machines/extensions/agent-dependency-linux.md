@@ -1,26 +1,19 @@
 ---
 title: Extensão de máquina virtual de dependência do Azure Monitor para Linux
 description: Implante o agente de dependência do Azure Monitor na máquina virtual Linux usando uma extensão de máquina virtual.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: c8427e92f89804f64741ab86aa9903b0de23b3ec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.collection: linux
+ms.date: 03/29/2019
+ms.openlocfilehash: d28f0a34f47942bba8776a0acd0bfe3aaf25df12
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966846"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102566287"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual de dependência do Azure Monitor para Linux
 
@@ -30,7 +23,7 @@ O recurso Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependen
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente de dependência da VM do Azure para Linux pode ser executada nos sistemas operacionais com suporte listados na seção [Sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) do artigo de implantação do Azure Monitor para VMs.
+A extensão do agente de dependência da VM do Azure para Linux pode ser executada nos sistemas operacionais com suporte listados na seção [Sistemas operacionais com suporte](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) do artigo de implantação do Azure Monitor para VMs.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

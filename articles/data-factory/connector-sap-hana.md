@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: ce3c1e22dd030c0730bf4d9859591c00860908a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382269"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
@@ -274,7 +274,7 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
 | CLOB               | String                         |
-| DATE               | Datetime                       |
+| DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
@@ -282,7 +282,7 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 | NCLOB              | String                         |
 | NVARCHAR           | String                         |
 | real               | Único                         |
-| SECONDDATE         | Datetime                       |
+| SECONDDATE         | DateTime                       |
 | SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
@@ -292,7 +292,7 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |
-| timestamp          | Datetime                       |
+| timestamp          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
 ## <a name="sap-hana-sink"></a>Coletor do SAP HANA

@@ -100,8 +100,10 @@
           href: cache-private-link.md
         - name: Habilitar a redundância de zona
           href: cache-how-to-zone-redundancy.md
-        - name: Configurar replicação geográfica
+        - name: Configurar a replicação geográfica de software livre
           href: cache-how-to-geo-replication.md
+        - name: Configurar a replicação geográfica ativa do Enterprise
+          href: cache-how-to-active-geo-replication.md
         - name: Economizar com a capacidade reservada
           href: cache-reserved-pricing.md
         - name: Migrar para o Cache do Azure para Redis

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 0e2e4beebedb93524da43c5a3fad750b0295f5cd
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 1f2c767d45bb08e25a057c7db1f380ceb250f607
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632560"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864900"
 ---
 # <a name="delete-using-azure-application-consistent-snapshot-tool-preview"></a>Excluir usando Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
@@ -36,11 +36,11 @@ Este artigo fornece um guia para executar o comando delete do Aplicativo Azure f
 
 O `-c delete` comando tem as seguintes opções:
 
-- `--delete hana` Quando usado com as opções `--hanasid <SID>` e `--hanabackupid <HANA backup id>` excluirá as entradas do catálogo SAP Hana backup que correspondem aos critérios.
+- `--delete hana` Quando usado com as opções `--dbsid <SID>` e `--hanabackupid <HANA backup id>` excluirá as entradas do catálogo SAP Hana backup que correspondem aos critérios.
 
 - `--delete storage` Quando usado com a opção, `--snapshot <snapshot name>` você excluirá o instantâneo do sistema de armazenamento de back-end.
 
-- `--delete sync` Quando usado com opções `--hanasid <SID>` e `--hanabackupid <HANA backup id>` Obtém o nome do instantâneo de armazenamento do catálogo de backup do `<HANA backup id>` e exclui a entrada no catálogo de backup _e_ o instantâneo de qualquer um dos volumes que contêm o instantâneo nomeado.
+- `--delete sync` Quando usado com opções `--dbsid <SID>` e `--hanabackupid <HANA backup id>` Obtém o nome do instantâneo de armazenamento do catálogo de backup do `<HANA backup id>` e exclui a entrada no catálogo de backup _e_ o instantâneo de qualquer um dos volumes que contêm o instantâneo nomeado.
 
 - `--delete sync` Quando usado com o `--snapshot <snapshot name>` verificará se há entradas no catálogo de backup para o `<snapshot name>` , o Obtém a ID de backup SAP Hana e exclui a entrada no catálogo de backup _e_ o instantâneo de qualquer um dos volumes que contêm o instantâneo nomeado.
 
@@ -51,7 +51,7 @@ O `-c delete` comando tem as seguintes opções:
 ### <a name="delete-a-snapshot-using-sync-option"></a>Excluir um instantâneo usando a `sync` opção '
 
 ```bash
-azacsnap -c delete --delete sync --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete sync --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]
@@ -67,7 +67,7 @@ azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
 ### <a name="delete-a-snapshot-using-hana-option"></a>Excluir um instantâneo usando a `hana` opção '
 
 ```bash
-azacsnap -c delete --delete hana --hanasid H80 --hanabackupid 157979797979
+azacsnap -c delete --delete hana --dbsid H80 --hanabackupid 157979797979
 ```
 
 > [!NOTE]

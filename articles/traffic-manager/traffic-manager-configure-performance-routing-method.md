@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: duau
 ms.openlocfilehash: 46d71a38b79f449084f7353527f2dfb05d5b92a4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95994903"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurar o método de roteamento de tráfego de desempenho
@@ -36,7 +36,7 @@ O método de roteamento de tráfego de Desempenho permite direcionar o tráfego 
         3. Na parte superior da página, clique em **Salvar**.
 5.  Teste as alterações na configuração da seguinte maneira:
     1.  Na barra de pesquisa do portal, pesquise o nome do perfil do Gerenciador de Tráfego e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
-    2.  Na folha perfil do **Gerenciador de tráfego** , clique em **visão geral**.
+    2.  Na folha do perfil do **Gerenciador de Tráfego**, clique em **Visão Geral**.
     3.  A folha **Perfil do Gerenciador de Tráfego** exibe o nome DNS do perfil do Gerenciador de Tráfego recém-criado. Isso pode ser usado por todos os clientes (por exemplo, navegando até ele usando um navegador da Web) para ser roteado para o ponto de extremidade correto, conforme determinado pelo tipo de roteamento. Nesse caso, todas as solicitações são roteadas para o ponto de extremidade com a menor latência na rede do cliente.
 6. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 

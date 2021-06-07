@@ -1,20 +1,19 @@
 ---
-title: Exibir alertas
+title: Filtrar e gerenciar alertas da página de alertas
 description: Exiba alertas de acordo com várias categorias e use os recursos de pesquisa para ajudá-lo a encontrar alertas de interesse.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523661"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781578"
 ---
-# <a name="view-alerts"></a>Exibir alertas
+# <a name="filter-and-manage-alerts-from-the-alerts-page"></a>Filtrar e gerenciar alertas da página de alertas 
 
 Este artigo descreve como exibir alertas disparados por seu sensor e gerenciá-los com as ferramentas de alerta.
 

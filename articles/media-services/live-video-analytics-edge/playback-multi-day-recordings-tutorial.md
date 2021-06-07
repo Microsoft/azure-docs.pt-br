@@ -4,10 +4,10 @@ description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Míd
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99492782"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  

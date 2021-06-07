@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741648"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103466786"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicativo empresarial para funções personalizadas no Azure Active Directory
 
@@ -169,4 +169,4 @@ microsoft.directory/provisioningLogs/allProperties/read | Ler todas as proprieda
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar funções personalizadas usando o portal do Azure, o Azure AD PowerShell e a API do Graph](custom-create.md)
-- [Exibir as atribuições de uma função personalizada](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

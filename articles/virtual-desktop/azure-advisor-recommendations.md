@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90033023"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Como resolver as recomendações do Azure Advisor
@@ -34,7 +34,7 @@ Para habilitar um ambiente de validação:
 
 2. Em seguida, selecione o pool de hosts que você deseja alterar de um ambiente de produção para um ambiente de validação.
 
-3. No pool de hosts, selecione **Propriedades** na coluna esquerda. Em seguida, role para baixo até ver "ambiente de validação". Selecione **Sim**e, em seguida, selecione **aplicar**.
+3. No pool de hosts, selecione **Propriedades** na coluna esquerda. Em seguida, role para baixo até ver "ambiente de validação". Selecione **Sim** e, em seguida, selecione **aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma captura de tela do menu Propriedades. "Ambiente de validação" é realçado em vermelho e a bolha "Sim" é selecionada.](media/validation-yes.png)
@@ -58,7 +58,7 @@ Para resolver este aviso:
 
 2. Selecione os pools de hosts que deseja alterar da validação para a produção.
 
-3. No pool de hosts, selecione a guia **Propriedades** na coluna no lado direito da tela. Em seguida, role para baixo até ver "ambiente de validação". Selecione **não**e, em seguida, selecione **aplicar**.
+3. No pool de hosts, selecione a guia **Propriedades** na coluna no lado direito da tela. Em seguida, role para baixo até ver "ambiente de validação". Selecione **não** e, em seguida, selecione **aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma captura de tela do menu Propriedades. "Ambiente de validação" é realçado em vermelho e a bolha "não" é selecionada.](media/validation-no.png)

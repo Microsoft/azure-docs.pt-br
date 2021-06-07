@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: b9da3b0647d5abe60dd8f6cb21163ff21f07205b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07ba61f630b849a377f1c7ba881f95518eb73606
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539713"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102042599"
 ---
 # <a name="release-notes-for-azure-web-app-extension-for-application-insights"></a>Notas de versão para a extensão do aplicativo Web do Azure para Application Insights
 
@@ -21,12 +21,30 @@ Este artigo contém as notas de versões para a extensão de aplicativos Web do 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 - Como localizar a versão da extensão que estou no momento?
-    - Acesse `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite [o guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente](./azure-web-apps.md?tabs=net#troubleshooting) para obter mais informações.
+    - Ir para `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visite [o guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente](./azure-web-apps.md?tabs=net#troubleshooting) para obter mais informações.
 
 - E se eu estiver usando extensões privadas?
     - Desinstale as extensões de site particulares, pois elas não são mais suportadas.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2838"></a>2.8.38
+
+- Extensão JAVA: atualizada para o [Java Agent 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) da 2.5.1.
+- Extensão de Node.js: SDK do AI atualizado para [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) de 1.8.7.
+- .NET Core: versões de fora de suporte removidas (2,0, 2,2, 3,0). As versões com suporte são 2,1 e 3,1.
+
+### <a name="2837"></a>2.8.37
+
+- Extensão do Windows AppSvc: fez .Net Core funcionar com qualquer versão do System.Diagnostics.DiagnosticSource.dll.
+
+### <a name="2836"></a>2.8.36
+
+- Extensão do Windows AppSvc: habilitada entre op com o SDK do ia no .NET Core.
+
+### <a name="2835"></a>2.8.35
+
+- Extensão do Windows AppSvc: suporte adicionado ao .NET Core 3,1.
 
 ### <a name="2833"></a>2.8.33
 

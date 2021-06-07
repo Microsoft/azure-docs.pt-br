@@ -4,12 +4,12 @@ description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempen
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249101"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101711494"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -29,7 +29,7 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 * **IDE**: Visual Studio, vs Code ou linha de comando.
 
 > [!NOTE]
-> ASP.NET Core 3. X requer [Application insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou posterior.
+> ASP.NET Core 3,1 requer [Application insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou posterior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

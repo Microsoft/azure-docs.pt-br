@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625008"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101720130"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Usar o Criador (versão prévia) para criar mapas do interior
 
@@ -116,6 +116,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
     >[!IMPORTANT]
     > As URLs da API neste documento talvez tenham que ser ajustadas de acordo com a localização do recurso do Criador. Para obter mais detalhes, confira [Acesso aos serviços do Criador (versão prévia)](how-to-manage-creator.md#access-to-creator-services).
+    > Se receber um erro com o código `"RequiresCreatorResource"`, certifique-se de ter [provisionado um recurso do Criador do Azure Mapas](how-to-manage-creator.md) em sua conta do Azure Mapas.
 
 3. Clique no botão **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta e procure pela chave **Local**. Copie o valor da chave **Local**, que é `status URL`, para a solicitação de conversão. Você usará isso na próxima etapa.
 
@@ -314,7 +315,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **Corpo**, forneça os estilos abaixo para refletir as alterações feitas nos *estados* `occupied` e `temperature`. Ao terminar, clique em **Enviar**.
+3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **Corpo**, forneça os estilos JSON brutos abaixo para refletir as alterações feitas nos *estados* `occupied` e `temperature`. Ao terminar, clique em **Enviar**.
 
     ```json
     {

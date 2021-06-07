@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: fa8a6643f1b7bd60fbf6e5950234e0381666177e
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97605217"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Use logs para solucionar problemas de validação no Disco do Azure Data Box

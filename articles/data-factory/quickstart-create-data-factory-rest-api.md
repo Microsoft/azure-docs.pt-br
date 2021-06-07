@@ -1,24 +1,18 @@
 ---
 title: Criar um Azure Data Factory usando a API REST
 description: Crie um pipeline do Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569463"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385251"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
@@ -43,7 +37,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 * Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivo de entrada e verificar o arquivo de saída.
 * Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
 * **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **clientSecrets** e **ID do locatário**. Atribua o aplicativo à função "**Colaborador**".
-
+>[!NOTE]
+>   Para nuvens soberanas, é necessário usar os pontos de extremidade apropriados específicos da nuvem para ActiveDirectoryAuthority e ResourceManagerUrl (BaseUri). Você pode usar o PowerShell para obter com facilidade as URLs de ponto de extremidade para várias nuvens executando “Get-AzEnvironment | Format-List”, que retornará uma lista de pontos de extremidade para cada ambiente de nuvem.  
+>    
 ## <a name="set-global-variables"></a>Definir variáveis globais
 
 1. Inicie o **PowerShell**. Mantenha o Azure PowerShell aberto até o fim deste guia de início rápido. Se você fechar e reabrir, precisará executar os comandos novamente.
@@ -306,7 +302,7 @@ Veja o exemplo de saída:
 Neste exemplo, esse pipeline contém uma atividade Copy. A atividade Copy refere-se ao "InputDataset" e ao "OutputDataset" criados na etapa anterior como entrada e saída.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",
@@ -410,7 +406,7 @@ Veja o exemplo de saída:
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {

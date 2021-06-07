@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 12/8/2020
-ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 2/22/2021
+ms.openlocfilehash: 4dd7bbe613b30df2611bfe6631950e121235204a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393234"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101658581"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Sem servidor é uma camada de computação para bancos de dados individuais no banco de dados SQL do Azure que dimensiona automaticamente a computação com base na demanda de carga de trabalho e faturas para a quantidade de computação usada por segundo. A camada de computação sem servidor também pausa os bancos de dados automaticamente durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
+Sem servidor é uma camada de computação para bancos de dados únicos no Banco de Dados SQL do Azure que dimensiona automaticamente a computação com base na demanda da carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa os bancos de dados automaticamente durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
 
 ## <a name="serverless-compute-tier"></a>Camada de computação sem servidor
 
@@ -103,9 +103,9 @@ Observe que quando a utilização da CPU é baixa, a utilização do cache ativo
 
 O cache do SQL cresce à medida que os dados são obtidos do disco da mesma forma e com a mesma velocidade que para bancos de dados provisionados. Quando o banco de dados está ocupado, o cache tem permissão para aumentar sem restrição até o limite máximo de memória.
 
-## <a name="auto-pause-and-auto-resume"></a>Pausa automática e retomada automática
+## <a name="auto-pausing-and-auto-resuming"></a>Pausa automática e retomada automática
 
-### <a name="auto-pause"></a>Pausar automaticamente
+### <a name="auto-pausing"></a>Pausa automática
 
 A pausa automática será disparada se todas as condições a seguir forem verdadeiras durante o atraso de pausa automática:
 
@@ -138,7 +138,7 @@ A retomada automática será disparada se qualquer uma das seguintes condições
 |Transparent Data Encryption|Estado de exibição ou status da Transparent Data Encryption|
 |Avaliação de vulnerabilidade|Verificações ad hoc e verificações periódicas, se habilitadas|
 |Consultar o armazenamento de dados (desempenho)|Modificar ou exibir configurações do repositório de consultas|
-|Recomendações do desempenho|Exibindo ou aplicando recomendações de desempenho|
+|Recomendações de desempenho|Exibindo ou aplicando recomendações de desempenho|
 |Ajuste automático|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como uma cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados membro e hub que são executados em um cronograma configurável ou são executados manualmente|

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122953"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199299"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorar a conectividade do dispositivo usando a CLI do Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92122953"
 
 Use a extensão CLI do Azure IoT para ver as mensagens que seus dispositivos estão enviando para IoT Central e observar alterações no dispositivo. Você pode usar essa ferramenta para depurar e observar a conectividade do dispositivo e diagnosticar problemas de mensagens do dispositivo que não estão atingindo a nuvem ou os dispositivos que não estão respondendo a alterações de conexão.
 
-[Visite a referência de extensões de CLI do Azure para obter mais detalhes](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Visite a referência de extensões de CLI do Azure para obter mais detalhes](/cli/azure/ext/azure-iot/iot/central)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

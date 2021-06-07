@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Kafka MirrorMak
 ms.topic: how-to
 ms.date: 01/04/2021
 ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97860998"
 ---
 # <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Usar Apache Kafka MirrorMaker com hubs de eventos
@@ -51,7 +51,7 @@ Para concluir este tutorial, verifique se você tem:
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Certifique-se de copiar a cadeia de caracteres de conexão dos Hubs de Eventos para uso posterior.
 

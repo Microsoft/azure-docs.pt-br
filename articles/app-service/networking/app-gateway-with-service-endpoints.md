@@ -15,10 +15,10 @@ ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 58886a8f7dc505a7e68d69eb00b4a2ebd776dd5a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209842"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço

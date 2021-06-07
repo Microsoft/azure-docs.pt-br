@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
 ms.openlocfilehash: c27add82766516157d56fcf0a5c94123930112fc
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Active Directory ao Compliance ELF
@@ -30,7 +30,7 @@ A integração do Compliance ELF ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Compliance ELF, você precisará dos seguintes itens:
 
@@ -76,7 +76,7 @@ Para configurar e testar o logon único do Azure AD com o Compliance ELF, você 
 2. **[Configurar o logon único do Compliance ELF](#configure-compliance-elf-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Compliance ELF](#create-compliance-elf-test-user)** : para ter um equivalente de Brenda Fernandes no Compliance ELF que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar usuário de teste do Compliance ELF](#create-compliance-elf-test-user)**: para ter um equivalente de Brenda Fernandes no Compliance ELF que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: b61faf74d96e2571e91f7bf9d10eac88cdbf8345
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94639159"
 ---
 # <a name="implement-quality-of-service-qos-for-windows-virtual-desktop-preview"></a>Implementar a QoS (qualidade de serviço) para a área de trabalho virtual do Windows (versão prévia)
@@ -87,7 +87,7 @@ Você pode usar a QoS (qualidade de serviço) baseada em políticas em Política
 
 Para criar uma política de QoS para hosts de sessão ingressados no domínio, primeiro, entre em um computador no qual o gerenciamento de Política de Grupo foi instalado. Abra o gerenciamento de Política de Grupo (selecione Iniciar, aponte para ferramentas administrativas e, em seguida, selecione gerenciamento de Política de Grupo) e, em seguida, conclua as seguintes etapas:
 
-1. No gerenciamento de Política de Grupo, localize o contêiner em que a nova política deve ser criada. Por exemplo, se todos os computadores hosts de sua sessão estiverem localizados em uma UO chamada **"hosts de sessão"** , a nova política deverá ser criada na UO hosts de sessão.
+1. No gerenciamento de Política de Grupo, localize o contêiner em que a nova política deve ser criada. Por exemplo, se todos os computadores hosts de sua sessão estiverem localizados em uma UO chamada **"hosts de sessão"**, a nova política deverá ser criada na UO hosts de sessão.
 
 2. Clique com o botão direito do mouse no contêiner apropriado e selecione **criar um GPO nesse domínio e vincule-o aqui**.
 
@@ -95,7 +95,7 @@ Para criar uma política de QoS para hosts de sessão ingressados no domínio, p
 
 4. Clique com o botão direito do mouse na política recém-criada e selecione **Editar**.
 
-5. No Editor de Gerenciamento de Política de Grupo, expanda **configuração do computador** , expanda **configurações do Windows** , clique com o botão direito do mouse em **QoS baseada em políticas** e selecione **criar nova política**.
+5. No Editor de Gerenciamento de Política de Grupo, expanda **configuração do computador**, expanda **configurações do Windows**, clique com o botão direito do mouse em **QoS baseada em políticas** e selecione **criar nova política**.
 
 6. Na caixa de diálogo **QoS baseada em políticas** , na página de abertura, digite um nome para a nova política na caixa **nome** . Selecione **especificar valor DSCP** e defina o valor como **46**. Deixe a seleção **especificar taxa de aceleração de saída** desmarcada e, em seguida, selecione **Avançar**.
 
@@ -105,11 +105,11 @@ Para criar uma política de QoS para hosts de sessão ingressados no domínio, p
 
 9. Na página quatro, selecione **UDP** na lista suspensa **selecionar o protocolo que essa política de QoS se aplica** .
 
-10. No título, **especifique o número da porta de origem** , selecione **nessa porta ou intervalo de origem**. Na caixa de texto que acompanha, digite **3390**. Selecione **Concluir**.
+10. No título, **especifique o número da porta de origem**, selecione **nessa porta ou intervalo de origem**. Na caixa de texto que acompanha, digite **3390**. Selecione **Concluir**.
 
 As novas políticas que você criou não entrarão em vigor até que Política de Grupo sejam atualizadas nos computadores host da sessão. Embora Política de Grupo seja atualizado periodicamente por conta própria, você pode forçar uma atualização imediata seguindo estas etapas:
 
-1. Em cada host de sessão para o qual você deseja atualizar Política de Grupo, abra um prompt de comando como administrador ( *Executar como administrador* ).
+1. Em cada host de sessão para o qual você deseja atualizar Política de Grupo, abra um prompt de comando como administrador (*Executar como administrador*).
 
 1. No prompt de comando, digite
 

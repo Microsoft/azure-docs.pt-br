@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
 ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932188"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
@@ -39,7 +39,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET, que facilitam o 
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copie o código abaixo em **Program.cs**. Em seguida, edite o código definindo os valores para:,,, `existingClusterName` `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` e `defaultStorageContainerName` .
+1. Copie o código abaixo em **Program. cs**. Em seguida, edite o código definindo os valores para:,,, `existingClusterName` `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` e `defaultStorageContainerName` .
 
     ```csharp
     using System.Collections.Generic;
@@ -166,7 +166,7 @@ Quando o trabalho for concluído com êxito, o aplicativo imprime o conteúdo do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Confira os seguintes artigos para saber mais:
 
 * Para enviar um trabalho de Hive, consulte [Executar consultas Apache Hive usando o SDK do .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
 * Para criar clusters HDInsight, confira [Criar Clusters Apache Hadoop baseados em Linux no HDInsight.](../hdinsight-hadoop-provision-linux-clusters.md).

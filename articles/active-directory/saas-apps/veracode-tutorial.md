@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 220a575a252bb16cb5ac895a3d4c1ebedfd7c83e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: f56f2dc974df58575c72c93a0609026cd7bbf88d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431007"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101652616"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Veracode
 
@@ -93,7 +93,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Captura de tela da seção Configurar Veracode, com URLs de configuração realçadas](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -105,7 +105,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Veracode.
 
@@ -114,16 +114,16 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função &quot;Acesso Padrão&quot; selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-veracode-sso"></a>Configurar o SSO do Veracode
+## <a name=&quot;configure-veracode-sso&quot;></a>Configurar o SSO do Veracode
 
 1. Em uma janela diferente do navegador da Web, entre no site da sua empresa do Veracode como administrador.
 
 1. No menu na parte superior, selecione **Configurações** > **Administrador**.
    
-    ![Captura de tela da Administração do Veracode, com o ícone de Configurações e o Administrador realçados](./media/veracode-tutorial/admin.png "Administração")
+    ![Captura de tela da Administração do Veracode, com o ícone de Configurações e o Administrador realçados](./media/veracode-tutorial/admin.png &quot;Administração")
 
 1. Selecione a guia **SAML**.
 
@@ -170,8 +170,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você deverá ser conectado automaticamente ao Veracode para o qual configurou o SSO.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Veracode em Meus Aplicativos, você deverá ser conectado automaticamente ao Veracode para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Veracode em Meus Aplicativos, você deverá ser conectado automaticamente ao Veracode para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Veracode, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Veracode, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

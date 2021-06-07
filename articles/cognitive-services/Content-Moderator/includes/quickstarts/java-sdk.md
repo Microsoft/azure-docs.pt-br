@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 147985ce5aff54f3784363720a576b7e46d6e647
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948410"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105805"
 ---
 Introdução à biblioteca de clientes do Content Moderator do Azure para Java. Siga essas etapas para instalar o pacote do Maven e testar o código de exemplo para tarefas básicas. 
 
@@ -34,7 +34,7 @@ Use a biblioteca de clientes do Content Moderator para Java para:
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de build Gradle](https://gradle.org/install/) ou outro gerenciador de dependência.
-* Depois de obter uma assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Criar um recurso do Content Moderator"  target="_blank">crie um recurso do Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter uma chave e um ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
+* Depois de obter uma assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Criar um recurso do Content Moderator"  target="_blank">crie um recurso do Content Moderator </a> no portal do Azure para obter uma chave e um ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
     * Será necessário obter uma chave e um ponto de extremidade do recurso criado para conectar o aplicativo ao Content Moderator. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
@@ -238,6 +238,3 @@ Neste guia de início rápido, você aprendeu a usar a biblioteca Java do Conten
 
 > [!div class="nextstepaction"]
 > [Conceitos de moderação de imagem](../../image-moderation-api.md)
-
-* [O que é o Azure Content Moderator?](../../overview.md)
-* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java).

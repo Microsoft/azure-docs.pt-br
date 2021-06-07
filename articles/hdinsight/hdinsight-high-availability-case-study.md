@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99508584"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Estudo de caso da arquitetura de solução de alta disponibilidade do Azure HDInsight

@@ -12,10 +12,10 @@ ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516366"
 ---
 # <a name="secure-your-restful-services"></a>Proteger os serviços RESTful 
@@ -210,7 +210,7 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 
 1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localizar o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema](claimsschema.md). Se o elemento não existir, adicione-o.
 1. Adicione as seguintes declarações ao elemento **ClaimsSchema**.  
 
 ```xml

@@ -4,10 +4,10 @@ description: Entenda os conceitos de locatários, usuários e funções do Azure
 ms.date: 01/14/2021
 ms.topic: conceptual
 ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98233909"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locatários, usuários e funções em cenários de Lighthouse do Azure

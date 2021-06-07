@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123313"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usar fluxos de trabalho para integrar o aplicativo Azure IoT Central a outros serviços em nuvem
@@ -41,7 +41,7 @@ Antes que possa acionar um fluxo de trabalho no Power Automate ou nos Aplicativo
 Para adicionar o conector **do Azure IOT central v3-Preview** como um gatilho na automação de energia:
 
 1. No Power Automate, selecione **+ Criar** e depois selecione a guia **Personalizar**.
-1. Pesquise *IOT central*e selecione o conector **do Azure IOT central v3-Preview** .
+1. Pesquise *IOT central* e selecione o conector **do Azure IOT central v3-Preview** .
 1. Na lista de gatilhos de evento, selecione **Quando uma regra é acionada (versão prévia)** .
 1. Na etapa **Quando uma regra é acionada**, selecione o aplicativo IoT Central e a regra que você está usando.
 
@@ -49,7 +49,7 @@ Para adicionar o conector **do Azure IOT central v3-Preview** como um gatilho em
 
 1. Em **Designer de Aplicativos Lógicos**, selecione o modelo **Aplicativo lógico em branco**.
 1. No designer, selecione a guia **Personalizar**.
-1. Pesquise *IOT central*e selecione o conector **do Azure IOT central v3-Preview** .
+1. Pesquise *IOT central* e selecione o conector **do Azure IOT central v3-Preview** .
 1. Na lista de gatilhos de evento, selecione **Quando uma regra é acionada (versão prévia)** .
 1. Na etapa **Quando uma regra é acionada**, selecione o aplicativo IoT Central e a regra que você está usando.
 
@@ -71,11 +71,11 @@ Para adicionar o conector **do Azure IOT central v3-Preview** como uma ação na
 Para adicionar o conector **do Azure IOT central v3-Preview** como uma ação nos aplicativos lógicos do Azure:
 
 1. Nos **Aplicativos Lógicos do Azure**, no painel **Escolher uma ação**, selecione a guia **Personalizar**.
-1. Pesquise *IOT central*e selecione o conector **do Azure IOT central v3-Preview** .
+1. Pesquise *IOT central* e selecione o conector **do Azure IOT central v3-Preview** .
 1. Na lista de ações, escolha a ação IoT Central que você deseja usar.
 1. Na etapa de ação, conclua a configuração para a ação escolhida. Em seguida, selecione **Salvar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o conector do Azure IoT Central - versão prévia e escolha o gatilho de evento":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Localizar o conector do Azure IoT Central v3 e escolher uma ação":::
 
 ## <a name="list-of-actions"></a>Lista de ações
 

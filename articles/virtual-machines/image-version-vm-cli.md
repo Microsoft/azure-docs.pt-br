@@ -3,19 +3,19 @@ title: Criar uma imagem de uma VM usando CLI do Azure
 description: Saiba como criar uma imagem em uma galeria de imagens compartilhadas de uma VM no Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ca354ee662ebad0cd514d4822794b056ee6f9850
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 7c35be8821b6763531b43ec85b10325e91f8bc5f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805370"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556853"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Criar uma versão de imagem de uma VM no Azure usando o CLI do Azure
 

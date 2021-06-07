@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221003"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645266"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -32,7 +32,7 @@ O Azure cria rotas de sistema automaticamente e as atribui a cada sub-rede em um
 
 Cada rota contém um prefixo de endereço e o tipo do próximo salto. Quando um tráfego saindo de uma sub-rede é enviado a um endereço IP dentro do prefixo de endereço de uma rota, a rota que contém o prefixo é a que o Azure usa. Saiba mais sobre [como o Azure seleciona uma rota](#how-azure-selects-a-route) quando várias rotas contêm os mesmos prefixos ou prefixos sobrepostos. Sempre que uma rede virtual é criada, o Azure cria automaticamente as rotas de sistema padrão a seguir para cada sub-rede na rede virtual:
 
-|Fonte |Prefixos do endereço                                        |Tipo do próximo salto  |
+|Fonte |Prefixos de endereço                                        |Tipo do próximo salto  |
 |-------|---------                                               |---------      |
 |Padrão|Exclusivo para a rede virtual                           |Rede virtual|
 |Padrão|0.0.0.0/0                                               |Internet       |
@@ -55,7 +55,7 @@ Os tipos do próximo salto listados na tabela anterior representam como o Azure 
 
 O Azure adiciona outras rotas de sistema padrão para diferentes recursos do Azure, mas somente se você habilitar os recursos. Dependendo do recurso, o Azure adiciona rotas padrão opcionais para sub-redes específicas na rede virtual ou para todas as sub-redes em uma rede virtual. As rotas de sistema adicionais e os tipos do próximo salto que o Azure pode adicionar quando você habilita recursos diferentes são:
 
-|Fonte                 |Prefixos do endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
+|Fonte                 |Prefixos de endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
 |-----                  |----                                   |---------                    |--------|
 |Padrão                |Exclusivo para a rede virtual, por exemplo: 10.1.0.0/16|Emparelhamento VNet                 |Todos|
 |Gateway de rede virtual|Prefixos anunciados do local via BGP ou configurada no gateway de rede local     |Gateway de rede virtual      |Todos|
@@ -96,6 +96,38 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** como o tipo do próximo salto em rotas definidas pelo usuário. Rotas com os tipos do próximo salto **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** são criadas somente pelo Azure, quando você configurar uma emparelhamento de rede virtual ou um ponto de extremidade de serviço.
 
+### <a name="service-tags-for-user-defined-routes-preview"></a>Marcas de serviço para rotas definidas pelo usuário (versão prévia)
+
+Agora você pode especificar uma [marca de serviço](service-tags-overview.md) como o prefixo de endereço para uma rota definida pelo usuário em vez de um intervalo de IP explícito. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para rotas definidas pelo usuário e reduzindo o número de rotas que você precisa criar. No momento, você pode criar 25 ou menos rotas com marcas de serviço em cada tabela de rotas. </br>
+
+> [!IMPORTANT]
+> As marcas de serviço para rotas definidas pelo usuário estão atualmente em visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+#### <a name="exact-match"></a>Correspondência exata
+Quando há uma correspondência de prefixo exata entre uma rota com um prefixo de IP explícito e uma rota com uma marca de serviço, a preferência é dada à rota com o prefixo explícito. Quando várias rotas com marcas de serviço tiverem prefixos IP correspondentes, as rotas serão avaliadas na seguinte ordem: 
+
+   1. Marcas regionais (por exemplo, Storage. Eastus, AppService. AustraliaCentral)
+   2. Marcas de nível superior (por exemplo, Armazenamento, AppService)
+   3. Marcas regionais AzureCloud (por exemplo, AzureCloud. canadacentral, AzureCloud. eastasia)
+   4. A marca AzureCloud </br></br>
+
+Para usar esse recurso, especifique um nome de marca de serviço para o parâmetro de prefixo de endereço nos comandos da tabela de rotas. Por exemplo, no PowerShell, você pode criar uma nova rota para o tráfego direto enviado a um prefixo de IP do armazenamento do Azure para um dispositivo virtual usando: </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+O mesmo comando para a CLI será: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> Durante a visualização pública, há várias limitações. No momento, o recurso não tem suporte no portal do Azure e só está disponível por meio do PowerShell e da CLI. Não há suporte para uso com contêineres. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Tipos do próximo salto nas ferramentas do Azure
 
 O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +141,8 @@ O nome exibido e referenciado para tipos do próximo salto é diferente entre o 
 |Nenhum                            |Nenhum                                            |NULL (não disponível no CLI clássico no modo asm)|
 |Emparelhamento de rede virtual         |Emparelhamento VNet                                    |Não aplicável|
 |Ponto de extremidade de serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
+
+
 
 ### <a name="border-gateway-protocol"></a>Protocolo BGP
 
@@ -137,7 +171,7 @@ Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 
 
-|Fonte   |Prefixos do endereço  |Tipo do próximo salto           |
+|Fonte   |Prefixos de endereço  |Tipo do próximo salto           |
 |---------|---------         |-------                 |
 |Padrão  | 0.0.0.0/0        |Internet                |
 |Usuário     | 0.0.0.0/0        |Gateway de rede virtual |

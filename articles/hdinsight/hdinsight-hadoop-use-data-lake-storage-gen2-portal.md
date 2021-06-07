@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
-ms.openlocfilehash: d54c005ffb17571be172b5716723febb742253a3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb6cfc7f0dbc0bc886550e1d601dc52dff66267
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945392"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866362"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Criar um cluster com Data Lake Storage Gen2 usando o portal do Azure
 
@@ -37,7 +37,7 @@ Crie uma identidade gerenciada atribuída pelo usuário, se ainda não tiver uma
 
 Para obter mais informações sobre como as identidades gerenciadas funcionam no Azure HDInsight, consulte [identidades gerenciadas no Azure hdinsight](hdinsight-managed-identities.md).
 
-![Criar uma identidade gerenciada atribuída ao usuário](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+:::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png" alt-text="Criar uma identidade gerenciada atribuída ao usuário":::
 
 ## <a name="create-a-storage-account-to-use-with-data-lake-storage-gen2"></a>Criar uma conta de armazenamento para usar com Data Lake Storage Gen2
 
@@ -57,7 +57,7 @@ Crie uma conta de armazenamento para usar com Azure Data Lake Storage Gen2.
 
 Para obter mais informações sobre outras opções durante a criação da conta de armazenamento, consulte [início rápido: criar uma conta de armazenamento para Azure data Lake Storage Gen2](../storage/blobs/create-data-lake-storage-account.md).
 
-![Captura de tela mostrando a criação da conta de armazenamento no portal do Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+:::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png" alt-text="Captura de tela mostrando a criação da conta de armazenamento no portal do Azure":::
 
 ## <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2"></a>Configurar permissões para a identidade gerenciada no Data Lake Storage Gen2
 
@@ -66,14 +66,14 @@ Atribua a identidade gerenciada à função de **proprietário de dados do blob 
 1. No [portal do Microsoft Azure](https://portal.azure.com), acesse sua conta de armazenamento.
 1. Selecione sua conta de armazenamento e, em seguida, selecione **controle de acesso (iam)** para exibir as configurações de controle de acesso para a conta. Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
 
-    ![Captura de tela mostrando as configurações de controle de acesso de armazenamento](./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png)
+    :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/portal-access-control.png" alt-text="Captura de tela mostrando as configurações de controle de acesso de armazenamento":::
 
 1. Selecione o botão **+ Adicionar atribuição de função** para adicionar uma nova função.
 1. Na janela **Adicionar atribuição de função** , selecione a função **proprietário de dados do blob de armazenamento** . Em seguida, selecione a assinatura que tem a conta de armazenamento e a identidade gerenciada. Em seguida, pesquise para localizar a identidade gerenciada atribuída pelo usuário que você criou anteriormente. Por fim, selecione a identidade gerenciada e ela será listada em **Membros selecionados**.
 
-    ![Captura de tela mostrando como atribuir uma função do Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png" alt-text="Captura de tela mostrando como atribuir uma função do Azure":::
 
-1. Selecione **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
+1. Clique em **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
 1. Ao concluir a configuração inicial, você poderá criar um cluster usando o portal. O cluster deve estar na mesma região do Azure da conta de armazenamento. Na guia **armazenamento** do menu de criação de cluster, selecione as seguintes opções:
 
     * Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen2**.
@@ -81,7 +81,7 @@ Atribua a identidade gerenciada à função de **proprietário de dados do blob 
 
     * Em **identidade**, selecione a identidade gerenciada atribuída pelo usuário criada recentemente.
 
-        ![Configurações do armazenamento para usar o Data Lake Storage Gen2 com o Azure HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
+        :::image type="content" source="./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png" alt-text="Configurações do armazenamento para usar o Data Lake Storage Gen2 com o Azure HDInsight":::
 
     > [!NOTE]
     > * Para adicionar uma conta de armazenamento secundária com Data Lake Storage Gen2, no nível da conta de armazenamento, basta atribuir a identidade gerenciada criada anteriormente ao novo Data Lake Storage Gen2 que você deseja adicionar. É recomendável que a adição de uma conta de armazenamento secundária com Data Lake Storage Gen2 por meio da folha "contas de armazenamento adicionais" no HDInsight não seja suportada.

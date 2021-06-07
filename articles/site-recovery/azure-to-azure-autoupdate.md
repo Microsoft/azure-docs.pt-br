@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187333"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
@@ -57,11 +57,11 @@ Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar as configurações de atualização de dentro do cofre
 
 1. No cofre dos serviços de recuperação, vá para **gerenciar**  >  **site Recovery infraestrutura**.
-1. Em **para configurações de atualização de extensão de máquinas virtuais do Azure**  >  **Extension Update Settings**  >  ,**permita que site Recovery gerencie**, selecione **ativado**.
+1. Em **para configurações de atualização de extensão de máquinas virtuais do Azure**  >    >  ,**permita que site Recovery gerencie**, selecione **ativado**.
 
    Para gerenciar a extensão manualmente, selecione **desativado**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações de atualização de extensão":::
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
 ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93284460"
 ---
 # <a name="azure-functions-error-handling-and-retries"></a>Azure Functions tratamento e novas tentativas de erro

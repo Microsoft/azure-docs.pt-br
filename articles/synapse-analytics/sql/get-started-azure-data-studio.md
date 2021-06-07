@@ -5,16 +5,16 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f82a1279a69bf91f37400d5614e8f7b121e72f47
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1529e45bd7f799a727a29c8c2e26f7ed77c4e2a0
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258890"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565586"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Conectar-se ao SQL do Synapse com o Azure Data Studio
 
@@ -26,7 +26,7 @@ ms.locfileid: "99258890"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Use o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para se conectar ao SQL do Synapse e consultá-lo no Azure Synapse Analytics. 
+Use o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) para se conectar ao SQL do Synapse e consultá-lo no Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Conectar
 
@@ -73,7 +73,7 @@ Após o logon bem-sucedido, você deverá ver um painel como este: ![Painel](./m
 
 ## <a name="query"></a>Consulta
 
-Uma vez conectado, você pode consultar o Synapse SQL usando instruções [T-SQL (Transact-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) compatíveis com a instância. Selecione **Nova consulta** na exibição do painel para começar.
+Uma vez conectado, você pode consultar o Synapse SQL usando instruções [T-SQL (Transact-SQL)](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) compatíveis com a instância. Selecione **Nova consulta** na exibição do painel para começar.
 
 ![Nova Consulta](./media/get-started-azure-data-studio/5-new-query.png)
 

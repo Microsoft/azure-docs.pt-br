@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878165"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104604569"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -135,12 +135,7 @@ Com a descoberta concluída, você poderá iniciar a replicação de VMs do Hype
 ## <a name="provision-for-the-first-time"></a>Provisionar pela primeira vez
 
 Se esta for a primeira VM que você está replicando no projeto de Migrações para Azure, a ferramenta Migrações para Azure: Migração de Servidor provisionará automaticamente esses recursos no mesmo grupo de recursos que o projeto.
-
-- **Barramento de serviço**: Migrações para Azure: Migração de Servidor usa o Barramento de Serviço para enviar mensagens de orquestração de replicação para o dispositivo.
-- **Conta de armazenamento de gateway**: Migrações para Azure: a Migração de Servidor usa a conta de armazenamento de gateway para armazenar informações de estado de armazenamento sobre as VMs que estão sendo replicadas.
-- **Conta de armazenamento de log**: o dispositivo das Migrações para Azure carrega os logs de replicação das VMs em uma conta de armazenamento de log. As Migrações para Azure aplicam as informações de replicação aos discos gerenciados de réplica.
-- **Cofre de chaves**: O dispositivo das Migrações para Azure usa o cofre de chaves para gerenciar as cadeias de conexão do barramento de serviço e as chaves de acesso das contas de armazenamento usadas na replicação. Você deve ter configurado as permissões de que o cofre de chaves precisa para acessar a conta de armazenamento quando [preparou o Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) para a avaliação e a migração de VMs do Hyper-V. 
-
+- **Conta de armazenamento em cache**: o software do provedor do Azure Site Recovery instalado em hosts do Hyper-V carregará dados de replicação de VMs configuradas para replicação em uma conta de armazenamento (conhecida como conta de armazenamento em cache ou conta de armazenamento de log) em sua assinatura. Depois o serviço das Migrações para Azure copiará os dados de replicação carregados da conta de armazenamento em discos gerenciados por réplica e correspondentes à VM. A conta de armazenamento em cache precisa ser especificada durante a configuração da replicação de uma VM. Além disso, o portal das Migrações para Azure criará de modo automático uma conta de armazenamento em cache para o projeto das Migrações para Azure quando a replicação for configurada pela primeira vez no projeto.
 
 ## <a name="track-and-monitor"></a>Acompanhar e monitorar
 

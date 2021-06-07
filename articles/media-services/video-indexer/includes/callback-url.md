@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/13/2020
 ms.author: juliako
 ms.openlocfilehash: fbc77b960cac0db2d077345c74d64485bd7ad8bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994479"
 ---
 Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os eventos a seguir:
@@ -16,7 +16,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Name|Descrição|
+        |Nome|Descrição|
         |---|---|
         |id|A ID do vídeo|
         |state|O estado do vídeo|  

@@ -4,10 +4,10 @@ description: Use o Servidor de Backup do Azure para fazer backup e restaurar seu
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378314"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
@@ -76,7 +76,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
         Depois de executar o ConfigureSharePoint.exe, você precisará executá-lo novamente se houver uma alteração nas credenciais de administrador do farm do SharePoint.
 
-1. Para criar um grupo de proteção, **Protection**selecione  >  **ações**  >  de proteção**Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** no console do mAbs.
+1. Para criar um grupo de proteção, selecione  >  **ações**  >  de proteção **Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** no console do mAbs.
 
 1. Em **Selecionar tipo de grupo de proteção**, selecione **Servidores**.
 
@@ -102,7 +102,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 1. Em **Especificar política de retenção online**, você pode especificar como os pontos de recuperação criados nos backups diários, semanais, mensais e anuais são mantidos no Azure.
 
-1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa o recurso Importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
+1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
 
 1. Na página **Resumo**, examine as configurações. Depois de selecionar **Criar grupo**, ocorre a replicação inicial dos dados. Quando a replicação terminar, o status do grupo de proteção será exibido como **OK** na página **Status**. Em seguida, ocorre o backup em linha com as configurações do grupo de proteção.
 
@@ -116,7 +116,7 @@ Após a criação do grupo de proteção, a replicação inicial ocorre e o MABS
 
 ### <a name="set-up-monitoring-notifications"></a>Configurar notificações de monitoramento
 
-1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >  **Action**  >  **Options**.
+1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >    >  .
 
 2. Selecione **servidor SMTP**, digite o nome do servidor, a porta e o endereço de email do qual as notificações serão enviadas. O endereço deve ser válido.
 
@@ -126,7 +126,7 @@ Após a criação do grupo de proteção, a replicação inicial ocorre e o MABS
 
 ### <a name="publish-operations-manager-alerts"></a>Publicar alertas do Operations Manager
 
-1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >  **Action**  >  **Options**  >  **publicação de alerta**  >  **publicar alertas ativos**
+1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >    >    >  **publicação de alerta**  >  **publicar alertas ativos**
 
 2. Depois de habilitar **Publicação de alertas**, todos os alertas do MABS existentes que poderão exigir uma ação do usuário serão publicados no log de eventos **Alertas do MABS**. O agente de Operations Manager que está instalado no servidor MABS publica esses alertas no Operations Manager e continua a atualizar o console à medida que novos alertas são gerados.
 
@@ -172,7 +172,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
     MABS anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância de SQL Server temporária. Do banco de dados de conteúdo, ele recupera o item e o coloca no local do arquivo de preparo no MABS. O item recuperado no local de preparo agora precisa ser exportado para o local de preparo no farm do SharePoint.
 
     ![Local de Preparo2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Selecione **Avançar**.
+10. Selecione **Especificar opções de recuperação** e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Selecione **Avançar**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

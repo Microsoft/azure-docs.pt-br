@@ -4,12 +4,12 @@ description: Tutorial - Aprenda a configurar as políticas do Apache Ranger para
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933686"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866974"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (Versão Prévia)
 
@@ -33,7 +33,7 @@ Um [cluster HDInsight Kafka com o Enterprise Security Package](./apache-domain-j
 
 2. Entre usando suas credenciais de administrador do Azure Active Directory (AD). As credenciais de administrador do Azure AD não são iguais às credenciais de cluster do HDInsight nem às credenciais SSH do nó do Linux HDInsight.
 
-   ![Interface do usuário de administração do HDInsight Apache Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="Interface do usuário de administração do HDInsight Apache Ranger" border="true":::
 
 ## <a name="create-domain-users"></a>Crie usuários de domínio
 
@@ -61,7 +61,7 @@ Crie uma política de Ranger para **sales_user** e **marketing_user**.
    * '*' Indica zero ou mais ocorrências de caracteres.
    * '?' Indica um caractere único.
 
-   ![Política de criação de interface do usuário do administrador do Apache Ranger1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Política de criação de interface do usuário do administrador do Apache Ranger1" border="true":::
 
    Aguarde alguns instantes para que o Ranger sincronize com o Azure AD se um usuário do domínio não for preenchido automaticamente para **Selecionar usuário**.
 
@@ -76,7 +76,7 @@ Crie uma política de Ranger para **sales_user** e **marketing_user**.
    |Selecionar usuário  |  marketing_user1 |
    |Permissões  | publicar, consumir, criar |
 
-   ![Política de criação de interface do usuário do administrador do Apache Ranger2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Política de criação de interface do usuário do administrador do Apache Ranger2" border="true":::  
 
 6. Selecione **Adicionar** para salvar a política.
 
@@ -177,7 +177,7 @@ Com base nas políticas do Ranger configuradas, **sales_user** pode produzir/con
 
 8. Exiba os eventos de auditoria de acesso da interface do usuário do Ranger.
 
-   ![Eventos de acesso de auditoria da política de interface do usuário do Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Eventos de acesso de auditoria da política de interface do usuário do Ranger" border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Produzir e consumir tópicos no Kafka do ESP usando o console
 

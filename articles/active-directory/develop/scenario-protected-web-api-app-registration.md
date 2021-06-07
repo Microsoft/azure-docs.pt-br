@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: dcfedf2cceddb59d456d421c4846f3cd252a65b3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584373"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101651857"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -112,7 +112,7 @@ O exemplo a seguir mostra o conteúdo de `appRoles` , onde o valor de `id` pode 
 
 ```json
 "appRoles": [
-    {
+  {
     "allowedMemberTypes": [ "Application" ],
     "description": "Accesses the TodoListService-Cert as an application.",
     "displayName": "access_as_application",
@@ -121,7 +121,7 @@ O exemplo a seguir mostra o conteúdo de `appRoles` , onde o valor de `id` pode 
     "lang": null,
     "origin": "Application",
     "value": "access_as_application"
-    }
+  }
 ],
 ```
 

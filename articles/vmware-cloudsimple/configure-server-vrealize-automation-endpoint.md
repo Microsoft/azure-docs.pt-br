@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895046"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurar o vCenter em sua nuvem privada para a automação do VMware vRealize
@@ -63,7 +63,7 @@ Conclua estas tarefas antes de configurar o servidor do vCenter:
 
         ![proxy de instalação do vRA](media/configure-vra-endpoint-proxy.png)
 
-    11. Clique em **Avançar**.
+    11. Clique em **Próximo**.
     12. Clique em **Instalar**.
 
 ## <a name="configure-the-vsphere-agent"></a>Configurar o agente vSphere

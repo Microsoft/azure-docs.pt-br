@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341406"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561221"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
 
@@ -29,9 +29,9 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e o resultado for **AMServiceEnabled: false**
+* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) for executado e o resultado for **AMServiceEnabled: false**
 
-* A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) for executado e qualquer uma das seguintes situações ocorrer:
+* A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** [Get-MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus) for executado e qualquer uma das seguintes situações ocorrer:
 
   * Qualquer uma das seguintes propriedades é falsa:
 
@@ -49,7 +49,7 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Proteção de ponto de extremidade do Microsoft System Center
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** ao importar **SCEPMpModule ("$env:P Client\MpProvider\MpProvider.psdsegurança rogramfiles\microsoft 1")** e executar resultados de **Get-MProtComputerStatus** em **AMServiceEnabled = false**.
+* A central de segurança recomenda que você **"Instale soluções de proteção de ponto de extremidade na máquina virtual"** ao importar **SCEPMpModule ("$env:P Rogramfiles \ Microsoft Security Client\MpProvider\MpProvider.psd1")** e executar resultados **Get-MProtComputerStatus** em **AMServiceEnabled = false**.
 
 * A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** **Get-MprotComputerStatus** for executado e qualquer uma das seguintes situações ocorrer:
 

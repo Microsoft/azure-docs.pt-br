@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 12/28/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: ef05a98fffc3c0684ad0fa29f2f9f039b388f5ad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803928"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas

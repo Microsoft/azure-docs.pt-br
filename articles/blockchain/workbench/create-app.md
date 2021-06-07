@@ -5,10 +5,10 @@ ms.date: 08/24/2020
 ms.topic: tutorial
 ms.reviewer: ravastra
 ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88784021"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar um aplicativo de blockchain no Azure Blockchain Workbench

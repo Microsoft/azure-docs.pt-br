@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 49762b1844aec85ff55ae2a16243a231414b263f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 21ca30b24c4824a2d303d02f3df712328885e199
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071571"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102435198"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB Associação de entrada para Azure Functions 2. x e superior
 
@@ -300,7 +300,7 @@ namespace CosmosDBSamplesV2
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera uma lista de documentos. A função é disparada por uma solicitação HTTP. O código usa uma instância `DocumentClient` fornecida pela associação do Azure Cosmos DB para ler uma lista de documentos. A instância `DocumentClient` também pode ser usada para as operações de gravação.
 
 > [!NOTE]
-> Você também pode usar a interface [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet&preserve-view=true) para facilitar o teste.
+> Você também pode usar a interface [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient) para facilitar o teste.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1211,24 +1211,24 @@ A associação de entrada Cosmos DB é listada primeiro na lista de associaçõe
 
 ```json
 {
-  "name": "InputDocumentIn",
-  "type": "cosmosDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger_payload_property}",
-  "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": "CosmosDBConnection",
-  "direction": "in"
+  "name": "InputDocumentIn",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id": "{queueTrigger_payload_property}",
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "in"
 },
 {
-  "name": "InputDocumentOut",
-  "type": "cosmosDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "createIfNotExists": false,
-  "partitionKey": "{queueTrigger_payload_property}",
-  "connectionStringSetting": "CosmosDBConnection",
-  "direction": "out"
+  "name": "InputDocumentOut",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": false,
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "out"
 }
 ```
 

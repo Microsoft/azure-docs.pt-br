@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459563"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
@@ -37,7 +37,7 @@ Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- A ID da oferta não poderá ser alterada depois que você selecionar a opção **Criar**.
+- A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 

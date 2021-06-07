@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
 ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790178"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-O gatilho insere um registro na tabela de controle de mudança de esquema para cada comando ALTER TABLE. Este exemplo adiciona um filtro para evitar a replicação das alterações de esquema feitas no esquema **sincronização de dados** , pois elas são provavelmente feitas pelo serviço de sincronização de dados. Adicione filtros mais se você deseja replicar certos tipos de alterações de esquema.
+O gatilho insere um registro na tabela de controle de mudança de esquema para cada comando ALTER TABLE. Este exemplo adiciona um filtro para evitar a replicação das alterações de esquema feitas no esquema **sincronização de dados**, pois elas são provavelmente feitas pelo serviço de sincronização de dados. Adicione filtros mais se você deseja replicar certos tipos de alterações de esquema.
 
 Você também pode adicionar mais gatilhos para replicar a outros tipos de alterações de esquema. Por exemplo, crie disparadores CREATE_PROCEDURE, ALTER_PROCEDURE e em DROP_PROCEDURE para replicar alterações em procedimentos armazenados.
 

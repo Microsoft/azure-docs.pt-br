@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127831"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Aprimoramentos de gerenciamento de usuário (versão prévia) no Azure Active Directory

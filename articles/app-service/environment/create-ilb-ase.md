@@ -8,10 +8,10 @@ ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96009544"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Ambiente do Serviço de Aplicativo de Balanceador de Carga Interno 

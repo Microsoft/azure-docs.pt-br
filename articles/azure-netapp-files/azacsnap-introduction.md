@@ -14,20 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632546"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869949"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>O que é Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
-Aplicativo Azure ferramenta de instantâneo consistente (AzAcSnap) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bancos de dados de terceiros (SAP HANA) em ambientes Linux (por exemplo, SUSE e RHEL).  
+Aplicativo Azure ferramenta de instantâneo consistente (AzAcSnap) é uma ferramenta de linha de comando que permite a proteção de dados para bancos de dado de terceiros ao lidar com toda a orquestração necessária para colocá-los em um estado consistente de aplicativo antes de tirar um instantâneo de armazenamento, após o qual ele os retorna para um estado operacional.
+
+## <a name="supported-platforms-and-os"></a>Plataformas e sistema operacional com suporte
+
+- **Bancos de dados**
+  - SAP HANA (consulte [matriz de suporte](azacsnap-get-started.md#snapshot-support-matrix-from-sap) para obter detalhes)
+
+- **Sistemas Operacionais**
+  - SUSE Linux Enterprise Server 12 +
+  - Red Hat Enterprise Linux 7+
 
 ## <a name="benefits-of-using-azacsnap"></a>Benefícios do uso do AzAcSnap
 
-O AzAcSnap aproveita o instantâneo de volume e as funcionalidades de replicação no Azure NetApp Files e no Azure instância grande.  Ele oferece os seguintes benefícios:
+O AzAcSnap aproveita as funcionalidades de replicação e instantâneo de volume do Azure NetApp Files e da Instância Grande do Azure.  Ele oferece os seguintes benefícios:
 
 - **Proteção de dados consistente com o aplicativo** AzAcSnap é uma solução centralizada para fazer backup de arquivos de banco de dados críticos. Ele garante a consistência do banco de dados antes de executar um instantâneo do volume de armazenamento. Como resultado, ele garante que o instantâneo do volume de armazenamento possa ser usado para recuperação do banco de dados.
 - **Gerenciamento de catálogo de banco de dados** Quando você usa AzAcSnap com um banco de dados que tem um catálogo de backup interno, os registros no catálogo são mantidos atuais com instantâneos de armazenamento.  Essa funcionalidade permite que um administrador de banco de dados Veja a atividade de backup.

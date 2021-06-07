@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b6504c0521328edc356dea1c146fe9aeb6bde55f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a8e968d05a1f844a79d2e42d10c323ed4c392424
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092731"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102521213"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB anexos
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB anexos são itens especiais que contêm referências a um metadado associado com um blob externo ou arquivo de mídia.
 
@@ -40,6 +40,11 @@ Os anexos gerenciados do Azure Cosmos DB são diferentes de seu suporte para ite
 - Não há suporte para anexos em todas as versões dos SDKs do Azure Cosmos DB.
 - Os anexos gerenciados são limitados a 2 GB de armazenamento por conta de banco de dados.
 - Os anexos gerenciados não são compatíveis com a distribuição global do Azure Cosmos DB e não são replicados entre regiões.
+
+> [!NOTE]
+> Azure Cosmos DB API para MongoDB versão 3,2 utiliza anexos gerenciados para GridFS e estão sujeitas às mesmas limitações.
+>
+> Recomendamos que os desenvolvedores que usam o conjunto de recursos do MongoDB GridFS sejam atualizados para Azure Cosmos DB API para MongoDB versão 3,6 ou superior, que é dissociada de anexos e fornece uma experiência melhor. Como alternativa, os desenvolvedores que usam o conjunto de recursos MongoDB GridFS também devem considerar o uso do armazenamento de BLOBs do Azure, que é criado especificamente para armazenar conteúdo de BLOB e oferece funcionalidade expandida a um custo menor em comparação com GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrando anexos para o armazenamento de BLOBs do Azure
 
@@ -162,6 +167,6 @@ namespace attachments
 ## <a name="next-steps"></a>Próximas etapas
 
 - Introdução ao [armazenamento de BLOBs do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- Obter referências para usar anexos por meio [do SDK do .net v2 do Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment?preserve-view=true&view=azure-dotnet)
-- Obter referências para usar anexos por meio [do SDK do Java v2 de Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment?preserve-view=true&view=azure-java-stable)
+- Obter referências para usar anexos por meio [do SDK do .net v2 do Azure Cosmos DB](/dotnet/api/microsoft.azure.documents.attachment)
+- Obter referências para usar anexos por meio [do SDK do Java v2 de Azure Cosmos DB](/java/api/com.microsoft.azure.documentdb.attachment)
 - Obter referências para usar anexos via [API REST do Azure Cosmos DB](/rest/api/cosmos-db/attachments)

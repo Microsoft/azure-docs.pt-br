@@ -8,10 +8,10 @@ ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99226634"
 ---
 # <a name="understand-azure-files-billing"></a>Entender a cobrança de arquivos do Azure
@@ -114,7 +114,7 @@ Há cinco categorias de transação básicas: gravação, lista, leitura, outras
 > [!Note]  
 > O NFS 4,1 está disponível somente para compartilhamentos de arquivos premium, que usam o modelo de cobrança provisionado, as transações não afetam a cobrança de compartilhamentos de arquivos premium.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 - [Página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planejamento de uma implantação de arquivos do Azure](./storage-files-planning.md) e [planejamento para uma implantação de sincronização de arquivos do Azure](./storage-sync-files-planning.md).
 - [Crie um compartilhamento de arquivos](./storage-how-to-create-file-share.md) e [implante sincronização de arquivos do Azure](./storage-sync-files-deployment-guide.md).

@@ -1,14 +1,14 @@
 ---
 title: Modelo do blueprint do Nível de Impacto 4 do DoD
 description: Etapas de implantação do modelo de blueprint do Nível de Impacto 4 do DoD, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: fcea8dab551be18b4dfca81bd179f89d17b01bdf
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033754"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386934"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implantar o modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -109,7 +109,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|Membros a serem incluídos no Grupo local de administradores|Uma lista separada por ponto e vírgula de membros que devem ser excluídos do grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|Membros que devem ser excluídos do Grupo local de administradores|Uma lista separada por ponto e vírgula de membros que devem ser incluídos no grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|
-|\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|ID do workspace do Log Analytics para a qual as VMs devem ser configuradas|Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas.|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|O backup com redundância geográfica de longo prazo deve ser habilitado para os Bancos de Dados SQL do Azure|As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL|As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md).|

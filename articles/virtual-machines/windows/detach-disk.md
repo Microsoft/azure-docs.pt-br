@@ -2,18 +2,19 @@
 title: Desanexar um disco de dados de uma VM Windows – Azure
 description: Desanexe um disco de dados de uma máquina virtual no Azure usando o modelo de implantação do Resource Manager.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 24c95d486ce77028a2c49917d8f98de23a3a8315
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055188"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552126"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -53,10 +54,10 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
 1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
 1. Em **Configurações**, selecione **Discos**.
-1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão **desanexar X** .
+1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, selecione o botão **X** para desanexar.
 1. Selecione **Salvar** na parte superior da página para salvar as alterações.
 
-O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual. O disco não é excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 

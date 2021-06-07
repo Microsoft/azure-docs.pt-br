@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661078"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043590"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -36,7 +37,8 @@ Uma conta corporativa é criada da mesma maneira para todos os locatários com b
 
 Ao adicionar uma nova conta corporativa, será necessário considerar as seguintes configurações:
 
-- **Nome** e **Nome de usuário** - A propriedade **Nome** contém o nome e sobrenome do usuário. O **Nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *seu-domínio.onmicrosoft.com* ou um nome de domínio personalizado [não federado verificado,](../active-directory/fundamentals/add-custom-domain.md) como *contoso.com*.
+- **Nome** e **Nome de usuário** - A propriedade **Nome** contém o nome e sobrenome do usuário. O **Nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *seu-domínio.onmicrosoft.com* ou um nome de domínio personalizado [não federado verificado,](../active-directory/fundamentals/add-custom-domain.md) como *contoso.com*. 
+- **Email** – o novo usuário também pode entrar usando um endereço de email. Não há suporte para caracteres especiais ou caracteres multibyte em email, por exemplo, caracteres japoneses.
 - **Perfil** - A conta é configurada com um perfil de dados do usuário. É possível inserir um nome, sobrenome, cargo e nome do departamento. É possível editar o perfil depois que a conta é criada.
 - **Grupos** – Use grupos para executar tarefas de gerenciamento, como atribuir licenças ou permissões a muitos usuários ou dispositivos de uma vez. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no locatário.
 - **Função do diretório** - É necessário especificar o nível de acesso que a conta de usuário tem aos recursos no locatário. Os níveis de permissão a seguir estão disponíveis:
@@ -80,8 +82,8 @@ O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, m
 
 Você pode especificar os dados que são coletados quando uma conta de usuário do consumidor é criada. Para obter mais informações, consulte [adicionar atributos de usuário e personalizar entrada do usuário](configure-user-input.md).
 
-Para obter mais informações sobre como gerenciar contas de consumidor, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](manage-user-accounts-graph-api.md).
+Para obter mais informações sobre como gerenciar contas de consumidor, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](./microsoft-graph-operations.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrar contas de usuários Consumidor
 
-Talvez seja necessário migrar as contas de usuários Consumidor existentes de qualquer provedor de identidade para o Azure AD B2C. Para obter mais informações, consulte [migrar usuários para Azure ad B2C](user-migration.md).
+Talvez seja necessário migrar as contas de usuários Consumidor existentes de qualquer provedor de identidade para o Azure AD B2C. Para obter mais informações, confira [Migrar usuários para o Azure AD B2C](user-migration.md).

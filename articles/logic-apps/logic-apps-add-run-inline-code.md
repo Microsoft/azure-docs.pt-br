@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98179598"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicionar e executar trechos de código usando código embutido em aplicativos lógicos do Azure
@@ -147,7 +147,7 @@ O `workflowContext` objeto tem essa estrutura, que inclui as `actions` `trigger`
 
 Esta tabela contém mais informações sobre essas subpropriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |----------|------|-------|
 | `actions` | Coleção de objetos | Objetos de resultado de ações executadas antes do trecho de código ser executado. Cada objeto tem um par *chave-valor* em que a chave é o nome de uma ação e o valor é equivalente a chamar a [função Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) com `@actions('<action-name>')` . O nome da ação usa o mesmo nome de ação usado na definição de fluxo de trabalho subjacente, que substitui os espaços ("") no nome da ação por sublinhados (_). Este objeto fornece acesso aos valores de propriedade de ação da instância de fluxo de trabalho atual executada. |
 | `trigger` | Objeto | Objeto de resultado do gatilho e equivalente a chamar a [função Trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto fornece acesso para disparar valores de propriedade da execução da instância de fluxo de trabalho atual. |

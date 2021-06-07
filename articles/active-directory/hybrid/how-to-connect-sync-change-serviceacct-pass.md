@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996552"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720331"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterando a senha da conta de serviço do ADSync
 Se você alterar a senha da conta de serviço do ADSync, o serviço de sincronização não será capaz de iniciar corretamente até que você tenha abandonado a chave de criptografia e reinicializado a senha da conta de serviço do ADSync. 
+
+>[!IMPORTANT]
+> Se você usar o Connect com um build de março de 2017 ou anterior, a senha da conta de serviço não deverá ser redefinida, pois o Windows destruirá as chaves de criptografia por motivos de segurança. Você não pode alterar a conta para nenhuma outra conta sem reinstalar o Azure AD Connect. Se você atualizar para uma compilação de 2017 de abril ou posterior, haverá suporte para alterar a senha na conta de serviço, mas não será possível alterar a conta usada. 
 
 Azure AD Connect, como parte dos serviços de sincronização, o usa uma chave de criptografia para armazenar as senhas da conta do conector de AD DS e da conta de serviço ADSync.  Essas contas são criptografadas antes de serem armazenadas no banco de dados. 
 
@@ -97,7 +100,7 @@ Como as senhas existentes armazenadas no banco de dados não podem mais ser desc
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Acesse a guia **Conectores**.
 3. Selecione o **AD Connector** que corresponde ao seu AD local. Se você tiver mais de um AD Connector, repita as etapas a seguir para cada um deles.
-4. Em **ações**, selecione **Propriedades**.
+4. Em **Ações**, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione **Conectar-se à floresta do Active Directory**:
 6. Insira a senha da conta do AD DS na caixa de texto **Senha**. Se você não souber a senha, configure-a para um valor conhecido antes de executar essa etapa.
 7. Clique em **OK** para salvar a nova senha e fechar a caixa de diálogo pop-up.

@@ -2,13 +2,13 @@
 title: Botão Implantar no Azure
 description: Use o botão para implantar modelos de Azure Resource Manager de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028736"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543764"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar um botão de implantação para implantar modelos do repositório GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Você tem a URL completa para o link.
 
-Normalmente, você hospeda o modelo em um repositório público. Se você usar um repositório privado, deverá incluir um token para acessar o conteúdo bruto do modelo. O token gerado pelo GitHub é válido apenas por um curto período de tempo. Você precisaria atualizar o link com frequência.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se você estiver usando o [git com Azure Repos](/azure/devops/repos/git/) em vez de um repositório GitHub, ainda poderá usar o botão **implantar no Azure** . Verifique se seu repositório é público. Use a [operação itens](/rest/api/azure/devops/git/items/get) para obter o modelo. Sua solicitação deve estar no seguinte formato:
 

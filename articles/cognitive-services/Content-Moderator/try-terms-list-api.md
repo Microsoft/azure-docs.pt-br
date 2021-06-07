@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: f1dfe88741a304da92901d3997c746654336ef54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800033"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
@@ -44,7 +44,7 @@ Antes de testar a API no console online, você precisa da chave de assinatura. E
 
 Após você fazer alterações em uma lista de termos, você deve atualizar o índice para que as alterações sejam incluídas nas verificações futuras. Esta etapa é semelhante a como um mecanismo de pesquisa na área de trabalho (se habilitado) ou um mecanismo de pesquisa da web continuamente atualiza o índice para incluir novos arquivos ou páginas.
 
-1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar o índice de pesquisa**. 
+1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos** e, em seguida, selecione **Atualizar o índice de pesquisa**. 
 
    A página **Listas de termos - Atualizar o índice de pesquisa** será aberta.
 
@@ -109,7 +109,7 @@ Após você fazer alterações em uma lista de termos, você deve atualizar o í
 
    ![Parâmetros de consulta do console Termo - Adicionar termo](images/try-terms-list-create-3.png)
  
-10. Para verificar se o termo foi adicionado à lista, no menu à esquerda, selecione **Termo**e, em seguida, selecione **Obter todos os termos**. 
+10. Para verificar se o termo foi adicionado à lista, no menu à esquerda, selecione **Termo** e, em seguida, selecione **Obter todos os termos**. 
 
     O console de API **Termo - Obter todos os termos** será aberto.
 
@@ -155,7 +155,7 @@ Este exemplo exclui um único termo.
 
 Você pode editar o nome e a descrição de uma lista e adicionar itens de metadados.
 
-1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos**e, em seguida, selecione **Atualizar detalhes**. 
+1. Na [referência de API de Gerenciamento de Lista de Termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), no menu à esquerda, selecione **Listas de termos** e, em seguida, selecione **Atualizar detalhes**. 
 
    A página **Listas de termos - Atualizar detalhes** será aberta.
 

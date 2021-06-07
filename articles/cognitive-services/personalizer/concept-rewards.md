@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94365560"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam o sucesso da personalização
@@ -26,7 +26,7 @@ As recompensas são enviadas ao Personalizador pela [API de Recompensa](/rest/ap
 
 As recompensas são enviadas depois que o comportamento do usuário ocorre, o que pode ser dias mais tarde. O tempo máximo que o Personalizador aguardará até que um evento seja considerado para receber nenhuma recompensa ou uma recompensa padrão está configurado no [Tempo de espera de recompensa](#reward-wait-time) no portal do Azure.
 
-Se a pontuação de recompensa para um evento ainda não tiver sido recebida dentro do **Tempo de espera de recompensa** , a **Recompensa padrão** será aplicada. Normalmente, a **[Recompensa padrão](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** está configurada como zero.
+Se a pontuação de recompensa para um evento ainda não tiver sido recebida dentro do **Tempo de espera de recompensa**, a **Recompensa padrão** será aplicada. Normalmente, a **[Recompensa padrão](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** está configurada como zero.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamentos e dados a serem considerados para recompensas
@@ -72,8 +72,8 @@ Também é possível chamar a API de Recompensa usando a mesma ID de evento, env
 
 Valores de agregação:
 
-*  **Primeiro** : usa a primeira pontuação de recompensa recebida para o evento e descarta o restante.
-* **Sum** : Obtém todas as pontuações de recompensa coletadas para o EventID e as adiciona.
+*  **Primeiro**: usa a primeira pontuação de recompensa recebida para o evento e descarta o restante.
+* **Sum**: Obtém todas as pontuações de recompensa coletadas para o EventID e as adiciona.
 
 Todas as recompensas para um evento recebidas após o **Tempo de espera de recompensa** são descartadas e não afetam o treinamento de modelos.
 
@@ -81,15 +81,15 @@ Ao adicionar pontuações de recompensa, sua recompensa final pode estar fora do
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Melhores práticas para calcular a pontuação de recompensa
 
-* **Considere os indicadores verdadeiros de personalização bem-sucedida** : é fácil pensar em termos de cliques, mas um bom prêmio é baseado no que você deseja que os usuários *obtenham* em vez do que você deseja que as pessoas *façam*.  Por exemplo, a recompensa por cliques pode levar à seleção de conteúdo sujeito a clickbait.
+* **Considere os indicadores verdadeiros de personalização bem-sucedida**: é fácil pensar em termos de cliques, mas um bom prêmio é baseado no que você deseja que os usuários *obtenham* em vez do que você deseja que as pessoas *façam*.  Por exemplo, a recompensa por cliques pode levar à seleção de conteúdo sujeito a clickbait.
 
-* **Use uma pontuação de recompensa para saber a qualidade da personalização** : personalizar uma sugestão de filme esperaria fazer com que o usuário Assista ao filme e dando a ele uma classificação alta. Como a classificação do filme provavelmente depende de muitos fatores (qualidade de atuação, humor do usuário), não é um bom sinal de recompensa para o desempenho da *personalização*. O usuário assistir aos primeiros minutos do filme, no entanto, pode ser um sinal melhor da eficácia da personalização, e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
+* **Use uma pontuação de recompensa para saber a qualidade da personalização**: personalizar uma sugestão de filme esperaria fazer com que o usuário Assista ao filme e dando a ele uma classificação alta. Como a classificação do filme provavelmente depende de muitos fatores (qualidade de atuação, humor do usuário), não é um bom sinal de recompensa para o desempenho da *personalização*. O usuário assistir aos primeiros minutos do filme, no entanto, pode ser um sinal melhor da eficácia da personalização, e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
 
-* As **recompensas se aplicam somente a RewardActionID** : o personalizador aplica as recompensas para entender a eficácia da ação especificada em RewardActionID. Se você optar por exibir outras ações e o usuário clicar nelas, a recompensa deverá ser zero.
+* As **recompensas se aplicam somente a RewardActionID**: o personalizador aplica as recompensas para entender a eficácia da ação especificada em RewardActionID. Se você optar por exibir outras ações e o usuário clicar nelas, a recompensa deverá ser zero.
 
-* **Considere consequências indesejadas** : Crie funções de recompensa que levam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
+* **Considere consequências indesejadas**: Crie funções de recompensa que levam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
 
-* **Usar recompensas incrementais** : a adição de recompensas parciais para comportamentos menores de usuário ajuda a personalizar a obtenção de melhores recompensas. Essa recompensa incremental permite que o algoritmo saiba que está ficando mais perto de envolver o usuário no comportamento final desejado.
+* **Usar recompensas incrementais**: a adição de recompensas parciais para comportamentos menores de usuário ajuda a personalizar a obtenção de melhores recompensas. Essa recompensa incremental permite que o algoritmo saiba que está ficando mais perto de envolver o usuário no comportamento final desejado.
     * Se você estiver exibindo uma lista de filmes e o usuário passar o mouse sobre o primeiro por um tempo para ver mais informações, você poderá determinar que ocorreu algum envolvimento do usuário. O comportamento pode contar com uma pontuação de recompensa de 0,1.
     * Se o usuário abriu a página e, em seguida, saiu, a pontuação de recompensa pode ser 0,2.
 

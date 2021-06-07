@@ -9,10 +9,10 @@ ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341001"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
@@ -35,7 +35,7 @@ Use as etapas a seguir para habilitar a vida útil de um contêiner sem prazo de
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
    * Abra a janela **Escala e Configurações**.
-   * Em **Configuração** , localize **Vida Útil**.
+   * Em **Configuração**, localize **Vida Útil**.
    * Selecione **Ativado (não há padrão)** ou selecione **Ativado** e defina um valor de TTL
    * Clique em **Salvar** para salvar as alterações.
 
@@ -219,7 +219,7 @@ Use as etapas a seguir para habilitar a vida útil de um item:
 4. Selecione um contêiner existente, expanda-o e modifique os valores abaixo:
 
    * Abra a janela **Escala e Configurações**.
-   * Em **Configuração** , localize **Vida Útil**.
+   * Em **Configuração**, localize **Vida Útil**.
    * Selecione **ativado (sem padrão)** ou selecione **ativado** e defina um valor TTL. 
    * Clique em **Salvar** para salvar as alterações.
 

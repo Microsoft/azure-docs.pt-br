@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 072f1d63e0b3df898ef170205b5c560432d870b0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97918076"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-managed-service-offer"></a>Como adicionar um público de visualização para sua oferta de serviço gerenciado

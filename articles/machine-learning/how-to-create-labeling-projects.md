@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 62801d40295762b0066f0d2887d7d528ee7b7c2a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097533"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656815"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -107,12 +107,9 @@ Se você planeja adicionar novas imagens ao conjunto de dados, use a atualizaç�
 
 Para adicionar mais imagens ao projeto, use o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para carregar na pasta apropriada do armazenamento de blobs. 
 
-Marque a caixa para **Habilitar a atualização incremental** quando quiser que o projeto monitore continuamente a inclusão de novos dados no armazenamento de dados. Esses dados serão obtidos em seu projeto uma vez por dia, quando a opção estiver habilitada.
+Marque a caixa para **Habilitar a atualização incremental** quando quiser que o projeto monitore continuamente a inclusão de novos dados no armazenamento de dados. Quando essa opção estiver habilitada, ela efetuará pull desses dados para o seu projeto uma vez por dia; por isso, após adicionar novos dados ao armazenamento de dados, você terá que aguardar até que eles sejam mostrados no projeto.  Você pode ver um carimbo de data/hora de quando os dados foram atualizados pela última vez na seção **Atualização incremental** da guia **Detalhes** do projeto.
 
 Desmarque essa caixa se não quiser que as novas imagens que aparecem no armazenamento de dados sejam adicionadas ao projeto.
-
-Você pode encontrar o carimbo de data/hora da atualização mais recente na seção de **Atualização incremental** da guia **Detalhes** do projeto.
-
 
 ## <a name="specify-label-classes"></a>Especificar classes de rótulo
 

@@ -1,19 +1,22 @@
 ---
 title: Usar filas do Barramento de Serviço do Azure com o pacote azure-servicebus versão 7.0.0 do Python
 description: Este artigo mostra como usar o Python para enviar e receber mensagens em filas do Barramento de Serviço do Azure.
-author: spelluru
 documentationcenter: python
-ms.devlang: python
-ms.topic: quickstart
-ms.date: 11/18/2020
+author: spelluru
 ms.author: spelluru
-ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 0553062032a58ec9eb9cf3c474ee7c8f19fc544d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 11/18/2020
+ms.topic: quickstart
+ms.devlang: python
+ms.custom:
+- seo-python-october2019
+- devx-track-python
+- mode-api
+ms.openlocfilehash: e982b3f36dbfe2144170d53d07473201abb014ef
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631548"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534970"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-python"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (Python)
 Este artigo mostra como usar o Python para enviar e receber mensagens em filas do Barramento de Serviço do Azure. 

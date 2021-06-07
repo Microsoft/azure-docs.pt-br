@@ -3,18 +3,18 @@ title: Copiar uma versão de imagem de outra galeria usando a CLI
 description: Copie uma versão de imagem de outra galeria com a CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 753e7503612502cde12f821ea331625406daa7a8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0bea4fbac062b498dabe04e6e58d530d09b16d6d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675970"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102553095"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiar uma imagem de outra galeria usando o CLI do Azure
 

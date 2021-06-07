@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2020
 ms.author: glenga
 ms.openlocfilehash: 9d5bae1aedbd031a0a3c08ba5141aebc22f1c674
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99493357"
 ---
 Agora, você pode usar o novo parâmetro `msg` para fazer a gravação na associação de saída por meio do código de função. Adicione a linha de código a seguir antes da resposta de êxito para adicionar o valor de `name` à associação de saída `msg`.

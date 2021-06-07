@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93360132"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Início Rápido: Criar um aplicativo Node.js usando a conta de API do Gremlin do Azure Cosmos DB
@@ -96,7 +96,7 @@ Este aplicativo de console usa o driver [Gremlin Node.js](https://www.npmjs.com/
 
     ```
 
-  Todas as configurações estão em *config.js* , que podemos editar na [seção a seguir](#update-your-connection-string).
+  Todas as configurações estão em *config.js*, que podemos editar na [seção a seguir](#update-your-connection-string).
 
 * Uma série de funções são definidas para executar operações de Gremlin diferentes. Este é um deles:
 
@@ -152,13 +152,13 @@ Este aplicativo de console usa o driver [Gremlin Node.js](https://www.npmjs.com/
 
 1. Abra o arquivo *config.js*. 
 
-2. Em *config.js* , preencha a chave `config.endpoint` com o valor do **Ponto de Extremidade do Gremlin** da página **Visão geral** da sua conta do Cosmos DB no portal do Azure. 
+2. Em *config.js*, preencha a chave `config.endpoint` com o valor do **Ponto de Extremidade do Gremlin** da página **Visão geral** da sua conta do Cosmos DB no portal do Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Exibir e copiar uma chave de acesso no portal do Azure, página Visão geral":::
 
-3. Em *config.js* , preencha o valor config.primaryKey com o valor da **Chave Primária** da página **Chaves** da sua conta do Cosmos DB no portal do Azure. 
+3. Em *config.js*, preencha o valor config.primaryKey com o valor da **Chave Primária** da página **Chaves** da sua conta do Cosmos DB no portal do Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 

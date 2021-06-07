@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: tisande
 ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378801"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
@@ -99,7 +99,7 @@ Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
 Quando não for especificado, essas propriedades terão os seguintes valores padrão:
 
-| **Nome da propriedade**     | **Valor padrão** |
+| **Nome da Propriedade**     | **Valor padrão** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -111,7 +111,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 **Caminho incluído**: `/food/ingredients/nutrition/*`
 

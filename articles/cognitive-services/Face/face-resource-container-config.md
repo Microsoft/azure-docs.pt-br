@@ -1,5 +1,5 @@
 ---
-title: Configurar contêineres-face
+title: Configurar contêineres – Detecção Facial
 titleSuffix: Azure Cognitive Services
 description: O ambiente de runtime do contêiner de Detecção Facial é configurado usando argumentos do comando `docker run`. Há configurações obrigatórias e opcionais.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878418"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934029"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar contêineres do Docker de Detecção Facial
 
@@ -27,15 +27,15 @@ O ambiente de runtime do contêiner de **Detecção Facial** é configurado usan
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) configurações,, e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](face-how-to-install-containers.md#billing).
+> As configurações [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](face-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado para a [`Billing`](#billing-configuration-setting) definição de configuração.
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Será necessário especificar um valor para ApiKey. Além disso, o valor deverá ser uma chave válida para o recurso dos _Serviços Cognitivos_ especificado para a definição da configuração [`Billing`](#billing-configuration-setting).
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: gerenciamento de recursos de **Serviços cognitivas** , em **chaves**
+* Portal do Azure: gerenciamento de recursos dos **Serviços Cognitivos** na opção **Chaves**
 
 ## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
@@ -43,17 +43,17 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+A configuração `Billing` especifica o URI do ponto de extremidade de um recurso dos _Serviços Cognitivos_ no Azure usado para medir informações de cobrança para o contêiner. Será preciso especificar um valor para essa definição de configuração. Além disso, o valor deverá ser um URI do ponto de extremidade válido para um recurso dos _Serviços Cognitivos_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: visão geral **dos serviços cognitivas** , rotulados `Endpoint`
+* Portal do Azure: visão geral dos **Serviços Cognitivos** rotulados como `Endpoint`
 
-Lembre-se de adicionar o roteamento _facial_ ao URI do ponto de extremidade, conforme mostrado no exemplo. 
+Lembre-se de adicionar o roteamento _Detecção Facial_ ao URI do ponto de extremidade, conforme mostrado no exemplo a seguir. 
 
 |Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | URI do ponto de extremidade de cobrança. Para mais informações sobre como obter o URI de cobrança, confira [como coletar parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -67,7 +67,7 @@ As definições de configuração na seção `CloudAI` fornecem opções especí
 
 ### <a name="storage-scenario-settings"></a>Configurações de cenário de armazenamento
 
-O contêiner de Detecção Facial armazena dados de blob, cache, metadados e fila, dependendo do que está sendo armazenado. Por exemplo, os índices e resultados de treinamento de um grupo grande de pessoas são armazenados como dados de blob. O contêiner de Detecção Facial fornece dois cenários de armazenamento diferentes ao interagir e armazenar esses tipos de dados:
+O contêiner de Detecção Facial armazena dados de blob, cache, metadados e fila, dependendo do que está sendo armazenado. Por exemplo, os índices e resultados de treinamento de um **LargePersonGroup** são armazenados como dados de blob. O contêiner de Detecção Facial fornece dois cenários de armazenamento diferentes ao interagir e armazenar esses tipos de dados:
 
 * Memória  
   Todos os quatro tipos de dados são armazenados na memória. Não são distribuídos, nem persistentes. Se o contêiner de Detecção Facial for interrompido ou removido, todos os dados no armazenamento desse contêiner serão destruídos.  
@@ -131,21 +131,21 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](face-how-to-install-containers.md#stop-the-container).
 
-* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
-* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Caractere de continuação de linha**: os comandos do Docker das seções a seguir usam a barra invertida, `\`, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você tenha muita familiaridade com os contêineres do Docker.
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Espaço reservado | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave do ponto de extremidade do `Face` recurso na `Face` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na `Face` página Visão geral do Azure.| Consulte [coletando parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
+| **{API_KEY}** | A chave de ponto de extremidade do recurso da `Face` na página de Chaves da `Face` do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na página de Visão Geral da `Face` do Azure.| Confira [como coletar parâmetros necessários](face-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](face-how-to-install-containers.md#billing).
-> O valor de ApiKey é a **chave** da página de chaves de recurso do Azure `Cognitive Services` . 
+> O valor de ApiKey é a **Chave** da página de chaves do Recurso da `Cognitive Services` do Azure. 
 
 ## <a name="face-container-docker-examples"></a>Exemplos do Docker do contêiner de Detecção Facial
 
@@ -161,7 +161,7 @@ Os seguintes exemplos do Docker são para o contêiner de Detecção Facial.
   ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exemplo de log 
+### <a name="logging-example"></a>Exemplo de registro em log 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \

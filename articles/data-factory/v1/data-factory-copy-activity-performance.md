@@ -8,10 +8,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377203"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
@@ -200,7 +200,7 @@ Atualmente, não é possível copiar dados entre dois armazenamentos de dados lo
 ### <a name="configuration"></a>Configuração
 Configure a definição **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados no Armazenamento de Blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você definir **enableStaging** para TRUE, especifique as propriedades adicionais listadas na tabela a seguir. Se você não tiver uma, também precisará criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparo.
 
-| Propriedade | Descrição | Valor padrão | Necessária |
+| Propriedade | Descrição | Valor padrão | Obrigatório |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | **linkedServiceName** |Especifique o nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância do Armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados no Azure Synapse Analytics por meio do polybase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 7ad6a576262b8e722b16c81af544a9370c2b49b3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93242255"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Versões com suporte para o banco de dados do Azure para MySQL-servidor flexível
@@ -43,6 +43,6 @@ O serviço gerencia automaticamente a aplicação de patch para atualizações d
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Compilar um aplicativo PHP no Windows com o MySQL](../../app-service/tutorial-php-mysql-app.md)<br/>
->[Compilar aplicativo PHP no Linux com MySQL](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
+>[Criar um aplicativo PHP no Windows com o MySQL](../../app-service/tutorial-php-mysql-app.md)<br/>
+>[Criar aplicativo PHP no Linux com o MySQL](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
 >[Compilar aplicativo Spring baseado em Java com MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>

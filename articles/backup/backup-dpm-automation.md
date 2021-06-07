@@ -4,10 +4,10 @@ description: Saiba como implantar e gerenciar o backup do Azure para o Data Prot
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 176cbffe5152462055c4ffdb2367cf9c0ab97c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90968298"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell

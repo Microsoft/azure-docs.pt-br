@@ -9,10 +9,10 @@ ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b59294d07ef64875cb6fbd3e3a49dec61d8b8135
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659396"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificar uma conexão de Gateway de VPN

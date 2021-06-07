@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 9159807f55ae52393b8fccec339fcc94c3e4ebb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87061386"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Usar vários caches para recuperação de failover regional

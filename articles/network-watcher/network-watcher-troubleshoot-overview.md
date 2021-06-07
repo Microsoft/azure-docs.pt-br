@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98569973"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
@@ -54,11 +54,11 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| PlatformInActive | Há um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está em execução. | No|
-| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| No|
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Yes|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Yes |
+| PlatformInActive | Há um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
+| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
@@ -68,15 +68,15 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | No |
-| ConnectionEntityNotFound | A configuração da conexão está ausente | No |
-| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |No|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Yes |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Yes|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | Yes|
-| PeerReachability | O gateway correspondente não está acessível. | Yes|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Yes|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Yes|
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
+| ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
+| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
+| PeerReachability | O gateway correspondente não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 

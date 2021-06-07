@@ -2,13 +2,13 @@
 title: CI/CD com Azure Pipelines e modelos
 description: Descreve como configurar a integração contínua no Azure Pipelines usando modelos de Azure Resource Manager. Ele mostra como usar um script do PowerShell ou copiar arquivos para um local de preparo e implantá-los a partir daí.
 ms.topic: conceptual
-ms.date: 02/05/2021
-ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.date: 03/09/2021
+ms.openlocfilehash: 4a2f1f15de0abd802f3dce138b2cea33e52e3dfc
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594190"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561935"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Azure Pipelines
 
@@ -234,4 +234,5 @@ Quando você seleciona **salvar**, o pipeline de compilação é executado autom
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como usar modelos ARM com ações do GitHub, consulte [implantar modelos de Azure Resource Manager usando ações do GitHub](deploy-github-actions.md).
+* Para usar a operação What-If em um pipeline, consulte [testar modelos de ARM com What-If em um pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* Para saber mais sobre como usar modelos ARM com ações do GitHub, consulte [implantar modelos de Azure Resource Manager usando ações do GitHub](deploy-github-actions.md).

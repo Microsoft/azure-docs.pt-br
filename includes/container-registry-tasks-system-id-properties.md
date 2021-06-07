@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: c059746262cdaf2901c765d3ce3848887b2e629c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057340"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781102"
 ---
 Na saída do comando, a seção `identity` mostra que uma identidade do tipo `SystemAssigned` está definida na tarefa. A `principalId` é a ID da entidade de segurança da identidade da tarefa:
 
@@ -37,4 +37,4 @@ principalID=$(az acr task show \
 ```
 
 <!-- LINKS - Internal -->
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show

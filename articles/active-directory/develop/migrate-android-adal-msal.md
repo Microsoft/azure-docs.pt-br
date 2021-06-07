@@ -15,10 +15,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581033"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
@@ -147,7 +147,7 @@ Considere uma conta bancária. Você pode ter mais de uma conta em mais de uma i
 
 Por analogia, como contas em uma instituição financeira, as contas na plataforma Microsoft Identity são acessadas usando credenciais. Essas credenciais são registradas com o, ou emitidas pela Microsoft. Ou pela Microsoft em nome de uma organização.
 
-Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Aqui está um exemplo:
+Onde a plataforma de identidade da Microsoft difere de uma instituição financeira, nessa analogia, é que a plataforma de identidade da Microsoft fornece uma estrutura que permite que um usuário use uma conta e suas credenciais associadas para acessar recursos que pertencem a vários indivíduos e organizações. Isso é como ser capaz de usar um cartão emitido por um banco, no entanto, em outra instituição financeira. Isso funciona porque todas as organizações em questão estão usando a plataforma de identidade da Microsoft, que permite que uma conta seja usada em várias organizações. Veja um exemplo:
 
 O Sam funciona para Contoso.com, mas gerencia as máquinas virtuais do Azure que pertencem ao Fabrikam.com. Para que o Sam gerencie as máquinas virtuais da Fabrikam, ele precisa estar autorizado a acessá-las. Esse acesso pode ser concedido adicionando a conta de Sam ao Fabrikam.com e concedendo a ela uma função que permita que ele trabalhe com as máquinas virtuais. Isso seria feito com o portal do Azure.
 

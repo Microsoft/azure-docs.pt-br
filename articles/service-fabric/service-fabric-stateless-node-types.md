@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680596"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563769"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implantar um cluster de Service Fabric do Azure com tipos de nó somente sem estado (versão prévia)
 Service Fabric tipos de nó vêm com pressuposição inerente que, em algum momento, os serviços com estado podem ser colocados em nós. Os tipos de nó sem monitoração de estado relaxar essa suposição para um tipo de nó, permitindo que o tipo de nó use outros recursos, como operações de expansão mais rápidas, suporte para atualizações automáticas do so na durabilidade de bronze e dimensionamento para mais de 100 nós em um único conjunto de dimensionamento de máquinas virtuais.
@@ -72,9 +72,13 @@ Para definir um ou mais tipos de nó como sem estado em um recurso de cluster, d
 Para habilitar tipos de nó sem monitoração de estado, você deve configurar o recurso de conjunto de dimensionamento de máquinas virtuais subjacente da seguinte maneira:
 
 * A propriedade Value  **singlePlacementGroup** , que deve ser definida como **false** se você precisar dimensionar para mais de 100 VMS.
-* O conjunto de dimensionamento **upgradePolicy** qual **modo** deve ser definido como **sem interrupção**.
+* O **modo** **upgradePolicy** do conjunto de dimensionamento deve ser definido como **sem interrupção**.
 * O modo de atualização sem interrupção requer a extensão de integridade do aplicativo ou investigações de integridade configuradas. Configure a investigação de integridade com a configuração padrão para tipos de nó sem monitoração de estado, conforme sugerido abaixo. Depois que os aplicativos são implantados no tipo de nó, as portas de extensão de integridade/investigação de integridade podem ser alteradas para monitorar a integridade do aplicativo.
 
+>[!NOTE]
+> É necessário que a contagem de domínios de falha da plataforma seja atualizada para 5 quando um tipo de nó sem estado for apoiado por um conjunto de dimensionamento de máquinas virtuais que esteja abrangendo várias zonas. Consulte este [modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para obter mais detalhes.
+> 
+> **platformFaultDomainCount: 5**
 ```json
 {
     "apiVersion": "2018-10-01",
@@ -257,6 +261,6 @@ Depois que os recursos terminarem de implantar, você poderá começar a desabil
 > Ao usar o dimensionamento automático com NodeTypes sem estado com durabilidade de bronze, após a operação reduzir verticalmente, o estado do nó não é limpo automaticamente. Para limpar o Nodestate de nós inferiores durante o dimensionamento automático, é recomendável usar [Service Fabric auxiliar de dimensionamento automático](https://github.com/Azure/service-fabric-autoscale-helper) .
 
 ## <a name="next-steps"></a>Próximas etapas 
-* [Serviços confiáveis](service-fabric-reliable-services-introduction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Tipos de nó e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
 

@@ -8,10 +8,10 @@ ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.openlocfilehash: 3aa1c0b8579bd37d2bb51cbde70997131c696813
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964500"
 ---
 # <a name="troubleshoot-common-problems-in-azure-data-share"></a>Solucionar problemas comuns no compartilhamento de dados do Azure 
@@ -50,7 +50,7 @@ Os erros a seguir podem aparecer ao criar um novo compartilhamento, Adicionar co
 * Você não tem as permissões adequadas para x.
 * Não foi possível adicionar permissões de gravação para a conta do compartilhamento de dados do Azure a um ou mais dos recursos selecionados.
 
-Você poderá ver um desses erros se não tiver permissões suficientes para o armazenamento de dados do Azure. Para obter mais informações, consulte [funções e requisitos](concepts-roles-permissions.md). 
+Você poderá ver um desses erros se não tiver permissões suficientes para o armazenamento de dados do Azure. Para obter mais informações, confira [Funções e requisitos](concepts-roles-permissions.md). 
 
 Você precisa da permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure. Essa permissão normalmente é parte da função colaborador. 
 
@@ -65,7 +65,7 @@ Um instantâneo pode falhar por vários motivos. Abra uma mensagem de erro detal
 
 Os instantâneos normalmente falham por esses motivos:
 
-* O compartilhamento de dados não tem permissão para ler do armazenamento de dados de origem ou para gravar no armazenamento de dados de destino. Para obter mais informações, consulte [funções e requisitos](concepts-roles-permissions.md). Se você estiver tirando um instantâneo pela primeira vez, o recurso de compartilhamento de dados poderá precisar de alguns minutos para obter acesso ao armazenamento de dados do Azure. Depois de alguns minutos, tente novamente.
+* O compartilhamento de dados não tem permissão para ler do armazenamento de dados de origem ou para gravar no armazenamento de dados de destino. Para obter mais informações, confira [Funções e requisitos](concepts-roles-permissions.md). Se você estiver tirando um instantâneo pela primeira vez, o recurso de compartilhamento de dados poderá precisar de alguns minutos para obter acesso ao armazenamento de dados do Azure. Depois de alguns minutos, tente novamente.
 * A conexão de compartilhamento de dados com o armazenamento de dados de origem ou o armazenamento de dados de destino é bloqueada por um firewall.
 * Um conjunto de dados compartilhado, um armazenamento de dados de origem ou um armazenamento de destino foi excluído.
 

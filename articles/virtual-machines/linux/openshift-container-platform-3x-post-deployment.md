@@ -3,19 +3,20 @@ title: Plataforma de contêiner OpenShift 3,11 em tarefas de pós-implantação 
 description: Tarefas adicionais para depois que um cluster da plataforma de contêiner OpenShift 3,11 foi implantado.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
-ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3f9aaa15a697202aa76c563ed62bf37443d69ec
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016056"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101669389"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
 
@@ -68,7 +69,7 @@ Se o comando for bem-sucedido, você obterá uma saída JSON semelhante a esta:
 
 Anote a propriedade appId retornada do comando para uma etapa posterior.
 
-No Portal do Azure:
+No portal do Azure:
 
 1. Selecione **Azure Active Directory**  >  **registro de aplicativo**.
 2. Pesquise o Registro do seu aplicativo (ex: OCPAzureAD).
@@ -160,7 +161,7 @@ Existem três maneiras de adicionar o agente do Log Analytics ao OpenShift.
 - Habilitar Azure Monitor extensão de VM em cada nó do OpenShift
 - Instalar o agente de Log Analytics como um OpenShift daemon-Set
 
-Leia as [instruções](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) completas para obter mais detalhes.
+Leia as [instruções](../../azure-monitor/containers/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) completas para obter mais detalhes.
 
 ## <a name="configure-metrics-and-logging"></a>Configurar métricas e logs
 

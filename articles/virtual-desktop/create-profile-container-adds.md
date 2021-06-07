@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70a56b7efc34ba2fd3c06521c6e4cac6ea28778f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96302470"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS do Azure
@@ -71,7 +71,7 @@ Para atribuir permissões de acesso de usuários:
 
 6. Selecione um nome ou endereço de email para a identidade de Azure Active Directory de destino.
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="get-the-storage-account-access-key"></a>Obter a chave de acesso da conta de armazenamento
 
@@ -96,7 +96,7 @@ Para obter a chave de acesso da conta de armazenamento:
 
 6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
-7. Execute o seguinte comando:
+7. Execute o comando a seguir:
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
@@ -142,7 +142,7 @@ Para configurar um contêiner de perfil do FSLogix:
 
 1. Entre na VM host da sessão que você configurou no início deste artigo e, em seguida, [Baixe e instale o agente do FSLogix](/fslogix/install-ht/).
 
-2. Descompacte o arquivo do agente FSLogix que você **x64** baixou e vá para  >  **versões** x64 e, em seguida, abra **FSLogixAppsSetup.exe**.
+2. Descompacte o arquivo do agente FSLogix que você baixou e vá para  >  **versões** x64 e, em seguida, abra **FSLogixAppsSetup.exe**.
 
 3. Depois que o instalador for iniciado, selecione **concordo com os termos e condições de licença.** Se aplicável, forneça uma nova chave.
 

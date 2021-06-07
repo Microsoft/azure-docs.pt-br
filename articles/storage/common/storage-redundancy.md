@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388508"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607313"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -32,6 +32,9 @@ Os dados em uma conta de Armazenamento do Azure são sempre replicados três vez
 
 - O **armazenamento com redundância local (LRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária. LRS é a opção de replicação menos dispendiosa, mas não é recomendada para aplicativos que exigem alta disponibilidade.
 - O **Armazenamento com redundância de zona (ZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária. Para aplicativos que exigem alta disponibilidade, a Microsoft recomenda usar o ZRS na região primária e também replicar para uma região secundária.
+
+> [!NOTE]
+> A Microsoft recomenda usar ZRS na região primária para cargas de trabalho de Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
 
@@ -70,9 +73,9 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao 
 
 | Tipo de conta de armazenamento | Regiões com suporte | Serviços com suporte |
 |--|--|--|
-| Uso geral v2<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2 | Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2| Somente blobs de blocos Premium |
-| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br /> Europa Ocidental<br /> França Central <br /> Leste do Japão<br /> Sul do Reino Unido <br /> Leste dos EUA <br /> Leste dos EUA 2 <br /> Oeste dos EUA 2 | Somente compartilhamentos de arquivos Premium |
+| Uso geral v2<sup>1</sup> | Oriental Norte da África do Sul<br /> (Pacífico Asiático) Ásia Oriental<br /> (Pacífico Asiático) Sudeste da Ásia<br /> (Pacífico Asiático) Leste da Austrália<br /> (Pacífico Asiático) Índia central<br /> (Pacífico Asiático) Leste do Japão<br /> (Pacífico Asiático) Centro da Coreia<br /> Canadá Central do Canadá<br /> Européia Europa Setentrional<br /> Européia Europa Ocidental<br /> Européia França central<br /> Européia Centro-oeste da Alemanha<br /> Européia Leste da Noruega<br /> Européia Norte da Suíça<br /> Européia Sul do Reino Unido<br /> (Oriente Médio) Norte dos EAU<br /> (América do Sul) Sul do Brasil<br /> Digamos EUA Central<br /> (EUA) Leste dos EUA<br /> Digamos Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />Digamos EUA Central do Sul<br /> Digamos Oeste dos EUA<br /> Digamos Oeste dos EUA 2 | Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
+| BlockBlobStorage<sup>1</sup> | Oriental Norte da África do Sul<br /> (Pacífico Asiático) Ásia Oriental<br /> (Pacífico Asiático) Sudeste da Ásia<br /> (Pacífico Asiático) Leste da Austrália<br /> (Pacífico Asiático) Índia central<br /> (Pacífico Asiático) Leste do Japão<br /> (Pacífico Asiático) Centro da Coreia<br /> Canadá Central do Canadá<br /> Européia Europa Setentrional<br /> Européia Europa Ocidental<br /> Européia França central<br /> Européia Centro-oeste da Alemanha<br /> Européia Leste da Noruega<br /> Européia Norte da Suíça<br /> Européia Sul do Reino Unido<br /> (Oriente Médio) Norte dos EAU<br /> (América do Sul) Sul do Brasil<br /> Digamos EUA Central<br /> (EUA) Leste dos EUA<br /> Digamos Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />Digamos EUA Central do Sul<br /> Digamos Oeste dos EUA<br /> Digamos Oeste dos EUA 2 | Somente blobs de blocos Premium |
+| FileStorage | Oriental Norte da África do Sul<br /> (Pacífico Asiático) Ásia Oriental<br /> (Pacífico Asiático) Sudeste da Ásia<br /> (Pacífico Asiático) Leste da Austrália<br /> (Pacífico Asiático) Índia central<br /> (Pacífico Asiático) Leste do Japão<br /> (Pacífico Asiático) Centro da Coreia<br /> Canadá Central do Canadá<br /> Européia Europa Setentrional<br /> Européia Europa Ocidental<br /> Européia França central<br /> Européia Centro-oeste da Alemanha<br /> Européia Leste da Noruega<br /> Européia Norte da Suíça<br /> Européia Sul do Reino Unido<br /> (Oriente Médio) Norte dos EAU<br /> (América do Sul) Sul do Brasil<br /> Digamos EUA Central<br /> (EUA) Leste dos EUA<br /> Digamos Leste dos EUA 2<br /> (EUA) Centro-Norte dos EUA<br />Digamos EUA Central do Sul<br /> Digamos Oeste dos EUA<br /> Digamos Oeste dos EUA 2 | Somente compartilhamentos de arquivos Premium |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -87,10 +90,11 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 
 O Armazenamento do Azure oferece duas opções para copiar seus dados para uma região secundária:
 
-- O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
-- O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
+- O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária. Na região secundária, seus dados são copiados de forma síncrona três vezes usando LRS.
+- O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária. Na região secundária, seus dados são copiados de forma síncrona três vezes usando LRS.
 
-A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. Na região secundária, os dados são sempre replicados três vezes de forma síncrona, usando LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
+> [!NOTE]
+> A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. Na região secundária, os dados são sempre replicados três vezes de forma síncrona, usando LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
 
 Com GRS ou GZRS, os dados na região secundária não estão disponíveis para acesso de leitura ou gravação, a menos que haja um failover para a região secundária. Para acesso de leitura para a região secundária, configure sua conta de armazenamento para usar o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de acesso de leitura (RA-GZRS). Para saber mais, confira [Acesso de leitura aos dados na região secundária](#read-access-to-data-in-the-secondary-region).
 
@@ -123,15 +127,30 @@ Somente contas de armazenamento para uso geral v2 dão suporte ao GZRS e ao RA-G
 
 Há suporte para o GZRS e o RA-GZRS nas seguintes regiões:
 
-- Sudeste da Ásia
-- Norte da Europa
-- Europa Ocidental
-- Leste do Japão
-- Sul do Reino Unido
-- EUA Central
-- Leste dos EUA
-- Leste dos EUA 2
-- Oeste dos EUA 2
+- Oriental Norte da África do Sul
+- (Pacífico Asiático) Ásia Oriental
+- (Pacífico Asiático) Sudeste da Ásia
+- (Pacífico Asiático) Leste da Austrália
+- (Pacífico Asiático) Índia central
+- (Pacífico Asiático) Leste do Japão
+- (Pacífico Asiático) Centro da Coreia
+- Canadá Central do Canadá
+- Européia Europa Setentrional
+- Européia Europa Ocidental
+- Européia França central
+- Européia Centro-oeste da Alemanha
+- Européia Leste da Noruega
+- Européia Norte da Suíça
+- Européia Sul do Reino Unido
+- (Oriente Médio) Norte dos EAU
+- (América do Sul) Sul do Brasil
+- Digamos EUA Central
+- (EUA) Leste dos EUA
+- Digamos Leste dos EUA 2
+- (EUA) Centro-Norte dos EUA
+- Digamos EUA Central do Sul
+- Digamos Oeste dos EUA
+- Digamos Oeste dos EUA 2
 
 Para obter informações sobre preços, confira detalhes de preços para [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Arquivos](https://azure.microsoft.com/pricing/details/storage/files/), [Filas](https://azure.microsoft.com/pricing/details/storage/queues/)e [Tabelas](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -192,7 +211,7 @@ A tabela a seguir mostra quais opções de redundância têm suporte em cada ser
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br />Managed disks do Azure | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> |
+| Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br />Discos gerenciados do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> |
 
 ### <a name="supported-storage-account-types"></a>Tipos de conta de armazenamento suportados
 
@@ -200,7 +219,7 @@ A tabela a seguir mostra quais opções de redundância têm suporte em cada tip
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blobs de blocos<br /> Armazenamento de blob<br /> Armazenamento de arquivos | Uso geral v2<br /> Armazenamento de blobs de blocos<br /> Armazenamento de arquivos | Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blob | Uso geral v2 |
+| Uso geral v2<br /> Uso geral v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Uso geral v2<br /> BlockBlobStorage<br /> FileStorage | Uso geral v2<br /> Uso geral v1<br /> BlobStorage | Uso geral v2 |
 
 Todos os dados de todas as contas de armazenamento são copiados de acordo com a opção de redundância para a conta de armazenamento. Os objetos, incluindo blobs de blocos, blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos são copiados. Os dados em todas as camadas, incluindo a camada de arquivamento, são copiados. Para saber mais sobre as camadas de blobs, confira [Armazenamento de Blobs do Azure: camadas de acesso quente, frio e de arquivamento](../blobs/storage-blob-storage-tiers.md).
 

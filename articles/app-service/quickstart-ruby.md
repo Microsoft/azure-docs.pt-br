@@ -5,13 +5,13 @@ keywords: serviço de aplicativo do azure, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 45c87f690c24e989a797cbd82147b9125e447e79
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: dc64dfa277e97fe7487ce91a140e73b9ec44e086
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561776"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483498"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar um aplicativo Ruby on Rails no Serviço de Aplicativo
 

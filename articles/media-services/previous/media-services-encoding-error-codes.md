@@ -3,7 +3,7 @@ title: Códigos de erro de codificação dos Serviços de Mídia do Azure | Micr
 description: Este tópico lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 7e6848fb49dd63fa67a639d09754a28dd5953a32
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269022"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103013475"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
 

@@ -1,24 +1,18 @@
 ---
 title: Recursos da Central de Segurança do Azure de acordo com o sistema operacional, tipo de computador e nuvem
 description: Saiba quais recursos da Central de Segurança do Azure estão disponíveis de acordo com o sistema operacional, tipo e implantação na nuvem.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 7034d1b5f06fcbcead79d85df10042eee3581b0b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 070f35dc3efea4a3f05ec36cc3860fa589aa87e3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369349"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102437903"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -117,8 +111,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
-|[Automação do fluxo de trabalho](workflow-automation.md)|✔ (2)|✔|
+|[Exportação contínua](continuous-export.md)|✔|✔|
+|[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
 |[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
@@ -130,8 +124,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
-|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) Exige o **Azure Defender para servidores**

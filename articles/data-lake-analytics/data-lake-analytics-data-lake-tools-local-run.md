@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018980"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Execute scripts do U-SQL em sua máquina local
@@ -93,7 +93,7 @@ Mais diferenças entre as contas **Máquina local** e **Projeto local** são mos
 |----------------|---------------|---------------|
 |Acesso local|Pode ser acessado por todos os projetos.|Apenas o projeto correspondente pode acessar essa conta.|
 |Pasta raiz de dados local|Uma pasta local permanente. Configurado por meio de **ferramentas**  >  **Data Lake**  >  **Opções e configurações**.|Uma pasta temporária criada para cada execução local no diretório de trabalho do projeto U-SQL. A pasta é limpa quando uma reconstrução ou reexecução acontece.|
-|Dados de entrada para um script U-SQL|O caminho relativo na pasta raiz de dados locais permanentes.|Defina por meio da fonte **de dados de teste de Propriedade do projeto U-SQL**  >  **Test Data Source**. Todos os arquivos e subpastas são copiados para a pasta raiz temporária de dados antes de uma execução local.|
+|Dados de entrada para um script U-SQL|O caminho relativo na pasta raiz de dados locais permanentes.|Defina por meio da fonte **de dados de teste de Propriedade do projeto U-SQL**  >  . Todos os arquivos e subpastas são copiados para a pasta raiz temporária de dados antes de uma execução local.|
 |Dados de saída para um script U-SQL|Caminho relativo sob a pasta raiz de dados locais permanentes.|Saída para a pasta raiz de dados temporários. Os resultados são limpos quando uma reconstrução ou reexecução acontece.|
 |Implantação de banco de dados de referência|Os bancos de dados referenciados não são implantados automaticamente quando executados em uma conta **Máquina local**. É o mesmo para envio para uma conta do Azure Data Lake Analytics.|Os bancos de dados referenciados são implantados na conta **Projeto local** automaticamente antes de uma execução local. Todos os ambientes de banco de dados são limpos e reimplantados, quando uma recompilação ou execute novamente acontece.|
 

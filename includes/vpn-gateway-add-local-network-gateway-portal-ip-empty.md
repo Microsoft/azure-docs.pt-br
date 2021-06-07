@@ -9,16 +9,16 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c538c510eeafacd1596fdeb1b4593919e6236cf0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92487018"
 ---
-1. Na [portal do Azure](https://portal.azure.com), em **Pesquisar recursos, serviços e documentos (G +/)** , digite **Gateway de rede local**. Localize **Gateway de rede local** no **Marketplace** nos resultados da pesquisa e selecione-o. Isso abre a página **criar gateway de rede local** .
+1. No [portal do Azure](https://portal.azure.com), em **Recursos de pesquisa, serviços e documentos (G+/)** , digite **gateway de rede local**. Localize o **gateway de rede local** nos resultados da pesquisa no **Marketplace** e selecione-o. Isso abrirá a página **Criar um gateway de rede local**.
 1. Na **página Criar gateway de rede local**, especifique os valores para seu objeto de gateway de rede local.
 
-   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-ip-empty/create-ip.png" alt-text="Criar um gateway de rede local com o endereço IP":::
+   :::image type="content" source="./media/vpn-gateway-add-local-network-gateway-portal-ip-empty/create-ip.png" alt-text="Criar um gateway de rede local com um endereço IP":::
 
    * **Nome:** especifique um nome para seu objeto de gateway de rede local.
    * **Ponto de extremidade:** Selecione o tipo de ponto de extremidade para o dispositivo VPN local – **endereço IP** ou **FQDN (Nome de Domínio Totalmente Qualificado)** .

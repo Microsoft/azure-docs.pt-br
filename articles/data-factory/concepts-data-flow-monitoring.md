@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/22/2020
 ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96004850"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
@@ -58,7 +58,7 @@ Quando o Fluxo de Dados é executado no Spark, o Azure Data Factory determina os
   
 ![Captura de tela mostra a opção Atualizar.](media/data-flow/monitornew.png "Novo monitoramento do Fluxo de Dados")
 
-## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento do coletor versus tempo de processamento da transformação
+## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento do coletor versus Tempo de processamento da transformação
 
 Cada estágio de transformação inclui um tempo total para que esse estágio seja concluído com cada tempo de execução de partição totalizado em conjunto. Ao clicar no coletor, você verá "tempo de processamento do coletor". Esse tempo inclui o total do tempo de transformação *mais* o tempo de e/s necessário para gravar seus dados no armazenamento de destino. A diferença entre o tempo de processamento do coletor e o total da transformação é o tempo de e/s para gravar os dados.
 

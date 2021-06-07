@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: e59d4ecd238879eddb9d842245395d58aff28385
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 43ece2cb0f5cb9428d8d73f769018e9fe2408ab8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519415"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655795"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a Análise de Alterações de Aplicativo (versão prévia) no Azure Monitor
 
 Quando ocorre um problema ou uma interrupção do site ativo, determinar rapidamente a causa raiz é fundamental. As soluções de monitoramento padrão podem alertá-lo sobre um problema. Eles podem até mesmo indicar qual componente está falhando. Mas esse alerta nem sempre explicará imediatamente a causa da falha. Você sabe que seu site funcionou cinco minutos atrás e agora ele está interrompido. O que mudou nos últimos cinco minutos? Essa é a pergunta que a análise de alterações do aplicativo foi projetada para responder em Azure Monitor.
 
@@ -58,6 +58,16 @@ A análise de alterações captura o estado de implantação e configuração de
 
 ![Captura de tela do botão "examinar alterações agora"](./media/change-analysis/scan-changes.png)
 
+Atualmente, todos os arquivos baseados em texto sob a raiz do site **wwwroot** com as seguintes extensões têm suporte:
+- *. config
+- *. xml
+- *. JSON
+- *. Gem
+- *. yml
+- *.txt
+- *. ini
+- *. env
+
 ### <a name="dependency-changes"></a>Alterações de dependência
 
 As alterações nas dependências de recursos também podem causar problemas em um recurso. Por exemplo, se um aplicativo Web chamar um cache Redis, a SKU do cache Redis poderá afetar o desempenho do aplicativo Web. Outro exemplo é se a porta 22 foi fechada no grupo de segurança de rede de uma máquina virtual, isso causará erros de conectividade.
@@ -84,11 +94,11 @@ O serviço de análise de alterações do aplicativo calcula e agrega dados de a
 O provedor de recursos "Microsoft. ChangeAnalysis" precisa ser registrado com uma assinatura para o Azure Resource Manager propriedades rastreadas e as configurações de proxy alteram os dados para que estejam disponíveis. À medida que você insere a ferramenta diagnosticar e solucionar problemas do aplicativo Web ou ativa a guia autônomo da análise de alterações, esse provedor de recursos é registrado automaticamente.
 Para alterações no convidado do aplicativo Web, a habilitação separada é necessária para a verificação de arquivos de código em um aplicativo Web. Para obter mais informações, consulte [análise de alterações na seção ferramenta diagnosticar e solucionar problemas](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais adiante neste artigo para obter mais detalhes.
 
-## <a name="cost"></a>Custo
-
+## <a name="cost"></a>Cost
 A análise de alterações do aplicativo é um serviço gratuito-ela não incorre em nenhum custo de cobrança para assinaturas com ela habilitada. O serviço também não tem nenhum impacto no desempenho para a verificação de alterações de propriedades de recursos do Azure. Quando você habilita a análise de alterações para aplicativos Web no arquivo convidado (ou habilita a ferramenta diagnosticar e resolver problemas), ele terá um impacto insignificante no desempenho do aplicativo Web e nenhum custo de cobrança.
 
-## <a name="enable-change-analysis-at-scale"></a>Habilitar análise de alterações em escala
+
+## <a name="enable-change-analysis-at-scale-for-web-app-in-guest-file-and-environment-variable-changes"></a>Habilitar a análise de alterações em escala para o arquivo de aplicativo Web no convidado e as alterações de variável de ambiente
 
 Se sua assinatura inclui vários aplicativos Web, a habilitação do serviço no nível do aplicativo Web seria ineficiente. Execute o script a seguir para habilitar todos os aplicativos Web em sua assinatura.
 

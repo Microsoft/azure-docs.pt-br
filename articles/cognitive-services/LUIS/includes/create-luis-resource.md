@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/20/2020
 ms.author: aahi
 ms.openlocfilehash: ee7fd384a198c5eff672b14b6cb479aac26cfe54
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95972498"
 ---
 <a name="create-luis-resources"></a>

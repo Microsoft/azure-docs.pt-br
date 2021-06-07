@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835859"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>Como configurar a política de registro da autenticação multifator do Azure AD
@@ -36,7 +36,7 @@ Para obter mais informações sobre a autenticação multifator do Azure AD, con
 ## <a name="policy-configuration"></a>Configuração de política
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  **Security**  >  política de registro do MFA da **proteção de identidade** de segurança  >  **MFA registration policy**.
+1. Navegue até **Azure Active Directory**  >    >  política de registro do MFA da **proteção de identidade** de segurança  >  .
    1. Em **atribuições**
       1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
          1. Opcionalmente, você pode optar por excluir usuários da política.
@@ -59,4 +59,4 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 - [Habilitar a redefinição de senha self-service do Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitar a autenticação multifator do Azure AD](../authentication/howto-mfa-getstarted.md)
+- [Habilitar a Autenticação Multifator do Azure AD](../authentication/howto-mfa-getstarted.md)

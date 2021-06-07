@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106613"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
@@ -35,12 +35,12 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
     ![Registrar uma fonte de dados](./media/data-lake-store-with-data-catalog/register-data-source.png "Registrar uma fonte de dados")
 1. Na página seguinte, clique em **Iniciar Aplicativo**. Isso baixará o arquivo de manifesto do aplicativo no seu computador. Clique duas vezes no arquivo de manifesto para iniciar o aplicativo.
-1. Na página de boas-vindas, clique em **entrar**e insira suas credenciais.
+1. Na página de boas-vindas, clique em **entrar** e insira suas credenciais.
 
     ![Tela de boas-vindas](./media/data-lake-store-with-data-catalog/welcome.screen.png "Tela de boas-vindas")
-1. Na página Selecionar uma Fonte de Dados, selecione **Azure Data Lake Store**e, em seguida, clique em **Avançar**.
+1. Na página Selecionar uma Fonte de Dados, selecione **Azure Data Lake Store** e, em seguida, clique em **Avançar**.
 
-    ![Selecionar fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecione uma fonte de dados")
+    ![Selecionar fonte de dados](./media/data-lake-store-with-data-catalog/select-source.png "Selecionar fonte de dados")
 1. Na próxima página, forneça o nome da conta do Data Lake Storage Gen1 que você quer registrar no Catálogo de Dados. Deixe as outras opções como padrão e clique em **Conectar**.
 
     ![Conectar-se a uma fonte de dados](./media/data-lake-store-with-data-catalog/connect-to-source.png "Conectar-se a uma fonte de dados")
@@ -71,7 +71,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrar Data Lake Storage Gen1 com outros serviço do Azure](data-lake-store-integrate-with-other-services.md)

@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762830"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618467"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre os serviços de nuvem do Azure (suporte estendido)
 
 > [!IMPORTANT]
-> Os serviços de nuvem (suporte estendido) estão atualmente em visualização pública.
+> No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Serviços de nuvem (suporte estendido) é um novo modelo de implantação baseado em [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) para o produto de [serviços de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) e está atualmente em visualização pública. Os serviços de nuvem (suporte estendido) têm o principal benefício de fornecer resiliência regional juntamente com a paridade de recursos com os serviços de nuvem do Azure implantados usando o Azure Service Manager. Ele também oferece alguns recursos de ARM, como RBAC (acesso baseado em função e controle), marcas, política e suporte a modelos de implantação.  
+Serviços de nuvem (suporte estendido) é um novo modelo de implantação baseado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o produto de [serviços de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) e está atualmente em visualização pública. Os serviços de nuvem (suporte estendido) têm o principal benefício de fornecer resiliência regional juntamente com a paridade de recursos com os serviços de nuvem do Azure implantados usando o Azure Service Manager. Ele também oferece alguns recursos de ARM, como RBAC (acesso baseado em função e controle), marcas, política e suporte a modelos de implantação.  
 
 Com essa alteração, o modelo de implantação baseado no Azure Service Manager para serviços de nuvem será renomeado como [serviços de nuvem (clássico)](../cloud-services/cloud-services-choose-me.md). Você manterá a capacidade de criar e implantar rapidamente seus aplicativos e serviços na nuvem e na Web. Você poderá dimensionar sua infraestrutura de serviços de nuvem com base na demanda atual e garantir que o desempenho de seus aplicativos possa acompanhar enquanto reduz os custos simultaneamente.  
 
@@ -41,11 +41,11 @@ Alterações mínimas são necessárias para os arquivos de configuração de se
 
 As principais diferenças entre os serviços de nuvem (clássicos) e os serviços de nuvem (suporte estendido) em relação à implantação são: 
 
-- Azure Resource Manager implantações usam [modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) , que é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. A configuração de serviço e o arquivo de definição de serviço precisam ser consistentes com o [modelo ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) durante a implantação de serviços de nuvem (suporte estendido). Isso pode ser feito [criando manualmente o modelo ARM](deploy-template.md) ou usando o [PowerShell](deploy-powershell.md), o [portal](deploy-portal.md) e o [Visual Studio](deploy-visual-studio.md).  
+- Azure Resource Manager implantações usam [modelos ARM](../azure-resource-manager/templates/overview.md) , que é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. A configuração de serviço e o arquivo de definição de serviço precisam ser consistentes com o [modelo ARM](../azure-resource-manager/templates/overview.md) durante a implantação de serviços de nuvem (suporte estendido). Isso pode ser feito [criando manualmente o modelo ARM](deploy-template.md) ou usando o [PowerShell](deploy-powershell.md), o [portal](deploy-portal.md) e o [Visual Studio](deploy-visual-studio.md).  
 
-- Os clientes devem usar [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) para [gerenciar certificados em serviços de nuvem (suporte estendido)](certificates-and-key-vault.md). Azure Key Vault permite armazenar e gerenciar com segurança as credenciais do aplicativo, como segredos, chaves e certificados em um repositório de nuvem central e seguro. Seus aplicativos podem se autenticar em Key Vault em tempo de execução para recuperar credenciais. 
+- Os clientes devem usar [Azure Key Vault](../key-vault/general/overview.md) para [gerenciar certificados em serviços de nuvem (suporte estendido)](certificates-and-key-vault.md). Azure Key Vault permite armazenar e gerenciar com segurança as credenciais do aplicativo, como segredos, chaves e certificados em um repositório de nuvem central e seguro. Seus aplicativos podem se autenticar em Key Vault em tempo de execução para recuperar credenciais. 
 
-- Todos os recursos implantados por meio do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) devem estar dentro de uma rede virtual. As redes virtuais e sub-redes são criadas em Azure Resource Manager usando as APIs de Azure Resource Manager existentes e precisarão ser referenciadas na seção NetworkConfiguration do. cscfg ao implantar serviços de nuvem (suporte estendido).   
+- Todos os recursos implantados por meio do [Azure Resource Manager](../azure-resource-manager/templates/overview.md) devem estar dentro de uma rede virtual. As redes virtuais e sub-redes são criadas em Azure Resource Manager usando as APIs de Azure Resource Manager existentes e precisarão ser referenciadas na seção NetworkConfiguration do. cscfg ao implantar serviços de nuvem (suporte estendido).   
 
 - Cada serviço de nuvem (suporte estendido) é uma implantação independente única. Os serviços de nuvem (suporte estendido) não oferecem suporte a vários slots em um único serviço de nuvem.  
     - O <sup>*</sup> recurso de permuta VIP pode ser usado para alternar entre dois serviços de nuvem (suporte estendido). Para testar e preparar uma nova versão de um serviço de nuvem, implante um serviço de nuvem (suporte estendido) e marque-o como permutable VIP com outro serviço de nuvem (suporte estendido)  
@@ -57,17 +57,17 @@ As principais diferenças entre os serviços de nuvem (clássicos) e os serviço
 
 ## <a name="migration-to-azure-resource-manager"></a>Migração para Azure Resource Manager
 
-Serviços de nuvem (suporte estendido) fornece dois caminhos para migrar do [Azure Service Manager](https://docs.microsoft.com/powershell/azure/servicemanagement/overview?view=azuresmps-4.0.0&preserve-view=true ) para [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview). 
+Serviços de nuvem (suporte estendido) fornece dois caminhos para migrar do [Azure Service Manager](/powershell/azure/servicemanagement/overview) para [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Os clientes implantam serviços de nuvem diretamente no Azure Resource Manager e, em seguida, excluem o serviço de nuvem antigo no Service Manager do Azure. 
 2) A migração in-loco oferece suporte à capacidade de migrar serviços de nuvem (clássicos) com mínimo de sem tempo de inatividade para serviços de nuvem (suporte estendido). 
 
 ### <a name="additional-migration-options"></a>Opções de migração adicionais
 
-Ao avaliar os planos de migração dos serviços de nuvem (clássicos) para os serviços de nuvem (suporte estendido), talvez você queira investigar os serviços adicionais do Azure, como: [conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview), [serviço de aplicativo](https://docs.microsoft.com/azure/app-service/overview), [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/intro-kubernetes)e [Service Fabric do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview). Esses serviços continuarão a recursos adicionais, enquanto os serviços de nuvem (suporte estendido) manterão principalmente a paridade de recursos com os serviços de nuvem (clássicos). 
+Ao avaliar os planos de migração dos serviços de nuvem (clássicos) para os serviços de nuvem (suporte estendido), talvez você queira investigar os serviços adicionais do Azure, como: [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md), [serviço de aplicativo](../app-service/overview.md), [serviço kubernetes do Azure](../aks/intro-kubernetes.md)e [Service Fabric do Azure](../service-fabric/service-fabric-overview.md). Esses serviços continuarão a recursos adicionais, enquanto os serviços de nuvem (suporte estendido) manterão principalmente a paridade de recursos com os serviços de nuvem (clássicos). 
 
 Dependendo do aplicativo, os serviços de nuvem (suporte estendido) podem exigir substancialmente menos esforço para se mover para Azure Resource Manager em comparação com outras opções. Se seu aplicativo não estiver em evolução, os serviços de nuvem (suporte estendido) são uma opção viável a considerar, pois ele fornece um caminho de migração rápida. Por outro lado, se seu aplicativo estiver evoluindo continuamente e precisar de um conjunto de recursos mais moderno, explore outros serviços do Azure para atender melhor aos seus requisitos atuais e futuros. 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).

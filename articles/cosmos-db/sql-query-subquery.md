@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340848"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos de subconsulta do SQL para Azure Cosmos DB
@@ -25,16 +25,16 @@ Este artigo descreve as subconsultas do SQL e seus casos de uso comuns no Azure 
 
 Há dois tipos principais de subconsultas:
 
-* **Correlacionado** : uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
-* **Não correlacionado** : uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
+* **Correlacionado**: uma subconsulta que faz referência a valores da consulta externa. A subconsulta é avaliada uma vez para cada linha que a consulta externa processa.
+* **Não correlacionado**: uma subconsulta que é independente da consulta externa. Ele pode ser executado sozinho sem depender da consulta externa.
 
 > [!NOTE]
 > Azure Cosmos DB dá suporte apenas a Subconsultas correlacionadas.
 
 As subconsultas podem ser classificadas com base no número de linhas e colunas que retornam. Há três tipos:
-* **Tabela** : retorna várias linhas e várias colunas.
-* **Vários valores** : retorna várias linhas e uma única coluna.
-* **Escalar** : retorna uma única linha e uma única coluna.
+* **Tabela**: retorna várias linhas e várias colunas.
+* **Vários valores**: retorna várias linhas e uma única coluna.
+* **Escalar**: retorna uma única linha e uma única coluna.
 
 As consultas SQL em Azure Cosmos DB sempre retornam uma única coluna (um valor simples ou um documento complexo). Portanto, somente subconsultas de valores múltiplos e escalares são aplicáveis em Azure Cosmos DB. Você pode usar uma subconsulta de vários valores somente na cláusula FROM como uma expressão relacional. Você pode usar uma subconsulta escalar como uma expressão escalar na cláusula SELECT ou WHERE ou como uma expressão relacional na cláusula FROM.
 
@@ -49,7 +49,7 @@ Subconsultas de vários valores retornam um conjunto de documentos e são sempre
 
 Subconsultas com vários valores podem otimizar as expressões de junção enviando predicados após cada expressão Select-many em vez de todas as junções cruzadas na cláusula WHERE.
 
-Considere a consulta a seguir.
+Considere a consulta a seguir:
 
 ```sql
 SELECT Count(1) AS Count

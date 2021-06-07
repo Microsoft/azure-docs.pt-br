@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: d990deca3f435f0b1e3fbdd3388371a11813662a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98f13df2c4da993147ba3ef4157340910fcbc5d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948684"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719619"
 ---
 Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
 
@@ -102,7 +102,7 @@ Para muitos cenários de desenvolvimento de aplicativos de fala, é provável qu
 * Integrar o resultado com outras APIs ou serviços.
 * Modificar os dados de áudio, gravar cabeçalhos de `.wav` personalizados etc.
 
-É simples fazer essa alteração no exemplo anterior. Primeiro, remova o `AudioConfig`, pois daqui em diante você gerenciará o comportamento de saída manualmente para ter mais controle. Em seguida, passe `None` para o `AudioConfig` no construtor `SpeechSynthesizer`. 
+É simples fazer essa alteração no exemplo anterior. Primeiro, remova o `AudioConfig`, pois daqui em diante você gerenciará o comportamento de saída manualmente para ter mais controle. Em seguida, passe `None` para o `AudioConfig` no construtor `SpeechSynthesizer`.
 
 > [!NOTE]
 > Passar `None` para o `AudioConfig`, em vez de omiti-lo como no exemplo da saída para o alto-falante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo.
@@ -206,3 +206,11 @@ Para alternar para uma voz neural, altere o `name` para uma das [opções de voz
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obter eventos de pose facial
+
+A fala pode ser uma boa maneira de orientar a animação de expressões faciais.
+Frequentemente, [visemes](../../../how-to-speech-synthesis-viseme.md) são usados para representar as principais poses da fala observada, como a posição dos lábios, da mandíbula e da língua ao produzir um fonema específico.
+Assine o evento viseme no SDK de Fala.
+Em seguida, aplique eventos viseme para animar o rosto de um personagem conforme o áudio da fala é reproduzido.
+Saiba [como obter eventos viseme](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85800141"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderar com as listas de imagem personalizada no console de API
@@ -36,13 +36,13 @@ Você pode usar a API de Gerenciamento de Lista para fazer as seguintes tarefas:
 - Atualizar o índice para que as alterações da lista sejam incluídas em uma nova verificação.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
-Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [visão geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
 Após você fazer alterações em uma lista de imagens, você deve atualizar o índice para que as alterações sejam incluídas nas verificações futuras. Esta etapa é semelhante a como um mecanismo de pesquisa na área de trabalho (se habilitado) ou um mecanismo de pesquisa da web continuamente atualiza o índice para incluir novos arquivos ou páginas.
 
-1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Listas de imagens**e, em seguida, selecione **Atualizar o índice de pesquisa**.
+1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Listas de imagens** e, em seguida, selecione **Atualizar o índice de pesquisa**.
 
    A página **Listas de imagens - Atualizar o índice de pesquisa** será aberta.
 
@@ -95,7 +95,7 @@ Após você fazer alterações em uma lista de imagens, você deve atualizar o �
 
    ![A Caixa de conteúdo de resposta do console Listas de imagens - Criar mostra a ID da lista](images/try-terms-list-create-2.png)
  
-8. Em seguida, adicione imagens ao MyList. No menu à esquerda, selecione **Imagem**e, em seguida, selecione **Adicionar imagem**.
+8. Em seguida, adicione imagens ao MyList. No menu à esquerda, selecione **Imagem** e, em seguida, selecione **Adicionar imagem**.
 
    A página **Imagem - Adicionar imagem** será aberta. 
 
@@ -107,7 +107,7 @@ Após você fazer alterações em uma lista de imagens, você deve atualizar o �
  
 10. Na caixa **listId**, insira a ID da lista que é gerada e, em seguida, insira a URL da imagem que você deseja adicionar. Insira a chave de assinatura e selecione **Enviar**.
 
-11. Para verificar se a imagem foi adicionada à lista, no menu à esquerda, selecione **Imagem**e, em seguida, selecione **Obter todas as Ids de imagem**.
+11. Para verificar se a imagem foi adicionada à lista, no menu à esquerda, selecione **Imagem** e, em seguida, selecione **Obter todas as Ids de imagem**.
 
     O console de API **Imagem - Obter todas as Ids de imagem** será aberto.
   
@@ -127,7 +127,7 @@ Excluir uma imagem ou uma lista é simples. Você pode usar a API para realizar 
 
 Este exemplo exclui uma única imagem:
 
-1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Imagem**e, em seguida, selecione **Excluir**. 
+1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Imagem** e, em seguida, selecione **Excluir**. 
 
    A página **Imagem - Excluir** será aberta.
 
@@ -149,7 +149,7 @@ Em nosso exemplo, a ID da lista é **58953**, o valor de **ContentSource**. A ID
 
 Você pode editar o nome e a descrição de uma lista e adicionar itens de metadados.
 
-1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Listas de imagens**e, em seguida, selecione **Atualizar detalhes**. 
+1. Na [referência de API de Gerenciamento de Lista de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), no menu à esquerda, selecione **Listas de imagens** e, em seguida, selecione **Atualizar detalhes**. 
 
    A página **Listas de imagens - Atualizar detalhes** será aberta.
 

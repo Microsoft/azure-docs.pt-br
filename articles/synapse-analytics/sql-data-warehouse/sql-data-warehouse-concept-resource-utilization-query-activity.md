@@ -2,21 +2,21 @@
 title: Gerenciamento e monitoramento – atividade de consulta, utilização de recursos
 description: Saiba quais recursos estão disponíveis para gerenciar e monitorar o Azure Synapse Analytics. Use o portal do Azure e DMVs (Exibições de Gerenciamento Dinâmico) para entender a atividade de consulta e a utilização de recursos do data warehouse.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 75c0058f2d4878016281656935cbd82f79b859fd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119995"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585665"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorando a atividade de consulta e a utilização de recursos no Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ O Azure Synapse Analytics oferece uma rica experiência de monitoramento no port
 
 ## <a name="resource-utilization"></a>Utilização de recursos
 
-As seguintes métricas estão disponíveis no portal do Azure para o SQL do Synapse. Essas métricas são exibidas no [Azure Monitor](../../azure-monitor/platform/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
+As seguintes métricas estão disponíveis no portal do Azure para o SQL do Synapse. Essas métricas são exibidas no [Azure Monitor](../../azure-monitor/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics).
 
 | Nome da métrica             | Descrição                                                  | Tipo de agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -57,7 +57,7 @@ Para exibir a lista de DMVs que o SQL do Synapse fornece, confira esta [document
 
 ## <a name="metrics-and-diagnostics-logging"></a>Log de diagnósticos e métricas 
 
-As métricas e os logs podem ser exportados para o Monitor do Azure, especificamente o componente de [log do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acessados programaticamente por meio das [consultas de logs](../../azure-monitor/log-query/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). A latência de log para SQL do Synapse é de cerca de 10-15 minutos. Para obter mais detalhes sobre os fatores que afetam a latência, visite a documentação a seguir.
+As métricas e os logs podem ser exportados para o Monitor do Azure, especificamente o componente de [log do Azure Monitor](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acessados programaticamente por meio das [consultas de logs](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json). A latência de log para SQL do Synapse é de cerca de 10-15 minutos. Para obter mais detalhes sobre os fatores que afetam a latência, visite a documentação a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 

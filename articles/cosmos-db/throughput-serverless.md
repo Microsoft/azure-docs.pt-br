@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98049823"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre taxa de transferência provisionada e sem servidor

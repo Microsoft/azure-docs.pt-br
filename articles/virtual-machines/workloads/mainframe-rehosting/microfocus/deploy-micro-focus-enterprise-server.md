@@ -1,7 +1,7 @@
 ---
 title: Implantar o micro Focus Enterprise Server 5,0 em AKS | Microsoft Docs
 description: Rehospede suas cargas de trabalho de mainframe do IBM z/OS usando o ambiente de desenvolvimento e teste micro Focus em VMs (máquinas virtuais) do Azure.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: maggsl
 ms.author: edprice
@@ -11,13 +11,14 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 tags: ''
 keywords: ''
-ms.service: multiple
-ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 58ba530e434a9dc141ba8cb98120f6325eb06f7e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042539"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950465"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Implantar o micro Focus Enterprise Server 5,0 em AKS
 
@@ -31,7 +32,7 @@ Esse é um processo de três etapas. Você precisa:
 
 2.  Crie um cluster kubernetes do Azure para executar a imagem do Docker.
 
-3.  Executar o aplicativo.
+3.  Execute o aplicativo.
 
 Isso permite que você Escale horizontalmente (e reduza verticalmente) suas cargas de trabalho de modernização de mainframe no Azure, aproveitando a verdadeira vantagem da plataforma em nuvem.
 
@@ -39,7 +40,7 @@ Esteja? Vamos começar!
 
 ## <a name="create-the-azure-container-registry"></a>Criar o registro de contêiner do Azure
 
-No portal do Azure, selecione **criar um recurso** no canto superior esquerdo. No painel do Marketplace, selecione **contêineres e** **registro de contêiner**. Isso leva você para o painel **criar registro de contêiner** , onde você precisa preencher o **nome do registro**, a **assinatura do Azure**, o **grupo de recursos**e o **local**. O **nome do registro** precisa ser resolvido e, portanto, deve ser exclusivo. Selecione o **grupo de recursos** que você usou na postagem anterior do blog e o mesmo **local**correspondente. Selecione **habilitar** para **usuário administrador** e **básico** para a **SKU**. Depois de ter tudo preenchido, selecione **criar**.
+No portal do Azure, selecione **criar um recurso** no canto superior esquerdo. No painel do Marketplace, selecione **contêineres e** **registro de contêiner**. Isso leva você para o painel **criar registro de contêiner** , onde você precisa preencher o **nome do registro**, a **assinatura do Azure**, o **grupo de recursos** e o **local**. O **nome do registro** precisa ser resolvido e, portanto, deve ser exclusivo. Selecione o **grupo de recursos** que você usou na postagem anterior do blog e o mesmo **local** correspondente. Selecione **habilitar** para **usuário administrador** e **básico** para a **SKU**. Depois de ter tudo preenchido, selecione **criar**.
 
 ![Criar interface de registro de contêiner](media/deploy-image-1.png)
 
@@ -71,7 +72,7 @@ Depois de fazer logon, abra um prompt de comando e inicie os seguintes comandos 
 
 -   **imagens do Docker** – mostra uma lista de todas as imagens atualmente instaladas na VM. Anote o **subfocus/es-acctdemo** porque esse é aquele com o qual você trabalhará.
 
--   **Acrmf50.azurecr.Io de logon do Docker** – o formato correto aqui é o * \<registry name\> logon do Docker *. Substitua qualquer nome que você usou ao criar o registro.
+-   **Acrmf50.azurecr.Io de logon do Docker** – o formato correto aqui é o *\<registry name\> logon do Docker*. Substitua qualquer nome que você usou ao criar o registro.
 
     -   Será necessário o **nome de usuário** e a **senha** que você copiou do portal do Azure. Você deverá ver algo como a imagem a seguir.
 
@@ -85,7 +86,7 @@ Depois de fazer logon, abra um prompt de comando e inicie os seguintes comandos 
 
     ![Tela de prompt de comando do administrador](media/deploy-image-4.png)
 
-Agora, volte para o portal do Azure, especificamente para o **repositório**. No menu do **repositório**, selecione **repositórios**e você deverá ver **es-acctdemo** listadas. Agora, crie o cluster AKS.
+Agora, volte para o portal do Azure, especificamente para o **repositório**. No menu do **repositório**, selecione **repositórios** e você deverá ver **es-acctdemo** listadas. Agora, crie o cluster AKS.
 
 ## <a name="create-the-azure-kubernetes-aks-cluster"></a>Criar o cluster kubernetes (AKS) do Azure
 

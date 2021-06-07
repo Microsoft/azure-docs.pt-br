@@ -2,13 +2,13 @@
 title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 03/11/2021
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741767"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563888"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -65,7 +65,7 @@ Quando você cria um pool do Lote, especifique a configuração de máquina virt
 Existem dois tipos de configuração de pool disponíveis no Lote.
 
 > [!IMPORTANT]
-> Os pools devem ser configurados usando ' configuração de máquina virtual ' e não ' configuração de serviços de nuvem '. Todos os recursos do lote têm suporte dos pools de ' configuração de máquina virtual ' e novos recursos estão sendo adicionados. Os pools de ' configuração de serviços de nuvem ' não dão suporte a todos os recursos e nenhuma nova funcionalidade é planejada.
+> Embora você possa criar pools no momento usando qualquer configuração, novos pools devem ser configurados usando a configuração de máquina virtual e não a configuração de serviços de nuvem. Todos os recursos atuais e novos do lote serão suportados pelos pools de configuração da máquina virtual. Os pools de configuração de serviços de nuvem não oferecem suporte a todos os recursos e nenhuma nova funcionalidade é planejada. Você não poderá criar novos pools ' CloudServiceConfiguration ' ou adicionar novos nós a pools existentes [após 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 ### <a name="virtual-machine-configuration"></a>Configuração de Máquina Virtual
 
@@ -75,11 +75,14 @@ O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/
 
 ### <a name="cloud-services-configuration"></a>Configuração de Serviços de Nuvem
 
+> [!WARNING]
+> Os pools de configuração de serviços de nuvem foram [preteridos](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Em vez disso, use pools de configuração de máquina virtual. Para obter mais informações, consulte [migrar a configuração do pool do lote dos serviços de nuvem para a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+
 A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os serviços de nuvem fornecem apenas nós de computação do Windows.
 
 Os sistemas operacionais disponíveis para os pools de configuração dos serviços de nuvem são listados na [matriz de compatibilidade do SDK e versões do SO convidado do Azure](../cloud-services/cloud-services-guestos-update-matrix.md), e os tamanhos de nó de computação disponíveis são listados em [tamanhos para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md). Ao criar um pool que contém nós de serviços de nuvem, você especifica o tamanho do nó e sua *família de sistemas operacionais* (que determina quais versões do .NET são instaladas com o sistema operacional). Os Serviços de Nuvem são implantados no Azure mais rapidamente do que as máquinas virtuais que executam o Windows. Se você deseja ter pools de nós de computação do Windows, pode achar os Serviços de Nuvem mais vantajosos no desempenho em relação a tempo de implantação.
 
-Assim como ocorre com as funções de trabalho nos Serviços de Nuvem, você pode especificar uma *Versão do SO* (para obter mais informações sobre as funções de trabalho, consulte [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)). É recomendável especificar `Latest (*)` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada. As tarefas em execução serão interrompidas e colocadas novamente na fila.
+Assim como acontece com as funções de trabalho nos serviços de nuvem, você pode especificar uma *versão do sistema operacional*. É recomendável especificar `Latest (*)` para a *Versão do SO* de forma que os nós sejam automaticamente atualizados e não haja nenhum trabalho necessário para atender as versões recém-lançadas. O caso de uso principal para selecionar uma versão específica do SO é garantir a compatibilidade dos aplicativos, permitindo que os testes de compatibilidade retroativa sejam executados antes de permitir que a versão seja atualizada. Após a validação, a *Versão do SO* para o pool pode ser atualizada e a nova imagem do SO pode ser instalada. As tarefas em execução serão interrompidas e colocadas novamente na fila.
 
 ### <a name="node-agent-skus"></a>SKUs do Agente de Nó
 
@@ -205,3 +208,4 @@ Se adicionar um certificado a um pool existente, você deve reinicializar seus n
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [trabalhos e tarefas](jobs-and-tasks.md).
+- Saiba como [detectar e evitar falhas em operações de segundo plano do pool e do nó ](batch-pool-node-error-checking.md).

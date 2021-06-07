@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2774c63d34de3de951aa8076b56d203b976158ec
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365503"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102548743"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para funções do Azure AD no Privileged Identity Management
 
@@ -49,12 +49,12 @@ Este artigo contém instruções para usar os cmdlets do PowerShell do Azure Act
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. Localize a ID de locatário da sua organização do Azure ad acessando **Azure Active Directory**  >  **Properties**  >  **ID do diretório**de propriedades. Na seção cmdlets, use essa ID sempre que precisar fornecer o resourceId.
+1. Localize a ID de locatário da sua organização do Azure ad acessando **Azure Active Directory**  >    >  **ID do diretório** de propriedades. Na seção cmdlets, use essa ID sempre que precisar fornecer o resourceId.
 
     ![Localizar a ID da organização nas propriedades da organização do Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> As seções a seguir são exemplos simples que podem ajudar você a colocar em funcionamento. Você pode encontrar uma documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . No entanto, você deve substituir "azureResources" no parâmetro ProviderID por "aadRoles". Você também precisará se lembrar de usar a ID de locatário para sua organização do Azure AD como o parâmetro ResourceId.
+> As seções a seguir são exemplos simples que podem ajudar você a colocar em funcionamento. Você pode encontrar uma documentação mais detalhada sobre os seguintes cmdlets em [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management) . No entanto, você deve substituir "azureResources" no parâmetro ProviderID por "aadRoles". Você também precisará se lembrar de usar a ID de locatário para sua organização do Azure AD como o parâmetro ResourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recuperando definições de função
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: d6c8e96c325cfa6422ceb4efc55ef0c5cc149ae3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ef6afff30da48b79b42e5fb4b3c72c3500f22dd1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055616"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102172296"
 ---
 # <a name="how-to-create-an-azure-automation-run-as-account"></a>Como criar uma conta Executar como da automação do Azure
 

@@ -3,17 +3,17 @@ title: Tamanhos de VM do Azure – otimizado para computação | Microsoft Docs
 description: Lista os diferentes tamanhos otimizados para computação disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e a largura de banda de rede para cada tamanho nessa série.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 58ade8dfdde2c906cbe7c61a232f2643708e19b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eba7bff571a8db25591b8bfa5c5e712511588f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832460"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102557685"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Compute tamanhos de máquinas virtuais otimizadas
 

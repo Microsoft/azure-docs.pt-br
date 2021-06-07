@@ -3,17 +3,17 @@ title: Analisar os custos do Azure com o Aplicativo Power BI
 description: Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 1/29/2021
+ms.date: 02/19/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b08ff57f964ef7bc3712c930c222a10ed0f89ef4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070150"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045017"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar os custos com o aplicativo Power BI do Gerenciamento de Custos do Azure para EA (Enterprise Agreements)
 
@@ -36,24 +36,23 @@ O aplicativo limita a capacidade de personalização. Caso deseje modificar e es
 Para instalar o aplicativo:
 
 1. Abra o [Aplicativo Power BI do Gerenciamento de Custos do Azure](https://aka.ms/costmgmt/ACMApp).
-2. Na página do Power BI AppSource, selecione **Obter agora**.
-3. Selecione **Continuar** para concordar com os termos de uso e a política de privacidade.
-4. Na caixa **Instalar este aplicativo do Power BI**, selecione **Instalar**.
-5. Se necessário, crie um workspace e selecione **Continuar**.
-6. Quando a instalação for concluída, a notificação será exibida dizendo que o novo aplicativo está pronto.
-7. Selecione **Ir para o aplicativo**.
-8. Em **Introdução ao seu novo aplicativo**, em **Conectar seus dados**, selecione **Conectar**.  
-  ![Introdução ao seu novo aplicativo – Conectar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. Na caixa de diálogo exibida, digite seu número de registro no EA para **BillingProfileIdOrEnrollmentNumber**. Especifique o número de meses de dados a serem obtidos. Deixe o valor padrão do **Escopo** de **Número de registro** e selecione **Próximo**.  
-  ![Inserir informações de registro no EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. A próxima caixa de diálogo se conecta ao Azure e obtém os dados necessários para recomendações de instâncias reservadas. *Mantenha os valores padrão configurados* e selecione **Entrar**.  
-  ![A captura de tela mostra a caixa de diálogo Conectar-se ao Aplicativo de Gerenciamento de Custos do Azure com valores padrão.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
-11. A etapa final da instalação se conecta à sua inscrição no EA e requer uma conta [Enterprise Administrator](../manage/understand-ea-roles.md). Selecione **Entrar** para autenticar com seu registro do EA. Essa etapa também inicia uma ação de atualização de dados no Power BI.  
-  ![Conectar-se ao registro do EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
+1. Na página do Power BI AppSource, selecione **Obter agora**.
+1. Selecione **Continuar** para concordar com os termos de uso e a política de privacidade.
+1. Na caixa **Instalar este aplicativo do Power BI**, selecione **Instalar**.
+1. Se necessário, crie um workspace e selecione **Continuar**.
+1. Quando a instalação for concluída, a notificação será exibida dizendo que o novo aplicativo está pronto.
+1. Selecione o aplicativo que você instalou.
+1. Na página Introdução, selecione **Conectar seus dados**.
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Captura de tela destacando o link Conectar seus dados." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
+1. Na caixa de diálogo exibida, digite seu número de registro no EA para **BillingProfileIdOrEnrollmentNumber**. Especifique o número de meses de dados a serem obtidos. Deixe o valor padrão do **Escopo** de **Número de registro** e selecione **Próximo**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Captura de tela mostrando onde você insere suas informações de registro no EA." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
+1. A próxima caixa de diálogo se conecta ao Azure e obtém os dados. *Mantenha os valores padrão configurados* e selecione **Entrar e continuar**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Captura de tela mostrando a caixa de diálogo Conectar-se ao aplicativo Gerenciamento de Custos do Azure com valores padrão." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+1. A etapa final da instalação se conecta à sua inscrição no EA e requer uma conta [Enterprise Administrator](../manage/understand-ea-roles.md). Deixe todos os valores padrão. Selecione **Entrar e conectar**.  
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Captura de tela mostrando a caixa de diálogo Conectar-se ao aplicativo Gerenciamento de Custos do Azure com valores padrão para se conectar." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+1. Você deve ser solicitado a se autenticar com seu registro de EA. Faça a autenticação com o Power BI. Depois que você for autenticado, uma atualização de dados do Power BI será iniciada.
     > [!NOTE]
     > O processo de atualização de dados pode levar muito tempo para ser concluído. O comprimento depende do número de meses especificado e da quantidade de dados necessários para a sincronização.
-12. Para verificar o status da atualização de dados, selecione a guia **Conjuntos de dados** no workspace. Observe ao lado do carimbo de data/hora atualizado. Se ainda estiver atualizando, você verá um indicador mostrando que a atualização está em andamento.  
-  ![Atualizar dados](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/data-refresh2.png)
 
 Após a conclusão da atualização dos dados, selecione o Aplicativo de Gerenciamento de Custos do Azure para exibir os relatórios pré-criados.
 
@@ -78,11 +77,11 @@ Os relatórios a seguir estão disponíveis com o aplicativo.
 
 **Uso de AHB do Windows Server** – O relatório mostra o número de máquinas virtuais que têm o Benefício Híbrido do Azure habilitado. Ele também mostra uma contagem de núcleos/vCPUs usados pelas máquinas virtuais.
 
-![Relatório completo dos Benefícios Híbridos do Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Captura de tela mostrando o relatório completo do Benefício Híbrido do Azure." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
 O relatório também identifica VMs do Windows em que o Benefício Híbrido está **habilitado**, mas há _menos que_ 8 vCPUs. Também mostra onde o Benefício Híbrido não está **habilita** com 8 _ou mais_ vCPUs. Essas informações ajudam você a usar totalmente seu benefício híbrido. Aplique o benefício às suas máquinas virtuais mais caras para maximizar suas economias em potencial.
 
-![Benefícios híbridos do Azure – menos de 8 vCPUs e vCPUs não habilitados](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Captura de tela mostrando a área Menos de 8 vCPUs e vCPUs sem AHB habilitado do relatório do Benefício Híbrido do Azure." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
 **Estorno da RI** – O relatório ajuda a entender onde e quanto de um benefício de RI (instância reservada) é aplicado por região, assinatura, grupo de recursos ou recurso. O relatório usa dados de uso amortizado para mostrar a exibição.
 
@@ -105,7 +104,7 @@ Você pode usar os dados de uso amortizados para criar os dados.
 
 Para usar o relatório, selecione o filtro de busca detalhada.
 
-![Relatório de cobertura da RI da VM – selecionar busca detalhada](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Captura de tela mostrando a seleção da opção de drill down no relatório de cobertura de RI da VM." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
 
 Selecione a região que você deseja analisar. Em seguida, selecione o grupo flexibilidade de tamanho da instância e assim por diante.
 
@@ -118,7 +117,7 @@ A tabela de recomendações fornece recomendações para a compra de reserva, co
 
 Os valores _Tamanho normalizado_ e _Quantidade recomendada normalizada_ ajudam a normalizar a compra no menor tamanho para um grupo de flexibilidade de tamanho de instância. As informações são úteis se você planeja comprar apenas uma reserva para todos os tamanhos no grupo de flexibilidade de tamanho da instância.
 
-![Recomendações de RI](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" alt-text="Captura de tela mostrando o relatório de recomendações da RI." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recommendations.png" :::
 
 **Cobertura da RI da VM (recomendação única)** – O relatório é dividido entre o uso da VM sob demanda e o uso da VM da RI no período selecionado. Ele fornece recomendações para compras de RI de VM em um escopo de assinatura.
 
@@ -151,7 +150,7 @@ O valor de **Escopo** padrão de `Enrollment Number` foi alterado na conexão co
 
 Reconecte-se ao Gerenciamento de Custos e defina o valor do **Escopo** como `Enrollment Number`. Não insira o número de registro da sua organização, em vez disso, digite `Enrollment Number` exatamente como ele aparece na imagem a seguir.
 
-![Inserir informações de registro no EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" alt-text="Captura de tela mostrando que o texto padrão do número de registro não deve ser alterado." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" :::
 
 ### <a name="budgetamount-error"></a>Erro de BudgetAmount
 
@@ -166,12 +165,11 @@ Data source error: The 'budgetAmount' column does not exist in the rowset. Table
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre devido a um bug com os metadados subjacentes. O problema ocorre porque não há nenhum orçamento disponível no **Gerenciamento de Custos > Orçamento** no portal do Azure. A correção de bug está no processo de ser implantado no Power BI Desktop e no serviço do Power BI. 
+Esse erro ocorre devido a um bug com os metadados subjacentes. O problema ocorre porque não há nenhum orçamento disponível no **Gerenciamento de Custos > Orçamento** no portal do Azure. A correção de bug está no processo de ser implantado no Power BI Desktop e no serviço do Power BI.
 
 #### <a name="solution"></a>Solução
 
 - Até que o bug seja corrigido, resolva o problema adicionando um orçamento de teste no portal do Azure no nível de registro da conta de cobrança/do EA. O orçamento de teste desbloqueia a conexão com o Power BI. Para obter mais informações sobre como criar um orçamento, confira [Tutorial: Criar e gerenciar orçamentos do Azure](tutorial-acm-create-budgets.md).
-
 
 ### <a name="invalid-credentials-for-azureblob-error"></a>Credenciais inválidas para erro de AzureBlob
 
@@ -183,15 +181,14 @@ Failed to update data source credentials: The credentials provided for the Azure
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorrerá se você alterar o método de autenticação da conexão de blob de AutoFitComboMeter.
+Esse erro ocorrerá se você alterar o método de autenticação da conexão da sua fonte de dados.
 
 #### <a name="solution"></a>Solução
 
 1. Conecte-se aos seus dados.
 1. Depois de inserir o registro do EA e o número de meses, mantenha o valor padrão **Anônimo** para o Método de autenticação e **Nenhum** para a Configuração de nível de privacidade.  
-  ![A captura de tela mostra a caixa de diálogo Conectar-se ao Aplicativo de Gerenciamento de Custos do Azure com os valores Anônimo e Nenhum inseridos.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="A captura de tela mostra a caixa de diálogo Conectar-se ao Aplicativo de Gerenciamento de Custos do Azure com os valores Anônimo e Nenhum inseridos." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. Na próxima página, defina **OAuth2** para o Método de autenticação e **Nenhum** para o Nível de privacidade. Em seguida, conecte-se para se autenticar no registro. Essa etapa também inicia uma atualização de dados do Power BI.
-
 
 ## <a name="data-reference"></a>Referência de dados
 

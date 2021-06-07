@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743025"
 ---
 # <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Habilitar a comunicação para instâncias de função nos serviços de nuvem do Azure (clássico)

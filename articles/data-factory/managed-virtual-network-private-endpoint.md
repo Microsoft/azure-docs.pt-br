@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379566"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101699617"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -43,7 +43,7 @@ Benefícios do uso da rede virtual gerenciada:
 
 ## <a name="managed-private-endpoints"></a>Pontos de extremidade privados gerenciados
 
-Pontos de extremidade privados gerenciados são pontos de extremidade privados criados no Azure Data Factory rede virtual gerenciada estabelecendo um link privado para recursos do Azure. Azure Data Factory gerencia esses pontos de extremidade privados em seu nome. 
+Pontos de extremidade privados gerenciados são pontos de extremidade privados criados no Azure Data Factory rede virtual gerenciada estabelecendo um link privado para recursos do Azure. O Azure Data Factory gerencia para você esses pontos de extremidade privados. 
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
@@ -108,11 +108,13 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.
-- O armazenamento do Azure e o Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada por ADF.
+- O Armazenamento do Microsoft Azure e o Azure Data Lake Gen2 não têm compatibilidade com conexão por meio do ponto de extremidade público da rede virtual gerenciada pelo ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço vinculado de Azure Key Vault 
 - Quando você cria um Serviço Vinculado para Azure Key Vault, não há referências do Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
 - **Testar** a operação de conexão para o serviço vinculado do Azure Key Vault valida apenas o formato da URL, mas não faz nenhuma operação de rede.
+- A coluna que **usa o ponto de extremidade privado** sempre é mostrada como em branco mesmo se você criar um ponto de extremidade privado para Azure Key Vault.
+![Ponto de extremidade privado para AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 48df2cb6ac103d1f03d2d64fce0d10a8f2f128e2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106505"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043403"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
 
@@ -30,7 +30,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.7 ou 3.3 ou versão posterior](https://www.python.org/downloads/)
+* [Python versão 2.7 ou 3.6 e posterior](https://www.python.org/downloads/)
 
 * Gerenciador de pacotes de [pip](https://pip.pypa.io/en/stable/installing/)
 

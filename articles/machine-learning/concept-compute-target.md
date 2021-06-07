@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791165"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574638"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -76,7 +76,7 @@ Você pode criar Azure Machine Learning instâncias de computação ou clusters 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 
-|Funcionalidade  |Cluster de computação  |Instância de computação  |
+|Recurso  |Cluster de computação  |Instância de computação  |
 |---------|---------|---------|
 |Cluster único ou com vários nós     |    **&check;**       |         |
 |Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |
@@ -98,24 +98,30 @@ Há algumas exceções e limitações para escolher um tamanho de VM:
 
 Consulte a tabela a seguir para saber mais sobre as restrições e as séries com suporte.
 
-| **Série de VMs com suporte**  | **Restrições** |
-|------------|------------|
-| D | Nenhum. |
-| Dv2 | Nenhum. |  
-| Dv3 | Nenhum.|
-| DSv2 | Nenhum. | 
-| DSv3 | Nenhum.|
-| FSv2 | Nenhum. | 
-| HBv2 | Requer aprovação. |  
-| HCS | Requer aprovação. |  
-| M | Requer aprovação. |
-| NC | Nenhum. |    
-| NCsv2 | Requer aprovação. |
-| NCsv3 | Requer aprovação. |  
-| NDs | Requer aprovação. |
-| NDv2 | Requer aprovação. |
-| NV | Nenhum. |
-| NVv3 | Requer aprovação. | 
+| **Série de VMs com suporte**  | **Restrições** | **Categoria** | **Com suporte por** |
+|------------|------------|------------|------------|
+| D | Nenhum. | Propósito geral | Clusters e instância de computação |
+| DDSv4 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| Dv2 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| Dv3 | Nenhum.| Propósito geral | Clusters e instância de computação |
+| DSv2 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| DSv3 | Nenhum.| Propósito geral | Clusters e instância de computação |
+| EAv4 | Nenhum. | Otimizado para memória | Clusters e instância de computação |
+| Ev3 | Nenhum. | Otimizado para memória | Clusters e instância de computação |
+| FSv2 | Nenhum. | Otimizado para computação | Clusters e instância de computação |
+| H | Nenhum. | Computação de alto desempenho | Clusters e instância de computação |
+| HB | Requer aprovação. | Computação de alto desempenho | Clusters e instância de computação |
+| HBv2 | Requer aprovação. |  Computação de alto desempenho | Clusters e instância de computação |
+| HCS | Requer aprovação. |  Computação de alto desempenho | Clusters e instância de computação |
+| M | Requer aprovação. | Otimizado para memória | Clusters e instância de computação |
+| NC | Nenhum. |  GPU | Clusters e instância de computação |
+| Promoção de NC | Nenhum. | GPU | Clusters e instância de computação |
+| NCsv2 | Requer aprovação. | GPU | Clusters e instância de computação |
+| NCsv3 | Requer aprovação. | GPU | Clusters e instância de computação |  
+| NDs | Requer aprovação. | GPU | Clusters e instância de computação | 
+| NDv2 | Requer aprovação. | GPU | Clusters e instância de computação | 
+| NV | Nenhum. | GPU | Clusters e instância de computação | 
+| NVv3 | Requer aprovação. | GPU | Clusters e instância de computação | 
 
 
 Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas podem não estar disponíveis em todas as regiões do Azure. Para verificar se a série de VMs está disponível, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -123,7 +129,7 @@ Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas pode
 > [!NOTE]
 > Azure Machine Learning não dá suporte a todos os tamanhos de VM com suporte da computação do Azure. Para listar os tamanhos de VM disponíveis, use um dos seguintes métodos:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [SDK do Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [SDK do Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Isolamento de computação

@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um servidor – CLI do Azure – Banco de Dados do Azure para PostgreSQL – Servidor Flexível'
 description: Este início rápido descreverá como usar a CLI do Azure para criar um Servidor Flexível do Banco de Dados do Azure para PostgreSQL em um grupo de recursos do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 320457365a36825564154c36ad843ef665fc2d2c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842814"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791545"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Início Rápido: Criar um Servidor Flexível do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
@@ -32,13 +32,13 @@ Caso prefira instalar e usar a CLI localmente, este início rápido exigirá a C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az-login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
+Você precisará fazer logon em sua conta usando o comando [az login](/cli/azure/reference-index#az_login). Observe a propriedade **id**, que se refere à **ID da Assinatura** para sua conta do Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az-account-set). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az-account-list).
+Selecione a assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set). Anote o valor de **id** da saída **az login** para usar como valor para o argumento **subscription** no comando. Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Para obter todas as suas assinaturas, use [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>

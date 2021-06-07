@@ -7,10 +7,10 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683735"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
@@ -45,7 +45,7 @@ Por padrão, a função de gatilho HTTP é configurada para aceitar qualquer mé
 
     Você não incluiu o `/api` prefixo de caminho base no modelo de rota, pois ele é manipulado por uma configuração global.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Para obter mais informações sobre como personalizar funções HTTP, consulte [Azure Functions associações http](./functions-bindings-http-webhook.md).
 
@@ -73,7 +73,7 @@ Em seguida, teste sua função para ver como ela funciona com a nova superfície
 Na próxima seção, você pausará a API por meio de um proxy. Os Proxies do Azure Functions permitem o encaminhamento de solicitações para outros recursos. Você define um ponto de extremidade HTTP, assim como com o gatilho HTTP. No entanto, em vez de escrever código para executar quando esse ponto de extremidade é chamado, você fornece uma URL para uma implementação remota. Fazer isso permite compor várias fontes de API em uma única superfície de API, o que é fácil para os clientes consumirem, o que é útil se você quiser criar sua API como microservices.
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
-- Funções do Azure 
+- Azure Functions 
 - Aplicativos de API no [Serviço de Aplicativo do Azure](../app-service/overview.md)
 - Contêineres de docker no [Serviço de Aplicativo no Linux](../app-service/overview.md#app-service-on-linux)
 - Qualquer outra API hospedada
@@ -95,7 +95,7 @@ Repita as etapas para [Criar um aplicativo de função](./functions-get-started.
     > [!NOTE] 
     > As configurações do aplicativo são recomendadas para a configuração do host a fim de evitar uma dependência do ambiente embutida no código para o proxy. Usar configurações do aplicativo significa que você pode mover a configuração do proxy entre ambientes, e as configurações de aplicativo específicas ao ambiente serão aplicadas.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Criar um proxy no front-end
 
@@ -107,7 +107,7 @@ Repita as etapas para [Criar um aplicativo de função](./functions-get-started.
 
     | Campo | Valor de exemplo | Descrição |
     |---|---|---|
-    | Name | HelloProxy | Um nome amigável usado apenas para gerenciamento |
+    | Nome | HelloProxy | Um nome amigável usado apenas para gerenciamento |
     | Modelo de rota | /api/remotehello | Determina qual rota pode ser usada para chamar esse proxy |
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
 

@@ -5,7 +5,6 @@ services: front-door
 documentationcenter: na
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.assetid: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 8ccc50dfc4c53f1ee207a04d7d7775775f13cb65
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3ecb8cacd8fa47709432e26243bd754511658d2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347780"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057908"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Início Rápido: criar um Front Door para um aplicativo Web global altamente disponível usando o Azure PowerShell
 

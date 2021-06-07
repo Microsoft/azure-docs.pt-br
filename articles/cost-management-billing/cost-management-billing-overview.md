@@ -4,17 +4,17 @@ description: Você usa os recursos do Gerenciamento de Custos do Azure + Cobran�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051086"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050521"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Gerenciamento de Custos do Azure + Cobrança?
 
@@ -33,6 +33,8 @@ Com os produtos e serviços do Azure, você paga apenas pelo que usar. Ao criar 
 
 Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
+![Diagrama do processo de otimização do Gerenciamento de Custos e Cobrança.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Entender a Cobrança do Azure
 
 Os recursos da Cobrança do Azure são usados para examinar os custos faturados e gerenciar o acesso às informações de cobrança. Em organizações maiores, as equipes de suprimento e finanças geralmente realizam as tarefas de faturamento.
@@ -48,32 +50,6 @@ Atualmente, o portal do Azure dá suporte aos seguintes tipos de contas de cobra
 - **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um EA (Contrato Enterprise) para usar o Azure.
 
 - **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma conta com taxas pagas conforme o uso ou atualizam sua [conta gratuita do Azure](./manage/create-free-services.md), também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
-
-### <a name="scopes-for-billing-accounts"></a>Escopos para contas de cobrança
-Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenciar a cobrança. É nele que você gerencia dados de cobrança, pagamentos, faturas e realiza o gerenciamento geral da conta.
-
-#### <a name="microsoft-online-services-program"></a>Programa Microsoft Online Services
-
-|Escopo  |Definição  |
-|---------|---------|
-|Conta de cobrança     | Representa um único proprietário (administrador da conta) de uma ou mais assinaturas do Azure. Um administrador da conta está autorizado a realizar várias tarefas de cobrança, como criar assinaturas, exibir faturas ou alterar a cobrança de assinaturas.  |
-|Subscription     |  Representa um agrupamento de recursos do Azure. Uma fatura é gerada no escopo da assinatura. Ela tem suas próprias formas de pagamento que são usadas para pagar a fatura.|
-
-#### <a name="enterprise-agreement"></a>Contrato Enterprise
-
-|Escopo  |Definição  |
-|---------|---------|
-|Conta de cobrança    | Representa um registro do Contrato Enterprise. A fatura é gerada no escopo da conta de cobrança. Ela é estruturada usando departamentos e contas de registro.  |
-|department     |  Agrupamento opcional de contas de registro.      |
-|Conta de registro     |  Representa um único proprietário da conta. As assinaturas do Azure são criadas no escopo da conta de registro.  |
-
-#### <a name="microsoft-customer-agreement"></a>Contrato de Cliente da Microsoft
-
-|Escopo  |Tarefas  |
-|---------|---------|
-|Conta de cobrança     |   Representa um contrato de cliente para vários produtos e serviços da Microsoft. A conta de cobrança é estruturada usando perfis de cobrança e seções da fatura.   |
-|Perfil de faturamento     |  Representa uma fatura e suas formas de pagamento. A fatura é gerada nesse escopo. O perfil de cobrança pode ter várias seções de fatura.      |
-|Seção da fatura     |   Representa um grupo de custos em uma fatura. As assinaturas e outras compras estão associadas ao escopo da seção da fatura.    |
 
 ## <a name="understand-azure-cost-management"></a>Entender o Gerenciamento de Custos do Azure
 

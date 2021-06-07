@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
 ms.openlocfilehash: 62516218ed2c0249f829ad8d286e4ad8bbc471f8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96932083"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure

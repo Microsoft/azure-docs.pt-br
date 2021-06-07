@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
 ms.openlocfilehash: 72c35cba7c058928a7b087dd5f26f741e73a202c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98684359"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operações de taxa de transferência (RU/s) com o PowerShell para um keyspace ou uma tabela do Azure Cosmos DB – API do Cassandra

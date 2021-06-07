@@ -9,11 +9,11 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: eb558d967ad657d14158684fba92b13979ea5fe2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91281581"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105646501"
 ---
 # <a name="opc-vault-architecture"></a>Arquitetura do OPC Vault
 

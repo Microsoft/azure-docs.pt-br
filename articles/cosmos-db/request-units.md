@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/23/2020
 ms.custom: seo-nov-2020
 ms.openlocfilehash: 23401885580a3883dc49eccc97c17bbedd9080ab
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187316"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB

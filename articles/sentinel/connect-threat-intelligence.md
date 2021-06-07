@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96121740"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
+# <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados dos provedores de inteligência contra ameaças
 
 > [!IMPORTANT]
 > Os conectores de dados de inteligência contra ameaças no Azure Sentinel estão atualmente em visualização pública.
@@ -86,7 +86,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
     
     c. Para a ação, especifique alerta.
 
-5. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
+5. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >   e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
 
 6. Selecione a **página abrir conector** e **Conecte-se**.
 
@@ -102,9 +102,9 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ### <a name="instructions"></a>Instruções
 
-1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector **Threat Intelligence-táxii (versão prévia)** .
+1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >   e selecione o conector **Threat Intelligence-táxii (versão prévia)** .
 
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 
 3. Especifique as informações necessárias e opcionais nas caixas de texto.
 

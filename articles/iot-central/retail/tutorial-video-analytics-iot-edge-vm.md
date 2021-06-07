@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99832616"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (VM do Linux)
@@ -119,7 +119,7 @@ sudo docker ps
 
 A lista inclui um contêiner chamado **live555**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

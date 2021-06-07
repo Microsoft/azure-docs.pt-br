@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607515"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -106,9 +106,9 @@ Tudo depois da versão da API 2020-06-01 dá suporte ao diagnóstico de iniciali
 - O diagnóstico de inicialização gerenciado não oferece suporte a VMs que usam discos do sistema operacional não gerenciados.
 - O diagnóstico de inicialização não oferece suporte a contas de armazenamento Premium, se uma conta de armazenamento Premium for usada para os usuários de diagnóstico de inicialização receberem um `StorageAccountTypeNotSupported` erro ao iniciar a VM. 
 - As contas de armazenamento gerenciadas têm suporte na versão da API do Gerenciador de recursos "2020-06-01" e posterior.
-- Atualmente, o console serial do Azure é incompatível com uma conta de armazenamento gerenciada para o diagnóstico de inicialização. Saiba mais sobre o [console serial do Azure](./troubleshooting/serial-console-overview.md).
+- Atualmente, o console serial do Azure é incompatível com uma conta de armazenamento gerenciada para o diagnóstico de inicialização. Saiba mais sobre o [console serial do Azure](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - O portal só dá suporte ao uso de diagnóstico de inicialização com uma conta de armazenamento gerenciada para VMs de instância única.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [console serial do Azure](./troubleshooting/serial-console-overview.md) e como usar o diagnóstico de inicialização para [solucionar problemas de máquinas virtuais no Azure](./troubleshooting/boot-diagnostics.md).
+Saiba mais sobre o [console serial do Azure](/troubleshoot/azure/virtual-machines/serial-console-overview) e como usar o diagnóstico de inicialização para [solucionar problemas de máquinas virtuais no Azure](/troubleshoot/azure/virtual-machines/boot-diagnostics).

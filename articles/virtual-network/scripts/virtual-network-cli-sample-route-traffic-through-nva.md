@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 964fda8168867c115502c7262dc1d41e55075866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dca5e36144fe17b39f76bb61543f59a1c6d7772
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317643"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790177"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance---azure-cli-script-sample"></a>Rotear o tráfego por meio de uma solução de virtualização de rede – Amostra de script da CLI do Azure
 
@@ -58,8 +58,8 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 | [az network nsg create](/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) | Cria regras de NSG que permitem as portas HTTP e HTTPS de entrada para a VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet)| Associa os NSGs e tabelas de rotas às sub-redes. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Cria uma tabela de rotas com todas as rotas. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Cria as rotas para rotear o tráfego entre sub-redes e a Internet por meio da VM. |
+| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Cria uma tabela de rotas com todas as rotas. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Cria as rotas para rotear o tráfego entre sub-redes e a Internet por meio da VM. |
 | [az vm create](/cli/azure/vm) | Cria uma máquina virtual e anexa o NIC a ela. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
 | [az group delete](/cli/azure/group) | Exclui um grupo de recursos e todos os seus recursos contidos nele. |
 

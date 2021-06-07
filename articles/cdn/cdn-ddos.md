@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: ac00491a34e6e7d18c74827afc6647358794a8be
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351683"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Proteção contra DDoS da CDN do Azure

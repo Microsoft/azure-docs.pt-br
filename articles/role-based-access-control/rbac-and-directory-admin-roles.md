@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092193"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107190"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -91,7 +91,7 @@ Quando você clicar na guia **Funções**, verá a lista de funções internas e
 
 ![Funções internas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md).
+Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-roles"></a>Funções do Azure AD
 
@@ -99,7 +99,7 @@ As funções do Azure AD são usadas para gerenciar recursos do Azure AD em um d
 
 | Função do Azure AD | Permissões | Observações |
 | --- | --- | --- |
-| [Administrador global](../active-directory/roles/permissions-reference.md#global-administrator-permissions) | <ul><li>Gerenciar o acesso a todos os recursos administrativos do Azure Active Directory, bem como serviços federados ao Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Redefinir a senha para qualquer usuário e todos os outros administradores</li></ul> | A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. |
+| [Administrador global](../active-directory/roles/permissions-reference.md#global-administrator) | <ul><li>Gerenciar o acesso a todos os recursos administrativos do Azure Active Directory, bem como serviços federados ao Azure Active Directory</li><li>Atribuir funções de administrador a outras pessoas</li><li>Redefinir a senha para qualquer usuário e todos os outros administradores</li></ul> | A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. |
 | [Administrador de usuários](../active-directory/roles/permissions-reference.md#user-administrator) | <ul><li>Criar e gerenciar todos os aspectos de usuários e grupos</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li><li>Alterar senhas de usuários, Administradores de Assistência Técnica e outros Administradores de Usuário</li></ul> |  |
 | [Administrador de cobrança](../active-directory/roles/permissions-reference.md#billing-administrator) | <ul><li>Fazer compras</li><li>Gerenciar Assinaturas</li><li>Gerenciar tíquetes de suporte</li><li>Monitorar a integridade do serviço</li></ul> |  |
 
@@ -115,7 +115,7 @@ De maneira geral, as funções do Azure controlam permissões para gerenciar rec
 | --- | --- |
 | Gerenciar o acesso com recursos do Azure | Gerenciar o acesso a recursos do Azure Active Directory |
 | Dá suporte a funções personalizadas | Dá suporte a funções personalizadas |
-| O escopo pode ser especificado em vários níveis (grupo de gerenciamento, assinatura, grupo de recursos e recursos) | O escopo está no nível do locatário |
+| O escopo pode ser especificado em vários níveis (grupo de gerenciamento, assinatura, grupo de recursos e recursos) | O [escopo](../active-directory/roles/custom-overview.md#scope) pode ser especificado no nível do locatário (em toda a organização), na unidade administrativa ou em um objeto individual (por exemplo, um aplicativo específico) |
 | As informações de função podem ser acessadas no portal do Azure, na CLI do Azure, no Azure PowerShell, nos modelos do Azure Resource Manager, na API REST | As informações de função podem ser acessadas no portal de administração do Azure, no portal do administrador do Microsoft 365, no Microsoft Graph, no AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>As funções do Azure e as funções do Azure AD se sobrepõem?

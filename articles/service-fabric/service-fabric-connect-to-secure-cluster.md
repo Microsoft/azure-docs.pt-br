@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a669f7400eb2daf2d71f6caed41560020699c58
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791114"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro

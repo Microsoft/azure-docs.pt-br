@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 37c24f2d785bbdd9847e0dadaa47969f5b090ef2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736794"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101698086"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série temporal no Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Esses componentes são combinados para especificar um modelo de série temporal 
 
 [![Gráfico de visão geral do modelo de série temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](/rest/api/time-series-insights/reference-model-apis).
+Um modelo de série temporal pode ser criado e gerenciado por meio do [Azure Time Series insights Explorer](./concepts-ux-panels.md). As configurações do modelo de série temporal podem ser gerenciadas por meio da [API de configurações do modelo](/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo do Time Series
 

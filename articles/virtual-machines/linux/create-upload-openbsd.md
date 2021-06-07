@@ -2,16 +2,17 @@
 title: Criar e carregar uma imagem OpenBSD
 description: Saiba como criar e carregar um disco rígido virtual (VHD) que contenha um sistema operacional OpenBSD para criar uma máquina virtual do Azure por meio da CLI do Azure
 author: gbowerman
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
-ms.openlocfilehash: efa38384778bb63857d3c867d74ace7f4f199118
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3437fcd2d1d521aad237ecf6d3f7937b4835d376
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685082"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554591"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Criar e carregar uma imagem de disco OpenBSD no Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema operacional OpenBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma máquina virtual (VM) no Azure por meio da CLI do Azure.
@@ -87,7 +88,7 @@ Agora você pode desligar sua VM.
 
 
 ## <a name="prepare-the-vhd"></a>Preparar o VHD
-O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco no formato VHD fixo usando o Gerenciador do Hyper-V ou o cmdlet [convert-vhd](/powershell/module/hyper-v/convert-vhd?view=win10-ps) do Powershell. Um exemplo é como segue.
+O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco no formato VHD fixo usando o Gerenciador do Hyper-V ou o cmdlet [convert-vhd](/powershell/module/hyper-v/convert-vhd) do Powershell. Um exemplo é como segue.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed

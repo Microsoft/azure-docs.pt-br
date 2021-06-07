@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ca3ba61de13e0e451b43dc9c8ea40db33fed859a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931100"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869660"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guia de dimensionamento do Cluster de Consulta Interativa do Azure HDInsight (Hive LLAP)
 
@@ -26,9 +26,9 @@ Este documento descreve o dimensionamento do cluster de Consulta Interativa do H
 | Trabalho   | **D14 v2**        | **16 vCPUs, 112 GB de RAM, SSD de 800 GB**       |
 | ZooKeeper   | A4 v2        | 4 vCPUs, 8 GB de RAM, SSD de 40 GB       |
 
-**_Observação: todos os valores de configuração recomendados se baseiam no tipo D14 v2 nó de trabalho_* _  
+***Observação: Todos os valores de configuração recomendados se baseiam no nó de trabalho do tipo D14 v2***  
 
-### <a name="_configuration"></a>_ *Configuração:**    
+### <a name="configuration"></a>**Configuração:**    
 | Chave de configuração      | Valor recomendado  | Descrição |
 | :---        |    :----:   | :---     |
 | yarn.nodemanager.resource.memory-mb | 102400 (MB) | Memória total fornecida, em MB, para todos os contêineres de YARN em um nó | 
@@ -47,64 +47,64 @@ Este documento descreve o dimensionamento do cluster de Consulta Interativa do H
 
 ### <a name="llap-architecturecomponents"></a>**Arquitetura/componentes do LLAP:**  
 
-![' Arquitetura/componentes do LLAP '](./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png "Arquitetura/componentes do LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="' Arquitetura/componentes do LLAP '" border="true":::
 
 ### <a name="llap-daemon-size-estimations"></a>**Estimativas de tamanho do daemon de LLAP:** 
 
 #### <a name="1-determining-total-yarn-memory-allocation-for-all-containers-on-a-node"></a>**1. Determinação de alocação total de memória YARN para todos os contêineres em um nó**    
-Configuração: **_yarn. NodeManager. Resource. Memory-MB_* _  
+Configuração: ***yarn.nodemanager.resource.memory-mb***  
 
 Esse valor indica uma soma máxima da memória em MB que pode ser usada pelos contêineres YARN em cada nó. O valor especificado deve ser menor que a quantidade total de memória física nesse nó.   
 Memória total para todos os contêineres de YARN em um nó = (memória física total – memória para so + outros serviços)  
 Defina esse valor como aproximadamente 90% da RAM disponível.  
-Para D14 v2, o valor recomendado é _ * 102.400 MB * *. 
+Para D14 v2, o valor recomendado é **102400 MB**. 
 
 #### <a name="2-determining-maximum-amount-of-memory-per-yarn-container-request"></a>**2. Determinação da quantidade máxima de memória por solicitação de contêiner do YARN**  
-Configuração: **_yarn. scheduler. Maximum-Allocation-MB_* _
+Configuração: ***yarn.scheduler.maximum-allocation-mb***
 
-Esse valor indica a alocação máxima de cada solicitação de contêiner no Azure Resource Manager, em MB. As solicitações de memória maiores que o valor especificado não entrarão em vigor. O Gerenciador de recursos pode fornecer memória a contêineres em incrementos de _yarn. scheduler. Minimum-Allocation-MB * e não pode exceder o tamanho especificado por *yarn. scheduler. Maximum-Allocation-MB*. O valor especificado não deve ser maior que a memória total especificada para todos os contêineres no nó especificado por *yarn.nodemanager.resource.memory-mb*.    
+Esse valor indica a alocação máxima de cada solicitação de contêiner no Azure Resource Manager, em MB. As solicitações de memória maiores que o valor especificado não entrarão em vigor. O Resource Manager pode fornecer memória para contêineres em incrementos de *yarn.scheduler.minimum-allocation-mb* e não pode exceder o tamanho especificado por *yarn.scheduler.maximum-allocation-mb*. O valor especificado não deve ser maior que a memória total especificada para todos os contêineres no nó especificado por *yarn.nodemanager.resource.memory-mb*.    
 Para nós de trabalho D14 v2, o valor recomendado é **102400 MB**
 
 #### <a name="3-determining-maximum-amount-of-vcores-per-yarn-container-request"></a>**3. Determinação da quantidade máxima de vcores por solicitação de contêiner do YARN**  
-Configuração: **_yarn. scheduler. Maximum-Allocation-vcores_* _  
+Configuração: ***yarn.scheduler.maximum-allocation-vcores***  
 
 Esse valor indica o número máximo de núcleos de CPU virtual de cada solicitação de contêiner no Resource Manager. Solicitar um número maior de vcores do que esse valor não terá efeito. É uma propriedade global do Agendador do YARN. Para o contêiner do daemon de LLAP, esse valor pode ser definido como 75% do total de vcores disponíveis. Os 25% restantes devem ser reservados para NodeManager, DataNode e outros serviços em execução nos nós de trabalho.  
 Há 16 vcores em VMs D14 v2 e 75% do total de 16 vcores podem ser usadas pelo contêiner do daemon de LLAP.  
-Para D14 v2, o valor recomendado é _ * 12 * *.  
+Para D14 v2, o valor recomendado é **12**.  
 
 #### <a name="4-number-of-concurrent-queries"></a>**4. Número de consultas simultâneas**  
-Configuração: **_Hive. Server2. tez. Sessions. per. padrão. Queue_* _
+Configuração: ***hive.server2.tez.sessions.per.default.queue***
 
 Esse valor de configuração determina o número de sessões de Tez que podem ser iniciadas paralelamente. Essas sessões de Tez serão iniciadas para cada uma das filas especificadas por "hive.server2.tez.default.queues". Isso corresponde ao número de Tez AMs (Coordenadores de Consulta). É recomendável que seja igual ao número de nós de trabalho. O número de Tez AMs pode ser maior que o número de nós do daemon de LLAP. Sua principal responsabilidade é coordenar a execução da consulta e atribuir fragmentos do plano de consulta aos daemons de LLAP correspondentes para execução. Mantenha esse valor como múltiplo de vários nós daemon LLAP para obter maior taxa de transferência.  
 
-O cluster HDInsight padrão tem quatro daemons LLAP em execução em quatro nós de trabalho, portanto, o valor recomendado é _ * 4 * *.  
+O cluster HDInsight padrão tem quatro daemons de LLAP em execução em quatro nós de trabalho. Portanto, o valor recomendado é **4**.  
 
 **Controle deslizante da interface do usuário Ambari para variável de configuração do hive `hive.server2.tez.sessions.per.default.queue` :**
 
-![' LLAP máximo de consultas simultâneas '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP número máximo de consultas simultâneas")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="' LLAP máximo de consultas simultâneas '" border="true":::
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. O contêiner Tez e o tamanho mestre do aplicativo Tez**    
-Configuração: **_tez. am. Resource. Memory. MB, Hive. tez. Container. Size_* _  
+Configuração: ***tez.am.resource.memory.mb, hive.tez.container.size***  
 
-_tez. am. Resource. Memory. MB *-define o tamanho mestre do aplicativo tez.  
+*tez.am.resource.memory.mb* - define o tamanho mestre do aplicativo Tez.  
 O valor recomendado é **4096 MB**.
    
 *hive.tez.container.size* - define a quantidade de memória fornecida para o contêiner Tez. Esse valor deve ser definido entre o tamanho mínimo do contêiner YARN (*yarn.scheduler.minimum-allocation-mb*) e o tamanho máximo de contêiner YARN (*yarn.scheduler.maximum-allocation-mb*). Os executores de daemon de LLAP usam esse valor para limitar o uso de memória por executor.  
 O valor recomendado é **4096 MB**.  
 
 #### <a name="6-llap-queue-capacity-allocation"></a>**6. Alocação de capacidade de fila de LLAP**   
-Configuração: **_yarn. scheduler. Capacity. raiz. LLAP. Capacity_* _  
+Configuração: ***yarn.scheduler.capacity.root.llap.capacity***  
 
 Esse valor indica uma porcentagem da capacidade fornecida para a fila de LLAP. As alocações de capacidade podem ter valores diferentes para cargas de trabalho diferentes, dependendo de como as filas do YARN estão configuradas. Se sua carga de trabalho for de operações somente leitura, defini-la como 90% da capacidade deve funcionar. No entanto, se sua carga de trabalho for uma combinação de operações de atualização/exclusão/mesclagem usando tabelas gerenciadas, é recomendável fornecer 85% da capacidade para a fila LLAP. A capacidade restante de 15% pode ser usada por outras tarefas, como compactação, etc. para alocar contêineres da fila padrão. Dessa forma, as tarefas na fila padrão não retirarão os recursos do YARN.    
 
-Para nós de trabalho D14v2, o valor recomendado para fila LLAP é _ * 85 * *.     
+Para nós de trabalho D14v2, o valor recomendado para a fila LLAP é **85**.     
 (Para cargas de trabalho somente leitura, pode ser aumentado até 90 como for adequado.)  
 
 #### <a name="7-llap-daemon-container-size"></a>**7. Tamanho do contêiner do daemon de LLAP**    
-Configuração: **_Hive. LLAP. daemon. yarn. Container. MB_* _  
+Configuração: ***hive.llap.daemon.yarn.container.mb***  
    
 O daemon de LLAP é executado como um contêiner do YARN em cada nó de trabalho. O tamanho total da memória para o contêiner do daemon de LLAP depende dos seguintes fatores,    
-_ Configurações do tamanho do contêiner YARN (yarn. scheduler. Minimum-Allocation-MB, yarn. scheduler. Maximum-Allocation-MB, yarn. NodeManager. Resource. Memory-MB)
+*  Configurações do tamanho do contêiner do YARN (yarn.scheduler.minimum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
 *  Número de Tez AMs em um nó
 *  Memória total configurada para todos os contêineres em um nó e capacidade de fila de LLAP  
 
@@ -112,11 +112,11 @@ A memória necessária pelo Tez AM (Tez Application Masters) pode ser calculada 
 Tez atua como um coordenador de consultas e o número de tez AMs deve ser configurado com base em várias consultas simultâneas a serem atendidas. Teoricamente, podemos considerar um tez AM por nó de trabalho. No entanto, é possível que você veja mais de uma tez em um nó de trabalho. Para fins de cálculo, presumimos a distribuição uniforme do tez AMs em todos os nós/nós de trabalho do LLAP daemon.
 É recomendável ter 4 GB de memória por Tez AM.  
 
-Número de tez AMS = valor especificado pela configuração do hive ***Hive. Server2. tez. Sessions. per. padrão. Queue** _.  
-Número de nós do daemon LLAP = especificado pela variável env _*_num_llap_nodes_for_llap_daemons_*_ na interface do usuário do amAmbari.  
-Tamanho de contêiner tez AM = valor especificado por tez config _*_tez. am. Resource. Memory. MB_*_.  
+Número de tez AMS = valor especificado por Hive config ***Hive. Server2. tez. Sessions. per. default. Queue***.  
+Número de nós do daemon LLAP = especificado pela variável env ***num_llap_nodes_for_llap_daemons*** na interface do usuário do amAmbari.  
+Tamanho de contêiner tez AM = valor especificado por tez config ***tez. am. Resource. Memory. MB***.  
 
-Tez am Memory por nó = _ *(** ceil **(** número de tez **/** de nós do daemon do LLAP **)** **x** tez am tamanho do contêiner do **AMS)**  
+Memória tez am por nó = **(** ceil **(** número de tez **/** de nós do daemon do LLAP **)** **x** tez am tamanho do  contêiner)  
 Para D14 v2, a configuração padrão tem quatro Tez AMs e quatro nós de daemon de LLAP.  
 Memória do Tez AM por nó = (ceil(4/4) x 4 GB) = 4 GB
 
@@ -133,22 +133,25 @@ Para o nó de trabalho D14 v2, HDI 4,0-o valor recomendado é (85 GB-4 GB-1 GB))
 (Para HDI 3,6, o valor recomendado é **79 GB** porque você deve reservar mais ~ 2 GB para o controle deslizante am.)  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. Determinação do número de executores por daemon de LLAP**  
-Configuração: **_hive.llap.daemon.num.executors_* _, _*_Hive. LLAP. IO. ThreadPool. Size_*_
+Configuração: ***hive.llap.daemon.num.executors** _, _ *_Hive. LLAP. IO. ThreadPool. Size_**
 
-_*_hive.llap.daemon.num.executors_*_:   
+***hive.llap.daemon.num.executors***:   
 Essa configuração controla o número de executores que podem realizar tarefas em paralelo por daemon LLAP. Esse valor depende do número de vcores, da quantidade de memória usada por executor e da quantidade de memória total disponível para o contêiner do daemon do LLAP.    O número de executores pode ser superassinado em 120% de vcores disponíveis por nó de trabalho. No entanto, ele deve ser ajustado se não atender aos requisitos de memória com base na memória necessária por executor e o tamanho do contêiner LLAP daemon.
 
 Cada executor é equivalente a um contêiner tez e pode consumir 4 GB (tamanho do contêiner tez) de memória. Todos os executores no daemon LLAP compartilham a mesma memória de heap. Com a suposição de que nem todos os executores executam operações com uso intensivo de memória ao mesmo tempo, você pode considerar 75% do tamanho do contêiner tez (4 GB) por executor. Dessa forma, você pode aumentar o número de executores dando a cada executor menos memória (por exemplo, 3 GB) para maior paralelismo. No entanto, é recomendável ajustar essa configuração para sua carga de trabalho de destino.
 
 Há 16 vcores em VMs D14 v2.
-Para D14 v2, o valor recomendado para num dos executores é (16 vcores x 120%) ~ = _ *19** em cada nó de trabalho considerando 3GB por executor.
+Para D14 v2, o valor recomendado para num dos executores é (16 vcores x 120%) ~ = **19** em cada nó de trabalho considerando 3GB por executor.
 
-**_Hive. LLAP. IO. ThreadPool. Size_*_: esse valor especifica o tamanho do pool de threads para executores. Como os executores são fixos conforme especificado, ele será o mesmo número de executores por daemon LLAP. Para D14 v2, o valor recomendado é _* 19**.
+***hive.llap.io.threadpool.size***:   
+Esse valor especifica o tamanho do pool de threads para executores. Como os executores são corrigidos conforme especificado, será igual ao número de executores por daemon de LLAP.    
+Para D14 v2, o valor recomendado é **19**.
 
 #### <a name="9-determining-llap-daemon-cache-size"></a>**9. Determinando o tamanho do cache do daemon de LLAP**  
-Configuração: **_Hive. LLAP. IO. Memory. Size_* _
+Configuração: ***hive.llap.io.memory.size***
 
-A memória do contêiner do LLAP daemon consiste nos seguintes componentes; _ Sala de cabeça
+A memória do contêiner do daemon do LLAP consiste nos seguintes componentes;
+*  Reserva dinâmica
 *  Memória de heap usada pelos executores (Xmx)
 *  Cache na memória por daemon (seu tamanho de memória fora do heap, não aplicável quando o cache SSD está habilitado)
 *  Tamanho de metadados de cache na memória (aplicável somente quando o cache de SSD está habilitado)
@@ -162,7 +165,7 @@ Para D14 v2, esse valor é 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-![' Tamanho do heap LLAP '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png "Tamanho do heap LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="' Tamanho do heap LLAP '" border="true":::
 
 Quando o cache de SSD está desabilitado, o cache na memória é uma quantidade de memória que é deixada após a retirada do tamanho de reserva e o tamanho do heap do tamanho do contêiner do LLAP daemon.
 
@@ -181,24 +184,24 @@ Para D14 V2 e HDI 4,0, o tamanho recomendado do cache SSD = 19 GB/0, 8 ~ = **237
 Para D14 V2 e HDI 3,6, o tamanho recomendado do cache SSD = 18 GB/0, 8 ~ = **225 GB**
 
 #### <a name="10-adjusting-map-join-memory"></a>**10. Ajuste da memória de junção de mapa**   
-Configuração: **_Hive. auto. converter. Join. noconditionaltask. Size_* _
+Configuração: ***hive.auto.convert.join.noconditionaltask.size***
 
-Verifique se você tem _hive. auto. converter. Join. noconditionaltask * habilitado para que esse parâmetro entre em vigor.
+Verifique se você tem *hive.auto.convert.join.noconditionaltask* habilitado para que esse parâmetro entre em vigor.
 Essa configuração determina o limite para a seleção de MapJoin pelo otimizador do hive que considera a superassinatura da memória de outros executores para ter mais espaço para tabelas de hash na memória para permitir mais conversões de junção de mapa. Considerando 3GB por executor, esse tamanho pode ser superassinado para 3GB, mas alguma memória de heap também pode ser usada para buffers de classificação, buffers de ordem aleatória, etc., por outras operações.   
 Portanto, para D14 v2, com 3 GB de memória por executor, é recomendável definir esse valor como **2048 MB**.  
 
 (Observação: esse valor pode precisar de ajustes adequados para sua carga de trabalho. Se você definir esse valor muito baixo, não poderá usar o recurso de conversão automática. E configurá-lo muito alto pode resultar em indisponibilidade de exceções de memória ou em pausas de GC que podem resultar em desempenho adverso.)  
 
 #### <a name="11-number-of-llap-daemons"></a>**11. número de daemons do LLAP**
-Variáveis de ambiente Ambari: **_num_llap_nodes, num_llap_nodes_for_llap_daemons_* _  
+Variáveis de ambiente Ambari: ***num_llap_nodes, num_llap_nodes_for_llap_daemons***  
 
-_ *num_llap_nodes**-especifica o número de nós usados pelo serviço LLAP do hive, isso inclui os nós que executam o daemon do LLAP, o serviço mestre do LLAP e o mestre do aplicativo tez (tez AM).  
+**num_llap_nodes** -especifica o número de nós usados pelo serviço LLAP do hive, isso inclui nós que executam o daemon do LLAP, o serviço mestre LLAP e o mestre do aplicativo tez (tez AM).  
 
-![' Número de nós para o serviço LLAP '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "Número de nós para o serviço LLAP")  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="' Número de nós para o serviço LLAP '" border="true":::  
 
 **num_llap_nodes_for_llap_daemons** -número especificado de nós usado somente para daemons LLAP. Os tamanhos de contêiner do daemon LLAP são definidos para o nó de ajuste máximo, portanto, ele resultará em um daemon de LLAP em cada nó.
 
-![' Número de nós para daemons LLAP '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png "Número de nós para daemons LLAP")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="' Número de nós para daemons LLAP '" border="true":::
 
 É recomendável manter os dois valores iguais aos do número de nós de trabalho no cluster de consulta interativa.
 

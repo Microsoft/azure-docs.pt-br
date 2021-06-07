@@ -2,19 +2,18 @@
 title: Disponibilidade e redundância do Azure Key Vault – Azure Key Vault | Microsoft Docs
 description: Saiba mais sobre a disponibilidade e a redundância do Azure Key Vault.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 3c5afc92044fcb109bedd38298b0b027ebeb437d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518440"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749682"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
 
@@ -23,7 +22,7 @@ O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garanti
 > [!NOTE]
 > Este guia se aplica aos cofres. Os pools do HSM gerenciado usam um modelo diferente de alta disponibilidade e recuperação de desastre. Confira o [Guia de recuperação de desastre do HSM gerenciado](../managed-hsm/disaster-recovery-guide.md) para obter mais informações.
 
-O conteúdo do seu cofre de chaves é replicado na região e em uma região secundária a, pelo menos, 150 milhas de distância, mas na mesma geografia, para manter alta durabilidade das chaves e dos segredos. Para obter detalhes sobre pares de regiões específicas, confira [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md). A exceção ao modelo de regiões emparelhadas é o Sul do Brasil, que permite apenas a opção de manter os dados residentes no Sul do Brasil. O Sul do Brasil usa o ZRS (armazenamento com redundância de zona) para replicar os seus dados três vezes em uma localização/região.   
+O conteúdo do seu cofre de chaves é replicado na região e em uma região secundária a, pelo menos, 150 milhas de distância, mas na mesma geografia, para manter alta durabilidade das chaves e dos segredos. Para obter detalhes sobre pares de regiões específicas, confira [Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md). A exceção ao modelo de regiões emparelhadas é o Sul do Brasil, que permite apenas a opção de manter os dados residentes no Sul do Brasil. O Sul do Brasil usa o ZRS (armazenamento com redundância de zona) para replicar os seus dados três vezes em uma localização/região. Para o AKV Premium, somente duas das três regiões são usadas para replicar dados do HSM.  
 
 Se os componentes individuais dentro do serviço de cofre de chaves falharem, os componentes alternativos dentro da região interferirão para atender à sua solicitação, de modo a garantir que não haja degradação da funcionalidade. Você não precisa realizar nenhuma ação para iniciar esse processo, ele ocorre automaticamente e será transparente para você.
 

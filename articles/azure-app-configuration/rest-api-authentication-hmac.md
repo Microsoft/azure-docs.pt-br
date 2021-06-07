@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: d5b5470b30848fd31be63f25c85c23f88cdaf0c6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981384"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101732217"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC – referência da API REST
 
@@ -31,7 +31,7 @@ Forneça cada solicitação com todos os cabeçalhos HTTP necessários para aute
 | **Host** | Número da porta e do host da Internet. Para obter mais informações, consulte a seção  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
 | **Data** | Data e hora em que a solicitação foi originada. Ele não pode ter mais de 15 minutos de desconto do tempo universal coordenado atual (hora de Greenwich). O valor é uma data HTTP, conforme descrito na seção [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
 | **x-ms-date** | O mesmo que ```Date``` acima. Você pode usá-lo em vez disso, quando o agente não puder acessar diretamente o ```Date``` cabeçalho da solicitação ou se um proxy o modificar. Se ```x-ms-date``` e ```Date``` forem ambos fornecidos, ```x-ms-date``` terá precedência. |
-| **x-MS-Content-SHA256** | hash SHA256 codificado em base64 do corpo da solicitação. Ele deve ser fornecido mesmo se não houver corpo. ```base64_encode(SHA256(body))```|
+| **x-ms-content-sha256** | hash SHA256 codificado em base64 do corpo da solicitação. Ele deve ser fornecido mesmo se não houver corpo. ```base64_encode(SHA256(body))```|
 | **Autorização** | Informações de autenticação exigidas pelo esquema HMAC-SHA256. O formato e os detalhes são explicados posteriormente neste artigo. |
 
 **Exemplo:**

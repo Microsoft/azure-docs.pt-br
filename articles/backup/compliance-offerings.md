@@ -4,10 +4,10 @@ description: Resumo das ofertas de conformidade para o backup do Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 0b175590bc83ad1cd1f47d0111101b967962f3a8
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093291"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Ofertas de conformidade do backup do Azure

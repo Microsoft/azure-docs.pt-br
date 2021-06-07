@@ -4,12 +4,12 @@ description: Saiba mais sobre o agente de ID do Azure HDInsight para simplificar
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 47ba11260c3b58566963e5a3ffac80ca461a8a23
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946824"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863183"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Agente de ID do Azure HDInsight (HIB)
 
@@ -34,7 +34,7 @@ Use a tabela a seguir para determinar a melhor opção de autenticação com bas
 
 O diagrama a seguir mostra o fluxo de autenticação baseado em OAuth moderno para todos os usuários, incluindo usuários federados, depois que o agente de ID do HDInsight está habilitado:
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagrama que mostra o fluxo de autenticação com o agente de ID do HDInsight.":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagrama que mostra o fluxo de autenticação com o agente de ID do HDInsight." border="false":::
 
 Neste diagrama, o cliente (ou seja, um navegador ou aplicativo) precisa adquirir o token OAuth primeiro. Em seguida, ele apresenta o token para o gateway em uma solicitação HTTP. Se você já tiver entrado em outros serviços do Azure, como o portal do Azure, você pode entrar em seu cluster HDInsight com uma experiência de logon único.
 
@@ -42,8 +42,7 @@ Ainda pode haver muitos aplicativos herdados que dão suporte apenas à autentic
 
 O diagrama a seguir mostra o fluxo de autenticação básica para usuários federados. Primeiro, o gateway tenta concluir a autenticação usando o [fluxo ROPC](../../active-directory/develop/v2-oauth-ropc.md). Caso não haja hashes de senha sincronizados com o Azure AD, ele voltará a descobrir o ponto de extremidade AD FS e concluirá a autenticação acessando o ponto de extremidade AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra a arquitetura com autenticação básica.":::
-
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra a arquitetura com autenticação básica." border="false":::
 
 ## <a name="enable-hdinsight-id-broker"></a>Habilitar agente de ID do HDInsight
 
@@ -55,7 +54,7 @@ Para criar um cluster de Enterprise Security Package com o agente de ID do HDIns
 
 O recurso agente de ID do HDInsight adiciona uma VM extra ao cluster. Essa VM é o nó agente de ID do HDInsight e inclui componentes de servidor para dar suporte à autenticação. O nó do agente de ID do HDInsight está ingressado no domínio do Azure AD DS domínio.
 
-![Diagrama que mostra a opção para habilitar o agente de ID do HDInsight.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="Diagrama que mostra a opção para habilitar o agente de ID do HDInsight." border="true":::
 
 ### <a name="use-azure-resource-manager-templates"></a>Usar modelos do Gerenciador de Recursos do Azure
 

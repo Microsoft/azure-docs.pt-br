@@ -1,6 +1,6 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
-Título: desenvolver com APIs V3: descrição dos serviços de mídia do Azure: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3. serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+Título: desenvolver com APIs V3: descrição dos serviços de mídia do Azure: Saiba mais sobre as regras que se aplicam a entidades e APIs ao desenvolver com os serviços de mídia v3. services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
 MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 10/23/2020 MS. autor: inhenkel MS. Custom: seodec18
 

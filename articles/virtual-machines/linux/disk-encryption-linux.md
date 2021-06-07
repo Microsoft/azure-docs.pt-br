@@ -2,21 +2,21 @@
 title: Cenários do Azure Disk Encryption em VMs Linux
 description: Este artigo fornece instruções sobre como habilitar as VMs Linux do Microsoft Azure Disk Encryption para vários cenários
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ebec78d5a9e82cc8a2f6ceb020a8b9552d6311e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604008"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
-
 
 O Azure Disk Encryption para VMs (máquinas virtuais) do Linux usa o recurso DM-Crypt do Linux para fornecer criptografia de disco completa do disco do sistema operacional e discos de dados. Além disso, ele fornece criptografia do disco temporário ao usar o recurso EncryptFormatAll.
 
@@ -262,7 +262,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 
 1. Formatar, montar e adicionar esses discos ao arquivo fstab.
 
-1. Escolha um padrão de partição, crie uma partição que abranja toda a unidade e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. O uso de symlinks evita problemas relacionados à alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo [Solucionar problemas de Nomes do Dispositivo](../troubleshooting/troubleshoot-device-names-problems.md).
+1. Escolha um padrão de partição, crie uma partição que abranja toda a unidade e, em seguida, formate a partição. Usamos symlinks gerados pelo Azure aqui. O uso de symlinks evita problemas relacionados à alteração de nomes de dispositivos. Para obter mais informações, consulte o artigo [Solucionar problemas de Nomes do Dispositivo](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -408,7 +408,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Criar uma imagem ou um instantâneo de uma VM criptografada e usá-la para implantar VMs adicionais.
 - Kdump (kernel de despejo de memória).
 - Oracle ACFS (Sistema de Arquivos de Cluster do ASM).
-- VMs Gen2 (consulte: [Suporte para VMs de geração 2 no Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - Os discos NVMe das VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
@@ -416,7 +415,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - VMs da série M com discos Acelerador de Gravação.
 - Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
 - Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).
-- [Tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md); especificamente, DV4, Dsv4, Ev4 e Esv4.
 - Criptografia de VMs em clusters de failover.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542182"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
@@ -26,7 +26,7 @@ A sintaxe de padrão oferece suporte à seguinte sintaxe:
 |Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
 |entidade| {} -chaves|2|Onde é o formato {Entity-Name}?|
-|opcional|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
+|opcionais|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
 |agrupamento|()-parênteses|2|é (a \| b)|
 |ou| \| -barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})|
 |início e/ou fim de expressão|^-cursor|-|^ iniciar o expressão<br>o expressão é concluído ^<br>^ correspondência literal estrita de expressão inteira com {Number} entidade ^|

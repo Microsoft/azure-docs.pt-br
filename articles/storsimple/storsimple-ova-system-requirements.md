@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 5970e82619667a47ba160c84df2cdeb145b0dab8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966166"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da matriz virtual StorSimple
@@ -38,7 +38,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 ### <a name="supported-virtualization-platforms"></a>Plataformas de virtualização com suporte
 | **Hipervisor** | **Versão** |
 | --- | --- |
-| Hyper-V |Windows Server 2008 R2 SP1 e posterior |
+| Hyper-v |Windows Server 2008 R2 SP1 e posterior |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
 
 > [!IMPORTANT]
@@ -89,15 +89,15 @@ Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página n�
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessária** | **Observações** |
+| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |No |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
-| TCP 443 (HTTPS) |Saída |WAN |Yes |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
+| TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local. |
 | UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
-| TCP 80 (HTTP) |Em |LAN |Yes |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
-| TCP 443 (HTTPS) |Em |LAN |Yes |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
-| TCP 3260 (iSCSI) |Em |LAN |No |Esta porta é usada para acessar dados em iSCSI. |
+| TCP 80 (HTTP) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
+| TCP 443 (HTTPS) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
+| TCP 3260 (iSCSI) |No |LAN |Não |Esta porta é usada para acessar dados em iSCSI. |
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 

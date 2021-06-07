@@ -2,25 +2,25 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 9a9f8fdda1bc853057f3eb858e85b938357397cd
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 443595a52458d7ff7c168f4c120257cfb60fad2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886085"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110875"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/dotnet/).
-- A versão mais recente da [biblioteca de clientes do .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operacional.
-- Obtenha a versão mais recente da [biblioteca de clientes de Identidade do .NET](/dotnet/api/azure.identity?view=azure-dotnet).
-- Obtenha a versão mais recente da [biblioteca de clientes do Gerenciamento do .NET](../../concepts/sdk-options.md).
+- A versão mais recente do [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operacional.
+- Obtenha a última versão do [SDK de Identidade do .NET](/dotnet/api/azure.identity).
+- Obtenha a última versão do [SDK do Gerenciamento do .NET](../../concepts/sdk-options.md).
 
-## <a name="installing-the-client-library"></a>Como instalar a biblioteca de clientes
+## <a name="installing-the-sdk"></a>Instalando o SDK
 
-Primeiro, inclua a biblioteca de clientes de Gerenciamento dos Serviços de Comunicação no seu projeto C#:
+Primeiro, inclua o SDK de Gerenciamento dos Serviços de Comunicação no seu projeto C#:
 
 ```csharp
 using Azure.ResourceManager.Communication;
@@ -121,11 +121,11 @@ Agora que você está autenticado, você pode usar o seu cliente de gerenciament
 
 Para cada um dos exemplos a seguir, atribuiremos os recursos dos Serviços de Comunicação a um grupo de recursos existente.
 
-Se você precisar criar um grupo de recursos, poderá fazer isso usando o [portal do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md) ou a [biblioteca de clientes do Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Se precisar criar um grupo de recursos, você poderá fazer isso usando o [portal do Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md) ou o [SDK do Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Criar e gerenciar um recurso dos Serviços de Comunicação
 
-Nossa instância do cliente da biblioteca de clientes de Gerenciamento dos Serviços de Comunicação (``Azure.ResourceManager.Communication.CommunicationManagementClient``) pode ser usada para executar operações em recursos de Serviços de Comunicação.
+Nossa instância do cliente do SDK de Gerenciamento dos Serviços de Comunicação (``Azure.ResourceManager.Communication.CommunicationManagementClient``) pode ser usada para executar operações em recursos de Serviços de Comunicação.
 
 #### <a name="create-a-communication-services-resource"></a>Criar um recurso dos Serviços de Comunicação
 
@@ -173,7 +173,7 @@ await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourc
 
 ## <a name="managing-keys-and-connection-strings"></a>Como gerenciar chaves e cadeias de conexão
 
-Cada recurso dos Serviços de Comunicação tem um par de chaves de acesso e cadeias de conexão correspondentes. Essas chaves podem ser acessadas com a biblioteca de clientes de Gerenciamento e, em seguida, usadas por outras bibliotecas de clientes dos Serviços de Comunicação para se autenticarem aos Serviços de Comunicação do Azure.
+Cada recurso dos Serviços de Comunicação tem um par de chaves de acesso e cadeias de conexão correspondentes. Essas chaves podem ser acessadas com o SDK de Gerenciamento e podem ser usadas por outros SDKs dos Serviços de Comunicação para se autenticarem aos Serviços de Comunicação do Azure.
 
 #### <a name="get-access-keys-for-a-communication-services-resource"></a>Obter chaves de acesso para um recurso dos Serviços de Comunicação
 

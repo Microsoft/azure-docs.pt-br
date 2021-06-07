@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400921"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101093027"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -42,6 +42,8 @@ Use os dispositivos gêmeos para:
 Veja as [Diretrizes de comunicação do dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) para obter orientação sobre o uso de propriedades reportadas, mensagens do dispositivo para nuvem ou upload do arquivo.
 
 Veja as [Diretrizes de comunicação da nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) para obter orientação sobre o uso de propriedades desejadas, métodos diretos ou mensagens da nuvem para dispositivo.
+
+Para saber como o dispositivo gêmeos está relacionado ao modelo de dispositivo usado por um dispositivo de Plug and Play do Azure IoT, consulte [entender o IoT plug and Play Digital gêmeos](../iot-pnp/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Dispositivos gêmeos
 

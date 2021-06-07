@@ -4,12 +4,12 @@ description: Este guia de início rápido mostra como criar uma conta do Lote e 
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8d3005233320a7ba0d00f186944a0a8c0c456647
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106675"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765297"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho em Lote com a CLI do Azure
 
@@ -25,7 +25,7 @@ A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de com
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O exemplo a seguir cria um grupo de recursos chamado *QuickstartBatch-rg* na localização *eastus2*.
 
@@ -37,7 +37,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Você pode vincular uma conta de Armazenamento do Azure com sua conta do Lote. Embora não seja necessário para este guia de início rápido, a conta de armazenamento é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Crie uma conta de armazenamento em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Você pode vincular uma conta de Armazenamento do Azure com sua conta do Lote. Embora não seja necessário para este guia de início rápido, a conta de armazenamento é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Crie uma conta de armazenamento em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
@@ -49,7 +49,7 @@ az storage account create \
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-Criar uma conta do Lote com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). Você precisa de uma conta para criar recursos de computação (pools de nós de computação) e trabalhos do Lote.
+Criar uma conta do Lote com o comando [az batch account create](/cli/azure/batch/account#az_batch_account_create). Você precisa de uma conta para criar recursos de computação (pools de nós de computação) e trabalhos do Lote.
 
 O exemplo a seguir cria uma conta do Lote denominada *mybatchaccount* em *QuickstartBatch-rg* e vincula a conta de armazenamento que você criou.  
 
@@ -61,7 +61,7 @@ az batch account create \
     --location eastus2
 ```
 
-Para criar e gerenciar trabalhos e pools de computação, você precisa autenticar com o Lote. Faça logon na conta com o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Depois que você fizer logon, seus comandos `az batch` usarão esse contexto de conta.
+Para criar e gerenciar trabalhos e pools de computação, você precisa autenticar com o Lote. Faça logon na conta com o comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Depois que você fizer logon, seus comandos `az batch` usarão esse contexto de conta.
 
 ```azurecli-interactive
 az batch account login \
@@ -72,7 +72,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Criar um pool de nós de computação
 
-Agora que você tem uma conta do Lote, crie um pool de exemplo de nós de computação Linux usando o comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). O exemplo a seguir cria um pool chamado *mypool* com dois nós tamanho *Standard_A1_v2* executando o Ubuntu 16.04 LTS. O tamanho de nó sugerido oferece um bom equilíbrio entre desempenho e custo para este exemplo rápido.
+Agora que você tem uma conta do Lote, crie um pool de exemplo de nós de computação Linux usando o comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). O exemplo a seguir cria um pool chamado *mypool* com dois nós tamanho *Standard_A1_v2* executando o Ubuntu 16.04 LTS. O tamanho de nó sugerido oferece um bom equilíbrio entre desempenho e custo para este exemplo rápido.
  
 ```azurecli-interactive
 az batch pool create \
@@ -82,7 +82,7 @@ az batch pool create \
     --node-agent-sku-id "batch.node.ubuntu 16.04"
 ```
 
-O Lote cria o pool imediatamente, mas leva alguns minutos para alocar e iniciar os nós de computação. Durante esse tempo, o pool está no estado `resizing`. Para ver o status do pool, execute o comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Este comando mostra todas as propriedades do pool, e você pode consultar propriedades específicas. O seguinte comando obtém o estado de alocação do pool:
+O Lote cria o pool imediatamente, mas leva alguns minutos para alocar e iniciar os nós de computação. Durante esse tempo, o pool está no estado `resizing`. Para ver o status do pool, execute o comando [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). Este comando mostra todas as propriedades do pool, e você pode consultar propriedades específicas. O seguinte comando obtém o estado de alocação do pool:
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool \
@@ -93,7 +93,7 @@ Continue as etapas a seguir para criar um trabalho e tarefas enquanto o estado d
 
 ## <a name="create-a-job"></a>Criar um trabalho
 
-Agora que você tem um pool, crie um trabalho para executar nele. Um trabalho do Lote é um grupo lógico para uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. Crie um trabalho do Lote usando o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). O exemplo a seguir cria um trabalho *myjob* no pool *mypool*. Inicialmente, o trabalho não tem nenhuma tarefa.
+Agora que você tem um pool, crie um trabalho para executar nele. Um trabalho do Lote é um grupo lógico para uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. Crie um trabalho do Lote usando o comando [az batch job create](/cli/azure/batch/job#az_batch_job_create). O exemplo a seguir cria um trabalho *myjob* no pool *mypool*. Inicialmente, o trabalho não tem nenhuma tarefa.
 
 ```azurecli-interactive
 az batch job create \
@@ -103,7 +103,7 @@ az batch job create \
 
 ## <a name="create-tasks"></a>Criar tarefas
 
-Agora use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar algumas tarefas e executar o trabalho. Neste exemplo, você criará quatro tarefas idênticas. Cada tarefa executa uma `command-line` para exibir as variáveis de ambiente do Lote em um nó de computação e, em seguida, aguardar 90 segundos. Ao usar o Lote, essa linha de comando ficará onde você especifica seu aplicativo ou script. O Lote fornece várias maneiras para implantar aplicativos e scripts em nós de computação.
+Agora use o comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para criar algumas tarefas e executar o trabalho. Neste exemplo, você criará quatro tarefas idênticas. Cada tarefa executa uma `command-line` para exibir as variáveis de ambiente do Lote em um nó de computação e, em seguida, aguardar 90 segundos. Ao usar o Lote, essa linha de comando ficará onde você especifica seu aplicativo ou script. O Lote fornece várias maneiras para implantar aplicativos e scripts em nós de computação.
 
 O script Bash a seguir cria quatro tarefas paralelas (*mytask1* a *mytask4*).
 
@@ -123,7 +123,7 @@ A saída do comando mostra as configurações para cada uma das tarefas. O Lote 
 
 Depois de criar uma tarefa, o Lote a enfileira para ser executada no pool. Quando um nó fica disponível para executá-lo, a tarefa é executada.
 
-Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir o status das tarefas do Lote. O exemplo a seguir mostra detalhes sobre *mytask1* em execução em um dos nós do pool.
+Use o comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para exibir o status das tarefas do Lote. O exemplo a seguir mostra detalhes sobre *mytask1* em execução em um dos nós do pool.
 
 ```azurecli-interactive
 az batch task show \
@@ -190,13 +190,13 @@ AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 
 Se você quiser continuar com exemplos e tutoriais do Lote, use a conta do Lote e a conta de armazenamento vinculada criada neste guia de início rápido. Não há nenhum encargo pela conta do Lote.
 
-Você é cobrado pelos pools enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisar mais um pool, exclua-o com o comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas.
+Você é cobrado pelos pools enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisar mais um pool, exclua-o com o comando [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete). Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas.
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool
 ```
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive
 az group delete --name QuickstartBatch-rg

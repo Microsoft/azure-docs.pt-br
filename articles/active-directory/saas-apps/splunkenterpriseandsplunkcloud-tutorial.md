@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 18d64e2b2ac359a9036ebd548ef886cb0efd3405
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 81107b3655ae86d51e36445ce46661d553ab3b5a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622190"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101649845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Active Directory ao Splunk Enterprise e Splunk Cloud
 
@@ -28,10 +28,10 @@ Neste tutorial, você aprenderá a integrar o Splunk Enterprise e Splunk Cloud a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Splunk Enterprise e Splunk Cloud, você precisará dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Caso não tenha um ambiente do Azure AD, obtenha uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Assinatura do Splunk Enterprise e Splunk Cloud habilitada para logon único.
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do Splunk Enterprise e Splunk Cloud habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -63,7 +63,7 @@ Para configurar e testar o SSO do Azure AD com o Splunk Enterprise e Splunk Clou
     1. **[Criar um usuário de teste do Splunk Enterprise e Splunk Cloud](#create-splunk-enterprise-and-splunk-cloud-test-user)** : para ter um equivalente de B.Fernandes no Splunk Enterprise e Splunk Cloud que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -111,16 +111,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Configurar o SSO do Splunk Enterprise e Splunk Cloud
+## <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Configurar o SSO do Splunk Enterprise e Splunk Cloud
 
   Para configurar o logon único no lado do **Splunk Enterprise e Splunk Cloud**, você precisará enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
-
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Criar um usuário de teste do Splunk Enterprise e Splunk Cloud
 
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no Splunk Enterprise e no Splunk Cloud. Trabalhe com a [equipe de suporte do Splunk Enterprise e do Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para adicionar os usuários à plataforma do Splunk Enterprise e do Splunk Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
@@ -128,8 +127,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Splunk Enterprise e Splunk Cloud e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Splunk Enterprise e Splunk Cloud em Meus Aplicativos, você será redirecionado para a URL de Logon do Splunk Enterprise e Splunk Cloud. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Splunk Enterprise e Splunk Cloud em Meus Aplicativos, você será redirecionado para a URL de Logon do Splunk Enterprise e Splunk Cloud. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Splunk Enterprise e Splunk Cloud, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Depois de configurar o Splunk Enterprise e Splunk Cloud, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)

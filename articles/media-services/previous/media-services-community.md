@@ -3,7 +3,7 @@ title: Visão Geral da Comunidade dos Serviços de Mídia do Azure | Microsoft D
 description: 'Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS, ver novos vídeos e podcasts, fazer perguntas e comentários. '
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: f3cc775cd65293a39de28dfbdc8b1d06aeada3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 8c566484d5a594e81a0900d5a5ab5a3e34bfffa8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987315"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103016897"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure
 

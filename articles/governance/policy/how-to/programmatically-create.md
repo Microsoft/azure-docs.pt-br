@@ -1,14 +1,14 @@
 ---
 title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy com a CLI do Azure, o Azure PowerShell e a API REST.
-ms.date: 08/17/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033856"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598483"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -244,5 +244,5 @@ Examine os seguintes artigos para obter mais informações sobre os comandos e c
 - [Recursos da API REST do Azure](/rest/api/resources/)
 - [Módulos do Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Comandos de Política da CLI do Azure](/cli/azure/policy)
-- [Referência da API REST do provedor de recursos do Azure Policy Insights](/rest/api/policy-insights)
+- [Referência da API REST do provedor de recursos Azure Policy](/rest/api/policy)
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

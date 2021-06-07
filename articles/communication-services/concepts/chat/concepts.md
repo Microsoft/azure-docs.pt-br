@@ -9,159 +9,102 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 292f430a1b08d59efdf05405437b3d1aa49ea2b7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560229"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168579"
 ---
-# <a name="chat-concepts"></a>Conceitos de chat
+# <a name="chat-concepts"></a>Conceitos de chat 
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
-As bibliotecas de clientes de chat dos Serviços de Comunicação do Azure podem ser usadas para adicionar o bate-papo com texto em tempo real aos seus aplicativos. Esta página resume os principais conceitos e funcionalidades de chat.
+Os SDKs de Chat dos Serviços de Comunicação do Azure podem ser usados para adicionar chat por texto em tempo real aos seus aplicativos. Esta página resume os principais conceitos e funcionalidades de chat.    
 
-Confira a [Visão geral da biblioteca de clientes de chat dos Serviços de Comunicação](./sdk-features.md) para saber mais sobre as funcionalidades e as linguagens específicas da biblioteca de clientes.
+Confira a [Visão geral do SDK de Chat dos Serviços de Comunicação](./sdk-features.md) para saber mais sobre as funcionalidades e as linguagens específicas do SDK.  
 
-## <a name="chat-overview"></a>Visão geral do chat 
+## <a name="chat-overview"></a>Visão geral do chat    
 
-As conversas de chat acontecem em grupos de mensagens de chat. Uma conversa de chat pode conter muitas mensagens e muitos usuários. Cada mensagem pertence a uma só conversa, e um usuário pode fazer parte de uma ou várias conversas. 
+As conversas de chat acontecem em **threads de chat**. Os threads de chat têm as seguintes propriedades:
 
-Cada usuário na conversa de chat é chamado de membro. É possível ter até 250 membros em uma conversa de chat. Somente os membros da conversa podem enviar e receber mensagens ou adicionar/remover membros em uma conversa de chat. O tamanho máximo permitido da mensagem é de aproximadamente 28 KB. Recupere todas as mensagens em uma conversa de chat usando a operação `List/Get Messages`. Os Serviços de Comunicação armazenam o histórico de chat até que você execute uma operação de exclusão no thread ou na mensagem do chat ou até que não haja membros restantes no thread de chat, quando ele se torna órfão e é processado para exclusão.   
+- Um thread de chat é identificado exclusivamente por sua `ChatThreadId`. 
+- Os threads de chat podem ter como participantes um ou vários usuários que podem enviar mensagens para ele. 
+- Um usuário pode fazer parte de um ou de vários threads de chat. 
+- Somente os participantes do thread têm acesso a um determinado thread de chat e somente eles podem executar operações no thread de chat. Essas operações incluem enviar e receber mensagens, adicionar participantes e remover participantes. 
+- Os usuários são adicionados automaticamente como participantes a qualquer thread de chat que eles criam.
 
-Para conversas de chat com mais de 20 membros, as confirmações de leitura e os recursos do indicador de digitação ficam desabilitados. 
+### <a name="user-access"></a>Acesso do usuário
+Normalmente, o criador e os participantes do thread têm o mesmo nível de acesso a ele e podem executar todas as operações relacionadas disponíveis no SDK, incluindo sua exclusão. Os participantes não têm acesso de gravação a mensagens enviadas por outros participantes, o que significa que apenas o remetente da mensagem pode atualizar ou excluir as mensagens enviadas. Se outro participante tentar fazer isso, ocorrerá um erro. 
 
-## <a name="chat-architecture"></a>Arquitetura de chat
+Se quiser limitar o acesso aos recursos do chat para um conjunto de usuários, você poderá configurar o acesso como parte de seu serviço confiável. O serviço confiável é o serviço que orquestra a autenticação e a autorização dos participantes do chat. Exploraremos isso com mais detalhes abaixo.  
 
-Há duas partes principais na arquitetura de chat: 1) Serviço confiável e 2) Aplicativo cliente.
+### <a name="chat-data"></a>Dados do chat 
+Os Serviços de Comunicação armazenam o histórico do chat até que ele seja excluído explicitamente. Os participantes do thread de chat podem usar `ListMessages` para exibir o histórico de mensagens de um determinado thread. Os usuários removidos de um thread de chat poderão exibir o histórico de mensagens anteriores, mas não poderão enviar nem receber novas mensagens desse thread de chat. Um thread totalmente ocioso, sem participantes, será excluído automaticamente após 30 dias. Para saber mais sobre o armazenamento de dados pelos Serviços de Comunicação, confira a documentação sobre [privacidade](../privacy.md).  
 
-:::image type="content" source="../../media/chat-architecture.png" alt-text="Diagrama mostrando a arquitetura de chat dos Serviços de Comunicação.":::
+### <a name="service-limits"></a>Limites de serviço  
+- O número máximo de participantes permitidos em uma conversa de chat é 250.   
+- O tamanho máximo permitido da mensagem é de aproximadamente 28 KB.  
+- Para conversas de chat com mais de 20 participantes, não há suporte para os recursos de indicador de digitação e confirmações de leitura.    
 
- - **Serviço confiável:** para gerenciar corretamente uma sessão de chat, você precisará de um serviço que ajude você a se conectar aos Serviços de Comunicação usando a cadeia de conexão do recurso. Esse serviço é responsável por criar conversas de chat, gerenciar as associações de conversa e fornecer tokens de acesso aos usuários. Encontre mais informações sobre tokens de acesso em nosso guia de início rápido sobre [tokens de acesso](../../quickstarts/access-tokens.md).
+## <a name="chat-architecture"></a>Arquitetura de chat    
 
- - **Aplicativo cliente:**  o aplicativo cliente se conecta ao seu serviço confiável e recebe os tokens de acesso usados para se conectar diretamente aos Serviços de Comunicação. Depois que essa conexão é feita, o aplicativo cliente pode enviar e receber mensagens.
+Há duas partes principais na arquitetura de chat: 1) Serviço confiável e 2) Aplicativo cliente.    
+
+:::image type="content" source="../../media/chat-architecture.png" alt-text="Diagrama mostrando a arquitetura de chat dos Serviços de Comunicação."::: 
+
+ - **Serviço confiável:** para gerenciar corretamente uma sessão de chat, você precisará de um serviço que ajude você a se conectar aos Serviços de Comunicação usando a cadeia de conexão do recurso. Esse serviço é responsável por criar threads de chat, adicionar e remover participantes e emitir tokens de acesso para os usuários. Encontre mais informações sobre tokens de acesso em nosso guia de início rápido sobre [tokens de acesso](../../quickstarts/access-tokens.md).  
+ - **Aplicativo cliente:** o aplicativo cliente se conecta ao seu serviço confiável e recebe os tokens de acesso usados pelos usuários para se conectar diretamente aos Serviços de Comunicação. Após o serviço confiável tiver criado o thread de chat e adicionado usuários como participantes, eles poderão usar o aplicativo cliente para se conectar ao thread de chat e enviar mensagens. Use o recurso de notificações em tempo real, que abordaremos abaixo, em seu aplicativo cliente para assinar mensagens e atualizações de thread de outros participantes.
     
-## <a name="message-types"></a>Tipos de Mensagem
+        
+## <a name="message-types"></a>Tipos de Mensagem    
 
-O chat dos Serviços de Comunicação compartilha as mensagens geradas pelo usuário, bem como as mensagens geradas pelo sistema, chamadas **atividades de conversa**. As atividades de conversa são geradas quando uma conversa de chat é atualizada. Quando você chamar `List Messages` ou `Get Messages` em uma conversa de chat, o resultado conterá as mensagens de texto geradas pelo usuário, bem como as mensagens do sistema em ordem cronológica. Isso ajuda você a identificar quando um membro foi adicionado ou removido ou quando o tópico da conversa de chat foi atualizado. Os tipos de mensagem compatíveis são:  
+Como parte do histórico de mensagens, o Chat compartilha mensagens geradas pelo usuário e pelo sistema. As mensagens do sistema são geradas quando um thread de chat é atualizado e podem ajudar a identificar quando um participante é adicionado ou removido ou quando o tópico do thread de chat é atualizado. Quando você chama `List Messages` ou `Get Messages` em um thread de chat, o resultado contém os dois tipos de mensagem em ordem cronológica.
 
- - `Text`: uma mensagem de texto sem formatação composta e enviada por um usuário como parte de uma conversa de chat. 
- - `RichText/HTML`: uma mensagem de texto formatada. Observe que os usuários dos Serviços de Comunicação não podem enviar mensagens RichText no momento. Há suporte para esse tipo de mensagem nas mensagens enviadas de usuários do Teams para os usuários dos Serviços de Comunicação em cenários de interoperabilidade do Teams.
- - `ThreadActivity/AddMember`: uma mensagem do sistema que indica que um ou mais membros foram adicionados ao thread do chat. Por exemplo:
+Para mensagens geradas pelo usuário, o tipo de mensagem pode ser definido em `SendMessageOptions` ao enviar uma mensagem ao thread de chat. Se nenhum valor for fornecido, os Serviços de Comunicação usarão o tipo `text` como padrão. Definir esse valor é importante ao enviar HTML. Quando `html` é especificado, os Serviços de Comunicação limpam o conteúdo para garantir que ele seja renderizado com segurança em dispositivos cliente.
+ - `text`: uma mensagem de texto sem formatação composta e enviada por um usuário como parte de um thread de chat. 
+ - `html`: uma mensagem formatada usando HTML, composta e enviada por um usuário como parte de um thread de chat. 
 
-```xml
+Tipos de mensagem do sistema: 
+ - `participantAdded`: mensagem do sistema que indica que um ou mais participantes foram adicionados ao thread do chat.
+ - `participantRemoved`: mensagem do sistema que indica que um participante foi removido do thread de chat.
+ - `topicUpdated`: mensagem do sistema que indica que o tópico da conversa foi atualizado.
 
-<addmember>
-    <eventtime>1598478187549</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</id>
-        <friendlyName>User 1</friendlyName>
-    </detailedtargetinfo>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</addmember>
+## <a name="real-time-notifications"></a>Notificações em tempo real  
 
-```  
+Alguns SDKs (como o SDK de Chat para JavaScript) dão suporte a notificações em tempo real. Com esse recurso, os clientes podem escutar nos Serviços de Comunicação atualizações em tempo real e mensagens de entrada de um thread de chat sem precisar sondar as APIs. O aplicativo cliente pode assinar os seguintes eventos:
+ - `chatMessageReceived`: quando uma nova mensagem é enviada ao thread de chat por um participante.
+ - `chatMessageEdited`: quando uma mensagem é editada em uma conversa de chat. 
+ - `chatMessageDeleted`: quando uma mensagem é excluída de uma conversa de chat.   
+ - `typingIndicatorReceived`: quando outro participante envia um indicador de digitação ao thread de chat.    
+ - `readReceiptReceived`: quando outro participante envia uma confirmação de leitura de uma mensagem que leu.  
+ - `chatThreadCreated`: quando um thread de chat é criado por um usuário dos Serviços de Comunicação.    
+ - `chatThreadDeleted`: quando um thread de chat é excluído por um usuário dos Serviços de Comunicação.    
+ - `chatThreadPropertiesUpdated`: quando as propriedades do thread de chat são atualizadas. Atualmente, há suporte apenas para atualizar o tópico do thread. 
+ - `participantsAdded`: quando um usuário é adicionado como participante do thread de chat.     
+ - `participantsRemoved`: quando um participante existente é removido da conversa de chat.
 
-- `ThreadActivity/DeleteMember`: mensagem do sistema que indica que um membro foi removido da conversa de chat. Por exemplo:
+Notificações em tempo real podem ser usadas para fornecer uma experiência de chat em tempo real para os usuários. Para enviar notificações por push de mensagens ignoradas pelos usuários enquanto eles estavam ausentes, os Serviços de Comunicação se integram à Grade de Eventos do Azure para publicar eventos relacionados ao chat (operação post) que podem ser conectados ao seu serviço de notificação de aplicativo personalizado. Para saber mais, confira [Eventos de servidor](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
-```xml
 
-<deletemember>
-    <eventtime>1598478187642</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <detailedinitiatorinfo>
-        <friendlyName>User 1</friendlyName>
-    </detailedinitiatorinfo>
-    <rosterVersion>1598478184564</rosterVersion>
-    <target>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</target>
-    <detailedtargetinfo>
-        <id>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_8540c0de-899f-5cce-acb5-3ec493af3800</id>
-        <friendlyName>User 2</friendlyName>
-    </detailedtargetinfo>
-</deletemember>
+## <a name="build-intelligent-ai-powered-chat-experiences"></a>Criar experiências de chat inteligentes, da plataforma IA   
 
-```
+Use as [APIs Cognitivas do Azure](../../../cognitive-services/index.yml) com o SDK de Chat para criar casos de uso como:
 
-- `ThreadActivity/MemberJoined`: uma mensagem do sistema gerada quando um usuário convidado se conecta ao chat de reunião do Teams. Os usuários dos Serviços de Comunicação podem participar como convidados de chats de reunião do Teams. Por exemplo:  
-```xml
-{ 
-  "id": "1606351443605", 
-  "type": "ThreadActivity/MemberJoined", 
-  "version": "1606347753409", 
-  "priority": "normal", 
-  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
-  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
-  "createdOn": "2020-11-29T00:44:03.6950000Z" 
-} 
-```
-- `ThreadActivity/MemberLeft`: uma mensagem do sistema gerada quando um usuário convidado deixa o chat da reunião. Os usuários dos Serviços de Comunicação podem participar como convidados de chats de reunião do Teams. Por exemplo: 
-```xml
-{ 
-  "id": "1606347703429", 
-  "type": "ThreadActivity/MemberLeft", 
-  "version": "1606340753429", 
-  "priority": "normal", 
-  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
-  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
-  "createdOn": "2020-11-29T23:42:33.4290000Z" 
-} 
-```
-- `ThreadActivity/TopicUpdate`: mensagem do sistema que indica que o tópico foi atualizado. Por exemplo:
-
-```xml
-
-<topicupdate>
-    <eventtime>1598477591811</eventtime>
-    <initiator>8:acs:57b9bac9-df6c-4d39-a73b-26e944adf6ea_0e59221d-0c1d-46ae-9544-c963ce56c10b</initiator>
-    <value>New topic</value>
-</topicupdate>
-
-```
-
-## <a name="real-time-signaling"></a>Sinalização em tempo real 
-
-A biblioteca de clientes de chat JavaScript inclui a sinalização em tempo real. Isso permite que os clientes escutem atualizações em tempo real e mensagens de entrada para uma conversa de chat sem precisar sondar as APIs. Os eventos disponíveis incluem:
-
- - `ChatMessageReceived`: quando uma nova mensagem é enviada a uma conversa de chat da qual o usuário é membro. Esse evento não é enviado para as mensagens do sistema geradas automaticamente discutidas no tópico anterior.  
- - `ChatMessageEdited`: quando uma mensagem é editada em uma conversa de chat da qual o usuário é membro. 
- - `ChatMessageDeleted`: quando uma mensagem é excluída em uma conversa de chat da qual o usuário é membro. 
- - `TypingIndicatorReceived`: quando outro membro está digitando uma mensagem em uma conversa de chat da qual o usuário é membro. 
- - `ReadReceiptReceived`: quando outro membro leu a mensagem enviada pelo usuário em uma conversa de chat. 
-
-## <a name="chat-events"></a>Eventos de chat 
-
-A sinalização em tempo real permite que os usuários conversem em tempo real. Seus serviços podem usar a Grade de Eventos do Azure para assinar eventos relacionados ao chat. Para obter mais detalhes, confira [Informações conceituais sobre a manipulação de eventos](../event-handling.md).
-
-## <a name="using-cognitive-services-with-chat-client-library-to-enable-intelligent-features"></a>Como usar os Serviços Cognitivos com a biblioteca de clientes de chat para habilitar recursos inteligentes
-
-Use as [APIs Cognitivas do Azure](../../../cognitive-services/index.yml) com a biblioteca de clientes de chat para adicionar recursos inteligentes aos seus aplicativos. Por exemplo, você pode:
-
-- Permitir que os usuários conversem entre si em diferentes idiomas. 
-- Ajudar um agente de suporte a priorizar tíquetes detectando um sentimento negativo de um problema recebido de um cliente.
+- Permitir que os usuários conversem entre si em diferentes idiomas.  
+- Ajudar um agente de suporte a priorizar tíquetes detectando um sentimento negativo de uma mensagem de entrada de um cliente. 
 - Analisar as mensagens de entrada quanto à detecção de chave e o reconhecimento de entidade e solicitar informações relevantes ao usuário no seu aplicativo com base no conteúdo da mensagem.
 
-Um modo de conseguir isso é fazendo com que o serviço confiável funcione como um membro de uma conversa de chat. Digamos que você deseje habilitar a tradução de idioma. Esse serviço será responsável por ouvir as mensagens trocadas por outros membros [1], chamar APIs cognitivas para traduzir o conteúdo para o idioma desejado [2, 3] e enviar o resultado traduzido como uma mensagem na conversa de chat [4]. 
+Um modo de conseguir isso é fazendo com que o serviço confiável funcione como um participante de uma conversa de chat. Digamos que você deseje habilitar a tradução de idioma. Esse serviço será responsável por escutar as mensagens trocadas por outros participantes [1], chamar APIs cognitivas para traduzir o conteúdo para o idioma desejado [2, 3] e enviar o resultado traduzido como uma mensagem na conversa de chat [4].
 
 Dessa forma, o histórico de mensagens conterá as mensagens originais e traduzidas. No aplicativo cliente, você poderá adicionar a lógica para mostrar a mensagem original ou traduzida. Confira [este guia de início rápido](../../../cognitive-services/translator/quickstart-translator.md) para entender como usar as APIs Cognitivas para traduzir um texto em idiomas diferentes. 
+    
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando os Serviços Cognitivos interagindo com os Serviços de Comunicação."::: 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagrama mostrando os Serviços Cognitivos interagindo com os Serviços de Comunicação.":::
+## <a name="next-steps"></a>Próximas etapas   
 
-## <a name="next-steps"></a>Próximas etapas
+> [!div class="nextstepaction"] 
+> [Introdução ao chat](../../quickstarts/chat/get-started.md)    
 
-> [!div class="nextstepaction"]
-> [Introdução ao chat](../../quickstarts/chat/get-started.md)
-
-Os seguintes documentos podem ser do seu interesse:
-
-- Familiarize-se com a [biblioteca de clientes de chat](sdk-features.md)
+Os seguintes documentos podem ser do seu interesse:  
+- Familiarize-se com o [SDK de Chat](sdk-features.md)

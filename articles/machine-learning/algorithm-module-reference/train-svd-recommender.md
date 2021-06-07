@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890240"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654451"
 ---
 # <a name="train-svd-recommender"></a>Treinar o sistema de recomendação SVD
 
 Este artigo descreve como usar o módulo treinar Recomendador SVD no designer de Azure Machine Learning. Use este módulo para treinar um modelo de recomendação com base no algoritmo de decomposição de valor único (SVD).  
 
-O módulo treinar Recomendador SVD lê um conjunto de uma série de processamentos de usuário-item-classificação. Ele retorna um recomendador SVD treinado. Em seguida, você pode usar o modelo treinado para prever classificações ou gerar recomendações usando o módulo de [recomendação SVD de Pontuação](score-svd-recommender.md) .  
+O módulo treinar Recomendador SVD lê um conjunto de uma série de processamentos de usuário-item-classificação. Ele retorna um recomendador SVD treinado. Você pode usar o modelo treinado para prever classificações ou gerar recomendações, conectando o módulo [Pontuação SVD recomendador](score-svd-recommender.md) .  
 
 
   
@@ -68,8 +68,11 @@ Neste exemplo, você pode ver que um único usuário classificou vários filmes.
 
     A taxa de aprendizagem determina o tamanho da etapa em cada iteração. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para encontrar a melhor solução. 
   
-5.  Envie o pipeline.  
+5.  Enviar o pipeline.  
 
+## <a name="results"></a>Resultados
+
+Após a execução do pipeline ser concluída, para usar o modelo de pontuação, conecte o [recomendado treinar SVD](train-svd-recommender.md) para [pontuar o recomendador SVD](score-svd-recommender.md)para prever valores para novos exemplos de entrada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

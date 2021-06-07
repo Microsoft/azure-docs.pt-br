@@ -3,7 +3,7 @@ title: Documentação do LUIS (Reconhecimento vocal)
 summary: Saiba como o Reconhecimento vocal permite que os aplicativos entendam o que uma pessoa quer ao interpretar as palavras dela.
 metadata:
   ms.topic: landing-page
-  ms.date: 06/15/2020
+  ms.date: 04/13/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do reconhecimento Vocal (LUIS)
   titleSuffix: Azure Cognitive Services
   description: O serviço LUIS (Serviço Inteligente de Reconhecimento Vocal) permite que o aplicativo entenda o que uma pessoa quer ao interpretar as palavras dela. O LUIS usa o aprendizado de máquina para permitir que desenvolvedores criem aplicativos que possam receber entradas do usuário em linguagem natural e extrair o significado disso.
-  ms.openlocfilehash: ca9209295d8265eeac5545091e4d4c5c9678e994
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: 793638552b35dd6dc65395e9c568c55a8ef9f946
+  ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98738060"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107497040"
 landingContent:
 - title: Sobre o LUIS (Reconhecimento vocal)
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
     - text: Entidades predefinidas
       url: luis-reference-prebuilt-entities.md
     - text: Entidades personalizadas
-      url: luis-concept-entity-types.md#types-of-entities
+      url: reference-entity-machine-learned-entity.md
     - text: Domínios predefinidos
       url: luis-reference-prebuilt-domains.md
 - title: Ajuda e comentários

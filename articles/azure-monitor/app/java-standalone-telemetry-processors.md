@@ -1,70 +1,65 @@
 ---
-title: Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
-description: Como configurar processadores de telemetria no Azure Monitor Application Insights para Java
+title: Processadores de telemetria (versão prévia) – Application Insights do Azure Monitor para Java
+description: Saiba como configurar os processadores de telemetria no Azure Monitor Application Insights para Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632573"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024108"
 ---
-# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (versão prévia) – Application Insights do Azure Monitor para Java
 
 > [!NOTE]
-> Este recurso ainda está em versão prévia.
+> O recurso de processadores de telemetria está em versão prévia.
 
-O agente do Java 3,0 para Application Insights agora tem os recursos para processar dados de telemetria antes de os dados serem exportados.
+O agente do Java 3,0 para Application Insights pode processar dados de telemetria antes de os dados serem exportados.
 
-A seguir estão alguns casos de uso dos processadores de telemetria:
- * Mascarar dados confidenciais
- * Adicionar dimensões personalizadas condicionalmente
- * Atualize o nome que é usado para agregação e exibição no portal do Azure
- * Descartar atributos de span para controlar o custo de ingestão
+Aqui estão alguns casos de uso para processadores de telemetria:
+ * Mascarar dados confidenciais.
+ * Adicionar dimensões personalizadas condicionalmente.
+ * Atualize o nome do span, que é usado para agregar telemetria semelhante no portal do Azure.
+ * Descartar atributos de span específicos para controlar os custos de ingestão.
+
+> [!NOTE]
+> Se você pretende descartar spans (inteiros) específicos para controlar o custo de ingestão, consulte [substituições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="terminology"></a>Terminologia
 
-Antes de passarmos para processadores de telemetria, é importante entender o que o termo span refere.
+Antes de aprender sobre os processadores de telemetria, você deve entender o termo *span*. Uma extensão é um termo geral para:
 
-Uma extensão é um termo geral para qualquer uma destas três coisas:
+* Uma solicitação de entrada.
+* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço).
+* Uma dependência em processo (por exemplo, trabalho sendo feito por subcomponentes do serviço).
 
-* Uma solicitação de entrada
-* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço)
-* Uma dependência em processo (por exemplo, trabalho sendo feito por subcomponentes do serviço)
-
-Para a finalidade dos processadores de telemetria, os componentes importantes de um Span são:
+Para processadores de telemetria, esses componentes de span são importantes:
 
 * Name
 * Atributos
 
-O nome do span é a exibição primária usada para solicitações e dependências no portal do Azure.
-
-Os atributos de span representam as propriedades padrão e personalizadas de uma determinada solicitação ou dependência.
+O nome do span é a exibição primária para solicitações e dependências no portal do Azure. Atributos de span representam propriedades padrão e personalizadas de uma determinada solicitação ou dependência.
 
 ## <a name="telemetry-processor-types"></a>Tipos de processador de telemetria
 
-Atualmente, há dois tipos de processadores de telemetria.
+Atualmente, os dois tipos de processadores de telemetria são processadores de atributo e processadores de span.
 
-#### <a name="attribute-processor"></a>Processador de atributos
+Um processador de atributos pode inserir, atualizar, excluir ou hash de atributos.
+Ele também pode usar uma expressão regular para extrair um ou mais atributos novos de um atributo existente.
 
-Um processador de atributos tem a capacidade de inserir, atualizar, excluir ou hash de atributos.
-Ele também pode extrair (por meio de uma expressão regular) um ou mais atributos novos de um atributo existente.
-
-#### <a name="span-processor"></a>Processador span
-
-Um processador de span tem a capacidade de atualizar o nome da telemetria.
-Ele também pode extrair (por meio de uma expressão regular) um ou mais atributos novos do nome do span.
+Um processador de span pode atualizar o nome da telemetria.
+Ele também pode usar uma expressão regular para extrair um ou mais atributos novos do nome do span.
 
 > [!NOTE]
-> Observe que os processadores de telemetria atualmente processam apenas atributos do tipo cadeia de caracteres e não processam atributos do tipo booliano ou número.
+> Atualmente, os processadores de telemetria processam apenas atributos do tipo cadeia de caracteres. Eles não processam atributos do tipo booliano ou número.
 
 ## <a name="getting-started"></a>Introdução
 
-Crie um arquivo de configuração chamado `applicationinsights.json` e coloque-o no mesmo diretório do `applicationinsights-agent-*.jar` , com o modelo a seguir.
+Para começar, crie um arquivo de configuração chamado *applicationinsights.jsem*. Salve-o no mesmo diretório que *applicationinsights-Agent- \* . jar*. Use o modelo a seguir.
 
 ```json
 {
@@ -88,29 +83,27 @@ Crie um arquivo de configuração chamado `applicationinsights.json` e coloque-o
 }
 ```
 
-## <a name="includeexclude-criteria"></a>Incluir/excluir critérios
+## <a name="include-criteria-and-exclude-criteria"></a>Incluir critérios e critérios de exclusão
 
 Os processadores de atributo e os processadores de span dão suporte a `include` critérios e opcionais `exclude` .
-Um processador só será aplicado a esses spans que correspondam aos seus `include` critérios (se fornecido) _e_ não correspondam aos seus `exclude` critérios (se fornecido).
+Um processador é aplicado somente a spans que correspondem aos seus `include` critérios (se for fornecido) _e_ não correspondem aos seus `exclude` critérios (se for fornecido).
 
-Para configurar essa opção, em `include` e/ou `exclude` pelo menos um `matchType` e um `spanNames` ou `attributes` é necessário.
-A configuração de inclusão/exclusão tem suporte para ter mais de uma condição especificada.
-Todas as condições especificadas devem ser avaliadas como true para que uma correspondência ocorra. 
+Para configurar essa opção, em `include` ou `exclude` (ou em ambos), especifique pelo menos um `matchType` e um `spanNames` ou `attributes` .
+A configuração include-Exclude permite mais de uma condição especificada.
+Todas as condições especificadas devem ser avaliadas como true para resultar em uma correspondência. 
 
-**Campo obrigatório**: 
-* `matchType` controla como os itens `spanNames` nas `attributes` matrizes e são interpretados. Os possíveis valores são `regexp` ou `strict`. 
+* **Campo obrigatório**: `matchType` controla como os itens em `spanNames` matrizes e `attributes` matrizes são interpretados. Os valores possíveis são `regexp` e `strict`. 
 
-**Campos opcionais**: 
-* `spanNames` deve corresponder a pelo menos um dos itens. 
-* `attributes` Especifica a lista de atributos a serem correspondidos. Todos esses atributos devem corresponder exatamente para que ocorra uma correspondência.
-
+* **Campos opcionais**: 
+    * `spanNames` deve corresponder a pelo menos um dos itens. 
+    * `attributes` Especifica a lista de atributos a serem correspondentes. Todos esses atributos devem corresponder exatamente para resultar em uma correspondência.
+    
 > [!NOTE]
-> Se ambos `include` e `exclude` forem especificados, as `include` Propriedades serão verificadas antes das `exclude` Propriedades.
+> Se ambos `include` e `exclude` forem especificados, as `include` Propriedades serão verificadas antes da `exclude` verificação das propriedades.
 
-#### <a name="sample-usage"></a>Exemplo de uso
+### <a name="sample-usage"></a>Amostra de uso
 
 ```json
-
 "processors": [
   {
     "type": "attribute",
@@ -143,15 +136,20 @@ Todas as condições especificadas devem ser avaliadas como true para que uma co
   }
 ]
 ```
-Para obter mais noções básicas, confira a documentação [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md) .
+Para obter mais informações, consulte [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="attribute-processor"></a>Processador de atributos
 
-O processador de atributos modifica os atributos de um Span. Opcionalmente, ele dá suporte à capacidade de incluir/excluir spans. Ele usa uma lista de ações que são executadas na ordem especificada no arquivo de configuração. As ações com suporte são:
+O processador de atributo modifica os atributos de um Span. Ele pode dar suporte à capacidade de incluir ou excluir spans. Ele usa uma lista de ações que são executadas na ordem em que o arquivo de configuração especifica. O processador dá suporte a estas ações:
 
+- `insert`
+- `update`
+- `delete`
+- `hash`
+- `extract`
 ### `insert`
 
-Insere um novo atributo em spans onde a chave ainda não existe.   
+A `insert` ação insere um novo atributo em spans onde a chave ainda não existe.   
 
 ```json
 "processors": [
@@ -167,14 +165,14 @@ Insere um novo atributo em spans onde a chave ainda não existe.
   }
 ]
 ```
-Para a `insert` ação, os itens a seguir são necessários
-  * `key`
-  * um `value` ou `fromAttribute`
-  * `action`:`insert`
+A `insert` ação requer as seguintes configurações:
+* `key`
+* Um `value` ou `fromAttribute`
+* `action`: `insert`
 
 ### `update`
 
-Atualiza um atributo em spans onde a chave existe
+A `update` ação atualiza um atributo em spans onde a chave já existe.
 
 ```json
 "processors": [
@@ -190,15 +188,15 @@ Atualiza um atributo em spans onde a chave existe
   }
 ]
 ```
-Para a `update` ação, os itens a seguir são necessários
-  * `key`
-  * um `value` ou `fromAttribute`
-  * `action`:`update`
+A `update` ação requer as seguintes configurações:
+* `key`
+* Um `value` ou `fromAttribute`
+* `action`: `update`
 
 
 ### `delete` 
 
-Exclui um atributo de um span
+A `delete` ação exclui um atributo de um Span.
 
 ```json
 "processors": [
@@ -213,13 +211,13 @@ Exclui um atributo de um span
   }
 ]
 ```
-Para a `delete` ação, os itens a seguir são necessários
-  * `key`
-  * `action`: `delete`
+A `delete` ação requer as seguintes configurações:
+* `key`
+* `action`: `delete`
 
 ### `hash`
 
-Hashes (SHA1) um valor de atributo existente
+A `hash` ação hashes (SHA1) de um valor de atributo existente.
 
 ```json
 "processors": [
@@ -234,16 +232,16 @@ Hashes (SHA1) um valor de atributo existente
   }
 ]
 ```
-Para a `hash` ação, os itens a seguir são necessários
+A `hash` ação requer as seguintes configurações:
 * `key`
-* `action` : `hash`
+* `action`: `hash`
 
 ### `extract`
 
 > [!NOTE]
-> Esse recurso só está no 3.0.2 e posterior
+> O `extract` recurso está disponível somente na versão 3.0.2 e posterior.
 
-Extrai valores usando uma regra de expressão regular da chave de entrada para chaves de destino especificadas na regra. Se uma chave de destino já existir, ela será substituída. Ele se comporta de forma semelhante à configuração do [processador span](#extract-attributes-from-span-name) `toAttributes` com o atributo existente como a origem.
+A `extract` ação extrai valores usando uma regra de expressão regular da chave de entrada para chaves de destino que a regra especifica. Se uma chave de destino já existir, ela será substituída. Essa ação se comporta como a configuração do [processador span](#extract-attributes-from-the-span-name) `toAttributes` , em que o atributo existente é a origem.
 
 ```json
 "processors": [
@@ -259,28 +257,24 @@ Extrai valores usando uma regra de expressão regular da chave de entrada para c
   }
 ]
 ```
-Para a `extract` ação, os itens a seguir são necessários
+A `extract` ação requer as seguintes configurações:
 * `key`
 * `pattern`
-* `action` : `extract`
+* `action`: `extract`
 
-Para obter mais noções básicas, confira a documentação [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md) .
+Para obter mais informações, consulte [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="span-processor"></a>Processador span
 
-O processador span modifica o nome do SPAN ou os atributos de um Span com base no nome do span. Opcionalmente, ele dá suporte à capacidade de incluir/excluir spans.
+O processador span modifica o nome do SPAN ou os atributos de um Span com base no nome do span. Ele pode dar suporte à capacidade de incluir ou excluir spans.
 
 ### <a name="name-a-span"></a>Nomear um intervalo
 
-A configuração a seguir é necessária como parte da seção de nome:
+A `name` seção requer a `fromAttributes` configuração. Os valores desses atributos são usados para criar um novo nome, concatenado na ordem em que a configuração especifica. O processador irá alterar o nome do span somente se todos esses atributos estiverem presentes no span.
 
-* `fromAttributes`: O valor do atributo para as chaves é usado para criar um novo nome na ordem especificada na configuração. Todas as chaves de atributo precisam ser especificadas no intervalo para o processador renomeá-lo.
-
-A configuração a seguir pode ser configurada opcionalmente:
-
-* `separator`: Uma cadeia de caracteres especificada será usada para dividir valores
+A `separator` configuração é opcional. Essa configuração é uma cadeia de caracteres. Ele é especificado para dividir valores.
 > [!NOTE]
-> Se a renomeação for dependente dos atributos que estão sendo modificados pelo processador de atributos, verifique se o processador de span está especificado após o processador de atributos na especificação do pipeline.
+> Se a renomeação depender do processador de atributos para modificar os atributos, verifique se o processador de span está especificado após o processador de atributos na especificação do pipeline.
 
 ```json
 "processors": [
@@ -297,16 +291,26 @@ A configuração a seguir pode ser configurada opcionalmente:
 ] 
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extrair atributos do nome do span
+### <a name="extract-attributes-from-the-span-name"></a>Extrair atributos do nome do span
 
-Usa uma lista de expressões regulares para corresponder ao nome do span e extrair atributos dele com base em subexpressões. Deve ser especificado na `toAttributes` seção.
+A `toAttributes` seção lista as expressões regulares para correspondência com o nome do span. Ele extrai atributos com base em subexpressões.
 
-As seguintes configurações são necessárias:
+A `rules` configuração é necessária. Essa configuração lista as regras que são usadas para extrair valores de atributo do nome de extensão. 
 
-`rules` : Uma lista de regras para extrair valores de atributo do nome de extensão. Os valores no nome do span são substituídos por nomes de atributo extraídos. Cada regra na lista é a cadeia de caracteres de padrão Regex. O nome do span é verificado em relação ao Regex. Se o Regex corresponder, todas as subexpressões nomeadas do Regex serão extraídas como atributos e adicionadas à extensão. Cada nome de subexpressão se torna um nome de atributo e a subexpressão correspondente de parte se torna o valor do atributo. A parte correspondente no nome do span é substituída pelo nome do atributo extraído. Se os atributos já existirem no span, eles serão substituídos. O processo é repetido para todas as regras na ordem em que são especificadas. Cada regra subsequente funciona no nome do span que é a saída após o processamento da regra anterior.
+Os valores no nome do span são substituídos por nomes de atributo extraídos. Cada regra na lista é uma cadeia de caracteres de padrão de expressão regular (Regex). 
+
+Veja como os valores são substituídos por nomes de atributo extraídos:
+
+1. O nome do span é verificado em relação ao Regex. 
+1. Se o Regex corresponder, todas as subexpressões nomeadas do Regex serão extraídas como atributos. 
+1. Os atributos extraídos são adicionados ao SPAN. 
+1. Cada nome de subexpressão se torna um nome de atributo. 
+1. A parte correspondente da subexpressão se torna o valor do atributo. 
+1. A parte correspondente no nome do span é substituída pelo nome do atributo extraído. Se os atributos já existirem no span, eles serão substituídos. 
+ 
+Esse processo é repetido para todas as regras na ordem em que são especificadas. Cada regra subsequente funciona no nome do span que é a saída da regra anterior.
 
 ```json
-
 "processors": [
   {
     "type": "span",
@@ -324,26 +328,26 @@ As seguintes configurações são necessárias:
 
 ```
 
-## <a name="list-of-attributes"></a>Lista de atributos
+## <a name="common-span-attributes"></a>Atributos de span comuns
 
-A seguir, há uma lista de alguns atributos de span comuns que podem ser usados nos processadores de telemetria.
+Esta seção lista alguns atributos de span comuns que os processadores de telemetria podem usar.
 
 ### <a name="http-spans"></a>Spans HTTP
 
 | Atributo  | Type | Descrição | 
 |---|---|---|
 | `http.method` | string | Método de solicitação HTTP.|
-| `http.url` | string | URL de solicitação HTTP completa no formulário `scheme://host[:port]/path?query[#fragment]` . Normalmente, o fragmento não é transmitido por HTTP, mas, se for conhecido, ele deve ser incluído no entanto.|
+| `http.url` | string | URL de solicitação HTTP completa no formulário `scheme://host[:port]/path?query[#fragment]` . O fragmento geralmente não é transmitido por HTTP. Mas se o fragmento for conhecido, ele deverá ser incluído.|
 | `http.status_code` | número | [Código de status de resposta http](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Tipo de protocolo HTTP usado |
+| `http.flavor` | string | Tipo de protocolo HTTP. |
 | `http.user_agent` | string | Valor do cabeçalho de [agente de usuário http](https://tools.ietf.org/html/rfc7231#section-5.5.3) enviado pelo cliente. |
 
 ### <a name="jdbc-spans"></a>Spans JDBC
 
 | Atributo  | Type | Descrição  |
 |---|---|---|
-| `db.system` | string | Um identificador para o produto do sistema de gerenciamento de banco de dados (DBMS) que está sendo usado. |
+| `db.system` | string | Identificador do produto do sistema de gerenciamento de banco de dados (DBMS) que está sendo usado. |
 | `db.connection_string` | string | A cadeia de conexão usada para se conectar ao banco de dados. É recomendável remover as credenciais inseridas.|
 | `db.user` | string | Nome de usuário para acessar o banco de dados. |
-| `db.name` | string | Esse atributo é usado para relatar o nome do banco de dados que está sendo acessado. Para comandos que alternam o banco de dados, isso deve ser definido como o banco de dados de destino (mesmo que o comando falhe).|
-| `db.statement` | string | A instrução do banco de dados que está sendo executada.|
+| `db.name` | string | Cadeia de caracteres usada para relatar o nome do banco de dados que está sendo acessado. Para comandos que alternam o banco de dados, essa cadeia de caracteres deve ser definida para o banco de dados de destino, mesmo que o comando falhe.|
+| `db.statement` | string | A instrução Database que está sendo executada.|

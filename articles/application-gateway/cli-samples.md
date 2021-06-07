@@ -9,10 +9,10 @@ ms.date: 11/16/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3f957d8b7512d2eddd6c9f4cc412a2cd1d05bb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87497708"
 ---
 # <a name="azure-cli-examples-for-azure-application-gateway"></a>Exemplos da CLI do Azure para o Gateway de Aplicativo do Azure

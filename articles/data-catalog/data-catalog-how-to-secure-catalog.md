@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 6a429c09b6f8082c95e29bcea62d27ec4fb46fd3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 537254d7fb153e182be8ece13675a357a9a3e24e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674811"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e ativos de dados
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 > [!IMPORTANT]
 > Esse recurso está disponível somente na Standard Edition do Catálogo de Dados do Azure.

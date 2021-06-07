@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
 ms.openlocfilehash: bb188aa79015c2123b9d9d8b6baf277dfadf2f9c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98633037"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Conectar dados de alerta do Azure defender da central de segurança do Azure

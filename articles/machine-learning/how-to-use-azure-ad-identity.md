@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bcf5f75cf5cabe42f530a6a179c2cafd43b5520d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b6e6288f125da2a29a8eff56b64f327914f90cb4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952532"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102520465"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Usar a identidade do Azure AD com o serviço Web de machine learning no Serviço de Kubernetes do Azure
 
@@ -24,7 +24,7 @@ Neste "como", você aprende a atribuir uma identidade de Azure Active Directory 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Acesso ao cluster AKS usando o `kubectl` comando. Para obter mais informações, consulte [conectar-se ao cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 

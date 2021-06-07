@@ -9,10 +9,10 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 84c8275b7a7257530a735e8612047ef42e2f8a7c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011332"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Redefinir um circuito de ExpressRoute com falha

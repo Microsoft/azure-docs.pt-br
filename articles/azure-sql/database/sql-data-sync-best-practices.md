@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791436"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102180234"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL do Azure 
 
@@ -41,16 +41,20 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Contas de banco de dados com o mínimo de privilégios necessários
 
--   **Para configuração da sincronização** . Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
+-   **Para configuração da sincronização**. Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
 
--   **Para sincronização em andamento** . Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
+-   **Para sincronização em andamento**. Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
 
--   **Para desprovisionamento** . Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
+-   **Para desprovisionamento**. Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
 O banco de dados SQL do Azure oferece suporte a apenas um único conjunto de credenciais. Para realizar essas tarefas dentro desta restrição, considere as seguintes opções:
 
 -   Altere as credenciais para diferentes fases (por exemplo, *credenciais1* para instalação e *credenciais2* para em andamento).  
 -   Altere a permissão das credenciais (ou seja, altere a permissão após a sincronização estar configurada).
+
+### <a name="auditing"></a>Auditoria
+
+É recomendável habilitar a auditoria no nível dos bancos de dados nos grupos de sincronização. 
 
 ## <a name="setup"></a>Instalação
 
@@ -152,7 +156,7 @@ As alterações podem apresentar falha na propagação por um dos seguintes moti
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>O que acontece quando as alterações falham ao ser propagadas?
 
--   O grupo de sincronização mostra que ele está em um estado de **Aviso** .
+-   O grupo de sincronização mostra que ele está em um estado de **Aviso**.
 -   Os detalhes estão listados no visualizador de log de interface do usuário do portal.
 -   Se o problema não for resolvido por 45 dias, o banco de dados se tornará desatualizado.
 
@@ -168,7 +172,7 @@ Monitore a integridade do banco de dados e do grupo de sincronização regularme
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bancos de dados e grupos de sincronização desatualizados
 
-Um grupo de sincronização ou um banco de dados em um grupo de sincronização pode ficar desatualizado. Quando o status de um grupo de sincronização for **Desatualizado** , ele deixará de funcionar. Quando o status de um banco de dados é **Desatualizado** , os dados podem ser perdidos. É melhor evitar este cenário em vez de tentar recuperá-lo.
+Um grupo de sincronização ou um banco de dados em um grupo de sincronização pode ficar desatualizado. Quando o status de um grupo de sincronização for **Desatualizado**, ele deixará de funcionar. Quando o status de um banco de dados é **Desatualizado**, os dados podem ser perdidos. É melhor evitar este cenário em vez de tentar recuperá-lo.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitar bancos de dados desatualizados
 

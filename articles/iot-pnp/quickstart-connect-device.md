@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 6851253e2737d56ab2c3f812ebb0b38133163460
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 590a6d48d12555d0a857e60352c0e0d6f367c04a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122473"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057330"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub"></a>Início rápido: Conectar um aplicativo de exemplo do dispositivo do IoT Plug and Play no Linux ou no Windows ao Hub IoT
 
@@ -46,6 +46,10 @@ ms.locfileid: "96122473"
 [!INCLUDE [iot-pnp-connect-device-python](../../includes/iot-pnp-connect-device-python.md)]
 
 :::zone-end
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você tiver concluído os guias de início rápido e os tutoriais, confira [Limpar recursos](set-up-environment.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Próximas etapas
 

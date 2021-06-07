@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498788"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641979"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
-Em nossas discussões com clientes do Azure atuais e futuros, frequentemente nos fazem a seguinte pergunta “você tem uma lista de todas as tecnologias e serviços relacionados à segurança que o Azure tem a oferecer?”
+Em nossas discussões com clientes atuais e futuros do Azure, muitas vezes é perguntado: "você tem uma lista de todos os serviços e tecnologias relacionados à segurança que o Azure tem a oferecer?"
 
-Quando você avaliar as opções de provedor de serviços de nuvem, é útil ter essas informações. Portanto, nós fornecemos essa lista para você começar.
+Ao avaliar as opções do provedor de serviços de nuvem, é útil ter essas informações. Portanto, nós fornecemos essa lista para você começar.
 
 Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azure. Lembre-se de visitar essa página regularmente para se manter atualizado sobre nossas tecnologias e serviços relacionados à segurança.
 
@@ -34,8 +34,8 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 |Serviço|Descrição|
 |--------|--------|
 |[Central de &nbsp;Segurança&nbsp; do Azure](../../security-center/security-center-introduction.md)| Uma solução de proteção de carga de trabalho de nuvem que fornece gerenciamento de segurança e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida.|
-|[Cofre da Chave do Azure](../../key-vault/general/overview.md)| Um repositório de segredos seguro para as senhas, cadeias de caracteres de conexão e outras informações necessárias para manter seus aplicativos funcionando. |
-|[Logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)|Um serviço de monitoramento que coleta a telemetria e outros dados e fornece um mecanismo de linguagem e análise de consulta para fornecer insights operacionais para seus aplicativos e recursos. Pode ser usado sozinho ou com outros serviços, como a Central de Segurança. |
+|[Azure Key Vault](../../key-vault/general/overview.md)| Um repositório de segredos seguro para as senhas, cadeias de caracteres de conexão e outras informações necessárias para manter seus aplicativos funcionando. |
+|[Logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md)|Um serviço de monitoramento que coleta a telemetria e outros dados e fornece um mecanismo de linguagem e análise de consulta para fornecer insights operacionais para seus aplicativos e recursos. Pode ser usado sozinho ou com outros serviços, como a Central de Segurança. |
 |[Laboratórios de desenvolvimento/teste do Azure](../../devtest-labs/devtest-lab-overview.md)|Um serviço que ajuda os desenvolvedores e testadores a rapidamente criar ambientes no Azure, minimizando o desperdício e controlando custos.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -59,8 +59,8 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Azure&nbsp;SQL&nbsp;Firewall](../../azure-sql/database/firewall-configure.md)|Um recurso de controle de acesso de rede que protege contra ataques baseado em rede ao banco de dados. |
 |[Nível de Criptografia de &nbsp;Célula do &nbsp;SQL do &nbsp;Azure](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| Uma tecnologia de segurança de banco de dados que fornece criptografia em um nível granular.  |
 | [Criptografia de Conexão do &nbsp;SQL do &nbsp;Azure](../../azure-sql/database/logins-create-manage.md)|Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos. |
-| [Criptografia sempre ativa do SQL do Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server.  |
-| [Transparent Data Encryption do &nbsp;SQL do &nbsp;Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Um recurso de segurança de banco de dados que criptografa o armazenamento de um banco de dados inteiro. |
+| [Criptografia sempre ativa do SQL do Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protege dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server.  |
+| [Transparent Data Encryption do &nbsp;SQL do &nbsp;Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| Um recurso de segurança de banco de dados que criptografa o armazenamento de um banco de dados inteiro. |
 | [Auditoria do banco de dados SQL do Azure](../../azure-sql/database/auditing-overview.md)|Um recurso de auditoria do banco de dados SQL que rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure.  |
 
 
@@ -92,4 +92,4 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 | [Proxy de aplicativo do Azure](../../active-directory/manage-apps/application-proxy.md)| Um front-end de autenticação usado para proteger o acesso remoto para aplicativos da web hospedados no local. |
 |[Firewall do Azure](../../firewall/overview.md)|Um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos da Rede Virtual do Azure.|
 |[Proteção contra DDoS do Azure](../../ddos-protection/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicativo, fornece defesa contra ataques DDoS.|
-|[Pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado de rede virtual e a identidade da VNet aos serviços do Azure através de uma conexão direta.|
+|[Pontos de extremidade do serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)|Estende o espaço de endereço privado de rede virtual e a identidade da VNet aos serviços do Azure através de uma conexão direta.|

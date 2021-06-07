@@ -2,16 +2,19 @@
 title: Guia de Início Rápido – Criar uma instância de contêiner – modelo do Azure Resource Manager
 description: Neste início rápido, você usa um modelo do Azure Resource Manager para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada.
 services: azure-resource-manager
-ms.service: azure-resource-manager
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-js
 ms.date: 04/30/2020
-ms.openlocfilehash: 621e3e1cef39e34656c094a39d218d5d5866fa26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: azure-resource-manager
+ms.custom:
+- subject-armqs
+- devx-track-js
+- mode-arm
+ms.openlocfilehash: 5e8b9e1b2a396bb20b35dd69efe26758ba0db543
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91309074"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537497"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando um modelo do Resource Manager
 

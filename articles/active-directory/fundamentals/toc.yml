@@ -25,6 +25,8 @@
   items:
     - name: Segurança
       items:
+        - name: Proteger o Microsoft 365 de ataques locais
+          href: protect-m365-from-on-premises-attacks.md
         - name: Colaboração externa segura
           items:
             - name: Visão geral da proteção contra o acesso externo a recursos
@@ -47,8 +49,28 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Proteger o acesso ao Teams, SharePoint e OneDrive'
               href: 9-secure-access-teams-sharepoint.md
-        - name: Proteger o Microsoft 365 de ataques locais
-          href: protect-m365-from-on-premises-attacks.md
+        - name: Contas de serviço protegidas
+          items:
+            - name: Introdução às contas de serviço do Azure
+              href: service-accounts-introduction-azure.md
+            - name: Proteção de identidades gerenciadas
+              href: service-accounts-managed-identities.md
+            - name: Proteção de entidades de serviço
+              href: service-accounts-principal.md
+            - name: Administração de contas de serviço do Azure
+              href: service-accounts-governing-azure.md
+            - name: Introdução a contas de serviço locais
+              href: service-accounts-on-premises.md
+            - name: Como proteger MSAs de grupo
+              href: service-accounts-group-managed.md
+            - name: Como proteger MSAs autônomos
+              href: service-accounts-standalone-managed.md
+            - name: Como proteger contas de computador
+              href: service-accounts-computer.md
+            - name: Como proteger contas de serviço baseadas em usuário
+              href: service-accounts-user-on-premises.md
+            - name: Administrar contas de serviço locais
+              href: service-accounts-govern-on-premises.md
         - name: Habilitar MFA
           href: concept-fundamentals-mfa-get-started.md
         - name: Padrões de segurança

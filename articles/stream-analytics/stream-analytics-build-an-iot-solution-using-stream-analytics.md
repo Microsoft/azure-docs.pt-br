@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016143"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
@@ -302,7 +302,7 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 

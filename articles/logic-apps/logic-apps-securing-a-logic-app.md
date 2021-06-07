@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104494"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556376"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -203,20 +203,24 @@ No [portal do Azure](https://portal.azure.com), adicione uma ou mais políticas 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID do JWT** (identificador de token da Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
    |||
 
 1. Para adicionar outra declaração, selecione uma destas opções:
 
    * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
 
-   * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
+   * Para adicionar sua própria declaração, selecione **Adicionar declaração personalizada**. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo](../active-directory/develop/active-directory-optional-claims.md). Sua declaração personalizada é então armazenada como parte da ID do JWT; por exemplo, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . 
 
 1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
 
 1. Quando terminar, selecione **Salvar**.
 
 1. Para incluir o `Authorization` cabeçalho do token de acesso nas saídas do gatilho baseado em solicitação, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](#include-auth-header).
+
+
+As propriedades do fluxo de trabalho, como as políticas, não aparecem no modo de exibição de código do aplicativo lógico na portal do Azure. Para acessar suas políticas programaticamente, chame a seguinte API por meio de Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Certifique-se de substituir os valores de espaço reservado para sua ID de assinatura do Azure, nome do grupo de recursos e nome do fluxo de trabalho.
+
 
 <a name="define-authorization-policy-template"></a>
 
@@ -349,9 +353,9 @@ No [portal do Azure](https://portal.azure.com), esse filtro afeta os gatilhos *e
 
 No modelo do ARM, especifique os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.* x. x. x/x ou *x.x.x. x-x. x* . x. x.
 
-* Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia (**[]**).
+* Se seu aplicativo lógico aninhado usar a única opção de **outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure, defina a `allowedCallerIpAddresses` propriedade como uma matriz vazia (**[]**) e *omita* a `addressRange` propriedade.
 
-* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, defina a `addressRange` propriedade como o intervalo de IP permitido.
+* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, inclua a `allowedCallerIpAddresses` seção e defina a `addressRange` propriedade como o intervalo de IP permitido.
 
 Este exemplo mostra uma definição de recurso para um aplicativo lógico aninhado que permite chamadas de entrada somente de aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure:
 
@@ -378,18 +382,14 @@ Este exemplo mostra uma definição de recurso para um aplicativo lógico aninha
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -933,7 +933,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Log Analytics do Azure, logs de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
+| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
 |||
 
 <a name="basic-authentication"></a>

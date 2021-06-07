@@ -3,12 +3,12 @@ title: 'Erro de solução de problemas: Azure Functions Runtime está inacessív
 description: Saiba como solucionar o problema de uma conta de armazenamento inválida.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217287"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606966"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de solução de problemas: "Azure Functions Runtime está inacessível"
 
@@ -36,7 +36,7 @@ Na etapa anterior, se você não encontrar uma cadeia de conexão da conta de ar
 
 * Obrigatório:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Necessário para funções de consumo e plano Premium:
+* Necessário para funções de plano Premium:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
@@ -59,6 +59,7 @@ Seu aplicativo de funções deve ser capaz de acessar a conta de armazenamento. 
 * O aplicativo de funções é implantado em seu Ambiente do Serviço de Aplicativo (ASE) sem as regras de rede corretas para permitir o tráfego de e para a conta de armazenamento.
 
 * O firewall da conta de armazenamento está habilitado e não está configurado para permitir o tráfego de e para funções. Para saber mais, consulte [Configurar Redes Virtuais e Firewalls de Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Verifique se a `allowSharedKeyAccess` configuração está definida com o `true` valor padrão. Para obter mais informações, consulte [impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>A cota de execução diária está cheia
 

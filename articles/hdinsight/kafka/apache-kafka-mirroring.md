@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940851"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870493"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
@@ -22,7 +22,7 @@ Saiba como usar o recurso de espelhamento do Apache Kafka para replicar tópicos
 Neste exemplo, o espelhamento é usado para replicar tópicos entre dois clusters de HDInsight. Ambos os clusters estão em diferentes redes virtuais em data centers diferentes.
 
 > [!WARNING]  
-> O espelhamento não deve ser considerado um meio de obter tolerância a falhas. O deslocamento dos itens em um tópico é diferente entre os clusters primário e secundário, para que os clientes não possam usar os dois de maneira intercambiável.
+> O espelhamento não deve ser considerado um meio de obter tolerância a falhas. O deslocamento para itens em um tópico é diferente entre os clusters de origem e de destino. Assim, os clientes não podem usar os dois de modo intercambiável.
 >
 > Se estiver preocupado com a tolerância a falhas, você deverá definir a replicação para os tópicos no cluster. Para saber mais, consulte [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -30,11 +30,11 @@ Neste exemplo, o espelhamento é usado para replicar tópicos entre dois cluster
 
 O espelhamento funciona usando a ferramenta [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (parte do Apache Kafka) para consumir registros de tópicos no cluster primário e, em seguida, criar uma cópia local no cluster secundário. O MirrorMaker usa um (ou mais) *consumidores* que lêem do cluster primário e um *produtor* que grava no cluster local (secundário).
 
-A configuração de espelhamento mais útil para a recuperação de desastre utiliza clusters Kafka em diferentes regiões do Azure. Para conseguir isso, as redes virtuais nas quais os clusters residem são emparelhadas.
+A configuração de espelhamento mais útil para a recuperação de desastre utiliza clusters do Kafka em diferentes regiões do Azure. Para conseguir isso, as redes virtuais nas quais os clusters residem são emparelhadas.
 
-O diagrama a seguir ilustra o processo de espelhamento e como a comunicação flui entre os clusters:
+O seguinte diagrama ilustra o processo de espelhamento e como a comunicação flui entre os clusters:
 
-![Diagrama do processo de espelhamento](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagrama do processo de espelhamento" border="false":::
 
 Os clusters primário e secundário podem ser diferentes no número de nós e partições, e os deslocamentos nos tópicos também são diferentes. O espelhamento mantém o valor de chave que é usado para particionamento. Assim, a ordem de registros é preservada por chave.
 
@@ -46,9 +46,9 @@ Se você precisa de espelhamento entre clusters Kafka em redes diferentes, há a
 
 * **Endereçamento de servidor**: você pode optar por endereçar os nós de cluster usando seus endereços IP ou nomes de domínio totalmente qualificados.
 
-    * **Endereços IP**: se você configurar seus clusters Kafka para usar publicidade de endereço IP, poderá prosseguir com a configuração de espelhamento usando os endereços IP dos nós do agente e nós Zookeeper.
+    * **Endereços IP**: se você configurar seus clusters Kafka para usar publicidade de endereço IP, poderá prosseguir com a configuração de espelhamento usando os endereços IP dos nós do agente e nós do ZooKeeper.
     
-    * **Nomes de domínio**: se você não configurar os clusters Kafka para publicidade de endereço IP, os clusters deverão ser capazes de se conectar entre si usando nomes de domínio totalmente qualificados (FQDNs). Isso requer um servidor DNS (sistema de nomes de domínio) em cada rede configurada para encaminhar solicitações para outras redes. Ao criar uma Rede Virtual do Azure, em vez de usar o DNS automático fornecido com a rede, você deve especificar um servidor DNS personalizado e o endereço IP do servidor. Depois que a Rede Virtual for criada, você deverá criar uma Máquina Virtual do Azure que use esse endereço IP e instalar e configurar o software DNS nela.
+    * **Nomes de domínio**: se você não configurar os clusters Kafka para publicidade de endereço IP, os clusters deverão ser capazes de se conectar entre si usando FQDNs (nomes de domínio totalmente qualificados). Isso exige um servidor DNS (Sistema de Nomes de Domínio) em cada rede configurado para encaminhar solicitações para outras redes. Ao criar uma Rede Virtual do Azure, em vez de usar o DNS automático fornecido com a rede, você deve especificar um servidor DNS personalizado e o endereço IP do servidor. Depois que a Rede Virtual for criada, você deverá criar uma Máquina Virtual do Azure que use esse endereço IP e instalar e configurar o software DNS nela.
 
     > [!WARNING]  
     > Crie e configure o servidor DNS personalizado antes de instalar o HDInsight na Rede Virtual. Não é necessária configuração adicional para que o HDInsight use o servidor DNS configurado para a Rede Virtual.
@@ -84,15 +84,15 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
     1. Selecione **Adicionar**.
     1. Na tela **Adicionar emparelhamento** , insira os detalhes, conforme mostrado na captura abaixo.
 
-        ![Adicionar emparelhamento vnet Kafka do HDInsight](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Adicionar emparelhamento vnet Kafka do HDInsight" border="true":::
 
 ### <a name="configure-ip-advertising"></a>Configurar publicidade de IP
 
 Configure o anúncio de IP para permitir que um cliente se conecte usando endereços IP do agente em vez de nomes de domínio.
 
 1. Vá para o painel do Ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
-1. Selecione **Serviços**  >  **Kafka**. CliSelectck a guia **configurações** .
-1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Selecione **Salvar**.
+1. Selecione **Serviços**  >  **Kafka**. Selecione a guia **configurações** .
+1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Clique em **Salvar**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -107,12 +107,12 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 1. Selecione **OK** em **salvar alterações de configuração**.
 1. Selecione **reiniciar**  >  **reiniciar todos os afetados** na notificação **reinicialização necessária** . Selecione **confirmar reiniciar tudo**.
 
-    ![O Apache Ambari reinicia todos os afetados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="O Apache Ambari reinicia todos os afetados" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure o Kafka para escutar em todas as interfaces de rede.
     
 1. Permaneça na guia **configurações** em **Serviços**  >  **Kafka**. Na seção **agente Kafka** , defina a propriedade **Listeners** como `PLAINTEXT://0.0.0.0:9092` .
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Selecione **reiniciar** e **confirme reiniciar tudo**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Endereços IP do agente de registro e endereços Zookeeper para o cluster primário.
@@ -120,7 +120,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 1. Selecione **hosts** no painel do Ambari.
 1. Anote os endereços IP para os agentes e zookeepers. Os nós do agente têm o **WN** como as duas primeiras letras do nome do host e os nós Zookeeper têm **ZK** como as duas primeiras letras do nome do host.
 
-    ![Endereços IP do nó de exibição do Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Endereços IP do nó de exibição do Apache Ambari" border="true":::
 
 1. Repita as três etapas anteriores para o segundo cluster **Kafka-Secondary-cluster**: Configure o anúncio de IP, defina os ouvintes e anote os endereços IP do agente e do Zookeeper.
 
@@ -256,7 +256,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
         1. Altere o valor de `auto.create.topics.enable` para true e, em seguida, selecione __Salvar__. Adicione uma observação e, em seguida, selecione __salvar__ novamente.
         1. Selecione o serviço __Kafka__ , selecione __reiniciar__ e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
-        ![Kafka habilitar tópicos de criação automática](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="Kafka habilitar tópicos de criação automática" border="true":::
 
 ## <a name="start-mirrormaker"></a>Iniciar MirrorMaker
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: e73d681cadaddd32290cec40ae7a9c8f6e8ac758
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: dee00c6f733cfbebf68276ee4b54f91b8e2cb35b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005640"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765531"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard**, execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroup* no localização *Centro-Sul dos EUA*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Standard**, execute o comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -75,7 +75,7 @@ Quando o comando for concluído, uma saída JSON mostra as propriedades do grupo
 
 ## <a name="create-an-azure-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo do Azure
 
-No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create).
+No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -109,7 +109,7 @@ Quando o Plano do Serviço de Aplicativo tiver sido criado, o Cloud Shell mostra
 
 ## <a name="create-a-docker-compose-app"></a>Criar um aplicativo Docker Compose
 
-Em seu Cloud Shell, crie um [aplicativo Web](overview.md) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az-webapp-create). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
+Em seu Cloud Shell, crie um [aplicativo Web](overview.md) multicontêiner no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az_webapp_create). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -146,7 +146,7 @@ Não é recomendável usar contêineres de banco de dados em um ambiente de prod
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
 
-Crie um Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server#az-mysql-server-create).
+Crie um Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create).
 
 No comando a seguir, substitua o nome do servidor MySQL no qual o espaço reservado _&lt;mysql-server-name>_ é exibido (os caracteres válidos são `a-z`, `0-9` e `-`). Esse nome faz parte do nome do host do MySQL Server (`<mysql-server-name>.database.windows.net`) e precisa ser global exclusivo.
 
@@ -171,7 +171,7 @@ A conclusão da criação do servidor pode demorar alguns minutos. Quando o serv
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure.
+Crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -205,7 +205,7 @@ Quando o banco de dados for criado, o Cloud Shell mostrará informações semelh
 
 Para conectar o aplicativo WordPress a esse novo servidor MySQL, você configurará algumas variáveis de ambiente específicas do WordPress, incluindo o caminho de AC do SSL definido por `MYSQL_SSL_CA`. O [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) da [DigiCert](https://www.digicert.com/) é fornecido na [imagem personalizada](#use-a-custom-image-for-mysql-ssl-and-other-configurations) abaixo.
 
-Para fazer essas alterações, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
+Para fazer essas alterações, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -279,7 +279,7 @@ Salve suas alterações e saia do nano. Use o comando `^O` para salvar e `^X` pa
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set). Não se esqueça de substituir _\<app-name>_ pelo nome do aplicativo Web criado anteriormente.
+No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Não se esqueça de substituir _\<app-name>_ pelo nome do aplicativo Web criado anteriormente.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -308,7 +308,7 @@ O multicontêiner agora está em execução no Aplicativo Web para Contêineres.
 
 ### <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
 
-Para usar o armazenamento persistente, você habilitará essa configuração no Serviço de Aplicativo. Para fazer essa alteração, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
+Para usar o armazenamento persistente, você habilitará essa configuração no Serviço de Aplicativo. Para fazer essa alteração, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -355,7 +355,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
+No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -415,7 +415,7 @@ services:
 
 ### <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
 
-Para usar o Redis, você habilitará essa configuração `WP_REDIS_HOST` no Serviço de Aplicativo. Esta é uma *configuração necessária* para WordPress comunicar-se com host do Redis. Para fazer essa alteração, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
+Para usar o Redis, você habilitará essa configuração `WP_REDIS_HOST` no Serviço de Aplicativo. Esta é uma *configuração necessária* para WordPress comunicar-se com host do Redis. Para fazer essa alteração, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WP_REDIS_HOST="redis"
@@ -441,7 +441,7 @@ Após a criação da configuração do aplicativo, o Cloud Shell mostrará infor
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
-No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
+No Cloud Shell, reconfigure o [aplicativo Web](overview.md) multicontêiner com o comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Não se esqueça de substituir _\<app-name>_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

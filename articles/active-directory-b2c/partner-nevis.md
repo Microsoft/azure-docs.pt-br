@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674986"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar o Nevis com Azure Active Directory B2C para autenticação sem senha
@@ -104,7 +104,7 @@ Você receberá dois emails:
 
 ### <a name="integrate-azure-ad-b2c-with-nevis"></a>Integre Azure AD B2C com Nevis
 
-1. Abra o [portal do Azure](https://portal.azure.com/).
+1. Abra o [Portal do Azure](https://portal.azure.com/).
 
 2. Alterne para o locatário do Azure AD B2C. Verifique se você selecionou o locatário correto, pois o locatário de Azure AD B2C geralmente está em um locatário separado.
 
@@ -202,7 +202,7 @@ Você receberá dois emails:
 4. Selecione o arquivo de **TrustFrameworkBase.xml** que você modificou.
 
 5. Marque a caixa de seleção **substituir a política personalizada se ela já existir** .
-6. Selecione **Carregar**.
+6. Escolha **Carregar**.
 
 7. Repita as etapas 5 e 6 para **TrustFrameworkExtensions.xml**.
 

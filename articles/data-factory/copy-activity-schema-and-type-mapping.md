@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392775"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
@@ -53,7 +53,7 @@ Você pode configurar o mapeamento na interface do usuário de criação de Data
 
 As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
-| Propriedade            | Descrição                                                  | Necessária |
+| Propriedade            | Descrição                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Aplicar ao copiar dados de fonte hierárquica, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. | Não       |
 
@@ -289,7 +289,7 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Ponto de flutuação | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Inteiro     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
@@ -305,7 +305,7 @@ As conversões de tipo de dados a seguir têm suporte entre os tipos provisório
 
 As propriedades a seguir têm suporte na atividade de cópia para conversão de tipo de dados (em `translator` seção para a criação programática):
 
-| Propriedade                         | Descrição                                                  | Necessária |
+| Propriedade                         | Descrição                                                  | Obrigatório |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Habilite a nova experiência de conversão de tipo de dados. <br>O valor padrão é false devido à compatibilidade com versões anteriores.<br><br>Para novas atividades de cópia criadas por meio da interface do usuário de criação de Data Factory desde o final de junho de 2020, essa conversão de tipo de dados é habilitada por padrão para a melhor experiência, e você pode ver as seguintes configurações de conversão de tipo na guia atividade de cópia – mapeamento de > para cenários aplicáveis. <br>Para criar o pipeline programaticamente, você precisa definir explicitamente `typeConversion` a propriedade como true para habilitá-la.<br>Para as atividades de cópia existentes criadas antes desse recurso ser liberado, você não verá as opções de conversão de tipo na interface do usuário de criação de Data Factory para compatibilidade com versões anteriores. | Não       |
 | typeConversionSettings           | Um grupo de configurações de conversão de tipo. Aplicar quando `typeConversion` estiver definido como `true` . As propriedades a seguir estão todas sob esse grupo. | Não       |

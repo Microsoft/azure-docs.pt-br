@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490315"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
@@ -70,7 +70,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione **+ criar um barramento de serviço de integração de recursos**  >  **Integration**  >  **Service Bus**.
+1. Na [portal do Azure](https://portal.azure.com/), selecione **+ criar um barramento de serviço de integração de recursos**  >    >  .
 
 1. No painel **criar namespace** , forneça as seguintes informações:
 
@@ -98,7 +98,7 @@ Criar um namespace do Barramento de Serviço e da fila. Posteriormente neste tó
 
 1. De volta ao painel **namespace do barramento de serviço** , em **entidades**, selecione **filas**. Abra a fila do barramento de serviço na lista e, em seguida, selecione **políticas de acesso compartilhado**  >  **+ Adicionar**.
 
-1. Insira um nome para a política, marque **gerenciar**e, em seguida, selecione **criar**.
+1. Insira um nome para a política, marque **gerenciar** e, em seguida, selecione **criar**.
 
    ![Adicionar uma política de fila do barramento de serviço no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
@@ -142,7 +142,7 @@ Adicione um ponto de extremidade personalizado para a fila do barramento de serv
 
    ![Adicionar uma regra de roteamento no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. Selecione **Salvar**. Você pode fechar o painel **Roteamento de mensagens** .
+1. Clique em **Salvar**. Você pode fechar o painel **Roteamento de mensagens** .
 
 ## <a name="create-and-configure-a-logic-app"></a>Criar e configurar um aplicativo lógico
 
@@ -150,7 +150,7 @@ Na seção anterior, você configura o Hub IoT para rotear mensagens contendo um
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
-1. Selecione **criar um recurso**  >  **Integration**  >  **aplicativo lógico**de integração.
+1. Selecione **criar um recurso**  >    >  **aplicativo lógico** de integração.
 
 1. Insira as seguintes informações:
 

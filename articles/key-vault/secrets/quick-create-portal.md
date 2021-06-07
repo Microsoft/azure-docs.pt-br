@@ -3,7 +3,6 @@ title: Início Rápido do Azure – Definir e recuperar um segredo do Key Vault 
 description: Início Rápido que mostra como definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 904c00c26171854a32234d7b6ba5cac81ac43e5c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ba5b375f75d2655045e62583679839c8dd2a5720
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936661"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752436"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -82,7 +81,7 @@ Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Ke
 Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
-- Leia [Proteger o acesso a um Key Vault](../general/secure-your-key-vault.md)
+- Leia [Proteger o acesso a um Key Vault](../general/security-overview.md)
 - Confira [Usar o Key Vault com o aplicativo Web do Serviço de Aplicativo](../general/tutorial-net-create-vault-azure-web-app.md)
 - Confira [Usar o Key Vault com o aplicativo implantado na VM](../general/tutorial-net-virtual-machine.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)

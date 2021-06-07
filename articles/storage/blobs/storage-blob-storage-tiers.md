@@ -3,17 +3,17 @@ title: Camadas de acesso para armazenamento de BLOBs do Azure – frequente, fri
 description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928795"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656831"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Camadas de acesso para armazenamento de BLOBs do Azure – frequente, fria e arquivo morto
 
@@ -100,7 +100,9 @@ Somente as camadas de acesso quente e fria podem ser definidas como a camada de 
 
 A camada no nível do blob permite que você carregue dados para a camada de acesso de sua escolha usando as operações [colocar blob](/rest/api/storageservices/put-blob) ou [colocar lista de blocos](/rest/api/storageservices/put-block-list) e alterar a camada dos dados no nível do objeto usando o recurso definir operação de [camada de blob](/rest/api/storageservices/set-blob-tier) ou gerenciamento de [ciclo de vida](#blob-lifecycle-management) . Você pode carregar dados para a camada de acesso necessária e alterar facilmente a camada de acesso de blob entre as camadas frequente, esporádica ou de arquivo morto conforme os padrões de uso mudam, sem precisar mover dados entre contas. Todas as solicitações de alteração de camada acontecem imediatamente e as alterações de camada entre a quente e a fria são instantâneas. Reidratar um blob da camada de arquivo pode levar várias horas.
 
-A hora da última alteração na camada de blob é exposta por meio da propriedade do blob **Acessar Hora de Alteração da Camada**. Ao substituir um blob na camada quente ou fria, o blob recém-criado herda a camada do blob que foi substituído, a menos que a nova camada de acesso de blob seja definida explicitamente na criação. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário.
+A hora da última alteração na camada de blob é exposta por meio da propriedade do blob **Acessar Hora de Alteração da Camada**. O **tempo de alteração da camada de acesso** é uma propriedade de nível de BLOB e não é atualizado quando a camada de conta padrão é alterada. As propriedades de conta e de blob são separadas. Seria extremamente caro atualizar o **tempo de alteração da camada de acesso** em cada blob em uma conta de armazenamento sempre que a camada de acesso padrão da conta for alterada.
+
+Ao substituir um blob na camada quente ou fria, o blob recém-criado herda a camada do blob que foi substituído, a menos que a nova camada de acesso de blob seja definida explicitamente na criação. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário.
 
 > [!NOTE]
 > O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco.
@@ -143,7 +145,7 @@ Calcule o tempo de exclusão antecipado usando a propriedade blob **modificada p
 
 A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de desempenho premium e as camadas de acesso frequente, fria e de arquivo.
 
-|                                           | **Desempenho premium**   | **Camada quente** | **Camada fria**       | **Camada de arquivo morto**  |
+|                                           | **Desempenho premium**   | **Camada quente** | **Camada fria**       | **Camada de arquivo**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
 | **Disponibilidade** <br> **(Leituras de RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |

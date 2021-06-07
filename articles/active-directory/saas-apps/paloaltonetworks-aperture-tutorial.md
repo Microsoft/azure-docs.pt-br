@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b4c8ab55a9b2afc9c1a215236fa1276a630a5cf
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 42a6bc9bfb06f1c80b719bdda686ae111a8884ab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963614"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: integração do Microsoft Azure Active Directory com o Palo Alto Networks – Aperture
 
-Neste tutorial, você aprenderá a integrar o Palo Alto Networks – Aperture ao Microsoft Azure AD.
-A integração do Palo Alto Networks – Aperture ao Microsoft Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Palo Alto Networks – Aperture ao Azure AD (Azure Active Directory). Ao integrar o Palo Alto Networks – Aperture ao Azure AD, você poderá:
 
-* No Microsoft Azure AD, é possível controlar quem tem acesso ao Palo Alto Networks – Aperture.
-* É possível permitir que os usuários entrem automaticamente no Palo Alto Networks – Aperture (Logon Único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao Palo Alto Networks – Aperture.
+* Permitir que os usuários entrem automaticamente no Palo Alto Networks – Aperture com as respectivas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure Active Directory com o Palo Alto Networks – Aperture, os seguintes itens serão necessários:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Uma assinatura do Palo Alto Networks – Aperture habilitada para logon único
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do Palo Alto Networks – Aperture habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Palo Alto Networks – Aperture é compatível com o SSO iniciado por **SP** e **IDP**
+* O Palo Alto Networks – Aperture dá suporte ao SSO iniciado por **SP** e **IdP**.
 
-## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Adicionar o Palo Alto Networks – Aperture da galeria
+## <a name="add-palo-alto-networks---aperture-from-the-gallery"></a>Adicionar o Palo Alto Networks – Aperture por meio da galeria
 
 Para configurar a integração do Palo Alto Networks – Aperture com o Azure Active Directory, você precisará adicionar o Palo Alto Networks – Aperture da galeria à sua lista de aplicativos SaaS gerenciados.
 
@@ -59,10 +58,10 @@ Para que o logon único funcione, é necessário estabelecer uma relação de v�
 Para configurar e testar o logon único do Azure AD com o Palo Alto Networks – Aperture, siga estas etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-    * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 2. **[Configurar o SSO do Palo Alto Networks – Aperture](#configure-palo-alto-networks---aperture-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do Palo Alto Networks – Aperture](#create-palo-alto-networks---aperture-test-user)** – para ter um equivalente de Brenda Fernandes no Palo Alto Networks – Aperture que esteja vinculado à representação do usuário no Azure AD.
+    1. **[Criar usuário de teste do Palo Alto Networks – Aperture](#create-palo-alto-networks---aperture-test-user)** – para ter um equivalente de Brenda Fernandes no Palo Alto Networks – Aperture que esteja vinculado à representação do usuário no Azure AD.
 3. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -77,15 +76,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
-    ![Uma captura de tela que mostra a "Configuração Básica de SAML" com as caixas de texto "Identificador" e "URL de Resposta" realçadas, bem como a ação "Salvar" selecionada.](common/idp-intiated.png)
-
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
-
-    ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture – SP](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
@@ -130,15 +125,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Na barra de menu superior, clique em **CONFIGURAÇÕES**.
 
-    ![Guia de configurações](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+    ![Guia de configurações](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. Navegue para a seção **APLICAÇÃO** e clique em **Autenticação** no lado esquerdo do menu.
 
-    ![Guia de Autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+    ![Guia de Autenticação](./media/paloaltonetworks-aperture-tutorial/authentication.png)
     
 4. Na página **Autenticação**, execute as seguintes etapas:
     
-    ![Guia de autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+    ![Guia de autenticação](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
     a. Marque **Habilitar Logon Único (os provedores SSP com suporte são Okta, One login)** do campo **Logon Único**.
 

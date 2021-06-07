@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 65ee741ee928a4883def68a5c0b6d20beee441c7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538900"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609200"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Recursos do Azure Pesquisa Cognitiva
 
@@ -43,7 +43,7 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 | Relevância | A [**pontuação simples**](index-add-scoring-profiles.md) é o principal benefício da Pesquisa Cognitiva do Azure. Os perfis de pontuação são usados para modelar a relevância como uma função de valores nos próprios documentos. Por exemplo, talvez você queira que produtos mais recentes ou com desconto apareçam primeiro nos resultados da pesquisa. Você também pode criar perfis de pontuação usando marcas de pontuação personalizadas com base nas preferências de pesquisa do cliente que você controlou e armazenou separadamente. |
 | Pesquisa geográfica | A Pesquisa Cognitiva do Azure processa, filtra e exibe localizações geográficas. Ele permite aos usuários explorar dados com base na proximidade de um resultado da pesquisa a uma localização física. [Assista a este vídeo](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) ou [examine esta amostra](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) para saber mais. |
 | Filtros e facetas | A [**navegação facetada**](search-faceted-navigation.md) é habilitada por meio de um único parâmetro de consulta. A Pesquisa Cognitiva do Azure retorna uma estrutura de navegação mista, que você pode usar como o código por trás de uma lista de categorias para a filtragem autodirigida (por exemplo, para filtrar os itens do catálogo por faixa de preços ou marca). <br/><br/> Os [**filtros**](query-odata-filter-orderby-syntax.md) podem ser usados para incorporar a navegação facetada na interface do usuário do aplicativo, melhorar a formulação da consulta e filtrar com base em critérios especificados pelo usuário ou pelo desenvolvedor. Crie filtros usando a sintaxe OData. |
-| Experiência do usuário | O [**preenchimento automático**](search-autocomplete-tutorial.md) pode ser habilitado para consultas de digitação antecipada em uma barra de pesquisa. <br/><br/>[**Sugestões de pesquisa**](/rest/api/searchservice/suggesters) também funciona em entradas de texto parcial em uma barra de pesquisa, mas os resultados são documentos reais em seu índice em vez de termos de consulta. <br/><br/>[**Sinônimos**](search-synonyms.md) associa termos equivalentes que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha de fornecer os termos alternativos. <br/><br/>O [**realce de ocorrência**](/rest/api/searchservice/Search-Documents) aplica uma formatação de texto a uma palavra-chave correspondente nos resultados da pesquisa. Você pode escolher quais campos retornam os snippets de código destacados.<br/><br/>A [**classificação**](/rest/api/searchservice/Search-Documents) é oferecida em vários campos por meio do esquema de índice e, então, alternada no momento da consulta com um único parâmetro de pesquisa.<br/><br/> A [**paginação**](search-pagination-page-layout.md) e a limitação dos resultados da pesquisa são simples, com o controle bem ajustado que a Pesquisa Cognitiva do Azure oferece sobre seus resultados da pesquisa.  <br/><br/>|
+| Experiência do usuário | O [**preenchimento automático**](search-add-autocomplete-suggestions.md) pode ser habilitado para consultas de digitação antecipada em uma barra de pesquisa. <br/><br/>[**Sugestões de pesquisa**](/rest/api/searchservice/suggesters) também funciona em entradas de texto parcial em uma barra de pesquisa, mas os resultados são documentos reais em seu índice em vez de termos de consulta. <br/><br/>[**Sinônimos**](search-synonyms.md) associa termos equivalentes que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha de fornecer os termos alternativos. <br/><br/>O [**realce de ocorrência**](/rest/api/searchservice/Search-Documents) aplica uma formatação de texto a uma palavra-chave correspondente nos resultados da pesquisa. Você pode escolher quais campos retornam os snippets de código destacados.<br/><br/>A [**classificação**](/rest/api/searchservice/Search-Documents) é oferecida em vários campos por meio do esquema de índice e, então, alternada no momento da consulta com um único parâmetro de pesquisa.<br/><br/> A [**paginação**](search-pagination-page-layout.md) e a limitação dos resultados da pesquisa são simples, com o controle bem ajustado que a Pesquisa Cognitiva do Azure oferece sobre seus resultados da pesquisa.  <br/><br/>|
 
 ## <a name="security-features"></a>Recursos de segurança
 

@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 01/07/2021
 ms.openlocfilehash: 0ceb9095f15009c150690b67271f4a654cd6110f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98127746"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Inscrever-se ou renovar uma assinatura do Azure Dev Tools for Teaching

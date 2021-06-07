@@ -1,19 +1,16 @@
 ---
 title: Preparar a recuperação de desastre da VM do VMware com o Azure Site Recovery
 description: Saiba como preparar os servidores VMware locais para recuperação de desastre para o Azure usando o serviço Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b8fd34c8f1e3a32a8252074941a49d61aa540207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3ba53908ae9ceccb651e1d9bf9b685d36d4c56c
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134913"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579938"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 

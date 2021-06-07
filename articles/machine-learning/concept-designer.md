@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e6738bf944c5a80d0cb54432ade7555ebdcfbd51
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322255"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102503533"
 ---
-# <a name="what-is-azure-machine-learning-designer"></a>O que é o designer de Azure Machine Learning? 
+# <a name="what-is-azure-machine-learning-designer"></a>O que é o designer do Azure Machine Learning? 
 
 
 O designer do Azure Machine Learning permite conectar visualmente [conjuntos de dados](#datasets) e [módulos](#module) em uma tela interativa para criar modelos de aprendizado de máquina. Para saber como começar a usar o designer, confira o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
@@ -81,7 +81,7 @@ Um módulo é um algoritmo que você pode executar em seus dados. O designer tem
 
 Um módulo pode ter um conjunto de parâmetros que você pode usar para configurar os algoritmos internos do módulo. Ao selecionar um módulo nas telas, os parâmetros do módulo são exibidos no painel Propriedades à direita das telas. Você pode modificar os parâmetros nesse painel para ajustar seu modelo. Você pode definir os recursos de computação para módulos individuais no designer. 
 
-:::image type="content" source="./media/concept-designer/properties.png"alt-text="Propriedades do módulo":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Propriedades do módulo":::
 
 
 Para obter ajuda para navegar pela biblioteca de algoritmos disponíveis do aprendizado de máquina, confira [Visão geral sobre referência de algoritmos e módulos](algorithm-module-reference/module-reference.md). Para obter ajuda para escolher um algoritmo, confira a [Página de dicas úteis do algoritmo do Azure Machine Learning](algorithm-cheat-sheet.md).
@@ -114,7 +114,7 @@ Os pipelines publicados são flexíveis, podem ser usados ​​para treinar ou 
 
 Um pipeline publicado é executado nos recursos de computação que você define no rascunho de pipeline para cada módulo.
 
-O designer cria o mesmo objeto [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) que o SDK.
+O designer cria o mesmo objeto [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) que o SDK.
 
 ## <a name="next-steps"></a>Próximas etapas
 

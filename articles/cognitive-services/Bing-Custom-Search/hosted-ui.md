@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: ca3f9da681c60608b5b196b17191f0b4d549f305
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96338360"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada

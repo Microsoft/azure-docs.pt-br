@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632717"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99575527"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -208,7 +208,7 @@ Em poucos segundos, você verá a resposta a seguir na janela de **SAÍDA**.
   "payload": {
     "systemData": {
       "createdAt": "2020-05-12T22:05:31.603Z",
-      "lastModifiedAt": "2020-05-12T22:05:31.603Z"
+      "lastModifiedAt&quot;: &quot;2020-05-12T22:05:31.603Z"
     },
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
@@ -218,30 +218,30 @@ Em poucos segundos, você verá a resposta a seguir na janela de **SAÍDA**.
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         },
         {
           "name": "motionSensitivity",
           "type": "String",
           "description": "motion detection sensitivity",
-          "default": "medium"
+          "default&quot;: &quot;medium"
         },
         {
           "name": "hubSinkOutputName",
           "type": "String",
           "description": "hub sink output name",
-          "default": "iothubsinkoutput"
+          "default&quot;: &quot;iothubsinkoutput"
         }
       ],
       "sources": [
@@ -255,7 +255,7 @@ Em poucos segundos, você verá a resposta a seguir na janela de **SAÍDA**.
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
               "username": "${rtspUserName}",
-              "password": "${rtspPassword}"
+              "password&quot;: &quot;${rtspPassword}"
             }
           }
         }
@@ -336,7 +336,7 @@ Agora invoque GraphTopologyGet com o conteúdo a seguir
 
 {
     "@apiVersion" : "2.0",
-    "name" : "EVRtoAssetsOnMotionDetection"
+    "name&quot; : &quot;EVRtoAssetsOnMotionDetection"
 }
 ```
 
@@ -350,7 +350,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de Saída
   "payload": {
     "systemData": {
       "createdAt": "2020-05-12T22:05:31.603Z",
-      "lastModifiedAt": "2020-05-12T22:05:31.603Z"
+      "lastModifiedAt&quot;: &quot;2020-05-12T22:05:31.603Z"
     },
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
@@ -360,30 +360,30 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de Saída
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         },
         {
           "name": "motionSensitivity",
           "type": "String",
           "description": "motion detection sensitivity",
-          "default": "medium"
+          "default&quot;: &quot;medium"
         },
         {
           "name": "hubSinkOutputName",
           "type": "String",
           "description": "hub sink output name",
-          "default": "iothubsinkoutput"
+          "default&quot;: &quot;iothubsinkoutput"
         }
       ],
       "sources": [
@@ -397,7 +397,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de Saída
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
               "username": "${rtspUserName}",
-              "password": "${rtspPassword}"
+              "password&quot;: &quot;${rtspPassword}"
             }
           }
         }
@@ -505,7 +505,7 @@ Em poucos segundos, você verá a resposta a seguir na janela Saída:
   "payload": {
     "systemData": {
       "createdAt": "2020-05-12T23:30:20.666Z",
-      "lastModifiedAt": "2020-05-12T23:30:20.666Z"
+      "lastModifiedAt&quot;: &quot;2020-05-12T23:30:20.666Z"
     },
     "name": "Sample-Graph-2",
     "properties": {
@@ -515,7 +515,7 @@ Em poucos segundos, você verá a resposta a seguir na janela Saída:
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/lots_015.mkv"
         }
       ]
     }
@@ -540,10 +540,15 @@ O grafo de mídia que você criou usa o nó do processador de detecção de movi
 
 1. Abra o painel do Explorer no Visual Studio Code e procure por Hub IoT do Azure, no canto inferior esquerdo.
 1. Expanda o nó Dispositivos
-1. Clique com o botão direito do mouse em lva-sample-device e escolha a opção "Iniciar Monitoramento do Monitoramento de Eventos Interno"
+1. Clique com o botão direito do mouse em lva-sample-device e escolha a opção "Iniciar Monitoramento de Eventos Interno"
 
     ![Iniciar Monitoramento do Monitoramento de Eventos Interno](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Em segundos, você verá as seguintes mensagens na janela de SAÍDA:
 
 ```
@@ -585,7 +590,7 @@ Agora invoque o método direto GraphInstanceGet com o seguinte conteúdo:
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "Sample-Graph-2"
+    "name&quot; : &quot;Sample-Graph-2"
 }
 ```
 
@@ -599,7 +604,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de SAÍDA
   "payload": {
     "systemData": {
       "createdAt": "2020-05-12T23:30:20.666Z",
-      "lastModifiedAt": "2020-05-12T23:30:20.666Z"
+      "lastModifiedAt&quot;: &quot;2020-05-12T23:30:20.666Z"
     },
     "name": "Sample-Graph-2",
     "properties": {
@@ -609,7 +614,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de SAÍDA
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/lots_015.mkv"
         }
       ]
     }
@@ -630,7 +635,7 @@ A instância do grafo que você criou e ativou acima usa o nó do processador de
 [IoTHubMonitor] [4:33:04 PM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1589326384077235 1 IN IP4 XXX.XX.XX.XXX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-73.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1589326384077235 1 IN IP4 XXX.XX.XX.XXX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-73.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=640028;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
@@ -663,7 +668,7 @@ A instância do grafo que você criou e ativou acima usa o nó do processador de
     "subject": "/graphInstances/Sample-Graph-2/processors/md",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
     "eventTime": "2020-05-12T23:33:09.381Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -688,14 +693,14 @@ A próxima mensagem que você verá é mostrada a seguir.
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
     "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
     "eventTime": "2020-05-12T23:33:10.392Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -711,14 +716,14 @@ Na topologia, o nó do processador da porta de sinal foi configurado com tempos 
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
     "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingAvailable",
     "eventTime": "2020-05-12T23:33:31.051Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -734,14 +739,14 @@ Se você deixar a instância do grafo continuar sendo executada, você verá est
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
     "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStopped",
     "eventTime": "2020-05-12T23:33:40.014Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -792,7 +797,7 @@ Invoque o método direto GraphInstanceDelete com o conteúdo a seguir
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "Sample-Graph-2"
+    "name&quot; : &quot;Sample-Graph-2"
 }
 ```
 
@@ -816,7 +821,7 @@ Invoque o método direto GraphTopologyDelete com o seguinte conteúdo:
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "EVRtoAssetsOnMotionDetection"
+    "name&quot; : &quot;EVRtoAssetsOnMotionDetection"
 }
 ```
 

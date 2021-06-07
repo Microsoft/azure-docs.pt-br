@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578573"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store Gen1 usando o portal do Azure
@@ -84,7 +84,7 @@ Se você tiver usado as chaves de um Azure Key Vault para configurar a criptogra
 
 Você pode criar pastas em sua conta do Data Lake Storage Gen1 para gerenciar e armazenar dados.
 
-1. Abra a conta do Data Lake Storage Gen1 que você criou. No painel esquerdo, clique em **todos os recursos**e, em seguida, na folha **todos os recursos** , clique no nome da conta sob a qual você deseja criar pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
+1. Abra a conta do Data Lake Storage Gen1 que você criou. No painel esquerdo, clique em **todos os recursos** e, em seguida, na folha **todos os recursos** , clique no nome da conta sob a qual você deseja criar pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
 2. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
 
     ![Captura de tela da folha de conta Data Lake Storage Gen 1 com a opção Data Explorer chamada out.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Criar pastas em uma conta do Data Lake Storage Gen1")

@@ -1,24 +1,20 @@
 ---
 title: 'Início Rápido: criar um Azure Data Factory usando Python'
 description: Use um data factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 04/06/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 883b7df1d4dfd1b405f2952aa675db5948ab3ca3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234283"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449266"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início Rápido: Criar um data factory e pipeline usando o Python
 
@@ -38,7 +34,7 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* O [Python 3.6+](https://www.python.org/downloads/).
 
 * [Uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md).
 
@@ -70,7 +66,7 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
     pip install azure-mgmt-datafactory
     ```
 
-    O [SDK do Python para Data Factory](https://github.com/Azure/azure-sdk-for-python) dá suporte a Python 2.7, 3.3, 3.4, 3.5, 3.6 e 3.7.
+    O [SDK do Python para o Data Factory](https://github.com/Azure/azure-sdk-for-python) é compatível com o Python 2.7 e 3.6+.
 
 4. Para instalar o pacote do Python para a autenticação da Identidade do Azure, execute o seguinte comando:
 
@@ -79,9 +75,12 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
     ```
     > [!NOTE] 
     > O pacote "azure-identity" pode ter conflitos com "azure-cli" em algumas dependências comuns. Se você encontrar qualquer problema de autenticação, remova "azure-cli" e as dependências dela ou use um computador limpo sem instalar o pacote "azure-cli" para fazê-lo funcionar.
+    > Para nuvens soberanas, você deve usar as constantes específicas de nuvem apropriadas.  Consulte [Conectar-se a todas as regiões usando bibliotecas do Azure para Várias Nuvens do Python | Microsoft Docs para obter instruções para se conectar com o Python em nuvens soberanas.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    
     
 ## <a name="create-a-data-factory-client"></a>Criar um cliente data factory
 
+  
 1. Crie um arquivo chamado **datafactory.py**. Adicione as instruções a seguir para adicionar referências aos namespaces.
 
     ```python
@@ -126,6 +125,7 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
     ```
 3. Adicione o código a seguir, que cria uma instância da classe DataFactoryManagementClient, ao método **Main**. Você usa esse objeto para criar o data factory, o serviço vinculado, os conjuntos de dados e o pipeline. Você também pode usar esse objeto para monitorar os detalhes da execução de pipeline. Defina a variável **subscription_id** para a ID da assinatura do Azure. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
+        
     ```python
     def main():
 
@@ -140,6 +140,11 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
 
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        
+        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
+        # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
+        
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 

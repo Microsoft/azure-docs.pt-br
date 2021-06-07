@@ -12,21 +12,21 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: da53d6bad790e6b204fa2a2b045e7bfdd83e0cc9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 30593c51f17b99989409ddd22c9c1caa28468039
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102522"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720824"
 ---
-# <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Início Rápido: Proteger uma API Web ASP.NET Core com a plataforma de identidade da Microsoft
+# <a name="quickstart-protect-an-aspnet-core-web-api-with-the-microsoft-identity-platform"></a>Guia de início rápido: Proteger uma API Web ASP.NET Core com a plataforma de identidade da Microsoft
 
-Neste guia de início rápido, você baixará um exemplo de código da API Web ASP.NET Core e examinará o código que restringe o acesso aos recursos somente às contas autorizadas. O exemplo dá suporte à autorização de contas Microsoft pessoais e contas em qualquer organização do Azure AD (Azure Active Directory).
+Neste guia de início rápido, você baixará um exemplo de código da API Web ASP.NET Core e examinará como ele restringe o acesso aos recursos somente às contas autorizadas. O exemplo dá suporte à autorização de contas Microsoft pessoais e contas em qualquer organização do Azure AD (Azure Active Directory).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
 >
-> - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> - Conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > - [Locatário do Azure Active Directory](quickstart-create-new-tenant.md)
 > - [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/)
 > - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) ou [Visual Studio Code](https://code.visualstudio.com/)
@@ -36,12 +36,12 @@ Neste guia de início rápido, você baixará um exemplo de código da API Web A
 > Primeiro, registre a API Web no seu locatário do Azure AD e adicione um escopo seguindo estas etapas:
 >
 > 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
-> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
-> 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCoreWebApi-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Em **Nome**, insira um nome para o seu aplicativo. Por exemplo, insira **AspNetCoreWebApi-Quickstart**. Os usuários do seu aplicativo verão esse nome e você pode alterá-lo mais tarde.
 > 1. Selecione **Registrar**.
-> 1. Em **Gerenciar**, selecione **Expor uma API** > **Adicionar um escopo**. Aceite o **URI da ID do Aplicativo** padrão selecionando **Salvar e continuar** e insira os seguintes detalhes:
+> 1. Em **Gerenciar**, selecione **Expor uma API** > **Adicionar um escopo**. Em **URI da ID do Aplicativo**, aceite o padrão selecionando **Salvar e continuar** e insira os seguintes detalhes:
 >    - **Nome do escopo**: `access_as_user`
 >    - **Quem pode consentir?** : **Administradores e usuários**
 >    - **Nome de exibição de consentimento do administrador**: `Access AspNetCoreWebApi-Quickstart`
@@ -56,25 +56,30 @@ Neste guia de início rápido, você baixará um exemplo de código da API Web A
 > [!div renderon="docs"]
 > [Baixe a solução do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) no GitHub.
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div renderon="docs"]
 > ## <a name="step-3-configure-the-aspnet-core-project"></a>Etapa 3: Configurar o projeto do ASP.NET Core
 >
 > Nesta etapa, configure o código de exemplo para trabalhar com o registro do aplicativo criado anteriormente.
 >
-> 1. Extraia o arquivo .zip para uma pasta próxima à raiz da unidade. Por exemplo, em *C:\Azure-Samples*.
+> 1. Extraia o arquivo .zip para uma pasta próxima à raiz da unidade. Por exemplo, extraia no *C:\Azure-Samples*.
+>
+>    É recomendável extrair os arquivos em um diretório próximo à raiz da unidade para evitar erros causados por limitações de comprimento do caminho no Windows.
+>
 > 1. Abra a solução na pasta *webapi* no editor de códigos.
-> 1. Abra o arquivo *appsettings.json* e modifique o seguinte:
+> 1. Abra o arquivo *appsettings.json* e modifique o seguinte código:
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "Enter_the_Tenant_Info_Here"
 >    ```
 >
->    - Substitua `Enter_the_Application_Id_here` pela **ID do aplicativo (cliente)** referente ao aplicativo registrado no portal do Azure. Você pode encontrar **ID do aplicativo (cliente)** na página **Visão geral** do aplicativo.
+>    - Substitua `Enter_the_Application_Id_here` pela ID do aplicativo (cliente) referente ao aplicativo que você registrou no portal do Azure. Encontre a ID do aplicativo (cliente) na página **Visão geral** do aplicativo.
 >    - Substitua `Enter_the_Tenant_Info_Here` por um dos seguintes:
->       - Se o aplicativo der suporte a **Contas somente neste diretório organizacional**, substitua esse valor pela **ID do diretório (locatário)** (um GUID) ou pelo **nome do locatário** (por exemplo, `contoso.onmicrosoft.com`). Você pode encontrar a **ID do diretório (locatário)** na página **Visão geral** do aplicativo.
->       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->       - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, defina esse valor como `common`
+>       - Se o aplicativo dá suporte às **Contas somente neste diretório organizacional**, substitua esse valor pela ID de diretório (locatário) (um GUID) ou pelo nome do locatário (por exemplo, `contoso.onmicrosoft.com`). Encontre a ID de diretório (locatário) na página **Visão geral** do aplicativo.
+>       - Se o aplicativo der suporte para **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`.
+>       - Se o aplicativo der suporte a **Todos os usuários de contas Microsoft**, defina esse valor como `common`.
 >
 > Para este guia de início rápido, não altere nenhum outro valor no arquivo *appsettings.json*.
 
@@ -84,7 +89,7 @@ A API Web recebe um token de um aplicativo cliente, e o código na API Web valid
 
 ### <a name="startup-class"></a>Classe de inicialização
 
-O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` executada quando o processo de hospedagem é inicializado. No método `ConfigureServices`, o método de extensão `AddMicrosoftIdentityWebApi` fornecido pelo *Microsoft.Identity.Web* é chamado.
+O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` que é executada quando o processo de hospedagem é iniciado. No método `ConfigureServices`, o método de extensão `AddMicrosoftIdentityWebApi` fornecido pelo *Microsoft.Identity.Web* é chamado.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -96,18 +101,18 @@ O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` execut
 
 O método `AddAuthentication()` configura o serviço para adicionar a autenticação baseada em JwtBearer.
 
-A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API Web. Em seguida, ela é configurada para validar os tokens de acesso emitidos pela plataforma de identidade da Microsoft com base nas informações na seção `AzureAD` do arquivo de configuração *appsettings.json*:
+A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à API Web. Em seguida, ela é configurada para validar os tokens de acesso emitidos pela plataforma de identidade da Microsoft com base nas informações na seção `AzureAD` do arquivo de configuração *appsettings.json*:
 
 | chave *appsettings.json* | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ClientId`             | **ID do aplicativo (cliente)** referente ao aplicativo registrado no portal do Azure.                                                                                       |
+| `ClientId`             | ID do aplicativo (cliente) referente ao aplicativo registrado no portal do Azure.                                                                                       |
 | `Instance`             | Ponto de extremidade do STS (serviço de token de segurança) para o usuário se autenticar. Esse valor geralmente é `https://login.microsoftonline.com/`, indicando a nuvem pública do Azure. |
-| `TenantId`             | Nome do seu locatário ou sua ID de locatário (um GUID) ou *comum* para conectar usuários que tenham contas corporativas ou de estudante ou contas pessoais Microsoft.                             |
+| `TenantId`             | Nome do seu locatário ou sua ID de locatário (um GUID) ou `common` para conectar usuários que tenham contas corporativas ou de estudante ou contas pessoais Microsoft.                             |
 
 O método `Configure()` contém dois métodos importantes, `app.UseAuthentication()` e `app.UseAuthorization()`, que habilitam a funcionalidade nomeada:
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+// The runtime calls this method. Use this method to configure the HTTP request pipeline.
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     // more code
@@ -117,9 +122,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="protect-a-controller-a-controllers-method-or-a-razor-page"></a>Proteger um controlador, um método do controlador ou uma página Razor
+### <a name="protecting-a-controller-a-controllers-method-or-a-razor-page"></a>Como proteger um controlador, um método do controlador ou uma página Razor
 
-Você pode proteger um controlador ou métodos do controlador usando o atributo `[Authorize]`. Esse atributo restringe o acesso ao controlador ou aos métodos, permitindo apenas usuários autenticados, ou seja, o desafio de autenticação poderá ser iniciado para acessar o controlador se o usuário não estiver autenticado.
+Você pode proteger um controlador ou métodos do controlador usando o atributo `[Authorize]`. Esse atributo restringe o acesso ao controlador ou aos métodos permitindo apenas usuários autenticados. Um desafio de autenticação poderá ser iniciado para acessar o controlador se um usuário não estiver autenticado.
 
 ```csharp
 namespace webapi.Controllers
@@ -130,9 +135,9 @@ namespace webapi.Controllers
     public class WeatherForecastController : ControllerBase
 ```
 
-### <a name="validate-the-scope-in-the-controller"></a>Validar o escopo no controlador
+### <a name="validation-of-scope-in-the-controller"></a>Validação do escopo no controlador
 
-Em seguida, o código na API verifica se os escopos necessários estão no token usando `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`
+O código na API verifica se os escopos necessários estão no token usando `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`:
 
 ```csharp
 namespace webapi.Controllers
@@ -142,7 +147,7 @@ namespace webapi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
+        // The web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
         static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
         [HttpGet]
@@ -162,9 +167,9 @@ namespace webapi.Controllers
 
 O repositório GitHub que contém este exemplo de código ASP.NET Core da API Web inclui instruções e mais exemplos de código que mostram como:
 
-- Adicionar autenticação a uma nova API Web ASP.NET Core
-- Chamar a API Web em um aplicativo de desktop
-- Chamar APIs downstream como o Microsoft Graph e outras APIs da Microsoft
+- Adicionar a autenticação a uma nova API Web ASP.NET Core.
+- Chamar a API Web em um aplicativo da área de trabalho.
+- Chamar APIs downstream como o Microsoft Graph e outras APIs da Microsoft.
 
 > [!div class="nextstepaction"]
 > [Tutoriais da API Web ASP.NET Core no GitHub](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)

@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como habilitar o Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 8ebfd8de59ae096e6cee87509bc19e0d161fcaa7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972978"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102202239"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitar o Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente
 
@@ -86,7 +86,7 @@ Saiba mais sobre como funciona o Azure Dev Spaces.
 > [Como o Azure Dev Spaces funciona](../how-dev-spaces-works.md)
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
-[install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[install-cli]: /cli/azure/install-azure-cli
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [az-portal]: https://portal.azure.com
 [az-portal-create-account]: https://azure.microsoft.com/free

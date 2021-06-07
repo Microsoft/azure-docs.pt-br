@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: sharrai
 ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87421834"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Substituição da recuperação de desastre entre sites gerenciados pelo cliente (com o VMM) usando Azure Site Recovery
@@ -57,7 +57,7 @@ Se você estiver optando por usar a opção 1, execute as seguintes etapas:
 
 Se você estiver optando por usar a opção 2 de usando a réplica do Hyper-V, execute as seguintes etapas:
 
-1. Em **itens protegidos**itens  >  **replicados**, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+1. Em **itens protegidos** itens  >  **replicados**, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
 2. Em **desabilitar replicação**, selecione **remover**.
 
     Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação na máquina virtual local **não será** limpa. 

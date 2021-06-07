@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594427"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869881"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrar o Apache Spark e o Apache Hive ao Hive Warehouse Connector no Azure HDInsight
 
@@ -23,7 +23,7 @@ O Apache Hive dá suporte a transações de banco de dados ACID (atômicas, cons
 
 O Apache Spark tem uma API de streaming estruturado que fornece funcionalidades de streaming não disponíveis no Apache Hive. Começando com o HDInsight 4.0, o Apache Spark 2.3.1 e o Apache Hive 3.1.0 têm metastores separados. Os metastores separados podem dificultar a interoperabilidade. O Hive Warehouse Connector facilita o uso do Spark e do Hive juntos. A biblioteca HWC carrega dados de daemons do LLAP para executores do Spark em paralelo. Esse processo torna-o mais eficiente e adaptável do que uma conexão JDBC padrão do Spark com o Hive.
 
-![Arquitetura do Hive Warehouse Connector](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="Arquitetura do Hive Warehouse Connector" border="true":::
 
 Algumas das operações com suporte do Hive Warehouse Connector são:
 
@@ -72,7 +72,7 @@ O Hive Warehouse Connector precisa de clusters separados para cargas de trabalho
 
 1. Expanda **spark2-defaults personalizados**.
 
-    ![Configuração do Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Configuração do Apache Ambari Spark2" border="true":::
 
 1. Selecione **Adicionar propriedade...** para adicionar as seguintes configurações:
 
@@ -103,11 +103,11 @@ Além das configurações mencionadas na seção anterior, adicione a configura�
     
     * Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` onde ClusterName é o nome do seu cluster de consulta interativa. Clique em **HiveServer2 Interactive**. Você verá o FQDN (nome de domínio totalmente qualificado) do nó principal no qual o LLAP está em execução, conforme mostrado na captura de tela. Substituir `<llap-headnode>` pelo valor.
 
-        ![Nó principal do conector do depósito do hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="Nó principal do conector do depósito do hive" border="true":::
 
     * Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao seu cluster de consulta interativa. Procure `default_realm` o parâmetro no `/etc/krb5.conf` arquivo. Substitua `<AAD-DOMAIN>` por esse valor como uma cadeia de caracteres em maiúsculas, caso contrário, a credencial não será encontrada.
 
-        ![Domínio AAD do conector do depósito do hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="Domínio AAD do conector do depósito do hive" border="true":::
 
     * Por exemplo, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` .
     
@@ -211,21 +211,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    ![tabela de demonstração antes de aplicar a política do Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="tabela de demonstração antes de aplicar a política do Ranger" border="true":::
 
 1. Aplique uma política de mascaramento de coluna que mostre apenas os últimos quatro caracteres da coluna.  
     1. Vá para a interface do usuário administrador do Ranger em `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Clique no serviço do Hive para seu cluster em **Hive**.
-        ![gerenciador de serviços do ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="gerenciador de serviços do ranger" border="true":::
     1. Clique na guia **Mascaramento** e em **Adicionar Nova Política**
 
-        ![lista de políticas do hive ranger do hive warehouse connector](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="lista de políticas do hive ranger do hive warehouse connector" border="true":::
 
     1. Forneça um nome de política desejado. Selecione o banco de dados: **Padrão**, tabela Hive: **demonstração**, coluna Hive: **nome**, Usuário: **rsadmin2**, Tipos de acesso: **selecionar** e **Máscara parcial: mostra os últimos quatro** no menu **Selecionar Opção de Mascaramento**. Clique em **Adicionar**.
-                ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="criar política" border="true":::
 1. Veja o conteúdo da tabela novamente. Depois de aplicar a política do Ranger, podemos ver apenas os últimos quatro caracteres da coluna.
 
-    ![tabela de demonstração depois de aplicar a política do Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="tabela de demonstração depois de aplicar a política do Ranger" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

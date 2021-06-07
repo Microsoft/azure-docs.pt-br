@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: f228386d8cf0e708080b7f6c5f6cef7258b2eafb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93099973"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo do Cassandra com o .NET Core e o Azure Cosmos DB

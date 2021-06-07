@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Enviar e receber eventos usando Go – Hubs de Eventos do Azure'
-description: 'Início Rápido: Este artigo fornece instruções passo a passo para a criação de um aplicativo Go que envia eventos dos Hubs de Eventos do Azure.'
+title: 'Guia de início rápido: enviar e receber eventos usando a linguagem Go – Hubs de Eventos do Azure'
+description: 'Guia de início rápido: este artigo fornecerá instruções detalhadas sobre de que modo criar um aplicativo Go que envia eventos dos Hubs de Eventos do Azure.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ededd042dadd6059bd7b2d689cff78fe1bd6af0b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87002447"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311083"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Início Rápido: Enviar ou receber eventos dos Hubs de Eventos usando o Go
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Guia de início rápido: enviar ou receber eventos dos Hubs de Eventos usando a linguagem Go
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
 Este tutorial descreve como escrever aplicativos Go para enviar ou receber eventos de um hub de eventos. 
@@ -162,7 +162,7 @@ import (
 
 ### <a name="create-service-principal"></a>Criar uma entidade de serviço
 
-Criar um entidade de serviço seguindo as instruções em [Criar uma entidade de serviço com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salve as credenciais fornecidas no ambiente com os nomes a seguir: O SDK do Azure para linguagem Go e os pacotes de Hubs de Eventos são pré-configurados para procurar esses nomes de variáveis.
+Criar um entidade de serviço seguindo as instruções em [Criar uma entidade de serviço com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salve as credenciais fornecidas no seu ambiente com os seguintes nomes: os pacotes de Hubs de Eventos e SDK do Azure para linguagem Go são pré-configurados para procurar esses nomes de variável.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -279,7 +279,7 @@ Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
-- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.yml)
 
 
 <!-- Links -->

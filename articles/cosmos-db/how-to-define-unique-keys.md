@@ -9,10 +9,10 @@ ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336598"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
@@ -30,7 +30,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 1. Clique em **Novo Contêiner**.
 
-1. Na caixa de diálogo **Adicionar Contêiner** , clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
+1. Na caixa de diálogo **Adicionar Contêiner**, clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
 
 1. Insira o(s) caminho(s) de restrição de chave exclusiva
 

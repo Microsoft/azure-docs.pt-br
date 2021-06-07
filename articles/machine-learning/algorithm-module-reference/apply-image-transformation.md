@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898910"
 ---
 # <a name="apply-image-transformation"></a>Aplicar Transformação de Imagem 
@@ -38,7 +38,7 @@ Você precisa conectar um módulo de [transformação de imagem inicial](init-im
 
    Se você selecionar **para treinamento**, toda a transformação especificada na transformação init Image será aplicada.
 
-   Se você selecionar **para a inferência, a**transformação como criar novos exemplos aleatoriamente será excluída antes de ser aplicada. Isso ocorre porque as operações de transformação para criar novos exemplos aleatoriamente, como ' flip horizontal aleatório ', são usadas para o aumento de dados no treinamento, que deve ser removido na inferência porque amostras de inferência precisam ser corrigidas para previsão e avaliação precisas.
+   Se você selecionar **para a inferência, a** transformação como criar novos exemplos aleatoriamente será excluída antes de ser aplicada. Isso ocorre porque as operações de transformação para criar novos exemplos aleatoriamente, como ' flip horizontal aleatório ', são usadas para o aumento de dados no treinamento, que deve ser removido na inferência porque amostras de inferência precisam ser corrigidas para previsão e avaliação precisas.
 
    > [!NOTE]
    > As transformações que serão excluídas no modo **de inferência** são: corte aleatório redimensionado, corte aleatório, flip horizontal aleatório, flip vertical aleatório, rotação aleatória, afinidade aleatória, escala de cinza aleatória, perspectiva aleatória, apagamento aleatório.
@@ -58,7 +58,7 @@ Você precisa conectar um módulo de [transformação de imagem inicial](init-im
 | Transformação imagem de entrada | TransformationDirectory | Transformação imagem de entrada        |
 | Diretório da imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
-### <a name="outputs"></a>outputs  
+### <a name="outputs"></a>Saídas  
 
 | Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |

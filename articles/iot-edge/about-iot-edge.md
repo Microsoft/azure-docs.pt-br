@@ -10,16 +10,18 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b9b768d7af276b8bff0db2acd00d27eca03023c5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "76511205"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026727"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Azure IoT Edge
 
-O Azure IoT Edge move análises de nuvem e lógica de negócios personalizada para dispositivos, de modo que sua organização pode se concentrar em ideias de negócios em vez de gerenciamento de dados. Escale horizontalmente sua solução de IoT ao empacotar sua lógica de negócios em contêineres padrão, então você pode implantar esses contêineres para qualquer um dos seus dispositivos e monitorar tudo na nuvem.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+O Azure IoT Edge move análises de nuvem e lógica de negócios personalizada para dispositivos, de modo que sua organização pode se concentrar em ideias de negócios em vez de gerenciamento de dados. Expanda sua solução de IoT ao empacotar sua lógica de negócios em contêineres padrão, então você pode implantar esses contêineres para qualquer um dos seus dispositivos e monitorar tudo na nuvem.
 
 A análise impulsiona o valor comercial em soluções de IoT, mas nem todas as análise precisam estar na nuvem. Se você quiser responder a emergências assim que possível, poderá executar cargas de trabalho de detecção de anomalias na borda. Se você deseja reduzir os custos de largura de banda e evitar a transferência de terabytes de dados brutos, pode limpar e agregar os dados localmente e só enviar as informações para a nuvem para análise.
 
@@ -74,4 +76,19 @@ O Azure IoT Edge integra-se perfeitamente aos aceleradores da solução Azure Io
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente esses conceitos [implantando o IoT Edge em um dispositivo simulado](quickstart.md).
+Experimente estes conceitos implantando seu primeiro módulo do IoT Edge em um dispositivo:
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+* [Implantar módulos em um dispositivo IoT Edge do Linux](quickstart-linux.md)
+* [Implantar módulos em um dispositivo IoT Edge do Windows](quickstart.md)
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+[Implantar módulos em um dispositivo do IoT Edge](quickstart-linux.md)
+
+:::moniker-end

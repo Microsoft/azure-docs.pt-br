@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 9e4f2e355240ba8682cbe9f86f2be94e7dd0d92d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 592f62eaf1627733f8cf20460b57e3f474f17963
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70032361"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799993"
 ---
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -39,5 +39,5 @@ O script a seguir usa o comando [az role assignment create][az-role-assignment-c
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

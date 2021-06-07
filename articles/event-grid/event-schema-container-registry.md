@@ -4,10 +4,10 @@ description: Descreve as propriedades que são fornecidas para eventos de regist
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 7e19b223e43f30a532c1cd8bdc86f9a29220f5aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363569"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Registro de contêiner do Azure como uma fonte de grade de eventos
@@ -273,7 +273,7 @@ O esquema para um evento de gráfico excluído é semelhante ao esquema para um 
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -288,7 +288,7 @@ Um evento tem os seguintes dados de nível superior:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -302,7 +302,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `id` | string | A ID do evento. |
 | `timestamp` | string | A hora em que o evento ocorreu. |
@@ -313,7 +313,7 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de destino tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `mediaType` | string | O tipo MIME do objeto referenciado. |
 | `size` | inteiro | O número de bytes do conteúdo. Mesmo que o campo de Comprimento. |
@@ -326,7 +326,7 @@ O objeto de destino tem as seguintes propriedades:
 
 O objeto solicitado tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `id` | string | A ID da solicitação que iniciou o evento. |
 | `addr` | string | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |

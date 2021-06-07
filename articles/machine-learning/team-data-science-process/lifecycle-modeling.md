@@ -12,10 +12,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740174"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -52,7 +52,7 @@ Esta etapa requer uma combinação criativa de experiência de domínio e das id
 
 Para obter diretrizes técnicas sobre a engenharia de recursos ao fazer uso de várias tecnologias de dados do Azure, consulte [Feature engineering in the data science process](create-features.md) (Engenharia de recursos no processo de ciência de dados). 
 
-### <a name="model-training"></a>Treinamento do modelo
+### <a name="model-training"></a>Treinamento de modelos
 Dependendo do tipo da pergunta que você estiver tentando responder, haverá vários algoritmos de modelagem disponíveis. Para obter diretrizes sobre como escolher algoritmos, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Embora este artigo use o Azure Machine Learning, as diretrizes fornecidas aqui são úteis para quaisquer projetos de aprendizado de máquina. 
 
 O processo de treinamento do modelo inclui as seguintes etapas: 

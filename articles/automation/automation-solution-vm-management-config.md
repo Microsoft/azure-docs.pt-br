@@ -3,14 +3,14 @@ title: Configurar Iniciar/Parar VMs fora do horário comercial da Automação do
 description: Este artigo informa como configurar o recurso Iniciar/Parar VMs fora do horário comercial para dar suporte a cenários ou casos de uso diferentes.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/01/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597718"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -38,21 +38,21 @@ Você pode habilitar o direcionamento da ação a uma assinatura e um grupo de r
 
 1. Configure as variáveis `External_Stop_ResourceGroupNames` e `External_ExcludeVMNames` para especificar as VMs de destino.
 
-2. Habilite e atualize os agendamentos **Scheduled-StartVM** e **Scheduled-StopVM**.
+1. Habilite e atualize os agendamentos **Scheduled-StartVM** e **Scheduled-StopVM**.
 
-3. Execute o runbook **ScheduledStartStop_Parent** com o campo de parâmetro **ACTION** definido como **iniciar** e o campo de parâmetro **WHATIF** definido como true para visualizar as alterações.
+1. Execute o runbook **ScheduledStartStop_Parent** com o campo de parâmetro **ACTION** definido como **iniciar** e o campo de parâmetro **WHATIF** definido como true para visualizar as alterações.
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Direcionar a ação de início e parada por lista de VMs
 
 1. Execute o runbook **ScheduledStartStop_Parent** com a **ação** definida como **Iniciar**.
 
-2. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
+1. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-3. Defina o campo de parâmetro **WHATIF** como true para visualizar as alterações.
+1. Defina o campo de parâmetro **WHATIF** como true para visualizar as alterações.
 
-4. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs (VM1, VM2, VM3), sem espaços entre valores separados por vírgulas.
+1. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs (VM1, VM2, VM3), sem espaços entre valores separados por vírgulas.
 
-5. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
+1. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
 
     > [!NOTE]
     > O valor para **nomes do ResourceGroup de destino** é armazenado como os valores para `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. Para obter uma maior granularidade, você pode modificar cada uma das variáveis para direcionar diferentes grupos de recursos. Para iniciar a ação, use `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames` para interromper a ação. As VMs são adicionadas automaticamente aos agendamentos de início e parada.
@@ -65,27 +65,27 @@ Em um ambiente que inclui dois ou mais componentes em várias VMs compatíveis c
 
 1. Adicione um `sequencestart` e uma marca de `sequencestop` com valores inteiros positivos às VMs que são destinadas às variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupNames`. As ações iniciar e parar são executadas em ordem crescente. Para saber como marcar uma VM, consulte [Marcar uma máquina virtual do Windows no Azure](../virtual-machines/tag-portal.md) e [Marcar uma máquina virtual do Linux no Azure](../virtual-machines/tag-cli.md).
 
-2. Modifique os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** de acordo com a data e hora que atendem às suas exigências e habilite o agendamento.
+1. Modifique os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** de acordo com a data e hora que atendem às suas exigências e habilite o agendamento.
 
-3. Execute o runbook **SequencedStartStop_Parent** com **ACTION** definido como **iniciar** e **WHATIF** definido como True para visualizar as alterações.
+1. Execute o runbook **SequencedStartStop_Parent** com **ACTION** definido como **iniciar** e **WHATIF** definido como True para visualizar as alterações.
 
-4. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute o runbook manualmente com o parâmetro definido como **False** ou permita que os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** da Automação sejam executados automaticamente de acordo com o agendamento prescrito.
+1. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute o runbook manualmente com o parâmetro definido como **False** ou permita que os agendamentos **Sequenced-StartVM** e **Sequenced-StopVM** da Automação sejam executados automaticamente de acordo com o agendamento prescrito.
 
 ### <a name="target-the-start-and-stop-actions-by-vm-list"></a>Direcionar as ações de início e parada por lista de VMs
 
 1. Adicione um `sequencestart` e uma marca `sequencestop` com valores inteiros positivos às VMs que você planeja adicionar ao parâmetro `VMList`.
 
-2. Execute o runbook **SequencedStartStop_Parent** com a **ação** definida como **Iniciar**.
+1. Execute o runbook **SequencedStartStop_Parent** com a **ação** definida como **Iniciar**.
 
-3. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
+1. Adicione uma lista separada por vírgulas de VMs (sem espaços) no campo parâmetro **VMList** . Uma lista de exemplos é `vm1,vm2,vm3` .
 
-4. Defina **WHATIF** como true para visualizar as alterações. 
+1. Defina **WHATIF** como true para visualizar as alterações. 
 
-5. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs, sem espaços entre valores separados por vírgulas.
+1. Configure a `External_ExcludeVMNames` variável com uma lista separada por vírgulas de VMs, sem espaços entre valores separados por vírgulas.
 
-6. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
+1. Esse cenário não respeita as variáveis `External_Start_ResourceGroupNames` e `External_Stop_ResourceGroupnames`. Para este cenário, é necessário criar seu próprio agendamento da Automação. Para obter detalhes, consulte [Agende um runbook na Automação do Azure](shared-resources/schedules.md).
 
-7. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o **Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook** com o parâmetro definido como **False**. Como alternativa, permita que os agendamentos da Automação **Sequenced-StartVM** e **Sequenced-StopVM** executem automaticamente seguindo o agendamento prescrito.
+1. Visualize a ação e faça as alterações necessárias antes de implementar em VMs de produção. Quando estiver pronto, execute manualmente o **Monitoring-and-Diagnostics/Monitoring-Action-groupsrunbook** com o parâmetro definido como **False**. Como alternativa, permita que os agendamentos da Automação **Sequenced-StartVM** e **Sequenced-StopVM** executem automaticamente seguindo o agendamento prescrito.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Cenário 3: Iniciar ou parar automaticamente com base na utilização da CPU
 
@@ -112,23 +112,23 @@ Quando você executa o runbook **AutoStop_CreateAlert_Parent**, ele verifica se 
 
 1. Verifique se a variável `External_Stop_ResourceGroupNames` está vazia ou definida como * (curinga).
 
-2. [Opcional] Se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM à variável `External_ExcludeVMNames`.
+1. [Opcional] Se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM à variável `External_ExcludeVMNames`.
 
-3. Habilite o agendamento do **Schedule_AutoStop_CreateAlert_Parent** para executar e criar as regras de alerta de interrupção de métrica de VM necessárias para todas as VMs em sua assinatura. A execução desse tipo de agendamento permite criar novas regras de alerta de métrica à medida que novas VMs são adicionadas à assinatura.
+1. Habilite o agendamento do **Schedule_AutoStop_CreateAlert_Parent** para executar e criar as regras de alerta de interrupção de métrica de VM necessárias para todas as VMs em sua assinatura. A execução desse tipo de agendamento permite criar novas regras de alerta de métrica à medida que novas VMs são adicionadas à assinatura.
 
 ### <a name="target-the-autostop-action-against-all-vms-in-a-resource-group-or-multiple-resource-groups"></a>Direcionar a ação de autostop para todas as VMs em um grupo de recursos ou vários grupos de recursos
 
 1. Adicione uma lista separada por vírgulas de nomes de grupos de recursos à variável `External_Stop_ResourceGroupNames`.
 
-2. Se você quiser excluir algumas das VMs do autostop, poderá adicionar uma lista separada por vírgulas de nomes de VMs à variável `External_ExcludeVMNames`.
+1. Se você quiser excluir algumas das VMs do autostop, poderá adicionar uma lista separada por vírgulas de nomes de VMs à variável `External_ExcludeVMNames`.
 
-3. Habilite o agendamento do **Schedule_AutoStop_CreateAlert_Parent** para executar e criar as regras de alerta de interrupção de métrica de VMs necessárias para todas as VMs em seus grupos de recursos. A execução dessa operação em um agendamento permite que você crie novas regras de alerta de métrica à medida que novas VMs são adicionadas aos grupos de recursos.
+1. Habilite o agendamento do **Schedule_AutoStop_CreateAlert_Parent** para executar e criar as regras de alerta de interrupção de métrica de VMs necessárias para todas as VMs em seus grupos de recursos. A execução dessa operação em um agendamento permite que você crie novas regras de alerta de métrica à medida que novas VMs são adicionadas aos grupos de recursos.
 
 ### <a name="target-the-autostop-action-to-a-list-of-vms"></a>Direcionar a ação de autostop para uma lista de VMs
 
 1. Crie um novo [agendamento](shared-resources/schedules.md#create-a-schedule) e vincule-o ao runbook **AutoStop_CreateAlert_Parent**, adicionando uma lista separada por vírgulas de nomes de VM ao parâmetro `VMList`.
 
-2. Opcionalmente, se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM (sem espaços) à `External_ExcludeVMNames` variável.
+1. Opcionalmente, se você quiser excluir algumas VMs da ação autostop, poderá adicionar uma lista separada por vírgulas de nomes de VM (sem espaços) à `External_ExcludeVMNames` variável.
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
@@ -137,19 +137,19 @@ Para alterar as notificações por email depois que a ação Iniciar/Parar VMs f
 > [!NOTE]
 > As assinaturas na nuvem do Azure Governamental não oferecem suporte para a funcionalidade de email deste recurso.
 
-1. No portal do Azure, navegue até **Monitor** e **Grupos de ação**. Selecione o grupo de ações chamado **StartStop_VM_Notication**.
+1. Na portal do Azure, clique em **alertas** em **monitoramento** e em **Gerenciar ações**. Na página **Gerenciar ações** , verifique se você está na guia **grupos de ações** . Selecione o grupo de ação chamado **StartStop_VM_Notification**.
 
-    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Captura de tela da página monitorar-grupos de ações." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 
-2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isso abre a página Email/SMS/Push/Voz. Atualize o endereço de email e clique em **OK** para salvar suas alterações.
+1. Na página **StartStop_VM_Notification** , a seção **noções básicas** será preenchida para você e não poderá ser editada, exceto pelo campo **nome de exibição** . Edite o nome ou aceite o nome sugerido. Na seção **notificações** , clique no ícone de lápis para editar os detalhes da ação. Isso abre o painel **mensagem de email/SMS/Push/voz** . Atualize o endereço de email e clique em **OK** para salvar suas alterações.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/mensagem de SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
 
-    Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/platform/action-groups.md)
+    Você pode adicionar ações adicionais ao grupo de ações. Para saber mais sobre grupos de ações, consulte [grupos de ações](../azure-monitor/platform/action-groups.md)
 
 A seguir está um email de exemplo que é enviado quando o recurso desliga as máquinas virtuais.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela de um email de exemplo enviado quando o recurso desliga as máquinas virtuais.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela de um email de exemplo enviado quando o recurso desliga as máquinas virtuais." lightbox="media/automation-solution-vm-management/email.png":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 
@@ -175,13 +175,13 @@ Configurar o recurso para simplesmente parar as VMs em um determinado momento. N
 
 1. Verifique se você adicionou os grupos de recursos para que as VMs sejam desligadas na variável `External_Stop_ResourceGroupNames`.
 
-2. Crie seu próprio agendamento para a hora em que você deseja desligar as VMs.
+1. Crie seu próprio agendamento para a hora em que você deseja desligar as VMs.
 
-3. Navegue até o runbook **ScheduledStartStop_Parent** e clique em **Agenda**. Isso permite que você selecione a agenda que criou na etapa anterior.
+1. Navegue até o runbook **ScheduledStartStop_Parent** e clique em **Agenda**. Isso permite que você selecione a agenda que criou na etapa anterior.
 
-4. Selecione **Parâmetros e configurações de execução** e defina o campo **ACTION** para **Parar**.
+1. Selecione **Parâmetros e configurações de execução** e defina o campo **ACTION** para **Parar**.
 
-5. Selecione **OK** para salvar suas alterações.
+1. Selecione **OK** para salvar suas alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

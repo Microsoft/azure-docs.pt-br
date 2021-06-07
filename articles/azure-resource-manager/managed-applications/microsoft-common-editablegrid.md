@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88893665"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Elemento de interface do usuário Microsoft. Common. EditableGrid

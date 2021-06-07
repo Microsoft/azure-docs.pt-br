@@ -6,10 +6,10 @@ ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
 ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659719"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gerenciamento de custos para Azure Lab Services

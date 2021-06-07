@@ -9,10 +9,10 @@ ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384445"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Entender as funções necessárias para executar tarefas comuns no Synapse
@@ -66,17 +66,17 @@ A tabela a seguir lista tarefas comuns e para cada tarefa, as funções RBAC Syn
 Tarefa (desejo...) |Função (preciso ser...)|Permissão/ação de RBAC Synapse
 --|--|--
 |Abrir o Synapse Studio em um espaço de trabalho|Usuário Synapse ou|ler
-| |Proprietário, colaborador ou leitor do Azure no espaço de trabalho|nenhum
+| |Proprietário, colaborador ou leitor do Azure no espaço de trabalho|none
 |Listar pools SQL, pools de Apache Spark, tempos de execução de integração e acessar seus detalhes de configuração|Usuário Synapse ou|ler|
-||Proprietário, colaborador ou leitor do Azure no espaço de trabalho|nenhum
+||Proprietário, colaborador ou leitor do Azure no espaço de trabalho|none
 |Listar serviços vinculados, credenciais, pontos de extremidade privados gerenciados|Usuário Synapse|ler
 POOLS DO SQL|
-Criar um pool SQL dedicado ou um pool SQL sem servidor|Proprietário ou colaborador do Azure no espaço de trabalho|nenhum
-Gerenciar (pausar, dimensionar ou excluir) um pool SQL dedicado|Proprietário ou colaborador do Azure no espaço de trabalho ou no pool SQL|nenhum
+Criar um pool SQL dedicado ou um pool SQL sem servidor|Proprietário ou colaborador do Azure no espaço de trabalho|none
+Gerenciar (pausar, dimensionar ou excluir) um pool SQL dedicado|Proprietário ou colaborador do Azure no espaço de trabalho ou no pool SQL|none
 Criar um script SQL</br>|Usuário Synapse ou </br>Proprietário ou colaborador do Azure no espaço de trabalho, </br>*Permissões SQL adicionais são necessárias para executar um script SQL, publicar ou confirmar alterações*.|
 Listar e abrir qualquer script SQL publicado| Usuário do artefato Synapse, Publicador de artefatos, colaborador do Synapse|artefatos/leitura
-Executar um script SQL em um pool SQL sem servidor|Permissões SQL no pool (concedidas automaticamente a um administrador do Synapse)|nenhum
-Executar um script SQL em um pool do SQL dedicado|Permissões SQL no pool|nenhum
+Executar um script SQL em um pool SQL sem servidor|Permissões SQL no pool (concedidas automaticamente a um administrador do Synapse)|none
+Executar um script SQL em um pool do SQL dedicado|Permissões SQL no pool|none
 Publicar um script SQL novo, atualizado ou excluído|Publicador de artefatos do Synapse, colaborador do Synapse|SQLscripts/gravar, excluir
 Confirmar alterações em um script SQL para o repositório git|Requer permissões git no repositório|
 Atribuir Active Directory admin no espaço de trabalho (por meio de propriedades do espaço de trabalho no portal do Azure)|Proprietário ou colaborador do Azure no espaço de trabalho |
@@ -89,7 +89,7 @@ Criar um bloco de anotações ou uma definição de trabalho|Usuário Synapse ou
 Listar e abrir um bloco de anotações ou uma definição de trabalho publicados, incluindo revisão de saídas salvas|Usuário do artefato Synapse, Publicador de artefatos do Synapse, colaborador do Synapse no espaço de trabalho|artefatos/leitura
 Executar um bloco de anotações e examinar sua saída ou enviar um trabalho do Spark|Synapse Apache Spark administrador, Synapse Compute Operator no pool de Apache Spark selecionado|bigDataPools/useCompute 
 Publicar ou excluir um bloco de anotações ou uma definição de trabalho (incluindo saída) para o serviço|Publicador de artefatos no espaço de trabalho, Synapse Apache Spark administrador|blocos de anotações/gravação, excluir
-Confirmar alterações em um bloco de anotações ou definição de trabalho para o repositório git|Permissões do Git|nenhum
+Confirmar alterações em um bloco de anotações ou definição de trabalho para o repositório git|Permissões do Git|none
 PIPELINES, TEMPOS DE EXECUÇÃO DE INTEGRAÇÃO, FLUXOS DE DATA, CONJUNTOS DE & GATILHOS|
 Criar, atualizar ou excluir um tempo de execução de integração|Proprietário ou colaborador do Azure no espaço de trabalho|
 Monitorar o status do tempo de execução de integração|Usuário Synapse|ler, pipelines/viewOutputs
@@ -104,13 +104,13 @@ Executar/executar um pipeline|Usuário Synapse + Synapse de credencial de usuár
 Copiar dados usando a ferramenta de Copiar Dados|Synapse usuário + Synapse usuário de credencial na identidade do sistema do espaço de trabalho|leitura, credenciais/useSecret/ação
 Ingerir dados (usando uma agenda)|Usuário de credencial Synapse Author + Synapse na identidade do sistema do espaço de trabalho|leitura, credenciais/useSecret/ação
 Publicar um pipeline novo, atualizado ou excluído, Dataflow ou gatilho para o serviço|Publicador de artefatos do Synapse no espaço de trabalho|pipelines/gravação, exclusão</br>fluxo de os/gravação, exclusão</br>gatilhos/gravação, exclusão
-Confirmar alterações em pipelines, fluxos de post, DataSets ou gatilhos para o repositório git |Permissões do Git|nenhum 
+Confirmar alterações em pipelines, fluxos de post, DataSets ou gatilhos para o repositório git |Permissões do Git|none 
 SERVIÇOS VINCULADOS|
 Criar um serviço vinculado (inclui atribuir uma credencial)|Usuário Synapse</br>*Permissões adicionais são necessárias para usar um serviço vinculado com credenciais ou para publicar ou confirmar alterações*|ler
 Listar e abrir um serviço vinculado publicado|Usuário do artefato Synapse|linkedservices/gravar, excluir  
 Testar a conexão em um serviço vinculado protegido por uma credencial|Usuário Synapse + usuário de credencial Synapse|credenciais/useSecret/ação|
 Publicar um serviço vinculado|Editor de artefatos Synapse, Synapse vinculados Gerenciador de Dados|linkedservices/gravar, excluir
-Confirmar definições de serviço vinculado para o repositório git|Permissões do Git|nenhum
+Confirmar definições de serviço vinculado para o repositório git|Permissões do Git|none
 GERENCIAMENTO DE ACESSO|
 Examinar as atribuições de função RBAC Synapse em qualquer escopo|Usuário Synapse|ler
 Atribuir e remover atribuições de função RBAC Synapse para usuários, grupos e entidades de serviço| Synapse administrador no espaço de trabalho ou em um escopo de item de espaço de trabalho específico|roleAssignments/gravar, excluir 

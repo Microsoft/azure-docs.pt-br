@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86524847"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>Mover um recurso do serviço de aplicativo para outra região

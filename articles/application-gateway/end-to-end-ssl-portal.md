@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397494"
 ---
-# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurar o TLS de ponta a ponta usando o gateway de aplicativo com o portal
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurar o TLS de ponta a ponta usando o Gateway de Aplicativo com o portal
 
 Este artigo descreve como usar o portal do Azure para configurar a criptografia de protocolo TLS, anteriormente conhecida como criptografia de protocolo SSL (SSL), por meio do SKU do gateway v1 Aplicativo Azure.
 
@@ -45,11 +45,11 @@ Para saber mais, confira [habilitar terminação TLS ao criar um novo gateway de
 
 1. Selecione **Todos os recursos** e, em seguida, **myAppGateway**.
 
-2. Selecione **configurações de http** no menu do lado esquerdo. O Azure criou automaticamente uma configuração HTTP padrão, **appgatewaybackendhttp** , quando você criou o gateway de aplicativo. 
+2. Selecione **configurações de http** no menu do lado esquerdo. O Azure criou automaticamente uma configuração HTTP padrão, **appgatewaybackendhttp**, quando você criou o gateway de aplicativo. 
 
 3. Selecione **appgatewaybackendhttp**.
 
-4. Em **protocolo** , selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido.
+4. Em **protocolo**, selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido.
 
 5. Selecione **Criar novo**.
 
@@ -67,7 +67,7 @@ Para saber mais, confira [habilitar terminação TLS ao criar um novo gateway de
 
    ![Certificado raiz](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Habilitar o TLS de ponta a ponta para um gateway de aplicativo existente
 
@@ -84,14 +84,14 @@ Se você escolher a última opção, aplique as etapas no procedimento a seguir.
 
 3. Selecione o ouvinte **básico** ou **multissite** , dependendo dos seus requisitos.
 
-4. Em **protocolo** , selecione **https**. Um painel para o **certificado** é exibido.
+4. Em **protocolo**, selecione **https**. Um painel para o **certificado** é exibido.
 
 5. Carregue o certificado PFX que você pretende usar para a terminação de TLS entre o cliente e o gateway de aplicativo.
 
    > [!NOTE]
    > Para fins de teste, você pode usar um certificado autoassinado. No entanto, isso não é recomendável para cargas de trabalho de produção, pois elas são mais difíceis de gerenciar e não são totalmente seguras. Para obter mais informações, consulte [criar um certificado autoassinado](./create-ssl-portal.md#create-a-self-signed-certificate).
 
-6. Adicione outras configurações necessárias para o **ouvinte** , dependendo de seus requisitos.
+6. Adicione outras configurações necessárias para o **ouvinte**, dependendo de seus requisitos.
 
 7. Selecione **OK** para salvar.
 
@@ -99,11 +99,11 @@ Se você escolher a última opção, aplique as etapas no procedimento a seguir.
 
 1. Selecione **Todos os recursos** e, em seguida, **myAppGateway**.
 
-2. Selecione **configurações de http** no menu do lado esquerdo. Você pode colocar certificados em uma configuração de HTTP de back-end existente na lista de destinatários seguros ou criar uma nova configuração de HTTP. (Na próxima etapa, o certificado para a configuração HTTP padrão, **appgatewaybackendhttp** , é adicionado à lista de destinatários seguros.)
+2. Selecione **configurações de http** no menu do lado esquerdo. Você pode colocar certificados em uma configuração de HTTP de back-end existente na lista de destinatários seguros ou criar uma nova configuração de HTTP. (Na próxima etapa, o certificado para a configuração HTTP padrão, **appgatewaybackendhttp**, é adicionado à lista de destinatários seguros.)
 
 3. Selecione **appgatewaybackendhttp**.
 
-4. Em **protocolo** , selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido. 
+4. Em **protocolo**, selecione **https**. Um painel para **certificados de autenticação de back-end ou certificados raiz confiáveis** é exibido. 
 
 5. Selecione **Criar novo**.
 

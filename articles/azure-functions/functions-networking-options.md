@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806991"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606983"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -81,34 +81,15 @@ Para saber como configurar a integração de rede virtual, confira [Integrar um 
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>Conectar-se a recursos protegidos do ponto de extremidade de serviço
 
-Para fornecer um nível mais alto de segurança, você pode restringir vários serviços do Azure a uma rede virtual usando pontos de extremidade de serviço. Em seguida, você deve integrar seu aplicativo de funções com essa rede virtual para acessar o recurso. Essa configuração tem suporte em todos os planos que dão suporte à integração de rede virtual.
+Para fornecer um nível mais alto de segurança, você pode restringir vários serviços do Azure a uma rede virtual usando pontos de extremidade de serviço. Em seguida, você deve integrar seu aplicativo de funções com essa rede virtual para acessar o recurso. Essa configuração tem suporte em todos os [planos](functions-scale.md#networking-features) que dão suporte à integração de rede virtual.
 
 Para obter mais detalhes, confira [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas.  Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular.  Atualmente, esse recurso só funciona com planos do Windows Premium.  Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas. Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular. 
 
-1. Crie uma função com uma conta de armazenamento que não tenha pontos de extremidade de serviço habilitados.
-1. Configure a função para se conectar à sua rede virtual.
-1. Crie ou configure uma conta de armazenamento diferente.  Essa será a conta de armazenamento que protegemos com os pontos de extremidade de serviço e conectamos nossa função.
-1. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) na conta de armazenamento protegida.
-1. Habilite os pontos de extremidade de serviço ou o Endpoint particular para a conta de armazenamento.  
-    * Se você estiver usando conexões de ponto de extremidade privado, a conta de armazenamento precisará de um ponto de extremidade privado para os `file` `blob` subrecursos e.  Se estiver usando determinados recursos como Durable Functions, você também precisará `queue` e poderá `table` ser acessado por meio de uma conexão de ponto de extremidade privada.
-    * Se estiver usando pontos de extremidade de serviço, habilite a sub-rede dedicada para seus aplicativos de funções para contas de armazenamento.
-1. Adicional Copie o conteúdo do arquivo e do blob da conta de armazenamento do aplicativo de funções para a conta de armazenamento protegida e o compartilhamento de arquivos.
-1. Copie a cadeia de conexão para esta conta de armazenamento.
-1. Atualize as **configurações do aplicativo** em **configuração** para o aplicativo de funções para o seguinte:
-    - `AzureWebJobsStorage` para a cadeia de conexão da conta de armazenamento protegida.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` para a cadeia de conexão da conta de armazenamento protegida.
-    - `WEBSITE_CONTENTSHARE` para o nome do compartilhamento de arquivos criado na conta de armazenamento protegido.
-    - Crie uma nova configuração com o nome `WEBSITE_CONTENTOVERVNET` e o valor de `1` .
-    - Se a conta de armazenamento estiver usando conexões de ponto de extremidade privadas, verifique ou adicione as seguintes configurações
-        - `WEBSITE_VNET_ROUTE_ALL` com um valor de `1` .
-        - `WEBSITE_DNS_SERVER` com um valor de `168.63.129.16` 
-1. Salve as configurações do aplicativo.  
-
-O aplicativo de funções será reiniciado e agora será conectado a uma conta de armazenamento protegida.
+Esse recurso atualmente funciona para todas as SKUs com suporte da rede virtual do Windows no plano dedicado (serviço de aplicativo) e para o plano Premium. Não há suporte para o plano de consumo. Para saber como configurar uma função com uma conta de armazenamento restrita a uma rede privada, consulte [restringir sua conta de armazenamento a uma rede virtual](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Usar referências de Key Vault
 
@@ -173,6 +154,8 @@ Para saber mais, confira a [Documentação do Serviço de Aplicativo para Conex�
 As restrições de IP de saída estão disponíveis em um plano Premium, plano do Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo. Você pode configurar as restrições de saída para a rede virtual em que seu Ambiente do Serviço de Aplicativo está implantado.
 
 Quando você integra um aplicativo de funções em um plano Premium ou plano do Serviço de Aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet por padrão. Ao adicionar a configuração de aplicativo `WEBSITE_VNET_ROUTE_ALL=1`, você força todo o tráfego de saída a ser enviado para sua rede virtual, em que as regras do grupo de segurança de rede podem ser usadas para restringir o tráfego.
+
+Para saber como controlar o IP de saída usando uma rede virtual, consulte [tutorial: controle Azure Functions IP de saída com um gateway NAT da rede virtual do Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="automation"></a>Automação
 As APIs a seguir permitem gerenciar programaticamente integrações de rede virtual regional:

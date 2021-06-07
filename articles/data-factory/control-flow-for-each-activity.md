@@ -3,23 +3,23 @@ title: Atividade ForEach no Azure Data Factory
 description: A atividade For Each define um fluxo de controle repetitivo no seu pipeline. Ela é usada para iterar em uma coleção e executar atividades especificadas.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385601"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786202"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 As propriedades são descritas posteriormente neste artigo. A propriedade dos itens é a coleção e cada item na coleção é referenciada usando o `@item()` conforme mostrado na sintaxe a seguir:  
 
 ```json
@@ -483,6 +483,7 @@ Aqui estão algumas limitações da atividade ForEach e sugestões de soluções
 |---|---|
 | Você não pode aninhar um loop ForEach dentro de outro loop ForEach (ou um loop Until). | Projete um pipeline de dois níveis em que o pipeline externo com o loop ForEach externo itera sobre um pipeline interno com o loop aninhado. |
 | A atividade ForEach tem um máximo `batchCount` de 50 para processamento paralelo e um máximo de 100.000 itens. | Projete um pipeline de dois níveis onde o pipeline externo com a atividade ForEach itera sobre um pipeline interno. |
+| SetVariable não pode ser usada dentro de uma atividade ForEach que é executada em paralelo, pois as variáveis são globais para todo o pipeline, elas não têm o escopo de um ForEach ou qualquer outra atividade. | Considere usar ForEach sequencial ou usar o pipeline de execução dentro de ForEach (variável/parâmetro manipulado no pipeline filho).|
 | | |
 
 ## <a name="next-steps"></a>Próximas etapas

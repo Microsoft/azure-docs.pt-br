@@ -5,23 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b08e2e530843dd98c87e424812706247388228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 13023ef93cabcf46924cc2cc76dc2d868c4a1ddd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907910"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101653551"
 ---
-# <a name="self-service-sign-up-preview"></a>Inscrição por autoatendimento (versão prévia)
-
-> [!NOTE]
-> A inscrição por autoatendimento é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="self-service-sign-up"></a>Inscrição por autoatendimento
 
 Quando compartilhar um aplicativo com usuários externos, é possível que você não saiba com antecedência quem precisará de acesso a um aplicativo. Como alternativa ao envio de convites diretamente para as pessoas, você pode permitir que usuários externos se inscrevam em aplicativos específicos, habilitando a inscrição por autoatendimento. Você pode criar uma experiência de inscrição personalizada, personalizando o fluxo de inscrição por autoatendimento do usuário. Por exemplo, você pode fornecer opções de inscrição com o Azure AD ou com provedores de identidade social e coletar informações sobre o usuário durante o processo de criação da conta.
 

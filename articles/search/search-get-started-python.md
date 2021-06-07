@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071623"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103225210"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>Início rápido: Criar um índice do Azure Cognitive Search no Python usando o Jupyter Notebook
 
@@ -271,9 +271,9 @@ Para carregar documentos, crie uma coleção de documentos, usando uma [ação d
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Esta etapa mostra como consultar um índice usando [Pesquisar Documentos (REST)](/rest/api/searchservice/search-documents).
+Esta etapa mostra como consultar um índice usando o método **search** da [classe search.client](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. Para essa operação, use search_client. Essa consulta executa uma pesquisa vazia (`search=*`), retornando uma lista não classificada (pontuação de pesquisa = 1,0) de documentos arbitrários. Como não há nenhum critério, todos os documentos são incluídos nos resultados. Essa consulta imprime apenas dois dos campos em cada documento. Ela também adiciona `include_total_count=True` para obter uma contagem de todos os documentos (4) nos resultados.
+1. A etapa a seguir executa uma pesquisa vazia (`search=*`), retornando uma lista não classificada (pontuação de pesquisa = 1.0) de documentos arbitrários. Como não há nenhum critério, todos os documentos são incluídos nos resultados. Essa consulta imprime apenas dois dos campos em cada documento. Ela também adiciona `include_total_count=True` para obter uma contagem de todos os documentos (4) nos resultados.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)
@@ -348,7 +348,7 @@ Esta etapa mostra como consultar um índice usando [Pesquisar Documentos (REST)]
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando você está trabalhando em sua própria assinatura, é uma boa ideia identificar, no final de um projeto, se você ainda precisa dos recursos criados. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
+Quando já estiver trabalhando na sua assinatura, analise se você ainda precisa dos recursos criados no fim de um projeto. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 
 Você pode localizar e gerenciar recursos no portal usando o link **Todos os recursos** ou **Grupos de recursos** no painel de navegação à esquerda.
 

@@ -9,10 +9,10 @@ ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4ad26d63ca06f5a46a4a1f77d329d04896e96c52
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339284"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande

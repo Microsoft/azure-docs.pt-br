@@ -6,14 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d01febec3972dcc26c6e9b5aa8d0c4cca5f32d0a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540749"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606072"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+
 **EXPLAIN** é uma ferramenta útil para otimizar consultas. A instrução EXPLAIN pode ser utilizada para obter informações sobre como as instruções SQL são executadas. A saída a seguir mostra um exemplo da execução de uma instrução EXPLAIN.
 
 ```sql
@@ -75,7 +77,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo* , que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
+Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo*, que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
  
 É indiferente criar um índice na coluna **c2** sozinho e o MySQL ainda precisa criar uma tabela temporária:
 
@@ -97,7 +99,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2** " diretamente no índice para eliminar pesquisa de dados adicionais.
+Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2**" diretamente no índice para eliminar pesquisa de dados adicionais.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -167,4 +169,4 @@ O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite a [Página de P e R da Microsoft](/answers/topics/azure-database-mysql.html) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para encontrar respostas de pares para suas perguntas mais interessadas ou postar uma nova pergunta/resposta, visite [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

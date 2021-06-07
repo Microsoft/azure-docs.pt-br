@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678914"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
@@ -194,7 +194,7 @@ A computação de soma de verificação durante a preparação para envio é fei
     ![Desabilitar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Desabilitar** a validação de soma de verificação
-3. Selecione **Aplicar**.
+3. Escolha **Aplicar**.
 
 > [!NOTE]
 > A opção de computação de soma de verificação de ignorar está disponível somente quando a Azure Data Box é desbloqueada. Você não verá essa opção quando o dispositivo estiver bloqueado.
@@ -215,7 +215,7 @@ Para habilitar a assinatura SMB em seu dispositivo do Azure:
 
     ![Habilitar assinatura SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. Selecione **Aplicar**.
+3. Escolha **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 
@@ -235,7 +235,7 @@ Para habilitar privilégios de operador de backup em seu dispositivo do Azure:
 
    ![Habilitar privilégios de operador de backup](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
-3. **Selecione aplicar**.
+3. **Selecione Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 
@@ -258,7 +258,7 @@ Para habilitar a transferência de ACLs para arquivos do Azure:
 
      ![Habilitar ACLs para arquivos do Azure](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. Selecione **Aplicar**.
+3. Escolha **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 
@@ -278,7 +278,7 @@ Para habilitar o TLS 1,1 em seu dispositivo do Azure:
 
     ![Habilitar TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. Selecione **Aplicar**.
+3. Escolha **Aplicar**.
 4. Na interface do usuário da Web local, acesse **Desligar ou reiniciar**.
 5. Selecione **Reiniciar**.
 

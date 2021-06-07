@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.openlocfilehash: 5c53eb65f31e32d3edebcbf31d48d166f5464a92
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 31eeb31fb78a4e9552e64121e0e85b5fd8d9b773
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233331"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102210624"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
 
@@ -73,7 +73,7 @@ Network Watchers                   1     1
 
 Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, também será necessário executar o `az login` para fazer logon no Azure.
 
-Exiba seu uso em relação aos limites com [az network list-usages](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). O exemplo a seguir obtém o uso de recursos no local Leste dos EUA:
+Exiba seu uso em relação aos limites com [az network list-usages](/cli/azure/network#az-network-list-usages). O exemplo a seguir obtém o uso de recursos no local Leste dos EUA:
 
 ```azurecli-interactive
 az network list-usages \

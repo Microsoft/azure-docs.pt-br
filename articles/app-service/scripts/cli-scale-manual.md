@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9b909d041cf6acba0f3b12ad69018ebc371ff599
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 0c2dbd7368cb8cc43c069b54d286e3e7f4f733c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005606"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787639"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Dimensionar um aplicativo do Serviço de Aplicativo manualmente usando a CLI do Azure
 
@@ -38,10 +38,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az appservice plan update`](/cli/azure/appservice/plan#az-appservice-plan-update) | Atualiza as propriedades do Plano do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az appservice plan update`](/cli/azure/appservice/plan#az_appservice_plan_update) | Atualiza as propriedades do Plano do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

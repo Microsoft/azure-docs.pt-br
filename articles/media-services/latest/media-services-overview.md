@@ -2,7 +2,7 @@
 Título: Visão geral dos Serviços de Mídia do Azure v3: Descrição dos Serviços de Mídia do Azure: Visão geral de alto nível dos Serviços de Mídia do Microsoft Azure v3 com links para guias de início rápido, tutoriais e exemplos de código.
 services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
 
-ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 3/10/2021 ms.author: inhenkel ms.custom: mvc
 #<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intenção do cliente: Como desenvolvedor ou provedor de conteúdo, desejo codificar, transmitir (sob demanda ou ao vivo), analisar meu conteúdo de mídia para que meus clientes possam exibir o conteúdo em uma grande variedade de navegadores e dispositivos e obter insights valiosos do conteúdo registrado.
 ---
 
@@ -13,9 +13,6 @@ ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm
 Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você é desenvolvedor de aplicativos, call center, órgão governamental ou empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo, nos dispositivos móveis e navegadores mais populares da atualidade.
 
 Os SDKs dos Serviços de Mídia v3 são baseados na [Especificação de OpenAPI dos Serviços de Mídia v3 (Swagger)](https://aka.ms/ams-v3-rest-sdk).
-
-> [!NOTE]
-> No momento, você pode usar o [portal do Azure](https://portal.azure.com/) para: gerenciar os [Eventos ao vivo](live-events-outputs-concept.md) dos Serviços de Mídia v3, exibir (não gerenciar) [Ativos](assets-concept.md) do v3 e [obter informações sobre como acessar APIs](./access-api-howto.md). Para todas as outras tarefas de gerenciamento (por exemplo, [Transformações e Trabalhos](transforms-jobs-concept.md) e [Proteção de conteúdo](content-protection-overview.md)), use a [API REST](/rest/api/media/), a [CLI](/cli/azure/ams) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,8 +64,8 @@ Os tutoriais mostram os procedimentos baseados em cenário para algumas das prin
 * [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Codificar o arquivo carregado e o fluxo de vídeo – .NET](stream-files-tutorial-with-api.md)
 * [Transmitir ao vivo – .NET](stream-live-tutorial-with-api.md)
-* [Analisar vídeo – .NET](analyze-videos-tutorial-with-api.md)
-* [Criptografia dinâmica AES-128 – .NET](protect-with-aes128.md)
+* [Analisar vídeo – .NET](analyze-videos-tutorial.md)
+* [Criptografia dinâmica AES-128 – .NET](drm-playready-license-template-concept.md)
 
 ### <a name="samples"></a>Exemplos
 
@@ -78,12 +75,12 @@ Use [este navegador de exemplo](/samples/browse/?products=azure-media-services) 
 
 Os guias de instruções contêm exemplos de código que demonstram como concluir uma tarefa. Você encontrará vários exemplos nesta seção. Veja algumas opções:
 
-* [Criar uma conta – CLI](./create-account-howto.md)
+* [Criar uma conta – CLI](./account-create-how-to.md)
 * [Acessar as APIs – CLI](./access-api-howto.md)
 * [Codificar com HTTPS como entrada de trabalho – .NET](job-input-from-http-how-to.md)  
-* [Monitorar eventos – Portal](monitor-events-portal-how-to.md)
-* [Criptografar dinamicamente com vários DRM – .NET](protect-with-drm.md) 
-* [Como codificar com uma transformação personalizada – CLI](custom-preset-cli-howto.md)
+* [Monitorar eventos – Portal](monitoring/monitor-events-portal-how-to.md)
+* [Criptografar dinamicamente com vários DRM – .NET](drm-protect-with-drm-tutorial.md) 
+* [Como codificar com uma transformação personalizada – CLI](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 

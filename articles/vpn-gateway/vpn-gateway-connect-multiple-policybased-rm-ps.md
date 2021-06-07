@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89418867"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
@@ -38,7 +38,7 @@ Atualmente, o Azure oferece suporte a ambos os modos de gateways VPN: gateways V
 
 | Categoria | Gateway de VPN PolicyBased | Gateway de VPN RouteBased | Gateway de VPN RouteBased |
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
-| **SKU de gateway do Azure**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **SKU de gateway do Azure**    | Básico                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versão do IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
 | **Máximo de conexões S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |

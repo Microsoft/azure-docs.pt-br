@@ -4,16 +4,17 @@ description: Saiba como comprar instâncias reservadas de hosts do Azure dedicad
 services: virtual-machines
 author: yashar
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: cac7a6dfcd98b9de61fabdb8e43ca1cdfd4023c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598295"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607408"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Economize custos com reservas de host dedicadas do Azure
 
@@ -28,7 +29,7 @@ Comece passando os tamanhos com suporte para a [máquina virtual do Windows](./s
 
 Em seguida, verifique se há suporte para os hosts dedicados do Azure. A página de [preços dos hosts dedicados do Azure](https://aka.ms/ADHPricing) tem a lista completa de SKUs de hosts dedicados, suas informações de CPU e várias opções de preços (incluindo instâncias reservadas).
 
-Você pode encontrar várias SKUs que dão suporte a uma série de VMs (com tipos diferentes). Identifique a melhor SKU comparando a capacidade do host (número de vCPUs). Observe que você poderá aplicar sua reserva a várias SKUs de hosts dedicados que dão suporte à mesma série de VMs (por exemplo DSv3_Type1 e DSv3_Type2), mas não em séries de VM diferentes (como DSv3 e ESv3).
+Você pode encontrar várias SKUs que dão suporte à série de VMs selecionada (com tipos diferentes). Identifique a melhor SKU comparando a capacidade do host (número de vCPUs). Observe que você poderá aplicar sua reserva a vários SKUs de hosts dedicados que dão suporte à mesma série de VMs (por exemplo DSv3_Type1 e DSv3_Type2), mas não em séries de VM diferentes (como DSv3 e ESv3).
 
 
 
@@ -38,7 +39,7 @@ As instâncias reservadas estão disponíveis para os tamanhos de host mais dedi
 
 Os descontos de reserva não se aplicam ao seguinte:
 
-- **Nuvens** – as reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
+- **Nuvens**: as reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
 
 - **Cota insuficiente** – uma reserva com escopo para uma única assinatura deve ter a cota vCPU disponível na assinatura para a nova instância reservada. Por exemplo, se a assinatura de destino tiver um limite de cota de 10 vCPUs para a série DSv3, você não poderá comprar uma reserva de hosts dedicados que dão suporte a essa série. A verificação de cota para reservas inclui as VMs e os hosts dedicados já implantados na assinatura. Você pode [criar uma solicitação de aumento de cota](../azure-portal/supportability/resource-manager-core-quotas-request.md) para resolver esse problema.
 
@@ -50,9 +51,9 @@ Você pode comprar uma instância reservada de uma instância de host dedicada d
 
 Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Esses requisitos se aplicam à compra de uma instância de host dedicada reservada:
 
-- Você deve estar em uma função de proprietário para pelo menos uma assinatura de EA ou uma assinatura com uma taxa pré-paga.
+- Você precisa ter a função Proprietário em, no mínimo, uma assinatura do EA ou uma assinatura com uma taxa paga conforme o uso.
 
-- Para assinaturas EA, a opção **adicionar instâncias reservadas** deve ser habilitada no [portal de ea](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você precisará ser um Administrador de EA da assinatura.
+- Para as assinaturas do EA, a opção **Adicionar Instâncias Reservadas** precisa estar habilitada no [Portal do EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você precisará ser um Administrador de EA da assinatura.
 
 - Para o programa do CSP (Provedor de Solução na Nuvem) somente os agentes administradores ou agentes de vendas podem comprar reservas.
 
@@ -66,11 +67,11 @@ Para comprar uma instância:
 
 4. Preencha os campos obrigatórios. Executar instâncias de hosts dedicadas que correspondem aos atributos que você selecionar qualificar para obter o desconto de reserva. O número real de suas instâncias de host dedicadas que obtêm o desconto depende do escopo e da quantidade selecionada.
 
-Se você tiver um contrato EA, poderá usar a **opção Adicionar mais** para adicionar instâncias adicionais rapidamente. A opção não está disponível para outros tipos de assinatura.
+Se você tiver um contrato EA, poderá usar a opção **Adicionar mais** para adicionar mais instâncias rapidamente. A opção não está disponível para outros tipos de assinaturas.
 
 | **Campo**           | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Subscription        | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou o contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo de pagamento antecipado do Azure (anteriormente chamado de compromisso monetário), se disponível ou cobrado como excedente. Para uma assinatura com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura. |
+| Subscription        | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Contrato de Cliente da Microsoft ou ainda uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os preços são deduzidos do saldo do Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível, ou cobrados como excedente. Para uma assinatura com taxas pagas conforme o uso, as cobranças são feitas na forma de pagamento de cartão de crédito ou de fatura na assinatura. |
 | Escopo               | O escopo de assinatura pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Região              | A região do Azure que é coberta pela reserva.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Tamanho de host dedicado | O tamanho das instâncias de host dedicadas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

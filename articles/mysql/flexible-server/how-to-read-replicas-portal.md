@@ -1,17 +1,17 @@
 ---
 title: Gerenciar réplicas de leitura-portal do Azure-banco de dados do Azure para MySQL-servidor flexível
 description: Saiba como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL servidor flexível usando o portal do Azure.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: d33734dc7404e49aed94dffae8644b2bc4386925
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fd303804706f9ae210e6714cc8698c94c39ebef6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492821"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106846"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL servidor flexível usando o portal do Azure
 

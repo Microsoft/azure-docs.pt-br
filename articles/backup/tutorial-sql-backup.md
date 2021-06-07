@@ -4,10 +4,10 @@ description: Neste tutorial, saiba como fazer backup em um cofre dos Serviços d
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88612445"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Fazer backup do banco de dados do SQL Server em uma VM do Azure

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
 ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526418"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Tutorial: configurar analisáveis para o provisionamento automático de usuário
@@ -56,7 +56,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-parsable-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar analisáveis da Galeria de aplicativos do Azure AD
 
-Adicione analisáveis da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para analisáveis. Se você tiver configurado anteriormente a análise para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione analisáveis da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para analisáveis. Se você tiver configurado anteriormente a análise para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 

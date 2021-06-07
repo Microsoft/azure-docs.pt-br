@@ -2,22 +2,25 @@
 title: Habilitar o Azure Disk Encryption para VMs do Linux
 description: Este artigo fornece instruções sobre como habilitar as VMs do Microsoft Azure Disk Encryption para Linux.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779763"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580344"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>VMs do Azure Disk Encryption para Linux 
 
-O Azure Disk Encryption ajuda a proteger seus dados e a atender aos compromissos de conformidade e segurança da sua organização. Ele usa o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado ao [Azure Key Vault](../../key-vault/index.yml) para ajudar você a controlar e gerenciar as chaves de criptografia de disco e os segredos. 
+O Azure Disk Encryption ajuda a proteger seus dados e a atender aos compromissos de conformidade e segurança da sua organização. Ele usa o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado ao [Azure Key Vault](../../key-vault/index.yml) para ajudar você a controlar e gerenciar as chaves de criptografia de disco e os segredos.
+
+Azure Disk Encryption é resiliente de zona, da mesma forma que as máquinas virtuais. Para obter detalhes, consulte [Serviços do Azure que dão suporte a zonas de disponibilidade](../../availability-zones/az-region.md).
 
 Se você usar a [Central de Segurança do Azure](../../security-center/index.yml), receberá um alerta se tiver VMs não criptografadas. Esses alertas são mostrados como Alta Gravidade e a recomendação é criptografar essas VMs.
 
@@ -26,7 +29,6 @@ Se você usar a [Central de Segurança do Azure](../../security-center/index.yml
 > [!WARNING]
 > - Se você já tiver usado o Azure Disk Encryption com o Azure AD anteriormente para criptografar uma VM, deverá continuar usando essa opção para criptografar a VM. Confira [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para detalhes. 
 > - Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
-> - Atualmente, as VMs de geração 2 não são compatíveis com o Azure Disk Encryption. Confira [Suporte para VMs de geração 2 no Azure](../generation-2.md) para obter detalhes.
 
 Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em apenas alguns minutos com o [Início rápido: criar e criptografar uma VM do Linux com CLI do Azure](disk-encryption-cli-quickstart.md) ou o [Início rápido: criar e criptografar uma VM do Linux com o Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -34,7 +36,11 @@ Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em
 
 ### <a name="supported-vms"></a>VMs com suporte
 
-As VMs do Linux estão disponíveis em uma [série de tamanhos](../sizes.md). O Azure Disk Encryption não está disponível nas [VMs básicas, série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/) nem nas máquinas virtuais que não atendem a esses requisitos mínimos de memória:
+As VMs do Linux estão disponíveis em uma [série de tamanhos](../sizes.md). Azure Disk Encryption tem suporte em VMs de geração 1 e geração 2. O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
+
+Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
+
+O Azure Disk Encryption também não está disponível em [VMs básicas da série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais que não atendem a esses requisitos mínimos de memória:
 
 | Máquina virtual | Requisito mínimo de memória |
 |--|--|
@@ -42,13 +48,9 @@ As VMs do Linux estão disponíveis em uma [série de tamanhos](../sizes.md). O 
 | VMs do Linux ao criptografar volumes de dados e do sistema operacional e onde o uso do sistema de arquivos raiz (/) é de 4 GB ou menos | 8 GB |
 | VMs do Linux ao criptografar volumes de dados e do sistema operacional e onde o uso do sistema de arquivos raiz (/) é maior que 4 GB | Uso do sistema de arquivos raiz *2. Por exemplo, os 16 GB de uso do sistema de arquivos raiz exigem pelo menos 32 GB de RAM |
 
-Quando o processo de criptografia de disco do sistema operacional for concluído nas máquinas virtuais do Linux, a VM poderá ser configurada para executar com menos memória. 
+Quando o processo de criptografia de disco do sistema operacional for concluído nas máquinas virtuais do Linux, a VM poderá ser configurada para executar com menos memória.
 
-O Azure Disk Encryption também está disponível para VMs com armazenamento premium.
-
-Azure Disk Encryption não está disponível em VMs de [geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e em [VMs da série Lsv2](../lsv2-series.md). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
-
-Azure Disk Encryption não está disponível em imagens de VM sem discos temporários (DV4, Dsv4, Ev4 e Esv4).  Confira [tamanhos de VM do Azure sem disco temporário local](../azure-vms-no-temp-disk.md).
+Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -58,6 +60,7 @@ O Azure Disk Encryption é compatível com um subconjunto de [distribuições Li
 
 As distribuições do servidor Linux que não são endossadas pelo Azure não são compatíveis com o Azure Disk Encryption; daqueles que são endossados, somente as seguintes distribuições e versões são compatíveis com o Azure Disk Encryption:
 
+
 | Publicador | Oferta | SKU | URN | Tipo de volume suportado para criptografia |
 | --- | --- |--- | --- |
 | Canônico | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | SO e disco de dados |
@@ -65,9 +68,12 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | Canônico | Ubuntu 16.04 | 16.04-LTS-DIÁRIO | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | SO e disco de dados |
 | Canônico | Ubuntu 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | SO e disco de dados |
 | Canônico | Ubuntu 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | 14.04.5-LTS-DIÁRIO | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | SO e disco de dados |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat: RHEL: 8-LVM: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RedHat | RHEL 8,2 | 8.2 | RedHat: RHEL: 8.2: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RedHat | RHEL 8.1 | 8.1 | RedHat: RHEL: 8.1: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7,8 | 7.8 | RedHat: RHEL: 7.8: mais recente | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -75,9 +81,12 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RedHat | RHEL 6.8 | 6,8 | RedHat:RHEL:6.8:latest | Disco de dados (consulte a observação abaixo) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco de dados (consulte a observação abaixo) |
+| OpenLogic | CentOS 8 – LVM | 8-LVM | OpenLogic: CentOS-LVM: 8-LVM: mais recente | SO e disco de dados |
+| OpenLogic | CentOS 8,2 | 8_2 | OpenLogic: CentOS: 8_2: mais recente | SO e disco de dados |
+| OpenLogic | CentOS 8,1 | 8_1 | OpenLogic: CentOS: 8_1: mais recente | SO e disco de dados |
+| OpenLogic | CentOS 7 – LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | SO e disco de dados |
 | OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: mais recente | SO e disco de dados |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | SO e disco de dados |
-| OpenLogic | CentOS 7 – LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | SO e disco de dados |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | SO e disco de dados |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | SO e disco de dados |
@@ -99,7 +108,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não s�
 
 O Azure Disk Encryption requer que os módulos dm-crypt e vfat estejam presentes no sistema. Remover ou desabilitar o vfat da imagem padrão impedirá o sistema de ler o volume de chaves e obter a chave necessária para desbloquear os discos em reinicializações subsequentes. As etapas de proteção do sistema que removem o módulo vfat do sistema ou impõem a expansão das montagem/pastas do sistema operacional em unidades de dados não são compatíveis com Azure Disk Encryption. 
 
-Antes de habilitar a criptografia, os discos de dados a serem criptografados precisam ser listados corretamente em /etc/fstab. Use a opção "nofail" ao criar entradas e escolha um nome de dispositivo de bloqueio persistente (já que os nomes de dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco entre reinicializações, especialmente após a criptografia; para obter mais detalhes sobre esse comportamento, consulte: [Solucionar problemas com alterações no nome de dispositivo da VM do Linux](../troubleshooting/troubleshoot-device-names-problems.md)).
+Antes de habilitar a criptografia, os discos de dados a serem criptografados precisam ser listados corretamente em /etc/fstab. Use a opção "nofail" ao criar entradas e escolha um nome de dispositivo de bloqueio persistente (já que os nomes de dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco entre reinicializações, especialmente após a criptografia; para obter mais detalhes sobre esse comportamento, consulte: [Solucionar problemas com alterações no nome de dispositivo da VM do Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)).
 
 Verifique se as configurações de /etc/fstab estão definidas corretamente para a montagem. Para definir essas configurações, execute o comando mount - a ou reinicie a VM e disparar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar se a unidade ainda está montada. 
 
@@ -134,6 +143,7 @@ O Azure Disk Encryption requer um Azure Key Vault para ajudar você a controlar 
 Para saber detalhes, confira [Criar e configurar um cofre de chaves para Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## <a name="terminology"></a>Terminologia
+
 A tabela a seguir define alguns dos termos comuns usados na documentação de criptografia de disco do Azure:
 
 | Terminologia | Definição |
@@ -148,7 +158,7 @@ A tabela a seguir define alguns dos termos comuns usados na documentação de cr
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Início Rápido - criar e criptografar uma VM do Linux com a CLI do Azure](disk-encryption-cli-quickstart.md)
-- [Início Rápido - criar e criptografar uma VM do Linux com o Azure Powershell](disk-encryption-powershell-quickstart.md)
+- [Início rápido-criar e criptografar uma VM Linux com Azure PowerShell](disk-encryption-powershell-quickstart.md) 
 - [Cenários de Azure Disk Encryption em VMs Linux](disk-encryption-linux.md)
 - [Script da CLI dos pré-requisitos do Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script do PowerShell dos pré-requisitos do Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

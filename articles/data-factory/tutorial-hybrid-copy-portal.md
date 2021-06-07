@@ -1,26 +1,22 @@
 ---
 title: Copiar dados do SQL Server para o Armazenamento de Blobs usando o portal do Azure
 description: Saiba como copiar dados de um armazenamento de dados local para a nuvem usando o runtime de integração auto-hospedada no Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 172ebb5f5b7896b6b642c1fe6c5d01afb1dbf479
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 02/18/2021
+ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606643"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você usa a interface do usuário do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure. Você cria e usa um runtime de integração auto-hospedada, o qual move dados entre locais e armazenamentos de dados da nuvem.
 
@@ -45,7 +41,7 @@ Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma 
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar instâncias de data factory, a conta de usuário usada para entrar no Azure deve ter uma função de *Colaborador* ou *Proprietário* atribuída, ou deve ser de um *administrador* da assinatura do Azure.
 
-Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito e depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Para exibir as permissões que você tem na assinatura, acesse o portal do Azure. Selecione seu nome de usuário no canto superior direito e depois selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, você usa um banco de dados do SQL Server como um armazenamento de dados de *origem*. O pipeline no data factory criado neste tutorial copia dados desse banco de dados do SQL Server (origem) para um Armazenamento de Blobs (coletor). Depois você cria uma tabela chamada **emp** no seu banco de dados do SQL Server e insere algumas entradas de exemplo na tabela.
@@ -118,7 +114,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
    O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
-   ![Novo nome do data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
@@ -134,7 +130,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
 1. Depois que a criação estiver concluída, a página **Data Factory** será exibida conforme mostrado na imagem:
 
-    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 1. Selecione o bloco **Criar e Monitorar** para iniciar a interface do usuário do Data Factory em uma guia separada.
 
 

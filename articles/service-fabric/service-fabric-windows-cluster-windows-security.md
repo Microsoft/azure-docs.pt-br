@@ -3,12 +3,12 @@ title: Proteger um cluster em execução no Windows usando a segurança do Windo
 description: Saiba como configurar a segurança de nó para nó e de cliente para nó em um cluster autônomo em execução no Windows usando a Segurança do Windows.
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a34c7084a9faaf0d676d4f6c68da53b2bc84f01b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839473"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574604"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autônomo no Windows usando a Segurança do Windows
 Para evitar acesso não autorizado a um cluster do Service Fabric, você deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e de cliente para nó usando a Segurança do Windows no arquivo *ClusterConfig.JSON*.  O processo corresponde à etapa configurar segurança de [Criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para saber mais sobre como o Service Fabric usa a Segurança do Windows, veja [Cenários de segurança de cluster](service-fabric-cluster-security.md).
@@ -19,13 +19,13 @@ Para evitar acesso não autorizado a um cluster do Service Fabric, você deve pr
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configurar a segurança do Windows usando gMSA  
-O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows usando [Conta de Serviço Gerenciado por Grupo (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
+gMSA é o modelo de segurança preferencial. O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows usando [Conta de Serviço Gerenciado por Grupo (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
+    "WindowsIdentities": {  
         "ClustergMSAIdentity": "[gMSA Identity]",
         "ClusterSPN": "[Registered SPN for the gMSA account]",
         "ClientIdentities": [
@@ -40,7 +40,7 @@ O arquivo de configuração *ClusterConfig.gMSA.Windows.MultiMachine.JSON* de ex
 
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
-| ClusterCredentialType |Defina como *Windows* para habilitar a segurança do Windows para comunicação nó a nó.  | 
+| ClusterCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de nó a nó.  | 
 | ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |
 | WindowsIdentities |Contém as identidades do cluster e do cliente. |
 | ClustergMSAIdentity |Configura a segurança de nó para nó. Uma conta de serviço gerenciado de grupo. |
@@ -75,7 +75,7 @@ A seção de **segurança** do exemplo a seguir configura a segurança do Window
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configurar a segurança do Windows usando um grupo de máquinas  
-Esse modelo está sendo preterido. Recomenda-se usar o gMSA conforme descrito acima. O arquivo de configuração *ClusterConfig.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows.  A segurança do Windows é configurada na seção **Propriedades** : 
+Conforme detalhado acima, gMSA é preferencial, mas também tem suporte para usar esse modelo de segurança. O arquivo de configuração *ClusterConfig.Windows.MultiMachine.JSON* de exemplo baixado com o pacote de clusters independentes [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para a configuração da segurança do Windows.  A segurança do Windows é configurada na seção **Propriedades** : 
 
 ```
 "security": {
@@ -93,7 +93,7 @@ Esse modelo está sendo preterido. Recomenda-se usar o gMSA conforme descrito ac
 
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
-| ClusterCredentialType |Defina como *Windows* para habilitar a segurança do Windows para comunicação nó a nó.  |
+| ClusterCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de nó a nó.  |
 | ServerCredentialType |Definido como *Windows* para habilitar a Segurança do Windows para comunicação de cliente a nó. |
 | WindowsIdentities |Contém as identidades do cluster e do cliente. |
 | ClusterIdentity |Use um nome de grupo de computadores, domínio\grupodecomputadores, para configurar a segurança de nó para nó. |

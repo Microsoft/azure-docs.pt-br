@@ -4,10 +4,10 @@ description: 'Tutorial: Este artigo mostra como processar eventos do Kafka que s
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92319386"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
@@ -120,7 +120,7 @@ A consulta no trabalho do Stream Analytics passa pelos dados sem executar quaisq
 2. Selecione **+ Adicionar** na barra de ferramentas e selecione **Armazenamento de Blobs**
 3. Na página de configurações de saída de Armazenamento de Blobs, execute as seguintes ações: 
     1. Especifique um **alias** para a saída. 
-    2. Selecione sua **assinatura**do Azure. 
+    2. Selecione sua **assinatura** do Azure. 
     3. Selecione a **conta de Armazenamento do Microsoft Azure**. 
     4. Insira um **nome para o contêiner** que armazena os dados de saída da consulta do Stream Analytics.
     5. Clique em **Salvar**.

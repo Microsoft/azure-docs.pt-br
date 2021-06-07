@@ -9,10 +9,10 @@ ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 44afd8ea4ef2ab06ec31b7528e9776faebc3b4dc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98689795"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
@@ -34,7 +34,7 @@ A porta HTTPS é necessária para a comunicação de saída também quando AMQP 
 
 Os SDKs oficiais do Azure geralmente usam o protocolo AMQP para enviar e receber eventos dos hubs de eventos. A opção de protocolo AMQP-over-WebSockets é executada pela porta TCP 443 assim como a API HTTP, mas, de outra forma, funcionalmente idêntica com AMQP simples. Essa opção tem uma latência de conexão inicial mais alta devido a viagens de ida e volta extras de handshake e um pouco mais de sobrecarga como uma compensação para compartilhar a porta HTTPS. Se esse modo estiver selecionado, a porta TCP 443 será suficiente para comunicação. As opções a seguir permitem selecionar o modo de WebSockets AMQP ou AMQP simples:
 
-| Language | Opção   |
+| Idioma | Opção   |
 | -------- | ----- |
 | .NET     | Propriedade [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype) com [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) ou [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) |
 | Java     | [com. Microsoft. Azure. Eventhubs. EventProcessorClientBuilder. TransportType](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype) com [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype) |

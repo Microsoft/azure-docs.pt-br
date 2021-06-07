@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520876"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655828"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizações para análise de alterações de aplicativo (versão prévia)
 
@@ -22,11 +22,11 @@ Pesquise a análise de alterações na barra de pesquisa em portal do Azure para
 
 ![Captura de tela da pesquisa de análise de alterações no portal do Azure](./media/change-analysis/search-change-analysis.png)
 
-Todos os recursos em uma assinatura selecionada são exibidos com as alterações das últimas 24 horas. Para otimizar o desempenho de carregamento de página, o serviço está exibindo 10 recursos por vez. Selecione a página seguinte para exibir mais recursos. Estamos trabalhando para remover essa limitação.
+Todos os recursos em uma assinatura selecionada são exibidos com as alterações das últimas 24 horas. Todas as alterações são exibidas com o valor antigo e o novo valor para fornecer informações em um relance.
 
 ![Captura de tela da folha de análise de alterações no portal do Azure](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Clicando em um recurso para exibir todas as suas alterações. Se necessário, faça uma busca detalhada em uma alteração para exibir detalhes e informações de alteração formatada em JSON.
+Clicando em uma alteração para exibir o trecho completo do Resource Manager e outras propriedades.
 
 ![Captura de tela de detalhes de alteração](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ A interface do usuário dá suporte à seleção de várias assinaturas para exi
 
 ![Captura de tela do filtro de assinatura que dá suporte à seleção de várias assinaturas](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico e resolução de problemas do aplicativo Web
-
-Em Azure Monitor, a análise de alterações também é incorporada à experiência de **diagnóstico e solução de problemas** de autoatendimento. Acesse essa experiência na página **visão geral** do aplicativo do serviço de aplicativo.
-
-![Captura de tela do botão "visão geral" e o botão "diagnosticar e resolver problemas"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Análise de alteração de aplicativo na ferramenta diagnosticar e resolver problemas
 
@@ -70,6 +65,13 @@ A análise de alterações do aplicativo é um detector autônomo nas ferramenta
 
      ![Captura de tela da exibição alterar comparação](./media/change-analysis/change-view.png)
 
+## <a name="diagnose-and-solve-problems-tool"></a>Ferramenta diagnosticar e resolver problemas
+A análise de alterações está disponível como um cartão Insight na ferramenta diagnosticar e resolver problemas. Se um recurso apresentar problemas e houver alterações descobertas nas últimas 72 horas, o cartão de informações exibirá o número de alterações. Clicar no link exibir detalhes da alteração levará à exibição filtrada da interface do usuário autônoma de análise de alterações.
+
+![Captura de tela da exibição de informações de alterações na ferramenta diagnosticar e solucionar problemas.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
+
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Problemas de diagnóstico e resolução da máquina virtual
 
 Acesse a ferramenta diagnosticar e solucionar problemas para uma máquina virtual.  Vá para **ferramentas de solução de problemas**, navegue para baixo na página e selecione **analisar alterações recentes** para exibir as alterações na máquina virtual.
@@ -80,13 +82,13 @@ Acesse a ferramenta diagnosticar e solucionar problemas para uma máquina virtua
 
 ## <a name="activity-log-change-history"></a>Histórico de alterações do log de atividades
 
-O recurso [Exibir histórico de alterações](../platform/activity-log.md#view-change-history) no log de atividades chama o back-end do serviço de análise de alterações do aplicativo para obter alterações associadas a uma operação. **O histórico de alterações** usado para chamar o grafo de [recursos do Azure](../../governance/resource-graph/overview.md) diretamente, mas permutau o back-end para chamar a análise de alterações de aplicativo para que as alterações retornadas incluam alterações no nível de recurso do [grafo de recursos do Azure](../../governance/resource-graph/overview.md), propriedades de recurso de [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e alterações no convidado de serviços de PaaS, como aplicativo Web de serviços de aplicativos. Para que o serviço de análise de alterações do aplicativo possa verificar se há alterações nas assinaturas dos usuários, um provedor de recursos precisa ser registrado. Na primeira vez que você inserir a guia **histórico de alterações** , a ferramenta começará automaticamente a registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Após o registro, as alterações do **grafo de recursos do Azure** estarão disponíveis imediatamente e cobrirá os últimos 14 dias. As alterações de outras fontes estarão disponíveis após cerca de 4 horas após a integração da assinatura.
+O recurso [Exibir histórico de alterações](../essentials/activity-log.md#view-change-history) no log de atividades chama o back-end do serviço de análise de alterações do aplicativo para obter alterações associadas a uma operação. **O histórico de alterações** usado para chamar o grafo de [recursos do Azure](../../governance/resource-graph/overview.md) diretamente, mas permutau o back-end para chamar a análise de alterações de aplicativo para que as alterações retornadas incluam alterações no nível de recurso do [grafo de recursos do Azure](../../governance/resource-graph/overview.md), propriedades de recurso de [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e alterações no convidado de serviços de PaaS, como aplicativo Web de serviços de aplicativos. Para que o serviço de análise de alterações do aplicativo possa verificar se há alterações nas assinaturas dos usuários, um provedor de recursos precisa ser registrado. Na primeira vez que você inserir a guia **histórico de alterações** , a ferramenta começará automaticamente a registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Após o registro, as alterações do **grafo de recursos do Azure** estarão disponíveis imediatamente e cobrirá os últimos 14 dias. As alterações de outras fontes estarão disponíveis após cerca de 4 horas após a integração da assinatura.
 
 ![Integração do histórico de alterações do log de atividades](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Integração de informações de VM
 
-Os usuários que têm o [VM insights](../insights/vminsights-overview.md) habilitado podem exibir o que mudou em suas máquinas virtuais que podem causar qualquer pico em um gráfico de métricas, como CPU ou memória. Os dados de alteração são integrados na barra de navegação do lado do insights da VM. O usuário pode exibir se alguma alteração ocorreu na VM e selecionar **investigar alterações** para exibir os detalhes da alteração na interface do usuário autônoma da análise de alterações do aplicativo.
+Os usuários que têm o [VM insights](../vm/vminsights-overview.md) habilitado podem exibir o que mudou em suas máquinas virtuais que podem causar qualquer pico em um gráfico de métricas, como CPU ou memória. Os dados de alteração são integrados na barra de navegação do lado do insights da VM. O usuário pode exibir se alguma alteração ocorreu na VM e selecionar **investigar alterações** para exibir os detalhes da alteração na interface do usuário autônoma da análise de alterações do aplicativo.
 
 [![Integração de informações de VM](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

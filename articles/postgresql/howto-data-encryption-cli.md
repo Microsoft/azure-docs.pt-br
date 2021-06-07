@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240606"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Criptografia de dados para um servidor único para PostgreSQL para Azure usando o CLI do Azure
@@ -46,10 +46,10 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
       az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
       ```
 
-* A chave deve ter os seguintes atributos para usar como uma chave gerenciada pelo cliente:
+* A chave deve ter os seguintes atributos a serem usados como chave gerenciada pelo cliente:
   * Sem data de validade
   * Não desabilitado
-  * Executar operações de **obtenção** , **encapsulamento** e **desencapsulamento**
+  * Executar operações de **obtenção**, **encapsulamento** e **desencapsulamento**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões corretas para operações de chave
 
@@ -67,7 +67,7 @@ Saiba como usar o CLI do Azure para configurar e gerenciar a criptografia de dad
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Defina as **permissões de chave** ( **Get** , **Wrap** , sem **encapsulamento** ) para a **entidade de segurança** , que é o nome do servidor de servidor único PostgreSQL.
+2. Defina as **permissões de chave** (**Get**, **Wrap**, sem **encapsulamento**) para a **entidade de segurança**, que é o nome do servidor de servidor único PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

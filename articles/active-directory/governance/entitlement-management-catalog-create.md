@@ -3,7 +3,7 @@ title: Criar & gerenciar um catálogo de recursos no gerenciamento de direitos-A
 description: Saiba como criar um novo contêiner de recursos e pacotes de acesso no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b87fdd7c73d089c46d456491c02d49cb6f8883d
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: d21783f0ef32289aad4b7d136dc8200d61fc0852
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97745956"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592924"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD
 
@@ -80,6 +80,14 @@ Para incluir recursos em um pacote do Access, os recursos devem existir em um ca
 1. Quando terminar, clique em **Adicionar**.
 
     Esses recursos agora podem ser incluídos em pacotes do Access no catálogo.
+
+### <a name="add-a-multi-geo-sharepoint-site"></a>Adicionar um site do SharePoint de várias áreas geográficas
+
+1. Se você tiver [várias geografias](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) habilitadas para o SharePoint, selecione o ambiente do qual deseja selecionar sites.
+    
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Pacote de acesso-adicionar funções de recurso-selecionar sites de várias regiões do SharePoint":::
+
+1. Em seguida, selecione os sites que você deseja adicionar ao catálogo. 
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Adicionando um recurso a um catálogo programaticamente
 

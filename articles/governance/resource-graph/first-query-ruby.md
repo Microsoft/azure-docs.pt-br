@@ -4,10 +4,10 @@ description: Neste guia de início rápido, você seguirá as etapas necessária
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920030"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Início Rápido: Executar sua primeira consulta do Resource Graph usando o Ruby

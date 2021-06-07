@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5504b9bc87f78682ff584006255d4e75e5e69fa7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793340"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transações distribuídas entre bancos de dados na nuvem (visualização)
@@ -238,9 +238,9 @@ As transações de banco de dados elástico têm suporte em diferentes servidore
 
 Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
 
-* **New-AzSqlServerCommunicationLink** : Use este cmdlet para criar uma nova relação de comunicação entre dois servidores no banco de dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
-* **Get-AzSqlServerCommunicationLink** : Use este cmdlet para recuperar relações de comunicação existentes e suas propriedades.
-* **Remove-AzSqlServerCommunicationLink** : Use este cmdlet para remover uma relação de comunicação existente.
+* **New-AzSqlServerCommunicationLink**: Use este cmdlet para criar uma nova relação de comunicação entre dois servidores no banco de dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com o outro servidor.
+* **Get-AzSqlServerCommunicationLink**: Use este cmdlet para recuperar relações de comunicação existentes e suas propriedades.
+* **Remove-AzSqlServerCommunicationLink**: Use este cmdlet para remover uma relação de comunicação existente.
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transações em vários servidores para o Azure SQL Instância Gerenciada
 
@@ -258,9 +258,9 @@ Use DMVs (exibições de gerenciamento dinâmico) para monitorar o status e o pr
 
 Estas DMVs são especialmente úteis:
 
-* **sys.dm\_tran\_active\_transactions** : lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql).
-* **sys.dm\_tran\_database\_transactions** : fornece informações adicionais sobre as transações, como a colocação da transação no log. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql).
-* **sys.dm\_tran\_locks** : fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+* **sys.dm\_tran\_active\_transactions**: lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-active-transactions-transact-sql).
+* **sys.dm\_tran\_database\_transactions**: fornece informações adicionais sobre as transações, como a colocação da transação no log. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql).
+* **sys.dm\_tran\_locks**: fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para obter mais informações, consulte a [documentação da DMV](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ## <a name="limitations"></a>Limitações
 

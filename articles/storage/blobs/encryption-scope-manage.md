@@ -1,24 +1,24 @@
 ---
-title: Criar e gerenciar escopos de criptografia (visualização)
+title: Criar e gerenciar escopos de criptografia
 description: Saiba como criar um escopo de criptografia para isolar dados de blob no nível de contêiner ou BLOB.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e77b58f7741af42f00b2a1831157405b12fa24ff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017399"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640577"
 ---
-# <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerenciar escopos de criptografia (visualização)
+# <a name="create-and-manage-encryption-scopes"></a>Criar e gerenciar escopos de criptografia
 
-Escopos de criptografia (visualização) permitem que você gerencie a criptografia no nível de um BLOB ou contêiner individual. Um escopo de criptografia isola os dados de blob em um Secure Enclave em uma conta de armazenamento. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes. Para obter mais informações sobre escopos de criptografia, consulte [escopos de criptografia para armazenamento de BLOBs (versão prévia)](encryption-scope-overview.md).
+Os escopos de criptografia permitem gerenciar a criptografia no nível de um blob ou contêiner individual. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes. Para obter mais informações sobre escopos de criptografia, consulte [escopos de criptografia para armazenamento de BLOBs](encryption-scope-overview.md).
 
 Este artigo mostra como criar um escopo de criptografia. Ele também mostra como especificar um escopo de criptografia quando você cria um BLOB ou contêiner.
 
@@ -26,7 +26,7 @@ Este artigo mostra como criar um escopo de criptografia. Ele também mostra como
 
 ## <a name="create-an-encryption-scope"></a>Criar um escopo de criptografia
 
-Você pode criar um escopo de criptografia com uma chave gerenciada pela Microsoft ou com uma chave gerenciada pelo cliente que é armazenada em Azure Key Vault ou Azure Key Vault modelo de segurança de hardware gerenciado (HSM) (versão prévia). Para criar um escopo de criptografia com uma chave gerenciada pelo cliente, você deve primeiro criar um cofre de chaves ou HSM gerenciado e adicionar a chave que você pretende usar para o escopo. O cofre de chaves ou HSM gerenciado deve ter a proteção de limpeza habilitada e deve estar na mesma região que a conta de armazenamento.
+Você pode criar um escopo de criptografia que é protegido com uma chave gerenciada pela Microsoft ou com uma chave gerenciada pelo cliente que é armazenada em um Azure Key Vault ou em um Azure Key Vault modelo de segurança de hardware gerenciado (HSM) (versão prévia). Para criar um escopo de criptografia com uma chave gerenciada pelo cliente, você deve primeiro criar um cofre de chaves ou HSM gerenciado e adicionar a chave que você pretende usar para o escopo. O cofre de chaves ou HSM gerenciado deve ter a proteção de limpeza habilitada e deve estar na mesma região que a conta de armazenamento.
 
 Um escopo de criptografia é habilitado automaticamente quando você o cria. Depois de criar o escopo de criptografia, você pode especificá-lo ao criar um blob. Você também pode especificar um escopo de criptografia padrão ao criar um contêiner, que se aplica automaticamente a todos os BLOBs no contêiner.
 
@@ -38,22 +38,16 @@ Para criar um escopo de criptografia no portal do Azure, siga estas etapas:
 1. Selecione a configuração de **criptografia** .
 1. Selecione a guia **escopos de criptografia** .
 1. Clique no botão **Adicionar** para adicionar um novo escopo de criptografia.
-1. No painel criar **escopo de criptografia** , insira um nome para o novo escopo.
-1. Selecione o tipo de criptografia, **chaves gerenciadas pela Microsoft** ou **chaves gerenciadas pelo cliente**.
+1. No painel **criar escopo de criptografia** , insira um nome para o novo escopo.
+1. Selecione o tipo desejado de suporte à chave de criptografia, **chaves gerenciadas pela Microsoft** ou **chaves gerenciadas pelo cliente**.
     - Se você selecionou **chaves gerenciadas pela Microsoft**, clique em **criar** para criar o escopo de criptografia.
-    - Se você selecionou **chaves gerenciadas pelo cliente**, especifique um cofre de chaves ou um HSM gerenciado, uma chave e uma versão de chave para usar para esse escopo de criptografia, conforme mostrado na imagem a seguir.
+    - Se você selecionou **chaves gerenciadas pelo cliente**, selecione uma assinatura e especifique um cofre de chaves ou um HSM gerenciado e uma chave para usar para esse escopo de criptografia, conforme mostrado na imagem a seguir.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Captura de tela mostrando como criar o escopo de criptografia no portal do Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar um escopo de criptografia com o PowerShell, primeiro instale a versão do módulo AZ. Storage Preview. É recomendável usar a versão de visualização mais recente, mas há suporte para escopos de criptografia na versão 1.13.4-Preview e posteriores. Remova todas as outras versões do módulo AZ. Storage.
-
-O comando a seguir instala o módulo AZ. Storage [2.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) :
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.1.1-preview -AllowPrerelease
-```
+Para criar um escopo de criptografia com o PowerShell, instale o módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell, versão 3.4.0 ou posterior.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Criar um escopo de criptografia protegido por chaves gerenciadas pela Microsoft
 
@@ -84,9 +78,8 @@ Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus pr
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $keyVaultName = "<key-vault>"
-$keyUri = "<key-uri-with-version>"
+$keyUri = "<key-uri>"
 $scopeName2 = "customer2scope"
-
 
 # Assign a system managed identity to the storage account.
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
@@ -100,7 +93,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-Em seguida, chame o comando **New-AzStorageEncryptionScope** com o `-KeyvaultEncryption` parâmetro e especifique o URI da chave. Certifique-se de incluir a versão de chave no URI de chave. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
+Em seguida, chame o comando **New-AzStorageEncryptionScope** com o `-KeyvaultEncryption` parâmetro e especifique o URI da chave. A inclusão da versão de chave no URI de chave é opcional. Se você omitir a versão de chave, o escopo de criptografia usará automaticamente a versão de chave mais recente. Se você incluir a versão de chave, deverá atualizar a versão de chave manualmente para usar uma versão diferente.
+
+Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -112,7 +107,7 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para criar um escopo de criptografia com CLI do Azure, primeiro instale CLI do Azure versão 2.4.0 ou posterior.
+Para criar um escopo de criptografia com CLI do Azure, primeiro instale CLI do Azure versão 2.20.0 ou posterior.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Criar um escopo de criptografia protegido por chaves gerenciadas pela Microsoft
 
@@ -158,7 +153,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-Em seguida, chame o comando **AZ Storage Account Encryption-escopo Create** com o `--key-uri` parâmetro e especifique o URI da chave. Certifique-se de incluir a versão de chave no URI de chave. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
+Em seguida, chame o comando **AZ Storage Account Encryption-escopo Create** com o `--key-uri` parâmetro e especifique o URI da chave. A inclusão da versão de chave no URI de chave é opcional. Se você omitir a versão de chave, o escopo de criptografia usará automaticamente a versão de chave mais recente. Se você incluir a versão de chave, deverá atualizar a versão de chave manualmente para usar uma versão diferente.
+
+Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -171,7 +168,10 @@ az storage account encryption-scope create \
 
 ---
 
-Para saber como configurar a criptografia de armazenamento do Azure com chaves gerenciadas pelo cliente em um cofre de chaves, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md). Para configurar chaves gerenciadas pelo cliente em um HSM gerenciado, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+Para saber como configurar a criptografia de armazenamento do Azure com chaves gerenciadas pelo cliente em um cofre de chaves ou HSM gerenciado, consulte os seguintes artigos:
+
+- [Configurar a criptografia com as chaves gerenciadas pelo cliente armazenadas no Azure Key Vault](../common/customer-managed-keys-configure-key-vault.md)
+- [Configure a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](../common/customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>Listar escopos de criptografia para a conta de armazenamento
 
@@ -180,6 +180,10 @@ Para saber como configurar a criptografia de armazenamento do Azure com chaves g
 Para exibir os escopos de criptografia para uma conta de armazenamento no portal do Azure, navegue até a configuração **escopos de criptografia** para a conta de armazenamento. Nesse painel, você pode habilitar ou desabilitar um escopo de criptografia ou alterar a chave de um escopo de criptografia.
 
 :::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Captura de tela mostrando a lista de escopos de criptografia no portal do Azure":::
+
+Para exibir detalhes de uma chave gerenciada pelo cliente, incluindo o URI e a versão da chave e se a versão da chave é atualizada automaticamente, siga o link na coluna **chave** .
+
+:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="Captura de tela mostrando detalhes de uma chave usada com um escopo de criptografia":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -212,7 +216,7 @@ az storage account encryption-scope list \
 
 Ao criar um contêiner, você pode especificar um escopo de criptografia padrão. Os BLOBs nesse contêiner usarão esse escopo por padrão.
 
-Um blob individual pode ser criado com seu próprio escopo de criptografia, a menos que o contêiner esteja configurado para exigir que todos os BLOBs usem seu escopo padrão.
+Um blob individual pode ser criado com seu próprio escopo de criptografia, a menos que o contêiner esteja configurado para exigir que todos os BLOBs usem o escopo padrão. Para obter mais informações, consulte [escopos de criptografia para contêineres e blobs](encryption-scope-overview.md#encryption-scopes-for-containers-and-blobs).
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -227,18 +231,15 @@ Para criar um contêiner com um escopo de criptografia padrão no portal do Azur
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar um contêiner com um escopo de criptografia padrão com o PowerShell, chame o comando [New-AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) , especificando o escopo para o `-DefaultEncryptionScope` parâmetro. O comando **New-AzRmStorageContainer** cria um contêiner usando o provedor de recursos de armazenamento do Azure, que permite a configuração de escopos de criptografia e outras operações de gerenciamento de recursos.
-
-Para forçar todos os BLOBs em um contêiner a usar o escopo padrão do contêiner, defina o `-PreventEncryptionScopeOverride` parâmetro como `true` .
+Para criar um contêiner com um escopo de criptografia padrão com o PowerShell, chame o comando [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) , especificando o escopo para o `-DefaultEncryptionScope` parâmetro. Para forçar todos os BLOBs em um contêiner a usar o escopo padrão do contêiner, defina o `-PreventEncryptionScopeOverride` parâmetro como `true` .
 
 ```powershell
 $containerName1 = "container1"
-$containerName2 = "container2"
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a container with a default encryption scope that cannot be overridden.
-New-AzRmStorageContainer -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -Name $containerName1 `
+New-AzStorageContainer -Name $containerName1 `
+    -Context $ctx `
     -DefaultEncryptionScope $scopeName1 `
     -PreventEncryptionScopeOverride $true
 ```
@@ -269,7 +270,7 @@ Ao carregar um blob, você pode especificar um escopo de criptografia para esse 
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para carregar um blob com um escopo de criptografia especificado no portal do Azure, primeiro crie o escopo de criptografia conforme descrito em [criar um escopo de criptografia](#create-an-encryption-scope). Em seguida, siga estas etapas para criar o blob:
+Para carregar um blob com um escopo de criptografia por meio do portal do Azure, primeiro crie o escopo de criptografia conforme descrito em [criar um escopo de criptografia](#create-an-encryption-scope). Em seguida, siga estas etapas para criar o blob:
 
 1. Navegue até o contêiner para o qual você deseja carregar o blob.
 1. Selecione o botão **carregar** e localize o blob a ser carregado.
@@ -281,22 +282,28 @@ Para carregar um blob com um escopo de criptografia especificado no portal do Az
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para carregar um blob com um escopo de criptografia especificado usando o PowerShell, chame o comando [set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) e forneça o escopo de criptografia para o blob.
+Para carregar um blob com um escopo de criptografia por meio do PowerShell, chame o comando [set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) e forneça o escopo de criptografia para o blob.
 
 ```powershell
 $containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
-$ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $accountName).Context
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a new container with no default scope defined.
 New-AzStorageContainer -Name $containerName2 -Context $ctx
+
 # Upload a block upload with an encryption scope specified.
-Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
+Set-AzStorageBlobContent -Context $ctx `
+    -Container $containerName2 `
+    -File $localSrcFile `
+    -Blob "helloworld.txt" `
+    -BlobType Block `
+    -EncryptionScope $scopeName2
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para carregar um blob com um escopo de criptografia especificado usando CLI do Azure, chame o comando [AZ Storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) e forneça o escopo de criptografia para o blob.
+Para carregar um blob com um escopo de criptografia via CLI do Azure, chame o comando [AZ Storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) e forneça o escopo de criptografia para o blob.
 
 Se você estiver usando Azure Cloud Shell, siga as etapas descritas em [carregar um blob](storage-quickstart-blobs-cli.md#upload-a-blob) para criar um arquivo no diretório raiz. Em seguida, você pode carregar esse arquivo em um BLOB usando o exemplo a seguir.
 
@@ -401,10 +408,13 @@ az storage account encryption-scope update \
     --state Disabled
 ```
 
+> [!IMPORTANT]
+> Não é possível excluir um escopo de criptografia. Para evitar custos inesperados, certifique-se de desabilitar os escopos de criptografia que não são necessários no momento.
+
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia do Armazenamento do Azure para dados em repouso](../common/storage-service-encryption.md)
-- [Escopos de criptografia para armazenamento de BLOBs (visualização)](encryption-scope-overview.md)
+- [Escopos de criptografia para armazenamento de BLOBs](encryption-scope-overview.md)
 - [Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure](../common/customer-managed-keys-overview.md)

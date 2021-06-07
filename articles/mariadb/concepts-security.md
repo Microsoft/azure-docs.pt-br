@@ -3,14 +3,14 @@ title: Segurança-banco de dados do Azure para MariaDB
 description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 9e6ca797b1e982e1ef632ba99e9210e3c347a2f1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8a46f70e3089a8610fa8ca6362bcba6f624e2b1a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664173"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Segurança no Banco de Dados do Azure para MariaDB

@@ -7,10 +7,10 @@ ms.reviewer: camerost, logicappspm
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: f5b04c563dc81497f591788dc4890d379c0f898f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93102788"
 ---
 # <a name="handle-stored-procedure-timeouts-in-the-sql-connector-for-azure-logic-apps"></a>Manipular tempos limite do procedimento armazenado no conector do SQL para aplicativos lógicos do Azure
@@ -37,10 +37,10 @@ BEGIN
 END
 ```
 
-Em vez de chamar diretamente o procedimento armazenado, você pode executar o procedimento de forma assíncrona em segundo plano usando um *agente de trabalho* . Você pode armazenar as entradas e saídas em uma tabela de estado com a qual você pode interagir por meio de seu aplicativo lógico. Se você não precisar das entradas e saídas, ou se já estiver gravando os resultados em uma tabela no procedimento armazenado, você poderá simplificar essa abordagem.
+Em vez de chamar diretamente o procedimento armazenado, você pode executar o procedimento de forma assíncrona em segundo plano usando um *agente de trabalho*. Você pode armazenar as entradas e saídas em uma tabela de estado com a qual você pode interagir por meio de seu aplicativo lógico. Se você não precisar das entradas e saídas, ou se já estiver gravando os resultados em uma tabela no procedimento armazenado, você poderá simplificar essa abordagem.
 
 > [!IMPORTANT]
-> Verifique se o procedimento armazenado e todos os trabalhos são *idempotentes* , o que significa que eles podem ser executados várias vezes sem afetar os resultados. Se o processamento assíncrono falhar ou expirar, o agente de trabalho poderá repetir a etapa e, portanto, o procedimento armazenado, várias vezes. Para evitar a duplicação de saída, antes de criar qualquer objeto, examine essas [práticas recomendadas e abordagens](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
+> Verifique se o procedimento armazenado e todos os trabalhos são *idempotentes*, o que significa que eles podem ser executados várias vezes sem afetar os resultados. Se o processamento assíncrono falhar ou expirar, o agente de trabalho poderá repetir a etapa e, portanto, o procedimento armazenado, várias vezes. Para evitar a duplicação de saída, antes de criar qualquer objeto, examine essas [práticas recomendadas e abordagens](../azure-sql/database/elastic-jobs-overview.md#idempotent-scripts).
 
 A próxima seção descreve como você pode usar o agente de trabalho elástico do Azure para o banco de dados SQL do Azure. Para SQL Server e SQL Instância Gerenciada do Azure, você pode usar o SQL Server Agent. Alguns detalhes de gerenciamento serão diferentes, mas as etapas fundamentais permanecerão as mesmas que a configuração de um agente de trabalho para o banco de dados SQL do Azure.
 
@@ -48,7 +48,7 @@ A próxima seção descreve como você pode usar o agente de trabalho elástico 
 
 ## <a name="job-agent-for-azure-sql-database"></a>Agente de trabalho para banco de dados SQL do Azure
 
-Para criar um trabalho que possa executar o procedimento armazenado para o [banco de dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md), use o [agente de trabalho elástico do Azure](../azure-sql/database/elastic-jobs-overview.md). Crie seu agente de trabalho no portal do Azure. Essa abordagem adicionará vários procedimentos armazenados ao banco de dados que é usado pelo agente, também conhecido como o *banco de dados do Agent* . Você pode criar um trabalho que executa o procedimento armazenado no banco de dados de destino e captura a saída quando terminar.
+Para criar um trabalho que possa executar o procedimento armazenado para o [banco de dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md), use o [agente de trabalho elástico do Azure](../azure-sql/database/elastic-jobs-overview.md). Crie seu agente de trabalho no portal do Azure. Essa abordagem adicionará vários procedimentos armazenados ao banco de dados que é usado pelo agente, também conhecido como o *banco de dados do Agent*. Você pode criar um trabalho que executa o procedimento armazenado no banco de dados de destino e captura a saída quando terminar.
 
 Antes de criar o trabalho, você precisa configurar permissões, grupos e destinos conforme descrito pela [documentação completa para o agente de trabalho elástico do Azure](../azure-sql/database/elastic-jobs-overview.md). Você também precisa criar uma tabela de suporte no banco de dados de destino, conforme descrito nas seções a seguir.
 

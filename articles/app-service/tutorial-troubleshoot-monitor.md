@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183193"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100586282"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solucionar problemas de um aplicativo do Serviço de Aplicativo com o Azure Monitor
 
@@ -78,7 +78,7 @@ As configurações de diagnóstico podem ser usadas para coletar métricas de de
 Execute os seguintes comandos para criar configurações de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (logs de servidor Web). Substitua _\<app-name>_ e _\<workspace-name>_ por seus valores. 
 
 > [!NOTE]
-> Os dois primeiros comandos, `resourceID` e `workspaceID`, são variáveis a serem usadas no comando `az monitor diagnostic-settings create`. Confira [Criar configurações de diagnóstico usando a CLI do Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
+> Os dois primeiros comandos, `resourceID` e `workspaceID`, são variáveis a serem usadas no comando `az monitor diagnostic-settings create`. Confira [Criar configurações de diagnóstico usando a CLI do Azure](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ No Portal do Azure, selecione o espaço de trabalho do Log Analytics.
 
 ### <a name="log-queries"></a>Consultas de logs
 
-As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Use as consultas de log para identificar os logs em AppServiceHTTPLogs e AppServiceConsoleLogs. Confira a [visão geral da consulta de log](../azure-monitor/log-query/log-query-overview.md) para obter mais informações sobre consultas de log.
+As consultas de log ajudam você a aproveitar tudo o que os dados coletados nos logs do Azure Monitor têm a oferecer. Use as consultas de log para identificar os logs em AppServiceHTTPLogs e AppServiceConsoleLogs. Confira a [visão geral da consulta de log](../azure-monitor/logs/log-query-overview.md) para obter mais informações sobre consultas de log.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Exibir AppServiceHTTPLogs com a consulta de log
 
@@ -269,6 +269,6 @@ O que você aprendeu:
 > * Usou consultas de log para identificar e solucionar problemas de erros do aplicativo Web
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
-* [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consultar logs com o Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

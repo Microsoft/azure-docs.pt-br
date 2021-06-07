@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 41e93584937ca10740e9ee0be3353d1edf5efb3e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882459"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587673"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
 
@@ -209,7 +209,6 @@ Os rótulos de imagens podem ser exportados no [formato COCO](http://cocodataset
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você rotulou imagens.  Agora, use os dados rotulados:
-
 > [!div class="nextstepaction"]
-> [Treinar um modelo de machine learning de reconhecimento de imagens](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Treinar um modelo de machine learning de reconhecimento de imagens](/azure/machine-learning/how-to-use-labeled-dataset).
+

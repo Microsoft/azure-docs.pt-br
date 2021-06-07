@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388848"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101700024"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
 Se você estiver procurando melhorar a precisão do reconhecimento, especialmente os problemas causados quando palavras são excluídas ou substituídas incorretamente, você desejará usar transcrições com rótulo humano junto com seus dados de áudio. O que são transcrições com rótulo humano? É fácil, eles são palavras-por-palavra, transcrições textuais de um arquivo de áudio.
 
-Um exemplo grande de dados de transcrição é necessário para melhorar o reconhecimento, sugerimos fornecer entre 10 e 20 horas de dados de transcrição. Nesta página, examinaremos as diretrizes criadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com seções para inglês americano, mandarim chinês e alemão.
+Um exemplo grande de dados de transcrição é necessário para melhorar o reconhecimento, sugerimos fornecer entre 1 e 20 horas de dados de transcrição. O serviço de fala usará até 20 horas de áudio para treinamento. Nesta página, examinaremos as diretrizes criadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com seções para inglês americano, mandarim chinês e alemão.
 
 > [!NOTE]
 > Nem todos os modelos de base dão suporte à personalização com arquivos de áudio. Se um modelo base não oferecer suporte a ele, o treinamento usará apenas o texto das transcrições da mesma maneira como o texto relacionado é usado. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
@@ -37,7 +37,7 @@ As transcrições com rótulo humano para áudio em inglês devem ser fornecidas
 
 Veja alguns exemplos:
 
-| Caracteres a evitar | Substituição | Anotações |
+| Caracteres a evitar | Substituição | Observações |
 | ------------------- | ------------ | ----- |
 | "Olá, mundo" | "Olá, Mundo" | As marcas de aspas de abertura e fechamento foram substituídas por caracteres ASCII apropriados. |
 | Dia de João | Dia de João | O apóstrofo foi substituído pelo caractere ASCII apropriado. |
@@ -94,7 +94,7 @@ As transcrições rotuladas pelo homem para áudio mandarim chinês devem ser co
 
 Veja alguns exemplos:
 
-| Caracteres a evitar | Substituição   | Anotações |
+| Caracteres a evitar | Substituição   | Observações |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | As marcas de aspas de abertura e fechamento foram substituídas pelos caracteres apropriados. |
 | 需要什么帮助? | 需要什么帮助？| O ponto de interrogação foi substituído pelo caractere apropriado. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015334"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz do microfone do SDK de dispositivos de fala
@@ -41,7 +41,7 @@ Os componentes do microfone devem ser selecionados para reproduzir com precisão
 
 As propriedades recomendadas ao selecionar microfones são:
 
-| Parâmetro | Recomendado |
+| Parâmetro | Recomendadas |
 | --------- | ----------- |
 | SNR | \>= 65 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Correspondência de amplitude | ± 1 dB @ 1 kHz |
@@ -60,7 +60,7 @@ Uma boa seleção de componente deve ser emparelhada com boa integração de Ele
 
 O desempenho da matriz de microfone quando integrada a um dispositivo será diferente da especificação do componente. É importante garantir que os microfones sejam bem combinados após a integração. Portanto, o desempenho do dispositivo medido após qualquer lucro ou EQ fixo deve atender às seguintes recomendações:
 
-| Parâmetro          | Recomendado                                        |
+| Parâmetro          | Recomendadas                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (sinal de 1 kHz 94 dBSPL, ruído de peso) |
 | Sensibilidade de saída | -26 dBFS/PA @ 1 kHz (recomendado)                  |
@@ -76,7 +76,7 @@ O desempenho da matriz de microfone quando integrada a um dispositivo será dife
 
 Como o cancelamento de eco é necessário para dispositivos de reconhecimento de fala que contêm alto-falantes, são fornecidas recomendações adicionais para a integração e a seleção de palestrante.
 
-| Parâmetro | Recomendado |
+| Parâmetro | Recomendadas |
 | --------- | ----------- |
 | Considerações sobre linearidade | Nenhum processamento não linear após a referência do alto-falante, caso contrário, é necessário um fluxo de referência de auto-retorno baseado em hardware |
 | Loopback do orador | Fornecido via WASAPI, APIs privadas, plug-in ALSA personalizado (Linux) ou fornecido por meio do canal de firmware |

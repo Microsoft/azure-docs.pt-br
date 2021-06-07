@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728230"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
@@ -34,7 +34,7 @@ Para obter mais informações sobre o Azure AD, consulte [ Sincronização de id
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Um cenário comum
-Quando ocorrem **erros de sincronização QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, é comum ver um conflito entre **UserPrincipalName** ou **Proxy Addresses** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, essa imagem indica que dois usuários têm um conflito de **userPrincipalName**. Ambos são **Joe. J \@ contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
+Quando ocorrem **erros de sincronização QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, é comum ver um conflito entre **UserPrincipalName** ou **Proxy Addresses** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização de dados será resolvido após a próxima sincronização. Por exemplo, esta imagem indica que dois usuários têm um conflito com seu **UserPrincipalName**. Ambos são **Joe. J \@ contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
 
 ![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

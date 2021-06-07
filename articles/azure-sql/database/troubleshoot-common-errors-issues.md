@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
 ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98233365"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solucionar problemas de conectividade e outros erros com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: c888a6882f2a408801492de914c57e3e9a6eeaed
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375503"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046463"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -59,11 +59,13 @@ A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure p
 | França Central | 40.79.137.0, 40.79.129.1  | | |
 | Sul da França | 40.79.177.0     | | |
 | Alemanha Central | 51.4.144.100     | | |
+| Norte da Alemanha | 51.116.56.0 | |
 | Nordeste da Alemanha | 51.5.144.179  | | |
+| Centro-Oeste da Alemanha | 51.116.152.0 | |
 | Centro da Índia | 104.211.96.159     | | |
 | Sul da Índia | 104.211.224.146  | | |
 | Oeste da Índia | 104.211.160.80    | | |
-| Japan East | 40.79.192.23 | 13.78.61.196 | |
+| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Oeste do Japão | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Coreia Central | 52.231.17.13   | 52.231.32.42 | |
 | Sul da Coreia | 52.231.145.3     | 52.231.200.86 | |
@@ -73,6 +75,8 @@ A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure p
 | Oeste da África do Sul | 102.133.24.0   | | |
 | Centro-Sul dos Estados Unidos |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Sudeste da Ásia | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| Norte da Suíça | 51.107.56.0 ||
+| Oeste da Suíça | 51.107.152.0||
 | EAU Central | 20.37.72.64  | | |
 | Norte dos EAU | 65.52.248.0    | | |
 | Sul do Reino Unido | 51.140.184.11   | | |
@@ -80,22 +84,53 @@ A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure p
 | Centro-Oeste dos EUA | 13.78.145.25     | | |
 | Europa Ocidental |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | Oeste dos EUA |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| Oeste dos EUA 2 | 13.66.226.202  | | |
+| Oeste dos EUA 2 | 13.66.136.192 | 13.66.226.202  | | 
 ||||
 
 ## <a name="connection-redirection"></a>Redirecionamento de conexão
 
-O banco de dados do Azure para MySQL dá suporte a uma política de conexão adicional, **redirecionamento**, que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MySQL. Com esse recurso, depois que a sessão TCP inicial é estabelecida com o banco de dados do Azure para o servidor MySQL, o servidor retorna o endereço de back-end do nó que hospeda o servidor MySQL para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
+O banco de dados do Azure para MySQL dá suporte a uma política de conexão adicional, **redirecionamento**, que ajuda a reduzir a latência de rede entre aplicativos cliente e servidores MySQL. Com o redirecionamento e depois que a sessão TCP inicial é estabelecida com o servidor de banco de dados do Azure para MySQL, o servidor retorna o endereço de back-end do nó que hospeda o servidor MySQL para o cliente. Depois disso, todos os pacotes subsequentes fluem diretamente para o servidor, ignorando o gateway. À medida que os pacotes fluem diretamente para o servidor, a latência e a taxa de transferência têm desempenho aprimorado.
 
 Esse recurso tem suporte no banco de dados do Azure para servidores MySQL com versões do mecanismo 5,6, 5,7 e 8,0.
 
 O suporte para redirecionamento está disponível na extensão de [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP, desenvolvida pela Microsoft e está disponível em [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte o artigo [Configurando o redirecionamento](./howto-redirection.md) para obter mais informações sobre como usar o redirecionamento em seus aplicativos.
 
+
 > [!IMPORTANT]
 > No momento, o suporte para redirecionamento na extensão [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) do PHP está na versão prévia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>O que você precisa saber sobre essa manutenção planejada?
+Essa é uma alteração de DNS somente que a torna transparente para os clientes. Embora o endereço IP do FQDN seja alterado no servidor DNS, o cache DNS local será atualizado em 5 minutos e será feito automaticamente pelos sistemas operacionais. Após a atualização do DNS local, todas as novas conexões se conectarão ao novo endereço IP, todas as conexões existentes permanecerão conectadas ao endereço IP antigo sem interrupção até que os endereços IP antigos sejam completamente descomissionados. O endereço IP antigo levará, aproximadamente, de três a quatro semanas antes de ser encerrado; Portanto, ele não deve ter nenhum efeito sobre os aplicativos cliente.
+
+### <a name="what-are-we-decommissioning"></a>O que estamos descomissionando?
+Somente nós de gateway serão encerrados. Quando os usuários se conectam a seus servidores, a primeira parada da conexão é para o nó do gateway, antes que a conexão seja encaminhada ao servidor. Estamos encerrando anéis de gateway antigos (não anéis de locatário onde o servidor está em execução) consulte a [arquitetura de conectividade](#connectivity-architecture) para obter mais esclarecimentos.
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Como você pode validar se suas conexões vão para nós de gateway antigos ou novos nós de gateway?
+Execute ping no FQDN do servidor, por exemplo  ``ping xxx.mysql.database.azure.com`` . Se o endereço IP retornado for um dos IPs listados em endereços IP do gateway (encerramento) no documento acima, significa que sua conexão está passando pelo gateway antigo. Contrarily, se o endereço IP retornado for um dos IPs listados em endereços IP de gateway, significa que a conexão está passando pelo novo gateway.
+
+Você também pode testar por [PSPing](/sysinternals/downloads/psping) ou TCPPing o servidor de banco de dados do seu aplicativo cliente com a porta 3306 e garantir que o endereço IP de retorno não seja um dos endereços IP de descomissionamento
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Como fazer saber quando a manutenção terminará e receberei outra notificação quando os endereços IP antigos forem encerrados?
+Você receberá um email para informá-lo quando iniciar o trabalho de manutenção. A manutenção pode levar até um mês, dependendo do número de servidores que precisamos migrar nas regiões al. Prepare seu cliente para se conectar ao servidor de banco de dados usando o FQDN ou usando o novo endereço IP da tabela acima. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>O que devo fazer se meus aplicativos cliente ainda estiverem se conectando ao servidor gateway antigo?
+Isso indica que seus aplicativos se conectam ao servidor usando o endereço IP estático em vez do FQDN. Examine as cadeias de conexão e a configuração do pool de conexões, configuração AKS ou até mesmo no código-fonte.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>Há algum impacto para minhas conexões de aplicativo?
+Essa manutenção é apenas uma alteração de DNS, portanto, é transparente para o cliente. Depois que o cache DNS é atualizado no cliente (feito automaticamente pelo sistema operacional), toda a nova conexão se conectará ao novo endereço IP e toda a conexão existente ainda funcionará bem até que o endereço IP antigo seja encerrado por completo, o que geralmente várias semanas depois. E a lógica de repetição não é necessária para esse caso, mas é bom ver que o aplicativo tem a lógica de repetição configurada. Use o FQDN para se conectar ao servidor de banco de dados ou habilite a lista os novos ' endereços IP de gateway ' na cadeia de conexão do aplicativo.
+Essa operação de manutenção não removerá as conexões existentes. Ele apenas faz com que as novas solicitações de conexão vá para o novo anel do gateway.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>Posso solicitar uma janela de tempo específica para a manutenção? 
+Como a migração deve ser transparente e não afetar a conectividade do cliente, esperamos que não haja nenhum problema para a maioria dos usuários. Examine seu aplicativo proativamente e certifique-se de usar o FQDN para se conectar ao servidor de banco de dados ou habilitar a lista de novos ' endereços IP de gateway ' na cadeia de conexão do aplicativo.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>Estou usando o link privado, minhas conexões serão afetadas?
+Não, essa é uma descomissionação de hardware de gateway e não tem relação com o link privado ou endereços IP privados, ele afetará apenas endereços IP públicos mencionados nos endereços IP de encerramento.
+
+
+
+## <a name="next-steps"></a>Próximas etapas
 * [Criar e gerenciar regras de firewall do banco de dados do Azure para MySQL usando o portal do Azure](./howto-manage-firewall-using-portal.md)
 * [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MySQL usando a CLI do Azure](./howto-manage-firewall-using-cli.md)
 * [Configurar o redirecionamento com o banco de dados do Azure para MySQL](./howto-redirection.md)

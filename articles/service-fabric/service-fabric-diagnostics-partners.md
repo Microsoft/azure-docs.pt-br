@@ -1,16 +1,14 @@
 ---
 title: Parceiros de Monitoramento do Azure Service Fabric
 description: Saiba como monitorar aplicativos, clusters e infraestrutura do Azure Service Fabric com soluções de monitoramento de parceiros.
-author: srrengar
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: srrengar
-ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92ac0627f02ccefdd4c93aa51cac7c9dd7790460
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75645711"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627720"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de Monitoramento do Azure Service Fabric
 

@@ -1,24 +1,14 @@
 ---
 title: Selecionar e implantar agentes de segurança
 description: Saiba mais sobre como selecionar e implantar agentes de segurança do defender para IoT em dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 2634ed819b8818632c58b9e471b0f26190e5f16b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339958"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778841"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecionar e implantar um agente de segurança em seu dispositivo IoT
 
@@ -28,11 +18,9 @@ Para saber mais, consulte [arquitetura de referência do agente de segurança](s
 Os agentes são desenvolvidos como projetos de código-fonte aberto e estão disponíveis em dois tipos: <br> [C](https://aka.ms/iot-security-github-c)e [C#](https://aka.ms/iot-security-github-cs).
 
 Neste artigo, você aprenderá como:
-
-> [!div class="checklist"]
-> * Comparar tipos de agente de segurança
-> * Descobrir plataformas de agente com suporte
-> * Escolha o tipo de agente correto para sua solução
+- Comparar tipos de agente de segurança
+- Descobrir plataformas de agente com suporte
+- Escolha o tipo de agente correto para sua solução
 
 ## <a name="understand-security-agent-options"></a>Entender as opções do agente de segurança
 
@@ -53,7 +41,7 @@ O agente de segurança baseado em C tem uma superfície de memória menor e é a
 | **[Autenticação](concept-security-agent-authentication-methods.md) para o Hub IOT** | Sim | Sim |
 | **[Coleta](how-to-agent-configuration.md#supported-security-events) de dados de segurança** | Sim | Sim |
 | **Agregação de eventos** | Sim | Sim |
-| **Configuração remota por meio do [módulo de segurança](concept-security-module.md) ...** | Sim | Sim |
+| **Configuração remota por meio do [defender-IOT-micro-Agent](concept-security-module.md) .** | Sim | Sim |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação do agente de segurança
 
@@ -81,7 +69,7 @@ Responda às seguintes perguntas sobre seus dispositivos IoT para selecionar o a
 Ambos os tipos de agente oferecem o mesmo conjunto de recursos e oferecem suporte a opções de configuração semelhantes.
 Consulte [comparação do agente de segurança](how-to-deploy-agent.md#understand-security-agent-options) para saber mais.
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas com Suporte
 
 A lista a seguir inclui todas as plataformas com suporte no momento.
 

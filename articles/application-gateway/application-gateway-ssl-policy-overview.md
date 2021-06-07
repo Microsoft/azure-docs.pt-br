@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: amsriva
 ms.openlocfilehash: 77239cd8586b8fb07abf6862be436979541bdb99
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97631683"
 ---
-# <a name="application-gateway-tls-policy-overview"></a>Visão geral da política TLS do gateway de aplicativo
+# <a name="application-gateway-tls-policy-overview"></a>Visão geral da política TLS do Gateway de Aplicativo
 
 Você pode usar Aplicativo Azure gateway para centralizar o gerenciamento de certificados TLS/SSL e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores back-end. Essa manipulação de TLS centralizado também permite que você especifique uma política TLS central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e às práticas recomendadas.
 

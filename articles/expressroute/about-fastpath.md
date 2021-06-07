@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: e1ec175653316029932e0c03214f6f1e1d81e0f1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185641"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654366"
 ---
 # <a name="about-expressroute-fastpath"></a>Sobre o ExpressRoute FastPath
 
@@ -33,11 +33,16 @@ Para configurar o FastPath, o gateway de rede virtual deve ser:
 * Ultra desempenho
 * ErGw3AZ
 
+> [!IMPORTANT]
+> Se você planeja usar o FastPath com emparelhamento privado baseado em IPv6 por meio do ExpressRoute, selecione ErGw3AZ para **SKU**. Observe que isso só está disponível para circuitos que usam o ExpressRoute Direct.
+> 
+>
+
 ## <a name="limitations"></a>Limitações
 
 Embora o FastPath dê suporte à maioria das configurações, ele não oferece suporte aos seguintes recursos:
 
-* UDR na sub-rede de gateway: se você aplicar um UDR à sub-rede de gateway de sua rede virtual, o tráfego de rede da rede local continuará a ser enviado para o gateway de rede virtual.
+* UDR na sub-rede de gateway: esse UDR não tem impacto sobre o tráfego de rede que o FastPath envia diretamente da sua rede local para as máquinas virtuais na rede virtual do Azure. 
 
 * Emparelhamento VNet: se você tiver outras redes virtuais emparelhadas com aquela que está conectada ao ExpressRoute, o tráfego de rede da sua rede local para as outras redes virtuais (ou seja, o chamado de "spoke" VNets) continuará a ser enviado para o gateway de rede virtual. A solução alternativa é conectar todas as redes virtuais ao circuito do ExpressRoute diretamente.
 

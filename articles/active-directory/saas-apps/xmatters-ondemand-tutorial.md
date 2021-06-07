@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 762bd1c536df0ca307149ba7c201f08f5bdfded5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
@@ -110,7 +110,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -122,7 +122,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao xMatters OnDemand.
 
@@ -131,17 +131,17 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função &quot;Acesso Padrão&quot; selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 
-## <a name="configure-xmatters-ondemand-sso"></a>Configurar o SSO do xMatters OnDemand
+## <a name=&quot;configure-xmatters-ondemand-sso&quot;></a>Configurar o SSO do xMatters OnDemand
 
 1. Em uma janela diferente do navegador da Web, entre no seu site de empresa no xMatters OnDemand como administrador.
 
 2. Clique em **Administração** e em **Detalhes da Empresa**.
 
-    ![Página de administração](./media/xmatters-ondemand-tutorial/admin.png "Administrador")
+    ![Página de administração](./media/xmatters-ondemand-tutorial/admin.png &quot;Administrador")
 
 3. Na página **Configuração do SAML** , realize as seguintes etapas:
 

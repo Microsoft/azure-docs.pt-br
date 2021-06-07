@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6156bd72e3f4965a74798a3f91496eb8a321444e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219514"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676647"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingerir dados em um pool SQL dedicado
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a incluir dados de uma conta de armazenamento Azu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de armazenamento do Azure**: Use Azure data Lake Storage Gen 2 como um armazenamento de dados de *origem* . Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) para obter as etapas para criar uma.
+* **Conta de armazenamento do Azure**: Use Azure data Lake Storage Gen 2 como um armazenamento de dados de *origem* . Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) para obter as etapas para criar uma.
 * **Azure Synapse Analytics**: você usa um pool SQL dedicado como um armazenamento de dados de *coletor* . Se você não tiver uma instância do Azure Synapse Analytics, confira [Criar um pool de SQL dedicado](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter as etapas de como criar uma.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados

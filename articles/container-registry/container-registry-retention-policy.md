@@ -3,12 +3,12 @@ title: Política para reter manifestos não marcados
 description: Saiba como habilitar uma política de retenção no registro de contêiner do Azure para exclusão automática de manifestos não marcados após um período definido.
 ms.topic: article
 ms.date: 10/02/2019
-ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 81ce92a2533cc8a688be43da9406cd5b0e726509
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683445"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781335"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Definir um política de retenção para manifestos não marcados
 
@@ -111,7 +111,7 @@ Também é possível definir a política de retenção de um registro no [Portal
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-config-retention-update]: /cli/azure/acr/config/retention#az-acr-config-retention-update
-[az-acr-config-retention-show]: /cli/azure/acr/config/retention#az-acr-config-retention-show
-[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-config-retention-update]: /cli/azure/acr/config/retention#az_acr_config_retention_update
+[az-acr-config-retention-show]: /cli/azure/acr/config/retention#az_acr_config_retention_show
+[az-acr-repository-untag]: /cli/azure/acr/repository#az_acr_repository_untag
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests

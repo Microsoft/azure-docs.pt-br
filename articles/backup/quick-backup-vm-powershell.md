@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98737109"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell

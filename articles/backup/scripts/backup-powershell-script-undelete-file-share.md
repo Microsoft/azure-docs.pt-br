@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 02/02/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 99cd980e13b3b9b9a7a450520218c76ccf26fd69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89079856"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script do PowerShell para restaurar um compartilhamento de arquivo excluído acidentalmente

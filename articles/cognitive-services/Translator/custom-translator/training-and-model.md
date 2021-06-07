@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.openlocfilehash: 62a444b66d50579c601077751b0700aa954b34c0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897927"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?

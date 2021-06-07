@@ -4,10 +4,10 @@ description: Este artigo fornece uma introdução à atualização de um aplicat
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98792007"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric

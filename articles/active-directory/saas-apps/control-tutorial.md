@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.openlocfilehash: d6b752b2c562944748d21aa1a28a177163a95aee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92455282"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Tutorial: Integrar o Continuity Control ao Azure Active Directory
@@ -47,7 +47,7 @@ Para configurar a integração do Control ao Azure AD, você precisará adiciona
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da por meio da galeria** , digite **Control** na caixa de pesquisa.
+1. Na seção **Adicionar da por meio da galeria**, digite **Control** na caixa de pesquisa.
 1. Selecione **Control** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
@@ -67,44 +67,44 @@ Para configurar e testar o SSO do Azure AD com o Control, conclua os seguintes b
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Control** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Control**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na página **Configuração Básica do SAML** , insira os valores para o seguinte campo:
+1. Na página **Configuração Básica do SAML**, insira os valores para o seguinte campo:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.continuity.net/auth/saml`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
     > O valor não é real. Atualize o valor com o subdomínio real. O subdomínio de SSO pode ser configurado em [Estratégias de Autenticação do Control](https://control.continuity.net/settings/account_profile#tab/security). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-1. Na seção **Certificado de Autenticação SAML** , copie a **Impressão Digital** e salve-a no computador.
+1. Na seção **Certificado de Autenticação SAML**, copie a **Impressão Digital** e salve-a no computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-1. Na seção **Configurar o Control** , copie a URL de logon e salve-a em seu computador.
+1. Na seção **Configurar o Control**, copie a URL de logon e salve-a em seu computador.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="configure-control-sso"></a>Configurar o SSO do Control
 
-Para configurar o logon único no lado do **Control** , é necessário atualizar as configurações de autenticação de logon único nas [Estratégias de Autenticação do Control](https://control.continuity.net/settings/account_profile#tab/security). Atualize a **URL de SSO do SAML** com a **URL de Logon** e a **Impressão Digital do Certificado** com o **Valor de impressão digital** do portal do Azure.
+Para configurar o logon único no lado do **Control**, é necessário atualizar as configurações de autenticação de logon único nas [Estratégias de Autenticação do Control](https://control.continuity.net/settings/account_profile#tab/security). Atualize a **URL de SSO do SAML** com a **URL de Logon** e a **Impressão Digital do Certificado** com o **Valor de impressão digital** do portal do Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do Azure.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `Britta Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `Britta Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -122,9 +122,9 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-control-test-user"></a>Criar um usuário de teste do Control
 
@@ -140,4 +140,4 @@ Ao selecionar o bloco do Control no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

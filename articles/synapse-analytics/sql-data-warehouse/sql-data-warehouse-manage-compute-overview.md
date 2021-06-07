@@ -1,6 +1,6 @@
 ---
 title: Gerenciar recurso de computação para o pool SQL dedicado (antigo SQL DW)
-description: Saiba mais sobre os recursos de expansão de desempenho para o pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics. Escale horizontalmente ajustando DWUs ou reduza os custos ao pausar o pool SQL dedicado.
+description: Saiba mais sobre os recursos de expansão de desempenho para o pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics. Escale horizontalmente ajustando o DWUs ou reduza os custos pausando o pool dedicado do SQL (anteriormente conhecido como SQL DW).
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677030"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601807"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Gerenciar computação para pool de SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 

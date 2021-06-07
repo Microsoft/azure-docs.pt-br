@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: cherylmc
 ms.openlocfilehash: ba2716613a0e950cbae5c65add410ac8a8b38955
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077715"
 ---
-# <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Criar um host de bastiões do Azure usando Azure PowerShell
+# <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Criar um Azure Bastion host usando o Azure PowerShell
 
 Este artigo mostra como criar um host de bastiões do Azure usando o PowerShell. Depois de provisionar o serviço de bastiões do Azure em sua rede virtual, a experiência ininterrupta de RDP/SSH estará disponível para todas as VMs na mesma rede virtual. A implantação do Azure Bastion é feita por rede virtual, não por assinatura/conta ou máquina virtual.
 
@@ -38,7 +38,7 @@ Esta seção ajuda você a criar um novo recurso de bastiões do Azure usando o 
    $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
-2. Crie um endereço IP público para a bastiões do Azure. O IP público é o endereço IP público no qual o recurso de bastiões em que o RDP/SSH será acessado (pela porta 443). O endereço IP público precisa estar na mesma região que o recurso do Bastion que você está criando.
+2. Crie um endereço IP público para o Azure Bastion. O IP público é o endereço IP público no qual o recurso de bastiões em que o RDP/SSH será acessado (pela porta 443). O endereço IP público precisa estar na mesma região que o recurso do Bastion que você está criando.
 
    ```azurepowershell-interactive
    $publicip = New-AzPublicIpAddress -ResourceGroupName "myBastionRG" -name "myPublicIP" -location "westeurope" -AllocationMethod Static -Sku Standard

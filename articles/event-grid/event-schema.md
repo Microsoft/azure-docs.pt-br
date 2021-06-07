@@ -1,18 +1,18 @@
 ---
 title: Esquema de eventos da Grade de Eventos do Azure
-description: Descreve as propriedades e o esquema que estão presentes para todos os eventos.Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório.
+description: Descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório.
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86105873"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
-Este artigo descreve as propriedades e esquema que estão presentes para todos os eventos.Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto de dados tem propriedades que são específicas de cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento do Azure ou Hub de Eventos do Azure.
+Este artigo descreve as propriedades e esquema que estão presentes para todos os eventos. Os eventos consistem em um conjunto de cinco propriedades de cadeia de caracteres obrigatórias e um objeto data obrigatório. As propriedades são comuns a todos os eventos de qualquer fornecedor. O objeto de dados tem propriedades que são específicas de cada fornecedor. Para tópicos do sistema, essas propriedades são específicas ao provedor de recursos, como Armazenamento do Azure ou Hub de Eventos do Azure.
 
 As fontes de eventos enviam eventos para o Grade de Eventos do Azure em uma matriz, a qual pode ter vários objetos de eventos. Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 1 MB. Se um evento ou a matriz for maior do que os limites de tamanho, você receberá a resposta **O conteúdo 413 é muito grande**. No entanto, as operações são cobradas em incrementos de 64 KB. Assim, os eventos com mais de 64 KB incorrerão em encargos de operações como se fossem vários eventos. Por exemplo, um evento com 130 KB incorreria em operações como se fosse três eventos separados.
 
@@ -75,7 +75,7 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
 
 Todos os eventos terão os mesmos dados de nível superior a seguir:
 
-| Propriedade | Type | Obrigatório | Descrição |
+| Propriedade | Tipo | Obrigatório | Descrição |
 | -------- | ---- | -------- | ----------- |
 | topic | string | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |

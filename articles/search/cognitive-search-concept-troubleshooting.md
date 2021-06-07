@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99475481"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
@@ -111,7 +111,7 @@ Para a indexação baseada em portal (conforme descrita no guia de início rápi
 
 Para a [indexação paralela](search-howto-large-index.md), coloque os dados em vários contêineres ou várias pastas virtuais dentro do mesmo contêiner. Em seguida, crie vários pares de fonte de dados e indexador. Todos os indexadores podem usar o mesmo conjunto de habilidades e gravar no mesmo índice de pesquisa de destino, de modo que seu aplicativo de pesquisa não precisa estar ciente desse particionamento.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Início rápido: criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: aprender sobre APIs REST de rericação de AI](cognitive-search-tutorial-blob.md)

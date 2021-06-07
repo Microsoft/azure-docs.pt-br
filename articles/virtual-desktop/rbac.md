@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577601"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582112"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Funções internas para área de trabalho virtual do Windows
 
@@ -146,7 +146,7 @@ A lista a seguir descreve quais permissões essa função pode acessar:
 
 ## <a name="session-host-operator"></a>Operador de host de sessão
 
-A função colaborador de host de sessão permite exibir e remover hosts de sessão, bem como alterar o modo de descarga. Eles não podem adicionar hosts de sessão usando o portal do Azure porque eles não têm permissão de gravação para objetos do pool de hosts. Se o token de registro for válido (gerado e não expirado), você poderá usar essa função para adicionar hosts de sessão ao pool de hosts fora do portal do Azure se o administrador tiver permissões de computação por meio da função de colaborador da máquina virtual.
+A função operador de host de sessão permite exibir e remover hosts de sessão, bem como alterar o modo de descarga. Eles não podem adicionar hosts de sessão usando o portal do Azure porque eles não têm permissão de gravação para objetos do pool de hosts. Se o token de registro for válido (gerado e não expirado), você poderá usar essa função para adicionar hosts de sessão ao pool de hosts fora do portal do Azure se o administrador tiver permissões de computação por meio da função de colaborador da máquina virtual.
 
 A lista a seguir descreve quais permissões essa função pode acessar:
 

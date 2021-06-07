@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792267"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101751050"
 ---
 Você pode optar por gerenciar a criptografia no nível de cada disco gerenciado com suas próprias chaves. A criptografia do lado do servidor para discos gerenciados com chaves gerenciadas pelo cliente oferece uma experiência integrada com o Azure Key Vault. É possível importar [as chaves RSA](../articles/key-vault/keys/hsm-protected-keys.md) para o Key Vault ou gerar novas chaves RSA no Azure Key Vault. 
 
@@ -43,3 +43,7 @@ A lista a seguir explica o diagrama mais detalhadamente:
 1. Para leitura ou gravação de dados, os discos gerenciados enviam solicitações ao Azure Key Vault para criptografar (encapsular) e descriptografar (desencapsular) a chave de criptografia de dados, a fim de criptografar e descriptografar os dados. 
 
 Para revogar o acesso às chaves gerenciadas pelo cliente, confira [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) e [Azure Key Vault CLI](/cli/azure/keyvault). Revogar o acesso bloqueia o acesso a todos os dados na conta de armazenamento, pois a chave de criptografia não é acessível pelo Armazenamento do Microsoft Azure.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotação de chave automática de chaves gerenciadas pelo cliente (versão prévia)
+
+Você pode optar por habilitar a rotação de chaves automática para a versão de chave mais recente. Um disco faz referência a uma chave por meio de seu conjunto de criptografia de disco. Quando você habilita a rotação automática para um conjunto de criptografia de disco, o sistema atualiza automaticamente todos os discos gerenciados, instantâneos e imagens que fazem referência ao conjunto de criptografia de disco para usar a nova versão da chave em uma hora. No momento, o recurso está disponível em regiões limitadas na visualização. Para disponibilidade regional, consulte a seção [regiões com suporte](#supported-regions) .

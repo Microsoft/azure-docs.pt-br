@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
 ms.openlocfilehash: 016e0de26bf3a9513940be161cfecf6d1c2b9d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88798492"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as informações de segurança de um prompt de entrada

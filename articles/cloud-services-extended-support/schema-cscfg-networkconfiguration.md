@@ -8,12 +8,12 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 13fe83710c94c1ca37f05d59cb91f31aa8ca1bae
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 2650da2579f13ec1588af7a25e5b28908209bc82
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744201"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101700177"
 ---
 # <a name="azure-cloud-services-extended-support-config-networkconfiguration-schema"></a>Esquema networkConfiguration de configuração de serviços de nuvem do Azure (suporte estendido)
 
@@ -23,7 +23,7 @@ O elemento `NetworkConfiguration` do arquivo de configuração de serviço espec
 
 - [Esquema de configuração do serviço de nuvem (suporte estendido)](schema-cscfg-file.md).
 - [Esquema de definição do serviço de nuvem (suporte estendido)](schema-csdef-file.md).
-- [Criar uma rede virtual](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network).
+- [Criar uma rede virtual](../virtual-network/manage-virtual-network.md).
 
 ## <a name="networkconfiguration-element"></a>Elemento NetworkConfiguration
 O exemplo a seguir mostra o elemento `NetworkConfiguration` e seus elementos filho.
@@ -72,5 +72,5 @@ A tabela a seguir descreve os elementos filho do elemento `NetworkConfiguration`
 | Sub-rede | Opcional. Especifica a sub-rede correspondente ao nome da sub-rede no arquivo de configuração de rede. O nome da sub-rede é definido por uma cadeia de caracteres para o atributo `name`.|
 | ReservedIP | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. É necessário usar Criar endereço IP reservado para criar o endereço IP reservado. Cada implantação em um serviço de nuvem pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é definido por uma cadeia de caracteres para o atributo `name`.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Esquema de configuração do serviço de nuvem (suporte estendido)](schema-cscfg-file.md).

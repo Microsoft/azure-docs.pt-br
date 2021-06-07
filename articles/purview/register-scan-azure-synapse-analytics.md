@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875002"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598126"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrar e verificar o Azure Synapse Analytics
 
@@ -100,7 +100,7 @@ GO
 > [!Note]
 > O Purview precisará da **ID do Aplicativo (cliente)** e do **segredo do cliente** para fazer a verificação.
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
 Você pode seguir as instruções em [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) para criar um logon para o Azure Synapse Analytics (anteriormente conhecido como SQL DW), se você ainda não tiver um.
 
@@ -127,7 +127,7 @@ Para registrar um novo servidor do Azure Synapse Analytics em seu catálogo de d
 Na tela **registrar fontes (Azure Synapse Analytics)** , faça o seguinte:
 
 1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
-1. Escolha como deseja apontá-la para a conta de armazenamento desejada:
+1. Escolha como você deseja apontar para o SQL Server lógico desejado:
    1. Selecione **da assinatura do Azure**, selecione a assinatura apropriada na caixa suspensa **assinatura do Azure** e o servidor apropriado na caixa suspensa **nome do servidor** .
    1. Ou, então, escolha **Inserir manualmente** e insira um **Nome do servidor**.
 1. **Conclua** a etapa para registrar a fonte de dados.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.openlocfilehash: a4a3bad1e868fa0e75611630ffb5db5ba13126b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89395546"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute (clássico)
@@ -50,7 +50,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 ### <a name="to-create-azure-private-peering"></a>Criar um emparelhamento privado do Azure
 
-1. **Crie um circuito do ExpressRoute.**
+1. **Criar um circuito do ExpressRoute.**
 
    Siga as instruções para criar um [circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
 2. **Verifique o circuito do ExpressRoute para garantir que ele seja provisionado.**
@@ -302,7 +302,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
    * Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Você pode enviar uma lista separada por vírgula se planeja enviar um conjunto de prefixos. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
    * ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Opcional**.
    * Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
-   * Um hash MD5, se você optar por usar um. **Adicional.**
+   * Um hash MD5, se você optar por usar um. **Opcional.**
      
    Execute o seguinte cmdlet para configurar o Microsoft emparelhamento para o seu circuito:
  

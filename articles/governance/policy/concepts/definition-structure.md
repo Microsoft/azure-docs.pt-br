@@ -1,19 +1,18 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
-ms.date: 10/22/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493304"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102215061"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
-O Azure Policy estabelece convenções para recursos. As definições de política descrevem as [condições](#conditions) de conformidade de recursos e o efeito a ser realizado se uma condição for atendida. Uma condição compara um [campo](#fields) de propriedade de recurso ou um [valor](#value) para um valor necessário. Os campos de propriedade de recurso são acessados por meio de [aliases](#aliases). Quando um campo de propriedade de recurso é uma matriz, um [alias de matriz](#understanding-the--alias) especial pode ser usado para selecionar valores de todos os membros da matriz e aplicar uma condição a cada um.
-Saiba mais sobre as [condições](#conditions).
+O Azure Policy estabelece convenções para recursos. As definições de política descrevem as [condições](#conditions) de conformidade de recursos e o efeito a ser realizado se uma condição for atendida. Uma condição compara um [campo](#fields) de propriedade de recurso ou um [valor](#value) para um valor necessário. Os campos de propriedade de recurso são acessados por meio de [aliases](#aliases). Quando um campo de propriedade de recurso é uma matriz, um [alias de matriz](#understanding-the--alias) especial pode ser usado para selecionar valores de todos os membros da matriz e aplicar uma condição a cada um. Saiba mais sobre as [condições](#conditions).
 
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou, você pode exigir que os recursos tenham uma marca específica. As atribuições de política são herdadas por recursos filho. Se uma atribuição de política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos nesse grupo de recursos.
 
@@ -25,7 +24,7 @@ Você usa JSON para criar uma definição de política. A definição de políti
 - descrição
 - mode
 - metadata
-- parâmetros
+- parameters
 - regra de política
   - avaliação de lógica
   - efeito
@@ -118,7 +117,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos como uma
 
 ## <a name="metadata"></a>Metadados
 
-A `metadata` propriedade opcional armazena informações sobre a definição de política. Os clientes podem definir quaisquer propriedades e valores úteis para sua organização no `metadata` . No entanto, há algumas propriedades _comuns_ usadas por Azure Policy e em interno.
+A `metadata` propriedade opcional armazena informações sobre a definição de política. Os clientes podem definir quaisquer propriedades e valores úteis para sua organização no `metadata` . No entanto, há algumas propriedades _comuns_ usadas por Azure Policy e em interno. Cada `metadata` propriedade tem um limite de 1024 caracteres.
 
 ### <a name="common-metadata-properties"></a>Propriedades de metadados comuns
 
@@ -151,7 +150,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
   - `assignPermissions`: (opcional) defina essa opção como _true_ para que o portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro precisa ser um recurso ou um escopo válido.
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido.
   Necessário ao atualizar uma definição de política existente que é atribuída.
-- `allowedValues`: (opcional) fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
+- `allowedValues`: (opcional) fornece uma matriz de valores que o parâmetro aceita durante a atribuição. Comparações de valor permitido diferenciam maiúsculas de minúsculas. 
 
 Por exemplo, você pode definir uma definição de política para limitar os locais em que os recursos podem ser implantados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Esse parâmetro deve ser usado por cada atribuição da definição de política para limitar os valores aceitos. O uso de **strongType** fornece uma experiência aprimorada ao concluir a atribuição por meio do portal:
 
@@ -286,15 +285,13 @@ Uma condição avalia se um valor atende a determinados critérios. As condiçõ
 
 Para **less**, **lessOrEquals**, **greater** e **greaterOrEquals**, se o tipo de propriedade não corresponder ao tipo de condição, um erro será gerado. As comparações de cadeias de caracteres são feitas por meio de `InvariantCultureIgnoreCase`.
 
-Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
-O valor não deve ter mais de um curinga `*`.
+Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor. O valor não deve ter mais de um curinga `*`.
 
 Ao usar as condições **match** e **notMatch**, forneça `#` para fazer a correspondência de um dígito, `?` para uma letra, `.` para fazer a correspondência de todos os caracteres e qualquer outro caractere para fazer a correspondência com o caractere real. Enquanto **Match** e não **Match** diferenciam maiúsculas de minúsculas, todas as outras condições que avaliam uma _cadeia de caracteres_ não diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**.
 
 ### <a name="fields"></a>Campos
 
-Condições que avaliam se os valores das propriedades na carga de solicitação do recurso atendem a determinados critérios podem ser formados usando uma expressão de **campo** .
-Há suporte para os seguintes campos:
+Condições que avaliam se os valores das propriedades na carga de solicitação do recurso atendem a determinados critérios podem ser formados usando uma expressão de **campo** . Há suporte para os seguintes campos:
 
 - `name`
 - `fullName`
@@ -324,8 +321,7 @@ Há suporte para os seguintes campos:
 > `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda são maneiras aceitáveis de declarar um campo de marcas. No entanto, as expressões preferenciais são aquelas listadas acima.
 
 > [!NOTE]
-> Em expressões de **campo** que fazem referência a **\[ \* \] alias**, cada elemento na matriz é avaliado individualmente com os elementos lógicos **e** entre eles.
-> Para obter mais informações, consulte [Propriedades de recurso de matriz de referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+> Em expressões de **campo** que fazem referência a **\[ \* \] alias**, cada elemento na matriz é avaliado individualmente com os elementos lógicos **e** entre eles. Para obter mais informações, consulte [Propriedades de recurso de matriz de referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Usar marcas com parâmetros
 
@@ -472,6 +468,7 @@ Expressões de **contagem de campos** podem enumerar a mesma matriz de campos at
 Para obter mais detalhes sobre como trabalhar com propriedades de matriz no Azure Policy, incluindo uma explicação detalhada sobre como a expressão de **contagem de campos** é avaliada, consulte [referenciando Propriedades de recursos de matriz](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="value-count"></a>Contagem de valor
+
 Contar quantos membros de uma matriz atendem a uma condição. A matriz pode ser uma matriz literal ou uma [referência ao parâmetro de matriz](#using-a-parameter-value). A estrutura das expressões de **contagem de valor** é:
 
 ```json
@@ -500,7 +497,7 @@ Os seguintes limites são impostos:
 
 #### <a name="the-current-function"></a>A função atual
 
-A `current()` função só está disponível dentro da `count.where` condição. Ele retorna o valor do membro da matriz que está enumerado atualmente por uma avaliação de expressão de **contagem** .
+A `current()` função só está disponível dentro da `count.where` condição. Ele retorna o valor do membro da matriz que está enumerado atualmente pela avaliação da expressão de **contagem** .
 
 **Uso da contagem de valor**
 
@@ -600,7 +597,7 @@ Exemplo 5: Verifique se pelo menos um membro da matriz corresponde a várias pro
 }
 ```
 
-Exemplo 6: use `current()` a função dentro das `where` condições para acessar o valor do membro da matriz enumerado no momento em uma função de modelo. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está no intervalo de CIDR 10.0.0.0/24.
+Exemplo 6: use `current()` a função dentro das `where` condições para acessar o valor do membro da matriz enumerado no momento em uma função de modelo. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está sob o intervalo de CIDR 10.0.0.0/24.
 
 ```json
 {
@@ -615,7 +612,7 @@ Exemplo 6: use `current()` a função dentro das `where` condições para acessa
 }
 ```
 
-Exemplo 7: use `field()` a função dentro das `where` condições para acessar o valor do membro da matriz atualmente enumerado. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está no intervalo de CIDR 10.0.0.0/24.
+Exemplo 7: use `field()` a função dentro das `where` condições para acessar o valor do membro da matriz atualmente enumerado. Essa condição verifica se uma rede virtual contém um prefixo de endereço que não está sob o intervalo de CIDR 10.0.0.0/24.
 
 ```json
 {
@@ -769,7 +766,7 @@ O Azure Policy dá suporte aos seguintes tipos de efeitos:
 - **Negar**: gera um evento no log de atividades e falha na solicitação
 - **DeployIfNotExists**: implanta um recurso relacionado caso ele ainda não exista
 - **Desabilitado**: não avalia os recursos de conformidade para a regra de política
-- **Modify**: adiciona, atualiza ou remove as marcas definidas de um recurso
+- **Modificar**: adiciona, atualiza ou remove as marcas definidas de um recurso ou assinatura
 - **EnforceOPAConstraint** (preterido): configura o controlador de admissão do agente de política aberto com o gatekeeper V3 para clusters kubernetes autogerenciados no Azure
 - **EnforceRegoPolicy** (preterido): configura o controlador de admissão do agente de política aberto com o gatekeeper V2 no serviço kubernetes do Azure
 
@@ -822,18 +819,18 @@ As seguintes funções estão disponíveis apenas em regras de política:
   ```
 
 - `ipRangeContains(range, targetRange)`
-    - **Range**: [obrigatório] cadeia de caracteres de sequência que especifica um intervalo de endereços IP.
-    - **targetRange**: [Required] String-String especificando um intervalo de endereços IP.
+  - **Range**: [obrigatório] cadeia de caracteres de sequência que especifica um intervalo de endereços IP.
+  - **targetRange**: [Required] String-String especificando um intervalo de endereços IP.
 
-    Retorna se o intervalo de endereços IP fornecido contém o intervalo de endereços IP de destino. Os intervalos vazios ou a combinação entre as famílias de IP não são permitidas e resultam em falha de avaliação.
+  Retorna se o intervalo de endereços IP fornecido contém o intervalo de endereços IP de destino. Os intervalos vazios ou a combinação entre as famílias de IP não são permitidas e resultam em falha de avaliação.
 
-    Formatos com suporte:
-    - Endereço IP único (exemplos: `10.0.0.0` , `2001:0DB8::3:FFFE` )
-    - Intervalo CIDR (exemplos: `10.0.0.0/24` , `2001:0DB8::/110` )
-    - Intervalo definido pelos endereços IP inicial e final (exemplos: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+  Formatos com suporte:
+  - Endereço IP único (exemplos: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+  - Intervalo CIDR (exemplos: `10.0.0.0/24` , `2001:0DB8::/110` )
+  - Intervalo definido pelos endereços IP inicial e final (exemplos: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
 - `current(indexName)`
-    - Função especial que só pode ser usada dentro de [expressões de contagem](#count).
+  - Função especial que só pode ser usada dentro de [expressões de contagem](#count).
 
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
@@ -918,7 +915,7 @@ O **\[\*\]** alias representa uma coleção de valores selecionados dos elemento
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Os elementos da `ipRules` matriz. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Os valores da `action` propriedade de cada elemento da `ipRules` matriz. |
 
-Quando usado em uma condição de [campo](#fields) , os aliases de matriz tornam possível comparar cada elemento da matriz individual com um valor de destino. Quando usado com a expressão de [contagem](#count) , é possível:
+Quando usado em uma condição de [campo](#fields) , os aliases de matriz possibilitam a comparação de cada elemento de matriz individual com um valor de destino. Quando usado com a expressão de [contagem](#count) , é possível:
 
 - Verificar o tamanho de uma matriz
 - Verificar se all\any\none dos elementos da matriz atendem a uma condição complexa

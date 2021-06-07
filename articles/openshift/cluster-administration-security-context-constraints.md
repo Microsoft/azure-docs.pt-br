@@ -1,32 +1,32 @@
 ---
-title: Gerenciar restrições de contexto de segurança no Azure Red Hat OpenShift | Microsoft Docs
-description: Restrições de contexto de segurança para administradores de cluster do Azure Red Hat OpenShift
+title: Gerenciar restrições de contexto de segurança no Red Hat OpenShift no Azure | Microsoft Docs
+description: Restrições de contexto de segurança para administradores de cluster do Red Hat OpenShift no Azure
 services: container-service
 author: troy0820
 ms.author: b-trconn
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: eb5c568f056a99187a0e7a78a6f89b206f2d8dec
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.openlocfilehash: 977504c1faec9bd8134646a8cbe31f9eea665edd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220237"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100636196"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gerenciar restrições de contexto de segurança no Azure Red Hat OpenShift
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gerencia restrições de contexto de segurança no Red Hat OpenShift no Azure
 
 > [!IMPORTANT]
-> O Azure Red Hat OpenShift 3,11 será desativado em 30 de junho de 2022. O suporte para a criação de novos clusters do Azure Red Hat OpenShift 3,11 continua até 30 de novembro de 2020. Após a aposentadoria, os clusters restantes do Azure Red Hat OpenShift 3,11 serão desligados para evitar vulnerabilidades de segurança.
+> O Red Hat OpenShift 3.11 no Azure será desativado em 30 de junho de 2022. O suporte para a criação de clusters do Red Hat OpenShift 3.11 no Azure continuará até 30 de novembro de 2020. Após a desativação, os clusters restantes do Red Hat OpenShift 3.11 no Azure serão desligados para evitar vulnerabilidades de segurança.
 > 
-> Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
-> Se você tiver dúvidas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
+> Siga este guia para [criar um cluster do Red Hat OpenShift 4 no Azure](tutorial-create-cluster.md).
+> Se você tiver perguntas específicas, [entre em contato conosco](mailto:arofeedback@microsoft.com).
 
-As restrições de contexto de segurança (SCCs) permitem que os administradores de cluster controlem as permissões para pods. Para saber mais sobre esse tipo de API, consulte a [documentação da arquitetura do SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar o SCCs em sua instância do como objetos de API normais usando a CLI.
+As SCCs (restrições de contexto de segurança) permitem que os administradores de cluster controlem as permissões dos pods. Para saber mais sobre esse tipo de API, confira a [documentação da arquitetura para as SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar as SCCs na sua instância como objetos normais de API usando a CLI.
 
-## <a name="list-security-context-constraints"></a>Listar restrições de contexto de segurança
+## <a name="list-security-context-constraints"></a>Listar as restrições de contexto de segurança
 
-Para obter uma lista atual de SCCs, use este comando: 
+Para obter uma lista atual das SCCs, use este comando: 
 
 ```bash
 $ oc get scc
@@ -43,7 +43,7 @@ restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs 
 
 ## <a name="examine-an-object-for-security-context-constraints"></a>Examinar um objeto em busca de restrições de contexto de segurança
 
-Para examinar um SCC, use `oc get` , `oc describe` ou `oc edit` .  Por exemplo, para examinar o SCC **restrito** , use este comando:
+Para examinar uma SCC específica, use `oc get`, `oc describe` ou `oc edit`.  Por exemplo, para examinar a SCC **restrita**, use este comando:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

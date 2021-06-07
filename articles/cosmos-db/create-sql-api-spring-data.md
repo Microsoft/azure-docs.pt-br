@@ -10,10 +10,10 @@ ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93090283"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início Rápido: criar um de aplicativo do Spring Data Azure Cosmos DB v3 a fim de gerenciar os dados da API do SQL do Azure Cosmos DB
@@ -50,7 +50,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do SQL do Az
 
 ## <a name="introductory-notes"></a>Notas introdutórias
 
-*A estrutura de uma conta do Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* do Cosmos DB contém zero ou mais *bancos de dados* , um *DB* (banco de dados) contém zero ou mais *contêineres* e um *contêiner* contém zero ou mais itens, conforme mostrado no diagrama abaixo:
+*A estrutura de uma conta do Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* do Cosmos DB contém zero ou mais *bancos de dados*, um *DB* (banco de dados) contém zero ou mais *contêineres* e um *contêiner* contém zero ou mais itens, conforme mostrado no diagrama abaixo:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta do Azure Cosmos" border="false":::
 
@@ -58,7 +58,7 @@ Você pode ler mais sobre bancos de dados, contêineres e itens [aqui.](account-
 
 A taxa de transferência provisionada é medida em *RUs* (Unidades de Solicitação) que têm um preço monetário e são um fator determinante substancial no custo operacional da conta. A taxa de transferência provisionada pode ser selecionada na granularidade por contêiner ou na granularidade por banco de dados. No entanto, há preferência pela especificação da taxa de transferência no nível de contêiner normalmente. Você pode ler mais sobre o provisionamento da taxa de transferência [aqui.](set-throughput.md)
 
-À medida que itens são inseridos em um contêiner do Cosmos DB, o banco de dados cresce horizontalmente adicionando mais armazenamento e computação para lidar com solicitações. As capacidades de armazenamento e computação são adicionadas em unidades discretas conhecidas como *partições* e você deve escolher um campo em seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A maneira como as partições são gerenciadas é que cada participação recebe uma fatia aproximadamente igual do intervalo dos valores de chave de partição; portanto, é recomendável escolher uma chave de partição relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas partições terão substancialmente mais solicitações ( *partição a quente* ), enquanto outras partições terão substancialmente menos solicitações ( *partição a frio* ), o que deve ser evitado. Você pode saber mais sobre particionamento [aqui](partitioning-overview.md).
+À medida que itens são inseridos em um contêiner do Cosmos DB, o banco de dados cresce horizontalmente adicionando mais armazenamento e computação para lidar com solicitações. As capacidades de armazenamento e computação são adicionadas em unidades discretas conhecidas como *partições* e você deve escolher um campo em seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A maneira como as partições são gerenciadas é que cada participação recebe uma fatia aproximadamente igual do intervalo dos valores de chave de partição; portanto, é recomendável escolher uma chave de partição relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas partições terão substancialmente mais solicitações (*partição a quente*), enquanto outras partições terão substancialmente menos solicitações (*partição a frio*), o que deve ser evitado. Você pode saber mais sobre particionamento [aqui](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -95,7 +95,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 ### <a name="application-configuration-file"></a>Arquivo de configuração de aplicativo
 
-Aqui, demonstramos como o Spring Boot e o Spring Data aprimoram a experiência do usuário – o processo de estabelecer um cliente Cosmos e se conectar a recursos do Cosmos agora é configuração em vez de código. Na inicialização do aplicativo, o Spring Boot lida com todo esse texto clichê usando as configurações em **application.properties** :
+Aqui, demonstramos como o Spring Boot e o Spring Data aprimoram a experiência do usuário – o processo de estabelecer um cliente Cosmos e se conectar a recursos do Cosmos agora é configuração em vez de código. Na inicialização do aplicativo, o Spring Boot lida com todo esse texto clichê usando as configurações em **application.properties**:
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}

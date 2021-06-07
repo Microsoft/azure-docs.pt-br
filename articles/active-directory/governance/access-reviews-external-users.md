@@ -3,7 +3,7 @@ title: Use Azure AD Identity Governance para revisar e remover usuários externo
 description: Use as revisões de acesso para estender o acesso de remoção de membros de organizações parceiras
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677312"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102176953"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Use o governança de identidade Azure Active Directory (AD do Azure) para revisar e remover usuários externos que não têm mais acesso a recursos
 
@@ -65,14 +65,15 @@ Os usuários que não tiverem mais acesso a nenhum recurso em seu locatário pod
 
 Quando a revisão for concluída, a página **resultados** mostrará uma visão geral da resposta fornecida por cada identidade externa. Você pode optar por aplicar os resultados automaticamente e permitir que as revisões de acesso as desabilitem e excluam. Como alternativa, você pode examinar as respostas dadas e decidir se deseja remover o acesso de um usuário ou acompanhá-lo e obter informações adicionais antes de tomar uma decisão. Se alguns usuários ainda tiverem acesso aos recursos que você ainda não analisou, você poderá usar a análise como parte de sua descoberta e enriquecer seu próximo ciclo de análise e atestado.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Desabilitar e excluir identidades externas com revisões de acesso do Azure AD (versão prévia)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Desabilitar e excluir identidades externas com revisões de acesso do Azure AD
 
-Além da opção de remover identidades externas indesejadas de recursos como grupos ou aplicativos, as revisões de acesso do Azure AD podem bloquear identidades externas de entrar em seu locatário e excluir as identidades externas do seu locatário após 30 dias. Depois de selecionar **Bloquear usuário de entrar por 30 dias, em seguida, remover o usuário do locatário** , a revisão permanecerá no estado "aplicando" por 30 dias. Durante esse período, as configurações, os resultados, os revisores ou os logs de auditoria na revisão atual não poderão ser exibidos ou configuráveis. 
+Além da opção de remover identidades externas indesejadas de recursos como grupos ou aplicativos, as revisões de acesso do Azure AD podem bloquear identidades externas de entrar em seu locatário e excluir as identidades externas do seu locatário após 30 dias. Depois de selecionar **Bloquear usuário de entrar por 30 dias, em seguida, remover o usuário do locatário**, a revisão permanecerá no estado "aplicando" por 30 dias. Durante esse período, as configurações, os resultados, os revisores ou os logs de auditoria na revisão atual não poderão ser exibidos ou configuráveis. 
 
 ![após as configurações de conclusão](media/access-reviews-external-users/upon-completion-settings.png)
 
-Ao criar uma nova revisão de acesso, na seção "configurações de conclusão", para **ação a ser aplicada a usuários negados** , você pode definir **impedir que os usuários façam logon por 30 dias e, em seguida, remover o usuário do locatário** .
-Essa configuração, atualmente em visualização, permite que você identifique, bloqueie e exclua identidades externas do seu locatário do Azure AD. Identidades externas que são revisadas e com negação de acesso contínuo pelo revisor serão bloqueadas e excluídas, independentemente do acesso a recursos ou da Associação de grupo que têm. Essa configuração é melhor usada como última etapa depois que você valida que os usuários externos em revisão não carregam mais o acesso aos recursos e podem ser removidos com segurança do seu locatário ou se você quiser ter certeza de que eles foram removidos, independentemente de seu acesso à sua posição. O recurso "desabilitar e excluir" bloqueia o usuário externo primeiro, tirando sua capacidade de entrar em seu locatário e acessar os recursos. O acesso aos recursos não é revogado neste estágio e, caso você quisesse recriar a instância do usuário externo, sua capacidade de fazer logon pode ser reconfigurada. Após nenhuma ação adicional, uma identidade externa bloqueada será excluída do diretório após 30 dias, removendo a conta, bem como seu acesso.
+Ao criar uma nova revisão de acesso, na seção "configurações de conclusão", para **ação a ser aplicada a usuários negados** , você pode definir **impedir que os usuários façam logon por 30 dias e, em seguida, remover o usuário do locatário**.
+
+Essa configuração permite que você identifique, bloqueie e exclua identidades externas do seu locatário do Azure AD. Identidades externas que são revisadas e com negação de acesso contínuo pelo revisor serão bloqueadas e excluídas, independentemente do acesso a recursos ou da Associação de grupo que têm. Essa configuração é melhor usada como última etapa depois que você valida que os usuários externos em revisão não carregam mais o acesso aos recursos e podem ser removidos com segurança do seu locatário ou se você quiser ter certeza de que eles foram removidos, independentemente de seu acesso à sua posição. O recurso "desabilitar e excluir" bloqueia o usuário externo primeiro, tirando sua capacidade de entrar em seu locatário e acessar os recursos. O acesso aos recursos não é revogado neste estágio e, caso você quisesse recriar a instância do usuário externo, sua capacidade de fazer logon pode ser reconfigurada. Após nenhuma ação adicional, uma identidade externa bloqueada será excluída do diretório após 30 dias, removendo a conta, bem como seu acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

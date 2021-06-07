@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7a04d65d5032e37433fb61c73e5f64fe89bb2d2c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0d4a8df4cb6ba47b7772e2ab3b3247d36622dcb6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930490"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104865954"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando o PowerShell
 
@@ -139,19 +139,19 @@ O [Jupyter Notebook](https://jupyter.org/) é um ambiente de notebook interativo
 
 1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Clusters HDInsight**.
    
-   ![A captura de tela mostra a opção Pesquisar por HDInsight do portal do Azure.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png" alt-text="A captura de tela mostra a opção Pesquisar por HDInsight do portal do Azure." border="true":::
    
 1. Na lista, selecione o cluster que você criou.
    
-   ![A captura de tela mostra os clusters do HDInsight com o cluster que você criou.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png" alt-text="A captura de tela mostra os clusters do HDInsight com o cluster que você criou." border="true":::
    
 1. Na página **Visão geral** do cluster, selecione **Painéis do cluster** e, em seguida, **Jupyter Notebook**. Em caso de solicitação, insira as credenciais de logon do cluster.
 
-   ![Abrir o Jupyter Notebook para executar consulta SQL interativa do Spark](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Abrir o Jupyter Notebook para executar consulta SQL interativa do Spark")
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Abrir o Jupyter Notebook para executar consulta SQL interativa do Spark" border="true":::
 
 1. Selecione **Novo** > **PySpark** para criar um notebook.
 
-   ![Criar um Jupyter Notebook para executar consultas SQL interativas do Spark](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Criar um Jupyter Notebook para executar consultas SQL interativas do Spark")
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Criar um Jupyter Notebook para executar consultas SQL interativas do Spark" border="true":::
 
    Um novo bloco de anotações é criado e aberto com o nome Untitled(Untitled.pynb).
 
@@ -161,7 +161,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
 1. Verifique se o kernel está pronto. O kernel estará pronto quando você vir um círculo vazio ao lado do nome do kernel no notebook. Círculo sólido indica que o kernel está ocupado.
 
-    ![Status do kernel](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Status do kernel")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Status do kernel" border="true":::
 
     Quando você inicia o notebook pela primeira vez, o kernel executa algumas tarefas em segundo plano. Aguarde a leitura do kernel. 
 1. Cole o código a seguir em uma célula vazia e pressione **SHIFT + ENTER** para executar o código. O comando lista as tabelas de Hive no cluster:
@@ -173,7 +173,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
     Quando você usa um Jupyter Notebook com o cluster Spark no HDInsight, obtém uma predefinição `sqlContext` que pode ser usada para executar consultas do Hive com o Spark SQL. `%%sql` informa ao Notebook Jupyter para usar a predefinição `sqlContext` para executar a consulta Hive. A consulta recupera as primeiras 10 linhas de uma tabela Hive (**hivesampletable**) que vem com todos os clusters HDInsight por padrão. Ele leva aproximadamente 30 segundos para obter os resultados. A saída se parece com isso:
 
-    ![Consulta do Apache Hive no Spark no HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query.png "Consulta do Hive no HDInsight Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query.png " alt-text="Consulta do Apache Hive no Spark no HDInsight" border="true":::
 
     Toda vez que você executar uma consulta no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito.
 
@@ -186,7 +186,7 @@ O SQL (Structured Query Language) é a linguagem mais comum e amplamente usada p
 
     A tela deve ser atualizada para mostrar a saída da consulta.
 
-    ![Resultado da consulta do Hive no HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query-output.png "Resultado da consulta do Hive no HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query-output.png " alt-text="Resultado da consulta do Hive no HDInsight" border="true":::
 
 1. No menu **Arquivo** do notebook, selecione **Fechar e Interromper**. O desligamento do bloco de anotações libera os recursos do cluster.
 
@@ -196,7 +196,7 @@ O HDInsight salva seus dados no Armazenamento do Azure ou no Azure Data Lake Sto
 
 Retorne ao Portal do Azure e selecione **Excluir**.
 
-![Excluir um cluster do HDInsight no portal do Azure](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
+:::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png " alt-text="Excluir um cluster do HDInsight no portal do Azure" border="true":::
 
 Também é possível selecionar o nome do grupo de recursos para abrir a página do grupo de recursos, e depois selecionar **Excluir grupo de recursos**. Ao excluir o grupo de recursos, você exclui o cluster HDInsight e a conta de armazenamento padrão.
 

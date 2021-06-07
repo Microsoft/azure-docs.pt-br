@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 10531f87ee4a170310a97831a374a836641ce12b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97673334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutorial: Integração do Azure Active Directory ao BGS Online
@@ -30,7 +30,7 @@ A integração do BGS Online ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao BGS Online, você precisa dos seguintes itens:
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o BGS Online, execute as seguinte
 
     Para o ambiente de teste, use este padrão `https://millwardbrown.marketingtracker.nl/mt5/`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: 
 
     Para o ambiente de produção, use este padrão `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx`
 

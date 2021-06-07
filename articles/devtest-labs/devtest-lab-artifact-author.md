@@ -4,10 +4,10 @@ description: Saiba como criar artefatos para usar com Azure DevTest Labs para im
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270675"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
@@ -44,7 +44,7 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
   }
 ```
 
-| Nome do elemento | Necessário? | DESCRIÇÃO |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | $schema |Não |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
 | título |Sim |Nome do artefato exibido no laboratório. |
@@ -69,7 +69,7 @@ Para definir parâmetros, use a seguinte estrutura:
   }
 ```
 
-| Nome do elemento | Necessário? | DESCRIÇÃO |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | type |Sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
 | displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. |

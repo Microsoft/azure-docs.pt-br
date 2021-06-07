@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b76c2e346adb6c2afd146b0d73c8f20165145bac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92460352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integração do Azure Active Directory com o Image Relay
@@ -49,11 +49,11 @@ Para configurar a integração do Image Relay ao Azure AD, você precisará adic
 
 **Para adicionar o Image Relay da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Image Relay ao Azure AD, você precisará adic
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Image Relay** , selecione **Image Relay** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Image Relay**, selecione **Image Relay** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Image Relay na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Image Relay com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Image Relay com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Image Relay.
 
 Para configurar e testar o logon único do Azure AD com o Image Relay, você precisa concluir os seguintes blocos de construção:
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Image Relay, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Image Relay** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Image Relay**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Image Relay](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.imagerelay.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.imagerelay.com/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.imagerelay.com/sso/metadata`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com [equipe de suporte do cliente do Image Relay](http://support.imagerelay.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Image Relay** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Image Relay**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,19 +126,19 @@ Para configurar o logon único do Azure AD com o Image Relay, execute as seguint
 
 1. Em outra janela do navegador, entre em seu site de empresa do Image Relay como administrador.
 
-2. Na barra de ferramentas na parte superior, clique na carga de trabalho **Usuários e Permissões** .
+2. Na barra de ferramentas na parte superior, clique na carga de trabalho **Usuários e Permissões**.
 
     ![A captura de tela mostra Usuários e permissões selecionado na barra de ferramentas.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
-3. Clique em **Criar Nova Permissão** .
+3. Clique em **Criar Nova Permissão**.
 
     ![A captura de tela mostra uma caixa de texto para inserir o título da Permissão e uma opção para escolher o Tipo de Permissão.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
-4. Na carga de trabalho **Configurações de Logon Único** , marque a caixa de seleção **Este Grupo pode apenas entrar via logon único** e clique em **Salvar** .
+4. Na carga de trabalho **Configurações de Logon Único**, marque a caixa de seleção **Este Grupo pode apenas entrar via logon único** e clique em **Salvar**.
 
     ![A captura de tela mostra as Configurações de Logon Único, nas quais você pode selecionar a opção.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
-5. Vá para **Configurações da Conta** .
+5. Vá para **Configurações da Conta**.
 
     ![A captura de tela mostra a opção de barra de ferramentas de Configurações da Conta.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
@@ -150,27 +150,27 @@ Para configurar o logon único do Azure AD com o Image Relay, execute as seguint
 
     ![A captura de tela mostra a caixa de diálogo Configurações de SAML, em que você pode inserir as informações.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
-    a. Na caixa de texto **URL de Logon** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    b. Na caixa de texto **URL de Logoff** , cole o valor da **URL de Logoff** copiado do portal do Azure.
+    b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
-    c. Em **Formato da Id de Nome** , selecione **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** .
+    c. Em **Formato da Id de Nome**, selecione **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
-    d. Em **Opções de Vinculação para Solicitações do Provedor de Serviço (Image Relay)** , selecione **Associação POST** .
+    d. Em **Opções de Vinculação para Solicitações do Provedor de Serviço (Image Relay)** , selecione **Associação POST**.
 
-    e. Em **Certificado x.509** , clique em **Atualizar Certificado** .
+    e. Em **Certificado x.509**, clique em **Atualizar Certificado**.
 
     ![A captura de tela mostra a opção Atualizar Certificado.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
-    f. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509** .
+    f. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x.509**.
 
     ![A captura de tela mostra o certificado X ponto 509.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
-    g. Na seção **Provisionamento do Usuário Just-In-Time** , marque **Habilitar o Provisionamento do Usuário Just-In-Time** .
+    g. Na seção **Provisionamento do Usuário Just-In-Time**, marque **Habilitar o Provisionamento do Usuário Just-In-Time**.
 
     ![A captura de tela mostra a seção Provisionamento de Usuário Just-In-Time com o controle de habilitação selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
-    h. Selecione o grupo de permissão (por exemplo, **SSO Básico** ) que tem permissão para entrar somente por meio de logon único.
+    h. Selecione o grupo de permissão (por exemplo, **SSO Básico**) que tem permissão para entrar somente por meio de logon único.
 
     ![A captura de tela mostra a seção Provisionamento de Usuário Just-In-Time com SSO Básico selecionado.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Azure AD com o Image Relay, execute as seguint
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -192,40 +192,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Image Relay.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, escolha **Image Relay** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, escolha **Image Relay**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Image Relay** .
+2. Na lista de aplicativos, selecione **Image Relay**.
 
     ![O link do Image Relay na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-image-relay-test-user"></a>Criar usuário de teste do Image Relay
 
@@ -235,15 +235,15 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Image 
 
 1. Faça logon em seu site de empresa do Image Relay como administrador.
 
-2. Acesse **Usuários e Permissões** e selecione **Criar Usuário SSO** .
+2. Acesse **Usuários e Permissões** e selecione **Criar Usuário SSO**.
 
     ![A captura de tela mostra Criar Usuário de SSO selecionado no menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-3. Insira o **Email** , o **Nome** , o **Sobrenome** e a **Empresa** do usuário que você deseja provisionar e selecione o grupo de permissões (por exemplo, SSO Básico), que é o grupo que pode entrar somente por meio de logon único.
+3. Insira o **Email**, o **Nome**, o **Sobrenome** e a **Empresa** do usuário que você deseja provisionar e selecione o grupo de permissões (por exemplo, SSO Básico), que é o grupo que pode entrar somente por meio de logon único.
 
     ![A captura de tela mostra a página Criar um Usuário de SSO, em que você pode inserir as informações necessárias.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
-4. Clique em **Criar** .
+4. Clique em **Criar**.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

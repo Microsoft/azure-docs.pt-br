@@ -4,10 +4,10 @@ description: Descreve a sintaxe JSON declarativa para modelos de Azure Resource 
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797036"
 ---
 # <a name="syntax-and-expressions-in-arm-templates"></a>Sintaxe e expressões em modelos ARM

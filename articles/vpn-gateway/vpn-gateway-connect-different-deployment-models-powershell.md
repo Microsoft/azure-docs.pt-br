@@ -1,5 +1,5 @@
 ---
-title: 'Conectar redes virtuais clássicas a Azure Resource Manager VNets: PowerShell'
+title: 'Conectar redes virtuais clássicas a VNets do Azure Resource Manager: PowerShell'
 description: Criar uma conexão VPN entre os VNets clássicas e o VNets do Gerenciador de Recursos usando Gateway de VPN e PowerShell.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.openlocfilehash: 7012a696684a4e7bc1d3b52943b11ba413c43037
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100376481"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conectar redes virtuais de diferentes modelos de implantação usando o PowerShell
@@ -67,7 +67,7 @@ Nome do Gateway de Rede Virtual = RMGateway <br>
  Configuração de endereçamento IP do gateway = gwipconfig
 
 ## <a name="section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Seção 1 - Configurar a rede virtual clássica
-### <a name="1-download-your-network-configuration-file"></a>1. baixar o arquivo de configuração de rede
+### <a name="1-download-your-network-configuration-file"></a>1. Baixar o arquivo de configuração de rede
 1. Faça logon na sua conta do Azure no console do PowerShell com direitos elevados. O cmdlet a seguir solicita as credenciais de logon para sua conta do Azure. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell. Nesta seção, são usados os cmdlets clássicos do SM (Gerenciamento de Serviços) do Azure PowerShell.
 
    ```azurepowershell
@@ -92,7 +92,7 @@ Nome do Gateway de Rede Virtual = RMGateway <br>
    ```
 3. Abra o arquivo .xml baixado para editá-lo. Para obter um exemplo de arquivo de configuração de rede, confira o [Esquema de configuração de rede](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
-### <a name="2-verify-the-gateway-subnet"></a>2. Verifique a sub-rede do gateway
+### <a name="2-verify-the-gateway-subnet"></a>2. Verificar a sub-rede do gateway
 No elemento **VirtualNetworkSites** , adicione uma sub-rede de gateway à rede virtual se já não existir uma. Ao trabalhar com o arquivo de configuração de rede, a sub-rede do gateway DEVE ser nomeada como "GatewaySubnet", ou o Azure poderá não reconhecê-la e usá-la como uma sub-rede de gateway.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -131,7 +131,7 @@ O site de rede local que adicionar representará a rede virtual do RM ao qual vo
 </LocalNetworkSites>
 ```
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. associar a VNet ao site de rede local
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. Associar a VNet ao site de rede local
 Nesta seção, podemos especificar o local de rede local ao qual você deseja conectar a rede virtual. Nesse caso, é a rede virtual do Resource Manager que foi mencionada anteriormente. Verifique se os nomes correspondem. Esta etapa não cria um gateway. Ela especifica a rede local a que o gateway será conectado.
 
 ```xml
@@ -144,7 +144,7 @@ Nesta seção, podemos especificar o local de rede local ao qual você deseja co
 </Gateway>
 ```
 
-### <a name="5-save-the-file-and-upload"></a>5. Salve o arquivo e carregue-o
+### <a name="5-save-the-file-and-upload"></a>5. Salvar o arquivo e carregar
 Salve o arquivo e importe-o para o Azure executando o comando a seguir. Altere o caminho do arquivo conforme for necessário para seu ambiente.
 
 ```azurepowershell
@@ -159,7 +159,7 @@ OperationDescription        OperationId                      OperationStatus
 Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 ```
 
-### <a name="6-create-the-gateway"></a>6. criar o gateway
+### <a name="6-create-the-gateway"></a>6. Criar o gateway
 
 Antes de executar esse exemplo, consulte o arquivo de configuração de rede baixado para obter os nomes exatos que o Azure espera visualizar. O arquivo de configuração de rede contém os valores de suas redes virtuais clássicas. Às vezes, os nomes de redes virtuais clássicas são alterados no arquivo de configuração de rede durante a criação de configurações da rede virtual clássicas no portal do Azure devido a diferenças nos modelos de implantação. Por exemplo, se você usou o portal do Azure para criar uma rede virtual clássica denominada 'Rede virtual clássica' e a criou em um grupo de recursos denominado 'ClassicRG', o nome que está contido no arquivo de configuração de rede é convertido em 'Grupo ClassicRG Rede virtual clássica'. Ao especificar o nome de uma rede virtual que contenha espaços, use aspas ao redor do valor.
 

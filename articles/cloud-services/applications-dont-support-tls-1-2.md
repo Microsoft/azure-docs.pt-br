@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cf7746cc55e81593a1788608cced1253f295a5c4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742566"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101738371"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Solucionar aplicativos que não permitem TLS 1.2
 
@@ -316,13 +316,13 @@ Adicione o trecho a seguir ao arquivo de definição de serviço existente.
 Aqui está um exemplo que mostra a função de trabalho e a função Web. 
 
 ```
-<?xmlversion="1.0"encoding="utf-8"?> 
-<ServiceDefinitionname="CloudServiceName"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
-    <WebRolename="WebRole1"vmsize="Standard_D1_v2"> 
+<?xmlversion="1.0" encoding="utf-8"?> 
+<ServiceDefinitionname="CloudServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+    <WebRolename="WebRole1" vmsize="Standard_D1_v2"> 
         <Sites> 
             <Sitename="Web"> 
                 <Bindings> 
-                    <Bindingname="Endpoint1"endpointName="Endpoint1"/> 
+                    <Bindingname="Endpoint1" endpointName="Endpoint1"/> 
                 </Bindings> 
             </Site> 
         </Sites> 
@@ -331,10 +331,10 @@ Aqui está um exemplo que mostra a função de trabalho e a função Web.
             </Task> 
         </Startup> 
         <Endpoints> 
-            <InputEndpointname="Endpoint1"protocol="http"port="80"/> 
+            <InputEndpointname="Endpoint1" protocol="http" port="80"/> 
         </Endpoints> 
     </WebRole> 
-<WorkerRolename="WorkerRole1"vmsize="Standard_D1_v2"> 
+<WorkerRolename="WorkerRole1" vmsize="Standard_D1_v2"> 
     <Startup> 
         <Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
         </Task> 

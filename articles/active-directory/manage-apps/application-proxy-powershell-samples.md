@@ -12,16 +12,16 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 117b4fec13c22ffb2f3163d50be44734d24ef3fa
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e5189df623325578bb3b579f5c4c3456067986ff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259094"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709473"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD
 
-A tabela a seguir inclui links para exemplos de scripts do PowerShell para o Proxy de Aplicativo do Azure AD. Esses exemplos exigem o [Módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) ou a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), salvo indicação em contrário.
+A tabela a seguir inclui links para exemplos de scripts do PowerShell para o Proxy de Aplicativo do Azure AD. Esses exemplos exigem o [Módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) ou a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), salvo indicação em contrário.
 
 
 Para obter mais informações sobre os cmdlets usados nesses exemplos, confira [Gerenciamento de aplicativos do Proxy de Aplicativo](/powershell/module/azuread/#application_proxy_application_management) e [Gerenciamento de conectores do Proxy de Aplicativo](/powershell/module/azuread/#application_proxy_connector_management).
@@ -32,7 +32,7 @@ Para obter mais informações sobre os cmdlets usados nesses exemplos, confira [
 | [Listar informações básicas para todos os aplicativos do Proxy de Aplicativo](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lista informações básicas (AppId, DisplayName, ObjId) sobre todos os aplicativos do Proxy de Aplicativo no seu diretório. |
 | [Listar informações estendidas para todos os aplicativos do Proxy de Aplicativo](scripts/powershell-get-all-app-proxy-apps-extended.md) | Lista informações estendidas (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) sobre todos os aplicativos do Proxy de Aplicativo em seu diretório.  |
 | [Listar todos os aplicativos do Proxy de Aplicativo por grupo de conectores](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Lista informações sobre todos os aplicativos do Proxy de Aplicativo em seu diretório e a quais grupos de conectores os aplicativos estão atribuídos. |
-| [Obter todos os aplicativos do Proxy de Aplicativo com uma política de tempo de vida de token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todos os aplicativos do Proxy de Aplicativo em seu diretório com uma política de tempo de vida de token, bem como seus detalhes. Este exemplo requer a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Obter todos os aplicativos do Proxy de Aplicativo com uma política de tempo de vida de token](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Lista todos os aplicativos do Proxy de Aplicativo em seu diretório com uma política de tempo de vida de token, bem como seus detalhes. Este exemplo requer a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true). |
 |**Grupos de conectores**||
 | [Obter todos os grupos de conectores e conectores no diretório](scripts/powershell-get-all-connectors.md) | Lista todos os grupos de conectores e conectores em seu diretório. |
 | [Mover todos os aplicativos atribuídos a um grupo de conectores para outro grupo de conectores](scripts/powershell-move-all-apps-to-connector-group.md) | Move todos os aplicativos atribuídos atualmente a um grupo de conectores para outro grupo de conectores. |

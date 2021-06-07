@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5211555102c0a8d29eb05abd7a680935d828f9dc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: bf2419799ad6c229c6ffb891bc588479e134d427
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683433"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102500386"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um workspace do Azure Machine Learning?
 
@@ -52,7 +52,7 @@ Você pode interagir com seu espaço de trabalho das seguintes maneiras:
 + Na Web:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Designer do Azure Machine Learning](concept-designer.md) 
-+ Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++ Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).
 + Em qualquer ambiente de R com o [SDK do Azure Machine Learning para R (versão prévia)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Na linha de comando usando a [extensão da CLI](./reference-azure-machine-learning-cli.md) do Azure Machine Learning
 + [Extensão de VS Code de Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)

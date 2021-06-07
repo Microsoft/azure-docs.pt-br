@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 527c0ce1278c920f53a2f63b7708bce09da789e1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92516324"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timetabling-solutions"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Timetabling Solutions
@@ -53,7 +53,7 @@ Para configurar a integração do Timetabling Solutions ao Azure AD, é necessá
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **Timetabling Solutions** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **Timetabling Solutions** na caixa de pesquisa.
 1. Selecione **Timetabling Solutions** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-timetabling-solutions"></a>Configurar e testar o logon único do Azure AD para o Timetabling Solutions
@@ -73,25 +73,25 @@ Para configurar e testar o SSO do Azure AD com o Timetabling Solutions, conclua 
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Timetabling Solutions** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Timetabling Solutions**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    Na caixa de texto **URL de Logon** , digite uma URL: `https://auth.timetabling.education/login`
+    Na caixa de texto **URL de Logon**, digite uma URL: `https://auth.timetabling.education/login`
 
-1. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
+1. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-1. Na seção **Certificado de Autenticação SAML** , copie o **Valor da Impressão Digital** e salve-o em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-1. Na seção **Configurar o Timetabling Solutions** , copie as URLs apropriadas de acordo com as suas necessidades.
+1. Na seção **Configurar o Timetabling Solutions**, copie as URLs apropriadas de acordo com as suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -99,11 +99,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -121,13 +121,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-timetabling-solutions-sso"></a>Configurar o SSO do Timetabling Solutions
 
-Para configurar o logon único no lado do **Timetabling Solutions** , é necessário enviar o **Valor da Impressão Digital** e as URLs apropriadas copiadas do portal do Azure para [a equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Timetabling Solutions**, é necessário enviar o **Valor da Impressão Digital** e as URLs apropriadas copiadas do portal do Azure para [a equipe de suporte do Timetabling Solutions](https://www.timetabling.com.au/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-timetabling-solutions-test-user"></a>Criar um usuário de teste do Timetabling Solutions
 

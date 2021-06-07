@@ -9,10 +9,10 @@ ms.date: 02/04/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 49e35687820679a1c06cf19e7a26b3b04a1e1318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363230"
 ---
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
@@ -223,7 +223,7 @@ Esse evento será gerado periodicamente se você tiver mensagens mortas na fila 
 # <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -238,7 +238,7 @@ Um evento tem os seguintes dados de nível superior:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -252,7 +252,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `namespaceName` | string | O namespace do Barramento de Serviço onde está o recurso existente. |
 | `requestUri` | string | O URI para a fila específica ou a assinatura que emite o evento. |

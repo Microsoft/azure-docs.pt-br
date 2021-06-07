@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900461"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101690678"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre duas instâncias gerenciadas
 
@@ -51,7 +51,7 @@ A configuração da Instância Gerenciada de SQL para funcionar como um publicad
 - A instância gerenciada pelo publicador deverá estar na mesma rede virtual do distribuidor e do assinante ou os [gateways de VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) foram configurados entre as redes virtuais das três entidades. 
 - A conectividade usa Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento da conta de armazenamento do Azure para o diretório de trabalho de replicação.
-- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para que as instâncias gerenciadas acessem o compartilhamento de arquivo do Azure.  Se você encontrar o erro `failed to connect to azure storage \<storage account name> with os error 53`, precisará adicionar uma regra de saída ao NSG da sub-rede apropriada da Instância Gerenciada de SQL.
+- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para que as instâncias gerenciadas acessem o compartilhamento de arquivo do Azure.  Se você encontrar o erro `failed to connect to azure storage <storage account name> with os error 53`, precisará adicionar uma regra de saída ao NSG da sub-rede apropriada da Instância Gerenciada de SQL.
 
 ## <a name="1---create-a-resource-group"></a>1– Criar um grupo de recursos
 

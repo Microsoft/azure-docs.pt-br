@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: bc4655ce6cd572183cd92e1c8b2ac10e613ebd8f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489958"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>Crescimento automático do armazenamento no banco de dados do Azure para servidor PostgreSQL usando o PowerShell
@@ -28,7 +28,7 @@ O crescimento automático de armazenamento impede que o servidor [atinja o limit
 Para concluir este guia de instruções, você precisa:
 
 - O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
-- Um [servidor de Banco de Dados do Azure para PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
+- Um [banco de dados do Azure para servidor PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.PostgreSql PowerShell está em versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.

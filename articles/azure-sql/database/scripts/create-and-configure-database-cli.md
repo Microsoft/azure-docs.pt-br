@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: dc17ab55cb473036d8c40bd1e533bcc20c4c6259
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 00346accbccd67f542a8496ac097b0236c56a08c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742256"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773811"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Use a CLI do Azure para criar um banco de dados individual e configurar uma regra de firewall
 
@@ -50,9 +50,9 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 | Comando | Descrição |
 |---|---|
-| [az sql server](/cli/azure/sql/server#az-sql-server-create) | Comandos de servidor |
-| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Comandos de firewall do servidor. |
-| [az sql db](/cli/azure/sql/db#az-sql-db-create) | Comandos de banco de dados. |
+| [az sql server](/cli/azure/sql/server#az_sql_server_create) | Comandos de servidor |
+| [az sql server firewall](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Comandos de firewall do servidor. |
+| [az sql db](/cli/azure/sql/db#az_sql_db_create) | Comandos de banco de dados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

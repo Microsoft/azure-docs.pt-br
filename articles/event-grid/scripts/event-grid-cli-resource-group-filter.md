@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1d3887a98f0a53e0f04932c257aa7bb822cadc76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a4343f4fb7791459cc3dc6e7db34433d8b7b60f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494104"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766633"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Assinar eventos de um grupo de recursos e filtrar por um recurso com a CLI do Azure
 
@@ -36,7 +36,7 @@ Este script usa o seguinte comando para criar a assinatura do evento. Cada coman
 
 | Comando | Observações |
 |---|---|
-| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Criar uma assinatura na Grade de Eventos. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) | Criar uma assinatura na Grade de Eventos. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - versão de extensão | Criar uma assinatura na Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas

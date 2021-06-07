@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97665140"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>Criar um grupo de servidores Hyperscale (Citus)
@@ -39,7 +39,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
    > A senha de administrador do servidor que você especificar aqui é necessária para fazer logon no servidor e nos bancos de dados. Lembre-se ou registre essas informações para o uso posterior.
 
 5. Clique em **Configurar grupo de servidores**. Deixe as configurações nessa seção inalteradas e clique em **Salvar**.
-6. Clique em **Avançar: Rede >** na parte inferior da tela.
+6. Clique em **Próximo: Rede >** na parte inferior da tela.
 
 7. Na guia **Rede**, clique no botão de opção **Ponto de extremidade público**.
    ![Ponto de extremidade público selecionado](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
@@ -58,7 +58,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 Ao criar o servidor do Banco de Dados do Azure para PostgreSQL, um banco de dados padrão chamado **citus** é criado. Para se conectar ao seu servidor de banco de dados, é necessário uma cadeia de conexão e a senha de administrador.
 
-1. Obter a cadeia de conexão. Na página de grupo de servidor, clique no item de menu **Cadeias de conexão**. (Ele está em **Configurações**). Localize a cadeia de caracteres marcada como **psql**. Ela terá o formato:
+1. Obter a cadeia de conexão. Na página de grupo de servidor, clique no item de menu **Cadeias de conexão**. (Está em **Configurações**.) Localize a cadeia de caracteres marcada como **psql**. Ela terá o formato:
 
    ```
    psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"

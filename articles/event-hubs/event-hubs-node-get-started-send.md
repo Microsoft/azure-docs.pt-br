@@ -4,12 +4,12 @@ description: Este artigo fornece um passo a passo para criar um aplicativo JavaS
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 2e5f297d5edb9a271843db060f948209dd076074
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c418c13346fb1ec8ba16965fa1020c676ddf3ac6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106080"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104602546"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>Enviar eventos para Hubs de Eventos ou receber eventos deles usando o JavaScript (azure/event-hubs)
 Este guia de início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote JavaScript **azure/event-hubs**. 
@@ -146,6 +146,11 @@ Registre a cadeia de conexão e o nome do contêiner para usá-los posteriorment
       // Subscribe to the events, and specify handlers for processing the events and errors.
       const subscription = consumerClient.subscribe({
           processEvents: async (events, context) => {
+            if (events.length === 0) {
+              console.log(`No events received within wait time. Waiting for next interval`);
+              return;
+            }
+          
             for (const event of events) {
               console.log(`Received event: '${event.body}' from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
             }

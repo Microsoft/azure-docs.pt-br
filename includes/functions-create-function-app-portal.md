@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 9ec5920295117b1726a684bcd08534cd6917f7e5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980925"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100569784"
 ---
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "99980925"
     | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
     | **Nome do aplicativo de funções** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `-`.  |
     |**Publicar**| Código | Opção para publicar arquivos de código ou um contêiner do Docker. |
-    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. A edição no portal só está disponível para JavaScript, PowerShell, TypeScript e script de C#. As funções da biblioteca de classes do C#, do Java e do Python devem ser [desenvolvidas localmente](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
+    | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. A edição no portal só está disponível para JavaScript, PowerShell, TypeScript e script de C#. As funções da biblioteca de classes do C#, do Java e do Python precisam ser [desenvolvidas localmente](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Versão**| Número de versão | Escolha a versão do seu runtime instalado. |
     |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 

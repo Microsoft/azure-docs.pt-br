@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
 ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87420406"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação de desastres para as VMs do Hyper-V em um site secundário
@@ -45,7 +45,7 @@ Ao executar um failover de teste, você deverá selecionar as configurações de
 
 | **Opção** | **Detalhes** | |
 | --- | --- | --- |
-| **Nenhuma** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.| |
+| **Nenhum** | A VM de teste é criada no host no qual está localizada a VM de réplica. Ela não é adicionada à nuvem e não está conectada a nenhuma rede.<br/><br/> Você pode conectar o computador a uma rede de VMs depois que ela for criada.| |
 | **Usar existente** | A VM de teste é criada no host no qual está localizada a VM de réplica. Não é adicionada à nuvem.<br/><br/>Crie uma rede VM isolada da rede de produção.<br/><br/>Se você estiver usando uma rede baseada em VLAN, recomendamos criar uma rede lógica separada (não usada em produção) no VMM para essa finalidade. Essa rede lógica é usada para criar redes VM para failovers de teste.<br/><br/>A rede lógica deve estar associada a, pelo menos, um dos adaptadores de rede de todos os servidores do Hyper-V que hospedam máquinas virtuais.<br/><br/>Para redes lógicas VLAN, os sites de rede adicionados à rede lógica devem ser isolados.<br/><br/>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes de VM isoladas. | |
 | **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados.<br/><br/> O failover verifica se as VMs são criadas.<br/><br/> Você deve usar esta opção se o plano de recuperação usa mais de uma rede de VMs.<br/><br/> Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.<br/><br/> A VM de teste é criada no host no qual existe a máquina virtual de réplica. Não é adicionada à nuvem.|
 
@@ -119,7 +119,7 @@ Prepare um servidor DNS para o failover de teste da seguinte forma:
 
 Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover para uma única máquina virtual na guia **máquinas virtuais** .
 
-1. Selecione **planos de recuperação**  >  *recoveryplan_name*. Clique em failover de teste de **failover**  >  **Test Failover**.
+1. Selecione **planos de recuperação**  >  *recoveryplan_name*. Clique em failover de teste de **failover**  >  .
 2. Na folha **Failover de Teste**, especifique como as VMs de réplica devem ser conectadas às redes após o failover de teste.
 3. Acompanhe o progresso do failover na guia **Trabalhos** .
 4. Após o failover ser concluído, verifique se as VMs são iniciadas com êxito.

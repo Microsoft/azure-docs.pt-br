@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
 ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893413"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Glossário do revisor de métricas de vocabulário e conceitos comuns
@@ -33,7 +33,7 @@ Um feed de dados é o que o Orientador de métricas ingeri em sua fonte de dados
 
 ## <a name="metric"></a>Métrica
 
-Uma métrica é uma medida quantificável usada para monitorar e avaliar o status de um processo comercial específico. Pode ser uma combinação de vários valores de série temporal divididos em dimensões. Por exemplo, uma métrica de *integridade da Web* pode conter dimensões para *contagem de usuários* e o *mercado en-US* .
+Uma métrica é uma medida quantificável usada para monitorar e avaliar o status de um processo comercial específico. Pode ser uma combinação de vários valores de série temporal divididos em dimensões. Por exemplo, uma métrica de *integridade da Web* pode conter dimensões para *contagem de usuários* e o *mercado en-US*.
 
 ## <a name="dimension"></a>Dimensão
 
@@ -139,29 +139,29 @@ O revisor de métricas fornece vários [métodos de detecção](how-tos/configur
 
 Detecção de anomalias usando vários algoritmos de aprendizado de máquina.
 
-**Sensibilidade** : um valor numérico para ajustar a tolerância da detecção de anomalias. Visualmente, quanto maior o valor, mais estreito os limites superiores e inferiores em relação à série temporal.
+**Sensibilidade**: um valor numérico para ajustar a tolerância da detecção de anomalias. Visualmente, quanto maior o valor, mais estreito os limites superiores e inferiores em relação à série temporal.
 
 ### <a name="hard-threshold"></a>Limite rígido
 
 Os valores fora dos limites superior ou inferior são anomalias.
 
-**Min** : o limite inferior
+**Min**: o limite inferior
 
-**Max** : o limite superior
+**Max**: o limite superior
 
 ### <a name="change-threshold"></a>Alterar limite
 
 Use o valor de ponto anterior para determinar se esse ponto é uma anomalia.
 
-**Alterar porcentagem** : em comparação com o ponto anterior, o ponto atual será uma anomalia se a porcentagem de alteração for maior que esse parâmetro.
+**Alterar porcentagem**: em comparação com o ponto anterior, o ponto atual será uma anomalia se a porcentagem de alteração for maior que esse parâmetro.
 
-**Mudar em pontos** : Quantos pontos deve ser examinado novamente.
+**Mudar em pontos**: Quantos pontos deve ser examinado novamente.
 
 ### <a name="common-parameters"></a>Parâmetros comuns
 
-**Direção** : um ponto é uma anomalia somente quando o desvio ocorre na direção *para cima* , *para baixo* ou para *ambos* .
+**Direção**: um ponto é uma anomalia somente quando o desvio ocorre na direção *para cima*, *para baixo* ou para *ambos*.
 
-**Anomalias inválidas até** : um ponto de dados é apenas uma anomalia se um percentual especificado de pontos anteriores também for anomalias.
+**Anomalias inválidas até**: um ponto de dados é apenas uma anomalia se um percentual especificado de pontos anteriores também for anomalias.
 
 ## <a name="alert-settings"></a>Configurações de alerta
 
@@ -175,15 +175,15 @@ O escopo do alerta refere-se ao escopo ao qual o alerta se aplica. Há quatro op
 
 **Anomalias de todas as séries: os** alertas serão disparados para anomalias em todas as séries dentro da métrica.
 
-**Anomalias no grupo de séries** : os alertas só serão disparados para anomalias em dimensões específicas do grupo de séries. O número de dimensões especificadas deve ser menor do que o número total de dimensões.
+**Anomalias no grupo de séries**: os alertas só serão disparados para anomalias em dimensões específicas do grupo de séries. O número de dimensões especificadas deve ser menor do que o número total de dimensões.
 
-**Anomalias na série favorita** : alertas serão disparados somente para anomalias que são adicionadas como favoritos. Você pode escolher um grupo de séries como um favorito para cada configuração de detecção.
+**Anomalias na série favorita**: alertas serão disparados somente para anomalias que são adicionadas como favoritos. Você pode escolher um grupo de séries como um favorito para cada configuração de detecção.
 
 **Anomalias no N superior de todas as séries: os** alertas só serão disparados para anomalias na série N superior. Você pode definir parâmetros para especificar o número de carimbos de data/hora a serem levados em conta, e quantas anomalias devem estar neles para enviar o alerta.
 
 ### <a name="severity"></a>Severity
 
-A gravidade é uma classificação que o assistente de métricas usa para descrever a severidade do incidente, incluindo *alta* , *média* e *baixa* .
+A gravidade é uma classificação que o assistente de métricas usa para descrever a severidade do incidente, incluindo *alta*, *média* e *baixa*.
 
 Atualmente, o Orientador de métricas usa os seguintes fatores para medir a severidade do alerta:
 1. A proporção de valor e a proporção de quantidade de anomalias na métrica.
@@ -200,7 +200,7 @@ O comportamento de adiar pode ser definido no nível de métrica ou nível de s�
 
 ### <a name="ingestion-time-offset"></a>Deslocamento do tempo de ingestão
 
-Por padrão, os dados são ingeridos de acordo com a granularidade (como *diariamente* ). Usando um inteiro positivo, você pode atrasar a ingestão dos dados pelo valor especificado. Usando um número negativo, você pode avançar a ingestão pelo valor especificado.
+Por padrão, os dados são ingeridos de acordo com a granularidade (como *diariamente*). Usando um inteiro positivo, você pode atrasar a ingestão dos dados pelo valor especificado. Usando um número negativo, você pode avançar a ingestão pelo valor especificado.
 
 ### <a name="max-ingestion-per-minute"></a>Ingestão máxima por minuto
 
@@ -238,7 +238,7 @@ Quando essa opção for definida como zero, cada carimbo de data/hora com *não 
 
 ## <a name="data-feed-permissions"></a>Permissões de feed de dados
 
-Há duas funções para gerenciar permissões de feed de dados: *administrador* e *Visualizador* . 
+Há duas funções para gerenciar permissões de feed de dados: *administrador* e *Visualizador*. 
 
 * Um *administrador* tem controle total sobre o feed de dados e as métricas dentro dele. Eles podem ativar, pausar, excluir o feed de dados e fazer atualizações em feeds e configurações. Normalmente, um *administrador* é o proprietário das métricas.
 

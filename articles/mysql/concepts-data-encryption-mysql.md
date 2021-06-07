@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518797"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100596337"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
 
@@ -118,7 +118,7 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 * [Azure Resource Health](../service-health/resource-health-overview.md): um banco de dados inacessível que perdeu o acesso à chave do cliente aparecerá como "Inacessível" após a negação da primeira conexão com o banco de dados.
 * [Log de atividades](../service-health/alerts-activity-log-service-notifications-portal.md): quando o acesso à chave do cliente falha no Key Vault gerenciado pelo cliente, as entradas são adicionadas ao log de atividades. Você poderá restabelecer o acesso assim que possível se criar alertas para esses eventos.
 
-* [Grupos de ação](../azure-monitor/platform/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
+* [Grupos de ação](../azure-monitor/alerts/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurar e replicar com uma chave gerenciada do cliente no Key Vault
 

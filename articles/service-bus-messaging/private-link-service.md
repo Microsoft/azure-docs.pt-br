@@ -6,10 +6,10 @@ ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
 ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427140"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces do barramento de serviço do Azure por meio de pontos de extremidade privados
@@ -64,10 +64,10 @@ Se você já tem um namespace, crie um ponto de extremidade privado seguindo est
 
     ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 5. Para permitir o acesso ao namespace por meio de pontos de extremidade privados, selecione a guia **conexões de ponto final privado** na parte superior da página
-6. Selecione o botão **+ Ponto de Extremidade Privado** , na parte superior da página.
+6. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
 
     ![Botão Adicionar ponto de extremidade privado](./media/private-link-service/private-link-service-3.png)
-7. Na página **Básico** , siga estas etapas: 
+7. Na página **Básico**, siga estas etapas: 
     1. Selecione a **Assinatura do Azure** na qual você quer criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.
     3. Insira um **nome** para o ponto de extremidade privado. 
@@ -75,33 +75,33 @@ Se você já tem um namespace, crie um ponto de extremidade privado seguindo est
     6. Selecione **Avançar: Botão Recurso >** na parte inferior da página.
 
         ![Criação de um Ponto de Extremidade Privado – Página Básico](./media/private-link-service/create-private-endpoint-basics-page.png)
-8. Na página **Recurso** , siga estas etapas:
-    1. Para o método de conexão, se selecionar **Conectar-se a um recurso do Azure em meu diretório** , siga estas etapas:   
+8. Na página **Recurso**, siga estas etapas:
+    1. Para o método de conexão, se selecionar **Conectar-se a um recurso do Azure em meu diretório**, siga estas etapas:   
         1. Selecione a **Assinatura do Azure** na qual está o seu **namespace de Barramento de Serviço**. 
-        2. Em **Tipo de recurso** , selecione **Microsoft.ServiceBus/namespaces** para o **Tipo de recurso**.
-        3. Para **Recurso** , selecione um namespace de Barramento de Serviço na lista suspensa. 
+        2. Em **Tipo de recurso**, selecione **Microsoft.ServiceBus/namespaces** para o **Tipo de recurso**.
+        3. Para **Recurso**, selecione um namespace de Barramento de Serviço na lista suspensa. 
         4. Confirme se o **Sub-recurso de destino** está definido como **namespace**.
         5. Selecione **Avançar: Botão Configuração >** na parte inferior da página. 
         
             ![Criação de um Ponto de Extremidade Privado – Página Recurso](./media/private-link-service/create-private-endpoint-resource-page.png)
-    2. Se selecionar **Conectar-se a um recurso do Azure com ID do recurso ou alias** , siga estas etapas:
+    2. Se selecionar **Conectar-se a um recurso do Azure com ID do recurso ou alias**, siga estas etapas:
         1. Insira a **ID do recurso** ou **alias**. Pode ser a ID do recurso ou o alias que alguém compartilhou com você. A maneira mais fácil de obter a ID do recurso é navegar até o namespace do Barramento de Serviço no portal do Azure e copiar a parte do URI a partir de `/subscriptions/`. Veja a imagem a seguir para obter um exemplo. 
-        2. Para **Sub-recurso de destino** , digite **namespace**. É o tipo de sub-recurso que seu ponto de extremidade privado pode acessar. 
+        2. Para **Sub-recurso de destino**, digite **namespace**. É o tipo de sub-recurso que seu ponto de extremidade privado pode acessar. 
         3. (opcional) Insira uma **mensagem de solicitação**. O proprietário do recurso vê essa mensagem enquanto gerencia a conexão de ponto de extremidade privado. 
         4. Em seguida, selecione **Avançar: Botão Configuração >** na parte inferior da página. 
 
             ![Criação de ponto de extremidade privado – conexão usando a ID do recurso](./media/private-link-service/connect-resource-id.png)
-9. Na página **Configuração** , selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
+9. Na página **Configuração**, selecione a sub-rede em uma rede virtual na qual você deseja implantar o ponto de extremidade privado. 
     1. Selecione uma **rede virtual**. São listadas somente as redes virtuais na assinatura e na localização selecionadas no momento na lista suspensa. 
     2. Selecione uma **sub-rede** na rede virtual selecionada. 
     3. Selecione **Avançar: Botão Marcas >** na parte inferior da página. 
 
         ![Criação de Ponto de Extremidade Privado – Página Configuração](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. Na página **Marcas** , crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **Revisar + criar** na parte inferior da página. 
-11. Em **Revisar + criar** , examine todas as configurações e selecione **Criar** para criar o ponto de extremidade privado.
+10. Na página **Marcas**, crie quaisquer marcas (nomes e valores) que você deseja associar ao recurso de ponto de extremidade privado. Em seguida, selecione o botão **Revisar + criar** na parte inferior da página. 
+11. Em **Revisar + criar**, examine todas as configurações e selecione **Criar** para criar o ponto de extremidade privado.
     
     ![Criação de Ponto de Extremidade Privado – Página Revisar e Criar](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Confirme se o ponto de extremidade privado foi criado. Se você for o proprietário do recurso e tiver selecionado a opção **Conectar a um recurso do Azure no meu diretório** como **Método de conexão** , a conexão do ponto de extremidade deverá ser **aprovada automaticamente**. Se estado no estado **pendente** , consulte a seção [Gerenciar pontos de extremidade privados usando o portal do Azure](#manage-private-endpoints-using-azure-portal).
+12. Confirme se o ponto de extremidade privado foi criado. Se você for o proprietário do recurso e tiver selecionado a opção **Conectar a um recurso do Azure no meu diretório** como **Método de conexão**, a conexão do ponto de extremidade deverá ser **aprovada automaticamente**. Se estado no estado **pendente**, consulte a seção [Gerenciar pontos de extremidade privados usando o portal do Azure](#manage-private-endpoints-using-azure-portal).
 
     ![Ponto de extremidade privado criado](./media/private-link-service/private-endpoint-created.png)
 
@@ -197,7 +197,7 @@ Há quatro estados de provisionamento:
 3. Selecione o botão **Aprovar**.
 
     ![Aprovar ponto de extremidade privado](./media/private-link-service/private-endpoint-approve.png)
-4. Na página **Aprovar conexão** , digite um **comentário** opcional e selecione **Sim**. Se selecionar **Não** , nada acontecerá. 
+4. Na página **Aprovar conexão**, digite um **comentário** opcional e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 
     ![Página Aprovar conexão](./media/private-link-service/approve-connection-page.png)
 5. O status da conexão exibido na lista muda para **Aprovado**. 
@@ -209,7 +209,7 @@ Há quatro estados de provisionamento:
 1. Se houver conexões de ponto de extremidade privado que você deseja rejeitar, seja uma solicitação pendente ou uma conexão existente que foi aprovada anteriormente, selecione a conexão do ponto de extremidade e clique no botão **Rejeitar**.
 
     ![Botão Rejeitar](./media/private-link-service/private-endpoint-reject.png)
-2. Na página **Rejeitar conexão** , digite um comentário opcional e selecione **Sim**. Se selecionar **Não** , nada acontecerá. 
+2. Na página **Rejeitar conexão**, digite um comentário opcional e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 
     ![Página Rejeitar conexão](./media/private-link-service/reject-connection-page.png)
 3. O status da conexão exibido na lista muda para **Rejeitado**. 
@@ -222,7 +222,7 @@ Há quatro estados de provisionamento:
 1. Para remover uma conexão de ponto de extremidade privado, selecione-a na lista e selecione **Remover** na barra de ferramentas. 
 
     ![Botão Remover](./media/private-link-service/remove-endpoint.png)
-2. Na página **Excluir conexão** , selecione **Sim** para confirmar a exclusão do ponto de extremidade privado. Se selecionar **Não** , nada acontecerá. 
+2. Na página **Excluir conexão**, selecione **Sim** para confirmar a exclusão do ponto de extremidade privado. Se selecionar **Não**, nada acontecerá. 
 
     ![Página Excluir a conexão](./media/private-link-service/delete-connection-page.png)
 3. O status muda para **Desconectado**. Em seguida, o ponto de extremidade desaparecerá da lista. 
@@ -233,12 +233,12 @@ Você deve validar se os recursos dentro da rede virtual do ponto de extremidade
 
 Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 
-Na guia **Rede** : 
+Na guia **Rede**: 
 
 1. Especifique a **Rede virtual** e a **Sub-rede**. Selecione a Rede Virtual na qual você implantou o ponto de extremidade privado.
 2. Especifique um recurso de **IP Público**.
-3. Para o **Grupo de segurança de rede da NIC** , selecione **Nenhum**.
-4. Para o **Balanceamento de carga** , selecione **Não**.
+3. Para o **Grupo de segurança de rede da NIC**, selecione **Nenhum**.
+4. Para o **Balanceamento de carga**, selecione **Não**.
 
 Conecte-se à VM, abra a linha de comando e execute o seguinte comando:
 
@@ -257,11 +257,11 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
-**Preço** : Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
+**Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações** :  O recurso está disponível em todas as regiões públicas do Azure.
+**Limitações**:  O recurso está disponível em todas as regiões públicas do Azure.
 
-**Número máximo de pontos de extremidade privados por namespace do Barramento de Serviço** : 120.
+**Número máximo de pontos de extremidade privados por namespace do Barramento de Serviço**: 120.
 
 Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../private-link/private-link-service-overview.md#limitations)
 

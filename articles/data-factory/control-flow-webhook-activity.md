@@ -3,22 +3,25 @@ title: Atividade de webhook no Azure Data Factory
 description: A atividade de webhook não continua a execução do pipeline até que ele valide o conjunto de dado anexado com determinados critérios especificados pelo usuário.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361478"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785930"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de webhook no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Uma atividade de webhook pode controlar a execução de pipelines por meio de seu código personalizado. Com a atividade de webhook, o código dos clientes pode chamar um ponto de extremidade e passá-lo para uma URL de retorno de chamada. A execução do pipeline aguarda a invocação de retorno de chamada antes de prosseguir para a próxima atividade.
+
+> [!IMPORTANT]
+> A atividade de webhook agora permite que você Surface o status de erro e as mensagens personalizadas de volta para a atividade e o pipeline. Defina _reportStatusOnCallBack_ como true e inclua _StatusCode_ e _Error_ na carga de retorno de chamada. Para obter mais informações, consulte a seção [observações adicionais](#additional-notes) .
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -37,6 +40,7 @@ Uma atividade de webhook pode controlar a execução de pipelines por meio de se
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",
@@ -49,10 +53,10 @@ Uma atividade de webhook pode controlar a execução de pipelines por meio de se
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Necessária
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 **name** | O nome da atividade de webhook. | String | Sim |
-**type** | Deve ser definido como "webhook". | String | Sim |
+**tipo** | Deve ser definido como "webhook". | String | Sim |
 **forma** | O método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. O tipo com suporte é "POST". | Sim |
 **url** | O ponto de extremidade e o caminho de destino. | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim |
 **conector** | Cabeçalhos que são enviados para a solicitação. Aqui está um exemplo que define o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma cadeia de caracteres ou uma expressão com o valor de **ResultType** de uma cadeia de caracteres. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
@@ -69,7 +73,7 @@ Uma atividade de webhook dá suporte aos seguintes tipos de autenticação.
 
 Se a autenticação não for necessária, não inclua a propriedade de **autenticação** .
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 
 Especifique o nome de usuário e a senha a serem usados com a autenticação básica.
 

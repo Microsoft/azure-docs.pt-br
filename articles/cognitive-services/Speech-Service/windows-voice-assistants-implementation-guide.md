@@ -12,10 +12,10 @@ ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939859"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementando assistentes de voz no Windows
@@ -78,7 +78,7 @@ O `ConversationalAgentSession` é uma classe no SDK do Windows que permite ao se
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Ouça os dois sinais de ativação: OnBackgroundActivated e OnSignalDetected
 
-O Windows sinalizará seu aplicativo quando detectar uma palavra-chave de uma das duas maneiras. Se o aplicativo não estiver ativo (ou seja, se você não tiver uma referência a uma instância não descartada do `ConversationalAgentSession` ), ele iniciará seu aplicativo e chamará o método OnBackgroundActivated no arquivo app.XAML.cs do seu aplicativo. Se o campo argumentos do evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corresponder à cadeia de caracteres "AgentBackgroundTrigger", a inicialização do aplicativo foi disparada pela ativação de voz. O aplicativo precisa substituir esse método e recuperar uma instância de ConversationalAgentSession para sinalizar para o Windows que agora está ativo. Quando o aplicativo estiver ativo, o Windows sinalizará a ocorrência de uma ativação de voz usando o `ConversationalAgentSession.OnSignalDetected` evento. Adicione um manipulador de eventos a esse evento assim que você recuperar o `ConversationalAgentSession` .
+O Windows sinalizará seu aplicativo quando detectar uma palavra-chave de uma das duas maneiras. Se o aplicativo não estiver ativo (ou seja, se você não tiver uma referência a uma instância não descartada do `ConversationalAgentSession` ), ele iniciará seu aplicativo e chamará o método OnBackgroundActivated no arquivo app. XAML. cs do seu aplicativo. Se o campo argumentos do evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corresponder à cadeia de caracteres "AgentBackgroundTrigger", a inicialização do aplicativo foi disparada pela ativação de voz. O aplicativo precisa substituir esse método e recuperar uma instância de ConversationalAgentSession para sinalizar para o Windows que agora está ativo. Quando o aplicativo estiver ativo, o Windows sinalizará a ocorrência de uma ativação de voz usando o `ConversationalAgentSession.OnSignalDetected` evento. Adicione um manipulador de eventos a esse evento assim que você recuperar o `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Verificação de palavra-chave
 
@@ -122,9 +122,9 @@ Quando um aplicativo mostra uma exibição acima do bloqueio, é considerado que
 
 ### <a name="transitioning-above-lock"></a>Transição acima do bloqueio
 
-Uma ativação acima do bloqueio é semelhante a uma ativação abaixo do bloqueio. Se não houver nenhuma instância ativa do aplicativo, uma nova instância será iniciada em segundo plano e `OnBackgroundActivated` em app.XAML.cs será chamado. Se houver uma instância do aplicativo, essa instância receberá uma notificação por meio do `ConversationalAgentSession.SignalDetected` evento.
+Uma ativação acima do bloqueio é semelhante a uma ativação abaixo do bloqueio. Se não houver instâncias ativas do aplicativo, uma nova instância será iniciada em segundo plano e `OnBackgroundActivated` em app. XAML. cs será chamado. Se houver uma instância do aplicativo, essa instância receberá uma notificação por meio do `ConversationalAgentSession.SignalDetected` evento.
 
-Se o aplicativo ainda não estiver sendo exibido acima do bloqueio, ele deverá chamar `ConversationalAgentSession.RequestForegroundActivationAsync` . Isso dispara o `OnLaunched` método em app.XAML.cs, que deve navegar até a exibição que será mostrada acima do bloqueio.
+Se o aplicativo ainda não estiver sendo exibido acima do bloqueio, ele deverá chamar `ConversationalAgentSession.RequestForegroundActivationAsync` . Isso dispara o `OnLaunched` método em app. XAML. cs, que deve navegar até o modo de exibição que será mostrado acima do bloqueio.
 
 ### <a name="detecting-lock-screen-transitions"></a>Detectando transições da tela de bloqueio
 

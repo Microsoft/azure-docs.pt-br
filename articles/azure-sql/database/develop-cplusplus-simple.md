@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0460317a47a1cf01707990b6f92532d4ade01439
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674759"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643283"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Verifique se você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Do Visual Studio](https://www.visualstudio.com/downloads/). Você deve instalar os componentes de linguagem C++ para compilar e executar esse exemplo.
-* [Desenvolvimento no Linux para Visual Studio](/cpp/linux/?view=vs-2019). Se você estiver desenvolvendo no Linux, também deverá instalar a extensão do Linux do Visual Studio.
+* [Desenvolvimento no Linux para Visual Studio](/cpp/linux/). Se você estiver desenvolvendo no Linux, também deverá instalar a extensão do Linux do Visual Studio.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Banco de dados SQL do Azure e SQL Server em máquinas virtuais
 
@@ -55,7 +55,7 @@ Em [portal do Azure](https://portal.azure.com/), vá para a cadeia de conexão O
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]** . Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
+Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]**. Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Etapa 3: Adicionar o IP do firewall
 
@@ -123,7 +123,7 @@ A última coisa a fazer antes de compilar é adicionar **odbc** como uma depend�
 
 ![Adicionando o ODBC como uma biblioteca de entrada](./media/develop-cplusplus-simple/lib.png)
 
-Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar** :
+Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar**:
 
 ![Console do Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 

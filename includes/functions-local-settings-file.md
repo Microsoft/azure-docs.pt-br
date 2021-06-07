@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
 ms.openlocfilehash: d944d1d3e9c72471fab2435430a7d13e1770e807
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010430"
 ---
 ## <a name="local-settings-file"></a>Arquivo de configurações local

@@ -1,36 +1,23 @@
 ---
 title: Instalar & implantar o agente do Linux C
 description: Saiba como instalar e implantar o agente de segurança baseado no defender para IoT C no Linux
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 8c03f6b882c8b1a64c9f256493c5d586b5fa0f89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f59db7ff24412c66a6a4898b14272ea9540fdd2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933676"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778807"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implantar o defender para o agente de segurança baseado em IoT C para Linux
 
 Este guia explica como instalar e implantar o agente de segurança baseado no defender para IoT C no Linux.
 
-Neste guia, você aprenderá a:
-
-> [!div class="checklist"]
-> * Instalar
-> * Verificar implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +25,7 @@ Para outras plataformas e tipos de agente, consulte [escolher o agente de segura
 
 1. Para implantar o agente de segurança, são necessários direitos de administrador local no computador em que você deseja instalar o (sudo).
 
-1. [Criar um módulo de segurança](quickstart-create-security-twin.md) para o dispositivo.
+1. [Crie um defender-IOT-micro-Agent](quickstart-create-security-twin.md) para o dispositivo.
 
 ## <a name="installation"></a>Instalação
 
@@ -94,4 +81,4 @@ Verifique o status da implantação executando:
 - Saiba mais sobre a [arquitetura](architecture.md) do defender para IOT
 - Habilite o [serviço](quickstart-onboard-iot-hub.md)
 - Leia as [perguntas frequentes](resources-frequently-asked-questions.md)
-- Entenda os [Alertas de Segurança](concept-security-alerts.md)
+- Entender os [alertas de segurança](concept-security-alerts.md)

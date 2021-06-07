@@ -1,25 +1,29 @@
 ---
 title: Perguntas frequentes sobre a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Análise de Texto para serviços cognitivas do Azure.
+description: Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados à API de Análise de Texto dos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: MT
+ms.openlocfilehash: c38b7c33cfe787ba933ca1fc4961080eaa4ada61
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955035"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276052"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Perguntas frequentes sobre a API de Análise de Texto
 
- Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Análise de Texto nos serviços cognitivas do Azure.
+ Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados à API de Análise de Texto dos Serviços Cognitivos do Azure.
+
+## <a name="what-is-the-maximum-size-and-number-of-requests-i-can-make-to-the-api"></a>Qual é o tamanho máximo e o número de solicitações que posso fazer à API?
+
+Confira o artigo [Limites de dados](concepts/data-limits.md) para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Análise de Texto consegue identificar sarcasmo?
 
@@ -49,19 +53,19 @@ Melhorias aos modelos e algoritmos serão anunciadas se a alteração for import
 
 ## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
 
-### <a name="is-text-analytics-service-zone-resilient"></a>O Análise de Texto zona de serviço é resiliente?
+### <a name="is-text-analytics-service-zone-resilient"></a>A zona do serviço de Análise de Texto é resiliente?
 
-Sim. Por padrão, o serviço de Análise de Texto é resiliente por zona.
+Sim. O serviço de Análise de Texto tem resiliência de zona por padrão.
 
-### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Como fazer configurar o serviço de Análise de Texto para ser resistente a zona?
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Como fazer para configurar o serviço de Análise de Texto para que ele tenha resiliência de zona?
 
-Nenhuma configuração de cliente é necessária para habilitar a resiliência de zona. A resiliência de zona para recursos de Análise de Texto está disponível por padrão e gerenciada pelo próprio serviço.
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona para recursos da Análise de Texto está disponível por padrão e é gerenciada pelo próprio serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar nisso em nosso [site UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
  * [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  * [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

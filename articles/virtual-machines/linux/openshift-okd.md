@@ -3,18 +3,19 @@ title: Implantar o OKD no Azure
 description: Implante o OKD no Azure.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
-ms.translationtype: MT
+ms.openlocfilehash: dc14b10081cf175581d29524dcea60c52763b03c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732387"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101667212"
 ---
 # <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
@@ -148,7 +149,7 @@ Quando a implementação terminar, conecte-se ao console do OpenShift com seu na
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

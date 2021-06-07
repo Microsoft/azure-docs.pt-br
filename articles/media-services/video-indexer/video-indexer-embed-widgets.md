@@ -12,10 +12,10 @@ ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98797780"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
@@ -306,7 +306,7 @@ Consulte o repositório de [exemplos de código](https://github.com/Azure-Sample
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
 
-Para obter mais informações, consulte [navegadores com suporte](video-indexer-overview.md#supported-browsers).
+Para mais informações, confira [navegadores com suporte](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,13 +4,13 @@ description: Descreve como configurar regras e gerenciar alertas no FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: a04f973cbfa3a68016065f50e9e2ff4f7566da94
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168538"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182920"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configurar regras e gerenciar alertas
 
@@ -69,7 +69,7 @@ Para editar uma regra, siga estas etapas:
 
     ![Captura de tela que mostra as telas de editar regra.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
-4. Altere o **nome da regra**e a **Descrição da regra** e, em seguida, selecione um farm no menu suspenso **selecionar Farm** .
+4. Altere o **nome da regra** e a **Descrição da regra** e, em seguida, selecione um farm no menu suspenso **selecionar Farm** .
 5. Digite o nome do farm para selecionar o farm e as **condições** aparecerão na mesma janela.  
 6. Em **condições**, edite **Measure**, **Operator** e **Value**.
 7. Digite o nome da medida no menu suspenso **medida** .

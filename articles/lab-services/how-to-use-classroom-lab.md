@@ -4,10 +4,10 @@ description: Saiba como registrar-se em um laboratório de sala de aula, exibir 
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: 6d5585082473a363df5f25f331475536544ae828
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433131"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services

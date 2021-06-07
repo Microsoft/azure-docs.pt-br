@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre sincronização do Azure AD Connect Cloud
+title: Perguntas frequentes sobre a sincronização de nuvem do Azure AD Connect
 description: Este documento descreve as perguntas frequentes sobre a sincronização de nuvem.
 services: active-directory
 author: billmath
@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39d1554fd1b6cac1a90a794cfd93def97e494bfe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98612968"
 ---
 # <a name="azure-active-directory-connect-cloud-sync-faq"></a>Perguntas frequentes sobre sincronização do Azure Active Directory Connect Cloud
@@ -103,4 +103,4 @@ Sim. Hoje, damos suporte a até 50 mil membros do grupo sincronizados usando a f
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)

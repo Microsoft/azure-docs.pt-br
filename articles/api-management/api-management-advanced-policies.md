@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 03529fd3c0231617c477f4f16773039a02386683
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919436"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562477"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 
@@ -868,7 +868,7 @@ O exemplo a seguir demonstra uma política de definir a variável na seção de 
 | Atributo | Descrição                                                              | Obrigatório |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | O nome da variável.                                                | Sim      |
-| value     | O valor da variável. Isso pode ser uma expressão ou um valor literal. | Sim      |
+| valor     | O valor da variável. Isso pode ser uma expressão ou um valor literal. | Sim      |
 
 ### <a name="usage"></a>Uso
 
@@ -918,7 +918,7 @@ As expressões usadas na política `set-variable` devem retornar um dos seguinte
 A `trace` política adiciona um rastreamento personalizado à saída do Inspetor de API, Application insights telemetrias e/ou logs de recursos.
 
 -   A política adiciona um rastreamento personalizado à saída do [Inspetor de API](./api-management-howto-api-inspector.md) quando o rastreamento é disparado, ou seja, o cabeçalho da `Ocp-Apim-Trace` solicitação está presente e definido como true e `Ocp-Apim-Subscription-Key` o cabeçalho da solicitação está presente e contém uma chave válida que permite o rastreamento.
--   A política cria uma telemetria de [rastreamento](../azure-monitor/app/data-model-trace-telemetry.md) no Application insights, quando [Application insights integração](./api-management-howto-app-insights.md) está habilitada e o `severity` nível especificado na política é em ou superior ao `verbosity` nível especificado na configuração de diagnóstico.
+-   A política cria uma telemetria de [rastreamento](../azure-monitor/app/data-model-trace-telemetry.md) no Application insights, quando [Application insights integração](./api-management-howto-app-insights.md) está habilitada e o `severity` especificado na política é igual ou maior que o `verbosity` especificado na configuração de diagnóstico.
 -   A política adiciona uma propriedade na entrada de log quando [os logs de recursos](./api-management-howto-use-azure-monitor.md#activity-logs) estão habilitados e o nível de severidade especificado na política é ou superior ao nível de detalhes especificado na configuração de diagnóstico.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -956,7 +956,7 @@ A `trace` política adiciona um rastreamento personalizado à saída do Inspetor
 | source    | Literal de cadeia de caracteres significativo para o visualizador de rastreamento e especificando a fonte da mensagem.                                   | Sim      | N/D     |
 | severidade  | Especifica o nível de severidade do rastreamento. Os valores permitidos são `verbose` , `information` , `error` (do mais baixo ao mais alto). | Não       | Detalhado |
 | name      | Nome da propriedade.                                                                                                     | Sim      | N/D     |
-| value     | Valor da propriedade.                                                                                                    | Sim      | N/D     |
+| valor     | Valor da propriedade.                                                                                                    | Sim      | N/D     |
 
 ### <a name="usage"></a>Uso
 

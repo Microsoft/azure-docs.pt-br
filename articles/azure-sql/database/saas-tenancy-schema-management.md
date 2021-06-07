@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
 ms.openlocfilehash: e4328be0aade0658dedb034dbbb6980b810f771a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793187"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
@@ -62,19 +62,19 @@ O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis 
 
 Este tutorial requer que você use o PowerShell para criar um agente de trabalho e seu banco de dados de agente de trabalho de suporte. O banco de dados do agente de trabalho contém definições de trabalho, o status do trabalho e o histórico. Depois que o agente de trabalho e seu banco de dados são criados, você pode criar e monitorar trabalhos imediatamente.
 
-1. **No ISE do PowerShell** , abra …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1* .
+1. **No ISE do PowerShell**, abra …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Pressione **F5** para executar o script.
 
 O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar um banco de dados de nome *osagent* no servidor de catálogo. Em seguida, ele cria o agente de trabalho usando o banco de dados como um parâmetro.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar um trabalho para implantar novos dados de referência para todos os locatários
 
-No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implanta uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club* .
+No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conjunto de tipos de local com suporte. Cada local é de um tipo específico, que define os tipos de evento que podem ser hospedados e determina a imagem de tela de fundo usada no aplicativo. Para o aplicativo dar suporte a novos tipos de eventos, esses dados de referência devem ser atualizados e novos tipos de local devem ser adicionados.  Neste exercício, você implanta uma atualização em todos os bancos de dados de locatário para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados. 
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados _contosoconcerthall_ do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes* .
+1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados _contosoconcerthall_ do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.
 
 Agora vamos criar um trabalho para atualizar a tabela *VenueTypes* em todos os bancos de dados de locatário a fim de adicionar os novos tipos de local.
 
@@ -85,14 +85,14 @@ Para criar um novo trabalho, use um conjunto de trabalhos que os procedimentos a
 1. Modifique a instrução: DEFINA @wtpUser = &lt;user&gt; e substitua o valor User usado quando você implantou o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets
 1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
-Observe os seguintes elementos no script *DeployReferenceData.sql* :
+Observe os seguintes elementos no script *DeployReferenceData.sql*:
 * **SP\_add\_target\_group** cria o nome do grupo de destino DemoServerGroup.
 * **SP\_add\_target\_group\_member** é usado para definir o conjunto de bancos de dados de destino.  Primeiro, o servidor _tenants1-dpt -&lt;user&gt;_ é adicionado.  Adicionar o servidor como um destino faz com que os bancos de dados no servidor no momento da execução do trabalho sejam incluídos no trabalho. Em seguida, o banco de dados _basetenantdb_ e o banco de dados *adhocreporting* (usado em um tutorial posterior) são adicionadas como destinos.
-* **sp\_add\_job** cria um trabalho denominado _Reference Data Deployment_ .
+* **sp\_add\_job** cria um trabalho denominado _Reference Data Deployment_.
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes.
 * As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído em todos os bancos de dados de destino.
 
-Quando o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o servidor *contosoconcerthall* banco de dados de *tenants1-dpt -&lt;user&gt;* e consulta a tabela *VenueTypes* .  Verifique se *Motorcycle Racing* e *Swimming Club* **estão** presentes agora.
+Quando o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o servidor *contosoconcerthall* banco de dados de *tenants1-dpt -&lt;user&gt;* e consulta a tabela *VenueTypes*.  Verifique se *Motorcycle Racing* e *Swimming Club* **estão** presentes agora.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar um trabalho para gerenciar o índice da tabela de referência
@@ -103,10 +103,10 @@ Crie um trabalho usando os mesmos trabalhos dos procedimentos armazenados do "si
 
 1. Abra o SSMS e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_
 1. Abra o arquivo _...\\Módulos de aprendizado\\Gerenciamento de esquema\\OnlineReindex.sql_
-1. Clique com o botão direito do mouse, selecione Conexão e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_ , se ainda não estiver conectado
+1. Clique com o botão direito do mouse, selecione Conexão e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_, se ainda não estiver conectado
 1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
-Observe os seguintes elementos no script _OnlineReindex.sql_ :
+Observe os seguintes elementos no script _OnlineReindex.sql_:
 * **sp\_add\_job** cria um novo trabalho chamado “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice
 * As exibições restantes na execução do trabalho no monitor de script. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.

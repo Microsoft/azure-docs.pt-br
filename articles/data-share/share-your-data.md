@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659617"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639535"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Compartilhar dados usando o Azure Data Share  
 
@@ -42,23 +42,10 @@ Neste tutorial, você aprenderá como:
 Veja abaixo a lista de pré-requisitos para o compartilhamento de dados de uma fonte SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para o compartilhamento por meio do Banco de Dados SQL do Azure ou do Azure Synapse Analytics (antigo SQL DW do Azure)
-Siga a [demonstração passo a passo](https://youtu.be/hIE-TjJD8Dc) para configurar os pré-requisitos.
 
 * Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure) com tabelas e exibições que você deseja compartilhar.
 * Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**.
-* Permissão para que a identidade gerenciada do recurso do Data Share acesse o banco de dados. Isso pode ser feito executando as seguintes etapas: 
-    1. No portal do Azure, navegue até o SQL Server e defina você mesmo como o **Administrador do Azure Active Directory**.
-    1. Conecte-se ao Data Warehouse/Banco de Dados SQL do Azure usando o [Editor de Consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Active Directory. 
-    1. Execute o script a seguir para adicionar a identidade gerenciada do recurso do Data Share como um db_datareader. Você deve se conectar usando o Active Directory e não a autenticação do SQL Server. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Observe que *<share_acc_name>* é o nome do seu recurso do Data Share. Se você ainda não tiver criado um recurso do Data Share, poderá voltar para esse pré-requisito mais tarde.  
-
-* Um Usuário do Banco de Dados SQL do Azure com o acesso **'db_datareader'** para procurar e selecionar as tabelas e/ou as exibições que você deseja compartilhar. 
-
+* **Administrador do Azure Active Directory** do SQL Server
 * Acesso ao firewall do SQL Server. Isso pode ser feito executando as seguintes etapas: 
     1. No portal do Azure, navegue até o SQL Server. Selecione *Firewalls e redes virtuais* no painel de navegação à esquerda.
     1. Clique em **Sim** na opção *Permitir que serviços e recursos do Azure acessem este servidor*.
@@ -90,7 +77,6 @@ Siga a [demonstração passo a passo](https://youtu.be/hIE-TjJD8Dc) para configu
 ### <a name="share-from-azure-data-explorer"></a>Compartilhar do Azure Data Explorer
 * Um cluster do Azure Data Explorer com bancos de dados que você deseja compartilhar.
 * Permissão para gravar no cluster do Azure Data Explorer, que está presente em *Microsoft.Kusto/clusters/write*. Essa permissão existe na função **Colaborador**.
-* Permissão para adicionar uma atribuição de função ao cluster do Azure Data Explorer, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função **Proprietário**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -186,7 +172,7 @@ Use estes comandos para criar o recurso:
 
     ![Adicionar conjuntos de dados ao compartilhamento](./media/datasets.png "Conjunto de dados")
 
-1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. Se você estiver compartilhando dados por meio de um Banco de Dados SQL do Azure ou do Azure Synapse Analytics (antigo SQL DW do Azure), precisará fornecer as credenciais do SQL para listar tabelas.
+1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. Se você estiver compartilhando dados em um Banco de Dados SQL do Azure ou no Azure Synapse Analytics (antigo SQL DW do Azure), precisará fornecer o método de autenticação para listar tabelas. Selecione autenticação do AAD e marque a caixa de seleção **Permitir que o Data Share execute o script 'create user' acima em meu nome**. 
 
     ![AddDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 

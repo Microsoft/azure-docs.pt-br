@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 04/16/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b0ff5a241a76cd49d104e4145df37515b43c4e27
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560366"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726188"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Azure Content Moderator?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560366"
 O Azure Content Moderator é um serviço de IA que permite que você lide com conteúdos potencialmente ofensivos, arriscados ou, de alguma outra forma, indesejáveis. Ele inclui o serviço de moderação de conteúdo da plataforma AI que examina textos, imagens e vídeos e aplica sinalizadores de conteúdo automaticamente, bem como a ferramenta de Análise, um ambiente de moderador online para uma equipe de revisores humanos.
 
 Talvez você queira incorporar software de filtragem de conteúdo ao seu aplicativo para obedecer a regulamentos ou manter o ambiente pretendido para seus usuários.
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* Os [**guias de início rápido**](client-libraries.md) são instruções de introdução que orientam sobre como fazer solicitações ao serviço.  
+* Os [**guias de instruções**](try-text-api.md) contêm instruções de uso do serviço de maneiras mais específicas ou personalizadas.  
+* Os [**conceitos**](text-moderation-api.md) fornecem explicações detalhadas sobre a funcionalidade e os recursos do serviço.  
+* Os [**tutoriais**](ecommerce-retail-catalog-moderation.md) são guias mais longos que mostram como usar o serviço como um componente de soluções de negócios mais amplas.  
 
 ## <a name="where-its-used"></a>Como ele é usado
 

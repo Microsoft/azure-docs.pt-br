@@ -3,12 +3,12 @@ title: Exceções de Retransmissão do Azure e como resolvê-las | Microsoft Doc
 description: Lista de exceções de Retransmissão do Azure e ações sugeridas que você pode realizar para ajudar a resolvê-las.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
-ms.translationtype: MT
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625141"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313939"
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de Retransmissão do Azure
 
@@ -24,7 +24,7 @@ As APIs de Retransmissão geram exceções que podem se enquadrar nas categorias
 *   **Erro de instalação/configuração**: [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). 
 
     **Ação geral**: examine sua configuração. Se necessário, altere a configuração.
-*   **Exceções transitórias**: [Microsoft. ServiceBus. Messaging. MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+*   **Exceções temporárias**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Ação geral**: repetir a operação ou notificar os usuários.
 *   **Outras exceções**: [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception). 
@@ -41,7 +41,7 @@ A tabela a seguir lista os tipos de exceção de mensagens e suas causas. També
 | [Operação inválida](/dotnet/api/system.invalidoperationexception) |A operação solicitada pelo usuário não é permitida no servidor ou serviço. Consulte a mensagem de exceção para obter detalhes. |Verifique o código e a documentação. Verifique se a operação solicitada é válida. |Tentar novamente não ajudará. |
 | [Operação cancelada](/dotnet/api/system.operationcanceledexception) |É feita uma tentativa de invocar uma operação em um objeto que já foi fechado, anulado ou descartado. Em casos raros, a transação de ambiente já foi descartada. |Verifique o código e certifique-se de que ele não invocará operações em um objeto descartado. |Tentar novamente não ajudará. |
 | [Acesso não autorizado](/dotnet/api/system.unauthorizedaccessexception) |O [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não pôde obter um token, o token é inválido ou não contém as declarações necessárias para executar a operação. |Verifique se o provedor de token foi criado com os valores corretos. Verifique a configuração do Serviço de Controle de Acesso. |Uma nova tentativa pode ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [Exceção de argumento](/dotnet/api/system.argumentexception),<br /> [Argumento Nulo](/dotnet/api/system.argumentnullexception),<br />[Argumento fora do intervalo](/dotnet/api/system.argumentoutofrangeexception) |Um ou mais dos seguintes ocorreu:<br />Um ou mais argumentos fornecidos para o método são inválidos.<br /> O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contém um ou mais segmentos de caminho.<br />O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) é inválido. <br />O valor da propriedade é maior do que 32 KB. |Verifique o código de chamada e certifique-se de que os argumentos estão corretos. |Tentar novamente não ajudará. |
+| [Exceção de Argumento](/dotnet/api/system.argumentexception),<br /> [Argumento Nulo](/dotnet/api/system.argumentnullexception),<br />[Argumento fora do intervalo](/dotnet/api/system.argumentoutofrangeexception) |Um ou mais dos seguintes ocorreu:<br />Um ou mais argumentos fornecidos para o método são inválidos.<br /> O URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contém um ou mais segmentos de caminho.<br />O esquema de URI fornecido para [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) é inválido. <br />O valor da propriedade é maior do que 32 KB. |Verifique o código de chamada e certifique-se de que os argumentos estão corretos. |Tentar novamente não ajudará. |
 | [Servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |O serviço não pode processar a solicitação neste momento. |O cliente pode esperar um período e então repetir a operação. |O cliente pode repetir a operação após um intervalo específico. Se uma nova tentativa resultar em uma exceção diferente, verifique o comportamento de repetição dessa exceção. |
 | [Cota excedida](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |A entidade de mensagens atingiu seu tamanho máximo permitido. |Crie espaço na entidade ao receber mensagens da entidade ou de suas subfilas. Confira [QuotaExceededException](#quotaexceededexception). |Tentar novamente pode ajudar se as mensagens foram removidas nesse meio tempo. |
 | [Tamanho da mensagem excedido](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |O conteúdo de uma mensagem excede o limite de 256 KB. Observe que o limite de 256 KB é o tamanho total da mensagem. O tamanho total da mensagem pode incluir propriedades do sistema e qualquer sobrecarga do Microsoft .NET. |Reduza o tamanho da carga de mensagem e repita a operação. |Tentar novamente não ajudará. |
@@ -80,7 +80,7 @@ Há duas causas comuns para esse erro:
     Ocasionalmente, o serviço Retransmissão pode sofrer atrasos no processamento de solicitações. Isso pode acontecer, por exemplo, durante períodos de tráfego intenso. Nesses casos, repita a operação após um atraso até que a operação seja bem-sucedida. Se a mesma operação continuar a falhar após várias tentativas, verifique o [Site de status do serviço do Azure](https://azure.microsoft.com/status/) para ver se há interrupções de serviço conhecidas.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Perguntas frequentes sobre Retransmissão do Azure](relay-faq.md)
+* [Perguntas frequentes sobre Retransmissão do Azure](relay-faq.yml)
 * [Criar um namespace de retransmissão](relay-create-namespace-portal.md)
 * [Introdução à Retransmissão do Azure e .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução à Retransmissão do Azure e Nó](relay-hybrid-connections-node-get-started.md)

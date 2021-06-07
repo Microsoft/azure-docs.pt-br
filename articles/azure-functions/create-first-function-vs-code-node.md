@@ -3,12 +3,16 @@ title: Criar uma função JavaScript usando o Visual Studio Code – Azure Funct
 description: Saiba como criar uma função JavaScript e publique o projeto Node.js local por meio da hospedagem sem servidor no Azure Functions usando a extensão do Azure Functions no Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-node_uiex
+ms.openlocfilehash: f22a847be5fc750cb3a3d9e6736d08940f30e4fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493610"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104954455"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Início rápido: criar uma função JavaScript no Azure usando o Visual Studio Code
 
@@ -113,8 +117,10 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) para criar um aplicativo de funções com uma função simples disparada por HTTP. No próximo artigo, você expandirá essa função conectando-se ao Armazenamento do Azure. Para saber mais sobre como se conectar a outros serviços do Azure, confira [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
+Você usou o [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) para criar um aplicativo de funções com uma função simples disparada por HTTP. No próximo artigo, você expandirá essa função conectando-se ao Azure Cosmos DB ou ao Armazenamento do Azure. Para saber mais sobre como se conectar a outros serviços do Azure, confira [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
+> [!div class="nextstepaction"]
+> [Conectar a um banco de dados](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript)
 > [!div class="nextstepaction"]
 > [Conectar-se a uma fila do Armazenamento do Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
 

@@ -4,10 +4,10 @@ description: Saiba como gerenciar dados pessoais associados às operações do A
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 1e531f7cd9992536bcc191637111761c5bbdefa2
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693705"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gerenciar dados pessoais associados com o Azure Resource Manager

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 5b96e568b57c34fec1c93727aabe8e739a2a45cd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 72ba07090e6ce67501761d97876aa136f146d61c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448644"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102437920"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes em seu dispositivo de GPU pro do Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 O kubernetes é uma plataforma de software livre popular para orquestrar aplicativos em contêineres. Este artigo fornece uma visão geral do kubernetes e, em seguida, descreve como o kubernetes funciona em seu dispositivo Azure Stack Edge pro. 
 
@@ -107,6 +109,16 @@ Para obter mais informações sobre como implantar aplicativos no cluster kubern
 ### <a name="kubernetes-and-azure-arc"></a>Kubernetes e arco do Azure
 
 O Arc do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters kubernetes. O arco do Azure também permite que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é Azure-Arc habilitado kubernetes?](../azure-arc/kubernetes/overview.md). Para obter informações sobre preços de arco do Azure, vá para [preços de arco do Azure](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+A partir de março de 2021, o kubernetes habilitado para Arc do Azure estará disponível para os usuários e os encargos de uso padrão se aplicarem. Como um cliente de visualização com valor, a kubernetes habilitada para o Arc do Azure estará disponível para você sem custos por Azure Stack dispositivos de borda. Para obter a oferta de visualização, crie um [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+1. Em **Tipo de problema**, selecione **Cobrança**.
+2. Em **Assinatura**, selecione sua assinatura.
+3. Em **serviço**, selecione **meus serviços** e, em seguida, selecione **Azure Stack borda**.
+4. Em **recurso**, selecione seu recurso.
+5. Em **Resumo**, digite uma descrição do seu problema.
+6. Em **tipo de problema**, selecione **encargos inesperados**.
+7. Em **subtipo de problema**, selecione **ajude-me a entender encargos em minha avaliação gratuita**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

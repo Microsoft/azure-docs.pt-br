@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
 ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90563141"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quais são as opções de arquitetura do Gerenciador de firewall do Azure?
@@ -32,13 +32,13 @@ A tabela a seguir compara essas duas opções de arquitetura e pode ajudá-lo a 
 
 |  |**Rede virtual de hub**|**Hub virtual seguro**  |
 |---------|---------|---------|
-|**Recurso subjacente**     |Rede virtual|Hub WAN virtual|
+|**Recurso subjacente**     |Rede virtual|Hub de WAN Virtual|
 |**Hub & spoke**     |Usa o emparelhamento de rede virtual|Automatizado usando conexão de rede virtual do Hub|
 |**Conectividade local**     |Gateway de VPN de até 10 Gbps e 30 conexões S2S; ExpressRoute|Gateway de VPN mais escalonável de até 20 Gbps e 1000 conexões S2S; Rota expressa|
 |**Conectividade de ramificação automatizada usando SDWAN**      |Sem suporte|Com suporte|
 |**Hubs por região**     |Várias redes virtuais por região|Único Hub virtual por região. Vários hubs possíveis com várias WANs virtuais|
 |**Firewall do Azure – vários endereços IP públicos**      |Fornecida pelo cliente|Gerado automaticamente|
-|**Zonas de Disponibilidade de firewall do Azure**     |Com suporte|Ainda não está disponível|
+|**Zonas de Disponibilidade de firewall do Azure**     |Compatível|Ainda não está disponível|
 |**Segurança avançada da Internet com segurança de terceiros como parceiros de serviço**     |Conectividade de VPN estabelecida e gerenciada pelo cliente para o serviço de parceiro de sua escolha|Automatizado por meio da experiência de gerenciamento de parceiros e de fluxo do provedor de segurança|
 |**Gerenciamento de rota centralizado para rotear o tráfego para o Hub**     |Rota definida pelo usuário gerenciada pelo cliente|Com suporte usando BGP|
 |**Suporte a vários provedores de segurança**|Com suporte com túnel forçado configurado manualmente para firewalls de terceiros|Suporte automatizado para dois provedores de segurança: Firewall do Azure para filtragem de tráfego privado e terceiros para filtragem da Internet|

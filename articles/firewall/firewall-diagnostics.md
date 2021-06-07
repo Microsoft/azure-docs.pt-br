@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
 ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788257"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar os logs e as métricas do Firewall do Azure
@@ -121,7 +121,7 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 > [!TIP]
 > Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
-## <a name="view-metrics"></a>Métricas de exibição
+## <a name="view-metrics"></a>Exibir métricas
 Navegue até um firewall do Azure, em **monitoramento** selecione **métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
 
 ## <a name="next-steps"></a>Próximas etapas

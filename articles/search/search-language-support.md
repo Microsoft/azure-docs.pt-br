@@ -1,70 +1,148 @@
 ---
 title: Indexação de vários idiomas para consultas de pesquisa que não estão em inglês
 titleSuffix: Azure Cognitive Search
-description: O Azure Pesquisa Cognitiva dá suporte a 56 idiomas, aproveitando os analisadores de idioma da tecnologia de processamento de idioma natural e Lucene da Microsoft.
+description: Crie um índice que ofereça suporte a conteúdo em vários idiomas e crie consultas com escopo para esse conteúdo.
 manager: nitinme
-author: yahnoosh
-ms.author: jlembicz
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 588de9c9cae114b5f5396db17f7ecb19bcde25c6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/22/2021
+ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423072"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801597"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Como criar um índice para vários idiomas no Azure Pesquisa Cognitiva
 
-Os índices podem incluir campos que contenham conteúdo de vários idiomas, por exemplo, criando campos individuais para cadeias de caracteres específicas do idioma. Para obter melhores resultados durante a indexação e a consulta, atribua um analisador de linguagem que fornece as regras linguísticas apropriadas. 
+Um requisito importante em um aplicativo de pesquisa multilíngue é a capacidade de pesquisar e recuperar os resultados no próprio idioma do usuário. No Azure Pesquisa Cognitiva, uma maneira de atender aos requisitos de idioma de um aplicativo multilíngue é criar campos dedicados para armazenar cadeias de caracteres em um idioma específico e, em seguida, restringir a pesquisa de texto completo apenas a esses campos no momento da consulta.
 
-O Azure Pesquisa Cognitiva oferece uma grande seleção de analisadores de linguagem tanto do Lucene quanto da Microsoft que podem ser atribuídos a campos individuais usando a propriedade do analisador. Você também pode especificar um analisador de idioma no portal, conforme descrito neste artigo.
++ Em definições de campo, defina um analisador de linguagem que invoca as regras linguísticas do idioma de destino. Para exibir a lista completa de analisadores com suporte, consulte [Adicionar analisadores de idioma](index-add-language-analyzers.md).
 
-## <a name="add-analyzers-to-fields"></a>Adicionar analisadores a campos
++ Na solicitação de consulta, defina parâmetros como escopo pesquisa de texto completo em campos específicos e, em seguida, corte os resultados de todos os campos que não fornecem conteúdo compatível com a experiência de pesquisa que você deseja entregar.
 
-Um analisador de idioma é especificado quando um campo é criado. A adição de um analisador a uma definição de campo existente requer a substituição (e o recarregamento) do índice ou a criação de um novo campo idêntico ao original, mas com uma atribuição de analisador. Em seguida, você pode excluir o campo não utilizado de sua conveniência.
+O sucesso dessa técnica depende da integridade do conteúdo do campo. O Azure Pesquisa Cognitiva não converte cadeias de caracteres nem executa a detecção de idioma como parte da execução da consulta. Cabe a você certificar-se de que esses campos contêm as cadeias de caracteres esperadas.
 
-1. Entre no [portal do Azure](https://portal.azure.com) e localize o serviço de pesquisa.
-1. Clique em **Adicionar índice** na barra de comandos localizada na parte superior do painel do serviço para iniciar um novo índice, ou abra um índice existente para definir um analisador nos novos campos que você está adicionando a um índice existente.
-1. Inicie uma definição de campo fornecendo um nome.
-1. Escolha o tipo de dados EDM. String. Somente os campos de cadeia de caracteres são pesquisáveis com texto completo.
-1. Defina o atributo **pesquisável** para habilitar a propriedade do analisador. Um campo deve ser baseado em texto para fazer uso de um analisador de idioma.
-1. Escolha um dos analisadores disponíveis. 
+## <a name="define-fields-for-content-in-different-languages"></a>Definir campos para o conteúdo em idiomas diferentes
 
-![Atribuir analisadores de idioma durante a definição do campo](media/search-language-support/select-analyzer.png "Atribuir analisadores de idioma durante a definição do campo")
+No Azure Pesquisa Cognitiva, as consultas visam um único índice. Os desenvolvedores que desejam fornecer cadeias de caracteres específicas a um idioma em uma experiência de pesquisa única normalmente definem campos dedicados para armazenar os valores: um campo para cadeias de caracteres em inglês, um para francês e assim por diante.
 
-Por padrão, todos os campos pesquisáveis usam o [analisador Lucene padrão](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , que é independente de linguagem. Para exibir a lista completa de analisadores com suporte, consulte [Adicionar analisadores de idioma a um índice de pesquisa cognitiva do Azure](index-add-language-analyzers.md).
+A propriedade "Analyzer" em uma definição de campo é usada para definir o [analisador de idioma](index-add-language-analyzers.md). Ele será usado para indexação e execução de consulta.
 
-No portal, os analisadores se destinam a serem usados no estado em que se encontram. Se você precisar de personalização ou de uma configuração específica de filtros e criadores, deverá [criar um analisador personalizado](index-add-custom-analyzers.md) no código. O portal não dá suporte à seleção ou configuração de analisadores personalizados.
+```JSON
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft"
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft"
+    },
+```
 
-## <a name="query-language-specific-fields"></a>Campos específicos da linguagem de consulta
+## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
-Quando o analisador de linguagem for selecionado para um campo, ele será usado com cada solicitação de indexação e pesquisa para esse campo. Quando uma consulta é emitida em vários campos usando analisadores diferentes, a consulta será processada independentemente pelos analisadores atribuídos para cada campo.
+Uma etapa intermediária (e talvez óbvia) é que você precisa [criar e preencher o índice](search-get-started-dotnet.md) antes de formular uma consulta. Mencionamos essa etapa aqui para fins de integridade. Uma maneira de determinar a disponibilidade do índice é verificar a lista de índices no [portal](https://portal.azure.com).
 
-Se o idioma do agente emissor de uma consulta for conhecido, uma solicitação de pesquisa pode ser definida como escopo para um campo específico usando o parâmetro de consulta **searchFields** . A seguinte consulta será emitida apenas com a descrição em polonês:
+> [!TIP]
+> Detecção de idioma e tradução de texto têm suporte durante a ingestão de dados por meio do [reenriquecimento de ia](cognitive-search-concept-intro.md) e [habilidades](cognitive-search-working-with-skillsets.md). Se você tiver uma fonte de dados do Azure com conteúdo de idioma misto, poderá experimentar os recursos de detecção e tradução de idioma usando o [Assistente de importação de dados](cognitive-search-quickstart-blob.md).
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2020-06-30`
+## <a name="constrain-the-query-and-trim-results"></a>Restringir a consulta e cortar os resultados
 
-Você pode consultar o índice no portal, usando o [**Search Explorer**](search-explorer.md) para colar uma consulta semelhante à mostrada acima.
+Os parâmetros na consulta são usados para limitar a pesquisa em campos específicos e, em seguida, cortar os resultados dos campos não úteis para seu cenário. 
+
+| Parâmetros | Finalidade |
+|-----------|--------------|
+| **searchFields** | Limita a pesquisa de texto completo à lista de campos nomeados. |
+| **$select** | Corta a resposta para incluir apenas os campos especificados. Por padrão, todos os campos recuperáveis são retornados. O parâmetro **$select** permite que você escolha quais deseja retornar. |
+
+Considerando uma meta de restringir a pesquisa para campos que contêm cadeias de caracteres em francês, você usaria **searchFields** para direcionar a consulta em campos que contêm cadeias de caracteres nesse idioma.
+
+Não é necessário especificar o analisador em uma solicitação de consulta. Um analisador de linguagem na definição de campo sempre será usado durante o processamento da consulta. Para consultas que especificam vários campos que chamam diferentes analisadores de idioma, os termos ou frases serão processados independentemente pelos analisadores atribuídos para cada campo.
+
+Por padrão, uma pesquisa retorna todos os campos marcados como recuperáveis. Sendo assim, talvez convenha excluir campos que não estão em conformidade com a experiência de pesquisa específica a um idioma que você deseja fornecer. Especificamente, se você limitou a pesquisa a um campo com cadeias de caracteres em francês, você provavelmente deseja excluir os campos com cadeias de caracteres em inglês dos seus resultados. O uso do parâmetro de consulta **$select** oferece controle sobre quais campos são retornados para o aplicativo de chamada.
+
+#### <a name="example-in-rest"></a>Exemplo em REST
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "animaux acceptés",
+    "searchFields": "Tags, Description_fr",
+    "select": "HotelName, Description_fr, Address/City, Address/StateProvince, Tags",
+    "count": "true"
+}
+```
+
+#### <a name="example-in-c"></a>Exemplo em C #
+
+```csharp
+private static void RunQueries(SearchClient srchclient)
+{
+    SearchOptions options;
+    SearchResults<Hotel> response;
+
+    options = new SearchOptions()
+    {
+        IncludeTotalCount = true,
+        Filter = "",
+        OrderBy = { "" }
+    };
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Description_fr");
+    options.SearchFields.Add("Tags");
+    options.SearchFields.Add("Description_fr");
+
+    response = srchclient.Search<Hotel>("*", options);
+    WriteDocuments(response);
+}
+```
 
 ## <a name="boost-language-specific-fields"></a>Impulsionar campos específicos do idioma
 
-Às vezes, o idioma do agente emissor de uma consulta não é conhecido; nesse caso, a consulta pode ser emitida em todos os campos simultaneamente. Se necessário, a preferência de resultados em um determinado idioma pode ser definida usando os [perfis de pontuação](index-add-scoring-profiles.md). No exemplo abaixo, as correspondências encontradas na descrição em inglês terão uma pontuação superior em relação às correspondências em polonês e francês:
+Às vezes, o idioma do agente emissor de uma consulta não é conhecido; nesse caso, a consulta pode ser emitida em todos os campos simultaneamente. A preferência de IA para resultados em uma determinada linguagem pode ser definida usando [perfis de Pontuação](index-add-scoring-profiles.md). No exemplo a seguir, as correspondências encontradas na descrição em inglês serão pontuadas em relação às correspondências em outros idiomas:
 
-```http
-    "scoringProfiles": [
-      {
-        "name": "englishFirst",
-        "text": {
-          "weights": { "description_en": 2 }
-        }
+```JSON
+  "scoringProfiles": [
+    {
+      "name": "englishFirst",
+      "text": {
+        "weights": { "description": 2 }
       }
-    ]
+    }
+  ]
 ```
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
+Em seguida, você incluiria o perfil de pontuação na solicitação de pesquisa:
+
+```http
+POST /indexes/hotels/docs/search?api-version=2020-06-30
+{
+  "search": "pets allowed",
+  "searchFields": "Tags, Description",
+  "select": "HotelName, Tags, Description",
+  "scoringProfile": "englishFirst",
+  "count": "true"
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você for um desenvolvedor do .NET, observe que é possível configurar os analisadores de idioma usando o [SDK do .net pesquisa cognitiva do Azure](https://www.nuget.org/packages/Microsoft.Azure.Search) e a propriedade [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) .
++ [Analisadores de linguagem](index-add-language-analyzers.md)
++ [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
++ [API REST para pesquisar documentos](/rest/api/searchservice/search-documents)
++ [Visão geral de enriquecimento de ia](cognitive-search-concept-intro.md)
++ [Visão geral do habilidades](cognitive-search-working-with-skillsets.md)

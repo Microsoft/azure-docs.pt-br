@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 64a9bc3cf00af66c65b06b9edbed4621668b05bc
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: e994dbb9932dd661486fa37511db79178be826ca
+  ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100365014"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102182206"
 landingContent:
 - title: Sobre a Configuração de Aplicativos do Azure
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: overview.md
     - text: Perguntas frequentes
       url: faq.yml
+    - text: Práticas recomendadas
+      url: howto-best-practices.md
   - linkListType: video
     links:
     - text: Introdução à Configuração de Aplicativos do Azure
@@ -52,15 +54,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Codificar um aplicativo do ASP.NET Core
+      url: quickstart-aspnet-core-app.md
     - text: Codificar um aplicativo .NET Core
       url: quickstart-dotnet-core-app.md
     - text: Codificar um aplicativo .NET Framework
       url: quickstart-dotnet-app.md
-    - text: Codificar um aplicativo do ASP.NET Core
-      url: quickstart-aspnet-core-app.md
     - text: Codificar um aplicativo do Azure Functions em C#
       url: quickstart-azure-functions-csharp.md
-    - text: Codificar um aplicativo do Spring Boot
+    - text: Codificar um aplicativo do Java Spring
       url: quickstart-java-spring-app.md
     - text: Codificar um aplicativo Python
       url: quickstart-python.md
@@ -78,6 +80,8 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Usar configuração dinâmica no Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
+    - text: Como integrar a configuração dinâmica usando o modelo de push
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Integrar com um pipeline de CI/CD
@@ -102,10 +106,10 @@ landingContent:
       url: concept-feature-management.md
   - linkListType: quickstart
     links:
-    - text: Aplicativo do .NET Core
-      url: use-feature-flags-dotnet-core.md
     - text: Aplicativo do ASP.NET Core
       url: quickstart-feature-flag-aspnet-core.md
+    - text: Aplicativo do .NET Core
+      url: use-feature-flags-dotnet-core.md
     - text: Aplicativo do .NET Framework
       url: quickstart-feature-flag-dotnet.md
     - text: Aplicativo Spring Boot
@@ -114,6 +118,12 @@ landingContent:
     links:
     - text: Gerenciar sinalizadores de recursos
       url: manage-feature-flags.md
+    - text: Usar sinalizadores de recursos no ASP.NET Core
+      url: use-feature-flags-dotnet-core.md
+    - text: Usar sinalizadores de recursos no Spring Boot
+      url: use-feature-flags-spring-boot.md
+    - text: Habilitar um recurso para os usuários/grupos especificados
+      url: howto-targetingfilter-aspnet-core.md
   - linkListType: reference
     links:
     - text: Biblioteca do .NET Core
@@ -129,7 +139,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: CLI do Azure
-      url: /cli/azure/appconfig?view=azure-cli-latest
+      url: /cli/azure/appconfig
     - text: PowerShell
       url: /powershell/module/az.appconfiguration/
     - text: Terraform

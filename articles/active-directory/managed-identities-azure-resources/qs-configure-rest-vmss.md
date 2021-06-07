@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090613"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780165"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -60,13 +60,13 @@ Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenc
 
 Para criar um conjunto de dimensionamento de máquinas virtuais com identidade gerenciada atribuída ao sistema habilitada, será necessário criar um conjunto de dimensionamento de máquinas virtuais e recuperar um token de acesso para usar CURL para chamar o ponto de extremidade do Resource Manager com o valor de tipo de identidade gerenciada atribuída ao sistema.
 
-1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
+1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az_group_create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para seu conjunto de dimensionamento de máquinas virtuais:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az_network_nic_create) para seu conjunto de dimensionamento de máquinas virtuais:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -325,7 +325,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    az account get-access-token
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para seu conjunto de dimensionamento de máquinas virtuais:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az_network_nic_create) para seu conjunto de dimensionamento de máquinas virtuais:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

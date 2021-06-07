@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 5df7088551e7e7f616077342b762baca179f8640
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095130"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102123353"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -56,10 +56,10 @@ Os cenários a seguir não têm suporte no momento:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-- O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2*: não atribua um grupo como ativo a uma função por meio do Azure AD e do PRIVILEGED Identity Management (PIM). Especificamente, não atribua uma função a um grupo de função atribuível quando ela estiver sendo criada *e* atribua uma função ao grupo usando o PIM posteriormente. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
   - A hora de término da atribuição de função pode ser exibida incorretamente.
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
+- O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  
 - Use o novo [centro de administração do Exchange](https://admin.exchange.microsoft.com/) para atribuições de função por meio da Associação de grupo. O antigo centro de administração do Exchange ainda não dá suporte a esse recurso. Os cmdlets do PowerShell do Exchange funcionarão conforme o esperado.
 - O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.

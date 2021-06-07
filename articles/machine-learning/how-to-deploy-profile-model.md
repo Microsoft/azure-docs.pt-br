@@ -13,10 +13,10 @@ zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
 ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93320401"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Criar o perfil de seu modelo para determinar a utilização de recursos

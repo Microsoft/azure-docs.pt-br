@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0cb2830c019635e9020a4b586bdc370450fddb0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99253995"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Compartimentação de senhas para logon único com o Proxy de Aplicativo
@@ -48,7 +48,7 @@ Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo.
 1. Clique em **Salvar**.
 1. Selecione **Proxy de Aplicativo**. 
 1. Altere o **tipo de pré-autenticação** para **Azure Active Directory** e selecione **salvar**. 
-1. Selecione **usuários e grupos**.
+1. Selecione **Usuários e Grupos**.
 1. Atribua usuários ao aplicativo com a seleção de **Adicionar usuário**. 
 1. Se você quiser predefinir credenciais para um usuário, marque a caixa de diálogo do nome de usuário e selecione **Atualizar credenciais**.
 1. Selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **todos os aplicativos**.

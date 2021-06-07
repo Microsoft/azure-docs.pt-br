@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724752"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>Crie resiliência em sua arquitetura híbrida
@@ -56,7 +56,7 @@ Para implementar o PHS, consulte os seguintes recursos:
 
 * [Implementar a sincronização de hash de senha com o Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md)
 
-* [Habilitar a sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Permitir a sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md)
 
 Se seus requisitos forem de modo que você não possa usar o PHS, use a autenticação de passagem.
 

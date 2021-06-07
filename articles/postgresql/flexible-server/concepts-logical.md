@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707856"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Replicação lógica e decodificação lógica no banco de dados do Azure para PostgreSQL-servidor flexível
@@ -53,8 +53,8 @@ Decodificação lógica
 
 ### <a name="logical-replication"></a>Replicação lógica
 A replicação lógica usa os termos ' publicador ' e ' Assinante '. 
-* O Publicador é o banco de dados PostgreSQL **do**qual você está enviando um dado. 
-* O assinante é o banco de dados PostgreSQL **para**o qual você está enviando um dado.
+* O Publicador é o banco de dados PostgreSQL **do** qual você está enviando um dado. 
+* O assinante é o banco de dados PostgreSQL **para** o qual você está enviando um dado.
 
 Aqui está um código de exemplo que você pode usar para experimentar a replicação lógica.
 

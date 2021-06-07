@@ -11,10 +11,10 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78183713"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: solicitações de suporte a arquivo
@@ -35,9 +35,9 @@ Você pode arquivar solicitações de suporte para Azure Active Directory B2C (A
 1. Na folha **Fundamentos**, use esses detalhes e clique em **Próximo**.
 
     * O **Tipo de emissão** é **Técnico**.
-    * Escolha a **Assinatura**apropriada.
+    * Escolha a **Assinatura** apropriada.
     * O **Serviço** é **Active Directory**.
-    * Escolha o **Plano de suporte**apropriado. Se não tiver um, inscreva-se para ter um [aqui](https://azure.microsoft.com/support/plans/).
+    * Escolha o **Plano de suporte** apropriado. Se não tiver um, inscreva-se para ter um [aqui](https://azure.microsoft.com/support/plans/).
 
      ![Página noções básicas com o botão Avançar realçado em portal do Azure](./media/support-options/support-basics.png)
 
@@ -45,7 +45,7 @@ Você pode arquivar solicitações de suporte para Azure Active Directory B2C (A
 
     * Escolha o nível de **Gravidade** apropriado.
     * O **Tipo de problema** é **B2C**.
-    * Escolha a **Categoria**apropriada.
+    * Escolha a **Categoria** apropriada.
     * Descreva seu problema no campo **Detalhes** . Forneça detalhes como o nome do locatário B2C, a descrição do problema, a mensagens de erro, as IDs de correlação (se estiverem disponíveis) e assim por diante.
     * No campo **Período** , forneça a data e a hora (incluindo o fuso horário) de quando o problema ocorreu.
     * Em **Upload do arquivo**, carregue todas as capturas de tela e arquivos que você acha que ajudariam na resolução do problema.

@@ -1,25 +1,27 @@
 ---
 title: Tutorial – Criar e gerenciar redes virtuais do Azure para VMs Linux
 description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e gerenciar redes virtuais do Azure para Máquinas Virtuais do Linux
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
+ms.collection: linux
 tags: azure-resource-manager
+ms.subservice: networking
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 6356d9b587847ff2b49574b970109ada0d785660
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704483"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102564621"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerenciar redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -300,4 +302,4 @@ Neste tutorial, você criou e protegeu redes do Azure em relação às máquinas
 > * Protegem o tráfego de rede
 > * Criar VM back-end
 
-Para saber como proteger seus discos de VM, confira [Backup e recuperação de desastre para discos](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber como proteger seus discos de VM, confira [Backup e recuperação de desastre para discos](../backup-and-disaster-recovery-for-azure-iaas-disks.md).

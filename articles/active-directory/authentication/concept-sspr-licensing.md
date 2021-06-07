@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 03/08/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743717"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952364"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licenciamento para Azure Active Directory redefinição de senha de autoatendimento
 
@@ -26,7 +26,7 @@ Este artigo detalha as diferentes maneiras pelas quais a redefinição de senha 
 
 ## <a name="compare-editions-and-features"></a>Comparar edições e recursos
 
-O SSPR é licenciado por usuário. Para manter a conformidade, as organizações são obrigadas a atribuir a licença apropriada aos seus usuários.
+SSPR requer uma licença somente para o locatário. 
 
 A tabela a seguir descreve os diferentes cenários de SSPR para alteração de senha, redefinição ou Write-back local e quais SKUs fornecem o recurso.
 
@@ -41,17 +41,11 @@ A tabela a seguir descreve os diferentes cenários de SSPR para alteração de s
 
 Para obter informações adicionais sobre licenciamento, incluindo custos, consulte as seguintes páginas:
 
-* [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Recursos e funcionalidades do Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 * [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
-
-## <a name="enable-group-or-user-based-licensing"></a>Habilitar licenciamento com base em grupo ou usuário
-
-O Azure AD dá suporte ao licenciamento baseado em grupo. Os administradores podem atribuir licenças em massa a um grupo de usuários, em vez de atribuí-las uma por vez. Para obter mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
-
-Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador deve especificar a propriedade **local de uso** no usuário. A atribuição de licenças pode ser feita na seção Configurações de perfil do **usuário**  >  **Profile**  >  **Settings** no portal do Azure. *Ao usar a atribuição de licença de grupo, qualquer usuário sem um local de uso especificado herda o local do diretório.*
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 8d55f17ba0fe42dab5ac9c7d2e3c09400b3d7029
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744165"
 ---
 # <a name="azure-cloud-services-extended-support-definition-workerrole-schema"></a>Esquema WorkerRole de definição de serviços de nuvem do Azure (suporte estendido)
@@ -148,7 +148,7 @@ A tabela a seguir descreve os atributos do elemento `WorkerRole`.
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
 |name|string|Obrigatórios. O nome da função de trabalho. O nome da função deve ser exclusivo.|
-|enableNativeCodeExecution|booleano|Opcional. O valor padrão é `true`; a execução de código nativo e a confiança total são habilitadas por padrão. Defina este atributo como `false` para desabilitar a execução de código nativo para a função de trabalho e usar a confiança parcial do Azure em vez disso.|
+|enableNativeCodeExecution|boolean|Opcional. O valor padrão é `true`; a execução de código nativo e a confiança total são habilitadas por padrão. Defina este atributo como `false` para desabilitar a execução de código nativo para a função de trabalho e usar a confiança parcial do Azure em vez disso.|
 |vmsize|string|Opcional. Defina esse valor para alterar o tamanho da máquina virtual alocada para esta função. O valor padrão é `Small`. Para obter uma lista de tamanhos de máquinas virtuais possíveis e seus atributos, consulte [Tamanhos de máquina virtual para os Serviços de Nuvem do Azure](available-sizes.md).|
 
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings
@@ -179,7 +179,7 @@ A tabela a seguir descreve os atributos do elemento `LocalStorage`.
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
 |name|string|Obrigatórios. Um nome exclusivo para o repositório local.|
-|cleanOnRoleRecycle|booleano|Opcional. Indica se o repositório local deve ser limpo quando a função é reiniciada. O valor padrão é `true`.|
+|cleanOnRoleRecycle|boolean|Opcional. Indica se o repositório local deve ser limpo quando a função é reiniciada. O valor padrão é `true`.|
 |sizeInMb|INT|Opcional. A quantidade desejada de espaço de armazenamento a ser alocado para o repositório local, em MB. Se não estiver especificada, o espaço de armazenamento padrão alocado será 100 MB. A quantidade mínima de espaço de armazenamento que pode ser alocada é 1 MB.<br /><br /> O tamanho máximo dos recursos locais depende do tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquina virtual para os Serviços de Nuvem](available-sizes.md).|
 
 O nome do diretório alocado ao recurso de armazenamento local corresponde ao valor fornecido para o atributo de nome.
@@ -206,7 +206,7 @@ A tabela a seguir descreve os atributos do elemento `InputEndpoint`.
 |porta|INT|Obrigatórios. A porta do ponto de extremidade externo. É possível especificar qualquer número da porta escolhido, mas os números da porta especificados para cada função no serviço devem ser exclusivos.<br /><br /> Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
 |certificado|string|Obrigatório para um ponto de extremidade HTTPS. O nome de um certificado definido por um elemento `Certificate`.|
 |localPort|INT|Opcional. Especifica uma porta usada para conexões internas no ponto de extremidade. O atributo `localPort` mapeia a porta externa no ponto de extremidade para uma porta interna em uma função. Isso é útil em cenários em que uma função deve se comunicar com um componente interno em uma porta diferente da que está exposta externamente.<br /><br /> Se não estiver especificado, o valor de `localPort` será o mesmo que o do atributo `port`. Defina o valor de `localPort` como "*" para atribuir automaticamente uma porta não alocada que pode ser descoberta usando a API de runtime.<br /><br /> Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).<br /><br /> O atributo `localPort` só está disponível usando o SDK do Azure versão 1.3 ou superior.|
-|ignoreRoleInstanceStatus|booleano|Opcional. Quando o valor deste atributo é definido como `true`, o status de um serviço é ignorado e o ponto de extremidade não será removido pelo balanceador de carga. Definir esse valor como `true` é útil para depurar instâncias ocupadas de um serviço. O valor padrão é `false`. **Observação:** um ponto de extremidade ainda poderá receber tráfego mesmo quando a função não estiver em um estado Pronto.|
+|ignoreRoleInstanceStatus|boolean|Opcional. Quando o valor deste atributo é definido como `true`, o status de um serviço é ignorado e o ponto de extremidade não será removido pelo balanceador de carga. Definir esse valor como `true` é útil para depurar instâncias ocupadas de um serviço. O valor padrão é `false`. **Observação:** um ponto de extremidade ainda poderá receber tráfego mesmo quando a função não estiver em um estado Pronto.|
 |loadBalancerProbe|string|Opcional. O nome da sonda do balanceador de carga associada ao ponto de extremidade de entrada. Para obter mais informações, consulte o [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md) (Esquema LoadBalancerProbe).|
 
 ##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a> InternalEndpoint
@@ -359,7 +359,7 @@ A tabela a seguir descreve os atributos do elemento `ProgramEntryPoint`.
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
 |commandLine|string|Obrigatórios. O caminho o nome do arquivo e argumentos da linha de comando do programa a ser executado. O caminho é relativo à pasta **%ROLEROOT%\Approot** (não especifique **%ROLEROOT%\Approot** em commandLine; ele é presumido). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta **%ROLEROOT%\Approot** representa a pasta do aplicativo da função.<br /><br /> Se o programa for encerrado, a função será reciclada. Portanto, geralmente, defina o programa para continuar sendo executado, em vez de ser um programa que apenas é inicializado e executa uma tarefa finita.|
-|setReadyOnProcessStart|booleano|Obrigatórios. Especifica se a instância de função aguarda o programa de linha de comando indicar que ele é iniciado. Este valor deve ser definido como `true` neste momento. Definir o valor como `false` é reservado para uso futuro.|
+|setReadyOnProcessStart|boolean|Obrigatórios. Especifica se a instância de função aguarda o programa de linha de comando indicar que ele é iniciado. Este valor deve ser definido como `true` neste momento. Definir o valor como `false` é reservado para uso futuro.|
 
 ##  <a name="startup"></a><a name="Startup"></a> Inicialização
 O elemento `Startup` descreve uma coleção de tarefas que são executadas quando a função é iniciada. Esse elemento pode ser o pai do elemento `Variable`. Para obter mais informações sobre como usar as tarefas de inicialização de função, consulte [How to configure startup tasks](../cloud-services/cloud-services-startup-tasks.md) (Como configurar tarefas de inicialização). Esse elemento é opcional e uma função pode ter apenas um bloco de inicialização.
@@ -412,7 +412,7 @@ A tabela a seguir descreve os atributos do elemento `SourceDirectory`.
 | --------- | ---- | ----------- |
 |caminho|string|Obrigatórios. Caminho relativo ou absoluto de um diretório local cujo conteúdo será copiado para a máquina virtual do Azure. Há suporte para a expansão de variáveis de ambiente no caminho de diretório.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Esquema de definição do serviço de nuvem (suporte estendido)](schema-csdef-file.md).
 
 

@@ -4,10 +4,10 @@ description: Descreve como fazer backup e restaurar VMs do Azure criptografadas 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99223450"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
@@ -37,7 +37,7 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 **Tipo de disco da VM** | **ADE (BEK/DM-cript.)** | **ADE e KEK**
 --- | --- | ---
 **Não gerenciado** | Sim | Sim
-**Gerenciada**  | Sim | Sim
+**Gerenciado**  | Sim | Sim
 
 - Saiba mais sobre [Ade](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Leia as [perguntas frequentes](../security/fundamentals/azure-disk-encryption-vms-vmss.md) sobre a criptografia de disco de VM do Azure.

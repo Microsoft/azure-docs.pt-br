@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333555"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implantar Azure Cosmos DB e Azure App serviço com um aplicativo Web do GitHub usando um modelo de Azure Resource Manager
@@ -84,13 +84,13 @@ Em seguida, navegue até o serviço de Azure App no grupo de recursos. Clique na
 
 Em seguida, vá para a central de implantação do serviço de aplicativo. Aqui, você verá pontos de repositório para o repositório GitHub passado para o modelo. Além disso, o status abaixo indica êxito (ativo), o que significa que o aplicativo foi implantado e iniciado com êxito.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centro de Implantação":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centro de implantação":::
 
 ### <a name="run-the-web-application"></a>Executar o aplicativo Web
 
 Clique em **procurar** na parte superior da central de implantação para abrir o aplicativo Web. O aplicativo Web será aberto até a tela inicial. Clique em **criar novo** e insira alguns dados nos campos e clique em salvar. A tela resultante mostra os dados salvos em Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Tela de Início":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Tela inicial":::
 
 ## <a name="step-3-how-does-it-work"></a>Etapa 3: como funciona
 

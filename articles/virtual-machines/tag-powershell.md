@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.openlocfilehash: bf13d5c0caeb0bf31a383cd23155a6856c81c53b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897384"
 ---
 # <a name="how-to-tag-a-virtual-machine-in-azure-using-powershell"></a>Como marcar uma máquina virtual no Azure usando o PowerShell

@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150331"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802957"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](./overview.md), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](./overview.md), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium** ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
 
 A implantação do aplicativo em um slot de não produção traz os seguintes benefícios:
 
@@ -30,7 +30,7 @@ Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Adicionar um slot
-O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Isolated** para que você habilite vários slots de implantação.
+O aplicativo deve estar em execução na camada **Standard**, **Premium** ou **Isolated** para que você habilite vários slots de implantação.
 
 
 1. na [portal do Azure](https://portal.azure.com/), procure e selecione serviços de **aplicativos** e selecione seu aplicativo. 
@@ -43,7 +43,7 @@ O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Is
     ![Adicionar um novo slot de implantação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se o aplicativo ainda não estiver na camada **Standard**, **Premium**ou **Isolated** , você receberá uma mensagem que indica as camadas com suporte para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **escala** do seu aplicativo antes de continuar.
+   > Se o aplicativo ainda não estiver na camada **Standard**, **Premium** ou **Isolated** , você receberá uma mensagem que indica as camadas com suporte para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **escala** do seu aplicativo antes de continuar.
    > 
 
 3. Na caixa de diálogo **Adicionar um slot** , dê um nome ao slot e selecione se deseja clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
@@ -185,7 +185,7 @@ Para configurar a troca automática:
 
 1. Vá para a página de recursos do aplicativo. Selecione **Slots de implantação**  >  *\<desired source slot>*  >  **configuração**  >  **geral configurações**.
    
-2. Para a **troca automática habilitada**, selecione **ativado**. Em seguida, selecione o slot de destino desejado para o **slot de implantação de permuta automática**e selecione **salvar** na barra de comandos. 
+2. Para a **troca automática habilitada**, selecione **ativado**. Em seguida, selecione o slot de destino desejado para o **slot de implantação de permuta automática** e selecione **salvar** na barra de comandos. 
    
     ![Seleções para configurar a troca automática](./media/web-sites-staged-publishing/AutoSwap02.png)
 
@@ -214,6 +214,7 @@ Você também pode personalizar o comportamento de aquecimento com uma ou ambas 
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Um exemplo é `200,202` . Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
+- `WEBSITE_WARMUP_PATH`: Um caminho relativo no site que deve ser pingado sempre que o site for reiniciado (não apenas durante trocas de slot). Os valores de exemplo incluem `/statuscheck` ou o caminho raiz, `/` .
 
 > [!NOTE]
 > O `<applicationInitialization>` elemento de configuração faz parte de cada inicialização de aplicativo, enquanto as duas configurações de aplicativo de comportamento de aquecimento se aplicam somente a trocas de slot.
@@ -222,7 +223,7 @@ Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoo
 
 ## <a name="monitor-a-swap"></a>Monitorar uma troca
 
-Se a [operação de permuta](#AboutConfiguration) levar muito tempo para ser concluída, você poderá obter informações sobre a operação de permuta no [log de atividades](../azure-monitor/platform/platform-logs-overview.md).
+Se a [operação de permuta](#AboutConfiguration) levar muito tempo para ser concluída, você poderá obter informações sobre a operação de permuta no [log de atividades](../azure-monitor/essentials/platform-logs-overview.md).
 
 Na página de recursos do aplicativo no portal, no painel esquerdo, selecione log de **atividades**.
 
@@ -238,7 +239,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -274,7 +275,7 @@ Por padrão, novos slots recebem uma regra de roteamento `0%` , mostrada em cinz
 
 ## <a name="delete-a-slot"></a>Excluir um slot
 
-Pesquise e selecione seu aplicativo. Selecione **Deployment slots**  >  *\<slot to delete>*  >  **visão geral dos**slots de implantação. O tipo de aplicativo é mostrado como **serviço de aplicativo (slot)** para lembrá-lo de que você está exibindo um slot de implantação. Selecione **excluir** na barra de comandos.  
+Pesquise e selecione seu aplicativo. Selecione   >  *\<slot to delete>*  >  **visão geral dos** slots de implantação. O tipo de aplicativo é mostrado como **serviço de aplicativo (slot)** para lembrá-lo de que você está exibindo um slot de implantação. Selecione **excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.openlocfilehash: e8ac3e376c8d67e82def3a57910707c6b1433912
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333147"
 ---
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Níveis de consistência para Azure Cosmos DB e a API para MongoDB

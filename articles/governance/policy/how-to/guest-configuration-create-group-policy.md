@@ -4,17 +4,17 @@ description: Saiba como converter Política de Grupo da linha de base de seguran
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348637"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidado da linha de base de Política de Grupo para Windows
 
 Antes de criar definições de política personalizadas, é uma boa ideia ler as informações de visão geral conceitual em [Azure Policy configuração de convidado](../concepts/guest-configuration.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para Linux, consulte [como criar políticas de configuração de convidado para Linux](./guest-configuration-create-linux.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para o Windows, consulte [como criar políticas de configuração de convidado para o Windows](./guest-configuration-create.md).
 
-Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração não estiver **em conformidade** , o efeito de política *auditIfNotExists* será disparado.
+Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração não estiver **em conformidade**, o efeito de política *auditIfNotExists* será disparado.
 [Azure Policy configuração de convidado](../concepts/guest-configuration.md) só audita configurações dentro de computadores.
 
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ Neste guia, percorreremos o processo para criar um pacote de configuração de c
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Baixe a linha de base de segurança do Windows Server 2019 e instale os módulos do PowerShell relacionados
 
-Para instalar o **DSC** , o **GuestConfiguration** , o **Gerenciamento de linha de base** e os módulos do Azure relacionados no PowerShell:
+Para instalar o **DSC**, o **GuestConfiguration**, o **Gerenciamento de linha de base** e os módulos do Azure relacionados no PowerShell:
 
 1. Em um prompt do PowerShell, execute o seguinte comando:
 

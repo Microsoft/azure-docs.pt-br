@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357242"
 ---
 # <a name="401003-iothubunauthorized"></a>IoTHubUnauthorized 401003
@@ -26,7 +26,7 @@ Este artigo descreve as causas e soluções para erros de **401003 IoTHubUnautho
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-Nos logs, você verá um padrão de dispositivos desconectando com **401003 IoTHubUnauthorized** , seguido por **404104 DeviceConnectionClosedRemotely** e, em seguida, se conectar com êxito logo após.
+Nos logs, você verá um padrão de dispositivos desconectando com **401003 IoTHubUnauthorized**, seguido por **404104 DeviceConnectionClosedRemotely** e, em seguida, se conectar com êxito logo após.
 
 ### <a name="symptom-2"></a>Sintoma 2
 

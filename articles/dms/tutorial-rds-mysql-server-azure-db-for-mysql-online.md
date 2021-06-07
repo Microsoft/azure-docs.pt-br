@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 3f2efd4051b427a4d7cef0e609f733095c6b020f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 13095824122f1d4b59ecde445efa1ea8bfa60dcd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259178"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063569"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
 Use o Serviço de Migração de Banco de Dados do Azure para migrar bancos de dados de uma instância do RDS MySQL para o [Banco de Dados do Azure para MySQL](../mysql/index.yml), enquanto o banco de dados de origem permanece online durante a migração. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você migrará o banco de dados de exemplo **Employees** de uma instância do RDS MySQL para o Banco de Dados do Azure para MySQL usando a atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
+
+> [!IMPORTANT]
+> O cenário de migração online “RDS MySQL para Banco de Dados do Azure para MySQL” será substituído por um cenário de migração offline de alto desempenho e paralelizado em 1º de junho de 2021. Para migrações online, você pode usar essa nova oferta junto com a [Replicação de Dados](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Como alternativa, use ferramentas de software livre, como [o MyDumper/o MyLoader](https://centminmod.com/mydumper.html) com a Replicação de Dados para migrações online. 
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
@@ -57,8 +60,8 @@ Para concluir este tutorial, você precisará:
 * Baixe e instale o [banco de dados de exemplo **Employees** do MySQL](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Crie uma instância do [Banco de Dados do Azure para MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md).
 * Criar uma Rede Virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para obter mais informações sobre como criar uma rede virtual, confira a [Documentação da Rede Virtual](../virtual-network/index.yml) e, especificamente, os artigos de Início Rápido com detalhes passo a passo.
-* Verifique se as regras do Grupo de Segurança de Rede da rede virtual não bloqueiam as seguintes portas de comunicação de saída para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configure o [Firewall do Windows](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) (ou Firewall do Linux) para permitir o acesso ao mecanismo de banco de dados. Para o servidor MySQL, permita a porta 3306 para conectividade.
+* Verifique se as regras do grupo de segurança de rede da rede virtual não bloqueiam a porta de saída 443 de ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configure o [Firewall do Windows](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (ou Firewall do Linux) para permitir o acesso ao mecanismo de banco de dados. Para o servidor MySQL, permita a porta 3306 para conectividade.
 
 > [!NOTE]
 > O Banco de Dados do Azure para MySQL dá suporte somente a tabelas do InnoDB. Para converter tabelas do MyISAM para o InnoDB, confira o artigo [Como converter tabelas do MyISAM para o InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html).

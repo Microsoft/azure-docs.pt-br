@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319288"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores e bancos de dados individuais no Azure SQL Database
@@ -112,7 +112,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls com [o CLI do Azu
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Atualiza uma regra de firewall|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Exclui uma regra de firewall|
 
-## <a name="transact-sql-t-sql"></a>Transact-SQL (T-SQL)
+## <a name="transact-sql-t-sql"></a>T-SQL (Transact-SQL)
 
 Para criar e gerenciar servidores, bancos de dados e firewalls com o Transact-SQL, use os comandos T-SQL a seguir. Você pode emitir esses comandos usando o portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)ou qualquer outro programa que possa se conectar a um servidor no banco de dados SQL e passar comandos Transact-SQL. Para gerenciar pools elásticos, consulte [Pools elásticos](elastic-pool-overview.md).
 

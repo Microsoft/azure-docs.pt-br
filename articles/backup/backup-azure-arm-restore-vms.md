@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820561"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568742"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -160,7 +160,7 @@ Se a CRR estiver habilitada, você poderá exibir os itens de backup na região 
 
 A experiência do usuário de restauração da região secundária será semelhante à experiência do usuário de restauração da região primária. Ao configurar detalhes no painel de configuração de restauração para configurar a restauração, você será solicitado a fornecer somente os parâmetros de região secundária.
 
-Atualmente, o [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) de região secundária é de até 12 horas a partir da região primária, embora a replicação de [armazenamento com REDUNDÂNCIA geográfica (ra-grs) de acesso de leitura](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
+Atualmente, o [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) de região secundária é de até 12 horas a partir da região primária, embora a replicação de [armazenamento com REDUNDÂNCIA geográfica (ra-grs) de acesso de leitura](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) seja de 15 minutos.
 
 ![Escolher a VM a ser restaurada](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,9 +179,9 @@ Atualmente, o [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) de re
 >- O recurso de restauração entre regiões restaura as VMs do Azure habilitadas para CMK (chaves gerenciadas pelo cliente), cujo backup não é feito em um cofre de serviços de recuperação habilitado para o CMK, como VMs não habilitadas para CMK na região secundária.
 >- As funções do Azure necessárias para restaurar na região secundária são as mesmas da região primária.
 
-As [VMs fixas da zona do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) podem ser restauradas em qualquer [zona de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) da mesma região.
+As [VMs fixas da zona do Azure](../virtual-machines/windows/create-portal-availability-zone.md) podem ser restauradas em qualquer [zona de disponibilidade](../availability-zones/az-overview.md) da mesma região.
 
-No processo de restauração, você verá a opção **zona de disponibilidade.** Você verá sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona de sua escolha. Se a zona fixada não estiver disponível, você não poderá restaurar os dados para outra zona, pois os dados de backup não são zonally replicados.
+No processo de restauração, você verá a opção **zona de disponibilidade.** Você verá sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona de sua escolha. Se a zona fixada não estiver disponível, você não poderá restaurar os dados para outra zona, pois os dados de backup não são zonally replicados. A restauração em zonas de disponibilidade é possível somente de pontos de recuperação na camada de cofre.
 
 ![Escolher zona de disponibilidade](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 
@@ -249,10 +249,10 @@ Há algumas coisas a serem observadas após a restauração de uma VM:
 - Extensões presentes durante a configuração do backup serão instaladas, mas não habilitadas. Se encontrar um problema, reinstale as extensões.
 - Se a VM de backup tiver um endereço IP estático, a VM restaurada terá um endereço IP dinâmico para evitar conflitos. Você pode [adicionar um endereço IP estático à VM restaurada](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - Uma VM restaurada não tem um conjunto de disponibilidade. Se você usar a opção restaurar disco, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM a partir do disco usando o modelo ou o PowerShell fornecido.
-- Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/troubleshooting/reset-password.md). Recomendamos o uso de chaves SSH nessas distribuições, para que você não precise redefinir a senha após a restauração.
+- Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](/troubleshoot/azure/virtual-machines/reset-password). Recomendamos o uso de chaves SSH nessas distribuições, para que você não precise redefinir a senha após a restauração.
 - Se não for possível acessar uma VM depois de restaurada porque a VM tem uma relação quebrada com o controlador de domínio, siga as etapas abaixo para abrir a VM:
   - Anexe o disco do sistema operacional como um disco de dados a uma VM recuperada.
-  - Instale manualmente o agente de VM se o agente do Azure for considerado sem resposta seguindo este [link](../virtual-machines/troubleshooting/install-vm-agent-offline.md).
+  - Instale manualmente o agente de VM se o agente do Azure for considerado sem resposta seguindo este [link](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Habilitar o acesso ao console serial na VM para permitir o acesso de linha de comando à VM
 
   ```cmd

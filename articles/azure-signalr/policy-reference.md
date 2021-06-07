@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure SignalR
 description: Lista as definições de políticas internas do Azure Policy para o Azure SignalR. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 1974971fb81ec5ef4b87722be3218fd237a2c4ea
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.openlocfilehash: 884984ddcafa083ac2420598ef1282e438d8ad3b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095386"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501376"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Definições internas do Azure Policy para o Azure SignalR
 

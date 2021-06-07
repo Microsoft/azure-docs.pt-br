@@ -4,10 +4,10 @@ description: Este guia ajuda os administradores que criam e gerenciam contas de 
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462480"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - guia do administrador
@@ -121,7 +121,7 @@ Ao começar a usar o Azure Lab Services, recomendamos que você estabeleça conv
 | Resource group | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagens compartilhadas | \<organization short name\>-\<environment\>-RG<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte.</li><li>**Ambiente** identifica o ambiente para o recurso, como *piloto* ou *produção*.</li><li>**RG** significa o *grupo de recursos* do tipo de recurso.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Conta de laboratório | Contém um ou mais laboratórios | \<organization short name\>-\<environment\>-la<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte.</li><li>**Ambiente** identifica o ambiente para o recurso, como *piloto* ou *produção*.</li><li>**La** significa a *conta de laboratório* do tipo de recurso.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Laboratório | Contém uma ou mais VMs |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nome da classe** identifica o nome da classe à qual o laboratório dá suporte.</li><li>**Período de tempo** identifica o período no qual a classe é oferecida.</li>O **identificador do professor** identifica o professor que possui o laboratório.</li></ul> | CS1234-fall2019-diogomartins<br/>CS1234-spring2019-diogomartins |
-| Galeria de imagens compartilhadas | Contém uma ou mais versões da imagem da VM | \<organization short name\>gallery | contosouniversitylabsgallery |
+| Galeria de imagens compartilhadas | Contém uma ou mais versões da imagem da VM | \<organization short name\>clip | contosouniversitylabsgallery |
 
 Para obter mais informações sobre como nomear outros recursos do Azure, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
 

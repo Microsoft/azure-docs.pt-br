@@ -8,10 +8,10 @@ ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594224"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure
@@ -94,7 +94,7 @@ As conexões híbridas do serviço de aplicativos estão disponíveis apenas nos
 
 | Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
-| Básico | 5 por plano |
+| Basic | 5 por plano |
 | Standard | 25 por plano |
 | PremiumV2 | 200 por aplicativo |
 | Isolado | 200 por aplicativo |
@@ -134,7 +134,7 @@ Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 1. Selecione as Conexões Híbridas que você deseja que o HCM retransmita.
 ![Captura de tela de Conexões Híbridas][9]
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você pode ver as Conexões Híbridas adicionadas. Você também pode selecionar a Conexão híbrida configurada para ver os detalhes.
 
@@ -160,7 +160,7 @@ Para permitir que alguém fora da sua assinatura hospede uma instância HCM para
 
 ![Adicionar uma Conexão Híbrida manualmente][11]
 
-### <a name="upgrade"></a>Atualizar ###
+### <a name="upgrade"></a>Atualização ###
 
 Há atualizações periódicas no Gerenciador de Conexão Híbrida para corrigir problemas ou fornecer melhorias. Quando as atualizações são lançadas, um pop-up aparecerá na interface do usuário do HCM. A aplicação da atualização aplicará as mudanças e reiniciará o HCM. 
 

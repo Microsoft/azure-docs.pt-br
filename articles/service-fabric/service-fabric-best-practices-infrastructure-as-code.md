@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a0f0324d1f7308eb1392c4f7a98a6a5d226026be
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b765d92778df40caec0864dc6f547324216fdb07
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705499"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611973"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração de atualização automática do sistema operacional da máquina virtual do Azure 
-A atualização de suas máquinas virtuais é uma operação iniciada pelo usuário e é recomendável que você use a [atualização do sistema operacional automático do conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para o gerenciamento de patches do host do Azure Service Fabric clusters; O aplicativo de orquestração de patch é uma solução alternativa destinada a quando hospedado fora do Azure, embora POA possa ser usado no Azure, com sobrecarga de Hospedagem de POA no Azure sendo um motivo comum para preferir a atualização automática do sistema operacional da máquina virtual em POA. A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para habilitar a atualização automática do sistema operacional:
+A atualização de suas máquinas virtuais é uma operação iniciada pelo usuário e é recomendável que você use a [atualização do sistema operacional automático do conjunto de dimensionamento de máquinas virtuais](service-fabric-patch-orchestration-application.md) para o gerenciamento de patches do host do Azure Service Fabric clusters; O aplicativo de orquestração de patch é uma solução alternativa destinada a quando hospedado fora do Azure, embora POA possa ser usado no Azure, com sobrecarga de Hospedagem de POA no Azure sendo um motivo comum para preferir a atualização automática do sistema operacional da máquina virtual em POA. A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para habilitar a atualização automática do sistema operacional:
 
 ```json
 "upgradePolicy": {

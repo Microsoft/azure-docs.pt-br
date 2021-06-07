@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216743"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778282"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -25,8 +25,8 @@ O emparelhamento de rede virtual permite que você conecte diretamente duas ou m
 
 O Azure dá suporte aos seguintes tipos de emparelhamento:
 
-* Emparelhamento de rede virtual: Conecte redes virtuais na mesma região do Azure.
-* Emparelhamento de rede virtual global: conectando redes virtuais em regiões do Azure.
+* **Emparelhamento de rede virtual**: Conecte redes virtuais na mesma região do Azure.
+* **Emparelhamento de rede virtual global**: conectando redes virtuais em regiões do Azure.
 
 Os benefícios do uso do emparelhamento de rede virtual, seja local ou global, incluem:
 
@@ -110,7 +110,7 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Subscription  |
+    |Modelo de implantação do Azure             | Assinatura  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

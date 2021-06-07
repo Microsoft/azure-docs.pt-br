@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109231"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102431730"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações do sistema de arquivos em Data Lake Storage Gen1 usando o SDK do .NET
 
@@ -40,7 +40,7 @@ Para obter instruções sobre como fazer operações de gerenciamento de conta n
 
 O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) explica o processo de criação de arquivos no armazenamento, concatenação de arquivos, download de um arquivo e exclusão de alguns arquivos no armazenamento. Esta seção do artigo percorre com você as principais partes do código.
 
-1. No Visual Studio, selecione o menu **arquivo** , **novo**e **projeto**.
+1. No Visual Studio, selecione o menu **arquivo** , **novo** e **projeto**.
 1. Escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 1. Em **Nome do projeto**, digite `CreateADLApplication` e, em seguida, selecione **Criar**.
 1. Adicione os pacotes NuGet ao seu projeto.
@@ -202,7 +202,7 @@ Aqui estão alguns exemplos que mostram como usar o SDK do sistema de arquivos D
 ## <a name="see-also"></a>Veja também
 
 * [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
-* [Referência de SDK do .NET do Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Referência de SDK do .NET do Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store)
 
 ## <a name="next-steps"></a>Próximas etapas
 

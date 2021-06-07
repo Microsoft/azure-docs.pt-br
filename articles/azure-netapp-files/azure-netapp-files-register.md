@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
 ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696134"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files

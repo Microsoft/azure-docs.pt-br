@@ -3,14 +3,18 @@ title: Modelo de dados para eventos de diagnóstico de backup do Azure
 description: Esse modelo de dados está em referência ao modo específico de recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173978"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102499587"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup do Azure
+
+> [!NOTE]
+>
+> Para criar exibições de relatório personalizadas, é recomendável usar [funções do sistema em logs de Azure monitor](backup-reports-system-functions.md) em vez de trabalhar com as tabelas brutas listadas abaixo.
 
 ## <a name="coreazurebackup"></a>CoreAzureBackup
 
@@ -38,9 +42,9 @@ Esta tabela fornece informações sobre entidades de backup de núcleo, como cof
 | BackupManagementServerOSVersion   | Texto          | Versão do SO do servidor de gerenciamento de backup                   |
 | BackupManagementServerVersion     | Texto          | Versão do servidor de gerenciamento de backup                      |
 | LatestRecoveryPointLocation       | Texto          | Local do ponto de recuperação mais recente para o item de backup    |
-| LatestRecoveryPointTime           | Datetime      | Data e hora do ponto de recuperação mais recente para o item de backup   |
+| LatestRecoveryPointTime           | DateTime      | Data e hora do ponto de recuperação mais recente para o item de backup   |
 | OldestRecoveryPointLocation       | Texto          | Local do ponto de recuperação mais antigo para o item de backup    |
-| OldestRecoveryPointTime           | Datetime      | Data e hora do ponto de recuperação mais recente para o item de backup   |
+| OldestRecoveryPointTime           | DateTime      | Data e hora do ponto de recuperação mais recente para o item de backup   |
 | PolicyUniqueId                    | Texto          | ID exclusiva para identificar a política                             |
 | ProtectedContainerFriendlyName    | Texto          | Nome amigável do servidor protegido                        |
 | ProtectedContainerLocation        | Texto          | Se o contêiner protegido está localizado no local ou no Azure |
@@ -74,7 +78,7 @@ Essa tabela fornece detalhes sobre campos relacionados ao alerta.
 | Categoria                       | Texto          | Categoria de dados de diagnóstico enviados por push para logs de Azure Monitor-AddonAzureBackupAlerts |
 | AlertCode                      | Texto          | Código para identificar exclusivamente um tipo de alerta                     |
 | AlertConsolidationStatus       | Texto          | Identificar se o alerta é um alerta consolidado ou não         |
-| AlertOccurrenceDateTime        | Datetime      | Data e hora em que o alerta foi criado                     |
+| AlertOccurrenceDateTime        | DateTime      | Data e hora em que o alerta foi criado                     |
 | AlertRaisedOn                  | Texto          | Tipo de entidade em que o alerta é gerado                        |
 | AlertSeverity                  | Texto          | Severidade do alerta. Por exemplo, crítico                 |
 | AlertStatus                    | Texto          | Status do alerta. Por exemplo, ativo                     |
@@ -130,12 +134,12 @@ Esta tabela fornece detalhes sobre campos relacionados ao trabalho.
 | JobFailureCode                 | Texto          | Cadeia de caracteres de código de falha pela qual a falha no trabalho ocorreu    |
 | JobOperation                   | Texto          | Operação para a qual o trabalho é executado, por exemplo, backup, restauração, configurar backup |
 | JobOperationSubType            | Texto          | Subtipo da operação de trabalho. Por exemplo, ' log ', no caso do trabalho de backup de log |
-| JobStartDateTime               | Datetime      | Data e hora em que o trabalho iniciou a execução                       |
+| JobStartDateTime               | DateTime      | Data e hora em que o trabalho iniciou a execução                       |
 | JobStatus                      | Texto          | Status do trabalho concluído, por exemplo, Concluído, Com Falha   |
 | JobUniqueId                    | Texto          | ID exclusiva para identificar o trabalho                                |
 | ProtectedContainerUniqueId     | Texto          | Identificador exclusivo do servidor protegido associado ao trabalho |
 | RecoveryJobDestination         | Texto          | Destino de um trabalho de recuperação, em que os dados são recuperados   |
-| RecoveryJobRPDateTime          | Datetime      | A data, a hora em que o ponto de recuperação que está sendo recuperado foi criado |
+| RecoveryJobRPDateTime          | DateTime      | A data, a hora em que o ponto de recuperação que está sendo recuperado foi criado |
 | RecoveryJobLocation            | Texto          | O local onde o ponto de recuperação que está sendo recuperado foi armazenado |
 | RecoveryLocationType           | Texto          | Tipo do local de recuperação                                |
 | schemaVersion                  | Texto          | Versão atual do esquema, por exemplo, **V2**            |
@@ -220,7 +224,7 @@ Esta tabela fornece detalhes sobre campos relacionados ao armazenamento.
 
 ## <a name="valid-operation-names-for-each-table"></a>Nomes de operação válidos para cada tabela
 
-Cada registro nas tabelas acima tem um nome de **operação**associado. Um nome de operação descreve o tipo de registro (e também indica quais campos na tabela são preenchidos para esse registro). Cada tabela (categoria) dá suporte a um ou mais nomes de operação distintos. Veja abaixo um resumo dos nomes de operação com suporte para cada uma das tabelas acima.
+Cada registro nas tabelas acima tem um nome de **operação** associado. Um nome de operação descreve o tipo de registro (e também indica quais campos na tabela são preenchidos para esse registro). Cada tabela (categoria) dá suporte a um ou mais nomes de operação distintos. Veja abaixo um resumo dos nomes de operação com suporte para cada uma das tabelas acima.
 
 | **Nome da tabela/categoria**                   | **Nomes de operação com suporte** | **Descrição**              |
 | ------------------------------------------- | ------------------------------|----------------------------- |

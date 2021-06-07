@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054950"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025689"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho de HTTP do Azure Functions
 
@@ -596,7 +596,7 @@ Usando esta configuração, a função é agora endereçável com a seguinte rot
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Essa configuração permite que o código de função dê suporte a dois parâmetros no endereço, _category_ e _id_.
+Essa configuração permite que o código de função dê suporte a dois parâmetros no endereço, na _categoria_ e na _ID_. Para obter mais informações sobre como os parâmetros de rota são indexados em uma URL, consulte [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -751,7 +751,7 @@ A configuração a seguir mostra como o parâmetro `{id}` é passado para a `row
 
 Quando você usa parâmetros de rota, um `invoke_URL_template` é criado automaticamente para sua função. Os clientes podem usar o modelo de URL para entender os parâmetros que precisam passar na URL ao chamar sua função usando sua URL. Navegue até uma das funções disparadas por HTTP na [portal do Azure](https://portal.azure.com) e selecione **obter URL da função**.
 
-Você pode acessar programaticamente o usando `invoke_URL_template` as APIs de Azure Resource Manager para [funções de lista](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) ou [obter função](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+Você pode acessar programaticamente o usando `invoke_URL_template` as APIs de Azure Resource Manager para [funções de lista](/rest/api/appservice/webapps/listfunctions) ou [obter função](/rest/api/appservice/webapps/getfunction).
 
 ## <a name="working-with-client-identities"></a>Trabalhando com identidades de clientes
 

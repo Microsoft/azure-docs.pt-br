@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655690"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Conectar o F5 ASM ao Azure Sentinel

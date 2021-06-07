@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77194272"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>O que é Enterprise State Roaming?
 
-Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](../fundamentals/active-directory-whatis.md) obtêm a capacidade de sincronizar com segurança suas configurações de usuário e seus dados de configurações do aplicativo com a nuvem. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. O Enterprise State Roaming funciona de maneira semelhante à [sincronização de configurações de consumidor](https://go.microsoft.com/fwlink/?linkid=2015135) padrão, introduzida no Windows 8. Além disso, o Enterprise State Roaming oferece:
+Com o Windows 10, os usuários do [Azure AD (Azure Active Directory)](../fundamentals/active-directory-whatis.md) obtêm a capacidade de sincronizar com segurança suas configurações de usuário e seus dados de configurações do aplicativo com a nuvem. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. O Enterprise State Roaming funciona de maneira semelhante à [sincronização de configurações de consumidor](https://go.microsoft.com/fwlink/?linkid=2015135) padrão, introduzida no Windows 8. Além disso, o Enterprise State Roaming oferece:
 
 * **Separação dos dados corporativos e do consumidor** – as organizações estão no controle de seus dados, e não há nenhuma combinação de dados corporativos em uma conta de nuvem do consumidor ou de dados do consumidor em uma conta de nuvem da empresa.
 * **Segurança avançada** – os dados são criptografados automaticamente antes de deixar o dispositivo Windows 10 do usuário usando o Azure Rights Management (Azure RMS) e os dados permanecem criptografados em repouso na nuvem. Todo o conteúdo permanece criptografado em repouso na nuvem, exceto os namespaces, como os nomes de configurações e os nomes de aplicativo do Windows.  
@@ -28,7 +28,7 @@ Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](../f
 
 O Enterprise State Roaming está disponível em várias regiões do Azure. Você pode encontrar a lista atualizada de regiões disponíveis na página [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services) no Azure Active Directory.
 
-| Artigo | DESCRIÇÃO |
+| Artigo | Descrição |
 | --- | --- |
 | [Habilitar o Enterprise State Roaming no Active Directory do Azure](enterprise-state-roaming-enable.md) |O Enterprise State Roaming está disponível para todas as organizações com uma assinatura Premium do Azure AD (Active Directory). Para obter mais informações sobre como obter uma assinatura do Azure AD, confira a página de [produto do Azure AD](https://azure.microsoft.com/services/active-directory). |
 | [Perguntas frequentes sobre configurações e roaming de dados](enterprise-state-roaming-faqs.md) |Este artigo responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo. |

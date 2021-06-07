@@ -3,16 +3,16 @@ title: 'Transformação de dados: processar & transformar dados '
 description: Saiba como transformar dados ou processar dados em Azure Data Factory usando o Hadoop, Azure Machine Learning Studio (clássico) ou Azure Data Lake Analytics.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c9818bfd2a9519cd14d34ecc810179d66aa57e52
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 422acbaab097182b800e3bad35b0121284db9cd8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363977"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782921"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Transformar dados no Azure Data Factory versão 1
 > [!div class="op_single_selector"]

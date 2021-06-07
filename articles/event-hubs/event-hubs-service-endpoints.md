@@ -3,16 +3,16 @@ title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Az
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516666"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100556523"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de redes virtuais específicas 
 
-A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
+A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades. As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não há suporte na camada **básica** .
 
 Uma vez configurado para ser associado a pelo menos um ponto de extremidade de serviço de sub-rede de rede virtual, o respectivo namespace de hubs de eventos não aceitará mais o tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
@@ -21,8 +21,8 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 >[!WARNING]
 > A habilitação de redes virtuais para seu namespace de hubs de eventos bloqueia solicitações de entrada por padrão, a menos que as solicitações sejam originadas de um serviço operando de redes virtuais permitidas. Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis mesmo quando as redes virtuais estiverem habilitadas. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
 
-> [!NOTE]
-> As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não há suporte na camada **básica** .
+> [!IMPORTANT]
+> Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada. Se não houver nenhuma regra de rede virtual e IP, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 
@@ -58,6 +58,9 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente** _. Selecione _ *+ criar nova rede virtual** se desejar criar uma nova VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a tecla de acesso).
 3. Selecione a rede virtual na lista de redes virtuais e, em seguida, escolha a **sub-rede**. Você precisa habilitar o ponto de extremidade de serviço antes de adicionar a rede virtual à lista. Se o ponto de extremidade de serviço não estiver habilitado, o portal solicitará que você o habilite.
    
    ![selecionar sub-rede](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)

@@ -1,5 +1,5 @@
 ---
-title: Usar Azure Data Box Heavy para mover conteúdo do compartilhamento de arquivo para o SharePoint Online
+title: Usar Azure Data Box Heavy para mover o conteúdo do compartilhamento de arquivos para o SharePoint Online
 description: Usar este tutorial para aprender a migrar o conteúdo do compartilhamento de arquivos para o Share Point Online usando o Azure Data Box Heavy
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92127107"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Usar o Azure Data Box Heavy para migrar o conteúdo do compartilhamento de arquivos para o SharePoint Online
@@ -64,7 +64,7 @@ Execute as seguintes etapas para copiar dados para o Data Box Heavy.
 
 1. [Solicite o Data Box Heavy](data-box-heavy-deploy-ordered.md).
 2. Depois de recebê-lo, [Configure o Data Box Heavy](data-box-heavy-deploy-set-up.md). Cabeie e configure os dois nós no dispositivo.
-3. [Copie dados para o Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). Enquanto estiver copiando, não se esqueça dos seguintes procedimentos:
+3. [Copiar dados para Azure data Box Heavy](data-box-heavy-deploy-copy-data.md). Enquanto estiver copiando, não se esqueça dos seguintes procedimentos:
 
     - Use somente a pasta *StorageAccountName_AzFile* no Data Box Heavy para copiar os dados. Isso ocorre porque você deseja que os dados acabem em um compartilhamento de arquivos do Azure e não em blobs de blocos ou de páginas.
     - Copie os arquivos para uma pasta na pasta *StorageAccountName_AzFile*. Uma subpasta dentro da pasta *StorageAccountName_AzFile* cria um compartilhamento de arquivo. Os arquivos copiados diretamente para a pasta *StorageAccountName_AzFile* falham e são carregados como blobs de blocos. Esse é o compartilhamento de arquivos que você montará na VM na próxima etapa.
@@ -92,4 +92,4 @@ Para ter melhor desempenho e conectividade, recomendamos que você crie uma máq
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Solicitar o Data Box Heavy](./data-box-heavy-deploy-ordered.md)
+[Ordenar seu Data Box Heavy](./data-box-heavy-deploy-ordered.md)

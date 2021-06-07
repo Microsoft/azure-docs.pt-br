@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e978a5e7e76c8ddc9b7e6b80ec7170c45baa2cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82784105"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Regiões do Azure em uma região geopolítica
@@ -29,7 +29,7 @@ A WAN virtual está disponível para as seguintes regiões:
 | Japão  | Oeste do Japão, Leste do Japão |
 | Oceania | Sudeste da Austrália, Leste da Austrália |
 | África do Sul | Norte da África do Sul, oeste da África do Sul |
-| América do Sul |Sul do Brasil |
+| América do Sul |Brazil South |
 | Coreia do Sul | Coreia Central, Sul da Coreia |
 | EAU | Norte dos EAU, EAU Central |
 

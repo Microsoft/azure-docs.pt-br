@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: genli
 ms.openlocfilehash: 280943bd965c4799ce294321129d1088be9c0caf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015903"
 ---
 ## <a name="scenario"></a>Cenário

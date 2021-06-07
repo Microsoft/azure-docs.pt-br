@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 36692e3479b8aed7b5d8e10e24526bac5cded198
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4cdd9b4e93196ddb737861f87882e58f3964a601
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "76152537"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102456021"
 landingContent:
 - title: Sobre o Azure Resource Manager
   linkLists:
@@ -74,7 +74,7 @@ landingContent:
     - text: Java
       url: /java/api/com.microsoft.azure.management.resources
     - text: Python
-      url: /python/api/overview/azure/resources?view=azure-python
+      url: /python/api/overview/azure/resources
 - title: Rastrear operações
   linkLists:
   - linkListType: how-to-guide

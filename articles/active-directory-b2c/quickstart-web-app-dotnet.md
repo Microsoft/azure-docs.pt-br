@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Configurar entrada para um aplicativo Web do ASP.NET'
+title: 'Guia de início rápido: configurar as credenciais de um aplicativo Web do ASP.NET'
 titleSuffix: Azure AD B2C
 description: Neste início rápido, execute um aplicativo Web ASP.NET de exemplo que usa o Azure Active Directory B2C para fornecer a entrada na conta.
 services: active-directory-b2c
@@ -12,13 +12,13 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 379ea9a0c2a49e92fa1c4882ea6e783b3b91e32f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88163910"
 ---
-# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início Rápido: Configurar a entrada para um aplicativo ASP.NET usando o Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Guia de início rápido: configurar as credenciais de um aplicativo do ASP.NET usando o Azure Active Directory B2C
 
 O Azure AD B2C (Azure Active Directory B2C) fornece gerenciamento de identidades de nuvem para manter seu aplicativo, sua empresa e seus clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão. Neste início rápido, você usa um aplicativo ASP.NET para se conectar usando um provedor de identidade de redes sociais e chama uma API Web do Azure AD B2C protegida.
 
@@ -74,7 +74,7 @@ O Azure Active Directory B2C fornece funcionalidade para permitir que usuários 
 
     ![Aplicativo Web de exemplo no navegador com o link Editar perfil realçado](./media/quickstart-web-app-dotnet/edit-profile-web.png)
 
-2. Altere o **Nome de exibição** ou **Cidade**e clique em **Continuar** para atualizar seu perfil.
+2. Altere o **Nome de exibição** ou **Cidade** e clique em **Continuar** para atualizar seu perfil.
 
     A alteração é exibida na parte superior direita da home page do aplicativo Web.
 
@@ -90,7 +90,7 @@ O Azure Active Directory B2C fornece funcionalidade para permitir que usuários 
 
 Você usou com êxito sua conta de usuário do Azure AD B2C para fazer uma chamada autorizada a uma API Web protegida pelo Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tutoriais ou inícios rápidos do Azure AD B2C. Quando não for mais necessário, você poderá [excluir o locatário do Azure AD B2C](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

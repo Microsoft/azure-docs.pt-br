@@ -1,19 +1,24 @@
 ---
 title: Guia de início rápido – Adicionar uma chamada a um aplicativo iOS usando os Serviços de Comunicação do Azure
-description: Neste guia de início rápido, você aprenderá a usar a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+description: Neste guia de início rápido, você aprenderá a usar o SDK de Chamada dos Serviços de Comunicação do Azure para iOS.
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 22c9d8f8bdf3e6195bf152fa0431ad5ce9bcdfeb
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95558455"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073020"
 ---
-Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
+Neste guia de início rápido, você aprenderá a iniciar uma chamada usando o SDK de Chamada dos Serviços de Comunicação do Azure para iOS.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+> [!NOTE]
+> Este documento usa a versão 1.0.0-beta.8 do SDK de Chamada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,20 +39,21 @@ No Xcode, crie um projeto do iOS e selecione o modelo **Aplicativo de Modo de Ex
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Instale o pacote e as dependências com o CocoaPods
 
-1. Crie um Podfile para seu aplicativo, da seguinte maneira:
+1. Para criar um Podfile para seu aplicativo, abra o terminal, navegue até a pasta do projeto e execute ```pod init```
+3. Adicione o seguinte código ao Podfile e salve (verifique se "target" corresponde ao nome do seu projeto):
 
    ```
    platform :ios, '13.0'
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
-     pod 'AzureCommunication', '~> 1.0.0-beta.5'
-     pod 'AzureCore', '~> 1.0.0-beta.5'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
+     pod 'AzureCommunication', '~> 1.0.0-beta.8'
+     pod 'AzureCore', '~> 1.0.0-beta.8'
    end
    ```
 
-2. Execute `pod install`.
+3. Execute `pod install`.
 3. Abra o `.xcworkspace` com o Xcode.
 
 ### <a name="request-access-to-the-microphone"></a>Solicitar acesso ao microfone
@@ -115,23 +121,23 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure:
+As seguintes classes e interfaces cuidam de alguns dos principais recursos do SDK de Chamada da Interface do Usuário dos Serviços de Comunicação do Azure:
 
-| Name                                  | Descrição                                                  |
+| Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| ACSCallClient | O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
-| ACSCallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
-| CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para criar uma instância do CallAgent.| 
-| CommunicationIdentifier | O CommunicationIdentifier é usado para representar a identidade do usuário que pode ser um dos seguintes: CommunicationUser/PhoneNumber/CallingApplication. |
+| CallClient | O CallClient é o ponto de entrada principal para o SDK de Chamada.|
+| CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
+| CommunicationTokenCredential | O CommunicationTokenCredential é usado como a credencial de token para criar uma instância do CallAgent.| 
+| CommunicationUserIdentifier | O CommunicationUserIdentifier é usado para representar a identidade do usuário, que pode ser uma das seguintes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 Inicializar uma instância de `CallAgent` com um Token de Acesso de Usuário que nos permitirá fazer e receber chamadas. Adicione o seguinte código ao retorno de chamada `onAppear` no **ContentView.swift**:
 
 ```swift
-var userCredential: CommunicationUserCredential?
+var userCredential: CommunicationTokenCredential?
 do {
-    userCredential = try CommunicationUserCredential(token: "<USER ACCESS TOKEN>")
+    userCredential = try CommunicationTokenCredential(token: "<USER ACCESS TOKEN>")
 } catch {
     print("ERROR: It was not possible to create user credential.")
     return
@@ -140,9 +146,10 @@ do {
 self.callClient = CallClient()
 
 // Creates the call agent
-self.callClient?.createCallAgent(userCredential) { (agent, error) in
+self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
     if error != nil {
         print("ERROR: It was not possible to create a call agent.")
+        return
     }
 
     if let agent = agent {
@@ -165,8 +172,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: StartCallOptions())
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
+            self.call = self.callAgent?.call(participants: callees, options: StartCallOptions())
         }
     }
 }

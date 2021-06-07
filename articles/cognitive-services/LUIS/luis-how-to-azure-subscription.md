@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988153"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
@@ -116,7 +116,7 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |Tornar um aplicativo público|Quando um aplicativo é público, qualquer pessoa que tenha uma chave de criação ou de ponto de extremidade pode consultar o aplicativo.|
 |Modificar modelo|
 |Publicação|
-|Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
+|Examinar o declarações do ponto de extremidade para o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
 |Treinar|
 
 <a name="prediction-endpoint-runtime-key"></a>

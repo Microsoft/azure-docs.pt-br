@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005921"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
@@ -115,7 +115,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
        ![Captura de tela da página de configurações de nuvem. As caixas chave de registro e chave de criptografia são preenchidas, mas os valores são redaçãos.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Retorne ao portal do Azure. Vá para **Todos os recursos**, procure seu serviço Gerenciador de Dispositivos do StorSimple.
     
-    ![Captura de tela da página todos os recursos do portal do Azure. Um serviço Device Manager está realçado.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Captura de tela da página todos os recursos do portal do Azure. Um serviço Gerenciador de Dispositivos está realçado.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na lista filtrada, selecione o serviço Gerenciador de Dispositivos do StorSimple e então navegue até **Gerenciamento > Dispositivos**. Na folha **Dispositivos**, verifique se o dispositivo se conectou com êxito ao serviço e se tem o status **Pronto para configurar**.
     
     ![Implantar](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -124,7 +124,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para concluir a configuração obrigatória do dispositivo.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Para configurar o dispositivo como servidor de arquivos
-1. Vá para o serviço de Device Manager do StorSimple e vá para  **gerenciamento > dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
+1. Vá para o serviço de Gerenciador de Dispositivos do StorSimple e vá para  **gerenciamento > dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
    
    ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Clique no dispositivo e você verá uma mensagem de cabeçalho indicando que o dispositivo está pronto para a instalação.

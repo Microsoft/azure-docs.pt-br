@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: cognitive-services
 author: erindormier
 ms.service: cognitive-services
@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: 90d5aae559a317ed509d04c8db3310ff8a5de026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069895"
 ---
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas

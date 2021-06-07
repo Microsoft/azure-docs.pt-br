@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 01/08/2021
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: d14ddd55b705572727b6fdc255471b710cfe8247
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 7cb0a2d3cf6f0ebd80cdde3d356d6bc5a5faef28
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117380"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555276"
 ---
-Para adicionar ou remover atribuições de função, você deve ter:
+Para atribuir funções do Azure, você deve ter:
 
-- as permissões `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de Acesso do Usuário](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](../../articles/role-based-access-control/built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissões, como [administrador de acesso do usuário](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) ou [proprietário](../../articles/role-based-access-control/built-in-roles.md#owner)

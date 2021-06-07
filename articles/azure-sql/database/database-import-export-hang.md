@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 ms.openlocfilehash: e69bba858ccf62f1b3a3b45b08771ddba71f11cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92671404"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>O banco de dados SQL do Azure e Instância Gerenciada serviço de importação/exportação leva muito tempo para importar ou exportar um banco de dados

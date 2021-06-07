@@ -3,19 +3,18 @@ title: Acessar o Key Vault por trás de um firewall - Azure Key Vault | Microsof
 description: Conheça as portas, os hosts ou os endereços IP que devem ser abertos para permitir que um aplicativo cliente do cofre de chaves por trás de um firewall acesse um cofre de chaves.
 services: key-vault
 author: amitbapat
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 04/15/2021
 ms.author: ambapat
-ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 57a89128ab5223264db43e5d59428dc7e6d23ec9
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289170"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751626"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acessar o Cofre de Chaves do Azure por trás de um firewall
 
@@ -56,7 +55,7 @@ Para o gerenciamento do Cofre de Chaves (CRUD e configuração de política de a
 
 ## <a name="key-vault-operations"></a>Operações do cofre de chaves
 
-Para todas as operações de criptografia e gerenciamento de objetos (chaves e segredos) do cofre de chaves, o cliente do cofre de chaves precisa acessar o ponto de extremidade do cofre de chaves. O sufixo DNS do ponto de extremidade varia de acordo com o local de seu cofre de chaves. O ponto de extremidade do Cofre de Chaves está no formato: *nome-do-cofre*. *sufixo-dns-específico-da-região* , conforme descrito na tabela a seguir.  
+Para todas as operações de criptografia e gerenciamento de objetos (chaves e segredos) do cofre de chaves, o cliente do cofre de chaves precisa acessar o ponto de extremidade do cofre de chaves. O sufixo DNS do ponto de extremidade varia de acordo com o local de seu cofre de chaves. O ponto de extremidade do Cofre de Chaves está no formato: *nome-do-cofre*.*sufixo-dns-específico-da-região*, conforme descrito na tabela a seguir.  
 
 | Tipo de operação | Ponto de extremidade:porta |
 | --- | --- |

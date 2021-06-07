@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,10 +11,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91257055"
 ---
 Se você é novo no gerenciamento de identidades e acesso (IAM) com o OAuth 2,0 e o OpenID Connect, ou até mesmo apenas no IAM na plataforma de identidade da Microsoft, o seguinte conjunto de artigos deve ser alto na sua lista de leitura.

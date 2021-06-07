@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98879487"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Baixar scripts de configuração do dispositivo VPN para conexões VPN S2S
@@ -49,7 +49,7 @@ Você pode concluir as etapas 1 a 3 usando o [portal](./tutorial-site-to-site-po
 
 Crie um gateway de VPN do Azure, o gateway de rede local e um recurso de conexão conectar os dois. A seguinte página orientará você durante as etapas:
 
-* [Criar uma conexão site a site no portal do Azure](./tutorial-site-to-site-portal.md)
+* [Criar uma conexão site a site no Portal do Azure](./tutorial-site-to-site-portal.md)
 
 Depois de criar o recurso de conexão, siga as instruções abaixo para baixar os scripts de configuração de dispositivo VPN:
 

@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89049070"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acesso condicional: acesso condicional baseado em risco do usuário
 
-A Microsoft trabalha com pesquisadores, imposição de autoridades, várias equipes de segurança da Microsoft e outras fontes confiáveis para encontrar pares de nome de usuário e senha vazados. Organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam [Azure ad Identity Protection detecções de riscos do usuário](../identity-protection/concept-identity-protection-risks.md#user-risk). 
+A Microsoft trabalha com pesquisadores, autoridades, várias equipes de segurança da Microsoft e outras fontes confiáveis para localizar os pares de nome de usuário e senha vazados. Organizações com licenças Azure AD Premium P2 podem criar políticas de acesso condicional que incorporam [Azure ad Identity Protection detecções de riscos do usuário](../identity-protection/concept-identity-protection-risks.md#user-risk). 
 
 Há dois locais em que essa política pode ser atribuída. As organizações devem escolher uma das opções a seguir para habilitar uma política de acesso condicional baseada em risco do usuário que exija uma alteração de senha segura.
 
@@ -34,27 +34,27 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
-1. Em **condições**  >  **risco do usuário**, defina **Configurar** como **Sim**. Em **configurar os níveis de risco do usuário necessários para que a política seja imposta** , selecione **alta**e, em seguida, selecione **concluído**.
-1. Em concessão de **controles de acesso**  >  **Grant**, selecione **conceder acesso**, **exigir alteração de senha**e selecione **selecionar**.
+1. Em **Aplicativos ou ações de nuvem** > **Incluir**, selecione **Todos os aplicativos de nuvem**.
+1. Em **condições**  >  **risco do usuário**, defina **Configurar** como **Sim**. Em **configurar os níveis de risco do usuário necessários para que a política seja imposta** , selecione **alta** e, em seguida, selecione **concluído**.
+1. Em concessão de **controles de acesso**  >  , selecione **conceder acesso**, **exigir alteração de senha** e selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
 ## <a name="enable-through-identity-protection"></a>Habilitar por meio da proteção de identidade
 
 1. Entre no **portal do Azure**.
-1. Selecione **todos os serviços**e, em seguida, navegue até **Azure ad Identity Protection**.
+1. Selecione **todos os serviços** e, em seguida, navegue até **Azure ad Identity Protection**.
 1. Selecione a **política de risco do usuário**.
 1. Em **atribuições**, selecione **usuários**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **excluir**, selecione **Selecionar usuários excluídos**, escolha o acesso de emergência da sua organização ou contas de vidro e selecione **selecionar**.
    1. Selecione **Concluído**.
-1. Em **condições**, selecione **risco do usuário**e, em seguida, escolha **alta**.
-   1. Selecione **selecionar**e, em seguida, **concluído**.
-1. Em **controles**  >  de**acesso**, escolha **permitir acesso**e, em seguida, selecione **exigir alteração de senha**.
+1. Em **condições**, selecione **risco do usuário** e, em seguida, escolha **alta**.
+   1. Selecione **selecionar** e, em seguida, **concluído**.
+1. Em **controles**  >  de **acesso**, escolha **permitir acesso** e, em seguida, selecione **exigir alteração de senha**.
    1. Selecione **Selecionar**.
 1. Defina **aplicar política** como **ativado**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

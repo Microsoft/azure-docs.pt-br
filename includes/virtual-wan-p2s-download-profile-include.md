@@ -9,10 +9,10 @@ ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: eea8cb61ce98b2394abff6995e5cc89f00a7cf46
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99628911"
 ---
 1. Na página da sua WAN Virtual, selecione **Configurações de VPN do usuário**.

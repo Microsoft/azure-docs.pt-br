@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 803f5c25429b33e6d1af130196d38e125b410eb4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92890948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: integração do Azure Active Directory com o Administrador do Zscaler Private Access
@@ -64,7 +64,7 @@ Para configurar a integração do Administrador do Zscaler Private Access ao Azu
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Administrador do Zscaler Private Access** , selecione **Administrador do Zscaler Private Access** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Administrador do Zscaler Private Access**, selecione **Administrador do Zscaler Private Access** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Administrador do Zscaler Private Access na lista de resultados](common/search-new-app.png)
 
@@ -88,19 +88,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Zscaler Private Access Administrator, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zscaler Private Access Administrator** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zscaler Private Access Administrator**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
+4. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
 
     ![A captura de tela mostra a página Configuração Básica do SAML, na qual você pode inserir os valores descritos.](common/idp-relay.png)
 
@@ -110,9 +110,9 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
 
     c. Clique em **Definir URLs adicionais**.
 
-    d. Na caixa de texto **Estado de Retransmissão** , digite uma URL: `idpadminsso`
+    d. Na caixa de texto **Estado de Retransmissão**, digite uma URL: `idpadminsso`
 
-5.  Se quiser configurar o aplicativo no modo iniciado pelo **SP** , realize as seguintes etapas:
+5.  Se quiser configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/both-signonurl.png)
 
@@ -121,11 +121,11 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Zscaler Private Access Administrator](https://help.zscaler.com/zpa-submit-ticket) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Na seção **Configurar o Zscaler Private Access Administrator** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o Zscaler Private Access Administrator**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
 
 1. Em outra janela do navegador da Web, entre no Zscaler Private Access Administrator como Administrador.
 
-2. Na parte superior, clique em **Administração** , navegue até a seção **AUTENTICAÇÃO** e clique em **Configuração de IdP**.
+2. Na parte superior, clique em **Administração**, navegue até a seção **AUTENTICAÇÃO** e clique em **Configuração de IdP**.
 
     ![Administrador de Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
 
     ![Addidp do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-4. Na página **Adicionar Configuração de IdP** , execute as seguintes etapas:
+4. Na página **Adicionar Configuração de IdP**, execute as seguintes etapas:
  
     ![Idpselect do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
@@ -167,7 +167,7 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -179,9 +179,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -191,7 +191,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Administrador do Zscaler Private Access.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Zscaler Private Access Administrator**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Zscaler Private Access Administrator**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -207,11 +207,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-zscaler-private-access-administrator-test-user"></a>Criar um usuário de teste do Zscaler Private Access Administrator
 
@@ -221,7 +221,7 @@ Para permitir que os usuários do Azure AD entrem no Zscaler Private Access Admi
 
 1. Entre em seu site de empresa do Zscaler Private Access Administrator como administrador.
 
-2. Na parte superior, clique em **Administração** , navegue até a seção **AUTENTICAÇÃO** e clique em **Configuração de IdP**.
+2. Na parte superior, clique em **Administração**, navegue até a seção **AUTENTICAÇÃO** e clique em **Configuração de IdP**.
 
     ![Administrador de Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
@@ -229,27 +229,27 @@ Para permitir que os usuários do Azure AD entrem no Zscaler Private Access Admi
 
     ![Administrador do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-4. No canto superior direito, clique em **Adicionar Administrador** :
+4. No canto superior direito, clique em **Adicionar Administrador**:
 
     ![Adicionar administrador do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
-5. Na página **Adicionar Administrador** , realize as seguintes etapas:
+5. Na página **Adicionar Administrador**, realize as seguintes etapas:
 
     ![Administrador de usuários do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. Na caixa de texto **Nome de usuário** , insira o email do usuário como BrittaSimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, insira o email do usuário como BrittaSimon@contoso.com.
 
-    b. Na caixa de texto **Senha** , digite a senha.
+    b. Na caixa de texto **Senha**, digite a senha.
 
-    c. Na caixa de texto **Confirmar Senha** , digite a senha.
+    c. Na caixa de texto **Confirmar Senha**, digite a senha.
 
     d. Selecione **Função** como **Administrador do Zscaler Private Access**.
 
-    e. Na caixa de texto **Email** , insira o email do usuário como BrittaSimon@contoso.com.
+    e. Na caixa de texto **Email**, insira o email do usuário como BrittaSimon@contoso.com.
 
-    f. Na caixa de texto **Telefone** , digite o número de telefone.
+    f. Na caixa de texto **Telefone**, digite o número de telefone.
 
-    g. Na caixa de texto **Fuso Horário** , selecione o fuso horário.
+    g. Na caixa de texto **Fuso Horário**, selecione o fuso horário.
 
     h. Clique em **Save** (Salvar).
 
@@ -265,4 +265,4 @@ Ao clicar no bloco do Zscaler Private Access Administrator no Painel de Acesso, 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

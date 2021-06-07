@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eef58f6e84fb3b4dec947fa3614b6ec1043ff89e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591167"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101644639"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -32,6 +32,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Microsoft 365 clientes Win32 (Outlook, Word, Excel e outros) com versões 16.0.8730. xxxx e superior têm suporte usando um fluxo não interativo. Não há suporte para outras versões; nessas versões, os usuários inserirão seus nomes de usuário, mas não senhas, para entrar. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
+- O SSO contínuo não funciona no modo de navegação particular no Microsoft Edge (Herdado).
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.

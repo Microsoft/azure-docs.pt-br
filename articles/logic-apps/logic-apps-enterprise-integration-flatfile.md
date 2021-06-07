@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
 ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87001478"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples nos Aplicativos Lógicos do Azure usando o Enterprise Integration Pack
@@ -35,7 +35,7 @@ Antes de enviar conteúdo XML para um parceiro de negócios em um cenário B2B (
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
+1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida** e manipula solicitações de entrada de fora do aplicativo lógico.
 
    > [!TIP]
    > Fornecer um esquema JSON é opcional. Se você tiver um conteúdo de exemplo da solicitação de entrada, selecione **usar conteúdo de exemplo para gerar o esquema**, insira o conteúdo de exemplo e selecione **concluído**. O esquema aparece na caixa **esquema JSON do corpo da solicitação** .
@@ -67,7 +67,7 @@ Agora, você concluiu a configuração de sua ação de codificação de arquivo
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida**e manipula solicitações de entrada de fora do aplicativo lógico.
+1. No gatilho ou ação em seu aplicativo lógico, selecione **nova etapa**  >  **Adicionar uma ação**. Este exemplo usa o gatilho Request, que é nomeado **quando uma solicitação HTTP é recebida** e manipula solicitações de entrada de fora do aplicativo lógico.
 
    > [!TIP]
    > Fornecer um esquema JSON é opcional. Se você tiver um conteúdo de exemplo da solicitação de entrada, selecione **usar conteúdo de exemplo para gerar o esquema**, insira o conteúdo de exemplo e selecione **concluído**. O esquema aparece na caixa **esquema JSON do corpo da solicitação** .

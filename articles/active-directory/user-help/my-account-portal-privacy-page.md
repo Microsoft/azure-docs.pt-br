@@ -12,36 +12,36 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: 5d17c6cb038bf5550f76a8aef7ac2d41244cfda1
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100096558"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Exibir como a organização usa os dados relacionados à privacidade
 
-Você pode exibir como sua organização usa seus dados na página **configurações & privacidade** do portal **minha conta** .
+Veja como a sua empresa usa seus dados na página **Configurações e Privacidade** do portal **Minha Conta**.
 
 >[!Note]
-> Se você vir um erro ao entrar com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+> Se você receber um erro ao entrar com uma conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de Locatário** da sua organização do administrador em uma das seguintes URLs:
 >
->   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
->   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>   - https://myaccount.microsoft.com?tenantId=*nome_de_domínio*
+>   - https://myaccount.microsoft.com?tenant=*ID_de_locatário*
 
 ## <a name="view-your-privacy-related-info"></a>Exibir suas informações de privacidade
 
-1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/. Se você estiver entrando com um conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de locatário** da sua organização em uma das seguintes URLs:
+1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/. Se você estiver entrando com uma conta Microsoft pessoal, ainda poderá entrar usando o nome de domínio da sua organização (como contoso.com) ou a **ID de Locatário** da sua organização do administrador em uma das seguintes URLs:
 
-   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
-   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+   - https://myaccount.microsoft.com?tenantId=*nome_de_domínio*
+   - https://myaccount.microsoft.com?tenant=*ID_de_locatário*
 
-2. Selecione **configurações & privacidade** no painel de navegação esquerdo ou selecione o link **exibir configurações e privacidade** no bloco **configurações & de privacidade** .
+2. Selecione **Configurações e Privacidade** no painel de navegação à esquerda ou selecione o link **Exibir Configurações e Privacidade** no bloco **Configurações e Privacidade**.
 
-    ![Página minha conta, mostrando configurações realçadas & link de privacidade](media/my-account-portal/my-account-portal-privacy.png)
+    ![Página Minha Conta mostrando o link Configurações e Privacidade realçado](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Selecione **privacidade**, conforme mostrado na captura de tela de exemplo a seguir, em seguida, examine as informações, incluindo:
+3. Selecione **Privacidade**, conforme mostrado na seguinte captura de tela de exemplo, e examine as informações, incluindo:
 
-    ![Configurações & página privacidade, mostrando a opção de guia de privacidade realçada](media/my-account-portal/my-account-portal-privacy-tab.png)
+    ![Página Configurações e Privacidade mostrando a opção da guia Privacidade realçada](media/my-account-portal/my-account-portal-privacy-tab.png)
 
     - **Serviços.** Uma lista de serviços online com os quais você está conectado usando sua conta corporativa ou de estudante.
 

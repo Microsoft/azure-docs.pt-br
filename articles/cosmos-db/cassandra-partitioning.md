@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087631"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Particionamento no Azure Cosmos DB API do Cassandra
@@ -84,11 +84,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Quando os dados são retornados, eles são classificados pela chave de clustering, conforme esperado no Apache Cassandra:
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Elas":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Captura de tela que mostra os dados retornados que são classificados pela chave de clustering.":::
 
 Com os dados modelados dessa forma, vários registros podem ser atribuídos a cada partição, agrupados por usuário. Assim, podemos emitir uma consulta que é roteada com eficiência pelo `partition key` (neste caso, `user` ) para obter todas as mensagens para um determinado usuário. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Elas" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagrama que mostra como vários registros podem ser atribuídos a cada partição, agrupados por usuário." border="false":::
 
 
 ## <a name="composite-partition-key"></a>Chave de partição composta

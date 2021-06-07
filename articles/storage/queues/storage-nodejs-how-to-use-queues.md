@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
 ms.openlocfilehash: 12ae05e10cdf0fa9a5f0725acaa1784eedc3612c
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803673"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como usar o armazenamento de filas do Azure de Node.js

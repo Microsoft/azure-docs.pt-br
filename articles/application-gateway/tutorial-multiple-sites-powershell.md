@@ -10,10 +10,10 @@ ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360302"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicativo que hospede múltiplos websites usando Azure PowerShell
@@ -185,7 +185,7 @@ $appgw = New-AzApplicationGateway `
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria dois conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a dois pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , e *myvmss2*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
+Neste exemplo, você cria dois conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a dois pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, e *myvmss2*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: 96b41c27b282bdc05dafa8c69398a11e8dbf3b1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91779835"
 ---
 Para executar o contêiner *análise de sentimento v3* , execute o comando a seguir `docker run` . Substitua os espaços reservados abaixo pelos seus próprios valores:

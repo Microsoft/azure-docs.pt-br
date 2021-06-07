@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/15/2019
 ms.author: juliako
 ms.openlocfilehash: 81d7dda854c6afcc9397289ff23ba45b02ed9fc4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97586067"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalizar um modelo de marcas no Video Indexer

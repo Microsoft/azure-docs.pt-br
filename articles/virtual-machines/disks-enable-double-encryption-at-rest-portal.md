@@ -5,15 +5,15 @@ author: roygara
 ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b5f58b549fc9d879f6c2e5515c679d82c3ff44e4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358211"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560354"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usar o portal do Azure para habilitar a criptografia dupla em repouso para discos gerenciados
 
@@ -35,7 +35,7 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Captura de tela da folha do conjunto de criptografia de disco, + adicionar é realçada.":::
 
 1. Selecione uma das regiões com suporte.
-1. Para **tipo de criptografia** , selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
+1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
 
     > [!NOTE]
     > Depois de criar um conjunto de criptografia de disco com um tipo de criptografia específico, ele não pode ser alterado. Se você quiser usar um tipo de criptografia diferente, deverá criar um novo conjunto de criptografia de disco.
@@ -61,8 +61,8 @@ O Armazenamento em Disco do Azure dá suporte à criptografia dupla em repouso p
     ![Captura de tela de permissão e atribuição de função bem-sucedidas para o cofre de chaves.](media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png)
 
 1. Navegue até o disco.
-1. Selecione **criptografia**.
-1. Para **tipo de criptografia** , selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
+1. Selecione **Criptografia**.
+1. Para **tipo de criptografia**, selecione **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente.
 1. Selecione o conjunto de criptografia de disco.
 1. Selecione **Salvar**.
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 9bf167f5be9aeb65f0d7c1d69e6687589ebea8a4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516916"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102498872"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento com Azure Databricks e AutoML no Azure Machine Learning 
 
@@ -50,7 +50,7 @@ Crie um [cluster do databricks](/azure/databricks/scenarios/quickstart-create-da
 
 Use estas configurações:
 
-| Setting |Aplica-se a| Valor |
+| Configuração |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
 | Versão do Databricks Runtime |always| Tempo de execução 7,1 (escala de 2,21, Spark 3.0.0) – não ML|
@@ -123,6 +123,16 @@ Experimente:
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
+* **Databricks cancelar uma execução automatizada do Machine Learning**: quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
+
+* **Databricks >10 iterações para o aprendizado de máquina automatizado**: em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
+
+* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado**: o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
+
+    ```
+    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+    ```
+
 * **Falha ao instalar pacotes**
 
     A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
@@ -162,4 +172,4 @@ Experimente:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de MNIST.
-- Consulte a [referência do SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- Consulte a [referência do SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).

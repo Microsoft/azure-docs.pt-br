@@ -3,12 +3,12 @@ title: Configurar operações de vRealize para a solução do Azure VMware
 description: Saiba como configurar operações de vRealize para sua nuvem privada da solução Azure VMware.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880684"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802481"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar operações de vRealize para a solução do Azure VMware
 
@@ -37,7 +37,7 @@ Revisão completa [antes de começar](#before-you-begin) e [pré-requisitos](#pr
 ## <a name="on-premises-vrealize-operations-managing-azure-vmware-solution-deployment"></a>Operações de vRealize locais Gerenciando a implantação de solução do Azure VMware
 A maioria dos clientes tem uma implantação local existente de operações de vRealize para gerenciar um ou mais domínios vCenters no local. Quando eles provisionam uma nuvem privada da solução Azure VMware, eles conectam seu ambiente local com sua nuvem privada usando uma solução de VPN do Azure ExpressRoute ou camada 3.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Operações de vRealize locais Gerenciando a implantação de solução do Azure VMware"  border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Operações de vRealize locais Gerenciando a implantação de solução do Azure VMware" border="false":::
 
 Para estender os recursos de operações do vRealize para a nuvem privada da solução Azure VMware, você cria uma [instância de adaptador para os recursos de nuvem privada](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). Ele coleta dados da nuvem privada da solução Azure VMware e os coloca em operações vRealize locais. A instância Operations Manager local do vRealize pode se conectar diretamente ao vCenter e ao NSX-T Manager na solução VMware do Azure. Opcionalmente, você pode implantar um coletor remoto de operações do vRealize na nuvem privada da solução Azure VMware. O coletor compacta e criptografa os dados coletados da nuvem privada antes que eles sejam enviados pela rede de ExpressRoute ou VPN para o vRealize Operations Manager em execução no local. 
 
@@ -61,7 +61,7 @@ Depois que a instância tiver sido implantada, você poderá configurar operaç�
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-- O usuário **cloudadmin \@ vSphere. local** na solução VMware do Azure tem [privilégios limitados](concepts-role-based-access-control.md).  As VMs (máquinas virtuais) na solução do Azure VMware não dão suporte à coleta de memória no convidado usando ferramentas do VMware.  A utilização de memória ativa e consumida continua a funcionar nesse caso.
+- O usuário **cloudadmin \@ vSphere. local** na solução VMware do Azure tem [privilégios limitados](concepts-identity.md).  As VMs (máquinas virtuais) na solução do Azure VMware não dão suporte à coleta de memória no convidado usando ferramentas do VMware.  A utilização de memória ativa e consumida continua a funcionar nesse caso.
 - A otimização de carga de trabalho para a tentativa de negócios baseada em host não funciona porque as soluções do Azure VMware gerenciam configurações de cluster, incluindo configurações de DRS.
 - A otimização da carga de trabalho para o posicionamento entre clusters dentro do SDDC usando a intenção de negócios baseada em cluster tem suporte total com o vRealize Operations Manager 8,0 e em diante. No entanto, a otimização da carga de trabalho não reconhece os pools de recursos e coloca as VMs no nível do cluster. Um usuário pode corrigi-lo manualmente na interface vCenter Server da solução VMware do Azure.
 - Você não pode entrar no vRealize Operations Manager usando suas credenciais de vCenter Server de solução do Azure VMware. 

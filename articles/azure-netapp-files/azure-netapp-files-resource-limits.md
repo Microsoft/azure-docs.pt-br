@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: b-juche
 ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99095384"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recursos no Azure NetApp Files
@@ -33,20 +33,20 @@ A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Número de contas do NetApp por região do Azure por assinatura  |  10    |  Sim   |
 |  Número de pools de capacidade por conta do NetApp   |    25     |   Sim   |
-|  Número de volumes por assinatura   |    500     |   Yes   |
-|  Número de volumes por pool de capacidade     |    500   |    Yes     |
-|  Número de instantâneos por volume       |    255     |    No        |
+|  Número de volumes por assinatura   |    500     |   Sim   |
+|  Número de volumes por pool de capacidade     |    500   |    Sim     |
+|  Número de instantâneos por volume       |    255     |    Não        |
 |  Número de sub-redes delegadas a Azure NetApp Files (Microsoft. NetApp/volumes) por rede virtual do Azure    |   1   |    Não    |
-|  Número de IPs usados em uma VNet (incluindo VNets imediatamente emparelhados) com Azure NetApp Files   |    1000   |    No   |
-|  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    No  |
-|  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   No   |
+|  Número de IPs usados em uma VNet (incluindo VNets imediatamente emparelhados) com Azure NetApp Files   |    1000   |    Não   |
+|  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    Não  |
+|  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   Não   |
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
-|  Tamanho máximo de um único arquivo     |    16 TiB    |    No    |    
-|  Tamanho máximo de metadados de diretório em um único diretório      |    320 MB    |    No    |    
-|  Número máximo de arquivos ([maxfiles](#maxfiles)) por volume     |    100 milhões    |    Yes    |    
-|  Taxa de transferência mínima atribuída para um volume de QoS manual     |    1 MiB/s   |    No    |    
-|  Taxa de transferência máxima atribuída para um volume de QoS manual     |    4.500 MiB/s    |    No    |    
+|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
+|  Tamanho máximo de um único arquivo     |    16 TiB    |    Não    |    
+|  Tamanho máximo de metadados de diretório em um único diretório      |    320 MB    |    Não    |    
+|  Número máximo de arquivos ([maxfiles](#maxfiles)) por volume     |    100 milhões    |    Sim    |    
+|  Taxa de transferência mínima atribuída para um volume de QoS manual     |    1 MiB/s   |    Não    |    
+|  Taxa de transferência máxima atribuída para um volume de QoS manual     |    4.500 MiB/s    |    Não    |    
 |  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Sim    |     
 
 Para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB), consulte [como fazer determinar se um diretório está se aproximando do tamanho do limite](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size).   

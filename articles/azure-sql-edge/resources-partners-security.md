@@ -11,10 +11,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 10/09/2020
 ms.openlocfilehash: 5dbf425bfc5c03bb9c6c86f10758332ef8dd3602
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91941278"
 ---
 # <a name="azure-sql-edge-security-partners"></a>Parceiros de segurança do Azure SQL Edge

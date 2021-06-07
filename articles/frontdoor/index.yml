@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 09/09/2020
-  ms.openlocfilehash: 844a2e070f5918352044c878657dc2dcee1902d4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1f92d3b744be76e96b33bc32eafcf7555fccf815
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89657247"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101092059"
 landingContent:
 - title: Saiba mais sobre o Azure Front Door
   linkLists:
@@ -23,6 +23,12 @@ landingContent:
     links:
     - text: O que é o Azure Front Door?
       url: front-door-overview.md
+- title: Saiba mais sobre o Azure Front Door Standard/Premium (Versão Prévia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Front Door Standard/Premium (Versão Prévia)?
+      url: standard-premium/overview.md
 - title: Criar um Front Door
   linkLists:
   - linkListType: quickstart

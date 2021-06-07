@@ -1,19 +1,19 @@
 ---
 title: Criar um backup de aplicativo de cluster do Azure Red Hat OpenShift 4 usando o Velero
 description: Saiba como criar um backup de seus aplicativos de cluster do Red Hat OpenShift do Azure usando o Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 264778d2d6d1ee0119ad8622043b7cd3a1088ec1
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: bbfe280ed0b1b562e0f50b23a09ea159750c4a79
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280134"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102217084"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Criar um backup de aplicativo de cluster do Azure Red Hat OpenShift 4
 
@@ -23,10 +23,7 @@ Neste artigo, você irá preparar seu ambiente para criar um backup de aplicativ
 > * Configurar os pré-requisitos e instalar as ferramentas necessárias
 > * Criar um backup de aplicativo do Azure Red Hat OpenShift 4
 
-> [!NOTE] 
-> Velero não faz backup dos dados do Azure Red Hat OpenShift etcd key-value Store. Se você precisar fazer backup de etcd, consulte [fazendo backup de etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
-
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

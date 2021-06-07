@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: e69781bf6d33c176d27c16a7f3cf38539ec28f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: cd5027ca6e0ce3dc02da14b7dd6afd6e00e3f92d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678231"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101669431"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opções de rede do serviço do Azure Image Builder
 
@@ -62,7 +63,7 @@ O tamanho da VM do proxy implantado é o padrão A1_v2 além da VM de compilaç�
         },
 ```
 
-| Setting | Descrição |
+| Configuração | Descrição |
 |---------|---------|
 | name | Adicional Nome de uma rede virtual pré-existente. |
 | subnetName | Nome da sub-rede na rede virtual especificada. Deve ser especificado se e somente se o *nome* for especificado. |

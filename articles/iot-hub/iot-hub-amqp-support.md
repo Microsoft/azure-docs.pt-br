@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730747"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo AMQP
@@ -29,7 +29,7 @@ Para se conectar a um hub IoT usando o AMQP, um cliente pode usar a autenticaç�
 
 As informações a seguir são necessárias para o cliente de serviço:
 
-| Informações | Valor |
+| Informações do | Valor |
 |-------------|--------------|
 | Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nome da chave | `service` |
@@ -131,7 +131,7 @@ for msg in batch:
 
 Conforme mostrado no código anterior, uma mensagem de comentários da nuvem para o dispositivo tem um tipo de conteúdo de *Application/vnd.microsoft.iothub.feedback.jsno*. Você pode usar as propriedades no corpo JSON da mensagem para inferir o status de entrega da mensagem original:
 
-* A chave `statusCode` no corpo de comentários tem um dos seguintes valores: *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected*ou *purgeed*.
+* A chave `statusCode` no corpo de comentários tem um dos seguintes valores: *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected* ou *purgeed*.
 
 * A chave `deviceId` no corpo de comentários tem a ID do dispositivo de destino.
 
@@ -225,7 +225,7 @@ Para se conectar a um hub IoT usando o AMQP, um dispositivo pode usar a autentic
 
 As informações a seguir são necessárias para o cliente do dispositivo:
 
-| Informações | Valor |
+| Informações do | Valor |
 |-------------|--------------|
 | Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Chave de acesso | Uma chave primária ou secundária associada ao dispositivo |

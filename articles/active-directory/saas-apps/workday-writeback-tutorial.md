@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
 ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98953997"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar o write-back de atributo do Azure AD para o Workday

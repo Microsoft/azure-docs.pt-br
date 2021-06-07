@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 621a41f743b751a8c24bf6f6ad8497fb5c79775c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026003"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
@@ -33,7 +33,7 @@ O ponto de extremidade requer dois parâmetros para as correções ortográfica 
 
 |Param|Valor|
 |--|--|
-|`spellCheck`|booleano|
+|`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chave de ponto de extremidade de [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detecta um erro, a declaração original e a declaração corrigida são retornadas junto com as previsões do ponto de extremidade.

@@ -6,12 +6,12 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 615f3b023ded6583dfedca99f561d09689b86b51
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6c3b433a8e433f39b723a7155bb6de116857efca
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056434"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102508156"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>Início rápido: Encaminhar eventos do Cache do Azure para Redis para o ponto de extremidade da Web com o PowerShell
 
@@ -73,7 +73,7 @@ New-AzRedisCache
    [-Confirm]
    [<CommonParameters>]
 ```
-Para obter mais informações sobre como criar uma instância de cache no PowerShell, confira a [referência do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache?view=azps-5.2.0). 
+Para obter mais informações sobre como criar uma instância de cache no PowerShell, confira a [referência do Azure PowerShell](/powershell/module/az.rediscache/new-azrediscache). 
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
@@ -132,7 +132,7 @@ Import-AzRedisCache
       [-Confirm]
       [<CommonParameters>]
 ```
-Para obter mais informações sobre como fazer a importação no PowerShell, confira a [referência do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/import-azrediscache?view=azps-5.2.0). 
+Para obter mais informações sobre como fazer a importação no PowerShell, confira a [referência do Azure PowerShell](/powershell/module/az.rediscache/import-azrediscache). 
 
 Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
 

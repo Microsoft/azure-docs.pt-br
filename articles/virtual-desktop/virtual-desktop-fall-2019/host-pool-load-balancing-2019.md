@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 940863b983b00dbb3c4af590d75868665372f818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88002313"
 ---
 # <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Métodos de balanceamento de carga do pool de hosts na área de trabalho virtual do Windows (clássico)

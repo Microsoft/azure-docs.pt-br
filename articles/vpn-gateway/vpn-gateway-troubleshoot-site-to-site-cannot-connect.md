@@ -5,14 +5,14 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658342"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867280"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
@@ -28,7 +28,7 @@ Para resolver o problema, primeiro tente [redefinir o gateway de VPN do Azure](.
 
 Verifique o tipo do gateway de VPN do Azure.
 
-1. Acesse o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 
 2. Verifique a página **Visão Geral** do gateway de VPN para as informações de tipo.
     
@@ -46,7 +46,7 @@ Compare a chave compartilhada do dispositivo VPN local e VPN de Rede Virtual do 
 
 Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos seguintes métodos:
 
-**Portal do Azure**
+**Azure portal**
 
 1. Vá para a conexão site a site do gateway de VPN que você criou.
 
@@ -54,7 +54,7 @@ Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos s
     
     ![Chave compartilhada](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
-**PowerShell do Azure**
+**Azure PowerShell**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -81,9 +81,7 @@ Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de s
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Etapa 5. Verifique o endereço da interface externa do dispositivo VPN local
 
-- Se o endereço IP voltado para a Internet do dispositivo VPN estiver incluído na definição de **Rede local** no Azure, você poderá experimentar desconexões esporádicas.
-- A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver nenhuma conversão de endereços de rede ou firewall entre a Internet e o dispositivo.
-- Para configurar o clustering de firewall para ter um IP virtual, será necessário interromper o cluster e expor o dispositivo VPN diretamente a uma interface pública com a qual o gateway pode se conectar.
+Se o endereço IP voltado para a Internet do dispositivo VPN estiver incluído na definição de **Rede local** no Azure, você poderá experimentar desconexões esporádicas.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Etapa 6. Verifique se as sub-redes coincidem exatamente (gateways baseados em políticas do Azure)
 
@@ -110,5 +108,5 @@ O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN esti
 
 ## <a name="next-steps"></a>Próximas etapas
 
--   [Configurar uma conexão site a site com uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configurar uma conexão site a site com uma rede virtual](./tutorial-site-to-site-portal.md)
 -   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
 ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97724775"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usar o armazenamento do Azure para SQL Server Backup e restauração

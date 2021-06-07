@@ -14,15 +14,15 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996721"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Início Rápido: Exibir os grupos e membros da sua organização no Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guia de Início Rápido: exibir os grupos e membros da sua organização no Azure Active Directory
 Você pode exibir os grupos e membros do grupo existentes da sua organização usando o portal do Azure. Grupos são usados para gerenciar usuários (membros) que precisam ter todos o mesmo acesso e as mesmas permissões para aplicativos e serviços potencialmente restritos.
 
 Neste início rápido, você vai exibir todos os grupos existentes de sua organização e os membros atribuídos.
@@ -46,9 +46,9 @@ Criar um novo grupo chamado _Política do MDM – Oeste_. Para obter mais inform
     
     - **Tipo de grupo:** selecione **Segurança**
     
-    - **Nome do grupo:** Digite _Política de MDM – Oeste_
+    - **Nome do grupo:** tipo _Política do MDM – Oeste_
     
-    - **Tipo de associação:** Selecione **Atribuído**.
+    - **Tipo de associação:** selecione **Atribuída**.
 
 3. Selecione **Criar**.
 
@@ -59,9 +59,9 @@ Criar um novo usuário denominado _Alain Charon_. Um usuário deve existir antes
 
 2. Conclua a página **usuário**:
 
-    - **Nome:** Digite _Alain Charon_.
+    - **Nome:** tipo _Alain Charon_.
 
-    - **Nome de Usuário:** Digite *alain\@contoso.com*.
+    - **Nome de usuário:** digite *alain\@contoso.com*.
 
 3. Copie a senha gerada automaticamente fornecida na caixa **Senha** e, em seguida, selecione **Criar**.
 
@@ -109,7 +109,7 @@ Agora que você encontrou o grupo, pode exibir todos os membros atribuídos.
 
     ![Lista de membros atribuídos ao grupo de política do MDM – Oeste](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Esse grupo é usado em vários dos processos de instruções disponíveis na seção **Guias de instruções** desta documentação. No entanto, se você preferir não usar esse grupo, poderá excluir ele e seus membros atribuídos usando as seguintes etapas:
 
 1. Na página **Grupos – todos os grupos**, pesquise o grupo **Política do MDM – Oeste**.

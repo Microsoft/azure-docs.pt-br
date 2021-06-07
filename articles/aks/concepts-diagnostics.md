@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
 ms.openlocfilehash: e8921152177d3e4534ca9fb48cf209aed6e1b27c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96183355"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Visão geral do diagnóstico do serviço kubernetes do Azure (visualização)

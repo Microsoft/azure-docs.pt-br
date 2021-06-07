@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80132286"
 ---
 Se um usuário não tiver o acesso necessário para aplicar marcas, você poderá atribuir a função **Colaborador de Marca** a ele. Para saber mais, confira [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o portal do Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).

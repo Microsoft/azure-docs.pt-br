@@ -7,18 +7,18 @@ ms.date: 11/28/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 40bba03c35568c013e383c08f0a13f765c1cc8bd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625847"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso de Gateway para rotear solicitações
 
 > [!IMPORTANT]
-> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
 > 
-> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Um recurso de Gateway é usado para rotear o tráfego de entrada para a rede que hospeda seu aplicativo. Configure-o para especificar regras por meio do qual as solicitações são direcionadas para serviços específicos ou pontos de extremidade com base na estrutura da solicitação. Veja [Introdução à rede na Malha do Azure Service Fabric](service-fabric-mesh-networks-and-gateways.md) para obter mais informações sobre redes e gateways na malha. 
 

@@ -9,10 +9,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
 ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879319"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planejar uma oferta de máquina virtual
@@ -124,7 +124,7 @@ Se você optar por usar o contrato padrão, terá a opção de adicionar os term
 > [!NOTE]
 > Depois de publicar uma oferta usando o contrato padrão para o mercado comercial, você não pode usar seus próprios termos e condições personalizados. Esse é um cenário com duas possibilidades mutuamente exclusivas. Você pode oferecer sua solução sob o contrato Standard ou seus próprios termos e condições. Se você quiser modificar os termos do contrato padrão, poderá fazer isso por meio de emendas de contrato padrão.
 
-## <a name="cloud-solution-providers"></a>Provedores de Soluções de Nuvem
+## <a name="cloud-solution-providers"></a>Provedores de Soluções na Nuvem
 
 Ao criar sua oferta no Partner Center, você verá a guia **revender por meio de CSPs** . Essa opção permite que os parceiros que fazem parte do programa CSP (provedores de soluções de Microsoft Cloud) revendam sua VM como parte de uma oferta agrupada. Todos os planos BYOL (traga sua própria licença) são automaticamente aceitos para o programa. Você também pode optar por aceitar seus planos não BYOL. Consulte [programa do provedor de soluções na nuvem](cloud-solution-providers.md) para obter mais informações. 
 

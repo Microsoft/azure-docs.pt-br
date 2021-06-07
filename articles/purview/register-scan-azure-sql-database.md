@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 74a8bc4209696682c294bccab450d25ae86e3645
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879724"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643935"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrar e examinar um Banco de Dados SQL do Azure
 
@@ -100,7 +100,7 @@ A entidade de serviço ou a identidade gerenciada precisa ter permissão para ob
     ```
 
     > [!Note]
-    > O `Username` é a sua entidade de serviço ou identidade gerenciada do Purview. É possível ler mais sobre [funções de banco de dados fixas e respectivas funcionalidades](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > O `Username` é a sua entidade de serviço ou identidade gerenciada do Purview. É possível ler mais sobre [funções de banco de dados fixas e respectivas funcionalidades](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicionar a entidade de serviço ao cofre de chaves e à credencial do Purview
 
@@ -149,9 +149,7 @@ Para registrar um novo Banco de Dados SQL do Azure no seu catálogo de data, fa�
 Na tela **Registrar fontes (Banco de Dados SQL do Azure)** , faça o seguinte:
 
 1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
-1. Escolha como deseja apontá-la para a conta de armazenamento desejada:
-   1. Selecione **Da assinatura do Azure**, escolha a assinatura apropriada na caixa suspensa **Assinatura do Azure** e o servidor apropriado na caixa suspensa **Nome do servidor**.
-   1. Ou, então, escolha **Inserir manualmente** e insira um **Nome do servidor**.
+1. Selecione **Da assinatura do Azure**, escolha a assinatura apropriada na caixa suspensa **Assinatura do Azure** e o servidor apropriado na caixa suspensa **Nome do servidor**.
 1. **Conclua** a etapa para registrar a fonte de dados.
 
 :::image type="content" source="media/register-scan-azure-sql-database/add-azure-sql-database.png" alt-text="opções de registro de fontes" border="true":::
@@ -159,7 +157,8 @@ Na tela **Registrar fontes (Banco de Dados SQL do Azure)** , faça o seguinte:
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> A exclusão da verificação não exclui seus ativos das verificações anteriores do Banco de Dados SQL do Azure.
+> * A exclusão da verificação não exclui seus ativos das verificações anteriores do Banco de Dados SQL do Azure.
+> * O ativo não será mais atualizado com alterações de esquema se a tabela de origem for alterada e examinar novamente a tabela de origem depois de editar a descrição na guia esquema do Purview.
 
 ## <a name="next-steps"></a>Próximas etapas
 

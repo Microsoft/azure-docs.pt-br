@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: 1b49b2584c4cb462c7c0f520fe8d1b5bf69c8674
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393659"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Eliminação de duplicação de linhas e localização de nulos usando trechos de fluxo de dados

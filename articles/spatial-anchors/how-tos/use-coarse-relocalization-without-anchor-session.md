@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0b3959ba3ec80f3113ea0358db550c86f1f276b1
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99430302"
 ---
 # <a name="use-coarse-relocalization-without-an-anchor-session"></a>Usar relocalização ampla sem uma sessão de âncora

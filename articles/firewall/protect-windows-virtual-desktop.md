@@ -7,14 +7,14 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654976"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566019"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usar o Firewall do Azure para proteger as implantações da Área de Trabalho Virtual do Windows
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows
 
 A área de trabalho virtual do Windows é um serviço de desktop e de virtualização de aplicativo que é executado no Azure. Quando um usuário final se conecta a um ambiente de área de trabalho virtual do Windows, sua sessão é executada por um pool de hosts. Um pool de hosts é uma coleção de máquinas virtuais do Azure que se registram na área de trabalho virtual do Windows como hosts de sessão. Essas máquinas virtuais são executadas em sua rede virtual e estão sujeitas aos controles de segurança de rede virtual. Eles precisam de acesso de Internet de saída ao serviço de área de trabalho virtual do Windows para operar corretamente e também podem precisar de acesso de saída à Internet para usuários finais. O Firewall do Azure pode ajudá-lo a bloquear seu ambiente e filtrar o tráfego de saída.
 
@@ -54,7 +54,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 - Criar uma coleção de regras de rede Adicione as seguintes regras:
 
    - Permitir DNS – permitir tráfego de seu Adicionar endereço IP privado para * para portas TCP e UDP 53.
-   - Permitir KMS – permitir o tráfego de suas máquinas virtuais da área de trabalho virtual do Windows para a porta TCP 1688 do serviço de ativação do Windows. Para obter mais informações sobre os endereços IP de destino, consulte [falha de ativação do Windows no cenário de túnel forçado](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Permitir KMS – permitir o tráfego de suas máquinas virtuais da área de trabalho virtual do Windows para a porta TCP 1688 do serviço de ativação do Windows. Para obter mais informações sobre os endereços IP de destino, consulte [falha de ativação do Windows no cenário de túnel forçado](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Algumas implantações podem não precisar de regras de DNS, por exemplo Azure Active Directory controladores de domínio encaminham consultas DNS para o DNS do Azure em 168.63.129.16.

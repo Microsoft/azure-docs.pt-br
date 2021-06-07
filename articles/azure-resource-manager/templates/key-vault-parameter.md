@@ -3,12 +3,12 @@ title: Key Vault segredo com o modelo
 description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672698"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889851"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -306,7 +306,7 @@ O seguinte modelo cria dinamicamente a ID do cofre de chaves e a passa como um p
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",

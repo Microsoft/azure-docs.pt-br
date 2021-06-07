@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87422633"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Mover o cofre dos Serviços de Recuperação e a configuração do Azure Site Recovery para outra região do Azure
@@ -33,7 +33,7 @@ Neste documento, você vai:
 > [!IMPORTANT]
 > No momento, não há uma maneira não trabalhosa de mover um cofre dos Serviços de Recuperação e a configuração de recuperação de desastre no estado em que se encontram para uma região diferente. Este artigo explica o processo de desabilitar a replicação e configurá-la na nova região.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Não deixe de remover e excluir a configuração de recuperação de desastre antes de tentar mover as VMs do Azure para uma região diferente. 
 

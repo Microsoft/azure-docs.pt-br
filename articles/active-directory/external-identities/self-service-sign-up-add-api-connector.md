@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0c9bbdb831df9c51c6d80e6c441ac7bdd2778428
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807013"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044542"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -27,24 +27,55 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 
 ## <a name="create-an-api-connector"></a>Criar um conector de API
 
-1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
-4. Selecione **todos os conectores de API (versão prévia)** e, em seguida, selecione **novo conector de API**.
+4. Selecione **todos os conectores de API** e, em seguida, selecione **novo conector de API**.
 
    ![Adicionar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
 5. Forneça um nome de exibição para a chamada. Por exemplo, **Verifique o status de aprovação**.
 6. Forneça a **URL do ponto de extremidade** para a chamada à API.
-7. Forneça as informações de autenticação para a API.
+7. Escolha o **tipo de autenticação** e configure as informações de autenticação para chamar sua API. Consulte a seção abaixo para obter opções sobre como proteger sua API.
 
-   - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** fictícios que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
+    ![Configurar um conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
-   ![Configurar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Selecione **Salvar**.
 
+## <a name="securing-the-api-endpoint"></a>Protegendo o ponto de extremidade da API
+Você pode proteger seu ponto de extremidade de API usando a autenticação básica HTTP ou a autenticação de certificado de cliente HTTPS (versão prévia). Em ambos os casos, você fornece as credenciais que Azure Active Directory usarão ao chamar o ponto de extremidade da API. O ponto de extremidade de API, em seguida, verifica as credenciais e executa decisões de autorização.
+
+### <a name="http-basic-authentication"></a>Autenticação básica HTTP
+A autenticação básica HTTP é definida em [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory envia uma solicitação HTTP com as credenciais do cliente ( `username` e `password` ) no `Authorization` cabeçalho. As credenciais são formatadas como a cadeia de caracteres codificada em base64 `username:password` . A API, em seguida, verifica esses valores para determinar se uma chamada à API deve ser rejeitada ou não.
+
+### <a name="https-client-certificate-authentication-preview"></a>Autenticação de certificado de cliente HTTPS (versão prévia)
+
 > [!IMPORTANT]
-> Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
+> Essa funcionalidade está em visualização e é fornecida sem um contrato de nível de serviço. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+A autenticação de certificado de cliente é um método de autenticação baseado em certificado mútuo em que o cliente fornece um certificado de cliente para o servidor para provar sua identidade. Nesse caso, Azure Active Directory usarão o certificado que você carrega como parte da configuração do conector de API. Isso acontece como parte do handshake SSL. O serviço de API pode, então, limitar o acesso somente a serviços que tenham os certificados adequados. O certificado do cliente é um certificado digital do PKCS12 (PFX) X. 509. Em ambientes de produção, ele deve ser assinado por uma autoridade de certificação. 
+
+Para criar um certificado, você pode usar [Azure Key Vault](../../key-vault/certificates/create-certificate.md), que tem opções para certificados autoassinados e integrações com provedores de emissor de certificados para certificados assinados. As configurações recomendadas incluem:
+- **Assunto**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Tipo de conteúdo**: `PKCS #12`
+- **Tipo de ação de tempo de vida**: `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Tipo de chave**: `RSA`
+- **Tamanho da chave**: `2048`
+- **Chave privada exportável**: `Yes` (para poder exportar o arquivo PFX)
+
+Em seguida, você pode [exportar o certificado](../../key-vault/certificates/how-to-export-certificate.md). Como alternativa, você pode usar o [cmdlet New-SelfSignedCertificate](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) do PowerShell para gerar um certificado autoassinado.
+
+Depois de ter um certificado, você pode carregá-lo como parte da configuração do conector de API. Observe que a senha só é necessária para os arquivos de certificado protegidos por uma senha.
+
+Sua API deve implementar a autorização com base em certificados de cliente enviados para proteger os pontos de extremidade de API. Para Azure App serviço e Azure Functions, consulte [Configurar a autenticação mútua TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) para saber como habilitar e *validar o certificado do seu código de API*.  Você também pode usar o gerenciamento de API do Azure para proteger sua API e [verificar as propriedades de certificado do cliente](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) em relação aos valores desejados usando expressões de política.
+ 
+É recomendável definir alertas de lembrete para quando seu certificado expirar. Será necessário gerar um novo certificado e repetir as etapas acima. O serviço de API pode continuar a aceitar temporariamente os certificados novos e antigos enquanto o novo certificado é implantado. Para carregar um novo certificado em um conector de API existente, selecione o conector de API em **todos os conectores de API** e clique em **carregar novo certificado**. O certificado carregado mais recentemente que não expirou e é passado pela data de início será automaticamente usado pelo Azure Active Directory.
+
+### <a name="api-key"></a>Chave de API
+Alguns serviços usam um mecanismo de "chave de API" para ofuscar o acesso aos pontos de extremidade HTTP durante o desenvolvimento. Por [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), você pode fazer isso incluindo o `code` como um parâmetro de consulta na **URL do ponto de extremidade**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+
+Esse não é um mecanismo que deve ser usado sozinha na produção. Portanto, a configuração para a autenticação básica ou de certificado é sempre necessária. Se você não quiser implementar nenhum método de autenticação (não recomendado) para fins de desenvolvimento, poderá escolher a autenticação básica e usar valores temporários `username` para `password` o e que sua API possa ignorar enquanto você implementa a autorização em sua API.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
 Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](/graph/api/resources/user#properties) Propriedades de usuário. 
@@ -56,7 +87,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -85,7 +116,7 @@ Existem atributos personalizados no formato **de \<extensions-app-id> _Attribute
 Além disso, a Declaração **localidades da interface do usuário (' ui_locales ')** é enviada por padrão em todas as solicitações. Ele fornece a localidade de um usuário, conforme configurado em seu dispositivo, que pode ser usado pela API para retornar respostas internacionalizadas.
 
 > [!IMPORTANT]
-> Se uma declaração a ser enviada não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente o valor esperado.
+> Se uma declaração não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente e manipular o caso em que uma declaração não está na solicitação.
 
 > [!TIP] 
 > [**identidades (' identidades ')**](/graph/api/resources/objectidentity) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
@@ -97,7 +128,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
-4. Selecione **fluxos de usuário (versão prévia)** e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
+4. Selecione **fluxos de usuário** e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
 5. Selecione **conectores de API** e, em seguida, selecione os pontos de extremidade de API que você deseja invocar nas etapas a seguir no fluxo do usuário:
 
    - **Depois de entrar com um provedor de identidade**
@@ -109,11 +140,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
-Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (Google, Facebook, Azure AD). Esta etapa precede a ***página coleção de atributos***, que é o formulário apresentado ao usuário para coletar atributos de usuário. 
-
-<!-- The following are examples of API connector scenarios you may enable at this step:
-- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
-- Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow. -->
+Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (como o Google, Facebook, & Azure AD). Esta etapa precede a ***página coleção de atributos***, que é o formulário apresentado ao usuário para coletar atributos de usuário. Esta etapa não será invocada se um usuário estiver se registrando com uma conta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemplo de solicitação enviada para a API nesta etapa
 ```http
@@ -122,7 +149,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -165,13 +192,6 @@ Consulte um exemplo de uma [resposta de bloqueio](#example-of-a-blocking-respons
 
 Um conector de API nesta etapa no processo de inscrição é invocado após a página de coleção de atributos, se um for incluído. Essa etapa é sempre invocada antes de uma conta de usuário ser criada no Azure AD. 
 
-<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
-<!-- 
-- Validate user input data and ask a user to resubmit data.
-- Block a user sign-up based on data entered by the user.
-- Perform identity verification.
-- Query external systems for existing data about the user and overwrite the user-provided value. -->
-
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemplo de solicitação enviada para a API nesta etapa
 
 ```http
@@ -180,7 +200,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -212,7 +232,6 @@ Quando a API Web recebe uma solicitação HTTP do Azure AD durante um fluxo de u
 - Resposta de validação
 
 #### <a name="continuation-response"></a>Resposta de continuação
-
 Uma resposta de continuação indica que o fluxo do usuário deve continuar para a próxima etapa: criar o usuário no diretório.
 
 Em uma resposta de continuação, a API pode retornar declarações. Se uma declaração for retornada pela API, a declaração fará o seguinte:
@@ -247,12 +266,12 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se configurados como parte do aplicativo.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -264,17 +283,15 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "There was a problem with your request. You are not able to sign up at this time.",
-    "code": "CONTOSO-BLOCK-00"
 }
 
 ```
 
-| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
 | userMessage | String | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
 **Experiência do usuário final com uma resposta de bloqueio**
 
@@ -291,17 +308,18 @@ Content-type: application/json
     "status": 400,
     "action": "ValidationError",
     "userMessage": "Please enter a valid Postal Code.",
-    "code": "CONTOSO-VALIDATION-00"
 }
 ```
 
-| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | String  | Sim      | A versão da API.                                                    |
+| version     | String  | Sim      | A versão da sua API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Integer | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Inteiro | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
-| code        | String  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
+
+> [!NOTE]
+> O código de status HTTP deve ser "400", além do valor de "status" no corpo da resposta.
 
 **Experiência do usuário final com uma resposta de erro de validação**
 
@@ -311,7 +329,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Práticas recomendadas e como solucionar problemas
 
 ### <a name="using-serverless-cloud-functions"></a>Usando funções de nuvem sem servidor
-Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
+Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios de email específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
 
 ### <a name="best-practices"></a>Práticas recomendadas
 Verifique se:
@@ -319,8 +337,7 @@ Verifique se:
 * A **URL do ponto de extremidade** do conector de API aponta para o ponto de extremidade de API correto.
 * Sua API verifica explicitamente se há valores nulos de declarações recebidas.
 * Sua API responde o mais rápido possível para garantir uma experiência de usuário fluida.
-    * Se estiver usando uma função sem servidor ou um serviço Web escalonável, use um plano de hospedagem que mantenha a API "ativo" ou "quente". Por Azure Functions, é recomendável usar o [plano Premium](../../azure-functions/functions-premium-plan.md). 
-
+    * Se estiver usando uma função sem servidor ou um serviço Web escalonável, use um plano de hospedagem que mantenha a API "ativo" ou "quente". em produção. Por Azure Functions, é recomendável usar o [plano Premium](../../azure-functions/functions-scale.md)
 
 ### <a name="use-logging"></a>Usar registro em log
 Em geral, é útil usar as ferramentas de log habilitadas pelo serviço de API Web, como o [Application insights](../../azure-functions/functions-monitoring.md), para monitorar sua API para códigos de erro inesperados, exceções e baixo desempenho.
@@ -330,7 +347,5 @@ Em geral, é útil usar as ferramentas de log habilitadas pelo serviço de API W
 * Monitore sua API para tempos de resposta longos.
 
 ## <a name="next-steps"></a>Próximas etapas
-<!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Saiba como [Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento](self-service-sign-up-add-approvals.md)
-- Introdução aos nossos [exemplos de início rápido do Azure function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-<!-- - Learn how to [use API connectors to verify a user identity](code-samples-self-service-sign-up.md#identity-verification) -->
+- Introdução aos nossos [exemplos de início rápido](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

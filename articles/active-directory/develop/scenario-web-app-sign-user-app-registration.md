@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 920249aa252469c3db2be284fc010d775d04c921
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103185"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578270"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -69,7 +69,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Selecione **Registrar** para criar o aplicativo.
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -94,6 +94,21 @@ Por padrão, o exemplo usa:
    1. Selecione a duração da chave **em 1 ano**.
    1. Selecione **Adicionar**.
    1. Quando o valor da chave for exibido, copie-o para mais tarde. Esse valor não será exibido novamente ou poderá ser recuperado por outros meios.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
+   1. Insira um **Nome** para seu aplicativo, por exemplo, `node-webapp`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+   1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+   1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: `http://localhost:3000/redirect` .
+   1. Selecione **Registrar** para criar o aplicativo.
+1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dela para configurar o arquivo de configuração para este projeto.
+1. Em **Gerenciar**, selecione **Certificados e Segredos**.
+1. Na seção **segredos do cliente** , selecione **novo segredo do cliente** e, em seguida:
+   1. Insira uma descrição de chave.
+   1. Selecione uma duração de chave igual a **Em 1 ano**.
+   1. Selecione **Adicionar**.
+   1. Quando o valor da chave for exibido, copie-o. Você precisará dela mais tarde.
 
 # <a name="python"></a>[Python](#tab/python)
 

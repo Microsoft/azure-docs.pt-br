@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376081"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copiar várias pastas com Azure Data Factory

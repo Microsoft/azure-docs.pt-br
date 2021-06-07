@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652238"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
@@ -26,7 +26,7 @@ Este artigo descreve a arquitetura, os componentes e os processos usados quando 
 
 Os componentes envolvidos na recuperação de desastre para VMs do Azure são resumidos na tabela a seguir.
 
-**Componente** | **Requirements**
+**Componente** | **Requisitos**
 --- | ---
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem compatível](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem executar qualquer [sistema operacional compatível](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento das VMs de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos em contas de armazenamento.<br/><br/>[Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---storage) sobre o armazenamento do Azure compatível.
@@ -62,7 +62,7 @@ Você pode gerenciar recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão, o Site Recovery cria uma política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Default**
+**Configuração de política** | **Detalhes** | **Padrão**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas

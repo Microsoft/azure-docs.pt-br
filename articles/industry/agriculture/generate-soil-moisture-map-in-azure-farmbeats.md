@@ -4,13 +4,13 @@ description: Descreve como gerar calor de umidade de solo no Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: dd8d688355e0f71ce77cdbc6012d788c7b16d825
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165546"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102173776"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
@@ -67,7 +67,7 @@ Esta etapa é criar um trabalho ou uma operação de execução longa que irá g
 3.  Na página **detalhes do farm** , selecione **gerar mapa de precisão**.
 4.  No menu suspenso, selecione **umidade de solo**.
 5.  Na janela **umidade de solo** , selecione **esta semana**.
-6.  Na medida **selecionar** **sensor**de umidade de solo, insira a medida que você deseja usar para o mapa.
+6.  Na medida **selecionar** **sensor** de umidade de solo, insira a medida que você deseja usar para o mapa.
     Para localizar a medida do sensor, em **sensores**, selecione qualquer sensor de umidade do solo. Em **Propriedades do sensor**, use o valor **nome da medida** .
 
     ![Captura de tela que mostra o solo de umidade.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
@@ -93,4 +93,4 @@ Use as seguintes etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
+Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84692512"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gerenciar VMware vCenter Server
@@ -48,7 +48,7 @@ Quando você configura a recuperação de desastre para VMs VMware locais, Site 
 
 Ao configurar a recuperação de desastre para VMs VMware locais, você adiciona o host vCenter Server/vSphere no qual está descobrindo VMs para o cofre de Site Recovery, da seguinte maneira:
 
-1. No cofre > **site Recovery**  >  **servidores de configuração**de infraestrutura, abra o servidor de configuração.
+1. No cofre > **site Recovery**  >  **servidores de configuração** de infraestrutura, abra o servidor de configuração.
 1. Na página de **detalhes** , clique em **vCenter**.
 1. Em **Adicionar vCenter**, especifique um nome amigável para o host vSphere ou servidor vCenter.
 1. Especifique o endereço IP ou o FQDN do servidor.
@@ -66,16 +66,16 @@ Se necessário, você pode modificar as credenciais usadas para se conectar ao h
    ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Forneça os detalhes da nova conta e clique em **OK**. A conta precisa das permissões listadas na tabela de [permissões de conta](#account-permissions) .
-1. No cofre > **site Recovery**  >  **servidores de configuração**de infraestrutura, abra o servidor de configuração.
+1. No cofre > **site Recovery**  >  **servidores de configuração** de infraestrutura, abra o servidor de configuração.
 1. Em **detalhes**, clique em **Atualizar servidor**.
 1. Após a conclusão do trabalho de atualização do servidor, selecione o vCenter Server.
-1. Em **Resumo**, selecione a conta recém-adicionada no **vCenter Server/conta de host vSphere**e clique em **salvar**.
+1. Em **Resumo**, selecione a conta recém-adicionada no **vCenter Server/conta de host vSphere** e clique em **salvar**.
 
    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Excluir um vCenter Server
 
-1. No cofre > **site Recovery**  >  **servidores de configuração**de infraestrutura, abra o servidor de configuração.
+1. No cofre > **site Recovery**  >  **servidores de configuração** de infraestrutura, abra o servidor de configuração.
 1. Na página **Detalhes**, selecione o servidor vCenter.
 1. Clique no botão **excluir** .
 
@@ -85,7 +85,7 @@ Se necessário, você pode modificar as credenciais usadas para se conectar ao h
 
 Você pode modificar o endereço IP do vCenter Server ou as portas usadas para comunicação entre o servidor e o Site Recovery. Por padrão, o Site Recovery acessa informações de host vCenter Server/vSphere por meio da porta 443.
 
-1. No cofre > **site Recovery**  >  **servidores de configuração**de infraestrutura, clique no servidor de configurações ao qual o vCenter Server é adicionado.
+1. No cofre > **site Recovery**  >  **servidores de configuração** de infraestrutura, clique no servidor de configurações ao qual o vCenter Server é adicionado.
 1. Em **servidores vCenter**, clique no vCenter Server que você deseja modificar.
 1. Em **Resumo**, atualize o endereço IP e a porta e salve as alterações.
 
@@ -97,7 +97,7 @@ Você pode modificar o endereço IP do vCenter Server ou as portas usadas para c
 
 Se você quiser migrar todas as VMs para usar uma nova vCenter Server, basta atualizar o endereço IP atribuído à vCenter Server. Não adicione outra conta do VMware, pois isso pode levar a entradas duplicadas. Atualize o endereço da seguinte maneira:
 
-1. No cofre > **site Recovery**  >  **servidores de configuração**de infraestrutura, clique no servidor de configurações ao qual o vCenter Server é adicionado.
+1. No cofre > **site Recovery**  >  **servidores de configuração** de infraestrutura, clique no servidor de configurações ao qual o vCenter Server é adicionado.
 1. Na seção **servidores vCenter** , clique no vCenter Server do qual você deseja migrar.
 1. Em **Resumo**, atualize o endereço IP para o novo vCenter Server e salve as alterações.
 1. Assim que o endereço IP for atualizado, Site Recovery começará a receber informações de descoberta de VM do novo vCenter Server. Isso não afeta as atividades de replicação contínuas.

@@ -2,17 +2,19 @@
 title: Como usar filas do azure/service-bus em JavaScript
 description: Saiba como escrever um programa JavaScript que usa a última versão prévia do pacote @azure/service-bus para enviar e receber mensagens em uma fila do Barramento de Serviço.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: ac24d84176f27170648545bc8044c5dcbc77781a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: aee67becf7519f03839eafbd897838f938871307
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180006"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537226"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (JavaScript)
 Neste tutorial, você aprenderá a usar o pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) em um programa JavaScript para enviar e receber mensagens em uma fila do Barramento de Serviço.
@@ -205,6 +207,7 @@ Selecione a fila nesta página **Visão geral** para acessar a página **Fila do
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes exemplos e a documentação: 
 
-- [Biblioteca de clientes do Barramento de Serviço do Azure para JS](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). A pasta **javascript** traz exemplos de JavaScript, e a pasta **typescript** contém exemplos de TypeScript. 
-- [Documentação de referência de azure-servicebus](/javascript/api/overview/azure/service-bus)
+- [Biblioteca de clientes do Barramento de Serviço do Azure para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [Exemplos de JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Exemplos de TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Documentação de referência da API](/javascript/api/overview/azure/service-bus)

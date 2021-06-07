@@ -4,10 +4,10 @@ description: Saiba mais sobre como remover e implantar aplicativos no Azure Serv
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: d428a51c0bc224ca8706403ae176d46f1db82a32
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785440"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implantar e remover aplicativos usando o PowerShell

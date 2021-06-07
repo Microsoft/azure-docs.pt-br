@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 8af8d92ca66cfbd3d6223bc9a73125c457164d82
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70afa0a02f4e303105aec1884b966796854c6f49
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735538"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102449298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Administrador do Zscaler Internet Access
 
@@ -28,10 +28,10 @@ Neste tutorial, você aprenderá a integrar o Administrador do Zscaler Internet 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Administrador do Zscaler Internet Access, você precisará dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura do Zscaler Internet Access Administrator
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para o SSO (logon único) do Administrador do Zscaler Internet Access.
 
 > [!NOTE]
 > Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
@@ -40,9 +40,9 @@ Para configurar a integração do Azure AD ao Administrador do Zscaler Internet 
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Administrador do Zscaler Internet Access dá suporte ao SSO iniciado por **IDP**
+* O Administrador do Zscaler Internet Access é compatível com o SSO iniciado por **IDP**.
 
-## <a name="adding-zscaler-internet-access-administrator-from-the-gallery"></a>Adicionando o Administrador do Zscaler Internet Access da galeria
+## <a name="add-zscaler-internet-access-administrator-from-the-gallery"></a>Adicionar o Administrador do Zscaler Internet Access por meio da galeria
 
 Para configurar a integração do Administrador do Zscaler Internet Access ao Azure AD, você precisará adicionar o Administrador do Zscaler Internet Access da galeria à sua lista de aplicativos de SaaS gerenciados.
 
@@ -64,7 +64,7 @@ Para configurar e testar o SSO do Azure AD com o Administrador do Zscaler Intern
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
 2. **[Configurar o SSO do Administrador do Zscaler Internet Access](#configure-zscaler-internet-access-administrator-sso)** : para definir as configurações de logon único no lado do aplicativo.
     1. **[Criar um usuário de teste do Administrador do Zscaler Internet Access](#create-zscaler-internet-access-administrator-test-user)** – para ter um equivalente de Brenda Fernandes no Administrador do Zscaler Internet Access que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+3. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
@@ -78,7 +78,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
+    a. Na caixa de texto **Identificador**, digite uma das seguintes URLs conforme seus requisitos:
 
     | Identificador |
     |------------|
@@ -89,7 +89,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL de acordo com seus requisitos:
+    b. Na caixa de texto **URL de Resposta**, digite uma das seguintes URLs conforme seus requisitos:
 
     | URL de resposta |
     |-----------|
@@ -102,7 +102,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 5. O aplicativo de Administrador do Zscaler Internet Access espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Atributos e Declarações do Usuário**.
 
-    ![O link do Atributo](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
+    ![O link do Atributo](./media/zscaler-internet-access-administrator-tutorial/attributes.png)
 
 6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
@@ -153,14 +153,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Se você tiver configurado as funções conforme explicado acima, será possível selecioná-las na lista suspensa **Selecionar uma função**.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-
 ## <a name="configure-zscaler-internet-access-administrator-sso"></a>Configurar o SSO do Administrador do Zscaler Internet Access
 
 1. Em outra janela do navegador da Web, faça logon na interface do usuário do Administrador do Zscaler Internet Access.
 
 2. Acesse **Administração > Gerenciamento de Administradores**, execute as seguintes etapas e clique em Salvar:
 
-    ![A captura de tela mostra o Gerenciamento de Administradores com opções para Habilitar a Autenticação SAML, carregar o certificado SSL e especificar um Emissor.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
+    ![A captura de tela mostra o Gerenciamento de Administradores com opções para Habilitar a Autenticação SAML, carregar o certificado SSL e especificar um Emissor.](./media/zscaler-internet-access-administrator-tutorial/management.png "Administração")
 
     a. Marque a opção **Habilitar Autenticação SAML**.
 
@@ -170,7 +169,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 3. Na interface do usuário do Administrador, execute as seguintes etapas:
 
-    ![A captura de tela mostra a guia IU do Administrador na qual você pode executar essas etapas.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![A captura de tela mostra a guia IU do Administrador na qual você pode executar essas etapas.](./media/zscaler-internet-access-administrator-tutorial/activation.png)
 
     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
@@ -183,7 +182,7 @@ Para obter as etapas de como criar uma conta Administrador, consulte a documenta
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 

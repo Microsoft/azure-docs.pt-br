@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393455"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592023"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
@@ -27,14 +27,14 @@ Este artigo descreve como copiar dados de e para o servidor FTP seguro (SFTP). P
 
 O conector SFTP tem suporte para as seguintes atividades:
 
-- [atividade de cópia](copy-activity-overview.md) de com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/coletor com suporte](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 - [Excluir atividade](delete-activity.md)
 
 Especificamente, o conector SFTP dá suporte a:
 
-- Copiar arquivos de e para o servidor SFTP usando a autenticação *básica* ou *SshPublicKey* .
+- Copiar arquivos de e para o servidor SFTP usando a **chave pública SSH** **básica** ou a autenticação **multifator** .
 - Copiar arquivos como está ou analisando ou gerando arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 | porta | A porta na qual o servidor SFTP está escutando.<br/>O valor permitido é um inteiro e o valor padrão é *22*. |Não |
 | skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host.<br/>Os valores permitidos são *true* e *false* (padrão).  | Não |
 | hostKeyFingerprint | Especifique a impressão digital da chave do host. | Sim, se "skipHostKeyValidation" for definido como false.  |
-| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic* e *SshPublicKey*. Para obter mais propriedades, consulte a seção [usar autenticação básica](#use-basic-authentication) . Para obter exemplos de JSON, consulte a seção [usar autenticação de chave pública SSH](#use-ssh-public-key-authentication) . |Sim |
+| authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são *Basic*, *SshPublicKey* e *Multifactor*. Para obter mais propriedades, consulte a seção [usar autenticação básica](#use-basic-authentication) . Para obter exemplos de JSON, consulte a seção [usar autenticação de chave pública SSH](#use-ssh-public-key-authentication) . |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Para saber mais, consulte a seção [pré-requisitos](#prerequisites) . Se o Integration Runtime não for especificado, o serviço usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
@@ -75,7 +75,6 @@ Para usar a autenticação básica, defina a propriedade *authenticationType* co
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Para usar a chave pública SSH, defina a propriedade "authenticationType" como *
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Para usar a chave pública SSH, defina a propriedade "authenticationType" como *
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Usar autenticação multifator
+
+Para usar a autenticação multifator, que é uma combinação de autenticações de chave pública básica e SSH, especifique as informações de nome de usuário, senha e chave privada descritas nas seções acima.
+
+**Exemplo: autenticação multifator**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -236,7 +271,7 @@ As propriedades a seguir têm suporte para SFTP sob as `storeSettings` configura
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
 | enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
-| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
+| maxConcurrentConnections | O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não                                            |
 
 **Exemplo:**
 
@@ -289,7 +324,7 @@ As propriedades a seguir têm suporte para SFTP em `storeSettings` configuraçõ
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpWriteSettings*. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
-| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não       |
+| maxConcurrentConnections | O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas. | Não       |
 | useTempFileRename | Indique se deseja carregar arquivos temporários e renomeá-los ou gravar diretamente na pasta de destino ou no local do arquivo. Por padrão, Azure Data Factory primeiro grava em arquivos temporários e, em seguida, os renomeia quando o carregamento é concluído. Essa sequência ajuda a (1) evitar conflitos que podem resultar em um arquivo corrompido se você tiver outros processos gravando no mesmo arquivo e (2) verificar se a versão original do arquivo existe durante a transferência. Se o seu servidor SFTP não oferecer suporte a uma operação de renomeação, desabilite essa opção e verifique se você não tem uma gravação simultânea no arquivo de destino. Para obter mais informações, consulte a dica de solução de problemas no final desta tabela. | Não. O valor padrão é *true*. |
 | operationTimeout | O tempo de espera antes de expirar cada solicitação de gravação para o servidor SFTP. O valor padrão é 60 minutos (01:00:00).|Não |
 
@@ -422,7 +457,7 @@ Para obter informações sobre as propriedades de atividade de exclusão, consul
 |:--- |:--- |:--- |
 | type | A propriedade *Type* da fonte da atividade de cópia deve ser definida como *FileSystemName* |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursivo é definido como *true* e o coletor é um armazenamento baseado em arquivo, pastas e subpastas vazias não serão copiadas ou criadas no coletor.<br/>Os valores permitidos são *true* (padrão) e *false* | Não |
-| maxConcurrentConnections | O número de conexões que podem se conectar a um repositório de armazenamento simultaneamente. Especifique um número somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo:**
 

@@ -2,14 +2,14 @@
 title: Adicionar, remover e organizar favoritos no portal do Azure
 description: Saiba como adicionar ou remover itens da lista de favoritos e reorganizar a ordem dos itens
 keywords: favoritos, portal
-ms.date: 12/20/2019
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 01ed34c2e72890c6aeeef9371312825273722ac6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dc1e9436c5adb84fbe4b736b2c2217b6e5da2c97
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745784"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774466"
 ---
 # <a name="add-remove-and-rearrange-favorites"></a>Adicionar, remover e reorganizar favoritos
 

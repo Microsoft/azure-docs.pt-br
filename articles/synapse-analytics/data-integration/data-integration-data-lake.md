@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
 ms.openlocfilehash: fbc4f11b450a645002daedc800d4fed74ed37a3d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219565"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingerir dados em Azure Data Lake Storage Gen2 

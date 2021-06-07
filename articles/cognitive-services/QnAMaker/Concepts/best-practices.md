@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104511"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102123302"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -18,7 +18,7 @@ O [ciclo de vida de desenvolvimento da base de dados de conhecimento](../Concept
 
 ## <a name="extraction"></a>Extração
 
-O serviço QnA Maker está melhorando continuamente os algoritmos que extraem perguntas e respostas do conteúdo e está expandindo a lista de formatos de arquivo e de HTML com suporte. Siga as [diretrizes](../index.yml) de extração de dados com base em seu tipo de documento.
+O serviço QnA Maker está melhorando continuamente os algoritmos que extraem perguntas e respostas do conteúdo e está expandindo a lista de formatos de arquivo e de HTML com suporte. Siga as [diretrizes](../Concepts/data-sources-and-content.md) de extração de dados com base em seu tipo de documento.
 
 Em geral, as páginas de perguntas frequentes devem ser independentes e não combinadas com outras informações. Manuais de produtos devem ter títulos claros e, de preferência, uma página de índice.
 
@@ -43,7 +43,7 @@ O usuário pode inserir perguntas com um estilo de conversa de texto `How do I a
 
 As melhores respostas são respostas simples, mas não muito simples. Não use respostas como `yes` e `no` . Se sua resposta deve ser vinculada a outras fontes ou fornecer uma experiência rica com mídia e links, use a [marcação de metadados](../how-to/edit-knowledge-base.md#add-metadata) para distinguir entre as respostas e, em seguida, [envie a consulta com as](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) marcas de metadados na `strictFilters` propriedade para obter a versão de resposta correta.
 
-|Resposta|Prompts de Follup|
+|Resposta|Solicitações de acompanhamento|
 |--|--|
 |Desligue o laptop da superfície com o botão de energia no teclado.|* Combinações de teclas para suspensão, desligamento e reinicialização.<br>* Como inicializar um laptop de superfície<br>* Como alterar o BIOS de um laptop de superfície<br>* Diferenças entre suspensão, desligamento e reinicialização|
 |O atendimento ao cliente está disponível por telefone, Skype e mensagem de texto 24 horas por dia.|* Informações de contato para vendas.<br> * Localizações e horas do escritório e da loja para uma visita pessoal.<br> * Acessórios para um laptop Surface.|

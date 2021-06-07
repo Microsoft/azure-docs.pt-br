@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 54ee903b490e10f7ea4ca3bca91f742b5811404d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778340"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102563295"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de distribuição de conteúdo no Azure?
 Uma CDN (rede de distribuição de conteúdo) é uma rede distribuída de servidores que pode fornecer conteúdo da Web para os usuários com eficiência. As CDNs armazenam o conteúdo armazenado em cache nos servidores de borda em localizações POP (ponto de presença) que estão próximas aos usuários finais, a fim de minimizar a latência. 
@@ -74,8 +74,7 @@ A CDN do Azure oferece os seguintes recursos principais:
 Para obter uma lista completa de recursos que dá suporte a cada produto da CDN do Azure, confira [Comparar recursos de produto da CDN do Azure](cdn-features.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Para começar com a CDN, confira [Criar um perfil e ponto de extremidade da CDN do Azure](cdn-create-new-endpoint.md).
 - Gerencie seus pontos de extremidade CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com) ou do [PowerShell](cdn-manage-powershell.md).
 - Saiba como automatizar a CDN do Azure com [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
-- Para ver a CDN do Azure em ação, assista aos [Vídeos da CDN do Azure](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
-- Para obter informações sobre os recursos mais recentes da CDN do Azure, consulte o [blog da CDN do Azure](https://azure.microsoft.com/blog/tag/azure-cdn/).

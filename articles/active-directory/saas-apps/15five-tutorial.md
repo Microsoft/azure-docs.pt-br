@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97673895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutorial: Integração do Active Directory do Azure ao 15Five
@@ -30,7 +30,7 @@ A integração do 15Five ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com 15Five, você precisará dos seguintes itens:
 
@@ -183,9 +183,9 @@ Para permitir que os usuários do Azure AD façam logon no 15Five, eles devem se
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1. Faça logon em seu site de empresa do **15Five** como administrador.
+1. Faça logon no site da empresa do **15Five** como administrador.
 
-2. Vá para **Gerenciar Empresa**.
+2. Vá para **Gerenciar empresa**.
 
     ![Gerenciar Empresa](./media/15five-tutorial/ic784675.png "Gerenciar Empresa")
 
@@ -197,7 +197,7 @@ Para permitir que os usuários do Azure AD façam logon no 15Five, eles devem se
 
     ![Adicionar Nova Pessoa](./media/15five-tutorial/ic784677.png "Adicionar Nova Pessoa")
 
-    a. Digite o **Nome**, **Sobrenome**, **Título** e **Endereço de email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite **Nome**, **Sobrenome**, **Título** e **Email** de uma conta válida do Active Directory do Azure que você deseja provisionar em caixas de texto relacionadas.
 
     b. Clique em **Concluído**.
 

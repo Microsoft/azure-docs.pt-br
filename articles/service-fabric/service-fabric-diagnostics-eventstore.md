@@ -1,16 +1,14 @@
 ---
 title: Repositório de eventos do Azure Service Fabric
 description: Saiba mais sobre o EventStore do Azure Service Fabric, uma maneira de entender e monitorar o estado de um cluster ou de cargas de trabalho a qualquer momento.
-author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
-ms.author: srrengar
-ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef5049fd934a29fa1d96514c334b13358e6600cf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354812"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626547"
 ---
 # <a name="eventstore-overview"></a>Visão geral do EventStore
 

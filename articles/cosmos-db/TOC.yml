@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Perguntas frequentes sobre o Link do Synapse
           href: synapse-link-frequently-asked-questions.md
+    - name: Backup e restauração
+      items:
+        - name: Introdução a backup e restauração
+          href: online-backup-and-restore.md
+        - name: Backup contínuo
+          items:
+            - name: Backup contínuo – Introdução
+              href: continuous-backup-restore-introduction.md
+            - name: Backup contínuo – Perguntas frequentes
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: Backup contínuo – Modelo de recurso
+              href: continuous-backup-restore-resource-model.md
     - name: Otimizar o seu custo do Azure Cosmos DB
       items:
         - name: Planejar e gerenciar custos
@@ -112,34 +124,6 @@
       href: concepts-limits.md
     - name: Preparação corporativa
       items:
-        - name: Introdução a backup e restauração
-          href: online-backup-and-restore.md
-        - name: Backup contínuo
-          items:
-            - name: Backup contínuo – Introdução
-              href: continuous-backup-restore-introduction.md
-            - name: Backup contínuo – Perguntas frequentes
-              href: continuous-backup-restore-frequently-asked-questions.md
-            - name: Backup contínuo – Modelo de recurso
-              items:
-                - name: Visão geral do modelo de recurso
-                  href: continuous-backup-restore-resource-model.md
-                - name: Contas restauráveis – Lista
-                  href: restorable-database-accounts-list.md
-                - name: Contas restauráveis – Lista por localização
-                  href: restorable-database-accounts-list-by-location.md
-                - name: Recursos SQL restauráveis – Lista
-                  href: restorable-sql-resources-list.md
-                - name: Bancos de dados SQL restauráveis – Lista
-                  href: restorable-sql-databases-list.md
-                - name: Contêineres SQL restauráveis – Lista
-                  href: restorable-sql-containers-list.md
-                - name: Recursos MongoDB restauráveis – Lista
-                  href: restorable-mongodb-resources-list.md
-                - name: Coleções do MongoDB restauráveis – Lista
-                  href: restorable-mongodb-collections-list.md
-                - name: Bancos de dados do MongoDB restauráveis – Lista
-                  href: restorable-mongodb-databases-list.md
         - name: Conformidade
           href: compliance.md
     - name: Recomendações automáticas
@@ -818,6 +802,8 @@
               href: enable-notebooks.md
             - name: Importar notebooks do GitHub
               href: import-github-notebooks.md
+            - name: Publicar notebooks na galeria
+              href: publish-notebook-gallery.md
             - name: Usar comandos de notebook interno em Python
               href: use-python-notebook-features-and-commands.md
             - name: Usar comandos de notebook interno em C#
@@ -860,6 +846,9 @@
           items:
             - name: Configurar CORS (Compartilhamento de Recursos Entre Origens)
               href: how-to-configure-cross-origin-resource-sharing.md
+            - name: Configurar o controle de acesso baseado em função
+              href: how-to-setup-rbac.md
+              displayName: 'aad, active directory, rbac'
             - name: Usar identidades gerenciadas para acessar dados
               href: managed-identity-based-authentication.md
               displayName: 'msi, managed service identity, aad, azure active directory, identity'
@@ -932,7 +921,7 @@
         - name: REST (plano de gerenciamento)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1050,7 +1039,7 @@
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API do MongoDB
@@ -1068,7 +1057,7 @@
         - name: Node.js
           href: create-mongodb-nodejs.md
         - name: Python
-          href: create-mongodb-flask.md
+          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1103,9 +1092,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Conceitos
       items:
-        - name: Suporte de protocolo de transmissão (3.6)
+        - name: API versão 4.0
+          href: mongodb-feature-support-40.md
+        - name: API versão 3.6
           href: mongodb-feature-support-36.md
-        - name: Suporte de protocolo de transmissão (3.2)
+        - name: API versão 3.2
           href: mongodb-feature-support.md
         - name: Perguntas frequentes
           href: mongodb-api-faq.md
@@ -1117,13 +1108,15 @@
           items:
             - name: Guia pré-migração
               href: mongodb-pre-migration.md
+            - name: Ferramentas nativas do MongoDB (offline)
+              href: tutorial-mongotools-cosmos-db.md
             - name: Serviço de Migração de Banco de Dados (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Serviço de Migração de Banco de Dados (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Guia pós-migração
               href: mongodb-post-migration.md
-        - name: Atualizar do MongoDB 3.2 para o 3.6
+        - name: Fazer upgrade da API para a versão 4.0 ou 3.6
           href: mongodb-version-upgrade.md
         - name: Obtenha a cadeia de conexão
           href: connect-mongodb-account.md
@@ -1144,6 +1137,8 @@
           href: mongodb-change-streams.md
         - name: Gerenciar indexação de dados
           href: mongodb-indexing.md
+        - name: Usar transações com vários documentos
+          href: use-multi-document-transactions.md
         - name: Criar um contêiner – API do MongoDB
           href: how-to-create-container-mongodb.md
         - name: Provisionar taxa de transferência – API do MongoDB
@@ -1175,7 +1170,7 @@
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API do Gremlin
@@ -1253,7 +1248,7 @@
         - name: Cabeçalhos de resposta
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modelo do Resource Manager
@@ -1339,7 +1334,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: APIs REST de armazenamento de tabelas
           href: /rest/api/storageservices/table-service-rest-api
 - name: Guias de instruções
@@ -1372,12 +1367,30 @@
           href: configure-synapse-link.md
         - name: Conectar-se ao Link do Azure Synapse
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Repositório analítico e pontos de extremidade privados
+          href: analytical-store-private-endpoints.md
         - name: Consultar com o Spark do Azure Synapse
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Consulta com o pool de SQL sem servidor
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Usar o Power BI com o Link do Synapse
           href: synapse-link-power-bi.md
+    - name: Backup e restauração
+      items:
+        - name: Gerenciar backup contínuo
+          items:
+            - name: Backup contínuo – Permissões e funções
+              href: continuous-backup-restore-permissions.md
+            - name: Backup contínuo – Portal
+              href: continuous-backup-restore-portal.md
+            - name: Backup contínuo – PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Backup contínuo – CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Backup contínuo – Resource Manager
+              href: continuous-backup-restore-template.md
+        - name: Gerenciar backup periódico
+          href: configure-periodic-backup-restore.md
     - name: Segurança
       items:
         - name: Configurar firewall do IP
@@ -1397,20 +1410,6 @@
           href: how-to-setup-cmk.md
     - name: Preparação corporativa
       items:
-        - name: Gerenciar backup contínuo
-          items:
-            - name: Backup contínuo – Permissões e funções
-              href: continuous-backup-restore-permissions.md
-            - name: Backup contínuo – Portal
-              href: continuous-backup-restore-portal.md
-            - name: Backup contínuo – PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Backup contínuo – CLI
-              href: continuous-backup-restore-command-line.md
-            - name: Backup contínuo – ARM
-              href: continuous-backup-restore-template.md
-        - name: Gerenciar backup periódico
-          href: configure-periodic-backup-restore.md
         - name: Solicitar o aumento da cota
           href: create-support-request-quota-increase.md
     - name: Monitoramento
@@ -1419,7 +1418,7 @@
           href: monitor-cosmos-db.md
         - name: Usar métricas de monitoramento do Azure
           items:
-            - name: Azure Monitor para Cosmos (versão prévia)
+            - name: Azure Monitor para Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Cenários a serem monitorados
               href: use-metrics.md

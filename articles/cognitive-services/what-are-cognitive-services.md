@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c89131cc34d45ea94f3bb290ac11ec86f4b83be3
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369402"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587605"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
@@ -39,12 +39,11 @@ As seções a seguir neste artigo fornecem uma lista de serviços que fazem part
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Pesquisa Visual Computacional](./computer-vision/index.yml "Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece acesso a algoritmos cognitivos avançados para processar imagens e retornar informações.|
-|[Serviço de Visão Personalizada](./custom-vision-service/overview.md "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
-|[Detecção Facial](./face/index.yml "Face")| O serviço de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando a detecção e o reconhecimento de atributos faciais.|
-|[Reconhecimento de Formulários](./form-recognizer/index.yml "Reconhecimento de Formulários")|O Reconhecimento de Formulários identifica e extrai pares chave-valor e dados de tabela de documentos de formulário e, em seguida, gera dados estruturados, incluindo as relações no arquivo original.|
-|[Reconhecimento de Tinta Digital](./ink-recognizer/index.yml "Reconhecimento de Tinta Digital") (desativação)|O Reconhecimento de Tinta Digital permite que você reconheça e analise dados de traço de tinta digital, formas e conteúdo manuscrito e gere uma estrutura de documento com todas as entidades reconhecidas.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos.|
+|[Pesquisa Visual Computacional](./computer-vision/index.yml "Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece acesso a algoritmos cognitivos avançados para processar imagens e retornar informações. Confira o [Guia de início rápido da Pesquisa Visual Computacional](./computer-vision/quickstarts-sdk/client-library.md) para começar a usar o serviço.|
+|[Serviço de Visão Personalizada](./custom-vision-service/index.yml "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite criar, implantar e aprimorar seus classificadores de imagens. Um classificador de imagens é um serviço de IA que aplica rótulos a imagens de acordo com as características visuais delas. |
+|[Detecção Facial](./face/index.yml "Face")| O serviço de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando a detecção e o reconhecimento de atributos faciais. Confira o [Guia de início rápido da Detecção Facial](./face/quickstarts/client-libraries.md) para começar a usar o serviço.|
+|[Reconhecimento de Formulários](./form-recognizer/index.yml "Reconhecimento de Formulários")|O Reconhecimento de Formulários identifica e extrai pares chave-valor e dados de tabela de documentos de formulário e, em seguida, gera dados estruturados, incluindo as relações no arquivo original. Confira o [Guia de início rápido do Reconhecimento de Formulários](./form-recognizer/quickstarts/client-library.md) para começar.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos. Confira o [Guia de início rápido do Video Indexer](/azure/media-services/video-indexer/video-indexer-get-started) para começar.|
 
 ## <a name="speech-apis"></a>Speech APIs
 
@@ -60,20 +59,20 @@ As seções a seguir neste artigo fornecem uma lista de serviços que fazem part
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[LUIS (Reconhecimento vocal)](./luis/index.yml "Reconhecimento Vocal")|O serviço de reconhecimento vocal (LUIS) permite que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.|
-|[O QnA Maker](./qnamaker/index.yml "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado.|
-|[Análise de Texto](./text-analytics/index.yml "Análise de texto")| A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma.|
+|[LUIS (Reconhecimento vocal)](./luis/index.yml "Reconhecimento Vocal")|O LUIS (Reconhecimento Vocal) é um serviço de IA de conversação baseado em nuvem que aplica inteligência de machine learning personalizada em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes. [Confira o guia de início rápido do LUIS](./luis/get-started-portal-build-app.md) para começar a usar o serviço.|
+|[O QnA Maker](./qnamaker/index.yml "QnA Maker")|A QnA Maker permite que você crie um serviço de perguntas e respostas do seu conteúdo semiestruturado. [Confira o guia de início rápido do QnA Maker](./qnamaker/quickstarts/create-publish-knowledge-base.md) para começar a usar o serviço.|
+|[Análise de Texto](./text-analytics/index.yml "Análise de texto")| A Análise de Texto oferece processamento de linguagem natural sobre texto bruto para análise de sentimento, extração de frases-chave e detecção de idioma. Confira o [Guia de início rápido da Análise de Texto](./text-analytics/quickstarts/client-libraries-rest-api.md) para começar a usar o serviço.|
 |[Tradutor](./translator/index.yml "Tradutor")|O Tradutor fornece uma tradução de texto baseada em máquina quase em tempo real.|
-| [Leitura Avançada](./immersive-reader/index.yml "Leitura Avançada") | A Leitura Avançada adiciona recursos de leitura e compreensão de tela aos seus aplicativos. |
+| [Leitura Avançada](./immersive-reader/index.yml "Leitura Avançada") | A Leitura Avançada adiciona recursos de leitura e compreensão de tela aos seus aplicativos. Confira o [Guia de início rápido da Leitura Avançada](./immersive-reader/quickstarts/client-libraries.md) para começar a usar o serviço. |
 
 ## <a name="decision-apis"></a>APIs de decisão
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Detector de Anomalias](./anomaly-detector/index.yml "Detector de Anomalias") |O Detector de Anomalias permite que você monitore e detecte anormalidades em seus dados de série temporal.|
-|[Content Moderator](./content-moderator/overview.md "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado.|
-|[Assistente de Métricas](./metrics-advisor/index.yml) (versão prévia) | O Assistente de Métricas fornece detecção de anomalias personalizável em dados de série temporal multivariados, além de um portal da Web completo para ajudar você a usar o serviço.|
-|[Personalizador](./personalizer/index.yml "Personalizador")|O Personalizador permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.|
+|[Detector de Anomalias](./anomaly-detector/index.yml "Detector de Anomalias") |O Detector de Anomalias permite que você monitore e detecte anormalidades em seus dados de série temporal. Confira o [Guia de início rápido do Detector de Anomalias](./anomaly-detector/quickstarts/client-libraries.md) para começar a usar o serviço.|
+|[Content Moderator](./content-moderator/overview.md "Content Moderator")|O Content Moderator fornece monitoramento para um possível conteúdo ofensivo, indesejável e arriscado. Confira o [Guia de início rápido do Content Moderator](./content-moderator/client-libraries.md) para começar a usar o serviço.|
+|[Assistente de Métricas](./metrics-advisor/index.yml) (versão prévia) | O Assistente de Métricas fornece detecção de anomalias personalizável em dados de série temporal multivariados, além de um portal da Web completo para ajudar você a usar o serviço. Confira o [Guia de início rápido do Assistente de Métricas](./metrics-advisor/quickstarts/rest-api-and-client-library.md) para começar a usar o serviço. |
+|[Personalizador](./personalizer/index.yml "Personalizador")|O Personalizador permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real. Confira o [Guia de início rápido do Personalizador](./personalizer/quickstart-personalizer-sdk.md) para começar a usar o serviço.|
 
 ## <a name="search-apis"></a>APIs de pesquisa
 
@@ -93,7 +92,16 @@ As seções a seguir neste artigo fornecem uma lista de serviços que fazem part
 |[Pesquisa de Negócios Locais do Bing](/azure/cognitive-services/bing-local-business-search/ "Pesquisa de Negócios Locais do Bing")| A API de Pesquisa de Negócios Locais do Bing permite que seus aplicativos encontrem informações de contato e localização sobre locais e negócios com base em consultas de pesquisa.|
 |[Verificação de Ortografia do Bing](/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|A Verificação Ortográfica do Bing permite fazer verificações de gramática contextual e ortográfica.|
 
-## <a name="development-options"></a>Opções de desenvolvimento 
+## <a name="get-started-with-cognitive-services"></a>Introdução aos Serviços Cognitivos
+
+Comece criando um recurso dos Serviços Cognitivos com inícios rápidos práticos usando os seguintes métodos:
+
+* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portal do Azure")
+* [CLI do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "CLI do Azure")
+* [As bibliotecas de cliente do SDK do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Modelos do Azure Resource Manager (ARM)](./create-account-resource-manager-template.md?tabs=portal "Modelos do Azure Resource Manager (ARM)")
+
+## <a name="using-cognitive-services-in-different-development-environments"></a>Usando os Serviços Cognitivos em ambientes de desenvolvimento diferentes
 
 Com o Azure e os Serviços Cognitivos, você tem acesso a várias opções de desenvolvimento, como:
 
@@ -103,15 +111,6 @@ Com o Azure e os Serviços Cognitivos, você tem acesso a várias opções de de
 * Ferramentas como Apache Spark, Azure Databricks, Azure Synapse Analytics e Serviço de Kubernetes do Azure para cenários de Big Data. 
 
 Para saber mais, confira [opções de desenvolvimento de Serviços Cognitivos](./cognitive-services-development-options.md).
-
-## <a name="learn-with-the-quickstarts"></a>Saiba mais com os guias de início rápido
-
-Comece criando um recurso dos Serviços Cognitivos com inícios rápidos práticos usando os seguintes métodos:
-
-* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portal do Azure")
-* [CLI do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "CLI do Azure")
-* [As bibliotecas de cliente do SDK do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
-* [Modelos do Azure Resource Manager (ARM)](./create-account-resource-manager-template.md?tabs=portal "Modelos do Azure Resource Manager (ARM)")
 
 <!--
 ## Subscription management
@@ -129,7 +128,7 @@ Os Serviços Cognitivos do Azure fornecem um modelo de segurança em camadas, in
 
 ## <a name="containers-for-cognitive-services"></a>Contêineres para Serviços Cognitivos
 
- Os Serviços Cognitivos fornecem contêineres para implantação local ou na nuvem do Azure. Saiba mais sobre [Contêineres de Serviços Cognitivos](cognitive-services-container-support.md "Contêineres de Serviços Cognitivos").
+ Os Serviços Cognitivos do Azure fornecem vários contêineres do Docker que permitem usar no local as mesmas APIs que estão disponíveis no Azure. O uso desses contêineres oferece a flexibilidade de aproximar os Serviços Cognitivos de seus dados para fins de conformidade, segurança ou por outros motivos operacionais. Saiba mais sobre [Contêineres de Serviços Cognitivos](cognitive-services-container-support.md "Contêineres de Serviços Cognitivos").
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
@@ -155,3 +154,4 @@ Os Serviços Cognitivos fornecem várias opções de suporte para ajudar você a
 
 * [Criar uma conta dos Serviços Cognitivos](cognitive-services-apis-create-account.md "Criar uma conta dos Serviços Cognitivos")
 * [Novidades nos documentos dos Serviços Cognitivos](whats-new-docs.md "Novidades nos documentos dos Serviços Cognitivos")
+* [Planejar e gerenciar custos dos Serviços Cognitivos](plan-manage-costs.md)

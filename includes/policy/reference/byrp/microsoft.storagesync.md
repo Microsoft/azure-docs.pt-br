@@ -1,0 +1,20 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 04/14/2021
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: 0478e606cd5eb6652b992b647d5f69b347753341
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504248"
+---
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[A Sincronização de Arquivos do Azure deve usar o link privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |A criação de um ponto de extremidade privado para o recurso de Serviço de Sincronização de Armazenamento indicado permite que você resolva o recurso do Serviço de Sincronização de Armazenamento no espaço de endereços IP privado da rede da sua organização e não por meio do ponto de extremidade público acessível à Internet. A criação de um ponto de extremidade privado por si só não desabilita o ponto de extremidade público. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
+|[Configurar a Sincronização de Arquivos do Azure com pontos de extremidade privados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |Um ponto de extremidade privado é implantado para o recurso de Serviço de Sincronização de Armazenamento indicado. Isso permite que você resolva o recurso do Serviço de Sincronização de Armazenamento no espaço de endereços IP privados da rede da sua organização, em vez de pelo ponto de extremidade público acessível pela Internet. A existência de um ou mais pontos de extremidade privados, por si só, não desabilita o ponto de extremidade público. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
+|[Modificar – configurar a Sincronização de Arquivos do Azure para desabilitar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e07b2e9-6cd9-4c40-9ccb-52817b95133b) |Os pontos de extremidade públicos acessíveis pela Internet da Sincronização de Arquivos do Azure são desabilitados pela sua política organizacional. Você ainda pode acessar o serviço de sincronização de armazenamento por meio dos respectivos pontos de extremidade privados. |Modificar, Desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_Modify.json) |
+|[O acesso à rede pública deve ser desabilitado para a Sincronização de Arquivos do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a8cd35-125e-4d13-b82d-2e19b7208bb7) |A desabilitação do ponto de extremidade público permite restringir o acesso ao seu recurso de Serviço de Sincronização de Armazenamento a solicitações destinadas a pontos de extremidade privados aprovados na rede da sua organização. Não há nada inerentemente não seguro sobre a permissão de solicitações para o ponto de extremidade público. No entanto, talvez você queira desabilitá-lo para atender a requisitos regulatórios, legais ou de política organizacional. Você pode desabilitar o ponto de extremidade público para um serviço de sincronização de armazenamento definindo o incomingTrafficPolicy do recurso como AllowVirtualNetworksOnly. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_AuditDeny.json) |

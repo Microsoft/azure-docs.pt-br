@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: b037eec13fda0b5ec16a4f2f53ad2a64fb5f8da1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: efa77ce7416b94331dce2bb4e7f77dd50c20d450
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91275550"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448569"
 ---
 # <a name="url-rewriter"></a>Regravador de URL #
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029340"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798877"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -48,16 +48,16 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 
 | Tipo de identidade do dispositivo | Infraestrutura da identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
-| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
+| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
 |   |   | Atual do Windows | Não persistente | Sim<sup>5</sup> |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
-|   |   | Atual do Windows | Não persistente | No |
+|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
+|   |   | Atual do Windows | Não persistente | Não |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | No |
-|   |   |   | Não persistente | No |
-|   | Gerenciado | Atual do Windows | Persistente | No |
-|   |   |   | Não persistente | No |
+| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
+|   |   |   | Não persistente | Não |
+|   | Gerenciado | Atual do Windows | Persistente | Não |
+|   |   |   | Não persistente | Não |
 | Azure AD registrado | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
 
 <sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 v1803 ou superior e o Windows Server 2019.
@@ -79,6 +79,8 @@ Os administradores devem referenciar os artigos a seguir, com base em sua infrae
 - [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configurar a junção de Azure Active Directory híbrida para o ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>VDI não persistente
+
 Ao implantar o VDI não persistente, a Microsoft recomenda que os administradores de ti implementem as diretrizes abaixo. Se você não fizer isso, o diretório terá muitos dispositivos ingressados no Azure AD híbridos que foram registrados a partir de sua plataforma VDI não persistente, resultando em maior pressão na cota do locatário e no risco de interrupção do serviço devido à falta de cota de locatário.
 
 - Se você estiver contando com a ferramenta de preparação do sistema (sysprep.exe) e se estiver usando uma imagem anterior ao Windows 10 1809 para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure AD como ingressado no Azure AD híbrido.
@@ -92,6 +94,15 @@ Ao implantar o VDI não persistente, a Microsoft recomenda que os administradore
 - Defina e implemente o processo de [Gerenciamento de dispositivos obsoletos](manage-stale-devices.md).
    - Depois que você tiver uma estratégia para identificar seus dispositivos ingressados no Azure AD híbridos não persistentes (por exemplo, usando o prefixo do nome de exibição do computador), você deve ser mais agressivo na limpeza desses dispositivos para garantir que seu diretório não seja consumido com muitos dispositivos obsoletos.
    - Para implantações não persistentes do VDI no nível atual e inferior do Windows, você deve excluir dispositivos com **ApproximateLastLogonTimestamp** de mais de 15 dias.
+
+### <a name="persistent-vdi"></a>VDI persistente
+
+Ao implantar o VDI persistente, a Microsoft recomenda que os administradores de ti implementem as diretrizes abaixo. Se não fizer isso, isso resultará em problemas de implantação e autenticação. 
+
+- Se você estiver contando com a ferramenta de preparação do sistema (sysprep.exe) e se estiver usando uma imagem anterior ao Windows 10 1809 para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure AD como ingressado no Azure AD híbrido.
+- Se você estiver contando com um instantâneo de VM (máquina virtual) para criar VMs adicionais, verifique se o instantâneo não é de uma VM que já está registrada com o Azure AD como uma junção híbrida do Azure AD.
+
+Além disso, recomendamos que você implemente o processo de [Gerenciamento de dispositivos obsoletos](manage-stale-devices.md). Isso garantirá que seu diretório não seja consumido com muitos dispositivos obsoletos se você redefinir suas VMs periodicamente.
  
 ## <a name="next-steps"></a>Próximas etapas
 

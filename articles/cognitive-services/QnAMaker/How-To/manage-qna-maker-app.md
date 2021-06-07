@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 49bfca118e53bbe3e4287b2ce25e5baffa717175
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987935"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102217322"
 ---
 # <a name="manage-qna-maker-app"></a>Gerenciar QnA Maker aplicativo
 
@@ -29,7 +29,7 @@ Não é possível compartilhar uma base de dados de conhecimento específica em 
 
 ### <a name="add-a-user-account-to-the-qna-maker-resource"></a>Adicionar uma conta de usuário ao recurso de QnA Maker
 
-As etapas a seguir usam a função de colaborador, mas qualquer uma das [funções](../reference-role-based-access-control.md) pode ser adicionada usando estas etapas
+As etapas a seguir usam a função de colaborador, mas qualquer uma das funções pode ser adicionada usando estas etapas
 
 1. Entre no portal [do Azure](https://portal.azure.com/) e vá para o recurso QnA Maker.
 

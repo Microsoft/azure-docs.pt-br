@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 6290d89ed0ee539b4df4c2c8bc9070097da98c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91447362"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Atualizar uma WAN virtual do básico para o Standard

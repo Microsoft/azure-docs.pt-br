@@ -3,12 +3,12 @@ title: Tutorial de gravação de vídeo baseada em eventos para a nuvem e reprod
 description: Neste tutorial, você aprenderá a usar a Análise de Vídeo ao vivo do Azure no Azure IoT Edge para registrar uma gravação de vídeo baseada em eventos para a nuvem e a reproduzir com origem na nuvem.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: fda727a1abb488910d52b756455d2b6843e0e8b1
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550245"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279809"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução com origem na nuvem
 
@@ -45,7 +45,7 @@ Os pré-requisitos deste tutorial são:
     > [!TIP]
     > Pode ser solicitado que você instale o Docker. Ignore esse aviso.
 * [SDK do .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) instalado no computador de desenvolvimento.
-* Concluir o [script de instalação de recursos da Análise de Vídeo ao vivo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) e [configurar o ambiente](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart?pivots=programming-language-csharp#set-up-your-development-environment)
+* Concluir o [script de instalação de recursos da Análise de Vídeo ao vivo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) e [configurar o ambiente](./detect-motion-emit-events-quickstart.md?pivots=programming-language-csharp#set-up-your-development-environment)
 
 No final dessas etapas, você terá os recursos do Azure relevantes implantados em sua assinatura do Azure:
 
@@ -120,8 +120,8 @@ Você precisará dos arquivos para estas etapas.
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -229,7 +229,7 @@ Para ver os eventos do módulo objectCounter e do módulo de Análise de Vídeo 
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -298,7 +298,7 @@ Quando um grafo de mídia é instanciado, o nó de origem RTSP tenta se conectar
 [IoTHubMonitor] [5:53:17 PM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
@@ -329,7 +329,7 @@ Depois que o grafo de mídia for executado por um tempo, cedo ou tarde você rec
     "count": 2
   },
   "applicationProperties": {
-    "eventTime": "2020-05-17T17:53:44.062Z"
+    "eventTime&quot;: &quot;2020-05-17T17:53:44.062Z"
   }
 }
 ```
@@ -347,14 +347,14 @@ Quase imediatamente após o Contador de Objetos enviar o evento, você verá um 
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200517T175346Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200517T175346Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
     "eventTime": " 2020-05-17T17:53:46.132Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -370,14 +370,14 @@ Quando o nó do coletor de ativos tiver carregado o vídeo no ativo, ele emitir�
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200517T175346Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200517T175346Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingAvailable",
     "eventTime": "2020-05-17T17:54:15.808Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -393,14 +393,14 @@ Se você examinar as configurações de ativação (maximumActivationTime) para 
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAssetFromEVR-LVAEdge-20200517T175346Z"
+    "outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200517T175346Z"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStopped",
     "eventTime": "2020-05-17T17:54:15.040Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -426,7 +426,7 @@ Você vai poder examinar o ativo de Serviços de Mídia criado pelo grafo de mí
 1. No assistente que é aberto, aceite as opções padrão e selecione **Adicionar**. Para obter mais informações, confira [reprodução de vídeo](video-playback-concept.md).
 
     > [!TIP]
-    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/streaming-endpoint-concept.md).
+    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/stream-streaming-endpoint-concept.md).
 1. O player deve carregar o vídeo. Selecione **Reproduzir** para exibi-lo.
 
 > [!NOTE]

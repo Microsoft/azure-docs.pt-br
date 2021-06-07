@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 50df3424892594a6817d481aa4a3d540a342854f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: a830c2cbbc16d5d5e93e6f2283af012e4412c0be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932312"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310641"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Tutorial: Enviar dados por meio do gateway transparente
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Neste artigo, usamos novamente a VM de desenvolvimento como um dispositivo simulado. Mas, em vez de enviar dados diretamente para o Hub IoT, o dispositivo envia os dados para o dispositivo do IoT Edge configurado como um gateway transparente.
 
@@ -248,4 +250,4 @@ Neste artigo, usamos nossa VM de desenvolvimento para simular um sensor de envio
 Para continuar aprendendo sobre as funcionalidades do IoT Edge, experimente este tutorial em seguida:
 
 > [!div class="nextstepaction"]
-> [Criar uma hierarquia de dispositivos IoT Edge (versão prévia)](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)
+> [Criar uma hierarquia de dispositivos IoT Edge](tutorial-nested-iot-edge.md?view=iotedge-2020-11&preserve-view=true)

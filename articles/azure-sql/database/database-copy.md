@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: stevestein
 ms.author: sashan
-ms.reviewer: ''
-ms.date: 10/30/2020
-ms.openlocfilehash: 7f053b1984a2d838deb14bacd10cdc071e19d8a1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.reviewer: wiassaf
+ms.date: 03/10/2021
+ms.openlocfilehash: 1a86522975ffb7b5b2bd514402dd97a76aa2506e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035131"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103014580"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -98,7 +98,7 @@ Faça logon no banco de dados mestre com o logon de administrador do servidor ou
 Esse comando copia o Banco de dados 1 para um novo banco de dados chamado Database2 (Banco de dados 2) no mesmo servidor. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
@@ -111,10 +111,10 @@ Esse comando copia Database1 para um novo banco de dados chamado Database2 em um
 Database1 pode ser um banco de dados único ou em pool. Há suporte para a cópia entre diferentes pools de camada, mas algumas cópias entre camadas não terão sucesso. Por exemplo, você pode copiar um único banco de BD padrão ou elástico para um pool de uso geral, mas não pode copiar um banco de forma elástico padrão para um pool Premium. 
 
    ```sql
-   -- execute on the master database to start copying
+   -- Execute on the master database to start copying
    CREATE DATABASE "Database2"
    AS COPY OF "Database1"
-   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) );
    ```
 
 ### <a name="copy-to-a-different-server"></a>Copiar para um servidor diferente
@@ -136,43 +136,45 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 Você pode usar as etapas na seção [copiar um banco de dados SQL para um servidor diferente](#copy-to-a-different-server) para copiar seu banco de dados para um servidor em uma assinatura diferente usando o T-SQL. Certifique-se de usar um logon que tenha o mesmo nome e senha que o proprietário do banco de dados de origem. Além disso, o logon deve ser um membro da `dbmanager` função ou de um administrador de servidor, nos servidores de origem e de destino.
 
 ```sql
-Step# 1
-Create login and user in the master database of the source server.
+--Step# 1
+--Create login and user in the master database of the source server.
 
 CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx'
 GO
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
 GO
 
-Step# 2
-Create the user in the source database and grant dbowner permission to the database.
+--Step# 2
+--Create the user in the source database and grant dbowner permission to the database.
 
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
 GO
-exec sp_addrolemember 'db_owner','loginname'
-GO
-
-Step# 3
-Capture the SID of the user “loginname” from master database
-
-SELECT [sid] FROM sysusers WHERE [name] = 'loginname'
-
-Step# 4
-Connect to Destination server.
-Create login and user in the master database, same as of the source server.
-
-CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server]
-GO
-CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo]
-GO
-exec sp_addrolemember 'dbmanager','loginname'
+ALTER ROLE db_owner ADD MEMBER loginname;
 GO
 
-Step# 5
-Execute the copy of database script from the destination server using the credentials created
+--Step# 3
+--Capture the SID of the user "loginname" from master database
+
+SELECT [sid] FROM sysusers WHERE [name] = 'loginname';
+
+--Step# 4
+--Connect to Destination server.
+--Create login and user in the master database, same as of the source server.
+
+CREATE LOGIN loginname WITH PASSWORD = 'xxxxxxxxx', SID = [SID of loginname login on source server];
+GO
+CREATE USER [loginname] FOR LOGIN [loginname] WITH DEFAULT_SCHEMA=[dbo];
+GO
+ALTER ROLE dbmanager ADD MEMBER loginname;
+GO
+
+--Step# 5
+--Execute the copy of database script from the destination server using the credentials created
 
 CREATE DATABASE new_database_name
-AS COPY OF source_server_name.source_database_name
+AS COPY OF source_server_name.source_database_name;
 ```
 
 > [!NOTE]
@@ -192,9 +194,9 @@ Monitore o processo de cópia consultando os modos de exibição [Sys. databases
 > Se você decidir cancelar a cópia enquanto ela estiver em andamento, execute a instrução [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) no novo banco de dados.
 
 > [!IMPORTANT]
-> Se você precisar criar uma cópia com um objetivo de serviço substancialmente menor do que a origem, o banco de dados de destino pode não ter recursos suficientes para concluir o processo de propagação e isso pode fazer com que a operabilidade de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
+> Se você precisar criar uma cópia com um objetivo de serviço substancialmente menor do que a origem, o banco de dados de destino pode não ter recursos suficientes para concluir o processo de propagação e isso pode fazer com que a operação de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
 
-## <a name="azure-roles-to-manage-database-copy"></a>Funções do Azure para gerenciar a cópia do banco de dados
+## <a name="azure-rbac-roles-and-permissions-to-manage-database-copy"></a>Funções e permissões do RBAC do Azure para gerenciar a cópia do banco de dados
 
 Para criar uma cópia de banco de dados, você precisará estar nas seguintes funções
 

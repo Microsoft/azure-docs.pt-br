@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 03/10/2021
 ms.author: victorh
-ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788223"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612840"
 ---
 # <a name="azure-firewall-features"></a>Recursos do Firewall do Azure
 
@@ -22,24 +22,25 @@ O [Firewall do Azure](overview.md) é um serviço de segurança de rede gerencia
 
 O Firewall do Azure inclui os seguintes recursos:
 
-- [Alta disponibilidade interna](#built-in-high-availability)
-- [Zonas de Disponibilidade](#availability-zones)
-- [Escalabilidade de nuvem irrestrita](#unrestricted-cloud-scalability)
-- [Regras de filtragem de FQDN de aplicativo](#application-fqdn-filtering-rules)
-- [Regras de filtragem de tráfego de rede](#network-traffic-filtering-rules)
-- [Marcas de FQDN](#fqdn-tags)
-- [Marcas de serviço](#service-tags)
-- [Inteligência contra ameaças](#threat-intelligence)
-- [Suporte a SNAT de saída](#outbound-snat-support)
-- [Suporte a DNAT de entrada](#inbound-dnat-support)
-- [Vários endereços IP públicos](#multiple-public-ip-addresses)
-- [Log de Azure Monitor](#azure-monitor-logging)
-- [Túnel forçado](#forced-tunneling)
-- [Certificações](#certifications)
+- Alta disponibilidade interna
+- Zonas de Disponibilidades
+- Escalabilidade de nuvem sem restrições
+- Regras de filtragem de FQDN de aplicativo
+- Regras de filtragem de tráfego de rede
+- Marcas de FQDN
+- Marcas de serviço
+- Inteligência contra ameaças
+- Suporte a SNAT de saída
+- Suporte a DNAT de entrada
+- Vários endereços IP públicos
+- Registro em log do Azure Monitor
+- Túnel forçado
+- Categorias da Web (visualização)
+- Certificações
 
 ## <a name="built-in-high-availability"></a>Alta disponibilidade interna
 
-A alta disponibilidade é interna, portanto, nenhum balanceador de carga adicional é necessário e nenhuma configuração é necessária.
+A alta disponibilidade é interna, portanto, nenhum balanceador de carga extra é necessário e não há nada que você precise configurar.
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidades
 
@@ -47,7 +48,7 @@ O Firewall do Azure pode ser configurado durante a implantação para abranger v
 
 Você também pode associar o Firewall do Azure a uma zona específica apenas por motivos de proximidade, usando o SLA de 99,95% padrão de serviço.
 
-Não há custo adicional para um firewall implantado em uma Zona de Disponibilidade. No entanto, há custos adicionais para transferências de dados de entrada e saída associados com as Zonas de Disponibilidade. Para saber mais, confira [Detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Não há custo adicional para um firewall implantado em uma Zona de Disponibilidade. No entanto, há custos adicionais para transferências de dados de entrada e saída associadas a Zonas de Disponibilidade. Para saber mais, confira [Detalhes de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 As Zonas de Disponibilidade do Firewall do Azure estão disponíveis nas regiões que dão suporte a Zonas de Disponibilidade. Para mais informações, confira [Regiões que dão suporte às Zonas de Disponibilidade no Azure](../availability-zones/az-region.md)
 
@@ -97,7 +98,7 @@ Você pode associar [vários endereços IP públicos](deploy-multi-public-ip-pow
 Isso permite os seguintes cenários:
 
 - **DNAT**: várias instâncias de porta padrão podem ser traduzidas em seus servidores de back-end. Por exemplo, se você tem dois endereços IP públicos, pode traduzir a porta TCP 3389 (RDP) para os dois endereços IP.
-- **SNAT**: as portas adicionais estão disponíveis para conexões SNAT de saída, reduzindo a possibilidade de esgotamento da porta SNAT. Neste momento, o Firewall do Azure seleciona aleatoriamente o endereço IP público do código-fonte a ser usado para uma conexão. Se você tiver qualquer filtragem downstream em sua rede, precisará permitir todos os endereços IP públicos associados com seu firewall. Considere usar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar essa configuração.
+- **SNAT** -mais portas estão disponíveis para conexões SNAT de saída, reduzindo o potencial para esgotamento de porta SNAT. Neste momento, o Firewall do Azure seleciona aleatoriamente o endereço IP público do código-fonte a ser usado para uma conexão. Se você tiver qualquer filtragem downstream em sua rede, precisará permitir todos os endereços IP públicos associados com seu firewall. Considere usar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar essa configuração.
 
 ## <a name="azure-monitor-logging"></a>Registro em log do Azure Monitor
 
@@ -111,10 +112,40 @@ A pasta de trabalho do firewall do Azure fornece uma tela flexível para anális
 
 Você pode configurar o Firewall do Azure para rotear todo o tráfego vinculado à Internet para um próximo salto designado em vez de ir diretamente para a Internet. Por exemplo, você pode ter um firewall de borda local ou outra NVA (solução de virtualização de rede) para processar o tráfego de rede antes que ele seja passado para a Internet. Para obter mais informações, confira [Túnel forçado do Firewall do Azure](forced-tunneling.md).
 
+## <a name="web-categories-preview"></a>Categorias da Web (visualização)
+
+As categorias da Web permitem que os administradores permitam ou neguem acesso de usuário a categorias de sites, como sites de jogos de azar, sites de mídia social e outros. As categorias da Web estão incluídas no Azure firewall Standard, mas são mais ajustadas no Azure firewall Premium Preview. Ao contrário do recurso de categorias da Web no SKU padrão que corresponde à categoria com base em um FQDN, a SKU Premium corresponde à categoria de acordo com a URL inteira para o tráfego HTTP e HTTPS. Para obter mais informações sobre o Azure firewall Premium Preview, consulte [recursos do Azure firewall Premium Preview](premium-features.md).
+
+Por exemplo, se o Firewall do Azure interceptar uma solicitação HTTPS para `www.google.com/news` , a seguinte categorização será esperada: 
+
+- Padrão de firewall – somente a parte FQDN será examinada e, portanto, será `www.google.com` categorizada como *mecanismo de pesquisa*. 
+
+- Firewall Premium – a URL completa será examinada, portanto, `www.google.com/news` será categorizada como *notícias*.
+
+As categorias são organizadas com base na gravidade sob **responsabilidade**, **alta largura de banda**, **uso comercial**, **perda de produtividade**, **navegação geral** e não **Categorizado**.
+
+### <a name="categorization-change"></a>Alteração de categorização
+
+Você pode solicitar uma alteração de categorização se:
+
+ - Imagine que um FQDN ou uma URL estejam em uma categoria diferente 
+ 
+ou 
+
+- ter uma categoria sugerida para um FQDN ou uma URL não categorizada
+
+Você é bem-vindo a enviar uma solicitação em [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
+
+### <a name="category-exceptions"></a>Exceções de categoria
+
+Você pode criar exceções para suas regras de categoria da Web. Crie uma coleção de regras Allow ou Deny separada com prioridade mais alta dentro do grupo de coleta de regras. Por exemplo, você pode configurar uma coleção de regras que permita `www.linkedin.com` com prioridade 100, com uma coleção de regras que nega a **rede social** com prioridade 200. Isso cria a exceção para a categoria da Web de **rede social** predefinida.
+
+
+
 ## <a name="certifications"></a>Certificações
 
 O Firewall do Azure está em conformidade com PCI (Payment Card Industry), SOC (Service Organization Controls), ISO (Organização Internacional de Normalização) e com a ICSA Labs. Para obter mais informações, confira [Certificações de conformidade do Firewall do Azure](compliance-certifications.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Lógica de processamento de regra do Firewall do Azure](rule-processing.md)
+- [Recursos de versão prévia do Firewall do Azure Premium](premium-features.md)

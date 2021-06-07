@@ -3,12 +3,12 @@ title: Criar função de Azure Resource Manager personalizada e atribuir à enti
 description: Este artigo fornece orientação sobre como criar uma função de Azure Resource Manager personalizada e atribuir à entidade de serviço para análise de vídeo ao vivo em IoT Edge usando CLI do Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425722"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102210437"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Criar função de Azure Resource Manager personalizada e atribuir à entidade de serviço
 
@@ -49,7 +49,7 @@ Se você não tiver uma conta de serviço de mídia, use as etapas a seguir para
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Crie um [grupo de recursos](/cli/azure/group?view=azure-cli-latest#az-group-create) e uma [conta de armazenamento](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+1. Crie um [grupo de recursos](/cli/azure/group#az-group-create) e uma [conta de armazenamento](/cli/azure/storage/account#az-storage-account-create).
 1. Agora, crie uma conta de serviço de mídia do Azure usando o seguinte modelo de comando no Cloud Shell:
 
     ```
@@ -85,8 +85,8 @@ Esse comando produz uma resposta como esta:
 ```
 1. A saída de uma entidade de serviço com autenticação de senha inclui a chave de senha que, nesse caso, é o parâmetro "AadSecret". 
 
-    Certifique-se de que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#reset-credentials).
-1. A appId e a chave de locatário aparecem na saída como "AadClientId" e "AadTenantId", respectivamente. Eles são usados na autenticação de entidade de serviço. Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list).
+    Certifique-se de que tenha copiado esse valor já que não será possível recuperá-lo posteriormente. Se você esquecer a senha, [redefina as credenciais da entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+1. A appId e a chave de locatário aparecem na saída como "AadClientId" e "AadTenantId", respectivamente. Eles são usados na autenticação de entidade de serviço. Registre seus valores, mas eles podem ser recuperados a qualquer momento com o comando [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
 
 ### <a name="create-a-custom-role-definition"></a>Criar uma definição de função personalizada  
 
@@ -171,7 +171,7 @@ O comando acima imprimirá o objectId da entidade de serviço.
 “objectId” : “<yourObjectId>”,
 ```
 
-Use o modelo de [comando AZ role Assignment Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para vincular a função personalizada com a entidade de serviço:
+Use o modelo de [comando AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create) para vincular a função personalizada com a entidade de serviço:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>    
@@ -207,7 +207,7 @@ Para confirmar que a entidade de serviço agora está vinculada à função pers
 az role assignment list  --assignee < objectId>
 ```
 
-O resultado deve ser semelhante a:
+O resultado deve ter esta aparência:
 
 ```
 [

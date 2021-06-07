@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323495"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024737"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
 Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](usage-overview.md): [Usuários, Sessões, Eventos](usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](usage-flows.md), [Retenção](usage-retention.md), ou Coortes? Aqui estão algumas respostas.
@@ -23,7 +23,7 @@ Todos os eventos de telemetria do Application Insights possuem um [ID de usuári
 
 Se você estiver monitorando um aplicativo Web, a solução mais fácil é adicionar o [SDK de JavaScript do Application Insights](./javascript.md) para seu aplicativo, e certifique-se de que o snippet de código de script tenha sido carregado em cada página que você deseja monitorar. O SDK de JavaScript gera automaticamente as IDs de usuário anônimo e sessões, e preenche os eventos de telemetria com essas IDs que são enviadas do seu aplicativo.
 
-Se você estiver monitorando um serviço Web (sem interface de usuário), [Crie um inicializador de telemetria que preencha as propriedades de ID de usuário anônimo e de sessões](usage-send-user-context.md), de acordo com noções do serviço das sessões e usuários exclusivos.
+Se você estiver monitorando um serviço Web (sem interface de usuário), [Crie um inicializador de telemetria que preencha as propriedades de ID de usuário anônimo e de sessões](./usage-overview.md), de acordo com noções do serviço das sessões e usuários exclusivos.
 
 Se o seu aplicativo estiver enviando [IDs de usuário autenticado](./api-custom-events-metrics.md#authenticated-users), você pode realizar a contagem com base nas IDs de usuários autenticados na ferramenta de usuários. Na lista suspensa "Mostrar", escolha "Usuários autenticados".
 
@@ -50,4 +50,3 @@ Se o seu aplicativo estiver enviando um número excessivo de nomes de evento per
 
 ## <a name="get-help"></a>Obter ajuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

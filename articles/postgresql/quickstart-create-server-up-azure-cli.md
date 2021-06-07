@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar servidor – az postgres up – Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Guia de início rápido para criar o Banco de Dados do Azure para PostgreSQL– Servidor único usando o comando up da CLI (interface de linha de comando) do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 28007b4e17bd698e4aaa2bddbf0c8f9ffaaa8351
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485215"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606446"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Início Rápido: Use um comando da CLI do Azure, az postgres up (versão prévia), para criar um Banco de Dados do Azure para PostgreSQL – Servidor único
 

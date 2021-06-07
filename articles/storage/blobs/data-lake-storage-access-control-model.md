@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017705"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102439282"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controle de acesso no Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Este artigo se concentra no RBAC do Azure e nas ACLs, e como o sistema os avalia
 
 O RBAC do Azure usa atribuições de função para aplicar conjuntos de permissões a [entidades de segurança](../../role-based-access-control/overview.md#security-principal). Uma entidade de segurança é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD). Um conjunto de permissões pode dar a uma entidade de segurança um nível de acesso "de alta granularidade", como acesso de leitura ou gravação a **todos** os dados em uma conta de armazenamento ou a **todos** os dados em um contêiner. 
 
-As funções a seguir permitem que uma entidade de segurança acesse dados em uma conta de armazenamento. 
+As funções a seguir permitem que uma entidade de segurança acesse dados em uma conta de armazenamento.
 
 |Função|Descrição|
 |--|--|
@@ -106,7 +106,7 @@ A tabela a seguir mostra como combinar funções do Azure e entradas de ACL para
 
 
 > [!NOTE] 
-> Para exibir o conteúdo de um contêiner em Gerenciador de Armazenamento do Azure, as entidades de segurança devem [entrar no Gerenciador de armazenamento usando o Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)e (no mínimo) ter acesso de leitura (R--) para a pasta raiz ( `\` ) de um contêiner. Esse nível de permissão fornece a eles a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz fique visível, você poderá atribuí-los à função de [leitor](../../role-based-access-control/built-in-roles.md#reader) . Com essa função, eles poderão listar os contêineres na conta, mas não o conteúdo do contêiner. Você pode conceder acesso a diretórios e arquivos específicos usando ACLs.   
+> Para exibir o conteúdo de um contêiner em Gerenciador de Armazenamento do Azure, as entidades de segurança devem [entrar no Gerenciador de armazenamento usando o Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)e (no mínimo) ter acesso de leitura (R--) para a pasta raiz ( `\` ) de um contêiner. Esse nível de permissão fornece a eles a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz fique visível, você poderá atribuí-los à função de [leitor](../../role-based-access-control/built-in-roles.md#reader) . Com essa função, eles poderão listar os contêineres na conta, mas não o conteúdo do contêiner. Você pode conceder acesso a diretórios e arquivos específicos usando ACLs.   
 
 ## <a name="security-groups"></a>Grupos de segurança
 

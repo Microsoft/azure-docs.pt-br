@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f02a0673a3fae33f935ae9a9cbf94f101b25c39f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096964"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449759"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início Rápido: Criar um aplicativo de tarefas pendentes com o Xamarin usando a conta de API de SQL do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -100,14 +100,14 @@ Volte ao Portal do Azure para obter as informações da sua chave de API e copie
 
     ```csharp
     //#error Enter the URL of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
     ```
 
 4. No portal do Azure, usando o botão Copiar, copie o valor da **CHAVE PRIMÁRIA** e torne-o o valor da `Cosmos Auth Key` em APIKeys.cs.
 
     ```csharp
     //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
-            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
     ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]

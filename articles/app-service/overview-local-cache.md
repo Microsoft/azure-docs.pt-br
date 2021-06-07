@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96852245"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
@@ -52,7 +52,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 Configure o Cache Local usando uma combinação de configurações de aplicativo reservadas. Você pode configurar essas configurações de aplicativo usando os seguintes métodos:
 
-* [Portal do Azure](#Configure-Local-Cache-Portal)
+* [Azure portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o Cache Local usando o portal do Azure
@@ -98,7 +98,7 @@ Recomendamos que você use o Cache Local em conjunto com o recurso [Ambientes de
 * Quando estiver pronto, execute uma [operação de permuta](../app-service/deploy-staging-slots.md#Swap) entre seus slots de Preparo e de Produção.  
 * As configurações temporárias incluem o nome e a parte temporária em um slot. Assim, quando o Slot de preparo for trocado pelo de Produção, ele herda as configurações do aplicativo do Cache Local. O Slot de produção recém-trocado será executado no cache local após alguns minutos e será aquecido como parte do aquecimento de slot após a troca. Assim, quando a permuta do slot é concluída, o slot de produção é executado no cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como saber se o Cache Local se aplica ao meu aplicativo?
 Se o seu aplicativo precisa de um repositório de conteúdo confiável e de alto desempenho, não usa o repositório de conteúdo para gravar dados críticos em runtime e tem menos de 2 GB de tamanho total, a resposta é sim! Para obter o tamanho total das pastas /siteextensions e /site, você pode usar a extensão de site "Uso de Disco de Aplicativos Web do Azure."

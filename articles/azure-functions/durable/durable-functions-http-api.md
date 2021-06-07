@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697836"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
@@ -385,7 +385,7 @@ A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte
 
 | Campo                  | Tipo de dados | Descrição |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | Número inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1` . |
+| **`instancesDeleted`** | inteiro   | O número de instâncias excluídas. Para o caso de instância única, esse valor sempre deve ser `1` . |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -447,7 +447,7 @@ A carga de resposta para o caso de **HTTP 200** é um objeto JSON com o seguinte
 
 | Campo                   | Tipo de dados | Descrição |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | Número inteiro   | O número de instâncias excluídas. |
+| **`instancesDeleted`**  | inteiro   | O número de instâncias excluídas. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 

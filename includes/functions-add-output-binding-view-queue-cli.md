@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 921127ffdd35007cc3fa2eaaa95cdb3fac8bbe15
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606174"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782258"
 ---
 Veja a fila no [portal do Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) ou no [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). Veja também a fila na CLI do Azure, conforme descrito nas seguintes etapas:
 
@@ -35,13 +35,13 @@ Veja a fila no [portal do Azure](../articles/storage/queues/storage-quickstart-q
     
     ---
     
-1. (Opcional) Use o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para ver as filas de armazenamento em sua conta. A saída desse comando deve incluir uma fila chamada `outqueue`, que foi criada quando a função gravou a primeira mensagem nessa fila.
+1. (Opcional) Use o comando [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) para ver as filas de armazenamento em sua conta. A saída desse comando deve incluir uma fila chamada `outqueue`, que foi criada quando a função gravou a primeira mensagem nessa fila.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Use o comando [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) para ler as mensagens dessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
+1. Use o comando [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) para ler as mensagens dessa fila, que deve ser o primeiro nome usado ao testar a função anteriormente. O comando lê e remove a primeira mensagem da fila. 
 
     # <a name="bash"></a>[Bash](#tab/bash)
     

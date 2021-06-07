@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422443"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102049314"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
 
@@ -63,7 +63,7 @@ No SDK do .NET, empacote seus dados em um `IndexBatch` objeto. Um `IndexBatch` e
 
 Há duas maneiras de [pesquisar o índice usando a API REST](/rest/api/searchservice/Search-Documents). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta são definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta são definidos na URL da solicitação. POST tem [limites mais flexíveis](/rest/api/searchservice/Search-Documents) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.
 
-Para POST e GET, você precisa fornecer o nome do *serviço* , o *nome do índice* e uma *versão da API* na URL da solicitação. 
+Para POST e GET, você precisa fornecer o nome do *serviço*, o *nome do índice* e uma *versão da API* na URL da solicitação. 
 
 Para GET, você fornece os parâmetros de consulta na *cadeia de consulta* no fim da URL. Veja a seguir o formato da URL:
 
@@ -75,12 +75,14 @@ O formato para POST é o mesmo, mas com `api-version` nos parâmetros de cadeia 
 
 ## <a name="pulling-data-into-an-index"></a>Pull de dados para um índice
 
-O modelo de pull rastreia uma fonte de dados com suporte e carrega automaticamente os dados no índice. No Azure Pesquisa Cognitiva, esse recurso é implementado por meio de *indexadores* , atualmente disponíveis para essas plataformas:
+O modelo de pull rastreia uma fonte de dados com suporte e carrega automaticamente os dados no índice. No Azure Pesquisa Cognitiva, esse recurso é implementado por meio de *indexadores*, atualmente disponíveis para essas plataformas:
 
 + [Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
 + [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Banco de dados SQL do Azure, SQL Instância Gerenciada e SQL Server em VMs do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [SharePoint Online (versão prévia)](search-howto-index-sharepoint-online.md)
++ [Azure Data Lake Storage Gen2 (versão prévia)](search-howto-index-azure-data-lake-storage.md)
 
 Indexadores conectam um índice a uma fonte de dados (geralmente uma tabela, exibição ou estrutura equivalente) e mapeiam campos de origem para os campos equivalentes no índice. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado no índice especificado. Todos os indexadores dão suporte à programação. Assim, você pode especificar com que frequência os dados devem ser atualizados. A maioria dos indexadores fornece controle de alterações se a fonte de dados oferecer suporte a isso. Rastreando as alterações e as exclusões para os documentos existentes, além de reconhecer novos documentos, os indexadores dispensam a necessidade de gerenciar ativamente os dados no índice.
 
@@ -97,7 +99,7 @@ Uma maneira rápida de executar uma verificação preliminar no carregamento do 
 > [!TIP]
 > Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também fornece um indexador de exemplo e uma fonte de dados que consiste em um conjunto de dados de imóveis pequeno (denominado "realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Passo a passo do portal: criar, carregar, consultar um índice](search-get-started-portal.md)

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 671a8f7c6fa4c20ef4fc88f57d4a946a84614389
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3ba69a6ddf38083e5665e20081f5f909b7100024
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420862"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508479"
 ---
 # <a name="convert-to-dataset"></a>Converter em conjunto de dados
 
@@ -35,18 +35,18 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
 
 2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
 
-    Contanto que os dados sejam [tabulares](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), você pode convertê-los em um DataSet. Isso inclui os dados carregados por meio de [dados de importação](import-data.md), dados criados por meio de [dados de inserção manual](enter-data-manually.md)ou os DataSets transformados por meio da [transformação aplicar](apply-transformation.md).
+    Contanto que os dados sejam [tabulares](/python/api/azureml-core/azureml.data.tabulardataset), você pode convertê-los em um DataSet. Isso inclui os dados carregados por meio de [dados de importação](import-data.md), dados criados por meio de [dados de inserção manual](enter-data-manually.md)ou os DataSets transformados por meio da [transformação aplicar](apply-transformation.md).
 
 3.  Na lista suspensa **ação** , indique se você deseja fazer qualquer limpeza nos dados antes de salvar o conjunto:  
   
-    - **Nenhum** : Use os dados como estão.  
+    - **Nenhum**: Use os dados como estão.  
   
-    - **Setmissingvalue** : define um valor específico para um valor ausente no conjunto de informações. O espaço reservado padrão é o caractere de ponto de interrogação (?), mas você pode usar a opção  **valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir **táxi** para **valor ausente personalizado** , todas as instâncias de **táxi** no conjunto de valores serão alteradas para o valor ausente.
+    - **Setmissingvalue**: define um valor específico para um valor ausente no conjunto de informações. O espaço reservado padrão é o caractere de ponto de interrogação (?), mas você pode usar a opção  **valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir **táxi** para **valor ausente personalizado**, todas as instâncias de **táxi** no conjunto de valores serão alteradas para o valor ausente.
   
-    - **ReplaceValues** : Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
+    - **ReplaceValues**: Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
 
-      - **Ausente** : escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor** , insira o valor com o qual substituir os valores ausentes.
-      - **Personalizado** : escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado** , insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem a cadeia de caracteres `obs` usada como um espaço reservado para valores ausentes, insira `obs` . Para **novo valor** , insira o novo valor com o qual substituir a cadeia de caracteres original.
+      - **Ausente**: escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor**, insira o valor com o qual substituir os valores ausentes.
+      - **Personalizado**: escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado**, insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem a cadeia de caracteres `obs` usada como um espaço reservado para valores ausentes, insira `obs` . Para **novo valor**, insira o novo valor com o qual substituir a cadeia de caracteres original.
   
     Observe que a operação **ReplaceValues** se aplica somente a correspondências exatas. Por exemplo, essas cadeias de caracteres não seriam afetadas: `obs.` , `obsolete` .  
  

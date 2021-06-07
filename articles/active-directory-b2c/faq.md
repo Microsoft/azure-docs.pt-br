@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d84c5fff41a7f00405c29ab4b4921ed2e28bdfde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660277"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580089"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -82,7 +82,10 @@ A assinatura de email contém o nome do locatário do Azure AD B2C que você for
 1. Altere o campo **Nome**.
 1. Clique em **Salvar** na parte superior da página.
 
-Atualmente não há nenhuma maneira de alterar o campo "De:" no email.
+No momento, você não pode alterar o campo "de:" no email.
+
+> [!TIP]
+> Com Azure AD B2C [política personalizada](custom-policy-overview.md), você pode personalizar o email Azure ad B2C envios aos usuários, incluindo o campo "de:" no email. A verificação de email personalizada requer o uso de um provedor de email de terceiros, como [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md)ou [SparkPost](https://sparkpost.com).
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar meus de nomes de usuário, senhas e perfis existentes no meu banco de dados para o AD B2C do Azure?
 
@@ -100,7 +103,7 @@ Não, o Azure AD Connect não foi projetado para funcionar com o AD B2C do Azure
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Meu aplicativo pode abrir as páginas do Azure AD B2C em um iFrame?
 
-Não, por motivos de segurança, as páginas do Azure AD B2C não podem ser abertas em um iFrame. Nosso serviço comunica-se com o navegador para proibir iFrames. A comunidade de segurança em geral e a especificação OAUTH2, não recomenda o uso de iFrames para experiências de identidade devido ao risco de clickjacking.
+Esse recurso está em uma versão prévia. Para obter detalhes, consulte [experiência de entrada inserida](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login).
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>O AD B2C do Azure funciona com sistemas CRM, como o Microsoft Dynamics?
 
@@ -128,7 +131,7 @@ Sim, consulte [personalização de idioma](language-customization.md). Podemos f
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada atendidas pelo AD B2C do Azure? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 
-Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **Domínios** no Portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
+Esse recurso está disponível em visualização pública. Para obter detalhes, consulte [Azure ad B2C domínios personalizados](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 
@@ -142,13 +145,13 @@ Você pode usar nossa nova experiência unificada de **registros de aplicativo**
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
+1. Exclua todos os **provedores de identidade** em seu locatário Azure ad B2C.
 1. Selecione **registros de aplicativo** e, em seguida, selecione a guia **todos os aplicativos** .
 1. Exclua todos os aplicativos que você registrou.
 1. Exclua o **B2C-Extensions-app**.
 1. Em **Gerenciar**, selecione **Usuários**.
 1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Selecione **Azure Active Directory** no menu à esquerda.
-1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.

@@ -1,17 +1,17 @@
 ---
 title: Configurar e acessar logs-servidor flexível-banco de dados do Azure para PostgreSQL
 description: Como acessar os logs de banco de dados para o Azure Database para PostgreSQL – servidor flexível
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 59a2ddcc68a7c5a3b6fa3a3b315f4294d1625204
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492345"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607398"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e acessar logs no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -40,13 +40,13 @@ Para habilitar os logs de recursos usando o portal do Azure:
 
 7. Salve sua configuração.
 
-Para habilitar logs de recursos usando o PowerShell, a CLI ou a API REST, visite o artigo [configurações de diagnóstico](../../azure-monitor/platform/diagnostic-settings.md) .
+Para habilitar logs de recursos usando o PowerShell, a CLI ou a API REST, visite o artigo [configurações de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) .
 
 ### <a name="access-resource-logs"></a>Acessar logs de recursos
 
-A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
+A maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) .
 
-Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md) .
+Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../../azure-monitor/logs/log-query-overview.md) .
 
 Veja a seguir as consultas que você pode tentar começar. Você pode configurar alertas com base em consultas.
 
@@ -71,5 +71,5 @@ A consulta acima mostrará os resultados nas últimas 6 horas para qualquer log 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução às consultas do log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introdução às consultas do log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 - Saiba mais sobre os [hubs de eventos do Azure](../../event-hubs/event-hubs-about.md)

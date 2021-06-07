@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Abstract | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Abstract | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Abstract.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587784"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integrar o Abstract ao Azure Active Directory
@@ -63,7 +63,7 @@ Para configurar e testar o SSO do Azure AD com o Abstract, conclua os seguintes 
 2. **[Configurar o SSO do Abstract](#configure-abstract-sso)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar de um usuário de teste do Abstract](#create-abstract-test-user)** : para ter um equivalente de Brenda Fernandes no Abstract que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar de um usuário de teste do Abstract](#create-abstract-test-user)**: para ter um equivalente de Brenda Fernandes no Abstract que esteja vinculado à representação de usuário no Azure AD.
 6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD

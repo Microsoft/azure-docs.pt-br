@@ -13,10 +13,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 5bea1753c87c11094e78f95a1bbadb02fb0b95e2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98752980"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Aplicativos cliente públicos de conta única e múltipla

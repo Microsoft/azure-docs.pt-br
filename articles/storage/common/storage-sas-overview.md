@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802500"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722779"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -100,7 +100,7 @@ A tabela a seguir resume como cada tipo de token SAS é autorizado.
 
 | Tipo de SAS | Tipo de autorização |
 |-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD |
 | SAS do serviço | Chave compartilhada |
 | SAS da conta | Chave compartilhada |
 
@@ -181,6 +181,9 @@ As recomendações a seguir para usar assinaturas de acesso compartilhado podem 
 - **Saiba quando não usar uma SAS.** Às vezes, os riscos associados a uma determinada operação em relação à sua conta de armazenamento superam os benefícios do uso de uma SAS. Para essas operações, crie um serviço de camada intermediária que grave na sua conta de armazenamento após a validação, a autenticação e a auditoria da regra de negócio. Além disso, algumas vezes é mais simples de gerenciar o acesso de outras maneiras. Por exemplo, se quiser tornar todos os blobs de um contêiner publicamente legíveis, você poderá tornar o contêiner Público, em vez de fornecer uma SAS para o acesso de cada cliente.
 
 - **Use Azure Monitor e logs de armazenamento do Azure para monitorar seu aplicativo.** As falhas de autorização podem ocorrer devido a uma interrupção no serviço do provedor SAS. Eles também podem ocorrer de uma remoção inadvertida de uma política de acesso armazenada. Você pode usar o Azure Monitor e o log da análise de armazenamento para observar qualquer pico nesses tipos de falhas de autorização. Para obter mais informações, consulte [métricas de armazenamento do Azure em log de Azure monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) e [análise de armazenamento do Azure](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> O armazenamento não rastreia o número de assinaturas de acesso compartilhado que foram geradas para uma conta de armazenamento e nenhuma API pode fornecer esse detalhe. Se você precisar saber o número de assinaturas de acesso compartilhado que foram geradas para uma conta de armazenamento, você deve controlar o número manualmente.
 
 ## <a name="get-started-with-sas"></a>Introdução à SAS
 

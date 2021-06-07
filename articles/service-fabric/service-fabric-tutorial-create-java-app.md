@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/01/2018
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
 ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532186"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Criar um aplicativo com um serviço front-end de API do Java e um serviço back-end com estado no Azure Service Fabric
@@ -884,7 +884,7 @@ Aqui, o aplicativo está pronto para ser implantado em um cluster local do Servi
 
 2. Executar o cluster local do Service Fabric. Esta etapa depende do ambiente de desenvolvimento (Mac ou Linux).
 
-    Se estiver usando um Mac, execute o cluster local com o seguinte comando: Substitua o comando passado para o parâmetro **-v** pelo caminho para seu próprio workspace.
+    Se você estiver usando um Mac, execute o cluster local com o seguinte comando: Substitua o comando passado para o parâmetro **- v** pelo caminho para seu próprio workspace.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest

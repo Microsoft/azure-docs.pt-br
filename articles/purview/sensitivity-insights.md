@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199369"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676567"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informações de rótulo de confidencialidade sobre seus dados no Azure alcance
 
 Este guia de instruções descreve como acessar, exibir e filtrar informações de segurança fornecidas por rótulos de sensibilidade aplicados aos seus dados.
 
-As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, banco de dados SQL do Azure, Azure SQL Instância Gerenciada
+As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, banco de dados SQL do Azure, Azure SQL Instância Gerenciada, Buckets do Amazon S3
 
 Neste guia de instruções, você aprenderá a:
 
@@ -40,7 +40,7 @@ Antes de começar a usar o alcance insights, verifique se você concluiu as segu
 
 - [Microsoft 365 estendidos rótulos de sensibilidade a ativos no Azure alcance](create-sensitivity-label.md)e criou ou selecionou os rótulos que você deseja aplicar aos seus dados.
 
-- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados
+- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados. Para obter mais informações, consulte [gerenciar fontes de dados no Azure alcance (versão prévia)](manage-data-sources.md) e [criar um conjunto de regras de verificação](create-a-scan-rule-set.md).
 
 - Conectado ao alcance com uma [função de leitor de dados ou de curador dos dados](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

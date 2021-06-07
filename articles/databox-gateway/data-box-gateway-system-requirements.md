@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e7c8653b39a3e0333ff6e98783a6e9a1437dba22
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581671"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739204"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
 
@@ -32,7 +32,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 | Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
-| Memória  | Mínimo de 8 GB|
+| Memória  | Mínimo de 8 GB. É altamente recomendável pelo menos 16 GB. |
 | Disponibilidade|Nó único|
 | Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
 | Interfaces de rede|1 ou mais adaptadores de rede virtual|
@@ -50,7 +50,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 | **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
+|Hyper-v  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
 
 

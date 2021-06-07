@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96342185"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
@@ -71,6 +71,6 @@ Essa abordagem também protege a chave de API da exposição ao público, já qu
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar no nosso [site Voz do Usuário](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
  [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

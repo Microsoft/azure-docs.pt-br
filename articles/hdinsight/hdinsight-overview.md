@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: d1c32bf749850ac40e23c1a9cb9c5cd7755d45c6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cbaa84c73a5e332dca60286bc35200761e546dd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939430"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104864220"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 

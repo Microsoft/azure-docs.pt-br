@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/12/2021
-ms.openlocfilehash: ff7cfe8ad09201df20db89e14f8c175e678e5107
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7027e4af9c11db628990d42430c6877340de3534
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929804"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868436"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 
@@ -28,7 +28,7 @@ O Servidor de Histórico do Spark é a interface do usuário da Web para aplicat
 
 2. Em **painéis de cluster**, selecione **yarn**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-    ![Iniciar Interface do usuário do YARN](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png" alt-text="Iniciar Interface do usuário do YARN" border="true":::
 
    > [!TIP]  
    > Alternativamente, também é possível iniciar a interface do usuário do YARN na interface do usuário do Ambari. Na interface do usuário do amAmbari, navegue até **yarn**  >  **links rápidos**  >  **Active**  >  **Resource Manager UI**.
@@ -43,15 +43,15 @@ Os três parâmetros de configuração podem ser definidos no nível de cluster 
 
 1. Na interface do usuário do amAmbari, navegue até **Spark2**  >  **configurações**  >  **personalizado Spark2-padrões**.
 
-    ![Definir parâmetros usando Ambari personalizado](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Definir parâmetros usando Ambari personalizado")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png " alt-text="Definir parâmetros usando Ambari personalizado" border="true":::
 
 1. Ter quatro aplicativos Spark em execução simultaneamente no cluster é o número de valores padrão ideal. Você pode alterar esses valores na interface do usuário, conforme mostrado na seguinte captura de tela:
 
-    ![Definir parâmetros usando o Ambari](./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png "Definir parâmetros usando o Ambari")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png " alt-text="Definir parâmetros usando o Ambari" border="true":::
 
 1. Selecione **salvar** para salvar as alterações de configuração. Na parte superior da página, você será solicitado a reiniciar todos os serviços afetados. Selecione **Reiniciar**.
 
-    ![Reiniciar serviços](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-services.png" alt-text="Reiniciar serviços" border="true":::
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar os parâmetros de um aplicativo em execução no Jupyter Notebook
 
@@ -93,11 +93,11 @@ O servidor Spark Thrift usa a alocação de executor dinâmico do Spark e, porta
 
 * Expanda a categoria **avançado spark2-Thrift-sparkconf** para atualizar os parâmetros `spark.dynamicAllocation.maxExecutors` e `spark.dynamicAllocation.minExecutors` .
 
-    ![Configurar o servidor Thrift Spark](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Configurar o servidor Thrift Spark")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png " alt-text="Configurar o servidor Thrift Spark" border="true":::
 
 * Expanda a categoria **spark2-Thrift-Sparkconf personalizada** para atualizar os parâmetros `spark.executor.cores` e `spark.executor.memory` .
 
-    ![Configurar o parâmetro de servidor Spark thrift](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Configurar o parâmetro de servidor Spark thrift")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png " alt-text="Configurar o parâmetro de servidor Spark thrift" border="true":::
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Alterar a memória do driver do servidor Spark Thrift
 
@@ -113,40 +113,40 @@ Devido à alocação dinâmica do Spark, os únicos recursos que são consumidos
 
 2. Na página seguinte, selecione **Spark2 Thrift Servers**.
 
-    ![Reiniciar o Thrift Server1](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Reiniciar o Thrift Server1")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png " alt-text="Reiniciar o Thrift Server1" border="true":::
 
 3. Você deve ver as duas cabeçalho em que o Spark2 Thrift Server está em execução. Selecione um dos cabeçalho.
 
-    ![Reiniciar o Thrift Servidor2](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Reiniciar o Thrift Servidor2")
+    :::image type="content" source="./media/apache-spark-resource-manager/restart-thrift-server-2.png " alt-text="Reiniciar o Thrift Servidor2" border="true":::
 
 4. A próxima página lista todos os serviços em execução nesse nó de cabeçalho. Na lista, selecione o botão suspenso ao lado de Spark2 Thrift Server e, em seguida, selecione **parar**.
 
-    ![Reiniciar Thrift Server3](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Reiniciar Thrift Server3")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png " alt-text="Reiniciar Thrift Server3" border="true":::
 5. Repita essas etapas no outro nó de cabeçalho.
 
 ## <a name="restart-the-jupyter-service"></a>Reiniciar o serviço Jupyter
 
 Inicie a interface do usuário da Web do Ambari, conforme mostrado no início do artigo. No painel de navegação esquerdo, selecione **Jupyter**, selecione **ações de serviço** e, em seguida, selecione **reiniciar tudo**. Isso iniciará o serviço Jupyter em todos os nós de cabeçalho.
 
-![Reiniciar Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Reiniciar Jupyter")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png " alt-text="Reiniciar Jupyter" border="true":::
 
 ## <a name="monitor-resources"></a>Monitorar recursos
 
 Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. Na tabela de métricas de Cluster na parte superior da tela, verifique os valores de **memória usada** e **memória Total** colunas. Se os dois valores estiverem próximos, talvez não haja recursos suficientes para iniciar o próximo aplicativo. O mesmo se aplica para o **VCores usado** e **VCores Total** colunas. Além disso, na exibição principal, se houver um aplicativo permaneceu no estado **aceito** e não estiver fazendo a transição para o estado **em execução** ou **falha** , isso também pode ser uma indicação de que ele não está obtendo recursos suficientes para iniciar.
 
-![Limite de recursos](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Limite de recursos")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-resource-limit.png " alt-text="Limite de recursos" border="true":::
 
 ## <a name="kill-running-applications"></a>Encerrar aplicativos em execução
 
 1. Na interface do usuário do amYarn, no painel esquerdo, selecione **em execução**. Na lista de aplicativos em execução, determine o aplicativo a ser eliminado e selecione a **ID**.
 
-    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App1" border="true":::
 
 2. Selecione **eliminar aplicativo** no canto superior direito e, em seguida, selecione **OK**.
 
-    ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Eliminar App2" border="true":::
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
 

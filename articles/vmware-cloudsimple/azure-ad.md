@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898599"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usar o Azure AD como um provedor de identidade para o vCenter na nuvem privada do CloudSimple
@@ -41,7 +41,7 @@ Para usar o Azure AD como uma fonte de identidade com o vCenter, você deve conf
 
 Antes de começar, você precisará de acesso à sua assinatura do Azure com privilégios de administrador global.  As etapas a seguir fornecem diretrizes gerais. Os detalhes estão contidos na documentação do Azure.
 
-### <a name="azure-ad"></a>AD do Azure
+### <a name="azure-ad"></a>Azure AD
 
 > [!NOTE]
 > Se você já tiver o Azure AD, poderá ignorar esta seção.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: dc3f307a21b746981a84b1c0747c4b22c448541f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 71f95b08584a46fccb0975cd9285150573ac02d4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349898"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102218512"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para o provisionamento automático de usuário
 
@@ -97,7 +97,7 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 * O provisionamento de uma função ou perfil de permissão para um usuário no Docusign pode ser realizado usando uma expressão em seus mapeamentos de atributo, usando as funções [switch](../app-provisioning/functions-for-customizing-application-data.md#switch) e [singleAppRoleAssignment](../app-provisioning/functions-for-customizing-application-data.md#singleapproleassignment). Por exemplo, a expressão abaixo provisionará a ID "8032066" quando um usuário tiver a função "Administrador do DS" atribuída no Azure AD. Ela não provisionará nenhum perfil de permissão se o usuário não tiver uma função atribuída no lado do Azure AD. A ID pode ser recuperada do [portal](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles) do DocuSign.
 
-Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "DS Admin", "8032066")
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

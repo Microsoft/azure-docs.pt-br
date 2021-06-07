@@ -4,12 +4,12 @@ description: Use o Docker Compose para compilar e executar um aplicativo de vár
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913833"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786901"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Tutorial: Implantar um grupo de vários contêineres usando o Docker Compose 
 
@@ -86,7 +86,7 @@ services:
 
 Na configuração do `azure-vote-front`, faça as duas seguintes alterações:
 
-1. Atualize a propriedade `image` no serviço `azure-vote-front`. Prefixe o nome da imagem com o nome do servidor de logon do seu Registro de contêiner do Azure, \<acrName\>.azurecr.io. Por exemplo, se o Registro for nomeado *myregistry* , o nome do servidor de logon será *myregistry.azurecr.io* (todas as letras minúsculas) e a propriedade de imagem será `myregistry.azurecr.io/azure-vote-front`.
+1. Atualize a propriedade `image` no serviço `azure-vote-front`. Prefixe o nome da imagem com o nome do servidor de logon do seu Registro de contêiner do Azure, \<acrName\>.azurecr.io. Por exemplo, se o Registro for nomeado *myregistry*, o nome do servidor de logon será *myregistry.azurecr.io* (todas as letras minúsculas) e a propriedade de imagem será `myregistry.azurecr.io/azure-vote-front`.
 1. Altere o mapeamento de `ports` para `80:80`. Salve o arquivo.
 
 O arquivo atualizado deverá ser parecido com o seguinte:
@@ -166,7 +166,7 @@ docker-compose push
 
 O envio por push para o Registro pode levar alguns minutos.
 
-Para verificar se a imagem está armazenada no Registro, execute o comando [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show):
+Para verificar se a imagem está armazenada no Registro, execute o comando [az acr repository show](/cli/azure/acr/repository#az_acr_repository_show):
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Para ver o aplicativo em execução na nuvem, insira o endereço IP exibido em um navegador da Web local. Neste exemplo, insira `52.179.23.131`. O aplicativo de exemplo é carregado, conforme mostra o exemplo a seguir:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Imagem do aplicativo de votação":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Imagem do aplicativo de votação no ACI":::
 
 Para ver os logs do contêiner de front-end, execute o comando [docker logs](https://docs.docker.com/engine/reference/commandline/logs). Por exemplo:
 

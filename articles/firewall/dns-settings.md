@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d6a79e87e9999dd520358e0722011cf4e54d8c63
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883207"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100546237"
 ---
 # <a name="azure-firewall-dns-settings"></a>Configurações de DNS do firewall do Azure
 
@@ -29,7 +29,7 @@ Um servidor DNS mantém e resolve nomes de domínio para endereços IP. Por padr
 
 1. Em **configurações** do firewall do Azure, selecione **configurações de DNS**.
 2. Em **servidores DNS**, você pode digitar ou adicionar servidores DNS existentes que foram especificados anteriormente em sua rede virtual.
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 O firewall agora direciona o tráfego DNS para os servidores DNS especificados para a resolução de nomes.
 
@@ -95,7 +95,7 @@ Para configurar o proxy DNS, você deve definir a configuração de servidores D
 2. Em **Configurações**, selecione **Servidores DNS**.
 3. Em **Servidores DNS**, selecione **Personalizado**.
 4. Insira o endereço IP privado do firewall.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Reinicie as VMs que estão conectadas à rede virtual para que elas sejam atribuídas às novas configurações do servidor DNS. As VMs continuam a usar suas configurações atuais de DNS até que sejam reiniciadas.
 
 ##### <a name="enable-dns-proxy"></a>Habilitar proxy DNS
@@ -104,7 +104,7 @@ Para configurar o proxy DNS, você deve definir a configuração de servidores D
 2. Em **configurações**, selecione **configurações de DNS**.
 3. Por padrão, o **proxy DNS** está desabilitado. Quando essa configuração é habilitada, o firewall escuta na porta 53 e encaminha as solicitações DNS para os servidores DNS configurados.
 4. Examine a configuração dos **servidores DNS** para certificar-se de que as configurações são apropriadas para o seu ambiente.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 :::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Captura de tela mostrando as configurações para o proxy D N S.":::
 

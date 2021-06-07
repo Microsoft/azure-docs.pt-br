@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305659"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -34,13 +34,13 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 
 
 ## <a name="goal"></a>Goal
-**Finalizar resultados finais do projeto** : Confirme se o pipeline, o modelo e sua implantação em um ambiente de produção atendem aos objetivos do cliente.
+**Finalizar resultados finais do projeto**: Confirme se o pipeline, o modelo e sua implantação em um ambiente de produção atendem aos objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazer
 Há duas tarefas principais abordadas neste estágio:
 
-   * **Validação do sistema** : confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
-   * **Entrega do projeto** : entregue o projeto a uma entidade que executará o sistema na produção.
+   * **Validação do sistema**: confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
+   * **Entrega do projeto**: entregue o projeto a uma entidade que executará o sistema na produção.
 
 O cliente deverá validar se o sistema atende às suas necessidades de negócios e se ele responde às perguntas com uma precisão aceitável para implantar o sistema em produção para uso pelo aplicativo do cliente. Toda a documentação é finalizada e revisada. O projeto é entregue à entidade responsável por operações. Essa entidade poderá ser, por exemplo, uma equipe de TI ou de ciência de dados do cliente ou um agente do cliente responsável por executar o sistema na produção. 
 

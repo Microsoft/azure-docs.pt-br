@@ -2,13 +2,13 @@
 title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo de Azure Resource Manager (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/25/2021
+ms.openlocfilehash: 981e9f10e118012911108d634fbb8bdb9524cb88
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880417"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543968"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -37,7 +37,7 @@ Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -66,7 +66,7 @@ O exemplo a seguir implanta uma conta de armazenamento por meio de um modelo ani
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
@@ -103,12 +103,12 @@ Você define o escopo por meio da `expressionEvaluationOptions` propriedade. Por
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate1",
   "properties": {
-  "expressionEvaluationOptions": {
-    "scope": "inner"
-  },
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    },
   ...
 ```
 
@@ -130,7 +130,7 @@ O modelo a seguir demonstra como as expressões de modelo são resolvidas de aco
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -214,7 +214,7 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -321,7 +321,7 @@ O trecho a seguir mostra quais valores são seguros e quais não são seguros.
     {
       "name": "outer",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "outer"
@@ -351,7 +351,7 @@ O trecho a seguir mostra quais valores são seguros e quais não são seguros.
     {
       "name": "inner",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "properties": {
         "expressionEvaluationOptions": {
           "scope": "inner"
@@ -417,7 +417,7 @@ Para vincular um modelo, adicione um [recurso de implantações](/azure/template
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -445,6 +445,8 @@ Se você estiver vinculando a um modelo no GitHub, use a URL bruta. O link tem o
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Selecionar URL bruta":::
 
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
+
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 
 Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo externo ou embutido. Ao fornecer um arquivo de parâmetro externo, use a `parametersLink` Propriedade:
@@ -453,7 +455,7 @@ Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo e
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -476,7 +478,7 @@ Para passar valores de parâmetro embutidos, use a `parameters` propriedade.
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",
@@ -641,7 +643,7 @@ O modelo de exemplo a seguir mostra como usar `copy` com um modelo aninhado.
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
+    "apiVersion": "2020-10-01",
     "name": "[concat('nestedTemplate', copyIndex())]",
     // yes, copy works here
     "copy": {
@@ -668,10 +670,10 @@ O modelo de exemplo a seguir mostra como usar `copy` com um modelo aninhado.
             "kind": "StorageV2"
             // Copy works here when scope is inner
             // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
+            // "copy": {
+            //   "name": "storagecopy",
+            //   "count": 2
+            // }
           }
         ]
       }
@@ -758,7 +760,7 @@ Os seguintes links de modelo para o modelo anterior. Ele cria três endereços I
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -828,7 +830,7 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",

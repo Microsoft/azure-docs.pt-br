@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 678b6f02245e463870fc5b2c4bfc8b5ffa50de60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cd69e89954fab2256ffc7c23e22d3b8d44ab2a11
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381675"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102455866"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Associação de entrada do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -349,7 +349,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction** | n/d | Deve ser definido como `in`. As exceções são mencionadas na seção [uso](#usage). |
 |**name** | n/d | O nome da variável que representa o blob no código de função.|
 |**path** |**BlobPath** | O caminho para o blob. |
-|**connection** |**Conexão**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Se você estiver usando [a versão 5. x ou superior da extensão](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), em vez de uma cadeia de conexão, você pode fornecer uma referência a uma seção de configuração que define a conexão. Consulte [conexões](./functions-reference.md#connections).|
+|**connection** |**Conexão**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Caso esteja usando a [versão 5.x ou posterior da extensão](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), em vez de uma cadeia de conexão, será possível fornecer uma referência a uma seção de configuração que definirá a conexão. Confira a opção [Conexões](./functions-reference.md#connections).|
 |**dataType**| N/D | Para linguagens tipificadas dinamicamente, especifica o tipo de dados subjacente. Os valores possíveis são `string`, `binary`, ou `stream`. Para obter mais detalhes, consulte os [conceitos de gatilhos e associações](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |N/D | **Acesso** | Indica se você será leitura ou gravação. |
 
@@ -379,7 +379,7 @@ Acesse os dados de blob por meio de um parâmetro que corresponde ao nome design
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Consulte o [exemplo de entrada](#example) para obter detalhes.
+Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream). Consulte o [exemplo de entrada](#example) para obter detalhes.
 
 ---
 

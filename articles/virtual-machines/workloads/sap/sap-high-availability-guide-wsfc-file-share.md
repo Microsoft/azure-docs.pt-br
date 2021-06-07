@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 469f6a1021fde661c4eae7951b86c9bb500c7050
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012486"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496194"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Clustering de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o arquivo compartilhado de cluster no Azure
 
@@ -148,10 +147,14 @@ Para usar uma expansão de arquivos de escalabilidade horizontal, o sistema deve
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurar instâncias SAP ASCS/SCS e um expansão compartilhamento de arquivos em dois clusters
 
-Você pode implantar instâncias do SAP ASCS/SCS em um cluster, com sua própria \<SID\> função de cluster SAP. Nesse caso, você deve configurar o compartilhamento de arquivos de expansão horizontal em outro cluster, com outra função de cluster.
+Você deve implantar as instâncias do SAP ASCS/SCS em um cluster separado, com sua própria \<SID\> função de cluster SAP. Nesse caso, você deve configurar o compartilhamento de arquivos de expansão horizontal em outro cluster, com outra função de cluster.
+
 
 > [!IMPORTANT]
->Nesse cenário, a instância do SAP (A)SCS está configurada para acessar GLOBALHost SAP usando o caminho UNC \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.
+> A instalação deve atender ao seguinte requisito: as instâncias do SAP ASCS/SCS e o compartilhamento SOFS devem ser implantados em clusters separados.    
+>
+> [!IMPORTANT] 
+> Nesse cenário, a instância do SAP (A)SCS está configurada para acessar GLOBALHost SAP usando o caminho UNC \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
 ![Figura 5: Configurar instâncias SAP ASCS/SCS e um expansão compartilhamento de arquivos em dois clusters][sap-ha-guide-figure-8007]

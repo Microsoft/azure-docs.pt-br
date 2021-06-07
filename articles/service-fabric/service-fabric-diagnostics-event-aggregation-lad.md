@@ -1,16 +1,14 @@
 ---
 title: Agregação de eventos com Linux Diagnóstico do Azure
 description: Saiba mais sobre a agregação e coleta de eventos utilizando o LAD para monitoramento e diagnóstico de clusters do Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd5efc6b661bf25ce7946cda0bcfa01be4c351a7
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002163"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628927"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Linux Azure
 > [!div class="op_single_selector"]

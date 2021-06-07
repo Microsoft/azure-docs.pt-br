@@ -5,10 +5,10 @@ ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
 ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91930859"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência

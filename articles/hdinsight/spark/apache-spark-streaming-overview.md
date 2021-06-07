@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e8a9f771827b870f493d6b0d7590feee7fc52b20
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929512"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870238"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
 
 [Apache Spark](https://spark.apache.org/) O streaming fornece processamento de fluxo de dados em clusters do HDInsight Spark. Com uma garantia de que qualquer evento de entrada seja processado exatamente uma vez, mesmo se ocorrer uma falha de nó. Um fluxo do Spark é um trabalho de longa execução que recebe dados de entrada de uma ampla variedade de fontes, incluindo hubs de eventos do Azure. Além disso: Hub IoT do Azure, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` Soquetes TCP brutos ou monitoramento Apache Hadoop sistemas de de yarn. Ao contrário de um processo exclusivamente controlado por eventos, um fluxo do Spark gera dados de entrada em janelas de tempo. Como uma fatia de 2 segundos e, em seguida, transforma cada lote de dados usando operações de mapear, reduzir, unir e extrair. Em seguida, o Spark Stream grava os dados transformados em sistemas de arquivos, bancos de dados, painéis e no console.
 
-![Processamento de Stream com o HDInsight e o Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Processamento de Stream com o HDInsight e o Spark Streaming" border="false":::
 
 Os aplicativos de streaming do Spark devem aguardar uma fração de um segundo para coletar cada um `micro-batch` dos eventos antes de enviar esse lote para processamento. Por outro lado, um aplicativo controlado por evento processa cada evento imediatamente. A latência do Spark Streaming normalmente fica abaixo de alguns segundos. Os benefícios da abordagem de microlote são um processamento de dados mais eficiente e cálculos de agregação mais simples.
 
@@ -30,7 +30,7 @@ Inicie com um evento único, como uma leitura de temperatura de um termostato co
 
 Cada RDD representa os eventos coletados por um período de tempo definido pelo usuário, denominado *intervalo de lote*. Com a expiração de cada intervalo de lote, um novo RDD é produzido, contendo todos os dados desse intervalo. O conjunto contínuo de RDDs é coletado em um DStream. Por exemplo, se o intervalo de lote for de um segundo, o DStream emitirá um lote a cada segundo com um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece em um desses lotes. Um aplicativo Spark Streaming processa os lotes que contêm os eventos e, por fim, atua nos dados armazenados em cada RDD.
 
-![Exemplo de DStream com Eventos de Temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="Exemplo de DStream com Eventos de Temperatura" border="false":::
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Estrutura de um aplicativo Spark Streaming
 
@@ -151,7 +151,7 @@ SELECT * FROM demo_numbers
 
 A saída resultante é semelhante à seguinte saída:
 
-| value | time |
+| valor | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -168,9 +168,9 @@ Para fazer cálculos agregados em seu DStream durante um período de tempo, por 
 
 As janelas deslizantes podem se sobrepor; por exemplo, é possível definir uma janela com uma duração de dois segundos, que desliza a cada segundo. Essa ação significa que sempre que você fizer um cálculo de agregação, a janela incluirá dados do último segundo da janela anterior. E todos os novos dados no próximo segundo.
 
-![Exemplo de Janela Inicial com Eventos de Temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="Exemplo de Janela Inicial com Eventos de Temperatura" border="false":::
 
-![Exemplo de Janela com Eventos de Temperatura após o Deslizamento](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="Exemplo de Janela com Eventos de Temperatura após o Deslizamento" border="false":::
 
 O exemplo a seguir atualiza o código que usa a DummySource, para coletar os lotes em uma janela com uma duração e um deslizamento, ambos de um minuto.
 
@@ -219,7 +219,7 @@ ssc.start()
 
 Após o primeiro minuto, há 12 entradas – seis entradas de cada um dos dois lotes coletados na janela.
 
-| value | time |
+| valor | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -244,7 +244,7 @@ Para fornecer resiliência e tolerância a falhas, o Spark Streaming conta com u
 
 Normalmente, você cria um aplicativo de streaming do Spark localmente em um arquivo JAR. Em seguida, implante-o no Spark no HDInsight copiando o arquivo JAR para o armazenamento anexado padrão. Você pode iniciar o aplicativo usando as APIs REST do LIVY disponíveis no cluster usando uma operação POST. O corpo da POSTAgem inclui um documento JSON que fornece o caminho para o JAR. E o nome da classe cujo método principal define e executa o aplicativo de streaming e, opcionalmente, os requisitos de recurso do trabalho (como o número de executores, memória e núcleos). Além disso, todas as definições de configuração necessárias ao código do aplicativo.
 
-![Implantando um aplicativo Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Implantando um aplicativo Spark Streaming" border="false":::
 
 O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, você pode encerrar um aplicativo em execução emitindo uma solicitação de exclusão no ponto de extremidade LIVY. Para detalhes sobre a API LIVY, veja [ Trabalhos remotos com o Apache LIVY ](apache-spark-livy-rest-interface.md)
 

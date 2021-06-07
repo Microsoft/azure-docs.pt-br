@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8b6d022b9a1f3be70f69943a53754c9dd909ca99
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619480"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ingressar uma máquina virtual Ubuntu Linux em um domínio Azure Active Directory Domain Services gerenciado
@@ -45,7 +45,7 @@ Se você precisar criar uma VM Ubuntu Linux ou desejar criar uma VM de teste par
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
+* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado:
 

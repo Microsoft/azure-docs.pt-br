@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle
 ms.openlocfilehash: d24e8957dc63024a46495e8a66bad7dbb3790f38
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389477"
 ---
 | Nomes de domínios                  | Portas de saída | Descrição                              |

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903574"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Usando o Visualizador de erros de desenho do Azure Maps com o criador (versão prévia)
 
 > [!IMPORTANT]
-> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Os serviços do Criador do Azure Mapas estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -30,7 +30,7 @@ Para poder baixar o Visualizador de Erros de Desenho, você precisará:
 
 1. [Criar uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
-3. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
+3. [Criar um recurso de Criador (versão prévia)](how-to-manage-creator.md)
 
 Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você pode escolher um ambiente de desenvolvimento de API diferente.
 

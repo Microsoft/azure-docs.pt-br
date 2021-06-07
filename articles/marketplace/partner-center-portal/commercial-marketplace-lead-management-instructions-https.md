@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98247175"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Use um ponto de extremidade HTTPS para gerenciar clientes potenciais do marketplace comercial
@@ -231,7 +231,7 @@ Quando estiver pronto para configurar as informações de gerenciamento dos clie
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Selecione a oferta e acesse a guia **Configuração de oferta**.
+1. Selecione sua oferta e vá até a guia **Configuração de oferta**.
 
 1. Na seção **Clientes potenciais**, selecione **Conectar**.
 

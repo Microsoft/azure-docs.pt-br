@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 358e066631304e727d18d092bd4b9a5b2a0bb89a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355759"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199604"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory
 
@@ -27,9 +27,9 @@ Este artigo descreve o registro do aplicativo, os objetos de aplicativo e as ent
 ## <a name="application-registration"></a>Registro de aplicativo
 Para delegar funções de gerenciamento de acesso e identidade para o Azure AD, um aplicativo deve ser registrado com um [locatário](developer-glossary.md#tenant)do Azure AD. Ao registrar seu aplicativo com o Azure AD, você está criando uma configuração de identidade para seu aplicativo que permite que ele se integre ao Azure AD. Ao registrar um aplicativo no [portal do Azure][AZURE-Portal], você escolhe se ele é um único locatário (acessível somente em seu locatário) ou multilocatário (acessível em outros locatários) e pode, opcionalmente, definir um URI de redirecionamento (para o qual o token de acesso é enviado).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Captura de tela do painel registrar um aplicativo no portal do Azure":::
+Para obter instruções detalhadas sobre como registrar um aplicativo, consulte o guia de [início rápido de registro do aplicativo](quickstart-register-app.md).
 
-Quando você concluir o registro do aplicativo, terá uma instância globalmente exclusiva do aplicativo (o objeto Application) que reside em seu diretório ou locatário inicial.  Você também tem uma ID globalmente exclusiva para seu aplicativo (a ID do aplicativo ou do cliente).  No portal, você pode adicionar segredos ou certificados e escopos para fazer seu aplicativo funcionar, personalizar a identidade visual do aplicativo na caixa de diálogo de entrada e muito mais.
+Quando você concluir o registro do aplicativo, terá uma instância globalmente exclusiva do aplicativo (o [objeto Application](#application-object)) que reside em seu diretório ou locatário inicial.  Você também tem uma ID globalmente exclusiva para seu aplicativo (a ID do aplicativo ou do cliente).  No portal, você pode adicionar segredos ou certificados e escopos para fazer seu aplicativo funcionar, personalizar a identidade visual do aplicativo na caixa de diálogo de entrada e muito mais.
 
 Se você registrar um aplicativo no portal, um objeto de aplicativo, bem como um objeto de entidade de serviço, será criado automaticamente em seu locatário inicial.  Se você registrar/criar um aplicativo usando as APIs de Microsoft Graph, a criação do objeto de entidade de serviço será uma etapa separada.
 
@@ -63,12 +63,10 @@ O objeto Application é a representação *global* do seu aplicativo para uso em
 
 O objeto de aplicativo serve como o modelo do qual as propriedades comuns e padrão são *derivadas* para uso na criação de objetos de entidade de serviço correspondentes. Portanto, um objeto de aplicativo tem uma relação de um para um com o aplicativo de software, e uma relação de um para muitos com seus objetos de entidade de serviço correspondentes.
 
-Uma entidade de serviço deve ser criada em cada locatário no qual o aplicativo é usado, permitindo o estabelecimento de uma identidade para entrada e/ou acesso aos recursos que estão sendo protegidos pelo locatário. Um aplicativo de locatário único tem apenas uma entidade de serviço (em seu locatário inicial), criado e com consentimento para uso durante o registro do aplicativo. Uma API/aplicativo Web multilocatário também tem uma entidade de serviço criada em cada locatário no qual um usuário consentiu com o seu uso.
+Uma entidade de serviço deve ser criada em cada locatário no qual o aplicativo é usado, permitindo o estabelecimento de uma identidade para entrada e/ou acesso aos recursos que estão sendo protegidos pelo locatário. Um aplicativo de locatário único tem apenas uma entidade de serviço (em seu locatário inicial), criado e com consentimento para uso durante o registro do aplicativo. Um aplicativo multilocatário também tem uma entidade de serviço criada em cada locatário em que um usuário desse locatário consentiu em seu uso.
 
-> [!NOTE]
-> As alterações feitas no objeto de aplicativo também são refletidas em seu objeto de entidade de serviço somente no locatário inicial do aplicativo (o locatário onde ele foi registrado). Para aplicativos multilocatário, as alterações no objeto do aplicativo não serão refletidas em objetos de entidade de serviço dos locatários de qualquer consumidor até que o acesso seja removido por meio do [Painel de Acesso do Aplicativo](https://myapps.microsoft.com) e concedido novamente.
->
-> Observe também que os aplicativos nativos são registrados como multilocatários, por padrão.
+### <a name="consequences-of-modifying-and-deleting-applications"></a>Consequências de modificar e excluir aplicativos
+As alterações feitas no objeto de aplicativo também são refletidas em seu objeto de entidade de serviço somente no locatário inicial do aplicativo (o locatário onde ele foi registrado). Isso significa que a exclusão de um objeto de aplicativo também excluirá seu objeto de entidade de serviço de locatário inicial.  No entanto, a restauração desse objeto de aplicativo não restaurará sua entidade de serviço correspondente. Para aplicativos multilocatário, as alterações no objeto do aplicativo não serão refletidas em objetos de entidade de serviço dos locatários de qualquer consumidor até que o acesso seja removido por meio do [Painel de Acesso do Aplicativo](https://myapps.microsoft.com) e concedido novamente.
 
 ## <a name="example"></a>Exemplo
 

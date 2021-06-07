@@ -1,26 +1,22 @@
 ---
 title: Copiar dados em massa com o PowerShell
 description: Use o Azure Data Factory com a atividade de cópia para copiar dados em massa de um armazenamento de dados de origem para um armazenamento de dados de destino.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
-ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 02/18/2021
+ms.openlocfilehash: fc539ababf4cb240fbe78de0d87b1f127807f604
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510427"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101740419"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiar várias tabelas em massa usando o Azure Data Factory usando o PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o Azure Synapse Analytics**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
 

@@ -3,19 +3,19 @@ title: Compartilhar imagens da Galeria entre locatários
 description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas usando CLI do Azure.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f0192a6eb60c72c9f7ac605db492f4e5f97b76ed
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2ef788659c871a9bcef6f519664689eacda94daa
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779253"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552874"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-the-azure-cli"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o CLI do Azure
 

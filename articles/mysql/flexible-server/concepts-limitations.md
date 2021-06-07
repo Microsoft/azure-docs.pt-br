@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543078"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034513"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -68,7 +68,7 @@ Os itens a seguir não têm suporte:
 - Sem suporte na camada de computação expansível.
 
 ### <a name="networking"></a>Rede
-- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (integração VNet)* , ele não poderá ser alterado para *acesso público (endereços IP permitidos)* após Create e vice-versa
+- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (integração VNet)*, ele não poderá ser alterado para *acesso público (endereços IP permitidos)* após Create e vice-versa
 - O TLS/SSL está habilitado por padrão e não pode ser desabilitado.
 - A versão mínima do TLS com suporte no servidor é TLS 1.2. Consulte [conectar-se usando TLS/SSL](./how-to-connect-tls-ssl.md) para saber mais.
 
@@ -89,8 +89,12 @@ Os itens a seguir não têm suporte:
 - Com a restauração pontual, novos servidores são criados com as mesmas configurações de computação e armazenamento que o servidor de origem no qual se baseiam. A computação do servidor recém restaurada pode ser dimensionada verticalmente após a criação do servidor.
 - Não há suporte para a restauração de um servidor excluído.
 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Recursos disponíveis em um único servidor, mas ainda não têm suporte no servidor flexível 
+Nem todos os recursos disponíveis no banco de dados do Azure para MySQL-um servidor único está disponível no servidor flexível ainda. Para obter uma lista completa da comparação de recursos entre um servidor único e um servidor flexível, consulte [a opção certa servidor MySQL na documentação do Azure.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Entenda [o que está disponível para as opções de computação e armazenamento](concepts-compute-storage.md)
+- Saiba [como escolher a opção de servidor MySQL correta na documentação do Azure](../select-right-deployment-type.md)
+- Entenda [o que está disponível para as opções de computação e armazenamento em um servidor flexível](concepts-compute-storage.md)
 - Saiba mais sobre [as versões do MySQL com suporte](concepts-supported-versions.md)
-- Examine [como fazer backup e restaurar um servidor usando o portal do Azure](how-to-restore-server-portal.md)
+- Início rápido: [use o portal do Azure para criar um servidor flexível do banco de dados do Azure para MySQL](quickstart-create-server-portal.md)

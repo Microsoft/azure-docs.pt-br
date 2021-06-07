@@ -9,10 +9,10 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 814bf085ca910ef07a13df779eef25e0e6510e57
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011673"
 ---
 Todos os dados armazenados nos Arquivos do Azure são criptografados em repouso usando a SSE (Criptografia do Serviço de Armazenamento) do Azure. A criptografia do serviço de armazenamento funciona de maneira semelhante ao BitLocker no Windows: os dados são criptografados abaixo do nível do sistema de arquivos. Como os dados são criptografados abaixo do sistema de arquivos do compartilhamento de arquivo do Azure, pois eles são codificados no disco, você não precisa ter acesso à chave subjacente no cliente para fazer a leitura ou gravação no compartilhamento de arquivo do Azure. A criptografia em repouso aplica-se aos protocolos SMB e NFS.

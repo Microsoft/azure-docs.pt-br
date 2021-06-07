@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56ff43980aafc75d5936b86c6ba2cd400311c5fa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832497"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101719093"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implantar e explorar um modelo de aplicativo de monitoramento contínuo de pacientes
 
@@ -134,4 +134,4 @@ Caso não pretenda continuar usando esse aplicativo, exclua-o acessando **Admini
 Prossiga para o próximo artigo para saber como criar um painel de provedor que se conecta ao seu aplicativo do IoT Central.
 
 > [!div class="nextstepaction"]
-> [Criar um painel do provedor](howto-health-data-triage.md)
+> [Criar um painel do provedor](tutorial-health-data-triage.md)

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metang
 ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636520"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência do SDK do JavaScript do leitor de imersão (v 1.1)
@@ -310,12 +310,12 @@ Contém propriedades que configuram determinados comportamentos do leitor de ime
 | uiLang | String | Idioma da interface do usuário, o valor está no formato de marca de idioma IETF BCP 47, por exemplo, en, es-ES. O padrão é o idioma do navegador, se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes de [launchAsync](#launchasync) falhar com um erro de tempo limite (o padrão é 15000 MS). Esse tempo limite só se aplica à inicialização inicial da página do leitor, onde o sucesso é observado quando a página do leitor é aberta e o controle giratório é iniciado. O ajuste do tempo limite não deve ser necessário. |
 | uiZIndex | Número | Z-índice do iframe que será criado (o padrão é 1000). |
-| useWebview | Booliano| Use uma marca WebView em vez de um iframe, para compatibilidade com aplicativos Chrome (o padrão é false). |
+| useWebview | Boolean| Use uma marca WebView em vez de um iframe, para compatibilidade com aplicativos Chrome (o padrão é false). |
 | onsair | Função | É executado quando o leitor de imersão é encerrado. |
-| allowFullscreen | Booliano | A capacidade de alternar a tela inteira (o padrão é true). |
-| hideExitButton | Booliano | Se deseja ou não ocultar a seta do botão de saída do leitor de imersão (o padrão é false). Isso só deve ser verdadeiro se houver um mecanismo alternativo fornecido para sair do leitor de imersão (por exemplo, uma seta para voltar da barra de ferramentas móvel). |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Configuração para o uso do cookie do leitor de imersão (o padrão é *CookiePolicy. Disable* ). É responsabilidade do aplicativo host obter qualquer consentimento do usuário necessário de acordo com a política de conformidade do cookie da UE. Consulte [Opções de política de cookie](#cookiepolicy-options). |
-| disableFirstRun | Booliano | Desabilite a primeira experiência de execução. |
+| allowFullscreen | Boolean | A capacidade de alternar a tela inteira (o padrão é true). |
+| hideExitButton | Boolean | Se deseja ou não ocultar a seta do botão de saída do leitor de imersão (o padrão é false). Isso só deve ser verdadeiro se houver um mecanismo alternativo fornecido para sair do leitor de imersão (por exemplo, uma seta para voltar da barra de ferramentas móvel). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Configuração para o uso do cookie do leitor de imersão (o padrão é *CookiePolicy. Disable*). É responsabilidade do aplicativo host obter qualquer consentimento do usuário necessário de acordo com a política de conformidade do cookie da UE. Consulte [Opções de política de cookie](#cookiepolicy-options). |
+| disableFirstRun | Boolean | Desabilite a primeira experiência de execução. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opções para configurar a leitura em voz alta. |
 | conversãooptions | [Conversãooptions](#translationoptions) | Opções para configurar a tradução. |
 | displayOptions | [DisplayOptions](#displayoptions) | Opções para configurar o tamanho do texto, a fonte, etc. |
@@ -394,7 +394,7 @@ type ReadAloudOptions = {
 | ---- | ---- |------------ |
 | voice | String | Voz, "fêmea" ou "masculino". Observe que nem todos os idiomas dão suporte a ambos os gêneros. |
 | velocidade | Número | Velocidade de reprodução, deve estar entre 0,5 e 2,5, inclusive. |
-| autoPlay | Booliano | Iniciar automaticamente leitura em voz alta quando o leitor de imersão for carregado. |
+| autoPlay | Boolean | Iniciar automaticamente leitura em voz alta quando o leitor de imersão for carregado. |
 
 ##### `voice`
 ```Parameters
@@ -432,8 +432,8 @@ type TranslationOptions = {
 | Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | Linguagem | String | Define o idioma de tradução, o valor está no formato de marca de idioma IETF BCP 47, por exemplo: fr-FR, es-MX, zh-Hans-CN. Necessário para habilitar automaticamente a tradução de palavras ou documentos. |
-| autoEnableDocumentTranslation | Booliano | Traduza automaticamente o documento inteiro. |
-| autoEnableWordTranslation | Booliano | Habilitar automaticamente a tradução automática. |
+| autoEnableDocumentTranslation | Boolean | Traduza automaticamente o documento inteiro. |
+| autoEnableWordTranslation | Boolean | Habilitar automaticamente a tradução automática. |
 
 ##### `language`
 ```Parameters
@@ -460,7 +460,7 @@ type DisplayOptions = {
 | Nome | Type | Descrição |
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
-| increaseSpacing | Booliano | Define se o espaçamento de texto será alternado ou desativado. |
+| increaseSpacing | Boolean | Define se o espaçamento de texto será alternado ou desativado. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 
 ##### `textSize`
@@ -487,7 +487,7 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**As configurações listadas abaixo são apenas para fins informativos** . O leitor de imersão armazena suas configurações, ou preferências do usuário, em cookies. Essa *cookiePolicy* opção cookiePolicy **desabilita** o uso de cookies por padrão para obedecer às leis de conformidade do cookie da UE. Se você quiser reabilitar os cookies e restaurar a funcionalidade padrão para as preferências de usuário do leitor de imersão, será necessário garantir que seu site ou aplicativo obtenha o consentimento adequado do usuário para habilitar cookies. Em seguida, para reabilitar os cookies no leitor de imersão, você deve definir explicitamente a opção *cookiePolicy* como *cookiePolicy. Enable* ao iniciar o leitor de imersão. A tabela a seguir descreve quais configurações o leitor de imersão armazena em seu cookie quando a opção *cookiePolicy* está habilitada.
+**As configurações listadas abaixo são apenas para fins informativos**. O leitor de imersão armazena suas configurações, ou preferências do usuário, em cookies. Essa  opção cookiePolicy **desabilita** o uso de cookies por padrão para obedecer às leis de conformidade do cookie da UE. Se você quiser reabilitar os cookies e restaurar a funcionalidade padrão para as preferências de usuário do leitor de imersão, será necessário garantir que seu site ou aplicativo obtenha o consentimento adequado do usuário para habilitar cookies. Em seguida, para reabilitar os cookies no leitor de imersão, você deve definir explicitamente a opção *cookiePolicy* como *cookiePolicy. Enable* ao iniciar o leitor de imersão. A tabela a seguir descreve quais configurações o leitor de imersão armazena em seu cookie quando a opção *cookiePolicy* está habilitada.
 
 #### <a name="settings-parameters"></a>Parâmetros de configurações
 
@@ -496,19 +496,19 @@ enum CookiePolicy { Disable, Enable }
 | textSize | Número | Define o tamanho do texto escolhido. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 | Espaçamento de linhas | Número | Define se o espaçamento de texto será alternado ou desativado. |
-| formattingEnabled | Booliano | Define se a formatação HTML é ativada ou desativada. |
+| formattingEnabled | Boolean | Define se a formatação HTML é ativada ou desativada. |
 | - | String | Define o tema escolhido (por exemplo, "Light", "escuro"...). |
-| syllabificationEnabled | Booliano | Define se o syllabification foi alternado ou desativado. |
-| nounHighlightingEnabled | Booliano | Isso define se o realce de substantivo é alternado ou desativado. |
+| syllabificationEnabled | Boolean | Define se o syllabification foi alternado ou desativado. |
+| nounHighlightingEnabled | Boolean | Isso define se o realce de substantivo é alternado ou desativado. |
 | nounHighlightingColor | String | Define a cor de realce do substantivo escolhido. |
-| verbHighlightingEnabled | Booliano | Define se o realce de verbo é alternado ou desativado. |
+| verbHighlightingEnabled | Boolean | Define se o realce de verbo é alternado ou desativado. |
 | verbHighlightingColor | String | Define a cor de realce do verbo escolhido. |
-| adjectiveHighlightingEnabled | Booliano | Define se o realce de adjetivo é alternado ou desativado. |
+| adjectiveHighlightingEnabled | Boolean | Define se o realce de adjetivo é alternado ou desativado. |
 | adjectiveHighlightingColor | String | Define a cor de realce do adjetivo escolhido. |
-| adverbHighlightingEnabled | Booliano | Define se o realce de advérbio é alternado ou desativado. |
+| adverbHighlightingEnabled | Boolean | Define se o realce de advérbio é alternado ou desativado. |
 | adverbHighlightingColor | String | Define a cor de realce advérbio escolhida. |
-| pictureDictionaryEnabled | Booliano | Define se o dicionário de imagem é alternado ou desativado. |
-| posLabelsEnabled | Booliano | Define se o rótulo de texto sobrescrito de cada parte realçada da fala é alternado ou desativado.  |
+| pictureDictionaryEnabled | Boolean | Define se o dicionário de imagem é alternado ou desativado. |
+| posLabelsEnabled | Boolean | Define se o rótulo de texto sobrescrito de cada parte realçada da fala é alternado ou desativado.  |
 
 <br>
 

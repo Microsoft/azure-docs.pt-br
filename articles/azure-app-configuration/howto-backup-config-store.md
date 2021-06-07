@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565918"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102454236"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer backup de repositórios de configuração de aplicativo automaticamente
 
@@ -137,7 +137,7 @@ Para facilitar a inicialização de seus dados, [testamos e publicamos uma funç
 
 Se o código de exemplo fornecido anteriormente não atender aos seus requisitos, você também poderá criar sua própria função. Sua função deve ser capaz de executar as seguintes tarefas para concluir o backup:
 - Leia periodicamente o conteúdo da fila para ver se ele contém notificações da grade de eventos. Consulte o [SDK da fila de armazenamento](../storage/queues/storage-quickstart-queues-dotnet.md) para obter detalhes de implementação.
-- Se sua fila contiver [notificações de eventos da grade de eventos](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), extraia todas as informações exclusivas `<key, label>` das mensagens de evento. A combinação de chave e rótulo é o identificador exclusivo para alterações de chave-valor no repositório primário.
+- Se sua fila contiver [notificações de eventos da grade de eventos](./concept-app-configuration-event.md#event-schema), extraia todas as informações exclusivas `<key, label>` das mensagens de evento. A combinação de chave e rótulo é o identificador exclusivo para alterações de chave-valor no repositório primário.
 - Leia todas as configurações do repositório primário. Atualize somente as configurações no armazenamento secundário que têm um evento correspondente na fila. Exclua todas as configurações do armazenamento secundário que estavam presentes na fila, mas não no repositório primário. Você pode usar o [SDK de configuração de aplicativo](https://github.com/Azure/AppConfiguration#sdks) para acessar os armazenamentos de configuração de forma programática.
 - Exclua mensagens da fila se não houver nenhuma exceção durante o processamento.
 - Implemente o tratamento de erros de acordo com suas necessidades. Consulte o exemplo de código anterior para ver algumas exceções comuns que talvez você queira manipular.
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Para executar a criação de recursos e o gerenciamento de função necessários, sua conta precisa de `Owner` permissões no escopo apropriado (sua assinatura ou grupo de recursos). Se você precisar de assistência com a atribuição de função, saiba [como adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+> Para executar a criação de recursos e o gerenciamento de função necessários, sua conta precisa de `Owner` permissões no escopo apropriado (sua assinatura ou grupo de recursos). Se você precisar de assistência com a atribuição de função, saiba [como atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 Use os comandos a seguir ou o [portal do Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para conceder a identidade gerenciada do acesso do aplicativo de funções aos seus repositórios de configuração de aplicativo. Use estas funções:
 - Atribua a `App Configuration Data Reader` função no repositório de configuração do aplicativo primário.
@@ -216,7 +216,7 @@ Para testar se tudo funciona, você pode criar, atualizar ou excluir um valor de
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Você disparou o evento. Em alguns instantes, a grade de eventos enviará a notificação de eventos para sua fila. *Após a próxima execução agendada de sua função* , exiba as definições de configuração em seu armazenamento secundário para ver se ela contém o valor de chave atualizado do repositório primário.
+Você disparou o evento. Em alguns instantes, a grade de eventos enviará a notificação de eventos para sua fila. *Após a próxima execução agendada de sua função*, exiba as definições de configuração em seu armazenamento secundário para ver se ela contém o valor de chave atualizado do repositório primário.
 
 > [!NOTE]
 > Você pode [disparar a função manualmente](../azure-functions/functions-manually-run-non-http.md) durante os testes e a solução de problemas sem esperar pelo gatilho de temporizador agendado.
@@ -251,7 +251,7 @@ Se você não vir a nova configuração em seu armazenamento secundário:
 - Você também pode configurar o monitoramento e os alertas para Azure Functions usando o [aplicativo Azure insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se você planeja continuar trabalhando com essa configuração de aplicativo e assinatura de evento, não limpe os recursos criados neste artigo. Se você não planeja continuar, use o comando a seguir para excluir os recursos criados neste artigo.
 
 ```azurecli-interactive

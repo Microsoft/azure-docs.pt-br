@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063460"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considerações do navegador do sistema do Xamarin Android para uso do MSAL.NET
@@ -45,8 +45,8 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados quanto 
 | Dispositivo | Navegador     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/um + | Chrome\* | Aprovado|
-| Huawei/um + | Edge\* | Aprovado|
-| Huawei/um + | Firefox\* | Aprovado|
+| Huawei/um + | Microsoft Edge\* | Aprovado|
+| Huawei/um + | Janelas\* | Aprovado|
 | Huawei/um + | Corajoso\* | Aprovado|
 | Um + | Ecosia\* | Aprovado|
 | Um + | Produtor kiwis\* | Aprovado|

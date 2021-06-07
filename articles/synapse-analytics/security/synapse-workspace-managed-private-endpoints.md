@@ -9,10 +9,10 @@ ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98569939"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Pontos de extremidade privados gerenciados do Azure Synapse

@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no Azure Active Directory empresa a cliente (B2C)
 description: Documentação nova e atualizada para o Azure Active Directory B2C (Business-to-customer).
-ms.date: 02/01/2021
+ms.date: 03/08/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,28 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: c4561780a20bb2dfdef39269a49ebf8cb2a29fff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593003"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557863"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: o que há de novo
 
 Bem-vindo ao que há de novo na documentação Azure Active Directory B2C. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço B2C, consulte [What ' s New in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="new-articles"></a>Novos artigos
+
+- [Protegendo a MFA (autenticação multifator) baseada em telefone](phone-based-mfa.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Exemplos de código do Azure Active Directory B2C](code-samples.md)
+- [Acompanhe o comportamento do usuário em Azure AD B2C usando Application Insights](analytics-with-application-insights.md)
+- [Configurar o comportamento da sessão no Azure Active Directory B2C](session-behavior.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -61,7 +73,7 @@ Bem-vindo ao que há de novo na documentação Azure Active Directory B2C. Este 
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [Criar um fluxo de usuário no Azure Active Directory B2C](create-user-flow.md)
+- [Criar um fluxo de usuário no Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
 - [Configurar a inscrição e a entrada do telefone para fluxos de usuário (visualização)](phone-authentication-user-flows.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
@@ -102,7 +114,7 @@ Bem-vindo ao que há de novo na documentação Azure Active Directory B2C. Este 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Definir URLs de redirecionamento para b2clogin.com do Azure Active Directory B2C](b2clogin.md)
 - [Definir um perfil técnico do OpenID Connect em uma política personalizada de Azure Active Directory B2C](openid-connect-technical-profile.md)
-- [Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C](phone-authentication.md)
+- [Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C](phone-authentication-user-flows.md)
 
 
 ## <a name="august-2020"></a>Agosto de 2020

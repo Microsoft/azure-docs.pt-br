@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 46d8fe6427b2a3e7811719792ac4bf67ddbcc3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f15d2d712f4b571d3f27e3535c69f5f4f9732
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933731"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101732761"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Criar e gerenciar redes virtuais para o banco de dados do Azure para PostgreSQL – servidor flexível usando o portal do Azure
 
@@ -34,6 +34,13 @@ Para criar um servidor flexível em uma rede virtual, você precisa de:
     > A rede virtual e a sub-rede devem estar na mesma região e assinatura que o servidor flexível.
 
 -  Para [delegar uma sub-rede](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) para **Microsoft. DBforPostgreSQL/flexibleServers**. Essa delegação significa que somente os servidores flexíveis do banco de dados do Azure para PostgreSQL podem usar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
+-  Adicione `Microsoft.Storage` ao ponto de extremidade de serviço para a sub-rede delegada a servidores flexíveis. Isso é feito executando as seguintes etapas:
+     1. Acesse sua página de rede virtual.
+     2. Selecione a VNET na qual você está planejando implantar seu servidor flexível.
+     3. Escolha a sub-rede que é delegada para o servidor flexível.
+     4. Na tela de pull, em ponto de **extremidade de serviço**, escolha `Microsoft.storage` na lista suspensa.
+     5. Salve as alterações.
+
 
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Criar banco de dados do Azure para PostgreSQL-servidor flexível em uma rede virtual já existente
 

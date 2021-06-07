@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429255"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102617991"
 ---
 # <a name="microsoft-azure-attestation"></a>Atestado do Microsoft Azure 
 
@@ -80,8 +80,8 @@ Os clusters implantados em duas regiões funcionarão de maneira independente em
 - A BCDR do Atestado do Azure fornecerá um failover contínuo no qual os clientes não precisam realizar nenhuma etapa extra para recuperação
 - O [Gerenciador de Tráfego do Azure](../traffic-manager/index.yml) para a região detectará se a investigação de integridade está degradada e alternará o ponto de extremidade para a região emparelhada
 - As conexões existentes não funcionarão e receberão problemas de erro interno do servidor ou de tempo limite
-- Todas as operações do painel de controle serão bloqueadas. Os clientes não poderão criar provedores de atestado e atualizar políticas na região primária
-- Todas as operações do plano de dados, incluindo chamadas de atestado, continuarão funcionando na região primária
+- Todas as operações do painel de controle serão bloqueadas. Os clientes não poderão criar provedores de atestado na região primária
+- Todas as operações de plano de dados, incluindo chamadas de atestado e configuração de política, serão atendidas pela região secundária. Os clientes podem continuar trabalhando nas operações do plano de dados com o URI original correspondente à região primária
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [conceitos básicos do Atestado do Azure](basic-concepts.md)

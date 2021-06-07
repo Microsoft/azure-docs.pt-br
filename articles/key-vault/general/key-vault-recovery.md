@@ -9,10 +9,10 @@ author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
 ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790377"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gerenciamento de recuperação do Azure Key Vault com exclusão reversível e proteção de limpeza

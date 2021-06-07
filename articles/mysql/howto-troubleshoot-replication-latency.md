@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
 ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249764"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no Banco de Dados do Azure para MySQL

@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029899"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98600130"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
-Gerenciar a segurança pode ser difícil com ataques comuns relacionados à identidade, como o spray de senha, reprodução e phishing se tornando cada vez mais popular. Com os padrões de segurança, fica mais fácil proteger sua organização contra esses ataques devido a configurações de segurança pré-definidas que:
+Pode ser difícil fazer o gerenciamento da segurança quando estão se tornando cada vez mais populares os ataques comuns relacionados à identidade, como a pulverização de senha, a reprodução e o phishing. Com os padrões de segurança, fica mais fácil proteger sua organização contra esses ataques devido a configurações de segurança pré-definidas que:
 
 - Exigir que todos os usuários se registrem para a autenticação multifator do Azure AD.
 - Exigem que os administradores executem a autenticação multifator.
@@ -52,13 +52,13 @@ A Microsoft está disponibilizando padrões de segurança para todos. A meta é 
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registro unificado da Autenticação Multifator
 
-Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma da autenticação multifator do Azure AD. Os usuários têm 14 dias para se registrarem na autenticação multifator do Azure AD usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não conseguirá entrar até que o registro seja concluído. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
+Todos os usuários em seu locatário devem se registrar para a autenticação multifator (MFA) na forma da autenticação multifator do Azure AD. Os usuários têm 14 dias para se registrar na MFA do Azure AD usando o aplicativo Microsoft Authenticator. Depois que os 14 dias tiverem passado, o usuário não conseguirá entrar até que o registro seja concluído. O período de 14 dias de um usuário começa após sua primeira entrada interativa bem-sucedida depois de habilitar os padrões de segurança.
 
 ### <a name="protecting-administrators"></a>Administradores de proteção
 
 Usuários com acesso privilegiado aumentaram o acesso ao seu ambiente. Devido à capacidade que essas contas têm, devem ser tratadas com cuidado especial. Um método comum para melhorar a proteção de contas privilegiadas é exigir uma forma mais forte de verificação de para entrar. No Azure AD, você pode obter uma verificação de conta mais forte exigindo a autenticação multifator.
 
-Após a conclusão do registro com a autenticação multifator do Azure AD, serão necessárias as nove funções de administrador do Azure AD a seguir para executar autenticação adicional sempre que entrarem:
+Depois de fazer o registro com a MFA do Azure AD, as nove funções de administrador do Azure AD a seguir precisarão executar a autenticação adicional sempre que entrarem:
 
 - Administrador global
 - Administrador do SharePoint
@@ -76,7 +76,7 @@ Tendemos a imaginar que as contas de administrador são as únicas que precisam 
 
 Depois que esses invasores conseguirem acesso, eles poderão solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles conseguem até mesmo baixar o diretório inteiro para executar um ataque de phishing em toda a sua organização. 
 
-Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação da conta para todos, como a MFA. Depois que os usuários concluírem o registro da MFA, eles serão solicitados a usar essa autenticação adicional sempre que necessário. Essa funcionalidade protege todos os aplicativos registrados no Azure AD, incluindo aplicativos SaaS.
+Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação da conta para todos, como a MFA. Depois que os usuários concluírem o registro da MFA, eles serão solicitados a usar essa autenticação adicional sempre que necessário. Os usuários serão solicitados principalmente quando autenticarem usando um novo dispositivo ou aplicativo, ou ao executar funções e tarefas críticas. Essa funcionalidade protege todos os aplicativos registrados no Azure AD, incluindo aplicativos SaaS.
 
 ### <a name="blocking-legacy-authentication"></a>Bloqueio da autenticação herdada
 
@@ -128,14 +128,14 @@ Esses padrões de segurança gratuitos permitem o registro e o uso da autentica�
 | O código de verificação do aplicativo móvel ou token de hardware | X** | X |
 | Mensagem de texto para telefone |   | X |
 | Ligue para o telefone |   | X |
-| Senhas de aplicativo |   | X * * _ |
+| Senhas de aplicativo |   | X*** |
 
-- _ * Os usuários podem usar códigos de verificação do aplicativo Microsoft Authenticator, mas só podem se registrar usando a opção de notificação.
-- * * _ As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados somente se habilitadas pelos administradores.
+- ** Os usuários podem usar códigos de verificação do aplicativo Microsoft Authenticator, mas só podem se registrar usando a opção de notificação.
+- *** As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados se elas tiverem sido habilitadas pelos administradores.
 
 ### <a name="disabled-mfa-status"></a>Status desabilitado da MFA
 
-Se sua organização for um usuário anterior da autenticação multifator baseada em usuário do Azure AD, não se assuste para não ver os usuários em um status _ *habilitado** ou **imposto** se você olhar para a página de status da autenticação multifator. **Disabled** é o status apropriado para os usuários que estão usando padrões de segurança ou a autenticação multifator do Azure AD com base no acesso condicional.
+Se sua organização for um usuário anterior da autenticação multifator baseada em usuário do Azure AD, não se assuste para não ver os usuários em um status **habilitado** ou **imposto** se você olhar para a página de status da autenticação multifator. **Disabled** é o status apropriado para os usuários que estão usando padrões de segurança ou a autenticação multifator do Azure AD com base no acesso condicional.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 

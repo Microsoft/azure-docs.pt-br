@@ -1,20 +1,20 @@
 ---
 title: 'Início Rápido: Usar o Armazenamento do Azure v11 para .NET para gerenciar uma fila'
 description: Neste início rápido, você aprenderá como usar a biblioteca de clientes do Armazenamento do Azure para o .NET criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá como ler e processar mensagens da fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23703dc507aa909aea4711289a4d7d5c5e6a170e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 10ab1c487095fe1587a3c665d8a06e0d5cbab7e0
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588192"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275882"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Início Rápido: Usar o SDK do Armazenamento do Azure v11 para .NET para gerenciar uma fila
 

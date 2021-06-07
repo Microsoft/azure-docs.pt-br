@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945756"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866515"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -105,7 +105,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Usar o SDK do .NET
 
-Consulte [SDK do Azure HDInsight para .net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
+Consulte [SDK do Azure HDInsight para .net](/dotnet/api/overview/azure/hdinsight).
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
 
@@ -121,7 +121,7 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 }
 ```
 
-![O Hadoop personaliza o modelo de Azure Resource Manager de inicialização de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="O Hadoop personaliza o modelo de Azure Resource Manager de inicialização de cluster":::
 
 Exemplo de trecho do modelo do Resource Manager para alternar a configuração em spark2-padrões para limpar periodicamente os logs de eventos do armazenamento.  
 
@@ -135,7 +135,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)

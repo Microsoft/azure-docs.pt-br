@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265874"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581279"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obter credenciais para acessar a API dos Serviços de Mídia
 
@@ -37,7 +37,7 @@ Este artigo descreve as etapas para obter credenciais para acessar a API dos Ser
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Se você não tiver uma conta, comece com uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Uma conta do Azure. Se você não tiver uma conta, comece com uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](create-account-howto.md).
 
 ## <a name="portal"></a>[Portal](#tab/portal/)
@@ -47,7 +47,7 @@ Este artigo descreve as etapas para obter credenciais para acessar a API dos Ser
 A página **acesso à API** permite selecionar o método de autenticação que você deseja usar para se conectar à API. A página também fornece os valores necessários para se conectar à API.
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia.
-2. Selecione a folha **acesso à API (novo)** na barra de navegação à esquerda.
+2. Selecione a folha **acesso à API** na barra de navegação à esquerda.
 3. Em **Conectar à API dos Serviços de Mídia**, selecione a versão da API dos Serviços de Mídia à qual você deseja se conectar (v3 é a versão mais recente do serviço).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticação de entidade de serviço (recomendada)

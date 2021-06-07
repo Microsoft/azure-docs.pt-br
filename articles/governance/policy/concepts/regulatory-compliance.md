@@ -4,10 +4,10 @@ description: Descreve como usar uma definição de iniciativa para agrupar polí
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645521"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformidade regulatória no Azure Policy
@@ -35,16 +35,16 @@ Uma nova guia, os **controles** são adicionados à página. A filtragem está d
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
 
-A seleção de um **controle** abre uma página de detalhes sobre esse controle. A **visão geral** contém as informações de `description` e `requirements` . Na guia **políticas** , há todas as definições de política individuais na iniciativa que contribuem com esse **controle**. A guia **conformidade de recursos** fornece uma exibição granular de cada recurso que é avaliado por uma política de membro do **controle**exibido no momento.
+A seleção de um **controle** abre uma página de detalhes sobre esse controle. A **visão geral** contém as informações de `description` e `requirements` . Na guia **políticas** , há todas as definições de política individuais na iniciativa que contribuem com esse **controle**. A guia **conformidade de recursos** fornece uma exibição granular de cada recurso que é avaliado por uma política de membro do **controle** exibido no momento.
 
 > [!NOTE]
 > Um tipo de avaliação do **gerenciado pela Microsoft** é para uma definição de política [estática](./definition-structure.md#type) `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de tela dos detalhes de conformidade regulatória para o controle de proteção de limite da definição interna do NIST SP 800-53 R4.":::
 
-Na mesma página de **controle** , a alteração para a guia **conformidade de recursos** mostra todos os recursos que as definições de política do **controle**incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e local.
+Na mesma página de **controle** , a alteração para a guia **conformidade de recursos** mostra todos os recursos que as definições de política do **controle** incluem. Os filtros estão disponíveis para nome ou ID, estado de conformidade, tipo de recurso e local.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de tela da visão geral da conformidade regulatória para a definição interna do NIST SP 800-53 R4 mostrando controles em conformidade e sem conformidade.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de tela da conformidade de recursos com o controle de proteção de limite da definição interna do NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformidade regulatória no SDK
 

@@ -1,24 +1,14 @@
 ---
 title: Investigar um dispositivo suspeito
 description: Este guia de instruções explica como usar o defender para IoT para investigar um dispositivo IoT suspeito usando o Log Analytics.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/04/2020
-ms.author: mlottner
-ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 32cc8d82a867ead533cbaa6802bffb4494398412
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516831"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782003"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
 

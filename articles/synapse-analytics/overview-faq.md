@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 9a0fb8ed8ac54fa866b6db7d8f808c011c0c6758
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247396"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101695814"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para proteger o workspace do Azure Synapse, atribua as Funções RBAC a estes es
 
 Além disso, com os pools de SQL dedicados, você tem todos os recursos de segurança que você já conhece e adora.
 
-### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: Como fazer para controlar o custo de pools de SQL dedicados, pools de SQL sem servidor e pools do Spark sem servidor?
+### <a name="q-how-do-i-control-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: como controlar os pools de SQL dedicados, pools de SQL sem servidor e pools do Spark sem servidor?
 
 A: Como ponto de partida, o Azure Synapse trabalha com análise de custo e alertas de custo internos disponíveis no nível de assinatura do Azure.
 

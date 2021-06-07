@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99490989"
 ---
 # <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Configurar um nome de domínio personalizado para um gateway auto-hospedado

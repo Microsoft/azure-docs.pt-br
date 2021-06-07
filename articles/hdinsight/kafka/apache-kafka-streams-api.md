@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939207"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Usar a API de streams do Apache Kafka no Azure HDInsight
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá como:
 O aplicativo de exemplo está localizado em [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), além do subdiretório `Streaming`. O aplicativo consiste de dois arquivos:
 
 * `pom.xml`: este arquivo define as dependências do projeto, versão do Java e os métodos de empacotamento.
-* `Stream.java`: Este arquivo implementa a lógica de streaming.
+* `Stream.java`: Esse arquivo implementa a lógica de streaming.
 
 ### <a name="pomxml"></a>Pom.xml
 
@@ -196,9 +196,9 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 
     Os tópicos são usados para as seguintes finalidades:
 
-   * `test`: É neste tópico que os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
-   * `wordcounts`: É neste tópico que o aplicativo de transmissão armazena sua saída.
-   * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados conforme a contagem é atualizada pelo operador `countByKey`.
+   * `test`: Este tópico é onde os registros são recebidos. O aplicativo de streaming faz a leitura daqui.
+   * `wordcounts`: Este tópico é onde o aplicativo de transmissão armazena sua saída.
+   * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados como a contagem é atualizada pelo operador `countByKey`.
    * `wordcount-example-Counts-changelog`: Este tópico é um armazenamento de estado usado pela operação `countByKey`
 
     O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).

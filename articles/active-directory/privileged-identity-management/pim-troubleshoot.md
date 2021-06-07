@@ -1,6 +1,6 @@
 ---
-title: Solucionar um problema com o Privileged Identity Management-Azure Active Directory | Microsoft Docs
-description: Saiba como solucionar problemas de erros do sistema com funções no Azure AD Privileged Identity Management (PIM).
+title: Solucionar um problema com o Privileged Identity Management no Microsoft Azure Active Directory | Microsoft Docs
+description: Saiba como solucionar problemas de erros do sistema com funções no PIM (Azure AD Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,29 +14,29 @@ ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcbebcb32e912abdf0112007c743c6890fae36e4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92372388"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Solucionar um problema com Privileged Identity Management
 
-Você está tendo um problema com Privileged Identity Management (PIM) no Azure Active Directory (Azure AD)? As informações a seguir podem ajudá-lo a fazer as coisas funcionarem novamente.
+Você tem algum problema com PIM no Azure AD (Microsoft Azure AD)? As informações a seguir podem ajudá-lo a fazer as coisas funcionarem novamente.
 
-## <a name="access-to-azure-resources-denied"></a>Acesso aos recursos do Azure negado
+## <a name="access-to-azure-resources-denied"></a>Acesso negado aos recursos do Microsoft Azure
 
 ### <a name="problem"></a>Problema
 
-Como proprietário ativo ou administrador de acesso do usuário para um recurso do Azure, você pode ver seu recurso dentro de Privileged Identity Management, mas não pode executar ações como fazer uma atribuição qualificada ou exibir uma lista de atribuições de função na página Visão geral do recurso. Qualquer uma dessas ações resulta em um erro de autorização.
+Como proprietário ativo ou administrador de acesso do usuário para um recurso do Azure, você pode ver seu recurso dentro do Privileged Identity Management, mas não pode executar ações, como fazer uma atribuição qualificada ou exibir uma lista de atribuições de função na página Visão geral do recurso. Todas essas ações resultam em um erro de autorização.
 
 ### <a name="cause"></a>Causa
 
-Esse problema pode ocorrer quando a função Administrador de acesso do usuário para a entidade de serviço PIM foi acidentalmente removida da assinatura. Para que o serviço de Privileged Identity Management seja capaz de acessar recursos do Azure, a entidade de serviço do MS-PIM sempre deve ter atribuído a [função de administrador de acesso do usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) pela assinatura do Azure.
+Esse problema pode ocorrer quando a função Administrador de Acesso do Usuário para a entidade de serviço PIM foi removida da assinatura acidentalmente. Para que o serviço de Privileged Identity Management seja capaz de acessar recursos do Azure, a entidade de serviço do MS-PIM sempre deve ter atribuída a [função de Administrador de Acesso do Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) pela assinatura do Azure.
 
 ### <a name="resolution"></a>Resolução
 
-Atribua a função de administrador de acesso do usuário ao nome da entidade de serviço do Privileged Identity Management (MS – PIM) no nível da assinatura. Essa atribuição deve permitir que o serviço Privileged Identity Management acesse os recursos do Azure. A função pode ser atribuída em um nível de grupo de gerenciamento ou no nível de assinatura, dependendo de seus requisitos. Para obter mais informações sobre entidades de serviço, consulte [atribuir um aplicativo a uma função](../develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
+Atribua a função de Administrador de Acesso do Usuário ao nome da entidade de serviço do Privileged Identity Management (MS – PIM) no nível da assinatura. Essa atribuição deve permitir que o serviço Privileged Identity Management acesse os recursos do Azure. A função pode ser atribuída no nível de grupo de gerenciamento ou no nível de assinatura, dependendo de seus requisitos. Para saber mais sobre entidades de serviço, consulte [Atribuir um aplicativo em uma função](../develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 
 ## <a name="next-steps"></a>Próximas etapas
 

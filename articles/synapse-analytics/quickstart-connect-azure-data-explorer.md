@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92172281"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Conectar-se ao Azure Data Explorer usando o Apache Spark para Azure Synapse Analytics
@@ -30,7 +30,7 @@ Este artigo descreve como acessar um banco de dados do Azure Data Explorer por m
 
 ## <a name="go-to-synapse-studio"></a>Acessar o Synapse Studio
 
-Em um workspace do Azure Synapse, selecione **Inicializar o Synapse Studio** . Na home page do Synapse Studio, selecione **Dados** para acessar o **Pesquisador de Objetos de Dados** .
+Em um workspace do Azure Synapse, selecione **Inicializar o Synapse Studio**. Na home page do Synapse Studio, selecione **Dados** para acessar o **Pesquisador de Objetos de Dados**.
 
 ## <a name="connect-an-azure-data-explorer-database-to-an-azure-synapse-workspace"></a>Conectar um banco de dados do Azure Data Explorer a um workspace do Azure Synapse
 
@@ -38,23 +38,23 @@ A conexão de um banco de dados do Azure Data Explorer com um workspace é feita
 
 No Pesquisador de Objetos de Dados, siga estas etapas para conectar diretamente um cluster do Azure Data Explorer:
 
-1. Selecione o ícone **+** perto de **Dados** .
+1. Selecione o ícone **+** perto de **Dados**.
 1. Escolha **Conectar** para se conectar aos dados externos.
 1. Selecione **Azure Data Explorer (Kusto)** .
-1. Selecione **Continuar** .
+1. Selecione **Continuar**.
 1. Use um nome amigável para nomear o serviço vinculado. O nome será exibido no Pesquisador de Objetos de Dados e será usado pelos runtimes do Azure Synapse para se conectar ao banco de dados.
 1. Selecione o cluster do Azure Data Explorer na sua assinatura ou insira o URI.
-1. Insira a **ID da entidade de serviço** e a **Chave da entidade de serviço** . Verifique se essa entidade de serviço tem acesso de exibição no banco de dados para a operação de leitura e acesso de ingestão para a ingestão de dados.
+1. Insira a **ID da entidade de serviço** e a **Chave da entidade de serviço**. Verifique se essa entidade de serviço tem acesso de exibição no banco de dados para a operação de leitura e acesso de ingestão para a ingestão de dados.
 1. Insira o nome do banco de dados do Azure Data Explorer.
 1. Selecione **Testar conectividade** para verificar se você tem as permissões corretas.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
     ![Captura de tela que mostra um novo serviço vinculado.](./media/quickstart-connect-azure-data-explorer/003-new-linked-service.png)
 
     > [!NOTE]
     > (Opcional) **Testar conectividade** não valida o acesso de gravação. Verifique se a ID da entidade de serviço tem acesso de gravação ao banco de dados do Azure Data Explorer.
 
-1. Os clusters e os bancos de dados do Azure Data Explorer são exibidos na guia **Vinculados** da seção **Azure Data Explorer** .
+1. Os clusters e os bancos de dados do Azure Data Explorer são exibidos na guia **Vinculados** da seção **Azure Data Explorer**.
 
     ![Captura de tela que mostra a procura de clusters.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 

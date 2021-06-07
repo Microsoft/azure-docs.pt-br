@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: f398f80e4e283f971e0d947d0dda131e12fe88a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 679df881e928825496a03b2fef7c9374d61593f7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120386"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103199980"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesse o armazenamento externo usando o pool de SQL sem servidor no Azure Synapse Analytics
 
-Este documento descreve como os usuários podem ler dados dos arquivos armazenados no Armazenamento do Azure no pool de SQL sem servidor. Os usuários têm as seguintes opções para acessar o armazenamento:
+Este artigo descreve como os usuários podem ler dados dos arquivos armazenados no Armazenamento do Azure no pool de SQL sem servidor. Os usuários têm as seguintes opções para acessar o armazenamento:
 
 - Função [OPENROWSET](develop-openrowset.md), que habilita consultas ad hoc sobre os arquivos no Armazenamento do Azure.
 - A [tabela externa](develop-tables-external-tables.md), que é uma estrutura de dados predefinida criada na parte superior do conjunto de arquivos externos.
@@ -49,7 +49,7 @@ EXECUTE AS somepoweruser
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
+GRANT REFERENCES ON CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 Se não houver nenhuma CREDENCIAL no nível do servidor que corresponda à URL ou se o usuário do SQL não tiver a permissão de referências para essa credencial, o erro será retornado. As entidades de segurança SQL não podem representar o uso de uma identidade do Azure AD.

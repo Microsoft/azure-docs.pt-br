@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: bda066dd50d2f95776981eafc01e3ddd04d33e54
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 606510940460db963a2aa63deb57b6dba77de3ac
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741053"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101700126"
 ---
 # <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Fluxo de trabalho da arquitetura de VM clássica do Windows Azure 
 
@@ -80,7 +80,7 @@ O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 5. O WindowsAzureGuestAgent configura o sistema operacional convidado (firewall, ACLs, LocalStorage e assim por diante), copia um novo arquivo de configuração XML para c:\Config e, em seguida, inicia o processo de WaHostBootstrapper.
 6. Para funções Web do IIS completas, WaHostBootstrapper inicia IISConfigurator e informa a ele para excluir quaisquer AppPools existentes para a função Web do IIS.
 7. WaHostBootstrapper lê as tarefas de **inicialização** de E:\RoleModel.xml e começa a executar as tarefas de inicialização. O WaHostBootstrapper aguarda até que todas as tarefas de inicialização simples tenham sido concluídas e retornaram uma mensagem de "êxito".
-8. Para funções Web do IIS completas, WaHostBootstrapper informa IISConfigurator para configurar o AppPool do IIS e aponta para o site `E:\Sitesroot\<index>` , onde `<index>` é um índice baseado em 0 no número de `<Sites>` elementos definidos para o serviço.
+8. Para funções Web do IIS completas, WaHostBootstrapper informa ao IISConfigurator para configurar o AppPool do IIS e aponta para o site `E:\Sitesroot\<index>` , em que `<index>` é um índice de base zero no número de `<Sites>` elementos definidos para o serviço.
 9. WaHostBootstrapper iniciará o processo de host dependendo do tipo de função:
     1. **Função de trabalho**: WaWorkerHost.exe é iniciado. WaHostBootstrapper executa o método OnStart (). Depois de retornar, WaHostBootstrapper começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga (se InputEndpoints for definido). WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
     2. **Função Web do IIS completa**: a aIISHost foi iniciada. WaHostBootstrapper executa o método OnStart (). Depois de retornar, ele começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.

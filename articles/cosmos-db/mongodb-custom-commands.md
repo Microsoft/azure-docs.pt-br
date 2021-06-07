@@ -5,15 +5,15 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359639"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101658479"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefíci
 
 ## <a name="mongodb-protocol-support"></a>Suporte ao protocolo MongoDB
 
-A API do Azure Cosmos DB para MongoDB é compatível com o servidor MongoDB versão 3,2 e 3,6. Consulte [recursos e sintaxe com suporte](mongodb-feature-support.md) para obter mais detalhes. 
+A API do Azure Cosmos DB para MongoDB é compatível com o servidor MongoDB versão 4,0, 3,6 e 3,2. Consulte recursos e sintaxe com suporte nos artigos [4,0](mongodb-feature-support-40.md), [3,6](mongodb-feature-support-36.md)e [3,2](mongodb-feature-support.md) para obter mais detalhes. 
 
 Os comandos de extensão a seguir fornecem a capacidade de criar e modificar recursos específicos do Azure Cosmos DB por meio de solicitações de banco de dados:
 
@@ -90,7 +90,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a name="update-database"></a><a id="update-database"></a> Atualizar banco de dados
 
-O comando Atualizar extensão do banco de dados atualiza as propriedades associadas ao banco de dados especificado. A tabela a seguir descreve os parâmetros no comando:
+O comando Atualizar extensão do banco de dados atualiza as propriedades associadas ao banco de dados especificado. A alteração do banco de dados de uma taxa de transferência provisionada para dimensionamento automático e vice-versa só tem suporte no portal do Azure. A tabela a seguir descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
@@ -206,8 +206,8 @@ O comando criar extensão da coleção cria uma nova coleção do MongoDB. O nom
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 
@@ -292,13 +292,14 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a name="update-collection"></a><a id="update-collection"></a> Atualizar coleção
 
-O comando Atualizar extensão da coleção atualiza as propriedades associadas à coleção especificada.
+O comando Atualizar extensão da coleção atualiza as propriedades associadas à coleção especificada. A alteração da sua coleção de produtividade provisionada para dimensionamento automático e vice-versa só tem suporte no portal do Azure.
 
 ```javascript
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
 }
 ```
 

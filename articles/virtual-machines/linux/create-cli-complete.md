@@ -2,16 +2,17 @@
 title: Criar um ambiente Linux com o CLI do Azure
 description: Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI do Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 5992fb20fc8b86d4a0094a8fe5ed6cb6eb03754d
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: ff86651d56abe090ca08c508a220362f9a011a3f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704462"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554693"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux completa com a CLI do Azure
 Para criar rapidamente uma VM (máquina virtual) no Azure, você pode usar um único comando da CLI do Azure que usa valores padrão para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, um endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controle de seu ambiente no uso em produção, você pode criar esses recursos antecipadamente e depois adicionar suas VMs a eles. Este artigo orienta você sobre como criar uma VM e cada um dos recursos de suporte, um por um.
@@ -434,7 +435,7 @@ Os domínios de falha definem um agrupamento de máquinas virtuais que compartil
 
 Os domínios de atualização indicam grupos de máquinas virtuais e hardware físico subjacente que podem ser reinicializados ao mesmo tempo. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
-O Azure distribui automaticamente as VMs entre os domínios de falha e de atualização ao colocá-las em um conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciamento da disponibilidade de VMs](../manage-availability.md).
+O Azure distribui automaticamente as VMs entre os domínios de falha e de atualização ao colocá-las em um conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciamento da disponibilidade de VMs](../availability.md).
 
 Crie um conjunto de disponibilidade para sua VM com [az vm availability-set create](/cli/azure/vm/availability-set). O exemplo a seguir cria um conjunto de disponibilidade chamado *myAvailabilitySet*:
 

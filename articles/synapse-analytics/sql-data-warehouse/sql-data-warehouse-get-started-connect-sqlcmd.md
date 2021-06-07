@@ -1,6 +1,6 @@
 ---
 title: Conectar-se com o sqlcmd
-description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar um pool SQL Synapse.
+description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar um pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3d1d8d3ce3afece5a979aadc27cd82dc7ddaf0d5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676215"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101675734"
 ---
-# <a name="connect-to-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conectar-se ao pool do SQL no Azure Synapse Analytics com sqlcmd
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Conectar-se a um pool SQL dedicado no Azure Synapse Analytics com o sqlcmd
 
 > [!div class="op_single_selector"]
 >
@@ -28,15 +28,15 @@ ms.locfileid: "98676215"
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Use o utilitário de linha de comando [sqlcmd] [sqlcmd] para se conectar e consultar um pool do SQL.  
+Use o utilitário de linha de comando [sqlcmd] [sqlcmd] para se conectar e consultar um pool SQL dedicado.  
 
 ## <a name="1-connect"></a>1. Conectar
 
-Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para o pool do SQL. A cadeia de conexão precisará dos seguintes parâmetros:
+Para começar a usar o [sqlcmd] [sqlcmd], abra o prompt de comando e insira **sqlcmd** seguido pela cadeia de conexão para seu pool SQL dedicado. A cadeia de conexão precisará dos seguintes parâmetros:
 
 * **Servidor (-S):** servidor no formato `<`Nome do Servidor`>`.database.windows.net
-* **Banco de dados (-d):** Nome do pool SQL.
-* **Habilitar identificadores entre aspas (-I):** Os identificadores entre aspas devem ser habilitados para se conectar a uma instância do pool SQL.
+* **Banco de dados (-d): nome do** pool SQL dedicado.
+* **Habilitar identificadores entre aspas (-I):** Os identificadores entre aspas devem ser habilitados para se conectar a uma instância dedicada do pool SQL.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
 

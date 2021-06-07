@@ -1,25 +1,15 @@
 ---
 title: Configuração local do agente de segurança do defender para IoT (C#)
 description: Saiba mais sobre o serviço de segurança do defender for IoT, o arquivo de configuração local do agente de segurança para C#.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42cf7f129005f057a9d51ce2e09db735e825f476
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851226"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784774"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Noções básicas sobre o arquivo de configuração local (agente C#)
 
@@ -84,16 +74,16 @@ Para Windows:
 
 | Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
-| moduleName | cadeia de caracteres | Nome da identidade do módulo de segurança. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
-| deviceId | cadeia de caracteres | ID do dispositivo (como registrado no Hub IoT do Azure). |
+| moduleName | Cadeia de caracteres | Nome da identidade do defender-IoT-micro-Agent. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
+| deviceId | Cadeia de caracteres | ID do dispositivo (como registrado no Hub IoT do Azure). |
 | schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
-| gatewayHostname | cadeia de caracteres | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
+| gatewayHostname | Cadeia de caracteres | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
 | filePath | Cadeia de caracteres-caminho para o arquivo | Caminho para o arquivo que contém o segredo de autenticação.|
 | type | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
 | identidade | "DPS", "módulo", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, módulo se a autenticação for feita usando credenciais de módulo ou dispositivo se a autenticação for feita usando as credenciais do dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se o certificado estiver armazenado em um arquivo, armazenará se o certificado estiver localizado em um repositório de certificados. |
-| idScope | cadeia de caracteres | Escopo da ID do DPS |
-| registrationId | cadeia de caracteres  | ID de registro do dispositivo DPS. |
+| idScope | Cadeia de caracteres | Escopo da ID do DPS |
+| registrationId | Cadeia de caracteres  | ID de registro do dispositivo DPS. |
 |
 
 ### <a name="authenticationconfig-example"></a>Exemplo de Authentication.config
@@ -136,5 +126,5 @@ Para Windows:
 - Habilitar o [serviço](quickstart-onboard-iot-hub.md) defender para IOT
 - Leia as [perguntas frequentes](resources-frequently-asked-questions.md) do serviço defender para IOT
 - Aprenda a acessar [dados brutos de segurança](how-to-security-data-access.md)
-- Entenda as [recomendações](concept-recommendations.md)
+- Entender as [recomendações](concept-recommendations.md)
 - Entender os [alertas](concept-security-alerts.md) de segurança

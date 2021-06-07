@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: df789161bb9db8d49f069992600b5fcb4f78dd03
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 76ab2204a81d3cbfb559bfa4591f1f332b1707ee
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006535"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388067"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar Oracle para Banco de Dados do Azure para PostgreSQL online usando o DMS (visualização)
+
+> [!IMPORTANT]
+> O cenário de migração do **Oracle para Banco de Dados do Azure para PostgreSQL** (em versão prévia no momento) não estará mais disponível após 1º de maio de 2021. Continuaremos a fornecer suporte por meio de ferramentas alternativas (como Ora2pg) e proporcionar a melhor experiência de migração para migrações do Oracle para o PostgreSQL. Para obter as melhores práticas de migração, confira o [Guia de migração do Oracle para Banco de Dados do Azure para PostgreSQL](https://aka.ms/OracletoPGguide). 
 
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados do Oracle hospedados localmente ou em máquinas virtuais para o [Banco de Dados do Azure para PostgreSQL](../postgresql/index.yml) com um tempo de inatividade mínimo. Em outras palavras, a migração pode ser concluída com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você vai migrar o banco de dados de exemplo **RH** de uma instância local ou máquina virtual do Oracle 11g para o Banco de Dados do Azure para PostgreSQL usando a atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
@@ -55,7 +58,7 @@ Para concluir este tutorial, você precisará:
 * Criar uma Rede Virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade site a site aos servidores de origem locais usando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Para obter mais informações sobre como criar uma rede virtual, confira a [Documentação da Rede Virtual](../virtual-network/index.yml) e, especificamente, os artigos de Início Rápido com detalhes passo a passo.
 
   > [!NOTE]
-  > Durante a configuração da rede virtual, se você usar ExpressRoute com emparelhamento de rede para Microsoft, adicione os seguintes [pontos de extremidade](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço à sub-rede na qual o serviço será provisionado:
+  > Durante a configuração da rede virtual, se você usar o ExpressRoute com emparelhamento de rede com a Microsoft, adicione os seguintes [pontos de extremidade](../virtual-network/virtual-network-service-endpoints-overview.md) de serviço à sub-rede na qual o serviço será provisionado:
   >
   > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade do SQL, ponto de extremidade do Cosmos DB, e assim por diante)
   > * Ponto de extremidade de armazenamento
@@ -63,7 +66,7 @@ Para concluir este tutorial, você precisará:
   >
   > Essa configuração é necessária porque o Serviço de Migração de Banco de Dados do Azure não tem conectividade com a internet.
 
-* Verifique se as regras do NSG (Grupo de Segurança de Rede) de rede virtual não bloqueiam as seguintes portas de comunicação de entrada com o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Verifique se as regras do NSG (grupo de segurança de rede) da rede virtual não bloqueiam a porta de saída 443 de ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o servidor de origem do Oracle, que, por padrão, é a porta TCP 1521.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.

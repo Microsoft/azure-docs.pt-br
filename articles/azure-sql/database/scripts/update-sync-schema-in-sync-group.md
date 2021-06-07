@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 7d346d1ff30c138667749822b258bab4c6a621f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92792711"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Este exemplo de Azure PowerShell atualiza o esquema de sincronização em um grupo de sincronização da Sincronização de Dados SQL existente. Quando você estiver sincronizando várias tabelas, este script ajuda a atualizar o esquema de sincronização com eficiência. Este exemplo demonstra o uso do script **UpdateSyncSchema** , que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+Este exemplo de Azure PowerShell atualiza o esquema de sincronização em um grupo de sincronização da Sincronização de Dados SQL existente. Quando você estiver sincronizando várias tabelas, este script ajuda a atualizar o esquema de sincronização com eficiência. Este exemplo demonstra o uso do script **UpdateSyncSchema**, que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]

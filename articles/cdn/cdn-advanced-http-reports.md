@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779315"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de uso com os relatórios HTTP avançados da CDN do Azure
@@ -33,7 +33,7 @@ Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure.
     ![botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe o mouse sobre a guia **Análise** , em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados** .  Clique em **Plataforma Grande HTTP** .
+2. Passe o mouse sobre a guia **Análise**, em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados**.  Clique em **Plataforma Grande HTTP**.
    
     ![Portal de gerenciamento da CDN - menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    

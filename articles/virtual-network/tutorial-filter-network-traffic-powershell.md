@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 8ab22e7960e233d6ae934fb52989aa73a494b33a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791503"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o PowerShell
@@ -277,7 +277,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vindas do IIS, abra um navegador da Internet e navegue até http: \/ /myVmWeb.
 
-Desconecte a VM *myVmMgmt*.
+Desconecte da VM *myVmMgmt* .
 
 No seu computador, insira o comando a seguir do PowerShell para recuperar o endereço IP público do servidor *myVmWeb*:
 

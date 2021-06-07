@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879166"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641985"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
 
@@ -25,8 +25,8 @@ Talvez seja necessário inspecionar ou bloquear o tráfego de clientes para os s
 
 As seguintes limitações se aplicam:
 
-* NSGs (grupos de segurança de rede) não se aplicam a pontos de extremidade privados
-* UDR (rotas definidas pelo usuário) não se aplicam a pontos de extremidade privados
+* Os NSG (grupos de segurança de rede) são ignorados pelo tráfego proveniente de pontos de extremidade privados
+* As UDR (rotas definidas pelo usuário) são ignoradas pelo tráfego proveniente de pontos de extremidade privados
 * Uma única tabela de rotas pode ser anexada a uma sub-rede
 * Uma tabela de rotas dá suporte a até 400 rotas
 
@@ -35,7 +35,8 @@ O Firewall do Azure filtra o tráfego usando:
 * [FQDN em regras de rede](../firewall/fqdn-filtering-network-rules.md) para protocolos TCP e UDP
 * [FQDN nas regras de aplicativo](../firewall/features.md#application-fqdn-filtering-rules) para http, HTTPS e MSSQL. 
 
-A maioria dos serviços expostos por pontos de extremidade privados usam HTTPS. O uso de regras de aplicativo em regras de rede é recomendado ao usar o SQL do Azure.
+> [!IMPORTANT] 
+> O uso de regras de aplicativo em regras de rede é recomendado ao inspecionar o tráfego destinado a pontos de extremidade privados para manter a simetria do fluxo. Se as regras de rede forem usadas ou se um NVA for usado em vez do firewall do Azure, o SNAT deverá ser configurado para o tráfego destinado a pontos de extremidade privados.
 
 > [!NOTE]
 > A filtragem de FQDN do SQL tem suporte apenas no [modo de proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (porta 1433). O modo **proxy** pode resultar em mais latência em comparação com o *redirecionamento*. Se você quiser continuar usando o modo de redirecionamento, que é o padrão para clientes que se conectam no Azure, você pode filtrar o acesso usando o FQDN em regras de rede de firewall.
@@ -46,12 +47,9 @@ A maioria dos serviços expostos por pontos de extremidade privados usam HTTPS. 
 
 Esse cenário é a arquitetura mais expansível para se conectar de forma privada a vários serviços do Azure usando pontos de extremidade privados. Uma rota apontando para o espaço de endereço de rede onde os pontos de extremidade privados são implantados é criado. Essa configuração reduz a sobrecarga administrativa e impede a execução do limite de 400 rotas.
 
-As conexões de uma rede virtual de cliente para o Firewall do Azure em uma rede virtual de Hub incorrerão em encargos se as redes virtuais estiverem emparelhadas.
+As conexões de uma rede virtual de cliente para o Firewall do Azure em uma rede virtual de Hub incorrerão em encargos se as redes virtuais estiverem emparelhadas. As conexões do firewall do Azure em uma rede virtual de Hub para pontos de extremidade privados em uma rede virtual emparelhada não são cobradas.
 
 Para obter mais informações sobre encargos relacionados a conexões com redes virtuais emparelhadas, consulte a seção perguntas frequentes da página de [preços](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Esse cenário pode ser implementado usando NVA de terceiros ou regras de rede do firewall do Azure em vez das regras de aplicativo.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Cenário 2: arquitetura de Hub e spoke-rede virtual compartilhada para pontos de extremidade privados e máquinas virtuais
 
@@ -69,21 +67,15 @@ A sobrecarga administrativa de manutenção da tabela de rotas aumenta à medida
 
 Dependendo da arquitetura geral, é possível encontrar o limite de 400 rotas. É recomendável usar o cenário 1 sempre que possível.
 
-As conexões de uma rede virtual de cliente para o Firewall do Azure em uma rede virtual de Hub incorrerão em encargos se as redes virtuais estiverem emparelhadas.
+As conexões de uma rede virtual de cliente para o Firewall do Azure em uma rede virtual de Hub incorrerão em encargos se as redes virtuais estiverem emparelhadas. As conexões do firewall do Azure em uma rede virtual de Hub para pontos de extremidade privados em uma rede virtual emparelhada não são cobradas.
 
 Para obter mais informações sobre encargos relacionados a conexões com redes virtuais emparelhadas, consulte a seção perguntas frequentes da página de [preços](https://azure.microsoft.com/pricing/details/private-link/) .
-
->[!NOTE]
-> Esse cenário pode ser implementado usando NVA de terceiros ou regras de rede do firewall do Azure em vez das regras de aplicativo.
 
 ## <a name="scenario-3-single-virtual-network"></a>Cenário 3: rede virtual única
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rede virtual única" border="true":::
 
-Há algumas limitações na implementação: uma migração para uma arquitetura de Hub e spoke não é possível. As mesmas considerações, conforme o cenário 2, se aplicam. Nesse cenário, os encargos de emparelhamento de rede virtual não se aplicam.
-
->[!NOTE]
-> Se você quiser implementar esse cenário usando um NVA de terceiros ou um firewall do Azure, as regras de rede em vez das regras de aplicativo são necessárias para o tráfego de SNAT destinado aos pontos de extremidade privados. Caso contrário, haverá falha na comunicação entre as máquinas virtuais e os pontos de extremidade privados.
+Use esse padrão quando uma migração para uma arquitetura de Hub e spoke não for possível. As mesmas considerações, conforme o cenário 2, se aplicam. Nesse cenário, os encargos de emparelhamento de rede virtual não se aplicam.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Cenário 4: tráfego local para pontos de extremidade privados
 
@@ -98,15 +90,12 @@ Se seus requisitos de segurança exigirem tráfego de cliente para serviços exp
 
 As mesmas considerações sobre o cenário 2 acima se aplicam. Nesse cenário, não há encargos de emparelhamento de rede virtual. Para obter mais informações sobre como configurar seus servidores DNS para permitir que as cargas de trabalho locais acessem pontos de extremidade privados, consulte [cargas de trabalho locais usando um encaminhador DNS](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
 
->[!NOTE]
-> Se você quiser implementar esse cenário usando um NVA de terceiros ou um firewall do Azure, as regras de rede em vez das regras de aplicativo são necessárias para o tráfego de SNAT destinado aos pontos de extremidade privados. Caso contrário, haverá falha na comunicação entre as máquinas virtuais e os pontos de extremidade privados.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure.
 * Um workspace do Log Analytics.  
 
-Consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md) para criar um espaço de trabalho se você não tiver um em sua assinatura.
+Consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md) para criar um espaço de trabalho se você não tiver um em sua assinatura.
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
@@ -128,6 +117,7 @@ Crie três redes virtuais e suas sub-redes correspondentes para:
 Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 
 ### <a name="azure-firewall-network"></a>Rede de firewall do Azure
+
 | Parâmetro                   | Valor                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -138,6 +128,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>Rede de máquinas virtuais
+
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -148,13 +139,14 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>Rede de ponto de extremidade privado
+
 | Parâmetro                   | Valor                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | Centro-Sul dos Estados Unidos      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -173,7 +165,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você criou esse grupo de recursos na seção anterior.  |
     | **Detalhes da instância** |  |
-    | Nome da máquina virtual | Insira **myVM**. |
+    | Nome da máquina virtual | Insira a opção **myVM**. |
     | Região | Marque **(US) EUA Central do Sul**. |
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
     | Imagem | Selecione **Ubuntu Server 18, 4 LTS-Gen1**. |
@@ -223,7 +215,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
     | Resource group | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Nome | Insira **myAzureFirewall**. |
-    | Região | Selecione **EUA Central do Sul**. |
+    | Region | Selecione **EUA Central do Sul**. |
     | Zona de disponibilidade | Deixar o padrão **Nenhum**. |
     | Escolher uma rede virtual    |    Selecione **usar existente**.    |
     | Rede virtual    |    Selecione **myAzFwVNet**.    |
@@ -309,7 +301,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
     | Resource group | Selecione **myResourceGroup**. |
     | **Detalhes da instância** | |
     | Nome | Insira **SQLPrivateEndpoint**. |
-    | Região | Marque **(US) EUA Central do Sul.** |
+    | Region | Marque **(US) EUA Central do Sul.** |
 
 6. Selecione a guia **recurso** ou selecione **próximo: recurso** na parte inferior da página.
 
@@ -483,7 +475,7 @@ Nesta seção, criaremos uma tabela de rotas com uma rota personalizada.
 
 A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede virtual **myPEVNet**, por meio do firewall do Azure.
 
-1. No menu do portal do Azure ou na **Página inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
 2. Digite **tabela de rotas** na caixa de pesquisa e pressione **Enter**.
 
@@ -575,7 +567,7 @@ Nesta seção, você se conectará de modo privado ao banco de dados SQL usando 
     Address: 10.2.0.4
     ```
 
-2. Instale [SQL Server ferramentas de linha de comando](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Instale [SQL Server ferramentas de linha de comando](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Execute o comando a seguir para se conectar ao SQL Server. Use o administrador do servidor e a senha que você definiu quando criou o SQL Server nas etapas anteriores.
 

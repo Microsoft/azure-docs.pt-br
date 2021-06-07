@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: c42c6465af8e895d833332be847c134b97ee8ddc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614261"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781289"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 
@@ -25,8 +25,9 @@ Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um fluxo de usuário de inscrição e de entrada
+> * Habilitar a redefinição de senha por autoatendimento
 > * Criar um fluxo de usuário de edição de perfil
-> * Criar um fluxo de usuário de redefinição de senha
+
 
 Este tutorial mostra como criar alguns fluxos dos usuários recomendados usando o portal do Azure. Se você estiver procurando informações sobre como configurar um fluxo de ROPC (credenciais de senha de proprietário do recurso) em seu aplicativo, confira [Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C](add-ropc-policy.md).
 
@@ -85,6 +86,24 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 > [!NOTE]
 > No momento, a experiência "Executar fluxo de usuário" não é compatível com o tipo de URL de resposta SPA que usa o fluxo de código de autorização. Para usar a experiência "Executar fluxo de usuário" com esses tipos de aplicativos, registre uma URL de resposta do tipo "Web" e habilite o fluxo implícito conforme descrito [aqui](tutorial-register-spa.md).
 
+## <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
+
+Para habilitar a [redefinição de senha por autoatendimento](add-password-reset-policy.md) para o fluxo de usuários de inscrição ou de entrada:
+
+1. Selecione o fluxo de usuários de inscrição ou de entrada criado.
+1. Em **Configurações** no menu esquerdo, selecione **Propriedades**.
+1. Em **Complexidade da senha**, selecione **Redefinição de senha por autoatendimento**.
+1. Clique em **Salvar**.
+
+### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
+
+1. Selecione o fluxo de usuário que você criou para abrir a página de visão geral e, em seguida, selecione **Executar fluxo de usuário**.
+1. Para **Aplicativo**, selecione o aplicativo Web denominado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione **Executar fluxo de usuário**.
+1. Na página de inscrição ou de entrada, escolha **Esqueceu sua senha?** .
+1. Verifique o endereço de email da conta que você criou anteriormente e selecione **Continuar**.
+1. Agora, você pode alterar a senha para o usuário. Altere a senha e selecione **Continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
+
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de usuário de edição de perfil
 
 Se quiser permitir que os usuários editem seu perfil no aplicativo, use um fluxo do usuário de edição de perfil.
@@ -104,26 +123,6 @@ Se quiser permitir que os usuários editem seu perfil no aplicativo, use um flux
 1. Clique em **Executar o fluxo do usuário** e, em seguida, entre com a conta que criou anteriormente.
 1. Agora, você tem a oportunidade de alterar o nome de exibição e o cargo do usuário. Clique em **Continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
 
-## <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de usuário de redefinição de senha
-
-Para permitir que os usuários do seu aplicativo redefinam a senha, use um fluxo de usuário de redefinição de senha.
-
-1. No menu de visão geral do locatário do Azure AD B2C, selecione **Fluxos dos usuários** e, em seguida, selecione **Novo fluxo de usuário**.
-1. Na página **Criar um fluxo de usuário**, selecione o fluxo do usuário **Redefinição de senha**. 
-1. Em **Selecionar uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
-1. Insira um **Nome** para o fluxo de usuário. Por exemplo, *passwordreset1*.
-1. Em **Provedores de identidade**, habilite **Redefinir senha usando endereço de email**.
-2. Em Declarações do aplicativo, clique em **Mostrar mais** e escolha as declarações que você quer retornar nos tokens de autorização enviados de volta ao seu aplicativo. Por exemplo, selecione **ID de Objeto do Usuário**.
-3. Clique em **OK**.
-4. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
-
-### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
-
-1. Selecione o fluxo de usuário que você criou para abrir a página de visão geral e, em seguida, selecione **Executar fluxo de usuário**.
-1. Para **Aplicativo**, selecione o aplicativo Web denominado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **Executar fluxo de usuário**, verifique o endereço de email da conta que você criou anteriormente e selecione **Continuar**.
-1. Agora, você pode alterar a senha para o usuário. Altere a senha e selecione **Continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a:
@@ -133,7 +132,7 @@ Neste artigo, você aprendeu a:
 > * Criar um fluxo de usuário de edição de perfil
 > * Criar um fluxo de usuário de redefinição de senha
 
-Em seguida, saiba como adicionar provedores de identidade aos seus aplicativos para habilitar a entrada do usuário com provedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter.
+Em seguida, saiba como usar o Azure AD B2C para conectar e inscrever usuários em um aplicativo. Siga o aplicativo Web ASP.NET vinculado abaixo ou navegue para outro aplicativo no sumário em **Autenticar usuários**.
 
 > [!div class="nextstepaction"]
-> [Adicionar provedores de identidade a seus aplicativos >](tutorial-add-identity-providers.md)
+> [Tutorial: Habilitar a autenticação em um aplicativo Web usando o Azure AD B2C >](tutorial-web-app-dotnet.md)

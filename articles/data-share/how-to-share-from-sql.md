@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964160"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644684"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -36,7 +36,20 @@ Quando os dados são recebidos na tabela SQL e, se a tabela de destino ainda nã
 Veja abaixo a lista de pré-requisitos para o compartilhamento de dados de uma fonte SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para o compartilhamento por meio do Banco de Dados SQL do Azure ou do Azure Synapse Analytics (antigo SQL DW do Azure)
-Siga a [demonstração passo a passo](https://youtu.be/hIE-TjJD8Dc) para configurar os pré-requisitos.
+
+
+Para compartilhar dados usando a autenticação Azure Active Directory, aqui está uma lista de pré-requisitos:
+
+* Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure) com tabelas e exibições que você deseja compartilhar.
+* Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**.
+* SQL Server **Azure Active Directory administrador**
+* Acesso ao firewall do SQL Server. Isso pode ser feito executando as seguintes etapas: 
+    1. No portal do Azure, navegue até o SQL Server. Selecione *Firewalls e redes virtuais* no painel de navegação à esquerda.
+    1. Clique em **Sim** na opção *Permitir que serviços e recursos do Azure acessem este servidor*.
+    1. Clique em **+Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
+    1. Clique em **Save** (Salvar). 
+
+Para compartilhar dados usando a autenticação do SQL, veja abaixo uma lista de pré-requisitos. Siga a [demonstração passo a passo](https://youtu.be/hIE-TjJD8Dc) para configurar os pré-requisitos.
 
 * Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure) com tabelas e exibições que você deseja compartilhar.
 * Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**.
@@ -132,7 +145,9 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
     ![AddDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 
-1. Selecione seu espaço de trabalho do SQL Server ou do Synapse, forneça credenciais, se solicitado, e selecione **Avançar** para navegar até o objeto que deseja compartilhar e selecione ' Adicionar conjuntos de valores '. Você pode selecionar tabelas e exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) ou tabelas do pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). 
+1. Selecione seu espaço de trabalho do SQL Server ou do Synapse. Se você estiver usando a autenticação do AAD e a caixa de seleção **permitir que o compartilhamento de dados execute o script SQL ' criar usuário ' acima em meu nome** aparecer, marque a caixa de seleção. Se você estiver usando a autenticação do SQL, forneça credenciais e siga as etapas em pré-requisitos para executar o script aparecendo na tela. Isso dá permissão ao recurso de compartilhamento de dados para ler a partir do seu BD SQL. 
+
+   Selecione **Avançar** para navegar até o objeto que deseja compartilhar e selecione "Adicionar conjuntos de os". Você pode selecionar tabelas e exibições do banco de dados SQL do Azure e do Azure Synapse Analytics (anteriormente conhecido como Azure SQL DW) ou tabelas do pool SQL dedicado do Azure Synapse Analytics (espaço de trabalho). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Selecionar conjuntos de dados")    
 
@@ -176,7 +191,18 @@ Se você optar por receber dados no armazenamento do Azure, abaixo está a lista
 Se você optar por receber os dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics, veja abaixo a lista de pré-requisitos. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para o recebimento de dados no Banco de Dados SQL do Azure ou no Azure Synapse Analytics (antigo SQL DW do Azure)
-Siga a [demonstração passo a passo](https://youtu.be/aeGISgK1xro) para configurar os pré-requisitos.
+
+Para receber dados em um SQL Server em que você é o **administrador do Azure Active Directory** do SQL Server, aqui está uma lista de pré-requisitos:
+
+* Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure).
+* Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**.
+* Acesso ao firewall do SQL Server. Isso pode ser feito executando as seguintes etapas: 
+    1. No portal do Azure, navegue até o SQL Server. Selecione *Firewalls e redes virtuais* no painel de navegação à esquerda.
+    1. Clique em **Sim** na opção *Permitir que serviços e recursos do Azure acessem este servidor*.
+    1. Clique em **+Adicionar IP do cliente**. O endereço IP do cliente está sujeito a alterações. Esse processo talvez precise ser repetido na próxima vez em que você estiver compartilhando dados SQL do portal do Azure. Você também pode adicionar um intervalo de IP.
+    1. Clique em **Save** (Salvar). 
+    
+Para receber dados em um SQL Server em que você não é o **administrador do Azure Active Directory**, abaixo está uma lista de pré-requisitos. Siga a [demonstração passo a passo](https://youtu.be/aeGISgK1xro) para configurar os pré-requisitos.
 
 * Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure).
 * Permissão para gravar nos bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**. 
@@ -264,18 +290,18 @@ Siga as etapas abaixo para configurar o local em que deseja receber os dados.
 
    ![Mapear para o destino](./media/dataset-map-target.png "Mapear para o destino") 
 
-1. Selecione um armazenamento de dados de destino no qual você deseja que os dados entrem. Todos os arquivos de dados ou tabelas no armazenamento de dados de destino com o mesmo caminho e nome serão substituídos. 
+1. Selecione um armazenamento de dados de destino no qual você deseja que os dados entrem. Todos os arquivos de dados ou tabelas no armazenamento de dados de destino com o mesmo caminho e nome serão substituídos. Se você estiver recebendo dados para o destino do SQL e a caixa de seleção **permitir que o compartilhamento de dados seja executado acima, selecione o script SQL ' criar usuário ' em meu nome** aparecer, marque a caixa de seleção. Caso contrário, siga as instruções em pré-requisitos para executar o script aparecendo na tela. Isso fornecerá permissão de gravação de recurso de compartilhamento de dados para seu banco de dado SQL de destino.
 
    ![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de dados de destino") 
 
-1. Para o compartilhamento baseado em instantâneo, se o provedor de dados tiver criado um agendamento de instantâneo para fornecer atualização regular aos dados, você também poderá habilitar o agendamento de instantâneo selecionando a guia **Agendamento de Instantâneos**. Marque a caixa ao lado do agendamento de instantâneo e selecione **+ Habilitar**.
+1. Para o compartilhamento baseado em instantâneo, se o provedor de dados tiver criado um agendamento de instantâneo para fornecer atualização regular aos dados, você também poderá habilitar o agendamento de instantâneo selecionando a guia **Agendamento de Instantâneos**. Marque a caixa ao lado do agendamento de instantâneo e selecione **+ Habilitar**. Observe que o primeiro instantâneo agendado começará dentro de um minuto após o tempo de agendamento e os instantâneos subsequentes serão iniciados em segundos da hora agendada.
 
    ![Habilitar o agendamento de instantâneo](./media/enable-snapshot-schedule.png "Habilitar o agendamento de instantâneo")
 
 ### <a name="trigger-a-snapshot"></a>Disparar um instantâneo
 Essas etapas se aplicam somente ao compartilhamento baseado em instantâneo.
 
-1. Você pode disparar um instantâneo selecionando a guia **Detalhes** seguido de **Disparar instantâneo**. Aqui, você pode disparar um instantâneo completo ou incremental de seus dados. Se esta for a primeira vez que você está recebendo dados de seu provedor de dados, selecione a cópia completa. Para fontes SQL, somente o instantâneo completo tem suporte.
+1. Você pode disparar um instantâneo selecionando a guia **Detalhes** seguido de **Disparar instantâneo**. Aqui, você pode disparar um instantâneo completo ou incremental de seus dados. Se esta for a primeira vez que você está recebendo dados de seu provedor de dados, selecione a cópia completa. Para fontes SQL, somente o instantâneo completo tem suporte. Quando um instantâneo estiver em execução, os instantâneos subsequentes não serão iniciados até que o anterior seja concluído.
 
    ![Disparar instantâneo](./media/trigger-snapshot.png "Disparar instantâneo") 
 

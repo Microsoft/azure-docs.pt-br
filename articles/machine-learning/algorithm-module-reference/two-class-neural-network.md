@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421151"
 ---
 # <a name="two-class-neural-network-module"></a>Two-Class módulo de rede neural
@@ -22,7 +22,7 @@ Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de rede neural que possa ser usado para prever um destino que tenha somente dois valores.
 
-A classificação usando redes neurais é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado* , que inclui uma coluna de rótulo. Por exemplo, você pode usar esse modelo de rede neural para prever resultados binários, como se um paciente tem ou não uma determinada doença ou se um computador provavelmente falhará dentro de uma janela de tempo especificada.  
+A classificação usando redes neurais é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Por exemplo, você pode usar esse modelo de rede neural para prever resultados binários, como se um paciente tem ou não uma determinada doença ou se um computador provavelmente falhará dentro de uma janela de tempo especificada.  
 
 Depois de definir o modelo, treine-o fornecendo um conjunto de dados marcado e o modelo como uma entrada para o [modelo de treinamento](./train-model.md). O modelo treinado pode então ser usado para prever valores para novas entradas.
 
@@ -38,17 +38,17 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
   
 ## <a name="how-to-configure"></a>Como configurar
 
-1.  Adicione o módulo **rede neural de duas classes** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning** , **inicializar** , na categoria **classificação** .  
+1.  Adicione o módulo **rede neural de duas classes** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .  
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único** : escolha esta opção se você já souber como deseja configurar o modelo.
+    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.
 
-    -   **Intervalo de parâmetros** : se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.  
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.  
 
-3.  Para **especificação de camada oculta** , selecione o tipo de arquitetura de rede a ser criado.  
+3.  Para **especificação de camada oculta**, selecione o tipo de arquitetura de rede a ser criado.  
   
-    -   **Caso totalmente conectado** : usa a arquitetura de rede neural padrão, definida para redes neurais de duas classes, da seguinte maneira:
+    -   **Caso totalmente conectado**: usa a arquitetura de rede neural padrão, definida para redes neurais de duas classes, da seguinte maneira:
   
         -   Tem uma camada oculta.
   
@@ -60,25 +60,25 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
   
         -   O número de nós é igual ao número de classes. Para uma rede neural de duas classes, isso significa que todas as entradas devem ser mapeadas para um dos dois nós na camada de saída.
 
-5.  Para **taxa de aprendizagem** , defina o tamanho da etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer o modelo convergir mais rapidamente, mas com o risco mínimo de errar o alvo verdadeiro.
+5.  Para **taxa de aprendizagem**, defina o tamanho da etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer o modelo convergir mais rapidamente, mas com o risco mínimo de errar o alvo verdadeiro.
 
-6.  Para **número de iterações de aprendizado** , especifique o número máximo de vezes que o algoritmo deve processar os casos de treinamento.
+6.  Para **número de iterações de aprendizado**, especifique o número máximo de vezes que o algoritmo deve processar os casos de treinamento.
 
-7.  Para **o diâmetro inicial dos pesos de aprendizado** , especifique os pesos do nó no início do processo de aprendizado.
+7.  Para **o diâmetro inicial dos pesos de aprendizado**, especifique os pesos do nó no início do processo de aprendizado.
 
-8.  Para **a dinâmica** , especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores  
+8.  Para **a dinâmica**, especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores  
 
 10. Selecione a opção **exemplos de ordem aleatória** para embaralhar casos entre iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o pipeline.
   
-11. Para **semente de número aleatório** , digite um valor a ser usado como a semente.
+11. Para **semente de número aleatório**, digite um valor a ser usado como a semente.
   
      A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre execuções do mesmo pipeline.  Caso contrário, um valor de relógio do sistema será usado como a semente, o que pode causar resultados ligeiramente diferentes cada vez que você executar o pipeline.
   
 13. Adicione um DataSet rotulado ao pipeline e treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

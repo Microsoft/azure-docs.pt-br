@@ -10,10 +10,10 @@ ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98684603"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
@@ -57,7 +57,7 @@ Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicio
 |-------------------------|---------------|--------------------|
 | Canônico               | UbuntuServer  | 16.04-LTS          |
 | Canônico               | UbuntuServer  | 18.04-LTS          |
-| OpenLogic               | CentOS        | 7,5                |
+| OpenLogic               | CentOS        | 7.5                |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |

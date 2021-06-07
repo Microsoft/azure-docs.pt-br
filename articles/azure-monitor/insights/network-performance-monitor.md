@@ -1,24 +1,23 @@
 ---
 title: Solução de Monitor de Desempenho de Rede no Azure | Microsoft Docs
 description: O Monitor de Desempenho de Rede no Azure ajuda a monitorar o desempenho de suas redes quase em tempo real para detectar e localizar gargalos de desempenho de rede.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 2856366fc8383f7aaec9d96c29acb7621ea801ae
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: dd9f35a0b7c3bb5c2c5888765e4ebac436b4cde1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832905"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101711120"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
 ![Símbolo do Monitor de Desempenho de Rede](./media/network-performance-monitor/npm-symbol.png)
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no observador de rede do Azure antes de 29 de fevereiro de 2024.
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 O Monitor de Desempenho de Rede é uma solução de monitoramento de rede híbrida baseada em nuvem que ajuda a monitorar o desempenho de rede entre vários pontos em sua infraestrutura de rede. Também ajuda a monitorar a conectividade de rede para serviços e pontos de extremidade do aplicativo e a monitorar o desempenho do Azure ExpressRoute. 
 
@@ -76,7 +75,7 @@ A lista de regiões de suporte para Monitor do ExpressRoute está disponível na
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
-Use os processos básicos para instalar agentes em [conectar computadores Windows ao Azure monitor](../platform/agent-windows.md), [conectar computadores Linux ao Azure monitor (versão prévia)](../../virtual-machines/extensions/oms-linux.md) e [conectar Operations Manager ao Azure monitor](../platform/om-agents.md).
+Use os processos básicos para instalar agentes em [conectar computadores Windows ao Azure monitor](../agents/agent-windows.md), [conectar computadores Linux ao Azure monitor (versão prévia)](../../virtual-machines/extensions/oms-linux.md) e [conectar Operations Manager ao Azure monitor](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
@@ -124,7 +123,7 @@ O script cria chaves do registro necessárias pela solução. Ele também cria r
 
 ### <a name="configure-the-solution"></a>Configurar a solução 
 
-1. Adicionar a solução de Monitor de Desempenho de Rede ao workspace [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Você também pode usar o processo descrito em [Adicionar soluções de Azure monitor do Galeria de soluções](./solutions.md). 
+1. Adicionar a solução de Monitor de Desempenho de Rede ao workspace [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Você também pode usar o processo descrito em [Adicionar soluções de Azure monitor do Galeria de soluções](./solutions.md). 
 2. Abra seu espaço de trabalho do Log Analytics e selecione o bloco **Visão geral**. 
 3. Selecione o bloco **Monitor de desempenho de rede** com a mensagem a *solução requer configuração adicional*.
 
@@ -266,13 +265,13 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém conexões
 
 ## <a name="log-queries-in-azure-monitor"></a>Consultas de log no Azure Monitor
 
-Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../log-query/log-query-overview.md). Você pode executar análises interativas de dados no repositório e correlacionar dados de origens diferentes. Você também pode criar alertas personalizados e exibições e exportar os dados para Excer, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../logs/log-query-overview.md). Você pode executar análises interativas de dados no repositório e correlacionar dados de origens diferentes. Você também pode criar alertas personalizados e exibições e exportar os dados para Excer, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 
-O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](../platform/alerts-overview.md).
+O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](../alerts/alerts-overview.md).
 
-Isso significa que todas as notificações são gerenciadas usando [grupos de ação](../platform/action-groups.md).  
+Isso significa que todas as notificações são gerenciadas usando [grupos de ação](../alerts/action-groups.md).  
 
 Se você é um usuário do NPM criando um alerta por meio do Log Analytics: 
 1. Você verá um link que o redirecionará para portal do Azure. Clique nele para acessar o portal.
@@ -282,8 +281,8 @@ Se você é um usuário do NPM criando um alerta por meio do Log Analytics:
 
 Se você for um usuário do NPM criando um alerta por meio do portal do Azure:  
 1. Você pode optar por inserir seu email diretamente ou criar alertas por meio de grupos de ação.
-2. Se você optar por inserir seu email diretamente, um grupo de ações com o nome **NPM email** Group será criado e a ID de email será adicionada a esse grupo de ações.
-3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+2. Se você optar por inserir seu email diretamente, um grupo de ação com o nome **ActionGroup de Email NPM** é criado e a ID de email é adicionada a esse grupo de ação.
+3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
 Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -301,4 +300,4 @@ Informações sobre preços estão disponíveis [online](network-performance-mon
 * Junte-se a **nosso coorte:** Estamos sempre interessados em fazer novos clientes ingressarem em nosso coorte. Como parte do coorte, você consegue acesso antecipado a novos recursos e uma oportunidade de ajudar a melhorar o Monitor de Desempenho de Rede. Se você estiver interessado em ingressar, preencha esta [pesquisa rápida](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Próximas etapas 
-Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md). 
+Saiba mais sobre o [Monitor de Desempenho](network-performance-monitor-performance-monitor.md), o [Monitor de Conectividade do Serviço](network-performance-monitor-performance-monitor.md) e o [Monitor do ExpressRoute](network-performance-monitor-expressroute.md).

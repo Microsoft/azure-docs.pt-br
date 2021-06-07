@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
 ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724145"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar um banco de dados SQL do Azure sem permitir que os serviços do Azure acessem o servidor
@@ -38,7 +38,7 @@ Este modelo permite que você implante uma máquina virtual simples do Windows u
 
 Para obter mais informações, consulte [implantação muito simples de uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
-## <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
+## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 
 As etapas a seguir mostram como se conectar à sua máquina virtual usando uma conexão de área de trabalho remota.
 

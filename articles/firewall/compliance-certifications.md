@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94628434"
 ---
 # <a name="azure-firewall-certifications"></a>Certificações de firewall do Azure
@@ -28,7 +28,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - AFM e DNB (Países Baixos)
 - AMF e ACPR (França)
 - APRA (Austrália)
-- PDPA da Argentina
+- Argentina PDPA
 - Austrália IRAP
 - CDSA
 - CFTC 1,31
@@ -57,7 +57,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - ISO 27017:2015
 - ISO 27018:2014
 - ISO 9001:2015
-- Lei de meu número do Japão
+- My Number Act (Japão)
 - K-ISMS
 - KNF (Polônia)
 - MAS e ABS (Singapura)
@@ -65,7 +65,7 @@ As seguintes certificações de firewall do Azure são para o Azure global:
 - NBB e FSMA (Bélgica)
 - NEN 7510:2011 (Países Baixos)
 - IG Toolkit do NHS (Reino Unido)
-- Países Baixos BIR 2012
+- BIR 2012 (Países Baixos)
 - OSFI (Canadá)
 - PCI DSS nível 1
 - RBI e IRDAI (Índia)

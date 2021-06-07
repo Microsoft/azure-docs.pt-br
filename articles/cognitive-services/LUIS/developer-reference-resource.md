@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946171"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Recursos de desenvolvedor de SDK, REST e CLI para Reconhecimento vocal (LUIS)
@@ -47,7 +47,7 @@ As [especificações REST do Luis](https://github.com/Azure/azure-rest-api-specs
 
 As APIS de ponto de extremidade de criação e de previsão estão disponíveis em APIs REST:
 
-|Tipo|Versão|
+|Type|Versão|
 |--|--|
 |Criação|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[visualização v3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Previsão|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|

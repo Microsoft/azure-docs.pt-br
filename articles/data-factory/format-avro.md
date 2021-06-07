@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 4be499e8e304f34b1cab10aed41b5b98a5f24e9b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392588"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro no Azure Data Factory
@@ -97,7 +97,7 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato Avro nos se
 
 A tabela abaixo lista as propriedades com suporte por uma fonte Avro. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
 | Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
@@ -111,7 +111,7 @@ A tabela abaixo lista as propriedades com suporte por uma fonte Avro. Você pode
 
 A tabela abaixo lista as propriedades com suporte por um coletor de Avro. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
 | Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

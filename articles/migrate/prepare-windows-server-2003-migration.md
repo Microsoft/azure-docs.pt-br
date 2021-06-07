@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753732"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparar computadores Windows Server 2003 para migração
@@ -45,7 +45,7 @@ Antes da migração, verifique se o Hyper-V Integration Services está instalado
 2. Navegue até o arquivo de instalação em **C:\Windows\System32\vmguest.ISO** e monte o arquivo.
 3. Copie a pasta de instalação para a VM do VMware.
 4. Na linha de comando na VM, execute ```gpedit.msc``` .
-5. Abra **configuração do computador**  >  **Windows Settings**  >  **scripts de configurações do Windows (inicialização/desligamento)**.
+5. Abra **configuração do computador**  >    >  **scripts de configurações do Windows (inicialização/desligamento)**.
 6. Em **inicialização**  >  **Adicionar**  >  **nome do script**, digite o endereço setup.exe.
 7. Após a migração para o Azure, o script é executado na primeira vez que a VM do Azure é iniciada.
 8. Reinicie manualmente a VM do Azure. Há um pop-up no diagnóstico de inicialização para indicar que uma reinicialização é necessária.

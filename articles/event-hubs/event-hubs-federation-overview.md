@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 12ef895c8b16fe18ed02ebf01d17624ac71c2f3e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97861460"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>Federação de vários sites e várias regiões

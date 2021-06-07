@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c575904d994232726cf8d0d9152b02130fd29cea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518833"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103013244"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
 
@@ -36,7 +36,7 @@ Ao indexar conteúdo, certifique-se de usar arquivos de mídia que tenham uma fa
 
 Um trabalho de indexação pode gerar as seguintes saídas:
 
-* Arquivos de legenda codificada nos seguintes formatos: **TTML**e **WebVTT**.
+* Arquivos de legenda codificada nos seguintes formatos: **TTML** e **WebVTT**.
   
     Arquivos de legenda oculta incluem uma marca chamada Recognizability, que classifica um trabalho de indexação com base no quanto a fala é reconhecível no vídeo de origem.  Você pode usar o valor de Recognizability para arquivos de saída de tela para facilidade de uso. Uma baixa pontuação significaria resultados de indexação fraca devido a qualidade do áudio.
 * Arquivo de palavra-chave (XML).
@@ -250,7 +250,7 @@ O processamento do Indexador de Mídia do Azure pode ser personalizado por meio 
 | --- | --- | --- |
 | **input** |false |Arquivos do ativo que você deseja indexar.</p><p>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Você pode especificar os nomes dos arquivos no atributo **name** ou **list** do elemento **input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo será indexado, o arquivo primário será o escolhido. Se nenhum arquivo de ativo primário for definido, o primeiro arquivo no ativo de entrada será indexado.</p><p>Para especificar explicitamente o nome de arquivo do ativo, faça isto:<br/>`<input name="TestFile.wmv">`<br/><br/>Você também pode indexar vários arquivos de ativo ao mesmo tempo (até 10 arquivos). Para fazer isso:<br/><br/><ol class="ordered"><li><p>Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão .lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto. </p></li><li><p>Adicione (carregue) o arquivo de manifesto ao ativo.  </p></li><li><p>Especifique o nome do arquivo de manifesto no atributo list da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Observação: se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006. |
 | **los** |false |Metadados para os arquivos de ativo especificados usados para a Adaptação de Vocabulário.  É útil para preparar o Indexador a fim de reconhecer palavras de vocabulário que não são padrão, como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Você pode fornecer **valores** para **chaves** predefinidas. No momento, as chaves a seguir têm suporte:<br/><br/>"title" e "description" - usadas para a adaptação do vocabulário a fim de ajustar o modelo de idioma para o seu trabalho e melhorar a precisão do reconhecimento de fala.  Os valores propagam pesquisas na Internet para encontrar documentos de texto contextualmente relevantes, usando o conteúdo para aumentar o dicionário interno durante sua tarefa de Indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Features** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Linguagem</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
+| **Features** <br/><br/>  Adicionado na versão 1.2. Atualmente, o único recurso com suporte é o reconhecimento de fala (“ASR”). |false |O recurso de Reconhecimento de Fala tem as seguintes chaves de configurações:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>O idioma natural a ser reconhecido no arquivo de multimídia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista separada por pontos-e-vírgulas dos formatos de legenda de saída desejados (se houver)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>Verdadeiro, Falso</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booliano que especifica se um arquivo XML de palavras-chave é necessário.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booliano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>O padrão é false, e nesse caso palavras e frases que têm um nível de confiança inferior a 50% são omitidas das saídas da legenda final e substituídas por reticências (“...”).  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>Códigos de erro
 Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguintes códigos de erro:
@@ -266,7 +266,7 @@ Em caso de erros, o Indexador de Mídia do Azure deverá relatar um dos seguinte
 | 2006 |Muitos arquivos de entrada |Há mais de 10 arquivos no manifesto de entrada. |
 | 3000 |Falha ao decodificar o arquivo de mídia |Codec de mídia sem suporte  <br/>ou<br/> Arquivo de mídia corrompido <br/>ou<br/> Nenhum fluxo de áudio na mídia de entrada. |
 | 4000 |Indexação de lotes parcialmente bem-sucedida |Alguns dos arquivos de mídia de entrada estão com falha para serem indexados. Para obter mais informações, consulte <a href="#output_files">Arquivos de saída</a>. |
-| other |Erros internos |Entre em contato com a equipe de suporte. indexer@microsoft.com |
+| outros |Erros internos |Entre em contato com a equipe de suporte. indexer@microsoft.com |
 
 ## <a name="supported-languages"></a><a id="supported_languages"></a>Idiomas com suporte
 Atualmente, há suporte para os idiomas inglês e espanhol.  

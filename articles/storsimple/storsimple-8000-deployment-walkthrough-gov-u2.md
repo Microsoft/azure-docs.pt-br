@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94963174"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
@@ -36,7 +36,7 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com) . Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
@@ -44,7 +44,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 
 | Etapa | Descrição |
 | --- | --- |
-| **PRÉ-requisitos** |Eles precisam ser concluídos na preparação para a próxima implantação. |
+| **PRÉ-REQUISITOS** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |
 | [Pré-requisitos de implantação](#deployment-prerequisites) |Eles validam que o ambiente está pronto para implantação. |
 |  | |
@@ -60,7 +60,7 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 |  | |
 | **OUTROS PROCEDIMENTOS** |Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
 | [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
-| [Usar a reutilização para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
+| [Use o PuTTY para conectar-se ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
 | [Verificar e aplicar atualizações](#scan-for-and-apply-updates) | |
 | [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host) | |
 | [Criar um backup manual](#create-a-manual-backup) | |
@@ -198,4 +198,4 @@ Execute as etapas a seguir no Portal Governamental para criar um backup manual s
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar um [dispositivo virtual](storsimple-8000-cloud-appliance-u2.md).
-* Use o [serviço storsimple Device Manager](storsimple-8000-manager-service-administration.md) para gerenciar seu dispositivo storsimple.
+* Use o [serviço do gerenciador de dispositivos StorSimple](storsimple-8000-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.

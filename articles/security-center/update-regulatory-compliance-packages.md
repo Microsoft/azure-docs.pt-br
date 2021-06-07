@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
 ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381725"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulatória
@@ -113,7 +113,7 @@ Para remover um padrão:
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirme que você realmente deseja remover o padrão normativo selecionado":::
 
-1. Selecione **Sim**. O padrão será removido. 
+1. Selecione **Sim** na barra superior. O padrão será removido. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

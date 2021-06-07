@@ -2,19 +2,16 @@
 title: Migrar VMs do AWS para o Azure com Migrações para Azure
 description: Este artigo descreve as opções para migrar instâncias do AWS para o Azure e recomenda Migrações para Azure.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 83d8106b9f206da9095c37b6179bdda8001b439c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c3f20f0fa3bc6ad41e76626d3cb02ec1c0b96e9
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009051"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581334"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 

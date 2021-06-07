@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710364"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados nos Aplicativos Lógicos do Azure
@@ -34,8 +34,8 @@ Essas ações ajudam você a trabalhar com dados em matrizes.
 | [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela CSV (valores separados por vírgula) a partir de uma matriz. |
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. |
 | [**Filtrar matriz**](#filter-array-action) | Crie um subconjunto de matriz a partir de uma matriz com base no filtro especificado ou condição específica. |
-| [**Join**](#join-action) | Crie uma cadeia de caracteres a partir de todos os itens em uma matriz e separe cada item com o caractere especificado. |
-| [**Não**](#select-action) | Crie uma matriz a partir de propriedades especificadas para todos os itens em uma matriz diferente. |
+| [**Em**](#join-action) | Crie uma cadeia de caracteres a partir de todos os itens em uma matriz e separe cada item com o caractere especificado. |
+| [**Selecionar**](#select-action) | Crie uma matriz a partir de propriedades especificadas para todos os itens em uma matriz diferente. |
 ||| 
 
 **Ações de JSON**
@@ -624,7 +624,7 @@ Para confirmar se a ação **Analisar JSON** cria os resultados esperados, envie
 
 1. Nessa ação, clique em qualquer lugar em que você quer exibir os resultados. Quando a lista de conteúdo dinâmico é aberta, na ação **Analisar JSON**, será possível selecionar as propriedades do conteúdo JSON analisado.
 
-   Este exemplo usa a ação **enviar um email** do Outlook do Office 365 e inclui os campos **FirstName**, **LastName**e **email** no corpo do email:
+   Este exemplo usa a ação **enviar um email** do Outlook do Office 365 e inclui os campos **FirstName**, **LastName** e **email** no corpo do email:
 
    ![Propriedades JSON na ação "Enviar um e-mail"](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127899"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100535307"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -723,7 +723,7 @@ IoT Central espera uma resposta do dispositivo para atualizações de propriedad
 
 `ac` é um campo numérico que usa os valores na tabela a seguir:
 
-| Valor | Rotular | Descrição |
+| Valor | Rótulo | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202`  or `'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento |
@@ -1068,7 +1068,7 @@ O trecho a seguir de um modelo de dispositivo mostra a definição de um comando
                 "displayName": {
                   "en": "Bank3"
                 },
-                "enumValue": 2,
+                "enumValue": 3,
                 "name": "Bank3"
               }
             ],

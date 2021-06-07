@@ -11,10 +11,10 @@ ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92147632"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Enviar mensagens de dispositivo para nuvem e da nuvem para dispositivo com o Hub IoT

@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB – Portal do Azure'
+title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB – portal do Azure'
 description: Este tutorial explica como criar e gerenciar um servidor do Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664462"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Projetar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
 O Banco de Dados do Azure para MariaDB é um serviço gerenciado usado para executar, gerenciar e dimensionar bancos de dados do MySQL altamente disponíveis na nuvem. Usando o portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
@@ -174,10 +174,10 @@ Imagine que você excluiu acidentalmente uma tabela de banco de dados importante
 
    ![Formulário de restauração](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauração**: Selecione um ponto no tempo para o qual deseja fazer a restauração, no período listado. Lembre-se de converter o fuso horário local para UTC.
-   - **Restaurar em um novo servidor**: Insira um novo nome do servidor para o qual será feita a restauração.
-   - **Localização**: A região é a mesma do servidor de origem e não pode ser alterada.
-   - **Tipo de preço**: O tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
+   - **Ponto de restauração**: selecione um ponto no tempo que você deseja restaurar, dentro do período listado. Lembre-se de converter o fuso horário local para UTC.
+   - **Restaurar em novo servidor**: insira um novo nome do servidor para onde será feita a restauração.
+   - **Localização**: a região é a mesma do servidor de origem e não pode ser alterada.
+   - **Tipo de preço**: o tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para [restaurar o servidor para um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão da tabela. A restauração de um servidor cria uma nova cópia do servidor no ponto no tempo selecionado. 
 

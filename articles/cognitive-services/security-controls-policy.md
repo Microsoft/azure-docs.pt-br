@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para os Serviços Cognitivos do Azure
 description: Lista os controles de Conformidade Regulatória do Azure Policy disponíveis para os Serviços Cognitivos do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 01/27/2021
+ms.date: 04/14/2021
 ms.topic: sample
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f37f574d8b970f65fbf2e10c2216cb9d9e62fd8f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 3cea751e63fba8c3b9bb9a763d9fb15e2593b23e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577429"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498044"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-services"></a>Controles de Conformidade Regulatória do Azure Policy para os Serviços Cognitivos do Azure
 

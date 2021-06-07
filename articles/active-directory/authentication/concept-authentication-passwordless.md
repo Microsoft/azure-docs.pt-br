@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory entrada sem senha (versão prévia)
+title: Azure Active Directory entrada sem senha
 description: Saiba mais sobre as opções de entrada sem senha para Azure Active Directory usando as chaves de segurança FIDO2 ou o aplicativo Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 43a0ef208a1a56416f748c69f552ec9169d21479
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012998"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102424224"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -62,8 +62,6 @@ Você também pode permitir que o telefone de seu funcionário se torne um méto
 
 O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
-A entrada sem senha com o aplicativo Microsoft Authenticator para o Azure AD está atualmente em versão prévia. Uso do aplicativo Microsoft Authenticator para autenticação secundária para autenticação multifator do Azure AD, redefinição de senha de autoatendimento (SSPR) ou tokens de software OATH é GA. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 
 ![Diagrama que descreve as etapas envolvidas para a entrada do usuário com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/authenticator-app-flow.png)
@@ -92,7 +90,7 @@ Os usuários podem registrar e, em seguida, selecionar uma chave de segurança F
 
 As chaves de segurança do FIDO2 podem ser usadas para entrar em seus dispositivos Windows 10 do Azure AD ou híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
 
-A entrada com chaves de segurança FIDO2 para o Azure AD está atualmente em versão prévia. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Temos um documento de referência para os quais os [navegadores dão suporte à autenticação FIDO2 com o Azure ad](fido2-compatibility.md), bem como as práticas recomendadas para os desenvolvedores que desejam [oferecer suporte à autenticação FIDO2 nos aplicativos que eles desenvolvem](../develop/support-fido2-authentication.md).
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +125,7 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 
 | Provedor | Contact |
 | --- | --- |
-| Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
+| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
 | Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
@@ -152,15 +150,15 @@ Para começar a usar as chaves de segurança do FIDO2, conclua as seguintes inst
 > [!div class="nextstepaction"]
 > [Habilitar o sinal sem senha usando chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md)
 
-## <a name="what-scenarios-work-with-the-preview"></a>Quais cenários funcionam com a versão prévia?
+## <a name="supported-scenarios"></a>Cenários com suporte
 
-Os recursos de entrada sem senha do Azure AD estão atualmente em versão prévia. As seguintes considerações se aplicam:
+As seguintes considerações se aplicam:
 
 - Os administradores podem habilitar métodos de autenticação com senha para seus locatários
 - Os administradores podem direcionar todos os usuários ou Selecionar usuários/grupos dentro de seu locatário para cada método
 - Os usuários finais podem registrar e gerenciar esses métodos de autenticação com senha em seu portal de conta
-- Os usuários finais podem entrar com esses métodos de autenticação sem senha
-   - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
+- Os usuários finais podem entrar com estes métodos de autenticação sem senha:
+   - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do Windows 10 e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge (a borda herdada e nova).
 
 ## <a name="choose-a-passwordless-method"></a>Escolha um método com senha
@@ -169,7 +167,7 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
 
-||**Windows Hello para empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança do FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1903 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|

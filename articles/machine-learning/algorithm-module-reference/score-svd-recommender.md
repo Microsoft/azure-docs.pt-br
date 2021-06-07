@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
 ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90893711"
 ---
 # <a name="score-svd-recommender"></a>Pontuar o sistema de recomendação SVD
@@ -106,7 +106,7 @@ Para recomendar itens para os usuários, você fornece uma lista de usuários e 
 O conjunto de pontos de Pontuação retornado por Score SVD Recomendador lista os itens recomendados para cada usuário:
 
 - A primeira coluna contém os identificadores de usuário.
-- Várias colunas adicionais são geradas, dependendo do valor que você definiu para o **número máximo de itens a serem recomendados a um usuário**. Cada coluna contém um item recomendado (por identificador). As recomendações são ordenadas por afinidade de usuário-item. O item com a afinidade mais alta é colocado no **Item**de coluna 1.
+- Várias colunas adicionais são geradas, dependendo do valor que você definiu para o **número máximo de itens a serem recomendados a um usuário**. Cada coluna contém um item recomendado (por identificador). As recomendações são ordenadas por afinidade de usuário-item. O item com a afinidade mais alta é colocado no **Item** de coluna 1.
 
 
 ##  <a name="technical-notes"></a>Observações técnicas

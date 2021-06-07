@@ -8,20 +8,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 7e5ea8dcddce31a414d983d14fba483eb388d5d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a29244745b154aa81997813fcf4e1457f599270
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334661"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103622163"
 ---
 O contêiner fornece [APIs de ponto de extremidade baseadas em REST](../rest-text-to-speech.md). Há muitos [projetos de código-fonte de exemplo](https://github.com/Azure-Samples/Cognitive-Speech-TTS) para a plataforma, estrutura e variações de linguagem disponíveis.
 
-Com os contêineres de conversão de texto em fala padrão ou neural, você deve contar com a localidade e a voz da marca de imagem baixada. Por exemplo, se você baixou a `latest` marca, a localidade padrão é `en-US` e a `AriaRUS` voz. `{VOICE_NAME}`Em seguida, o argumento seria [`en-US-AriaRUS`](../language-support.md#standard-voices) . Consulte o exemplo SSML abaixo:
+Com os contêineres de conversão de texto em fala padrão ou neural, você deve contar com a localidade e a voz da marca de imagem baixada. Por exemplo, se você baixou a `latest` marca, a localidade padrão é `en-US` e a `AriaNeural` voz. `{VOICE_NAME}`Em seguida, o argumento seria [`en-US-AriaNeural`](../language-support.md#neural-voices) . Consulte o exemplo SSML abaixo:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

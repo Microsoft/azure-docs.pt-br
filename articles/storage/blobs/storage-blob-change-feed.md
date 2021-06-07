@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390565"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101095569"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Suporte ao feed de alterações no armazenamento de BLOBs do Azure
 
@@ -268,7 +268,7 @@ Para obter uma descrição de cada propriedade, consulte [esquema de evento da g
 
 - Altere os registros de evento em que o `eventType` tem um valor de `Control` são registros internos do sistema e não reflita uma alteração nos objetos em sua conta. Você pode ignorar esses registros com segurança.
 
-- Os valores no `storageDiagnonstics` recipiente de propriedades são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados. Você pode ignorar essas propriedades com segurança.
+- Os valores no `storageDiagnostics` recipiente de propriedades são somente para uso interno e não são projetados para uso pelo seu aplicativo. Seus aplicativos não devem ter uma dependência contratual desses dados. Você pode ignorar essas propriedades com segurança.
 
 - A hora representada pelo segmento é **aproximada** com limites de 15 minutos. Portanto, para garantir o consumo de todos os registros dentro de um tempo especificado, consuma o segmento de hora anterior e próximo consecutivo.
 

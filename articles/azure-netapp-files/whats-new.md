@@ -12,22 +12,38 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 94981cd0912f76b710b3a60040ffbffd38381bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631152"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552097"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
 O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo dos novos recursos mais recentes e de melhorias. 
 
+## <a name="april-2021"></a>Abril de 2021
+
+* [Mapeamento de usuário LDAP do ADDS (Active Directory Domain Services) com grupos estendidos de NFS](configure-ldap-extended-groups.md) (versão prévia)   
+
+    Por padrão, o Azure NetApp Files dá suporte a até 16 IDs de grupo ao gerenciar as credenciais de usuário do NFS, conforme definido no [RFC 5531](https://tools.ietf.org/html/rfc5531). Com essa nova funcionalidade, agora você pode aumentar o máximo para até 1.024 se tiver usuários que são membros de mais do que o número padrão de grupos. Para dar suporte a essa funcionalidade, os volumes de NFS agora também podem ser adicionados ao LDAP do ADDS, o que permite aos usuários LDAP do Active Directory com entradas de grupos estendidas (com até 1.024 grupos) acessar o volume. 
+
+## <a name="march-2021"></a>Março de 2021
+
+* [Compartilhamentos de CA (disponibilidade contínua) do SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versão prévia)  
+
+    O Failover Transparente do SMB permite operações de manutenção no serviço do Azure NetApp Files sem interromper a conectividade com os aplicativos de servidor que armazenam e acessam dados em volumes de SMB. Para dar suporte ao Failover Transparente do SMB, o Azure NetApp Files agora dá suporte à opção de compartilhamentos de Disponibilidade Contínua do SMB para uso com aplicativos SQL Server via SMB em execução em VMs do Azure. Atualmente, esse recurso tem suporte no Windows SQL Server. No momento, não há suporte para o Linux SQL Server. Habilitar esse recurso fornece aprimoramentos significativos de desempenho do SQL Server e benefícios de escala e custo para [implantações da Instância Única, da Instância de Cluster de Failover do Always-On e do Grupo de Disponibilidade do Always-On](azure-netapp-files-solution-architectures.md#sql-server). Confira os [Benefícios de usar o Azure NetApp Files para implantação do SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
+
+* [Redimensionamento automático de um volume de destino de replicação entre regiões](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    Em uma relação de replicação entre regiões, um volume de destino é redimensionado automaticamente com base no tamanho do volume de origem. Assim, você não precisa redimensionar o volume de destino separadamente. Esse comportamento de redimensionamento automático é aplicável quando os volumes estão em uma relação de replicação ativa ou quando o emparelhamento da replicação é interrompido com a operação de ressincronização. Para que esse recurso funcione, você precisa garantir que haja espaço suficiente nos pools de capacidade dos volumes de origem e de destino.
+
 ## <a name="december-2020"></a>Dezembro de 2020
 
-* [Ferramenta de Instantâneo Consistente do Aplicativo Azure](azacsnap-introduction.md) (versão prévia pública)    
+* [Ferramenta de Instantâneo Consistente do Aplicativo Azure](azacsnap-introduction.md) (versão prévia)    
 
     O AzAcSnap (Ferramenta de Instantâneo Consistente do Aplicativo Azure) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bancos de dados de terceiros (SAP HANA) em ambientes do Linux (por exemplo, SUSE e RHEL).   
 
@@ -47,7 +63,7 @@ O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo do
 
 ## <a name="september-2020"></a>Setembro de 2020
 
-* [Replicação entre regiões do Azure NetApp Files](cross-region-replication-introduction.md) (Versão Prévia Pública)
+* [Replicação entre regiões do Azure NetApp Files](cross-region-replication-introduction.md) (versão prévia)
 
   O Azure NetApp Files agora é compatível com a replicação entre regiões. Com essa nova funcionalidade de recuperação de desastre, é possível replicar os volumes do Azure NetApp Files de uma região do Azure para outra de maneira rápida e econômica. Isso protege seus dados contra falhas regionais imprevistas. A replicação entre regiões do Azure NetApp Files usa a tecnologia NetApp SnapMirror®. Somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Essa tecnologia proprietária minimiza a quantidade de dados necessária para replicar entre as regiões. Desse modo, você economiza nos custos de transferência de dados. Além disso, reduz o tempo de replicação para que você possa ter um RPO (Objetivo de Ponto de Recuperação) menor.
 
@@ -99,7 +115,7 @@ O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo do
 
 ## <a name="may-2020"></a>Maio de 2020
 
-* [Usuários da política de backup](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Versão Prévia)
+* [Usuários da política de backup](create-active-directory-connections.md) (Versão Prévia)
 
     O Azure NetApp Files permite incluir outras contas que exigem privilégios elevados na conta de computador criada para uso com esse serviço. As contas especificadas terão permissão para alterar as permissões de NTFS no nível do arquivo ou da pasta. Por exemplo, você pode especificar uma conta de serviço sem privilégios usada para migrar dados para um compartilhamento de arquivos SMB no Azure NetApp Files. O recurso de usuários da política de backup está em versão prévia no momento.
 

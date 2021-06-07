@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0ce5cfadbab247299cd3c22bf6ee618bf19731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743906"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100582490"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure
 
@@ -18,7 +18,7 @@ Este artigo mostra como dimensionar seu aplicativo no Serviço de Aplicativo do 
 
 * [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos extras, como VMs (máquinas de virtuais) dedicadas, domínios personalizados e certificados, slots de preparo, dimensionamento automático e muito mais. Você escala verticalmente alterando o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
 * [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumenta o número de instâncias de VM que executam seu aplicativo.
-  Você pode escalar horizontalmente até 30 instâncias, dependendo do tipo de preço. [Ambientes do Serviço de Aplicativo](environment/intro.md) no tipo de preço **Isolado** aumentam ainda mais sua contagem de expansão para 100 instâncias. Para saber mais sobre a escala horizontal, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-monitor/platform/autoscale-get-started.md). Lá, você descobre como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e agendamentos predefinidos.
+  Você pode escalar horizontalmente até 30 instâncias, dependendo do tipo de preço. [Ambientes do Serviço de Aplicativo](environment/intro.md) no tipo de preço **Isolado** aumentam ainda mais sua contagem de expansão para 100 instâncias. Para saber mais sobre a escala horizontal, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md). Lá, você descobre como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e agendamentos predefinidos.
 
 As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/overview-hosting-plans.md).
 Elas não exigem a alteração do código ou a reimplantação do aplicativo.
@@ -77,7 +77,7 @@ Para uma tabela de limites de serviço, cotas, restrições e recursos com supor
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Escalonar a contagem de instâncias manualmente ou automaticamente](../azure-monitor/platform/autoscale-get-started.md)  
+[Escalonar a contagem de instâncias manualmente ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md)  
 [Configurar camada de PremiumV3 para o serviço de aplicativo](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 82cec4cc448f0ec30aecf6f8a69f399e0abbdde0
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97706942"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
@@ -33,7 +33,7 @@ Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é
 Para saber mais sobre como definir esses valores de durante a criação, confira o [guia de início rápido do Banco de Dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md).
 
 O período de retenção de backup de um servidor pode ser alterado por meio das seguintes etapas:
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL. Essa ação abre a página **Visão geral** do runbook.
 3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
 Na captura de tela abaixo, ele foi aumentado para 34 dias.
@@ -89,7 +89,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 4. Selecione **backup** como a **fonte de dados**. Essa ação carrega um menu suspenso que fornece uma lista de servidores que têm backups com redundância geográfica habilitada.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Selecione uma fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Selecione a fonte de dados.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.

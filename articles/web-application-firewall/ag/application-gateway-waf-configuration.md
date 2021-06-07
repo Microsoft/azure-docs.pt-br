@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040251"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão
@@ -38,11 +38,11 @@ Você pode especificar um cabeçalho de solicitação exato, corpo, cookie ou um
 
 A seguir estão os operadores de critérios de correspondência com suporte:
 
-- **Equals** : esse operador é usado para uma correspondência exata. Como exemplo, para a seleção de um cabeçalho chamado **bearerToken** , use o operador equals com seletor definido como **bearerToken** .
-- **Começa com** : esse operador corresponde com todos os campos que começam com o valor do seletor especificado.
-- **Termina com** : esse operador corresponde com todos os campos de solicitação que terminam com o valor do seletor especificado.
-- **Contém** : esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
-- **Equals any** : Este operador corresponde a todos os campos de solicitação. * será o valor do seletor.
+- **Equals**: esse operador é usado para uma correspondência exata. Como exemplo, para a seleção de um cabeçalho chamado **bearerToken**, use o operador equals com seletor definido como **bearerToken**.
+- **Começa com**: esse operador corresponde com todos os campos que começam com o valor do seletor especificado.
+- **Termina com**: esse operador corresponde com todos os campos de solicitação que terminam com o valor do seletor especificado.
+- **Contém**: esse operador corresponde com todos os campos de solicitação que contenham o valor do seletor especificado.
+- **Equals any**: Este operador corresponde a todos os campos de solicitação. * será o valor do seletor.
 
 Em todos os casos, a correspondência diferencia maiúsculas de minúsculas e a expressão regular não é permitida como seletor.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Portanto, se a URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passada para o WAF, ela não avaliará a cadeia de caracteres **fdafdasfda** , mas ainda avaliará o usuário de nome de parâmetro **%281 %29** . 
+Portanto, se a URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passada para o WAF, ela não avaliará a cadeia de caracteres **fdafdasfda**, mas ainda avaliará o usuário de nome de parâmetro **%281 %29**. 
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho de solicitação de WAF
 

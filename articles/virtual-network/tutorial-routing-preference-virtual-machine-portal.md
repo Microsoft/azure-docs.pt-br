@@ -10,28 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221639"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101670907"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurar a preferência de roteamento para uma VM usando o portal do Azure
 
-Este artigo mostra como configurar a preferência de roteamento para uma máquina virtual. O tráfego associado à Internet da VM será roteado por meio da rede do ISP quando você escolher a **Internet** como a opção de preferência de roteamento. O roteamento padrão é feito por meio da rede global da Microsoft.
+Este artigo mostra como configurar a preferência de roteamento para uma máquina virtual. O tráfego associado à Internet que parte da VM será roteado por meio da rede do ISP quando você escolher **Internet** como opção de preferência de roteamento. O roteamento padrão é feito por meio da rede global da Microsoft.
 
 Este artigo mostra como criar uma máquina virtual com um IP público que está definido para rotear o tráfego pela Internet pública usando o portal do Azure.
 
-> [!IMPORTANT]
-> Atualmente, a preferência de roteamento está em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [portal do Azure](https://preview.portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 

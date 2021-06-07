@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 8a00cf11edfea2e732a18a392d465525b38ea45f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Azure Active Directory ao Picturepark
@@ -30,7 +30,7 @@ A integração do Picturepark ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Picturepark, você precisa dos seguintes itens:
 
@@ -49,11 +49,11 @@ Para configurar a integração do Picturepark ao Azure AD, é necessário adicio
 
 **Para adicionar o Picturepark por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Picturepark ao Azure AD, é necessário adicio
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Picturepark** , selecione **Picturepark** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Picturepark**, selecione **Picturepark** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Picturepark na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configura e testa o logon único do Azure AD com o Picturepark, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configura e testa o logon único do Azure AD com o Picturepark, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Picturepark.
 
 Para configurar e testar o logon único do Azure AD com o Picturepark, você precisa concluir os seguintes blocos de construção:
@@ -85,23 +85,23 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Picturepark, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Picturepark** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Picturepark**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único em Domínio e URLs do Picturepark](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.picturepark.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.picturepark.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
@@ -114,15 +114,15 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Picturepark](https://picturepark.com/company/picturepark-customer-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na seção **Certificado de Autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML** .
+5. Na seção **Certificado de Autenticação SAML**, clique no botão **Editar** para abrir a caixa de diálogo **Certificado de Autenticação SAML**.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-6. Na seção **Certificado de Autenticação SAML** , copie a **Impressão Digital** e salve-a no computador.
+6. Na seção **Certificado de Autenticação SAML**, copie a **Impressão Digital** e salve-a no computador.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
-7. Na seção **Configurar o Picturepark** , copie as URLs apropriadas de acordo com suas necessidades. Em **URL de Logon** , use o valor com o seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. Na seção **Configurar o Picturepark**, copie as URLs apropriadas de acordo com suas necessidades. Em **URL de Logon**, use o valor com o seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ é a ID do locatário da assinatura do Microsoft Directory Azure.
@@ -137,39 +137,39 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
 
 1. Em uma janela de navegador da Web diferente, entre no site de sua empresa do Picturepark como administrador.
 
-2. Na barra de ferramentas na parte superior, clique em **Ferramentas administrativas** e em **Console de Gerenciamento** .
+2. Na parte superior da barra de ferramentas, clique em **Ferramentas administrativas** e em **Console de Gerenciamento**.
    
     ![Console de Gerenciamento](./media/picturepark-tutorial/ic795062.png "Console de Gerenciamento")
 
-3. Clique em **Autenticação** e em **Provedores de identidade** .
+3. Clique em **Autenticação** e em **Provedores de identidade**.
    
     ![Autenticação](./media/picturepark-tutorial/ic795063.png "Autenticação")
 
-4. Na seção **Configuração do provedor de identidade** , realize as seguintes etapas:
+4. Na seção **Configuração do provedor de identidade**, siga estas etapas:
    
     ![Configuração do provedor de identidade](./media/picturepark-tutorial/ic795064.png "Configuração do provedor de identidade")
    
-    a. Clique em **Adicionar** .
+    a. Clique em **Adicionar**.
   
     b. Digite um nome para sua configuração.
    
-    c. Selecione **Definir como padrão** .
+    c. Selecione **Definir como padrão**.
    
-    d. Na caixa de texto **URI do emissor** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    d. Na caixa de texto **URI do emissor**, cole o valor da **URL de Logon** copiado do portal do Azure.
    
-    e. Na caixa de texto **Impressão Digital do Emissor Confiável** , cole o valor da **Impressão Digital** copiado da seção **Certificado de Autenticação SAML** . 
+    e. Na caixa de texto **Impressão Digital do Emissor Confiável**, cole o valor da **Impressão Digital** copiado da seção **Certificado de Autenticação SAML**. 
 
-5. Clique em **JoinDefaultUsersGroup** .
+5. Clique em **JoinDefaultUsersGroup**.
 
-6. Para definir o atributo **Emailaddress** na caixa de texto **Declaração** , digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` e clique em **Salvar** .
+6. Para definir o atributo **Emailaddress** na caixa de texto **Declaração**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` e clique em **Salvar**.
 
-      ![Configuração](./media/picturepark-tutorial/ic795065.png "Configuração")
+      ![Configuration](./media/picturepark-tutorial/ic795065.png "Configuração")
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -181,39 +181,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Picturepark.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Picturepark** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Picturepark**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Picturepark** .
+2. Na lista de aplicativos, selecione **Picturepark**.
 
     ![O link Picturepark na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-picturepark-test-user"></a>Criar um usuário de teste do Picturepark
 
@@ -223,37 +223,37 @@ Para permitir que os usuários do Azure AD entrem no Picturepark, eles devem ser
 
 1. Entre no seu locatário do **Picturepark** .
 
-1. Na barra de ferramentas na parte superior, clique em **Ferramentas administrativas** e em **Usuários** .
+1. Na parte superior da barra de ferramentas, clique em **Ferramentas administrativas** e em **Usuários**.
    
     ![Usuários](./media/picturepark-tutorial/ic795067.png "Usuários")
 
-1. Na guia **Visão geral de usuários** , clique em **Novo** .
+1. Na guia **Visão geral dos usuários**, clique em **Novo**.
    
-    ![Gerenciamento de Usuários](./media/picturepark-tutorial/ic795068.png "Gerenciamento de Usuários")
+    ![Gerenciamento de usuários](./media/picturepark-tutorial/ic795068.png "Gerenciamento de usuários")
 
-1. Na caixa de diálogo **Criar Usuário** , realize as seguintes etapas de um Usuário válido do Azure Active Directory que você deseja provisionar:
+1. Na caixa de diálogo **Criar Usuário**, realize as seguintes etapas de um Usuário válido do Azure Active Directory que você deseja provisionar:
    
     ![Criar Usuário](./media/picturepark-tutorial/ic795069.png "Criar Usuário")
    
-    a. Na caixa de texto **Endereço de Email** , digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
+    a. Na caixa de texto **Endereço de Email**, digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
    
-    b. Nas caixas de texto **Senha** e **Confirmar Senha** , digite a **senha** de BrendaFernandes. 
+    b. Nas caixas de texto **Senha** e **Confirmar Senha**, digite a **senha** de BrendaFernandes. 
    
-    c. Na caixa de texto **Nome** , digite o **Nome** do usuário **Brenda** . 
+    c. Na caixa de texto **Nome**, digite o **Nome** do usuário **Brenda**. 
    
-    d. Na caixa de texto **Sobrenome** , digite o **Sobrenome** do usuário **Fernandes** .
+    d. Na caixa de texto **Sobrenome**, digite o **Sobrenome** do usuário **Fernandes**.
    
-    e. Na caixa de texto **Empresa** , digite o **Nome da empresa** do usuário. 
+    e. Na caixa de texto **Empresa**, digite o **Nome da empresa** do usuário. 
    
-    f. Na caixa de texto **País** , selecione o **País/Região** do usuário.
+    f. Na caixa de texto **País**, selecione o **País/Região** do usuário.
   
-    g. Na caixa de texto **CEP** , digite o **CEP** da cidade.
+    g. Na caixa de texto **CEP**, digite o **CEP** da cidade.
    
-    h. Na caixa de texto **Cidade** , digite o **Nome da cidade** do usuário.
+    h. Na caixa de texto **Cidade**, digite o **Nome da cidade** do usuário.
 
-    i. Selecione um **Idioma** .
+    i. Selecione um **Idioma**.
    
-    j. Clique em **Criar** .
+    j. Clique em **Criar**.
 
 >[!NOTE]
 >Você pode usar qualquer outra ferramenta de criação de conta de usuário do Picturepark ou as APIs fornecidas pelo Picturepark para provisionar contas de usuário do Azure AD.

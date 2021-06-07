@@ -2,22 +2,22 @@
 title: Extensão de driver de GPU AMD – VMs do Windows do Azure
 description: Microsoft Azure extensão para instalar os drivers do AMD GPU em VMs da série NVv4 que executam o Windows.
 services: virtual-machines-windows
-documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42dac9edc91d7cb935e8c20398c4d31343b358e1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965996"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102559674"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensão de driver de GPU AMD para Windows
 
@@ -151,7 +151,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 A saída de execução da extensão é registrada no seguinte local:
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 ```
 
 ### <a name="error-codes"></a>Códigos do Erro

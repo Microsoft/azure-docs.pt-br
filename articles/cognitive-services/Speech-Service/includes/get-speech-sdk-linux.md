@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135617"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611869"
 ---
 :::row:::
     :::column span="3":::
-        O SDK de fala só dá suporte ao **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** e **CentOS 7/8** nas seguintes arquiteturas de destino quando usado com o Linux:
+        O SDK de fala só dá suporte ao **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8** e **CentOS 7/8** nas seguintes arquiteturas de destino quando usado com o Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -31,7 +31,10 @@ ms.locfileid: "93135617"
 > [!IMPORTANT]
 > Para o C# no Linux ARM64, é necessário ter o pacote do .NET Core 3. x (dotNet-SDK-3. x).
 
-### <a name="system-requirements"></a>Requisitos do sistema
+> [!NOTE]
+> Para usar o SDK de fala no Alpine Linux, crie um ambiente Debian chroot, conforme documentado no wiki do Alpine Linux, na [execução de programas glibc](https://wiki.alpinelinux.org/wiki/Running_glibc_programs)e siga as instruções Debian aqui.
+
+### <a name="system-requirements"></a>Requisitos de sistema
 
 Para um aplicativo nativo, o SDK de fala depende do `libMicrosoft.CognitiveServices.Speech.core.so` . Verifique se a arquitetura de destino (x86, x64) corresponde ao aplicativo. Dependendo da versão do Linux, podem ser necessárias dependências adicionais.
 

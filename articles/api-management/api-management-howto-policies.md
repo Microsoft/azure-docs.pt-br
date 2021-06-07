@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358109"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
@@ -25,7 +25,7 @@ No Gerenciamento de API do Azure (APIM), as políticas são uma poderosa funcion
 
 As políticas são aplicadas dentro do gateway que fica entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, consulte [políticas avançadas][Advanced policies] e [expressões de política][Policy expressions].
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][Advanced policies] e [Expressões de política][Policy expressions].
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Compreendendo configuração de políticas
 

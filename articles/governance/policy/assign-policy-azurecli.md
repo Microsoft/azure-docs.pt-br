@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com a CLI do Azure'
 description: Neste início rápido, use a CLI do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9955f911f9a92d7b353a8f3d022af7884b5a6aae
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2b7dad3eba18966a78fd35211ce40ea48234da30
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090130"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090149"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade na CLI do Azure
 
@@ -52,8 +52,8 @@ O comando anterior usa as seguintes informações:
 
 - **Nome** - O nome real da atribuição. Neste exemplo, usamos _audit-vm-manageddisks_.
 - **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando _Auditar VMs sem atribuição de discos gerenciados_.
-- **Política** : a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_. Para obter a ID de definição da política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
-- **Escopo** : um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Substitua o &lt;escopo&gt; pelo nome do seu grupo de recursos.
+- **Política**: a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política _Auditar VMs que não usam discos gerenciados_. Para obter a ID de definição da política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Substitua o &lt;escopo&gt; pelo nome do seu grupo de recursos.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
 

@@ -4,10 +4,10 @@ description: Como exibir e gerenciar logs de execução gerados por tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027169"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Exibir e gerenciar logs de execução de tarefa
@@ -65,14 +65,14 @@ Se uma tarefa for disparada automaticamente, por exemplo, por uma atualização 
 Para exibir os logs de execução no Portal:
 
 1. Navegue até seu registro de contêiner.
-1. Em **Serviços** , selecione **tarefas**  >  **execuções** .
+1. Em **Serviços**, selecione **tarefas**  >  **execuções**.
 1. Selecione uma **ID de execução** para exibir o status de execução e os logs de execução. O log contém as mesmas informações que um log transmitido, se um for gerado.
 
 ![Exibir o portal de logon da execução de tarefa](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Para exibir um log usando o CLI do Azure, execute [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) e ESPECIFIQUE uma ID de execução, um nome de tarefa ou uma imagem específica criar por uma tarefa de compilação. Se um nome de tarefa for especificado, o comando mostrará o log para a última execução criada.
 
-O exemplo a seguir gera o log para a execução com ID *cf4* :
+O exemplo a seguir gera o log para a execução com ID *cf4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \

@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103230"
 ---
 Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. Para uma VNet no grupo de recursos, o nome "ClassicRG" pode ser semelhante a: **Group ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.

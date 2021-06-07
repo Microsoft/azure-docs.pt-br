@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91565252"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança de mensagens B2B com certificados
@@ -86,9 +86,9 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | <*nome do certificado*> | O nome do certificado, que é "privateCert" neste exemplo | 
-   | **Tipo de certificado** | Particular | O tipo do certificado |
+   | **Tipo de certificado** | Privados | O tipo do certificado |
    | **Certificado** | <*nome do arquivo de certificado*> | Para localizar e selecionar o arquivo de certificado que você quer enviar, escolha o ícone da pasta ao lado da caixa **Certificado**. Ao usar um cofre de chaves para a chave privada, o arquivo carregado será o certificado público. | 
-   | **Grupo de recursos** | <*integração-conta-grupo de recursos*> | O grupo de recursos da conta de integração, que é "MyResourceGroup" neste exemplo | 
+   | **Grupo de Recursos** | <*integração-conta-grupo de recursos*> | O grupo de recursos da conta de integração, que é "MyResourceGroup" neste exemplo | 
    | **Key Vault** | <*nome do cofre de chaves*> | O nome do cofre de chaves do Azure |
    | **Nome da chave** | <*nome da chave*> | O nome da chave |
    ||||

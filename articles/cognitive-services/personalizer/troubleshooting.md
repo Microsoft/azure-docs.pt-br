@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.openlocfilehash: b5f7ed1f2ded8f6ec0320d417b59bab016d75028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777268"
 ---
 # <a name="personalizer-troubleshooting"></a>Solução de problemas do personalizador
@@ -66,7 +66,7 @@ Quando o novo período de atualização começar, o modelo atualizado será usad
 
 ### <a name="how-do-i-know-that-the-learning-loop-is-getting-updated-regularly-and-is-used-to-score-my-data"></a>Como fazer saber que o loop de aprendizagem está sendo atualizado regularmente e é usado para pontuar meus dados?
 
-Você pode encontrar a hora em que o modelo foi atualizado pela última vez na página de **configurações modelo e aprendizado** da portal do Azure. Se você vir um carimbo de data/hora antigo, é provável que você não esteja enviando as chamadas de classificação e recompensa. Se o serviço não tiver dados de entrada, ele não atualizará o aprendizado. Se você vir que o loop de aprendizagem não está atualizando com frequência suficiente, você poderá editar a **frequência de atualização do modelo**do loop.
+Você pode encontrar a hora em que o modelo foi atualizado pela última vez na página de **configurações modelo e aprendizado** da portal do Azure. Se você vir um carimbo de data/hora antigo, é provável que você não esteja enviando as chamadas de classificação e recompensa. Se o serviço não tiver dados de entrada, ele não atualizará o aprendizado. Se você vir que o loop de aprendizagem não está atualizando com frequência suficiente, você poderá editar a **frequência de atualização do modelo** do loop.
 
 ## <a name="offline-evaluations"></a>Avaliações offline
 

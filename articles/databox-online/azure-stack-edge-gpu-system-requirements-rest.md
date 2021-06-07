@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575848"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567246"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs do Azure Stack Edge
 
@@ -70,7 +70,7 @@ Para instalar o cliente PHP por meio do Composer:
 
 ## <a name="endpoint-declaration"></a>Declaração de ponto de extremidade
 
-Na Azure Stack SDK do armazenamento de BLOBs do Edge, o sufixo do ponto de extremidade – `<device serial number>.microsoftdatabox.com` identifica o domínio do Azure Stack Edge. Para obter mais informações sobre o ponto de extremidade do serviço BLOB, acesse [transferir dados por meio de contas de armazenamento com o Azure Stack Edge pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+Na Azure Stack SDK do armazenamento de BLOBs do Edge, o sufixo do ponto de extremidade – `<device serial number>.microsoftdatabox.com` identifica o domínio do Azure Stack Edge. Para obter mais informações sobre o ponto de extremidade do serviço BLOB, acesse [transferir dados por meio de contas de armazenamento com o Azure Stack Edge pro GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 
 ## <a name="examples"></a>Exemplos

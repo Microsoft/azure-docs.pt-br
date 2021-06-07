@@ -1,38 +1,38 @@
 ---
-title: Implantar e fazer previsões com ONNX
+title: Implantar e fazer previsões com o ONNX
 titleSuffix: SQL machine learning
-description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no Azure SQL Edge ou no Azure SQL Instância Gerenciada (versão prévia) e, em seguida, executar a previsão nativa nos dados usando o modelo ONNX carregado.
+description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no SQL do Azure no Edge ou na Instância Gerenciada de SQL do Azure (versão prévia) e executar o PREDICT nativo nos dados usando o modelo ONNX carregado.
 keywords: implantar o SQL no Edge
 ms.prod: sql
 ms.technology: machine-learning
-ms.topic: conceptual
+ms.topic: quickstart
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: MT
+ms.openlocfilehash: 755111b2fc48ec119c30d09f2e51b9db6c333848
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392173"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100653203"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Implantar e fazer previsões com um modelo ONNX e o aprendizado de máquina do SQL
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Implantar e fazer previsões com um modelo ONNX e o machine learning do SQL
 
-Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no [Azure SQL Edge](onnx-overview.md) ou no [Azure SQL instância gerenciada (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
+Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no [SQL do Azure no Edge](onnx-overview.md) ou na [Instância Gerenciada de SQL do Azure (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md) e executar o PREDICT nativo nos dados usando o modelo ONNX carregado.
 
 Este guia de início rápido baseia-se no **scikit-learn** e usa o [conjunto de dados de moradia de Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Se você estiver usando o Azure SQL Edge e não tiver implantado um módulo do Azure SQL Edge, siga as etapas de [implantar o SQL Edge usando o portal do Azure](deploy-portal.md).
+* Se você está usando o SQL do Azure no Edge e ainda não implantou um módulo dele, siga as etapas de [Implantar o SQL no Edge usando o portal do Azure](deploy-portal.md).
 
 * Instale o [Azure Data Studio](/sql/azure-data-studio/download).
 
-* Instale os pacotes do python necessários para este guia de início rápido:
+* Instale os pacotes do Python necessários para este guia de início rápido:
 
   1. Abra [Novo Notebook](/sql/azure-data-studio/sql-notebooks) conectado ao Kernel do Python 3. 
-  1. Clique em **gerenciar pacotes**
-  1. Na guia **instalado** , procure os seguintes pacotes do Python na lista de pacotes instalados. Se qualquer um desses pacotes não estiver instalado, selecione a guia **Adicionar nova** , pesquise o pacote e clique em **instalar**.
+  1. Clique em **Gerenciar Pacotes**
+  1. Na guia **Instalado**, procure os pacotes do Python a seguir na lista de pacotes instalados. Se um destes pacotes não estiver instalado, escolha a guia **Adicionar Novo**, procure o pacote e clique em **Instalar**.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
@@ -72,14 +72,14 @@ y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n**_ Training dataset y\n")
+print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
-_ * Saída * *:
+**Saída**:
 
 ```text
-**_ Training dataset x
+*** Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -95,7 +95,7 @@ _ * Saída * *:
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-_*_ Training dataset y
+*** Training dataset y
 
 0    24.0
 1    21.6
@@ -137,15 +137,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 y_pred = model.predict(x_train)
 sklearn_r2_score = r2_score(y_train, y_pred)
 sklearn_mse = mean_squared_error(y_train, y_pred)
-print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
-print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
+print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
+print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-_ * Saída * *:
+**Saída**:
 
 ```text
-**_ Scikit-learn r2 score: 0.7406426641094094
-_*_ Scikit-learn MSE: 21.894831181729206
+*** Scikit-learn r2 score: 0.7406426641094094
+*** Scikit-learn MSE: 21.894831181729206
 ```
 
 ## <a name="convert-the-model-to-onnx"></a>converter o modelo em ONNX
@@ -208,18 +208,18 @@ onnx_r2_score = r2_score(y_train, y_pred)
 onnx_mse = mean_squared_error(y_train, y_pred)
 
 print()
-print('_*_ Onnx r2 score: {}'.format(onnx_r2_score))
-print('_*_ Onnx MSE: {}\n'.format(onnx_mse))
+print('*** Onnx r2 score: {}'.format(onnx_r2_score))
+print('*** Onnx MSE: {}\n'.format(onnx_mse))
 print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
 print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
 print()
 ```
 
-_ * Saída * *:
+**Saída**:
 
 ```text
-**_ Onnx r2 score: 0.7406426691136831
-_*_ Onnx MSE: 21.894830759270633
+*** Onnx r2 score: 0.7406426691136831
+*** Onnx MSE: 21.894830759270633
 
 R2 Scores are equal
 MSE are equal
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>inserir o modelo ONNX
 
-Armazene o modelo no Azure SQL Edge ou no Azure SQL Instância Gerenciada, em uma `models` tabela em um banco de dados `onnx` . Na cadeia de conexão, especifique o _ * endereço do servidor * *, **nome de usuário** e **senha**.
+Armazene o modelo no SQL do Azure no Edge ou na Instância Gerenciada de SQL do Azure, em uma tabela `models` em um banco de dados `onnx`. Na cadeia de conexão, especifique o **endereço do servidor**, o **nome de usuário** e a **senha**.
 
 ```python
 import pyodbc
@@ -287,7 +287,7 @@ conn.commit()
 
 Carregue os dados no SQL.
 
-Primeiro, crie duas tabelas, **recursos** e **destino** , para armazenar subconjuntos do conjunto de dados de moradia de Boston.
+Primeiro, crie duas tabelas, **recursos** e **destino**, para armazenar subconjuntos do conjunto de dados de moradia de Boston.
 
 * A tabela **Recursos** contém todos os dados que estão sendo usados para prever o valor mediano de destino. 
 * A tabela **Destino** contém o valor mediano para cada registro no conjunto de dados. 
@@ -358,7 +358,7 @@ Agora você pode exibir os dados no banco de dados.
 
 ## <a name="run-predict-using-the-onnx-model"></a>Executar PREDICT usando o modelo ONNX
 
-Com o modelo no SQL, execute a previsão nativa nos dados usando o modelo ONNX carregado.
+Com o modelo no SQL, execute o PREDICT nativo nos dados usando o modelo ONNX carregado.
 
 > [!NOTE]
 > Altere o kernel do notebook para SQL para executar a célula restante.
@@ -398,4 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Machine Learning e IA com ONNX no SQL no Edge](onnx-overview.md)
-* [Serviços de Machine Learning no SQL Instância Gerenciada do Azure (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Serviços de Machine Learning na Instância Gerenciada de SQL do Azure (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)

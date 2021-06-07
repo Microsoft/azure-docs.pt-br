@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: 2f9d132084f0254486be533daea6b54239f4e450
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019968"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras de limite configurável com base no Azure Stream Analytics

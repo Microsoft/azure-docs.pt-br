@@ -4,12 +4,12 @@ description: Saiba mais sobre o Cache de E/S do Azure HDInsight e sobre como us�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940129"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866294"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
 
@@ -37,7 +37,7 @@ O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévi
 
 1. Selecione **ações** (**ações de serviço** no HDI 3,6) e **ative**.
 
-    ![Habilitando o serviço de cache de e/s no Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitando o serviço de cache de e/s no Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Habilitando o serviço de cache de e/s no Ambari" border="true":::
 
 1. Confirme a reinicialização de todos os serviços afetados no cluster.
 
@@ -52,7 +52,7 @@ Você pode receber erros de espaço em disco ao executar trabalhos do Spark depo
 
 1. Selecione as guias **Configurações** e **Avançado**.
 
-    ![Editar configuração avançada do HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Editar configuração avançada do HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Editar configuração avançada do HDFS" border="true":::
 
 1. Role para baixo e expanda a área **Site principal personalizado**.
 
@@ -60,13 +60,13 @@ Você pode receber erros de espaço em disco ao executar trabalhos do Spark depo
 
 1. Altere o valor na caixa.
 
-    ![Editar porcentagem de total do cache de e/s](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Editar porcentagem de total do cache de e/s")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Editar porcentagem de total do cache de e/s" border="true":::
 
 1. Selecione **Salvar** no canto superior direito.
 
 1. Selecione **reiniciar**  >  **reiniciar todos os afetados**.
 
-    ![O Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="O Apache Ambari reinicia todos os afetados" border="true":::
 
 1. Selecione **confirmar reiniciar tudo**.
 

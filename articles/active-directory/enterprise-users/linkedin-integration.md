@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96545886"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrar conexões de conta do LinkedIn no Azure Active Directory
@@ -96,7 +96,7 @@ Para usar o grupo da etapa dois como o grupo selecionado na configuração de co
   
    Estado | Efeito
    ------ | ------
-   **Habilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
+   **Enabled** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está habilitada. Os usuários em sua organização podem usar os recursos do LinkedIn em seus aplicativos do Office 2016.
    **Desabilitado** | A configuração **Mostrar recursos do LinkedIn em aplicativos do Office** nas opções do Office 2016 está desabilitada e os usuários finais não podem alterar essa configuração. Os usuários em sua organização não podem usar recursos do LinkedIn nos seus aplicativos do Office 2016.
 
 Essa política de grupo afeta somente os aplicativos do Office 2016 para um computador local. Se os usuários desabilitarem o LinkedIn em seus aplicativos do Office 2016, eles ainda poderão ver os recursos do LinkedIn no Microsoft 365.

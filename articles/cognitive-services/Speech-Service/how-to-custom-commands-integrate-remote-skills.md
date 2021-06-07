@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
 ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025867"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Exportar o aplicativo de comandos personalizados como uma habilidade remota
@@ -53,7 +53,7 @@ Você tem a opção de escolher quais comandos deseja exportar sobre habilidades
 
 1. Para expor um comando sobre as habilidades, selecione **habilitar um novo comando** em **habilitar comandos para habilidades**.
 1. No menu suspenso, selecione o comando que você pretende adicionar.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="configure-triggering-utterances-for-commands"></a>Configurar o disparo de declarações para comandos
 Os comandos personalizados usam as frases de exemplo que são configuradas para os comandos a fim de gerar as habilidades que disparam declarações. Essas **declarações de disparo** serão usadas para gerar o [**manifesto de habilidade**](https://microsoft.github.io/botframework-solutions/skills/handbook/manifest/)da seção do **Dispatcher** .
@@ -68,7 +68,7 @@ Como autor, talvez você queira controlar quais das **frases de exemplo** são u
     > [!div class="mx-imgBorder"]
     > ![Desabilitar exemplos](media/custom-commands/skill-disable-example-sentences.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Você observará que não é possível adicionar um novo exemplo nessa janela. Se houver a necessidade de fazer isso, vá para sair da seção Configurações e selecione o comando relevante do acordeão de **comandos** . Neste ponto, você pode adicionar a nova entrada na seção de **sentenças de exemplo** . Essa alteração será refletida automaticamente no valor de configurações de habilidades remotas para o comando.
 
 > [!IMPORTANT]

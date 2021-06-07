@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: da8007a651b62430055f263f082fabf2aa4bf610
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559532"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574281"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -38,7 +38,6 @@ Consulte os outros artigos desta série:
 
 > [!IMPORTANT]
 > Se o seu espaço de trabalho estiver em uma __nuvem soberanas__, como Azure governamental ou Azure China 21vianet, os notebooks integrados _não_ dão suporte ao uso de armazenamento que esteja em uma rede virtual. Em vez disso, você pode usar Jupyter Notebooks em uma instância de computação. Para obter mais informações, consulte a seção [acessar dados em um notebook da instância de computação](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +106,6 @@ A tabela a seguir descreve porque você deve habilitar a autenticação de ident
 >
 > Para resolver esse problema, remova a conta de armazenamento de filestore da rede virtual e adicione-a novamente à rede virtual.
 
-
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Conceder acesso do __leitor__ de identidade gerenciada do espaço de trabalho ao link privado do armazenamento
 
 Se sua conta de armazenamento do Azure usa um ponto de extremidade privado, você deve conceder ao **leitor** de identidade gerenciado por espaço de trabalho acesso ao link privado. Para obter mais informações, consulte a função interna do [leitor](../role-based-access-control/built-in-roles.md#reader) . 
@@ -134,7 +132,7 @@ Para o __armazenamento de BLOBs do Azure__, a identidade gerenciada por espaço 
 
 Você pode usar as listas de controle de acesso (ACLs) do RBAC do Azure e do estilo POSIX para controlar o acesso a dados dentro de uma rede virtual.
 
-Para usar o RBAC do Azure, adicione a identidade gerenciada pelo espaço de trabalho à função de [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Para obter mais informações, consulte [controle de acesso baseado em função do Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Para usar o RBAC do Azure, adicione a identidade gerenciada pelo espaço de trabalho à função de [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Para saber mais, confira [Controle de acesso baseado em função no Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Para usar ACLs, a identidade gerenciada por espaço de trabalho pode ser atribuída ao acesso, assim como qualquer outro princípio de segurança. Para obter mais informações, consulte [listas de controle de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -162,9 +160,11 @@ Você também deve [habilitar a autenticação de identidade gerenciada](#config
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo é uma parte opcional de uma série de rede virtual de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte cinco de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: proteger os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)
 * [Parte 4: proteger o ambiente inferência](how-to-secure-inferencing-vnet.md)
+
+Consulte também o artigo sobre como usar o [DNS personalizado](how-to-custom-dns.md) para a resolução de nomes.

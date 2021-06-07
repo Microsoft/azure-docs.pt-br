@@ -2,22 +2,22 @@
 title: 'Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades'
 description: Neste guia de início rápido, use o portal do Azure para ver a lista de aplicativos que estão registrados para usar seu locatário do Azure AD (Azure Active Directory) para o gerenciamento de identidades.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 4bf0353148a5f8474270b314a85d55c3cfd753ab
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c4a03e85798d4406068bd5923dbc753d8e5d31b6
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257554"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376436"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades
 

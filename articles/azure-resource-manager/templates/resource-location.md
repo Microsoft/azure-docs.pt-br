@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
 ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96922406"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Definir local do recurso no modelo ARM

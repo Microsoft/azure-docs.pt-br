@@ -1,29 +1,65 @@
-- name: Documentação do Kubernetes habilitado para Azure Arc
+- name: Kubernetes habilitado para Azure Arc
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre Kubernetes habilitado para o Azure Arc
+    - name: Sobre o Kubernetes habilitado para Azure Arc
       href: overview.md
+    - name: Programa de validação do Azure Arc
+      href: validation-program.md
+- name: Inícios rápidos
+  items:
+    - name: Conectar um cluster ao Azure Arc
+      href: quickstart-connect-cluster.md
+- name: Tutoriais
+  items:
+    - name: Implantar configurações usando GitOps
+      href: tutorial-use-gitops-connected-cluster.md
+    - name: Implementar CI/CD com GitOps
+      href: tutorial-gitops-ci-cd.md
+- name: Conceitos
+  items:
+    - name: Arquitetura de agente
+      href: conceptual-agent-architecture.md
+    - name: Configurações e GitOps
+      href: conceptual-configurations.md
+    - name: Extensões de cluster
+      href: conceptual-extensions.md
+    - name: Conexão de cluster
+      href: conceptual-cluster-connect.md
+    - name: Locais personalizados
+      href: conceptual-custom-locations.md
+    - name: RBAC do Azure
+      href: conceptual-azure-rbac.md
+    - name: Perguntas frequentes
+      href: faq.md
+    - name: Fluxo de trabalho de CI/CD usando GitOps
+      href: conceptual-gitops-ci-cd.md
 - name: Guias de instruções
   items:
-    - name: Conecte-se ao Azure Arc
+    - name: Conectar cluster usando a entidade de serviço
+      href: create-onboarding-service-principal.md
+    - name: Atualizar agentes
+      href: agent-upgrade.md
+    - name: Cenários
       items:
-        - name: Conectar cluster
-          href: connect-cluster.md
-        - name: Integrar a entidade de serviço
-          href: create-onboarding-service-principal.md
-    - name: Gerenciar
-      items:
-        - name: Implantar configurações usando GitOps
-          href: use-gitops-connected-cluster.md
         - name: Implantar gráficos do Helm usando GitOps
           href: use-gitops-with-helm.md
         - name: Impor GitOps usando o Azure Policy
           href: use-azure-policy.md
+        - name: Implantar e gerenciar extensões de cluster
+          href: extensions.md
         - name: Monitorar usando o Azure Monitor para contêineres
-          href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.yml
+          href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+        - name: Impor a proteção contra ameaças usando o Azure Defender
+          href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Políticas de controle de admissão usando o Azure Policy
-          href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.yml
+          href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+        - name: Conecte-se com segurança ao cluster de qualquer lugar
+          href: cluster-connect.md
+        - name: Usar o RBAC do Azure AD para as verificações de autorização
+          href: azure-rbac.md
+        - name: Criar locais personalizados
+          href: custom-locations.md
         - name: Implantar cargas de trabalho de IoT
           href: deploy-azure-iot-edge-workloads.md
     - name: Solução de problemas

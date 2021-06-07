@@ -4,10 +4,10 @@ description: Este artigo descreve como habilitar a criptografia de disco para n�
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78252827"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Linux 
@@ -44,7 +44,7 @@ A visualização de criptografia de disco para o conjunto de dimensionamento de 
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
-**Cofre da Chave do Azure**
+**Azure Key Vault**
 
 1. Crie um cofre de chaves na mesma assinatura e região como conjunto de dimensionamento. Em seguida, selecione a política de acesso **EnabledForDiskEncryption** no cofre de chaves usando seu cmdlet do PowerShell. Você também pode definir a política usando a interface do usuário do Key Vault no portal do Azure com o seguinte comando:
     ```powershell

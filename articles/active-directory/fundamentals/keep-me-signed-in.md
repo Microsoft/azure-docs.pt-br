@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89320249"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurar o ' permanecer conectado? ' solicitar contas do Azure AD
@@ -33,22 +33,27 @@ O diagrama a seguir mostra o fluxo de entrada do usuário para um locatário ger
 ## <a name="configure-kmsi"></a>Configurar o KMSI
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador Global para o diretório.
-1. Selecione **Azure Active Directory**, selecione **identidade visual da empresa**e, em seguida, selecione **Configurar**.
+1. Selecione **Azure Active Directory**, selecione **identidade visual da empresa** e, em seguida, selecione **Configurar**.
 1. Na seção **Configurações avançadas** , localize a **opção mostrar para permanecer conectado à** configuração.
 
    Essa configuração permite que você escolha se os usuários permanecem conectados ao Azure AD até que eles se desconectem explicitamente.
    * Se você escolher **não**, a opção **permanecer conectado?** ficará oculta depois que o usuário entrar com êxito e o usuário deverá entrar sempre que o navegador for fechado e reaberto.
    * Se você escolher **Sim**, a opção **permanecer conectado?** será mostrada ao usuário.
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagrama mostrando o fluxo de entrada do usuário para um locatário gerenciado vs. federado":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Captura de tela mostra a opção mostrar para permanecer conectado":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solucionar problemas de entrada
 
 Se um usuário não agir no prompt **permanecer conectado?** , conforme mostrado no diagrama a seguir, mas abandonar a tentativa de entrada, você verá uma entrada de log de entrada que indica a interrupção.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagrama mostrando o fluxo de entrada do usuário para um locatário gerenciado vs. federado" quando o usuário estava entrando.
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Mostra a permanência conectada? aviso":::
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagrama mostrando o fluxo de entrada do usuário para um locatário gerenciado vs. federado":::
+Os detalhes sobre o erro de logon são os seguintes e realçados no exemplo.
+
+* **Código de erro de entrada**: 50140
+* **Motivo da falha**: esse erro ocorreu devido à interrupção "Mantenha-me conectado" quando o usuário estava entrando.
+
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exemplo de entrada de log de logon com a interrupção de se manter conectado":::
 
 Você pode impedir que os usuários vejam a interrupção definindo a **opção mostrar como permanecer conectado** à configuração para **não** nas configurações avançadas de identidade visual. Isso desabilita o prompt KMSI para todos os usuários em seu diretório do Azure AD.
 

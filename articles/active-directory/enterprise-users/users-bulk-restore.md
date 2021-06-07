@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571497"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar em massa usuários excluídos no Azure Active Directory
@@ -35,7 +35,7 @@ Baixe e preencha o modelo CSV para ajudar você a obter sucesso na restauração
 As linhas em um modelo CSV baixado são as seguintes:
 
 - **Número de versão**: A primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
-- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName] &lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Object ID [objectId] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
+- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName]&lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Object ID [objectId] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
 - **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas entradas.
 
 ### <a name="additional-guidance"></a>Diretriz adicional
@@ -66,7 +66,7 @@ Se houver erros, você poderá baixar e exibir o arquivo de resultados na págin
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
+É possível ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
 [![Verifique o status na página resultados de operações em massa.](./media/users-bulk-restore/bulk-center.png)](./media/users-bulk-restore/bulk-center.png#lightbox)
 

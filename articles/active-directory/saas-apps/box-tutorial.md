@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
 ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98807911"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Box

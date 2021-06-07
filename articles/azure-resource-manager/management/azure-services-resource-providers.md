@@ -2,17 +2,17 @@
 title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 581c25b384bf6e2865a21f083ba12eef2e5e8bcd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: d8239a9305560eb77ac2c714b993373f0d5b16fb
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733780"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023003"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
-Este artigo mostra como os namespaces do provedor de recursos são mapeados para os serviços do Azure.
+Este artigo mostra como os namespaces do provedor de recursos são mapeados para os serviços do Azure. Se você não souber o provedor de recursos, consulte [Localizar provedor de recursos](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Corresponder provedor de recursos ao serviço
 
@@ -28,21 +28,21 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [Gerenciamento da API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Configuração de Aplicativos do Azure](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Attestation | Serviço de atestado do Azure |
 | Microsoft. Authorization- [registrado](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automação](../../automation/index.yml) |
 | Microsoft. AutonomousSystems | [Sistemas autônomos](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Solução VMware no Azure](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft. AzureArcData | Registro de serviços de dados habilitado para Arc do Azure |
+| Microsoft. AzureArcData | Serviços de Dados habilitados para Azure Arc |
 | Microsoft.AzureData | Registro de SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft. billing- [registrado](#registration) | [Gerenciamento de Custos e Cobrança](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Mapas](/BingMaps/#pivot=main&panel=BingMapsAPI) |
-| Microsoft.Blockchain | [Serviço do Azure Blockchain](../../blockchain/workbench/index.yml) |
+| Microsoft.Blockchain | [Azure Blockchain Service](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Tokens do Azure Blockchain](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Serviço de Bot do Azure](/azure/bot-service/) |
@@ -98,7 +98,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.HanaOnAzure | [SAP HANA em Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
+| Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/fhir/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
@@ -125,7 +125,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.MarketplaceApps | core |
 | Microsoft. MarketplaceOrdering- [registrado](#registration) | core |
 | Microsoft.Media | [Serviços de Mídia](../../media-services/index.yml) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Migrações para Azure](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Âncoras Espaciais do Azure](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
@@ -155,19 +155,19 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Central de segurança](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft. SerialConsole- [registrado](#registration) | [Console serial do Azure para Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft. SerialConsole- [registrado](#registration) | [Console serial do Azure para Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Barramento de Serviço](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Malha do Service Fabric](../../service-fabric-mesh/index.yml) |
 | Microsoft.Services | core |
-| Microsoft.SignalRService | [Serviço Azure SignalR](../../azure-signalr/index.yml) |
+| Microsoft.SignalRService | [Serviço do Azure SignalR](../../azure-signalr/index.yml) |
 | Microsoft.SoftwarePlan | Licença |
 | Microsoft.Solutions | [Aplicativos Gerenciados do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Banco de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerenciada do SQL do Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server em Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
+| Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
+| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
@@ -192,6 +192,42 @@ Os provedores de recursos acima que são marcados com **-registrado** são regis
 
 > [!IMPORTANT]
 > Somente registre um provedor de recursos quando estiver pronto para usá-lo. A etapa de registro permite que você mantenha os privilégios mínimos em sua assinatura. Um usuário mal-intencionado não pode usar provedores de recursos que não estão registrados.
+
+## <a name="find-resource-provider"></a>Localizar provedor de recursos
+
+Se você tiver uma infraestrutura existente no Azure, mas não tiver certeza de qual provedor de recursos é usado, poderá usar o CLI do Azure ou o PowerShell para localizar o provedor de recursos. Especifique o nome do grupo de recursos que contém os recursos a serem localizados.
+
+O exemplo a seguir usa CLI do Azure:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O namespace do provedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o provedor de recursos **Microsoft. keyvault** .
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+O exemplo a seguir usa o PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O namespace do provedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o provedor de recursos **Microsoft. keyvault** .
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

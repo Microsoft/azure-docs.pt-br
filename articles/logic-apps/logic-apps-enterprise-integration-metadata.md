@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74792478"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerenciar metadados de artefato em contas de integração a Aplicativos Lógicos do Azure e o Enterprise Integration Pack
@@ -25,7 +25,7 @@ ms.locfileid: "74792478"
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tem os artefatos em que você deseja adicionar os metadados, por exemplo: 
 
-  * [Parceiro](logic-apps-enterprise-integration-partners.md)
+  * [Partner (parceiro)](logic-apps-enterprise-integration-partners.md)
   * [Contrato](logic-apps-enterprise-integration-agreements.md)
   * [Esquema](logic-apps-enterprise-integration-schemas.md)
   * [Map](logic-apps-enterprise-integration-maps.md)
@@ -73,9 +73,9 @@ ms.locfileid: "74792478"
 
 1. Adicione a ação que você deseja para lidar com esses metadados, por exemplo:
 
-   1. Abaixo da ação **Pesquisa de artefato da conta de integração**, escolha **Próxima etapa**e selecione **Adicionar uma ação**. 
+   1. Abaixo da ação **Pesquisa de artefato da conta de integração**, escolha **Próxima etapa** e selecione **Adicionar uma ação**. 
 
-   1. Na caixa de pesquisa, digite "http". Na caixa de pesquisa, escolha **interno**e selecione esta ação: **http-http**
+   1. Na caixa de pesquisa, digite "http". Na caixa de pesquisa, escolha **interno** e selecione esta ação: **http-http**
 
       ![Adicionar ação HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
 

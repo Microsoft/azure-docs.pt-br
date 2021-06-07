@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74324501"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
@@ -369,7 +369,7 @@ Os Tópicos do Barramento de Serviço podem ser usados para notificar os usuári
 
 ## <a name="notification-message-reference"></a>Referência da mensagem de notificação
 
-Dependendo do **, as**mensagens de notificação têm um dos tipos de mensagem a seguir.
+Dependendo do **, as** mensagens de notificação têm um dos tipos de mensagem a seguir.
 
 ### <a name="block-message"></a>Mensagem de bloco
 
@@ -401,7 +401,7 @@ Contém informações sobre blocos individuais. A *BlockMessage* inclui uma seç
 | transactionId      | Identificador exclusivo da transação no Azure Blockchain Workbench |
 | transactionHash    | O resumo da mensagem de transação na razão |
 | de               | Identificador exclusivo da origem da transação no razão |
-| para                 | Identificador exclusivo do destino da transação no razão |
+| como                 | Identificador exclusivo do destino da transação no razão |
 | provisioningStatus | Identifica o status atual do processo de provisionamento para a transação. Os valores possíveis são: </br>0 – a transação foi criada pela API no banco de dados</br>1 – a transação foi enviada para o razão</br>2 – a transação foi confirmada com êxito no razão</br>3 ou 4 – ocorreu uma falha ao confirmar a transação no razão</br>5 – a transação foi confirmada com êxito no razão |
 
 Exemplo de uma *BlockMessage* do Blockchain Workbench:
@@ -463,7 +463,7 @@ Contém informações sobre um contrato. A mensagem inclui uma seção com propr
 | transactionId | Identificador exclusivo da transação no Azure Blockchain Workbench |
 | transactionHash | O resumo da mensagem de transação na razão |
 | de | Identificador exclusivo da origem da transação no razão |
-| para | Identificador exclusivo do destino da transação no razão |
+| como | Identificador exclusivo do destino da transação no razão |
 
 #### <a name="contract-properties"></a>Propriedades do contrato
 
@@ -471,7 +471,7 @@ Contém informações sobre um contrato. A mensagem inclui uma seção com propr
 |--------------------|-------------|
 | workflowPropertyId | Identificador exclusivo da propriedade de fluxo de trabalho no Azure Blockchain Workbench |
 | name | Nome da propriedade de fluxo de trabalho |
-| value | Valor da propriedade de fluxo de trabalho |
+| valor | Valor da propriedade de fluxo de trabalho |
 
 Exemplo de uma *ContractMessage* do Blockchain Workbench:
 
@@ -582,7 +582,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 | Nome | Descrição |
 |------|-------------|
 | name | Nome do parâmetro |
-| value | Valor do parâmetro |
+| valor | Valor do parâmetro |
 
 #### <a name="event-message-transaction-information"></a>Informações sobre a transação da mensagem de evento
 
@@ -591,7 +591,7 @@ Contém informações sobre quando uma função de contrato é invocada, como o 
 | transactionId      | Identificador exclusivo da transação no Azure Blockchain Workbench |
 | transactionHash    | O resumo da mensagem de transação na razão |
 | de               | Identificador exclusivo da origem da transação no razão |
-| para                 | Identificador exclusivo do destino da transação no razão |
+| como                 | Identificador exclusivo do destino da transação no razão |
 
 Exemplo de uma *EventMessage ContractFunctionInvocation* do Blockchain Workbench:
 
@@ -698,7 +698,7 @@ Contém informações sobre quando um aplicativo é carregado no Workbench, como
 |------|-------------|
 | id | Identificador exclusivo da propriedade de fluxo de trabalho do aplicativo no Azure Blockchain Workbench |
 | name | Nome da propriedade |
-| type | Tipo de propriedade |
+| tipo | Tipo de propriedade |
 
 Exemplo de uma *EventMessage ApplicationIngestion* do Blockchain Workbench:
 
@@ -855,7 +855,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| type | Tipo do atribuidor |
+| tipo | Tipo do atribuidor |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 #### <a name="roleassignment-assignee"></a>Destinatário da RoleAssignment
@@ -863,7 +863,7 @@ Contém informações sobre quando um usuário recebe uma função no Workbench,
 | Nome | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do usuário no Azure Blockchain Workbench |
-| type | Tipo do destinatário |
+| tipo | Tipo do destinatário |
 | chainIdentifier | Identificador exclusivo do usuário no razão |
 
 Exemplo de uma *EventMessage RoleAssignment* do Blockchain Workbench:

@@ -4,15 +4,15 @@ description: Saiba mais sobre o repositório transacional (baseado em linha) e a
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452843"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046204"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é Azure Cosmos DB repositório analítico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,61 @@ A sincronização automática refere-se ao recurso totalmente gerenciado de Azur
 
 O recurso de sincronização automática, junto com o repositório analítico, fornece os seguintes benefícios principais:
 
-#### <a name="scalability--elasticity"></a>Escalabilidade e elasticidade
+### <a name="scalability--elasticity"></a>Escalabilidade e elasticidade
 
 Ao usar o particionamento horizontal, o repositório transacional do Azure Cosmos DB pode escalar elasticamente o armazenamento e a taxa de transferência sem nenhum tempo de inatividade. O particionamento horizontal no repositório transacional fornece escalabilidade e elasticidade na sincronização automática para garantir que os dados sejam sincronizados com o repositório analítico quase em tempo real. A sincronização de dados ocorre independentemente da taxa de transferência do tráfego transacional, sejam 1.000 ou 1 milhão de operações/s, e não impacta a taxa de transferência provisionada no repositório transacional. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquema
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquema
 
 O repositório transacional do Azure Cosmos DB é independente de esquema e permite que você faça uma iteração nos seus aplicativos transacionais sem a necessidade de lidar com gerenciamento de índices ou de esquemas. De modo contrastante, o repositório analítico do Azure Cosmos DB é esquematizado para otimizar o desempenho de consultas analíticas. Com o recurso de sincronização automática, o Azure Cosmos DB gerencia a inferência de esquema sobre as atualizações mais recentes do armazenamento transacional.  Ele também gerencia a representação do esquema no repositório analítico pronto para uso, que inclui o tratamento de tipos de dados aninhados.
 
 À medida que o esquema evolui e novas propriedades são adicionadas ao longo do tempo, o repositório analítico apresenta automaticamente um esquema Union em todos os esquemas históricos no armazenamento transacional.
 
-##### <a name="schema-constraints"></a>Restrições de esquema
+#### <a name="schema-constraints"></a>Restrições de esquema
 
 As seguintes restrições são aplicáveis aos dados operacionais em Azure Cosmos DB quando você habilita o repositório analítico para inferir e representar automaticamente o esquema corretamente:
 
-* Você pode ter um máximo de 200 propriedades em qualquer nível de aninhamento no esquema e uma profundidade de aninhamento máxima de 5.
+* Você pode ter um máximo de 1000 Propriedades em qualquer nível de aninhamento no esquema e uma profundidade máxima de aninhamento de 127.
+  * Somente as primeiras 1000 propriedades são representadas no repositório analítico.
+  * Somente os primeiros 127 níveis aninhados são representados no repositório analítico.
+
+* Embora os documentos JSON (e Cosmos DB coleções/contêineres) diferenciam maiúsculas de minúsculas da perspectiva de exclusividade, o repositório analítico não é.
+
+  * **No mesmo documento:** Os nomes de propriedades no mesmo nível devem ser exclusivos quando comparados sem distinção entre maiúsculas e minúsculas. Por exemplo, o documento JSON a seguir tem "Name" e "Name" no mesmo nível. Embora seja um documento JSON válido, ele não satisfaz a restrição de exclusividade e, portanto, não será totalmente representado no repositório analítico. Neste exemplo, "Name" e "Name" são os mesmos quando comparados em uma maneira não sensível a maiúsculas e minúsculas. Somente `"Name": "fred"` será representado no repositório analítico, porque é a primeira ocorrência. E `"name": "john"` não serão representados.
   
-  * Um item com propriedades 201 no nível superior não atende a essa restrição e, portanto, não será representado no repositório analítico.
-  * Um item com mais de cinco níveis aninhados no esquema também não atende a essa restrição e, portanto, não será representado no repositório analítico. Por exemplo, o seguinte item não atende ao requisito:
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **Em documentos diferentes:** As propriedades no mesmo nível e com o mesmo nome, mas em casos diferentes, serão representadas na mesma coluna, usando o formato de nome da primeira ocorrência. Por exemplo, os documentos JSON a seguir têm `"Name"` e `"name"` no mesmo nível. Como o primeiro formato de documento é `"Name"` , isso é o que será usado para representar o nome da propriedade no repositório analítico. Em outras palavras, o nome da coluna no repositório analítico será `"Name"` . Ambos `"fred"` e `"john"` serão representados na `"Name"` coluna.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Os nomes de propriedade devem ser exclusivos quando comparados sem distinção entre maiúsculas e minúsculas. Por exemplo, os itens a seguir não atendem a essa restrição e, portanto, não serão representados no repositório analítico:
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` – "Name" e "Name" são os mesmos quando comparados em uma maneira não sensível a maiúsculas e minúsculas.
 
-##### <a name="schema-representation"></a>Representação de esquema
+* O primeiro documento da coleção define o esquema inicial do repositório analítico.
+  * As propriedades no primeiro nível do documento serão representadas como colunas.
+  * Documentos com mais propriedades do que o esquema inicial gerarão novas colunas no repositório analítico.
+  * Não é possível remover colunas.
+  * A exclusão de todos os documentos em uma coleção não redefine o esquema de armazenamento analítico.
+  * Não há controle de versão do esquema. A última versão inferida do armazenamento transacional é o que você verá no repositório analítico.
+
+* Atualmente, não damos suporte a nomes de colunas de leitura do Azure Synapse Spark que contenham espaços em branco (espaço em branco).
+
+* Espere um comportamento diferente em relação aos `null` valores explícitos:
+  * Os pools do Spark no Azure Synapse lerá esses valores como `0` (zero).
+  * Os pools sem SQL Server no Azure Synapse lerá esses valores como `NULL` se o primeiro documento da coleção tiver, para a mesma propriedade, um valor com um `non-numeric` tipo de dados.
+  * Os pools sem SQL Server no Azure Synapse lerá esses valores como `0` (zero) se o primeiro documento da coleção tiver, para a mesma propriedade, um valor com um `numeric` tipo de dados.
+
+* Espere um comportamento diferente em relação às colunas ausentes:
+  * Os pools do Spark no Azure Synapse irão representar essas colunas como `undefined` .
+  * Os pools sem SQL Server no Azure Synapse irão representar essas colunas como `NULL` .
+
+#### <a name="schema-representation"></a>Representação de esquema
 
 Há dois modos de representação de esquema no repositório analítico. Esses modos têm compensações entre a simplicidade de uma representação de coluna, a manipulação dos esquemas polimórficos e a simplicidade da experiência de consulta:
 
@@ -106,7 +135,7 @@ A representação de esquema bem definida cria uma representação de tabela sim
 
 * Uma propriedade sempre tem o mesmo tipo em vários itens.
 
-  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque, às vezes, `"a"` é uma cadeia de caracteres e, outras vezes, um número. Nesse caso, o armazenamento analítico registra o tipo de dados de `“a”` como o tipo de dados do `“a”` no primeiro item que ocorre no tempo de vida do contêiner. Os itens em que o tipo de dados de `“a”` diferirem não serão incluídos no repositório analítico.
+  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque, às vezes, `"a"` é uma cadeia de caracteres e, outras vezes, um número. Nesse caso, o armazenamento analítico registra o tipo de dados de `"a"` como o tipo de dados do `“a”` no primeiro item que ocorre no tempo de vida do contêiner. O documento ainda será incluído no repositório analítico, mas os itens em que o tipo de dados `"a"` diferem não serão.
   
     Essa condição não se aplica a propriedades nulas. Por exemplo, `{"a":123} {"a":null}` ainda está bem definido.
 
@@ -116,6 +145,11 @@ A representação de esquema bem definida cria uma representação de tabela sim
 
 > [!NOTE]
 > Se o repositório analítico de Azure Cosmos DB seguir a representação de esquema bem definida e a especificação acima for violada por determinados itens, esses itens não serão incluídos no repositório analítico.
+
+* Espere um comportamento diferente em relação a tipos diferentes no esquema bem definido:
+  * Os pools do Spark no Azure Synapse representarão esses valores como `undefined` .
+  * Os pools sem SQL Server no Azure Synapse irão representar esses valores como `NULL` .
+
 
 **Representação de esquema de fidelidade total**
 
@@ -147,16 +181,16 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 
 |Tipo de dados original  |Sufixo  |Exemplo  |
 |---------|---------|---------|
-| Duplo |  ". float64" |    24,99|
+| Double |  ". float64" |    24,99|
 | Array | ". array" |    ["a", "b"]|
 |Binário | ". Binary" |0|
 |Boolean    | ". bool"   |Verdadeiro|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
-|Nulo   | ". NULL"   | null|
+|Nulo   | ". NULL"   | nulo|
 |String|    ". String" | "ABC"|
 |Timestamp |    ". Timestamp" |  Carimbo de data/hora (0, 0)|
-|Datetime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|DateTime   |". Date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Documento   |". Object" |    {"a": "a"}|
 

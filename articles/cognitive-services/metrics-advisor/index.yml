@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin
-  ms.openlocfilehash: 62b24a855fca9e12ecd6770f78ef8b4dacc719dd
-  ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+  ms.openlocfilehash: 82029d4547f840d838b371fe42c8ec727a57fa2d
+  ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94445346"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102201542"
 landingContent:
 - title: Sobre o Assistente de Métricas
   linkLists:
@@ -63,7 +63,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices
     - text: CLI do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
 ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880920"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Usar a detecção de caracteres animados (versão prévia) com o portal e a API 
@@ -50,7 +50,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
     > Para fornecer todas as chaves, você precisa ter dois recursos separados no Visão Personalizada, um para treinamento e outro para previsão.
 1. Forneça outras informações:
 
-    * Ponto de Extremidade 
+    * Ponto de extremidade 
     * ID do recurso de previsão
 1. Navegue e entre no [Video indexer](https://vi.microsoft.com/).
 1. Clique no ponto de interrogação no canto superior direito da página e escolha referência de **API**.

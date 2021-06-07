@@ -1,15 +1,17 @@
 ---
 title: Início rápido – Criar registro no portal
 description: Aprenda rapidamente a criar um registro de contêiner do Azure privado usando o portal do Azure.
-ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff74232edf5c96f091082f8486c44fed6125b0b1
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.topic: quickstart
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 4618a83a43d9c27f44432d5d346fdb053cee7054
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825845"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773577"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Início Rápido: Criar um Registro de Contêiner do Azure usando o portal do Azure
 
@@ -103,5 +105,5 @@ Neste início rápido, você criou um Registro de Contêiner do Azure com o port
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
 [get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do Fortinet
-titleSuffix: Azure Defender for IoT
 description: O defender for IoT e a Fortinet estabeleceram uma parceria tecnológica para detectar e parar ataques em redes IoT e ICS.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: e2119a9e01a4e58cd9d2ca1b9b3384ec9629784c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557255"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784009"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Defender para IoT e Fortinet IIoT e detecção de ameaças do ICS prevenção de &
 
@@ -222,7 +217,7 @@ Para definir uma regra de firewall FortiGate que bloqueia essa fonte maliciosa:
     |--|--|
     | Host | O tipo de endereço IP do servidor FortiGate. |
     | Porta | O tipo de porta do servidor FortiGate. |
-    | Nome de Usuário | O tipo de nome de usuário do servidor FortiGate. |
+    | Nome de usuário | O tipo de nome de usuário do servidor FortiGate. |
     | Chave de API | Insira a chave de API que você criou em FortiGate. |
     | Interface de entrada| Defina como o bloqueio é executado:<br /><br />**Por endereço IP**: sempre cria políticas de bloqueio em Panorama com base no endereço IP.<br /><br />**Por FQDN ou endereço IP**: cria políticas de bloqueio no panorama com base no FQDN, caso exista, caso contrário, o endereço IP.| 
     | Interface de saída |Defina o endereço de email para o email de notificação da política. <br /><br /> **Observação**: Verifique se você configurou um servidor de email no XSense. Se nenhum endereço de email for inserido, o XSense não enviará um email de notificação.| 

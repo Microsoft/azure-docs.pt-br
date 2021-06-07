@@ -1,33 +1,33 @@
 ---
-title: Proteções de carga de trabalho para suas cargas de trabalho do kubernetes
-description: Saiba como usar o conjunto de recomendações de segurança de proteção de carga de trabalho kubernetes da central de segurança do Azure
+title: Proteções de cargas de trabalho para Kubernetes
+description: Saiba como usar o conjunto de recomendações de segurança para proteção de cargas de trabalho do Kubernetes da Central de Segurança do Azure
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
-ms.translationtype: MT
+ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526714"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104580736"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
-Esta página descreve como usar o conjunto de recomendações de segurança da central de segurança do Azure dedicado à proteção de carga de trabalho do kubernetes.
+Esta página descreve como usar o conjunto de recomendações de segurança da Central de Segurança do Azure dedicado à proteção de cargas de trabalho do Kubernetes.
 
-Saiba mais sobre esses recursos nas [práticas recomendadas de proteção de carga de trabalho usando o controle de admissão kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+Saiba mais sobre esses recursos em [Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-A central de segurança oferece mais recursos de segurança de contêiner se você habilitar o Azure defender. Especificamente:
+A Central de Segurança oferece mais recursos de segurança de contêiner quando você habilita o Azure Defender. Especificamente:
 
-- Examinar os registros de contêiner em busca de vulnerabilidades com o [Azure defender para registros de contêiner](defender-for-container-registries-introduction.md)
-- Obtenha alertas de detecção de ameaças em tempo real para seus clusters K8s [do Azure defender para kubernetes](defender-for-kubernetes-introduction.md)
+- Examine seus registros de contêiner para detectar vulnerabilidades com o [Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)
+- Receba alertas de detecção de ameaças em tempo real para seus clusters K8s do [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Para obter uma lista de *todas as* recomendações de segurança que podem aparecer para os nós e clusters kubernetes, consulte a [seção computação](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
+> Para ver uma lista com *todas* as recomendações de segurança que podem aparecer para nós e clusters do Kubernetes, confira a [seção de computação](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
 
 
 
@@ -37,56 +37,56 @@ A central de segurança oferece mais recursos de segurança de contêiner se voc
 |----|:----|
 |Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
-|Funções e permissões necessárias:|**Proprietário** ou **administrador de segurança** para editar uma atribuição<br>**Leitor** para exibir as recomendações|
-|Requisitos de ambiente:|Kubernetes v 1.14 (ou superior) é necessário<br>Nenhum recurso PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
+|Funções e permissões necessárias:|**Proprietário** ou **Administrador de Segurança** para editar uma atribuição<br>**Leitor** para exibir as recomendações|
+|Requisitos do ambiente:|O Kubernetes v1.14 (ou superior) é necessário<br>Nenhum recurso de PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
 
-## <a name="set-up-your-workload-protection"></a>Configurar a proteção da carga de trabalho
+## <a name="set-up-your-workload-protection"></a>Configurar a proteção de cargas de trabalho
 
-A central de segurança do Azure inclui um conjunto de recomendações que estão disponíveis quando você instalou o **complemento de Azure Policy para o kubernetes**.
+A Central de Segurança do Azure inclui um pacote de recomendações que ficam disponíveis quando você instala o **Complemento do Azure Policy para Kubernetes**.
 
-### <a name="step-1-deploy-the-add-on"></a>Etapa 1: implantar o complemento
+### <a name="step-1-deploy-the-add-on"></a>Etapa 1: Implantar o complemento
 
-Para configurar as recomendações, instale o  **complemento Azure Policy para kubernetes**. 
+Para configurar as recomendações, instale o **Complemento do Azure Policy para Kubernetes**. 
 
-- Você pode implantar automaticamente esse complemento, conforme explicado em [habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
+- Você pode implantar automaticamente esse complemento, conforme explicado em [Habilitar o provisionamento automático de extensões e do agente do Log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Usando a ferramenta de provisionamento automático da central de segurança para instalar o complemento de política para kubernetes":::
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Usando a ferramenta de provisionamento automático da Central de Segurança para instalar o complemento de política para Kubernetes":::
 
-- Para implantar manualmente o complemento:
+- Para implantar o complemento manualmente:
 
-    1. Na página recomendações, procure a recomendação "o **complemento Azure Policy para kubernetes deve ser instalado e habilitado em seus clusters**". 
+    1. Na página de recomendações, procure a recomendação "**O complemento do Azure Policy para Kubernetes deve estar instalado e habilitado nos clusters**". 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recomendação **O complemento do Azure Policy para Kubernetes deve estar instalado e habilitado nos clusters**":::
 
         > [!TIP]
-        > A recomendação está incluída em cinco controles de segurança diferentes e não importa qual deles você selecionou na próxima etapa.
+        > A recomendação está incluída em cinco controles de segurança diferentes e não importa qual deles você seleciona na próxima etapa.
 
-    1. Em qualquer um dos controles de segurança, selecione a recomendação para ver os recursos nos quais você pode instalar o complemento.
-    1. Selecione o cluster relevante e **Corrija**.
+    1. Para qualquer um dos controles de segurança, selecione a recomendação para ver os recursos em que você pode instalar o complemento.
+    1. Selecione o cluster relevante e escolha **Corrigir**.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="A página de detalhes de recomendação para * * Azure Policy complemento para kubernetes deve ser instalada e habilitada em seus clusters * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Página de detalhes da recomendação **O complemento do Azure Policy para Kubernetes deve estar instalado e habilitado nos clusters**":::
 
-### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Etapa 2: exibir e configurar o grupo de 13 recomendações
+### <a name="step-2-view-and-configure-the-bundle-of-13-recommendations"></a>Etapa 2: Exibir e configurar o pacote de 13 recomendações
 
-1. Aproximadamente 30 minutos após a conclusão da instalação do complemento, a central de segurança mostra o status de integridade dos clusters para as seguintes recomendações, cada um no controle de segurança relevante, conforme mostrado:
+1. Aproximadamente 30 minutos após a conclusão da instalação do complemento, a Central de Segurança mostra o status de integridade dos clusters quanto às seguintes recomendações, cada qual no controle de segurança relevante, conforme mostrado:
 
     > [!TIP]
-    > Algumas recomendações têm parâmetros que devem ser personalizados por meio de Azure Policy para usá-los com eficiência. Por exemplo, para se beneficiar das imagens de contêiner de recomendação **deve ser implantado somente de registros confiáveis**, você precisará definir seus registros confiáveis.
+    > Algumas recomendações têm parâmetros que precisam ser personalizados por meio do Azure Policy para que sejam usadas com eficiência. Por exemplo, para se beneficiar da recomendação **Imagens de contêiner devem ser implantadas somente de registros confiáveis**, você precisará definir os registros confiáveis.
     > 
-    > Se você não inserir os parâmetros necessários para as recomendações que exigem configuração, suas cargas de trabalho serão mostradas como não íntegras.
+    > Se você não inserir os parâmetros necessários para as recomendações que exigem configuração, as cargas de trabalho serão indicadas como não íntegras.
 
     | Nome da recomendação                                                         | Controle de segurança                         | Configuração necessária |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Deverão ser aplicados limites de memória e CPU ao contêiner                          | Proteger aplicativos contra ataques de DDoS | No                     |
-    | Os contêineres com privilégios deverão ser evitados                                     | Gerenciar acesso e permissões            | No                     |
-    | Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres     | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres com elevação de privilégio deverão ser evitados                       | Gerenciar acesso e permissões            | No                     |
-    | Executar contêineres como usuário raiz deverá ser evitado                           | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados              | Gerenciar acesso e permissões            | No                     |
-    | Os recursos do Linux com privilégios mínimos devem ser impostos para contêineres       | Gerenciar acesso e permissões            | **Sim**                |
+    | Deverão ser aplicados limites de memória e CPU ao contêiner                          | Proteger aplicativos contra ataques de DDoS | Não                     |
+    | Os contêineres com privilégios deverão ser evitados                                     | Gerenciar acesso e permissões            | Não                     |
+    | Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres     | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres com elevação de privilégio deverão ser evitados                       | Gerenciar acesso e permissões            | Não                     |
+    | Executar contêineres como usuário raiz deverá ser evitado                           | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados              | Gerenciar acesso e permissões            | Não                     |
+    | Deverão ser aplicadas aos contêineres funcionalidades do Linux com privilégios mínimos       | Gerenciar acesso e permissões            | **Sim**                |
     | Usar montagens de volumes de HostPath do pod deverá ser restrito a uma lista conhecida    | Gerenciar acesso e permissões            | **Sim**                |
     | Os contêineres deverão escutar somente em portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
     | Os serviços deverão escutar somente em portas permitidas                                | Restringir o acesso não autorizado à rede     | **Sim**                |
@@ -96,46 +96,46 @@ Para configurar as recomendações, instale o  **complemento Azure Policy para k
     |||
 
 
-1. Para as recomendações com parâmetros devem ser personalizadas, defina os parâmetros:
+1. Para recomendações cujos parâmetros devem ser personalizados, defina os parâmetros:
 
-    1. No menu da central de segurança, selecione **política de segurança**.
+    1. No menu da Central de Segurança, selecione **Política de segurança**.
     1. Selecione a assinatura relevante.
-    1. Na seção **política padrão da central de segurança** , selecione **Exibir política efetiva**.
-    1. Selecione "ASC padrão".
-    1. Abra a guia **parâmetros** e modifique os valores conforme necessário.
+    1. Na seção **Política padrão da Central de Segurança**, selecione **Exibir política efetiva**.
+    1. Selecione "ASC Padrão".
+    1. Abra a guia **Parâmetros** e modifique os valores conforme necessário.
     1. Selecione **Examinar + salvar**.
     1. Selecione **Salvar**.
 
 
-1. Para impor qualquer uma das recomendações, 
+1. Para impor recomendações, 
 
-    1. Abra a página de detalhes de recomendação e selecione **negar**:
+    1. Abra a página de detalhes da recomendação e selecione **Negar**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Deny para o parâmetro Azure Policy":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Negar para o parâmetro do Azure Policy":::
 
-        Isso abrirá o painel em que o escopo será definido. 
+        Isso abrirá o painel no qual você define o escopo. 
 
-    1. Quando você tiver definido o escopo, selecione **alterar para negar**.
+    1. Após definir o escopo, selecione **Alterar para negar**.
 
 1. Para ver quais recomendações se aplicam aos seus clusters:
 
-    1. Abra a página [inventário de ativos](asset-inventory.md) da central de segurança e use o filtro tipo de recurso para **Serviços Kubernetess**.
+    1. Abra a página de [inventário de ativos](asset-inventory.md) da Central de Segurança e use o filtro de tipo de recurso para os **Serviços do Kubernetes**.
 
-    1. Selecione um cluster para investigar e revisar as recomendações disponíveis para ele. 
+    1. Selecione um cluster para investigar e analise as recomendações disponíveis para ele. 
 
-1. Ao exibir uma recomendação do conjunto de proteção de carga de trabalho, você verá o número de pods afetados ("componentes kubernetes") listados junto com o cluster. Para obter uma lista de pods específicos, selecione o cluster e, em seguida, selecione **executar ação**.
+1. Ao exibir uma recomendação do conjunto de proteção de cargas de trabalho, você verá o número de pods afetados ("componentes do Kubernetes") listado com o cluster. Para ver uma lista de pods específicos, selecione o cluster e escolha **Executar ação**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Exibindo o pods afetado por uma recomendação de K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Exibindo o pods afetados por uma recomendação de K8s"::: 
 
-1. Para testar a imposição, use as duas implantações kubernetes abaixo:
+1. Para testar a imposição, use as duas implantações do Kubernetes abaixo:
 
-    - Uma é para uma implantação íntegra, em conformidade com o pacote de recomendações de proteção de carga de trabalho.
-    - A outra é para uma implantação não íntegra, não compatível com *nenhuma* das recomendações.
+    - Uma é para uma implantação íntegra, em conformidade com o pacote de recomendações de proteção de cargas de trabalho.
+    - A outra é para uma implantação não íntegra, que não está em conformidade com *nenhuma* das recomendações.
 
-    Implante os arquivos de exemplo. YAML no estado em que se encontram ou use-os como uma referência para corrigir sua própria carga de trabalho (etapa VIII)  
+    Implante os arquivos .yaml de exemplo no estado em que se encontram ou use-os como referência para corrigir sua carga de trabalho (etapa VIII)  
 
 
-## <a name="healthy-deployment-example-yaml-file"></a>Arquivo. YAML de exemplo de implantação íntegra
+## <a name="healthy-deployment-example-yaml-file"></a>Arquivo .yaml de exemplo de implantação íntegra
 
 ```yml
 apiVersion: apps/v1
@@ -186,7 +186,7 @@ spec:
     targetPort: 80
 ```
 
-## <a name="unhealthy-deployment-example-yaml-file"></a>Arquivo. YAML de exemplo de implantação não íntegra
+## <a name="unhealthy-deployment-example-yaml-file"></a>Arquivo .yaml de exemplo de implantação não íntegra
 
 ```yml
 apiVersion: apps/v1
@@ -249,10 +249,10 @@ spec:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a configurar a proteção de carga de trabalho do kubernetes. 
+Neste artigo, você aprendeu a configurar a proteção de cargas de trabalho do Kubernetes. 
 
-Para obter outros materiais relacionados, consulte as seguintes páginas: 
+Para ver outros materiais relacionados, confira as seguintes páginas: 
 
-- [Recomendações da central de segurança para computação](recommendations-reference.md#recs-compute)
-- [Alertas para o nível de cluster AKS](alerts-reference.md#alerts-akscluster)
+- [Recomendações da Central de Segurança para computação](recommendations-reference.md#recs-compute)
+- [Alertas para o nível do cluster do AKS](alerts-reference.md#alerts-akscluster)
 - [Alertas para o nível de host do contêiner](alerts-reference.md#alerts-containerhost)

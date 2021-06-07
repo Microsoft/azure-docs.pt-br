@@ -8,10 +8,10 @@ ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898148"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Encontrar e excluir discos gerenciados e não gerenciados desanexados do Azure – portal do Azure

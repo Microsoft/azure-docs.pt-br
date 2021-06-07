@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320822"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102443039"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Use o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como acessar e usar o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge. Para monitorar seu dispositivo, você pode usar gráficos no portal do Azure, exibir o painel do kubernetes ou executar `kubectl` comandos por meio da interface do PowerShell do dispositivo. 
 
@@ -33,7 +35,7 @@ Neste artigo, você aprenderá como:
 
 ## <a name="about-kubernetes-dashboard"></a>Sobre o painel do kubernetes
 
-O painel do kubernetes é uma interface do usuário baseada na Web que você pode usar para solucionar problemas de seus aplicativos em contêineres. O painel do kubernetes é uma alternativa baseada na interface do usuário para a `kubectl` linha de comando kubernetes. Para obter mais informações, consulte [painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+O painel do Kubernetes é uma interface do usuário baseada na Web que pode ser usado para solucionar problemas dos aplicativos em contêineres. O painel do kubernetes é uma alternativa baseada na interface do usuário para a `kubectl` linha de comando kubernetes. Para obter mais informações, confira [Painel do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
 No dispositivo Azure Stack Edge pro, você pode usar o painel do kubernetes no modo *somente leitura* para obter uma visão geral dos aplicativos em execução no dispositivo pro Azure Stack Edge, exibir o status dos recursos de cluster do kubernetes e ver os erros que ocorreram no dispositivo.
 

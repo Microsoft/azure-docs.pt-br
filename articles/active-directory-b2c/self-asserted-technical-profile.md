@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/26/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d3343838216522abfc11ec3f202ae2da1c0e38f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059051"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611871"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -212,11 +212,13 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 | configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) . Valores possíveis: `true` ou `false` (padrão). |
 | configuração. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Não| Melhora a experiência do usuário, aguardando que o usuário pare de digitar e, em seguida, valide o valor. Valor padrão de 2000 milissegundos. |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+|forgotPasswordLinkOverride <sup>4</sup>| Não | Uma troca de declarações de redefinição de senha a ser executada. Para obter mais informações, consulte [autoatendimento de redefinição de senha](add-password-reset-policy.md). |
 
 Observações:
 1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .
 1. Disponível para a definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` . [Layout de página versão](page-layout.md) 1.1.0 e posterior.
 1. Disponível para o [layout de página versão](page-layout.md) 1.2.0 e superior.
+1. Disponível para o tipo de [DataUri](contentdefinitions.md#datauri) de definição de conteúdo de `unifiedssp` . [Layout de página versão](page-layout.md) 2.1.2 e superior.
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
 ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93098205"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Criar um aplicativo usando o Node.js e a API do Azure Cosmos DB para MongoDB 
@@ -34,7 +34,7 @@ Para usar este exemplo, você deve:
 * [Criar](create-mongodb-dotnet.md#create-account) uma conta do Cosmos configurada para usar a API do Azure Cosmos DB para MongoDB.
 * Recuperar as informações de [cadeia de conexão](connect-mongodb-account.md).
 
-## <a name="create-the-app"></a>Criar o aplicativo
+## <a name="create-the-app"></a>Crie o aplicativo
 
 1. Crie um arquivo *app.js* e copie e cole o código abaixo.
 
@@ -118,7 +118,7 @@ Para usar este exemplo, você deve:
     });
     ```
     
-    **Opcional** : se você estiver usando o driver **MongoDB Node. js 2.2** , substitua o snippet de código a seguir:
+    **Opcional**: se você estiver usando o driver **MongoDB Node. js 2.2**, substitua o snippet de código a seguir:
 
     Original:
 

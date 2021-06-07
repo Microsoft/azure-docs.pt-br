@@ -6,10 +6,10 @@ ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
 ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100007101"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
@@ -128,7 +128,7 @@ Em ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-Um método alternativo para aplicativos Web ASP.NET é instanciar o inicializador no código, por exemplo, em Global.aspx.cs:
+Um método alternativo para aplicativos Web ASP.NET é instanciar o inicializador no código, por exemplo, em global. aspx. cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

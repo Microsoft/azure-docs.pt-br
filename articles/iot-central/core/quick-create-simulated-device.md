@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 488de7114d80e6a88cc619ba3b42f867c985ea11
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 4c7925c1bc397e15d8b6e0f2f21d5e9147109b83
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833908"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064844"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Início Rápido: Adicionar um dispositivo simulado ao seu aplicativo IoT Central
 

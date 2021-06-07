@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0b7330485d3152a588d43added7d9feaa5c2a14
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3a3c2812a4ecfa1a80539804122042bc2dc2f3a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "95994478"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199179"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -83,18 +83,22 @@ Este parâmetro permite que você especifique uma ID que será associada ao víd
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fundo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
+Use esse parâmetro para definir o pacote de ia que você deseja aplicar em seu arquivo de áudio ou de vídeo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
 
-- `AudioOnly` – Indexar e extrair insights usando apenas áudio (ignorando vídeo)
-- `VideoOnly` -Indexe e extraia informações usando somente vídeo (ignorando áudio)
-- `Default` – Indexar e extrair insights usando áudio e vídeo
-- `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
+- `AudioOnly` – Indexe e extraia ideias usando somente áudio (ignorando vídeo).
+- `VideoOnly` -Indexe e extraia informações usando somente vídeo (ignorando áudio).
+- `Default` – Indexe e extraia informações usando áudio e vídeo.
+- `DefaultWithNoiseReduction` – Indexe e extraia informações de áudio e vídeo, enquanto aplica algoritmos de redução de ruído no fluxo de áudio.
+
+    O `DefaultWithNoiseReduction` valor agora é mapeado para predefinição padrão (preterido).
+- `BasicAudio` -Indexe e extraia ideias usando apenas áudio (ignorando vídeo), incluindo apenas os recursos básicos de áudio (transcrição, tradução, Formatar legendas de saída e legendas).
+ - `AdvancedAudio` -Indexe e extraia informações usando áudio apenas (ignorando vídeo), incluindo recursos avançados de áudio (detecção de eventos de áudio), além da análise de áudio padrão.
 
 > [!NOTE]
 > Video Indexer abrange até duas faixas de áudio. Se houver mais faixas de áudio no arquivo, elas serão tratadas como uma faixa.<br/>
 Se você quiser indexar as faixas separadamente, será necessário extrair o arquivo de áudio relevante e indexá-lo como `AudioOnly` .
 
-O preço depende da opção de indexação selecionada.  
+O preço depende da opção de indexação selecionada. Para obter mais informações, consulte [preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### <a name="priority"></a>priority
 
@@ -317,7 +321,7 @@ public class AccountContractSlim
 
 Os códigos de status listados na tabela a seguir podem ser retornados pela operação de Upload.
 
-|Código de status|ErrorType (no corpo da resposta)|Description|
+|Código de status|ErrorType (no corpo da resposta)|Descrição|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está em curso de ser processado na conta especificada.|
 |400|VIDEO_ALREADY_FAILED|O mesmo vídeo falhou ao processar na conta informada há menos de duas horas. Os clientes da API devem aguardar pelo menos duas horas antes de carregar novamente um vídeo.|

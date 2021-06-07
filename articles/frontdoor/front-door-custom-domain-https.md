@@ -10,24 +10,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368308"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067598"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
-Este tutorial mostra como habilitar o protocolo HTTPS para um domínio personalizado que está associado ao seu Front Door na seção hosts de front-end. Usando o protocolo HTTPS em seu domínio personalizado (por exemplo, https:\//www.contoso.com), você garante que seus dados confidenciais são fornecidos com segurança por meio da criptografia TLS/SSL quando ele são enviada pela Internet. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Esse processo oferece segurança e protege seus aplicativos Web contra ataques.
+Este tutorial mostra como habilitar o protocolo HTTPS para um domínio personalizado que está associado ao seu Front Door na seção hosts de front-end. Usando o protocolo HTTPS no domínio personalizado (por exemplo, https:\//www.contoso.com), você garante que os seus dados confidenciais serão entregues com segurança pela criptografia TLS/SSL quando forem enviados na Internet. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Esse processo oferece segurança e protege seus aplicativos Web contra ataques.
 
 O Azure Front Door dá suporte a HTTPS em um nome do host padrão do Front Door, por padrão. Por exemplo, se você criar um Front Door (como `https://contoso.azurefd.net`), o HTTPS será habilitado automaticamente para solicitações feitas a `https://contoso.azurefd.net`. No entanto, depois de integrar o domínio personalizado 'www.contoso.com', será necessário habilitar adicionalmente o HTTPS para esse host de front-end.   
 
 Alguns dos principais atributos do recurso HTTPS são:
 
-- Sem custo adicional: não há nenhum custo para a aquisição ou renovação do certificado e nenhum custo para tráfego HTTPS. 
+- Sem custo adicional: não há nenhum custo para a aquisição ou a renovação do certificado e nenhum custo adicional para o tráfego HTTPS. 
 
 - Habilitação simples: o provisionamento com um clique está disponível no [portal do Azure](https://portal.azure.com). Você também pode usar a API REST ou outras ferramentas de desenvolvedor para habilitar o recurso.
 
@@ -59,23 +59,24 @@ Quando você usa um certificado gerenciado pelo Azure Front Door, o recurso HTTP
 
 Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil do **Front Door** .
+1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil do **Front Door**.
 
 2. Na lista de hosts de front-end, selecione o domínio personalizado para o qual deseja habilitar o HTTPS, contendo seu domínio personalizado.
 
-3. Na seção **HTTPS do domínio personalizado** , clique em **Habilitado** e selecione **gerenciado por Front Door** como a origem do certificado.
+3. Na seção **HTTPS do domínio personalizado**, selecione **Habilitado** e **Gerenciado pelo Front Door** como a origem do certificado.
 
-4. Clique em Salvar.
+4. Selecione Salvar.
 
 5. Prossiga para [Validar o domínio](#validate-the-domain).
 
 > [!NOTE]
 > Para os certificados gerenciados do AFD, o limite de 64 caracteres do DigiCert é imposto. A validação falhará se esse limite for excedido.
 
+![NOTE] Não há suporte para a habilitação do HTTPS por meio do certificado Gerenciado pelo Front Door em domínios Apex/raiz (exemplo: contoso.com). Você pode usar um certificado próprio para esse cenário.  Prossiga com a Opção 2 para obter mais detalhes.
 
 ### <a name="option-2-use-your-own-certificate"></a>Opção 2: Usar o seu próprio certificado
 
-Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. O Azure Front Door usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais. Quando você cria o certificado TLS/SSL, você deve criá-lo com uma autoridade de certificação (AC) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Para obter uma lista das autoridades de certificação permitidas, consulte [Autoridades de certificação permitidas para habilitar HTTPS personalizado no Azure Front Door](front-door-troubleshoot-allowed-ca.md).
+Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. O Azure Front Door usa esse mecanismo seguro para obter o certificado e exige algumas etapas extras. Quando você cria o certificado TLS/SSL, você deve criá-lo com uma autoridade de certificação (AC) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Para obter uma lista das autoridades de certificação permitidas, consulte [Autoridades de certificação permitidas para habilitar HTTPS personalizado no Azure Front Door](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  
@@ -84,7 +85,7 @@ Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse pro
 > [!WARNING]
 > No momento, o Azure Front Door oferece suporte apenas a contas do Key Vault na mesma assinatura que a configuração do Front Door. Se você escolher um Key Vault com uma assinatura diferente do Front Door, ocorrerá uma falha.
 
-2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra. Faça upload do certificado como um objeto **certificate** , em vez de um **secret** .
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra. Faça upload do certificado como um objeto **certificate**, em vez de um **secret**.
 
 > [!NOTE]
 > Para seu certificado TLS/SSL, o Front Door não é compatível com certificados com algoritmos de criptografia de curva elíptica.
@@ -108,13 +109,13 @@ Conceda permissão ao Azure Front Door para acessar os certificados na sua conta
 
 1. Em sua conta do Key Vault, em CONFIGURAÇÕES, selecione **Políticas de acesso** e depois **Adicionar novo** para criar uma nova política.
 
-2. Em **Selecionar entidade de segurança** , pesquise por **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor** . Clique em **Selecionar** .
+2. Em **Selecionar entidade de segurança**, pesquise por **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor**. Clique em **Selecionar**.
 
-3. Em **Permissões do segredo** , selecione **Obter** para permitir que o Front Door recupere o certificado.
+3. Em **Permissões do segredo**, selecione **Obter** para permitir que o Front Door recupere o certificado.
 
-4. Em **Permissões do certificado** , selecione **Obter** para permitir que o Front Door recupere o certificado.
+4. Em **Permissões do certificado**, selecione **Obter** para permitir que o Front Door recupere o certificado.
 
-5. Selecione **OK** . 
+5. Selecione **OK**. 
 
     Agora o Azure Front Door pode acessar este Key Vault e os certificados armazenados nele.
  
@@ -126,32 +127,29 @@ Conceda permissão ao Azure Front Door para acessar os certificados na sua conta
 
     A página de **Domínio personalizado** é exibida.
 
-3. Em Tipo de gerenciamento de certificado, selecione **Usar meu próprio certificado** . 
+3. Em Tipo de gerenciamento de certificado, selecione **Usar meu próprio certificado**. 
 
-4. O Azure Front Door exige que a assinatura da conta do Key Vault seja igual à do Front Door. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
+4. O Azure Front Door exige que a assinatura da conta do Key Vault seja igual à do Front Door. Selecione um cofre de chaves, um segredo e a versão do segredo.
 
     O Azure Front Door contém as informações a seguir: 
     - As contas do Key Vault para sua ID de assinatura. 
-    - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões de certificado disponíveis. 
+    - Os segredos no cofre de chaves selecionado. 
+    - As versões do segredo disponíveis.
 
-> [!NOTE]
-> Deixar a versão do certificado em branco resultaria em:
-> - A versão mais recente do certificado ser selecionada.
-> - Rotação automática dos certificados até a versão mais recente, quando uma versão mais recente do certificado estiver disponível em seu Key Vault.
+    > [!NOTE]
+    >  Para que o certificado seja alternado automaticamente para a última versão quando uma versão mais recente do certificado estiver disponível no Key Vault, defina a versão do segredo como 'Última'. Se uma versão específica for selecionada, você precisará selecionar novamente a nova versão manualmente para a rotação do certificado. Leva até 24 horas para que a nova versão do certificado/do segredo seja implantada. 
  
-5. Quando você usa seu próprio certificado, a validação de domínio não é necessária. Avance para a [Aguardar a propagação](#wait-for-propagation).
+5. Quando você usa um certificado próprio, a validação de domínio não é necessária. Prossiga para [Aguardar a propagação](#wait-for-propagation).
 
 ## <a name="validate-the-domain"></a>Validar o domínio
 
-Se você já tiver um domínio personalizado em uso que é mapeado para o ponto de extremidade personalizado com um registro CNAME, ou se estiver usando seu próprio certificado, vá para  
-[O domínio personalizado está mapeado para o Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Caso contrário, se a entrada de registro CNAME para o domínio não existir mais ou contiver o subdomínio afdverify, vá para [Domínio personalizado não está mapeado para o Front Door](#custom-domain-is-not-mapped-to-your-front-door).
+Se você já tiver um domínio personalizado em uso que é mapeado para o ponto de extremidade personalizado com um registro CNAME ou se estiver usando um certificado próprio, prossiga para [O domínio personalizado é mapeado para o Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Caso contrário, se a entrada de registro CNAME para o domínio não existir mais ou contiver o subdomínio afdverify, prossiga para [O domínio personalizado não é mapeado para o Front Door](#custom-domain-is-not-mapped-to-your-front-door).
 
 ### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>O domínio personalizado está mapeado para o Front Door por registro CNAME
 
 Quando adiciona um domínio personalizado aos hosts de front-end do Front Door, você cria um registro CNAME na tabela DNS do seu registrador de domínios para mapeá-lo para o nome do host .azurefd.net padrão do Front Door. Se esse registro CNAME ainda existir e não contiver o subdomínio afdverify, a autoridade de certificação DigiCert vai utilizá-lo para validar automaticamente a propriedade do seu domínio personalizado. 
 
-Se você estiver usando seu próprio certificado, a validação de domínio não será necessária.
+Se você estiver usando um certificado próprio, a validação de domínio não será necessária.
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host .azurefd.net padrão do Front Door:
 
@@ -161,7 +159,7 @@ O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de dom�
 
 Para obter mais informações sobre os registros CNAME, consulte [criar o registro de DNS CNAME](../cdn/cdn-map-content-to-custom-domain.md).
 
-Se o registro CNAME estiver no formato correto, o DigiCert verificará automaticamente seu nome de domínio personalizado e criará um certificado dedicado ao seu nome de domínio. O DigitCert não enviará um email de verificação, e você não precisará aprovar sua solicitação. O certificado é válido por um ano e será renovado automaticamente antes de expirar. Avance para a [Aguardar a propagação](#wait-for-propagation). 
+Se o registro CNAME estiver no formato correto, o DigiCert verificará automaticamente seu nome de domínio personalizado e criará um certificado dedicado ao seu nome de domínio. O DigitCert não enviará um email de verificação, e você não precisará aprovar sua solicitação. O certificado é válido por um ano e será renovado automaticamente antes de expirar. Prossiga para [Aguardar a propagação](#wait-for-propagation). 
 
 A validação automática geralmente demora alguns minutos. Se você não vir seu domínio validado em uma hora, abra um tíquete de suporte.
 
@@ -176,7 +174,7 @@ Depois de habilitar o HTTPS em seu domínio personalizado, a autoridade de certi
 
 ![Registro WHOIS](./media/front-door-custom-domain-https/whois-record.png)
 
-O DigiCert também envia um email de verificação para endereços de email adicionais. Se as informações do inscrito WHOIS forem particulares, verifique se é possível aprovar diretamente por meio de um dos seguintes endereços:
+O DigiCert também envia um email de verificação para outros endereços de email. Se as informações do inscrito WHOIS forem particulares, verifique se é possível aprovar diretamente por meio de um dos seguintes endereços:
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -184,13 +182,13 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-Você deverá receber um email em poucos minutos, semelhante ao exemplo a seguir, solicitando que você aprove a solicitação. Se estiver usando um filtro de spam, adicione admin@digicert.com à sua lista de permissões. Se você não receber um email em até 24 horas, contate o suporte da Microsoft.
+Você deverá receber um email em poucos minutos, semelhante ao exemplo a seguir, solicitando que você aprove a solicitação. Caso você esteja usando um filtro de spam, adicione admin@digicert.com à lista de permitidos. Se você não receber um email em até 24 horas, contate o suporte da Microsoft.
 
-Quando você clicar no link de aprovação, será direcionado para um formulário de aprovação online. Siga as instruções do formulário; você tem duas opções de verificação:
+Quando você selecionar o link de aprovação, será direcionado para um formulário de aprovação online. Siga as instruções do formulário; você tem duas opções de verificação:
 
-- Você pode aprovar todos os pedidos futuros feitos por meio da mesma conta para o mesmo domínio raiz; por exemplo, contoso.com. Essa abordagem é recomendada se você pretende adicionar domínios personalizados adicionais para o mesmo domínio raiz.
+- Você pode aprovar todos os pedidos futuros feitos por meio da mesma conta para o mesmo domínio raiz; por exemplo, contoso.com. Essa abordagem é recomendada se você pretende adicionar mais domínios personalizados ao mesmo domínio raiz.
 
-- Você pode aprovar apenas o nome do host específico usado nesta solicitação. Uma aprovação adicional é necessária para as solicitações posteriores.
+- Você pode aprovar apenas o nome do host específico usado nesta solicitação. Uma aprovação extra é necessária para as solicitações seguintes.
 
 Após a aprovação, o DigiCert conclui a criação do certificado para seu nome de domínio personalizado. O certificado é válido por um ano e será renovado automaticamente antes de expirar.
 
@@ -200,7 +198,7 @@ Depois da validação do nome de domínio, é necessário de 6 a 8 horas para a 
 
 ### <a name="operation-progress"></a>Andamento da operação
 
-A tabela a seguir mostra o andamento da operação que ocorre quando você habilita o HTTPS. Depois de habilitar o HTTPS, quatro etapas de operação são exibidas na caixa de diálogo do domínio personalizado. À medida que cada etapa fica ativa, detalhes adicionais da subetapa são exibidos na etapa conforme ela avança. Nem todas essas subetapas ocorrerão. Depois que uma etapa for concluída com êxito, uma marca de seleção verde é exibida ao lado dela. 
+A tabela a seguir mostra o andamento da operação que ocorre quando você habilita o HTTPS. Depois de habilitar o HTTPS, quatro etapas de operação são exibidas na caixa de diálogo do domínio personalizado. À medida que cada etapa fica ativa, mais detalhes da subetapa são exibidos na etapa conforme ela avança. Nem todas essas subetapas ocorrerão. Depois que uma etapa for concluída com êxito, uma marca de seleção verde é exibida ao lado dela. 
 
 | Etapa da operação | Detalhes da subetapa da operação | 
 | --- | --- |
@@ -244,27 +242,27 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 5. *É necessário ter um registro de Autorização de Autoridade de Certificação em meu provedor DNS?*
 
-    Não, um registro de Autorização de Autoridade de Certificação não é necessário no momento. No entanto, caso você tenha um, ele deverá incluir o DigiCert como uma AC válida.
+    Não. No momento, nenhum registro de Autorização de Autoridade de Certificação é necessário. No entanto, caso você tenha um, ele deverá incluir o DigiCert como uma AC válida.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nas etapas anteriores, você habilitou o protocolo HTTPS em seu domínio personalizado. Se você não deseja mais usar seu domínio personalizado com HTTPS, você pode desabilitar o HTTPS, executando as seguintes etapas:
+Nas etapas anteriores, você habilitou o protocolo HTTPS em seu domínio personalizado. Se você não deseja mais usar seu domínio personalizado com o HTTPS, desabilite o HTTPS executando estas etapas:
 
 ### <a name="disable-the-https-feature"></a>Desabilitar o recurso HTTPS 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até a configuração do **Azure Front Door** .
+1. No [portal do Azure](https://portal.azure.com), navegue até a configuração do **Azure Front Door**.
 
-2. Na lista de hosts de front-end, clique no domínio personalizado no qual deseja desabilitar o HTTPS.
+2. Na lista de hosts de front-end, selecione o domínio personalizado no qual deseja desabilitar o HTTPS.
 
-3. Clique em **Desabilitado** para desabilitar o HTTPS e, em seguida, clique em **Salvar** .
+3. Clique em **Desabilitado** para desabilitar o HTTPS e, em seguida, clique em **Salvar**.
 
 ### <a name="wait-for-propagation"></a>Aguardar a propagação
 
-Depois que o recurso HTTPS do domínio personalizado for desabilitado, poderá levar até 6-8 horas para que ele entre em vigor. Quando o processo for concluído, o status HTTPS Personalizado no portal do Azure será definido como **Desabilitado** e as três etapas da operação da caixa de diálogo do domínio personalizado serão marcadas como concluídas. Seu domínio personalizado não pode mais usar o HTTPS.
+Depois que o recurso HTTPS do domínio personalizado for desabilitado, poderá levar até 6-8 horas para que ele entre em vigor. Quando o processo for concluído, o status do HTTPS personalizado no portal do Azure será definido como **Desabilitado** e as três etapas da operação da caixa de diálogo do domínio personalizado serão marcadas como concluídas. Seu domínio personalizado não pode mais usar o HTTPS.
 
 #### <a name="operation-progress"></a>Andamento da operação
 
-A tabela a seguir mostra o andamento da operação que ocorre quando você desabilita o HTTPS. Depois de desabilitar o HTTPS, três etapas de operação são exibidas na caixa de diálogo Domínio personalizado. À medida que cada etapa fica ativa, detalhes adicionais são exibidos na etapa. Depois que uma etapa for concluída com êxito, uma marca de seleção verde é exibida ao lado dela. 
+A tabela a seguir mostra o andamento da operação que ocorre quando você desabilita o HTTPS. Depois de desabilitar o HTTPS, três etapas de operação são exibidas na caixa de diálogo Domínio personalizado. À medida que cada etapa fica ativa, mais detalhes são exibidos na etapa. Depois que uma etapa for concluída com êxito, uma marca de seleção verde é exibida ao lado dela. 
 
 | Andamento da operação | Detalhes da operação | 
 | --- | --- |
@@ -278,7 +276,7 @@ Neste tutorial, você aprendeu a:
 
 * Carregar um certificado no Key Vault.
 * Validar um domínio.
-* Habilitar o HTTPS para o domínio personalizado.
+* Habilitar HTTPS para seu domínio personalizado.
 
 Para saber como configurar uma política de filtragem geográfica para o Front Door, prossiga para o próximo tutorial.
 

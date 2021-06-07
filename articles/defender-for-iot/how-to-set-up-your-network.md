@@ -1,18 +1,14 @@
 ---
 title: Configurar sua rede
 description: Saiba mais sobre a arquitetura da solução, a preparação da rede, os pré-requisitos e outras informações necessárias para garantir que você configurou com êxito sua rede para trabalhar com o Azure defender para dispositivos IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526503"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781799"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure Defender para IoT
 
@@ -22,7 +18,7 @@ O Azure defender para IoT fornece monitoramento de ameaças e descoberta de disp
 
 **Console de gerenciamento local do defender para IOT**: o console de gerenciamento local fornece uma exibição consolidada de todos os dispositivos de rede. Ele fornece uma visão em tempo real dos indicadores de risco e dos alertas de chave de OT e de todos os seus recursos. Totalmente integrado aos seus fluxos de trabalho e guias estratégicos do SOC, ele permite uma priorização fácil de atividades de mitigação e correlação entre sites de ameaças. 
 
-**Defender para IOT para o portal de IOT:** O aplicativo defender para IoT pode ajudá-lo a adquirir dispositivos de solução, instalar e atualizar software e atualizar pacotes de TI. 
+**Defender para Portal de IOT:** O aplicativo defender para IoT pode ajudá-lo a adquirir dispositivos de solução, instalar e atualizar software e atualizar pacotes de TI. 
 
 Este artigo fornece informações sobre a arquitetura da solução, a preparação da rede, os pré-requisitos e muito mais para ajudá-lo a configurar com êxito sua rede para trabalhar com o defender para dispositivos IoT. Os leitores que trabalham com as informações neste artigo devem ter experiência em operar e gerenciar redes de OT e IoT. Os exemplos incluem engenheiros de automação, gerentes de fábrica, como provedores de serviços de infraestrutura de rede, equipes segurança cibernéticas, CISOs ou CIOs.
 
@@ -365,7 +361,7 @@ Os agregadores TAP também podem ser usados para o monitoramento de porta. Esses
 
 Esses modelos foram testados quanto à compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
-| Imagem | Modelar |
+| Imagem | Modelo |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
@@ -695,6 +691,6 @@ Contate um administrador de Active Directory para criar um grupo de usuários de
 | Câmera | |
 | Computador com Ray X | |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Sobre a instalação do defender para IoT](how-to-install-software.md)

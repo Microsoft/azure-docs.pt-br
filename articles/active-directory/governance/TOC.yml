@@ -14,8 +14,10 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Crie seu primeiro pacote de acesso
+    - name: Gerenciar acesso a recursos – portal do Azure
       href: entitlement-management-access-package-first.md
+    - name: Gerenciar acesso a recursos – Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Conceitos
   expanded: true
   items:

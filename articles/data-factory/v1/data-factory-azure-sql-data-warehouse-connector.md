@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392078"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Copiar dados de e para a análise de Synapse do Azure usando Azure Data Factory
@@ -76,7 +76,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeproperties** do conjunto de um do tipo **AzureSqlDWTable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela ou exibição no banco de dados do Azure Synapse Analytics ao qual o serviço vinculado se refere. |Sim |
 
@@ -310,7 +310,7 @@ O Data Factory cria a tabela no repositório de destino com o mesmo nome de tabe
 | Binário | Binário |
 | Varbinary | Varbinary (até 8.000) |
 | Data | Data |
-| Datetime | Datetime |
+| Datetime | DateTime |
 | DateTime2 | DateTime2 |
 | Hora | Hora |
 | DateTimeOffset | DateTimeOffset |
@@ -365,7 +365,7 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | sql_variant |Object * |
 | texto |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

@@ -4,10 +4,10 @@ description: Saiba como acessar uma VM (exibição de aluno) no laboratório do 
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 31195cc7c8b4bc0e579f8aeb9107b14229dd8877
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218265"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Acessar uma VM (exibição de aluno) no laboratório do Azure das equipes

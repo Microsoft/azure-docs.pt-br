@@ -13,16 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/23/2020
+ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b8ac964c62ac4b30e9280e4ae921297ba860d7c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba5a329d12735fbddc86ff2e3725a1e7de6d9d89
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86529923"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100546458"
 ---
 # <a name="what-is-azure-notification-hubs"></a>O que são Hubs de Notificação do Azure?
 
@@ -93,15 +93,15 @@ Os Hubs de Notificação são o seu mecanismo de efetuar push pronto para uso co
   - Em nuvem ou local.
   - .NET, Node.js, Java, Python, etc.
 - **Conjunto avançado de padrões de entrega**
-  - Difusão para uma ou mais plataformas: é possível fazer transmissões instantâneas para milhões de dispositivos de diversas plataformas com uma única chamada à API.
-  - Enviar por push para o dispositivo: é possível enviar notificações para dispositivos individuais.
-  - Enviar por push para um usuário: marcações e modelos ajudam você a acessar todos os dispositivos multiplataforma de um usuário.
-  - Enviar notificação por push para o segmento com marcações dinâmicas: o recurso de marcações ajuda você a segmentar dispositivos e enviar notificações por push a eles de acordo com as suas necessidades, esteja você enviando para um segmento ou uma expressão de segmentos (por exemplo, ativo E reside em Seattle, que NÃO seja novo usuário). Em vez de ficar limitado a publicar/assinar, você pode atualizar as marcações de dispositivo em qualquer lugar e a qualquer momento.
-  - Notificações por push localizadas: o recurso de modelos ajuda você a alcançar uma localização sem afetar o código de back-end.
-  - Notificações por push silenciosas: é possível habilitar o padrão push e pull enviando notificações silenciosas para dispositivos e disparando-os para concluir determinadas ações ou pulls.
-  - Notificações por push agendadas: você pode agendar para que notificações sejam enviadas a qualquer momento.
-  - Notificações por push diretas: é possível ignorar o registro de dispositivos com o serviço dos Hubs de Notificação e distribuir em lote por push diretamente para uma lista de identificadores de dispositivos.
-  - Notificações por push personalizadas: as variáveis de push de dispositivo ajudam você a enviar notificações por push personalizadas específicas para o dispositivo com pares chave-valor personalizados.
+  - Transmitir para uma ou mais plataformas: é possível executar transmissões instantâneas para milhões de dispositivos em todas as plataformas usando uma chamada à API única.
+  - Enviar notificação por push para um dispositivo: você pode enviar notificações para dispositivos individuais.
+  - Enviar notificação por push aos usuários: as marcações e os modelos ajudarão você a obter acesso a todos os dispositivos multiplataforma de um usuário.
+  - Enviar notificação por push aos segmentos usando marcações dinâmicas: o recurso de marcação ajudará você a segmentar dispositivos e efetuar push neles de acordo com suas necessidades, não importa se você está enviando notificações a um segmento ou uma expressão de segmentos (por exemplo, ativo E reside em Seattle, bem como NÃO é um novo usuário). Em vez de ficar limitado a publicar/assinar, você pode atualizar as marcações de dispositivo em qualquer lugar e a qualquer momento.
+  - Enviar notificação localizada por push: o recurso do modelo ajudará você a obter uma localização sem afetar o código de back-end.
+  - Notificações por push silenciosas: você pode habilitar o padrão push e pull ao enviar notificações silenciosas para dispositivos e disparando-os para concluir determinadas ações ou pulls.
+  - Enviar notificação agendada por push: é possível executar um agendamento para que as notificações sejam enviadas a qualquer momento.
+  - Notificações por push diretas: você pode ignorar o registro de dispositivos com o serviço dos Hubs de Notificações e distribuir em lote por push diretamente para uma lista de identificadores de dispositivos.
+  - Enviar notificação personalizada por push: as variáveis de envio por push do dispositivo ajudarão você a enviar notificações por push personalizadas a um dispositivo específico usando pares chave-valor personalizados.
 - **Telemetria avançada**
   - A telemetria geral de push, dispositivo, erro e operação está disponível no portal do Azure e programaticamente.
   - A telemetria por mensagem controla cada push da sua chamada de solicitação inicial para o serviço de Hubs de Notificação que obteve êxito no envio por push.
@@ -113,7 +113,7 @@ Os Hubs de Notificação são o seu mecanismo de efetuar push pronto para uso co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Introdução à criação e ao uso de um hub de notificação, seguindo o [Tutorial: Enviar notificações por push para aplicativos móveis](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Introdução à criação e ao uso de um hub de notificação, seguindo o [Tutorial: notificações por push para aplicativos móveis](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png

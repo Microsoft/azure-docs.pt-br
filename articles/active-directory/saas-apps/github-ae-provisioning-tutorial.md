@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4e43ebba9f5f3d0c52d1d03bbf6baca92d5b87a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178680"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102427004"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutorial: configurar o GitHub AE para provisionamento automático de usuário
 
@@ -32,13 +32,14 @@ Este tutorial descreve as etapas que você precisa executar no GitHub AE e Azure
 > * Criar usuários na AE do GitHub
 > * Remover usuários no GitHub AE quando eles não exigem mais acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o GitHub AE
+> * Provisionar grupos e associações de grupo no GitHub AE
 > * Logon único no [GITHUB AE](./github-ae-tutorial.md) (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * GitHub AE, totalmente [inicializado](https://docs.github.com/github-ae@latest/admin/configuration/initializing-github-ae) e configurado para logon com [SSO do SAML](https://docs.github.com/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad) por meio de seu locatário do Azure AD.
 
@@ -59,7 +60,7 @@ Adicione o GitHub AE da Galeria de aplicativos do Azure AD para começar a geren
 
 O serviço de provisionamento do Azure AD permite o escopo que será provisionado com base na atribuição ao aplicativo e ou com base em atributos do usuário e/ou grupo. Se você optar por definir o escopo que será provisionado em seu aplicativo com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e/ou grupos ao aplicativo. Se você escolher o escopo que será provisionado com base apenas em atributos do usuário e/ou grupo, você poderá usar um filtro de escopo conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários ao GitHub AE, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao GitHub AE, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e/ou grupos antes de distribuir para todos. Quando o escopo para provisionamento é definido como usuários e/ou grupos atribuídos, você pode controlar isso atribuindo um ou dois usuários e/ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -111,17 +112,27 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |name.formatted|String|
    |displayName|String|
 
-10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o GitHub AE**.
 
-11. Para habilitar o serviço de provisionamento do Azure AD para o GitHub AE, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o GitHub AE na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos na ae do GitHub para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+
+      |Atributo|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membros|Referência|
+
+12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para habilitar o serviço de provisionamento do Azure AD para o GitHub AE, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para o GitHub AE escolhendo os valores desejados no **escopo** na seção **configurações** .
+14. Defina os usuários e/ou grupos que você deseja provisionar para o GitHub AE escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, clique em **Salvar**.
+15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
@@ -133,6 +144,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
 2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Log de alterações
+
+* 02/18/2021-suporte adicionado para provisionamento de grupos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

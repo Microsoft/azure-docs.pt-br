@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/05/2021
 ms.author: alkohli
 ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97900154"
 ---
 # <a name="azure-data-box-limits"></a>Limita o Azure Data Box

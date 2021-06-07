@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fa136a15e4fa034307e16ef50c2b16060c5af0d2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490196"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças no banco de dados do Azure para PostgreSQL-servidor único

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367972"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232487"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -39,6 +39,8 @@ Um modelo treinado em um subconjunto de cenários só pode funcionar bem nesses 
 > Comece com pequenos conjuntos de dados de exemplo que correspondem ao idioma e acústicos que seu modelo encontrará.
 > Por exemplo, registre uma amostra pequena, mas representativa de áudio no mesmo hardware e no mesmo ambiente acústico que seu modelo encontrará em cenários de produção.
 > Pequenos conjuntos de dados representativos podem expor problemas antes de você se investir em reunir conjuntos de dados muito maiores para treinamento.
+>
+> Para começar rapidamente, considere o uso de dados de exemplo. Consulte este repositório GitHub para obter <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">dados de fala personalizada de exemplo </a>
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -46,28 +48,27 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Usado para teste | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
+| [Sonoro](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
 | [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1-20 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
-
-Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais. O treinamento com texto é muito mais rápido do que o treinamento com áudio (minutos versus dias).
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
 > [!TIP]
-> Para começar rapidamente, considere o uso de dados de exemplo. Consulte este repositório GitHub para obter <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">dados <span class="docon docon-navigate-external x-hidden-focus"></span> de fala personalizada de exemplo</a>
+> Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais. O treinamento com texto é muito mais rápido do que o treinamento com áudio (minutos versus dias).
 
 > [!NOTE]
-> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
-
-> [!NOTE]
+> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio. Mesmo que um modelo base dê suporte ao treinamento com dados de áudio, o serviço poderá usar apenas parte do áudio. Ainda assim, ele usará todas as transcrições.
+>
 > Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 >
 > Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Em regiões com hardware dedicado para treinamento, o serviço de fala usará até 20 horas de áudio para treinamento. Em outras regiões, ele só usará até 8 horas de áudio.
 
 ## <a name="upload-data"></a>Carregar dados
 
-Para carregar seus dados, navegue até o <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. No portal, clique em **carregar dados** para iniciar o assistente e criar o seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
+Para carregar seus dados, navegue até o <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. No portal, clique em **carregar dados** para iniciar o assistente e criar o seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
 
 ![Captura de tela que realça a opção de carregamento de áudio do portal de fala.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -99,7 +100,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 > [!TIP]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Se você precisar de mais dados para treinamento, divida-os em vários arquivos. zip e carregue-os separadamente. Posteriormente, você pode optar por treinar a partir de *vários* conjuntos de valores. No entanto, você só pode testar a partir de um *único* conjunto de uma.
 
-Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> Sox</a> para verificar as propriedades de áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando SoX:
+Use o <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox </a> para verificar as propriedades de áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando SoX:
 
 | Atividade | Descrição | Comando SoX |
 |----------|-------------|-------------|
@@ -127,7 +128,7 @@ Os arquivos de áudio podem ter silêncio no início e no final da gravação. S
 > [!NOTE]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de um, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo. Além disso, cada arquivo de treinamento não pode exceder 60 segundos, caso contrário, ocorrerá um erro.
 
-Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente de 10 a 20 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
+Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavras por palavra de 1 a 20 horas de áudio. No entanto, até 30 minutos podem ajudar a melhorar os resultados de reconhecimento. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
 Por exemplo:
 
@@ -144,7 +145,7 @@ speech03.wav    the lazy dog was not amused
 
 As transcrições são normalizadas para texto para processamento pelo sistema. No entanto, há algumas normalizações importantes que devem ser feitas antes de carregar os dados no Speech Studio. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de coletar os arquivos de áudio e as transcrições correspondentes, empacote-os como um único arquivo. zip antes de carregar no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Veja abaixo um exemplo de conjunto de exemplos com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
+Depois de coletar os arquivos de áudio e as transcrições correspondentes, empacote-os como um único arquivo. zip antes de carregar no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. Veja abaixo um exemplo de conjunto de exemplos com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -162,7 +163,7 @@ Os nomes de produtos ou recursos que são exclusivos devem incluir dados de text
 | Sentenças (declarações) | Melhore a precisão ao reconhecer nomes de produtos ou vocabulário específico do setor dentro do contexto de uma frase. |
 | Pronúncias | Melhore a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
-As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>.
 
 O treinamento com texto relacionado geralmente é concluído em alguns minutos.
 

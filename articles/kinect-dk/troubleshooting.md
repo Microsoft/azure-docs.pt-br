@@ -1,18 +1,18 @@
 ---
 title: Problemas conhecidos e solução de problemas do Azure Kinect
 description: Saiba mais sobre alguns dos problemas conhecidos e dicas de solução de problemas ao usar o SDK do sensor com o Azure Kinect DK.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: solução de problemas, atualização, Bug, Kinect, comentários, recuperação, registro em log, dicas
-ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: da5242a09934a756093a9e02b6d474e6c75fecda
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587274"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108733"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conhecidos e solução de problemas do Azure Kinect
 
@@ -98,7 +98,7 @@ O registro em log para o SDK de acompanhamento de corpo K4ABT.dll é semelhante,
 
 ## <a name="azure-kinect-viewer-fails-to-open"></a>Falha ao abrir o Azure Kinect Viewer
 
-- Verifique primeiro se o dispositivo enumera no Windows Device Manager.
+- Verifique primeiro se o dispositivo enumera no Windows Gerenciador de Dispositivos.
 
     ![Câmeras do Azure Kinect no Gerenciador de dispositivos do Windows](./media/resources/viewer-fails.png)
 
@@ -113,9 +113,9 @@ O registro em log para o SDK de acompanhamento de corpo K4ABT.dll é semelhante,
 
 ## <a name="cannot-find-microphone"></a>Não é possível localizar o microfone
 
-- Verifique primeiro se a matriz de microfone está enumerada em Device Manager.
+- Verifique primeiro se a matriz de microfone está enumerada em Gerenciador de Dispositivos.
 - Se um dispositivo for enumerado e funcionar de outra forma corretamente no Windows, o problema poderá ser que, após a atualização do firmware, o Windows tenha atribuído uma ID de contêiner diferente à câmera de profundidade.
-- Você pode tentar redefini-lo acessando Device Manager, clicando com o botão direito do mouse em "matriz de microfone Kinect do Azure" e selecionando "desinstalar dispositivo". Quando isso for concluído, desanexe e anexe novamente o sensor.
+- Você pode tentar redefini-lo acessando Gerenciador de Dispositivos, clicando com o botão direito do mouse em "matriz de microfone Kinect do Azure" e selecionando "desinstalar dispositivo". Quando isso for concluído, desanexe e anexe novamente o sensor.
 
     ![Matriz do MIC Kinect do Azure](./media/resources/mic-not-found.png)
 
@@ -148,7 +148,7 @@ Para o Azure Kinect DK no **Windows, Intel**, **Texas Instruments (TI)** e **Ren
 
 O tópico dos controladores de host USB fica ainda mais complicado quando um PC tem mais de um controlador de host instalado. Quando os controladores de host estão misturados, um usuário pode enfrentar problemas em que algumas portas funcionam bem e outras não funcionam. Dependendo de como as portas são conectadas ao caso, você poderá ver todas as portas frontais com problemas com o Azure Kinect
 
-**Windows:** Para descobrir o controlador de host que você abriu Device Manager
+**Windows:** Para descobrir o controlador de host que você abriu Gerenciador de Dispositivos
 
 1. Exibir-> dispositivos por tipo 
 2. Com o Azure Kinect conectado, selecione câmeras->câmera do Azure Kinect 4K
@@ -172,14 +172,60 @@ O mecanismo de profundidade do Azure Kinect no Linux usa OpenGL. O OpenGL requer
 
 1. Habilite o logon automático para a conta de usuário que você planeja usar. Consulte [este](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) artigo para obter instruções sobre como habilitar o logon automático.
 2. Desligue o sistema, desconecte o monitor e ligue o sistema. O logon automático força a criação de uma sessão x-Server.
-2. Conecte-se via SSH e defina a variável exibir env `export DISPLAY=:0`
-3. Inicie seu aplicativo Kinect do Azure.
+3. Conecte-se via SSH e defina a variável exibir env `export DISPLAY=:0`
+4. Inicie seu aplicativo Kinect do Azure.
+
+O utilitário [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) pode ser usado para bloquear imediatamente a tela após o logon automático. Adicione o seguinte comando ao aplicativo de inicialização ou ao serviço de sistema:
+
+`bash -c “xtrlock -b”`
 
 ## <a name="missing-c-documentation"></a>Documentação do C# ausente
 
 A documentação do SDK do sensor do C# está localizada [aqui](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
 
 A documentação C# do SDK do acompanhamento de corpo está localizada [aqui](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
+## <a name="specifying-onnx-runtime-execution-environment"></a>Especificando o ambiente de execução do ONNX Runtime
+
+O SDK de acompanhamento de corpo dá suporte a CPU, CUDA, DirectML (somente Windows) e ambientes de execução de TensorRT para inferência do modelo de estimativa de pose. O `K4ABT_TRACKER_PROCESSING_MODE_GPU` padrão é a execução de CUDA na execução do Linux e do DirectML no Windows. Três modos adicionais foram adicionados para selecionar ambientes de execução específicos: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA` , `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` e `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT` .
+
+> [!NOTE]  
+> O tempo de execução do ONNX exibe avisos para opcodes que não são acelerados. Eles podem ser ignorados com segurança.
+
+O tempo de execução do ONNX inclui variáveis de ambiente para controlar o cache de modelo TensorRT. Os valores recomendados são:
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
+- ORT_TENSORRT_CACHE_PATH = "PathName"
+
+A pasta deve ser criada antes de iniciar o rastreamento de corpo.
+
+> [!IMPORTANT]  
+> O TensorRT processa previamente o modelo antes da inferência, resultando em tempos de inicialização estendidos quando comparado a outros ambientes de execução. O cache de mecanismo limita isso à primeira execução, mas é experimental e é específico para o modelo, versão de tempo de execução ONNX, versão TensorRT e modelo de GPU.
+
+O ambiente de execução TensorRT dá suporte a FP32 (padrão) e FP16. FP16s de aumento de desempenho de aproximadamente 2x para diminuir a precisão mínima. Para especificar FP16:
+- ORT_TENSORRT_FP16_ENABLE = 1
+
+## <a name="required-dlls-for-onnx-runtime-execution-environments"></a>DLLs necessárias para ambientes de execução do ONNX Runtime
+
+|Mode      | CUDA 11,1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
+|----------|----------------------|----------------------|----------------------|
+| CPU      | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| CUDA     | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           | cudnn_ops_infer64_8  |                      |
+|          | cublas64_11          | cudnn_cnn_infer64_8  |                      |
+|          | cublasLt64_11        |                      |                      |
+| DirectML | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| TensorRT | cudart64_110         | cudnn64_8            | nvinfer              |
+|          | cufft64_10           | cudnn_ops_infer64_8  | nvinfer_plugin       |
+|          | cublas64_11          | cudnn_cnn_infer64_8  | myelin64_1           |
+|          | cublasLt64_11        |                      |                      |
+|          | nvrtc64_111_0        |                      |                      |
+|          | nvrtc-builtins64_111 |                      |                      |
 
 ## <a name="next-steps"></a>Próximas etapas
 

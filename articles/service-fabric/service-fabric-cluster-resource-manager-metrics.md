@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172996"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
@@ -19,7 +19,7 @@ ms.locfileid: "92172996"
 Itens como Memória, Disco e Uso de CPU são exemplos de métricas. Essas métricas são métricas físicas, recursos que correspondem aos recursos físicos no nó que precisam ser gerenciados. As métricas também podem ser (e normalmente são) métricas lógicas. Métricas lógicas são itens como "MyWorkQueueDepth", "MessagesToProcess" ou "TotalRecords". Métricas lógicas são definidas pelo aplicativo e indiretamente correspondem a algum consumo de recursos físicos. Métricas lógicas são comuns, pois pode ser difícil medir e relatar o consumo de recursos físicos por serviço. A complexidade de medir e relatar suas próprias métricas também é o motivo pelo qual o Service Fabric fornece algumas métricas padrão prontas.
 
 ## <a name="default-metrics"></a>Métricas padrão
-Digamos que você deseja começar a escrever e implantar seu serviço. Neste ponto, você não sabe quais recursos físicos ou lógicos serão consumidos. Sem problemas! O Gerenciador de Recursos de Cluster do Service Fabric usa algumas métricas padrão quando não há nenhuma outra métrica especificadas. Eles são:
+Digamos que você deseja começar a escrever e implantar seu serviço. Neste ponto, você não sabe quais recursos físicos ou lógicos serão consumidos. Sem problemas! O Gerenciador de Recursos de Cluster do Service Fabric usa algumas métricas padrão quando não há nenhuma outra métrica especificadas. São eles:
 
   - PrimaryCount - contagem de réplicas Primárias no nó 
   - ReplicaCount - contagem total de réplicas com estado do nó
@@ -135,7 +135,7 @@ Lembre-se: se você quiser usar as métricas padrão, não precisará sequer enc
 
 Agora, vamos percorrer cada uma dessas configurações mais detalhadamente e falar sobre o comportamento que ela influencia.
 
-## <a name="load"></a>Carregar
+## <a name="load"></a>Carregamento
 O objetivo da definição de métricas é representar alguma carga. *Carga* é a quantidade de determinada métrica consumida por alguma instância de serviço ou réplica em determinado nó. A carga pode ser configurada em praticamente qualquer ponto. Por exemplo:
 
   - A carga pode ser definida quando um serviço é criado. Esse tipo de configuração de carga é chamado de _carga padrão_.
@@ -236,7 +236,7 @@ OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
         cancellationToken);
 ```
 
-Com este exemplo, você executará uma atualização da última carga relatada para uma partição _53df3d7f-5471-403b-b736-bde6ad584f42_. O carregamento de réplica primária para uma métrica _CustomMetricName0_ será atualizado com o valor 100. Ao mesmo tempo, a carga para a mesma métrica para uma réplica secundária específica localizada no nó _NodeName0_será atualizada com o valor 200.
+Com este exemplo, você executará uma atualização da última carga relatada para uma partição _53df3d7f-5471-403b-b736-bde6ad584f42_. O carregamento de réplica primária para uma métrica _CustomMetricName0_ será atualizado com o valor 100. Ao mesmo tempo, a carga para a mesma métrica para uma réplica secundária específica localizada no nó _NodeName0_ será atualizada com o valor 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Atualizando a configuração da métrica do serviço
 A lista de métricas associadas ao serviço e as propriedades dessas métricas podem ser atualizadas dinamicamente enquanto o serviço está ativo. Isso permite flexibilidade e a oportunidade de fazer experimentos. Alguns exemplos de quando isso é útil são:

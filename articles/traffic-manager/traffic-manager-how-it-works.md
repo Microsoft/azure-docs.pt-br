@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
 ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98184332"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego

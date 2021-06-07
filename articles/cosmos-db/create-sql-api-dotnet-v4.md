@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93090096"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Início Rápido: Criar um aplicativo de console usando o SDK do .NET V4 para gerenciar recursos de conta da API SQL do Azure Cosmos DB.
@@ -56,7 +56,7 @@ Se tiver sua própria assinatura do Azure ou tiver criado uma gratuitamente, voc
 
 Você pode usar o Azure Cloud Shell para criar a conta do Azure Cosmos. O Azure Cloud Shell é um shell interativo, autenticado e acessível pelo navegador para o gerenciamento de recursos do Azure. Ele dá a você a flexibilidade de escolher a experiência de shell que melhor se adequa ao modo como você trabalha, seja com o Bash ou o PowerShell. Para este guia de início rápido, escolha o modo **Bash**. O Azure Cloud Shell também requer uma conta de armazenamento, a qual você pode criar quando solicitado.
 
-Selecione o botão **Experimentar** ao lado do código a seguir, escolha o modo **Bash** , selecione **criar uma conta de armazenamento** e faça logon no Cloud Shell. Em seguida, copie e cole o código a seguir no Azure Cloud Shell e execute-o. O nome da conta do Azure Cosmos deve ser globalmente exclusivo, certifique-se de atualizar o valor `mysqlapicosmosdb` antes de executar o comando.
+Selecione o botão **Experimentar** ao lado do código a seguir, escolha o modo **Bash**, selecione **criar uma conta de armazenamento** e faça logon no Cloud Shell. Em seguida, copie e cole o código a seguir no Azure Cloud Shell e execute-o. O nome da conta do Azure Cosmos deve ser globalmente exclusivo, certifique-se de atualizar o valor `mysqlapicosmosdb` antes de executar o comando.
 
 ```azurecli-interactive
 

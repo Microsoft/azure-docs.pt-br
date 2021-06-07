@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967271"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
@@ -55,7 +55,7 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**StorSimple tiering** 
+ 
  Camadas ![ do StorSimple Diagrama de camadas do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
@@ -253,7 +253,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -265,7 +265,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
 
-1.  No console de administração do NetBackup, selecione dispositivos **de gerenciamento de mídia e dispositivo**  >  **Devices**  >  **pools de discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk** e, em seguida, selecione **Avançar**.
+1.  No console de administração do NetBackup, selecione dispositivos **de gerenciamento de mídia e dispositivo**  >    >  **pools de discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk** e, em seguida, selecione **Avançar**.
 
     ![Console de Administração do NetBackup, Assistente de Configuração do Pool de Disco](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -304,7 +304,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
 | Mensal  | Sábado  |   |
-| Anual | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Atribuir volumes do StorSimple a um trabalho de backup do NetBackup
 
@@ -415,7 +415,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Mensal | StorSimple mensal |   |   |   |   |   |
-| Anual | StorSimple anual  |   |   |   |   |   |
+| Anualmente | StorSimple anual  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Atribua volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
@@ -472,7 +472,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal |  1  |  4 | 4  |
-| Incremental diário  | 0,5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário  | 0.5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo  | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |

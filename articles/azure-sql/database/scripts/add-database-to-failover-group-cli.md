@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.openlocfilehash: f3a314f55d45a888dde08ddc275953e7f9bbf3b2
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94594140"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Usar a CLI do Azure para adicionar um banco de dados a um grupo de failover

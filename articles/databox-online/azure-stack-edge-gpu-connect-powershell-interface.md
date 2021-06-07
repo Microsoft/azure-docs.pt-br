@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 580e5aab7b7ac1edcfee58345291afcb9eb0e977
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896182"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562154"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerenciar um dispositivo do Azure Stack Edge pro GPU por meio do Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Stack solução do Edge Pro permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo Azure Stack Edge pro. Você pode usar o portal do Azure, a interface do usuário da Web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
 
@@ -24,30 +26,12 @@ Este artigo se concentra em como você pode se conectar à interface do PowerShe
 
 ## <a name="connect-to-the-powershell-interface"></a>Conectar-se à interface do PowerShell
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-<!--## Upload certificate
-
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
-
-You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
-
-- Root CA certificate or the owner CA
-- Device CA certificate
-- Device key certificate
-
-The following example shows the usage of this cmdlet to install IoT Edge certificates:
-
-```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
-```
-When you run this cmdlet, you will be prompted to provide the password for the network share.
-
-For more information on certificates, go to [Azure IoT Edge certificates](../iot-edge/iot-edge-certs.md) or [Install certificates on a gateway](../iot-edge/how-to-create-transparent-gateway.md).-->
 
 ## <a name="view-device-information"></a>Exibir informações do dispositivo
  
@@ -86,17 +70,8 @@ Se a função de computação estiver configurada em seu dispositivo, você tamb
 
 Um MPS (serviço de vários processos) em GPUs NVIDIA fornece um mecanismo em que as GPUs podem ser compartilhadas por vários trabalhos, onde cada trabalho é alocado a algum percentual dos recursos da GPU. O MPS é um recurso de visualização em seu dispositivo de GPU pro Azure Stack Edge. Para habilitar os MPS em seu dispositivo, siga estas etapas:
 
-1. Antes de começar, verifique se: 
+[!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
-    1. Você configurou e [ativou seu Azure Stack dispositivo pro Edge](azure-stack-edge-gpu-deploy-activate.md) com um recurso de Azure Stack do Microsoft Edge pro/gateway do data box no Azure.
-    1. Você [configurou a computação neste dispositivo no portal do Azure](azure-stack-edge-deploy-configure-compute.md#configure-compute).
-    
-1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
-1. Use o comando a seguir para habilitar os MPS em seu dispositivo.
-
-    ```powershell
-    Start-HcsGpuMPS
-    ```
 
 ## <a name="reset-your-device"></a>Redefinir o dispositivo
 
@@ -121,7 +96,7 @@ Se a função de computação estiver configurada em seu dispositivo, você tamb
     - `FullLogCollection`: Esse parâmetro garante que o pacote de log conterá todos os logs de computação. Por padrão, o pacote de log contém apenas um subconjunto de logs.
 
 
-## <a name="change-kubernetes-pod-and-service-subnets"></a>Alterar o Pod kubernetes e as sub-redes de serviço
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Mudar o pod do Kubernetes e as sub-redes de serviço
 
 Por padrão, o kubernetes em seu dispositivo Azure Stack Edge usa sub-redes 172.27.0.0/16 e 172.28.0.0/16 para Pod e serviço, respectivamente. Se essas sub-redes já estiverem em uso em sua rede, você poderá executar o `Set-HcsKubeClusterNetworkInfo` cmdlet para alterar essas sub-redes.
 
@@ -148,45 +123,13 @@ Id                                   PodSubnet    ServiceSubnet
 [10.100.10.10]: PS>
 ```
 
-
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Depurar problemas de kubernetes relacionados a IoT Edge
 
-<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
+Antes de começar, você deve ter:
 
-<!--### Create config file for system namespace
-
-To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
-
-Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
-
-Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
-
-```PowerShell
-[10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EVXhNekl4TkRRME5sb1hEVE13TURVeE1USXhORFEwTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS0M1CjlJbzRSU2hudG90QUdxdjNTYmRjOVd4UmJDYlRzWXU5S0RQeU9xanVoZE1UUE9PcmROOGNoa0x4NEFyZkZaU1AKZithUmhpdWZqSE56bWhucnkvZlprRGdqQzQzRmV5UHZzcTZXeVVDV0FEK2JBdi9wSkJDbkg2MldoWGNLZ1BVMApqU1k0ZkpXenNFbzBaREhoeUszSGN3MkxkbmdmaEpEanBQRFJBNkRWb2pIaktPb29OT1J1dURvUHpiOTg2dGhUCkZaQXJMZjRvZXRzTEk1ZzFYRTNzZzM1YVhyU0g3N2JPYVVsTGpYTzFYSnpFZlZWZ3BMWE5xR1ZqTXhBMVU2b1MKMXVJL0d1K1ArY
-===========CUT=========================================CUT===================
-    server: https://compute.myasegpu1.wdshcsso.com:6443
-    name: kubernetes
-contexts:
-- context:
-    cluster: kubernetes
-    user: aseuser
-    name: aseuser@kubernetes
-current-context: aseuser@kubernetes
-kind: Config
-preferences: {}
-users:
-- name: aseuser
-    user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJY1hOTXRPU2VwbG93RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURBMU1UTXlNVFEwTkRaYUZ3MHlNVEExTVRNeU1UVXhNVEphTUJJeApFREFPQmdOVkJBTVRCMkZ6WlhWelpYSXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCCkFRRHVjQ1pKdm9qNFIrc0U3a1EyYmVjNEJkTXdpUEhmU2R2WnNDVVY0aTRRZGY1Yzd0dkE3OVRSZkRLQTY1d08Kd0h0QWdlK3lLK0hIQ1Qyd09RbWtNek1RNjZwVFEzUlE0eVdtRDZHR1cWZWMExBR1hFUUxWWHRuTUdGCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
-
-[10.100.10.10]: PS>
-```
--->
-
+- Rede de computação configurada. Consulte [tutorial: configurar a rede para Azure Stack Edge pro com GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Função de computação configurada em seu dispositivo.
+    
 Em um dispositivo Azure Stack Edge pro que tem a função de computação configurada, você pode solucionar problemas ou monitorar o dispositivo usando dois conjuntos diferentes de comandos.
 
 - Usando `iotedge` comandos. Esses comandos estão disponíveis para operações básicas para seu dispositivo.
@@ -218,6 +161,7 @@ A tabela a seguir tem uma breve descrição dos comandos disponíveis para o `io
 |`logs`     | Buscar os logs de um módulo        |
 |`restart`     | Parar e reiniciar um módulo         |
 
+#### <a name="list-all-iot-edge-modules"></a>Listar todos os módulos de IoT Edge
 
 Para listar todos os módulos em execução no seu dispositivo, use o `iotedge list` comando.
 
@@ -237,7 +181,64 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 [10.100.10.10]: PS>
 ```
+#### <a name="restart-modules"></a>Reinicializar módulos
 
+Você pode usar o `list` comando para listar todos os módulos em execução no seu dispositivo. Em seguida, identifique o nome do módulo que você deseja reiniciar e use-o com o `restart` comando.
+
+Aqui está um exemplo de saída de como reiniciar um módulo. Com base na descrição de quanto tempo o módulo está em execução para o, você pode ver que `cuda-sample1` foi reiniciado.
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  ----------- ------                                          ----------- -------
+edgehub      Running Up 5 days   mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:308
+                                                                                             81/TCP,8883:31753/TCP
+iotedged     Running Up 7 days   azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days   nvidia/samples:nbody
+edgeagent    Running Up 7 days   azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 1 days   nvidia/samples:nbody
+
+[10.100.10.10]: PS>iotedge restart cuda-sample1
+[10.100.10.10]: PS>iotedge list
+
+NAME         STATUS  DESCRIPTION  CONFIG                                          EXTERNAL-IP PORT(S)
+----         ------  -----------  ------                                          ----------- -------
+edgehub      Running Up 5 days    mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:30
+                                                                                              881/TCP,8883:31753/TC
+                                                                                              P
+iotedged     Running Up 7 days    azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
+cuda-sample2 Running Up 1 days    nvidia/samples:nbody
+edgeagent    Running Up 7 days    azureiotedge/azureiotedge-agent:0.1.0-beta13
+cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
+
+[10.100.10.10]: PS>
+
+```
+
+#### <a name="get-module-logs"></a>Obter logs de módulo
+
+Use o `logs` comando para obter logs para qualquer IOT Edge módulo em execução em seu dispositivo. 
+
+Se houvesse um erro na criação da imagem de contêiner ou durante a extração da imagem, execute `logs edgeagent` . `edgeagent` é o contêiner IoT Edge tempo de execução que é responsável por provisionar outros contêineres. Como `logs edgeagent` o despeja todos os logs, uma boa maneira de ver os erros recentes é usar a opção `--tail ` 0 '. 
+
+Aqui está um exemplo de saída.
+
+```powershell
+[10.100.10.10]: PS>iotedge logs cuda-sample2 --tail 10
+[10.100.10.10]: PS>iotedge logs edgeagent --tail 10
+<6> 2021-02-25 00:52:54.828 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:52:54.829 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:00.191 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:00.212 +00:00 [INF] - Plan execution ended for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Plan execution started for deployment 11
+<6> 2021-02-25 00:53:05.319 +00:00 [INF] - Executing command: "Create an EdgeDeployment with modules: [cuda-sample2, edgeAgent, edgeHub, cuda-sample1]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Executing command: "Report EdgeDeployment status: [Success]"
+<6> 2021-02-25 00:53:05.412 +00:00 [INF] - Plan execution ended for deployment 11
+[10.100.10.10]: PS>
+```
 
 ### <a name="use-kubectl-commands"></a>Usar comandos kubectl
 
@@ -401,7 +402,7 @@ Para obter os logs de um módulo, execute o seguinte comando na interface do Pow
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
-Como `all-containers` o sinalizador irá despejar todos os logs de todos os contêineres, uma boa maneira de ver os erros recentes é usar a opção `--tail 10` .
+Como `all-containers` o sinalizador despeja todos os logs de todos os contêineres, uma boa maneira de ver os erros recentes é usar a opção `--tail 10` .
 
 Veja a seguir um exemplo de saída. 
 
@@ -532,8 +533,8 @@ Ao alterar a memória e o uso do processador, siga estas diretrizes.
 
 - A memória padrão é 25% da especificação do dispositivo.
 - A contagem de processadores padrão é 30% da especificação do dispositivo.
-- Ao alterar os valores de contagens de memória e processador, recomendamos que você varie os valores entre 15% a 65% da memória do dispositivo e da contagem do processador. 
-- Recomendamos um limite superior de 65% para que haja recursos suficientes para os componentes do sistema. 
+- Ao alterar os valores de contagens de memória e processador, recomendamos que você varie os valores entre 15% a 60% da memória do dispositivo e da contagem do processador. 
+- Recomendamos um limite superior de 60% para que haja recursos suficientes para os componentes do sistema. 
 
 ## <a name="connect-to-bmc"></a>Conectar-se ao BMC
 

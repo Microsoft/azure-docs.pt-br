@@ -3,12 +3,12 @@ title: Como trabalhar com seus grupos de gerenciamento – Governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
 ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 33c7da1d7484056eb1bb2fd4b00d892137ed2b64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787361"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100596490"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -203,7 +203,7 @@ Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro 
 Se você estiver executando a ação de mover, precisará de: 
 
 - Permissões de gravação de Atribuição de função e gravação de grupo de gerenciamento na no grupo de gerenciamento ou assinatura filho.
-  - **Proprietário** de exemplo de função interna
+  - **Proprietário** do exemplo da função interna
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai alvo.
   - Exemplo de função interna: **Proprietário**, **Colaborador**, **Colaborador do Grupo de Gerenciamento**
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai existente.
@@ -357,7 +357,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
 
-Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode pesquisar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que os outros recursos do Azure. Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
+Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md). Você pode pesquisar todos os eventos que ocorrem para um grupo de gerenciamento no mesmo local central que os outros recursos do Azure. Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Captura de tela de Logs de Atividades e operações relacionados ao grupo de gerenciamento selecionado." border="false":::
 

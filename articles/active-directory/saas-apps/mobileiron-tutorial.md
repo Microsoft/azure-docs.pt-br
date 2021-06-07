@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 5561a4cdeef725eba7e48d7767aa0ee5d3c6d9cf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c47092b1488a79805db69308bcb9a8efde1c0d58
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625441"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101652991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integração do Azure Active Directory com o MobileIron
 
@@ -28,16 +28,16 @@ ms.locfileid: "98625441"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao MobileIron, você precisará dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do MobileIron
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura do MobileIron habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O MobileIron dá suporte ao SSO iniciado por **SP e IDP**
+* O MobileIron dá suporte ao SSO iniciado por **SP e IDP**.
 
 ## <a name="add-mobileiron-from-the-gallery"></a>Como adicionar o MobileIron por meio da galeria
 
@@ -131,7 +131,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
     ![Botão Configurar metadados do administrador de Logon Único](./media/MobileIron-tutorial/tutorial_MobileIron_adminmetadata.png)
 
 
-##  <a name="create-mobileiron-test-user"></a>Criar um usuário de teste do MobileIron
+### <a name="create-mobileiron-test-user"></a>Criar um usuário de teste do MobileIron
 
 Para permitir que os usuários do Azure AD façam logon no MobileIron, eles devem ser provisionados no MobileIron.  
 No caso do MobileIron, o provisionamento é uma tarefa manual.
@@ -157,15 +157,16 @@ No caso do MobileIron, o provisionamento é uma tarefa manual.
     d. Clique em **Concluído**.
 
 ## <a name="test-sso"></a>Testar o SSO
+
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-## <a name="sp-initiated"></a>Iniciado por SP:
+### <a name="sp-initiated"></a>Iniciado por SP:
 
 * Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do MobileIron, na qual poderá iniciar o fluxo de logon.  
 
 * Acesse diretamente a URL de Logon do MobileIron e inicie o fluxo de logon nela.
 
-##  <a name="idp-initiated"></a>Iniciado por IdP:
+### <a name="idp-initiated"></a>Iniciado por IdP:
 
 * Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao MobileIron, para o qual configurou o SSO.
 

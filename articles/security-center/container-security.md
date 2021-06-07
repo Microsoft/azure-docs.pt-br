@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007799"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102101334"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contêineres na Central de Segurança
 
@@ -42,7 +42,7 @@ Você aprenderá como a Central de Segurança ajuda nesses aspectos essenciais d
 
 A captura de tela a seguir mostra a página de estoque de ativos e os diversos tipos de recursos de contêiner protegidos pela Central de Segurança.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Recursos relacionados a contêineres na página do estoque de ativos da Central de Segurança" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Recursos relacionados a contêineres na página do estoque de ativos da Central de Segurança" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## <a name="vulnerability-management---scanning-container-images"></a>Gerenciamento de vulnerabilidades – Verificação de imagens de contêiner
 
@@ -92,7 +92,7 @@ Para obter detalhes sobre as recomendações relevantes da Central de Segurança
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes
 
-Para obter um pacote de recomendações a fim de proteger as cargas de trabalho dos contêineres do Kubernetes, instale o **complemento do Azure Policy para Kubernetes**. Você também pode implantar automaticamente esse complemento, conforme explicado em [Habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
+Para obter um pacote de recomendações a fim de proteger as cargas de trabalho dos contêineres do Kubernetes, instale o **complemento do Azure Policy para Kubernetes**. Você também pode implantar automaticamente esse complemento, conforme explicado em [Habilitar o provisionamento automático de extensões e do agente do Log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
 
 Conforme explicado [na página do Azure Policy para Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), o complemento estende o software livre [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) webhook controlador de admissão para [ Agente de política aberto](https://www.openpolicyagent.org/). Os controladores de admissão do Kubernetes são plug-ins que impõem como os clusters são usados. O complemento é registrado como um webhook para o controle de admissão do Kubernetes e possibilita a aplicação de imposições em escala e proteções nos clusters de maneira centralizada e consistente. 
 

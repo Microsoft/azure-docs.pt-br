@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
 ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018932"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões

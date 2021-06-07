@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
 ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874240"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
@@ -97,7 +97,7 @@ Os Arquivos do Azure podem ser usados para substituir completamente ou complemen
 
 As etapas a seguir descrevem brevemente como usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para saber mais, confira [Recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Crie uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para saber mais, confira [Recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md).
 3. [Inicie a sincronização de arquivos](../storage/files/storage-sync-files-deployment-guide.md) no servidor de arquivos do Azure.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. Um grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows.
@@ -146,7 +146,7 @@ Para integrar a Sincronização de Arquivos com o Site Recovery:
 
 Siga estas etapas para usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Crie uma conta de armazenamento no Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](../storage/files/storage-how-to-create-file-share.md).
 3. [Implantar a Sincronização de Arquivos](../storage/files/storage-sync-files-deployment-guide.md) no seu servidor de arquivos local.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. O grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows no local.
@@ -161,7 +161,7 @@ Siga estas etapas para usar a Sincronização de Arquivos:
 
 1. Acesse o Portal do Azure e selecione seu cofre do Serviço de Recuperação.
 2. Selecione o plano de recuperação criado para o ambiente de servidor de arquivos.
-3. Selecione **Failover de Teste**.
+3. Selecione **failover de teste**.
 4. Selecione o ponto de recuperação e a rede virtual do Azure para iniciar o processo de failover de teste.
 5. Depois que o ambiente secundário estiver funcionando, execute as validações.
 6. Depois que as validações forem concluídas, selecione **Limpar failover de teste** no plano de recuperação e o ambiente de failover de teste será limpo.

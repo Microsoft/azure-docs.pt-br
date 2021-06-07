@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375902"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão Two-Class
@@ -53,31 +53,31 @@ Para obter mais informações, consulte [florestas de decisão](https://go.micro
 
     Você pode encontrar o módulo em **Machine Learning**. Expanda **inicializar** e, em seguida, **classificação**.  
   
-2.  Para o **método de reamostragem** , escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.  
+2.  Para o **método de reamostragem**, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.  
   
-    -   **Bagging** : bagging também é chamado de *agregação de Bootstrap*. Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original.  
+    -   **Bagging**: bagging também é chamado de *agregação de Bootstrap*. Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original.  
   
-         As saídas dos modelos são combinadas por *votação* , que é uma forma de agregação. Cada árvore em uma floresta de decisão de classificação gera um histograma de frequência não normalizado de rótulos. A agregação é somar esses histogramas e normalizar para obter as "probabilidades" para cada rótulo. Dessa forma, as árvores que têm alta confiança de previsão terão um peso maior na decisão final do Ensemble.  
+         As saídas dos modelos são combinadas por *votação*, que é uma forma de agregação. Cada árvore em uma floresta de decisão de classificação gera um histograma de frequência não normalizado de rótulos. A agregação é somar esses histogramas e normalizar para obter as "probabilidades" para cada rótulo. Dessa forma, as árvores que têm alta confiança de previsão terão um peso maior na decisão final do Ensemble.  
   
          Para obter mais informações, consulte a entrada da Wikipédia para agregação de bootstrap.  
   
-    -   **Replicate** : na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.   
+    -   **Replicate**: na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.   
   
 3.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único** : se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
 
-    -   **Intervalo de parâmetros** : se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
   
-4.  Para **número de árvores de decisão** , digite o número máximo de árvores de decisão que podem ser criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.  
+4.  Para **número de árvores de decisão**, digite o número máximo de árvores de decisão que podem ser criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.  
   
     > [!NOTE]
     >  Se você definir o valor como 1. No entanto, apenas uma árvore pode ser produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
   
-5.  Para obter a **profundidade máxima das árvores de decisão** , digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, mas você corre o risco de algum tempo de treinamento com overfitting e maior.
+5.  Para obter a **profundidade máxima das árvores de decisão**, digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, mas você corre o risco de algum tempo de treinamento com overfitting e maior.
   
   
-7.  Para o **número mínimo de amostras por nó folha** , indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
+7.  Para o **número mínimo de amostras por nó folha**, indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
   
      Aumentando esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, um único caso pode causar uma nova regra a ser criada. Se você aumentar o valor para 5, os dados de treinamento precisam conter pelo menos cinco casos que atendem as mesmas condições.  
   
@@ -87,9 +87,9 @@ Para obter mais informações, consulte [florestas de decisão](https://go.micro
   
 9. Anexe um DataSet rotulado e treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

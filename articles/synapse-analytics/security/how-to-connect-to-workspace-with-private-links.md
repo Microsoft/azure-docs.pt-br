@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98218256"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Conectar-se ao espaço de trabalho Synapse do Azure usando links privados

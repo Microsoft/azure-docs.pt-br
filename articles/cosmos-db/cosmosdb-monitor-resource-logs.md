@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1e551fc12da5e25ba54df5a6a38a49b76f7c376e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684851"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181815"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorar dados de Azure Cosmos DB usando as configurações de diagnóstico no Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitore dados do Azure Cosmos DB usando configurações de diagnóstico no Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As configurações de diagnóstico no Azure são usadas para coletar logs de recursos. Os logs de recursos do Azure são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação desse recurso. Esses logs são capturados por solicitação e também são chamados de "logs do plano de dados". Alguns exemplos das operações do plano de dados incluem excluir, inserir e readFeed. O conteúdo desses logs varia de acordo com o tipo de recurso.
 
 As métricas de plataforma e os logs de atividade são coletados automaticamente, enquanto você deve criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los fora do Azure Monitor. Você pode ativar a configuração de diagnóstico para contas do Azure Cosmos usando as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 1. Navegue até a conta do Azure Cosmos. Abra o painel **configurações de diagnóstico** e selecione a opção **Adicionar configuração de diagnóstico** .
 
@@ -103,7 +103,7 @@ As métricas de plataforma e os logs de atividade são coletados automaticamente
 
 * **Solicitações**: Selecione esta opção para coletar dados de métrica de Azure Cosmos DB para os destinos na configuração de diagnóstico. Esses são os mesmos dados coletados automaticamente nas métricas do Azure. Coletar dados de métrica com logs de recursos para analisar os dois tipos de dados juntos e enviar dados de métricas fora do Azure Monitor.
 
-Para obter informações detalhadas sobre como criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no artigo do Azure](../azure-monitor/platform/diagnostic-settings.md) .
+Para obter informações detalhadas sobre como criar uma configuração de diagnóstico usando o portal do Azure, a CLI ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no artigo do Azure](../azure-monitor/essentials/diagnostic-settings.md) .
 
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Solucionar problemas com consultas de diagnóstico
@@ -246,7 +246,7 @@ Para obter informações detalhadas sobre como criar uma configuração de diagn
    ```Kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics"
-   | where todouble(sizeKb_d) > 800000
+   | where todouble(sizeKb_d) > 8000000
    ```
 
 1. Como obter latências de replicação P99 ou P50 para operações, encargo de solicitação ou o comprimento da resposta?

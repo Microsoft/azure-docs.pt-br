@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610294"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Personalização de dados no Machine Learning automatizado
@@ -65,11 +65,11 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 
 |Etapas de personalização &nbsp;| Descrição |
 | ------------- | ------------- |
-|**Descartar alta cardinalidade ou nenhum recurso de variação** _ |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
-|_*Imputar valores ausentes**_ |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|_*Gerar mais recursos**_ |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> _For tarefas de previsão, * esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso contrário), AM/PM como cadeia de caracteres, hora do dia<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
-|**Transformar e codificar** _|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
-|_ *Incorporações de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
+|**Descartar alta cardinalidade ou nenhum recurso de variação*** |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
+|**Imputar valores ausentes*** |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
+|**Gerar mais recursos** _ |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> _For tarefas de previsão, * esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso contrário), AM/PM como cadeia de caracteres, hora do dia<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
+|**Transformar e codificar***|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
+|**Inserções de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
 |**Distância do cluster**|Treina um modelo de clustering k-means em todas as colunas numéricas. Produz novos recursos do *k* (um novo recurso numérico por cluster) que contém a distância de cada amostra para o centróide de cada cluster.|
 
 ## <a name="data-guardrails"></a>Verificadores de integridade dos dados

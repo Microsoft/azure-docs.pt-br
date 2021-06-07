@@ -14,10 +14,10 @@ ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: Tradução de fala
 ms.openlocfilehash: d5da242a72a3b152924363190a2161ebc101da4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91819447"
 ---
 # <a name="get-started-with-speech-translation"></a>Introdução à tradução de fala

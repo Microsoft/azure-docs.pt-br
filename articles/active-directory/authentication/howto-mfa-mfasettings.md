@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4625b0a750c2b3ff63879bb9ea306bc69b1bb64e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361614"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471651"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure AD
 
@@ -57,7 +57,7 @@ Para definir as configurações de bloqueio de conta, conclua as seguintes confi
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear usuários
 
-Se o dispositivo de um usuário tiver sido perdido ou roubado, você poderá bloquear as tentativas de autenticação multifator do Azure AD para a conta associada. Qualquer tentativa de autenticação multifator do Azure AD para usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados.
+Se o dispositivo de um usuário tiver sido perdido ou roubado, você poderá bloquear as tentativas de autenticação multifator do Azure AD para a conta associada. Qualquer tentativa de autenticação multifator do Azure AD para usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados. Publicamos um vídeo sobre [como bloquear e desbloquear usuários em seu locatário](https://www.youtube.com/watch?v=WdeE1On4S1o) para mostrar como fazer isso.
 
 ### <a name="block-a-user"></a>Bloquear um usuário
 
@@ -121,7 +121,7 @@ Os tokens de hardware OATH TOTP normalmente vêm com uma chave secreta ou sement
 
 Os tokens de hardware OATH TOTP programáveis que podem ser propagados também podem ser configurados com o Azure AD no fluxo de instalação do token de software.
 
-Os tokens de hardware OATH agora são compatíveis como parte de uma versão prévia pública. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+Os tokens de hardware OATH agora são compatíveis como parte de uma versão prévia pública. Para saber mais sobre versões prévias, confira os [Termos de Uso Complementares para Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Carregar tokens OATH para a folha de tokens OATH da MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -242,7 +242,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções de recurso de IP confiável |
 |:--- |:--- |
-| Gerenciados |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Gerenciado |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a autenticação multifator. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. |
 
 O bypass de IP confiável funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a autenticação multifator. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS.

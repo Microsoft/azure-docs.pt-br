@@ -9,10 +9,10 @@ ms.date: 09/18/2020
 ms.author: duau
 ms.custom: references_regions
 ms.openlocfilehash: 50679e11697a4227af69b8568c5f3cd23fe26cbe
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662790"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute

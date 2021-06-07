@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540958"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
@@ -62,7 +62,7 @@ Esse processo funciona para entidades aprendidas por computador, entidades de li
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione a página **entidades** .
-1. Selecione **+ criar**e, em seguida, selecione o tipo de entidade.
+1. Selecione **+ criar** e, em seguida, selecione o tipo de entidade.
 1. Continue Configurando a entidade e, em seguida, selecione **criar** quando terminar.
 
 ## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida pelo computador

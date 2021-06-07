@@ -2,13 +2,13 @@
 title: Copiar aplicativos e dados para nós de pool
 description: Saiba como copiar aplicativos e dados para nós de pool.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378495"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101703640"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiar aplicativos e dados para nós de pool
 
@@ -33,10 +33,6 @@ Se cada trabalho executado no pool executar um aplicativo (. exe) que deve prime
 Para aplicativos ou dados que precisam ser instalados em cada nó no pool, considere o uso de [pacotes de aplicativos](batch-application-packages.md). Não há nenhum comando de instalação associado a um pacote de aplicativos, mas você pode usar uma tarefa de inicialização para executar qualquer comando de instalação. Se o seu aplicativo não requer instalação ou consiste em um grande número de arquivos, você pode usar esse método.
 
 Os pacotes de aplicativos são úteis quando você tem um grande número de arquivos, porque eles podem combinar muitas referências de arquivo em uma carga pequena. Se você tentar incluir mais de 100 arquivos de recurso separados em uma tarefa, o serviço de Lote poderá enfrentar limitações internas do sistema para uma tarefa individual. Os pacotes de aplicativos também são úteis quando você tem muitas versões diferentes do mesmo aplicativo e precisa escolher entre eles.
-
-## <a name="extensions"></a>Extensões
-
-[As extensões](create-pool-extensions.md) são pequenos aplicativos que facilitam a configuração do provisionamento e a configuração em nós de computação do lote. Ao criar um pool, você pode selecionar uma extensão com suporte a ser instalada nos nós de computação à medida que eles são provisionados. Depois disso, a extensão pode executar sua operação pretendida.
 
 ## <a name="job-preparation-task-resource-files"></a>Arquivos de recurso de tarefa de preparação de trabalho
 

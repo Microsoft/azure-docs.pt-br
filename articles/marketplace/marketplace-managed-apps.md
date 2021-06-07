@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: d4fb3354b7035149b80191528b2f5335b593b764
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433539"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232249"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guia de publicação para aplicativos gerenciados do Azure
 
@@ -33,8 +33,8 @@ Use o tipo de oferta de aplicativo gerenciado sob as seguintes condições:
 |Requisitos |Detalhes  |
 |---------|---------|
 |Uma assinatura do Azure | Os aplicativos gerenciados devem ser implantados na assinatura de um cliente, mas podem ser gerenciados por terceiros. |
-|Cobrança e medição    |  Os recursos são fornecidos na assinatura do Azure de um cliente. As VMs que usam o modelo de pagamento pago conforme o uso são transacionadas com o cliente pela Microsoft e cobradas por meio da assinatura do Azure do cliente. <br><br> Para suas VMs traga sua própria licença, a Microsoft cobra os custos de infraestrutura incorridos na assinatura do cliente, mas você tem transações de licenciamento de software diretamente com o cliente.        |
-|Um VHD (disco rígido virtual) compatível com o Azure    |   As VMs devem ser criadas em Windows ou Linux.<br><br>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md).<br><br>Para obter mais informações sobre como criar um VHD do Windows, consulte [criar uma oferta de aplicativo do Azure](./create-new-azure-apps-offer.md). |
+|Cobrança e medição    |  Os recursos são fornecidos na assinatura do Azure de um cliente. Os recursos do Azure que usam o modelo de pagamento pago conforme o uso são transacionados com o cliente pela Microsoft e cobrados por meio da assinatura do Azure do cliente. <br><br> Para recursos do Azure traga sua própria licença, a Microsoft cobra todos os custos de infraestrutura incorridos na assinatura do cliente, mas você tem taxas de licenciamento de software com o cliente diretamente.        |
+|Um pacote de aplicativos gerenciados do Azure    |   O modelo de Azure Resource Manager configurado e criar a definição de interface do usuário que será usado para implantar seu aplicativo na assinatura do cliente.<br><br>Para obter mais informações sobre como criar um aplicativo gerenciado, consulte [visão geral do aplicativo gerenciado](../azure-resource-manager/managed-applications/publish-service-catalog-app.md).|
 
 ---
 

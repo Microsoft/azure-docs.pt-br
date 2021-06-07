@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75648603"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Integração de recursos com os Provedores Personalizados do Azure
@@ -235,7 +235,7 @@ Vamos implantar a infraestrutura do provedor personalizado. Copie, salve e impla
 
 8. Insira as configurações para os campos obrigatórios e, em seguida, selecione a assinatura e o grupo de recursos. Deixe a caixa **ID do Provedor de Recursos Personalizado** vazia.
 
-   | Nome da configuração | Obrigatório? | Descrição |
+   | Nome da configuração | Necessário? | Descrição |
    | ------------ | -------- | ----------- |
    | Location | Sim | A localização dos recursos no modelo. |
    | Nome do Aplicativo Lógico | Não | O nome do aplicativo lógico. |

@@ -7,19 +7,19 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476137"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100379209"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Servidor Único do Banco de Dados do Azure para PostgreSQL
 
 O [Banco de Dados do Azure para PostgreSQL](./overview.md) desenvolvido com o PostgreSQL community edition está disponível em três modos de implantação:
 
 - Servidor único
-- Servidor Flexível (Versão Prévia)
+- Servidor Flexível (versão prévia)
 - Hiperescala (Citus)
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos principais do modelo de implantação de servidor único. Para saber mais sobre o modo de implantação de servidor flexível, confira a [visão geral do servidor flexível](./flexible-server/overview.md) e a Visão Geral de Hiperescala (Citus), respectivamente.
@@ -69,7 +69,7 @@ Além da autenticação nativa, o serviço de servidor único dá suporte à aut
 
 O [log de auditoria]() (em versão prévia) está disponível para rastrear toda a atividade no nível do banco de dados.
 
-O serviço de servidor único é uma reclamação com todas as certificações líderes do setor, como FedRAMP, HIPAA, PCI DSS. Visite a [Central de Confiabilidade do Azure]() para obter informações sobre a segurança da plataforma do Azure.
+O serviço de servidor único está em conformidade com todas as certificações líderes do setor, como FedRAMP, HIPAA, PCI DSS. Visite a [Central de Confiabilidade do Azure]() para obter informações sobre a segurança da plataforma do Azure.
 
 Para obter mais informações sobre os recursos de segurança do Banco de Dados do Azure para PostgreSQL, confira a [visão geral de segurança]().
 
@@ -81,7 +81,7 @@ O serviço de servidor único é equipado com recursos internos de monitoramento
 
 O serviço executa a versão da comunidade do PostgreSQL. Isso permite a compatibilidade total do aplicativo e exige um custo de refatoração mínimo para migrar o aplicativo existente desenvolvido no mecanismo PostgreSQL para um serviço de servidor único. A migração para o servidor único pode ser executada usando uma das seguintes opções:
 
-- **Despejo e restauração** : nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade, como pg_dump e pg_restore, pode fornecer uma forma mais rápida de migração. Confira [Migrar usando despejo e restauração](./howto-migrate-using-dump-and-restore.md) para obter detalhes.
+- **Despejo e restauração**: nas migrações offline, em que os usuários podem ter algum tempo de inatividade, realizar o despejo e a restauração com ferramentas da comunidade, como pg_dump e pg_restore, pode fornecer uma forma mais rápida de migração. Confira [Migrar usando despejo e restauração](./howto-migrate-using-dump-and-restore.md) para obter detalhes.
 - **Serviço de Migração de Banco de Dados do Azure** – Para migrações integradas e simplificadas para o servidor único com um tempo de inatividade mínimo, você pode aproveitar o Serviço de Migração de Banco de Dados do Azure. Confira [DMS por meio do portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS por meio da CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Contatos

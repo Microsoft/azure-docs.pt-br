@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 03/24/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 06c15136e9d2fabdf50031c8b4be455cf2f7bbca
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896572"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Solução de problemas de conta da Automação do Azure
@@ -50,4 +50,4 @@ Se este artigo não conseguiu resolver seu problema, visite um dos seguintes can
 
 * Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para conectar-se aos recursos certos de respostas, suporte e especialistas da comunidade do Azure.
-* Registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

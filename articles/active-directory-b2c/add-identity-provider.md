@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 01/14/2021
+ms.date: 03/03/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 1665f8f595e2bb9ba2a5f2c8528f85854630ab4f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: dbb2aeefc22fae4a3c83956dd7681b49fc435500
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216573"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102033989"
 ---
 # <a name="add-an-identity-provider-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um provedor de identidade ao seu locatário Azure Active Directory B2C
 
@@ -35,6 +35,7 @@ Você normalmente usa apena um provedor de identidade em seus aplicativos, mas t
 
 * [AD FS](identity-provider-adfs.md)
 * [Amazon](identity-provider-amazon.md)
+* [Apple](identity-provider-apple-id.md)
 * [Azure AD (único locatário)](identity-provider-azure-ad-single-tenant.md)
 * [Azure AD (multilocatário)](identity-provider-azure-ad-multi-tenant.md)
 * [Azure AD B2C](identity-provider-azure-ad-b2c.md)

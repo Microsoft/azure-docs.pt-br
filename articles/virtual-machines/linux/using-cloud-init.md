@@ -2,18 +2,19 @@
 title: Visão geral do suporte à cloud-init para VMs do Linux no Azure
 description: Visão geral de funcionalidades da cloud-init para configurar uma VM no tempo de provisionamento no Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: ac907c2ea2ae53bd192c01232c66e0467025daae
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096650"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563219"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte à cloud-init para máquinas virtuais no Azure
 Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjuntos de dimensionamento de máquinas virtuais no momento do provisionamento no Azure. Essas configurações de cloud-init são executadas na primeira inicialização depois que os recursos são provisionados pelo Azure.  
@@ -135,6 +136,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> Cloud-init tem vários [tipos de entrada](https://cloudinit.readthedocs.io/en/latest/topics/format.html), Cloud-init usará a primeira linha do CustomData/UserData para indicar como ele deve processar a entrada; por exemplo, `#cloud-config` indica que o conteúdo deve ser processado como uma configuração de Cloud-init.
+
+
 Pressione `ctrl-X` para sair do arquivo, digite `y` para salvar o arquivo e pressione `enter` para confirmar o nome do arquivo na saída.
 
 A etapa final cria uma VM com o comando [az vm create](/cli/azure/vm). 

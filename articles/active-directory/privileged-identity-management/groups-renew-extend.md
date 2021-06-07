@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfbb0be22dee4550050d6af10314f3a3bb1f583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87505985"
 ---
 # <a name="extend-or-renew-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Estender ou renovar atribuições de grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
@@ -76,7 +76,7 @@ Quando um administrador seleciona **aprovar** ou **negar**, os detalhes da solic
 
 ![Aprovar solicitação de atribuição de grupo com motivo do solicitante, tipo de atribuição, hora de início, hora de término e motivo](media/groups-renew-extend/group-assignment-extend-admin-approve-reason.png)
 
-Ao aprovar uma solicitação para estender uma atribuição de grupo, os administradores de recursos podem escolher uma nova data de início, data de término e tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de ** Qualificado ** para ** Ativo **. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
+Ao aprovar uma solicitação para estender uma atribuição de grupo, os administradores de recursos podem escolher uma nova data de início, data de término e tipo de atribuição. Alterar o tipo de atribuição pode ser necessário se o administrador quiser fornecer acesso limitado para concluir uma tarefa específica (um dia, por exemplo). Neste exemplo, o administrador pode alterar a atribuição de **Qualificado** para **Ativo**. Isso significa que eles podem fornecer acesso ao solicitante sem precisar que eles sejam ativados.
 
 ### <a name="admin-initiated-extension"></a>Extensão iniciada pelo administrador
 

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 11/30/2020
 ms.openlocfilehash: 014bcd6fc519c267cdf17e9e98b850425c25ead6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459326"
 ---
 # <a name="prepare-your-azure-container-technical-assets"></a>Preparar seus ativos técnicos de contêiner do Azure

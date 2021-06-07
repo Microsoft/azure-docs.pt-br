@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fde4f236a48e00b20817a812810fc3ad7d4b227f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 81cd2ca1cb47e6fdfb4858df930b73c1bd10118a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521876"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101091823"
 ---
 # <a name="change-iot-central-application-settings"></a>Alterar IoT Central configurações do aplicativo
 
@@ -39,7 +39,7 @@ Se o administrador criar um tema personalizado para seu aplicativo, essa página
 Use o botão **Excluir** para excluir permanentemente seu aplicativo IoT Central. Essa ação exclui permanentemente todos os dados associados ao aplicativo.
 
 > [!Note]
-> Para excluir um aplicativo, você também deve ter as permissões para excluir recursos da assinatura do Azure escolhida ao criar o aplicativo. Para saber mais, confira [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
+> Para excluir um aplicativo, você também deve ter as permissões para excluir recursos da assinatura do Azure escolhida ao criar o aplicativo. Para saber mais, confira [atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="manage-programmatically"></a>Gerenciar de maneira programática
 

@@ -1,23 +1,18 @@
 ---
 title: Integrar um grupo de gerenciamento na Central de Segurança do Azure
 description: Saiba como usar uma definição fornecida do Azure Policy para habilitar a Central de Segurança do Azure para todas as assinaturas de um grupo de gerenciamento.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/10/2020
+ms.topic: how-to
+ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796076"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103016552"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitar a Central de Segurança em todas as assinaturas de um grupo de gerenciamento
 
@@ -60,7 +55,7 @@ Há várias opções para você modificar a definição do Azure Policy:
     A definição fornecida, define *uma das* configurações de "preço" abaixo como em conformidade. Isso significa que uma assinatura definida como "Standard" ou "Gratuita" está em conformidade.
 
     > [!TIP]
-    > Quando um plano do Azure Defender é habilitado, ele é descrito como se estivesse na configuração "Standard". Quando é desabilitado, ele é "Gratuito". [Saiba mais sobre planos do Azure Defender](security-center-pricing.md).
+    > Quando um plano do Azure Defender for habilitado, ele será descrito em uma definição de política como se estivesse na configuração 'Standard'. Quando é desabilitado, ele é "Gratuito". Para saber mais sobre as diferenças entre esses planos, confira [Central de Segurança gratuita vs. Azure Defender habilitado](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +93,4 @@ Há várias opções para você modificar a definição do Azure Policy:
 Agora que você integrou um grupo de gerenciamento inteiro, habilite as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitar o Azure Defender](enable-azure-defender.md)

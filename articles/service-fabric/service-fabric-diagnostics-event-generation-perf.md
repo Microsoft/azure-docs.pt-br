@@ -1,16 +1,14 @@
 ---
 title: Monitoramento de desempenho do Azure Service Fabric
 description: Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abe1b67bee863f287f148fdd9af13198b67db0f0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75464710"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628859"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 

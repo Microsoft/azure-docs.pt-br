@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011675"
 ---
 Os compartilhamentos de arquivo do Azure são implantados em *contas de armazenamento*, que são objetos de nível superior que representam um pool de armazenamento compartilhado. Esse pool de armazenamento pode ser usado para implantar vários compartilhamentos de arquivo, bem como outros recursos de armazenamento, como contêineres de blob, filas ou tabelas. Todos os recursos de armazenamento implantados em uma conta de armazenamento compartilham os limites aplicáveis a essa conta de armazenamento. Para ver os limites atuais de uma conta de armazenamento, confira [Metas de desempenho e escalabilidade dos Arquivos do Azure](../articles/storage/files/storage-files-scale-targets.md).

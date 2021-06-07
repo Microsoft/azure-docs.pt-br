@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500862"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951276"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Ajuste automático no banco de dados SQL do Azure e no SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 
 ## <a name="enable-automatic-tuning"></a>Habilitar o ajuste automático
 
-- [Habilite o ajuste automático para o banco de dados SQL do Azure no portal do Azure](automatic-tuning-enable.md) ou usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
-- Habilite o ajuste automático para o Azure SQL Instância Gerenciada usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) .
+- [Habilite o ajuste automático para o banco de dados SQL do Azure no portal do Azure](automatic-tuning-enable.md) ou usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) .
+- Habilite o ajuste automático para o Azure SQL Instância Gerenciada usando a instrução T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) .
 
 ## <a name="automatic-tuning-options"></a>Opções de ajuste automático
 
@@ -64,7 +64,7 @@ As opções de ajuste automático disponíveis no banco de dados SQL do Azure e 
 | Opção de ajuste automático | Suporte a banco de dados individual e banco de dados em pool | Suporte a banco de dados de instância |
 | :----------------------------- | ----- | ----- |
 | **Criar índice** – identifica índices que podem melhorar o desempenho de sua carga de trabalho, cria índices e verifica automaticamente se o desempenho das consultas foi melhorado. | Sim | Não |
-| **Drop index** -identifica índices redundantes e duplicados diariamente, exceto índices exclusivos, e índices que não foram usados por um longo tempo (>de 90 dias). Observe que essa opção não é compatível com aplicativos que usam alternância de partição e dicas de índice. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico. | Sim | Não |
+| **Drop index** -Drops não utilizados (nos últimos 90 dias) e índices duplicados. Índices exclusivos, incluindo índices com suporte a restrições PRIMARY KEY e Unique, nunca são eliminados. Essa opção pode ser desabilitada automaticamente quando as consultas com dicas de índice estiverem presentes na carga de trabalho ou quando a carga de trabalho executar a alternância de partição. Nas camadas de serviço Premium e Comercialmente Crítico, essa opção nunca removerá índices não utilizados, mas removerá índices duplicados, se houver. | Sim | Não |
 | **Forçar último plano bom** (correção de plano automática) – identifica consultas SQL do Azure usando um plano de execução que é mais lento do que o bom plano anterior e consultas usando o último plano bom conhecido em vez do plano regressivo. | Sim | Sim |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Ajuste automático para o banco de dados SQL
@@ -90,7 +90,7 @@ Para saber mais sobre como criar notificações por email para recomendações d
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Ajuste automático para o Azure SQL Instância Gerenciada
 
-O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço**. Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+O ajuste automático para o SQL Instância Gerenciada dá suporte apenas ao **último plano de bom esforço**. Para obter mais informações sobre como configurar opções de ajuste automático por meio do T-SQL, consulte o [ajuste automático introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a [correção automática do plano](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Próximas etapas
 

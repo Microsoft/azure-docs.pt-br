@@ -9,10 +9,10 @@ ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94489872"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
@@ -500,10 +500,10 @@ else
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h* , remova o comutador do compilador **/permissive-** :
+Para o Visual Studio Community Edition, se seu projeto receber erros de build por causa dos arquivos de inclusão *storage_account.h* e *table.h*, remova o comutador do compilador **/permissive-** :
 
-1. No **Gerenciador de Soluções** , clique com o botão direito do mouse no seu projeto e selecione **Propriedades**.
-1. Na caixa de diálogo **Páginas de propriedade** , expanda **Propriedades de configuração** , expanda **C/C++** e selecione **Linguagem**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu projeto e selecione **Propriedades**.
+1. Na caixa de diálogo **Páginas de propriedade**, expanda **Propriedades de configuração**, expanda **C/C++** e selecione **Linguagem**.
 1. Defina o **Modo de conformidade** para **Não**.
 
 ## <a name="next-steps"></a>Próximas etapas

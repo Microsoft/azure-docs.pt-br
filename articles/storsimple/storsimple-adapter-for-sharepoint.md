@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966285"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar e configurar o Adaptador StorSimple para o SharePoint
@@ -92,7 +92,7 @@ Antes de instalar o adaptador StorSimple para SharePoint, você deve configurar 
 ## <a name="configure-prerequisites"></a>Configurar pré-requisitos
 Antes de instalar o adaptador StorSimple para SharePoint, garanta que o dispositivo StorSimple, o farm do SharePoint Server e a instanciação do SQL Server atendam a todos os pré-requisitos.
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 O Adaptador StorSimple para SharePoint funciona com os produtos de hardware e software a seguir:
 
 * Sistema operacional com suporte – Windows Server 2008 R2 SP1, Windows Server 2012 ou Windows Server 2012 R2
@@ -238,7 +238,7 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 2. Clique duas vezes no instalador do Adaptador StorSimple para SharePoint. O Assistente de Instalação é iniciado.
    
     ![Assistente para Instalação](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Clique em **Avançar**. A página a seguir será exibida.
+3. Clique em **Próximo**. A página a seguir será exibida.
    
     ![Página de remoção do assistente de instalação](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Clique em **Remover** para selecionar o processo de remoção. A página a seguir será exibida.

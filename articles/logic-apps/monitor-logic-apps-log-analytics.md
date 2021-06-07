@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333946"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101721252"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
-Para obter informações de depuração mais avançadas sobre seus aplicativos lógicos durante o tempo de execução, você pode configurar e usar [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md) para registrar e armazenar informações sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a coletar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
+Para obter informações de depuração mais avançadas sobre seus aplicativos lógicos durante o tempo de execução, você pode configurar e usar [os logs de Azure monitor](../azure-monitor/logs/data-platform-logs.md) para registrar e armazenar informações sobre dados de tempo de execução e eventos, como eventos de gatilho, eventos de execução e eventos de ação em um [espaço de trabalho log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). [Azure monitor](../azure-monitor/overview.md) ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Usando logs de Azure Monitor, você pode criar [consultas de log](../azure-monitor/logs/log-query-overview.md) que ajudam a coletar e examinar essas informações. Você também pode [usar esses dados de diagnóstico com outros serviços do Azure](#extend-data), como o armazenamento do Azure e os hubs de eventos do Azure.
 
 Para configurar o registro em log para seu aplicativo lógico, você pode [habilitar log Analytics quando você cria seu aplicativo lógico](#logging-for-new-logic-apps)ou pode [instalar a solução de gerenciamento de aplicativos lógicos](#install-management-solution) em seu espaço de trabalho log Analytics para aplicativos lógicos existentes. Essa solução fornece informações agregadas para suas execuções de aplicativo lógico e inclui detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação. Em seguida, para habilitar o registro em log e criar consultas para essas informações, [configure Azure monitor logs](#set-up-resource-logs).
 
@@ -23,7 +23,7 @@ Este artigo mostra como habilitar Log Analytics em novos aplicativos lógicos e 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisa de um [espaço de trabalho log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Se você não tiver um espaço de trabalho, saiba [como criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
+Antes de começar, você precisa de um [espaço de trabalho log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Se você não tiver um espaço de trabalho, saiba [como criar um log Analytics espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md).
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -87,7 +87,7 @@ Se você ativou Log Analytics quando criou seu aplicativo lógico, ignore esta e
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurar os logs do Azure Monitor
 
-Ao armazenar informações sobre eventos de tempo de execução e dados em [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a localizar e examinar essas informações.
+Ao armazenar informações sobre eventos de tempo de execução e dados em [logs de Azure monitor](../azure-monitor/logs/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/logs/log-query-overview.md) que ajudam a localizar e examinar essas informações.
 
 > [!NOTE]
 > Depois de habilitar as configurações de diagnóstico, os dados de diagnóstico podem não fluir por até 30 minutos para os logs no destino especificado, como Log Analytics, Hub de eventos ou conta de armazenamento. Esse atraso significa que os dados de diagnóstico desse período de tempo talvez não existam para você examinar. Eventos concluídos e [Propriedades rastreadas](#extend-data) podem não aparecer em seu espaço de trabalho de Log Analytics por 10-15 minutos.
@@ -143,9 +143,6 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
    ![Exibir as execuções e o status do aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
-   > [!NOTE]
-   > A funcionalidade de **reenvio** nesta página não está disponível no momento.
-
    Para ações em que você [configura as propriedades rastreadas](#extend-data), você também pode exibir essas propriedades selecionando **Exibir** na coluna **Propriedades rastreadas** . Para pesquisar as propriedades rastreadas, use o filtro de coluna.
 
    ![Exibir propriedades rastreadas para um aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
@@ -178,10 +175,10 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
 
 Juntamente com os logs de Azure Monitor, você pode estender como usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo:
 
-* [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-* [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+* [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+* [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo:
+Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/visualize/powerbi.md). Por exemplo:
 
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -194,7 +191,7 @@ Com base nos locais em que você deseja enviar dados de diagnóstico, certifique
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor eventos de diagnóstico
 
-Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` `trackedProperties` Propriedades e, que aparecem em 
+Cada evento de diagnóstico contém detalhes sobre o aplicativo lógico e o evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar essas informações com a [API REST para aplicativos lógicos do Azure](/rest/api/logic) e a [api REST para Azure monitor](../azure-monitor/essentials/metrics-supported.md#microsoftlogicworkflows). Você também pode usar as `clientTrackingId` `trackedProperties` Propriedades e, que aparecem em 
 
 * `clientTrackingId`: se não for fornecido, o Azure gerará essa ID automaticamente e correlacionará eventos em uma execução do aplicativo lógico, incluindo os fluxos de trabalho aninhados que são chamados no aplicativo lógico. Você pode especificar manualmente essa ID em um gatilho passando um `x-ms-client-tracking-id` cabeçalho com seu valor de ID personalizado na solicitação do gatilho. Use um gatilho de solicitação, gatilho HTTP ou gatilho de webhook.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4d877468e87edb11b606668739d8d539ef0cc1dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96180839"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configurar o IDEO para provisionamento automático de usuário

@@ -8,10 +8,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387335"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
@@ -145,7 +145,7 @@ As seções de um arquivo JSON do conjunto de dados, como estrutura, disponibili
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** do conjunto de um do tipo **oracletable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |O nome da tabela no banco de dados Oracle à qual o serviço vinculado se refere. |Não (se **oracleReaderQuery** ou **OracleSource** for especificado) |
 
@@ -601,7 +601,7 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e versões posteriores quando você usa um driver da Microsoft) |
 | CHAR |String |
 | CLOB |String |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| timestamp |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| timestamp |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |Número |
 | VARCHAR2 |String |
 | XML |String |

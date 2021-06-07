@@ -7,7 +7,6 @@ author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d2cabecfb2a70e6d325129335c066bb35aeb02ba
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
-ms.translationtype: MT
+ms.openlocfilehash: 57657637afd9e3e527942fb262a085fa4b8b053e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221814"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066561"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o CLI do Azure
 
@@ -195,7 +194,7 @@ A VM demora alguns minutos para criar. Depois que a VM é criada, anote o **publ
 
 ## <a name="test-traffic-filters"></a>Testar filtros de tráfego
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua *\<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua *\<publicIpAddress>* pelo endereço IP público de sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -229,9 +228,9 @@ A VM *myVmWeb* tem permissão de saída para a Internet para recuperar nginx, po
 curl myVmWeb
 ```
 
-Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. A conexão é realizada com sucesso, porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* no qual o adaptador de rede conectado à VM *myVmWeb* está.
+Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. É uma conexão com êxito porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* em que o adaptador de rede conectado à VM *myVmWeb* está.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 

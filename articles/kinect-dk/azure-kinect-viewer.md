@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, sensor, visualizador, visualização, profundidade, RGB, cor, IMU, áudio, microfone, nuvem de ponto
 ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92166098"
 ---
 # <a name="azure-kinect-viewer"></a>Visualizador de Kinect do Azure

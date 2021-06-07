@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370909"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Como adicionar ou atualizar as informações do perfil de um usuário usando o Azure Active Directory
@@ -30,7 +30,7 @@ Como você verá, há mais informações disponíveis no perfil de um usuário d
 
 2. Selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione um usuário. Por exemplo, _Alain Charon_.
 
-    A página **Alain Charon - Perfil ** é exibida.
+    A página **Alain Charon - Perfil** é exibida.
 
     ![Página do perfil do usuário, incluindo informações editáveis](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 

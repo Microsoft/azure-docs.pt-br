@@ -4,14 +4,14 @@ description: Como configurar serviços de diretório para acesso de cliente a de
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803758"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563361"
 ---
 # <a name="configure-directory-services"></a>Configurar serviços de diretório
 
@@ -75,13 +75,13 @@ O servidor e o DN de base são as únicas configurações necessárias para faze
 
 Na seção **acesso seguro** , você pode habilitar a criptografia e a validação de certificado para a conexão LDAP. Depois de clicar em **Sim** para habilitar a criptografia, você terá estas opções:
 
-* **Exigir certificado válido** -quando definido, o certificado do servidor LDAP é verificado em relação à autoridade de certificação no campo URI abaixo.
+* **Validar certificado** – quando isso é definido, o certificado do servidor LDAP é verificado em relação à autoridade de certificação no campo URI abaixo.
 
 * **URI do certificado de autoridade de certificação** – especifique o caminho para o certificado autoritativo. Isso pode ser um link para um certificado validado pela autoridade de certificação ou para um certificado autoassinado. Esse campo é necessário para usar a configuração de certificados validados externamente.
 
 * **Certificado de download automático** – escolha **Sim** se quiser tentar baixar um certificado assim que enviar essas configurações.
 
-Preencha a seção de **credenciais** se quiser usar credenciais estáticas para segurança LDAP.
+Preencha a seção de **credenciais** se quiser usar credenciais estáticas para segurança LDAP. Essas informações são criptografadas quando armazenadas e não podem ser consultadas.
 
 * **Associar DN** – Insira o nome distinto do associado a ser usado para autenticar no servidor LDAP. (Use o formato DN.)
 * **Associar senha** – forneça a senha para o DN de ligação.

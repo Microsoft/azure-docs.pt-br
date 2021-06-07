@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929635"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Atualizar para a API REST mais recente no Azure Pesquisa Cognitiva
@@ -46,7 +46,7 @@ Os recursos agora estão disponíveis para o público em geral nesta versão de 
 
 * [Loja de conhecimento](knowledge-store-concept-intro.md), armazenamento persistente de conteúdo aprimorado criado por meio de habilidades, criado para análise e processamento downstream por meio de outros aplicativos. Com esse recurso, um pipeline de enriquecimento de ia controlado por indexador pode preencher uma loja de conhecimento além de um índice de pesquisa. Se você usou a versão de visualização desse recurso, ele é equivalente à versão disponível. A única alteração de código necessária é modificar a versão de API.
 
-### <a name="breaking-change"></a>Alteração significativa
+### <a name="breaking-change"></a>Alteração da falha
 
 O código existente escrito em versões anteriores da API será interrompido na API-Version = 2020-06-30 e posterior se o código contiver a seguinte funcionalidade:
 

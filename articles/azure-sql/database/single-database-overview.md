@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84343312"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no banco de dados SQL do Azure?

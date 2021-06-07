@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319921"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463503"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -25,7 +25,7 @@ O serviço de migração de banco de dados do Azure foi projetado para dar supor
 
 ## <a name="offline-versus-online-migrations"></a>Migrações offline versus online
 
-Com o serviço de migração de banco de dados do Azure, você pode fazer uma migração online ou offline. Nas migrações *offline*, o tempo de inatividade do aplicativo começa quando a migração inicia. Para limitar o tempo de inatividade ao horário necessário para passar para o novo ambiente quando a migração for concluída, use uma migração *online* . É recomendável testar uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, faça uma migração online.
+Com o serviço de migração de banco de dados do Azure, você pode fazer uma migração online ou offline. Com as migrações *offline* , o tempo de inatividade do aplicativo começa ao mesmo tempo em que a migração é iniciada. Para limitar o tempo de inatividade ao horário necessário para passar para o novo ambiente quando a migração for concluída, use uma migração *online* . É recomendável que você teste uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, faça uma migração online.
 
 ## <a name="migration-scenario-status"></a>Status do cenário de migração
 
@@ -56,7 +56,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 | **VM do SQL do Azure** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | X |   |
+| **Banco de dados do Azure para MySQL** | MySQL | X |   |
 |   | MySQL para RDS | X |   |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | X |
 |  | PostgreSQL para RDS | X |   |
@@ -69,23 +69,26 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 | Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **BD SQL do Azure** | SQL Server | ✔ | GA |
-|   | SQL para RDS | ✔ | GA |
+| **BD SQL do Azure** | SQL Server | X |  |
+|   | SQL para RDS | X |  |
 |   | Oracle | X |  |
 | **SQL do Azure para MI do BD** | SQL Server | ✔ | GA |
-|   | SQL para RDS | ✔ | GA |
+|   | SQL para RDS | X |  |
 |   | Oracle | X |  |
 | **VM do SQL do Azure** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | ✔ | GA |
+| **Banco de dados do Azure para MySQL** | MySQL | ✔ | GA |
 |   | MySQL para RDS | ✔ | GA |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | ✔ | GA |
 |   | BD do Azure para PostgreSQL-servidor único | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
-|   | Oracle | ✔ | Versão prévia pública |
+|   | Oracle | ✔ | Visualização pública (a ser preterida após 1º de maio de 2021) |
 | **BD do Azure para PostgreSQL-Citus (hiperescala)** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL para RDS | ✔ | GA |
+
+> [!IMPORTANT]
+> O cenário de migração "Oracle para Banco de Dados do Azure para PostgreSQL" (em versão prévia, no momento) não estará mais disponível após 1º de maio de 2021. Continuaremos a fornecer suporte por meio de ferramentas alternativas (como Ora2pg) e proporcionar a melhor experiência de migração para migrações do Oracle para o PostgreSQL. Para obter as melhores práticas de migração, confira o [Guia de migração do Oracle para Banco de Dados do Azure para PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Próximas etapas

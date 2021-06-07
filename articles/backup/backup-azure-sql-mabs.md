@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a configuração para fazer backup de bancos 
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316912"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Fazer backup de SQL Server no Azure usando Servidor de Backup do Azure
@@ -87,7 +87,7 @@ Para proteger SQL Server bancos de dados no Azure, primeiro crie uma política d
 
     Por padrão, o MABS cria um volume por fonte de dados (banco de dado SQL Server). O volume é usado para a cópia de backup inicial. Nessa configuração, o Gerenciador de discos lógicos (LDM) limita a proteção MABS a 300 fontes de dados (SQL Server bancos de dados). Para contornar essa limitação, selecione **Colocalizar dados no Pool de Armazenamento DPM**. Se você usar essa opção, o MABS usará um único volume para várias fontes de dados. Essa configuração permite que o MABS Proteja até 2.000 bancos de dados SQL Server.
 
-    Se você selecionar **aumentar os volumes automaticamente, o**mAbs poderá considerar o aumento do volume de backup à medida que os dados de produção crescem. Se você não selecionar **aumentar os volumes automaticamente**, o mAbs limitará o armazenamento de backup às fontes de dados no grupo de proteção.
+    Se você selecionar **aumentar os volumes automaticamente, o** mAbs poderá considerar o aumento do volume de backup à medida que os dados de produção crescem. Se você não selecionar **aumentar os volumes automaticamente**, o mAbs limitará o armazenamento de backup às fontes de dados no grupo de proteção.
 1. Se você for um administrador, poderá optar por transferir esse backup inicial **automaticamente pela rede** e escolher a hora da transferência. Ou opte por transferir **manualmente** o backup. Em seguida, selecione **Avançar**.
 
     ![Escolha um método de criação de réplica em MABS](./media/backup-azure-backup-sql/pg-manual.png)

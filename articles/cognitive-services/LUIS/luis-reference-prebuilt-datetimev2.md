@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013064"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade DatetimeV2 predefinida para um aplicativo LUIS
@@ -114,7 +114,7 @@ O expressão a seguir e sua resposta JSON parcial são mostrados abaixo.
 |Nome da propriedade |Tipo e descrição da propriedade|
 |---|---|
 |Entidade|**cadeia de caracteres** – texto extraído do enunciado com tipo de data, hora, intervalo de datas ou intervalo de tempo.|
-|tipo|**cadeia de caracteres** – um do [subtipos de datetimeV2](#subtypes-of-datetimev2)
+|type|**cadeia de caracteres** – um do [subtipos de datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** – o índice no enunciado em que a entidade começa.|
 |endIndex|**int** – o índice no enunciado em que a entidade termina.|
 |resolução|Tem uma matriz `values` com um, dois ou quatro [valores de resolução](#values-of-resolution).|
@@ -145,8 +145,8 @@ Cada elemento da matriz `values` pode ter os seguintes campos:
 |--|--|
 |timex|hora, data ou intervalo de datas expressado no formato TIMEX que segue o [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação usando a linguagem TimeML.|
 |mod|termo usado para descrever como usar o valor `before` , como, `after` .|
-|tipo|O subtipo, que pode ser um dos seguintes itens:,,,,, `datetime` `date` ,, `time` `daterange` `timerange` `datetimerange` `duration` `set` .|
-|value|**Adicional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duration) <br/> Usado somente se `type` for `datetime` ou `date`, `time` ou `duration.|
+|type|O subtipo, que pode ser um dos seguintes itens:,,,,, `datetime` `date` ,, `time` `daterange` `timerange` `datetimerange` `duration` `set` .|
+|valor|**Opcional.** Um objeto DateTime no formato AAAA-MM-DD (Date), HH: mm: SS (time) aaaa-MM-DD HH: mm: SS (DateTime). Se `type` for `duration`, o valor será o número de segundos (duration) <br/> Usado somente se `type` for `datetime` ou `date`, `time` ou `duration.|
 
 ## <a name="valid-date-values"></a>Valores de data válidos
 

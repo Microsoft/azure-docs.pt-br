@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
 ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93379580"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos

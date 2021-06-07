@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
 ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367020"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copiar e transformar dados do hive usando o Azure Data Factory 
@@ -169,7 +169,7 @@ Há suporte para o conector do hive como uma fonte de conjunto de dados [embutid
 
 A tabela abaixo lista as propriedades com suporte por uma origem do hive. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Repositório | O repositório deve ser `hive` | sim |  `hive` | store | 
 | Formatar | Se você está lendo de uma tabela ou consulta | sim | `table` ou `query` | format |

@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 0434a99d28b4f71594e0ca9ce312087dee5b0ee2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92672530"
 ---
 # <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Início Rápido: Usar o Ruby para consultar um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
@@ -46,11 +46,11 @@ Para concluir este início rápido, você precisará dos seguintes pré-requisit
   
 - O Ruby e o software relacionado para seu sistema operacional:
   
-  - **macOS** : Instale o Homebrew, o rbenv e o ruby-build, o Ruby, o FreeTDS e o TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  - **macOS**: Instale o Homebrew, o rbenv e o ruby-build, o Ruby, o FreeTDS e o TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
   
-  - **Ubuntu** : Instale os pré-requisitos do Ruby, do rbenv e do ruby-build, do Ruby, do FreeTDS e do TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  - **Ubuntu**: Instale os pré-requisitos do Ruby, do rbenv e do ruby-build, do Ruby, do FreeTDS e do TinyTDS. Confira as Etapas 1.2, 1.3, 1.4, 1.5 e 2.1 em [Criar aplicativos Ruby usando o SQL Server no Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
   
-  - **Windows** : Instale o Ruby, o Ruby Devkit e o TinyTDS. Confira [Configurar um ambiente de desenvolvimento para desenvolvimento com o Ruby](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
+  - **Windows**: Instale o Ruby, o Ruby Devkit e o TinyTDS. Confira [Configurar um ambiente de desenvolvimento para desenvolvimento com o Ruby](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
 ## <a name="get-server-connection-information"></a>Obter informações de conexão do servidor
 
@@ -58,16 +58,16 @@ Obtenha as informações de conexão necessárias para se conectar a um banco de
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue até a página **bancos de dados SQL** ou **Instâncias Gerenciadas de SQL** .
+2. Navegue até a página **bancos de dados SQL** ou **Instâncias Gerenciadas de SQL**.
 
-3. Na página **Visão geral** , examine o nome do servidor totalmente qualificado ao lado de **Nome do servidor** para obter um banco de dados no Banco de Dados SQL do Azure ou o nome do servidor totalmente qualificado (ou endereço IP) ao lado de **Host** para obter uma instância gerenciada de SQL do Azure ou um SQL Server na VM do Azure. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar** .
+3. Na página **Visão geral**, examine o nome do servidor totalmente qualificado ao lado de **Nome do servidor** para obter um banco de dados no Banco de Dados SQL do Azure ou o nome do servidor totalmente qualificado (ou endereço IP) ao lado de **Host** para obter uma instância gerenciada de SQL do Azure ou um SQL Server na VM do Azure. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar**.
 
 > [!NOTE]
 > Para obter informações de conexão do SQL Server na VM do Azure, confira [Conectar-se a uma instância do SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
 ## <a name="create-code-to-query-your-database-in-azure-sql-database"></a>Criar código para consultar seu banco de dados no Banco de Dados SQL do Azure
 
-1. Em um editor de texto ou de códigos, crie um arquivo chamado *sqltest.rb* .
+1. Em um editor de texto ou de códigos, crie um arquivo chamado *sqltest.rb*.
 
 1. Adicione o código seguinte: Substitua os valores do seu banco de dados no Banco de Dados SQL do Azure para `<server>`, `<database>`, `<username>` e `<password>`.
 

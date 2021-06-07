@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b9e7938f404a37672fe8d13725b1e64d665bf18
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542075"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100576262"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usar o Portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MySQL 
 
@@ -25,8 +25,8 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 * Chamar um webhook
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
@@ -42,19 +42,19 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulário Adicionar alerta de métrica":::
 
-5. Dentro da seção **Condição** , selecione **Adicionar condição**.
+5. Dentro da seção **Condição**, selecione **Adicionar condição**.
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo** , o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
    
    Selecione **Concluído** ao concluir.
 
    :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selecionar métrica 2":::
 
-8. Dentro da seção **Grupos de Ações** , selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
+8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
 
 9. Preencha o formulário "Adicionar grupo de ações" com um nome, o nome curto, a assinatura e o grupo de recursos.
 
@@ -85,5 +85,5 @@ Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral da coleção de métricas](../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.
+* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/alerts/alerts-webhooks.md).
+* Tenha uma [visão geral da coleção de métricas](../azure-monitor/data-platform.md) para verificar se o serviço está disponível e responsivo.

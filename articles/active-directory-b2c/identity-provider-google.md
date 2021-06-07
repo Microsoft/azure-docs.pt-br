@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c89e7e948b8a48c7e8d43950ffc2748efff6f51b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
-ms.translationtype: MT
+ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953862"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579953"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Google usando o Azure Active Directory B2C
 
@@ -37,19 +37,21 @@ ms.locfileid: "98953862"
 
 ## <a name="create-a-google-application"></a>Criar um aplicativo do Google
 
-Para habilitar a entrada para usuários com uma conta do Google no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [console do Google Developers](https://console.developers.google.com/). Para obter mais informações, consulte [Configurando o OAuth 2,0](https://support.google.com/googleapi/answer/6158849). Se você ainda não tiver uma conta do Google, poderá se inscrever em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
+Para habilitar a entrada de usuários com um conta do Google no Azure AD B2C (Azure Active Directory B2C), você precisa criar um aplicativo no [Google Developers Console](https://console.developers.google.com/). Para obter mais informações, confira [Configurando o OAuth 2.0](https://support.google.com/googleapi/answer/6158849). Se ainda não tiver uma conta do Google, inscreva-se em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Entre no [Console de Desenvolvedores do Google](https://console.developers.google.com/) com suas credenciais de conta do Google.
-1. No canto superior esquerdo da página, selecione a lista projeto e, em seguida, selecione **novo projeto**.
-1. Insira um **nome de projeto**, selecione **criar**.
-1. Verifique se você está usando o novo projeto selecionando a lista suspensa projeto no canto superior esquerdo da tela. Selecione seu projeto por nome e, em seguida, selecione **abrir**.
-1. Selecione a **tela de consentimento do OAuth** no menu à esquerda, selecione **externo** e, em seguida, selecione **criar**.
-Insira um **Nome** para seu aplicativo. Insira *b2clogin.com* na seção **domínios autorizados** e selecione **salvar**.
+1. No canto superior esquerdo da página, selecione a lista de projetos e selecione **Novo Projeto**.
+1. Insira um **Nome do Projeto** e selecione **Criar**.
+1. Verifique se você está usando o novo projeto selecionando a lista suspensa projeto no canto superior esquerdo da tela. Selecione o projeto pelo nome e selecione **Abrir**.
+1. Selecione a **Tela de consentimento do OAuth** no menu à esquerda, selecione **Externo** e escolha **Criar**.
+Insira um **Nome** para seu aplicativo. Insira *b2clogin.com* na seção **Domínios autorizados** e selecione **Salvar**.
 1. Selecione **Credenciais** no menu à esquerda e, em seguida, selecione **Criar Credenciais** > **ID do cliente Oauth**.
 1. Em **Tipo de aplicativo**, selecione **Aplicativo Web**.
-1. Insira um **Nome** para seu aplicativo, insira `https://your-tenant-name.b2clogin.com` em **Origens de JavaScript autorizadas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URIs de redirecionamento autorizados**. Substitua `your-tenant-name` pelo nome do seu locatário. Use todas as letras minúsculas, ao inserir o nome do locatário, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
+    1. Insira um **Nome** para seu aplicativo.
+    1. Para as **Origens de JavaScript Autorizadas**, insira `https://your-tenant-name.b2clogin.com`. Se você usa um [domínio personalizado](custom-domain.md), insira `https://your-domain-name`.
+    1. Para os **URIs de Redirecionamento Autorizados**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se você usa um [domínio personalizado](custom-domain.md), insira `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua `your-domain-name` pelo domínio personalizado e `your-tenant-name` pelo nome do locatário. Use todas as letras minúsculas, ao inserir o nome do locatário, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
 1. Clique em **Criar**.
-1. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade no seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
+1. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade no seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -58,21 +60,27 @@ Insira um **Nome** para seu aplicativo. Insira *b2clogin.com* na seção **domí
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-1. Selecione **provedores de identidade** e, em seguida, selecione **Google**.
+1. Selecione **Provedores de identidade** e escolha **Google**.
 1. Insira um **Nome**. Por exemplo, *Google*.
-1. Para a **ID do cliente**, insira a ID do cliente do aplicativo do Google que você criou anteriormente.
-1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
+1. Para **ID do Cliente**, insira a ID do Cliente do aplicativo Google criado anteriormente.
+1. Para o **Segredo do cliente**, insira o Segredo do Cliente que você registrou.
 1. Selecione **Salvar**.
 
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Google a um fluxo de usuário 
 
+Neste ponto, o provedor de identidade do Google foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do Google a um fluxo de usuário:
+
+
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Google.
-1. Em **provedores de identidade social**, selecione **Google**.
+1. Clique no fluxo de usuário para o qual deseja adicionar o provedor de identidade do Google.
+1. Em **Provedores de identidade social**, selecione **Google**.
 1. Selecione **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Para testar a política, selecione **Executar fluxo de usuário**.
+1. Para **Aplicativo**, selecione o aplicativo Web denominado *testapp1* registrado anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **Executar fluxo de usuário**.
+1. Na página de inscrição ou de entrada, selecione **Google** para entrar com a conta do Google.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado pelo Azure AD B2C.
 
 ::: zone-end
 
@@ -95,7 +103,7 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 
 ## <a name="configure-google-as-an-identity-provider"></a>Configurar o Google como um provedor de identidade
 
-Para permitir que os usuários entrem usando uma conta do Google, você precisa definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta do Google, defina a conta como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta do Google como um provedor de declarações, adicionando-o ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -170,10 +178,17 @@ Você pode definir uma conta do Google como um provedor de declarações, adicio
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo, `B2C_1A_signup_signin`.
+1. Para **Aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **Executar agora**.
+1. Na página de inscrição ou de entrada, selecione **Google** para entrar com a conta do Google.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms`, que exibe o conteúdo do token retornado pelo Azure AD B2C.
 
 ::: zone-end
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [passar o token do Google para seu aplicativo](idp-pass-through-user-flow.md).
+Saiba como [passar um token do Google para seu aplicativo](idp-pass-through-user-flow.md).

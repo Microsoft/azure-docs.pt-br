@@ -4,10 +4,10 @@ description: Saiba como habilitar o backup do Azure para usar o protocolo TLS pa
 ms.topic: conceptual
 ms.date: 11/01/2020
 ms.openlocfilehash: ba9c9d91f562f54695a0739908c8a409d14d5852
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96327110"
 ---
 # <a name="transport-layer-security-in-azure-backup"></a>Segurança da camada de transporte no backup do Azure

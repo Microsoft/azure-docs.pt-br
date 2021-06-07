@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
 ms.openlocfilehash: fcd4f73a9cea75877360b2b537776bf59fb22363
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98704449"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo usuário em destaque para a API do Detector de Anomalias

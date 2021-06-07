@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90895948"
 ---
 # <a name="determining-application-type"></a>Determinando o tipo de aplicativo
@@ -22,12 +22,12 @@ Há, em geral, dois tipos de aplicativos que funcionam bem em Citus (hiperescala
 
 ## <a name="at-a-glance"></a>Visão geral
 
-| Aplicativos multilocatários                                 | Real-Time aplicativos                                |
+| Aplicativos multilocatários                                 | Aplicativos em tempo real                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
-| Às vezes, dezenas ou centenas de tabelas no esquema          | Número pequeno de tabelas                                |
+| Às vezes, dezenas ou centenas de tabelas em um esquema          | Um número pequeno de tabelas                                |
 | Consultas relacionadas a um locatário (empresa/repositório) por vez | Consultas de análise relativamente simples com agregações |
-| Cargas de trabalho OLTP para servir clientes Web                    | Alto volume de ingestão de dados praticamente imutáveis           |
-| Cargas de trabalho OLAP que atendem a consultas analíticas por locatário   | Em geral, centralizando uma grande tabela de eventos            |
+| Cargas de trabalho OLTP para atender clientes Web                    | Grande volume de ingestão de dados, principalmente os imutáveis           |
+| Cargas de trabalho OLAP que atendem consultas analíticas por locatário   | Muitas vezes centralizam uma grande tabela de eventos            |
 
 ## <a name="examples-and-characteristics"></a>Exemplos e características
 

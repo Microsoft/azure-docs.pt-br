@@ -3,12 +3,12 @@ title: Visão geral das Tarefas do ACR
 description: Uma introdução às tarefas do ACR, um conjunto de recursos no registro de contêiner do Azure que fornece criação de imagem de contêiner segura e automatizada, gerenciamento e aplicação de patches na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1cf9faf934cebfb5abe0d2e1b26ffd7da2d6c549
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606779"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -39,7 +39,7 @@ O ciclo de desenvolvimento de loop interno, o processo iterativo de escrever có
 
 Antes que você confirme sua primeira linha de código, o recurso [tarefas rápidas](container-registry-tutorial-quick-task.md) das Tarefas do ACR pode fornecer uma experiência de desenvolvimento integrada ao descarregar os builds de imagem de contêiner no Azure. Com as tarefas rápidas, você pode verificar suas definições de build automatizadas e detectar possíveis problemas antes de confirmar o código.
 
-Usando o formato `docker build` familiar, o comando [az acr build][az-acr-build] na CLI do Azure usa um [contexto](#context-locations) (o conjunto de arquivos a ser compilado), envia-o às Tarefas do ACR e, por padrão, envia a imagem de build por push ao seu registro após a conclusão.
+Usando o `docker build` formato conhecido, o comando [AZ ACR build][az-acr-build] no CLI do Azure usa um [contexto](#context-locations) (o conjunto de arquivos a serem compilados), envia-o para as tarefas de ACR e, por padrão, empurra a imagem interna para seu registro após a conclusão.
 
 Para obter uma introdução, consulte o guia de início rápido para [criar e executar uma imagem de contêiner](container-registry-quickstart-task-cli.md) no registro de contêiner do Azure.  
 

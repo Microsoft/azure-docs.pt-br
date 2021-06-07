@@ -4,17 +4,19 @@ titleSuffix: Azure DNS
 description: Saiba como criar uma zona e registro DNS no DNS do Azure. Este é um guia de início rápido passo a passo para criar e gerenciar sua primeira zona e registro DNS usando um modelo do ARM (Azure Resource Manager).
 services: dns
 author: duongau
-ms.service: dns
-ms.topic: quickstart
-ms.date: 09/8/2020
 ms.author: duau
-ms.custom: subject-armqs
-ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 09/8/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 34e810fa8244cf3ff00e57f193624a2c1fa4d755
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790994"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539011"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Criar uma zona e um registro DNS do Azure usando um modelo ARM
 

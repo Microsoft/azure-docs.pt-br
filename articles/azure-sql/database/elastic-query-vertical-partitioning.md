@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792082"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
@@ -63,7 +63,7 @@ Sintaxe:
     CREDENTIAL = <credential_name>) [;]
 
 > [!IMPORTANT]
-> O parâmetro TYPE deve ser definido como **RDBMS** .
+> O parâmetro TYPE deve ser definido como **RDBMS**.
 
 ### <a name="example"></a>Exemplo
 
@@ -86,7 +86,7 @@ Para recuperar a lista de fontes de dados externas atuais:
 select * from sys.external_data_sources;
 ```
 
-### <a name="external-tables"></a>Tabelas Externas
+### <a name="external-tables"></a>Tabelas externas
 
 Sintaxe:
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 A consulta elástica estende a sintaxe de tabela externa existente para definir as tabelas externas que usam fontes de dados externas do tipo RDBMS. Uma definição de tabela externa para o particionamento vertical abrange os seguintes aspectos:
 
-* **Esquema** : a DDL da tabela externa define um esquema que pode ser usado pelas consultas. O esquema fornecido na definição da tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que os dados reais são armazenados.
-* **Referência de banco de dados remoto** : a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor e o nome do banco do dados remoto em que os dados reais da tabela são armazenados.
+* **Esquema**: a DDL da tabela externa define um esquema que pode ser usado pelas consultas. O esquema fornecido na definição da tabela externa precisa corresponder ao esquema das tabelas no banco de dados remoto em que os dados reais são armazenados.
+* **Referência de banco de dados remoto**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica o nome do servidor e o nome do banco do dados remoto em que os dados reais da tabela são armazenados.
 
 Com uma fonte de dados externa, como descrito na seção anterior, a sintaxe para criar tabelas externas é a seguinte:
 
@@ -135,7 +135,7 @@ A instrução DDL a seguir remove uma definição existente da tabela externa do
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Permissões para CREATE/DROP EXTERNAL TABLE** : as permissões ALTER ANY EXTERNAL DATA SOURCE são necessárias para a DDL da tabela externa, o que também é necessário para fazer referência à fonte de dados subjacente.  
+**Permissões para CREATE/DROP EXTERNAL TABLE**: as permissões ALTER ANY EXTERNAL DATA SOURCE são necessárias para a DDL da tabela externa, o que também é necessário para fazer referência à fonte de dados subjacente.  
 
 ## <a name="security-considerations"></a>Considerações de segurança
 

@@ -8,10 +8,10 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98065432"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados (herdada)
@@ -113,7 +113,7 @@ Agora que você tem um destino para exportar dados para o, siga estas etapas par
 
 7. Em **dados a serem exportados**, escolha os tipos de dados a serem exportados definindo o tipo como **ativado**.
 
-8. Para ativar a exportação de dados, **Verifique se a** opção **habilitado** está ativada. Selecione **Salvar**.
+8. Para ativar a exportação de dados, **Verifique se a** opção **habilitado** está ativada. Clique em **Salvar**.
 
 9. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
 

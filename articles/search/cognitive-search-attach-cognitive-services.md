@@ -1,29 +1,35 @@
 ---
 title: Anexar serviços cognitivas a um conconhecimento
 titleSuffix: Azure Cognitive Search
-description: Instruções para anexar uma assinatura All-in-One de serviços cognitivas a um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
-manager: nitinme
+description: Saiba como anexar uma assinatura All-in-One de serviços cognitivas a um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/16/2021
+ms.openlocfilehash: 77735166fafe9d39dff483baa89a4b31db31275d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924970"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100577937"
 ---
-# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
+# <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva
 
-Ao configurar um pipeline de enriquecimento no Azure Pesquisa Cognitiva, você pode enriquecer um número limitado de documentos gratuitamente. Para cargas de trabalho maiores e mais frequentes, você deve anexar um recurso de serviços cognitivas cobráveis.
+Ao configurar um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) no Azure pesquisa cognitiva, você pode enriquecer um número limitado de documentos gratuitamente. Para cargas de trabalho maiores e mais frequentes, você deve anexar um recurso de serviços cognitivas "tudo em um" faturável. Uma assinatura "All-in-One" faz referência a "serviços cognitivas" como a oferta, em vez de serviços individuais, com acesso concedido por meio de uma única chave de API.
 
-Neste artigo, você aprenderá a anexar um recurso atribuindo uma chave a um configurador de habilidades que define um pipeline de enriquecimento.
+Um recurso de serviços cognitivas "All-in-One" orienta as [habilidades predefinidas](cognitive-search-predefined-skills.md) que você pode incluir em um conceda de habilidades:
 
-## <a name="resources-used-during-enrichment"></a>Recursos usados durante o enriquecimento
++ [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e reconhecimento óptico de caracteres (OCR)
++ [Análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para detecção de idioma, reconhecimento de entidade, análise de sentimentos e extração de frases-chave
++ [Tradução de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-O Azure Pesquisa Cognitiva tem uma dependência de serviços cognitivas, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres), [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para processamento de linguagem natural e outros aprimoramentos como [tradução de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). No contexto de enriquecimento no Azure Pesquisa Cognitiva, esses algoritmos de ia são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
+Uma chave de serviços cognitivas "All-in-One" é opcional em uma definição de contratação. Quando o número de transações diárias abaixo de 20 por dia, o custo é absorvido. No entanto, quando as transações excedem esse número, uma chave de recurso válida é necessária para que o processamento continue.
+
+Qualquer chave de recurso "All-in-One" é válida. Internamente, um serviço de pesquisa usará o recurso que está colocalizado na mesma região física, mesmo que a chave "tudo em um" seja para um recurso em uma região diferente. A página [disponibilidade do produto](https://azure.microsoft.com/global-infrastructure/services/?products=search) mostra a disponibilidade regional lado a lado.
+
+> [!NOTE]
+> Se você omitir habilidades predefinidas em um contratado, os serviços cognitivas não serão acessados, e você não será cobrado, mesmo que o contratador especifique uma chave.
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
 
@@ -37,9 +43,9 @@ O Azure Pesquisa Cognitiva tem uma dependência de serviços cognitivas, incluin
 
 ## <a name="same-region-requirement"></a>Requisito de mesma região
 
-Exigimos que o Azure Pesquisa Cognitiva e os serviços cognitivas do Azure existam na mesma região. Caso contrário, você receberá essa mensagem em tempo de execução: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Os serviços Pesquisa Cognitiva e cognitivas devem existir na mesma região física, conforme indicado na página de [disponibilidade do produto](https://azure.microsoft.com/global-infrastructure/services/?products=search) . A maioria das regiões que oferecem Pesquisa Cognitiva também oferece serviços cognitivas.
 
-Não é possível mover um serviço entre regiões. Se você receber esse erro, deverá criar um novo recurso de serviços cognitivas na mesma região que o Azure Pesquisa Cognitiva.
+Se você tentar enriquecer o ia na região que não tem os dois serviços, verá esta mensagem: "a chave fornecida não é uma chave de tipo de Cognitivaservices válida para a região do seu serviço de pesquisa."
 
 > [!NOTE]
 > Algumas habilidades internas se baseiam em serviços cognitivas não regionais (por exemplo, a [habilidade de tradução de texto](cognitive-search-skill-text-translation.md)). Usar uma habilidade não regional significa que sua solicitação pode ser atendida em uma região diferente da região de Pesquisa Cognitiva do Azure. Para obter mais informações sobre serviços não regionais, consulte a página [produtos de serviços cognitivas por região](https://aka.ms/allinoneregioninfo) .
@@ -48,19 +54,11 @@ Não é possível mover um serviço entre regiões. Se você receber esse erro, 
 
 Você pode usar uma opção de processamento gratuito e limitada para concluir o tutorial de enriquecimento de ia e os exercícios de início rápido.
 
-Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por dia, por indexador. Você pode excluir e recriar o indexador para redefinir o contador.
+Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por dia, por indexador. Você pode [redefinir o indexador](search-howto-run-reset-indexers.md) para redefinir o contador.
 
-1. Abra o assistente de importação de dados:
+Se você estiver usando o assistente de **importação de dados** para enriquecimento de ia, encontrará as opções "anexar serviços cognitivas" na página **Adicionar enriquecimento de ia (opcional)** .
 
-   ![Abrir o assistente de importação de dados](media/search-get-started-portal/import-data-cmd.png "Abrir o assistente de importação de dados")
-
-1. Escolha uma fonte de dados e continue a **Adicionar o enriquecimento de ia (opcional)**. Para obter uma explicação passo a passo deste assistente, consulte [criar um índice no portal do Azure](search-get-started-portal.md).
-
-1. Expanda **anexar serviços cognitivas** e, em seguida, selecione **gratuito (aprimoramentos limitados)**:
-
-   ![Seção de serviços cognitivas de anexo expandida](./media/cognitive-search-attach-cognitive-services/attach1.png "Seção de serviços cognitivas de anexo expandida")
-
-1. Agora você pode continuar nas próximas etapas, incluindo **Adicionar habilidades cognitivas**.
+![Seção de serviços cognitivas de anexo expandida](./media/cognitive-search-attach-cognitive-services/attach1.png "Seção de serviços cognitivas de anexo expandida")
 
 ## <a name="use-billable-resources"></a>Usar recursos faturáveis
 
@@ -68,13 +66,13 @@ Para cargas de trabalho que criam mais de 20 aprimoramentos por dia, lembre-se d
 
 Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos. Você não é cobrado por [habilidades personalizadas](cognitive-search-create-custom-skill-example.md)ou habilidades como [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md)e [modelador](cognitive-search-skill-shaper.md), que não são baseados em API.
 
-1. Abra o assistente de importação de dados, escolha uma fonte de dados e continue a **Adicionar o enriquecimento de ia (opcional)**.
+Se você estiver usando o assistente de **importação de dados** , poderá configurar um recurso Faturável na página Adicionar o **enriquecimento de ia (opcional)** .
 
 1. Expanda **anexar serviços cognitivas** e, em seguida, selecione **criar novo recurso de serviços cognitivas**. Uma nova guia é aberta para que você possa criar o recurso:
 
    ![Criar um recurso dos Serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um recurso dos Serviços Cognitivos")
 
-1. Na lista **local** , selecione a região onde o serviço de pesquisa cognitiva do Azure está localizado. Certifique-se de usar essa região por motivos de desempenho. O uso dessa região também anula os encargos de largura de banda de saída entre regiões.
+1. Na lista **local** , selecione a mesma região que tem o serviço de pesquisa.
 
 1. Na lista **tipo de preço** , selecione **S0** para obter a coleção All-in-One de recursos de serviços cognitivas, incluindo os recursos de visão e linguagem que retornam as habilidades internas fornecidas pelo pesquisa cognitiva do Azure.
 
@@ -86,7 +84,7 @@ Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos
 
 1. Selecione **criar** para provisionar o novo recurso de serviços cognitivas.
 
-1. Retorne à guia anterior, que contém o assistente de importação de dados. Selecione **Atualizar** para mostrar o recurso serviços cognitivas e, em seguida, selecione o recurso:
+1. Retorne à guia anterior. Selecione **Atualizar** para mostrar o recurso serviços cognitivas e, em seguida, selecione o recurso:
 
    ![Selecione o recurso serviços cognitivas](./media/cognitive-search-attach-cognitive-services/attach2.png "Selecione o recurso serviços cognitivas")
 
@@ -96,7 +94,7 @@ Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos
 
 Se você tiver um conjunto de habilidades existente, poderá anexá-lo a um recurso de Serviços Cognitivos novo ou diferente.
 
-1. Na página **visão geral do serviço** , selecione **habilidades**:
+1. Na página Visão geral do serviço de pesquisa, selecione **habilidades**:
 
    ![Guia habilidades](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Guia habilidades")
 
@@ -116,8 +114,6 @@ O exemplo a seguir mostra esse padrão. Observe a `cognitiveServices` seção no
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
-```
-```json
 {
     "name": "skillset name",
     "skills": 
@@ -168,6 +164,7 @@ Os preços mostrados neste artigo são hipotéticos. Eles são usados para ilust
 Juntando tudo isso, você pagaria cerca de $57 para ingerir documentos PDF de 1.000 desse tipo com o conjunto de qualificações descrito.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 + [Página de preços do Azure Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](/rest/api/searchservice/create-skillset)

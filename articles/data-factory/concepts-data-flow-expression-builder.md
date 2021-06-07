@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99584916"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Criar expressões no fluxo de dados de mapeamento
@@ -141,7 +141,7 @@ Um exemplo que usa barras duplas:
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="keyboard-shortcuts"></a>Atalhos do teclado
+## <a name="keyboard-shortcuts"></a>Atalhos de teclado
 
 Veja abaixo uma lista de atalhos disponíveis no construtor de expressões. A maioria dos atalhos do IntelliSense está disponível durante a criação de expressões.
 

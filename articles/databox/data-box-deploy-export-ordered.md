@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789188"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: criar ordem de exportação para Azure Data Box
@@ -96,7 +96,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 8. Na **opção Selecionar exportação**, especifique os detalhes da opção de exportação. Insira ou selecione as informações a seguir e selecione **Adicionar**.
 
-    |Setting  |Valor  |
+    |Configuração  |Valor  |
     |---------|---------|
     |Conta de armazenamento     | A conta de armazenamento do Azure de onde você deseja exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados a serem exportados de **todos os objetos** e **usam o arquivo XML**.<ul><li> **Todos os objetos** – especifica que o trabalho exporta todos os dados dependendo da sua seleção para **Opções de transferência**.</li><li> **Usar arquivo XML** – especifica um arquivo XML que contém um conjunto de caminhos e prefixos para BLOBs e/ou arquivos a serem exportados da conta de armazenamento. O arquivo XML precisa estar no contêiner da conta de armazenamento selecionada e não há suporte para a seleção de compartilhamentos de arquivos. O arquivo precisa ser um arquivo. xml não vazio.</li></ul>        |
@@ -254,7 +254,7 @@ Se você selecionar **usar arquivo XML**, poderá especificar contêineres e blo
 
    ![Exibir detalhes do contêiner](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Clicar duas vezes no contêiner abrirá a exibição Propriedades do contêiner. Agora você deseja anexar (ou procurar) seu arquivo XML que contém a lista de BLOBs e/ou arquivos do Azure que você deseja exportar. Selecione **Carregar**.
+6. Clicar duas vezes no contêiner abrirá a exibição Propriedades do contêiner. Agora você deseja anexar (ou procurar) seu arquivo XML que contém a lista de BLOBs e/ou arquivos do Azure que você deseja exportar. Escolha **Carregar**.
 
    ![Carregar blob no contêiner](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 

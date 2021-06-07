@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905308"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101094088"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -41,7 +41,7 @@ Os Azure Mapas aceitam tokens de acesso **OAuth 2.0** para locatários do Azure 
 
 * Usuários do Azure AD
 * Aplicativos de parceiros que usam permissões delegadas por usuários
-* Identidades gerenciadas dos recursos do Azure
+* Identidades gerenciadas para os recursos do Azure
 
 Azure Mapas gera um *identificador exclusivo (ID do cliente)* para cada conta do Azure Mapas. Você pode solicitar tokens do Azure AD ao combinar essa ID de cliente com parâmetros adicionais.
 
@@ -84,7 +84,7 @@ O Azure Maps dá suporte ao acesso a todos os tipos principais para o Azure [RBA
 
 As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o RBAC do Azure. Como parte do processo para configurar sua conta do Azure Maps, um diretório do AD do Azure é associado à assinatura do Azure que a conta do Azure Maps reside. 
 
-Ao configurar o RBAC do Azure, você escolhe uma entidade de segurança e a aplica a uma atribuição de função. Para saber como adicionar atribuições de função no portal do Azure, consulte [Adicionar ou remover atribuições de função do Azure](../role-based-access-control/role-assignments-portal.md).
+Ao configurar o RBAC do Azure, você escolhe uma entidade de segurança e a aplica a uma atribuição de função. Para saber como adicionar atribuições de função no portal do Azure, consulte [atribuir funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Escolhendo uma definição de função
 

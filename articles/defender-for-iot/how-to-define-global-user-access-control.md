@@ -1,18 +1,14 @@
 ---
 title: Definir o controle de acesso de usuário global
 description: Em grandes organizações, as permissões de usuário podem ser complexas e podem ser determinadas por uma estrutura organizacional global, além da estrutura de site e zona padrão.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 81ede3506337e76c84e20203ac27a3d441fdcef8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522267"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784281"
 ---
 # <a name="define-global-access-control"></a>Definir o controle de acesso global
 
@@ -88,6 +84,6 @@ Quando você estiver criando regras, esteja ciente das seguintes informações:
 
 - Se nenhuma unidade de negócios ou região for selecionada, os usuários terão acesso a todas as regiões e unidades de negócios definidas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Sobre os usuários do console do defender para IoT](how-to-create-and-manage-users.md)

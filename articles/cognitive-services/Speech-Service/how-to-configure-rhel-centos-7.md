@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83589730"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configurar o RHEL/CentOS 7 para o SDK de fala
@@ -107,7 +107,7 @@ sudo yum install -y gmp-devel mpfr-devel libmpc-devel
 > No package libmpc-devel available.
 > ```
 >
-> em seguida, os arquivos necessários precisam ser instalados de fontes originais. Execute os comandos a seguir:
+> em seguida, os arquivos necessários precisam ser instalados de fontes originais. Execute os seguintes comandos:
 >
 > ```bash
 > curl https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz -O

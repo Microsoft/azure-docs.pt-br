@@ -3,20 +3,21 @@ title: Série NP-máquinas virtuais do Azure
 description: Especificações para as VMs da série NP.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 2606881cec5527084c3c2788d40f8bdfd8abf5a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 09adb19623ea866091e1b949e78263661eddbb52
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416938"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102551140"
 ---
-# <a name="np-series-preview"></a>Série NP (versão prévia)
-
+# <a name="np-series-preview"></a>Série NP (versão prévia) 
 As máquinas virtuais da série NP são alimentadas por [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs para acelerar cargas de trabalho, incluindo inferência de aprendizado de máquina, transcodificação de vídeo e pesquisa de & de banco de dados. As VMs da série NP também são alimentadas por CPUs do Intel Xeon 8171M (Skylake) com toda a velocidade do clock de Turbo principal de 3,2 GHz.
+
+Envie uma solicitação usando o [formulário de visualização](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) para fazer parte do programa de visualização da série np.
 
 
 [Armazenamento Premium](premium-storage-performance.md): com suporte<br>
@@ -29,7 +30,7 @@ Suporte à geração de VM: geração 1<br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | FPGA | Memória FPGA: GiB | Discos de dados máximos | Máximo de NICs/largura de banda de rede esperada (MBps) | 
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 / 7500 | 
 | Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 / 15000 | 
 | Standard_NP40s | 40 | 672 | 2948 | 4 | 256 | 32 | 4 / 30000 | 

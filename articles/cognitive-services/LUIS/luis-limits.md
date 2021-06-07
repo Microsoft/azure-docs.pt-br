@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
 ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97976785"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
@@ -24,11 +24,11 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 |Área|Limite|
 |--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
-| Aplicativo| 500 aplicativos por recurso de criação do Azure |
+| Aplicativos| 500 aplicativos por recurso de criação do Azure |
 | [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |
-| [Tentativas][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
+| [Intenções][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
 | [entidades de aprendizado de máquina + funções](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>As subentidades podem ser aninhadas até 5 níveis, com um máximo de 10 filhos por nível.|
 |Modelo como um recurso| Número máximo de modelos que podem ser usados como um recurso para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um recurso para um modelo específico ter 10 listas de frases.|

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6253deb53229172cd499a6aa14b8d8f19bc07b63
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
-ms.translationtype: MT
+ms.openlocfilehash: de342267292c6a93c4a1ba2eae232403ccaf9514
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629250"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785263"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurar uma VPN P2S (ponto a site) no Windows para uso com os Arquivos do Azure
 Você pode usar uma conexão de VPN P2S (ponto a site) para montar compartilhamentos de arquivo do Azure no SMB de fora do Azure, sem precisar abrir a porta 445. Uma conexão VPN Ponto a Site é uma conexão VPN entre o Azure e um cliente individual. Para usar uma conexão VPN P2S com os Arquivos do Azure, será preciso configurar uma conexão VPN P2S para cada cliente que desejar se conectar. Se muitos clientes precisarem se conectar aos seus compartilhamentos de arquivo do Azure de suas redes locais, você poderá usar uma VPN S2S (Site a Site) em vez de uma conexão ponto a site para cada um deles. Para saber mais, confira [Configurar uma VPN Site a Site para usar com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
 
 Recomendamos que você leia [Considerações de rede para acesso direto ao compartilhamento de arquivos do Azure](storage-files-networking-overview.md) antes de continuar este tutorial para ver uma discussão completa a respeito das opções de rede disponíveis para os Arquivos do Azure.
 
-O artigo detalha as etapas de configuração de uma VPN Ponto a Site no Windows (cliente Windows e Windows Server) para criar compartilhamentos de arquivo do Azure diretamente no local. Se você deseja encaminhar o tráfego da Sincronização de Arquivos do Azure por uma VPN, confira [Definir configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
+O artigo detalha as etapas de configuração de uma VPN Ponto a Site no Windows (cliente Windows e Windows Server) para criar compartilhamentos de arquivo do Azure diretamente no local. Se você deseja encaminhar o tráfego da Sincronização de Arquivos do Azure por uma VPN, confira [Definir configurações de proxy e firewall da Sincronização de Arquivos do Azure](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - A versão mais recente do módulo do Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, confira [Instalar e configurar o módulo do Azure PowerShell](/powershell/azure/install-az-ps) e escolha seu sistema operacional. Se preferir, você poderá usar a CLI do Azure no Windows. No entanto, as instruções a seguir são apresentadas para o Azure PowerShell.

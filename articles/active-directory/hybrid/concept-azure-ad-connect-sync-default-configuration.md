@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996620"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
@@ -148,7 +148,7 @@ Como essa regra é pronta para uso, você receberá um aviso quando abrir a regr
 
 Uma Regra de Sincronização tem quatro seções de configuração: descrição, filtro de escopo, regras de associação e transformações.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 A primeira seção fornece informações básicas, como nome e descrição.
 
 ![Guia Descrição no Editor de regras de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)

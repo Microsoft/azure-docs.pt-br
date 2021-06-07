@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: a8e089e302e9d40c69cf7ff2a3480c17894e1463
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016279"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Autoescala Stream Analytics trabalhos usando a automação do Azure
@@ -30,13 +30,13 @@ Adicione as seguintes variáveis dentro da conta de automação do Azure. Essas 
 
 | Nome | Type | Valor |
 | --- | --- | --- |
-| **jobName** | Cadeia de caracteres | Nome do seu trabalho de Stream Analytics que você deseja fazer o dimensionamento automático. |
-| **resourceGroupName** | Cadeia de caracteres | Nome do grupo de recursos no qual seu trabalho está presente. |
-| **subId** | Cadeia de caracteres | ID da assinatura na qual seu trabalho está presente. |
-| **increasedSU** | Integer | O maior valor de SU para o qual você deseja que o trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
-| **decreasedSU** | Integer | O menor valor de SU para o qual você deseja que seu trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
-| **maxSU** | Integer | O valor máximo de SU para o qual você deseja que seu trabalho seja dimensionado em etapas quando o dimensionamento automático por carga. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
-| **minSu** | Integer | O valor mínimo de SU para o qual você deseja que o trabalho seja dimensionado em etapas quando o dimensionamento automático por carga. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
+| **jobName** | String | Nome do seu trabalho de Stream Analytics que você deseja fazer o dimensionamento automático. |
+| **resourceGroupName** | String | Nome do grupo de recursos no qual seu trabalho está presente. |
+| **subId** | String | ID da assinatura na qual seu trabalho está presente. |
+| **increasedSU** | Inteiro | O maior valor de SU para o qual você deseja que o trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
+| **decreasedSU** | Inteiro | O menor valor de SU para o qual você deseja que seu trabalho seja dimensionado em um agendamento. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
+| **maxSU** | Inteiro | O valor máximo de SU para o qual você deseja que seu trabalho seja dimensionado em etapas quando o dimensionamento automático por carga. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
+| **minSu** | Inteiro | O valor mínimo de SU para o qual você deseja que o trabalho seja dimensionado em etapas quando o dimensionamento automático por carga. Esse valor deve ser uma das opções de SU válidas que você vê nas configurações de **escala** de seu trabalho enquanto ele está em execução. |
 
 ![Adicionar variáveis na automação do Azure](./media/autoscale/variables.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: caa83b9149f39f69d0cbf44a2d6cb01fdaf29721
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 15e31b8dc5ac6db5861e3ea0fb5390ddf0a8c945
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567855"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100530664"
 ---
 # <a name="connect-your-cisco-unified-computing-system-ucs-to-azure-sentinel"></a>Conectar seu UCS (sistema de computação unificada) ao Azure Sentinel
 
@@ -53,7 +53,7 @@ Configure o Cisco UCS para encaminhar mensagens de syslog para seu espaço de tr
 
     1. Configurar os logs a serem coletados
 
-        - Selecione as instalações e severidades na configuração configurações avançadas do espaço de trabalho
+        - Selecione as instalações e severidades na configuração de agentes de espaço de trabalho.
 
     1. Configurar e conectar o UCS Cisco
 

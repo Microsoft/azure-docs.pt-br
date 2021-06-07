@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4512c9d9fdb66713ba24fbf30278e5d5dbb2ae23
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943163"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863744"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
 
@@ -49,11 +49,11 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
 5. Selecione **Executar**. O modo de execução usa como padrão a **interatividade**.
 
-    ![Executar consulta de Hive interativa, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Executar consulta de Hive interativa, Visual Studio" border="true":::
 
 6. Para executar a mesma consulta no modo de **lote** , alterne a lista suspensa de **interativo** para **lote**. O botão de execução muda de **executar** para **Enviar**.
 
-    ![Enviar consulta do hive do lote, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Enviar consulta do hive do lote, Visual Studio" border="true":::
 
     O editor do Hive é compatível com o IntelliSense. Agora as Ferramentas do Data Lake para Visual Studio dão suporte à obtenção de metadados remotos quando você edita o script do Hive. Por exemplo, se você digitar `SELECT * FROM` , o IntelliSense listará todos os nomes de tabela sugeridos. Quando um nome de tabela for especificado, o IntelliSense listará os nomes de coluna. As ferramentas dão suporte a quase todas as instruções DML Hive, subconsultas e UDFs internos. O IntelliSense sugere apenas os metadados dos clusters selecionados na Barra de Ferramentas do HDInsight.
 
@@ -61,7 +61,7 @@ Consultas ad hoc podem ser executadas no modo de **lote** ou **interativo** .
 
 8. Se você selecionou a opção de envio avançado, configure **nome do trabalho**, **argumentos**, **configurações adicionais** e **diretório de status** na caixa de diálogo **Enviar script** . Em seguida, selecione **Enviar**.
 
-    ![Caixa de diálogo Enviar script, consulta do hive do HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Caixa de diálogo Enviar script, consulta do hive do HDInsight Hadoop" border="true":::
 
 ### <a name="create-a-hive-application"></a>Criar um aplicativo Hive
 
@@ -109,7 +109,7 @@ Para executar uma consulta de Hive criando um aplicativo Hive, siga estas etapas
 
    O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
 
-   ![Resumo do trabalho do hive concluído, aplicativo Hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Resumo do trabalho do hive concluído, aplicativo Hive, Visual Studio" border="true":::
 
 7. Selecione **saída do trabalho** para exibir a saída desse trabalho. Ele exibe `[ERROR] 3`, que é o valor retornado por essa consulta.
 

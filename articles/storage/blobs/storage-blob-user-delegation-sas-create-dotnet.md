@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526798"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Criar uma SAS de delegação de usuário para um contêiner, diretório ou BLOB com .NET
@@ -109,7 +109,7 @@ O exemplo a seguir testa a SAS de delegação de usuário criada no exemplo ante
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md)
 - [Operação de obtenção de chave de delegação de usuário](/rest/api/storageservices/get-user-delegation-key)

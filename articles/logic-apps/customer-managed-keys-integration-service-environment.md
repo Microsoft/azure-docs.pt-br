@@ -7,10 +7,10 @@ ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98629667"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
@@ -51,7 +51,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
   |----------|-------|
   | **Tipo de Chave** | RSA |
   | **Tamanho da chave RSA** | 2.048 |
-  | **Enabled** | Yes |
+  | **Enabled** | Sim |
   |||
 
   ![Criar sua chave de criptografia gerenciada pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)

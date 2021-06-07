@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9e85960f3efc074eca18475c4a3e6c422c1990b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6b429182a4fd68fb03cea6b783e57cf30066f105
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090834"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063433"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536055"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
@@ -57,7 +57,7 @@ Entre na sua conta do Azure e selecione sua assinatura.
 
 ## <a name="retrieve-your-storage-account-details"></a>Recupere os detalhes da sua conta de armazenamento
 
-As etapas a seguir pressupõem que você criou sua conta de armazenamento usando o modelo de implantação do **Resource Manager** e não o modelo de implantação **Clássico** .
+As etapas a seguir pressupõem que você criou sua conta de armazenamento usando o modelo de implantação do **Resource Manager** e não o modelo de implantação **Clássico**.
 
 Para configurar os uploads de arquivos dos seus dispositivos, você precisa da cadeia de conexão de uma conta de armazenamento do Azure. A conta de armazenamento deve estar nas mesmas região e assinatura que seu Hub IoT. Você também precisa do nome de um contêiner de blob na conta de armazenamento. Use o comando a seguir para recuperar as chaves da conta de armazenamento:
 
@@ -66,7 +66,7 @@ az storage account show-connection-string --name {your storage account name} \
   --resource-group {your storage account resource group}
 ```
 
-Anote o valor da **connectionString** . Ele é necessário nas etapas a seguir.
+Anote o valor da **connectionString**. Ele é necessário nas etapas a seguir.
 
 É possível usar um contêiner de blob existente para os uploads de arquivos ou criar um novo:
 
@@ -89,15 +89,15 @@ Agora é possível configurar o Hub IoT para permitir [upload de arquivos para o
 
 A configuração requer os seguintes valores:
 
-* **Contêiner de armazenamento** : um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
-* **Receber notificações para os arquivos carregados** : habilitar ou desabilitar notificações de upload de arquivo.
+* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
 
-* **TTL de SAS** : essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+* **TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
 
-* **TTL de configurações de notificação de arquivo padrão** : o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+* **TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
 
-* **Contagem de entrega máxima de notificação de arquivo** : o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
+* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
 
 Use os seguintes comandos da CLI do Azure para definir as configurações de upload de arquivo no seu hub IoT:
 

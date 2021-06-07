@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90564144"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
@@ -39,7 +39,7 @@ Defina uma região ou um local ao criar o serviço do Gerenciador de Dispositivo
 
 Veja uma lista de regiões onde o serviço do Gerenciador de Dispositivos do StorSimple está disponível para a nuvem pública do Azure e pode ser implantado.
 
-![Captura de tela mostra a Device Manager do StorSimple com a lista de locais realçada.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![Captura de tela mostra a Gerenciador de Dispositivos do StorSimple com a lista de locais realçada.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Para a nuvem do Azure Governamental, o serviço do Gerenciador de Dispositivos do StorSimple está disponível nos datacenters US Gov Iowa e US Gov Virginia.
 
@@ -68,13 +68,13 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 | 3  | Bahrein               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
 | 4  | Bélgica               | 19 | Índia              | 34 | Peru                | 49 | Sri Lanka                  |
 | 5  | Brasil                | 20 | Indonésia          | 35 | Filipinas         | 50 | Suécia                     |
-| 6  | Canada                | 21 | Irlanda            | 36 | Polônia              | 51 | Suíça                |
+| 6  | Canadá                | 21 | Irlanda            | 36 | Polônia              | 51 | Suíça                |
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
 | 8  | Colômbia              | 23 | Itália              | 38 | Porto Rico         | 53 | Tailândia                   |
 | 9  | República Tcheca        | 24 | Japão              | 39 | Catar               | 54 | Turquia                     |
 | 10 | Dinamarca               | 25 | Quênia              | 40 | Romênia             | 55 | Ucrânia                    |
 | 11 | Egito                 | 26 | Kuwait             | 41 | Rússia              | 56 | Emirados Árabes Unidos       |
-| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | United Kingdom             |
+| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
 | 13 | França                | 28 | Malásia           | 43 | Singapura           | 58 | Estados Unidos              |
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietnã                    |
 | 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovênia            | 60 | Croácia                    |

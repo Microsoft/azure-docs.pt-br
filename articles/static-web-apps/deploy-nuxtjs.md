@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97563459"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites do Nuxt.js renderizados no lado do servidor na Versão Prévia do Aplicativos Web Estáticos do Azure
@@ -120,7 +120,7 @@ As etapas a seguir mostram como vincular o aplicativo que você acabou de enviar
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
 1. Clique em **Criar um Recurso**
-1. Pesquise **Aplicativos Web Estáticos**
+1. Pesquise por **Aplicativos Web Estáticos**
 1. Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 1. Clique em **Criar**
 

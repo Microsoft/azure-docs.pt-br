@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99833993"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos do ARM
@@ -36,7 +36,7 @@ Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias
 | arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
 | argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos.
 
@@ -138,7 +138,7 @@ Verifica se dois valores são iguais entre si. `equals`Não há suporte para a f
 | arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
 | arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se os valores são iguais; caso contrário, **False**.
 
@@ -322,7 +322,7 @@ Verifica se o primeiro valor é maior que o segundo valor. `greater`Não há sup
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é maior que o segundo valor; caso contrário, **False**.
 
@@ -403,7 +403,7 @@ Verifica se o primeiro valor é maior que ou igual ao segundo valor. `greaterOrE
 | arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é maior que ou igual ao segundo valor; caso contrário, **False**.
 
@@ -484,7 +484,7 @@ Verifica se o primeiro valor é menor que o segundo valor. `less`Não há suport
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é menor que o segundo valor; caso contrário, **False**.
 
@@ -565,7 +565,7 @@ Verifica se o primeiro valor é menor que ou igual ao segundo valor. `lessOrEqua
 | arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
 | arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o primeiro valor é menor que ou igual ao segundo valor; caso contrário, **False**.
 

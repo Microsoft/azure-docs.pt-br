@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 55f375c83affea8585ec7ebf881a80315ff7a38c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361308"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando a CLI
@@ -173,11 +173,11 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
     | Nome do host | Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
-    | Nome de usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MariaDB. |
+    | Nome de Usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MariaDB. |
     | Senha | Insira uma senha fornecida durante a criação do servidor MariaDB. |
     ||
 

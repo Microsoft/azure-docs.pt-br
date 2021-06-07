@@ -1,18 +1,14 @@
 ---
 title: Aprofunde-se nas ameaças globais, regionais e locais
 description: Receba informações sobre ameaças globais, regionais e locais usando o mapa do site no console de gerenciamento local.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cde55f3c2a875c593c07ea05427f8075d8599196
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: db3b9fbca9acd6c4ce1cfe137a4024f66d8a6292
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837981"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784111"
 ---
 # <a name="gain-insight-into-global-regional-and-local-threats"></a>Aprofunde-se nas ameaças globais, regionais e locais
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/12/2021
-ms.openlocfilehash: 4b7e7258664aed3b171166bb392406cd5d826b3f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 91e7bafe98b1aceaf8fe27b07029291a48a31351
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555645"
 ---
 # <a name="quickstart-connect-a-rust-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Início rápido: Conectar um aplicativo Rust à API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "98792528"
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 > * [Rust](create-mongodb-rust.md)
@@ -279,7 +279,7 @@ fn list_todos(self, status_filter: &str) {
 }
 ```
 
-Um status de `todo` pode ser atualizado (de `pending` para `completed` ou vice-versa). O `todo` é convertido em um [bson::oid::ObjectId](https://docs.rs/bson/1.1.0/bson/oid/struct.ObjectId.html) que é usado pelo método[Collection.update_one](https://docs.rs/mongodb/1.1.1/mongodb/struct.Collection.html#method.update_one) para localizar o documento que precisa ser atualizado.
+O status de `todo` poderá ser atualizado (de `pending` para `completed` ou vice-versa). O `todo` é convertido em um [bson::oid::ObjectId](https://docs.rs/bson/1.1.0/bson/oid/struct.ObjectId.html) que é usado pelo método[Collection.update_one](https://docs.rs/mongodb/1.1.1/mongodb/struct.Collection.html#method.update_one) para localizar o documento que precisa ser atualizado.
 
 ```rust
 fn update_todo_status(self, todo_id: &str, status: &str) {

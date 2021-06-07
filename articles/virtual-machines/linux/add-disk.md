@@ -1,18 +1,19 @@
 ---
-title: Adicionar um disco de dados à VM do Linux usando o CLI do Azure
+title: Adicionar um disco de dados a uma VM Linux usando a CLI do Azure
 description: Saiba como adicionar um disco de dados persistente à VM Linux com a CLI do Azure
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
-ms.translationtype: MT
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730614"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104580378"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 
@@ -44,7 +45,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="format-and-mount-the-disk"></a>Formatar e montar o disco
 
-Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para saber mais, confira [Como usar o SSH com o Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com o endereço IP público de *10.123.123.25* com o nome de usuário *azureuser*:
+Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para saber mais, confira [Como usar o SSH com o Linux no Azure](mac-create-ssh-keys.md). O seguinte exemplo se conecta a uma VM com o endereço IP público *10.123.123.25* e o nome de usuário *azureuser*:
 
 ```bash
 ssh azureuser@10.123.123.25
@@ -52,7 +53,7 @@ ssh azureuser@10.123.123.25
 
 ### <a name="find-the-disk"></a>Localize o disco
 
-Uma vez conectado à sua VM, você precisa encontrar o disco. Neste exemplo, estamos usando `lsblk` para listar os discos. 
+Após conectado à VM, você precisa encontrar o disco. Neste exemplo, estamos usando `lsblk` para listar os discos. 
 
 ```bash
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
@@ -70,19 +71,19 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Aqui `sdc` está o disco que desejamos, porque ele é 50g. Se você não tiver certeza de qual disco ele se baseia apenas no tamanho, poderá ir para a página VM no portal, selecionar **discos** e verificar o número de LUN para o disco em **discos de dados**. 
+Aqui, `sdc` é o disco que desejamos, pois ele tem 50G. Se você não tem certeza quanto ao disco baseando-se apenas no tamanho, vá para a página da VM no portal, selecione **Discos** e verifique o número LUN do disco em **Discos de dados**. 
 
 
 ### <a name="format-the-disk"></a>Formatar o disco
 
-Formate o disco com `parted` , se o tamanho do disco for 2 tebibytes (TIB) ou maior, você deverá usar o particionamento GPT, se ele estiver em 2TiB, você poderá usar o particionamento MBR ou GPT. 
+Formate o disco com `parted`; se o tamanho do disco for de 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT e, se for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT. 
 
 > [!NOTE]
-> É recomendável que você use a versão mais recente `parted` que está disponível para seu distribuição.
-> Se o tamanho do disco for 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT. Se o tamanho do disco estiver abaixo de 2 TiB, você poderá usar o particionamento MBR ou GPT.  
+> É recomendável usar a última versão de `parted` disponível para sua distribuição.
+> Se o tamanho do disco for de 2 tebibytes (TiB) ou mais, use o particionamento GPT. Se o tamanho do disco for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT.  
 
 
-O exemplo a seguir usa `parted` on `/dev/sdc` , que é onde o primeiro disco de dados normalmente estará na maioria das VMs. Substitua `sdc` pela opção correta para seu disco. Também estamos Formatando-a usando o sistema de arquivos [xfs](https://xfs.wiki.kernel.org/) .
+O exemplo a seguir usa `parted` em `/dev/sdc`, que é onde o primeiro disco de dados normalmente estará na maioria das VMs. Substitua `sdc` pela opção correta para seu disco. Também o estamos formatando usando o sistema de arquivos [XFS](https://xfs.wiki.kernel.org/).
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
@@ -90,18 +91,18 @@ sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
 ```
 
-Use o [`partprobe`](https://linux.die.net/man/8/partprobe) Utilitário para verificar se o kernel está ciente da nova partição e do sistema de arquivos. A falha ao usar `partprobe` pode fazer com que os comandos blkid ou lslbk não retornem o UUID para o novo FileSystem imediatamente.
+Use o utilitário [`partprobe`](https://linux.die.net/man/8/partprobe) para garantir que o kernel esteja ciente da nova partição e do novo sistema de arquivos. Deixar de usar `partprobe` pode fazer com que os comandos blkid ou lslbk não retornem o UUID do novo sistema de arquivos imediatamente.
 
 
 ### <a name="mount-the-disk"></a>Monte o disco
 
-Agora, crie um diretório para montar o novo sistema de arquivos usando o `mkdir`. O exemplo a seguir cria um diretório em `/datadrive` :
+Agora, crie um diretório para montar o novo sistema de arquivos usando o `mkdir`. O exemplo a seguir cria um diretório em `/datadrive`:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Use `mount` para montar então o sistema de arquivos. O exemplo a seguir monta a `/dev/sdc1` partição para o `/datadrive` ponto de montagem:
+Use `mount` para montar então o sistema de arquivos. O exemplo a seguir monta a partição `/dev/sdc1` para o ponto de montagem `/datadrive`:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
@@ -109,7 +110,7 @@ sudo mount /dev/sdc1 /datadrive
 
 ### <a name="persist-the-mount"></a>Persista a montagem
 
-Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab*. Também é altamente recomendável que o UUID (identificador universal exclusivo) seja usado em */etc/fstab* para se referir à unidade em vez de apenas ao nome do dispositivo (como, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Os discos de dados restantes seriam então atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o utilitário `blkid`:
+Para garantir que a unidade seja remontada automaticamente após uma reinicialização, ela deve ser adicionada ao arquivo */etc/fstab*. Além disso, é altamente recomendável que o UUID (Identificador Universal Exclusivo) seja usado em */etc/fstab* para fazer referência à unidade, e não apenas ao nome do dispositivo (por exemplo, */dev/sdc1*). Se o sistema operacional detectar um erro de disco durante a inicialização, usar o UUID evita que o disco incorreto seja montado em um determinado local. Os discos de dados restantes seriam então atribuídos a essas mesmas IDs de dispositivo. Para localizar o UUID da nova unidade, use o utilitário `blkid`:
 
 ```bash
 sudo blkid
@@ -134,20 +135,20 @@ Em seguida, abra o arquivo */etc/fstab* em um editor de texto, conforme descrito
 sudo nano /etc/fstab
 ```
 
-Neste exemplo, use o valor UUID para o `/dev/sdc1` dispositivo que foi criado nas etapas anteriores e o mountpoint de `/datadrive` . Adicione a seguinte linha ao final do `/etc/fstab` arquivo:
+Neste exemplo, usamos o valor UUID para o novo dispositivo `/dev/sdc1` criado nas etapas anteriores e o ponto de montagem `/datadrive`. Adicione a seguinte linha ao final do arquivo `/etc/fstab`:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
-Neste exemplo, estamos usando o editor do nano, portanto, quando você terminar de editar o arquivo, use `Ctrl+O` para gravar o arquivo e `Ctrl+X` sair do editor.
+Neste exemplo, estamos usando o editor nano, portanto, quando terminar de editar o arquivo, use `Ctrl+O` para gravá-lo e `Ctrl+X` para sair do editor.
 
 > [!NOTE]
 > Remover um disco de dados posteriormente sem editar fstab pode fazer com que a VM falhe ao ser inicializada. A maioria das distribuições fornecem as opções de fstab *nofail* e/ou *nobootwait*. Essas opções permitem que um sistema inicialize mesmo se o disco não for montado no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 >
 > A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 >
-> O console serial da VM do Azure pode ser usado para acesso ao console para sua VM se a modificação de fstab resultar em uma falha de inicialização. Mais detalhes estão disponíveis na [documentação do console serial](../troubleshooting/serial-console-linux.md).
+> O Console Serial da VM do Azure pode ser usado para acesso ao console para sua VM se a modificação de fstab resultou em uma falha de inicialização. Mais detalhes estão disponíveis na [Documentação do Console Serial](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte a TRIM/UNMAP para Linux no Azure
 Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Esse recurso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas, podendo também economizar dinheiro se você criar arquivos grandes e depois excluí-los.

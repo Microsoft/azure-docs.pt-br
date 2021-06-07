@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: f4d26ba6bec8f3e63ba89ed9abae789704a0828b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7f3052905d7594d64be9455c16239ebabd219849
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184094"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565071"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
 
@@ -73,17 +73,17 @@ green_taxi_df.head(10)
 ```
 
 |vendorID| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType |fareAmount |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|    tripType|
-|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Nenhum|Nenhum|-73,88|40,84|-73,94|...|2|15,00|0.50|0.50|0.3|0,00|0,00|nan|16,30|1.00
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Nenhum|Nenhum|-73,96|40,81|-73,96|...|2|4.50|1.00|0.50|0.3|0,00|0,00|nan|6,30|1.00
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Nenhum|Nenhum|-73,92|40,76|-73,91|...|2|4,00|0,00|0.50|0.3|0,00|0,00|nan|4,80|1.00
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Nenhum|Nenhum|-73,81|40,70|-73,82|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|Nenhum|Nenhum|-73,92|40,76|-73,92|...|2|4,00|0.50|0.50|0|0,00|0,00|nan|5.00|1.00
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Nenhum|Nenhum|-73,96|40,72|-73,95|...|2|6,50|0.50|0.50|0.3|0,00|0,00|nan|7,80|1.00
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Nenhum|Nenhum|-73,88|40,76|-73,87|...|2|6,00|0,00|0.50|0.3|0,00|0,00|nan|6,80|1.00
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Nenhum|Nenhum|-73,96|40,72|-73,91|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Nenhum|Nenhum|-73,94|40,71|-73,95|...|1|7,00|0,00|0.50|0.3|1,75|0,00|nan|9.55|1.00
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|Nenhum|Nenhum|-73,94|40,71|-73,94|...|2|5.00|0.50|0.50|0.3|0,00|0,00|nan|6,30|1.00
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Nenhum|Nenhum|-73,88|40,84|-73,94|...|2|15,00|0.50|0.50|0.3|0,00|0,00|nan|16,30|
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Nenhum|Nenhum|-73,96|40,81|-73,96|...|2|4.50|1.00|0.50|0.3|0,00|0,00|nan|6,30|
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Nenhum|Nenhum|-73,92|40,76|-73,91|...|2|4,00|0,00|0.50|0.3|0,00|0,00|nan|4,80|
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Nenhum|Nenhum|-73,81|40,70|-73,82|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|Nenhum|Nenhum|-73,92|40,76|-73,92|...|2|4,00|0.50|0.50|0|0,00|0,00|nan|5.00|
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Nenhum|Nenhum|-73,96|40,72|-73,95|...|2|6,50|0.50|0.50|0.3|0,00|0,00|nan|7,80|
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Nenhum|Nenhum|-73,88|40,76|-73,87|...|2|6,00|0,00|0.50|0.3|0,00|0,00|nan|6,80|
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Nenhum|Nenhum|-73,96|40,72|-73,91|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Nenhum|Nenhum|-73,94|40,71|-73,95|...|1|7,00|0,00|0.50|0.3|1,75|0,00|nan|9.55|
+|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|Nenhum|Nenhum|-73,94|40,71|-73,94|...|2|5.00|0.50|0.50|0.3|0,00|0,00|nan|6,30|
 
 Agora que os dados iniciais foram carregados, defina uma função para criar vários recursos baseados em tempo usando o campo datetime de coleta. Isso criará novos campos para o número do mês, dia do mês, dia da semana e hora do dia e permitirá que o modelo considere a sazonalidade com base no tempo. Use a função `apply()` no dataframe para aplicar iterativamente a função `build_time_features()` a cada linha nos dados de táxis.
 
@@ -102,17 +102,17 @@ green_taxi_df.head(10)
 ```
 
 |vendorID| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType|fareAmount  |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
-|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|----
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Nenhum|Nenhum|-73,88|40,84|-73,94|...|2|15,00|0.50|0.50|0.3|0,00|0,00|nan|16,30|1.00|1|11|6|5
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Nenhum|Nenhum|-73,96|40,81|-73,96|...|2|4.50|1.00|0.50|0.3|0,00|0,00|nan|6,30|1.00|1|20|1|16
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Nenhum|Nenhum|-73,92|40,76|-73,91|...|2|4,00|0,00|0.50|0.3|0,00|0,00|nan|4,80|1.00|1|1|3|5
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Nenhum|Nenhum|-73,81|40,70|-73,82|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00|1|17|5|2
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|Nenhum|Nenhum|-73,92|40,76|-73,92|...|2|4,00|0.50|0.50|0|0,00|0,00|nan|5.00|1.00|1|1|3|5
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Nenhum|Nenhum|-73,96|40,72|-73,95|...|2|6,50|0.50|0.50|0.3|0,00|0,00|nan|7,80|1.00|1|4|6|19
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Nenhum|Nenhum|-73,88|40,76|-73,87|...|2|6,00|0,00|0.50|0.3|0,00|0,00|nan|6,80|1.00|1|3|5|12
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Nenhum|Nenhum|-73,96|40,72|-73,91|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00|1|9|4|23
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Nenhum|Nenhum|-73,94|40,71|-73,95|...|1|7,00|0,00|0.50|0.3|1,75|0,00|nan|9.55|1.00|1|11|6|17
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|Nenhum|Nenhum|-73,94|40,71|-73,94|...|2|5.00|0.50|0.50|0.3|0,00|0,00|nan|6,30|1.00|1|22|3|23
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4,84|Nenhum|Nenhum|-73,88|40,84|-73,94|...|2|15,00|0.50|0.50|0.3|0,00|0,00|nan|16,30|1.00|1|11|6|
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0,69|Nenhum|Nenhum|-73,96|40,81|-73,96|...|2|4.50|1.00|0.50|0.3|0,00|0,00|nan|6,30|1.00|1|20|1|
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0,45|Nenhum|Nenhum|-73,92|40,76|-73,91|...|2|4,00|0,00|0.50|0.3|0,00|0,00|nan|4,80|1.00|1|1|3|
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0,00|Nenhum|Nenhum|-73,81|40,70|-73,82|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00|1|17|5|
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|Nenhum|Nenhum|-73,92|40,76|-73,92|...|2|4,00|0.50|0.50|0|0,00|0,00|nan|5.00|1.00|1|1|3|
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1,10|Nenhum|Nenhum|-73,96|40,72|-73,95|...|2|6,50|0.50|0.50|0.3|0,00|0,00|nan|7,80|1.00|1|4|6|
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0,90|Nenhum|Nenhum|-73,88|40,76|-73,87|...|2|6,00|0,00|0.50|0.3|0,00|0,00|nan|6,80|1.00|1|3|5|
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3,30|Nenhum|Nenhum|-73,96|40,72|-73,91|...|2|12,50|0.50|0.50|0.3|0,00|0,00|nan|13,80|1.00|1|9|4|
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1,19|Nenhum|Nenhum|-73,94|40,71|-73,95|...|1|7,00|0,00|0.50|0.3|1,75|0,00|nan|9.55|1.00|1|11|6|
+|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|Nenhum|Nenhum|-73,94|40,71|-73,94|...|2|5.00|0.50|0.50|0.3|0,00|0,00|nan|6,30|1.00|1|22|3|
 
 Remova algumas das colunas de que você não precisará para treinamento ou criação de recursos adicionais.
 
@@ -136,15 +136,15 @@ green_taxi_df.describe()
 ```
 
 |vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|  totalAmount|month_num   day_of_month|day_of_week|hour_of_day
-|----|----|---|---|----|---|---|---|---|---|---|---
-|count|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00
-|média|1,78|1,37|2.87|-73,83|40,69|-73,84|40,70|14,75|6,50|15,13|3,27|13,52
-|std|0,41|1.04|2,93|2.76|1,52|2.61|1,44|12,08|3.45|8,45|1,95|6,83
-|Min|1.00|0,00|0,00|-74,66|0,00|-74,66|0,00|-300,00|1.00|1.00|0,00|0,00
-|25%|2,00|1.00|1,06|-73,96|40,70|-73,97|40,70|7,80|3,75|8,00|2,00|9,00
-|50%|2,00|1.00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|3.00|15,00
-|75%|2,00|1.00|3.60|-73,92|40,80|-73,91|40,79|17,80|9,25|22,00|5.00|19,00
-|max|2,00|9,00|97,57|0,00|41,93|0,00|41,94|450,00|12,00|30,00|6,00|23,00
+|----|----|---|---|----|---|---|---|---|---|---|
+|count|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|48.000,00|
+|média|1,78|1,37|2.87|-73,83|40,69|-73,84|40,70|14,75|6,50|15,13|
+|std|0,41|1.04|2,93|2.76|1,52|2.61|1,44|12,08|3.45|8,45|
+|Min|1.00|0,00|0,00|-74,66|0,00|-74,66|0,00|-300,00|1.00|1.00|
+|25%|2,00|1.00|1,06|-73,96|40,70|-73,97|40,70|7,80|3,75|8,00|
+|50%|2,00|1.00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|
+|75%|2,00|1.00|3.60|-73,92|40,80|-73,91|40,79|17,80|9,25|22,00|
+|max|2,00|9,00|97,57|0,00|41,93|0,00|41,94|450,00|12,00|30,00|
 
 
 A partir das estatísticas de resumo, você pode observar que há vários campos com valores discrepantes ou valores que reduzem a precisão do modelo. Primeiro, filtre os campos lat/long para que estejam dentro dos limites da área Manhattan. Isso filtrará viagens de táxi mais longas ou viagens que são exceções no que diz respeito à sua relação com outros recursos.
@@ -175,7 +175,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurar o workspace
 
-Crie um objeto de workspace a partir do workspace existente. Um [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
+Crie um objeto de workspace a partir do workspace existente. Um [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) é uma classe que aceita suas informações de recursos e assinatura do Azure. Ele também cria um recurso de nuvem para monitorar e acompanhar a execução do seu modelo. `Workspace.from_config()` lê o arquivo **config. json** e carrega os detalhes de autenticação em um objeto chamado `ws`. `ws` é usado em todo o restante do código neste tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -302,7 +302,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Explorar os resultados
 
-Explore os resultados do treinamento automático com um [widget do Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
+Explore os resultados do treinamento automático com um [widget do Jupyter](/python/api/azureml-widgets/azureml.widgets). O widget permite que você veja um grafo e uma tabela de todas as iterações de execução individuais, em conjunto com metadados e métricas de precisão de treinamento. Além disso, você pode filtrar em métricas de precisão diferentes da métrica primária com o seletor de lista suspensa.
 
 ```python
 from azureml.widgets import RunDetails

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086883"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
@@ -300,15 +300,15 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 
 1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **ajuda**  >  **sobre** os  >  **detalhes da instalação** do eclipse. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: plug-ins do Eclipse para Gradle][buildship-update].
 
-2. Para instalar o plug-in Service Fabric, selecione **ajuda**  >  **instalar novo software** .
+2. Para instalar o plug-in Service Fabric, selecione **ajuda**  >  **instalar novo software**.
 
-3. Na caixa **trabalhar com** , digite **https: \/ /DL.Microsoft.com/Eclipse** .
+3. Na caixa **trabalhar com** , digite **https: \/ /DL.Microsoft.com/Eclipse**.
 
-4. Selecione **Adicionar** .
+4. Selecione **Adicionar**.
 
     ![Página do software disponível][sf-eclipse-plugin]
 
-5. Selecione o plug-in **ServiceFabric** e selecione **Avançar** .
+5. Selecione o plug-in **ServiceFabric** e selecione **Avançar**.
 
 6. Execute as etapas de instalação. Depois aceite os termos de licença do usuário final.
 

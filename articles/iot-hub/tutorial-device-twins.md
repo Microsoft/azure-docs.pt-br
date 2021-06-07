@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733293"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca c
 
 ![Captura de tela que mostra a saída do aplicativo de back-end e destaca como ele envia uma atualização.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>Receber informações de estado
+## <a name="receive-state-information&quot;></a>Receber informações de estado
 
 O aplicativo de back-end recebe informações de estado de um dispositivo como propriedades relatadas. Um dispositivo define as propriedades relatadas e as envia ao hub. Um aplicativo de back-end pode ler os valores atuais das propriedades relatadas do dispositivo gêmeo armazenado no hub.
 
-### <a name="send-reported-properties-from-a-device"></a>Enviar propriedades relatadas de um dispositivo
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>Enviar propriedades relatadas de um dispositivo
 
 É possível enviar atualizações para valores de propriedade relatados como um patch. O snippet de código a seguir mostra um modelo para o patch enviado pelo dispositivo simulado. O dispositivo simulado atualiza os campos no patch antes de enviá-lo ao hub:
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 O dispositivo simulado usa a função a seguir para enviar o patch que contém as propriedades relatadas ao hub:
 

@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.openlocfilehash: 1189a320d0dc700756c9f7664d0a6303be5dab51
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a608c34225641a3c7764d6c7dd3872c5f61fe3c8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940901"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869711"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Opções de segurança para o hive no Azure HDInsight
 
 Este documento descreve as opções de segurança recomendadas para o hive no HDInsight. Essas opções podem ser configuradas por meio de Ambari.
 
-![' Opções de segurança para o hive '](./media/hdinsight-security-options-for-hive/security-options-hive.png "Opções de segurança para o hive")
+:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="' Opções de segurança para o hive '" border="true":::
 
 ## <a name="hiveserver2-authentication"></a>Autenticação HiveServer2
 

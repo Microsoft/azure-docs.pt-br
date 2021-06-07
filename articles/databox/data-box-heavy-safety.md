@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021530"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Instalar e operar seu Azure Data Box Heavy com segurança
@@ -48,7 +48,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 * Equipamentos apropriados (por exemplo, a tomada de palete) e equipamentos de proteção pessoal (por exemplo, luvas) devem ser usados ao mover e manusear a teleestação.
 * A rampa deve ser protegida à forma com os parafusos fornecidos antes de você remover o dispositivo para evitar ferimentos ou danos à propriedade.
 
-![Ícone de aviso de ](./media/data-box-heavy-safety/warning-icon.png) ![ gorjeta ícone de risco ](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard** de dica de risco
+![Ícone de aviso de ](./media/data-box-heavy-safety/warning-icon.png) ![ gorjeta ícone de risco ](./media/data-box-heavy-safety/tip-hazard-icon.png)  de dica de risco
 
 * Coloque o equipamento em uma superfície plana, sólida e estável para evitar um risco potencial ou Crushing.
 * Verifique se os concastrs estão bloqueados antes de inspecionar, ativar e operar o equipamento.

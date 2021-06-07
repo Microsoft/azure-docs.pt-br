@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: d5a013fc4e4ef931579da4fa13f400d5f4fcff0d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250525"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102030742"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -101,9 +101,23 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    ```
 
    Se a variável [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) for retornada com o valor "on", o log binário será habilitado em seu servidor.
-
-   Se `log_bin` for retornado com o valor "off", ative o log binário editando o arquivo My. cnf para que `log_bin=ON` o e reinicie o servidor para que a alteração entre em vigor.
-
+   
+    Se `log_bin` for retornado com o valor "off" e o servidor de origem estiver em execução no local ou em máquinas virtuais em que você pode acessar o arquivo de configuração (My. cnf), você poderá seguir as etapas abaixo:
+   1. Localize o arquivo de configuração do MySQL (My. cnf) no servidor de origem. Por exemplo:/etc/my.cnf
+   2. Abra o arquivo de configuração para editá-lo e localize a seção **mysqld** no arquivo.
+   3.  Na seção mysqld, adicione a seguinte linha
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Reinicie o servidor de origem MySQL para que as alterações entrem em vigor.
+   5. Depois que o servidor for reiniciado, verifique se o log binário está habilitado executando a mesma consulta que antes:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Configurações do servidor de origem
 
    Replicação de Dados requer `lower_case_table_names` que o parâmetro seja consistente entre os servidores de origem e de réplica. Esse parâmetro é 1 por padrão no Banco de Dados do Azure para MySQL.

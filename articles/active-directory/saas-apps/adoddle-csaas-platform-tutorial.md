@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory à Adoddle cSaas Platform | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Adoddle cSaas Platform | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e a Adoddle cSaas Platform.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 5554ec4521a126a2c2e823b707fe42d9983b5d8e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97671606"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Tutorial: Integração do Azure Active Directory à Adoddle cSaas Platform
+# <a name="tutorial-azure-active-directory-integration-with-adoddle-csaas-platform"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Adoddle cSaas Platform
 
 Neste tutorial, você aprende a integrar a Adoddle cSaas Platform ao Azure AD (Azure Active Directory).
 A integração da Adoddle cSaas Platform com o Azure AD oferece os benefícios a seguir:
@@ -188,4 +188,4 @@ Ao clicar no bloco da Adoddle cSaas Platform no Painel de Acesso, você deve ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

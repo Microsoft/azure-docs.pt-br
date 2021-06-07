@@ -8,14 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fc7b6b480056b56a2776cebd0fa87a5b96f9f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79471278"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103201665"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar o IoT Edge no kubernetes (versão prévia)
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 IoT Edge pode integrar com o kubernetes usando-o como uma camada de infraestrutura resiliente e altamente disponível. Aqui está o local em que esse suporte se encaixa em uma solução de IoT Edge de alto nível:
 

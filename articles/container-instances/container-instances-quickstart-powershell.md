@@ -3,18 +3,20 @@ title: Início Rápido – Implantar um contêiner do Docker na instância de co
 description: Neste início rápido, você usa o Azure PowerShell para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 manager: gwallace
-ms.service: container-instances
-ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: container-instances
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: f9c6bac45e2e7fe18895a16831f840c3ae5a9f9d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89565575"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536167"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Início Rápido: Implantar uma instância de contêiner no Azure usando o Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Guia de início rápido: implantar uma instância de contêiner no Azure usando o Azure PowerShell
 
 Use as Instâncias de Contêiner do Azure para executar contêineres do Docker sem servidor no Azure de maneira simples e rápida. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisa de uma plataforma de orquestração de contêiner completa como o Serviço de Kubernetes do Azure.
 
@@ -88,7 +90,7 @@ Quando o `ProvisioningState` do contêiner for **Êxito**, navegue até o `Fqdn`
 
 ![IIS implantado usando as Instâncias de Contêiner do Azure exibido no navegador][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao concluir o contêiner, remova-o usando o cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup]:
 

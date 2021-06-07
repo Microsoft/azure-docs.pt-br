@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: f4e554a3354b9cfdce7d0c367f757251f44e4599
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536816"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Perguntas frequentes sobre o Cache Redis do Azure

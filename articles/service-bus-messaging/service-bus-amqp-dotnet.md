@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o barramento de serviço do Azure de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 20800363327aefda073cd484dc737b28e60466a7
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632843"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
@@ -63,7 +63,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 
 | Tipo de objeto de corpo .NET | Tipo do AMQP mapeado | Tipo de seção de corpo do AMQP |
 | --- | --- | --- |
-| bool |booleano |Valor do AMQP |
+| bool |boolean |Valor do AMQP |
 | byte |ubyte |Valor do AMQP |
 | ushort |ushort |Valor do AMQP |
 | uint |uint |Valor do AMQP |
@@ -81,12 +81,12 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | byte[] |binary |Valor do AMQP |
 | string |string |Valor do AMQP |
 | System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Collections.IDictionary |map |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
+| System.Array |array |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
+| System.Collections.IDictionary |mapa |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
 | Uri |Cadeia de caracteres descrita (consulte a tabela a seguir) |Valor do AMQP |
 | DateTimeOffset |Longo descrito (consulte a tabela a seguir) |Valor do AMQP |
 | TimeSpan |Longo descrito (consulte a seguir) |Valor do AMQP |
-| Fluxo |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
+| Stream |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
 | Tipo .NET | Tipo descrito do AMQP mapeado | Observações |

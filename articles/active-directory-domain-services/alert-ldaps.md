@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620300"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: LDAP Seguro alertas no Azure Active Directory Domain Services
@@ -56,7 +56,7 @@ A integridade do domínio gerenciado se atualiza automaticamente dentro de duas 
 
 ### <a name="resolution"></a>Resolução
 
-Crie um certificado LDAP seguro de substituição seguindo as etapas para [criar um certificado para LDAP seguro](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Aplique o certificado de substituição à AD DS do Azure e distribua o certificado para todos os clientes que se conectam usando o LDAP seguro.
+Crie um certificado substituto para LDAP Seguro seguindo as etapas para [Criar um certificado para o LDAP Seguro](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Aplique o certificado de substituição à AD DS do Azure e distribua o certificado para todos os clientes que se conectam usando o LDAP seguro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

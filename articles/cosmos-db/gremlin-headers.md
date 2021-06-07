@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
 ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600531"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB cabeçalhos de resposta do servidor Gremlin
@@ -23,7 +23,7 @@ Tenha em mente que assumir a dependência desses cabeçalhos você está limitan
 
 ## <a name="headers"></a>Cabeçalhos
 
-| Cabeçalho | Type | Valor de exemplo | Quando incluído | Explicação |
+| parâmetro | Type | Valor de exemplo | Quando incluído | Explicação |
 | --- | --- | --- | --- | --- |
 | **x-MS-Request-encargos** | double | 11,3243 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para uma mensagem de resposta parcial. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Ele reflete a cobrança de uma parte de resposta específica. Somente para solicitações que consistem em uma única parte de resposta, esse cabeçalho corresponde ao custo total de passagem. No entanto, para a maioria das passagens complexas, esse valor representa um custo parcial. |
 | **x-MS-total-solicitação-encargo** | double | 423,987 | Êxito e Falha | Quantidade de produtividade de coleta ou banco de dados consumida em [unidades de solicitação (ru/s ou RUs)](request-units.md) para toda a solicitação. Esse cabeçalho está presente em cada continuação para solicitações que têm várias partes. Indica a cobrança cumulativa desde o início da solicitação. O valor desse cabeçalho na última parte indica o encargo de solicitação completo. |

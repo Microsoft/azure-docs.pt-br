@@ -2,11 +2,11 @@
 title: 'Início Rápido: Usar a CLI do Azure para criar uma VM do Linux'
 description: Neste início rápido, você aprende a usar a CLI do Azure para criar uma máquina virtual Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -14,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 78ecd052c071835ef488882979a3bc5306c35365
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87488969"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058571"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: Criar uma máquina virtual Linux com a CLI do Azure
 
 Este início rápido mostra como usar a CLI (interface de linha de comando) do Azure para implantar uma VM (máquina virtual) Linux no Azure. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts.
 
-Neste tutorial, vamos instalar Ubuntu o 16.04 LTS. Para mostrar a VM em ação, você se conectará a ela usando SSH e instalará o servidor Web NGINX.
+Neste tutorial, instalaremos a imagem mais recente do Ubuntu LTS. Para mostrar a VM em ação, você se conectará a ela usando SSH e instalará o servidor Web NGINX.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -87,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
-SSH para sua VM, como de costume. Substitua **publicIpAddress** pelo endereço IP público da VM como observado na saída anterior da sua VM:
+SSH para sua VM, como de costume. Substitua o endereço IP do exemplo pelo endereço IP público da VM conforme indicado na saída anterior:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>Instalar servidor Web

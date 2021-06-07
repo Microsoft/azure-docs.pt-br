@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785813"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101709811"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Logs de Azure Monitor do Azure Standard Load Balancer
 
@@ -63,7 +63,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
      5. Na lista suspensa **selecionar nome da política do hub de eventos** , selecione o nome.
      6. Selecione **OK**.
 
-   * **Enviar para log Analytics**. Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo. Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+   * **Enviar para log Analytics**. Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo. Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
      1. Marque a caixa de seleção **Enviar para o Log Analytics**.
      2. Na lista suspensa **assinatura** , selecione a assinatura na qual está o espaço de trabalho do log Analytics.
      3. Na lista suspensa **log Analytics espaço de trabalho** , selecione o espaço de trabalho.
@@ -74,7 +74,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
 ## <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
 
-O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](../azure-monitor/platform/activity-log.md). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
+O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](../azure-monitor/essentials/activity-log.md). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
@@ -100,10 +100,10 @@ Se você estiver exportando para o armazenamento, conecte-se à sua conta de arm
 > Se você estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores para constantes e variáveis em C#, poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no github.
 
 ## <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
-Quando as informações de diagnóstico são transmitidas para um hub de eventos, você pode usá-las para análise de log centralizada em uma ferramenta SIEM de parceiro com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+Quando as informações de diagnóstico são transmitidas para um hub de eventos, você pode usá-las para análise de log centralizada em uma ferramenta SIEM de parceiro com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-Você pode enviar informações de diagnóstico para recursos no Azure diretamente para um espaço de trabalho Log Analytics. Nesse espaço de trabalho, você pode executar consultas complexas em relação às informações para solução de problemas e análise. Para obter mais informações, consulte [coletar logs de recursos do Azure em um espaço de trabalho log Analytics no Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Você pode enviar informações de diagnóstico para recursos no Azure diretamente para um espaço de trabalho Log Analytics. Nesse espaço de trabalho, você pode executar consultas complexas em relação às informações para solução de problemas e análise. Para obter mais informações, consulte [coletar logs de recursos do Azure em um espaço de trabalho log Analytics no Azure monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limitações
 O recurso de exportação de métricas para logs para Azure Load Balancer tem as seguintes limitações:
@@ -113,4 +113,4 @@ O recurso de exportação de métricas para logs para Azure Load Balancer tem as
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Examinar as métricas disponíveis para o balanceador de carga](./load-balancer-standard-diagnostics.md)
-* [Criar e testar consultas seguindo as instruções de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Criar e testar consultas seguindo as instruções de Azure Monitor](../azure-monitor/logs/log-query-overview.md)

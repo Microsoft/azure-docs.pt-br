@@ -5,18 +5,18 @@ services: virtual-machines
 author: vermagit
 tags: azure-resource-manager
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966931"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721151"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HBv2 
 
@@ -53,14 +53,16 @@ A fixação do processo funcionará em VMs da série HBv2 porque expõemos o sil
 |-----------------------------|-----------------------------------------------------------|
 | Tamanho máximo do trabalho MPI            | 36000 núcleos (300 VMs em um único conjunto de dimensionamento de máquinas virtuais com singlePlacementGroup = true) |
 | Suporte a MPI                 | HPC-X, Intel MPI, OpenMPi, MVAPICH2, MPICH, plataforma MPI  |
-| Estruturas adicionais       | Comunicação unificada X, libfabric, PGAS                  |
-| Suporte do armazenamento do Azure       | Discos Standard e Premium (máximo de 8 discos)              |
-| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +           |
-| Suporte do Orchestrator        | CycleCloud, lote                                         | 
+| Estruturas adicionais       | UCX, libfabric, PGAS |
+| Suporte do armazenamento do Azure       | Discos Standard e Premium (máximo de 8 discos) |
+| Suporte do so para SRIOV RDMA   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 +  |
+| Suporte do Orchestrator        | CycleCloud, lote, AKS; [Opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options)  |
 
+> [!NOTE] 
+> O Windows Server 2012 R2 não tem suporte no HBv2 e em outras VMs com mais de 64 núcleos (virtuais ou físicos). Veja [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre arquitetura do [AMD EPYC](https://bit.ly/2Epv3kC) e [arquiteturas de vários chips](https://bit.ly/2GpQIMb). Para obter informações mais detalhadas, consulte o [Guia de ajuste do HPC para processadores AMD EPYC](https://bit.ly/2T3AWZ9).
-- Leia sobre os comunicados mais recentes e alguns exemplos de HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

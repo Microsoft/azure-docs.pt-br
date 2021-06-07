@@ -3,18 +3,18 @@ title: Compartilhar imagens da Galeria entre locatários no Azure
 description: Saiba como compartilhar imagens de VM em locatários do Azure usando galerias de imagens compartilhadas e o PowerShell.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 84998182081c6a681668fbd9bc05446357beb959
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e78cb29551bf7eb3f713edb755464eb7696106e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781038"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556121"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Compartilhar imagens de VM da galeria em locatários do Azure usando o PowerShell
 

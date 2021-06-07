@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: a14503bc56777563b6360143efaa86a136b22278
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340508"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnosticar e solucionar problemas Azure Cosmos DB mensagem "cabeçalho de solicitação muito grande"

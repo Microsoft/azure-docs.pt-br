@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, Oracle, Data Guard
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4cf2e79acf4cd58ff94a2e90f07202341672a1d
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 29b1bcec58d6350d0f63c3fe0ce11ef99a648019
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569429"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101668986"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Implantação do Oracle DBMS de máquinas virtuais do Azure para carga de trabalho do SAP
 
@@ -381,7 +380,7 @@ A configuração mínima é a seguinte:
 | \oracle\<SID>\origlogaB e mirrlogA | Premium ou ultra Disk | Nenhum | Não é necessário |
 | \oracle\<SID>\sapdata1...n | Premium ou ultra Disk | Somente leitura | Pode ser usado para Premium |
 | \oracle\<SID>\oraarch | Standard | Nenhum | Não é necessário |
-| Página inicial da Oracle, `saptrace` ,... | Disco do sistema operacional (Premium) | | Não necessária |
+| Página inicial da Oracle, `saptrace` ,... | Disco do sistema operacional (Premium) | | Não é necessário |
 
 
 A seleção de discos para hospedar logs de refazer online deve ser orientada por requisitos de IOPS. É possível armazenar todos os sapdata1... n (espaços de tabela) em um único disco montado, desde que o tamanho, o IOPS e a taxa de transferência atendam aos requisitos. 

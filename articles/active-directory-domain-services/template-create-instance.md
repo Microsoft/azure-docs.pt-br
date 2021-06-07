@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: e18825da64d0d200f55ce72985ac843b93b1e612
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96618783"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Criar um domínio gerenciado do Azure Active Directory Domain Services usando um modelo do Azure Resource Manager

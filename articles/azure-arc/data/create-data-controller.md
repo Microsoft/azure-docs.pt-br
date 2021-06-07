@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384955"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101688358"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -37,7 +37,7 @@ Atualmente, a lista de serviços e distribuições com suporte do kubernetes é 
 
 > [!IMPORTANT]
 > * A versão mínima com suporte do kubernetes é v 1.17. Consulte [problemas conhecidos](./release-notes.md#known-issues) para obter informações adicionais. 
-> * A versão mínima com suporte do OCP é 4,3.
+> * A versão mínima com suporte do OCP é 4,5.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender qual conectividade é necessária entre seu ambiente e o Azure.
 > * Consulte as [diretrizes de configuração de armazenamento](storage-configuration.md) para entender os detalhes de como configurar o armazenamento persistente.
 > * Se você estiver usando o serviço kubernetes do Azure, o tamanho da VM do nó de trabalho do cluster deverá ser pelo menos **Standard_D8s_v3** e usar **discos Premium.** O cluster não deve abranger várias zonas de disponibilidade. 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026413"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
@@ -27,14 +27,14 @@ Para adicionar nós, vá para a guia **computação + armazenamento** em seu gru
 Clique no botão **salvar** para fazer o valor alterado entrar em vigor.
 
 > [!NOTE]
-> Depois de aumentado e salvo, o número de nós de trabalho não pode ser reduzido usando o controle deslizante.
+> Após aumentar e salvar os nós de trabalho, a quantidade deles não poderá ser reduzida com o controle deslizante.
 
 > [!NOTE]
 > Para aproveitar os nós recém-adicionados, você deve [reequilibrar os fragmentos de tabela distribuída](howto-hyperscale-scale-rebalance.md), o que significa mover alguns [fragmentos](concepts-hyperscale-distributed-data.md#shards) de nós existentes para os novos.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir o vCores em nós
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir vCores em nós
 
-Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para testes de desempenho, bem como alterações de curto ou longo prazo em demandas de tráfego.
+Além de adicionar nós, será possível aumentar as funcionalidades dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para testes de desempenho, bem como alterações de curto ou longo prazo em demandas de tráfego.
 
 Para alterar o vCores de todos os nós de trabalho, ajuste o controle deslizante **vCores** em **configuração (por nó de trabalho)**. O vCores do nó de coordenador pode ser ajustado de forma independente. Ajuste o controle deslizante **vCores** em  **configuração (nó de coordenador)**.
 

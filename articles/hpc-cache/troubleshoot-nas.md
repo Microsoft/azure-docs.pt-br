@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082759"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775690"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solucionar problemas de configuração do NAS e destino de armazenamento NFS
 
@@ -64,7 +64,7 @@ Diferentes sistemas de armazenamento usam métodos diferentes para habilitar ess
 Se você estiver usando regras de exportação, lembre-se de que o cache pode usar vários endereços IP diferentes da sub-rede de cache. Permitir o acesso de todo o intervalo de endereços IP de sub-rede possíveis.
 
 > [!NOTE]
-> Por padrão, o cache HPC do Azure comprimi o acesso à raiz. Leia [definir configurações de cache adicionais](configuration.md#configure-root-squash) para obter detalhes.
+> Embora o cache precise de acesso raiz ao sistema de armazenamento de back-end, você pode restringir o acesso para clientes que se conectam por meio do cache. Controle de leitura [acesso de cliente](access-policies.md#root-squash) para obter detalhes.
 
 Trabalhe com seu fornecedor de armazenamento NAS para habilitar o nível certo de acesso para o cache.
 
@@ -91,16 +91,15 @@ O sistema de armazenamento de back-end mantém aliases internos para identificad
 
 Para evitar essa colisão de arquivo possível para arquivos em várias exportações, o cache HPC do Azure monta automaticamente a exportação disponível mais superficialmente no caminho ( ``/ifs`` no exemplo) e usa o identificador de arquivo fornecido por essa exportação. Se várias exportações usarem o mesmo caminho base, o cache HPC do Azure precisará de acesso de raiz para esse caminho.
 
-## <a name="enable-export-listing"></a>Habilitar listagem de exportação
-<!-- link in prereqs article -->
+<!-- ## Enable export listing
 
-O NAS deve listar suas exportações quando o cache HPC do Azure a consulta.
+The NAS must list its exports when the Azure HPC Cache queries it.
 
-Na maioria dos sistemas de armazenamento NFS, você pode testar isso enviando a seguinte consulta de um cliente Linux: ``showmount -e <storage IP address>``
+On most NFS storage systems, you can test this by sending the following query from a Linux client: ``showmount -e <storage IP address>``
 
-Use um cliente Linux da mesma rede virtual que o seu cache, se possível.
+Use a Linux client from the same virtual network as your cache, if possible.
 
-Se esse comando não listar as exportações, o cache terá problemas para se conectar ao sistema de armazenamento. Trabalhe com seu fornecedor de NAS para habilitar a listagem de exportação.
+If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.  -->
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Ajustar restrições de tamanho de pacote VPN
 <!-- link in prereqs article and configuration article -->

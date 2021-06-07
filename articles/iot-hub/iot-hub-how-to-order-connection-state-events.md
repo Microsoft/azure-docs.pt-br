@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147264"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
@@ -291,7 +291,7 @@ Como a assinatura de evento já foi configurada, vamos testar conectando um disp
 
 2. Selecione **+Adicionar** na parte superior do painel.
 
-3. Para**IID do dispositivo**, insira `Demo-Device-1`.
+3. Para **IID do dispositivo**, insira `Demo-Device-1`.
 
 4. Clique em **Salvar**.
 

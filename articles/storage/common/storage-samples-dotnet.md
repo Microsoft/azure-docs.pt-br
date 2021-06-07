@@ -1,18 +1,18 @@
 ---
 title: Exemplos do Armazenamento do Azure usando .NET | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c140234ce93ff9146ef3b1a5a135258ad707c807
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359774"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275695"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente .NET v12
 

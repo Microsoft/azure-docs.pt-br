@@ -1,14 +1,14 @@
 ---
 title: Atualizar uma delegação
 description: Saiba como atualizar uma delegação para um cliente anteriormente integrado ao Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791332"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555759"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação
 
@@ -48,7 +48,7 @@ Se você estiver atualizando a oferta para ajustar somente autorizações e mant
 A remoção do acesso à delegação pode ser feita por qualquer usuário no locatário de gerenciamento que recebeu a [função de exclusão de atribuição de registro de serviços gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) na delegação original. Se nenhum usuário no seu locatário de gerenciamento tiver essa função, você poderá pedir ao cliente para [remover o acesso à oferta no portal do Azure](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> Se você tiver removido a delegação anterior seguindo as etapas acima e ainda não conseguir implantar o novo modelo do ARM, talvez seja necessário [remover completamente a definição de registro](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Isso pode ser feito por qualquer usuário com a função de proprietário no locatário do cliente.  
+> Se você tiver removido a delegação anterior seguindo as etapas acima e ainda não conseguir implantar o novo modelo do ARM, talvez seja necessário [remover completamente a definição de registro](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Isso pode ser feito por qualquer usuário com uma função que tenha a `Microsoft.Authorization/roleAssignments/write` permissão, como [proprietário](../../role-based-access-control/built-in-roles.md#owner), no locatário do cliente.  
 
 ## <a name="deploy-the-arm-template"></a>Implantar o modelo do ARM
 

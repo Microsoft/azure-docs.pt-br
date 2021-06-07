@@ -3,7 +3,7 @@ title: Tutorial do Aplicativo Windows Store do Smooth Streaming | Microsoft Docs
 description: Saiba como usar os Serviços de Mídia do Azure para criar um aplicativo C# da Windows Store com um controle XML MediaElement para reprodução de conteúdo de Smooth Streaming.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 20c7068fa0cb56699fdbc6d75b279abadd583832
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021122"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103017096"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store
 
@@ -69,12 +69,12 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1. No menu **arquivo** , clique em **novo** e em **projeto**.
 1. Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
-    | Name |SSPlayer |
-    | Localização |C:\SSTutorials |
+    | Nome |SSPlayer |
+    | Location |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
 
@@ -85,7 +85,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Digite ou selecione os valores a seguir:
 
-    | Name | Valor |
+    | Nome | Valor |
     | --- | --- |
     | Grupo de referências |Windows/Extensions |
     | Referência |Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Runtime do Microsoft Visual C++ |

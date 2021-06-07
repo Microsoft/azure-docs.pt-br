@@ -5,20 +5,20 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
-ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 08d50b18605fd833e6b0efca987338d0ca1eef8d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336719"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102488504"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurar gravações de várias regiões em seus aplicativos que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Depois que uma conta tiver sido criada com várias regiões de gravação habilitadas, você deverá fazer duas alterações em seu aplicativo para o ConnectionPolicy para o DocumentClient para habilitar as gravações de várias regiões e os recursos de hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
+Depois que uma conta tiver sido criada com várias regiões de gravação habilitadas, você deverá fazer duas alterações em seu aplicativo para o ConnectionPolicy para o cliente Cosmos para habilitar as gravações de várias regiões em Azure Cosmos DB. Dentro do ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região onde o aplicativo é implantado no ApplicationRegion. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
 
 > [!Note]
 > As contas do cosmos inicialmente configuradas com uma única região de gravação podem ser configuradas para várias regiões de gravação com tempo de inatividade zero. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)

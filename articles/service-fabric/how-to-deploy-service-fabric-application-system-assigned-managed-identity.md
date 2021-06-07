@@ -4,10 +4,10 @@ description: Este artigo mostra como atribuir uma identidade gerenciada atribuí
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81415649"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implantar Service Fabric aplicativo com identidade gerenciada atribuída pelo sistema

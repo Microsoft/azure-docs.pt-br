@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92108704"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para o Azure Data Lake Storage Gen1
@@ -29,7 +29,7 @@ Esse recurso ajuda a proteger sua conta do Data Lake Storage contra ameaças ext
 A integração de rede virtual para o Azure Data Lake Storage Gen1 usa a segurança do ponto de extremidade de serviço de rede virtual entre sua rede virtual e o Azure AD (Azure Active Directory) para gerar declarações de segurança adicionais no token de acesso. Essas declarações, em seguida, são usadas para autenticar sua rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso.
 
 > [!NOTE]
-> Não há qualquer custo adicional associado ao uso desses recursos. Sua conta é cobrada pelo valor padrão para o Data Lake Storage Gen1. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Para todos os outros serviços do Azure que você usar, confira os [preços](https://azure.microsoft.com/pricing/#product-picker).
+> Não há qualquer custo adicional associado ao uso desses recursos. Sua conta é cobrada pelo valor padrão para o Data Lake Storage Gen1. Para saber mais, confira os [preços](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Para todos os outros serviços do Azure que você usar, confira os [preços](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Cenários de integração de rede virtual para o Azure Data Lake Storage Gen1
 

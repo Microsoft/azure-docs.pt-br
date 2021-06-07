@@ -4,10 +4,10 @@ description: Mapeamento de controle das amostras de blueprint do PBMM Federal do
 ms.date: 02/05/2021
 ms.topic: sample
 ms.openlocfilehash: 440b07db514d8af0cf7f4177a6bac497eead2b37
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99627207"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PBMM Federal do Canadá

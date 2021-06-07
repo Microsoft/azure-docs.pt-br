@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97881626"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como usar Azure.Search.Documents em um aplicativo .NET em C#

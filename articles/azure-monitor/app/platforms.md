@@ -4,12 +4,12 @@ description: Linguagens, plataformas e integrações disponíveis para Applicati
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: d3bb1473d94db04d1dedf2b09e19b83197cc6e0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399e57377a779622aa3073dfd3313cee1db345f8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225097"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100583856"
 ---
 # <a name="supported-languages"></a>Idiomas com suporte
 
@@ -30,12 +30,12 @@ ms.locfileid: "88225097"
 ### <a name="instrumentation-through-code-sdks"></a>Instrumentação por meio de código (SDKs)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Android](../learn/mobile-center-quickstart.md) (App Center)
-* [iOS](../learn/mobile-center-quickstart.md) (App Center)
+* [Android](../app/mobile-center-quickstart.md) (App Center)
+* [iOS](../app/mobile-center-quickstart.md) (App Center)
 * [Java EE](./java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](./opencensus-python.md)
-* [Aplicativo Universal do Windows](../learn/mobile-center-quickstart.md) (App Center)
+* [Aplicativo Universal do Windows](../app/mobile-center-quickstart.md) (App Center)
 * [Funções de trabalho, serviços e aplicativos da área de trabalho do Windows](./windows-desktop.md)
 * [React](./javascript-react-plugin.md)
 * [React Native](./javascript-react-native-plugin.md)

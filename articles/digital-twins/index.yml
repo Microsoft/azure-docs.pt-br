@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
-  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+  ms.openlocfilehash: 703ea98a1db6f706395ea2c5f66bac0edc2b2f01
+  ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/09/2021
-  ms.locfileid: "100007747"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107481677"
 landingContent:
 - title: Sobre os Gêmeos Digitais do Azure
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Explore um cenário de exemplo
-      url: quickstart-adt-explorer.md
+      url: quickstart-azure-digital-twins-explorer.md
 - title: Aprofunde-se com os tutoriais
   linkLists:
   - linkListType: tutorial

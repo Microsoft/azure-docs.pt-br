@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920300"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em um pool de agentes dedicado
@@ -44,7 +44,7 @@ Esse recurso está disponível na camada de serviço **Premium** do registro de 
 
 As camadas do pool de agentes fornecem os seguintes recursos por instância no pool.
 
-|Camada    | Tipo  |  CPU  |Memória (GB)  |
+|Camada    | Type  |  CPU  |Memória (GB)  |
 |---------|---------|---------|---------|
 |S1     |  padrão    | 2       |    3     |
 |S2     |  padrão    | 4       |    8     |

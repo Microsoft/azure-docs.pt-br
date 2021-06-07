@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256535"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933331"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -110,7 +110,7 @@ Para usar o LDAP Seguro, o tráfego de rede é criptografado usando a PKI (infra
 * Uma chave **privada** é aplicada ao domínio gerenciado.
     * Essa chave privada é usada para *descriptografar* o tráfego do LDAP Seguro. A chave privada só deve ser aplicada ao domínio gerenciado, não devendo ser amplamente distribuída aos computadores cliente.
     * Um certificado que inclui a chave privada usa o formato de arquivo *.PFX*.
-    * O algoritmo de criptografia do certificado precisa ser *TripleDES-SHA1*.
+    * Ao exportar o certificado, você deverá especificar o algoritmo de criptografia *TripleDES-SHA1*. Isso é aplicável somente ao arquivo .pfx e não impacta o algoritmo usado pelo próprio certificado. Observe que a opção *TripleDES-SHA1* está disponível somente a partir do Windows Server 2016.
 * Uma chave **pública** é aplicada aos computadores cliente.
     * Essa chave pública é usada para *criptografar* o tráfego LDAP Seguro. A chave pública pode ser distribuída aos computadores cliente.
     * Os certificados sem a chave privada usam o formato de arquivo *.CER*.
@@ -151,6 +151,11 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 1. Como esse certificado é usado para descriptografar dados, você deve controlar cuidadosamente o acesso. Uma senha pode ser usada para proteger o uso do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
     Na página **Segurança**, escolha a opção de **Senha** para proteger o arquivo de certificado *.PFX*. O algoritmo de criptografia precisa ser *TripleDES-SHA1*. Insira e confirme uma senha e, em seguida, selecione **Avançar**. Essa senha será usada na próxima seção para habilitar o LDAP Seguro para o domínio gerenciado.
+
+    Se você exportar usando o [cmdlet export-pfxcertificate do PowerShell](/powershell/module/pkiclient/export-pfxcertificate), precisará transmitir o sinalizador *-CryptoAlgorithmOption* usando TripleDES_SHA1.
+
+    ![Captura de tela sobre como criptografar a senha](./media/tutorial-configure-ldaps/encrypt.png)
+
 1. Na página **Arquivo a ser Exportado**, especifique o nome do arquivo e a localização em que deseja exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*. Anote a senha e o local do arquivo *.PFX*, pois essas informações serão necessárias nas próximas etapas.
 1. Na página de revisão, selecione **Concluir** para exportar o certificado para um arquivo de certificado *.PFX*. Uma caixa de diálogo de confirmação é exibida quando o certificado é exportado com êxito.
 1. Mantenha o MMC aberto para uso na seção a seguir.
@@ -293,6 +298,21 @@ Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para 
 1. No computador local, abra o *Bloco de notas* como administrador
 1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc\hosts*
 1. Exclua a linha do registro adicionado, como `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você receber um erro informando que o LDAP.exe não pode se conectar, tente trabalhar com os diferentes aspectos de obter a conexão: 
+
+1. Como configurar o controlador de domínio
+1. Como configurar o cliente
+1. Rede
+1. Como estabelecer a sessão TLS
+
+Para a correspondência do nome da entidade do certificado, o controlador de domínio usará o nome de domínio do Azure AD DS (não o nome de domínio do Azure AD) para pesquisar o certificado no repositório de certificados. Erros de ortografia, por exemplo, impedem que o controlador de domínio selecione o certificado correto. 
+
+O cliente tenta estabelecer a conexão TLS usando o nome fornecido. O tráfego precisa chegar até o destino. O controlador de domínio envia a chave pública do certificado de autenticação do servidor. O certificado precisa ter o uso correto no certificado, o nome assinado no nome da entidade precisa ser compatível para que o cliente confie que o servidor é o nome DNS ao qual você está se conectando (ou seja, um curinga funcionará, sem erros de ortografia) e o cliente precisa confiar no emissor. Você pode verificar se há algum problema na cadeia no log do sistema em Visualizador de Eventos e filtrar os eventos em que a origem é igual a schannel. Depois que essas partes estiverem no lugar, elas formarão uma chave da sessão.  
+
+Para obter mais informações, confira [Handshake de TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Próximas etapas
 

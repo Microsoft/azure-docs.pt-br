@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
 ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221149"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Crie uma máquina virtual com um endereço IP público estático usando o portal do Azure

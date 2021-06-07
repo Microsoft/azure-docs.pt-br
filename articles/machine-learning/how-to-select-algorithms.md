@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308232"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Como selecionar algoritmos para Azure Machine Learning
@@ -30,7 +30,7 @@ Uma pergunta comum é "qual algoritmo de aprendizado de máquina devo usar?" O a
 
 ## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Roteiros de negócios e a folha de consulta do algoritmo de Machine Learning
 
-A [folha](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) de consulta do algoritmo de Azure Machine Learning ajuda na primeira consideração: **o que você deseja fazer com seus dados** ? Na folha de consulta do algoritmo de Machine Learning, procure a tarefa que você deseja fazer e localize um algoritmo de [Designer de Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri) para a solução de análise preditiva. 
+A [folha](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) de consulta do algoritmo de Azure Machine Learning ajuda na primeira consideração: **o que você deseja fazer com seus dados**? Na folha de consulta do algoritmo de Machine Learning, procure a tarefa que você deseja fazer e localize um algoritmo de [Designer de Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri) para a solução de análise preditiva. 
 
 O designer de Machine Learning fornece um portfólio abrangente de algoritmos, como [floresta de decisão multiclasse](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [sistemas de recomendação](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [regressão de rede neural](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [rede neural multiclasse](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri)e [clustering de K-](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri)means. Cada algoritmo é projetado para resolver um tipo diferente de problema de aprendizado de máquina. Consulte o [algoritmo do designer de Machine Learning e a referência de módulo](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri) para obter uma lista completa, juntamente com a documentação sobre como cada algoritmo funciona e como ajustar parâmetros para otimizar o algoritmo.
 
@@ -123,7 +123,7 @@ Os algoritmos de regressão linear supõem que as tendências de dados seguem um
 
 ![Limite de classe não linear](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Limite de classe não linear_* _: _Relying em um algoritmo de classificação linear resultaria em baixa precisão. *
+***Limite de classe não linear** _: _Relying em um algoritmo de classificação linear resultaria em baixa precisão. *
 
 ![Dados com uma tendência não linear](./media/how-to-select-algorithms/nonlinear-trend.png)
 

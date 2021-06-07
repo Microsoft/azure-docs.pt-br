@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: rohink
 ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76937248"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS funciona com outros serviços do Azure
@@ -36,7 +36,7 @@ A tabela a seguir descreve os tipos de registro com suporte que você pode usar 
 | Gateway de Aplicativo do Azure |[IP público de front-end](dns-custom-domain.md#public-ip-address) |Você pode criar um registro CNAME ou DNS A. |
 | Azure Load Balancer |[IP público de front-end](dns-custom-domain.md#public-ip-address) |Você pode criar um registro CNAME ou DNS A. O Load Balancer pode ter um endereço IP público IPv6 que é atribuído dinamicamente. Crie um registro CNAME para um endereço IPv6. |
 | Gerenciador de Tráfego do Azure |Nome público |Você pode criar um registro de alias que mapeia para o nome trafficmanager.net atribuído ao seu perfil do Gerenciador de Tráfego. Para obter mais informações, veja o [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio do apex com o Gerenciador de Tráfego](tutorial-alias-tm.md). |
-| Serviços de Nuvem do Azure |[IP público](dns-custom-domain.md#public-ip-address) |Para endereços IP alocados estaticamente, você pode criar um registro DNS A. Para endereços IP alocados dinamicamente, você deve criar um registro CNAME que mapeia para o nome *cloudapp.net* .|
+| Serviços de nuvem do Azure |[IP público](dns-custom-domain.md#public-ip-address) |Para endereços IP alocados estaticamente, você pode criar um registro DNS A. Para endereços IP alocados dinamicamente, você deve criar um registro CNAME que mapeia para o nome *cloudapp.net* .|
 | Serviço de aplicativo do Azure | [IP externo](dns-custom-domain.md#app-service-web-apps) |Para endereços IP externos, você pode criar um registro DNS A. Caso contrário, você deve criar um registro CNAME que mapeia para o nome azurewebsites.net. Para obter mais informações, consulte [mapear um nome de domínio personalizado para um aplicativo do Azure](../app-service/app-service-web-tutorial-custom-domain.md). |
 | VMs do Azure Resource Manager |[IP público](dns-custom-domain.md#public-ip-address) |As VMs do Resource Manager podem ter endereços IP públicos. Uma VM com um endereço IP público também pode estar por trás de um balanceador de carga. Você pode criar um registro DNS A, CNAME ou alias para o endereço público. Você pode usar esse nome personalizado para ignorar o VIP no balanceador de carga. |
 | VMs clássicas |[IP público](dns-custom-domain.md#public-ip-address) |As VMs clássicas criadas usando o PowerShell ou CLI podem ser configuradas com um endereço virtual dinâmico ou estático (reservado). Você pode criar um CNAME de DNS ou um registro A, respectivamente. |

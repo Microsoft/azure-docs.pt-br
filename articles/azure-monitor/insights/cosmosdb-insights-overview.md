@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209892"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101725725"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorar o Azure Monitor para o Azure Cosmos DB
 
@@ -87,13 +87,51 @@ Selecione **Capacidade** na parte superior da página e a parte **Capacidade** d
 
 Assim como na pasta de trabalho de visão geral, selecionar a lista suspensa ao lado de um recurso de Azure Cosmos DB na coluna **Assinatura** revelará um detalhamento dos contêineres individuais que compõem o banco de dados.
 
-### <a name="operations"></a>Operações 
+### <a name="operations"></a>Operações
 
-Selecione **Operações** na parte superior da página e a parte **Operações** do modelo da pasta de trabalho é aberta. Ele oferece a capacidade de ver suas solicitações divididas pelo tipo de solicitações feitas. 
+Selecione **Operações** na parte superior da página e a parte **Operações** do modelo da pasta de trabalho é aberta. Ele oferece a capacidade de ver suas solicitações divididas pelo tipo de solicitações feitas.
 
 Portanto, no exemplo abaixo, você verá que `eastus-billingint` está predominantemente recebendo solicitações de leitura, mas com um pequeno número de solicitações upsert e create. Já `westeurope-billingint` é somente leitura de uma perspectiva de solicitação, pelo menos nas últimas quatro horas definidas atualmente como escopo da pasta de trabalho por meio do parâmetro de intervalo de tempo dela.
 
-![Pasta de trabalho de operações](./media/cosmosdb-insights-overview/operation.png) 
+![Pasta de trabalho de operações](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Exibir de um recurso de Azure Cosmos DB
+
+1. Procure ou selecione qualquer uma das suas contas de Azure Cosmos DB existentes.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Procure Azure Cosmos DB." border="true":::
+
+2. Depois de navegar até sua conta de Azure Cosmos DB, na seção monitoramento, selecione **insights (versão prévia)** ou **pastas de trabalho** para executar análises adicionais sobre taxa de transferência, solicitações, armazenamento, disponibilidade, latência, sistema e gerenciamento de conta.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Visão geral do Cosmos DB insights." border="true":::
+
+### <a name="time-range"></a>Intervalo de horas
+
+Por padrão, o campo **intervalo de tempo** exibe dados das **últimas 24 horas**. Você pode modificar o intervalo de tempo para exibir dados em qualquer lugar dos últimos 5 minutos para os últimos sete dias. O seletor de intervalo de tempo também inclui um modo **personalizado** que permite que você digite as datas de início/término para exibir um período personalizado com base nos dados disponíveis para a conta selecionada.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB intervalo de tempo." border="true":::
+
+### <a name="insights-overview"></a>Visão geral do insights
+
+A guia **visão geral** fornece as métricas mais comuns para a conta de Azure Cosmos DB selecionada, incluindo:
+
+* Total de Solicitações
+* Solicitações com falha (429s)
+* Consumo de RU normalizado (max)
+* Uso de índice de & de dados
+* Cosmos DB métricas de conta por coleção
+
+**Total de solicitações:** Esse grafo fornece uma exibição do total de solicitações para a conta dividida por código de status. As unidades na parte inferior do grafo são uma soma do total de solicitações para o período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Grafo de Cosmos DB total de solicitações." border="true":::
+
+**Solicitações com falha (429s)**: este grafo fornece uma exibição de solicitações com falha com um código de status de 429. As unidades na parte inferior do grafo são uma soma do total de solicitações com falha para o período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB grafo de solicitações com falha." border="true":::
+
+**Consumo de ru normalizado (max)**: esse grafo fornece a porcentagem máxima entre 0-100% de unidades de consumo de ru normalizadas para o período especificado.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB consumo de RU normalizado." border="true":::
 
 ## <a name="pin-export-and-expand"></a>Fixar, exportar e expandir
 
@@ -125,6 +163,6 @@ Para obter diretrizes de solução de problemas, consulte o artigo dedicado de s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
+* Configure [alertas de métrica](../alerts/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automatizados a fim de auxiliar na detecção de problemas.
 
-* Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
+* Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md).

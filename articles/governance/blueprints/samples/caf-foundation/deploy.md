@@ -1,14 +1,14 @@
 ---
 title: Implantar exemplo de blueprint da Base do CAF
 description: Etapas de implantação do exemplo de blueprint da CAF Foundation, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: a2d3090e5e9fe265683c077d7056ebf2b108352d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d41364451bf2ebf1e48b90fad74f4b24c804e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82871631"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103470142"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a amostra de blueprint do Microsoft Cloud Adoption Framework para o Azure Foundation
 

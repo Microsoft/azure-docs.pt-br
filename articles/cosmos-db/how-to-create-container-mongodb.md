@@ -9,10 +9,10 @@ ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: a5669b15c041f663605a62ef8d02b206928d0c14
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101588"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Criar um contêiner na API Azure Cosmos DB para MongoDB
@@ -31,13 +31,13 @@ Este artigo explica as diferentes maneiras de criar um contêiner em Azure Cosmo
 
 1. [Crie uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **novo contêiner** . Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **novo contêiner**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID de contêiner.
    * Insira uma chave de fragmento.
    * Insira uma taxa de transferência a ser provisionada (por exemplo, 1.000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Captura de tela da API Azure Cosmos DB para MongoDB, caixa de diálogo Adicionar contêiner":::
 

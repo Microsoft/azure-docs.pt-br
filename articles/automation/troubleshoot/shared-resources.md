@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 01/27/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99053612"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Solucionar problemas de recursos compartilhados
@@ -163,6 +163,6 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 Se este artigo não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio de [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conectar-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é  a conta oficial do Microsoft Azure para conectar-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é a conta oficial do Microsoft Azure para conectar-se aos recursos certos de respostas, suporte e especialistas da comunidade do Azure.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.

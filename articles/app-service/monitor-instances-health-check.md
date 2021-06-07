@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575221"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871190"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorar instâncias do serviço de aplicativo usando a verificação de integridade
 
 ![Falha na verificação de integridade][2]
 
-Este artigo usa a verificação de integridade no portal do Azure para monitorar instâncias do serviço de aplicativo. A verificação de integridade aumenta a disponibilidade do seu aplicativo removendo instâncias não íntegras. O [plano do serviço de aplicativo](/azure/app-service/overview-hosting-plans) deve ser dimensionado para duas ou mais instâncias para usar a verificação de integridade. O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
+Este artigo usa a verificação de integridade no portal do Azure para monitorar instâncias do serviço de aplicativo. A verificação de integridade aumenta a disponibilidade do seu aplicativo removendo instâncias não íntegras. O [plano do serviço de aplicativo](./overview-hosting-plans.md) deve ser dimensionado para duas ou mais instâncias para usar a verificação de integridade. O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
 
 ## <a name="what-app-service-does-with-health-checks"></a>O que o serviço de aplicativo faz com verificações de integridade
 
@@ -38,7 +38,7 @@ Este artigo usa a verificação de integridade no portal do Azure para monitorar
 - Para habilitar a verificação de integridade, navegue até a portal do Azure e selecione seu aplicativo do serviço de aplicativo.
 - Em **monitoramento**, selecione **verificação de integridade**.
 - Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` .
-- Clique em **Salvar**.
+- Clique em **Save** (Salvar).
 
 > [!CAUTION]
 > Alterações de configuração da verificação de integridade reinicie seu aplicativo. Para minimizar o impacto nos aplicativos de produção, é recomendável [Configurar slots de preparo](deploy-staging-slots.md) e alternar para produção.
@@ -57,11 +57,15 @@ Além de configurar as opções de verificação de integridade, você também p
 
 A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo. Nenhuma configuração adicional será necessária se esses recursos de segurança estiverem habilitados. No entanto, se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir o acesso anônimo. Se o site for somente HTTP **s** habilitado, a solicitação de verificação de integridade será enviada via http **s**.
 
-Grandes equipes de desenvolvimento empresarial geralmente precisam aderir aos requisitos de segurança para APIs expostas. Para proteger o ponto de extremidade de verificação de integridade, você deve primeiro usar recursos como [restrições de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade de verificação de integridade exigindo as `User-Agent` correspondências de solicitação de entrada `ReadyForRequest/1.0` . A User-Agent não pode ser falsificada, pois a solicitação já estava protegida por recursos de segurança anteriores.
+Grandes equipes de desenvolvimento empresarial geralmente precisam aderir aos requisitos de segurança para APIs expostas. Para proteger o ponto de extremidade de verificação de integridade, você deve primeiro usar recursos como [restrições de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade de verificação de integridade exigindo as `User-Agent` correspondências de solicitação de entrada `HealthCheck/1.0` . A User-Agent não pode ser falsificada, pois a solicitação já estava protegida por recursos de segurança anteriores.
 
 ## <a name="monitoring"></a>Monitoramento
 
 Depois de fornecer o caminho de verificação de integridade do aplicativo, você pode monitorar a integridade do seu site usando Azure Monitor. Na folha **verificação de integridade** no portal, clique nas **métricas** na barra de ferramentas superior. Isso abrirá uma nova folha em que você poderá ver o status de integridade histórico do site e criar uma nova regra de alerta. Para obter mais informações sobre como monitorar seus sites, [consulte o guia em Azure monitor](web-sites-monitor.md).
+
+## <a name="limitations"></a>Limitações
+
+A verificação de integridade não deve ser habilitada em sites de funções Premium. Devido ao dimensionamento rápido das funções Premium, as solicitações de verificação de integridade podem causar flutuações desnecessárias no tráfego HTTP. As funções Premium têm suas próprias investigações de integridade internas que são usadas para informar decisões de dimensionamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

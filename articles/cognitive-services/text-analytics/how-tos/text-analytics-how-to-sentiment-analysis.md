@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/04/2020
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673046"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276987"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como usar a análise de sentimento e a mineração de opiniões
 
-O recurso Análise de Sentimento da API de Análise de Texto fornece duas maneiras de detectar um sentimento positivo e negativo. Se você enviar uma solicitação de Análise de Sentimento, a API retornará rótulos de sentimento (como "negativo", "neutro" e "positivo") e pontuações de confiança no nível da frase e do documento. Você também pode enviar solicitações de mineração de opiniões usando o ponto de extremidade da Análise de Sentimento, que fornece informações granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) em um texto. 
+O recurso Análise de Sentimento da API de Análise de Texto fornece duas maneiras de detectar um sentimento positivo e negativo. Se você enviar uma solicitação de Análise de Sentimento, a API retornará rótulos de sentimento (como "negativo", "neutro" e "positivo") e pontuações de confiança no nível da frase e do documento. Você também pode enviar solicitações de mineração de opiniões usando o ponto de extremidade da Análise de Sentimento, que fornece informações granulares sobre as opiniões relacionadas a palavras (como os atributos de produtos ou serviços) no texto.
 
 Os modelos de IA usados pela API são fornecidos pelo serviço; basta enviar o conteúdo para análise.
 
@@ -49,9 +49,9 @@ As pontuações de confiança vão de 1 a 0. As pontuações mais próximas a 1 
 
 ## <a name="opinion-mining"></a>Mineração de opiniões
 
-A mineração de opiniões é um recurso da Análise de Sentimento introduzido da versão prévia da versão 3.1 em diante. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a aspectos (como os atributos de produtos ou serviços) no texto.
+A mineração de opiniões é um recurso da Análise de Sentimento introduzido da versão prévia da versão 3.1 em diante. Também conhecida como Análise de Sentimento baseada em aspecto no NLP (processamento de idioma natural), esse recurso fornece informações mais granulares sobre as opiniões relacionadas a atributos de produtos ou serviços no texto. A API revela opiniões como um destino (substantivo ou verbo) e uma avaliação (adjetivo).
 
-Por exemplo, se um cliente deixar comentários sobre um hotel, como "O quarto era excelente, mas a equipe foi antipática", a mineração de opiniões localizará aspectos no texto e as respectivas opiniões e sentimentos associados. A Análise de Sentimento só pode relatar um sentimento negativo.
+Por exemplo, se um cliente deixar comentários sobre um hotel, como "O quarto era excelente, mas a equipe foi antipática", a mineração de opiniões localizará destinos (aspectos) no texto e as respectivas avaliações (opiniões) e sentimentos associados. A Análise de Sentimento só pode relatar um sentimento negativo.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Um diagrama do exemplo de mineração de opiniões" lightbox="../media/how-tos/opinion-mining.png":::
 
@@ -72,7 +72,7 @@ O tamanho do documento deve ser inferior a 5.120 caracteres. Para obter o númer
 
 Crie uma solicitação POST. Você pode [usar o Postman](text-analytics-how-to-call-api.md) ou o **console de teste da API** nos links de referência a seguir para estruturar e enviar uma rapidamente. 
 
-#### <a name="version-31-preview3"></a>[Versão 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 [Referência da Análise de Sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -89,17 +89,17 @@ Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recu
 > [!NOTE]
 > Encontre a chave e o ponto de extremidade do recurso da Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 
 
-#### <a name="version-31-preview3"></a>[Versão 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 **Análise de Sentimento**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **Mineração de opiniões**
 
 Para obter os resultados da mineração de opiniões, inclua o parâmetro `opinionMining=true`. Por exemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 Esse parâmetro é definido como `false` por padrão. 
 
@@ -142,7 +142,7 @@ A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local. Em seguida, importe a saída para um aplicativo que você possa usar para classificar, pesquisar e manipular os dados. Devido ao suporte multilíngue e a emojis, a resposta pode conter deslocamentos de texto. Confira [como processar deslocamentos](../concepts/text-offsets.md) para obter mais informações.
 
-#### <a name="version-31-preview3"></a>[Versão 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Exemplo de resposta da Análise de Sentimento e da mineração de opiniões
 
@@ -153,95 +153,97 @@ A Análise de Sentimento v3.1 pode retornar objetos de resposta para a Análise 
   
 A análise de sentimento retorna um rótulo de sentimento e uma pontuação de confiança para todo o documento e cada frase dentro dele. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. Um documento pode ter várias frases, e as pontuações de confiança dentro de cada documento ou frase somam 1.
 
-A mineração de opiniões localizará aspectos no texto e as respectivas opiniões e sentimentos associados. Na resposta abaixo, a frase *O restaurante oferecia uma ótima comida e nosso garçom foi simpático* tem dois aspectos: *comida* e *garçom*. A propriedade `relations` de cada aspecto contém um valor `ref` com a referência de URI aos objetos `documents`, `sentences` e `opinions` associados.
+A mineração de opiniões localizará destinos (substantivos ou verbos) no texto e as avaliações (adjetivos) associadas a eles. Na resposta abaixo, a frase *O restaurante oferecia uma ótima comida e nosso garçom foi simpático* tem dois destinos: *comida* e *garçom*. A propriedade `relations` de cada destino contém um valor `ref` com a referência de URI aos objetos `documents`, `sentences` e `assessments` associados.
+
+A API retorna opiniões como um destino (substantivo ou verbo) e uma avaliação (adjetivo).
 
 ```json
 {
-    "documents": [
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
         {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
                 {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly.",
-                    "aspects": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 25,
-                            "length": 4,
-                            "text": "food",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/0"
-                                }
-                            ]
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 38,
-                            "length": 6,
-                            "text": "waiter",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/1"
-                                }
-                            ]
-                        }
-                    ],
-                    "opinions": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 19,
-                            "length": 5,
-                            "text": "great",
-                            "isNegated": false
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 49,
-                            "length": 8,
-                            "text": "friendly",
-                            "isNegated": false
-                        }
-                    ]
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
                 }
-            ],
-            "warnings": []
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
         }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 

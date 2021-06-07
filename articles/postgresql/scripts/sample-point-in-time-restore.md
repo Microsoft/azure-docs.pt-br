@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 02/28/2018
-ms.openlocfilehash: 9af4a3d4a484ef22e147640add455741c533e9b7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6d95c06efa347618a7c571b65f01f147aeb5ef1f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660467"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778402"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Restaurar um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 Esse script de exemplo do CLI restaura um servidor individual do Banco de Dados do Azure para PostgreSQL a um ponto anterior.
@@ -36,8 +36,8 @@ Esse script usa os comandos descritos na tabela abaixo:
 | **Comando** | **Observações** |
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
-| [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Restaura um servidor de backup. |
+| [az postgresql server create](/cli/azure/postgres/server#az_postgres_server_create) | Cria um servidor PostgreSQL que hospeda os bancos de dados. |
+| [az postgresql server restore](/cli/azure/postgres/server#az_postgres_server_restore) | Restaura um servidor de backup. |
 | [az group delete](/cli/azure/group) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas

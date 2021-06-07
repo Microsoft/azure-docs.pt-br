@@ -1,17 +1,15 @@
 ---
 title: Consultar eventos de cluster usando as APIs EventStore
 description: Saiba como usar as APIs EventStore do Azure Service Fabric para consultar eventos de plataforma
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bed26227542cbf3ffc13ecc018aef9e659d026e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: bc8909a6f25c3adcba60de639d822769baff703f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791621"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628791"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultar APIs do EventStore para eventos de cluster
 

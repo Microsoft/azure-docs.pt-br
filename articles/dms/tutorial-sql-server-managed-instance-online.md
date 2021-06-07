@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 02adb6f47b907fea402f8b312b3f4e8e117927ed
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693673"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076880"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar online o SQL Server para uma Instância Gerenciada de SQL do Azure usando o DMS
 
@@ -72,7 +72,7 @@ Para concluir este tutorial, você precisará:
     > * Optar por permitir que toda a rede acesse a conta de armazenamento.
     > * Ative a [delegação de sub-rede](../virtual-network/manage-subnet-delegation.md) na sub-rede da MI e atualize as regras de firewall da Conta de Armazenamento para permitir essa sub-rede.
 
-* Verifique se as regras do Grupo de Segurança de Rede da rede virtual não bloqueiam as seguintes portas de comunicação de saída para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Verifique se as regras do grupo de segurança de rede da rede virtual não bloqueiam a porta de saída 443 de ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configure o [Firewall do Windows para acesso ao mecanismo de banco de dados de fonte](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que, por padrão, é a porta TCP 1433. Se a instância padrão estiver escutando em alguma outra porta, adicione-a ao firewall.
 * Se você estiver executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez precise habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio dos firewalls, de modo que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada no servidor de origem.
@@ -209,7 +209,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Na tela **Definir as configurações de migração**, forneça os seguintes detalhes:
 
-    | | |
+    | Parâmetro | Descrição |
     |--------|---------|
     |**Compartilhamento da localização de rede SMB** | O compartilhamento de rede SMB local ou o compartilhamento de arquivo do Azure que contém os arquivos de backup do banco de dados completos e os arquivos de backup do log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”. Para aprimorar o desempenho, é recomendado usar uma pasta separada para cada banco de dados a ser migrado. Você pode fornecer o caminho de compartilhamento de arquivo no nível do banco de dados usando a opção **Configurações Avançadas**. Se você estiver encontrando problemas para se conectar com o compartilhamento SMB, confira [Compartilhamento SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner do Armazenamento do Azure para a operação de restauração. Se estiver usando o compartilhamento de arquivo do Azure, use o nome da conta de armazenamento com o prefixo AZURE \ como nome de usuário. |

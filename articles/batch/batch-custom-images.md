@@ -3,12 +3,12 @@ title: Usar uma imagem gerenciada para criar um pool de imagens personalizado
 description: Crie um pool de imagens personalizadas do lote de uma imagem gerenciada para provisionar nós de computação com o software e os dados do seu aplicativo.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916569"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023870"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usar uma imagem gerenciada para criar um pool de imagens personalizado
 
@@ -43,7 +43,7 @@ Para dimensionar os pools de lote de forma confiável com uma imagem gerenciada,
 Se você estiver criando uma nova VM para a imagem, use uma imagem interna do Azure Marketplace com suporte no Lote como a imagem base para sua imagem gerenciada. Somente imagens internas podem ser usadas como uma imagem base. Para obter uma lista de referências de imagens do Azure Marketplace com suporte no Lote do Azure, confira a operação [Listar SKUs do agente de nó](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes par máquinas virtuais [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes para VMs do [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) ou do [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 - Verifique se a VM é criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
 - Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.

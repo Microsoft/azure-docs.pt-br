@@ -4,12 +4,12 @@ description: Crie um aplicativo de funções Python sem servidor e monte um comp
 ms.topic: sample
 ms.date: 03/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00bf0ecc9db3cf369fd75b427dcfba686aed0ed5
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: d0037cea24b1989c4f7a4d2ddd6bf3f8f7e812b3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035114"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762273"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montar um compartilhamento de arquivo para um aplicativo de funções Python usando a CLI do Azure
 
@@ -38,13 +38,13 @@ Cada comando da tabela é vinculado à documentação específica do comando. Es
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento do Azure. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções. |
-| [az storage share create](/cli/azure/storage/share#az-storage-share-create) | Cria um compartilhamento de arquivos do Azure na conta de armazenamento. | 
-| [az storage directory create](/cli/azure/storage/directory#az-storage-directory-create) | Cria um diretório no compartilhamento. |
-| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) | Monta o compartilhamento para o aplicativo de funções. |
-| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-list) | Mostra os compartilhamentos de arquivos montados no aplicativo de funções. | 
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento do Azure. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Cria um aplicativo de funções. |
+| [az storage share create](/cli/azure/storage/share#az_storage_share_create) | Cria um compartilhamento de arquivos do Azure na conta de armazenamento. | 
+| [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create) | Cria um diretório no compartilhamento. |
+| [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) | Monta o compartilhamento para o aplicativo de funções. |
+| [az webapp config storage-account list](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_list) | Mostra os compartilhamentos de arquivos montados no aplicativo de funções. | 
 
 ## <a name="next-steps"></a>Próximas etapas
 

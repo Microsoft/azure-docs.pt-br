@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: 99c36354334701dcd4c7c30c5fd5039c13885525
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358700"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Criar uma oferta do Dynamics 365 for Business central
@@ -42,7 +42,7 @@ Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta
 
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
 
-- Esse nome não é usado no marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
+- Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
 - Esse nome não pode ser alterado depois que você seleciona **criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.

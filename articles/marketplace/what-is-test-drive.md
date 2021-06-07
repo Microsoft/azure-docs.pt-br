@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 06/19/2020
 ms.openlocfilehash: 193e7bd78046a1d73cb55171c15c9cb6a7278297
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96490033"
 ---
 # <a name="what-is-a-test-drive"></a>O que é um test drive?

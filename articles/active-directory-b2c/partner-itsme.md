@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489508"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurar o itsme OpenID Connect (OIDC) com Azure Active Directory B2C
@@ -96,7 +96,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Sobrenome | family_name |
    |Email | email|
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ### <a name="configure-a-user-flow"></a>Configurar um fluxo de usuário
 
@@ -129,7 +129,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Selecione **Registrar**.
 
-   a. Para fins de teste, selecione **autenticação**e, em **concessão implícita**, marque as caixas de seleção **tokens de acesso** e **tokens de ID** .  
+   a. Para fins de teste, selecione **autenticação** e, em **concessão implícita**, marque as caixas de seleção **tokens de acesso** e **tokens de ID** .  
 
    b. Clique em **Salvar**.
 

@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97830693"
 ---
 # <a name="get-service-access-tokens"></a>Obter tokens de acesso de serviço
@@ -45,7 +45,7 @@ Substitua *AccountId* e *accountKey* por seus respectivos dados.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: cadeia de caracteres | Êxito |
 
-| Cabeçalho | Finalidade |
+| parâmetro | Finalidade |
 |--------|:------|
 | MS-CV | Esse valor pode ser usado para rastrear a chamada dentro do serviço |
 

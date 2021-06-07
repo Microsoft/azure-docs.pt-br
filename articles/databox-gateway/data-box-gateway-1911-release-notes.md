@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 5119fd89d232d127d1dcb6d086f1e9d13b20c3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96581492"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-1911-release-notes"></a>Notas de versão do Azure Stack Edge e Gateway do Azure Data Box 1911

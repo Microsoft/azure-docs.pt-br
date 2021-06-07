@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 8baa33c8d9622ff76db04345f5c6c465f026e261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020223"
 ---
 # <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Aumentar o desempenho da taxa de transferência para o banco de dados SQL do Azure Azure Stream Analytics

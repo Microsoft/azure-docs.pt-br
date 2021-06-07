@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a0acbe84a98bc63e5806d25241811c0a7591b897
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e4bbc1565cec2c356e916f813a6a334648d82754
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872614"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101726726"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Linha de base de segurança do Azure para WAN virtual
 
@@ -349,9 +349,9 @@ Uma variedade de logs de diagnóstico também está disponível para a WAN virtu
 
 Habilite os logs de recursos do Azure para WAN virtual. Você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e coleta de dados de log. Esses logs podem ser essenciais para investigar posteriormente os incidentes de segurança e executar exercícios forenses.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Entender a coleta de dados da central de segurança do Azure](../security-center/security-center-enable-data-collection.md)
 
@@ -382,9 +382,9 @@ A segurança de WAN virtual do Azure é fornecida por meio do firewall do Azure.
 
 **Diretrizes**: configure sua retenção de log de acordo com seus requisitos de conformidade, regulamentação e negócios. No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use o armazenamento do Azure, Data Lake ou Log Analytics contas de espaço de trabalho para armazenamento de longo prazo e arquivamento.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Exportação de recomendações e alertas da central de segurança do Azure](../security-center/continuous-export.md)
 
@@ -515,7 +515,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 **Responsabilidade**: Compartilhado
 
-## <a name="endpoint-security"></a>Segurança do ponto de extremidade
+## <a name="endpoint-security"></a>Segurança de ponto de extremidade
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança do ponto de extremidade](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 

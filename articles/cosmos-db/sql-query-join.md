@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: tisande
 ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011366"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junções no Azure Cosmos DB
@@ -21,7 +21,7 @@ Em um banco de dados relacional, as junções entre as tabelas são o registro l
 
 As junções resultam em um produto cruzado completo dos conjuntos que participam da junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O idioma dá suporte à sintaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . Essa consulta retorna um conjunto de tuplas com `N` valores. Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos. 
 

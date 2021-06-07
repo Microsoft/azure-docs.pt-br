@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 89685d1b8c3a57fa142bbbfd1114f9aa0ff0c400
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611110"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Perguntas frequentes padrão sobre a proteção contra DDoS do Azure

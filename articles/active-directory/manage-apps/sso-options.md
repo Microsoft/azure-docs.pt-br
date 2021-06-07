@@ -2,21 +2,21 @@
 title: Opções de logon único no Azure AD
 description: Saiba mais sobre as opções disponíveis para SSO (logon único) no Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 2bf84a22a384e6079c2d85c833b34ba37eecaa46
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d81ad34c81a451f1faecb6cb33c0cc427567f122
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252348"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379597"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções de logon único no Azure AD
 

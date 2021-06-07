@@ -4,12 +4,12 @@ description: Saiba como Azure App serviço atualiza o sistema operacional e os t
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8b876760ee2bafc855345878a28c38ec3b35daad
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558480"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047874"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
@@ -61,7 +61,7 @@ Quando uma nova versão principal ou secundária é adicionada, ela é instalada
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
 az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
-az webapp config set --python-version 3.4 --resource-group <groupname> --name <appname>
+az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
@@ -75,7 +75,7 @@ Embora as informações críticas do sistema operacional tenham acesso bloqueado
 
 A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
-| Informações | Onde encontrá-las | 
+| Informações do | Onde encontrá-las | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em Informações do Sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |

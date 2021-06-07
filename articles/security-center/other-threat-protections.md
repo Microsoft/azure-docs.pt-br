@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
 ms.openlocfilehash: 5b9e9f5cc5184a083f45999eaeb031eb83b17c58
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96754327"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções contra ameaças adicionais na Central de Segurança do Azure

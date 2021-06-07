@@ -6,23 +6,23 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202616"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101668562"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Informações de extensão de arquivo sobre seus dados do Azure alcance 
 
 Este guia de instruções descreve como acessar, exibir e filtrar informações sobre as extensões de arquivo, ou tipos de arquivo, encontradas em seus dados.
 
-As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2
+As fontes de dados com suporte incluem: armazenamento de BLOBs do Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Buckets do Amazon S3
 
 Neste guia de instruções, você aprenderá a:
 > [!div class="checklist"]
-> * Inicie sua conta do alcance do Azure. 
+> * Inicie sua conta do alcance do Azure 
 > - Exibir informações de extensão de arquivo em seus dados
 > - Faça uma busca detalhada para obter mais detalhes de extensão de arquivo em seus dados
 
@@ -32,7 +32,7 @@ Antes de começar a usar o alcance insights, verifique se você concluiu as segu
 
 - Configurar os recursos do Azure e preencher as contas relevantes com dados de teste
 
-- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados
+- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados. Para obter mais informações, consulte [gerenciar fontes de dados no Azure alcance (versão prévia)](manage-data-sources.md) e [criar um conjunto de regras de verificação](create-a-scan-rule-set.md).
 
 - Conectado ao alcance com uma [função de leitor de dados ou de curador dos dados](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 

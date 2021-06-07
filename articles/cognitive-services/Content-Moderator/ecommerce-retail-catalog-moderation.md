@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221271"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065135"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 

@@ -4,10 +4,10 @@ description: Este artigo mostra como usar CLI do Azure para criar, exibir e excl
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c847c7f25e3a656b798e186a408e560b9ee9e6
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98633215"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Criar, exibir e gerenciar tópicos do sistema de grade de eventos usando CLI do Azure

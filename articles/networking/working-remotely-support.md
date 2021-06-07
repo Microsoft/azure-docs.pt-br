@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98231835"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhando remotamente usando os serviços de rede do Azure

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624031"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076381"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migrar serviço Web do Google Maps
 
@@ -46,15 +46,15 @@ A tabela mostra as APIs de serviço dos Azure Mapas, que têm uma funcionalidade
 | Geocodificação               | [Pesquisar](/rest/api/maps/search)                                   |                         
 | Pesquisa de locais           | [Pesquisar](/rest/api/maps/search)                                   |                         
 | Preenchimento automático de locais      | [Pesquisar](/rest/api/maps/search)                                   |                         
-| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).            
-| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).                  
+| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).  |        
+| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).         |         
 | Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Fuso horário               | [Fuso horário](/rest/api/maps/timezone)                              |                         
-| Elevação               | [Elevação (versão prévia)](/rest/api/maps/elevation)                   |                         |
+| Elevação               | [Elevação (versão prévia)](/rest/api/maps/elevation)                   | 
 
 As seguintes APIs de serviço não estão atualmente disponíveis nos Azure Mapas:
 
-- Geolocalização
+- Geolocalização – o Azure Mapas tem um serviço chamado Geolocalização, porém ele fornece um endereço IP para informações de localização. No entanto, ele atualmente não é compatível com torres de celular ou triangulação WiFi.
 - Detalhes e fotos de locais – Números de telefone e a URL de site estão disponíveis na API de pesquisa dos Azure Mapas.
 - URLs de mapa
 - Estradas mais próximas – isso pode ser feito usando o SDK da Web, conforme mostrado [aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), mas não está disponível como um serviço no momento.

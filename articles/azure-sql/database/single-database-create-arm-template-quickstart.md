@@ -12,10 +12,10 @@ ms.author: jgao
 ms.reviewer: sstein
 ms.date: 06/24/2020
 ms.openlocfilehash: b7883144509760c9670decd50062d2595b8dc495
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96187078"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando um modelo do ARM

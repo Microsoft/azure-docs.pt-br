@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 39df5888a330a92ae043e34c3043da5b1f566345
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221917"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Exibir avaliações de atualização no Gerenciamento de Atualizações
@@ -22,7 +22,7 @@ Entre no [Portal do Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-Para exibir a avaliação de atualização de uma VM do Azure, navegue até **máquinas virtuais** e selecione sua máquina virtual na lista. No menu à esquerda, selecione **convidado + atualizações de host**e, em seguida, selecione **ir para gerenciamento de atualizações** na página de **atualizações convidado + host** .
+Para exibir a avaliação de atualização de uma VM do Azure, navegue até **máquinas virtuais** e selecione sua máquina virtual na lista. No menu à esquerda, selecione **convidado + atualizações de host** e, em seguida, selecione **ir para gerenciamento de atualizações** na página de **atualizações convidado + host** .
 
 No Gerenciamento de Atualizações, você pode exibir informações sobre sua máquina, atualizações ausentes, implantações de atualização e implantações de atualização agendada.
 
@@ -75,7 +75,7 @@ As tabelas a seguir listam as classificações de atualização compatíveis no 
 
 ### <a name="linux"></a>Linux
 
-|Classificação  |Descrição  |
+|classificação  |Descrição  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas nem de segurança.        |

@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147931"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreamento e log de eventos para sua Azure Data Box e Azure Data Box Heavy ordem de importação
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreamento e log de eventos para seu pedido de importação do Azure Data Box e Azure Data Box Heavy
 
 Uma ordem de importação Data Box ou Data Box Heavy passa pelas seguintes etapas: ordem, configuração, cópia de dados, retorno, carregamento no Azure e verificação e eliminação de dados. Correspondendo a cada etapa na ordem, você pode executar várias ações para controlar o acesso ao pedido, auditar os eventos, acompanhar o pedido e interpretar os vários logs gerados.
 
-A tabela a seguir mostra um resumo das etapas de ordem de importação Data Box ou Data Box Heavy e as ferramentas disponíveis para acompanhar e auditar o pedido durante cada etapa.
+A tabela a seguir mostra um resumo das etapas de pedidos de importação do Data Box ou do Data Box Heavy, bem como as ferramentas disponíveis para acompanhá-los e auditá-los durante cada etapa.
 
-| Estágio de ordem de importação de Data Box       | Ferramenta para acompanhar e auditar                                                                        |
+| Etapa de pedido de importação do Data Box       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Criar pedido               | [Configurar o controle de acesso na ordem por meio do RBAC do Azure](#set-up-access-control-on-the-order)                                                    |
-| Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora </li><li>Notificações por email</ul> |
+| Pedido processado            | [Acompanhar o pedido](#track-the-order) <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por email</ul> |
 | Configurar o dispositivo              | Acesso de credenciais de dispositivo [logs de atividade](#query-activity-logs-during-setup) registrados                                              |
-| Cópia de dados para o dispositivo        | [Exibir arquivos de *error.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
+| Cópia de dados para o dispositivo        | [Exibir arquivos de *error.xml*](#view-error-log-during-data-copy) para cópia de dados                                                             |
 | Preparar para o envio            | [Inspecione os arquivos da bom](#inspect-bom-during-prepare-to-ship) ou os arquivos de manifesto no dispositivo                                      |
-| Carregamento de dados no Azure       | [Examinar os logs de cópia](#review-copy-log-during-upload-to-azure) em busca de erros durante o carregamento de dados no datacenter do Azure                         |
+| Upload de dados no Azure       | [Examinar os logs de cópia](#review-copy-log-during-upload-to-azure) em busca de erros durante o carregamento de dados no datacenter do Azure                         |
 | Eliminação de dados do dispositivo   | [Exibir cadeia de logs de custódia](#get-chain-of-custody-logs-after-data-erasure) , incluindo logs de auditoria e histórico de pedidos                |
 
 Este artigo descreve detalhadamente os vários mecanismos ou ferramentas disponíveis para rastrear e auditar Data Box ou Data Box Heavy ordem de importação. As informações neste artigo se aplicam a ordens de importação, Data Box e Data Box Heavy. Nas seções subsequentes, todas as referências a Data Box também se aplicam a Data Box Heavy.
@@ -360,7 +360,7 @@ Se você rolar o histórico do pedido, verá:
 
 - Informações de rastreamento de portador para seu dispositivo.
 - Eventos com a atividade *SecureErase* . Esses eventos correspondem à eliminação dos dados no disco.
-- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia*e os arquivos de *bom* são apresentados.
+- Data Box links de log. Os caminhos para os *logs de auditoria*, *os logs de cópia* e os arquivos de *bom* são apresentados.
 
 Aqui está um exemplo do log do histórico de pedidos do portal do Azure:
 

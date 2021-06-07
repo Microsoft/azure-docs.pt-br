@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98183125"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gerenciar métodos de autenticação de usuário para a autenticação multifator do Azure AD
@@ -44,7 +44,7 @@ Você pode adicionar métodos de autenticação para um usuário por meio do por
 
 Para adicionar métodos de autenticação para um usuário por meio do portal do Azure:  
 
-1. Entre no **Portal do Azure**. 
+1. Faça logon no **Portal do Azure**. 
 1. Navegue até **Azure Active Directory**  >  **usuários**  >  **todos os usuários**. 
 1. Escolha o usuário para o qual você deseja adicionar um método de autenticação e selecione **métodos de autenticação**.  
 1. Na parte superior da janela, selecione **+ Adicionar método de autenticação**.

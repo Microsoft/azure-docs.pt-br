@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94956680"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 1.2 para seu dispositivo StorSimple série 8000
@@ -58,7 +58,7 @@ Esses recursos foram lançados pela primeira vez com a Atualização 1, que foi 
 * **Disponibilidade no Portal Governamental do Azure** – Agora, o StorSimple está disponível no portal Governamental do Azure. Veja como [implantar um dispositivo StorSimple no Portal de Gerenciamento do Azure](./index.yml).
 * **Suporte para outros provedores de serviços de nuvem** – Os outros provedores de serviços de nuvem com suporte são Amazon S3, Amazon S3 com RRS, HP e OpenStack (beta).
 * **Atualização para as APIs de armazenamento mais recentes** – Com esta versão, o StorSimple foi atualizado para as APIs de serviço de armazenamento do Azure mais recentes. Os dispositivos StorSimple 8000 Series que estão executando as versões de software Atualização 1 (Versão, 0.1, 0.2 e 0.3) estão usando versões das APIs do Serviço de Armazenamento do Azure anteriores a 17 de julho de 2009. Conforme mencionado no [anúncio atualizado sobre remoção de versões de serviço de armazenamento](/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016), até 1 de agosto de 2016, essas APIs serão preteridas. É imperativo que você aplique a Atualização 1 do StorSimple 8000 Series antes de 1 de agosto de 2016. Se você não conseguir fazer isso, os dispositivos StorSimple deixarão de funcionar corretamente.
-* **Suporte para ZRS (armazenamento com redundância de zona)** – com a atualização para a versão mais recente das APIs de armazenamento, o StorSimple 8000 Series oferecerá suporte para ZRS (armazenamento com redundância de zona), além de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica). Consulte este [artigo sobre as opções de redundância de armazenamento do Azure](../storage/common/storage-redundancy.md) para obter detalhes do ZRS.
+* **Suporte para ZRS (armazenamento com redundância de zona)** – com a atualização para a versão mais recente das APIs de armazenamento, o StorSimple 8000 Series oferecerá suporte para ZRS (armazenamento com redundância de zona), além de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica). Consulte o [artigo sobre opções de redundância de armazenamento do Azure](../storage/common/storage-redundancy.md) para obter detalhes do ZRS.
 * **Experiência de implantação inicial e atualização aprimorada** – nesta versão, os processos de instalação e atualização foram aprimorados. A instalação por meio do assistente de instalação foi aprimorada para informar ao usuário se a configuração de rede e as configurações do firewall estão incorretas. Cmdlets de diagnóstico adicionais foram fornecidos para ajudar a solucionar problemas de rede do dispositivo. Consulte o [artigo sobre solução de problemas de implantação](./storsimple-8000-troubleshoot-deployment.md) para saber mais sobre os novos cmdlets de diagnóstico usados para solucionar problemas.
 
 ## <a name="issues-fixed-in-update-12"></a>Problemas corrigidos na Atualização 1.2
@@ -74,7 +74,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 6 |Recuperação de desastre |Um bug de recuperação de desastre foi corrigido no qual a DR falhava durante a descoberta de backups no dispositivo de destino. |Atualização 1 |Sim |Sim |
 | 7 |LEDs de monitoramento |Em determinadas circunstâncias, os LEDs de monitoramento na parte posterior do dispositivo não indicavam o status correto. O LED azul ficava apagado. Os LEDs de DADOS 0 e 1 ficavam piscando mesmo quando essas interfaces não estavam configuradas. O problema foi corrigido e os LEDs de monitoramento agora indicam o status correto. |Atualização 1 |Sim |Não |
 | 8 |LEDs de monitoramento |Em determinadas instâncias, depois de aplicar Atualização 1, a luz azul no controlador ativo será apagada, o que dificulta a identificação do controlador ativo. Esse problema foi corrigido nesta versão do patch. |Atualização 1.2 |Sim |Não |
-| 9 |Adaptadores de rede |Nas versões anteriores, um dispositivo StorSimple configurado com um gateway não roteável podia ficar offline. Nesta versão, a métrica de roteamento para Dados 0 foi feita a menor possível; portanto, mesmo que outras interfaces de rede estiverem habilitadas para a nuvem, todo o tráfego de nuvem do dispositivo será roteado por meio de Dados 0. |Atualização 1 |Sim |Sim |
+| 9 |Interfaces de rede |Nas versões anteriores, um dispositivo StorSimple configurado com um gateway não roteável podia ficar offline. Nesta versão, a métrica de roteamento para Dados 0 foi feita a menor possível; portanto, mesmo que outras interfaces de rede estiverem habilitadas para a nuvem, todo o tráfego de nuvem do dispositivo será roteado por meio de Dados 0. |Atualização 1 |Sim |Sim |
 | 10 |Backups |Um bug na Atualização 1 que causou a falha de backups depois de 24 dias foi corrigido na versão do patch Atualização 1.1. |Atualização 1.1 |Sim |Sim |
 | 11 |Backups |Um bug nas versões anteriores resultou em baixo desempenho dos instantâneos de nuvem com baixas taxas de alteração. Esse bug foi corrigido nesta versão do patch. |Atualização 1.2 |Sim |Sim |
 | 12 |Atualizações |Um bug na Atualização 1 que reportou uma falha de atualização e fez com que os controladores entrassem no Modo de recuperação foi corrigido nesta versão do patch. |Atualização 1.2 |Sim |Sim |

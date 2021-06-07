@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935743"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guia de referência de operações de governança de Azure Active Directory
@@ -113,7 +113,7 @@ Para evitar que seja bloqueado inadvertidamente do seu locatário porque você n
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Acesso privilegiado ao portal de EA do Azure
 
-O [portal do azure Enterprise Agreement (Azure ea)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) permite que você crie assinaturas do Azure em um Enterprise Agreement mestre, que é uma função avançada na empresa. É comum inicializar a criação desse portal antes mesmo de colocar o Azure AD, portanto, é necessário usar as identidades do Azure AD para bloqueá-lo, remover contas pessoais do portal, garantir que a delegação adequada esteja em vigor e reduzir o risco de bloqueio.
+O [portal do azure contrato Enterprise (Azure ea)](https://azure.microsoft.com/blog/create-enterprise-subscription-experience-in-azure-portal-public-preview/) permite que você crie assinaturas do Azure em um contrato Enterprise mestre, que é uma função avançada na empresa. É comum inicializar a criação desse portal antes mesmo de colocar o Azure AD, portanto, é necessário usar as identidades do Azure AD para bloqueá-lo, remover contas pessoais do portal, garantir que a delegação adequada esteja em vigor e reduzir o risco de bloqueio.
 
 Para ser claro, se o nível de autorização do portal de EA estiver definido atualmente como "modo misto", você deverá remover todas as [contas da Microsoft](https://support.skype.com/en/faq/FA12059/what-is-a-microsoft-account) de todo o acesso privilegiado no portal de ea e configurar o portal de ea para usar apenas as contas do Azure AD. Se as funções delegadas do portal de EA não estiverem configuradas, você também deverá encontrar e implementar funções delegadas para departamentos e contas.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
 ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98185573"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
@@ -113,7 +113,7 @@ As configurações de monitoramento em um perfil do Gerenciador de Tráfego se a
 
 Saiba mais sobre [perfis do Gerenciador de Tráfego](traffic-manager-overview.md)
 
-Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)
+Aprenda a [criar um perfil do Gerenciador de Tráfego](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

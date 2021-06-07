@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 27512ac694f20544f1fdd5b79b27d7bf2cabdd66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92675494"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific
@@ -30,7 +30,7 @@ A integração do Sistema de Monitoramento de Temperatura Sem Fio SensoScientifi
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific, você precisa dos seguintes itens:
 
@@ -49,11 +49,11 @@ Para configurar a integração do Sistema de Monitoramento de Temperatura Sem Fi
 
 **Para adicionar o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Sistema de Monitoramento de Temperatura Sem Fi
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** , selecione **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**, selecione **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Sistema de Monitoramento de Temperatura Sem Fio SensoScientific na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Sistema de Monitoramento de Temperatura Sem Fio SensoScientific.
 
 Para configurar e testar o logon único do Azure AD com o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific, você precisa concluir os seguintes blocos de construção:
@@ -85,27 +85,27 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific, siga as etapas abaixo:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
+4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
     ![Informações de logon único em Domínio e URLs do Sistema de Monitoramento de Temperatura Sem Fio SensoScientific](common/preintegrated.png)
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** , copie a URL apropriada de acordo com seus requisitos.
+6. Na seção **Configurar o Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**, copie a URL apropriada de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -125,11 +125,11 @@ Para configurar o logon único do Azure AD com o Sistema de Monitoramento de Tem
 
     a. Selecione **Nome do Emissor** como Azure AD.
 
-    b. Na caixa de texto **URL do Emissor** , cole o **Identificador do Azure AD** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL do Emissor**, cole o **Identificador do Azure AD** que você copiou do portal do Azure.
 
-    c. Na caixa de texto **URL de Serviço de Logon Único** , cole a **URL de Logon** que você copiou do portal do Azure.
+    c. Na caixa de texto **URL de Serviço de Logon Único**, cole a **URL de Logon** que você copiou do portal do Azure.
 
-    d. Na caixa de texto **URL de Serviço de Logoff Único** , cole a **URL de Logoff** que você copiou do portal do Azure.
+    d. Na caixa de texto **URL de Serviço de Logoff Único**, cole a **URL de Logoff** que você copiou do portal do Azure.
 
     e. Procure o certificado que você baixou do portal do Azure e carregue-o aqui.
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o Sistema de Monitoramento de Tem
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -151,39 +151,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific** .
+2. Na lista de aplicativos, selecione **Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**.
 
     ![O link do Sistema de Monitoramento de Temperatura Sem Fio SensoScientific na lista de aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Criar usuário de teste do Sistema de Monitoramento de Temperatura Sem Fio SensoScientific
 

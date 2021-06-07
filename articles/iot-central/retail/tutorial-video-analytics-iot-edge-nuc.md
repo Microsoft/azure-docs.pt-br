@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
 ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99831919"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância do IoT Edge para análise de vídeo (Intel NUC)
@@ -149,7 +149,7 @@ Identifique as URLs de fluxo do RTSP das câmeras conectadas ao dispositivo do I
 > [!TIP]
 > Tente ver o fluxo da câmera no computador IoT Edge usando um player de mídia, como o VLC.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

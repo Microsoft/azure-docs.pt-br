@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: integração do Azure Active Directory com o Zscaler Two
@@ -200,14 +200,14 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     b. Clique em **Ativar**.
 
-## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Definindo as configurações de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Para definir as configurações de proxy no Internet Explorer
 
 1. Inicie o **Internet Explorer**.
 
 2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.   
     
-     ![Opções da Internet](./media/zscaler-two-tutorial/ic769492.png "Opções da Internet")
+     ![Opções da Internet](./media/zscaler-two-tutorial/ic769492.png &quot;Opções da Internet")
 
 3. Clique na guia **Conexões** .   
   

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 989f47c0ff60865a8e8be15e089cdcf96ab2550c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968291"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799098"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
@@ -88,8 +88,8 @@ Abaixo estão as bibliotecas populares usadas para o pool de conexões JDBC, que
 
 Pool de conexões HTTP
 
-* [Gerenciamento de conexão do Apache](https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-* [PoolingHttpClientConnectionManager de classe](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html)
+* [Gerenciamento de conexão do Apache](https://hc.apache.org/httpcomponents-client-5.0.x/)
+* [PoolingHttpClientConnectionManager de classe](https://hc.apache.org/httpcomponents-client-5.0.x/)
 
 #### <a name="php"></a>PHP
 
@@ -125,7 +125,7 @@ Embora o PHP não ofereça suporte ao pool de conexões, você pode tentar usar 
 
 Evitar os limites de TCP de saída é mais fácil de resolver, pois os limites são definidos pelo tamanho do seu operador. Você pode ver os limites em [área restrita limite de VM entre VMs-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Descrição|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 
@@ -157,7 +157,7 @@ As conexões TCP e SNAT não estão diretamente relacionadas. Um detector de uso
 * O limite de conexões TCP ocorre no nível de instância de trabalho. O balanceamento de carga de saída de rede do Azure não usa a métrica de conexões TCP para limitação de porta SNAT.
 * Os limites de conexões TCP são descritos em [área restrita áreas limites numéricos de VM-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Descrição|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 

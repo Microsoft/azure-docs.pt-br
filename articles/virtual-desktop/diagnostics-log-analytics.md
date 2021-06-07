@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 37990cc4322717f090c7a35c62512ba0e1a04293
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018283"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100576154"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usar Log Analytics para o recurso de diagnóstico
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 A área de trabalho virtual do Windows usa [Azure monitor](../azure-monitor/overview.md) para monitoramento e alertas como muitos outros serviços do Azure. Isso permite que os administradores identifiquem problemas por meio de uma interface. O serviço cria logs de atividade para ações administrativas e de usuário. Cada log de atividades se enquadra nas seguintes categorias:
 
@@ -39,23 +39,23 @@ As conexões que não acessam a Área de Trabalho Virtual do Windows não são e
 Azure Monitor permite analisar os dados da área de trabalho virtual do Windows e examinar os contadores de desempenho de máquina virtual (VM), tudo na mesma ferramenta. Este artigo informará mais sobre como habilitar o diagnóstico para seu ambiente de área de trabalho virtual do Windows.
 
 >[!NOTE]
->Para saber como monitorar suas VMs no Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](../azure-monitor/insights/monitor-vm-azure.md). Além disso, lembre-se de [examinar os limites do contador de desempenho](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) para uma melhor compreensão da experiência do usuário no host da sessão.
+>Para saber como monitorar suas VMs no Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](../azure-monitor/vm/monitor-vm-azure.md). Além disso, lembre-se de [examinar os limites do contador de desempenho](../virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md#windows-performance-counter-thresholds) para uma melhor compreensão da experiência do usuário no host da sessão.
 
 ## <a name="before-you-get-started"></a>Antes de começar
 
 Antes de poder usar Log Analytics, você precisará criar um espaço de trabalho. Para fazer isso, siga as instruções em um dos dois artigos a seguir:
 
-- Se preferir usar portal do Azure, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Se preferir o PowerShell, consulte [criar um log Analytics espaço de trabalho com o PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+- Se preferir usar portal do Azure, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Se preferir o PowerShell, consulte [criar um log Analytics espaço de trabalho com o PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
-Depois de criar seu espaço de trabalho, siga as instruções em [conectar computadores Windows a Azure monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) para obter as seguintes informações:
+Depois de criar seu espaço de trabalho, siga as instruções em [conectar computadores Windows a Azure monitor](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) para obter as seguintes informações:
 
 - A ID do espaço de trabalho
 - A chave primária do seu espaço de trabalho
 
 Você precisará dessas informações posteriormente no processo de instalação.
 
-Certifique-se de examinar o gerenciamento de permissões para Azure Monitor habilitar o acesso a dados para aqueles que monitoram e mantêm seu ambiente de área de trabalho virtual do Windows. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](../azure-monitor/platform/roles-permissions-security.md).
+Certifique-se de examinar o gerenciamento de permissões para Azure Monitor habilitar o acesso a dados para aqueles que monitoram e mantêm seu ambiente de área de trabalho virtual do Windows. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](../azure-monitor/roles-permissions-security.md).
 
 ## <a name="push-diagnostics-data-to-your-workspace"></a>Enviar dados de diagnóstico por push para seu espaço de trabalho
 
@@ -73,17 +73,17 @@ Para configurar Log Analytics para um novo objeto:
 
     As opções mostradas na página Configurações de diagnóstico variam de acordo com o tipo de objeto que você está editando.
 
-    Por exemplo, quando você estiver habilitando o diagnóstico para um grupo de aplicativos, verá opções para configurar pontos de verificação, erros e gerenciamento. Para espaços de trabalho, essas categorias configuram um feed para controlar quando os usuários assinam a lista de aplicativos. Para saber mais sobre as configurações de diagnóstico [, consulte Criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../azure-monitor/platform/diagnostic-settings.md).
+    Por exemplo, quando você estiver habilitando o diagnóstico para um grupo de aplicativos, verá opções para configurar pontos de verificação, erros e gerenciamento. Para espaços de trabalho, essas categorias configuram um feed para controlar quando os usuários assinam a lista de aplicativos. Para saber mais sobre as configurações de diagnóstico [, consulte Criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
      >[!IMPORTANT]
      >Lembre-se de habilitar o diagnóstico para cada objeto de Azure Resource Manager que você deseja monitorar. Os dados estarão disponíveis para atividades após a habilitação do diagnóstico. Pode levar algumas horas após a primeira configuração.
 
 5. Insira um nome para a configuração de configurações e, em seguida, selecione **Enviar para log Analytics**. O nome que você usa não deve ter espaços e deve estar em conformidade com as [convenções de nomenclatura do Azure](../azure-resource-manager/management/resource-name-rules.md). Como parte dos logs, você pode selecionar todas as opções que deseja adicionar à sua Log Analytics, como ponto de verificação, erro, gerenciamento e assim por diante.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 >[!NOTE]
->Log Analytics oferece a opção de transmitir dados para os [hubs de eventos](../event-hubs/event-hubs-about.md) ou arquivá-los em uma conta de armazenamento. Para saber mais sobre esse recurso, confira [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [arquivar logs de recursos do Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+>Log Analytics oferece a opção de transmitir dados para os [hubs de eventos](../event-hubs/event-hubs-about.md) ou arquivá-los em uma conta de armazenamento. Para saber mais sobre esse recurso, confira [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) e [arquivar logs de recursos do Azure para a conta de armazenamento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 ## <a name="how-to-access-log-analytics"></a>Como acessar Log Analytics
 
@@ -134,9 +134,9 @@ Acessar consultas de exemplo por meio da interface do usuário do Azure Monitor 
 1. Selecione **área de trabalho virtual do Windows** para revisar as consultas disponíveis.
 1. Selecione **executar** para executar a consulta selecionada.
 
-Saiba mais sobre a interface de consulta de exemplo em [consultas salvas no Azure Monitor log Analytics](../azure-monitor/log-query/example-queries.md).
+Saiba mais sobre a interface de consulta de exemplo em [consultas salvas no Azure Monitor log Analytics](../azure-monitor/logs/example-queries.md).
 
-A lista de consulta a seguir permite que você revise as informações de conexão ou problemas para um único usuário. Você pode executar essas consultas no [Editor de consulta log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Para cada consulta, substitua `userupn` pelo UPN do usuário que você deseja pesquisar.
+A lista de consulta a seguir permite que você revise as informações de conexão ou problemas para um único usuário. Você pode executar essas consultas no [Editor de consulta log Analytics](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). Para cada consulta, substitua `userupn` pelo UPN do usuário que você deseja pesquisar.
 
 
 Para localizar todas as conexões de um único usuário:

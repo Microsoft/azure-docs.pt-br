@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: a4e240837dd3c95efc4dc83a7491f2ad9163435a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd881d130b9df19335ac64be501553af99d58d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373310"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102179537"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Criar sua primeira função com Java e Eclipse 
 
@@ -68,7 +68,7 @@ Defina pontos de interrupção e inspecione objetos em sua função usando o IDE
 
 ## <a name="deploy-the-function-to-azure"></a>Implantar a função no Azure
 
-O processo de implantação no Azure Functions usa credenciais de conta da CLI do Azure. [Faça logon com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar usando o prompt de comando do computador.
+O processo de implantação no Azure Functions usa credenciais de conta da CLI do Azure. [Faça logon com a CLI do Azure](/cli/azure/authenticate-azure-cli) antes de continuar usando o prompt de comando do computador.
 
 ```azurecli
 az login

@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934553"
 ---
-# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribuir uma política de acesso de Key Vault usando o portal do Azure
+# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribuir uma política de acesso do Key Vault usando o portal do Azure
 
 Uma política de acesso Key Vault determina se uma determinada entidade de serviço, ou seja, um aplicativo ou grupo de usuários, pode executar operações diferentes em Key Vault [segredos](../secrets/index.yml), [chaves](../keys/index.yml)e [certificados](../certificates/index.yml). Você pode atribuir políticas de acesso usando o portal do Azure (este artigo), o [CLI do Azure](assign-access-policy-cli.md)ou [Azure PowerShell](assign-access-policy-powershell.md).
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 9f179981aa39402681b4830d58a29f5b1259c7e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a9a1788473cb31f8e78aac0bbd5979b3d681ad32
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946115"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867586"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters do Apache HBase no HDInsight na rede virtual do Azure
 
@@ -44,7 +44,7 @@ Nesta seção, você cria um cluster Apache HBase baseado em Linux com a conta d
 
 1. Selecione a imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado em [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 1. Na caixa de diálogo **implantação personalizada** , selecione **Editar modelo**.
 
@@ -104,26 +104,11 @@ Ao usar um aplicativo Java para se conectar ao HBase remotamente, você deve usa
 
 Nos dados JSON (JavaScript Object Notation) retornados, localize a entrada "host_name". Contém o FQDN para os nós no cluster. Por exemplo:
 
-```
+```json
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
 A parte do nome do domínio que começa com o nome do cluster é o sufixo DNS. Por exemplo, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
-
-<!--
-3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
-
-    To make the configuration change:
-
-    1. RDP into the virtual machine.
-    2. Open **Local Group Policy Editor**. The executable is gpedit.msc.
-    3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
-    - Set **Primary DNS Suffix** to the value obtained in step 2:
-
-        ![hdinsight.hbase.primary.dns.suffix](./media/apache-hbase-provision-vnet/hdi-primary-dns-suffix.png)
-    4. Click **OK**.
-    5. Reboot the virtual machine.
--->
 
 ### <a name="verify-communication-inside-virtual-network"></a>Verificar a comunicação dentro da rede virtual
 

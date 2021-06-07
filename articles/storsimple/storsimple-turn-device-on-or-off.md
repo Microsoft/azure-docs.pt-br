@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515269"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
@@ -146,7 +146,7 @@ Você pode desligar o dispositivo de forma ordenada e controlada por meio do Por
 > [!IMPORTANT]
 > Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 > 
-> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware**e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
+> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware** e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
 > 
 > 
 
@@ -154,7 +154,7 @@ Depois de acessar o Windows PowerShell para o StorSimple ou o Portal do Azure, s
 
 ### <a name="device-with-ebod-enclosure"></a>Dispositivo com o compartimento EBOD <a name="8600a"></a>
 > [!IMPORTANT]
-> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware**e verifique se todos os componentes estão íntegros.
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos**  >  **monitorar**  >  **integridade do hardware** e verifique se todos os componentes estão íntegros.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD

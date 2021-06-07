@@ -3,16 +3,16 @@ title: Ambientes de computação com suporte do Azure Data Factory versão 1
 description: Saiba mais sobre os ambientes de computação que você pode usar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para transformar ou processar dados.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5f6fbcb73b4139c0a80ea8352071d8683c401d6e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377186"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782938"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
 > [!NOTE]
@@ -384,7 +384,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 #### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Para autenticação de credenciais de usuário para o Data Lake Analytics, especifique as seguintes propriedades:
 
-| Propriedade          | Descrição                              | Necessária |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Sim      |
 | sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |

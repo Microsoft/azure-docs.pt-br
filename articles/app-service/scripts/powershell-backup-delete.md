@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Excluir um backup de aplicativo'
+title: 'PowerShell: excluir um backup de aplicativo'
 description: Saiba como usar o Azure PowerShell para automatizar a implantação e o gerenciamento do Serviço de Aplicativo. Esta amostra descreve como excluir um backup de aplicativo.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: 29eda8fcb24dce6c54fb56c94d242513b319caad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073957"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Excluir um backup de um aplicativo Web usando o Azure PowerShell

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 20a7a7392070a6f888add630398516b2f872cd7d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945280"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865478"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -76,11 +76,11 @@ O Apache Ambari simplifica o gerenciamento, configuração e monitoramento de um
 
 Para abrir uma lista de modos de exibição do serviço, selecione o painel de **exibições do Ambari** na página do portal do Azure para HDInsight.  Essa lista varia, dependendo das bibliotecas que você instalou.  Por exemplo, você poderá ver o Gerenciador de Fila do YARN, o Modo de Exibição do Hive e o Modo de Exibição do Tez.  Selecione qualquer link de serviço para ver as informações de serviço e configuração.  A página **Pilha e Versão** da interface do usuário do Ambari fornece informações sobre a configuração de serviços de cluster e o histórico de versão do serviço. Para navegar nessa seção da interface do usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione a guia **Versões** para ver as informações de versão do serviço.
 
-![Pilha e versões do administrador do Apache Ambari](./media/hdinsight-log-management/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-log-management/ambari-stack-versions.png" alt-text="Pilha e versões do administrador do Apache Ambari":::
 
 Usando a interface do usuário do Ambari, você pode fazer o download da configuração para um (ou todos) os serviços executados em um host específico (ou nó) no cluster.  Selecione o menu **Hosts** e, em seguida, o link para o host de interesse. Na página do host, selecione o botão **Ações do Host** e, em seguida, **Fazer o download das configurações de cliente**.
 
-![Configurações do cliente host de download do Apache Ambari](./media/hdinsight-log-management/download-client-configs.png)
+:::image type="content" source="./media/hdinsight-log-management/download-client-configs.png" alt-text="Configurações do cliente host de download do Apache Ambari":::
 
 ### <a name="view-the-script-action-logs"></a>Exibir os logs de ação de script
 
@@ -102,7 +102,7 @@ log4j.logger.alerts=DEBUG,alerts
 
 A próxima etapa é examinar os arquivos de log de execução do trabalho para os vários serviços.  Os serviços podem incluir Apache HBase, Apache Spark e muitos outros. Um cluster Hadoop produz um grande número de logs detalhados, portanto, determinar quais logs são úteis (e quais não são) pode ser demorado.  Compreender o sistema de log é importante para o gerenciamento de destino dos arquivos de log.  A imagem a seguir é um arquivo de log de exemplo.
 
-![Exemplo de saída do arquivo de log do HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="Exemplo de saída do arquivo de log do HDInsight":::
 
 ### <a name="access-the-hadoop-log-files"></a>Acessar os arquivos de log do Hadoop
 
@@ -157,7 +157,7 @@ Depois de determinar quais arquivos de log podem ser excluídos, você pode ajus
 
 Para alguns arquivos de log, você pode usar um método de arquivamento de arquivos de log mais barato. Para Azure Resource Manager logs de atividades, você pode explorar essa abordagem usando o portal do Azure.  Configure o arquivamento dos logs do Gerenciador de recursos selecionando o link **log de atividades** no portal do Azure para sua instância do HDInsight.  No topo da página de pesquisa de Log de atividades, selecione o item de menu **Exportar** para abrir o painel **Exportar log de atividades**.  Preencha a assinatura, região, se deve ser exportado para uma conta de armazenamento e o número de dias para manter os logs. Nesse mesmo painel, você também pode indicar se deve ser exportado para um hub de eventos.
 
-![Visualização de portal do Azure exportar log de atividades](./media/hdinsight-log-management/hdi-export-log-files.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Visualização de portal do Azure exportar log de atividades":::
 
 Como alternativa, você pode gerar script de arquivamento de log com o PowerShell.  Para obter um exemplo de script do PowerShell, consulte [Arquivar logs de Automação do Azure para o Armazenamento de Blobs do Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

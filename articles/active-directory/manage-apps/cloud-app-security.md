@@ -2,21 +2,21 @@
 title: Visibilidade e controle do aplicativo com o Microsoft Cloud App Security
 description: Descubra maneiras de identificar os níveis de risco do aplicativo, interromper violações e vazamentos em tempo real e usar conectores de aplicativos para aproveitar as APIs do provedor para visibilidade e governança.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
+ms.openlocfilehash: d9a9f56d70e049200cee0c3655a9998feccfa301
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259597"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377829"
 ---
 # <a name="cloud-app-visibility-and-control"></a>Visibilidade e controle do aplicativo em nuvem
 
@@ -24,14 +24,14 @@ Para aproveitar ao máximo os benefícios dos serviços e aplicativos de nuvem, 
 
 ## <a name="discover-and-manage-shadow-it-in-your-network"></a>Descobrir e gerenciar a TI de sombra em sua rede
 
-Quando perguntam aos administradores de TI sobre quantos aplicativos de nuvem eles acreditam que os funcionários usam em média, eles dizem 30 ou 40, quando na realidade, a média é de mais de 1.000 aplicativos separados sendo usados pelos funcionários em sua organização. A TI de sombra ajuda você a saber e identificar quais aplicativos estão sendo usados e qual é o nível de risco deles. Oitenta por cento dos funcionários usam aplicativos não sancionados que não foram examinados por ninguém e que podem não estar em conformidade com as suas políticas de segurança e conformidade. E como os funcionários podem acessar seus recursos e seus aplicativos fora da rede corporativa, não é mais suficiente ter regras e políticas nos firewalls.
+Quando perguntam aos administradores de TI quantos aplicativos de nuvem eles acreditam que seus funcionários usam, em média, eles respondem 30 ou 40, quando, na realidade, a média é mais de 1.000 aplicativos distintos sendo usados por funcionários em sua organização. O Shadow IT ajuda você a conhecer e identificar quais aplicativos estão sendo usados e qual é seu nível de risco. Oitenta por cento dos funcionários usam aplicativos não sancionados que não foram examinados por ninguém e que podem não estar em conformidade com as suas políticas de segurança e conformidade. E como seus funcionários podem acessar seus recursos e aplicativos fora de sua rede corporativa, não é mais suficiente ter regras e políticas em seus firewalls.
 
 Use o Microsoft Cloud App Discovery (um recurso do Azure Active Directory Premium P1) para descobrir quais aplicativos estão sendo usados, explorar o risco desses aplicativos, configurar políticas para identificar novos aplicativos de risco e cancelar sanção desses aplicativos, a fim de bloqueá-los nativamente usando seu dispositivo de proxy ou firewall.
 
-- Descobrir e identificar a TI de sombra
+- Descobrir e identificar TI sombra
 - Avaliar e analisar
 - Gerenciar seus aplicativos
-- Relatório avançado de descoberta de TI de sombra
+- Relatório de descoberta de TI sombra avançado
 - Controlar aplicativos sancionados
  
 ### <a name="learn-more"></a>Saiba mais

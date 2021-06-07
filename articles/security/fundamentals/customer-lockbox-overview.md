@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489880"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103461667"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -22,18 +22,17 @@ ms.locfileid: "96489880"
 
 O Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte.
 
-Este artigo aborda como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores.
+Este artigo aborda como habilitar Sistema de Proteção de Dados do Cliente e como as solicitações de lockbox são iniciadas, controladas e armazenadas para revisões e auditorias posteriores.
 
-O Sistema de Proteção de Dados do Cliente agora está disponível para o público geral e atualmente habilitado para acesso da área de trabalho remota a máquinas virtuais.
+<a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
+## <a name="supported-services-and-scenarios-general-availability"></a>Serviços e cenários com suporte (disponibilidade geral)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários com suporte na visualização
+Os serviços a seguir agora estão disponíveis para o público geral para Sistema de Proteção de Dados do Cliente:
 
-Os serviços a seguir agora estão na versão prévia do Sistema de Proteção de Dados do Cliente:
-
-- Gerenciamento de API
+- Gerenciamento de API do Azure
 - Serviço de aplicativo do Azure
-- Serviços Cognitivos
-- Registro de Contêiner
+- Serviços Cognitivos do Azure
+- Registro de Contêiner do Azure
 - Banco de Dados do Azure para MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +40,21 @@ Os serviços a seguir agora estão na versão prévia do Sistema de Proteção d
 - Fábrica de dados do Azure
 - Banco de Dados do Azure para PostgreSQL
 - Funções do Azure
-- HDInsight
+- Azure HDInsight
 - Serviço de Kubernetes do Azure
 - Azure Monitor
 - Armazenamento do Azure
-- BD SQL do Azure
+- Banco de Dados SQL do Azure
 - Transferências de assinatura do Azure
 - Azure Synapse Analytics
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
+- Máquinas virtuais no Azure (cobrindo acesso à área de trabalho remota, acesso a despejos de memória e discos gerenciados)
 
-Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de visualização para sua organização, Inscreva-se para [sistema de proteção de dados do cliente para visualização pública do Azure](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Habilitar Sistema de Proteção de Dados do Cliente
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Serviços e cenários com suporte em disponibilidade geral
-
-Os seguintes serviços e cenários estão atualmente em disponibilidade geral para Sistema de Proteção de Dados do Cliente.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso da área de trabalho remota a máquinas virtuais
-
-O Sistema de Proteção de Dados do Cliente agora está habilitado para solicitações de acesso de área de trabalho remota a máquinas virtuais. As seguintes cargas de trabalho são compatíveis:
-- Plataforma como serviço (PaaS) – Serviços de Nuvem do Azure (função Web e função de trabalho)
-- Infraestrutura como serviço (IaaS) – Windows e Linux (somente Azure Resource Manager)
-- Conjunto de dimensionamento de máquinas virtuais – Windows e Linux
+Agora você pode habilitar Sistema de Proteção de Dados do Cliente do [módulo administração](https://aka.ms/customerlockbox/administration) na folha sistema de proteção de dados do cliente.  
 
 > [!NOTE]
-> As instâncias clássicas do IaaS não são suportadas pelo Sistema de Proteção de Dados do Cliente. Se você tiver cargas de trabalho em execução em instâncias clássicas de IaaS, recomendamos migrá-las dos modelos de implantação clássico para o Resource Manager. Para obter instruções, consulte [Migração de recursos de IaaS compatíveis com a plataforma do Classic para o Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Logs de auditoria detalhados
-
-Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para revisar as ações executadas pelo engenheiro da Microsoft. Considere usar a Central de Segurança do Azure para coletar seus logs de eventos e copiar os dados para o workspace para análise. Para obter mais informações, consulte [Coleta de dados na Central de Segurança do Azure](../../security-center/security-center-enable-data-collection.md).
+> Para habilitar Sistema de Proteção de Dados do Cliente, a conta de usuário precisa ter a [função de administrador global atribuída](../../active-directory/roles/manage-roles-portal.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -80,7 +66,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
 3. Um engenheiro de suporte do Azure revisa a solicitação de serviço e determina as próximas etapas para resolver o problema.
 
-4. Se o engenheiro de suporte não puder solucionar o problema usando ferramentas e telemetria padrão, a próxima etapa será solicitar permissões elevadas usando um serviço de acesso JIT (just-in-time). Essa solicitação pode ser do engenheiro de suporte original. Ou, pode ser de um engenheiro diferente porque o problema é escalonado para a equipe do Azure DevOps.
+4. Se o engenheiro de suporte não puder solucionar o problema usando ferramentas e telemetria padrão, a próxima etapa será solicitar permissões elevadas usando um serviço de acesso JIT (just-in-time). Essa solicitação pode ser do engenheiro de suporte original ou de um engenheiro diferente, pois o problema é escalonado para a equipe do Azure DevOps.
 
 5. Depois que a solicitação de acesso é enviada pelo engenheiro do Azure, o serviço just-in-time avalia a solicitação levando em consideração os fatores como:
     - O escopo do recurso
@@ -99,7 +85,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
     ![Sistema de Proteção de Dados do Cliente do Azure-notificação por email](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. A notificação por email fornece um link para a folha **sistema de proteção de dados do cliente** na portal do Azure. Usando esse link, o aprovador designado entra no portal do Azure para exibir as solicitações pendentes que sua organização tem para Sistema de Proteção de Dados do Cliente:
+8. A notificação por email fornece um link para a folha **sistema de proteção de dados do cliente** no módulo administração. Usando esse link, o aprovador designado entra no portal do Azure para exibir as solicitações pendentes que sua organização tem para Sistema de Proteção de Dados do Cliente:
 
     ![Sistema de Proteção de Dados do Cliente do Azure – página inicial](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -141,14 +127,13 @@ Apresentamos um novo controle de linha de base ([3,13](../benchmarks/security-co
 
 ## <a name="exclusions"></a>Exclusões
 
-As solicitações do Sistema de Proteção de Dados do Cliente não são acionadas nos seguintes cenários de suporte de engenharia:
+Sistema de Proteção de Dados do Cliente solicitações não são disparadas nos seguintes cenários de suporte de engenharia:
 
 - Um engenheiro da Microsoft precisa fazer uma atividade que está fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
-
-- Um engenheiro da Microsoft acessa a plataforma do Azure como parte da solução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a equipe de rede do Azure executa a solução de problemas que resulta em uma captura de pacote em um dispositivo de rede. No entanto, se o cliente criptografou os dados enquanto estavam em trânsito, eles não podem ser lidos pelo engenheiro.
+- Um engenheiro da Microsoft acessa a plataforma do Azure como parte da solução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a equipe de rede do Azure executa a solução de problemas que resulta em uma captura de pacote em um dispositivo de rede. Nesse cenário, se o cliente criptografar os dados enquanto estiver em trânsito, o engenheiro não poderá ler os dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Sistema de Proteção de Dados do Cliente está automaticamente disponível para todos os clientes que têm um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **desenvolvedor**.
+Sistema de Proteção de Dados do Cliente está disponível para todos os clientes que têm um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **desenvolvedor**. Você pode habilitar Sistema de Proteção de Dados do Cliente do [módulo administração](https://aka.ms/customerlockbox/administration) na folha sistema de proteção de dados do cliente.
 
-Quando você tem um plano de suporte qualificado, nenhuma ação é exigida por você para habilitar Sistema de Proteção de Dados do Cliente. Sistema de Proteção de Dados do Cliente solicitações são iniciadas por um engenheiro da Microsoft se essa ação for necessária para progredir um tíquete de suporte que é arquivado de alguém em sua organização.
+Sistema de Proteção de Dados do Cliente solicitações são iniciadas por um engenheiro da Microsoft se essa ação for necessária para o andamento de um caso de suporte.

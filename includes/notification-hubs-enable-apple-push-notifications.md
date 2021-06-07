@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 7b5034f2163e8478d7ddb7b9271402b094a809d7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95554816"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de solicitação de assinatura de certificado
@@ -131,7 +131,7 @@ A abordagem mais recente tem vários benefícios (em comparação ao uso de cert
 1. Anote os seguintes detalhes:
 
     - O **Prefixo da ID do Aplicativo** (é uma **ID da Equipe**)
-    - A **ID do Pacote**
+    - **ID do Pacote**
     
 2. Novamente em **Certificados, Identificadores e Perfis**, clique em **Chaves**.
 

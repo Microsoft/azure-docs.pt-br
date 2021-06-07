@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536963"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
@@ -57,11 +57,11 @@ Se seu dispositivo está totalmente novo e ainda não foi configurado ainda, per
 ## <a name="to-make-sure-youre-joined-new-device"></a>Para certificar-se de que você está associado (novo dispositivo)
 Você pode ter certeza de que você está associado, observando as configurações.
 
-1. Abra **as configurações**e, em seguida, selecione **contas**.
+1. Abra **as configurações** e, em seguida, selecione **contas**.
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado ao *\<your_organization>* Azure ad**.
+2. Selecione **acesso corporativo ou de estudante** e verifique se você vê texto que diz algo como, **conectado ao *\<your_organization>* Azure ad**.
 
     ![Captura de tela que mostra a janela "acessar o trabalho ou a escola" com a conta "conectado à (sua organização) Azure AD" selecionada.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -69,9 +69,9 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Para ingressar um dispositivo Windows 10 já configurado
 Se você já usa seu dispositivo há algum tempo e já está configurado, siga estas etapas para conectar seu dispositivo à rede.
 
-1. Abra **as configurações**e, em seguida, selecione **contas**.
+1. Abra **as configurações** e, em seguida, selecione **contas**.
 
-2. Selecione **acessar trabalho ou escola**e, em seguida, selecione **Connect**.
+2. Selecione **acessar trabalho ou escola** e, em seguida, selecione **Connect**.
 
     ![Acessar trabalho ou escola e conectar-se links](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
@@ -102,11 +102,11 @@ Se você já usa seu dispositivo há algum tempo e já está configurado, siga e
 ## <a name="to-make-sure-youre-joined"></a>Para garantir que você está unida
 Você pode ter certeza de que você está associado, observando as configurações.
 
-1. Abra **as configurações**e, em seguida, selecione **contas**.
+1. Abra **as configurações** e, em seguida, selecione **contas**.
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado ao *\<your_organization>* Azure ad**.
+2. Selecione **acesso corporativo ou de estudante** e verifique se você vê texto que diz algo como, **conectado ao *\<your_organization>* Azure ad**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
 ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342358"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas frequentes do Avere vFXT para Azure

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: e3d4fd6b6b83681284278d10409a1c16394db31f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018676"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
@@ -77,7 +77,7 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, confira nossa [página de Perguntas e respostas do Microsoft do Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)

@@ -4,10 +4,10 @@ description: Saiba mais sobre imagens base para imagens de contêiner de aplicat
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97707479"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre as atualizações de imagem base para tarefas ACR

@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: b418a9cae6f6d58dbe82babcfe6fe1e1a5027d43
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657066"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do Marketplace

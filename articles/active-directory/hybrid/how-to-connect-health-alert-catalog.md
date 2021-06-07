@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8637c691f946c02176c441cfcf5ad5abbea10396
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98016874"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catálogo de alerta do Azure Active Directory Connect Health 

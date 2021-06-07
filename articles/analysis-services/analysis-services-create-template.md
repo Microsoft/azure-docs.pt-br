@@ -3,17 +3,18 @@ title: Início Rápido – Criar um recurso de servidor do Azure Analysis Servic
 description: Início Rápido mostrando como criar um recurso de servidor do Azure Analysis Services usando um modelo do Azure Resource Manager.
 author: minewiskan
 ms.author: owend
-tags: azure-resource-manager
-ms.service: azure-analysis-services
-ms.topic: quickstart
 ms.date: 08/31/2020
-ms.custom: subject-armqs, references_regions
-ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.service: azure-analysis-services
+tags:
+- azure-resource-manager
+ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
+ms.openlocfilehash: e7203f4b5890ab81cbf337c5f3201d85a3aef0c0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89230765"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769357"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Início Rápido: Criar um servidor – Modelo do ARM
 
@@ -27,7 +28,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Assinatura do Azure**: Acesse [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
+* **Assinatura do Azure**: visite a [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
 * **Azure Active Directory**: sua assinatura deve estar associada a um locatário do Azure Active Directory. Também é preciso estar conectado ao Azure com uma conta no Azure Active Directory em questão. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
 ## <a name="review-the-template"></a>Examinar o modelo

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674513"
 ---
 # <a name="azure-farmbeats-apis"></a>APIs FarmBeats do Azure
@@ -40,7 +40,7 @@ Telemetria  | A telemetria fornece a capacidade de ler mensagens de telemetria p
 Trabalho  | O trabalho corresponde a qualquer Workflow de atividades executadas no sistema FarmBeats para obter uma saída desejada. Cada trabalho é associado a uma ID de trabalho e tipo de trabalho.
 JobType  | JobType corresponde a diferentes tipos de trabalho com suporte no sistema. Os tipos de trabalho definidos pelo sistema e definidos pelo usuário estão incluídos.
 ExtendedType  | O extendetype corresponde à lista de tipos definidos pelo usuário e pelo sistema no sistema. O Extended ajuda a configurar um novo tipo de arquivo de sensor, cena ou cena no sistema FarmBeats.
-Parceiro  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
+Partner (parceiro)  | O parceiro corresponde ao parceiro de integração de sensor e imagens para FarmBeats.
 Cena  | A cena corresponde a qualquer saída gerada no contexto de um farm. Cada cena tem uma ID de cena, origem da cena, tipo de cena e ID de farm associada a ela. Cada ID de cena pode ter vários arquivos de cena associados a ela.
 Scenefile |O scenefile corresponde a todos os arquivos que são gerados para uma única cena. Uma única ID de cena pode ter várias IDs de Scenefile associadas a ela.
 Regra  |A regra corresponde a uma condição para que os dados relacionados ao farm disparem um alerta. Cada regra está no contexto dos dados de um farm.
@@ -143,23 +143,23 @@ Neste exemplo, quando um farm foi criado, o campo obrigatório "Name" não foi e
 
 As APIs FarmBeats do Azure podem ser acessadas por um usuário ou um registro de aplicativo no Azure Active Directory. Para criar um registro de aplicativo no Azure Active Directory, siga estas etapas:
 
-1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro** . Como alternativa, você pode usar uma conta existente.
+1. Vá para a [portal do Azure](https://portal.azure.com)e selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**. Como alternativa, você pode usar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
-    - Selecione **contas neste diretório organizacional somente (locatário único)** .
+    - Selecione **contas neste diretório organizacional somente (locatário único)**.
     - Use os valores padrão no restante dos campos.
-    - Selecione **Registrar** .
+    - Selecione **Registrar**.
 
 3. No painel **visão geral** do registro de aplicativo novo e existente, faça o seguinte:
 
-    - Capture a **ID do cliente** e a **ID do locatário** .
-    - Vá para **certificados e segredos** para gerar um novo segredo do cliente e capturar o **segredo do cliente** .
-    - Volte para **visão geral** e selecione o link ao lado de **gerenciar aplicativo no diretório local** .
-    - Vá para **Propriedades** para capturar a **ID do objeto** .
+    - Capture a **ID do cliente** e a **ID do locatário**.
+    - Vá para **certificados e segredos** para gerar um novo segredo do cliente e capturar o **segredo do cliente**.
+    - Volte para **visão geral** e selecione o link ao lado de **gerenciar aplicativo no diretório local**.
+    - Vá para **Propriedades** para capturar a **ID do objeto**.
 
 4. Vá para o Swagger do Datahub (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) e faça o seguinte:
-    - Vá para a **API do RoleAssignment** .
+    - Vá para a **API do RoleAssignment**.
     - Execute uma POSTAgem para criar um objeto **RoleAssignment** para a **ID de objeto** que você acabou de criar.
  
 ```json

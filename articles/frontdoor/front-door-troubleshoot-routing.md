@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
 ms.openlocfilehash: 15cdcefe628a392704e650b560243e2f6a134ec2
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629981"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>Solucionando problemas comuns de roteamento

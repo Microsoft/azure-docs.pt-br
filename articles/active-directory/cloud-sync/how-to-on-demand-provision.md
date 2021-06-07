@@ -1,6 +1,6 @@
 ---
-title: Provisionamento de sincronização por demanda do Azure AD Connect Cloud
-description: Este artigo descreve o recurso de provisionamento sob demanda.
+title: Provisionamento sob demanda no Azure AD Connect sincronização de nuvem
+description: Este artigo descreve como usar o recurso de sincronização de nuvem do Azure AD Connect para testar alterações de configuração.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,88 +11,90 @@ ms.date: 09/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ac186d4b460165605ccf0fc53bdb0b691348bf3
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5048b78c7d59b3358dbffe2e3e6eedf41decabb8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622517"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554268"
 ---
-# <a name="azure-ad-connect-cloud-sync-on-demand-provisioning"></a>Provisionamento de sincronização por demanda do Azure AD Connect Cloud
+# <a name="on-demand-provisioning-in-azure-ad-connect-cloud-sync"></a>Provisionamento sob demanda no Azure AD Connect sincronização de nuvem
 
-Azure AD Connect a sincronização de nuvem introduziu um novo recurso, que permitirá que você teste as alterações de configuração, aplicando essas alterações a um único usuário.  Você pode usar isso para validar e verificar se as alterações feitas na configuração foram aplicadas corretamente e estão sendo sincronizadas corretamente com o Azure AD.  
+Você pode usar o recurso de sincronização de nuvem do Azure Active Directory (Azure AD) Connect para testar alterações de configuração aplicando essas alterações a um único usuário. Esse provisionamento sob demanda ajuda a validar e verificar se as alterações feitas na configuração foram aplicadas corretamente e estão sendo sincronizadas corretamente com o Azure AD.  
 
 > [!IMPORTANT] 
-> Quando você usa o provisionamento sob demanda, os filtros de escopo não são aplicados ao usuário selecionado.  Isso significa que você pode usar o provisionamento sob demanda em usuários que estão fora das UOs que você especificou.
+> Quando você usa o provisionamento sob demanda, os filtros de escopo não são aplicados ao usuário que você selecionou. Você pode usar o provisionamento sob demanda em usuários que estão fora das unidades da organização que você especificou.
 
-
-## <a name="using-on-demand-provisioning"></a>Usando o provisionamento sob demanda
-Para usar o novo recurso, siga as etapas abaixo.
-
+## <a name="validate-a-user"></a>Validar um usuário
+Para usar o provisionamento sob demanda, siga estas etapas:
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure AD Connect**.
 3.  Selecione **gerenciar sincronização de nuvem**.
 
-    ![Gerenciar provisionamento](media/how-to-install/install-6.png)
+    ![Captura de tela que mostra o link para gerenciar a sincronização de nuvem.](media/how-to-install/install-6.png)
 4. Em **configuração**, selecione sua configuração.
-5. Em **validar** , clique no botão **provisionar um usuário** . 
+5. Em **validar**, selecione o botão **provisionar um usuário** . 
 
- ![Provisionar um usuário](media/how-to-on-demand-provision/on-demand-2.png)
+   ![Captura de tela que mostra o botão para provisionar um usuário.](media/how-to-on-demand-provision/on-demand-2.png)
 
-6. Na tela de provisionamento sob demanda.  Insira o **nome distinto** de um usuário e clique no botão **provisionar** .  
+6. Na tela **provisionar sob demanda** , insira o nome distinto de um usuário e selecione o botão **provisionar** .  
  
- ![Provisionamento sob demanda](media/how-to-on-demand-provision/on-demand-3.png)
-7. Após a conclusão, você deverá ver uma tela de êxito e quatro caixas de seleção verdes indicando que ela foi provisionada com êxito.  Todos os erros serão exibidos à esquerda.
+   ![Captura de tela que mostra um nome de usuário e um botão de provisionamento.](media/how-to-on-demand-provision/on-demand-3.png)
+7. Após a conclusão do provisionamento, uma tela de êxito aparece com quatro marcas de seleção verdes. Todos os erros aparecem à esquerda.
 
-  ![Êxito](media/how-to-on-demand-provision/on-demand-4.png)
+   ![Captura de tela que mostra o provisionamento bem-sucedido.](media/how-to-on-demand-provision/on-demand-4.png)
 
-Agora você pode examinar o usuário e determinar se as alterações feitas na configuração foram aplicadas.  O restante deste documento descreverá as seções individuais que são exibidas nos detalhes de um usuário sincronizado com êxito.
+## <a name="get-details-about-provisioning"></a>Obter detalhes sobre o provisionamento
+Agora você pode examinar as informações do usuário e determinar se as alterações feitas na configuração foram aplicadas. O restante deste artigo descreve as seções individuais que aparecem nos detalhes de um usuário sincronizado com êxito.
 
-## <a name="import-user-details"></a>Importar detalhes do usuário
-Esta seção fornece informações sobre o usuário que foi importado do Active Directory.  Esse é o aspecto do usuário antes de ser provisionado no Azure AD.  Clique no link **Exibir detalhes** para exibir essas informações.
+### <a name="import-user"></a>Importar usuário
+A seção **Importar usuário** fornece informações sobre o usuário que foi importado do Active Directory. Essa é a aparência do usuário antes do provisionamento no Azure AD. Selecione o link **Exibir detalhes** para exibir essas informações.
 
-![Importar usuário](media/how-to-on-demand-provision/on-demand-5.png)
+![Captura de tela do botão para exibir detalhes sobre um usuário importado.](media/how-to-on-demand-provision/on-demand-5.png)
 
-Usando essas informações, você pode ver os vários atributos e seus valores que foram importados.  Se você tiver criado um mapeamento de atributo personalizado, poderá ver o valor aqui.
-![Importar detalhes do usuário](media/how-to-on-demand-provision/on-demand-6.png)
+Usando essas informações, você pode ver os vários atributos (e seus valores) que foram importados. Se você criou um mapeamento de atributo personalizado, poderá ver o valor aqui.
 
-## <a name="determine-if-user-is-in-scope-details"></a>Determinar se o usuário está nos detalhes do escopo
-Esta seção fornece informações sobre se o usuário que foi importado para o Azure AD está no escopo.  Clique no link **Exibir detalhes** para exibir essas informações.
+![Captura de tela que mostra os detalhes do usuário.](media/how-to-on-demand-provision/on-demand-6.png)
 
-![Escopo do usuário](media/how-to-on-demand-provision/on-demand-7.png)
+### <a name="determine-if-user-is-in-scope"></a>Determinar se o usuário está no escopo
+A seção **determinar se o usuário está no escopo** fornece informações sobre se o usuário que foi importado para o Azure ad está no escopo. Selecione o link **Exibir detalhes** para exibir essas informações.
 
-Usando essas informações, você pode ver informações adicionais sobre o escopo de seus usuários.
+![Captura de tela do botão para exibir detalhes sobre o escopo do usuário.](media/how-to-on-demand-provision/on-demand-7.png)
 
-![Detalhes do escopo do usuário](media/how-to-on-demand-provision/on-demand-10a.png)
+Usando essas informações, você pode ver se o usuário está no escopo.
 
-## <a name="match-user-between-source-and-target-system-details"></a>Corresponder o usuário entre os detalhes do sistema de origem e de destino
-Esta seção fornece informações sobre se o usuário já existe no Azure AD e se uma junção ocorre em vez de provisionar um novo usuário.  Clique no link **Exibir detalhes** para exibir essas informações.
-![Exibir detalhes](media/how-to-on-demand-provision/on-demand-8.png)
+![Captura de tela que mostra detalhes do escopo do usuário.](media/how-to-on-demand-provision/on-demand-10a.png)
+
+### <a name="match-user-between-source-and-target-system"></a>Corresponder o usuário entre o sistema de origem e de destino
+A seção **corresponder usuário entre o sistema de origem e de destino** fornece informações sobre se o usuário já existe no Azure AD e se uma junção deve ocorrer em vez de provisionar um novo usuário. Selecione o link **Exibir detalhes** para exibir essas informações.
+
+![Captura de tela do botão para exibir detalhes sobre um usuário correspondente.](media/how-to-on-demand-provision/on-demand-8.png)
 
 Usando essas informações, você pode ver se uma correspondência foi encontrada ou se um novo usuário vai ser criado.
 
-![Informações do usuário](media/how-to-on-demand-provision/on-demand-11.png)
+![Captura de tela que mostra informações do usuário.](media/how-to-on-demand-provision/on-demand-11.png)
 
-Os detalhes de correspondência mostrarão uma mensagem com uma das três operações a seguir.  Elas são:
-- Criar-um usuário é criado no Azure AD
-- Atualização – um usuário é atualizado com base em uma alteração feita na configuração
-- Excluir-um usuário é removido do Azure AD.
+Os detalhes de correspondência mostram uma mensagem com uma das três seguintes operações:
+- **Criar**: um usuário é criado no Azure AD.
+- **Atualização**: um usuário é atualizado com base em uma alteração feita na configuração.
+- **Excluir**: um usuário é removido do Azure AD.
 
 Dependendo do tipo de operação que você executou, a mensagem irá variar.
 
-## <a name="perform-action-details"></a>Executar detalhes da ação
-Esta seção fornece informações sobre o usuário que foi provisionado ou exportado para o Azure AD depois que a configuração é aplicada.  Esse é o aspecto do usuário quando ele é provisionado no Azure AD.  Clique no link **Exibir detalhes** para exibir essas informações.
-![Executar detalhes da ação](media/how-to-on-demand-provision/on-demand-9.png)
+### <a name="perform-action"></a>Executar ação
+A seção **executar ação** fornece informações sobre o usuário que foi provisionado ou exportado para o Azure ad após a aplicação da configuração. Essa é a aparência do usuário após o provisionamento no Azure AD. Selecione o link **Exibir detalhes** para exibir essas informações.
 
-Usando essas informações, você pode ver os valores dos atributos depois que a configuração é aplicada.  Eles parecem semelhantes ao que foi importado ou são os diferentes?  A configuração se aplica com êxito?  
+![Captura de tela do botão para exibir detalhes sobre uma ação executada.](media/how-to-on-demand-provision/on-demand-9.png)
 
-Esse processo permitirá que você rastreie a transformação do atributo à medida que ele se mover pela nuvem e para seu locatário do Azure AD.
+Usando essas informações, você pode ver os valores dos atributos depois que a configuração foi aplicada. Eles parecem semelhantes ao que foi importado ou são diferentes? A configuração foi aplicada com êxito?  
 
-![atributo de rastreamento](media/how-to-on-demand-provision/on-demand-12.png)
+Esse processo permite que você rastreie a transformação do atributo à medida que ele se move pela nuvem e para seu locatário do Azure AD.
+
+![Captura de tela que mostra detalhes do atributo rastreado.](media/how-to-on-demand-provision/on-demand-12.png)
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
-- [Como instalar Azure AD Connect sincronização de nuvem](how-to-install.md)
+- [O que é a sincronização em nuvem do Azure AD Connect?](what-is-cloud-sync.md)
+- [Instalar a sincronização de nuvem do Azure AD Connect](how-to-install.md)
  

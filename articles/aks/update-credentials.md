@@ -5,16 +5,16 @@ description: Saiba como atualizar ou redefinir as credenciais do aplicativo de e
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 91d40a5a738737098b0941bf3e41e4edd515e6df
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389001"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640484"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais do serviço kubernetes do Azure (AKS)
 
-Por padrão, os clusters do AKS são criados com uma entidade de serviço que tem um tempo de término de um ano. Conforme você se aproxima da data do término, pode redefinir as credenciais para estender a entidade de serviço por um período adicional. Talvez você também deseje atualizar ou girar as credenciais como parte de uma política de segurança definida. Este artigo fornece detalhes de como atualizar essas credenciais para um cluster do AKS.
+Os clusters AKS criados com uma entidade de serviço têm um tempo de expiração de um ano. Conforme você se aproxima da data do término, pode redefinir as credenciais para estender a entidade de serviço por um período adicional. Talvez você também deseje atualizar ou girar as credenciais como parte de uma política de segurança definida. Este artigo fornece detalhes de como atualizar essas credenciais para um cluster do AKS.
 
 Você também pode ter [integrado o cluster AKs com Azure Active Directory][aad-integration]e usá-lo como um provedor de autenticação para o cluster. Nesse caso, você terá mais duas identidades criadas para o cluster, o aplicativo do servidor do AAD e o aplicativo cliente do AAD, também poderá redefinir essas credenciais.
 
@@ -110,7 +110,7 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-Para clusters de tamanho pequeno e médio, leva alguns minutos para que as credenciais da entidade de serviço sejam atualizadas no AKS.
+Para clusters de pequeno e médio porte, levará alguns minutos para que as credenciais da entidade de serviço sejam atualizadas no AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Atualizar o cluster AKS com novas credenciais de aplicativo do AAD
 

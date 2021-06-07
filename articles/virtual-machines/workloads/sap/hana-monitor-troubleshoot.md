@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e560fc996393969eecb45a3fdda24bc940436dc0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 83743a6985bef8ce6c03e01ed8d10aa740852106
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967713"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101668812"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoramento e solução de problemas no lado do HANA
 
@@ -67,7 +66,7 @@ Um alerta disparado devido à alta utilização da CPU pode ser causado por vár
 
 Consulte o site [Solução de problemas do SAP HANA: causas e soluções relacionadas à CPU](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para obter etapas de solução de problemas detalhadas.
 
-## <a name="operating-system"></a>Sistema operacional
+## <a name="operating-system"></a>Sistema Operacional
 
 Uma das verificações mais importantes para o SAP HANA no Linux é certificar-se de que Transparent Huge Pages estejam desabilitadas, consulte a [Nota SAP nº 2131662 – THP (Transparent Huge Pages) em servidores SAP HANA](https://launchpad.support.sap.com/#/notes/2131662).
 

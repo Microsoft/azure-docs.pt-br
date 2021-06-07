@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475532"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200706"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Recupere logs de suas implantações IoT Edge sem precisar de acesso físico ou SSH ao dispositivo usando os métodos diretos incluídos no módulo IoT Edge Agent. Os métodos diretos são implementados no dispositivo e, em seguida, podem ser invocados na nuvem. O agente de IoT Edge inclui métodos diretos que ajudam a monitorar e gerenciar seus dispositivos de IoT Edge remotamente. Os métodos diretos discutidos neste artigo estão geralmente disponíveis com a versão 1.0.10.
 
@@ -33,7 +35,18 @@ Embora não seja necessário, para obter a melhor compatibilidade com esse recur
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` e `{Log Level}` deve seguir a tabela abaixo, que deriva seus níveis de severidade do código de [severidade no padrão de syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Valor | Severidade |
+|-|-|
+| 0 | Emergência |
+| 1 | Alerta |
+| 2 | Crítico |
+| 3 | Erro |
+| 4 | Aviso |
+| 5 | Informativo |
+| 6 | Informativo |
+| 7 | Depurar |
 
 A [classe de agente no IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serve como uma implementação canônica.
 
@@ -63,16 +76,16 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
 | ID | string | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
 | filter | Seção JSON | Filtros de log a serem aplicados aos módulos que correspondem à `id` expressão regular na tupla. |
-| engloba | Número inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
+| engloba | inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
 | since | string | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
 | until | string | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
-| nível de log | Número inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
+| nível de log | inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
 | regex | string | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
 | codificando | string | `gzip` ou `none`. O padrão é `none`. |
 | contentType | string | `json` ou `text`. O padrão é `text`. |
@@ -172,7 +185,7 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -186,7 +199,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -289,7 +302,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -310,7 +323,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
@@ -368,7 +381,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |

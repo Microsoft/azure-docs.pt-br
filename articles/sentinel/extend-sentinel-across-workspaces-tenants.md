@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006676"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100585285"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -35,7 +35,7 @@ Você pode obter o benefício completo da experiência do Azure Sentinel ao usar
 | Propriedade dos dados | Os limites de propriedade de dados, por exemplo, por subsidiárias ou empresas afiliadas, são melhores delineados usando espaços de trabalho separados. |  |
 | Vários locatários do Azure | O Azure Sentinel dá suporte à coleta de dados dos recursos Microsoft e SaaS do Azure somente dentro de seu próprio limite de locatário do Azure Active Directory (AD do Azure). Portanto, cada locatário do Azure AD requer um workspace separado. |  |
 | Controle de acesso a dados granular | Uma organização pode precisar permitir que diferentes grupos, dentro ou fora da organização, acessem alguns dos dados coletados pelo Azure Sentinel. Por exemplo:<br><ul><li>O acesso dos proprietários de recursos aos dados pertencentes aos seus recursos</li><li>Acesso regional ou subsidiário SOCs aos dados relevantes para suas partes da organização</li></ul> | Usar [recurso do Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou do Azure [RBAC de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| Configurações de retenção granulares | Historicamente, vários espaços de trabalho eram a única maneira de definir diferentes períodos de retenção para diferentes tipos de dados. Isso não é mais necessário em muitos casos, graças à introdução das configurações de retenção de nível de tabela. | Usar [as configurações de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatizar a [exclusão de dados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Configurações de retenção granulares | Historicamente, vários espaços de trabalho eram a única maneira de definir diferentes períodos de retenção para diferentes tipos de dados. Isso não é mais necessário em muitos casos, graças à introdução das configurações de retenção de nível de tabela. | Usar [as configurações de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatizar a [exclusão de dados](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Cobrança dividida | Ao colocar espaços de trabalho em assinaturas separadas, eles podem ser cobrados por partes diferentes. | Relatório de uso e cobrança cruzada |
 | Arquitetura herdada | O uso de vários espaços de trabalho pode ser proveniente de um design histórico que levava em consideração as limitações ou as práticas recomendadas que não são mais verdadeiras. Também pode ser uma opção de design arbitrária que pode ser modificada para acomodar melhor o Azure Sentinel.<br><br>Os exemplos incluem:<br><ul><li>Usando um espaço de trabalho padrão por assinatura ao implantar a central de segurança do Azure</li><li>A necessidade de controle de acesso granular ou configurações de retenção, as soluções para as quais são relativamente novas</li></ul> | Rearquitetar workspaces |
 
@@ -81,12 +81,12 @@ O Azure Sentinel dá suporte a uma [exibição de incidentes de vários espaços
 
 ### <a name="cross-workspace-querying"></a>Consulta entre espaços de trabalho
 
-O Azure Sentinel dá suporte à consulta de [vários espaços de trabalho em uma única consulta](../azure-monitor/log-query/cross-workspace-query.md), permitindo que você pesquise e correlacione dados de vários espaços de trabalho em uma única consulta. 
+O Azure Sentinel dá suporte à consulta de [vários espaços de trabalho em uma única consulta](../azure-monitor/logs/cross-workspace-query.md), permitindo que você pesquise e correlacione dados de vários espaços de trabalho em uma única consulta. 
 
-- Use a [expressão Workspace ()](../azure-monitor/log-query/workspace-expression.md) para fazer referência a uma tabela em um espaço de trabalho diferente. 
+- Use a [expressão Workspace ()](../azure-monitor/logs/workspace-expression.md) para fazer referência a uma tabela em um espaço de trabalho diferente. 
 - Use o [operador Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) junto com a expressão de espaço de trabalho () para aplicar uma consulta entre tabelas em vários espaços de trabalho.
 
-Você pode usar [funções](../azure-monitor/log-query/functions.md) salvas para simplificar as consultas entre espaços de trabalho. Por exemplo, se uma referência a um espaço de trabalho for longa, talvez você queira salvar a expressão `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como uma função chamada `SecurityEventCustomerA` . Em seguida, você pode escrever consultas como `SecurityEventCustomerA | where ...` .
+Você pode usar [funções](../azure-monitor/logs/functions.md) salvas para simplificar as consultas entre espaços de trabalho. Por exemplo, se uma referência a um espaço de trabalho for longa, talvez você queira salvar a expressão `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como uma função chamada `SecurityEventCustomerA` . Em seguida, você pode escrever consultas como `SecurityEventCustomerA | where ...` .
 
 Uma função também pode simplificar uma União comumente usada. Por exemplo, você pode salvar a seguinte expressão como uma função chamada `unionSecurityEvent` :
 

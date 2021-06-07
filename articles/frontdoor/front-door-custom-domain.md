@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: e153edd807dcb119c34f60dc34e33fed510916bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011516"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550754"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao seu Front Door
+
 Este tutorial mostra como adicionar um domínio personalizado ao seu Front Door. Quando você usa o Azure Front Door para distribuir aplicativo, um domínio personalizado será necessário se você quiser que seu próprio nome de domínio fique visível na solicitação do usuário final. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual.
 
 Após você criar um Front Door, o host de front-end padrão, que é um subdomínio de `azurefd.net`, é incluído na URL para distribuir conteúdo do Front Door de seu back-end por padrão (por exemplo, https:\//contoso-frontend.azurefd.net/activeusers.htm). Para sua conveniência, o Azure Front Door oferece a opção de associar um domínio personalizado ao host padrão. Com essa opção, você distribui seu conteúdo com um domínio personalizado na URL, em vez de um nome de domínio de propriedade do Front Door (por exemplo, https:\//www.contoso.com/photo.png). 
@@ -69,7 +70,7 @@ Para criar um registro CNAME com o subdomínio afdverify:
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Origem: Insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _&lt;nome de domínio personalizado&gt;_ . Por exemplo, afdverify. www.contoso.com.
+    - Origem: Insira o nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _&lt;nome de domínio personalizado&gt;_ . Por exemplo, afdverify. www.contoso.com. Se você estiver mapeando um domínio curinga, como \*.contoso.com, o valor de origem será o mesmo que seria sem o curinga: afdverify.contoso.com.
 
     - Tipo: Insira *CNAME*.
 

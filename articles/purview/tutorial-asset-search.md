@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693338"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101677844"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutorial: Navegar até a home page do Azure Purview (versão prévia) e pesquisar um ativo
 
@@ -45,7 +45,7 @@ As etapas a seguir percorrerão a home page do Azure Purview.
 
 1. Navegue até o recurso do Azure Purview no portal do Azure e selecione **Abrir o Purview Studio**. Você é direcionado automaticamente para a home page do Purview Studio.
 
-   A parte superior da home page exibe o nome do seu catálogo e um conjunto de análises de catálogo. Estão incluídos o número de usuários, os ativos de dados e os termos do glossário. No resumo, você pode ver que há mais de 200 ativos no total e 113 termos de glossário. Esse número é atualizado à medida que sua organização examina e adiciona mais termos ao Azure Purview.
+   A parte superior da home page exibe o nome do seu catálogo e um conjunto de análises de catálogo. Estão incluídos o número de fontes, os ativos de dados e os termos do glossário. No resumo, você pode ver que há mais de 200 ativos no total e 113 termos de glossário. Esse número é atualizado à medida que sua organização examina e adiciona mais termos ao Azure Purview.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Captura de tela mostrando a home page do Azure Purview.":::
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019068"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101706751"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -54,7 +54,7 @@ Pegue estes enunciados de exemplo:
 |Quero obter um computador, como faço isso?|
 |Quando posso ter um computador?|
 
-O termo principal aqui, "Computer", não é variado. Use alternativas como computadores, laptops, estações de trabalho ou até mesmo máquinas. O LUIS pode inferir de forma inteligente sinônimos do contexto, mas quando você cria declarações para treinamento, é sempre melhor adaptá-los.
+O termo principal aqui, *computador*, não é variado. Use alternativas como computadores, laptops, estações de trabalho ou até mesmo máquinas. O LUIS pode inferir de forma inteligente sinônimos do contexto, mas quando você cria declarações para treinamento, é sempre melhor adaptá-los.
 
 ## <a name="example-utterances-in-each-intent"></a>Enunciados de exemplo em cada intenção
 

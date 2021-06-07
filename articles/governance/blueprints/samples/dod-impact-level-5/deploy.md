@@ -1,14 +1,14 @@
 ---
 title: Modelo do blueprint do Nível de Impacto 5 do DoD
 description: Etapas de implantação do modelo de blueprint do Nível de Impacto 5 do DoD, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 6136136eef5d405ae0849e5ce8c8faede138fb00
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: d9292a9033a3c0b92e1a00c63d74bd1fb6023794
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034893"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386708"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Implantar o modelo de blueprint do Nível de Impacto 5 do DoD
 

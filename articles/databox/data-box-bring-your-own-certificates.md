@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1836ed57305fd7e168961eb81670b56d4ce296cd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516463"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100545166"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Use seus próprios certificados com dispositivos Data Box e Data Box Heavy
 
@@ -44,13 +44,13 @@ Os certificados devem atender aos seguintes requisitos:
 - Os certificados devem ser alterados se o nome do dispositivo ou o nome de domínio DNS for alterado.
 - Use a tabela a seguir ao criar certificados de ponto de extremidade:
 
-  |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+  |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
   |---------|---------|---------|---------|
   |Interface do usuário local| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
-  |Armazenamento de blob|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+  |Armazenamento de Blobs|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
   |Certificado único de várias SANs|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
-Para obter mais informações, consulte [requisitos de certificado](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md).
+Para obter mais informações, consulte [requisitos de certificado](../../articles/databox-online/azure-stack-edge-gpu-certificate-requirements.md).
 
 ## <a name="add-certificates-to-device"></a>Adicionar certificados ao dispositivo
 

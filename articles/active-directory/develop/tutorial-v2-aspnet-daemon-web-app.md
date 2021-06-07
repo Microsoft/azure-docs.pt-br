@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5816bc542ff550accedd33ba9a7fd9d98583b3d1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103015"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101653755"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
@@ -237,8 +237,8 @@ Quando não for mais necessário, exclua o objeto de aplicativo criado na etapa 
 
 ## <a name="get-help"></a>Obter ajuda
 
-Use o [Microsoft Q&A](https://docs.microsoft.com/answers/products/) para obter suporte da comunidade.
-Faça suas perguntas primeiro no [Microsoft Q&A](https://docs.microsoft.com/answers/products/) e navegue pelos problemas existentes para ver se alguém já fez sua pergunta antes.
+Use o [Microsoft Q&A](/answers/products/) para obter suporte da comunidade.
+Faça suas perguntas primeiro no [Microsoft Q&A](/answers/products/) e navegue pelos problemas existentes para ver se alguém já fez sua pergunta antes.
 Verifique se suas perguntas ou comentários estão marcados com "azure-ad-adal-deprecation", "azure-ad-msal" e "dotnet-standard".
 
 Se você encontrar um bug no exemplo, crie um registro do problema em [Problemas do GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).

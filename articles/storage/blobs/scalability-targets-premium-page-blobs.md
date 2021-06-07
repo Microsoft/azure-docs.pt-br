@@ -10,10 +10,10 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 23a176bfa5e3861dbc4ad5c03ea54fc847d3f56b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96922533"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Escalabilidade e metas de desempenho para contas de armazenamento de blob de página Premium
@@ -43,7 +43,7 @@ Se você estiver usando contas de armazenamento de blobs de páginas Premium par
 
 Se você não puder migrar para o Managed disks, crie seu aplicativo para usar várias contas de armazenamento e particione seus dados entre essas contas de armazenamento. Por exemplo, se você quiser anexar discos de 51 TB em várias VMs, separe-as entre duas contas de armazenamento. O limite para uma conta de armazenamento único premium é de 35 TB. Certifique-se de que uma única conta de armazenamento de desempenho premium nunca tenha mais de 35 TB de discos provisionados.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md)
 - [Metas de escalabilidade para contas de armazenamento de blob de blocos Premium](../blobs/scalability-targets-premium-block-blobs.md)

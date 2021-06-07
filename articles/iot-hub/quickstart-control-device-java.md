@@ -16,12 +16,12 @@ ms.custom:
 - devx-track-java
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 04a685969097af5c6930fecafb1afad9666250de
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 33952f34170b84650b39fceae0953b3bcdd12c51
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070671"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059761"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT do Azure com Java
 
@@ -33,7 +33,7 @@ Neste início rápido, você usa um método direto para controlar um dispositivo
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?view=azure-java-stable), em **Suporte de longo prazo**, selecione **Java 8**.
+* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/), em **Suporte de longo prazo**, selecione **Java 8**.
 
     Verifique a versão atual do Java no computador de desenvolvimento usando o seguinte comando:
 

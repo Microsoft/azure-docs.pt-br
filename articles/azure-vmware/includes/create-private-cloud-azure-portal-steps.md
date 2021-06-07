@@ -1,14 +1,14 @@
 ---
-title: Implantar a Solução VMware no Azure
-description: Etapas para implantar a Solução VMware no Azure usando o portal do Azure.
+title: Criar uma nuvem privada da Solução VMware no Azure
+description: Etapas para criar uma nuvem privada da Solução VMware no Azure usando o portal do Azure.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: da79881e609f982960468a8f26c98178f972ad43
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578301"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101725383"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -26,8 +26,6 @@ ms.locfileid: "91578301"
    | **Nome do recurso** | O nome da sua nuvem privada da Solução VMware no Azure. |
    | **SKU** | Selecione o seguinte valor do SKU: AV36 |
    | **Hosts** | O número de hosts a serem adicionados ao cluster da nuvem privada. O valor padrão é 3, que pode ser aumentado ou reduzido após a implantação.  |
-   | **Senha de administrador do vCenter** | Insira uma senha de administrador da nuvem. |
-   | **Senha do NSX-T Manager** | Insira uma senha de administrador do NSX-T. |
    | **Bloco de endereços** | Insira um bloco de endereços IP para a rede CIDR da nuvem privada, por exemplo, 10.175.0.0/22. |
    | **Rede Virtual** | Selecione uma rede virtual ou crie uma para a nuvem privada da Solução VMware no Azure.  |
 
@@ -40,4 +38,4 @@ ms.locfileid: "91578301"
 
 1. Verifique se a implantação foi bem-sucedida. Navegue até o grupo de recursos que você criou e selecione sua nuvem privada.  Você verá o status **Com êxito** quando a implantação for concluída. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Na guia Básico, insira valores para os campos." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verifique se a implantação foi bem-sucedida." border="true":::

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 9636c8cbb517c7aece450f53cfc37e4ddd9803b7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92455486"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Comm100 Live Chat
@@ -49,16 +49,16 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Comm100 Live Chat ao Azure AD, você precisa adicionar o Comm100 Live Chat da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da por meio da galeria** , digite **Comm100 Live Chat** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da por meio da galeria**, digite **Comm100 Live Chat** na caixa de pesquisa.
 1. Selecione **Comm100 Live Chat** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-comm100-live-chat"></a>Configurar e testar o logon único do Azure AD para o Comm100 Live Chat
 
-Configure e teste o SSO do Azure AD com o Comm100 Live Chat usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Comm100 Live Chat.
+Configure e teste o SSO do Azure AD com o Comm100 Live Chat usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Comm100 Live Chat.
 
 Para configurar e testar o SSO do Azure AD com o Comm100 Live Chat, conclua os seguintes blocos de construção:
 
@@ -73,15 +73,15 @@ Para configurar e testar o SSO do Azure AD com o Comm100 Live Chat, conclua os s
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Comm100 Live Chat** , localize a seção **Gerenciar** e selecione **Logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Comm100 Live Chat**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
 
     > [!NOTE] 
     > O valor da URL de logon não é real. Você atualizará o valor da URL de Logon com a URL de Logon real, que será explicada posteriormente no tutorial.
@@ -96,11 +96,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | ---------------| --------------- |
     |   email    | user.mail |
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar Comm100 Live Chat** , copie a URL adequada conforme suas necessidades.
+1. Na seção **Configurar Comm100 Live Chat**, copie a URL adequada conforme suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -108,41 +108,41 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você deve habilitar B.Fernandes a usar logon único do Azure, concedendo acesso ao Comm100 a Chat ao vivo.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Comm100 Live Chat** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Comm100 Live Chat**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-comm100-live-chat-sso"></a>Configurar SSO do Comm100 Live Chat
 
 1. Em uma janela do navegador da Web diferente, entre no Comm100 Live Chat como um administrador de segurança.
 
-1. No canto superior direito da página, clique em **Minha conta** .
+1. No canto superior direito da página, clique em **Minha conta**.
 
    ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-1. Do lado esquerdo do menu, clique em **Segurança** e, em seguida, clique em **Logon Único do Agente** .
+1. Do lado esquerdo do menu, clique em **Segurança** e, em seguida, clique em **Logon Único do Agente**.
 
    ![Captura de tela que mostra o menu da conta do lado esquerdo com "Segurança" e "Logon Único do Agente" realçados.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
@@ -152,13 +152,13 @@ Nesta seção, você deve habilitar B.Fernandes a usar logon único do Azure, co
 
    a. Copie o primeiro link realçado e cole-o na caixa de texto **URL de Logon** na seção **Configuração Básica do SAML** no portal do Azure.
 
-   b. Na caixa de texto **URL do SSO SAML** , cole o valor de **URL de logon** , copiado do portal do Azure.
+   b. Na caixa de texto **URL do SSO SAML**, cole o valor de **URL de logon**, copiado do portal do Azure.
 
-   c. Na caixa de texto **URL de logoff remoto** , cole o valor da **URL de logoff** que você copiou do portal do Azure.
+   c. Na caixa de texto **URL de logoff remoto**, cole o valor da **URL de logoff** que você copiou do portal do Azure.
 
-   d. Clique em **escolher um arquivo** para carregar base 64 codificados certificado que você baixou do portal do Azure, para o **certificado** .
+   d. Clique em **escolher um arquivo** para carregar base 64 codificados certificado que você baixou do portal do Azure, para o **certificado**.
 
-   e. Clique em **Salvar Alterações** .
+   e. Clique em **Salvar Alterações**.
 
 ### <a name="create-comm100-live-chat-test-user"></a>Criar usuário de teste do Comm100 Live Chat
 
@@ -168,11 +168,11 @@ Para permitir que os usuários do Azure AD entrem no Comm100 Live Chat, eles dev
 
 1. Entre no Comm100 Live Chat como um administrador de segurança.
 
-2. No canto superior direito da página, clique em **Minha conta** .
+2. No canto superior direito da página, clique em **Minha conta**.
 
     ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-3. Do lado esquerdo do menu, clique em **Agents** e, em seguida, clique em **New Agent** .
+3. Do lado esquerdo do menu, clique em **Agents** e, em seguida, clique em **New Agent**.
 
     ![Agente do Chat ao vivo do Comm100](./media/comm100livechat-tutorial/tutorial_comm100livechat_agent.png)
 
@@ -180,15 +180,15 @@ Para permitir que os usuários do Azure AD entrem no Comm100 Live Chat, eles dev
 
     ![Chat ao vivo do Comm100 novo agente](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. Na caixa de texto **Email** , insira o email do usuário como **B.fernandes\@contoso.com** .
+    a. a. Na caixa de texto **Email**, insira o email do usuário como **B.fernandes\@contoso.com**.
 
-    b. Na caixa de texto **Nome** , insira o nome do usuário como **B** .
+    b. Na caixa de texto **Nome**, insira o nome do usuário como **B**.
 
-    c. Na **Sobrenome** texto, digite o sobrenome do usuário, como **simon** .
+    c. Na **Sobrenome** texto, digite o sobrenome do usuário, como **simon**.
 
-    d. Na caixa de texto **Nome de Exibição** , insira o nome de exibição do usuário como **B.fernandes**
+    d. Na caixa de texto **Nome de Exibição**, insira o nome de exibição do usuário como **B.fernandes**
 
-    e. Na caixa de texto **Senha** , digite sua senha.
+    e. Na caixa de texto **Senha**, digite sua senha.
 
     f. Clique em **Save** (Salvar).
 

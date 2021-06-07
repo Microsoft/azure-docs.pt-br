@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.openlocfilehash: 14760b4244d42e57aaed7f7d96f487a66147a554
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359499"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Use portal do Azure para configurar um grupo de disponibilidade (versão prévia) para SQL Server na VM do Azure 
@@ -169,7 +169,7 @@ Para adicionar mais SQL Server VMs ao cluster, siga estas etapas:
 
 1. Expanda **as credenciais do cluster de failover do Windows Server** e insira nas contas usadas para o serviço de SQL Server, o operador de cluster e as contas de inicialização de cluster. 
 1. Selecione as VMs SQL Server que você deseja adicionar ao cluster. 
-1. Selecione **Aplicar**. 
+1. Escolha **Aplicar**. 
 
 Você pode verificar o status de sua implantação no **log de atividades** , que é acessível do ícone de sino na barra de navegação superior. 
 

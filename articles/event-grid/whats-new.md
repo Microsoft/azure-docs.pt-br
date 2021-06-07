@@ -3,12 +3,12 @@ title: Quais são as novidades? Notas sobre a versão – Grade de Eventos do Az
 description: Conheça as novidades da Grade de Eventos do Azure, como as últimas notas sobre a versão, problemas conhecidos, correções de bugs, funcionalidades preteridas e alterações futuras.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350000"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107526"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>O que há de novo na Grade de Eventos do Azure?
 
@@ -73,14 +73,14 @@ A Grade de Eventos do Azure é aprimorada continuamente. Para se manter atualiza
 - Esta versão corresponde à versão da API `2019-06-01`.
 - Ela adiciona suporte às seguintes novas funcionalidades:
     * [Domínios](event-domains.md)
-    * Paginação e filtro de pesquisa para operações de lista de recursos. Para obter um exemplo, confira [Tópicos – Listar por assinatura](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginação e filtro de pesquisa para operações de lista de recursos. Para obter um exemplo, confira [Tópicos – Listar por assinatura](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Fila do Barramento de Serviço como destino](handler-service-bus.md)
     * [Filtragem avançada](event-filtering.md#advanced-filtering)
 
 ## <a name="410-preview-2019-03"></a>4.1.0-preview (2019-03)
 - Esta versão corresponde à versão da API 2019-02-01-preview.
 - Ela adiciona suporte às seguintes novas funcionalidades:
-    * Paginação e filtro de pesquisa para operações de lista de recursos. Para obter um exemplo, confira [Tópicos – Listar por assinatura](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
+    * Paginação e filtro de pesquisa para operações de lista de recursos. Para obter um exemplo, confira [Tópicos – Listar por assinatura](/rest/api/eventgrid/version2020-10-15-preview/partnernamespaces/listbysubscription).
     * [Criação/exclusão manual de tópicos do domínio](how-to-event-domains.md)
     * [Fila do Barramento de Serviço como destino](handler-service-bus.md)
 

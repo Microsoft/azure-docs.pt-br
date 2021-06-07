@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 03/29/2021
 ms.author: chrande
 ms.custom: devx-track-python
-ms.openlocfilehash: 91b04b05b810b2b0fc221943a73e81c49f7119dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cef397789d5ebcfa95c01e42dac9a80b9e1564e0
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972400"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106918"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Início Rápido: Criar um banco de dados de grafo no Azure Cosmos DB usando o Python e o portal do Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,7 +32,7 @@ Neste início rápido, você criará e gerenciará uma conta da API do Gremlin p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Ou então [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure.
-- [Python 3.5 e posterior](https://www.python.org/downloads/), incluindo o instalador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/).
+- O [Python 3.6+](https://www.python.org/downloads/), incluindo o instalador de pacotes [pip](https://pip.pypa.io/en/stable/installing/).
 - [Driver do Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
 - [Git](https://git-scm.com/downloads).
 
@@ -56,16 +56,16 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "./git-samples"
     ```
 
 2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para uma pasta para instalar o aplicativo de exemplo.  
 
     ```bash
-    cd "C:\git-samples"
+    cd "./git-samples"
     ```
 
-3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador. 
+3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-python-getting-started.git
@@ -73,14 +73,14 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Os snippets foram todos obtidos do arquivo *connect.py* na pasta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Os snippets foram todos obtidos do arquivo *connect.py* na pasta *C:\git-samples\azure-cosmos-db-graph-python-getting-started\\* . Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information).
 
-* O `client` do Gremlin é inicializado na linha 104 em *connect.py*:
+* O `client` do Gremlin é inicializado na linha 155 em *connect.py*. Certifique-se de substituir `<YOUR_DATABASE>` e `<YOUR_CONTAINER_OR_GRAPH>` pelos valores do nome do banco de dados da sua conta e do nome do grafo:
 
     ```python
     ...
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
-        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_CONTAINER_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
     ```
@@ -101,7 +101,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
     :::image type="content" source="./media/create-graph-python/keys.png" alt-text="Exibir e copiar uma chave de acesso no Portal do Azure, na página Chaves":::
 
-2. Abra o arquivo *connect.py* e, na linha 104, cole o valor de URI em `<YOUR_ENDPOINT>` aqui:
+2. Abra o arquivo *connect.py* e, na linha 155, cole o valor de URI em `<YOUR_ENDPOINT>` aqui:
 
     ```python
     client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
@@ -145,7 +145,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 1. Na janela do terminal git, `cd` para a pasta azure-cosmos-db-graph-python-getting-started.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-graph-python-getting-started"
+    cd "./git-samples\azure-cosmos-db-graph-python-getting-started"
     ```
 
 2. Na janela do terminal git, use o seguinte comando para instalar os pacotes necessários do Python.

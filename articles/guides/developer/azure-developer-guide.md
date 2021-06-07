@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1c28ed90c041a65b2ff8dd08a3aac799795171eb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 12b90bf709cb20bed844940570663a76052a540d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897452"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101738932"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -41,7 +41,7 @@ O Azure oferece serviços que dão suporte ao desenvolvimento de aplicativos e n
 
 ![Opções de hospedagem de aplicativo do Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
-#### <a name="azure-app-service"></a>Serviço de Aplicativo do Azure
+#### <a name="azure-app-service"></a>Serviço de aplicativo do Azure
 
 Ao buscar o caminho mais rápido para publicar seus projetos baseados na web, considere o Serviço de Aplicativo do Azure. O Serviço de Aplicativo facilita a extensão de seus aplicativos Web para oferecer suporte aos clientes móveis e publicar facilmente as APIs REST consumidas. Essa plataforma fornece autenticação utilizando provedores sociais, dimensionamento automático baseado em tráfego, teste em produção e implantações baseadas em contêiner e contínuas.
 
@@ -63,7 +63,7 @@ O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a 
 
 Como um provedor da IaaS (Infraestrutura como Serviço), o Azure permite implantar ou migrar seu aplicativo para VMs Linux ou Windows. Juntamente com a Rede Virtual do Azure, as Máquinas Virtuais do Azure dão suporte para a implantação de VMs Linux ou Windows para o Azure. Com VMs, você tem total controle sobre a configuração da máquina. Ao usar VMs, você é responsável por toda a instalação de software do servidor, configuração, manutenção e patches do sistema operacional.
 
-Devido ao nível de controle que você tem com VMs, você pode executar uma ampla gama de cargas de trabalho de servidor no Azure que não se ajustam a um modelo de PaaS. Essas cargas de trabalho incluem servidores de banco de dados, Windows Server Active Directory e Microsoft SharePoint. Para obter mais informações, consulte a documentação sobre Máquinas Virtuais para [Linux](../../virtual-machines/linux/index.yml) ou [Windows](../../virtual-machines/windows/index.yml).
+Devido ao nível de controle que você tem com VMs, você pode executar uma ampla gama de cargas de trabalho de servidor no Azure que não se ajustam a um modelo de PaaS. Essas cargas de trabalho incluem servidores de banco de dados, Windows Server Active Directory e Microsoft SharePoint. Para obter mais informações, consulte a documentação sobre Máquinas Virtuais para [Linux](../../virtual-machines/index.yml) ou [Windows](../../virtual-machines/index.yml).
 
 > **Quando utilizar**: utilize Máquinas Virtuais quando quiser ter um controle total sobre a infraestrutura do aplicativo ou migrar cargas de trabalho do aplicativo local para o Azure sem precisar fazer alterações.
 >
@@ -306,13 +306,13 @@ Quando você permite o acesso aos recursos do Azure, é sempre uma prática reco
 
   > **Quando usar**: quando você precisa de gerenciamento de acesso refinado para usuários e grupos ou quando precisa transformar um usuário em proprietário de uma assinatura.
   >
-  > **Introdução**: para saber mais, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+  > **Introdução**: para saber mais, confira [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 - **Objetos de entidade de serviço**: junto com o fornecimento de acesso a entidades de usuário e grupos, você pode conceder o mesmo acesso a uma entidade de serviço.
 
   > **Quando usar**: quando você estiver gerenciando programaticamente recursos do Azure ou concedendo acesso para aplicativos. Para obter mais informações, consulte [Criar entidade de serviço e aplicativo do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Marcações
+#### <a name="tags"></a>Marcas
 
 O Azure Resource Manager permite atribuir marcas personalizadas para recursos individuais. As marcas, que são pares chave-valor, podem ser úteis quando for necessário organizar recursos para cobrança ou monitoramento. As marcas fornecem uma maneira de rastrear recursos em vários grupos de recursos. Você pode atribuir marcas das seguintes maneiras:
 
@@ -320,7 +320,7 @@ O Azure Resource Manager permite atribuir marcas personalizadas para recursos in
 * No modelo de Azure Resource Manager
 * Usando a API REST
 * Usando a CLI do Azure
-* Usar o PowerShell
+* Usando o PowerShell
 
 Além disso, é possível atribuir várias marcas para cada recurso. Para saber mais, consulte [Usando marcas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md).
 

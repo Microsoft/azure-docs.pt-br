@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603149"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>Visão geral do suporte do Hub IoT MQTT 5 (versão prévia)
@@ -172,7 +172,7 @@ O servidor pode se desconectar com qualquer código de motivo definido na especi
 - `159` (Taxa de conexão excedida) quando a taxa de conexão para o Hub IoT excede  
 - `131` (Erro específico da implementação) é usado para quaisquer erros personalizados definidos nesta API. `status``reason`as propriedades e serão usadas para comunicar mais detalhes sobre a causa da desconexão (consulte a [resposta](#response) para obter detalhes).
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 Todas as funcionalidades nessa API são expressas como operações. Aqui está um exemplo de operação de envio de telemetria:
 

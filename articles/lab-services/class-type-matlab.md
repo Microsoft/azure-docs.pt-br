@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444991"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Configurar um laboratório para ensinar o MATLAB
@@ -88,7 +88,7 @@ Depois que os arquivos são baixados, a segunda etapa é executar o instalador. 
 3. Na página **entrar em sua conta do MathWorks** , insira sua conta do MathWorks.
 4. Na página **contrato de licença do MathWorks** , aceite o termo e clique no botão **Avançar** .
 5. Clique na lista suspensa **Opções avançadas** e escolha **uma chave de instalação de arquivo**.
-6. Na página **instalar usando a chave de instalação de arquivo** , insira a chave de instalação do arquivo para o servidor de licença.   Clique em **Avançar**.
+6. Na página **instalar usando a chave de instalação de arquivo** , insira a chave de instalação do arquivo para o servidor de licença.   Clique em **Próximo**.
 7. Na página **Selecionar arquivo de licença** , navegue até o arquivo de licença salvo ao baixar os arquivos de instalação anteriormente.
 8. Na página **Selecionar pasta de destino** , clique em **Avançar**.
 9. Na página **selecionar produtos** , clique em **Avançar**.

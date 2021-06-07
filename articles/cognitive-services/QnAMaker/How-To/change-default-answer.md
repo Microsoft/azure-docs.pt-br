@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96346113"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso de QnA Maker

@@ -7,7 +7,6 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 043d450a1b968174ad263579d39de06a296a98e4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
-ms.translationtype: MT
+ms.openlocfilehash: 2ff643c39820fa529c8678c7a36881dd25da354c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741460"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762489"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
@@ -40,7 +39,7 @@ Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Este artigo requer a versão 2.0.28 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -53,7 +52,7 @@ az group create \
   --location eastus
 ```
 
-Crie uma tabela de rotas com [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). O exemplo a seguir cria uma tabela de rotas nomeada *myRouteTablePublic*. 
+Crie uma tabela de rotas com [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). O exemplo a seguir cria uma tabela de rotas nomeada *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -64,7 +63,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>Criar uma rota
 
-Crie uma rota na tabela de rotas com [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Crie uma rota na tabela de rotas com [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \
@@ -210,7 +209,7 @@ Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da int
 
 ## <a name="route-traffic-through-an-nva"></a>Rotear o tráfego por meio de uma NVA
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público de sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -269,7 +268,7 @@ Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado d
 
 Feche as sessões SSH para as VMs *myVmPublic* e *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 

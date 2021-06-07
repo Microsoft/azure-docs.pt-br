@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.subservice: application-insights
-ms.openlocfilehash: 8da719f399c0c49efd478f05a0114d85233c880f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0a18088fa434efa76007607c067feec107bdae57
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100572363"
 ---
 # <a name="application-insights-standard-metrics"></a>Application Insights métricas padrão
 
@@ -25,7 +25,7 @@ A métrica de *disponibilidade* mostra a porcentagem de execuções de teste na 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Porcentagem|Média|`Run location`, `Test name`|
+|Percentual|Média|`Run location`, `Test name`|
 
 
 ### <a name="availability-test-duration-availabilityresultsduration"></a>Duração do teste de disponibilidade (availabilityResults/Duration)
@@ -172,7 +172,7 @@ A métrica mostra quanto da capacidade total do processador é consumida pelo pr
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, máx., mín.| `Cloud role instance` |
+|Percentual|Média, máx., mín.| `Cloud role instance` |
 
 
 ### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>Taxa de e/s de processo (performanceCounters/processIOBytesPerSecond)
@@ -197,7 +197,7 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|`Cloud role instance` |
+|Percentual|Média, mín., máx.|`Cloud role instance` |
 
 >[!NOTE]
 > A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica  [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.
@@ -273,4 +273,4 @@ A contagem de instruções de rastreamento registradas com o TrackTrace () Appli
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [métricas baseadas em log e previamente agregadas](./pre-aggregated-metrics-log-metrics.md).
-* [Consultas e definições de métricas baseadas em log](../platform/app-insights-metrics.md).
+* [Consultas e definições de métricas baseadas em log](../essentials/app-insights-metrics.md).

@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92487680"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Início Rápido: Compartilhar dados usando o Azure Data Share e um modelo do ARM
@@ -69,12 +69,12 @@ Isso ocorre porque a implantação está tentando criar o conjunto de dados ante
     [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Selecione ou insira os valores a seguir:
 
-    * **Assinatura** : selecione uma assinatura do Azure usada para criar o compartilhamento de dados e os outros recursos.
-    * **Grupo de recursos** : selecione **Criar** para criar um grupo de recursos ou selecione um existente.
-    * **Local** : selecione um local para o grupo de recursos.
-    * **Nome do projeto** : insira um nome para o projeto.  O nome do projeto é usado para gerar nomes de recursos.  Consulte as definições de variáveis no modelo anterior.
-    * **local** : selecione um local para os recursos.  Você pode usar o mesmo local do grupo de recursos.
-    * **Email de convite** : insira o endereço de email de logon do Azure do destinatário do compartilhamento de dados.  O alias de email não funciona.
+    * **Assinatura**: selecione uma assinatura do Azure usada para criar o compartilhamento de dados e os outros recursos.
+    * **Grupo de recursos**: selecione **Criar** para criar um grupo de recursos ou selecione um existente.
+    * **Local**: selecione um local para o grupo de recursos.
+    * **Nome do projeto**: insira um nome para o projeto.  O nome do projeto é usado para gerar nomes de recursos.  Consulte as definições de variáveis no modelo anterior.
+    * **local**: selecione um local para os recursos.  Você pode usar o mesmo local do grupo de recursos.
+    * **Email de convite**: insira o endereço de email de logon do Azure do destinatário do compartilhamento de dados.  O alias de email não funciona.
 
     Use o valor padrão para o restante das configurações.
 1. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**.
@@ -84,7 +84,7 @@ Isso ocorre porque a implantação está tentando criar o conjunto de dados ante
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Abra a conta do compartilhamento de dados que você criou.
 1. No menu esquerdo, selecione **Enviar compartilhamentos**.  Você verá a conta de armazenamento listada.
-1. Selecione a conta de armazenamento.  Em **Detalhes** , você verá a configuração de sincronização conforme definida no modelo.
+1. Selecione a conta de armazenamento.  Em **Detalhes**, você verá a configuração de sincronização conforme definida no modelo.
 
     ![Configurações de sincronização da Conta de Armazenamento do Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Selecione **Convites** na parte superior. Você verá o endereço de email que especificou ao implantar o modelo. O **Status** deverá ser **Pendente**.

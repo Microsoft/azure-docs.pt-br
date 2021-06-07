@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18,references_regions
 ms.openlocfilehash: 646d29e72b91cd6afcde8e70ad8fd8715442b88e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786784"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
@@ -63,7 +63,7 @@ As regiões disponíveis para **reconhecimento de intenção** por meio do SDK d
 | América do Norte | Centro-Oeste dos EUA  | `westcentralus`      |
 | América do Norte | Oeste dos EUA          | `westus`             |
 | América do Norte | Oeste dos EUA 2        | `westus2`            |
-| América do Sul | Sul do Brasil     | `brazilsouth`        |
+| América do Sul | Brazil South     | `brazilsouth`        |
 
 Este é um subconjunto das regiões de publicação compatíveis com o [LUIS (Serviço Inteligente de Reconhecimento Vocal)](../luis/luis-reference-regions.md).
 

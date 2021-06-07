@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c411250f7d850e56c9c54c27e888cba8f3acfece
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 512ae470d3c9068b9d284095a18013fc84dbf36e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522199"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232538"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colabore com outros autores e editores
 
@@ -18,14 +18,14 @@ Colabore com outros autores e editores usando o Azure RBAC (controle de acesso b
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>O acesso é fornecido no recurso de QnA Maker
 
-Todas as permissões são controladas pelas permissões colocadas no recurso de QnA Maker. Essas permissões se alinham a leitura, gravação, publicação e acesso completo.
+Todas as permissões são controladas pelas permissões colocadas no recurso de QnA Maker. Essas permissões se alinham a leitura, gravação, publicação e acesso completo. Você pode permitir a colaboração entre vários usuários [atualizando o acesso de RBAC](../how-to/manage-qna-maker-app.md) para QnA Maker recurso.
 
 Esse recurso do RBAC do Azure inclui:
 * Azure Active Directory (AAD) é 100% compatível com versões anteriores com autenticação baseada em chave para proprietários e colaboradores. Os clientes podem usar a autenticação baseada em chave ou a autenticação baseada no RBAC do Azure em suas solicitações.
 * Adicione rapidamente autores e editores a todas as bases de dados de conhecimento no recurso porque o controle está no nível de recurso, não no nível da base de dados de conhecimento.
 
 > [!NOTE]
-> Certifique-se de adicionar um subdomínio personalizado para o recurso. O [subdomínio personalizado](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) deve estar presente por padrão, mas, se não estiver, adicione-o
+> Certifique-se de adicionar um subdomínio personalizado para o recurso. O [subdomínio personalizado](../../cognitive-services-custom-subdomains.md) deve estar presente por padrão, mas, se não estiver, adicione-o
 
 ## <a name="access-is-provided-by-a-defined-role"></a>O acesso é fornecido por uma função definida
 

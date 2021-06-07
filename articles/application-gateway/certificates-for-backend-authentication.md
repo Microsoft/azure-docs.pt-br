@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397715"
 ---
-# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com Aplicativo Azure gateway
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com o Gateway de Aplicativo do Azure
 
 Para fazer o TLS de ponta a ponta, o gateway de aplicativo requer que as instâncias de back-end sejam permitidas carregando autenticação/certificados raiz confiáveis. Para a SKU v1, os certificados de autenticação são necessários, mas para os certificados de raiz confiáveis de SKU v2 são necessários para permitir os certificados.
 
@@ -47,11 +47,11 @@ Em seu certificado TLS/SSL, exporte o arquivo. cer de chave pública (não a cha
 
    ![Não exportar a chave privada](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. Na página **Exportar Formato de Arquivo** , selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
+4. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
 
    ![Codificado em Base 64](./media/certificates-for-backend-authentication/base64.png)
 
-5. Para o **Arquivo a ser Exportado** , use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo** , dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
+5. Para o **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
 
    ![Captura de tela mostra o assistente para exportação de certificados em que você especifica um arquivo a ser exportado.](./media/certificates-for-backend-authentication/browse.png)
 

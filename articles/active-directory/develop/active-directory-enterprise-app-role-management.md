@@ -10,14 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104341"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101648808"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -27,6 +27,9 @@ Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de de
 
 - Uma assinatura do Microsoft Azure AD com configuração de diretório.
 - Uma assinatura com logon único habilitado. Você precisa configurar o SSO com o aplicativo.
+
+> [!NOTE]
+> Este artigo explica como criar/atualizar/excluir funções de aplicativo na entidade de serviço usando APIs no Azure AD. Se você quiser usar a nova interface do usuário para funções de aplicativo, consulte os detalhes [aqui](./howto-add-app-roles-in-azure-ad-apps.md).
 
 ## <a name="when-to-use-this-feature"></a>Quando usar esse recurso
 

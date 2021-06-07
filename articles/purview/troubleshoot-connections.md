@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c176fcafe13749ba89c04b34854f036aa5aea516
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526845"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101677656"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solucionar problemas de conexões no Azure alcance
 
@@ -34,7 +34,7 @@ Há instruções específicas para cada tipo de fonte:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
 ## <a name="storing-your-credential-in-your-key-vault-and-using-the-right-secret-name-and-version"></a>Armazenando suas credenciais no cofre de chaves e usando o nome e a versão corretos do segredo
 
 Você também deve armazenar suas credenciais em sua instância do Azure Key Vault e usar o nome e a versão corretos do segredo.

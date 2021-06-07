@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92013892"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
@@ -102,8 +102,8 @@ Não é necessário especificar parâmetros. O padrão será aplicado.
 |------------------|-------|--------------|---------|
 | `Type`           | Enumeração  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](/analysis-services/tmsl/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enumeração  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
-| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](/analysis-services/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
-| `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+| `MaxParallelism` | int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](/analysis-services/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
+| `RetryCount`     | int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
 | `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 O CommitMode é igual ao partialBatch. Ele é usado ao fazer uma carga inicial de grandes conjuntos de dados, que pode levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (ela não reverterá lotes confirmadas com êxito).
@@ -223,7 +223,7 @@ Consulte [Criar entidade de serviço - portal do Azure](../active-directory/deve
 3.    Execute o exemplo.
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [Amostras](analysis-services-samples.md)   
 [REST API](/rest/api/analysisservices/servers)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6be6ee87f760eec01dc9883f0e4ca39f73aaf050
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 0d5d285812aa61cf9fe684b268dc07718f6d1a1d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602496"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101708740"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Criar uma função em Java com um gatilho do Hub de Eventos e uma associação de saída do Azure Cosmos DB
 
@@ -382,7 +382,7 @@ mvn archetype:generate --batch-mode ^
     -DarchetypeArtifactId=azure-functions-archetype ^
     -DappName=%FUNCTION_APP% ^
     -DresourceGroup=%RESOURCE_GROUP% ^
-    -DappRegion=%LOCATION% ^ 
+    -DappRegion=%LOCATION% ^
     -DgroupId=com.example ^
     -DartifactId=telemetry-functions
 ```

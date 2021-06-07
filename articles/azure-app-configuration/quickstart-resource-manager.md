@@ -2,18 +2,18 @@
 title: Criar um armazenamento de Configuração de Aplicativos do Azure usando o modelo do ARM (modelo do Azure Resource Manager)
 titleSuffix: Azure App Configuration
 description: Saiba como criar um armazenamento da Configuração de Aplicativos do Azure usando o modelo do ARM (modelo do Azure Resource Manager).
-author: ZhijunZhao
-ms.author: zhijzhao
+author: GrantMeStrength
+ms.author: jken
 ms.date: 10/16/2020
-ms.service: azure-resource-manager
+ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: c5976053e32bcc97e57ef8f74b3249df83d322c4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219104"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933229"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Início Rápido: Criar um armazenamento da Configuração de Aplicativos do Azure usando um modelo do ARM
 

@@ -3,16 +3,18 @@ title: 'Início Rápido: Criar e modificar um circuito com o ExpressRoute – Az
 description: Este início rápido mostra como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: quickstart
-ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- mode-api
+ms.openlocfilehash: 50307e40526f5cce4d1349180b29fac00fb70943
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971516"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534955"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Início Rápido: Criar e modificar um circuito do ExpressRoute usando o Azure PowerShell
 

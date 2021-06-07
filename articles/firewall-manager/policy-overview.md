@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: victorh
 ms.openlocfilehash: 73a07af0fa98adf66d6104f1ab545d31a0cfd6d7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95802021"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Gerenciador de Firewall do Azure

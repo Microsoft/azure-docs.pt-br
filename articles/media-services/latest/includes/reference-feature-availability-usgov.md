@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 738c573196629242a8bee183e89b3e0f1adf393a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e37ea5362598d2e399014e50096a9178b5bff7a5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330978"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612775"
 ---
 <!--Feature availability in region-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "93330978"
 
 | Recurso |  DoD Central dos EUA | DoD do Leste dos EUA | Governo dos EUA do Arizona | Governo dos EUA do Texas | Gov. dos EUA – Virgínia | <!-- USNat --> | <!-- USSec--> |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [EventGrid do Azure](../reacting-to-media-services-events.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
+| [Grade de Eventos do Azure](../monitoring/reacting-to-media-services-events.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset US DoD Central disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US DoD Leste disponibilidade geral](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do StandardEncoderPreset US Gov Arizona](../media/azure-clouds-regions/ga.svg) | ![Disponibilidade geral do StandardEncoderPreset US Gov Texas](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US Gov-Virgínia disponibilidade geral](../media/azure-clouds-regions/ga.svg) |<!-- ![StandardEncoderPreset USNat general availability](../media/azure-clouds-regions/ga.svg)--> |<!-- ![StandardEncoderPreset USSec general availability](../media/azure-clouds-regions/ga.svg)--> |

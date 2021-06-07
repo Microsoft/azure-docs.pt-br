@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223333"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101709097"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurar um nome de domínio personalizado no serviço de Azure App com a integração do Gerenciador de tráfego
 
@@ -75,7 +75,7 @@ Depois de terminar a adição ou a modificação de registros DNS no provedor de
 
 ### <a name="what-about-root-domains"></a>E quanto aos domínios raiz?
 
-Como o Gerenciador de tráfego só dá suporte ao mapeamento de domínio personalizado com registros CNAME, e como os padrões de DNS não dão suporte a registros CNAME para mapear domínios raiz (por exemplo, **contoso.com**), o Gerenciador de tráfego não dá suporte ao mapeamento para domínios raiz. Para contornar esse problema, use um redirecionamento de URL do no nível do aplicativo. Em ASP.NET Core, por exemplo, você pode usar a [regravação de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, use o Gerenciador de tráfego para balancear a carga do subdomínio (**www.contoso.com**). Outra abordagem é que você pode [criar um registro de alias para o Apex do nome de domínio para fazer referência a um perfil do Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). Um exemplo é contoso.com. Em vez de usar um serviço de redirecionamento, você pode configurar o DNS do Azure para fazer referência a um perfil do Gerenciador de tráfego diretamente da zona. 
+Como o Gerenciador de tráfego só dá suporte ao mapeamento de domínio personalizado com registros CNAME, e como os padrões de DNS não dão suporte a registros CNAME para mapear domínios raiz (por exemplo, **contoso.com**), o Gerenciador de tráfego não dá suporte ao mapeamento para domínios raiz. Para contornar esse problema, use um redirecionamento de URL do no nível do aplicativo. Em ASP.NET Core, por exemplo, você pode usar a [regravação de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, use o Gerenciador de tráfego para balancear a carga do subdomínio (**www.contoso.com**). Outra abordagem é que você pode [criar um registro de alias para o Apex do nome de domínio para fazer referência a um perfil do Gerenciador de tráfego do Azure](../dns/tutorial-alias-tm.md). Um exemplo é contoso.com. Em vez de usar um serviço de redirecionamento, você pode configurar o DNS do Azure para fazer referência a um perfil do Gerenciador de tráfego diretamente da zona. 
 
 Para cenários de alta disponibilidade, você pode implementar uma configuração de DNS de balanceamento de carga sem o Gerenciador de tráfego criando vários *registros a* que apontam do domínio raiz para o endereço IP de cada cópia de aplicativo. Em seguida, [mapeie o mesmo domínio raiz para todas as cópias de aplicativo](app-service-web-tutorial-custom-domain.md#map-an-a-record). Como o mesmo nome de domínio não pode ser mapeado para dois aplicativos diferentes na mesma região, essa configuração só funciona quando as cópias do aplicativo estão em regiões diferentes.
 

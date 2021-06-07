@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 26618382223a87f779f95452000a39126f37efbb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92675426"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Azure AD SAML Toolkit
@@ -47,15 +47,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Kit de Ferramentas SAML do Azure AD ao Azure AD, é necessário adicionar o Kit de Ferramentas SAML do Azure AD à lista de aplicativos SaaS gerenciados da galeria.
 
 1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **Kit de Ferramentas SAML do Azure AD** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **Kit de Ferramentas SAML do Azure AD** na caixa de pesquisa.
 1. Selecione **Kit de Ferramentas SAML do Azure AD** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso-for-azure-ad-saml-toolkit"></a>Configurar e testar o SSO do Azure AD para o Azure AD SAML Toolkit
 
-Configure e teste o SSO do Azure AD com o Kit de Ferramentas SAML do Azure AD usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Kit de Ferramentas SAML do Azure AD.
+Configure e teste o SSO do Azure AD com o Kit de Ferramentas SAML do Azure AD usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Kit de Ferramentas SAML do Azure AD.
 
 Para configurar e testar o SSO do Azure AD com o Azure AD SAML Toolkit, execute as seguintes etapas:
 
@@ -70,23 +70,23 @@ Para configurar e testar o SSO do Azure AD com o Azure AD SAML Toolkit, execute 
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos do **Azure AD SAML Toolkit** , localize a seção **Gerenciar** e selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **Azure AD SAML Toolkit**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na página **Configuração Básica de SAML** , insira os valores nos seguintes campos:
+1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
-    a. Na caixa de texto **URL de Logon** , digite a URL: `https://samltoolkit.azurewebsites.net/`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://samltoolkit.azurewebsites.net/`
 
-    b. Na caixa de texto **URL de Resposta** , digite a URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    b. Na caixa de texto **URL de Resposta**, digite a URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
-1. Na seção **Configurar o Kit de Ferramentas SAML do Azure AD** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Kit de Ferramentas SAML do Azure AD**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -94,53 +94,53 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que o B.Fernandes use o logon único do Azure, concedendo acesso ao Kit de Ferramentas do SAML do Azure AD.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Kit de Ferramentas do SAML do Azure AD** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função** . Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Kit de Ferramentas do SAML do Azure AD**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-azure-ad-saml-toolkit-sso"></a>Configurar o SSO do Kit de Ferramentas SAML do Azure AD
 
-1. Abra uma nova janela do navegador da Web, se você não se registrou no site do Kit de Ferramentas do SAML do Azure AD, registre-se primeiro clicando em **Registrar** . Se você já se registrou, entre no site da empresa do Kit de Ferramentas do SAML do Azure AD usando as credenciais de login registradas.
+1. Abra uma nova janela do navegador da Web, se você não se registrou no site do Kit de Ferramentas do SAML do Azure AD, registre-se primeiro clicando em **Registrar**. Se você já se registrou, entre no site da empresa do Kit de Ferramentas do SAML do Azure AD usando as credenciais de login registradas.
 
     ![Registro do Kit de Ferramentas do SAML do Azure AD](./media/saml-toolkit-tutorial/register.png)
 
-1. Clique na **Configuração de SAML** .
+1. Clique na **Configuração de SAML**.
 
     ![Configuração de SAML do Kit de Ferramentas SAML do Azure AD](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Clique em **Criar** .
+1. Clique em **Criar**.
 
     ![Kit de Ferramentas do SAML do Azure AD](./media/saml-toolkit-tutorial/createsso.png)
 
-1. Na página **Configuração do SSO do SAML** , realize as seguintes etapas:
+1. Na página **Configuração do SSO do SAML**, realize as seguintes etapas:
 
     ![Configuração do SSO de criação do Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/fill-details.png)
 
-    1. Na caixa de texto **URL de Logon** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    1. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    1. Na caixa de texto **Identificador do Azure AD** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    1. Na caixa de texto **Identificador do Azure AD**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    1. Na caixa de texto **URL de Logoff** , cole o valor da **URL de Logoff** copiada do portal do Azure.
+    1. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiada do portal do Azure.
 
     1. Clique em **Escolher Arquivo** e faça upload do arquivo **Certificado (Bruto)** baixado no portal do Azure.
 
-    1. Clique em **Criar** .
+    1. Clique em **Criar**.
 
     1. Copie os valores de URL de Logon, Identificador e URL do ACS na página de configuração do SSO do Kit de Ferramentas do SAML e cole em caixas de caixa de texto respeitadas na **seção Configuração Básica de SAML** no portal do Azure.
 

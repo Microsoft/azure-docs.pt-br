@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002214"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
@@ -117,23 +117,23 @@ Aqui, descrevemos como usar o AzCopy para transferir os arquivos que contêm dad
 
 Nos comandos de AzCopy a seguir, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster de Hadoop e extrair os arquivos de dados.
 
-* ***\<path_to_data_folder>** _ O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
-_ * **\<storage account name of Hadoop cluster>** _ A conta de armazenamento associada ao cluster HDInsight.
-_ * **\<default container of Hadoop cluster>** _ O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
-_ * **\<storage account key>** _ A chave para a conta de armazenamento usada pelo cluster.
+* ***\<path_to_data_folder>*** O diretório (junto com o caminho) em seu computador que contém os arquivos de dados descompactados.  
+* ***\<storage account name of Hadoop cluster>*** A conta de armazenamento associada ao cluster HDInsight.
+* ***\<default container of Hadoop cluster>*** O contêiner padrão usado pelo seu cluster. O nome do contêiner padrão geralmente é o mesmo nome que o próprio cluster. Por exemplo, se o cluster se chamar "abc123.azurehdinsight.net", o contêiner padrão será abc123.
+* ***\<storage account key>*** A chave para a conta de armazenamento usada pelo cluster.
 
 Em um prompt de comando ou uma janela do Windows PowerShell, execute os dois comandos do AzCopy a seguir.
 
-Esse comando carrega os dados de viagem no diretório _*_nyctaxitripraw_*_ no contêiner padrão do cluster do Hadoop.
+Esse comando carrega os dados de corrida no diretório ***nyctaxitripraw*** no contêiner padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 ```
 
-Esse comando carrega os dados de Tarifa no diretório ***nyctaxifareraw** _ no contêiner padrão do cluster do Hadoop.
+Esse comando carrega os dados de tarifa no diretório ***nyctaxifareraw*** no contêiner padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 ```
 
 Os dados agora devem estar no armazenamento de Blobs e prontos para serem consumidos dentro do cluster HDInsight.
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Esses dois comandos baixam todos os arquivos '. HQL ' necessários neste passo a passos para o diretório local ***C:\temp&#92;** _ no nó de cabeçalho.
+Esses dois comandos baixam todos os arquivos '. HQL ' necessários neste passo a passos para o diretório local ***C:\temp&#92;*** no nó de cabeçalho.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 > [!NOTE]
@@ -182,7 +182,7 @@ No prompt do diretório do hive, execute o seguinte comando na linha de comando 
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Aqui está o conteúdo do arquivo _ *arquivo c:\Temp\sample \_ Hive \_ Create \_ DB \_ e \_ Tables. HQL** que cria o banco de dados Hive **nyctaxidb**, e as tabelas **Trip** e **Tarifa**.
+Aqui está o conteúdo do arquivo **arquivo c:\Temp\sample \_ Hive \_ Create \_ DB \_ e \_ Tables. HQL** que cria o banco de dados Hive **nyctaxidb** e as tabelas **Trip** e **Tarifa**.
 
 ```hiveql
 create database if not exists nyctaxidb;

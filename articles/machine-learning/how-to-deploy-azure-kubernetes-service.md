@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831713"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102519377"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 
@@ -24,7 +24,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 
 - __Tempo de resposta rápido__
 - __Dimensionamento__ automático do serviço implantado
-- __Registro em log__
+- __Logging__
 - __Coleta de dados de modelo__
 - __Autenticação__
 - __Encerramento de TLS__
@@ -43,7 +43,7 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 
 - Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
@@ -92,7 +92,7 @@ O Azureml-Fe é dimensionado verticalmente para usar mais núcleos e out (horizo
 
 Ao escalar verticalmente e horizontalmente, o uso da CPU é usado. Se o limite de uso da CPU for atingido, o front-end será reduzido primeiro. Se o uso da CPU cair para o limite de redução, ocorrerá uma operação de redução horizontal. Escalar verticalmente só ocorrerá se houver recursos de cluster suficientes disponíveis.
 
-## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Entender os requisitos de conectividade para o cluster AKS inferência
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Entenda os requisitos de conectividade para o cluster de inferência do AKS
 
 Quando Azure Machine Learning cria ou anexa um cluster AKS, o cluster AKS é implantado com um dos dois modelos de rede a seguir:
 * Rede Kubenet – os recursos de rede normalmente são criados e configurados à medida que o cluster AKS é implantado.
@@ -169,10 +169,10 @@ print(service.get_logs())
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
-* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
-* [Modelo. implantar](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration)
+* [Modelo. implantar](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -184,7 +184,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) .
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -236,7 +236,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Para obter mais informações sobre `autoscale_target_utilization` a configuração, `autoscale_max_replicas` e `autoscale_min_replicas` , consulte a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
+Para obter mais informações sobre `autoscale_target_utilization` a configuração, `autoscale_max_replicas` e `autoscale_min_replicas` , consulte a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implantar modelos no AKS usando a distribuição controlada (versão prévia)
 
@@ -350,7 +350,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma chave, use [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
+> Se você precisar regenerar uma chave, use [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29)
 
 ### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
@@ -372,7 +372,7 @@ print(token)
 >
 > A Microsoft recomenda enfaticamente que você crie seu espaço de trabalho Azure Machine Learning na mesma região que o cluster do serviço kubernetes do Azure. Para autenticar com um token, o serviço Web fará uma chamada para a região em que o workspace do Azure Machine Learning foi criado. Se a região do seu espaço de trabalho estiver indisponível, você não poderá buscar um token para o serviço Web mesmo que o cluster esteja em uma região diferente do seu espaço de trabalho. Isso efetivamente resulta na indisponibilidade da autenticação baseada em token até que a região do seu espaço de trabalho esteja disponível novamente. Além disso, quanto maior a distância entre a região do cluster e a região do seu espaço de trabalho, mais tempo será levado para buscar um token.
 >
-> Para recuperar um token, você deve usar o SDK do Azure Machine Learning ou o comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Para recuperar um token, você deve usar o SDK do Azure Machine Learning ou o comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
 ### <a name="vulnerability-scanning"></a>Verificação de vulnerabilidade

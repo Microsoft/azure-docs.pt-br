@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 2813554700e015c0ac34e47d632d16d97c948c4e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ec5d63c18e8fb3a353de334ae571c730f9b0d3d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941080"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104869796"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>O que é a Consulta Interativa no HDInsight
 
@@ -33,7 +33,7 @@ Para obter mais informações sobre a criação de um cluster HDInsight, veja [C
 
 Para executar consultas de Hive, você tem as seguintes opções:
 
-|Método |DESCRIÇÃO |
+|Método |Descrição |
 |---|---|
 |Microsoft Power BI|Confira [Visualizar dados do Apache Hive do Interactive Query com o Power BI no Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [Visualizar Big Data com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).|
 |Visual Studio|Consulte [Conectar-se ao Azure HDInsight e executar consultas Apache Hive usando Ferramentas do Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).|
@@ -47,7 +47,7 @@ Para localizar a cadeia de conexão do JDBC (Java Database Connectivity):
 1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, em que `CLUSTERNAME` é o nome do cluster.
 1. Para copiar a URL, selecione o ícone da área de transferência:
 
-   ![JDBC LLAP da Consulta Interativa no Hadoop HDInsight](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="JDBC LLAP da Consulta Interativa no Hadoop HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Respostas para algumas das perguntas e cenários mais comuns de red
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 24afeeee3207127bb9404156dc390433671dd5da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578222"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592295"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
@@ -17,7 +17,9 @@ Este artigo lista as perguntas frequentes sobre a rede em Azure Functions. Para 
 
 ## <a name="how-do-i-set-a-static-ip-in-functions"></a>Como fazer definir um IP estático em funções?
 
-A implantação de uma função em um Ambiente do Serviço de Aplicativo é atualmente a única maneira de ter um IP de entrada e saída estático para sua função. Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+Implantar uma função em um Ambiente do Serviço de Aplicativo é a principal maneira de ter endereços IP estáticos de entrada e saída para suas funções. Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, comece com o artigo [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+
+Você também pode usar um gateway NAT de rede virtual para rotear o tráfego de saída por meio de um endereço IP público que você controla. Para saber mais, consulte [tutorial: controle Azure Functions IP de saída com um gateway NAT da rede virtual do Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como fazer restringir o acesso à Internet à minha função?
 
@@ -33,7 +35,7 @@ Tenha em mente que o editor de portal do Azure requer acesso direto à sua funç
 
 Você pode restringir o tráfego de **entrada** para um aplicativo de funções a uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#use-service-endpoints). Essa configuração ainda permite que o aplicativo de funções faça chamadas de saída para a Internet.
 
-Para restringir completamente uma função de forma que todo o tráfego flua por meio de uma rede virtual, você pode usar [pontos de extremidade privados](./functions-networking-options.md#private-endpoint-connections) com integração de rede virtual de saída ou um ambiente do serviço de aplicativo.
+Para restringir completamente uma função de forma que todo o tráfego flua por meio de uma rede virtual, você pode usar [pontos de extremidade privados](./functions-networking-options.md#private-endpoint-connections) com integração de rede virtual de saída ou um ambiente do serviço de aplicativo. Para saber mais, consulte [integrar Azure Functions com uma rede virtual do Azure usando pontos de extremidade privados](functions-create-vnet.md).
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Como posso acessar recursos em uma rede virtual por meio de um aplicativo de funções?
 

@@ -2,18 +2,20 @@
 title: Usar o Java para criar uma sala de chat com o Azure Functions e o Serviço do SignalR
 description: Um guia de início rápido de como usar o Serviço do Azure SignalR e o Azure Functions para criar uma sala de chat usando Java.
 author: sffamily
+ms.author: zhshang
+ms.date: 03/04/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.topic: quickstart
-ms.date: 03/04/2019
-ms.author: zhshang
-ms.custom: devx-track-java
-ms.openlocfilehash: 62f31d8426e86cc20e957f3a47b30109dee0a634
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom:
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 15453fb8177248087cbec98fd734bcff3bf66868
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185667"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533230"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Início Rápido: Usar o Java para criar uma sala de chat com o Azure Functions e o Serviço do SignalR
 

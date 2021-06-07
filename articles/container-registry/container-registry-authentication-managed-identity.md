@@ -3,12 +3,12 @@ title: Autenticar com identidade gerenciada
 description: Forneça acesso a imagens em seu registro de contêiner privado usando uma identidade gerenciada do Azure atribuída pelo usuário ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987749"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102041460"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use uma identidade gerenciada do Azure para autenticar para um registro de contêiner do Azure 
 
@@ -107,13 +107,13 @@ Saia da sessão do SSH.
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
-Crie uma identidade em sua assinatura usando o comando [az identity create](/cli/azure/identit#az-identity-create). Você pode usar o mesmo grupo de recursos que você usou anteriormente para criar o registro de contêiner ou máquina virtual ou pode usar um diferente.
+Crie uma identidade em sua assinatura usando o comando [az identity create](/cli/azure/identity#az_identity_create). Você pode usar o mesmo grupo de recursos que você usou anteriormente para criar o registro de contêiner ou máquina virtual ou pode usar um diferente.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-Para configurar a identidade nas etapas a seguir, use o comando [az identity show][az-identity-show] para armazenar a ID do recurso da entidade e a ID da entidade de serviço nas variáveis.
+Para configurar a identidade nas etapas a seguir, use o comando [AZ Identity show] [az_identity_show] para armazenar a ID de recurso da identidade e a ID da entidade de serviço em variáveis.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

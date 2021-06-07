@@ -13,6 +13,9 @@
         - name: Roteamento de qualquer ponto a qualquer ponto
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
+        - name: Rotear para VNets de serviços compartilhados
+          displayName: Resource Manager route to shared services VNets
+          href: quickstart-route-shared-services-vnet-template.md
 - name: Tutoriais
   expanded: true
   items:
@@ -74,10 +77,14 @@
           href: azure-monitor-insights.md
     - name: Site a site
       items:
-        - name: Sobre as políticas de IPsec
+        - name: Sobre políticas de S2S do IPsec
           href: virtual-wan-ipsec.md
         - name: Vários links ISP – Seleção de caminho do Azure
           href: path-selection-multiple-links.md
+    - name: Ponto a site
+      items:
+        - name: Sobre políticas de P2S do IPsec
+          href: point-to-site-ipsec.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -108,6 +115,8 @@
           href: connect-virtual-network-gateway-vwan.md
         - name: Configurar política IPsec personalizada
           href: virtual-wan-custom-ipsec-portal.md
+        - name: Configurar regras de NAT
+          href: nat-rules-vpn-gateway.md
     - name: VPN do Usuário (ponto a site)
       items:
         - name: Criar uma conexão VPN do usuário

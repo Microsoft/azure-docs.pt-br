@@ -9,20 +9,20 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 952d69cccff86d1a0119391c400a40908c62ed69
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.date: 03/25/2021
+ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208957"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608435"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar os dados com o Power BI
 
 Neste tutorial, você aprenderá a criar um workspace do Power BI, vincular seu workspace do Azure Synapse e criar um conjunto de dados do Power BI que utiliza os dados no workspace do Azure Synapse. 
 
-> [!NOTE]
-> Para concluir este tutorial, [instale o Power BI Desktop](https://aka.ms/pbidesktopstore).
+## <a name="prerequisites"></a>Pré-requisitos
+Para concluir este tutorial, [instale o Power BI Desktop](https://aka.ms/pbidesktopstore).
 
 ## <a name="overview"></a>Visão geral
 

@@ -7,27 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 90a873b7de6ccc1ba21a05bf4c0e288ed668cac0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694780"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101694454"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Gerenciar fontes de dados no Azure alcance (versão prévia)
 
-Neste artigo, você aprende a registrar novas fontes de dados, a gerenciar coleções de fontes de dados e a exibir fontes no Azure alcance (versão prévia). O Azure alcance dá suporte às seguintes fontes de dados:
-
-* SQL Server local
-* Azure Data Lake Storage Gen1 
-* Azure Data Lake Storage Gen2
-* Armazenamento do Blobs do Azure
-* Azure Data Explorer
-* BD SQL do Azure
-* Instância Gerenciada do banco de BD SQL do Azure
-* Azure Synapse Analytics (antigo SQL DW)
-* Azure Cosmos DB
-* Power BI
+Neste artigo, você aprende a registrar novas fontes de dados, gerenciar coleções de fontes de dados e exibir fontes no Azure alcance (versão prévia)
 
 ## <a name="register-a-new-source"></a>Registrar uma nova fonte
 

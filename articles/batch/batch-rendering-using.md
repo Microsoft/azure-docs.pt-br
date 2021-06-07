@@ -3,16 +3,19 @@ title: Usar recursos de renderização em lote
 description: Como usar os recursos de renderização de Lote do Azure. Experimente usar o aplicativo Batch Explorer, seja diretamente ou invocado de um plug-in de aplicativo cliente.
 author: mscurrell
 ms.author: markscu
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: how-to
-ms.openlocfilehash: a5bf4d0ed2173d048d968f60dea72a1a0c25ab05
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: dc3d2cc53b478b1ec955d8f4b3717b0407772849
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429778"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496619"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
+
+> [!IMPORTANT]
+> As imagens de renderização da VM e o licenciamento de pagamento por uso foram [preteridos e serão desativados em 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar o lote para renderização, [uma imagem de VM personalizada e o licenciamento de aplicativo padrão devem ser usados.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 Há várias maneiras de usar a renderização de Lote do Azure:
 

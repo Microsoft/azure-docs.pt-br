@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805277"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
@@ -57,8 +57,8 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 1. Na portal do Azure, navegue até o namespace de seus hubs de eventos e exiba a **visão geral** do namespace. 
 1. Selecione **controle de acesso (iam)** no menu à esquerda para exibir as configurações de controle de acesso para o Hub de eventos.
 1.  Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
-3.  Selecione **Adicionar** e, em seguida, selecione **Adicionar atribuição de função** _.
-4.  Na página _ *Adicionar atribuição de função**, siga estas etapas:
+3.  Selecione **Adicionar** e, em seguida, selecione * * Adicionar atribuição de função * * *.
+4.  Na página **Adicionar atribuição de função** , siga estas etapas:
     1. Para **função**, selecione a função de hubs de eventos que você deseja atribuir. Neste exemplo, é o **proprietário dos dados dos hubs de eventos do Azure**.
     1. Para o campo **atribuir acesso a** , selecione **serviço de aplicativo** em **identidade gerenciada atribuída pelo sistema**. 
     1. Selecione a **assinatura** na qual a identidade gerenciada para o aplicativo Web foi criada.
@@ -150,7 +150,7 @@ Você pode usar Apache Kafka aplicativos para enviar e receber mensagens de hubs
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Exemplos de Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Esses exemplos usam a antiga biblioteca **Microsoft. Azure. EventHubs** , mas você pode atualizá-lo facilmente para usar a biblioteca **Azure. Messaging. EventHubs** mais recente. Para mover o exemplo do usando a biblioteca antiga para uma nova, consulte o [guia para migrar de Microsoft. Azure. EventHubs para Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Esses exemplos usam a biblioteca antiga **Microsoft.Azure.EventHubs**, mas você pode atualizá-los com facilidade para que usem a biblioteca **Azure.Messaging.EventHubs** mais recente. Para migrar o exemplo da biblioteca antiga para a nova, confira o [Guia de migração de Microsoft.Azure.EventHubs para Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
     Este exemplo foi atualizado para usar a biblioteca **Azure. Messaging. EventHubs** mais recente.
 - [Hubs de eventos para Kafka-enviar e receber mensagens usando o OAuth de identidade gerenciada](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

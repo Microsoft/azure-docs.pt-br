@@ -3,17 +3,18 @@ title: Configurar o LVM e o RAID em dispositivos criptografados-Azure Disk Encry
 description: Este artigo fornece instruções para configurar o LVM e o RAID em dispositivos criptografados para VMs do Linux.
 author: jofrance
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3f90d5a95d153405f9257258fba6ab9cc1ce9a35
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: bdd897e76df941130e3acdf9c30ea8edd41147e9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681295"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601917"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurar o LVM e o RAID em dispositivos criptografados
 
@@ -260,7 +261,7 @@ Não se preocupe com os pontos de montagem neste arquivo. Azure Disk Encryption 
 Desmonte os sistemas de arquivos nos discos que serão usados como parte do LVM.
 
 ```bash
-for disk in c d e f; do unmount /tempdata${disk}; done
+for disk in c d e f; do umount /tempdata${disk}; done
 ```
 E remova as entradas/etc/fstab:
 
@@ -422,6 +423,9 @@ mkfs.ext4 /dev/md10
 ```
 
 Crie um novo ponto de montagem para o sistema de arquivos, adicione o novo sistema de arquivos ao/etc/fstab e monte-o:
+
+>[!NOTE] 
+>Esse ciclo itera apenas em um dispositivo para esse exemplo específico, é criado dessa forma para ser usado em vários dispositivos MD, se necessário.
 
 ```bash
 for device in md10; do diskuuid="$(blkid -s UUID -o value /dev/${device})"; \

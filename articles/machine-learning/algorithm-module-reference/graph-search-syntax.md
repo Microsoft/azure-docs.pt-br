@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
 ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420760"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa de grafo
@@ -36,7 +36,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
 
  
 - E/OU
-- Correspondência de curinga com **?** e * *\** _ operadores.
+- Correspondência de curinga com **?** **\*** operadores and.
 
 ### <a name="examples"></a>Exemplos
 
@@ -49,7 +49,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
  
 - Correspondência de curinga: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Não é possível iniciar uma consulta Lucene com um caractere "*".

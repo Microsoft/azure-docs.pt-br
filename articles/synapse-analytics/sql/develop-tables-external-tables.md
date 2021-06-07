@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599840"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101667643"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
@@ -29,7 +29,7 @@ No pool de SQL dedicado, você pode usar uma tabela externa para:
 - Consultar o Armazenamento de Blobs do Azure e o Azure Data Lake Gen2 com instruções Transact-SQL.
 - Importar e armazenar dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage no pool de SQL dedicado.
 
-Quando usada em conjunto com a instrução [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), a seleção em uma tabela externa importa dados para uma tabela no pool de SQL. Além da [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), as tabelas externas são úteis para carregar dados. 
+Quando usada em conjunto com a instrução [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), a seleção em uma tabela externa importa dados para uma tabela no pool de SQL. Além da [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), as tabelas externas são úteis para carregar dados. 
 
 Para ver um tutorial de carregamento, confira [Usar o PolyBase para carregar dados do Armazenamento de Blobs do Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
@@ -60,7 +60,7 @@ Acesso à tabela externa subjacente ao Armazenamento do Azure usando a credencia
 
 ## <a name="create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE
 
-Fontes de dados externas são usadas para se conectar a contas de armazenamento. A documentação completa está delineada [aqui](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Fontes de dados externas são usadas para se conectar a contas de armazenamento. A documentação completa está delineada [aqui](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxe de CREATE EXTERNAL DATA SOURCE
 
@@ -159,7 +159,7 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 ## <a name="create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT
 
-Cria um objeto com formato de arquivo externo que define dados externos armazenados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage. Criar um formato de arquivo externo é um pré-requisito para criar uma tabela externa. A documentação completa está [aqui](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Cria um objeto com formato de arquivo externo que define dados externos armazenados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage. Criar um formato de arquivo externo é um pré-requisito para criar uma tabela externa. A documentação completa está [aqui](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 Ao criar um formato de arquivo externo, você especificará o layout real dos dados referenciados por uma tabela externa.
 
@@ -325,7 +325,7 @@ O nome de uma a três partes da tabela a ser criada. Para uma tabela externa, o 
 
 <column_definition>, ...*n* ]
 
-O CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, tipo de dados, nulidade e ordenação. Não é possível usar a DEFAULT CONSTRAINT em tabelas externas.
+CREATE EXTERNAL TABLE é compatível com a configuração de nome de coluna, tipo de dados e ordenação. Não é possível usar a DEFAULT CONSTRAINT em tabelas externas.
 
 >[!IMPORTANT]
 >As definições de coluna, incluindo os tipos de dados e o número de colunas, devem corresponder aos dados nos arquivos externos. Se houver uma incompatibilidade, as linhas do arquivo serão rejeitadas ao consultar os dados propriamente ditos.
@@ -387,7 +387,7 @@ Usando as funcionalidades de exploração do Data Lake, agora você pode criar e
 
 - Você deve ter acesso ao workspace com, pelo menos, a função de acesso de Colaborador de Dados do Blob de Armazenamento do ARM na conta do ADLS Gen2
 
-- Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar tabelas externas no pool de SQL ou no SQL OD (SQL sob demanda)
+- Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar tabelas externas no pool de SQL ou no SQL OD (SQL sob demanda)
 
 No painel Dados, selecione o arquivo do qual você gostaria de criar a tabela externa:
 > [!div class="mx-imgBorder"]

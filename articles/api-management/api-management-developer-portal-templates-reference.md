@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "73176798"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor
@@ -36,11 +36,11 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
     -   [Lista de APIs](api-management-api-templates.md#APIList)  
     -   [Operação](api-management-api-templates.md#Product)  
     -   [Exemplos de código](api-management-api-templates.md#CodeSamples)  
-        -   [Curl](api-management-api-templates.md#Curl)  
+        -   [cURL](api-management-api-templates.md#Curl)  
         -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
         -   [JavaScript](api-management-api-templates.md#JavaScript)  
-        -   [Objetivo C](api-management-api-templates.md#ObjectiveC)  
+        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
         -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: c158358b1c4fcd72d9189d7a991645cb65a4dc83
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96348119"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configurar o MindTickle para o provisionamento automático de usuário

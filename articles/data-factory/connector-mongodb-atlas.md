@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
 ms.openlocfilehash: b2f77e4bd8df66084937da3dd203ebb71d9a3511
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368788"
 ---
 # <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Copiar dados do Atlas do MongoDB usando o Azure Data Factory

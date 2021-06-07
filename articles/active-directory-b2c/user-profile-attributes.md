@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675739"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102500522"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil do usuário
 
@@ -69,8 +69,8 @@ A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api
 |passwordPolicies     |String|Política da senha. É uma cadeia de caracteres que consiste em um nome de política diferente separado por vírgula. Por exemplo, "DisablePasswordExpiration, DisableStrongPassword".|Não|Não|Persistente, Saída|
 |physicalDeliveryOfficeName (officeLocation)|String|A localização do escritório na sede da empresa do usuário. Comprimento máximo de 128.|Sim|Não|Persistente, Saída|
 |postalCode      |String|O CEP do endereço postal do usuário. O CEP é específico do país/região do usuário. No Estados Unidos da América, esse atributo contém o código ZIP. Comprimento máximo de 40.|Sim|Não|Persistente, Saída|
-|preferredLanguage    |String|O idioma preferencial do usuário. Deve seguir o código ISO 639-1. Exemplo: "en-US".|Não|Não|Persistente, Saída|
-|refreshTokensValidFromDateTime|Datetime|Todos os tokens de atualização emitidos antes desse horário são inválidos e os aplicativos receberão um erro ao usar um token de atualização inválido para adquirir um novo token de acesso. Se isso acontecer, o aplicativo precisará adquirir um novo token de atualização fazendo uma solicitação para o ponto de extremidade de autorização. Somente leitura.|Não|Não|Saída|
+|preferredLanguage    |String|O idioma preferencial do usuário. O formato de idioma preferencial é baseado em RFC 4646. O nome é uma combinação de um código de cultura de letra minúscula ISO 639 2, associado à linguagem, e um código de subcultura em maiúsculas ISO 3166 2, associado ao país ou à região. Exemplo: "en-US" ou "es-ES".|Não|Não|Persistente, Saída|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|Datetime|Todos os tokens de atualização emitidos antes desse horário são inválidos e os aplicativos receberão um erro ao usar um token de atualização inválido para adquirir um novo token de acesso. Se isso acontecer, o aplicativo precisará adquirir um novo token de atualização fazendo uma solicitação para o ponto de extremidade de autorização. Somente leitura.|Não|Não|Saída|
 |signInNames ([Identidades](#identities-attribute)) |String|O nome de entrada exclusivo do usuário da conta local de qualquer tipo no diretório. Use esse atributo para obter um usuário com valor de entrada sem especificar o tipo de conta local.|Não|Não|Entrada|
 |signInNames.userName ([Identidades](#identities-attribute)) |String|O nome de usuário exclusivo do usuário da conta local no diretório. Use esse atributo para criar ou obter um usuário com um nome de logon específico. Especificar isso só no PersistedClaims durante a operação do Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
 |signInNames.phoneNumber ([Identidades](#identities-attribute)) |String|O número de telefone exclusivo do usuário da conta local no diretório. Use esse atributo para criar ou obter um usuário com um número de telefone de entrada específico. A especificação desse atributo no PersistedClaims sozinho durante a operação do patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
@@ -101,9 +101,9 @@ Uma conta de cliente, que pode ser um consumidor, parceiro ou cidadão, pode ser
 - Identidade **local** -o nome de usuário e a senha são armazenados localmente no diretório Azure ad B2C. Geralmente, nos referimos a essas identidades como "contas locais".
 - Identidade **federada** – também conhecida como contas *corporativas* ou *sociais* , a identidade do usuário é gerenciada por um provedor de identidade federado, como Facebook, Microsoft, ADFS ou Salesforce.
 
-Um usuário com uma conta de cliente pode entrar com várias identidades. Por exemplo, nome de usuário, email, ID do funcionário, ID do governo e outros. Uma única conta pode ter várias identidades, locais e sociais, com a mesma senha.
+Um usuário com uma conta de cliente pode entrar com várias identidades. Por exemplo, nome de usuário, email, ID do funcionário, ID do governo e outros. Uma única conta pode ter várias identidades, locais e sociais, com a mesma senha. 
 
-Na API Microsoft Graph, as identidades locais e federadas são armazenadas no atributo User `identities` , que é do tipo [objectidentity] [Graph-objectidentity]. A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas.
+Na API Microsoft Graph, as identidades local e federada são armazenadas no atributo User `identities` , que é do tipo [objectidentity](/graph/api/resources/objectidentity). A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas. O atributo Identities pode conter até dez objetos [objectidentity](/graph/api/resources/objectidentity) . Cada objeto contém as seguintes propriedades:
 
 | Nome   | Type |Descrição|
 |:---------------|:--------|:----------|
@@ -137,7 +137,7 @@ Para identidades federadas, dependendo do provedor de identidade, o **issuerAssi
 
 ## <a name="password-profile-property"></a>Propriedade de perfil de senha
 
-Para uma identidade local, o atributo **passwordProfile** é necessário e contém a senha do usuário. O `forceChangePasswordNextSignIn` atributo deve ser definido como `false` .
+Para uma identidade local, o atributo **passwordProfile** é necessário e contém a senha do usuário. O `forceChangePasswordNextSignIn` atributo indica se um usuário deve redefinir a senha na próxima entrada. Para lidar com uma redefinição de senha forçada, [Configure o fluxo de redefinição de senha forçada](force-password-reset.md).
 
 Para uma identidade federada (social), o atributo **passwordProfile** não é necessário.
 

@@ -1,18 +1,18 @@
 ---
 title: Recuperar um painel excluído no portal do Azure
 description: Se você excluir um painel publicado no portal do Azure, poderá recuperar o painel.
-ms.date: 01/21/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 095964691a3cb22f8a805af2e8fe37af4c47cb28
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 96d330872327f8719e7cc4287415d86fd0ae5fd4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745614"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559699"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recuperar um painel excluído no portal do Azure
 
-Se você estiver na nuvem pública do Azure e excluir um painel _publicado_ no portal do Azure, poderá recuperar esse painel dentro de 14 dias da exclusão. Se você estiver em uma nuvem do Azure governamental ou o painel não estiver publicado, você não poderá recuperá-lo e deverá reconstruí-lo. Para obter mais informações sobre como publicar um painel, consulte [publicar painel](azure-portal-dashboard-share-access.md#publish-dashboard). Siga estas etapas para recuperar um painel publicado:
+Se você estiver na nuvem global do Azure e excluir um painel _publicado_ no portal do Azure, poderá recuperar esse painel dentro de 14 dias da exclusão. Se você estiver em uma nuvem do Azure governamental ou o painel não estiver publicado, você não poderá recuperá-lo e deverá reconstruí-lo. Para obter mais informações sobre como publicar um painel, consulte [publicar painel](azure-portal-dashboard-share-access.md#publish-a-dashboard). Siga estas etapas para recuperar um painel publicado:
 
 1. No menu portal do Azure, selecione **grupos de recursos** e, em seguida, selecione o grupo de recursos em que você publicou o painel (por padrão, eles são nomeados como **painéis**).
 

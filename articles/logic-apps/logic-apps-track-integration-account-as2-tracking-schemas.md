@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76906963"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Criar esquemas para acompanhar mensagens AS2 nos aplicativos lógicos do Azure

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 12/30/2020
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 08cf92507a4556afbf56c9cb7e2c9c1b3a6c9479
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831509"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Enviar muitas tarefas para um trabalho em lotes

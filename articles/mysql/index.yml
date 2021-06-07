@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
-  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+  ms.openlocfilehash: 95ce5c287eb8b6b3ee745ff9305fb7861fa09989
+  ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/12/2020
-  ms.locfileid: "94543027"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102040508"
 landingContent:
 - title: Sobre o Banco de Dados do Azure para MySQL
   linkLists:
@@ -23,6 +23,8 @@ landingContent:
       url: overview.md
     - text: Escolha a opção de MySQL correta
       url: select-right-deployment-type.md
+    - text: Entender as versões do MySQL com suporte
+      url: concepts-supported-versions.md
   - linkListType: whats-new
     links:
     - text: Confira nosso blog
@@ -37,10 +39,12 @@ landingContent:
       url: single-server/index.yml
   - linkListType: concept
     links:
+    - text: Conceitos de servidor
+      url: concepts-servers.md
     - text: Entender os tipos de preço
       url: concepts-pricing-tiers.md
-    - text: Entender as versões do MySQL com suporte
-      url: concepts-supported-versions.md
+    - text: Limitações
+      url: flexible-server/concepts-limitations.md
   - linkListType: quickstart
     links:
     - text: Criar um servidor usando o portal do Azure

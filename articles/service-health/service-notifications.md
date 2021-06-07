@@ -3,16 +3,16 @@ title: Exibir as notificações de integridade do serviço usando o Portal do Az
 description: Exiba suas notificações de integridade do serviço no portal do Azure. As notificações de integridade do serviço são publicadas pela infraestrutura do Azure no log de atividades do Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f9f3e7b10d9aa0014e4e00e7bfa72c9dc66e142
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967774"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100587999"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
-As notificações de integridade do serviço são publicadas pela infraestrutura do Azure no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).  As notificações contêm informações sobre os recursos em sua assinatura. Considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas sobre notificações de integridade do serviço. 
+As notificações de integridade do serviço são publicadas pela infraestrutura do Azure no [log de atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md).  As notificações contêm informações sobre os recursos em sua assinatura. Considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas nas notificações de integridade do serviço. 
 
 As notificações de integridade do serviço podem ser informativas ou acionáveis, dependendo da classe.
 
@@ -34,4 +34,4 @@ Para obter mais informações sobre as várias classes de notificações de inte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [alertas do log de atividades](../azure-monitor/platform/activity-log-alerts.md).
+* Saiba mais sobre os [alertas do log de atividades](../azure-monitor/alerts/activity-log-alerts.md).

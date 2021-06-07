@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfaa59f1800da084d611f6e050a59da63a7f195
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72801887"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674743"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Este artigo o ajuda a começar a adotar o **Catálogo de Dados do Azure** em sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, convém concentrar-se em três itens principais: definir sua visão, identificar casos de uso de negócios em sua organização e escolher um projeto-piloto.
 

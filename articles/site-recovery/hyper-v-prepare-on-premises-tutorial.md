@@ -1,18 +1,16 @@
 ---
 title: Preparar a recuperação de desastre de VMs do Hyper-V para o Azure com o Azure Site Recovery
 description: Saiba como preparar VMs do Hyper-V localmente para recuperação de desastre no Azure com o Azure Site Recovery.
-author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8704dd17f0386254f65d1c0e783c5f8786b8ae98
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135647"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580305"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores Hyper-V locais para recuperação de desastre no Azure
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359992"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102042412"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático com extensão do agente IaaS do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ Registrar sua VM SQL Server com a [extensão do agente IaaS do SQL](sql-server-i
 
 Quando o registro automático está habilitado, um trabalho é executado diariamente para detectar se SQL Server está instalado ou não em todas as VMs não registradas na assinatura. Isso é feito copiando os binários de extensão do agente IaaS do SQL para a VM e, em seguida, executando um utilitário único que verifica o hive do registro de SQL Server. Se o hive SQL Server for detectado, a máquina virtual será registrada com a extensão no modo lightweight. Se não existir SQL Server Hive no registro, os binários serão removidos.
 
-Quando o registro automático estiver habilitado para uma assinatura, todas as VMs atuais e futuras que têm o SQL Server instalado serão registradas com a extensão do SQL IaaS Agent no modo leve. Você ainda precisa [atualizar manualmente para o modo de gerenciamento completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aproveitar o conjunto de recursos completo. 
+Quando o registro automático estiver habilitado para uma assinatura, todas as VMs atuais e futuras que têm o SQL Server instalado serão registradas com a extensão do SQL IaaS Agent **no modo leve sem tempo de inatividade e sem reiniciar o serviço de SQL Server**. Você ainda precisa [atualizar manualmente para o modo de gerenciamento completo](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) para aproveitar o conjunto de recursos completo. 
 
 > [!IMPORTANT]
 > A extensão do agente IaaS do SQL coleta dados para a finalidade expressa de fornecer aos clientes benefícios opcionais ao usar SQL Server nas máquinas virtuais do Azure. A Microsoft não usará esses dados para auditorias de licenciamento sem o consentimento prévio do cliente. Consulte o [suplemento de privacidade SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data) para obter mais informações.
@@ -71,7 +71,7 @@ Para desabilitar o registro automático usando CLI do Azure, execute o seguinte 
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Para desabilitar o registro automático usando Azure PowerShell, execute o seguinte comando: 
 

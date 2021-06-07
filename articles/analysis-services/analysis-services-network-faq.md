@@ -8,10 +8,10 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82838494"
 ---
 # <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Perguntas frequentes sobre a conectividade de rede do Analysis Services
@@ -24,7 +24,7 @@ Este artigo fornece respostas a perguntas comuns sobre como se conectar a contas
 A **resposta** Azure Analysis Services não usa endereços IP fixos ou marcas de serviço. O intervalo de endereços IP que seus servidores de Analysis Services usam pode ser qualquer coisa no intervalo de endereços IP para a *região do Azure*. Como os endereços IP do servidor são variáveis e podem mudar ao longo do tempo, suas regras de firewall precisam permitir todo o intervalo de endereços IP de região do Azure no qual seu servidor está.
 
 **Pergunta** – minha conta de armazenamento do Azure está em uma região diferente do meu servidor de Analysis Services. Como fazer definir as configurações de firewall da conta de armazenamento?   
-**Resposta** – se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços**do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. Para obter os intervalos de IP para regiões do Azure, consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. 
+**Resposta** – se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços** do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. Para obter os intervalos de IP para regiões do Azure, consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. 
 
 **Pergunta** – minha conta de armazenamento do Azure está na mesma região que o meu servidor de Analysis Services. Como posso definir as configurações de firewall da conta de armazenamento?   
 **Resposta** – como o servidor Analysis Services e a conta de armazenamento estão na mesma região, as comunicações entre eles usam intervalos de endereços IP internos, portanto, não há suporte para a configuração de um firewall para usar redes selecionadas e especificar um intervalo de endereços IP. Se as políticas da organização exigirem um firewall, ele deverá ser configurado para permitir o acesso de todas as redes.

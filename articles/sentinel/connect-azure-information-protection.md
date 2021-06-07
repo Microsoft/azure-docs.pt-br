@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655979"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar dados da proteção de informações do Azure
@@ -59,7 +59,7 @@ Use as instruções a seguir se você não tiver configurado um espaço de traba
 
 1. No Azure Sentinel, selecione **conectores de dados**  >  **proteção de informações do Azure (versão prévia)**.
 
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 
 3. Em **configuração**, selecione **conectar logs da proteção de informações do Azure**.
 

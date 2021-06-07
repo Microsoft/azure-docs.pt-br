@@ -2,14 +2,14 @@
 title: Visão geral do portal do Azure
 description: O portal do Azure é uma interface gráfica do usuário que você pode usar para gerenciar seus serviços do Azure. Saiba como navegar e localizar recursos no portal do Azure.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745920"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563987"
 ---
 # <a name="azure-portal-overview"></a>Visão geral do portal do Azure
 
@@ -35,7 +35,7 @@ Se você escolher o modo encaixado para o menu do portal, ele sempre estará vis
 
 ## <a name="azure-home"></a>Página Inicial do Azure
 
-Como novo assinante dos serviços do Azure, a primeira coisa que você vê depois de [entrar no portal](https://portal.azure.com) é a **Página Inicial do Azure**. Esta página compila os recursos que ajudam você a aproveitar ao máximo sua assinatura do Azure. Incluímos links para cursos online gratuitos, a documentação, os serviços principais e sites úteis para permanecer atualizado e administrar mudanças para sua organização. Para oferecer acesso rápido e fácil ao trabalho em andamento, também mostramos uma lista dos recursos visitados mais recentemente. Você não pode personalizar esta página, mas pode escolher se deseja ver a **Página Inicial do Azure** ou o **Painel do Azure** como sua exibição padrão. Na primeira vez que você entra, há um prompt na parte superior da página em que você pode salvar sua preferência.
+Como novo assinante dos serviços do Azure, a primeira coisa que você vê depois de [entrar no portal](https://portal.azure.com) é a **Página Inicial do Azure**. Esta página compila os recursos que ajudam você a aproveitar ao máximo sua assinatura do Azure. Incluímos links para cursos online gratuitos, a documentação, os serviços principais e sites úteis para permanecer atualizado e administrar mudanças para sua organização. Para oferecer acesso rápido e fácil ao trabalho em andamento, também mostramos uma lista dos recursos visitados mais recentemente. Você não pode personalizar esta página, mas pode escolher se deseja ver a **Página Inicial do Azure** ou o **Painel do Azure** como exibição padrão. Na primeira vez que você entra, há um prompt na parte superior da página em que você pode salvar sua preferência.
 
 ![Captura de tela mostrando onde salvar sua preferência.](./media/azure-portal-overview/azure-portal-default-view.png)
 
@@ -75,7 +75,7 @@ A figura abaixo rotula os elementos básicos do portal do Azure, cada um dos qua
 
 ## <a name="get-started-with-services"></a>Introdução aos serviços
 
-Se você for um novo assinante, precisará criar um recurso antes que haja qualquer coisa a ser gerenciada. Selecione **+ Criar um recurso** para ver os serviços disponíveis no Azure Marketplace. Aqui, você encontrará aplicativos e serviços de centenas de provedores, todos certificados para execução no Azure.
+Se for um novo assinante, você precisará criar um recurso antes que haja qualquer coisa a ser gerenciada. Selecione **+ Criar um recurso** para ver os serviços disponíveis no Azure Marketplace. Você encontrará centenas de aplicativos e serviços de muitos provedores, todos eles certificados para execução no Azure.
 
 Preenchemos previamente seus Favoritos na barra lateral com links para os serviços mais usados.  Para ver todos os serviços disponíveis, selecione **Todos os serviços** na barra lateral.
 

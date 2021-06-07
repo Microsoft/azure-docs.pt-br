@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90055224"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é o aplicativo Microsoft Authenticator?
@@ -37,7 +37,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 
 ## <a name="terminology"></a>Terminologia
 
-| Termo|DESCRIÇÃO|
+| Termo|Descrição|
 | ----|-----------|
 | Verificação de dois fatores | Um processo de verificação que exige que você use especificamente a apenas duas partes das informações de verificação, como uma senha e um PIN. O aplicativo Microsoft Authenticator dá suporte tanto para verificação de dois fatores padrão quanto para entrada sem senha. |
 | Autenticação Multifator (MFA) | Toda a verificação de dois fatores é uma autenticação multifator, exigindo que você use *pelo menos* duas partes das informações de verificação, dependendo dos requisitos da sua organização. |
@@ -49,7 +49,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 
 A verificação de dois fatores funciona com o aplicativo Microsoft Authenticator das seguintes maneiras:
 
-- **Notificação.** Digite seu nome de usuário e senha no dispositivo em que você está fazendo logon para sua conta corporativa ou de estudante ou sua conta Microsoft pessoal, então o aplicativo Microsoft Authenticator enviará uma notificação solicitando a você **Aprovar a entrada**. Escolher **aprovar** se reconhece a tentativa de logon. Caso contrário, escolha **Deny**. Se você escolher **Negar**, também poderá marcar a solicitação como fraudulenta.
+- **Notification.** Digite seu nome de usuário e senha no dispositivo em que você está fazendo logon para sua conta corporativa ou de estudante ou sua conta Microsoft pessoal, então o aplicativo Microsoft Authenticator enviará uma notificação solicitando a você **Aprovar a entrada**. Escolher **aprovar** se reconhece a tentativa de logon. Caso contrário, escolha **Deny**. Se você escolher **Negar**, também poderá marcar a solicitação como fraudulenta.
 
 - **Código de verificação.** Digite seu nome de usuário e senha no dispositivo em que você está fazendo logon na sua conta corporativa ou de estudante ou sua conta Microsoft pessoal e, em seguida, copie o código de verificação associado da tela **Contas** do aplicativo Microsoft Authenticator. O código de verificação também é conhecido como autenticação OTP (senha avulsa).
 
@@ -71,7 +71,7 @@ Dependendo do tipo de conta, sua organização pode decidir o que você deve usa
 
 ## <a name="in-this-section"></a>Nesta seção
 
-| Artigo | DESCRIÇÃO |
+| Artigo | Descrição |
 | ------ | ------------ |
 | [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md) | Descreve em que local e como obter e instalar o aplicativo Microsoft Authenticator para dispositivos que executam Android e iOS. |
 | [Adicionar suas contas corporativas ou de estudante](user-help-auth-app-add-work-school-account.md) | Descreve como adicionar suas várias contas corporativas ou de estudante ao aplicativo Microsoft Authenticator. |

@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Enviar eventos usando C – Hubs de Eventos do Azure'
-description: 'Início Rápido: Este artigo fornece instruções passo a passo para a criação de um aplicativo C que envia eventos para Hubs de Eventos do Azure.'
+title: 'Guia de início rápido: enviar eventos usando a linguagem C – Hubs de Eventos do Azure'
+description: 'Guia de início rápido: este artigo fornecerá instruções detalhadas para a criação de um aplicativo em C que envia eventos aos Hubs de Eventos do Azure.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: bfe1ca1a45f7b33d7431aed13446d8d72f79fb90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85315665"
 ---
-# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Início Rápido: Enviar eventos para Hubs de Eventos do Azure usando C
+# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Guia de início rápido: enviar eventos aos Hubs de Eventos do Azure usando a linguagem C
 
 ## <a name="introduction"></a>Introdução
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
@@ -22,7 +22,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Um ambiente de desenvolvimento C. Este tutorial considera a pilha gcc em uma VM Linux do Azure com o Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Criar um namespace de Hubs de Eventos e um hub de eventos**. Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de Eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Obtenha o valor da chave de acesso do hub de eventos seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). A chave de acesso será usada no código que você escreverá posteriormente no tutorial. O nome da chave padrão é: **RootManageSharedAccessKey**.
+* **Criar um namespace de Hubs de Eventos e um hub de eventos**. Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de Eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Obtenha o valor da chave de acesso para o hub de eventos seguindo as instruções do artigo: [Obter uma cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). A chave de acesso será usada no código que você escreverá posteriormente no tutorial. O nome da chave padrão é: **RootManageSharedAccessKey**.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Escrever código para enviar mensagens aos Hubs de Eventos
 Esta seção mostra como gravar um aplicativo em C para enviar eventos ao hub de eventos. O código usa a biblioteca Proton AMQP do [projeto Apache Qpid](https://qpid.apache.org/). Isso é semelhante a usar tópicos e filas do Barramento de Serviço com AMQP do C, como é mostrado [neste exemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [Documentação do Qpid Proton](https://qpid.apache.org/proton/index.html).

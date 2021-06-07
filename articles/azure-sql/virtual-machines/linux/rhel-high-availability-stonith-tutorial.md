@@ -1,18 +1,18 @@
 ---
 title: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL no Azure – Máquinas Virtuais do Linux | Microsoft Docs
 description: Aprenda a configurar a alta disponibilidade em um ambiente de cluster RHEL e configure o STONITH
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 889df16191104ca5b335d067abe0f3d1311c4603
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587206"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450099"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para o SQL Server em máquinas virtuais RHEL no Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

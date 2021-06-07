@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 1dce7795b8c62c36b80c51d5ba0dd8bc9b667e0e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759679"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
@@ -20,11 +20,20 @@ Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneira
 - Acessando o compartilhamento diretamente por meio do protocolo SMB, NFS (Network File System – versão prévia) ou protocolos FileREST. Esse padrão de acesso é empregado principalmente quando é possível eliminar o máximo possível de servidores locais.
 - Criando um cache do compartilhamento de arquivo do Azure em um servidor local (ou em uma VM do Azure) com a Sincronização de Arquivos do Azure e acessando os dados do compartilhamento de arquivo do servidor local com o protocolo de sua escolha (SMB, NFS, FTPS etc.) para seu caso de uso. Esse padrão de acesso é útil porque ele combina o melhor de desempenho local e escala de nuvem e serviços anexáveis sem servidor, como o Backup do Azure.
 
-Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação de Sincronização de Arquivos do Azure, confira [Considerações de rede de Sincronização de Arquivos do Azure](storage-sync-files-networking-overview.md).
+Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação de Sincronização de Arquivos do Azure, confira [Considerações de rede de Sincronização de Arquivos do Azure](../file-sync/file-sync-networking-overview.md).
 
 A configuração de rede para compartilhamentos de arquivos do Azure é feita na conta de armazenamento do Azure. Uma conta de armazenamento é um constructo de gerenciamento que representa um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivos bem como outros recursos de armazenamento, como filas ou contêineres de blob. As contas de armazenamento expõem várias configurações que ajudam a proteger o acesso à rede para seus compartilhamentos de arquivos: pontos de extremidade de rede, configurações de firewall da conta de armazenamento e criptografia em trânsito. 
 
 Recomendamos ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de ler este guia conceitual.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Este vídeo é um guia e uma demonstração de como expor com segurança compartilhamentos de arquivos do Azure diretamente para os operadores de informações e aplicativos em cinco etapas simples. As seções abaixo fornecem links e contexto adicional para a documentação referenciada no vídeo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Acessar seus compartilhamentos de arquivos do Azure
 Quando você implanta um compartilhamento de arquivo do Azure em uma conta de armazenamento, o compartilhamento de arquivo é imediatamente acessível por meio do ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de maneira segura de dentro ou fora do Azure. 

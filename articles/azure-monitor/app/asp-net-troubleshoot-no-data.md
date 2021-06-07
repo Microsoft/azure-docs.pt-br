@@ -4,12 +4,12 @@ description: Não consegue ver os dados no Application Insights do Azure? Tente 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: e41b0a9ce1ff86bc6010e12fdf5d3320f303fd87
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 40fbe4d08676d7cc56478d3740424fccaa7addc0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092444"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562188"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Solução de problemas de ausência de dados – Application Insights para .NET/.NET Core
 
@@ -68,11 +68,11 @@ Ao atualizar de SDKs com mais de (2,4), você precisa garantir que as seguintes 
     </TelemetryModules>
     ```
 
-**_A falha na atualização apropriada pode levar a exceções inesperadas ou à telemetria não ser coletada._* _
+***A falha na atualização apropriada pode levar a exceções inesperadas ou à telemetria não ser coletada.***
 
 
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>A opção “Adicionar o Application Insights” não existe no Visual Studio
-_When eu clicar com o botão direito do mouse em um projeto existente no Gerenciador de Soluções, não vejo nenhuma Application Insights opções. *
+*Quando clico com o botão direito em um projeto existente no Gerenciador de Soluções, não vejo opções do Application Insights.*
 
 * Nem todos os tipos de projeto do .NET têm suporte das ferramentas. Há suporte para projetos Web e WCF. Para outros tipos de projeto, como aplicativos de área de trabalho ou de serviço, você ainda pode [adicionar manualmente um SDK do Application Insights ao seu projeto](./windows-desktop.md).
 * Certifique-se de que você tem o [Visual Studio 2013 Atualização 3 ou posterior](/visualstudio/releasenotes/vs2013-update3-rtm-vs). Ele vem pré-instalado com ferramentas de análise do desenvolvedor, que fornecem o SDK do Application Insights.
@@ -224,7 +224,7 @@ Siga estas instruções para capturar logs de solução de problemas para sua es
 
     ```xml
     <TelemetryModules>
-      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.FileDiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: ac214f158703fdfeaddfa4052a83481adebda060
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96348221"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Enviando consultas para a API de Pesquisa de Notícias do Bing
@@ -47,7 +47,7 @@ A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](/re
 - [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientid)
 - [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#clientip)
-- [Localização de pesquisa X](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
+- [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#location)
 
 Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.
 
@@ -289,7 +289,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é pesquisa de notícias do Bing?](../search-the-web.md). 
+* [O que é a Pesquisa de Notícias do Bing?](../search-the-web.md). 
 * [Obter as principais notícias de hoje](search-for-news.md#get-todays-top-news)
 * [Obter notícias por categoria](search-for-news.md#get-news-by-category)
 * [Obter as notícias populares](search-for-news.md#get-trending-news)

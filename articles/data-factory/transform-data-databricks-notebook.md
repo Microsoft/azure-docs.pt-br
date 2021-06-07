@@ -6,12 +6,12 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373990"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102183481"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -106,7 +106,7 @@ Na definição da atividade do databricks acima, você especifica esses tipos de
 
 Para obter mais detalhes, consulte a [documentação do Databricks](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) para tipos de biblioteca.
 
-## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre blocos de anotações e Data Factory
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre notebooks e o Data Factory
 
 Você pode passar data factory parâmetros para blocos de anotações usando a propriedade *baseparameters* na atividade do databricks.
 
@@ -114,10 +114,10 @@ Em determinados casos, talvez seja necessário repassar determinados valores do 
 
 1. No bloco de anotações, você pode chamar [dbutils. notebook. Exit ("ReturnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) e o "ReturnValue" correspondente será retornado para data Factory.
 
-2. Você pode consumir a saída em data factory usando expressão como `'@activity('databricks notebook activity name').output.runOutput'` .
+2. Você pode consumir a saída em data factory usando expressão como `@{activity('databricks notebook activity name').output.runOutput}` . 
 
    > [!IMPORTANT]
-   > Se você estiver passando um objeto JSON, poderá recuperar valores acrescentando nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > Se você estiver passando um objeto JSON, poderá recuperar valores acrescentando nomes de propriedade. Exemplo: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca no Databricks
 

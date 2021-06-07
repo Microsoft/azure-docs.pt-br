@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: Kinect, Azure, sensor, SDK, profundidade, RGB, registro, reprodução, Matroska, MKV
 ms.openlocfilehash: f4fa14b0841cb76b2ba191310ecbca312d29f805
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654584"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Usar o SDK do sensor de Kinect do Azure para registrar o formato de arquivo
@@ -46,7 +46,7 @@ O `-vsync 0` parâmetro força o ffmpeg a extrair os quadros como estão, em vez
 Se os dados do IMU forem extraídos do arquivo sem usar a API de reprodução, os dados estarão em formato binário.
 A estrutura dos dados de IMU está abaixo. Todos os campos são little-endian.
 
-| Campo                        | Tipo     |
+| Campo                        | Type     |
 |------------------------------|----------|
 | Carimbo de data/hora do acelerômetro (μs) | uint64   |
 | Dados do acelerômetro (x, y, z) | float [3] |

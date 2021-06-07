@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454693"
 ---
-# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: enviar por push uma imagem de contêiner atualizada para um registro de contêiner com replicação geográfica para implantações de aplicativos Web regionais
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Efetuar push de uma imagem de contêiner atualizada para um registro de contêiner com replicação geográfica para implantações de aplicativos Web regionais
 
 Esta é a parte três de uma série de tutoriais de três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), a replicação geográfica foi configurada para duas implantações de aplicativo Web regionais diferentes. Neste tutorial, você primeiro modifica o aplicativo, em seguida, cria uma nova imagem de contêiner e envia por push para o Registro com replicação geográfica. Por fim, você exibe a alteração, implantada automaticamente pelos webhooks de Registro de Contêiner do Azure, em ambas as instâncias do aplicativo Web.
 
@@ -129,11 +129,11 @@ Com um único `docker push`, você atualizou automaticamente o aplicativo web em
 
 Neste tutorial, você atualizou e enviou por push uma nova versão do contêiner de aplicativo Web para seu Registro com replicação geográfica. Os webhooks no Registro de Contêiner do Azure notificavam o Aplicativos Web para Contêineres sobre a atualização, que disparou um pull local da réplica do registro mais próximo.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: criação automatizada de imagem e patch
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: Compilação automatizada de imagem e dos patches
 
 Além de replicação geográfica, o ACR Build é outro recurso de Registro de Contêiner do Azure que pode ajudar a otimizar seu pipeline de implantação do contêiner. Iniciar com a visão geral de ACR Build para ter uma ideia de seus recursos:
 
-[Automatizar o sistema operacional e a aplicação de patch de framework com ACR Build](container-registry-tasks-overview.md)
+[Automatizar o sistema operacional e a aplicação de patch de estrutura com o Build do ACR](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

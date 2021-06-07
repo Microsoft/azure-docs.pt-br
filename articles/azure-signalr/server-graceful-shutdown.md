@@ -7,10 +7,10 @@ ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
 ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98201664"
 ---
 # <a name="server-graceful-shutdown"></a>Desligamento normal do servidor

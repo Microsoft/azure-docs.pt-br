@@ -8,15 +8,15 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
-  author: PatrickFarley
-  ms.author: pafarley
+  author: laujan
+  ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: 022e3cb5a6ec9cc85bf445f438ef5c25bc2914df
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: d3dd7c5a9befd00c51f6ec40fdc1ee304ea55db3
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100516747"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107784291"
 landingContent:
 - title: Sobre o Reconhecimento de Formulários
   linkLists:
@@ -138,12 +138,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API REST
-      url: https://docs.microsoft.com/rest/api/formrecognizer/
+    - text: API de Reconhecimento de Formulários v2.1 versão prévia 3
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
     - text: SDK .NET
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - text: SDK do Python
-      url: /python/api/azure-ai-formrecognizer/?view=azure-python
+      url: /python/api/azure-ai-formrecognizer/
     - text: Java SDK
       url: /java/api/overview/azure/ai-formrecognizer-readme
     - text: SDK do JavaScript
@@ -151,7 +151,7 @@ landingContent:
     - text: Azure PowerShell
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az_cognitiveservices_list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

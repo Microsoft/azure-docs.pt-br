@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929836"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Usando pontos de extremidade privados para configuração de Azure App
@@ -67,7 +67,7 @@ Saiba mais sobre como criar um ponto de extremidade privado para seu repositóri
 
 - [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
 - [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
-- [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+- [Criar um ponto de extremidade privado usando o Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 Saiba como configurar o servidor DNS com pontos de extremidade privados:
 

@@ -9,15 +9,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: fd5ee9085cf716128c5b3ae073f963c76d2bd17a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94369938"
 ---
 # <a name="how-to-create-plans-for-your-azure-application-offer"></a>Como criar planos para sua oferta de aplicativo do Azure
 
-As ofertas vendidas por meio do Microsoft Commercial Marketplace devem ter pelo menos um plano para listar sua oferta no Marketplace comercial. Você pode criar uma variedade de planos com diferentes opções na mesma oferta. Esses planos (às vezes chamados de SKUs) podem diferir em termos de tipo de plano ( _modelo de solução_ ou _aplicativo gerenciado_ ), monetização ou público. Para obter diretrizes gerais sobre planos, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md).
+As ofertas vendidas por meio do Microsoft Commercial Marketplace devem ter pelo menos um plano para listar sua oferta no Marketplace comercial. Você pode criar uma variedade de planos com diferentes opções na mesma oferta. Esses planos (às vezes chamados de SKUs) podem diferir em termos de tipo de plano (_modelo de solução_ ou _aplicativo gerenciado_), monetização ou público. Para obter diretrizes gerais sobre planos, consulte [planos e preços para ofertas de Marketplace comercial](plans-pricing.md).
 
 ## <a name="create-a-plan"></a>Criar um plano
 
@@ -67,7 +67,7 @@ Os serviços do Azure Government manipulam os dados que estão sujeitos a determ
 ##### <a name="to-select-the-azure-government-region"></a>Para selecionar a região do Azure governamental
 
 1. Marque a caixa de seleção **Azure governamental** .
-1. Em **certificações do Azure governamental** , selecione **+ Adicionar certificação (máx. 100)**.
+1. Em **certificações do Azure governamental**, selecione **+ Adicionar certificação (máx. 100)**.
 1. Nas caixas que aparecem, forneça um nome e um link para uma certificação.
 1. Para adicionar outra certificação, repita as etapas 2 e 3.
 

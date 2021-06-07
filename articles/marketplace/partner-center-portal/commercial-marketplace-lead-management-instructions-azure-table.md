@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347856"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100586842"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabela do Azure para gerenciar clientes potenciais do Marketplace comercial
 
@@ -203,3 +203,7 @@ Para verificar se você se conectou com êxito a um destino de cliente potencial
 >Conclua a configuração do restante da oferta e publique-a antes de receber clientes potenciais para a oferta.
 
 Quando os clientes potenciais são gerados, a Microsoft os envia para a tabela do Azure. Se você configurou um fluxo, um email também será enviado para o endereço de email que você configurou.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Perguntas frequentes sobre gerenciamento de leads e solução de problemas](../lead-management-faq.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487126"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
@@ -55,7 +55,7 @@ A solicitação deve usar o protocolo HTTPS.
 ## <a name="headers"></a>Cabeçalhos  
 Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma resposta.  
   
-|Cabeçalho|Descrição|  
+|parâmetro|Descrição|  
 |------------|-----------------|  
 |Aceitar|Cabeçalho de solicitação opcional.<br /><br /> O tipo de mídia padrão é application/json. Para especificar que a resposta usará [JSON-LD](https://json-ld.org/), defina o cabeçalho Accept como application/ld+json.|  
 |<a name="acceptlanguage"></a>Accept-Language|Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por vírgula de idiomas a serem usados para as cadeias de caracteres de interface do usuário. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, confira [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Esse cabeçalho e o parâmetro de consulta [](#setlang)setLang&mdash; são mutuamente exclusivos – não especifique ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta cc. Para determinar o mercado para o qual retornar os resultados, o Bing usa o primeiro idioma compatível suporte encontrado na lista e combina-o com o valor de parâmetro `cc`. Se a lista não inclui um idioma compatível, o Bing encontra o idioma e o mercado mais próximos que dão suporte à solicitação ou usa um mercado padrão ou agregado para os resultados. Para determinar o mercado usado pelo Bing, confira o cabeçalho BingAPIs-Market.<br /><br /> Use esse cabeçalho e o parâmetro de consulta `cc` somente se você especificar vários idiomas. Caso contrário, use os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
@@ -76,7 +76,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|Nome|Valor|Tipo|Obrigatório|  
+|Nome|Valor|Type|Obrigatório|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
 |<a name="localCategories"></a>localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|String|Não|  
@@ -113,7 +113,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |<a name="errors"></a>errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Erro](#error)[]|  
@@ -123,7 +123,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |name|O nome da licença.|String|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|String|  
@@ -132,10 +132,10 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
-|text|O texto de exibição.|String|  
+|texto|O texto de exibição.|String|  
 |url|Uma URL. Use a URL e exiba o texto para criar um hiperlink.|String|  
   
 
@@ -146,7 +146,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |name|O nome do editor.|String|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|String|  
@@ -156,7 +156,7 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="place"></a>Posicionar  
 Define informações sobre uma empresa local, como um restaurante ou hotel.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Digite hint, que pode ser definido como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |address|O endereço postal em que a entidade está localizada.|PostalAddress|  
@@ -180,26 +180,26 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
 
 ### <a name="identifiable"></a>Identifiable
 
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
 |id|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
 
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
 
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Integer|
+|resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Inteiro|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|String|
 |textualIndex|O índice da resposta em textualAnswers a ser exibido.| Inteiro sem sinal|
-|value|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibido. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identifiable|
+|valor|A ID que identifica uma resposta a ser exibida ou um item de uma resposta a ser exibido. Se a ID identificar uma resposta, exiba todos os itens da resposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Define o local em que o conteúdo da página de resultados da pesquisa deve ser colocado e em qual ordem.  
@@ -215,7 +215,7 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|Nome|Valor|Tipo|  
+|Nome|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Locais|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  

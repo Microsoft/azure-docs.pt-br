@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 0c8224bf84a2235086d941df7d02ab6f458f3f16
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92509957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-siteintel"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SiteIntel
@@ -48,9 +48,9 @@ Para configurar a integração do SiteIntel ao Azure AD, você precisará adicio
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione **Azure Active Directory**.
-1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
-1. Na caixa **Adicionar da galeria** , insira **SiteIntel**.
+1. Na caixa **Adicionar da galeria**, insira **SiteIntel**.
 1. Na lista de resultados, selecione **SiteIntel** e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-siteintel"></a>Configurar e testar o logon único do Azure AD para o SiteIntel
@@ -75,28 +75,28 @@ Para configurar e testar o SSO do Azure AD com o SiteIntel, conclua os seguintes
 
 Para habilitar o SSO do Azure AD no portal do Azure, faça o seguinte:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SiteIntel** , vá para a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , ao lado de **Configuração Básica do SAML** , selecione **Editar** (ícone de caneta).
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SiteIntel**, vá para a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, ao lado de **Configuração Básica do SAML**, selecione **Editar** (ícone de caneta).
 
    ![Captura de tela do painel "Configurar Logon Único com SAML"](common/edit-urls.png)
 
-1. Para configurar o aplicativo no modo iniciado por IdP, na seção **Configuração Básica do SAML** , faça o seguinte:
+1. Para configurar o aplicativo no modo iniciado por IdP, na seção **Configuração Básica do SAML**, faça o seguinte:
 
-    a. Na caixa **Identificador** , digite uma URL no seguinte formato: `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`
+    a. Na caixa **Identificador**, digite uma URL no seguinte formato: `urn:amazon:cognito:sp:<REGION>_<USERPOOLID>`
 
-    b. Na caixa **URL de Resposta** , digite uma URL no seguinte formato: `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
+    b. Na caixa **URL de Resposta**, digite uma URL no seguinte formato: `https://<CLIENT>.auth.siteintel.com/saml2/idpresponse`
 
-    c. Na caixa **Estado de Retransmissão** , digite uma URL no seguinte formato: `https://<CLIENT>.siteintel.com`
+    c. Na caixa **Estado de Retransmissão**, digite uma URL no seguinte formato: `https://<CLIENT>.siteintel.com`
 
 1. Para configurar o aplicativo no modo iniciado por SP, selecione **Definir URLs adicionais** e faça o seguinte:
 
-   * Na caixa **URL de Entrada** , digite um URL usando o seguinte formato: `https://<CLIENT>.siteintel.com`
+   * Na caixa **URL de Entrada**, digite um URL usando o seguinte formato: `https://<CLIENT>.siteintel.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize-os com o Identificador, a URL de Resposta, a URL de Logon e o Estado de retransmissão reais. Para obter esses valores, entre em contato com a [equipe de suporte ao cliente do SiteIntel](mailto:support@intalytics.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , selecione o botão **Copiar** para copiar a URL na caixa **URL de Metadados de Federação de Aplicativos**.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o botão **Copiar** para copiar a URL na caixa **URL de Metadados de Federação de Aplicativos**.
 
     ![Captura de tela do botão Copiar da "URL de Metadados de Federação do Aplicativo"](common/copy-metadataurl.png)
 
@@ -106,11 +106,11 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior do painel.
-1. Nas propriedades do **Usuário** , faça o seguinte:
+1. Nas propriedades do **Usuário**, faça o seguinte:
 
-   a. Na caixa **Nome** , insira **B.Fernandes**.  
+   a. Na caixa **Nome**, insira **B.Fernandes**.  
 
-   b. Na caixa **Nome de usuário** , insira o nome de usuários no seguinte formato: `username@companydomain.extension` (por exemplo, `B.Simon@contoso.com`).
+   b. Na caixa **Nome de usuário**, insira o nome de usuários no seguinte formato: `username@companydomain.extension` (por exemplo, `B.Simon@contoso.com`).
 
    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
@@ -121,18 +121,18 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 Nesta seção, você permitirá que o usuário B.Fernandes use o logon único do Azure permitindo acesso ao SiteIntel.
 
 1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
-1. Na lista de **Aplicativos** , selecione **SiteIntel**.
-1. Na página de visão geral do aplicativo, na seção **Gerenciar** , selecione **Usuários e grupos**.
+1. Na lista de **Aplicativos**, selecione **SiteIntel**.
+1. Na página de visão geral do aplicativo, na seção **Gerenciar**, selecione **Usuários e grupos**.
 
    ![Captura de tela do link "Usuários e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** e, em seguida, no painel **Adicionar Atribuição** , selecione **Usuários e grupos**.
+1. Selecione **Adicionar usuário** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![Captura de tela do botão "Adicionar usuário"](common/add-assign-user.png)
 
-1. No painel **Usuários e grupos** , selecione **B.Fernandes** e, em seguida, selecione o botão **Selecionar** na parte inferior da tela.
-1. Se você espera um valor de função na declaração SAML, no painel **Selecionar Função** , selecione a função apropriada para o usuário na lista e, em seguida, selecione o botão **Selecionar**.
-1. No painel **Adicionar Atribuição** , selecione o botão **Atribuir**.
+1. No painel **Usuários e grupos**, selecione **B.Fernandes** e, em seguida, selecione o botão **Selecionar** na parte inferior da tela.
+1. Se você espera um valor de função na declaração SAML, no painel **Selecionar Função**, selecione a função apropriada para o usuário na lista e, em seguida, selecione o botão **Selecionar**.
+1. No painel **Adicionar Atribuição**, selecione o botão **Atribuir**.
 
 ## <a name="configure-siteintel-sso"></a>Configurar o SSO do SiteIntel
 

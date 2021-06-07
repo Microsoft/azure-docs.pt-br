@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dbb491e77f132daf7b432f27705eba9e3e3cd3c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388695"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102036955"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar compilações, testes e implantações de um trabalho de Azure Stream Analytics usando as ferramentas de CI/CD
 
@@ -123,6 +123,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | `-project` | O caminho do **asaproj.jsno** arquivo para seu projeto Visual Studio Code ou **[nome do projeto]. asaproj** para o projeto do Visual Studio. |
 | `-testConfigPath` | O caminho do arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem**. Um novo arquivo será criado se não existir. |
 
+> [!NOTE]
+> O `Script` valor notestConfig.jsgerado **no** arquivo é apenas para fornecer o contexto; Ele não é usado na lógica de teste. 
+
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```powershell
@@ -166,6 +169,9 @@ Se você quiser que a validação de teste ignore uma determinada saída, defina
   ]
 }
 ```
+
+> [!NOTE]
+> Atualmente, o único valor permitido para o `ScriptType` elemento é `InputMock` , que também é o valor padrão. Se você defini-lo como qualquer outro valor, ele é ignorado e o valor padrão ( `InputMock` ) é usado. 
 
 ### <a name="run-a-unit-test"></a>Executar um teste de unidade
 

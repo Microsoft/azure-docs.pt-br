@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91540261"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associar o ASN do par à assinatura do Azure usando o portal
 
-Como um provedor de serviços de Internet ou um provedor de Internet, antes de enviar uma solicitação de emparelhamento, primeiro você deve associar seu ASN a uma assinatura do Azure usando as etapas abaixo.
+Como um provedor de serviços de Internet ou um provedor de Internet do Exchange, antes de enviar uma solicitação de emparelhamento, primeiro você deve associar o ASN a uma assinatura do Azure usando as etapas abaixo.
 
 Se preferir, conclua este guia usando o [PowerShell](howto-subscription-association-powershell.md).
 
@@ -39,7 +39,7 @@ Registre-se para o provedor de recursos de emparelhamento em sua assinatura segu
     > [!div class="mx-imgBorder"]
     > ![Iniciar assinatura](./media/rp-subscriptions-launch.png)
 
-1. Quando a assinatura for aberta, à esquerda, clique em **Provedores de recursos**. Em seguida, no painel direito, pesquise *emparelhamento* na janela de pesquisa ou use a barra de rolagem para localizar **Microsoft.Peering** e examine o **Status**. Se o status for ***Registrado***, ignore as etapas abaixo e vá para a seção **Criar PeerAsn**. Se o status for ***NotRegistered***, selecione **Microsoft.Peering** e clique em **Registrar**.
+1. Quando a assinatura for aberta, à esquerda, clique em **Provedores de recursos**. Em seguida, no painel direito, pesquise *emparelhamento* na janela de pesquisa ou use a barra de rolagem para localizar **Microsoft.Peering** e examine o **Status**. Se o status for **_Registrado_ *_, ignore as etapas abaixo e navegue até a seção _* Criar PeerAsn**. Se o status for **_NotRegistered_ *_, selecione _* Microsoft.Peering** e clique em **Registrar**.
 
     > [!div class="mx-imgBorder"]
     > ![Início do registro](./media/rp-register-start.png)
@@ -49,13 +49,13 @@ Registre-se para o provedor de recursos de emparelhamento em sua assinatura segu
     > [!div class="mx-imgBorder"]
     > ![Registro em andamento](./media/rp-register-progress.png)
 
-1. Aguarde cerca de um minuto para que ele conclua o registro. Em seguida, clique em **Atualizar** e verifique se o status é ***Registrado***.
+1. Aguarde cerca de um minuto para que ele conclua o registro. Em seguida, clique em **Atualizar** e verifique se o status é **_Registrado_**.
 
     > [!div class="mx-imgBorder"]
     > ![Registro concluído](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Criar PeerAsn
-Como um provedor de serviços de Internet ou provedor de Internet, você pode criar um novo recurso PeerAsn para associar um número de sistema autônomo (ASN) com a assinatura do Azure na [página associar um ASN de mesmo nível](https://go.microsoft.com/fwlink/?linkid=2129592) . Você pode associar vários ASNs a uma assinatura criando um **PeerAsn** para cada ASN que você precisa associar.
+Como um provedor de serviços de Internet ou um Provedor do Internet Exchange, você pode criar um novo recurso PeerAsn para associar um ASN (número de sistema autônomo) a uma assinatura do Azure na página [Associar PeerAsn](https://go.microsoft.com/fwlink/?linkid=2129592). Você pode associar vários ASNs a uma assinatura criando uma **PeerASN** para cada ASN que você precisa associar.
 
 1. Na página **Associar um ASN Par**, na guia **Noções Básicas**, preencha os campos conforme mostrado abaixo.
 
@@ -70,12 +70,12 @@ Como um provedor de serviços de Internet ou provedor de Internet, você pode cr
 1. Em seguida, clique em **Examinar + criar** e observe que o portal executa a validação básica das informações inseridas. Isso é exibido em uma faixa de opções na parte superior, como *Executando a validação final...* .
 
     > [!div class="mx-imgBorder"]
-    > ![Captura de tela mostra a guia "associar um par" Noções básicas de S N.](./media/peerasn-review-tab-validation.png)
+    > ![Captura de tela mostra a guia Noções Básicas de A S N Associar um Par.](./media/peerasn-review-tab-validation.png)
 
 1. Depois que a mensagem na faixa de opções passa a ser *Validação Aprovada*, verifique suas informações e envie a solicitação clicando em **Criar**. Se a validação não for aprovada, clique em **Anterior** e repita as etapas acima para modificar sua solicitação e verificar se os valores inseridos não contêm erros.
 
     > [!div class="mx-imgBorder"]
-    > ![A captura de tela mostra a guia "associar um par a S N básico" com validação aprovada.](./media/peerasn-review-tab.png)
+    > ![A captura de tela mostra a guia de Noções Básicas de A S N Associar um Par com validação aprovada.](./media/peerasn-review-tab.png)
 
 1. Depois de enviar a solicitação, aguarde até que ela conclua a implantação. Se a implantação falhar, entre em contato com [Emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida será exibida como a seguir.
 

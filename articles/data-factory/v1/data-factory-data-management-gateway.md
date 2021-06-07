@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375197"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
@@ -248,7 +248,7 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
 Se optar por não abrir a porta 8050 no computador do gateway, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) . Confira a seção Definir credenciais e segurança para saber como as credenciais do armazenamento de dados podem ser definidas.
 
-## <a name="update"></a>Atualização
+## <a name="update"></a>Atualizar
 Por padrão, o Gateway de Gerenciamento de Dados é atualizado automaticamente quando uma versão mais recente do gateway está disponível. O gateway não é atualizado até que todas as tarefas agendadas sejam concluídas. Nenhuma tarefa adicional é processada pelo gateway até que a operação de atualização seja concluída. Se a atualização falhar, o gateway será revertido para a versão antiga.
 
 Você vê a hora de atualização agendada nos seguintes locais:

@@ -2,16 +2,17 @@
 title: Criar uma VM do Linux no Azure por meio de um modelo
 description: Como usar a CLI do Azure para criar uma VM do Linux de um modelo do Resource Manager
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 184e856636a74ce5b7ac72b2e8cab3d1f19c4e17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4e1bf56df52717255d2bae0a38186335d922ff1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89074382"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554676"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual do Linux com os modelos do Azure Resource Manager
 
@@ -82,4 +83,4 @@ Confira a sintaxe e as propriedades do JSON para os tipos de recursos que você 
 - [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 - [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

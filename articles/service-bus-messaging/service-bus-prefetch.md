@@ -4,10 +4,10 @@ description: Melhore o desempenho realizando a pré-busca de mensagens do Barram
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85341057"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
@@ -22,7 +22,7 @@ Com .NET, você deve habilita o recurso de Pré-busca definindo a propriedade [P
 
 Você pode adicionar facilmente esta configuração ao lado de recebimento das configurações dos exemplos [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver o efeito nesses contextos.
 
-Enquanto as mensagens estão disponíveis no buffer de pré-busca, todas **Receive**as / chamadas**ReceiveAsync** de recebimento subsequentes são imediatamente atendidas do buffer e o buffer é reabastecido em segundo plano conforme o espaço fica disponível. Se não houver nenhuma mensagem disponível para entrega, a operação de recebimento esvazia o buffer e aguarda ou bloqueia, conforme esperado.
+Enquanto as mensagens estão disponíveis no buffer de pré-busca, todas as / chamadas **ReceiveAsync** de recebimento subsequentes são imediatamente atendidas do buffer e o buffer é reabastecido em segundo plano conforme o espaço fica disponível. Se não houver nenhuma mensagem disponível para entrega, a operação de recebimento esvazia o buffer e aguarda ou bloqueia, conforme esperado.
 
 A pré-busca também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync).
 

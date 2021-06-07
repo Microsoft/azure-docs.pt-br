@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98660243"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>A nova experiência de Registros de aplicativo para Azure Active Directory B2C

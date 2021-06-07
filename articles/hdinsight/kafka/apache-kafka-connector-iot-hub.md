@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: feada70c7a461bb4a9cd621c76b5606a7f0e19d5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932868"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865274"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use o Apache Kafka no HDInsight com o Microsoft Azure Hub IoT
 
@@ -22,7 +22,7 @@ Quando efetuar pull do Hub IoT, você usa um __conector__ de fonte. Quando efetu
 
 O diagrama a seguir mostra o fluxo de dados entre o Hub IoT do Microsoft zure e Kafka no HDInsight ao usar o conector.
 
-![Imagem mostrando os dados que fluem do Hub IoT para o Kafka através do conector](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Imagem mostrando os dados que fluem do Hub IoT para o Kafka através do conector" border="false":::
 
 Para obter mais informações sobre a API de conexão, consulte [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 

@@ -15,10 +15,10 @@ ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99539002"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerenciar no Privileged Identity Management
@@ -36,7 +36,7 @@ Ao configurar o Privileged Identity Management para recursos do Azure pela prime
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **recursos do Azure**.
+1. Selecione **Recursos do Azure**.
 
     Se esta for a primeira vez que você usa Privileged Identity Management para recursos do Azure, você verá uma página **descobrir recursos** .
 

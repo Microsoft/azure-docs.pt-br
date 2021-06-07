@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 461d7a82854ce62ee99eef1227c13c7a8f0371e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616595"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594868"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solução de problemas do Azure digital gêmeos: alertas
 
 O Azure digital gêmeos coleta [métricas](troubleshoot-metrics.md) para sua instância de serviço que fornecem informações sobre o estado de seus recursos. Você pode usar essas métricas para avaliar a integridade geral do serviço de gêmeos digital do Azure e os recursos conectados a ele.
 
-Os **alertas** o notificam proativamente quando condições importantes são encontradas nos dados de métricas. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Você pode ler mais sobre alertas em [*visão geral de alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+Os **alertas** o notificam proativamente quando condições importantes são encontradas nos dados de métricas. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Você pode ler mais sobre alertas em [*visão geral de alertas no Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="turn-on-alerts"></a>Ativar alertas
 
@@ -38,7 +38,7 @@ Aqui está como habilitar alertas para sua instância do gêmeos digital do Azur
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição, grupo de ações e detalhes da regra de alerta" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-Para obter uma explicação orientada sobre como preencher esses campos, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Veja abaixo alguns exemplos de como serão as etapas do Azure digital gêmeos.
+Para obter uma explicação orientada sobre como preencher esses campos, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md). Veja abaixo alguns exemplos de como serão as etapas do Azure digital gêmeos.
 
 ### <a name="select-conditions"></a>Selecionar condições
 
@@ -58,6 +58,6 @@ Depois de configurar os alertas, eles aparecerão de volta na página de *alerta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre alertas com Azure Monitor, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
+* Para obter mais informações sobre alertas com Azure Monitor, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/alerts/alerts-overview.md).
 * Para obter informações sobre as métricas do gêmeos digital do Azure, consulte [*solução de problemas: Exibir métricas com Azure monitor*](troubleshoot-metrics.md).
 * Para ver como habilitar o log de diagnóstico para suas métricas, consulte [*solução de problemas: configurar o diagnóstico*](troubleshoot-diagnostics.md).

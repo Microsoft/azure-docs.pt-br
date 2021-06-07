@@ -4,10 +4,10 @@ description: Este artigo fornece as propriedades e o esquema para eventos do Hub
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 5f43b9d0041fa5842bc2557a61c5145ce588758a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363519"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub IoT do Azure como uma fonte de grade de eventos
@@ -247,7 +247,7 @@ O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Est
 
 Todos os eventos conterão os mesmos dados de nível superior: 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `id` | string | Identificador exclusivo do evento. |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
@@ -263,7 +263,7 @@ Todos os eventos conterão os mesmos dados de nível superior:
 Todos os eventos conterão os mesmos dados de nível superior: 
 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `id` | string | Identificador exclusivo do evento. |
 | `source` | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
@@ -277,7 +277,7 @@ Todos os eventos conterão os mesmos dados de nível superior:
 
 Para todos os eventos de Hub IoT, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `hubName` | string | Nome do Hub IoT em que o dispositivo foi criado ou excluído. |
 | `deviceId` | string | O identificador exclusivo do dispositivo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -286,7 +286,7 @@ O conteúdo do objeto de dados é diferente para cada publicador do evento.
 
 Para os eventos de Hub IoT **Dispositivo Conectado** e **Dispositivo Desconectado**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `moduleId` | string | O identificador exclusivo do módulo. Este campo é a saída somente para dispositivos de módulo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | `deviceConnectionStateEventInfo` | object | Informações de evento de estado de conexão do dispositivo
@@ -294,7 +294,7 @@ Para os eventos de Hub IoT **Dispositivo Conectado** e **Dispositivo Desconectad
 
 Para o evento Hub IOT de **telemetria do dispositivo** , o objeto de dados contém a mensagem do dispositivo para a nuvem no [formato de mensagem do Hub IOT](../iot-hub/iot-hub-devguide-messages-construct.md) e tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `body` | string | O conteúdo da mensagem do dispositivo. |
 | `properties` | string | Propriedades do aplicativo são cadeias de caracteres definidas pelo usuário que podem ser adicionadas à mensagem. Esses campos são opcionais. |
@@ -302,7 +302,7 @@ Para o evento Hub IOT de **telemetria do dispositivo** , o objeto de dados cont�
 
 Para os eventos de Hub IoT **Dispositivo Criado** e **Dispositivo Excluído**, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `twin` | object | Informações sobre o dispositivo "or", que é a representação em nuvem dos metadados do dispositivo de aplicativo. | 
 | `deviceID` | string | O identificador exclusivo do dispositivo gêmeo. | 

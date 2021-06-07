@@ -4,12 +4,12 @@ description: As diferenças e o fluxo de migração para migrar cargas de trabal
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b8b054d06c9c0987508abfdf03bbcf9470572bd1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944789"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868759"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrar Apache Storm do Azure HDInsight 3,6 para o HDInsight 4,0 Apache Spark
 
@@ -25,8 +25,7 @@ Se você quiser migrar do Apache Storm no HDInsight 3,6, terá várias opções:
 
 Este documento fornece um guia para migração de Apache Storm para Spark streaming e streaming estruturado Spark.
 
-> [!div class="mx-imgBorder"]
-> ![Caminho de migração do HDInsight Storm](./media/migrate-storm-to-spark/storm-migration-path.png)
+:::image type="content" source="./media/migrate-storm-to-spark/storm-migration-path.png" alt-text="Caminho de migração do HDInsight Storm" border="false":::
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Comparação entre Apache Storm e o streaming do Spark, streaming estruturado do Spark
 
@@ -37,7 +36,7 @@ O Apache Storm pode oferecer diferentes níveis de processamento de mensagem gar
 |**Garantia de processamento de eventos**|Pelo menos uma vez <br> Exatamente uma vez (Trident) |[Exatamente uma vez](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exatamente uma vez](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modelo de processamento**|Tempo real <br> Micro batch (Trident) |Micro batch |Micro batch |
 |**Suporte ao horário do evento**|[Sim](https://storm.apache.org/releases/2.0.0/Windowing.html)|Não|[Sim](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Linguagens**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
+|**Idiomas**|Java, etc.|Escala, Java, Python|Python, R, escalar, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming do Spark versus streaming estruturado do Spark
 
@@ -47,8 +46,7 @@ O streaming estruturado do Spark está substituindo o streaming do Spark (DStrea
 
 O Storm fornece um modelo que processa cada único evento. Isso significa que todos os registros de entrada serão processados assim que eles chegarem. Os aplicativos Spark Streaming precisam aguardar uma fração de segundo para coletar cada microlote de eventos antes de enviar esse lote para processamento. Por outro lado, um aplicativo controlado por evento processa cada evento imediatamente. A latência do Spark Streaming normalmente fica abaixo de alguns segundos. Os benefícios da abordagem de microlote são um processamento de dados mais eficiente e cálculos de agregação mais simples.
 
-> [!div class="mx-imgBorder"]
-> ![processamento de streaming e micro-batch](./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png" alt-text="processamento de streaming e micro-batch" border="false":::
 
 ## <a name="storm-architecture-and-components"></a>Componentes e arquitetura do Storm
 
@@ -59,8 +57,7 @@ As topologias do Storm são compostas por vários componentes organizados em um 
 |Spout|Coloca os dados em uma topologia. Eles emitem um ou mais fluxos na topologia.|
 |Relâmpago|Consome fluxos emitidos de esgotamentos ou outros parafusos. Os bolts podem opcionalmente emitir fluxos na topologia. Os bolts também são responsáveis por gravar dados em armazenamentos ou serviço externos, como HDFS, Kafka ou HBase.|
 
-> [!div class="mx-imgBorder"]
-> ![interação dos componentes do Storm](./media/migrate-storm-to-spark/apache-storm-components.png)
+:::image type="content" source="./media/migrate-storm-to-spark/apache-storm-components.png" alt-text="interação dos componentes do Storm" border="false":::
 
 O Storm consiste nos três daemons a seguir, que mantêm o funcionamento do cluster Storm.
 
@@ -70,8 +67,7 @@ O Storm consiste nos três daemons a seguir, que mantêm o funcionamento do clus
 |Zookeeper|Usado para coordenação de cluster.|
 |Supervisor|Escuta o trabalho atribuído à sua máquina e inicia e interrompe os processos de trabalho com base nas diretivas de Nimbus. Cada processo de trabalho executa um subconjunto de uma topologia. A lógica do aplicativo (esgotamento e o parafuso) do usuário é executada aqui.|
 
-> [!div class="mx-imgBorder"]
-> ![daemons de Nimbus, Zookeeper e supervisor](./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png)
+:::image type="content" source="./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png" alt-text="daemons de Nimbus, Zookeeper e supervisor" border="false":::
 
 ## <a name="spark-streaming-architecture-and-components"></a>Componentes e arquitetura de streaming do Spark
 
@@ -83,15 +79,13 @@ As etapas a seguir resumem como os componentes funcionam juntos no streaming do 
 * Blocos de dados são replicados para outros executores.
 * Os dados processados são então armazenados no armazenamento de dados de destino.
 
-> [!div class="mx-imgBorder"]
-> ![caminho de streaming do Spark para a saída](./media/migrate-storm-to-spark/spark-streaming-to-output.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-to-output.png" alt-text="caminho de streaming do Spark para a saída" border="false":::
 
 ## <a name="spark-streaming-dstream-workflow"></a>Fluxo de trabalho do Spark streaming (DStream)
 
 Com a expiração de cada intervalo de lote, um novo RDD é produzido, contendo todos os dados desse intervalo. Os conjuntos contínuos de RDDs são coletados em um DStream. Por exemplo, se o intervalo de lote for de um segundo, o DStream emitirá um lote a cada segundo com um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece em um desses lotes. Um aplicativo Spark Streaming processa os lotes que contêm os eventos e, por fim, atua nos dados armazenados em cada RDD.
 
-> [!div class="mx-imgBorder"]
-> ![lotes de processamento de streaming do Spark](./media/migrate-storm-to-spark/spark-streaming-batches.png)
+:::image type="content" source="./media/migrate-storm-to-spark/spark-streaming-batches.png" alt-text="lotes de processamento de streaming do Spark" border="false":::
 
 Para obter detalhes sobre as diferentes transformações disponíveis no Spark streaming, consulte [transformações em DStreams](https://spark.apache.org/docs/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
@@ -105,11 +99,9 @@ A saída da consulta produz uma *tabela de resultados*, que contém os resultado
 
 O tempo de quando os dados serão processados a partir da tabela de entrada é controlado pelo intervalo do gatilho. Por padrão, o intervalo do gatilho é zero, para que o Structured Streaming tente processar os dados assim que eles chegam. Na prática, isso significa que assim que o Structured Streaming termina de processar a execução da consulta anterior, ele inicia outro processamento executado quaisquer dados recebidos recentemente. É possível configurar o gatilho para executar em um intervalo, de modo que os dados de streaming sejam processados em lotes baseados em tempo.
 
-> [!div class="mx-imgBorder"]
-> ![processamento de dados em streaming estruturado](./media/migrate-storm-to-spark/structured-streaming-data-processing.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-data-processing.png" alt-text="processamento de dados em streaming estruturado" border="false":::
 
-> [!div class="mx-imgBorder"]
-> ![modelo de programação para streaming estruturado](./media/migrate-storm-to-spark/structured-streaming-model.png)
+:::image type="content" source="./media/migrate-storm-to-spark/structured-streaming-model.png" alt-text="modelo de programação para streaming estruturado" border="false":::
 
 ## <a name="general-migration-flow"></a>Fluxo de migração geral
 
@@ -119,30 +111,25 @@ O fluxo de migração recomendado do Storm para o Spark pressupõe a seguinte ar
 * O Kafka e o Storm são implantados na mesma rede virtual
 * Os dados processados pelo Storm são gravados em um coletor de dados, como o armazenamento do Azure ou o Azure Data Lake Storage Gen2.
 
-    > [!div class="mx-imgBorder"]
-    > ![diagrama do ambiente atual presumido](./media/migrate-storm-to-spark/presumed-current-environment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/presumed-current-environment.png" alt-text="diagrama do ambiente atual presumido"  border="false":::
 
 Para migrar seu aplicativo do Storm para uma das APIs de streaming do Spark, faça o seguinte:
 
 1. **Implante um novo cluster.** Implante um novo cluster HDInsight 4,0 Spark na mesma rede virtual e implante seu aplicativo de streaming estruturado Spark ou Spark e teste-o completamente.
 
-    > [!div class="mx-imgBorder"]
-    > ![nova implantação do Spark no HDInsight](./media/migrate-storm-to-spark/new-spark-deployment.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/new-spark-deployment.png" alt-text="nova implantação do Spark no HDInsight" border="false":::
 
 1. **Pare de consumir no antigo cluster Storm.** No Storm existente, interrompa o consumo de dados da fonte de dados de streaming e aguarde que os dados terminem de gravar no coletor de destino.
 
-    > [!div class="mx-imgBorder"]
-    > ![parar de consumir no cluster atual](./media/migrate-storm-to-spark/stop-consuming-current-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/stop-consuming-current-cluster.png" alt-text="parar de consumir no cluster atual" border="false":::
 
 1. **Comece a consumir no novo cluster Spark.** Inicie o streaming de dados de um cluster HDInsight 4,0 Spark implantado recentemente. Neste momento, o processo é assumido pelo consumo do deslocamento Kafka mais recente.
 
-    > [!div class="mx-imgBorder"]
-    > ![iniciar o consumo no novo cluster](./media/migrate-storm-to-spark/start-consuming-new-cluster.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/start-consuming-new-cluster.png" alt-text="iniciar o consumo no novo cluster" border="false":::
 
 1. **Remova o cluster antigo, conforme necessário.** Quando o comutador estiver concluído e funcionando corretamente, remova o antigo cluster do HDInsight 3,6 Storm, conforme necessário.
 
-    > [!div class="mx-imgBorder"]
-    > ![Remova os antigos clusters HDInsight conforme necessário](./media/migrate-storm-to-spark/remove-old-clusters1.png)
+   :::image type="content" source="./media/migrate-storm-to-spark/remove-old-clusters1.png" alt-text="Remova os antigos clusters HDInsight conforme necessário" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

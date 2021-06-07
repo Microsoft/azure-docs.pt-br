@@ -9,12 +9,12 @@ metadata:
   author: IngridAtMicrosoft
   ms.author: inhenkel
   ms.date: 04/20/2020
-  ms.openlocfilehash: 0e9514367736ec8116a17820a16ddca4795b2445
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 90eb760b8f0e39d3c570c35875e45af9149b2bb5
+  ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87039048"
+  ms.lasthandoff: 03/05/2021
+  ms.locfileid: "102216897"
 landingContent:
 - title: Player de Mídia do Azure
   linkLists:
@@ -63,7 +63,7 @@ landingContent:
     - text: Exemplos
       url: https://github.com/Azure-Samples/azure-media-player-samples
     - text: API
-      url: /javascript/api/azuremediaplayer/?view=azure-node-latest
+      url: /javascript/api/azuremediaplayer/
     - text: Métodos de API
       url: azure-media-player-api-methods.md
     - text: Opções

@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302604"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582673"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
@@ -25,7 +25,7 @@ Você descreve a telemetria, as propriedades e os comandos que um dispositivo de
 - **Nenhum componente** -um modelo sem componentes. O modelo declara telemetria, propriedades e comandos como propriedades de nível superior na seção de conteúdo da interface principal. Na ferramenta do Azure IoT Explorer, esse modelo aparece como um único _componente padrão_.
 - **Vários componentes** – um modelo composto por duas ou mais interfaces. Uma interface principal, que aparece como o _componente padrão_, com telemetria, propriedades e comandos. Uma ou mais interfaces declaradas como componentes com telemetria, propriedades e comandos adicionais.
 
-Para obter mais informações, consulte [componentes de IoT plug and Play em modelos](concepts-components.md).
+Para obter mais informações, consulte [Guia de modelagem do IoT plug and Play](concepts-modeling-guide.md).
 
 ## <a name="identify-the-model"></a>Identificar o modelo
 
@@ -351,6 +351,6 @@ Em um dispositivo ou módulo, várias interfaces de componente usam nomes de com
 Agora que você aprendeu sobre as convenções de Plug and Play IoT, aqui estão alguns recursos adicionais:
 
 - [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [SDK do Dispositivo C](/azure/iot-hub/iot-c-sdk-ref/)
+- [SDK do dispositivo C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](/rest/api/iothub/device)
-- [Componentes do modelo](./concepts-components.md)
+- [Guia de modelagem de Plug and Play de IoT](concepts-modeling-guide.md)

@@ -1,7 +1,7 @@
 ---
 title: Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 description: Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d90e48d15e20b21f4c6032547517b3190cb46085
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b859ff49edb495be15cdf76719c3aaaf1ac72a6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695604"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103013764"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 

@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 1/12/2021
 ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165604"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Banco de dados do Azure para PostgreSQL – opções de configuração do Citus (hiperescala)
@@ -42,7 +42,7 @@ A quantidade total de armazenamento que você provisiona também define a capaci
 
 | Tamanho do armazenamento, TiB | IOPS máximo |
 |-------------------|--------------|
-| 0,5               | 1.536        |
+| 0.5               | 1.536        |
 | 1                 | 3.072        |
 | 2                 | 6.148        |
 

@@ -2,13 +2,13 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652475"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951956"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
@@ -53,6 +53,12 @@ Para usar CLI do Azure para excluir um bloqueio, execute os seguintes comandos:
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Permissões necessárias
+
+As exclusões são solicitadas sob a identidade do usuário que implantou o modelo. Para excluir implantações, o usuário deve ter acesso à ação **Microsoft. Resources/Implantations/Delete** . Se o usuário não tiver as permissões necessárias, as implantações não serão excluídas do histórico.
+
+Se o usuário atual não tiver as permissões necessárias, a exclusão automática será tentada novamente durante a próxima implantação.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Recusar exclusões automáticas
 

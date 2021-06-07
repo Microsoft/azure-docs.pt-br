@@ -8,10 +8,10 @@ ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
 ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100388984"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>RabbitMQ do gatilho para Azure Functions visão geral
@@ -218,8 +218,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name** | n/d | O nome da variável que representa a fila no código de função. |
 |**queueName**|**QueueName**| Nome da fila da qual receber mensagens. |
 |**Nome do host**|**HostName**|(ignorado se estiver usando ConnectStringSetting) <br>Nome do host da fila (ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém o nome de usuário para acessar a fila. Exemplo: UserNameSetting: "% < UserNameFromSettings >%"|
-|**passwordSetting**|**PasswordSetting**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém a senha para acessar a fila. Exemplo: PasswordSetting: "% < PasswordFromSettings >%"|
+|**userNameSetting**|**UserNameSetting**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém o nome de usuário para acessar a fila. Ex.: UserNameSetting: "% < UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém a senha para acessar a fila. Ex.: PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão da fila de mensagens RabbitMQ. Observe que, se você especificar a cadeia de conexão diretamente e não por meio de uma configuração de aplicativo no local.settings.jsem, o gatilho não funcionará. (Por exemplo: em *function.jsem*: connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection": "< ActualConnectionstring >")|
 |**port**|**Porta**|(ignorado se estiver usando ConnectionStringSetting) Obtém ou define a porta usada. O padrão é 0, que aponta para a configuração de porta padrão do cliente RabbitMQ: 5672.|
 

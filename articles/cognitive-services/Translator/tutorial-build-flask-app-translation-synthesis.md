@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 05/26/2020
+ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 755e6370883bf39596850b45dc10f7efd3c9b55b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896673"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043726"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços Cognitivos do Azure
 
-Neste tutorial, você criará um aplicativo web com base em Flask que usa Serviços Cognitivos do Azure para traduzir texto, analisar o sentimento e sintetizar o texto traduzido em fala. Nosso foco é o código do Python e as rotas do Flask que permitem habilitar nosso aplicativo, no entanto, mas vamos ajudá-lo com o HTML e o Javascript que compõem o aplicativo. Se você tiver algum problema, informe-nos usando o botão de comentários abaixo.
+Neste tutorial, você criará um aplicativo web com base em Flask que usa Serviços Cognitivos do Azure para traduzir texto, analisar o sentimento e sintetizar o texto traduzido em fala. Nosso foco é o código do Python e as rotas do Flask que permitem habilitar nosso aplicativo. No entanto, ajudaremos você com o HTML e o JavaScript que compõem o aplicativo. Se você tiver algum problema, informe-nos usando o botão de comentários abaixo.
 
 Este tutorial abrange:
 
@@ -49,11 +49,11 @@ Para aqueles que desejam aprofundamento após este tutorial, aqui estão alguns 
 
 Vamos analisar as chaves de software e assinatura que você precisará para este tutorial.
 
-* [Python 3.5.2 ou posterior](https://www.python.org/downloads/)
+* [Python 3.6 ou posterior](https://www.python.org/downloads/)
 * [Ferramentas do Git](https://git-scm.com/downloads)
 * Um IDE ou editor de códigos, como o [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
-* Uma chave de assinatura do **Tradutor** (Observe que não é necessário selecionar uma região.)
+* Uma chave de assinatura de **Tradutor** (você provavelmente pode usar o local **global**).
 * Uma chave de assinatura de **análise de texto** na região do **Oeste dos EUA**.
 * Uma chave de assinatura de **serviços de fala** na região do **Oeste dos EUA**.
 
@@ -249,7 +249,7 @@ Agora que você tem uma ideia de como um aplicativo Flask simples funciona, vamo
 * Escrever em Python para chamar o Tradutor e retornar uma resposta
 * Criar uma rota do Flask para chamar o código do Python
 * Atualizar o HTML com uma área para entrada de texto e tradução, um seletor de idioma e o botão mover
-* Escrever Javascript que permite aos usuários interagir com seu aplicativo Flask do HTML
+* Escrever um JavaScript que permita aos usuários interagir com seu aplicativo Flask em HTML
 
 ### <a name="call-the-translator"></a>Chamar o Tradutor
 
@@ -263,7 +263,7 @@ A primeira coisa que você precisa fazer é escrever uma função para chamar o 
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-   
+   location = 'YOUR_TRANSLATOR_RESOURCE_LOCATION'
    # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
@@ -277,7 +277,7 @@ A primeira coisa que você precisa fazer é escrever uma função para chamar o 
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
-           'Ocp-Apim-Subscription-Region': 'location',
+           'Ocp-Apim-Subscription-Region': location,
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }
@@ -409,7 +409,7 @@ Vamos atualizar `index.html`.
    </div>
    ```
 
-A próxima etapa é escrever Javascript. Essa é a ponte entre sua rota HTML e Flask.
+A próxima etapa será escrever um JavaScript. Essa é a ponte entre sua rota HTML e Flask.
 
 ### <a name="create-mainjs"></a>Crie `main.js`  
 
@@ -482,11 +482,11 @@ Nesta seção, você vai fazer algumas coisas:
 * Escrever alguns Python para chamar a API de análise de texto para executar a análise de sentimento e retornar uma resposta
 * Criar uma rota do Flask para chamar o código do Python
 * Atualizar o HTML com uma área para pontuações de sentimento e um botão para executar a análise
-* Escrever Javascript que permite aos usuários interagir com seu aplicativo Flask do HTML
+* Escrever um JavaScript que permita aos usuários interagir com seu aplicativo Flask em HTML
 
 ### <a name="call-the-text-analytics-api"></a>Chamar a API da Análise de Texto
 
-Vamos escrever uma função para chamar a API de Análise de Texto. Esta função usará dois argumentos: `input_text`, `input_language`, `output_text` e `output_language`. Essa função é chamada sempre que um usuário pressiona o botão de análise de sentimento no seu aplicativo. Dados fornecidos pelo usuário do seletor de idioma e de área de texto, bem como a saída de linguagem e tradução detectada são fornecidos com cada solicitação. O objeto de resposta inclui as pontuações de sentimento para a origem e a tradução. Nas seções a seguir, você vai escrever um Javascript para analisar a resposta e usá-la em seu aplicativo. Por enquanto, vamos nos concentrar na chamada de API de análise de texto.
+Vamos escrever uma função para chamar a API de Análise de Texto. Esta função usará dois argumentos: `input_text`, `input_language`, `output_text` e `output_language`. Essa função é chamada sempre que um usuário pressiona o botão de análise de sentimento no seu aplicativo. Dados fornecidos pelo usuário do seletor de idioma e de área de texto, bem como a saída de linguagem e tradução detectada são fornecidos com cada solicitação. O objeto de resposta inclui as pontuações de sentimento para a origem e a tradução. Nas seções a seguir, você escreverá um JavaScript para analisar a resposta e usá-la no seu aplicativo. Por enquanto, vamos nos concentrar na chamada de API de análise de texto.
 
 1. Vamos começar criando um arquivo chamado `sentiment.py` na raiz do seu diretório de trabalho.
 2. Em seguida, adicione este código a `sentiment.py`.
@@ -495,17 +495,16 @@ Vamos escrever uma função para chamar a API de Análise de Texto. Esta funçã
 
    # Don't forget to replace with your Cog Services subscription key!
    subscription_key = 'YOUR_TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-
+   endpoint = "YOUR_TEXT_ANALYTICS_ENDPOINT" 
    # Our Flask route will supply four arguments: input_text, input_language,
    # output_text, output_language.
    # When the run sentiment analysis button is pressed in our Flask app,
    # the Ajax request will grab these values from our web app, and use them
    # in the request. See main.js for Ajax calls.
 
-   def get_sentiment(input_text, input_language, output_text, output_language):
-       base_url = 'https://westus.api.cognitive.microsoft.com/text/analytics'
-       path = '/v2.0/sentiment'
-       constructed_url = base_url + path
+   def get_sentiment(input_text, input_language):
+       path = '/text/analytics/v3.0/sentiment'
+       constructed_url = endpoint + path
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
@@ -521,11 +520,6 @@ Vamos escrever uma função para chamar a API de Análise de Texto. Esta funçã
                    'id': '1',
                    'text': input_text
                },
-               {
-                   'language': output_language,
-                   'id': '2',
-                   'text': output_text
-               }
            ]
        }
        response = requests.post(constructed_url, headers=headers, json=body)
@@ -551,9 +545,7 @@ Vamos criar uma rota em seu aplicativo Flask que chama `sentiment.py`. Essa rota
        data = request.get_json()
        input_text = data['inputText']
        input_lang = data['inputLanguage']
-       output_text = data['outputText']
-       output_lang =  data['outputLanguage']
-       response = sentiment.get_sentiment(input_text, input_lang, output_text, output_lang)
+       response = sentiment.get_sentiment(input_text, input_lang)
        return jsonify(response)
    ```
 
@@ -576,9 +568,8 @@ Agora que você tem uma função para executar análise de sentimento e uma rota
    ```html
    <button type="submit" class="btn btn-primary mb-2" id="sentiment-analysis">Run sentiment analysis</button></br>
    <div id="sentiment" style="display: none">
-      <p>Sentiment scores are provided on a 1 point scale. The closer the sentiment score is to 1, indicates positive sentiment. The closer it is to 0, indicates negative sentiment.</p>
-      <strong>Sentiment score for input:</strong> <span id="input-sentiment"></span><br />
-      <strong>Sentiment score for translation:</strong> <span id="translation-sentiment"></span>
+      <p>Sentiment can be labeled as "positive", "negative", "neutral", or "mixed". </p>
+      <strong>Sentiment label for input:</strong> <span id="input-sentiment"></span><br />
    </div>
    ```
 
@@ -592,7 +583,7 @@ O código itera através da resposta e atualiza o HTML com as pontuações de se
 
 2. Copie este código para `static/scripts/main.js`:
    ```javascript
-   //Run sentinment analysis on input and translation.
+   //Run sentiment analysis on input and translation.
    $("#sentiment-analysis").on("click", function(e) {
      e.preventDefault();
      var inputText = document.getElementById("text-to-translate").value;
@@ -600,7 +591,7 @@ O código itera através da resposta e atualiza o HTML com as pontuações de se
      var outputText = document.getElementById("translation-result").value;
      var outputLanguage = document.getElementById("select-language").value;
 
-     var sentimentRequest = { "inputText": inputText, "inputLanguage": inputLanguage, "outputText": outputText,  "outputLanguage": outputLanguage };
+     var sentimentRequest = { "inputText": inputText, "inputLanguage": inputLanguage};
 
      if (inputText !== "") {
        $.ajax({
@@ -615,10 +606,7 @@ O código itera através da resposta e atualiza o HTML com as pontuações de se
            for (var i = 0; i < data.documents.length; i++) {
              if (typeof data.documents[i] !== "undefined"){
                if (data.documents[i].id === "1") {
-                 document.getElementById("input-sentiment").textContent = data.documents[i].score;
-               }
-               if (data.documents[i].id === "2") {
-                 document.getElementById("translation-sentiment").textContent = data.documents[i].score;
+                 document.getElementById("input-sentiment").textContent = data.documents[i].sentiment;
                }
              }
            }
@@ -627,12 +615,9 @@ O código itera através da resposta e atualiza o HTML com as pontuações de se
                if (data.errors[i].id === "1") {
                  document.getElementById("input-sentiment").textContent = data.errors[i].message;
                }
-               if (data.errors[i].id === "2") {
-                 document.getElementById("translation-sentiment").textContent = data.errors[i].message;
-               }
              }
            }
-           if (document.getElementById("input-sentiment").textContent !== '' && document.getElementById("translation-sentiment").textContent !== ""){
+           if (document.getElementById("input-sentiment").textContent !== ''){
              document.getElementById("sentiment").style.display = "block";
            }
          }
@@ -666,7 +651,7 @@ Nesta seção, você vai fazer algumas coisas:
 * Escrever alguns Python para converter texto em fala com a API de texto em fala
 * Criar uma rota do Flask para chamar o código do Python
 * Atualizar o HTML com o botão para converter texto em fala e um elemento para reprodução de áudio
-* Escrever Javascript que permite aos usuários interagir com seu aplicativo Flask
+* Escrever um JavaScript que permita aos usuários interagir com o seu aplicativo Flask
 
 ### <a name="call-the-text-to-speech-api"></a>Chamar a API de conversão de texto em fala
 

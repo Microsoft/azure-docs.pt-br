@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c08555120758584f41587bd96d754b325cdc48b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutorial: integração do Azure Active Directory com o Pavaso Digital Close
@@ -61,7 +61,7 @@ Para configurar a integração do Pavaso Digital Close ao Azure AD, você precis
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Pavaso Digital Close** , selecione **Pavaso Digital Close** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Pavaso Digital Close**, selecione **Pavaso Digital Close** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Pavaso Digital Close na lista de resultados](common/search-new-app.png)
 
@@ -85,19 +85,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do AD do Azure com o [nome do aplicativo], execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Pavaso Digital Close** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Pavaso Digital Close**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
     ![Uma captura de tela que mostra a "Configuração Básica de SAML" com as caixas de texto "Identificador" e "URL de Resposta" realçadas, bem como a ação "Salvar" selecionada.](common/idp-intiated.png)
 
@@ -107,18 +107,18 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de login** , digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com`.
+    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com`.
 
     ![Informações de domínio e de URLs de logon único do Pavaso Digital Close](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com [equipe de suporte ao cliente do Pavaso Digital Close](mailto:support@pavaso.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Na seção **Configurar o Pavaso Digital Close** , copie as URLs apropriadas de acordo com seus requisitos.
+7. Na seção **Configurar o Pavaso Digital Close**, copie as URLs apropriadas de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -136,7 +136,7 @@ Para configurar o logon único no lado do **Pavaso Digital Close** é necessári
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -148,9 +148,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -161,7 +161,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Pavaso Digital Close.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e **Pavaso Digital Close**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e **Pavaso Digital Close**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -177,11 +177,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-pavaso-digital-close-test-user"></a>Criar usuário de teste do Pavaso Digital Close
 
@@ -199,4 +199,4 @@ Ao clicar no bloco do Pavaso Digital Close no Painel de Acesso, você será cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

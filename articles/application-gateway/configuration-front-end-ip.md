@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 732054ae2cd8f93d17694e9ea1bdd85680e9c314
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: eff63510f70dd7b4cdd522cc5a2a68096cda7166
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058643"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102548709"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuração do endereço IP de front-end do gateway de aplicativo
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte perguntas frequentes [sobre o gateway de
 
 Um endereço IP público não é necessário para um ponto de extremidade interno que não esteja exposto à Internet. Isso é conhecido como ponto de extremidade ILB ( *balanceador de carga interno* ) ou IP de front-end privado. Um ILB de gateway de aplicativo é útil para aplicativos de linha de negócios internos que não são expostos à Internet. Ele também é útil para serviços e camadas em um aplicativo de várias camadas dentro de um limite de segurança que não é exposto à Internet, mas que exigem distribuição de carga Round Robin, adesão de sessão ou terminação de TLS.
 
-Há suporte para apenas um endereço IP público ou um endereço IP privado. Você escolhe o IP de front-end ao criar o gateway de aplicativo.
+Há suporte para apenas um endereço IP público e um endereço IP privado. Você escolhe o IP de front-end ao criar o gateway de aplicativo.
 
 - Para um endereço IP público, você pode criar um novo endereço IP público ou usar um IP público existente no mesmo local que o gateway de aplicativo. Para obter mais informações, consulte [endereço IP público estático vs. dinâmico](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 

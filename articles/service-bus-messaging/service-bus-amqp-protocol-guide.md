@@ -4,10 +4,10 @@ description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no B
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624482"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
@@ -222,8 +222,8 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | --- | --- | --- |
 | message-id |Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
-| para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Chamada](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| como |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rótulo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -357,10 +357,10 @@ O gesto de protocolo é uma troca de solicitação/resposta, conforme definido p
 
 A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
-| Chave | Opcional | Tipo do Valor | Conteúdo de valor |
+| Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | operation |Não |string |**put-token** |
-| tipo |Não |string |O tipo do token colocado. |
+| type |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim | timestamp |A hora de expiração do token. |
 
@@ -376,7 +376,7 @@ Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fun
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
-| Chave | Opcional | Tipo do Valor | Conteúdo de valor |
+| Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |

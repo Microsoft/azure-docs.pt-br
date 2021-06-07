@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/24/2020
+ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019354"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103493485"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
 
@@ -60,6 +59,7 @@ _**Figura 1:** Uma instância do SAP ASCS/SCS e SOFS implantadas em dois cluster
 > A instalação deve atender às seguintes condições:
 > * As instâncias do SAP ASCS/SCS deverão compartilhar o mesmo cluster WSFC.
 > * Diferentes compartilhamentos de arquivos de Hosts Globais do SAP que pertencem a diferentes SIDs do SAP precisam compartilhar o mesmo cluster SOFS.
+> * As instâncias do SAP ASCS/SCS e os compartilhamentos SOFS não devem ser combinados no mesmo cluster. 
 > * Cada SID do DBMS (sistema de gerenciamento de banco de dados) deve ter seu próprio cluster WSFC dedicado.
 > * Os servidores de aplicativos SAP que pertencem a um SID do sistema SAP deverão ter suas próprias VMs dedicadas.
 > * Não há suporte para uma combinação do servidor de replicação de enfileiramento 1 e do servidor de replicação de enfileiramento 2 no mesmo cluster.  
@@ -469,4 +469,4 @@ Instale os servidores de aplicativos SAP e DBMS conforme descrito anteriormente.
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../availability.md

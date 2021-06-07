@@ -4,12 +4,12 @@ description: Discussão e análise de possíveis razões e soluções para alert
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 22985f295e504a2d73015f1dc96064f89be47bd7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946717"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866923"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: alertas obsoletos do Apache Ambari no Azure HDInsight
 
@@ -19,7 +19,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 Na interface do usuário do Apache Ambari, você pode ver um alerta como este:
 
-![Exemplo de alerta do Apache Ambari obsoleto](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Exemplo de alerta do Apache Ambari obsoleto" border="true":::
 
 ## <a name="cause"></a>Causa
 

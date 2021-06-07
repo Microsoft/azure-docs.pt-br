@@ -18,17 +18,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68989688"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início Rápido: baixar um relatório de auditoria usando o portal do Azure
 
 Neste início rápido, você aprenderá a baixar um arquivo CSV dos logs de auditoria do seu locatário nas últimas 24 horas. Você pode baixar até 250.000 registros do portal do Azure. Os registros são classificados por mais recentes; por padrão, você obterá os 250.000 registros mais recentes. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de:
 

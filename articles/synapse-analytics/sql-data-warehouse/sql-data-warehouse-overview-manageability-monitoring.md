@@ -2,21 +2,21 @@
 title: Gerenciabilidade e monitoramento-visão geral
 description: Visão geral de monitoramento e capacidade de gerenciamento para utilização de recursos, atividade de log e consulta, recomendações e proteção de dados (backup e restauração) com o pool SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 56ec38140d53788de7cc94f3cb6046177ad2bed4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317504"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585461"
 ---
 # <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Gerenciabilidade e monitoramento com o pool dedicado do SQL no Azure Synapse Analytics
 

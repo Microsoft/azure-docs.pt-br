@@ -2,21 +2,21 @@
 title: 'Tutorial: carregar dados usando portal do Azure & SSMS'
 description: O tutorial usa portal do Azure e SQL Server Management Studio para carregar o data warehouse WideWorldImportersDW de um blob global do Azure para um pool SQL do Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/12/2021
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bd9d477ed20122b0706e7997ab8922dcce7a59ba
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f41d7359b8273d685d0ab3c962697ca45ff7d18f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685418"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598024"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
 
@@ -970,7 +970,7 @@ Para obter um alto desempenho de consulta, é importante criar estatísticas em 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente.  
 
@@ -978,7 +978,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) e clique no seu data warehouse.
 
-    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
 

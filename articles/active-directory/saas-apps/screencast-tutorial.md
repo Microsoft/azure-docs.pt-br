@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 2b0c42046df716c8ae65046e5f3314817da0a17e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92893736"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Screencast-O-Matic
@@ -50,7 +50,7 @@ Para configurar a integração do Screencast-O-Matic ao Azure AD, é necessário
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **Screencast-O-Matic** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **Screencast-O-Matic** na caixa de pesquisa.
 1. Escolha **Screencast-O-Matic** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-screencast-o-matic"></a>Configurar e testar o logon único do Azure AD para o Screencast-O-Matic
@@ -70,24 +70,24 @@ Para configurar e testar o SSO do Azure AD com o Screencast-O-Matic, conclua os 
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Screencast-O-Matic** , localize a seção **Gerenciar** e escolha **Logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Screencast-O-Matic**, localize a seção **Gerenciar** e escolha **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://screencast-o-matic.com/<InstanceName>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://screencast-o-matic.com/<InstanceName>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [Equipe de suporte do Cliente Screencast Matic O](mailto:support@screencast-o-matic.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o Screencast-O-Matic** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Screencast-O-Matic**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -95,11 +95,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -117,9 +117,9 @@ Nessa seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-screencast-o-matic-sso"></a>Configurar o SSO do Screencast-O-Matic
 
@@ -137,19 +137,19 @@ Nessa seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     ![A Assinatura](./media/screencast-tutorial/tutorial_screencast_sub.png)
 
-1. Na seção **Página de acesso** , clique em **Instalar**.
+1. Na seção **Página de acesso**, clique em **Instalar**.
 
     ![Captura de tela que mostra a seção "Página de Acesso" com o botão "Configurar" selecionado.](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
-1. Na **Página de Acesso da Instalação** , execute as seguintes etapas.
+1. Na **Página de Acesso da Instalação**, execute as seguintes etapas.
 
-1. Na seção **URL de acesso** , digite o nome de instância na caixa de texto especificada.
+1. Na seção **URL de acesso**, digite o nome de instância na caixa de texto especificada.
 
     ![Captura de tela que mostra a seção "URL de Acesso" com a caixa de texto do nome da instância realçada.](./media/screencast-tutorial/tutorial_screencast_access.png)
 
 1. Selecione **Exigir Usuário do Domínio** na seção **Restrição de Usuário SAML (opcional)** .
 
-1. Em **Carregar arquivo XML de metadados IDP** , clique em **Escolher Arquivo** para carregar os metadados que você baixou do portal do Azure.
+1. Em **Carregar arquivo XML de metadados IDP**, clique em **Escolher Arquivo** para carregar os metadados que você baixou do portal do Azure.
 
 1. Clique em **OK**.
 

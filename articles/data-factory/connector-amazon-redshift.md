@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364249"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift usando o Azure Data Factory
@@ -217,14 +217,14 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | bigint |Int64 |
 | BOOLEAN |String |
 | CHAR |String |
-| DATE |Datetime |
+| DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | real |Único |
 | SMALLINT |Int16 |
 | TEXT |String |
-| timestamp |Datetime |
+| timestamp |DateTime |
 | VARCHAR |String |
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade

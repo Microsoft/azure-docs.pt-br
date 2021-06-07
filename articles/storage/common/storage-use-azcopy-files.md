@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cca8a93330e5ddd965d27532895ed1d6702c123
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881004"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102179639"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -41,7 +41,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Carregar um arquivo
+> * Fazer upload de um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório
 > * Carregar um arquivo específico
@@ -59,7 +59,7 @@ Esta seção contém os seguintes exemplos:
 > [!NOTE]
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
-### <a name="upload-a-file"></a>Carregar um arquivo
+### <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 |    |     |
 |--------|-----------|
@@ -125,7 +125,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `--recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `--include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 #### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Carregar arquivos que foram modificados após uma data e hora 
 
@@ -220,7 +220,7 @@ Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--include-pattern
 
 Você também pode excluir arquivos usando a `--exclude-pattern` opção. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `–recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `–include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
+As `--include-pattern` `--exclude-pattern` Opções e aplicam-se somente a nomes de filename e não ao caminho.  Se você quiser copiar todos os arquivos de texto que existem em uma árvore de diretório, use a `--recursive` opção para obter a árvore de diretórios inteira e, em seguida, use o `--include-pattern` e especifique `*.txt` para obter todos os arquivos de texto.
 
 #### <a name="download-files-that-were-modified-after-a-date-and-time"></a>Baixar arquivos que foram modificados após uma data e hora 
 

@@ -4,10 +4,10 @@ description: Saiba como usar o portal do Azure para fazer backup de compartilham
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88890341"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
@@ -74,7 +74,7 @@ As etapas a seguir explicam como você pode configurar o backup para vários com
 1. Para escolher uma política de backup para o compartilhamento de arquivos, você tem três opções:
 
    * Escolha a política padrão.<br>
-   Essa opção permite que você habilite o backup diário que será retido por 30 dias. Se você não tiver uma política de backup existente no cofre, o painel backup será aberto com as configurações de política padrão. Se desejar escolher as configurações padrão, você poderá selecionar **habilitar backup**diretamente.
+   Essa opção permite que você habilite o backup diário que será retido por 30 dias. Se você não tiver uma política de backup existente no cofre, o painel backup será aberto com as configurações de política padrão. Se desejar escolher as configurações padrão, você poderá selecionar **habilitar backup** diretamente.
 
    * Criar uma nova política <br>
 

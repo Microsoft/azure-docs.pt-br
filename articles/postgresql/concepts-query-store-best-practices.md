@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708825"
 ---
 # <a name="best-practices-for-query-store"></a>Práticas recomendadas para Repositório de Consultas
@@ -26,7 +26,7 @@ Deixe que o Repositório de Consultas capture os dados que importam para você.
 |---|---|
 |_Todos_  |Analise sua carga de trabalho cuidadosamente em termos de todas as consultas e das respectivas frequências de execução e outras estatísticas. Identifique novas consultas na carga de trabalho. Detectar se consultas ad hoc são usadas para identificar oportunidades para a parametrização automática ou de usuário. _All_ acompanha um custo de consumo de recursos maior. |
 |_Top_  |Concentre sua atenção nas principais consultas – aquelas emitidas pelos clientes.
-|_Nenhuma_ |Você já capturou um conjunto de consultas e a janela de tempo que você deseja investigar, e você deseja eliminar as distrações que outras consultas podem causar. _Nenhum_ é adequado para ambientes de teste e de marca de banca. _None_ deve ser usado com cuidado, pois você pode perder a oportunidade de acompanhar e otimizar consultas novas importantes. Você não pode recuperar dados nessas janelas de tempo do passado. |
+|_Nenhum_ |Você já capturou um conjunto de consultas e a janela de tempo que você deseja investigar, e você deseja eliminar as distrações que outras consultas podem causar. _Nenhum_ é adequado para ambientes de teste e de marca de banca. _None_ deve ser usado com cuidado, pois você pode perder a oportunidade de acompanhar e otimizar consultas novas importantes. Você não pode recuperar dados nessas janelas de tempo do passado. |
 
 O Repositório de Consultas também inclui um repositório de estatísticas de espera. Há uma consulta de modo de captura adicional que controla as estatísticas de espera: **pgms_wait_sampling.query_capture_mode** pode ser definido como _none_ ou _all_. 
 

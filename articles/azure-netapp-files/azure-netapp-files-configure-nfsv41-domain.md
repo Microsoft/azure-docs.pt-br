@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: b-juche
 ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072145"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configurar o domínio padrão do NFSv4.1 para o Azure NetApp Files

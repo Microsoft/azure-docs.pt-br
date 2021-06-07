@@ -4,12 +4,12 @@ description: Como configurar os nós de transação do serviço Blockchain do Az
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150874"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101091261"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar nós de transação do serviço Blockchain do Azure
 
@@ -37,7 +37,7 @@ Para adicionar um nó de transação:
 
     | Configuração | Descrição |
     |---------|-------------|
-    | Name | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto de extremidade do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado depois de ser criado. |
+    | Nome | Nome do nó de transação. O nome é usado para criar o endereço DNS para o ponto de extremidade do nó de transação. Por exemplo, `newnode-myblockchainmember.blockchain.azure.com`. O nome do nó não pode ser alterado depois de ser criado. |
     | Senha | Defina uma senha forte. Use a senha para acessar o ponto de extremidade do nó de transação com a autenticação básica.
 
 1. Selecione **Criar**.
@@ -69,13 +69,13 @@ Para conceder o controle de acesso do AD do Azure ao seu ponto de extremidade:
 
     | Configuração | Ação |
     |---------|-------------|
-    | Função | Selecione **proprietário**, **colaborador**ou **leitor**.
+    | Função | Selecione **proprietário**, **colaborador** ou **leitor**.
     | Atribuir acesso a | Selecione **usuário, grupo ou entidade de serviço do Azure ad**.
     | Selecionar | Pesquise pelo usuário, grupo ou entidade de serviço que você deseja adicionar.
 
 1. Selecione **salvar** para adicionar a atribuição de função.
 
-Para obter mais informações sobre o controle de acesso do AD do Azure, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre o controle de acesso do AD do Azure, consulte [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Para obter detalhes sobre como se conectar usando a autenticação do Azure AD, consulte [conectar-se ao seu nó usando a autenticação do AAD](configure-aad.md).
 

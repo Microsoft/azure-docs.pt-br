@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55263d3c742d18cf03303f96f08fb9aa370c7af8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371602"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100592059"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
 
@@ -137,7 +137,7 @@ Quando você fornece esse modo de exibição no **viewDefinition.jsno**, ele sub
 
 `"kind": "Metrics"`
 
-A exibição de métricas permite coletar e agregar dados de seus recursos de aplicativo gerenciado em [métricas de Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
+A exibição de métricas permite coletar e agregar dados de seus recursos de aplicativo gerenciado em [métricas de Azure monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ```json
 {
@@ -176,7 +176,7 @@ A exibição de métricas permite coletar e agregar dados de seus recursos de ap
 |---------|---------|---------|
 |displayName|Sim|O título exibido do gráfico.|
 |tipo de gráfico|Não|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com suporte: `Bar, Line, Area, Scatter` .|
-|Métricas|Sim|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
+|Métricas|Sim|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/essentials/metrics-supported.md)|
 
 ### <a name="metric"></a>Métrica
 

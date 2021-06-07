@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 266142240ba9e892c905ac8aa6521da5a14c4c3d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725204"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554013"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. criar um plano de segurança para acesso externo 
 
@@ -132,7 +132,7 @@ Embora suas políticas sejam altamente personalizadas para suas necessidades, co
 
    * Se você estiver usando [organizações conectadas](../governance/entitlement-management-organization.md) para agrupar todos os usuários de um único parceiro, agende análises regulares com o proprietário da empresa e o representante do parceiro.
 
-* **Grupos de Microsoft 365**. Defina uma [política de expiração de grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) para Microsoft 365 grupos aos quais os usuários externos são convidados. 
+* **Grupos de Microsoft 365**. Defina uma [política de expiração de grupo](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) para Microsoft 365 grupos aos quais os usuários externos são convidados. 
 
 * **Outras opções**. Se usuários externos tiverem acesso fora dos pacotes de acesso de gerenciamento de direitos ou grupos de Microsoft 365, configure o processo comercial para examinar quando as contas devem ser tornadas inativas ou excluídas. Por exemplo:
 

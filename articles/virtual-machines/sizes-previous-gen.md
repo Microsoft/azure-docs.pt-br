@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
 ms.openlocfilehash: 90bc98d63b45e43c9325eed4fe019b18f52d0de8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500284"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais

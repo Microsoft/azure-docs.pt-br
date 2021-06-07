@@ -4,14 +4,14 @@ description: Saiba mais sobre como copiar dados do Google Cloud Storage para arm
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 4d8ddb89055d318aaea9ada7f38f908223ff5a57
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b8e518ba23c877ee80197ad94a6bc01b23b044a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388440"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588980"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copiar dados do Google Cloud Storage usando Azure Data Factory
 
@@ -67,7 +67,7 @@ As propriedades a seguir têm suporte para os serviços vinculados do Google Clo
 | serviceUrl | Especifique o ponto de extremidade GCS personalizado como `https://storage.googleapis.com` . | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 {
@@ -156,7 +156,7 @@ As propriedades a seguir têm suporte para o armazenamento em nuvem do Google em
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                                          |
 | enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
-| maxConcurrentConnections | O número de conexões simultâneas com o armazenamento. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não                                                          |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não                                                          |
 
 **Exemplo:**
 

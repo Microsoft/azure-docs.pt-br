@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526674"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103461701"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem no Azure alcance
 
@@ -41,7 +41,7 @@ Se você estiver usando a identidade gerenciada do alcance para configurar verif
 
 Antes de criar uma credencial, primeiro associe uma ou mais das instâncias de Azure Key Vault existentes à sua conta do Azure alcance.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione sua conta do Azure alcance. Navegue até o **centro de gerenciamento** e, em seguida, navegue até **credenciais**.
+1. Na [portal do Azure](https://portal.azure.com), selecione sua conta do Azure alcance e abra o Azure alcance Studio. Navegue até o **centro de gerenciamento** no Azure alcance Studio e, em seguida, navegue até **credenciais**.
 
 2. Na página **credenciais** , selecione **gerenciar conexões de Key Vault**.
 
@@ -85,8 +85,9 @@ Esses tipos de credenciais têm suporte no alcance:
 - Entidade de serviço: Adicione a **chave da entidade de serviço** como um segredo no cofre de chaves.
 - Autenticação do SQL: você adiciona a **senha** como um segredo no cofre de chaves.
 - Chave de conta: Adicione a **chave de conta** como um segredo no cofre de chaves.
+- ARN de função: para uma fonte de dados do Amazon S3, adicione sua **função ARN** no AWS. 
 
-Para obter mais informações, consulte [Adicionar um segredo a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Para obter mais informações, consulte [Adicionar um segredo para Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) e [criar uma nova função AWS para alcance](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 Depois de armazenar seus segredos no cofre de chaves:
 

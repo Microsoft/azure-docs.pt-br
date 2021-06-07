@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903438"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101726301"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementar o estilo dinâmico para mapas do Creator (visualização) em modo interno
 
 > [!IMPORTANT]
-> Os serviços do Azure Maps Creator estão atualmente em visualização pública.
+> Os serviços do Criador do Azure Mapas estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O [serviço de estado do recurso](/rest/api/maps/featurestate) do Criador do Azure Mapas permite que você aplique estilos com base nas propriedades dinâmicas dos recursos de dados do mapa interno.  Por exemplo, você pode renderizar as salas de reunião de um local com uma cor específica para refletir o status de ocupação. Neste artigo, mostraremos como renderizar dinamicamente os recursos de mapa interno com o [serviço de estado do recurso](/rest/api/maps/featurestate) e o [módulo Web interno](how-to-use-indoor-module.md).
@@ -27,7 +27,7 @@ O [serviço de estado do recurso](/rest/api/maps/featurestate) do Criador do Azu
 
 1. [Crie uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
-3. [Criar um recurso de criador (versão prévia)](how-to-manage-creator.md)
+3. [Criar um recurso de Criador (versão prévia)](how-to-manage-creator.md)
 4. Baixe o [pacote de exemplo do Drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Crie um mapa interno](tutorial-creator-indoor-maps.md) para obter um `tilesetId` e um `statesetId`.
 6. Crie um aplicativo Web seguindo as etapas em [Como usar o módulo de mapa interno](how-to-use-indoor-module.md).
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ Na próxima seção, vamos definir o *estado* de ocupação do escritório `UNIT
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **CORPO** da solicitação **POST**, grave o JSON a seguir com as atualizações de recursos. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
+3. Nos **Cabeçalhos** da solicitação **POST**, defina `Content-Type` como `application/json`. No **corpo** da solicitação **post** , grave o JSON bruto a seguir com as atualizações de recurso. A atualização será salva somente se o carimbo de data/hora postado for posterior ao carimbo de data/hora usado nas solicitações de atualização de estado do recurso anterior para o mesmo recurso `ID`. Passe o `keyName` "ocupado" para atualizar seu valor.
 
     ```json
     {
@@ -108,9 +108,11 @@ Na próxima seção, vamos definir o *estado* de ocupação do escritório `UNIT
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualizar estilos dinâmicos em um mapa
 
-O aplicativo Web que você abriu anteriormente em um navegador agora deve refletir o estado atualizado dos recursos do mapa. O `UNIT27`(151) deve aparecer em verde e o `UNIT26`(157) deve aparecer em vermelho.
+O aplicativo Web que você abriu anteriormente em um navegador agora deve refletir o estado atualizado dos recursos do mapa. `UNIT27`(142) deve aparecer verde e `UNIT26` (143) deve aparecer vermelho.
 
 ![A sala livre é mostrada em verde e a sala ocupada é mostrada em vermelho](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Consulte a demonstração ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Próximas etapas
 

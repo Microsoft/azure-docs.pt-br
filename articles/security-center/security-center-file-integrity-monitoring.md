@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 834df2387d037c19672e3287970300f4e84ca34b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918599"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047976"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -31,7 +31,7 @@ Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central
 |Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md).<br>O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) nacional/soberanas (US gov, China gov, outros gov)<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) nacional/soberanas (US gov, China gov, outros gov)<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>![Sim, ](./media/icons/yes-icon.png) dispositivos habilitados para [Arc do Azure](../azure-arc/servers/overview.md) .<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>O que é FIM na Central de Segurança?
@@ -120,7 +120,7 @@ O FIM só está disponível nas páginas da central de segurança na portal do A
 
     - Acessar e exibir o status e as configurações de cada espaço de trabalho
 
-    - ![Ícone do plano ][4] de atualização atualize o espaço de trabalho para usar o Azure defender. Esse ícone indica que o espaço de trabalho ou a assinatura não está protegido pelo Azure defender. Para usar os recursos do FIM, sua assinatura deve ser protegida pelo Azure defender. [Saiba mais](security-center-pricing.md).
+    - ![Ícone do plano ][4] de atualização atualize o espaço de trabalho para usar o Azure defender. Esse ícone indica que o espaço de trabalho ou a assinatura não está protegido pelo Azure defender. Para usar os recursos do FIM, sua assinatura deve ser protegida pelo Azure defender. Para obter mais informações, consulte a [central de segurança do Azure gratuita vs Azure defender habilitado](security-center-pricing.md).
 
     - ![Ícone Habilitar][3] Habilite o FIM em todos os computadores no espaço de trabalho e configure as opções do FIM. Este ícone indica que o FIM não está habilitado para o espaço de trabalho.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806661"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508802"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -110,7 +110,7 @@ O proprietário do recurso do link privado pode realizar as seguintes ações em
 > Somente um ponto de extremidade privado em um estado aprovado pode enviar tráfego para determinado recurso do link privado. 
 
 ### <a name="connecting-using-alias"></a>Conexão usando alias
-Alias é um moniker exclusivo gerado quando o proprietário do serviço cria o serviço de vínculo privado por trás de um balanceador de carga padrão. O proprietário do serviço pode compartilhar esse alias com os consumidores offline. Os consumidores podem solicitar uma conexão com o serviço de vínculo privado, usando o URI do recurso ou o alias. Se você quiser se conectar usando o alias, deve criar um ponto de extremidade privado usando o método de aprovação de conexão manual. Para usar o método de aprovação de conexão manual, defina o parâmetro de solicitação manual como true durante o fluxo de criação do ponto de extremidade privado. Veja [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) e [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) para obter detalhes. 
+Alias é um moniker exclusivo gerado quando o proprietário do serviço cria o serviço de vínculo privado por trás de um balanceador de carga padrão. O proprietário do serviço pode compartilhar esse alias com os consumidores offline. Os consumidores podem solicitar uma conexão com o serviço de vínculo privado, usando o URI do recurso ou o alias. Se você quiser se conectar usando o alias, deve criar um ponto de extremidade privado usando o método de aprovação de conexão manual. Para usar o método de aprovação de conexão manual, defina o parâmetro de solicitação manual como true durante o fluxo de criação do ponto de extremidade privado. Veja [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) e [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) para obter detalhes. 
 
 ## <a name="dns-configuration"></a>Configuração de DNS 
 Ao se conectar a um recurso do link privado usando um FQDN (nome de domínio totalmente qualificado) como parte da cadeia de conexão, é importante definir corretamente as configurações de DNS para resolver o endereço IP privado alocado. Os serviços do Azure existentes já podem ter uma configuração de DNS para usar ao se conectar por meio de um ponto de extremidade público. Ela precisa ser substituída para se conectar usando o ponto de extremidade privado. 

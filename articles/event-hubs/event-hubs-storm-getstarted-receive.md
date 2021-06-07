@@ -1,16 +1,16 @@
 ---
-title: 'Início Rápido: Receber eventos usando o Apache Storm – Hubs de Eventos do Azure'
-description: 'Início Rápido: Este artigo fornece informações sobre como receber eventos dos Hubs de Eventos do Azure usando o Apache Storm.'
+title: 'Guia de início rápido: receber eventos usando o Apache Storm – Hubs de Eventos do Azure'
+description: 'Guia de início rápido: este artigo fornecerá informações sobre como receber eventos dos Hubs de Eventos do Azure usando o Apache Storm.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79c2958a10d0193b706c92a28b1792d63c24b82
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87087570"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107302957"
 ---
-# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Início Rápido: Receber eventos de Hubs de Eventos usando o Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Guia de início rápido: receber eventos dos Hubs de Eventos usando o Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout do Storm de Hubs de Eventos do Azure para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
 
@@ -235,7 +235,7 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão geral de Hubs de Eventos][Event Hubs overview]
 * [Criar um hub de eventos](event-hubs-create.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.yml)
 
 <!-- Links -->
 [Event Hubs overview]: ./event-hubs-about.md

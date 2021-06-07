@@ -8,20 +8,29 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: kraigb
 ms.custom: include file
-ms.openlocfilehash: b7a37e52437b866b1159abc415af0e94da34d3c8
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 11b28866a67f45d8d792e56d09b56c658dd1641f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829213"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382650"
 ---
 # <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
+# Linux systems only
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+# Git Bash on Windows only
+py -3 -m venv .venv
+source .venv\\scripts\\activate
+pip install -r requirements.txt
 ```
+
+Se você estiver em um sistema Windows e vir o erro "'source' não é reconhecido como um comando interno ou externo", verifique se você está usando o shell do Git Bash ou use os comandos mostrados na guia **Cmd** acima.
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
 ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98796966"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
@@ -57,7 +57,7 @@ Ao conectar-se ao repositório git, primeiro selecione o tipo de repositório co
 
 O painel de configuração mostra as seguintes configurações do git DevOps do Azure:
 
-| Setting | Descrição | Valor |
+| Configuração | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Git ou GitHub do Azure DevOps |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -122,7 +122,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 
 Conectar-se a uma organização do GitHub requer que a organização Conceda permissão ao Synapse Studio. Um usuário com permissões de administrador na organização deve executar as etapas a seguir.
 
-#### <a name="connecting-to-github-for-the-first-time"></a>Conectando-se ao GitHub pela primeira vez
+#### <a name="connecting-to-github-for-the-first-time"></a>Conectar-se ao GitHub pela primeira vez
 
 Se você estiver se conectando ao GitHub do Synapse Studio pela primeira vez, siga estas etapas para se conectar a uma organização do GitHub.
 

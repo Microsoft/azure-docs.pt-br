@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: 914df5b80dee7da041b268a3aaf25ac493d0cf5b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1a681cd3f1c624268fdc9bc62cf9841e9ac28827
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624432"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057500"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um aplicativo de serviço (.NET)
 

@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: a2348e0578b60c59fd7205037bd42d7bb1e84fae
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5c1fbaf9be4cb128f0e4390a8c97c6f0b9330ce2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953692"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559869"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Mudanças de terminologia e de entidade entre os serviços de mídia V2 e v3
 
@@ -56,7 +56,7 @@ Examine as convenções de nomenclatura que são aplicadas aos recursos dos serv
 | `Job`<!-- row --> | `Job` | Crie um `Transform` antes de criar um `Job` . | Não | Não |
 | `JobTemplate`<!-- row --> | `Transform` | Use um `Transform` em vez disso. Uma transformação é uma entidade separada de um trabalho e é reutilizável. | Não | Não |
 | `Locator`<!-- row --> | `StreamingLocator` | <!--empty --> | Sim | Não |
-| `MediaProcessor`<!-- row --> | <!-- empty --> | Em vez de procurar o `MediaProcessor` para usar por nome, use a predefinição desejada ao definir uma transformação. A predefinição usada determinará o processador de mídia usado pelo sistema de trabalho. Consulte Tópicos de codificação em [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md). <!--Probably needs a link to its own article so customers know Indexerv1 maps to AudioAnalyzerPreset in basic mode, etc.--> | Não | NA (ReadOnly na v2) |
+| `MediaProcessor`<!-- row --> | <!-- empty --> | Em vez de procurar o `MediaProcessor` para usar por nome, use a predefinição desejada ao definir uma transformação. A predefinição usada determinará o processador de mídia usado pelo sistema de trabalho. Consulte Tópicos de codificação em [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md). <!--Probably needs a link to its own article so customers know Indexerv1 maps to AudioAnalyzerPreset in basic mode, etc.--> | No | NA (ReadOnly na v2) |
 | `NotificationEndPoint`<!-- row --> | <!--empty --> | As notificações no v3 são manipuladas por meio da grade de eventos do Azure. O `NotificationEndpoint` é substituído pelo registro de assinatura da grade de eventos que também encapsula a configuração dos tipos de notificações a receber (que, em v2, foi tratado pelo `JobNotificationSubscription` do trabalho, da `TaskNotificationSubscription` tarefa e da telemetria `ComponentMonitoringSetting` ). A telemetria v2 foi dividida entre a grade de eventos do Azure e Azure Monitor para se ajustar aos aprimoramentos do ecossistema maior do Azure. | Não | Não |
 | `Program`<!-- row --> | `LiveOutput` | As saídas ao vivo agora substituem os programas na API v3.  | Não | Não |
 | `StreamingEndpoint`<!-- row --> | `StreamingEndpoint` | Os pontos de extremidade de streaming permanecem principalmente os mesmos. Eles são usados para empacotamento dinâmico, criptografia e entrega de conteúdo de HLS e DASH para streaming ao vivo e sob demanda, seja direto da origem ou através da CDN. Os novos recursos incluem suporte para melhor integração e criação de gráficos de Azure Monitor. |  Sim | Sim |
@@ -73,7 +73,7 @@ Examine as convenções de nomenclatura que são aplicadas aos recursos dos serv
 | **Codificação** <!--new row --> |||
 | Taxas de bits de codificação <!--new row --> | taxas de bits medidas em Kbps, por exemplo: 128 (Kbps)| bits por segundo ex: 128000 (bits/segundo)|
 | Codificando FairPlay DRM <!--new row --> | Nos serviços de mídia v2, o vetor de inicialização (IV) pode ser especificado. | Nos serviços de mídia v3, o FairPlay IV não pode ser especificado.|
-| Codificador Premium <!--new row --> | Codificador Premium e indexador herdado| O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) e os [processadores de análise de mídia](https://docs.microsoft.com/azure/media-services/previous/legacy-components) herdados (visualização do indexador do Azure Media Services 2, edição facial etc.) não estão acessíveis por meio de v3. Adicionamos suporte para o mapeamento de canal de áudio para o codificador Standard.  Consulte [áudio na documentação do Swagger de codificação dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consulte os tópicos de codificação na [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Codificador Premium <!--new row --> | Codificador Premium e indexador herdado| O [codificador Premium](../previous/media-services-encode-asset.md) e os [processadores de análise de mídia](../previous/legacy-components.md) herdados (visualização do indexador do Azure Media Services 2, edição facial etc.) não estão acessíveis por meio de v3. Adicionamos suporte para o mapeamento de canal de áudio para o codificador Standard.  Consulte [áudio na documentação do Swagger de codificação dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Consulte os tópicos de codificação na [codificação baseada em cenário](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transformações e trabalhos** <!--new row -->|||
 | HTTPS de processamento baseado em trabalho <!--new row --> |<!-- empty -->| Para o processamento de trabalho baseado em arquivo, você pode usar uma URL HTTPS como entrada. Você não precisa ter conteúdo já armazenado no Azure, nem precisa criar ativos. |
 | Modelos de ARM para trabalhos <!--new row --> | Os modelos de ARM não existiam na v2. | Uma transformação pode ser usada para compilar configurações reutilizáveis, criar Azure Resource Manager modelos e isolar configurações de processamento entre vários clientes ou locatários. |
@@ -90,7 +90,3 @@ Examine as convenções de nomenclatura que são aplicadas aos recursos dos serv
 | Modo de espera do evento ao vivo <!--new row --> | Não havia modo de espera para v2. | O modo de espera é um novo recurso v3 que ajuda a gerenciar pools ativos de eventos ao vivo. Agora, os clientes podem iniciar um evento ao vivo no modo de espera por um custo menor antes de fazer a transição para o estado de execução. Isso melhora os horários de início do canal e reduz os custos de pools em operação para iniciar ups mais rapidamente. |
 | Cobrança de evento ao vivo <!--new row --> | <!-- empty-->| A cobrança de eventos ao vivo é baseada em medidores de canal ao vivo. |
 | Saídas ao vivo <!--new row --> | Os programas precisaram ser iniciados após a criação. | As Saídas ao Vivo começam na criação e terminam quando são excluídas. |
-
-## <a name="next-steps"></a>Próximas etapas
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

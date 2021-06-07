@@ -1,16 +1,21 @@
 ---
 title: Usar filas do Barramento de Serviço do Azure com o Java (azure-messaging-servicebus)
 description: Neste tutorial, você aprenderá a usar o Java para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure. Você usará o novo pacote azure-messaging-servicebus.
-ms.devlang: Java
+ms.date: 02/13/2021
 ms.topic: quickstart
-ms.date: 11/09/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: e3998e812bb921ff8bea5e83199bc4e142ed2e83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881577"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533419"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (Java)
 Neste guia de início rápido, você criará um aplicativo Java para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure. 
@@ -32,14 +37,41 @@ Nesta seção, você criará um projeto de console Java e adicionará um código
 Crie um projeto Java usando o Eclipse ou uma ferramenta de sua preferência. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Adicione uma referência à biblioteca do Barramento de Serviço do Azure. A biblioteca de clientes Java para o Barramento de Serviço está disponível no [Repositório Central do Maven](https://search.maven.org/search?q=a:azure-messaging-servicebus). Você pode fazer referência a essa biblioteca usando a seguinte declaração de dependência em seu arquivo do projeto Maven:
+Adicione referências às bibliotecas do Azure Core e do Barramento de Serviço do Azure. 
+
+Se você estiver usando o Eclipse e criado um aplicativo de console Java, converta seu projeto Java em um Maven: clique com o botão direito do mouse no projeto na janela **Explorador de Pacotes**, selecione **Configurar** -> **Converter para o projeto Maven**. Em seguida, adicione dependências a essas duas bibliotecas, conforme mostrado no exemplo a seguir.
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg.sbusquickstarts</groupId>
+    <artifactId>sbustopicqs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>15</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-servicebus</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+    </dependencies>
+</project>
 ```
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>Adicionar o código para enviar mensagens à fila
@@ -47,9 +79,9 @@ Adicione uma referência à biblioteca do Barramento de Serviço do Azure. A bib
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
+    
+    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -94,7 +126,7 @@ Adicione uma referência à biblioteca do Barramento de Serviço do Azure. A bib
     ```
 1. Adicione um método chamado `sendMessageBatch` para enviar mensagens à fila criada. Esse método cria uma `ServiceBusSenderClient` para a fila, invoca o método `createMessages` para obter a lista de mensagens, prepara um ou mais lotes e envia os lotes à fila. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the queue 
@@ -139,39 +171,29 @@ Adicione uma referência à biblioteca do Barramento de Serviço do Azure. A bib
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 Nesta seção, você adicionará o código para recuperar mensagens da fila. 
 
 1. Adicione um método chamado `receiveMessages` para receber mensagens da fila. Esse método cria um `ServiceBusProcessorClient` para a fila especificando um manipulador para o processamento de mensagens e outro para o tratamento de erros. Em seguida, ele inicia o processador, aguarda alguns segundos, imprime as mensagens recebidas e, por fim, interrompe e fecha o processador.
 
+    > [!IMPORTANT]
+    > Substitua `QueueTest` em `QueueTest::processMessage` no código pelo nome da sua classe. 
+
     ```java
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        // consumer that processes a single message received from Service Bus
-        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
-            ServiceBusReceivedMessage message = context.getMessage();
-            System.out.println("Received message: " + message.getBody().toString());
-        };
+        CountDownLatch countdownLatch = new CountDownLatch(1);
 
-        // handles any errors that occur when receiving messages
-        Consumer<Throwable> errorHandler = throwable -> {
-            System.out.println("Error when receiving messages: " + throwable.getMessage());
-            if (throwable instanceof ServiceBusReceiverException) {
-                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
-                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
-            }
-        };
-
-        // create an instance of the processor through the ServiceBusClientBuilder
+        // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
             .connectionString(connectionString)
             .processor()
             .queueName(queueName)
-            .processMessage(messageProcessor)
-            .processError(errorHandler)
+            .processMessage(QueueTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -180,7 +202,53 @@ Nesta seção, você adicionará o código para recuperar mensagens da fila.
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Stopping and closing the processor");
         processorClient.close();        
+    }   
+    ```
+2. Adicione o método `processMessage` para processar uma mensagem recebida da assinatura do Barramento de Serviço. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
     }    
+    ```
+3. Adicione o método `processError` para manipular mensagens de erro.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
     ```
 2. Atualize o método `main` para invocar os métodos `sendMessage`, `sendMessageBatch` e `receiveMessages` e gerar `InterruptedException`.     
 
@@ -199,10 +267,10 @@ Ao executar o aplicativo, você verá as mensagens a seguir na janela do console
 Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Starting the processor
-Received message: Hello, World!
-Received message: First message in the batch
-Received message: Second message in the batch
-Received message: Three message in the batch
+Processing message. Session: 88d961dd801f449e9c3e0f8a5393a527, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: e90c8d9039ce403bbe1d0ec7038033a0, Sequence #: 2. Contents: First message
+Processing message. Session: 311a216a560c47d184f9831984e6ac1d, Sequence #: 3. Contents: Second message
+Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Contents: Third message
 Stopping and closing the processor
 ```
 
@@ -223,7 +291,7 @@ Confira os seguintes exemplos e a documentação:
 - [Exemplos no GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Referência da API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94837202"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
@@ -111,7 +111,7 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa de jul
 Para evitar o vazamento de dados, os dados protegidos com a [proteção de informações do Windows](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) não serão sincronizados por meio do Enterprise State roaming para dispositivos que usam a atualização de aniversário do Windows 10.
 
 **Ação recomendada**  
-nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
+Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 
@@ -120,7 +120,7 @@ nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
 Dispositivos associados ao domínio não passarão pela sincronização para a configuração de data, hora e região: horário automático. O uso do horário automático pode substituir as configurações de data, hora e região e fazer com que essas configurações não sincronizem. 
 
 **Ação recomendada**  
-nenhuma. 
+Nenhum. 
 
 ---
 
@@ -138,7 +138,7 @@ Verifique se o cliente v1511 do Windows 10 tem a atualização cumulativa ([KB31
 Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar.     
 
 **Ação recomendada**  
-nenhuma. Atualizações futuras do Windows poderão resolver esse problema.
+Nenhum. Atualizações futuras do Windows poderão resolver esse problema.
 
 ---
 

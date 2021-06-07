@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
 ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94562637"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do Serviço do Azure SignalR para a Grade de Eventos

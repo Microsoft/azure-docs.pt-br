@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91969051"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Início Rápido: Criar e modificar um circuito do ExpressRoute usando a CLI do Azure

@@ -6,10 +6,10 @@ author: abhirockzz
 ms.author: abhishgu
 ms.date: 01/06/2021
 ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935165"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>Integrar o suporte do Apache Kafka Connect nos hubs de eventos do Azure com o Debezium para captura de dados de alterações
@@ -33,7 +33,7 @@ Este tutorial orienta você sobre como configurar um sistema baseado na captura 
 Neste tutorial, você deve executar as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar um namespace de Hubs de Eventos
+> * Criar um namespace dos hubs de eventos
 > * Instalar e configurar o banco de dados do Azure para PostgreSQL
 > * Configurar e executar o Kafka Connect com o conector do Debezium PostgreSQL
 > * Testar captura de dados de alterações
@@ -47,7 +47,7 @@ Para concluir essa orientação, você precisará de:
 - Kafka (versão 1.1.1, versão do Scala 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Leia o artigo introdutório [Hubs de Eventos para o Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="setup-and-configure-azure-database-for-postgresql"></a>Instalar e configurar o banco de dados do Azure para PostgreSQL

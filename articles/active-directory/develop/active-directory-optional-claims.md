@@ -1,7 +1,7 @@
 ---
 title: Fornecer declarações opcionais a aplicativos Azure AD
 titleSuffix: Microsoft identity platform
-description: Como adicionar declarações personalizadas ou adicionais aos tokens SAML 2,0 e JSON Web tokens (JWT) emitidos pela plataforma de identidade da Microsoft.
+description: Como adicionar declarações personalizadas ou extras aos tokens SAML 2.0 e JWT (JSON Web Tokens) emitidos pela plataforma de identidade da Microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,25 +13,25 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100104273"
 ---
-# <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Como fornecer declarações opcionais ao seu aplicativo
 
 Os desenvolvedores de aplicativos podem usar declarações opcionais em seus aplicativos Azure AD para especificar quais declarações eles desejam nos tokens enviados ao aplicativo.
 
 Você pode usar declarações opcionais para:
 
 - Selecione declarações adicionais para incluir nos tokens para o aplicativo.
-- Altere o comportamento de determinadas declarações que a plataforma de identidade da Microsoft retorna em tokens.
+- Altere o comportamento de determinadas declarações retornadas em tokens pela plataforma de identidade da Microsoft.
 - Adicione e acesse as declarações personalizadas para o aplicativo.
 
 Para obter as listas de declarações padrão, confira a documentação de declarações de [token de acesso](access-tokens.md) e [id_token](id-tokens.md).
 
-Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v 2.0, bem como nos tokens SAML, elas têm mais valor quando mudam de v 1.0 para v 2.0. Uma das metas da plataforma de [identidade da Microsoft](./v2-overview.md) são tamanhos de token menores para garantir o desempenho ideal dos clientes. Como resultado, várias declarações anteriormente incluídas em tokens de acesso e ID não estão mais presentes nos tokens v2.0 e devem ser solicitadas especificamente, por aplicativo.
+Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v 2.0, bem como nos tokens SAML, elas têm mais valor quando mudam de v 1.0 para v 2.0. Uma das metas da [plataforma de identidade da Microsoft](./v2-overview.md) é obter tamanhos de token menores para garantir um desempenho ideal dos clientes. Como resultado, várias declarações anteriormente incluídas em tokens de acesso e ID não estão mais presentes nos tokens v2.0 e devem ser solicitadas especificamente, por aplicativo.
 
 **Tabela 1: Aplicabilidade**
 
@@ -58,17 +58,17 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
 | `vnet`                     | Informações de especificador de VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
-| `ctry`                     | País/região do usuário | JWT |  | O Azure AD retorna a `ctry` declaração opcional se ela estiver presente e o valor do campo for um código de país/região padrão de duas letras, como fr, JP, sz e assim por diante. |
-| `tenant_ctry`              | País do locatário do recurso | JWT | | O mesmo que `ctry` Except definido em um nível de locatário por um administrador.  Também deve ser um valor padrão de duas letras. |
+| `ctry`                     | País/região do usuário | JWT |  | O Azure AD retorna a declaração opcional `ctry` se ela está presente, e o valor do campo é um código de país/região padrão de duas letras, como FR, JP, SZ etc. |
+| `tenant_ctry`              | País do locatário de recursos | JWT | | O mesmo que `ctry`, com a exceção de que é definido em um nível de locatário por um administrador. Também precisa ser um valor padrão de duas letras. |
 | `xms_pdl`             | Local dos dados preferido   | JWT | | Para locatários de várias regiões geográficas, o local de dados preferencial é o código de três letras que mostra a região geográfica em que o usuário está. Para obter mais informações, confira a [documentação do Azure AD Connect sobre o local de dados preferencial](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por exemplo: `APC` para Pacífico Asiático. |
 | `xms_pl`                   | Idioma preferido do usuário  | JWT ||O idioma preferido do usuário, se definido. Originado de seu locatário inicial, em cenários de acesso de convidado. Tem o formato II-PP ("en-us"). |
 | `xms_tpl`                  | Idioma preferido do locatário| JWT | | O idioma preferido do locatário do recurso, se definido. Com o formato II (“en”). |
 | `ztdid`                    | ID de implantação de zero toque | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | O email endereçável para este usuário, se o usuário tiver um.  | JWT, SAML | MSA, Azure AD | Esse valor é incluído por padrão, se o usuário é um convidado no locatário.  Para usuários gerenciados (os usuários dentro do locatário), ele deve ser solicitado por meio dessa declaração opcional ou, somente na versão 2.0, com o escopo do OpenID.  Para usuários gerenciados, o endereço de email deve ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Status da conta de usuários no locatário | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
-| `groups`| Formatação opcional para declarações de grupo |JWT, SAML| |Usado com a configuração GroupMembershipClaims no [manifesto do aplicativo](reference-app-manifest.md), que também deve ser definido. Para obter detalhes, confira [Declarações de grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre declarações de grupo, confira [Como configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados no nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
-| `idtyp`                    | Tipo de token   | Tokens de acesso JWT | Especial: somente em tokens de acesso somente de aplicativo |  Valor é `app` quando o token é um token somente de aplicativo. Essa é a maneira mais precisa para uma API determinar se um token é um token de aplicativo ou um token de aplicativo + usuário.|
+| `groups`| Formatação opcional para declarações de grupo |JWT, SAML| |Usado com a configuração GroupMembershipClaims no [manifesto do aplicativo](reference-app-manifest.md), que também precisa ser definido. Para obter detalhes, confira [Declarações de grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre declarações de grupo, confira [Como configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário (`oid`) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ver o respectivo nome UPN. Em vez disso, use as seguintes declarações de token de ID para exibir o estado de entrada para o usuário: `preferred_username` ou `unique_name` para tokens v1 e `preferred_username` para tokens v2. Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado.  |
+| `idtyp`                    | Tipo de token   | Tokens de acesso JWT | Especial: apenas em tokens de acesso somente de aplicativo |  O valor é `app` quando o token é um token somente de aplicativo. Essa é a maneira mais precisa para uma API determinar se um token é um token de aplicativo ou um token de aplicativo + usuário.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Conjunto de declarações opcionais específicas v2.0
 
@@ -85,23 +85,23 @@ Essas declarações são sempre incluídas em tokens do Azure AD v1.0, mas não 
 | `in_corp`     | Dentro da Rede Corporativa        | Indica se o cliente está se conectando da rede corporativa. Se não estiver, a declaração não será incluída.   |  Baseado nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) na Autenticação Multifator.    |
 | `family_name` | Sobrenome                       | Fornece o sobrenome do usuário, conforme definido no objeto do usuário. <br>"family_name":"Barros" | Com suporte na MSA e no Azure AD. Requer o escopo de `profile`.   |
 | `given_name`  | Nome                      | Fornece o nome ou nome “especificado” do usuário, conforme definido no objeto de usuário.<br>"given_name": "Davi"                   | Com suporte na MSA e no Azure AD.  Requer o escopo de `profile`. |
-| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados no nome UPN. Em vez disso, use a declaração a seguir `preferred_username` para exibir o estado de entrada para o usuário. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
+| `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário (`oid`) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ver o respectivo nome UPN. Em vez disso, use a declaração `preferred_username` a seguir para exibir o estado de entrada para o usuário. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
 
-## <a name="v10-specific-optional-claims-set"></a>v 1.0-conjunto de declarações opcionais específicas
+## <a name="v10-specific-optional-claims-set"></a>Conjunto de declarações opcionais específicas da v1.0
 
-Alguns dos aprimoramentos do formato de token v2 estão disponíveis para aplicativos que usam o formato de token v1, pois ajudam a melhorar a segurança e a confiabilidade. Eles não terão efeito para tokens de ID solicitados do ponto de extremidade v2, nem tokens de acesso para APIs que usam o formato de token v2. Eles se aplicam somente a tokens SAML e não a JWTs. 
+Alguns dos aprimoramentos do formato de token v2 estão disponíveis para os aplicativos que usam o formato de token v1, pois ajudam a aprimorar a segurança e a confiabilidade. Eles não terão efeito para os tokens de ID solicitados por meio do ponto de extremidade v2, nem para os tokens de acesso para APIs que usam o formato de token v2. Só se aplicam aos JWTs, não aos tokens SAML. 
 
-**Tabela 4: apenas declarações opcionais de v 1.0**
+**Tabela 4: declarações opcionais somente da v1.0**
 
 
 | Declaração JWT     | Nome                            | Descrição | Observações |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Público | Sempre presente em JWTs, mas nos tokens de acesso v1, ele pode ser emitido de várias maneiras: qualquer URI de appID, com ou sem uma barra à direita, bem como a ID do cliente do recurso. Essa aleatoriedade pode ser difícil de codificar ao executar a validação de token.  Use as [Propriedades adicionais para essa declaração](#additional-properties-of-optional-claims) para garantir que ela seja sempre definida como a ID do cliente do recurso em tokens de acesso v1. | somente tokens de acesso JWT v1|
-|`preferred_username` | Nome de usuário preferencial        | Fornece a declaração de nome de usuário preferencial dentro de tokens v1. Isso torna mais fácil para os aplicativos fornecer dicas de nome de usuário e mostrar nomes de exibição legíveis, independentemente de seu tipo de token.  É recomendável que você use essa declaração opcional em vez de usar, por exemplo, `upn` ou `unique_name` . | tokens de ID v1 e tokens de acesso |
+|`aud`          | Público | Sempre presente nos JWTs, mas nos tokens de acesso v1, ela pode ser emitida de várias maneiras: qualquer URI de appID, com ou sem uma barra "/" à direita, bem como a ID do cliente do recurso. Essa aleatoriedade pode ser difícil de ser embutida em código ao executar a validação de token.  Use as [propriedades adicionais dessa declaração](#additional-properties-of-optional-claims) para garantir que ela seja sempre definida como a ID do cliente do recurso em tokens de acesso v1. | Somente tokens de acesso JWT da v1|
+|`preferred_username` | Nome de usuário preferencial        | Fornece a declaração de nome de usuário preferencial nos tokens v1. Isso facilita para os aplicativos fornecer dicas de nome de usuário e mostrar nomes de exibição legíveis, independentemente do tipo de token.  Recomendamos que você use essa declaração opcional em vez de usar, por exemplo, `upn` ou `unique_name`. | Tokens de ID e tokens de acesso v1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
 
-Algumas declarações opcionais podem ser configuradas para alterar o modo como a declaração é retornada. Essas propriedades adicionais são usadas principalmente para ajudar na migração de aplicativos locais com expectativas de dados diferentes. Por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com clientes que não podem manipular marcas de hash ( `#` ) no UPN.
+Algumas declarações opcionais podem ser configuradas para alterar o modo como a declaração é retornada. Essas propriedades adicionais são usadas principalmente para ajudar na migração de aplicativos locais com diferentes expectativas de dados. Por exemplo, `include_externally_authenticated_upn_without_hash` ajuda com os clientes que não podem processar marcas de hash (`#`) no UPN.
 
 **Tabela 4: Valores de configuração para declarações opcionais**
 
@@ -110,8 +110,8 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | Nos tokens de acesso v1, isso é usado para alterar o formato da `aud` declaração.  Isso não tem efeito nos tokens v2 ou nos tokens de ID da versão, em que a `aud` declaração é sempre a ID do cliente. Use essa configuração para garantir que sua API possa executar a validação de público com mais facilidade. Assim como todas as declarações opcionais que afetam o token de acesso, o recurso na solicitação deve definir essa declaração opcional, já que os recursos possuem o token de acesso.|
-|                | `use_guid`               | Emite a ID do cliente do recurso (API) no formato GUID como a `aud` declaração sempre em vez de ser dependente do tempo de execução. Por exemplo, se um recurso definir esse sinalizador, e a ID do cliente for `bb0a297b-6a42-4a55-ac40-09a501456577` , qualquer aplicativo que solicite um token de acesso para esse recurso receberá um token de acesso com `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` . </br></br> Sem esse conjunto de declarações, uma API pode obter tokens com uma `aud` declaração de `api://MyApi.com` , `api://MyApi.com/` `api://myapi.com/AdditionalRegisteredField` ou qualquer outro valor definido como um URI de ID de aplicativo para essa API, bem como a ID do cliente do recurso. |
+| `aud`          |                          | Nos tokens de acesso v1, isso é usado para alterar o formato da declaração `aud`.  Isso não tem efeito nos tokens v2 nem nos tokens de ID de qualquer uma das versões, em que a declaração `aud` é sempre a ID do cliente. Use essa configuração para garantir que a sua API possa executar a validação do público-alvo com mais facilidade. Assim como todas as declarações opcionais que afetam o token de acesso, o recurso na solicitação precisa definir essa declaração opcional, pois os recursos são os proprietários do token de acesso.|
+|                | `use_guid`               | Emite a ID do cliente do recurso (API) no formato GUID como a declaração `aud` sempre, em vez de ser dependente do runtime. Por exemplo, se um recurso definir esse sinalizador e a ID do cliente for `bb0a297b-6a42-4a55-ac40-09a501456577`, qualquer aplicativo que solicite um token de acesso para esse recurso receberá um token de acesso com `aud`: `bb0a297b-6a42-4a55-ac40-09a501456577`. </br></br> Sem esse conjunto de declarações, uma API pode obter tokens com uma declaração `aud` igual a `api://MyApi.com`, `api://MyApi.com/`, `api://myapi.com/AdditionalRegisteredField` ou qualquer outro valor definido como um URI da ID do Aplicativo para essa API, bem como a ID do cliente do recurso. |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 
@@ -129,7 +129,7 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 }
 ```
 
-Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua uma `upn` declaração com as informações adicionais de locatário de recurso e locatário doméstico. A declaração de `upn` somente é alterada no token se o usuário é um convidado no locatário (que usa um IDP diferente para autenticação).
+Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua uma declaração `upn` com as informações adicionais sobre o locatário inicial e o locatário do recurso. A declaração de `upn` somente é alterada no token se o usuário é um convidado no locatário (que usa um IDP diferente para autenticação).
 
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
@@ -147,8 +147,8 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 
 [![Configurar declarações opcionais na interface do usuário](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Em **gerenciar**, selecione **configuração de token**.
-   - A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C que pode ser configurado modificando o manifesto do aplicativo. Para obter mais informações  [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+1. Em **Gerenciar**, selecione **Configuração de token**.
+   - A folha **Configuração de token** da opção da interface do usuário não está disponível para os aplicativos registrados em um locatário do Azure AD B2C que possa ser configurado pela modificação do manifesto do aplicativo. Para obter mais informações, confira [Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
 
 1. Escolha **Adicionar declaração opcional**.
 1. Escolha o tipo de token que você deseja configurar.
@@ -160,7 +160,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 
 [![mostra como configurar declarações opcionais usando o manifesto do aplicativo](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Em **gerenciar**, selecione **manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto. Opcionalmente, você pode selecionar **Baixar** e editar o manifesto localmente e, em seguida, usar **Carregar** para reaplicá-lo ao seu aplicativo. Para obter mais informações sobre o manifesto do aplicativo, confira o [artigo Noções básicas do manifesto do aplicativo do Azure AD](reference-app-manifest.md).
+1. Em **Gerenciar**, selecione **Manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto. Opcionalmente, você pode selecionar **Baixar** e editar o manifesto localmente e, em seguida, usar **Carregar** para reaplicá-lo ao seu aplicativo. Para obter mais informações sobre o manifesto do aplicativo, confira o [artigo Noções básicas do manifesto do aplicativo do Azure AD](reference-app-manifest.md).
 
     A entrada de manifesto de aplicativo a seguir adiciona as declarações opcionais auth_time, ipaddr e upn aos tokens de ID, acesso e SAML.
 
@@ -197,7 +197,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 
 ### <a name="optionalclaims-type"></a>Tipo OptionalClaims
 
-Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo pode configurar declarações opcionais a serem retornadas em cada um dos três tipos de tokens (token de ID, token de acesso, token SAML 2) que pode receber do serviço de token de segurança. O aplicativo pode configurar um conjunto de declarações opcionais a serem retornadas em cada tipo de token diferente. A propriedade OptionalClaims da entidade do aplicativo é um objeto OptionalClaims.
+Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo pode configurar as declarações opcionais a serem retornadas em cada um dos três tipos de tokens (token de ID, token de acesso e token SAML 2) que ele pode receber do serviço de token de segurança. O aplicativo pode configurar um conjunto de declarações opcionais a serem retornadas em cada tipo de token diferente. A propriedade OptionalClaims da entidade do aplicativo é um objeto OptionalClaims.
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
@@ -242,7 +242,7 @@ Em tokens SAML, essas declarações serão emitidas com o seguinte formato de UR
 Esta seção aborda as opções de configuração em declarações opcionais para alterar os atributos de grupo usados em declarações de grupo do objectID do grupo padrão para os atributos sincronizados do Microsoft Active Directory local. Você pode configurar declarações opcionais de grupos para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
 > [!IMPORTANT]
-> Para obter mais detalhes, incluindo advertências importantes para declarações de grupo de atributos locais, consulte [Configurar declarações de grupo para aplicativos com o Azure ad](../hybrid/how-to-connect-fed-group-claims.md).
+> Para obter mais detalhes, incluindo limitações importantes sobre as declarações de grupo em atributos locais, confira [Configurar declarações de grupo para aplicativos com o Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configurar declarações opcionais de grupos por meio da interface do usuário:**
 
@@ -251,11 +251,11 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
-1. Em **gerenciar**, selecione **configuração de token**.
-1. Selecione **Adicionar grupos declaração**.
-1. Selecione os tipos de grupo a serem retornados (**grupos de segurança** ou **funções de diretório**, **todos os grupos** e/ou **grupos atribuídos ao aplicativo**). Os **grupos atribuídos à opção de aplicativo** incluem apenas grupos atribuídos ao aplicativo. A opção **todos os grupos** inclui o grupo de **segurança**, **DirectoryRole** e **DistributionList**, mas não **os grupos atribuídos ao aplicativo**. 
-1. Opcional: selecione as propriedades do tipo de token específico para modificar o valor da declaração grupos para conter os atributos do grupo local ou para alterar o tipo de declaração para uma função.
-1. Clique em **Salvar**.
+1. Em **Gerenciar**, selecione **Configuração de token**.
+1. Selecione **Adicionar declaração de grupos**.
+1. Escolha os tipos de grupos a serem retornados (**Grupos de segurança** ou **Funções do diretório**, **Todos os grupos** e/ou **Grupos atribuídos ao aplicativo**). A opção **Grupos atribuídos ao aplicativo** inclui apenas os grupos atribuídos ao aplicativo. A opção **Todos os Grupos** inclui o **SecurityGroup**, a **DirectoryRole** e a **DistributionList**, mas não os **Grupos atribuídos ao aplicativo**. 
+1. Opcional: selecione as propriedades do tipo de token específico para modificar o valor da declaração de grupos a fim de conter os atributos do grupo local ou alterar o tipo de declaração para uma função.
+1. Selecione **Salvar**.
 
 **Configurando declarações opcionais de grupos por meio do manifesto do aplicativo:**
 
@@ -263,7 +263,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
-1. Em **gerenciar**, selecione **manifesto**.
+1. Em **Gerenciar**, selecione **Manifesto**.
 1. Adicione a seguinte entrada usando o editor de manifesto:
 
    Os valores válidos são:
@@ -271,7 +271,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
    - "Todos" (essa opção inclui o SecurityGroup, DirectoryRole e DistributionList)
    - “SecurityGroup”
    - “DirectoryRole”
-   - "Grupo de aplicativos" (essa opção inclui apenas grupos que são atribuídos ao aplicativo)
+   - "ApplicationGroup" (essa opção inclui apenas os grupos atribuídos ao aplicativo)
 
    Por exemplo:
 
@@ -283,7 +283,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 1. Definir declarações opcionais de configuração de nome de grupo.
 
-   Se você quiser que os grupos no token contenham os atributos do grupo do AD local na seção declarações opcionais, especifique a qual tipo de token a declaração opcional deve ser aplicada, o nome da declaração opcional solicitada e todas as propriedades adicionais desejadas.  Vários tipos de token podem ser listados:
+   Se você quiser que os grupos no token contenham os atributos do grupo do AD local na seção de declarações opcionais, especifique a qual tipo de token a declaração opcional deve ser aplicada, o nome da declaração opcional solicitada e todas as propriedades adicionais desejadas.  Vários tipos de token podem ser listados:
 
    - idToken para o token de ID de OIDC
    - accessToken para o token de acesso OAuth
@@ -311,9 +311,9 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
    Em additionalProperties, é necessário somente um dentre "sam_account_name", "dns_domain_and_sam_account_name" e "netbios_domain_and_sam_account_name".  Se mais de um estiver presente, o primeiro será usado e os outros serão ignorados.
 
-   Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
+   Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração de uma declaração de grupo para uma de função, adicione "emit_as_roles" às propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
-   Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função.
+   Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário recebeu não serão exibidas na declaração de função.
 
 **Exemplos:**
 
@@ -397,7 +397,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e selecione-o.
 
-1. Em **gerenciar**, selecione **configuração de token**.
+1. Em **Gerenciar**, selecione **Configuração de token**.
 
 1. Selecione **Adicionar declaração opcional**, selecione o tipo de token **ID**, selecione **UPN** na lista de declarações e selecione **Adicionar**.
 
@@ -407,7 +407,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 1. Selecione **Adicionar declaração opcional**, selecione o tipo de token **SAML**, selecione **extn.skypeID** na lista de declarações (aplicável somente se você tiver criado um objeto de usuário do Azure AD chamado SkypeID) e selecione **Adicionar**.
 
-    [![Declarações opcionais para token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Declarações opcionais para o token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuração do manifesto:**
 
@@ -415,7 +415,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e selecione-o.
-1. Em **gerenciar**, selecione **manifesto** para abrir o editor de manifesto embutido.
+1. Em **Gerenciar**, selecione **Manifesto** para abrir o editor de manifesto embutido.
 1. Você pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para [Entidade de aplicativo](./reference-app-manifest.md)e formata automaticamente o manifesto quando é salvo. Novos elementos serão adicionados para o `OptionalClaims` propriedade.
 
     ```json

@@ -1,5 +1,5 @@
 ---
-title: Resposta rápida do DDoS do Azure
+title: Azure DDoS Rapid Response
 description: Saiba como envolver especialistas em DDoS durante um ataque ativo para o suporte especializado.
 services: ddos-protection
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100521774"
 ---
-# <a name="azure-ddos-rapid-response"></a>Resposta rápida do DDoS do Azure
+# <a name="azure-ddos-rapid-response"></a>Azure DDoS Rapid Response
 
 Durante um acesso ativo, os clientes padrão da proteção contra DDoS do Azure têm acesso à equipe de reação rápida a DDoS (DRR), que pode ajudar na investigação de ataques durante uma análise de ataque e de ataque.
 

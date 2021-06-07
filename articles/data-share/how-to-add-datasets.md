@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910535"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Como adicionar conjuntos de dados a um compartilhamento existente no Azure data share
@@ -25,7 +25,7 @@ No compartilhamento de dados do Azure, navegue até o compartilhamento enviado e
 
 ![Captura de tela mostra Adicionar conjuntos de valores selecionados.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-No painel à direita, selecione o tipo de conjunto de texto que você deseja adicionar e clique em **Avançar** . Selecione a assinatura e o grupo de recursos dos dados que você deseja adicionar. Usando as setas suspensas, localize e marque a caixa ao lado dos dados a serem adicionados.
+No painel à direita, selecione o tipo de conjunto de texto que você deseja adicionar e clique em **Avançar**. Selecione a assinatura e o grupo de recursos dos dados que você deseja adicionar. Usando as setas suspensas, localize e marque a caixa ao lado dos dados a serem adicionados.
 
 ![Captura de tela mostra o painel Adicionar armazenamento de BLOBs onde você pode selecionar dados.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 

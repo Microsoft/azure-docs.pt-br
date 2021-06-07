@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 291f1e8b8870257c233dc32894ff49b26c0a3501
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+manager: femila
+ms.openlocfilehash: ad79ad31678f698c0f034b39bab1e3a19a48d3f2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323522"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444965"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um pool de host para validar atualizações de serviço no Área de Trabalho Virtual do Windows (clássica)
 

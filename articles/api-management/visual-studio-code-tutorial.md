@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 6cf5c6f716912689b39264ed71f6a7c55f944ad2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97410009"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101649539"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Tutorial: Usar a extensão de Gerenciamento de API para Visual Studio Code a fim de importar e gerenciar APIs
 
-Neste tutorial, você aprenderá a usar a versão prévia da extensão de Gerenciamento de API para Visual Studio Code para operações comuns no Gerenciamento de API. Use o ambiente do Visual Studio Code que você já conhece para importar, atualizar, testar e gerenciar APIs.
+Neste tutorial, você aprenderá a usar a Extensão de Gerenciamento de API para Visual Studio Code para executar operações comuns no Gerenciamento de API. Use o ambiente do Visual Studio Code que você já conhece para importar, atualizar, testar e gerenciar APIs.
 
 Você aprenderá como:
 
@@ -32,7 +32,7 @@ Para obter uma introdução aos recursos adicionais do Gerenciamento de API, con
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Noções básicas sobre a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md)
-- Verifique se você instalou o [Visual Studio Code](https://code.visualstudio.com/) e a última [extensão do Gerenciamento de API do Azure para Visual Studio Code (versão prévia)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- Verifique se você instalou o [Visual Studio Code](https://code.visualstudio.com/) e a última [Extensão do Gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 - [Criar uma instância de Gerenciamento de API](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Importar uma API

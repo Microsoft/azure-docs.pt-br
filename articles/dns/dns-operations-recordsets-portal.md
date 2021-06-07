@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 22ceba69ecf865d906021068a39a9d273b842ca2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94965724"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
@@ -70,7 +70,7 @@ Assim que o registro for salvo, os valores do conjunto de registros na folha **Z
 Você pode usar o Portal do Azure para remover registros de um conjunto de registros. Observe que remover o último registro de um conjunto de registros não exclui o conjunto.
 
 1. Na folha **Propriedades do conjunto de registros** do conjunto de registros, procure o registro.
-2. Clique no registro que você quer remover. Em seguida, selecione **remover**.
+2. Clique no registro que você quer remover. Em seguida, selecione **Remover**.
 
     ![Remover um registro](./media/dns-operations-recordsets-portal/removerecord500.png)
 
@@ -87,13 +87,13 @@ Você pode usar o Portal do Azure para remover registros de um conjunto de regis
 3. Verifique se o nome corresponde ao conjunto de registros que você quer excluir e clique em **Sim**.
 4. Na folha **Zona DNS** , você poderá verificar que o conjunto de registros não está mais visível.
 
-## <a name="work-with-ns-and-soa-records"></a>Trabalhar com registros NS e SOA
+## <a name="work-with-ns-and-soa-records&quot;></a>Trabalhar com registros NS e SOA
 
 Os registros NS e SOA que são criados automaticamente são gerenciados de modo diferente de outros tipos de registro.
 
-### <a name="modify-soa-records"></a>Modificar registros SOA
+### <a name=&quot;modify-soa-records&quot;></a>Modificar registros SOA
 
-Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = "\\@\"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
+Não é possível adicionar nem remover registros no conjunto de registros SOA criados automaticamente no apex da zona (nome = &quot;\\@\"). No entanto, é possível modificar qualquer um dos parâmetros no registro SOA (exceto o “Host”) e o TTL do conjunto de registros.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificar registros NS no apex da zona
 

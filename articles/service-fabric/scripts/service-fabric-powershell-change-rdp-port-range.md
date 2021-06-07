@@ -10,10 +10,10 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
 ms.openlocfilehash: 750a2100d34e02cac7c613cc6b95160fc348b535
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96576359"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Atualizar os valores de intervalo da porta RDP

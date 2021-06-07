@@ -1,6 +1,6 @@
 ---
-title: SQL Server para SQL Server em VMs do Azure (guia de migração)
-description: Siga este guia para migrar seus bancos de dados SQL Server individuais para SQL Server em VMs (máquinas virtuais) do Azure.
+title: 'SQL Server para SQL Server em VMs do Azure: guia de migração'
+description: Este guia ensina a migrar seus bancos de dados SQL Server individuais para SQL Server em VMs do Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
-ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.date: 03/19/2021
+ms.openlocfilehash: 7ef942404158768f4249b5bcd0640632b6475f63
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797882"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023700"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: do SQL Server para o SQL Server nas VMs do Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -24,12 +24,12 @@ Este guia de migração ensina a **descobrir**, **avaliar** e **migrar** seus ba
 
 Você pode migrar SQL Server em execução no local ou em:
 
-- SQL Server em máquinas virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)
 
-Para obter informações sobre estratégias de migração adicionais, consulte a [visão geral da migração de VM SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md).
+Para obter informações sobre estratégias de migração adicionais, consulte a [visão geral da migração de VM SQL Server](sql-server-to-sql-on-azure-vm-migration-overview.md). Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Fluxo do processo de migração":::
 
@@ -58,6 +58,8 @@ Para obter ferramentas de descoberta adicionais, consulte [serviços e ferrament
 
 
 ### <a name="assess"></a>Avaliar
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Depois de descobrir todas as fontes de dados, use o [Assistente de migração de dados (DMA)](/sql/dma/dma-overview) para avaliar SQL Server instância (s) local migrando para uma instância do SQL Server na VM do Azure para entender as lacunas entre as instâncias de origem e de destino. 
 
@@ -109,7 +111,7 @@ Para recursos preteridos, você pode optar por executar seus bancos de dados de 
 > Nem todas as versões do SQL Server dão suporte a todos os modos de compatibilidade. Verifique se a [versão de SQL Server de destino](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) dá suporte à compatibilidade de banco de dados escolhida. Por exemplo, SQL Server 2019 não oferece suporte a bancos de dados com compatibilidade de nível 90 (que é SQL Server 2005). Esses bancos de dados exigirão, pelo menos, uma atualização para o nível de compatibilidade 100.
 >
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as etapas de pré-migração, você estará pronto para migrar os bancos de dados e componentes do usuário. Migre seus bancos de dados usando seu [método de migração](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferencial.  
 
@@ -123,7 +125,7 @@ Para executar uma migração padrão usando backup e restauração, siga estas e
 1. Pausar/parar qualquer aplicativo que esteja usando bancos de dados destinados à migração. 
 1. Verifique se os bancos de dados do usuário estão inativos usando o [modo de usuário único](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Execute um backup de banco de dados completo para um caminho local.
-1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (> de 2 TB backups recomendados).
+1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (recomenda-se backups de 2 TB >).
 1. Restaure backups completos de banco de dados para o SQL Server na VM do Azure.
 
 ### <a name="log-shipping--minimize-downtime"></a>Envio de logs (minimizar tempo de inatividade)
@@ -133,7 +135,7 @@ Para executar uma migração de tempo de inatividade mínima usando backup, rest
 1. Configure a conectividade com o SQL Server de destino na VM do Azure, com base em suas necessidades. Consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure (Gerenciador de Recursos)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Verifique se os bancos de dados do usuário local a serem migrados estão em um modelo de recuperação completa ou bulk-logged.
 1. Execute um backup de banco de dados completo em uma localização local e modifique quaisquer trabalhos de backup de banco de dados completos existentes para usar [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) palavra-chave para preservar a cadeia de logs.
-1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB backups recomendados).
+1. Copie seus arquivos de backup locais para sua VM usando a área de trabalho remota, o [Data Explorer do Azure](/azure/data-explorer/data-explorer-overview)ou o [Utilitário de linha de comando AZCopy](../../../storage/common/storage-use-azcopy-v10.md) (>recomendado backups de 1 TB).
 1. Restaure backups completos de banco de dados no SQL Server na VM do Azure.
 1. Configure o [envio de logs](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) entre o banco de dados local e o SQL Server de destino na VM do Azure. Certifique-se de não reinicializar os bancos de dados, pois isso já foi concluído nas etapas anteriores.
 1. **Recortar** para o servidor de destino. 
@@ -163,7 +165,7 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 || Gatilhos do servidor | Script com SQL Server Management Studio. |
 | **Replicação** | Publicações locais | Script com SQL Server Management Studio. |
 || Assinantes locais | Script com SQL Server Management Studio. |
-| **Polybase** | PolyBase | Script com SQL Server Management Studio. |
+| **PolyBase** | PolyBase | Script com SQL Server Management Studio. |
 | **Gerenciamento** | Database Mail | Script com SQL Server Management Studio. |
 | **SQL Server Agent** | Trabalhos | Script com SQL Server Management Studio. |
 || Alertas | Script com SQL Server Management Studio. |
@@ -184,16 +186,16 @@ Aplique qualquer banco de dados Assistente de Migração correções recomendada
 
 ### <a name="perform-tests"></a>Executar testes
 
-A abordagem de teste para a migração de banco de dados consiste em executar as seguintes atividades:
+A abordagem de teste para a migração de banco de dados consiste na execução das seguintes atividades:
 
 1. **Desenvolver testes de validação.**  Use consultas SQL para testar migrações de banco de dados. Crie consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
 2. **Configure o ambiente de teste.**  O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
-3. **Executar testes de validação.**  Execute os testes de validação em relação à origem e ao destino e, em seguida, analise os resultados.
+3. **Executar testes de validação.**  Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 4. **Executar testes de desempenho.**  Execute o teste de desempenho em relação à origem e ao destino e, em seguida, analise e compare os resultados.
 
 > [!TIP]
 > Use o [Assistente para experimentos de banco de dados (DEA)](/sql/dea/database-experimentation-assistant-overview) para auxiliar na avaliação do desempenho de SQL Server de destino.
->
+
 
 ### <a name="optimize"></a>Otimizar
 

@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 12/11/2020
 ms.openlocfilehash: 09dd6e9a9d69797c2c33270d1620e861a052efe2
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97505113"
 ---
 O destino de computação que você usa para hospedar seu modelo afetará o custo e a disponibilidade do ponto de extremidade implantado. Use esta tabela para escolher um destino de computação apropriado.

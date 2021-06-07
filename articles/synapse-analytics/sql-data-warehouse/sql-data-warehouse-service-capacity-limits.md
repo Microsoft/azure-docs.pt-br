@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117683"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para o pool de SQL dedicado no Azure Synapse Analytics
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Exibir |Colunas por exibição |1\.024 |
+| Visualizar |Colunas por exibição |1\.024 |
 ||||
 
 ## <a name="loads"></a>Cargas
@@ -79,7 +79,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | SELECT |Bytes por colunas GROUP BY. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
 | SELECT |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
 | Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20,000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
+| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
 ||||
 
 ## <a name="metadata"></a>Metadados

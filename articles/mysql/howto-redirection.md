@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
 ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98201426"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conectar-se ao Banco de Dados do Azure para MySQL com redirecionamento

@@ -7,10 +7,10 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99218954"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
@@ -86,7 +86,7 @@ Depois de instalar o gateway em um computador local, crie o recurso do Azure par
    | **Nome do recurso** | Forneça um nome para o recurso de gateway que contém apenas letras, números, hifens ( `-` ), sublinhados ( `_` ), parênteses ( `(` , `)` ) ou pontos ( `.` ). |
    | **Assinatura** | Selecione a assinatura do Azure para a conta do Azure que foi usada para a instalação do gateway. A assinatura padrão baseia-se na conta do Azure utilizada para entrar. |
    | **Grupo de recursos** | O [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) que você deseja usar |
-   | **Localização** | A mesma região ou local que foi selecionado para o serviço de nuvem do gateway durante a [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **nome da instalação** . O local do aplicativo lógico pode ser diferente do local do recurso do gateway. |
+   | **Localidade** | A mesma região ou local que foi selecionado para o serviço de nuvem do gateway durante a [instalação do gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **nome da instalação** . O local do aplicativo lógico pode ser diferente do local do recurso do gateway. |
    | **Nome de Instalação** | Selecione uma instalação de gateway, que aparece na lista somente quando essas condições são atendidas: <p><p>-A instalação do gateway usa a mesma região que o recurso de gateway que você deseja criar. <br>-A instalação do gateway não está vinculada a outro recurso de gateway do Azure. <br>-A instalação do gateway está vinculada à mesma conta do Azure que você está usando para criar o recurso de gateway. <br>-Sua conta do Azure pertence a um único [locatário ou diretório do Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) e é a mesma conta que você usou para a instalação do gateway. <p><p>Para obter mais informações, consulte a seção [perguntas](#faq) frequentes. |
    |||
 

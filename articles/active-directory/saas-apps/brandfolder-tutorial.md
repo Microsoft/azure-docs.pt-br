@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Brandfolder | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Brandfolder | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Brandfolder.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 5004b433189700bc2fbaf5efe65e4556d40521cb
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97671962"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutorial: Integração do Azure Active Directory com Brandfolder
+# <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Brandfolder
 
 Neste tutorial, você aprenderá a integrar o Brandfolder ao Azure AD (Azure Active Directory).
 A integração do Brandfolder ao Azure AD oferece os seguintes benefícios:
@@ -185,4 +185,4 @@ Ao clicar no bloco do Brandfolder no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

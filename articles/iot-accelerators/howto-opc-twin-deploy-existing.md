@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0a4866db463dcf4ff17b2f7b25806806a700e8fa
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4535818898459f1eb183026629bc338524c1efd9
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071635"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105646000"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC "an" em um projeto existente
 
@@ -71,8 +71,8 @@ Certifique-se de usar um nome de grupo de recursos curto e simples.  O nome tamb
 
 O script de implantação tenta registrar dois aplicativos AAD no Azure Active Directory.  Dependendo de seus direitos para o locatário do AAD selecionado, a implantação poderá falhar. Há duas opções:
 
-1. Se você escolher um locatário do AAD de uma lista de locatários, reinicie o script e escolha um diferente na lista.
-2. Como alternativa, implante um locatário particular do AAD em outra assinatura, reinicie o script e selecione para usá-lo.
+* Se você escolher um locatário do AAD de uma lista de locatários, reinicie o script e escolha um diferente na lista.
+* Como alternativa, implante um locatário particular do AAD em outra assinatura, reinicie o script e selecione para usá-lo.
 
 > [!WARNING]
 > Nunca continue sem autenticação.  Se você optar por fazer isso, qualquer pessoa poderá acessar seus pontos de extremidade do OPC/Internet não autenticados.   Você sempre pode escolher a [opção de implantação "local"](howto-opc-twin-deploy-dependencies.md) para iniciar os aros.

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919996"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usar pontos de extremidade privados com contas do Lote do Azure

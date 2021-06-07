@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84705037"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de roteamento da máquina virtual
@@ -36,7 +36,7 @@ As etapas a seguir pressupõem que há uma VM existente para visualizar as rotas
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta do Azure que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 2. Na parte superior do portal do Azure, insira o nome de uma VM que esteja em estado de execução, na caixa de pesquisa. Quando o nome da VM aparecer nos resultados da pesquisa, selecione-o.
-3. Em **configurações** à esquerda, selecione **rede**e navegue até o recurso de interface de rede selecionando seu nome.
+3. Em **configurações** à esquerda, selecione **rede** e navegue até o recurso de interface de rede selecionando seu nome.
      ![Exibir interfaces de rede](./media/diagnose-network-routing-problem/view-nics.png)
 4. À esquerda, selecione **rotas efetivas**. As rotas efetivas para uma interface de rede denominada **myVMNic1** são mostradas na figura a seguir: ![ Exibir rotas efetivas](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
@@ -45,7 +45,7 @@ As etapas a seguir pressupõem que há uma VM existente para visualizar as rotas
     No exemplo mostrado na figura anterior, as rotas listadas são rotas padrão que o Azure cria para cada sub-rede. A lista tem pelo menos essas rotas, mas pode ter rotas adicionais, dependendo dos recursos que você pode ter habilitado para a rede virtual, como se estivesse sendo emparelhada por outra rede virtual ou conectado à rede local por meio de um gateway de VPN do Azure. Para saber mais sobre cada uma das rotas e outras rotas que podem ser exibidas para o adaptador de rede, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md). Se a lista tiver um grande número de rotas, talvez seja mais fácil selecionar **Baixar** para baixar um arquivo .csv com a lista de rotas.
 
 Embora as rotas efetivas tenham sido exibidas na VM nas etapas anteriores, você também poderá exibir rotas efetivas por meio de:
-- ** Interface de rede individual **: saiba como [ visualizar uma interface de rede ](virtual-network-network-interface.md#view-network-interface-settings).
+- **Interface de rede individual**: saiba como [ visualizar uma interface de rede](virtual-network-network-interface.md#view-network-interface-settings).
 - **Tabela de rotas individuais**: Saiba como [exibir uma tabela de rotas](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>Diagnosticar usando o PowerShell
@@ -54,7 +54,7 @@ Embora as rotas efetivas tenham sido exibidas na VM nas etapas anteriores, você
 
 É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obtenha as rotas efetivas para uma interface de rede com [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1*, que está em um grupo de recursos chamado *MyResource*Group:
+Obtenha as rotas efetivas para uma interface de rede com [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1*, que está em um grupo de recursos chamado *MyResource* Group:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -87,7 +87,7 @@ Na saída anterior, o nome da interface de rede é *myVMNic1*.
 
 É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI no computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` e fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obtenha as rotas efetivas para um adaptador de rede com [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1* que está em um grupo de recursos chamado *MyResource*Group:
+Obtenha as rotas efetivas para um adaptador de rede com [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1* que está em um grupo de recursos chamado *MyResource* Group:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \

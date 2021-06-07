@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: 78005ba46952bcf05b19c7627feecb1ec30ac651
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92429199"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-nodejs"></a>Início Rápido: Provisionar um dispositivo simétrico usando Node.js
@@ -47,13 +47,13 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 2. Selecione a guia **Gerenciar registros** e selecione o botão **Adicionar registro individual** na parte superior. 
 
-3. No painel **Adicionar Registro** , insira as informações a seguir e pressione o botão **Salvar**.
+3. No painel **Adicionar Registro**, insira as informações a seguir e pressione o botão **Salvar**.
 
    - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* do atestado de identidade.
 
-   - **Autogerar Chaves** : marque essa caixa.
+   - **Autogerar Chaves**: marque essa caixa.
 
-   - **ID de registro** : insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-nodejs-device-01**.
+   - **ID de registro**: insira uma ID de registro para identificar o registro. Use apenas caracteres alfanuméricos minúsculos e traço ('-'). Por exemplo, **symm-key-nodejs-device-01**.
 
    - **ID do dispositivo do IoT Hub:** insira um identificador de dispositivo. Por exemplo, **nodejs-device-01**.
 
@@ -97,7 +97,7 @@ O código de provisionamento entrará em contato com a instância do DPS com bas
     cd azure-iot-sdk-node/provisioning/device/samples
     ```
 
-3. Na pasta *provisionamento/dispositivo/exemplos* , abra *register_symkey.js* e examine o código. 
+3. Na pasta *provisionamento/dispositivo/exemplos*, abra *register_symkey.js* e examine o código. 
 
     Observe que o código de exemplo define uma carga personalizada...
 
@@ -167,7 +167,7 @@ O código de provisionamento entrará em contato com a instância do DPS com bas
 
 Se planejar continuar a trabalhar e explorar o dispositivo cliente de exemplo, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 
-1. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra **Gerenciar Registros** de seu serviço e selecione a guia **Registros Individuais**. Marque a caixa de seleção ao lado da *ID DE REGISTRO* do dispositivo registrado neste início rápido e pressione o botão **Excluir** , na parte superior do painel. 
+1. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra **Gerenciar Registros** de seu serviço e selecione a guia **Registros Individuais**. Marque a caixa de seleção ao lado da *ID DE REGISTRO* do dispositivo registrado neste início rápido e pressione o botão **Excluir**, na parte superior do painel. 
 1. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e seu Hub IoT. Abra **Dispositivos IoT** do hub, marque a caixa de seleção ao lado da *ID DO DISPOSITIVO* registrado neste início rápido e pressione o botão **Excluir** na parte superior do painel.
 
 ## <a name="next-steps"></a>Próximas etapas

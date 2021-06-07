@@ -3,7 +3,7 @@ title: Configurar uma política de autorização de chave de conteúdo usando RE
 description: Saiba como configurar uma política de autorização para uma chave de conteúdo usando a API REST dos Serviços de Mídia.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9f7910219c34c811cc49f530af145c6e1589711f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 66649eb6109339cd7723ab4a7e3a12c5c322973d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89257017"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103017283"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
 
@@ -39,7 +39,7 @@ Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usu�
 
 Os Serviços de Mídia não oferecem um STS. Você pode criar um STS personalizado ou usar os tokens de problema do Microsoft Azure Active Directory (Azure AD). O STS deve ser configurado para criar um token assinado com a chave especificada e declarações de emissão que você especificou na configuração de restrição do token (conforme descrito neste artigo). Se o token for válido e as declarações no token corresponderem às configuradas para a chave de conteúdo, o serviço de distribuição de chave dos Serviços de Mídia retornará a chave criptografada para o cliente.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 - [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integrar um aplicativo OWIN com base no MVC dos Serviços de Mídia do Azure com o Azure Active Directorye restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte os seguintes artigos:
 > [!NOTE]
 > Ao trabalhar com os Serviços de Mídia do API REST, as seguintes considerações se aplicam.
 > 
-> Ao acessar entidades nos Serviços de Mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos Serviços de Mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
 > 
 > 
@@ -147,7 +147,7 @@ Date: Tue, 10 Feb 2015 08:56:40 GMT
 {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 ```
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Vincular ContentKeyAuthorizationPolicies com opções
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Link ContentKeyAuthorizationPolicies com opções
 Solicitação:
 
 ```console
@@ -309,7 +309,7 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
 Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o runtime do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
 
-Quando você protege seu conteúdo com o PlayReady, uma das coisas que você precisa especificar em sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). 
+Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrição aberta
 Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para fins de teste.

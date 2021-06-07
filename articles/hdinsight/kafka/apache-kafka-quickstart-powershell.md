@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Criar Apache Kafka com o Azure PowerShell-HDInsight'
+title: 'Guia de início rápido: criar um cluster do Apache Kafka usando o Azure PowerShell – HDInsight'
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Azure PowerShell. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f993ffa8d0d141d04ad399c5d1d4f0fc28cc82ac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942625"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102505130"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início Rápido: Criar um cluster do Apache Kafka no Azure HDInsight usando o PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guia de início rápido: criar um cluster do Apache Kafka no Azure HDInsight usando o PowerShell
 
 O [Apache Kafka](https://kafka.apache.org/) é uma plataforma de streaming distribuída de software livre. Ela é geralmente usada como um agente de mensagens, pois fornece funcionalidade semelhante a uma fila de mensagens para publicação e assinatura. 
 
@@ -247,7 +247,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
         
         Em regiões com três domínios de falha, um fator de replicação de 3 permite a distribuição das réplicas entre os domínios de falha. Em regiões com dois domínios de falha, um fator de replicação de quatro permite a distribuição uniforme das réplicas entre os domínios.
         
-        Para obter informações sobre o número de domínios de falha em uma região, consulte o documento [Disponibilidade de máquinas virtuais do Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        Para obter informações sobre o número de domínios de falha em uma região, consulte o documento [Disponibilidade de máquinas virtuais do Linux](../../virtual-machines/availability.md).
 
         O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas da partição para tópicos, ele não poderá distribuir réplicas corretamente para alta disponibilidade.
 

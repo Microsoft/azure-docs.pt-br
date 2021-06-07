@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324681"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrar para a entidade de criação v3
@@ -71,8 +71,8 @@ A tabela a seguir anota quais entidades precisam migrar de um design de entidade
 
 |Tipo de entidade de criação v2|Tipo de entidade de criação v3|Exemplo|
 |--|--|--|
-|Entidade composta|Entidade aprendida do computador|[Saiba Mais](#migrate-v2-composite-entity)|
-|Entidade hierárquica|função da entidade de aprendizado de máquina|[Saiba Mais](#migrate-v2-hierarchical-entity)|
+|Entidade composta|Entidade aprendida do computador|[saiba mais](#migrate-v2-composite-entity)|
+|Entidade hierárquica|função da entidade de aprendizado de máquina|[saiba mais](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Migrar entidade composta v2
 

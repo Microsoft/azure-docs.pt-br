@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97355131"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
@@ -104,7 +104,7 @@ Insira o número de versão da sua oferta. Os clientes verão essa versão lista
 
 Forneça seus próprios termos e condições legais aqui. Você também pode fornecer o endereço em que os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
 
-Selecione **Salvar rascunho** para continuar.
+Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="offer-listing"></a>Listagem de ofertas
 

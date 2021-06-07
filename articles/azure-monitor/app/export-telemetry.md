@@ -2,16 +2,20 @@
 title: Exportação contínua de telemetria do Application Insights | Microsoft Docs
 description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 02/19/2021
+ms.custom: references_regions
+ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674130"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101737028"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. A partir daí, você pode baixar os dados e gravar qualquer código que precisar para processá-los.  
+
+> [!IMPORTANT]
+> A exportação contínua foi preterida. [Migre para um recurso de Application insights baseado em espaço de trabalho](convert-classic-resource.md) para usar [as configurações de diagnóstico](#diagnostic-settings-based-export) para exportar a telemetria.
 
 > [!NOTE]
 > A exportação contínua só é compatível com recursos clássicos do Application Insights. Os [recursos baseados em espaço de trabalho do Application Insights](./create-workspace-resource.md) devem usar as [configurações de diagnóstico](./create-workspace-resource.md#export-telemetry).
@@ -21,12 +25,50 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 
 * O botão Exportar na parte superior de uma métrica ou da guia de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
 
-* O [Analytics](../log-query/log-query-overview.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
+* O [Analytics](../logs/log-query-overview.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](./export-power-bi.md), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
 * Você também pode acessar a configuração de [exportação contínua por meio do PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](./data-retention-privacy.md) normal.
+
+## <a name="supported-regions"></a>Regiões com Suporte
+
+A exportação contínua tem suporte nas seguintes regiões:
+
+* Sudeste Asiático
+* Canadá Central
+* Índia Central
+* Norte da Europa
+* Sul do Reino Unido
+* Leste da Austrália
+* Japan East
+* Coreia Central
+* França Central
+* Leste da Ásia
+* Oeste dos EUA
+* Centro dos EUA
+* Leste dos EUA 2
+* Centro-Sul dos Estados Unidos
+* Oeste dos EUA 2
+* Norte da África do Sul
+* Centro-Norte dos EUA
+* Brazil South
+* Norte da Suíça
+* Australia Southeast
+* Oeste do Reino Unido
+* Centro-Oeste da Alemanha
+* Oeste da Suíça
+* Austrália Central 2
+* EAU Central
+* Sudeste do Brasil
+* Austrália Central
+* Norte dos EAU
+* Leste da Noruega
+* Oeste do Japão
+
+> [!NOTE]
+> Os aplicativos já configurados no **Europa Ocidental** e no **leste dos EUA** têm suporte, mas não há suporte para a integração de novos aplicativos nessas regiões.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configuração de armazenamento avançado de exportação contínua
 

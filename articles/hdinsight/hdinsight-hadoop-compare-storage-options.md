@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945859"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
@@ -29,8 +29,8 @@ A tabela a seguir resume os serviços de armazenamento do Azure que têm suporte
 | Serviço de armazenamento | Tipo de conta | Tipo de namespace | Serviços com suporte | Níveis de desempenho compatíveis | Camadas de acesso compatíveis | Versão do HDInsight | Tipo de cluster |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Uso geral V2 | Hierárquico (Filesystem) | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Todos, exceto Spark 2,1 e 2,2|
-|Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Todos |
-|Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Todos | Todos |
+|Armazenamento do Azure| Uso geral V2 | Objeto | Blob | Standard | Frequente, Esporádico, Arquivos | 3.6+ | Tudo |
+|Armazenamento do Azure| Uso geral V1 | Objeto | Blob | Standard | N/D | Tudo | Todos |
 |Armazenamento do Azure| Armazenamento de BLOBs * * | Objeto | Blob de blocos | Standard | Frequente, Esporádico, Arquivos | Todos | Todos |
 |Azure Data Lake Storage Gen1| N/D | Hierárquico (Filesystem) | N/D | N/D | N/D | apenas 3,6 | Todos, exceto HBase |
 |Armazenamento do Azure| Blob de blocos| Objeto | Blob de blocos | Premium | N/D| 3.6+ | Somente HBase com gravações aceleradas|

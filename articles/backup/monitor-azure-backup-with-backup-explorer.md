@@ -5,10 +5,10 @@ ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824405"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorar seus backups com o Backup Explorer

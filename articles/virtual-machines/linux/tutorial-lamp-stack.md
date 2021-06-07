@@ -1,26 +1,27 @@
 ---
 title: Tutorial – Implantar o LAMP em uma máquina virtual do Linux no Azure
 description: Neste tutorial, você aprenderá a instalar a pilha do LAMP em uma máquina virtual do Linux no Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
+ms.collection: linux
 ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: d0d86e1a9c40eb6860508cf136ab9d466cc28ecd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3813931f47c110abcfb595065c1415ca9ed84c9d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225896"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102564706"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web do LAMP em uma máquina virtual do Linux no Azure
 

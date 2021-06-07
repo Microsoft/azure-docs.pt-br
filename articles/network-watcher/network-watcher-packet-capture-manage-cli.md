@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 838a5255c013b530aa3bfdb857a2ba34b7dbeeed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: efb8fba655570a661b6b001eb93942475eb2170d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98010958"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101698630"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI do Azure
 
@@ -193,8 +193,7 @@ O exemplo a seguir é a saída do `az network watcher packet-capture show-status
     "status": "Succeeded"
   },
   "captureStartTime": "2016-12-06T17:20:01.5671279Z",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
-cketCaptures/packetCaptureName",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
   "name": "packetCaptureName",
   "packetCaptureError": [],
   "packetCaptureStatus": "Stopped",

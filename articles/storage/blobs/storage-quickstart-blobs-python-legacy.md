@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v2.1 para Python'
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento v2.1 para Python a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 01ca2ee1bcd551baa471dda64d636e077f6e1a82
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95523290"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275440"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v2.1
 

@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 05/01/2020
 ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491096"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de blobs do Azure para gerenciar clientes potenciais do Marketplace comercial
@@ -74,7 +74,7 @@ ms.locfileid: "94491096"
 Quando estiver pronto para configurar as informações de gerenciamento de clientes potenciais para a oferta no portal de publicação, siga as etapas abaixo:
 
 1. Vá para a página **Configuração de oferta** da sua oferta.
-2. Na seção **Clientes potenciais** , selecione **Conectar**.
+2. Na seção **Clientes potenciais**, selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clientes potenciais":::
 

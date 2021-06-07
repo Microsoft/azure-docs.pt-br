@@ -3,12 +3,12 @@ title: Esquema de assinatura de Grade de Eventos do Azure
 description: Este artigo descreve as propriedades de assinatura de um evento com a grade de eventos do Azure. Esquema de assinatura da grade de eventos.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199944"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
 
@@ -25,13 +25,13 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 ``` 
 
 O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só pode conter a-z, A-Z, 0 a 9, e "-". O artigo descreve as propriedades e o esquema para o corpo da solicitação.
- 
+ 
 ## <a name="event-subscription-properties"></a>Propriedades da assinatura do evento
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| destino | objeto | O objeto que define o ponto de extremidade. |
-| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| destino | object | O objeto que define o ponto de extremidade. |
+| filter | object | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
@@ -44,10 +44,11 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
+| includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
 | subjectBeginsWith | string | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
 | subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
 | isSubjectCaseSensitive | string | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
+| enableAdvancedFilteringOnArrays | boolean | Habilita o uso de matrizes para chaves na filtragem avançada. Para obter mais informações, consulte [filtragem avançada](event-filtering.md#advanced-filtering). |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de assinatura de exemplo

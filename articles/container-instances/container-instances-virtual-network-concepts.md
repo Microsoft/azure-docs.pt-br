@@ -3,18 +3,21 @@ title: Cenários para usar uma rede virtual
 description: Cenários, recursos e limitações para implantar grupos de contêineres em uma rede virtual do Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033822"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606881"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
 A [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede privada segura para seus recursos locais e do Azure. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual. 
 
 Este artigo fornece informações sobre cenários de rede virtual, limitações e recursos. Para obter exemplos de implantação usando o CLI do Azure, consulte [implantar instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md).
+
+> [!IMPORTANT]
+> A implantação de grupo de contêineres em uma rede virtual está geralmente disponível para contêineres do Linux, na maioria das regiões em que as instâncias de contêiner do Azure estão disponíveis. Para obter detalhes, consulte [regiões e disponibilidade de recursos](container-instances-region-availability.md). 
 
 ## <a name="scenarios"></a>Cenários
 
@@ -45,12 +48,6 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 * Se você estiver conectando seu grupo de contêineres a uma conta de armazenamento do Azure, deverá adicionar um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) a esse recurso.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>Onde implantar
-
-As seguintes regiões e recursos máximos estão disponíveis para implantar um grupo de contêineres em uma rede virtual do Azure.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>Recursos de rede necessários
 

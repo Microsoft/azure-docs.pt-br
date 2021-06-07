@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986015"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102522199"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -30,14 +30,9 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](/powershell/azure/) ou da [CLI do Azure](/cli/azure/install-azure-cli).
 
-* Alguns cenários exigem que você abra um tíquete de suporte. Esses cenários são:
-
-    * __Workspace habilitado para link privado com uma chave gerenciada pelo cliente__
-    * __Registro de Contêiner do Azure para o workspace atrás da rede virtual__
-
-    Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Alguns cenários exigem que você abra um tíquete de suporte. Por exemplo, usando um espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Limitações
 
@@ -285,7 +280,7 @@ Ao definir o `vnetOption` valor do parâmetro como `new` ou `existing` , você p
 Se os recursos associados não estiverem atrás de uma rede virtual, você poderá definir o parâmetro **privateEndpointType** como `AutoAproval` ou `ManualApproval` para implantar o espaço de trabalho por trás de um ponto de extremidade privado. Isso pode ser feito para espaços de trabalho novos e existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
-> O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
+> O uso de um espaço de trabalho Azure Machine Learning com link privado não está disponível nas regiões do Azure governamental.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 

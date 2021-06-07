@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079149"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800424"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: bastiões do Azure
 
@@ -26,7 +26,7 @@ Para navegadores que dão suporte ao acesso à API de área de transferência av
 
    ![Permitir área de transferência](./media/bastion-vm-manage/allow.png)
 
-Só há suporte para copiar/colar texto. Para copiar e colar direta, seu navegador pode solicitar acesso à área de transferência quando a sessão de bastiões está sendo inicializada. **Permitir que** a página da Web acesse a área de transferência.
+Só há suporte para copiar/colar texto. Para copiar e colar direta, seu navegador pode solicitar acesso à área de transferência quando a sessão de bastiões está sendo inicializada. **Permitir que** a página da Web acesse a área de transferência. Se você estiver trabalhando em um Mac, o atalho de teclado para colar é **Shift-Ctrl-V**.
 
 ## <a name="copy-to-a-remote-session"></a><a name="to"></a>Copiar para uma sessão remota
 

@@ -2,18 +2,17 @@
 title: Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP | Microsoft Docs
 description: Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 author: msjuergent
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "96484338"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102504007"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -266,7 +265,7 @@ Há outros métodos de redundância. Para obter mais informações, consulte [Re
 
 
 ## <a name="vm-node-resiliency"></a>Resiliência de nó de VM
-O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md).
+O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../availability.md).
 
 A recomendação mínima para cenários de DBMS de produção com carga de trabalho do SAP é:
 

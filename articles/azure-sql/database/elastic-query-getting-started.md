@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781219"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
@@ -37,7 +37,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 1. Crie e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** seguindo as etapas na seção do artigo [baixar e executar o aplicativo de exemplo](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de concluir todas as etapas, você verá o seguinte prompt de comando:
 
     ![prompt de comando][1]
-2. Na janela Comando, digite "1" e pressione **Enter** . Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter** . Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
+2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
 3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor:
 
    ![Confirmação do Visual Studio][2]
@@ -121,19 +121,19 @@ Você observará que a consulta agrega os resultados de todos os fragmentos e fo
 
 1. Inicie o Excel 2013.
 2. Navegue até a faixa de opções **Dados** .
-3. Clique em **De Outras Fontes** e em **Do SQL Server** .
+3. Clique em **De Outras Fontes** e em **Do SQL Server**.
 
    ![Importação de outras fontes para o Excel][5]
-4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo** .
-5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja** , selecione o banco de dados **ElasticDBQuery** .
-6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar** . Em seguida, clique em **Concluir** .
-7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho** , selecione **Tabela** e clique em **OK** .
+4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo**.
+5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja**, selecione o banco de dados **ElasticDBQuery**.
+6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
+7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.
 
 Todas as linhas da tabela **Clientes** , armazenada em fragmentos diferentes, populam a planilha do Excel.
 
 Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico.
 
 Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).

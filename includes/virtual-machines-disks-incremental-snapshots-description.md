@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98900738"
 ---
 Os instantâneos incrementais são backups pontuais para os discos gerenciados que, quando tirados, consistem apenas nas alterações desde o último instantâneo. Quando você restaura um disco de um instantâneo incremental, o sistema reconstrói o disco completo que representa o backup pontual do disco quando o instantâneo incremental foi tirado. Essa nova funcionalidade para instantâneos de disco gerenciado pode permitir que eles sejam mais econômicos, já que, a menos que você escolha, você não precisa armazenar todo o disco com cada instantâneo individual. Assim como instantâneos completos, instantâneos incrementais podem ser usados para criar um disco gerenciado completo ou um instantâneo completo.

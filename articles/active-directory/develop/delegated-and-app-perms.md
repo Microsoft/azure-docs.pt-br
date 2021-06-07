@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 40d89cad595673a535ebcd526d747d81ce6ad08f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 51d7c1e433e72a393178cf429759b5e9a6479e88
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051916"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101648672"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Como reconhecer diferenças entre permissões delegadas e de aplicativos
 
@@ -28,4 +28,4 @@ ms.locfileid: "99051916"
 - Para se aprofundar, saiba como os aplicativos de recursos expõem [escopos](developer-glossary.md#scopes) e [funções de aplicativo](developer-glossary.md#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

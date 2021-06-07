@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d9db845bfa4a7c0c117220b8932b370eb230f6dc
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 60a29efc4d2daa9d1bc90f00e71094da382a83b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102981"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101686879"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
@@ -141,6 +141,7 @@ Nesta etapa, você cria uma classe para lidar com a interação com a MSAL, por 
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .WithDefaultRedirectUri()
                 .Build();
         }
 

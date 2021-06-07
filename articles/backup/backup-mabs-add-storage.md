@@ -4,10 +4,10 @@ description: Conheça os novos recursos do Servidor de Backup do Azure. Este art
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91292890"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
@@ -125,7 +125,7 @@ Para adicionar armazenamento em disco:
 
 2. Na caixa de diálogo **Adicionar Armazenamento em Disco**, selecione **Adicionar discos**.
 
-3. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar**e, em seguida, selecione **OK**.
+3. Na lista de discos disponíveis, selecione os discos que você deseja adicionar, selecione **Adicionar** e, em seguida, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f557a3a15da33b7394d22784bcd2c1c914ad6201
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491496"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889426"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Implantações de assinatura com modelos ARM
 
@@ -209,7 +209,7 @@ O modelo a seguir cria um grupo de recursos vazio.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -240,7 +240,7 @@ Use o [elemento de cópia](copy-resources.md) com grupos de recursos para criar 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -284,14 +284,14 @@ O exemplo a seguir cria um grupo de recursos e implanta uma conta de armazenamen
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2020-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [

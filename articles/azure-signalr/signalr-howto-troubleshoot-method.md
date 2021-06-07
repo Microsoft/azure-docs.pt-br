@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
 ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97707649"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Como solucionar problemas de conectividade e entrega de mensagens
@@ -197,7 +197,7 @@ Você pode verificar a integridade da API de integridade do serviço.
 
 * Código de status de resposta:
   * 200: íntegro.
-  * 503: seu serviço não está íntegro. Você poderá:
+  * 503: seu serviço não está íntegro. Você pode:
     * Aguarde alguns minutos para a recuperação automática.
     * Verifique se o endereço IP é o mesmo que o IP do Portal.
     * Ou reinicie a instância.

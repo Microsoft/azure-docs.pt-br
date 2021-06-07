@@ -1,23 +1,20 @@
 ---
-title: Executar Azure Stream Analytics em Azure Stack (versão prévia)
+title: Executar Azure Stream Analytics em Azure Stack
 description: Crie um trabalho de borda Azure Stream Analytics e implante-o no Hub de Azure Stack por meio do tempo de execução de IoT Edge.
 ms.service: stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 315b2efa042721a19fa779794c4921f9ced1fc83
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589796"
 ---
-# <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Executar Azure Stream Analytics em Azure Stack (versão prévia)
-
-> [!IMPORTANT]
-> Essa funcionalidade está em versão prévia e não é recomendada para uso em produção.
+# <a name="run-azure-stream-analytics-on-azure-stack"></a>Executar Azure Stream Analytics em Azure Stack 
 
 Você pode executar Azure Stream Analytics no Hub Azure Stack como um módulo IoT Edge. Foram adicionadas configurações ao módulo IoT Edge, que permite interagir com o armazenamento de BLOBs, hubs de eventos e hubs IoT em execução em uma assinatura de Hub de Azure Stack, permitindo que URLs personalizadas sejam encontradas em cada trabalho de Hub de Azure Stack.
 
@@ -46,7 +43,7 @@ Além de ter acesso à rede para os recursos do Hub Azure Stack, o dispositivo I
 Os guias a seguir mostram como configurar o tempo de execução de IoT Edge em seu dispositivo ou VM:
 
 * [Instalar o runtime do Azure IoT Edge no Windows](../iot-edge/how-to-install-iot-edge.md)
-* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge.md)
+* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Criar um trabalho de borda Azure Stream Analytics

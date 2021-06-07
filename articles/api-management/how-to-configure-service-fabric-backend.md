@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/29/2021
 ms.author: apimpm
 ms.openlocfilehash: f6474dbd02c501612b951ddae490385a5d843fbf
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99500624"
 ---
 # <a name="set-up-a-service-fabric-backend-in-api-management-using-the-azure-portal"></a>Configurar um back-end Service Fabric no gerenciamento de API usando o portal do Azure
@@ -122,7 +122,7 @@ Adicione a [`set-backend-service`](api-management-transformation-policies.md#Set
     ```xml
     <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"  />
     ```
-1. Selecione **Save**.
+1. Clique em **Salvar**.
 
     :::image type="content" source="media/backends/set-backend-service.png" alt-text="Configurar a política Set-back-end-Service":::
 

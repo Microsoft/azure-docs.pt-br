@@ -9,17 +9,17 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: 0e62f6950f90d7f15aa231783e292ec8eee0b4c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87539111"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versão de atualização do Threat Modeling Tool 7.1.60702.1-7/2/2019
 
 A versão 7.1.60702.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em julho de 2 2019 e contém as seguintes alterações:
 
-- Aprimoramentos na acessibilidade
+- Aprimoramentos de acessibilidade
 - Correções de bug
 - Inclusão de um conjunto de estênceis fornecido pela comunidade de código aberto
 

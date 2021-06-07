@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4f81d8a75cab38bccbfe0ca0f6405baafeb83459
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278124"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068176"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configurar o mecanismo de regras
 
@@ -58,7 +58,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Configurar o mecanismo de regras na CLI do Azure
 
-1. Caso ainda não tenha feito isso, instale a [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Adicione a extensão "front-door":- az extension add --name front-door. Em seguida, faça logon e alterne para sua assinatura az account set --subscription <nome_ou_ID>.
+1. Caso ainda não tenha feito isso, instale a [CLI do Azure](/cli/azure/install-azure-cli). Adicione a extensão "front-door":- az extension add --name front-door. Em seguida, faça logon e alterne para sua assinatura az account set --subscription <nome_ou_ID>.
 
 1. Comece criando um mecanismo de regras – este exemplo mostra uma regra com uma ação baseada em cabeçalho e uma condição de correspondência. 
 
@@ -96,7 +96,7 @@ Neste tutorial, você aprenderá como:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Para obter mais informações, uma lista completa de comandos do mecanismo de regras do AFD pode ser encontrada [aqui](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest).   
+Para obter mais informações, uma lista completa de comandos do mecanismo de regras do AFD pode ser encontrada [aqui](/cli/azure/ext/front-door/network/front-door/rules-engine).   
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -108,11 +108,11 @@ Nas etapas anteriores, você configurou e associou a configuração do Mecanismo
 
 1. Desmarque todas as regras de roteamento às quais essa configuração do Mecanismo de Regras está associada e clique em salvar.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Associar regras de roteamento":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Associação de regra de roteamento":::
 
 1. Agora você pode excluir a configuração do Mecanismo de Regras do seu Front Door.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Associar regras de roteamento":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Excluir a configuração do Mecanismo de Regras":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

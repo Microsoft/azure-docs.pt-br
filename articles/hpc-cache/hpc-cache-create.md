@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657084"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773259"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -59,7 +59,7 @@ O Azure HPC Cache gerencia quais arquivos são armazenados em cache e pré-carre
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitar criptografia de Azure Key Vault (opcional)
 
-Se o cache estiver em uma região que dá suporte a chaves de criptografia gerenciadas pelo cliente, a página **chaves de criptografia de disco** aparecerá entre as guias **cache** e **marcas** . Leia [disponibilidade regional](hpc-cache-overview.md#region-availability) para saber mais sobre o suporte de região.
+A página **chaves de criptografia de disco** aparece entre as guias **cache** e **marcas** .<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Se você quiser gerenciar as chaves de criptografia usadas para o armazenamento de cache, forneça as informações de Azure Key Vault na página **chaves de criptografia de disco** . O cofre de chaves deve estar na mesma região e na mesma assinatura que o cache.
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Tamanho do cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sim         | no          | no          |
-  | 6144 GB    | sim         | sim         | no          |
+  | 3072 GB    | sim         | não          | não          |
+  | 6144 GB    | sim         | sim         | não          |
   | 12288 GB   | sim         | sim         | sim         |
-  | 24576 GB   | no          | sim         | sim         |
-  | 49152 GB   | no          | no          | sim         |
+  | 24576 GB   | não          | sim         | sim         |
+  | 49152 GB   | não          | não          | sim         |
 
   Leia a seção **definir capacidade de cache** na guia instruções do portal para obter informações importantes sobre preços, taxa de transferência e como dimensionar o cache adequadamente para seu fluxo de trabalho.
 
@@ -189,7 +189,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 * Endereços de montagem do cliente-use esses endereços IP quando estiver pronto para conectar clientes ao cache. Leia [montar o cache HPC do Azure](hpc-cache-mount.md) para saber mais.
 * Status da atualização-quando uma atualização de software for liberada, essa mensagem será alterada. Você pode [atualizar o software de cache](hpc-cache-manage.md#upgrade-cache-software) manualmente em um momento conveniente ou ele será aplicado automaticamente após vários dias.
 
-## <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
 > O módulo AZ. HPCCache do PowerShell está atualmente em visualização pública. A versão prévia é fornecida sem um contrato de nível de serviço. Ela não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | Tamanho do cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sim         | no          | no          |
-  | 6144 GB    | sim         | sim         | no          |
+  | 3072 GB    | sim         | não          | não          |
+  | 6144 GB    | sim         | sim         | não          |
   | 12.288 GB   | sim         | sim         | sim         |
-  | 24.576 GB   | no          | sim         | sim         |
-  | 49.152 GB   | no          | no          | sim         |
+  | 24.576 GB   | não          | sim         | sim         |
+  | 49.152 GB   | não          | não          | sim         |
 
   Leia a seção **definir capacidade de cache** na guia instruções do portal para obter informações importantes sobre preços, taxa de transferência e como dimensionar o cache adequadamente para seu fluxo de trabalho.
 

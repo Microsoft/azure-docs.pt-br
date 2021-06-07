@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 883c5a20612f4dab44c0d06776ee287b27174ab9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8b596a5e54c0b59c4c0b49aa5cdc4fd6477d46dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097247"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599285"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorias de entidade com suporte no API de Análise de Texto v3
 
@@ -39,8 +39,8 @@ Você pode encontrar uma lista de tipos retornados pela versão 2,1 no [Guia de 
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-**_
+***
 
 ## <a name="next-steps"></a>Próximas etapas
 
-_ [Como usar o reconhecimento de entidade nomeada no análise de texto](how-tos/text-analytics-how-to-entity-linking.md)
+* [Como usar o reconhecimento de entidade nomeada no Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)

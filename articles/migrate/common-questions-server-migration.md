@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 63c7f226dcd99ec8040f2078ce12be0fe3c594df
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99548791"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
@@ -32,14 +32,14 @@ Migrações para Azure: a ferramenta de migração de servidor migra computadore
 
 | **Sistemas operacionais com suporte para computadores baseados em UEFI** | **VMware sem agente para o Azure**                                                                                                             | **Hyper-V sem agente para o Azure** | **VMware, físico e outras nuvens baseadas em agente para o Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 2012                | S                                                                                                                                         | S                              | S                                                          |
-| Windows 10 pro, Windows 10 Enterprise                   | S                                                                                                                                         | S                              | S                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | S                                                                                                                                         | S                              | S                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | S                                                                                                                                         | S                              | S                                                          |
-| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | S                                                                                                                                         | S                              | S                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | S<br>                 _O RHEL 8. x requer [preparação manual](./prepare-for-migration.md#linux-machines)_   | S                              | S                                                          |
-| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | S<br>_O Cent OS 8. x requer [preparação manual](./prepare-for-migration.md#linux-machines)_ | S                              | S                                                          |
-| Oracle Linux 7.7, 7.7-CI                                |  S                                                                                                                                        | S                              | S                                                          |
+| Windows Server 2019, 2016, 2012 R2, 2012                | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _O RHEL 8. x requer [preparação manual](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
+| Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_O Cent OS 8. x requer [preparação manual](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Posso usar o cofre dos serviços de recuperação criado pelas migrações para Azure para cenários de recuperação de desastre?
 Não recomendamos o uso do cofre dos serviços de recuperação criado pela migração do Azure para cenários de recuperação de desastre. Isso pode resultar em Iniciar falhas de replicação nas migrações para Azure. 

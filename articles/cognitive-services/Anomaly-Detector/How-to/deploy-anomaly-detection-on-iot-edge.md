@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
 ms.openlocfilehash: b4153b07b153a9ee0b16dc032ab5e7810e236d7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936280"
 ---
 # <a name="deploy-an-anomaly-detector-module-to-iot-edge"></a>Implantar um módulo detector de anomalias para IoT Edge

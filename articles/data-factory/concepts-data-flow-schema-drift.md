@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027475"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
@@ -43,7 +43,7 @@ Em uma transformação de origem, a descompasso de esquema é definida como uma 
 
 ![Origem de descompasso de esquema](media/data-flow/schemadrift001.png "Origem de descompasso de esquema")
 
-Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos* , chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
+Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos*, chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
 
 ## <a name="schema-drift-in-sink"></a>Descompasso de esquema no coletor
 

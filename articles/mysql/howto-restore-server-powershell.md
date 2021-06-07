@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 43ce39a1fc05c8ffedd1ae8404cc20c1a498a73f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94538998"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer backup e restaurar um banco de dados do Azure para o servidor MySQL usando o PowerShell
@@ -41,7 +41,7 @@ Na criação do servidor, você faz a escolha entre configurar o servidor para b
 > [!NOTE]
 > Depois que um servidor é criado, o tipo de redundância que ele tem, geograficamente redundante versus redundância local, não pode ser alterado.
 
-Ao criar um servidor por meio do `New-AzMySqlServer` comando, o parâmetro **GeoRedundantBackup** decide sua opção de redundância de backup. Se **habilitado** , os backups com redundância geográfica serão feitos. Ou, se estiverem **desabilitados** , os backups com redundância local serão feitos.
+Ao criar um servidor por meio do `New-AzMySqlServer` comando, o parâmetro **GeoRedundantBackup** decide sua opção de redundância de backup. Se **habilitado**, os backups com redundância geográfica serão feitos. Ou, se estiverem **desabilitados**, os backups com redundância local serão feitos.
 
 O período de retenção de backup é definido pelo parâmetro **BackupRetentionDay** .
 
@@ -78,7 +78,7 @@ O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzMySqlServer` cmdl
 | Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
-| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
+| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Você também pode usar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use o modo point-in-time para restaurar. |
 
@@ -106,7 +106,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMySqlServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver** , também no grupo de recursos **MyResource** Group.
+Este exemplo cria um novo servidor chamado **mydemoserver-georestore** na região leste dos EUA que pertence ao **MyResource**. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de **mydemoserver**, também no grupo de recursos **MyResource** Group.
 
 Para criar o novo servidor em um grupo de recursos diferente do servidor existente, especifique o novo nome do grupo de recursos usando o parâmetro **ResourceGroupName** , conforme mostrado no exemplo a seguir:
 
@@ -120,8 +120,8 @@ O conjunto de parâmetros **Georestore** do `Restore-AzMySqlServer` cmdlet reque
 | Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
-|Name | mydemoserver-georestored | O nome do novo servidor. |
-|Localização | eastus | A localização do novo servidor. |
+|Nome | mydemoserver-georestored | O nome do novo servidor. |
+|Location | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
 Ao criar um novo servidor usando a restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço do servidor de origem, a menos que o parâmetro **SKU** seja especificado.

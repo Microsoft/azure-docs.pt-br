@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99537214"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimar e gerenciar a capacidade de um serviço de Pesquisa Cognitiva do Azure
@@ -146,7 +146,7 @@ Aplicativos de pesquisa que exigem atualização de dados quase em tempo real pr
 
    :::image type="content" source="media/search-capacity-planning/1-initial-values.png" alt-text="Página escala mostrando os valores atuais" border="true":::
 
-1. Use o controle deslizante para aumentar ou diminuir o número de partições. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas. Selecione **Salvar**.
+1. Use o controle deslizante para aumentar ou diminuir o número de partições. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas. Clique em **Salvar**.
 
    Este exemplo adiciona uma segunda réplica e partição. Observe a contagem de unidades de pesquisa; Agora, ele é quatro porque a fórmula de cobrança é réplicas multiplicada por partições (2 x 2). Dobrar a capacidade mais do que o dobro do custo da execução do serviço. Se o custo da unidade de pesquisa fosse $100, a nova fatura mensal agora será $400.
 

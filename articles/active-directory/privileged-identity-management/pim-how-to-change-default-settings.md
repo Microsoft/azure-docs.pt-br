@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708476"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567026"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 
@@ -64,14 +64,14 @@ Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
 Você pode escolher uma destas opções de duração de atribuição **qualificadas** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir atribuição qualificada permanente** | Administradores globais e administradores de função com privilégios podem atribuir atribuição qualificada permanente. |
 | **Expirar atribuição qualificada após** | Administradores globais e administradores de função com privilégios podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificada. |
 
 E, você pode escolher uma destas opções de duração da atribuição **ativa**:
 
-| | |
+| | Description |
 | --- | --- |
 | **Permitir atribuição ativa permanente** | Administradores globais e administradores de função com privilégios podem atribuir uma atribuição ativa permanente. |
 | **Expirar atribuição ativa após** | Administradores globais e administradores de função com privilégios podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada. |

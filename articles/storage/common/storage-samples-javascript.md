@@ -1,19 +1,19 @@
 ---
 title: Exemplos de Armazenamento do Azure que usam JavaScript | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do JavaScript/Node.js.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
-ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c071c1be4a0020788060f3e23b61a155dc6d85d1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359740"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277361"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente JavaScript v12
 

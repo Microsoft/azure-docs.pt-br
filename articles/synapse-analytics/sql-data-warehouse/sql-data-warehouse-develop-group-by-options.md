@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3f0879aa9b6f9e084d0c51f0bb371740d333c1b6
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683249"
 ---
 # <a name="group-by-options-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Agrupar por opções para pools de SQL dedicados no Azure Synapse Analytics

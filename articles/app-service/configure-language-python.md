@@ -2,15 +2,15 @@
 title: Configurar aplicativos Python do Linux
 description: Saiba como configurar um contêiner do Python no qual aplicativos Web são executados, usando o portal do Azure e a CLI do Azure.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493695"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953503"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar um aplicativo Python do Linux para o Serviço de Aplicativo do Azure
 
@@ -114,7 +114,7 @@ Os aplicativos Web existentes podem ser reimplantados para o Azure da seguinte m
 
 1. **Inicialização do aplicativo**: examine a seção [Processo de inicialização do contêiner](#container-startup-process) mais adiante neste artigo para entender como o Serviço de Aplicativo tenta executar seu aplicativo. O Serviço de Aplicativo usa o servidor Web Gunicorn por padrão, que precisa ter a capacidade de localizar seu objeto de aplicativo ou a *pasta wsgi.py*. Se necessário, você pode [Personalizar o comando de inicialização](#customize-startup-command).
 
-1. **Implantação contínua**: configure a implantação contínua, conforme descrito em [Implantação contínua para o Serviço de Aplicativo do Azure](deploy-continuous-deployment.md) se estiver usando a implantação do Azure Pipelines ou do Kudu, ou [Fazer a implantação no Serviço de Aplicativo usando o GitHub Actions](deploy-github-actions.md) se estiver usando ações do GitHub.
+1. **Implantação contínua**: configure a implantação contínua, conforme descrito em [Implantação contínua para o Serviço de Aplicativo do Azure](deploy-continuous-deployment.md) se estiver usando a implantação do Azure Pipelines ou do Kudu, ou [Fazer a implantação no Serviço de Aplicativo usando o GitHub Actions](./deploy-continuous-deployment.md) se estiver usando ações do GitHub.
 
 1. **Ações personalizadas**: para executar ações no contêiner do Serviço de Aplicativo que hospeda seu aplicativo, como migrações do banco de dados Django, você pode [conectar-se ao contêiner por meio de SSH](configure-linux-open-ssh-session.md). Para obter um exemplo de como executar migrações do banco de dados Django, confira [Tutorial: Implantar um aplicativo Web Django com PostgreSQL – executar migração de banco de dados](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Ao usar a implantação contínua, você pode executar essas ações usando comandos pós-build conforme descrito anteriormente em [Personalizar a automação de build](#customize-build-automation).
@@ -372,6 +372,8 @@ As seções a seguir fornecem diretrizes adicionais para problemas específicos.
 - [O aplicativo não aparece – O aplicativo padrão é exibido](#app-doesnt-appear)
 - [O aplicativo não aparece – mensagem "Serviço não disponível"](#service-unavailable)
 - [Não foi possível localizar setup.py ou requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [ModuleNotFoundError na inicialização](#modulenotfounderror-when-app-starts)
+- [O banco de dados está bloqueado](#database-is-locked)
 - [As senhas não aparecem na sessão SSH quando digitadas](#other-issues)
 - [Os comandos da sessão SSH parecem estar cortados](#other-issues)
 - [Ativos estáticos não aparecem em um aplicativo Django](#other-issues)
@@ -404,6 +406,18 @@ As seções a seguir fornecem diretrizes adicionais para problemas específicos.
 - **O fluxo de log mostrará a mensagem "não foi possível localizar o setup.py nem o requirements.txt. A instalação de PIP não está sendo executada".** : houve falha no processo de compilação do Oryx ao localizar o arquivo *requirements.txt*.
 
     - Conecte-se ao contêiner do aplicativo Web via [SSH](#open-ssh-session-in-browser) e verifique se o arquivo *requirements.txt* está com o nome correto e se existe diretamente em *site/wwwroot*. Caso contrário, verifique se o arquivo existe em seu repositório e foi incluído na implantação. Em caso afirmativo, mova o arquivo para a raiz em uma pasta separada.
+
+#### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError quando o aplicativo é iniciado
+
+Se você vir um erro como `ModuleNotFoundError: No module named 'example'`, significa que o Python não pôde localizar um ou mais módulos quando o aplicativo foi iniciado. Isso ocorre com mais frequência se você implantar o ambiente virtual com o código. Ambientes virtuais não são portáteis, portanto, um ambiente virtual não deve ser implantado com o código do aplicativo. Em vez disso, permita que o Oryx crie um ambiente virtual e instale os pacotes no aplicativo Web criando uma configuração de aplicativo, `SCM_DO_BUILD_DURING_DEPLOYMENT`, e definindo como `1`. Isso forçará o Oryx a instalar os pacotes sempre que você implantar no Serviço de Aplicativo. Para obter mais informações, confira [este artigo sobre portabilidade de ambiente virtual](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### <a name="database-is-locked"></a>O banco de dados está bloqueado
+
+Ao tentar executar migrações de banco de dados com um aplicativo Django, você poderá ver "sqlite3. OperationalError: o banco de dados está bloqueado." O erro indica que o aplicativo está usando um banco de dados SQLite para o qual o Django está configurado por padrão em vez de usar um banco de dados de nuvem, como o PostgreSQL para Azure.
+
+Verifique a variável `DATABASES` no arquivo *settings.py* do aplicativo para garantir que ele esteja usando um banco de dados de nuvem em vez do SQLite.
+
+Se estiver encontrando esse erro com a amostra em [Tutorial: Implantar um aplicativo Web Django com PostgreSQL](tutorial-python-postgresql-app.md), verifique se você concluiu as etapas em [Configurar variáveis de ambiente para conectar o banco de dados](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### <a name="other-issues"></a>Outros problemas
 

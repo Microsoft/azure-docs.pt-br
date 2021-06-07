@@ -3,12 +3,12 @@ title: Solucionar problemas de recuperação de arquivos de VM do Azure
 description: Solucionar problemas ao recuperar arquivos e pastas de um backup de VM do Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735870"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101700296"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Solucionar problemas na recuperação de arquivo de um backup de VM do Azure
 
@@ -36,7 +36,7 @@ Esta seção fornece etapas para solucionar problemas de mensagens de erro que v
 
 **Ação recomendada**: 12 horas depois de baixar o script, ele se torna inválido e não pode ser executado. Acesse o portal e baixe um novo script para continuar com a recuperação de arquivos.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>iscsi_tcp módulo não pode ser carregado (ou) iscsi_tcp_module não encontrado
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>O módulo iscsi_tcp não pode ser carregado (ou) iscsi_tcp_module não encontrado
 
 **Ação recomendada**: para resolver esse problema, siga as etapas em [downloads de script com êxito, mas falha na execução](#the-script-downloads-successfully-but-fails-to-run).
 
@@ -88,7 +88,7 @@ Resolva esse problema seguindo as etapas para o seu sistema operacional.
 Quando você executa o script pela primeira vez no Windows Server 2012 R2 e no Windows Server 2016 (com pools de armazenamento), o pool de armazenamento pode ser anexado à VM em somente leitura.
 
 >[!Tip]
-> Verifique se você tem o [computador certo para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Verifique se você tem o [computador certo para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Para resolver esse problema, atribua manualmente o acesso de leitura/gravação ao pool de armazenamento e anexe os discos virtuais:
 
@@ -108,7 +108,7 @@ Para resolver esse problema, atribua manualmente o acesso de leitura/gravação 
 
 Ao executar a recuperação de arquivos, o serviço de backup detecta volumes e montagens automáticas. No entanto, se os discos de backup tiverem partições brutas, esses discos não serão montados automaticamente e você não poderá ver o disco de dados para recuperação.
 
-Para resolver esse problema, acesse [recuperar arquivos do backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Para resolver esse problema, acesse [recuperar arquivos do backup de máquina virtual do Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>A recuperação de arquivos do Linux falha porque o so não pôde identificar o sistema de arquivos
 
@@ -122,7 +122,7 @@ Para resolver esse problema, verifique se o volume está criptografado com um ap
 
    ![Captura de tela mostrando os resultados do comando para listar dispositivos de bloco.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Verifique o sistema de arquivos e a criptografia. Se o volume for criptografado, a recuperação de arquivos não terá suporte. Saiba mais em [matriz de suporte para backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Verifique o sistema de arquivos e a criptografia. Se o volume for criptografado, a recuperação de arquivos não terá suporte. Saiba mais em [matriz de suporte para backup de VM do Azure](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Os discos estão anexados, mas os volumes não estão montados
 
@@ -139,7 +139,7 @@ Ao executar o script de recuperação de arquivo para Windows, você verá uma m
 Para identificar e resolver esse problema, execute as seguintes etapas:
 
 >[!Tip]
->Verifique se você tem o [computador certo para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Verifique se você tem o [computador certo para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. Na janela **cmd** , execute **diskmgmt** para abrir o **Gerenciamento de disco**.
 1. Procure quaisquer discos adicionais. No exemplo a seguir, o **disco 2** é um disco adicional.
@@ -159,9 +159,9 @@ Para identificar e resolver esse problema, execute as seguintes etapas:
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Verifique se você tem o [computador certo para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Verifique se você tem o [computador certo para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Se a VM do Linux protegida usar o LVM ou matrizes RAID, siga as etapas em [recuperar arquivos do backup de máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Se a VM do Linux protegida usar o LVM ou matrizes RAID, siga as etapas em [recuperar arquivos do backup de máquina virtual do Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Não é possível copiar os arquivos de volumes montados
 

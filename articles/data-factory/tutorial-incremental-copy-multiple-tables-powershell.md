@@ -1,26 +1,23 @@
 ---
 title: Copiar incrementalmente várias tabelas usando o PowerShell
 description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl, maghan
+ms.reviewer: douglasl, jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 61a4119947b1412d3e874458e06748fd40a381b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 02/18/2021
+ms.openlocfilehash: 231f4033b90b152a5893cff93584d9c9bb794321
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510253"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783176"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregar dados de maneira incremental de várias tabelas no SQL Server para o Banco de Dados SQL do Azure usando o PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas em um banco de dados do SQL Server no Banco de Dados SQL do Azure.    
 

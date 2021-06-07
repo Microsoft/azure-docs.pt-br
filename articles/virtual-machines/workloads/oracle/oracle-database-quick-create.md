@@ -2,18 +2,18 @@
 title: Criar um banco de dados Oracle em uma VM do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um banco de dados Oracle Database 12c no ambiente do Azure.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063055"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102184450"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 
@@ -188,16 +188,16 @@ Nesta tarefa, você precisa configurar alguns pontos de extremidade externos par
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. Atualizar o arquivo * **/etc/hosts** _ com o IP público e o nome do host.
+10. Atualize o arquivo ***/etc/hosts*** com o IP e o nome do host.
 
-    Altere o _*_IP público e VMname_*_ para refletir seus valores reais:
+    Altere o ***IP público e VMname*** para refletir seus valores reais:
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. Atualizar o arquivo do nome do host
     
-    Use o comando a seguir para adicionar o nome de domínio da VM ao arquivo _ */etc/hostname**. Isso pressupõe que você criou o grupo de recursos e a VM na região **eastus**:
+    Use o comando a seguir para adicionar o nome de domínio da VM ao arquivo **/etc/hostname**. Isso pressupõe que você criou o grupo de recursos e a VM na região **eastus**:
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname
@@ -221,12 +221,12 @@ O software Oracle já está instalado na imagem do Marketplace. Crie um banco de
 1.  Mude para o usuário **oracle**:
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. Iniciar o ouvinte de banco de dados
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    A saída deverá ser semelhante a esta:
   

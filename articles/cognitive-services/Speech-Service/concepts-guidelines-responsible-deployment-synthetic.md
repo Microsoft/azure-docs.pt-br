@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 3a0b645acd7c21ff0416c748cdd2caf7041be508
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537177"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101730806"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Diretrizes para a implantação responsável da tecnologia de voz sintética
 
@@ -62,8 +62,8 @@ Para pessoas com autoimunes de fala que registram suas próprias fontes de voz, 
 Indivíduos com autoimunes de fala para fazer atualizações em sua voz sintética para refletir a expiração (por exemplo, um filho que atinja Puberty). Os indivíduos também podem ter preferências estilísticos que mudam ao longo do tempo e talvez queiram fazer alterações de Tom, acentuação ou outras características de voz.
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
-* [Divulgação para talento de voz](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)

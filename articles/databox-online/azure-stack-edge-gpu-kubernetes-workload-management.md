@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448530"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560226"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gerenciamento de carga de trabalho do kubernetes no dispositivo pro Edge Azure Stack
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Existem diferentes maneiras de implantar cargas de trabalho no cluster do Kubernetes. 
 
@@ -54,6 +56,17 @@ Há três maneiras principais de implantar suas cargas de trabalho. Cada uma des
 - **Implantação de kubernetes habilitada para Arc do Azure**: o kubernetes habilitado para Arc do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters do kubernetes. Você se conecta ao cluster kubernetes em seu dispositivo Azure Stack Edge pro por meio do `azure-arc namespace` . Os agentes implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. 
     
     O kubernetes habilitado para Arc do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar o cluster. Para obter mais informações, acesse [o que é o Azure Arc habilitado kubernetes?](../azure-arc/kubernetes/overview.md).
+    
+    A partir de março de 2021, o kubernetes habilitado para Arc do Azure estará disponível para os usuários e os encargos de uso padrão se aplicarem. Como um cliente de visualização com valor, a kubernetes habilitada para o Arc do Azure estará disponível para você sem custos por Azure Stack dispositivos de borda. Para obter a oferta de visualização, crie um [solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. Em **Tipo de problema**, selecione **Cobrança**.
+    2. Em **Assinatura**, selecione sua assinatura.
+    3. Em **serviço**, selecione **meus serviços** e, em seguida, selecione **Azure Stack borda**.
+    4. Em **recurso**, selecione seu recurso.
+    5. Em **Resumo**, digite uma descrição do seu problema.
+    6. Em **tipo de problema**, selecione **encargos inesperados**.
+    7. Em **subtipo de problema**, selecione **ajude-me a entender encargos em minha avaliação gratuita**.
+
 
 ## <a name="choose-the-deployment-type"></a>Escolher o tipo de implantação
 
@@ -70,7 +83,7 @@ Ao implantar aplicativos, considere as seguintes informações:
 
 Para implantar localmente um aplicativo por meio do kubectl, consulte:
 
-- [Implante um aplicativo sem estado em seu Azure Stack Edge pro via kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implante um aplicativo sem estado em seu Azure Stack Edge pro via kubectl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).
 
 Para implantar um aplicativo por meio do IoT Edge, consulte:
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962426"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple

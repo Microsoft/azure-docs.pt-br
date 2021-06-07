@@ -1,19 +1,19 @@
 ---
 title: Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI saída
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para Power BI saída.
-author: cedarbaum
-ms.author: sacedarb
 ms.service: stream-analytics
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 7c1ddbbbd8198cf769e89cfa824de370184a992c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589677"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Use a identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI
 
 A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para saída para Power bi fornece aos trabalhos de Stream Analytics acesso direto a um espaço de trabalho dentro de sua conta de Power bi. Esse recurso permite que as implantações de Stream Analytics trabalhos sejam totalmente automatizadas, já que não é mais necessário que um usuário faça logon interativamente no Power BI por meio do portal do Azure. Além disso, trabalhos de longa execução que gravam em Power BI agora têm melhor suporte, já que você não precisará reautorizar o trabalho periodicamente.
 
@@ -197,7 +197,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](/rest/api/power-bi/groups/addgroupuser).
 
-**Exemplo de solicitação**
+**Solicitação de Exemplo**
 ```http
 POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 ```

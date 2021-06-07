@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: fad3e5dcb0ecda82f3fb35cadf1719a62c99bd97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 99a0f93b73e3aa3d1cb031301150ec528870ab38
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463427"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059965"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-r"></a>Tutorial: Configurar certificados para o Azure Stack Edge Pro R
 
@@ -37,7 +36,7 @@ Antes de configurar seu dispositivo Azure Stack Edge Pro R, verifique o seguinte
 
 * Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-install.md).
 * Se você planeja trazer seus certificados:
-    - Você deve manter seus certificados preparados no formato apropriado, incluindo o certificado de cadeia de assinatura. Para obter detalhes sobre o certificado, acesse [Gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md)
+    - Você deve manter seus certificados preparados no formato apropriado, incluindo o certificado de cadeia de assinatura. Para obter detalhes sobre o certificado, acesse [Gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md)
 
 
 

@@ -7,15 +7,15 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.openlocfilehash: 1813fb222bca74f355fec52252ce3d77fef06e5d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013916"
 ---
 # <a name="create-custom-net-deserializers-for-azure-stream-analytics-in-visual-studio-code"></a>Criar desserializadores .NET personalizados para Azure Stream Analytics no Visual Studio Code
 
-Azure Stream Analytics tem [suporte interno para três formatos de dados](stream-analytics-parsing-json.md): JSON, CSV e Avro. Com os desserializadores do .NET personalizados, você pode ler dados de outros formatos, como [buffer de protocolo](https://developers.google.com/protocol-buffers/), [títulos](https://github.com/Microsoft/bond) e outros formatos definidos pelo usuário para trabalhos de nuvem.
+O Azure Stream Analytics tem [suporte interno para três formatos de dados](stream-analytics-parsing-json.md): JSON, CSV e Avro. Com os desserializadores do .NET personalizados, você pode ler dados de outros formatos, como [buffer de protocolo](https://developers.google.com/protocol-buffers/), [títulos](https://github.com/Microsoft/bond) e outros formatos definidos pelo usuário para trabalhos de nuvem.
 
 ## <a name="custom-net-deserializers-in-visual-studio-code"></a>Desserializadores do .NET personalizados no Visual Studio Code
 
@@ -70,7 +70,7 @@ Você pode criar, testar e depurar um desserializador personalizado do .NET para
    |Configuração|Valor sugerido|
    |-------|---------------|
    |Nome|Entrada|
-   |Subscription|<sua assinatura>|
+   |Assinatura|<sua assinatura>|
    |Conta de Armazenamento|<sua conta de armazenamento>|
    |Contêiner|<seu contêiner de armazenamento>|
    |Tipo de serialização|Escolher **personalizado**|

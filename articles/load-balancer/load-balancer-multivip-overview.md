@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696873"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para o Azure Load Balancer
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 

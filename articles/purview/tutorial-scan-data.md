@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062097"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101676537"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examinar dados com o Azure Purview (versão prévia)
 
@@ -55,7 +55,7 @@ Nesta seção, você executará os scripts do kit de início para criar um acerv
 
 Siga estas etapas para configurar o software cliente do kit de início no computador Windows:
 
-1. [Baixe o kit de início](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) e extraia o conteúdo dele para a localização de sua escolha.
+1. [Baixe o kit de início](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) e extraia o conteúdo dele para a localização de sua escolha.
 
 
 1. No computador, insira **PowerShell** na caixa de pesquisa da barra de tarefas do Windows. Na lista de pesquisa, clique com o botão direito do mouse em **Windows PowerShell** e selecione **Executar como administrador**.
@@ -91,7 +91,9 @@ Antes de executar os scripts do PowerShell para inicializar o catálogo, obtenha
    1. Selecione a seção **Visão geral** e salve o GUID da **ID da Assinatura**.
 
    > [!NOTE]
-   > Verifique se você está usando a mesma assinatura que aquela na qual criou a conta do Azure Purview. Essa é a mesma assinatura que foi colocada na lista de permissões.
+   > - Verifique se você está usando a mesma assinatura que aquela na qual criou a conta do Azure Purview. Essa é a mesma assinatura que foi colocada na lista de permissões.
+   > - Às vezes, a linhagem pode estar ausente no Azure Purview após a execução do kit de início. Isso ocorre porque o Data Factory criado pelo kit de início tem permissões ausentes no Purview. Selecione [**este link de documento**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections) para garantir que o Data Factory esteja configurado corretamente e tenha recebido a função apropriada no Purview
+
 
 * CatalogName: o nome da conta do Azure Purview que você criou em [Criar uma conta do Azure Purview](create-catalog-portal.md).
 

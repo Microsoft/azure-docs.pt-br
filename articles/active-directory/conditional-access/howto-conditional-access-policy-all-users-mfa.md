@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994750"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso condicional: exigir MFA para todos os usuários
@@ -51,7 +51,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Em **incluir**, selecione **todos os usuários**
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
+1. Em **Aplicativos ou ações de nuvem** > **Incluir**, selecione **Todos os aplicativos de nuvem**.
    1. Em **excluir**, selecione qualquer aplicativo que não exija autenticação multifator.
 1. Em **condições**  >  **aplicativos de cliente (versão prévia)**, em **selecionar os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.

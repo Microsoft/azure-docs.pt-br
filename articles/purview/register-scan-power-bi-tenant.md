@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518072"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101695730"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
@@ -98,11 +98,13 @@ Primeiro, adicione um sinalizador de recurso especial à URL do alcance
     > Por Power BI, o registro e a verificação da fonte de dados são permitidos para apenas uma instância.
 
 
-4. Dê um nome à sua verificação. Observe que o único método de autenticação com suporte é de **identidade gerenciada**.
+4. Dê um nome à sua verificação. Em seguida, selecione a opção para incluir ou excluir os espaços de trabalho pessoais. Observe que o único método de autenticação com suporte é de **identidade gerenciada**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagem mostrando a configuração da verificação de Power BI":::
 
-    O nome da verificação deve ter entre 3-63 e caracteres de comprimento e deve conter apenas letras, números, sublinhados e hifens.  Não são permitidos espaços.
+    > [!Note]
+    > * Alternar a configuração de uma verificação para incluir ou excluir um espaço de trabalho pessoal irá disparar uma verificação completa da fonte do PowerBI
+    > * O nome da verificação deve ter entre 3-63 e caracteres de comprimento e deve conter apenas letras, números, sublinhados e hifens. Não são permitidos espaços.
 
 5. Configurar um gatilho de verificação. Suas opções são **uma vez**, a **cada 7 dias** e a **cada 30 dias**.
 

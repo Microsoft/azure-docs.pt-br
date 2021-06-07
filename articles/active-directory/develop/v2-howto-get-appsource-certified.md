@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 7731aa2eb1a962d4674ed382911ba0058e1ebdaf
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222159"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101647499"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Obtenha o AppSource Certified para Azure Active Directory
 
@@ -102,11 +102,11 @@ Você pode usar a experiência de avaliação do parceiro quando uma operação 
 
 Para saber mais sobre a experiência de avaliação do AppSource, confira [este vídeo](https://aka.ms/trialexperienceforwebapps). 
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
-Para a integração do Azure AD, usamos o [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) a com a Comunidade para fornecer suporte.
+Para a integração do Azure AD, usamos o [Microsoft Q&](/answers/topics/azure-active-directory.html) a com a Comunidade para fornecer suporte.
 
-É altamente recomendável que você faça suas perguntas no [Microsoft Q&um](https://docs.microsoft.com/answers/topics/azure-active-directory.html) primeiro e navegue pelos problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
+É altamente recomendável que você faça suas perguntas no [Microsoft Q&um](/answers/topics/azure-active-directory.html) primeiro e navegue pelos problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]`](/answers/topics/azure-active-directory.html) .
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

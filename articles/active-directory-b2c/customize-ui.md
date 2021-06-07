@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: ecece3a00a788b67f6c831804bf5b00372fef93d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055607"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
@@ -219,7 +219,7 @@ Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos d
 1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para a *entrada* padrão e os tipos de fluxo de usuário de *edição de perfil* padrão.
 1. Em **Personalizar**, selecione **layouts de página** e, em seguida, selecione a página que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
 1. Para a **versão de layout de página (visualização)**, escolha a versão **1.2.0** ou superior.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se você quiser marcar todas as páginas no fluxo do usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
 

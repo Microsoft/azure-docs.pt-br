@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d33b419e0f24201d661ad0f5f1373022ea6e9e9f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861741"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate
 
 O Azure AD impõe um limite máximo de **15** valores de certificado no atributo **userCertificate**. Se o Azure AD Connect exportar um objeto com mais de 15 valores para o Azure AD, o Azure AD retornará um erro **LargeObject** com a mensagem:
 
->*"O objeto provisionado é muito grande. Corte o número de valores de atributo neste objeto. A operação será repetida no próximo ciclo de sincronização... "*
+>*“O objeto provisionado é muito grande. Restrinja o número de valores de atributo nesse objeto. A operação será repetida no próximo ciclo de sincronização...”*
 
 O erro LargeObject pode ser causado por outros atributos do AD. Para confirmar se ele realmente é causado pelo atributo userCertificate, você precisa verificar o objeto no AD local ou na [Pesquisa de Metaverso do Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-mvsearch.md).
 
@@ -121,7 +121,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
     | Descrição | *Fornecer uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
     | Sistema Conectado | *Selecionar o Azure AD Connector* |
     | Tipo de Objeto do Sistema Conectado | **user** | |
-    | Tipo de Objeto de Metaverso | **pessoa** | |
+    | Tipo de Objeto de Metaverso | **person** | |
     | Tipo de link | **Join** | |
     | Precedência | *Escolher um número entre 1 a 99* | O número escolhido não deve ser usado por nenhuma regra de sincronização existente e tem um valor mais baixo (e, portanto, uma precedência mais alta) que a regra de sincronização existente. |
 
@@ -145,7 +145,7 @@ Isso serve para verificar se a regra de sincronização criada está funcionando
 4. Na tela pop-up Visualização, selecione **Sincronização total** e clique em **Confirmar Visualização**.
 5. Feche a tela Visualização e a tela Propriedades de Objeto do Espaço Conector.
 6. Acesse a guia **Conectores** no Synchronization Service Manager.
-7. Clique com o botão direito do mouse no **Azure ad** Connector e selecione **executar...**
+7. Clique com o botão direito do mouse em **Azure AD** Connector e selecione **Executar...**
 8. No pop-up Executar Conector, selecione a etapa **Exportar** e clique em **OK**.
 9. Aguarde até que a etapa Exportar para o Azure AD seja concluída e confirme se não há mais nenhum erro LargeObject nesse objeto específico.
 
@@ -169,7 +169,7 @@ Depois que a regra de sincronização for adicionada, você precisará executar 
 ### <a name="step-7-export-the-changes-to-azure-ad"></a>Etapa 7. Exportar as alterações para o Azure AD
 Para exportar as alterações para o Azure AD:
 1. Acesse a guia **Conectores** no Synchronization Service Manager.
-2. Clique com o botão direito do mouse no **Azure ad** Connector e selecione **executar...**
+2. Clique com o botão direito do mouse em **Azure AD** Connector e selecione **Executar...**
 4. No pop-up Executar Conector, selecione a etapa **Exportar** e clique em **OK**.
 5. Aguarde até que a etapa Exportar para o Azure AD seja concluída e confirme se não há mais erros LargeObject.
 

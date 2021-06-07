@@ -1,19 +1,21 @@
 ---
 title: 'Início rápido: Biblioteca do Armazenamento de Blobs do Azure v12 – Python'
 description: Neste guia de início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para Python a fim de criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/28/2021
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: e315f0f4f7bfff03a659de430e6fe182037f1b8a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 9a6ccbe5482ac8ffe484c3155334cba1b50ba0dc
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096399"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535645"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v12
 
@@ -30,7 +32,7 @@ Mais recursos:
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
-- [Python](https://www.python.org/downloads/) 2.7, 3.5 ou superior.
+- O [Python](https://www.python.org/downloads/) 2.7 ou 3.6+.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

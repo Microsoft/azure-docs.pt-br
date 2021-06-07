@@ -2,13 +2,13 @@
 title: Tutorial – Configurar a rede para sua nuvem privada do VMware no Azure
 description: Saiba como a criar e configurar a rede necessária para implantar sua nuvem privada no Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/13/2021
+ms.openlocfilehash: c609d191191cd9de111e83fe62761b149405cccc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578336"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103494337"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configurar a rede para a sua nuvem privada da VMware no Azure
 
@@ -76,7 +76,7 @@ Agora que você criou uma rede virtual, você criará um gateway de rede virtual
    | **Intervalo de endereços da sub-rede do gateway** | Esse valor é preenchido quando você seleciona a rede virtual. Não altere o valor padrão. |
    | **Endereço IP público** | Selecione **Criar novo**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Selecione Examinar + criar." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Forneça valores para os campos e selecione Examinar + criar." border="true":::
 
 1. Verifique se os detalhes estão corretos e selecione **Criar** para iniciar a implantação do gateway de rede virtual. 
 1. Quando a implantação for concluída, passe para a próxima seção para conectar sua conexão do ExpressRoute ao gateway de rede virtual que contém a nuvem privada da Solução VMware no Azure.
@@ -94,7 +94,7 @@ Para entrar no vCenter e no NSX Manager, você precisará das URLs do cliente We
 
 Navegue até sua nuvem privada da Solução VMware no Azure, em **Gerenciar**, selecione **Identidade**, aqui você encontrará as informações necessárias.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Selecione Examinar + criar." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Captura de tela das credenciais do vCenter e do NSX-T e URLs de cliente Web." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

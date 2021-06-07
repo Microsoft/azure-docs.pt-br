@@ -1,30 +1,24 @@
 ---
-title: Solucionar problemas de ConstrainedAllocationFailed ao implantar um serviço de nuvem no Azure | Microsoft Docs
-description: Este artigo mostra como resolver uma exceção ConstrainedAllocationFailed ao implantar um serviço de nuvem no Azure.
+title: Solucionar problemas de ConstrainedAllocationFailed ao implantar um serviço de nuvem (clássico) no Azure | Microsoft Docs
+description: Este artigo mostra como resolver uma exceção ConstrainedAllocationFailed ao implantar um serviço de nuvem (clássico) no Azure.
 services: cloud-services
 author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: de344bbcd89158676bacf2a8aa1743d282700b9d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/22/2021
+ms.openlocfilehash: 346e7eb77039ab80e6f9dffb8ea8360198040504
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520872"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101738269"
 ---
-# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-to-azure"></a>Solucionar problemas de ConstrainedAllocationFailed ao implantar um serviço de nuvem no Azure
+# <a name="troubleshoot-constrainedallocationfailed-when-deploying-a-cloud-service-classic-to-azure"></a>Solucionar problemas de ConstrainedAllocationFailed ao implantar um serviço de nuvem (clássico) no Azure
 
-Neste artigo, você solucionará problemas de falhas de alocação em que os serviços de nuvem do Azure não podem ser implantados devido a restrições.
+Neste artigo, você solucionará problemas de falhas de alocação em que os serviços de nuvem do Azure (clássicos) não podem implantar devido a restrições de alocação.
 
-Microsoft Azure aloca quando você está:
-
-- Atualizando instâncias de serviços de nuvem
-
-- Adicionando novas instâncias de função Web ou de trabalho
-
-- Implantando instâncias em um serviço de nuvem
+Quando você implanta instâncias em um serviço de nuvem (clássico) ou adiciona novas instâncias de função Web ou de trabalho, Microsoft Azure aloca recursos de computação.
 
 Ocasionalmente, você pode receber erros durante essas operações mesmo antes de alcançar o limite de assinatura do Azure.
 
@@ -33,9 +27,11 @@ Ocasionalmente, você pode receber erros durante essas operações mesmo antes d
 
 ## <a name="symptom"></a>Sintoma
 
-Em portal do Azure, navegue até o serviço de nuvem e, na barra lateral, selecione *logs de operação (clássico)* para exibir os logs.
+Em portal do Azure, navegue até o serviço de nuvem (clássico) e, na barra lateral, selecione *log de operação (clássico)* para exibir os logs.
 
-Quando você estiver inspecionando os logs do serviço de nuvem, verá a seguinte exceção:
+![Imagem mostra a folha log de operação (clássico).](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-allocation-logs.png)
+
+Quando você estiver inspecionando os logs do serviço de nuvem (clássico), verá a seguinte exceção:
 
 |Tipo de exceção  |Mensagem de erro  |
 |---------|---------|
@@ -43,99 +39,42 @@ Quando você estiver inspecionando os logs do serviço de nuvem, verá a seguint
 
 ## <a name="cause"></a>Causa
 
-Há um problema de capacidade com a região ou o cluster no qual você está implantando. Ele ocorre quando o SKU de recurso que você selecionou não está disponível para o local especificado.
+Quando a primeira instância é implantada em um serviço de nuvem (em preparo ou produção), esse serviço de nuvem é fixado em um cluster.
 
-> [!NOTE]
-> Quando o primeiro nó de um serviço de nuvem é implantado, ele é *fixado* em um pool de recursos. Um pool de recursos pode ser um único cluster ou um grupo de clusters.
->
-> Ao longo do tempo, os recursos nesse pool de recursos podem se tornar totalmente utilizados. Se um serviço de nuvem fizer uma solicitação de alocação para recursos adicionais quando recursos insuficientes estiverem disponíveis no pool de recursos fixado, a solicitação resultará em uma [falha de alocação](cloud-services-allocation-failures.md).
+Ao longo do tempo, os recursos nesse cluster podem se tornar totalmente utilizados. Se um serviço de nuvem (clássico) fizer uma solicitação de alocação para mais recursos quando recursos insuficientes estiverem disponíveis no cluster fixado, a solicitação resultará em uma falha de alocação. Para obter mais informações, consulte [problemas comuns de falha de alocação](cloud-services-allocation-failures.md#common-issues).
 
 ## <a name="solution"></a>Solução
 
-Nesse cenário, você deve selecionar uma região ou SKU diferente para implantar o serviço de nuvem. Antes de implantar ou atualizar seu serviço de nuvem, você pode determinar quais SKUs estão disponíveis em uma região ou zona de disponibilidade. Siga os processos do [CLI do Azure](#list-skus-in-region-using-azure-cli), do [PowerShell](#list-skus-in-region-using-powershell)ou da [API REST](#list-skus-in-region-using-rest-api) abaixo.
+Os serviços de nuvem existentes são *fixados* em um cluster. Todas as implantações adicionais para o serviço de nuvem (clássico) ocorrerão no mesmo cluster.
 
-### <a name="list-skus-in-region-using-azure-cli"></a>Listar SKUs na região usando CLI do Azure
+Quando ocorre um erro de alocação nesse cenário, o curso de ação recomendado é reimplantar em um novo serviço de nuvem (clássico) (e atualizar o *CNAME*).
 
-Você pode usar o comando [AZ VM List-SKUs](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) .
+> [!TIP]
+> Essa solução provavelmente será a mais bem-sucedida, pois permite que a plataforma escolha entre todos os clusters nessa região.
 
-- Use o `--location` parâmetro para filtrar a saída para o local que você está usando.
-- Use o parâmetro `--size` para procurar por um nome de tamanho parcial.
-- Para obter mais informações, consulte o guia [resolver erros do SKU não disponível](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli) .
+> [!NOTE]
+> Essa solução não causará qualquer tempo de inatividade.
 
-    **Por exemplo:**
+1. Implante a carga de trabalho em um novo serviço de nuvem (clássico).
+    - Consulte o guia [como criar e implantar um serviço de nuvem (clássico)](cloud-services-how-to-create-deploy-portal.md) para obter mais instruções.
 
-    ```azurecli
-    az vm list-skus --location southcentralus --size Standard_F --output table
-    ```
+    > [!WARNING]
+    > Se não quiser perder o endereço IP associado a este slot de implantação, você poderá usar [a solução 3-manter o endereço IP](cloud-services-allocation-failures.md#solutions).
 
-    **Resultados de exemplo:** ![ CLI do Azure saída da execução do comando ' AZ VM List-SKUs--Location southcentralus--size Standard_F--output Table ', que mostra as SKUs disponíveis.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
+1. Atualize o *CNAME* ou *um* registro para apontar o tráfego para o novo serviço de nuvem (clássico).
+    - Consulte o guia [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure (clássico)](cloud-services-custom-domain-name-portal.md#understand-cname-and-a-records) para obter mais instruções.
 
-#### <a name="list-skus-in-region-using-powershell"></a>Listar SKUs na região usando o PowerShell
+1. Uma vez que o tráfego zero vá para o site antigo, você pode excluir o serviço de nuvem antigo (clássico).
+    - Consulte o guia [excluir implantações e um serviço de nuvem (clássico)](cloud-services-how-to-manage-portal.md#delete-deployments-and-a-cloud-service) para obter mais instruções.
+    - Para ver o tráfego de rede em seu serviço de nuvem (clássico), consulte o [monitoramento introdução ao serviço de nuvem (clássico)](cloud-services-how-to-monitor.md).
 
-Você pode usar o comando [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) .
-
-- Filtre os resultados por local.
-- Você deve ter a versão mais recente do PowerShell para esse comando.
-- Para obter mais informações, consulte o guia [resolver erros do SKU não disponível](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell) .
-
-**Por exemplo:**
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
-```
-
-**Alguns outros comandos úteis:**
-
-Filtrar os locais que contêm o tamanho (Standard_DS14_v2):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
-```
-
-Filtrar todos os locais que contêm o tamanho (v3):
-
-```azurepowershell
-Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
-```
-
-#### <a name="list-skus-in-region-using-rest-api"></a>Listar SKUs na região usando a API REST
-
-Você pode usar a operação [SKUs de recurso-lista](https://docs.microsoft.com/rest/api/compute/resourceskus/list) . Ele retorna SKUs e regiões disponíveis no seguinte formato:
-
-```json
-{
-  "value": [
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A0",
-      "tier": "Standard",
-      "size": "A0",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    {
-      "resourceType": "virtualMachines",
-      "name": "Standard_A1",
-      "tier": "Standard",
-      "size": "A1",
-      "locations": [
-        "eastus"
-      ],
-      "restrictions": []
-    },
-    <Rest_of_your_file_is_located_here...>
-  ]
-}
-    
-```
+Consulte [Solucionando problemas de falhas de alocação do serviço de nuvem (clássico) | Microsoft Docs](cloud-services-allocation-failures.md#common-issues) para obter mais etapas de correção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais soluções de falha de alocação e entender melhor como elas são geradas:
+Para obter mais soluções de falha de alocação e informações básicas:
 
 > [!div class="nextstepaction"]
-> [Falhas de alocação (serviços de nuvem)](cloud-services-allocation-failures.md)
+> [Falhas de alocação-serviço de nuvem (clássico)](cloud-services-allocation-failures.md)
 
 Se o problema do Azure não for abordado neste artigo, visite os fóruns do Azure no [msdn e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou postar para [@AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. Para enviar uma solicitação de suporte na página [Suporte do Azure](https://azure.microsoft.com/support/options/), selecione *Obter suporte*.

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99538044"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
@@ -115,7 +115,7 @@ A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um ite
 
 Cache-Control cabeçalhos de resposta que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados.  Se nenhum Cache-Control estiver presente, o comportamento padrão é que a porta frontal armazenará em cache o recurso por X período de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 
-## <a name="request-headers"></a>Cabeçalhos de solicitação
+## <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Os cabeçalhos de solicitação a seguir não serão encaminhados para um back-end ao usar o Caching.
 - Content-Length

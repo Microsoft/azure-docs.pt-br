@@ -8,10 +8,10 @@ ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: d015cec30e516541b50c2acfac38fad898965e1b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96436344"
 ---
 # <a name="managed-application-metered-billing"></a>Cobrança limitada do aplicativo gerenciado 
@@ -109,7 +109,7 @@ Depois que um plano é publicado, os detalhes de nível de plano não podem mais
 
 O número máximo de dimensões que podem ser configuradas para uma única oferta é de 30 dimensões exclusivas.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Se você tiver um dos seguintes problemas, poderá abrir um tíquete de suporte.
 

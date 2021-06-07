@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 01/04/2021
 ms.author: yelevin
 ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97901663"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Referência de aprimoramentos do Azure Sentinel UEBA
@@ -53,7 +53,7 @@ As duas primeiras tabelas, **insights do usuário** e **insights do dispositivo*
 | --- | --- | --- | --- |
 | **Navegador**<br>*Browser* | O navegador usado na ação. | Borda, Chrome |
 | **Família de dispositivos**<br>*(DeviceFamily)* | A família de dispositivos usada na ação. | Windows |
-| **Tipo de dispositivo**<br>*DeviceType* | O tipo de dispositivo do cliente usado na ação | Desktop |
+| **Tipo de dispositivo**<br>*DeviceType* | O tipo de dispositivo do cliente usado na ação | Área de trabalho |
 | **INSTRU**<br>*INSTRU* | O provedor de serviços de Internet usado na ação. |  |
 | **Sistema operacional**<br>*Operacional* | O sistema operacional usado na ação. | Windows 10 |
 | **Descrição do indicador da Intel de ameaça**<br>*(ThreatIntelIndicatorDescription)* | Descrição do indicador de ameaça observado resolvido do endereço IP usado na ação. | O host é membro de botnet: azorult |

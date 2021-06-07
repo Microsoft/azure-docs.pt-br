@@ -1,29 +1,30 @@
 ---
-title: Fazer backup de um banco de dados Oracle Database 19C em uma VM Linux do Azure com o RMAN e o armazenamento do Azure
-description: Saiba como fazer backup de um banco de dados Oracle Database 19C no armazenamento em nuvem do Azure.
+title: Fazer backup de um banco de dados Oracle Database 19c em uma VM Linux do Azure com o RMAN e o Armazenamento do Microsoft Azure
+description: Saiba como fazer backup de um banco de dados Oracle Database 19c para o armazenamento em nuvem do Azure.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
-ms.translationtype: MT
+ms.openlocfilehash: a6ce5446bd6470ef7a829925646d486801b28ebc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806266"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101670014"
 ---
-# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Fazer backup e recuperar um banco de dados Oracle Database 19C em uma VM Linux do Azure usando o armazenamento do Azure
+# <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Fazer backup e recuperar um banco de dados Oracle Database 19c em uma VM Linux do Azure usando o Armazenamento do Microsoft Azure
 
-Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer backup e restaurar um banco de dados Oracle em execução em uma VM do Azure. Você fará o backup do banco de dados usando o Oracle RMAN para o armazenamento de arquivos do Azure montado na VM usando o protocolo SMB. Usar o armazenamento do Azure para mídia de backup é extremamente econômico e de alto desempenho. No entanto, para bancos de dados muito grandes, o backup do Azure fornece uma solução melhor.
+Este artigo demonstra como usar o Armazenamento do Microsoft Azure como uma mídia para fazer backup e restaurar um banco de dados Oracle em execução em uma VM do Azure. Você fará o backup do banco de dados usando o Oracle RMAN para o Armazenamento de Arquivos do Azure montado na VM usando o protocolo SMB. Usar o armazenamento do Azure como mídia de backup é extremamente econômico e fornece alto desempenho. No entanto, para bancos de dados muito grandes, o Backup do Azure fornece uma solução melhor.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- Para executar o processo de backup e recuperação, você deve primeiro criar uma VM do Linux que tenha uma instância instalada do Oracle Database 19C. A imagem do Marketplace usada atualmente para criar a VM é  **Oracle: Oracle-Database-19-3: Oracle-Database-19-0904: Latest**. Siga as etapas no guia de [início rápido do Oracle CREATE DATABASE](./oracle-database-quick-create.md) para criar um banco de dados Oracle para concluir este tutorial.
+- Para realizar o processo de backup e recuperação, você precisa primeiro criar uma VM Linux com uma instância do Oracle Database 19c instalada. A imagem do Marketplace usada atualmente para criar a VM é **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Siga as etapas no [Guia de início rápido para criação de banco de dados Oracle](./oracle-database-quick-create.md) para criar um banco de dados Oracle e concluir este tutorial.
 
-## <a name="prepare-the-database-environment"></a>Preparar o ambiente de banco de dados
+## <a name="prepare-the-database-environment"></a>Preparar o ambiente do banco de dados
 
 1. Para criar uma sessão SSH (Secure Shell) com a VM, use o comando a seguir. Substitua a combinação de endereço IP e nome do host pelo valor `publicIpAddress` para sua VM.
     
@@ -31,21 +32,21 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Alternar para o usuário ***raiz*** :
+2. Mude para o usuário ***raiz***:
  
    ```bash
    sudo su -
    ```
     
-3. Adicione o usuário Oracle ao arquivo ***/etc/sudoers*** :
+3. Adicione o usuário Oracle ao arquivo ***/etc/sudoers***:
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. Esta etapa pressupõe que você tenha uma instância do Oracle (teste) em execução em uma VM chamada *vmoracle19c*.
+4. Esta etapa pressupõe que você tem uma instância do Oracle (teste) em execução em uma VM chamada *vmoracle19c*.
 
-   Alternar usuário para o usuário *Oracle* :
+   Mude para o usuário *oracle*:
 
    ```bash
    sudo su - oracle
@@ -63,7 +64,7 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
     ```
     
-6. Inicie o ouvinte Oracle se ele ainda não estiver em execução:
+6. Inicie o ouvinte do Oracle se ele ainda não estiver sendo executado:
     
    ```bash
    $ lsnrctl start
@@ -103,7 +104,7 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
     The command completed successfully
     ```
 
-7.  Crie o local da FRA (área de recuperação rápida):
+7.  Crie a localização da FRA (Área de recuperação rápida):
 
     ```bash
     mkdir /u02/fast_recovery_area
@@ -115,20 +116,20 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
     sqlplus / as sysdba
     ```
 
-9.  Inicie o banco de dados se ele ainda não estiver em execução:
+9.  Inicie o banco de dados se ainda não estiver em execução:
 
     ```bash
     SQL> startup
     ```
 
-10. Definir variáveis de ambiente de banco de dados para a área de recuperação rápida:
+10. Defina as variáveis do ambiente de banco de dados para a área de recuperação rápida:
 
     ```bash
     SQL>  system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
-11. Verifique se o banco de dados está no modo de log de arquivo morto para habilitar backups online.
+11. Verifique se o banco de dados está no modo de log de arquivos para habilitar backups online.
     Verifique o status do arquivo de log primeiro:
 
     ```bash
@@ -139,7 +140,7 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
     NOARCHIVELOG
     ```
 
-    E se estiver no modo NOARCHIVELOG, execute os seguintes comandos em sqlplus:
+    Se estiver no modo NOARCHIVELOG, execute os seguintes comandos em sqlplus:
 
     ```bash
     SQL> SHUTDOWN IMMEDIATE;
@@ -161,71 +162,71 @@ Este artigo demonstra o uso do armazenamento do Azure como uma mídia para fazer
     SQL> quit
     ```
 
-## <a name="back-up-to-azure-files"></a>Fazer backup em arquivos do Azure
+## <a name="back-up-to-azure-files"></a>Fazer backup nos Arquivos do Azure
 
-Para fazer backup em arquivos do Azure, conclua estas etapas:
+Para fazer backup nos Arquivos do Azure, conclua estas etapas:
 
-1. Configure o armazenamento de arquivos do Azure.
-1. Monte o compartilhamento de arquivos do armazenamento do Azure para sua VM.
+1. Configure o Armazenamento de Arquivos do Azure.
+1. Monte o compartilhamento de arquivo do Armazenamento do Microsoft Azure para sua VM.
 1. Fazer backup do banco de dados.
 1. Restaure e recupere o banco de dados.
 
-### <a name="set-up-azure-file-storage"></a>Configurar o armazenamento de arquivos do Azure
+### <a name="set-up-azure-file-storage"></a>Configurar o Armazenamento de Arquivos do Azure
 
-Nesta etapa, você fará o backup do banco de dados Oracle usando o RMAN (Oracle Recovery Manager) para o armazenamento de arquivos do Azure. Os compartilhamentos de arquivos do Azure são compartilhamentos de arquivos totalmente gerenciados que residem na nuvem. Eles podem ser acessados usando o protocolo SMB ou o protocolo NFS (sistema de arquivos de rede). Esta etapa aborda a criação de um compartilhamento de arquivos que usa o protocolo SMB para montar a sua VM. Para obter informações sobre como montar usando o NFS, consulte [montar o armazenamento de BLOBs usando o protocolo nfs 3,0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+Nesta etapa, você fará backup do banco de dados Oracle usando o Oracle RMAN (Recovery Manager) para o armazenamento de Arquivos do Azure. Os compartilhamentos de arquivos do Azure são totalmente gerenciados e residem na nuvem. Eles podem ser acessados usando o protocolo SMB ou o protocolo NFS (Network File System). Esta etapa descreve a criação de um compartilhamento de arquivo que usa o protocolo SMB para montar em sua VM. Para obter informações sobre como montar usando o NFS, confira [Montar o Armazenamento de Blobs usando o protocolo NFS 3.0](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
-Ao montar os arquivos do Azure, usaremos o `cache=none` para desabilitar o cache de dados de compartilhamento de arquivos. E para garantir que os arquivos criados no compartilhamento sejam de Propriedade do usuário Oracle, defina as `uid=oracle` `gid=oinstall` Opções e também. 
+Ao montar os Arquivos do Azure, usaremos o `cache=none` para desabilitar o cache de dados de compartilhamento de arquivo. Para garantir que os arquivos criados no compartilhamento sejam de propriedade do usuário Oracle, defina também as opções `uid=oracle` e `gid=oinstall`. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Primeiro, configure sua conta de armazenamento.
+Primeiro, configure a conta de armazenamento.
 
-1. Configurar o armazenamento de arquivos no portal do Azure
+1. Configurar o Armazenamento de Arquivos no portal do Azure
 
-    Na portal do Azure, selecione ***+ criar um recurso** _ e pesquise e selecione _ conta de *_armazenamento_**
+    No portal do Azure, selecione * **+ Criar um recurso** _ e pesquise e selecione _ *_Conta de Armazenamento_**
     
-    ![Captura de tela que mostra onde criar um recurso e selecionar conta de armazenamento.](./media/oracle-backup-recovery/storage-1.png)
+    ![Captura de tela que mostra onde criar um recurso e selecionar a Conta de Armazenamento.](./media/oracle-backup-recovery/storage-1.png)
     
-2. Na página Criar conta de armazenamento, escolha o grupo de recursos existente ***RG-Oracle** _, nomeie sua conta de armazenamento _*_Oracbkup1_*_ e escolha _*_armazenamento v2 (generalpurpose v2)_*_ para tipo de conta. Altere a replicação para _*_armazenamento com redundância local (LRS)_*_ e defina o desempenho como _ *_Standard_* *. Verifique se o local está definido para a mesma região que todos os outros recursos no grupo de recursos. 
+2. Na página Criar conta de armazenamento, escolha o grupo de recursos existente ***rg-oracle** _, dê à conta de armazenamento o nome _*_oracbkup1_*_ e escolha _*_Armazenamento v2 (generalpurpose v2)_*_ como tipo de conta. Altere a replicação para _*_Armazenamento com redundância local (LRS)_*_ e defina o desempenho como _*_Standard_**. Verifique se a localização está definida como a mesma região que todos os outros recursos no grupo de recursos. 
     
     ![Captura de tela que mostra onde escolher o grupo de recursos existente.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Clique na guia ***avançado** _ e em arquivos do Azure definir _*_compartilhamentos de arquivos grandes_*_ como _ *_habilitado_* *. Clique em revisão + criar e, em seguida, clique em criar.
+3. Clique na guia ***Avançado** _ e, em Arquivos do Azure, defina _*_Compartilhamentos de arquivos grandes_*_ como _*_Habilitado_**. Clique em Examinar + criar e clique em Criar.
     
-    ![Captura de tela que mostra onde definir compartilhamentos de arquivos grandes como habilitados.](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Quando a conta de armazenamento tiver sido criada, vá para o recurso e escolha ***compartilhamentos de arquivos***
-    
-    ![Captura de tela que mostra onde selecionar compartilhamentos de arquivos.](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Clique em ***+ compartilhamento de arquivos** _ e, na folha _*_novo compartilhamento de arquivo_*_ , nomeie o compartilhamento de arquivos _*_orabkup1_*_. Defina a _*_cota_*_ como _*_10240_*_ GiB e verifique a _*_transação otimizada_*_ como a camada. A cota reflete um limite superior para o qual o compartilhamento de arquivos pode crescer. Como estamos usando o armazenamento padrão, os recursos são PAYG e não provisionados, portanto, defini-lo como 10 TiB não incorrerá em custos além do que você usa. Se sua estratégia de backup exigir mais armazenamento, você deverá definir a cota como um nível apropriado para manter todos os backups.   Quando você tiver concluído a folha novo compartilhamento de arquivos, clique em _ *_criar_* *.
-    
-    ![Captura de tela que mostra onde adicionar um novo compartilhamento de arquivos.](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Captura de tela que mostra onde definir Compartilhamentos de arquivos grandes como Habilitado.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Quando criado, clique em ***orabkup1*** na página Configurações de compartilhamento de arquivos. 
-    Clique na guia ***Connect** _ para abrir a folha conectar e, em seguida, clique na guia _ *_Linux_**. Copie os comandos fornecidos para montar o compartilhamento de arquivos usando o protocolo SMB. 
+4. Quando a conta de armazenamento tiver sido criada, vá para o recurso e escolha ***Compartilhamentos de arquivos***
+    
+    ![Captura de tela que mostra onde selecionar Compartilhamentos de arquivos.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Clique em * **+ Compartilhamento de arquivo** _ e, na folha _*_Novo compartilhamento de arquivo_*_, dê ao compartilhamento de arquivo o nome _*_orabkup1_*_. Defina a _*_Cota_*_ como _*_10240_*_ GiB e marque _*_Transação otimizada_*_ como a camada. A cota reflete um limite superior até o qual o compartilhamento de arquivo pode crescer. Como estamos usando o Armazenamento Standard, os recursos são PAYG e não provisionados, de modo que os definir como 10 TiB não incorrerá em custos além do que você usa. Se a sua estratégia de backup exigir mais armazenamento, defina a cota como um nível apropriado para manter todos os backups.   Quando você tiver concluído a folha Novo compartilhamento de arquivo, clique em _*_Criar_**.
+    
+    ![Captura de tela que mostra onde adicionar um novo compartilhamento de arquivo.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Após a criação, clique em ***orabkup1*** na página Configurações do compartilhamento de arquivo. 
+    Clique na guia ***Conectar** _ para abrir a folha Conectar e clique na guia _ *_Linux_**. Copie os comandos fornecidos para montar o compartilhamento de arquivo usando o protocolo SMB. 
     
     ![Página de adição da conta de armazenamento](./media/oracle-backup-recovery/file-storage-5.png)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para configurar a conta de armazenamento e o compartilhamento de arquivos, execute os seguintes comandos no CLI do Azure.
+Para configurar a conta de armazenamento e o compartilhamento de arquivo, execute os comandos a seguir na CLI do Azure.
 
-1. Crie a conta de armazenamento no mesmo grupo de recursos e no mesmo local que sua VM:
+1. Crie a conta de armazenamento no mesmo grupo de recursos e localização que sua VM:
    ```azurecli
    az storage account create -n orabackup1 -g rg-oracle -l eastus --sku Standard_LRS --enable-large-file-share
    ```
 
-2. Crie um compartilhamento de arquivos na conta de armazenamento com uma cota de 10 TiB:
+2. Crie o compartilhamento de arquivo na conta de armazenamento com uma cota de 10 TiB:
 
    ```azurecli
    az storage share create --account-name orabackup1 --name orabackup --quota 10240
    ```
 
-3. Recupere a chave primária da conta de armazenamento (key1) que é necessária ao montar o compartilhamento de arquivos em sua VM:
+3. Recupere a chave primária da conta de armazenamento (key1) que é necessária ao montar o compartilhamento de arquivo em sua VM:
 
    ```azurecli
    az storage account keys list --resource-group rg-oracle --account-name orabackup1
@@ -233,7 +234,7 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
 
 ---
 
-### <a name="mount-the-azure-storage-file-share-to-your-vm"></a>Montar o compartilhamento de arquivos do armazenamento do Azure para sua VM
+### <a name="mount-the-azure-storage-file-share-to-your-vm"></a>Montar o compartilhamento de arquivo do Armazenamento do Microsoft Azure para sua VM
 
 1. Crie o ponto de montagem:
 
@@ -241,7 +242,7 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
    sudo mkdir /mnt/orabackup
    ```
 
-2. Configurar credenciais:
+2. Configure as credenciais:
 
    ```bash
    if [ ! -d "/etc/smbcredentials" ]; then
@@ -263,13 +264,13 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
    sudo chmod 600 /etc/smbcredentials/orabackup1.cred
    ```
 
-4. Adicione a montagem ao/etc/fstab:
+4. Adicione a montagem ao /etc/fstab:
 
    ```bash
    sudo bash -c 'echo "//orabackup1.file.core.windows.net/orabackup /mnt/orabackup cifs nofail,vers=3.0,credentials=/etc/smbcredentials/orabackup1.cred,dir_mode=0777,file_mode=0777,serverino,cache=none,uid=oracle,gid=oinstall" >> /etc/fstab'
    ```
 
-5. Execute os comandos para montar o armazenamento de arquivos do Azure usando o protocolo SMB:
+5. Execute os comandos para montar o armazenamento de Arquivos do Azure usando o protocolo SMB:
 
    ```bash
    sudo mount -t cifs //orabackup1.file.core.windows.net/orabackup /mnt/orabackup -o vers=3.0,credentials=/etc/smbcredentials/orabackup1.cred,dir_mode=0777,file_mode=0777,serverino,cache=none,uid=oracle,gid=oinstall
@@ -281,7 +282,7 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
    mount: wrong fs type, bad option, bad superblock on //orabackup1.file.core.windows.net/orabackup 
    ```
 
-   em seguida, o pacote CIFS pode não estar instalado no seu host Linux. 
+   O pacote CIFS pode não estar instalado em seu host Linux. 
    
    Para verificar se o CIS está instalado, execute o seguinte comando:
 
@@ -295,9 +296,9 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
    sudo yum install cifs-utils
    ```
 
-   Agora, execute novamente o comando Mount acima para montar o armazenamento de arquivos do Azure.
+   Agora, execute novamente o comando de montagem acima para montar o armazenamento de Arquivos do Azure.
 
-6. Verifique se o compartilhamento de arquivos está montado corretamente com o seguinte comando:
+6. Verifique se o compartilhamento de arquivo está montado corretamente com o seguinte comando:
 
    ```bash
    df -h
@@ -324,9 +325,9 @@ Para configurar a conta de armazenamento e o compartilhamento de arquivos, execu
 
 ### <a name="back-up-the-database"></a>Fazer backup do banco de dados
 
-Nesta seção, usaremos o RMAN (Oracle Recovery Manager) para fazer um backup completo do banco de dados e arquivar logs e gravar o backup como um conjunto de backup para o compartilhamento de arquivos do Azure montado anteriormente. 
+Nesta seção, usaremos o Oracle RMAN (Recovery Manager) para fazer um backup completo do banco de dados e logs de arquivos e gravar o backup como um conjunto de backup para o compartilhamento de arquivo do Azure montado anteriormente. 
 
-1. Configure o RMAN para fazer backup para o ponto de montagem dos arquivos do Azure:
+1. Configure o RMAN para fazer backup para o ponto de montagem dos Arquivos do Azure:
 
     ```bash
     $ rman target /
@@ -335,7 +336,7 @@ Nesta seção, usaremos o RMAN (Oracle Recovery Manager) para fazer um backup co
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
     ```
 
-2. Como os compartilhamentos de arquivos padrão do Azure têm um tamanho de arquivo máximo de 1 TiB, limitaremos o tamanho das peças de backup do RMAN para 1 TiB. (Observe que os compartilhamentos de arquivos Premium têm um limite máximo de tamanho de arquivo de 4 TiB. Para obter mais informações, consulte [escalabilidade e metas de desempenho dos arquivos do Azure](../../../storage/files/storage-files-scale-targets.md).)
+2. Como os compartilhamentos de arquivo padrão do Azure têm um tamanho de arquivo máximo de 1 TiB, limitaremos o tamanho das partes do backup do RMAN a 1 TiB. (Observe que compartilhamentos de arquivo Premium têm um limite de tamanho de arquivo máximo de 4 TiB. Para obter mais informações, confira [Metas de desempenho e escalabilidade dos Arquivos do Azure](../../../storage/files/storage-files-scale-targets.md).)
 
     ```bash
     RMAN> configure channel device type disk maxpiecesize 1000G;
@@ -347,15 +348,15 @@ Nesta seção, usaremos o RMAN (Oracle Recovery Manager) para fazer um backup co
     RMAN> show all;
     ```
 
-4. Agora, execute o backup. O comando a seguir usará um backup de banco de dados completo, incluindo arquivos de log de arquivo, como um conjunto de backup no formato compactado:   
+4. Agora, execute o backup. O seguinte comando fará um backup de banco de dados completo, incluindo os arquivos de log de arquivo, como um conjunto de backup no formato compactado:   
 
     ```bash
     RMAN> backup as compressed backupset database plus archivelog;
     ```
 
-Agora você fez backup do banco de dados online usando o Oracle RMAN, com o backup localizado no armazenamento de arquivos do Azure. Esse método tem a vantagem de utilizar os recursos do RMAN ao armazenar backups no armazenamento de arquivos do Azure, onde eles podem ser acessados de outras VMs, úteis se você precisar clonar o banco de dados.  
+Você fez backup do banco de dados online usando o Oracle RMAN com o backup localizado no armazenamento de Arquivos do Azure. Esse método tem a vantagem de utilizar os recursos do RMAN enquanto armazena os backups no armazenamento de Arquivos do Azure, onde eles podem ser acessados de outras VMs, o que é útil se você precisa clonar o banco de dados.  
     
-Embora o uso do RMAN e do armazenamento de arquivos do Azure para o backup de banco de dados tenha muitas vantagens, o tempo de backup e restauração é vinculado ao tamanho do banco de dados, para que, para os bancos de dados muito grandes, ele possa levar um tempo considerável para essas operações.  Um mecanismo de backup alternativo, usando backups de VM consistentes com aplicativos de backup do Azure, usa a tecnologia de instantâneo para executar backups, que tem a vantagem de backups muito rápidos, independentemente do tamanho do banco de dados. A integração com o cofre dos serviços de recuperação fornece armazenamento seguro de seus backups de Oracle Database no armazenamento em nuvem do Azure acessível de outras VMs e regiões do Azure. 
+Embora o uso do RMAN e do armazenamento de Arquivos do Azure para backup de banco de dados tenha muitas vantagens, o tempo de backup e restauração é vinculado ao tamanho do banco de dados, de modo que, para bancos de dados muito grandes, essas operações podem levar um tempo considerável.  Um mecanismo de backup alternativo, usando backups de VM consistentes com o aplicativo Backup do Azure, usa a tecnologia de instantâneo para executar backups, o que tem a vantagem de fazer backups muito rápidos, independentemente do tamanho do banco de dados. A integração com o cofre dos Serviços de Recuperação fornece armazenamento seguro de seus backups do Oracle Database no armazenamento em nuvem do Azure acessível de outras VMs e regiões do Azure. 
 
 ### <a name="restore-and-recover-the-database"></a>Restaurar e recuperar o banco de dados
 
@@ -367,14 +368,14 @@ Embora o uso do RMAN e do armazenamento de arquivos do Azure para o backup de ba
     ORACLE instance shut down.
     ```
 
-2.  Remova os arquivos e os backups:
+2.  Remova os arquivos de dados e os backups:
 
     ```bash
     cd /u02/oradata/TEST
     rm -f *.dbf
     ```
 
-3. Os comandos a seguir usam o RMAN para restaurar os arquivos ausentes e recuperar o banco de dados:
+3. Os seguintes comandos usam o RMAN para restaurar os arquivos de dados ausentes e recuperar o banco de dados:
 
     ```bash
     rman target /
@@ -391,7 +392,7 @@ Embora o uso do RMAN e do armazenamento de arquivos do Azure para o backup de ba
     ```
 
 
-O backup e a recuperação do banco de dados do Oracle Database 19C em uma VM Linux do Azure agora estão concluídos.
+O backup e a recuperação do banco de dados Oracle Database 19c em uma VM Linux do Azure foram concluídos.
 
 ## <a name="delete-the-vm"></a>Excluir a VM
 
@@ -405,4 +406,4 @@ az group delete --name rg-oracle
 
 [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
-[Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
+[Explorar exemplos da CLI do Azure de implantação de VM](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

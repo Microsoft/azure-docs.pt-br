@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 608f3d72aecb0c6d53325c0d082b1779822e9c80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518157"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200521"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solucionar problemas de emparelhamento de rede virtual
 
@@ -44,7 +44,7 @@ Para configurar o emparelhamento de rede virtual das redes virtuais que estão n
 >
 > * VMs (máquinas virtuais) por trás do SKU ILB (balanceador de carga interno) básico
 > * Cache Redis (usa o SKU ILB básico)
-> * Gateway de Aplicativo (usa o SKU ILB básico)
+> * Application Gateway V1 (usa o SKU básico do ILB)
 > * Conjuntos de dimensionamento de máquinas virtuais (usa o SKU ILB básico)
 > * Clusters do Azure Service Fabric (usa o SKU ILB básico)
 > * SQL Server Always On (usa o SKU ILB básico)

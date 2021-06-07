@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92897187"
 ---
 # <a name="geofencing-geojson-data"></a>Dados GeoJSON de delimitação geográfica
@@ -30,12 +30,12 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 * O `expiredTime` é a data e hora de expiração dos dados de delimitação geográfica. Se o valor de `userTime` na solicitação for posterior a esse valor, os dados de cerca geográfica correspondentes serão considerados como dados expirados e não serão consultados. Para os quais, o geometryId desses dados de cerca geográfica serão incluídos na matriz `expiredGeofenceGeometryId` dentro da resposta da cerca geográfica.
 * O `validityPeriod` é uma lista do período de validade da cerca geográfica. Se o valor de `userTime` na solicitação ficar fora do período de validade, os dados de cerca geográfica correspondentes serão considerados inválidos e não serão consultados. O geometryId desses dados de cerca geográfica é incluído na matriz `invalidPeriodGeofenceGeometryId` dentro da resposta da cerca geográfica. A tabela a seguir mostra as propriedades do elemento validityPeriod.
 
-| Nome | Tipo | Obrigatório  | Descrição |
+| Nome | Type | Obrigatório  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data/hora de início do período de tempo validade. |
 | endTime   | Datetime  | true |  A data/hora de término do período de tempo de validade. |
 | recurrenceType | string | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
-| businessDayOnly | Booliano | false |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
+| businessDayOnly | Boolean | false |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
 
 
 * Todos os valores de coordenadas são representados como [longitude, latitude] definido em `WGS84` .

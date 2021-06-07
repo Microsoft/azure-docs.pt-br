@@ -10,8 +10,6 @@
   items:
     - name: Recursos técnicos de segurança
       href: technical-capabilities.md
-    - name: Controles de segurança interna
-      href: security-controls.md
 - name: Plataforma e infraestrutura do Azure
   items:
     - name: Segurança da infraestrutura

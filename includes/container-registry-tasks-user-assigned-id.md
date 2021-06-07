@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: d81b6f5367efa92c9249956faa058441edf98561
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: MT
+ms.openlocfilehash: 70bd79ef944e5918d750a130bd2e2b2c2b656bf4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755306"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781103"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo usuário
 
@@ -48,5 +48,5 @@ clientID=$(az identity show \
 ```
 
 <!-- LINKS - Internal -->
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show

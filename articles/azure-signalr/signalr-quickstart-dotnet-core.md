@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: 3cfcf57f455a5c3b17b794acf2ded66ed2285eff
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94873498"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Início Rápido: Criar uma sala de chat usando o Serviço do SignalR

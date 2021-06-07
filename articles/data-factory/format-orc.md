@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 8973692b90cc9d6caa852616bf2962371d25abfa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386451"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
@@ -102,7 +102,7 @@ A tabela abaixo lista as propriedades com suporte de uma fonte ORC. Você pode e
 
 Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `orc` | sim | `orc` | format |
 | Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
@@ -130,7 +130,7 @@ A tabela abaixo lista as propriedades com suporte de um coletor ORC. Você pode 
 
 Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formatar | O formato deve ser `orc` | sim | `orc` | format |
 | Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |

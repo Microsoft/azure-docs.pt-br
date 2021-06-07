@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057613"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de depuração no Azure Pesquisa Cognitiva
@@ -51,7 +51,7 @@ A exibição de **Gráfico de Habilidades** fornece uma representação visual e
 
 A seleção de uma habilidade no gráfico destacará as habilidades conectadas a ela, os nós que criam as entradas dela e os nós que aceitam as saídas dessa habilidade. Cada nó de habilidade exibe o tipo, os erros ou avisos e as contagens de execução. O **Gráfico de Habilidades** é onde você selecionará qual habilidade depurar ou aprimorar. Quando você seleciona uma habilidade, os detalhes são exibidos no painel de detalhes da habilidade à direita do gráfico.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Criar uma sessão de depuração":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Gráfico de Habilidades":::
 
 ## <a name="skill-details"></a>Detalhes da habilidade
 
@@ -73,7 +73,7 @@ Ao criar uma habilidade personalizada ou depurar um erro com uma habilidade pers
 
 O painel de **Estrutura de Dados Enriquecidos** mostra os aprimoramentos do documento por meio do conjunto de habilidades, detalhando o contexto de cada enriquecimento e a habilidade de origem. O **Avaliador de expressão** também pode ser usado para exibir o conteúdo de cada enriquecimento.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Criar uma sessão de depuração":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Estrutura de Dados Enriquecidos":::
 
 ## <a name="expression-evaluator"></a>Avaliador de expressão
 

@@ -2,16 +2,16 @@
 title: Usar o Azure Key Vault em modelos
 description: Saiba como usar o Azure Key Vault para transmitir valores de parâmetro seguros durante a implantação de um modelo do ARM (modelo do Azure Resource Manager).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674150"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101703878"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault em sua implantação de modelo do ARM
 
@@ -93,7 +93,14 @@ Ao copiar e colar a ID, ela pode ficar dividida em várias linhas. Você deve me
 Para validar a implantação, execute o seguinte comando do PowerShell no mesmo painel de shell para recuperar o segredo em texto não criptografado. O comando funciona somente na mesma sessão de shell, pois usa a variável `$keyVaultName`, que está definida no script do PowerShell anterior.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Agora você preparou um cofre de chaves e um segredo. As seções a seguir mostrarão como personalizar um modelo existente para recuperar o segredo durante a implantação.
@@ -141,7 +148,7 @@ Usando o método de ID estática, você não precisa fazer nenhuma alteração a
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

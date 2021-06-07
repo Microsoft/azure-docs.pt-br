@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ada4226500437e7733605a29988ee7cacae40761
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 84bf0ddd194cd59a7e728c0c50dbe3cbad2afa4a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994293"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100555651"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma ASP.NET Web API usando o Azure Active Directory B2C
 
@@ -166,4 +166,4 @@ Neste tutorial, você aprendeu a:
 > * Configurar o exemplo para usar o aplicativo
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar provedores de identidade aos aplicativos no Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C](add-identity-provider.md)

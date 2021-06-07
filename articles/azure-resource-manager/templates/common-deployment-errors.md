@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns ao implantar recursos no Azure 
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696389"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564340"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -23,7 +23,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga as restrições de nomenclatura para as contas de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemas de provisionamento e alocação para Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) e [Solucionar problemas de falhas de alocação](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Problemas de provisionamento e alocação para Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) e [Solucionar problemas de falhas de alocação](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](error-register-resource-provider.md) |
 | BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-location.md) |
@@ -203,7 +203,7 @@ Para registrar informações de depuração de um modelo aninhado, use o element
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2016-09-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate",
   "properties": {
     "mode": "Incremental",

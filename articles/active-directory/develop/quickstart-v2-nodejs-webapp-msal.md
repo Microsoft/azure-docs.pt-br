@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: c65f086fb0b7db9eb65606da73552facd8e470b0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 72eb6e77cfbcae662181f642393085185514eed6
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103474"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550941"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo Web Node usando o fluxo de código de autenticação
 
@@ -26,9 +26,6 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este guia de início rápido usa a biblioteca de autenticação da Microsoft para Node.js (nó MSAL) com o fluxo de código de autorização.
-
-> [!IMPORTANT]
-> Nó MSAL [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,6 +48,15 @@ Este guia de início rápido usa a biblioteca de autenticação da Microsoft par
 > 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
 > 1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e selecione **Adicionar**.
 > 1. Observe o **Valor** do **Segredo do cliente** para uso posterior.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
+> Para que o exemplo de código deste início rápido funcione, você precisa criar um segredo do cliente e adicionar uma URL de resposta como **http://localhost:3000/redirect** .
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Fazer essa alteração para mim]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Já configurado](media/quickstart-v2-windows-desktop/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
 #### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto
 
@@ -94,16 +100,17 @@ Este guia de início rápido usa a biblioteca de autenticação da Microsoft par
 > Modifique os valores na seção `config` conforme descrito aqui:
 >
 > - `Enter_the_Application_Id_Here` é a **ID do aplicativo (cliente)** que você registrou.
+>
+>    Para encontrar os valores de **ID do aplicativo (cliente)** , ID de diretório (locatário), acesse a página **Visão Geral** do aplicativo no portal do Azure.
 > - `Enter_the_Client_Secret_Here` é o **Valor** do **Segredo do cliente** para o aplicativo que você registrou.
+>
+>    Para recuperar ou gerar um novo **Segredo do cliente**, em **Gerenciar**, selecione **Certificados e segredos**.
 >
 > O valor de `authority` padrão representa a nuvem principal (global) do Azure:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , ID de diretório (locatário), acesse a página **Visão Geral** do aplicativo no portal do Azure. Acesse **Certificados e segredos** para recuperar ou gerar um novo **Segredo do cliente**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
@@ -142,4 +149,4 @@ npm install @azure/msal-node
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Adicionando Auth a um aplicativo Web existente - exemplo de código GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)
+> [Adicionando Auth a um aplicativo Web existente - exemplo de código GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/auth-code)

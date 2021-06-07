@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219344"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solucionar problemas: falha ao excluir uma rede virtual no Azure

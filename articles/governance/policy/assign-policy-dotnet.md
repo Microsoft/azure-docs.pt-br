@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com o .NET Core'
 description: Neste início rápido, você usará o .NET Core para criar uma atribuição do Azure Policy para identificar recursos que não estão em conformidade.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604528"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091779"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>Início Rápido: Criar uma atribuição de política para identificar recursos que não estão em conformidade com o .NET Core
 

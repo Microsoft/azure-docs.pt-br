@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905291"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
@@ -29,11 +29,11 @@ Se as APIs geoespaciais principais atenderem aos seus requisitos de serviço, es
 
 ### <a name="pricing-tier-capabilities"></a>Recursos do tipo de preço
 
-| Funcionalidade                              |        S0           |  S1      |
+| Recurso                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderização de mapa                              | ✓                   | ✓       |
 | Imagens satélite                       |                     | ✓        |
-| Pesquisar                                  | ✓                    | ✓        |
+| Search                                  | ✓                    | ✓        |
 | Pesquisa em lotes                            |                     | ✓        |
 | Rota                                   | ✓                    |✓        |
 | Roteamento do lote                            |                    | ✓        |
@@ -48,7 +48,7 @@ Se as APIs geoespaciais principais atenderem aos seus requisitos de serviço, es
 | Mobilidade (visualização)                       |                     | ✓        |
 | Clima (visualização)                        |✓                    |✓        |
 |  Criador (versão prévia)                         |                   |✓        |
-|  Elevação (visualização)                        |                   |✓        |
+|  Elevação (versão prévia)                        |                   |✓        |
 
 Considere estes pontos adicionais:
 

@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033656"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para o SDK do Java Assíncrono v2 do Azure Cosmos DB
@@ -86,17 +86,17 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
   No SDK do Java Assíncrono v2 do Azure Cosmos DB, o modo direto é a melhor opção para melhorar o desempenho do banco de dados com a maioria das cargas de trabalho. 
 
-  * ***Visão geral do modo direto** _
+  * ***Visão geral do modo direto***
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
   
-  A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas de Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 _ *canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme necessário pelo **ponto de extremidade de serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
+  A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas de Azure Cosmos DB. O diagrama acima mostra como o modo direto encaminha solicitações de cliente para réplicas no back-end do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme necessário pelo **ponto de extremidade de serviço** da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. A **Fila de Solicitação** armazena em buffer as solicitações antes do Ponto de Extremidade de Serviço.
 
-  * ***Opções de configuração do ConnectionPolicy para o modo direto** _
+  * ***Opções de configuração do ConnectionPolicy para o modo direto***
 
     Como uma primeira etapa, use as definições de configuração recomendadas abaixo. Entre em contato com a equipe do [Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) se você encontrar problemas neste tópico específico.
 
-    Se você estiver usando Azure Cosmos DB como um banco de dados de referência (ou seja, o banco de dados é usado para muitas operações de leitura de ponto e poucas operações de gravação), pode ser aceitável definir _idleEndpointTimeout * como 0 (ou seja, sem tempo limite).
+    Se você estiver usando Azure Cosmos DB como um banco de dados de referência (ou seja, o banco de dados é usado para muitas operações de leitura de ponto e poucas operações de gravação), pode ser aceitável definir *idleEndpointTimeout* como 0 (ou seja, sem tempo limite).
 
 
     | Opções de configuração       | Padrão    |
@@ -115,13 +115,13 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Dicas de programação para o modo direto** _
+* ***Dicas de programação para o modo Direto***
 
   Examine o artigo de [solução de problemas](troubleshoot-java-async-sdk.md) Azure Cosmos DB Async Java SDK v2 como uma linha de base para resolver quaisquer problemas do SDK.
   
   Algumas dicas de programação importantes ao usar o modo Direto:
   
-  _ **Usar multithreading em seu aplicativo para transferência de dados TCP eficiente** -depois de fazer uma solicitação, seu aplicativo deve assinar para receber dados em outro thread. Não fazer isso força a operação "Half-duplex" indesejada e as solicitações subsequentes são bloqueadas aguardando a resposta da solicitação anterior.
+  * **Usar multithreading em seu aplicativo para transferência de dados TCP eficiente** -depois de fazer uma solicitação, seu aplicativo deve assinar para receber dados em outro thread. Não fazer isso força a operação "Half-duplex" indesejada e as solicitações subsequentes são bloqueadas aguardando a resposta da solicitação anterior.
   
   * **Execute cargas de trabalho com uso intensivo de computação em um thread dedicado** -por motivos semelhantes à dica anterior, operações como processamento de dados complexo são melhor colocadas em um thread separado. Uma solicitação que efetua pull de dados de outro armazenamento de dados (por exemplo, se o thread utiliza Azure Cosmos DB e armazenamentos de dados do Spark simultaneamente) pode enfrentar maior latência e é recomendável gerar um thread adicional que aguarda uma resposta do outro armazenamento de dados.
   
@@ -133,19 +133,19 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
   O SDK do Java Assíncrono v2 do Azure Cosmos DB dá suporte a consultas paralelas, que permitem a consulta uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial.
 
-  * ***Ajustando \: setMaxDegreeOfParallelism** _
+  * ***Como ajustar setMaxDegreeOfParallelism\:***
     
     As consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série com relação à consulta. Por isso, use setMaxDegreeOfParallelism para definir o número de partições que representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá usar setMaxDegreeOfParallelism para definir um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo.
 
     É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um gargalo dessas partições.
 
-  _ ***Ajustando \: setMaxBufferedItemCount** _
+  * ***Como ajustar setMaxBufferedItemCount\:***
     
     A consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-buscados. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
 
     A busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.
 
-_ **Implementar retirada em intervalos de getRetryAfterInMilliseconds**
+* **Implementar a retirada em intervalos de getRetryAfterInMilliseconds**
 
   Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação para a nova tentativa do servidor especificado. Respeitar a retirada garante que você perca o mínimo de tempo de espera entre as tentativas.
 

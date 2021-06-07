@@ -13,10 +13,10 @@ ms.author: aiwang
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 01af0e620ecb100839f7b1101e5ff9fcfc874eea
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206662"
 ---
 # <a name="migrate-android-applications-that-use-a-broker-from-adalnet-to-msalnet"></a>Migrar aplicativos Android que usam um agente de ADAL.NET para MSAL.NET
@@ -113,15 +113,15 @@ No MSAL.NET, faça duas coisas para definir a atividade para Android:
 
 1. Na chamada AcquireTokenInteractive, use `.WithParentActivityOrWindow(App.RootViewController)` e passe a referência para a atividade que será usada. Este exemplo usará o MainActivity.
 
-**Por exemplo: **
+**Por exemplo:**
 
-Em *app.cs*:
+Em *app. cs*:
 
 ```CSharp
    public static object RootViewController { get; set; }
 ```
 
-Em *MainActivity.cs*:
+Em *MainActivity. cs*:
 
 ```CSharp
    LoadApplication(new App());

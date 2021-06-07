@@ -7,10 +7,10 @@ ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 077ebdb4dd33249923064a4f5ed20c5641a82e26
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97695887"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Gerenciar recursos do Azure usando o CLI do Azure

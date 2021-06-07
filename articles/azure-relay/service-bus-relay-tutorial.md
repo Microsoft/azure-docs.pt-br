@@ -4,14 +4,14 @@ description: Este tutorial descreve como expor um serviço REST do WCF local par
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935697"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101710780"
 ---
-# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Expor um serviço de REST do WCF local ao cliente externo usando a Retransmissão do WCF do Azure
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Expor um serviço REST do WCF local para o cliente externo usando a Retransmissão do WCF do Azure
 
 Este tutorial descreve como criar um aplicativo cliente e um serviço da Retransmissão do WCF usando a Retransmissão do Azure. Para obter um tutorial semelhante que usa o [Sistema de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -185,7 +185,7 @@ O arquivo de configuração é semelhante a um arquivo de configuração do WCF.
 1. Dentro das marcas `<system.serviceModel>`, adicione um elemento `<services>`. Assim como nas associações, você pode definir vários aplicativos de retransmissão em um único arquivo de configuração. Este tutorial, porém, define apenas um.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -513,7 +513,7 @@ Nesta etapa, você criará um arquivo *App.config* para um aplicativo cliente b�
 1. Dentro do elemento `system.serviceModel`, adicione um elemento `<client>`.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -771,7 +771,7 @@ namespace Microsoft.ServiceBus.Samples
 Vá para o tutorial a seguir:
 
 > [!div class="nextstepaction"]
->[Expor um serviço de REST do WCF local a um cliente fora da rede](service-bus-relay-rest-tutorial.md)
+>[Expor um serviço REST WCF local a um cliente fora da rede](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/configure-echoservice-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget-service-bus.png

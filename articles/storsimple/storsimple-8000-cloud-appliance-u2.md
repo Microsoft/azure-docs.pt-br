@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94968835"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
@@ -65,9 +65,9 @@ A tabela abaixo mostra algumas das principais diferenças entre o Dispositivo de
 |  | Dispositivo físico | Dispositivo de nuvem |
 | --- | --- | --- |
 | **Localidade** |Reside no datacenter. |É executado no Azure. |
-| **Adaptadores de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
+| **Interfaces de rede** |Tem seis interfaces de rede: DATA 0 a DATA 5. |Tem apenas uma interface de rede: DATA 0. |
 | **Registro** |Registrado durante a etapa de configuração inicial. |O registro é uma tarefa separada. |
-| **Chave de criptografia de dados de serviço** |Com a chave nova, gere no dispositivo físico e, em seguida, atualize o dispositivo de nuvem. |Não é possível gerar novamente do dispositivo de nuvem. |
+| **Chave de criptografia de dados do serviço** |Com a chave nova, gere no dispositivo físico e, em seguida, atualize o dispositivo de nuvem. |Não é possível gerar novamente do dispositivo de nuvem. |
 | **Tipos de volume com suporte** |Dá suporte aos volumes fixados localmente e em camadas. |Oferece suporte apenas a volumes em camadas. |
 
 ## <a name="prerequisites-for-the-cloud-appliance"></a>Pré-requisitos para o dispositivo de nuvem
@@ -267,7 +267,7 @@ Para interromper todos os encargos, você deve excluir o dispositivo de nuvem. P
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar problemas de erros de conectividade com a Internet
 A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma conectividade com a Internet. Para solucionar falhas de conectividade da Internet, execute as seguintes etapas no portal do Azure:
 
-1. [Crie uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
+1. [Crie uma máquina virtual do Windows no Portal do Azure](../virtual-machines/windows/quick-create-portal.md). Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede que o seu dispositivo de nuvem. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, você também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
 2. Faça logon remoto na máquina virtual criada na etapa anterior.
 3. Abra uma janela de comando dentro da máquina virtual (Win + R e digite `cmd`).
 4. Execute o seguinte comando no prompt.

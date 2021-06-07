@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680059"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
@@ -92,11 +92,11 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | `['geometry-type']` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
 | `['get', string]` | valor | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `['get', string, object]` | valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['has', string]` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
-| `['has', string, object]` | booleano | Determina se as propriedades do objeto têm a propriedade especificada. |
+| `['has', string]` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
+| `['has', string, object]` | boolean | Determina se as propriedades do objeto têm a propriedade especificada. |
 | `['id']` | valor | Obtém a ID do recurso se ele tiver um. |
-| `['in', boolean | string | number, array]` | booleano | Determina se um item existe em uma matriz |
-| `['in', substring, string]` | booleano | Determina se uma subcadeia de caracteres existe em uma cadeia de caracteres |
+| `['in', boolean | string | number, array]` | boolean | Determina se um item existe em uma matriz |
+| `['in', substring, string]` | boolean | Determina se uma subcadeia de caracteres existe em uma cadeia de caracteres |
 | `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | número | Retorna a primeira posição na qual um item pode ser encontrado em uma matriz ou uma subcadeia de caracteres pode ser encontrada em uma cadeia de caracteres ou `-1` se a entrada não puder ser encontrada. Aceita um índice opcional de onde começar a pesquisa. |
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou de uma matriz. |
 | `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | matriz de cadeia de caracteres \| | Retorna um item de uma matriz ou de uma subcadeia de caracteres a partir de um índice de início especificado ou entre um índice inicial e um índice final, se definido. O valor de retorno é inclusivo do índice inicial, mas não do índice final. |
@@ -232,7 +232,7 @@ Se todos os recursos em um conjunto de dados tiverem uma `revenue` propriedade, 
 
 A `accumulated` expressão Obtém o valor de uma propriedade de cluster acumulada até o momento. Isso só pode ser usado na `clusterProperties` opção de uma fonte clusterizada `DataSource` .
 
-**Uso**
+**Usage**
 
 ```javascript
 ["accumulated"]
@@ -247,15 +247,15 @@ Ao comparar valores, a comparação é estritamente digitada. Os valores de tipo
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['!', boolean]` | booleano | Negação lógica. Retorna `true` se a entrada é `false` e `false` se a entrada é `true` . |
-| `['!=', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
-| `['<', value, value]` | booleano | Retorna `true` se a primeira entrada é estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['<=', value, value]` | booleano | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['==', value, value]` | booleano | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>', value, value]` | booleano | Retorna `true` se a primeira entrada é estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>=' value, value]` | booleano | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['all', boolean, boolean, …]` | booleano | Retorna `true` se todas as entradas forem `true` , `false` caso contrário,. |
-| `['any', boolean, boolean, …]` | booleano | Retorna `true` se alguma das entradas for `true` , `false` caso contrário,. |
-| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | booleano | Retorna `true` se o recurso avaliado estiver totalmente contido dentro de um limite da geometria de entrada; caso contrário, false. O valor de entrada pode ser um geojson válido do tipo `Polygon` , `MultiPolygon` , `Feature` ou `FeatureCollection` . Recursos com suporte para avaliação:<br/><br/>-Point: retorna `false` se um ponto está no limite ou fica fora do limite.<br/>-LineString: retorna `false` se qualquer parte de uma linha ficar fora do limite, a linha interceptará o limite ou o ponto de extremidade de uma linha estiver no limite. |
+| `['!=', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `['<', value, value]` | boolean | Retorna `true` se a primeira entrada é estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['<=', value, value]` | boolean | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['==', value, value]` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['>', value, value]` | boolean | Retorna `true` se a primeira entrada é estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['>=' value, value]` | boolean | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['all', boolean, boolean, …]` | boolean | Retorna `true` se todas as entradas forem `true` , `false` caso contrário,. |
+| `['any', boolean, boolean, …]` | boolean | Retorna `true` se alguma das entradas for `true` , `false` caso contrário,. |
+| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | boolean | Retorna `true` se o recurso avaliado estiver totalmente contido dentro de um limite da geometria de entrada; caso contrário, false. O valor de entrada pode ser um geojson válido do tipo `Polygon` , `MultiPolygon` , `Feature` ou `FeatureCollection` . Recursos com suporte para avaliação:<br/><br/>-Point: retorna `false` se um ponto está no limite ou fica fora do limite.<br/>-LineString: retorna `false` se qualquer parte de uma linha ficar fora do limite, a linha interceptará o limite ou o ponto de extremidade de uma linha estiver no limite. |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
@@ -429,14 +429,14 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Objeto [] | Declara que a entrada é uma matriz. |
-| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | booleano | Declara que o valor de entrada é um booliano. Se vários valores forem fornecidos, cada um será avaliado na ordem até que um booliano seja obtido. Se nenhuma das entradas for booliana, a expressão será um erro. |
+| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Declara que o valor de entrada é um booliano. Se vários valores forem fornecidos, cada um será avaliado na ordem até que um booliano seja obtido. Se nenhuma das entradas for booliana, a expressão será um erro. |
 | `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | Agrupador | Retorna um Agrupador para uso em operações de comparação dependentes de localidade. As opções de diferenciação de maiúsculas e minúsculas e de sinais diacríticos são padronizadas como falso. O argumento locale especifica a marca de idioma IETF da localidade a ser usada. Se nenhum for fornecido, a localidade padrão será usada. Se a localidade solicitada não estiver disponível, o Agrupador usará uma localidade de fallback definida pelo sistema. Use resolvid-locale para testar os resultados do comportamento de fallback de localidade. |
 | `['literal', array]`<br/><br/>`['literal', object]` | objeto de matriz \| | Retorna um valor de objeto ou matriz literal. Use esta expressão para impedir que uma matriz ou objeto seja avaliado como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
 | `['image', string]` | string | Verifica se uma ID de imagem especificada é carregada na imagem de mapas Sprite. Se for, a ID será retornada; caso contrário, NULL será retornado. |
 | `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | número | Declara que o valor de entrada é um número. Se vários valores forem fornecidos, cada um será avaliado na ordem até que um número seja obtido. Se nenhuma das entradas for números, a expressão será um erro. |
 | `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Objeto | Declara que o valor de entrada é um objeto.  Se vários valores forem fornecidos, cada um será avaliado na ordem até que um objeto seja obtido. Se nenhuma das entradas for objetos, a expressão será um erro. |
 | `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Declara que o valor de entrada é uma cadeia de caracteres. Se vários valores forem fornecidos, cada um será avaliado na ordem até que uma cadeia de caracteres seja obtida. Se nenhuma das entradas for cadeia de caracteres, a expressão será um erro. |
-| `['to-boolean', value]` | booleano | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres vazia,,, `0` `false` `null` ou `NaN` ; caso contrário, seu `true` . |
+| `['to-boolean', value]` | boolean | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres vazia,,, `0` `false` `null` ou `NaN` ; caso contrário, seu `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | cor | Converte o valor de entrada em uma cor. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada em um número, se possível. Se a entrada for `null` ou `false` , o resultado será 0. Se a entrada for `true` , o resultado será 1. Se a entrada for uma cadeia de caracteres, ela será convertida em um número usando a função de cadeia de caracteres [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da especificação da linguagem ECMAScript. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
 | `['to-string', value]` | string | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null` , o resultado será `""` . Se a entrada for um booliano, o resultado será `"true"` ou `"false"` . Se a entrada for um número, ela será convertida em uma cadeia de caracteres usando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação da linguagem ECMAScript. Se a entrada for uma cor, ela será convertida em cadeia de caracteres de cor de CSS RGBA `"rgba(r,g,b,a)"` . Caso contrário, a entrada é convertida em uma cadeia de caracteres usando a função [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da especificação da linguagem ECMAScript. |
@@ -500,7 +500,7 @@ Expressões do operador String executam operações de conversão em cadeias de 
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a `to-string` expressão Type para converter outros tipos de valor em String, se necessário. |
 | `['downcase', string]` | string | Converte a cadeia de caracteres especificada em minúsculas. |
-| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| booleano | Determina se a cadeia de caracteres de entrada usa um conjunto de caracteres suportado pela pilha de fontes atual. Por exemplo: `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
+| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| boolean | Determina se a cadeia de caracteres de entrada usa um conjunto de caracteres suportado pela pilha de fontes atual. Por exemplo: `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
 | `['resolved-locale', string]` | string | Retorna a marca de idioma da IETF da localidade que está sendo usada pelo Agrupador fornecido. Isso pode ser usado para determinar a localidade padrão do sistema ou para determinar se uma localidade solicitada foi carregada com êxito. |
 | `['upcase', string]` | string | Converte a cadeia de caracteres especificada em maiúsculas. |
 

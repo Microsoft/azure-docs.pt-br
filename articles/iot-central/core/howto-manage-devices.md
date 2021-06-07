@@ -10,10 +10,10 @@ services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032517"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
@@ -142,7 +142,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 Para obter mais informações sobre cadeias de conexão e conectar dispositivos reais ao seu aplicativo IoT Central, consulte [conectividade de dispositivo no IOT central do Azure](concepts-get-connected.md).
 
-## <a name="delete-a-device"></a>excluir um dispositivo e
+## <a name="delete-a-device"></a>Excluir um dispositivo
 
 Para excluir um dispositivo real ou simulado do aplicativo Azure IoT Central:
 
@@ -166,7 +166,7 @@ As propriedades de nuvem são os metadados de dispositivo associados ao disposit
 
 1. Modifique as propriedades para os valores necessários. Você pode modificar várias propriedades por vez e atualizá-las ao mesmo tempo.
 
-1. Selecione **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
+1. Escolha **Salvar**. Se você salvou as propriedades graváveis, os valores serão enviados ao seu dispositivo. Quando o dispositivo confirma a alteração da propriedade Writeable, o status retorna de volta para **sincronizado**. Se você salvou uma propriedade de nuvem, o valor será atualizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

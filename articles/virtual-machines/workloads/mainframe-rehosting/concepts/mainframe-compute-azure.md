@@ -5,13 +5,14 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 04ec652c6e7ce8de003a464c6427439cf1519eab
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 84682514d83de9d6a613581d68301efe33cd44ee
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092662"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954387"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover a computação do mainframe para o Azure
 

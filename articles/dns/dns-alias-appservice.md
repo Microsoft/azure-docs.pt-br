@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954504"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
@@ -43,7 +43,7 @@ Crie um grupo de recursos para armazenar todos os recursos usados neste artigo.
 Crie dois planos do Serviço de Aplicativo da Web em seu grupo de recursos usando a tabela a seguir para obter informações de configuração. Para obter mais informações sobre como criar um plano do Serviço de Aplicativo, consulte [Gerenciar um plano do Serviço de Aplicativo no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nome  |Sistema operacional  |Location  |Camada de preços  |
+|Nome  |Sistema Operacional  |Location  |Camada de preços  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|Leste dos EUA|Dev / Teste D1-Compartilhado|
 |ASP-02     |Windows|Centro dos EUA|Dev / Teste D1-Compartilhado|
@@ -60,8 +60,8 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 
    |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Pilha de runtime|Região|Plano do serviço de aplicativo/localização
    |---------|---------|-|-|-------|
-   |App-01|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
-   |App-02|Usar existente<br>Selecione o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
+   |App-01|Usar existente<br>Selecionar o grupo de recursos|.NET Core 2.2|Leste dos EUA|ASP-01 (D1)|
+   |App-02|Usar existente<br>Selecionar o grupo de recursos|.NET Core 2.2|Centro dos EUA|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Reúna alguns detalhes
 
@@ -87,7 +87,7 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 3. Selecione **Adicionar**.
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Tipo  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
+   |Type  |Nome  |Destino  |Location  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|hospedeira\<the URL you recorded for App-01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
    |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|hospedeira\<the URL you recorded for App-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
@@ -104,7 +104,7 @@ Quando você adiciona um nome de host personalizado aos seus aplicativos Web, el
 2. Escolha **Conjunto de registros**.
 3. Adicione o conjunto de registros usando a tabela a seguir. Para o valor, use a URL do aplicativo Web real que você gravou anteriormente:
 
-   |Nome  |Tipo  |Valor|
+   |Nome  |Type  |Valor|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,9 +132,9 @@ Agora, adicione um registro de alias para o Apex da zona.
 2. Escolha **Conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |Nome  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
+   |Nome  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Um|Yes|Recursos do Azure|Gerenciador de tráfego - seu perfil|
+   |@     |A|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 
 
 ## <a name="test-your-web-apps"></a>Teste seus aplicativos web

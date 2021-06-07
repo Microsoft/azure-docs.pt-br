@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83739202"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurar um telefone do escritório como o método de verificação de dois fatores
@@ -26,7 +26,7 @@ Configure seu telefone do escritório para funcionar como o método de verifica�
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurar seu telefone do escritório como o método de verificação
 
-1. Na página **Verificação de segurança adicional**, selecione **Telefone do escritório** na área **Etapa 1: Como devemos entrar em contato com você**, selecione o país ou a região na lista suspensa, digite o número de telefone do escritório e, em seguida, o ramal, se houver.
+1. Na página **verificação de segurança adicional** , selecione **telefone comercial** na lista suspensa **etapa 1: como devemos entrar em contato com** a sua área, selecione seu país ou região no menu suspenso, digite seu número de telefone comercial e, em seguida, digite sua extensão, se você tiver uma.
 
     ![Página Verificação de segurança adicional, com telefone de autenticação e chamada telefônica](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 
@@ -34,7 +34,7 @@ Configure seu telefone do escritório para funcionar como o método de verifica�
 
     ![Como testar o número de telefone especificado](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. Na área **Etapa 3: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+3. Na área **etapa 3: continuar usando seus aplicativos existentes** , copie a senha de aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

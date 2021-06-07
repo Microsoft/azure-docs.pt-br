@@ -11,10 +11,10 @@ ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368652"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos utilitários do Microsoft Spark
@@ -33,7 +33,7 @@ Siga estas etapas para verificar se o Azure AD e o MSI do espaço de trabalho t�
 1. Abra o [portal do Azure](https://portal.azure.com/) e a conta de armazenamento que você deseja acessar. Você pode navegar até o contêiner específico que deseja acessar.
 2. Selecione o **iam (controle de acesso)** no painel esquerdo.
 3. Atribua **sua conta do Azure ad** e **a identidade do espaço de trabalho** (o mesmo que o nome do seu espaço de trabalho) à função **colaborador de dados de blob de armazenamento** na conta de armazenamento se ela ainda não estiver atribuída. 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 Você pode acessar dados em ADLS Gen2 com o Synapse Spark por meio da seguinte URL:
 

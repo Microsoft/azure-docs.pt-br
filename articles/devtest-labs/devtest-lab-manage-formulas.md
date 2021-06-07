@@ -4,10 +4,10 @@ description: Este artigo ilustra como criar uma fórmula de uma base (imagem per
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91308887"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerenciar fórmulas do Azure DevTest Labs
@@ -39,7 +39,7 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
     ![Adicionar uma fórmula](./media/devtest-lab-create-formulas/add-formula.png)
 6. Na página **escolher uma base** , selecione a base (imagem personalizada, imagem do Marketplace ou imagem da Galeria de imagens compartilhada) da qual você deseja criar a fórmula.
 
-    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selecionar a imagem base&quot;:::
+    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Selecionar a imagem base":::
 1. Na guia **Configurações básicas** da página **Criar fórmula**, especifique os seguintes valores:
    
     * **Nome da fórmula** – digite um nome para a fórmula. Esse valor será exibido na lista de imagens de base quando você criar uma máquina virtual. O nome é validado durante a digitação e, se não servir, uma mensagem indicará os requisitos para um nome válido.
@@ -58,7 +58,7 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
     - **Sub-rede** – para alterar a sub-rede, selecione **Alterar Sub-rede**. 
     - **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para obter mais informações sobre endereços IP compartilhados, consulte [Noções básicas dos endereços IP compartilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Data e hora de expiração** -você não pode editar este campo. 
-    - **Tornar essa máquina reivindicável** - tornar uma máquina &quot;reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na página do laboratório.  
+    - **Tornar essa máquina reivindicável** - tornar uma máquina "reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na página do laboratório.  
 
         ![Captura de tela que mostra as configurações avançadas da página "criar fórmula (base reutilizável)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Se você selecionou uma imagem da Galeria de imagens compartilhada como base, você também verá o campo **versão da imagem** que permite selecionar a versão da imagem da galeria que você deseja usar como base. 

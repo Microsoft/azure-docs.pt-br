@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.openlocfilehash: 75b548b53de4c0f4ea39959c3d70e9ddb361d64c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540324"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migração com tempo de inatividade mínimo para o Banco de Dados do Azure para MySQL

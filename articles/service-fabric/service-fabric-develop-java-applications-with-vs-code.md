@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87327354"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos Java do Microsoft Azure Service Fabric com o Visual Studio Code

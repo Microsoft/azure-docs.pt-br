@@ -3,25 +3,22 @@ title: 'Início Rápido: Criar um aplicativo Python'
 description: Comece a usar o Serviço de Aplicativo do Azure implantando seu primeiro aplicativo Python em um contêiner do Linux no Serviço de Aplicativo.
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
+adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+adobe-target-content: ./quickstart-python-portal
+ms.openlocfilehash: d8af7a9744fe136f482fc007dbd0e51a680df932
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788665"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379478"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
-Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço de Aplicativo no Linux](overview.md#app-service-on-linux), um serviço de hospedagem Web do Azure que é altamente escalonável e conta com aplicação automática de patch. Use a [CLI (interface de linha de comando) do Azure](/cli/azure/install-azure-cli) local em um computador Mac, Linux ou Windows para implantar um exemplo com as estruturas Flask ou Django. O aplicativo Web que você configura usa uma camada de Serviço de Aplicativo gratuita, portanto, os procedimentos neste artigo não resultam em custos para você.
-
-> [!TIP]
-> Se preferir usar o Visual Studio Code, siga nosso **[guia de início rápido do Serviço de Aplicativo do Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço de Aplicativo no Linux](overview.md#app-service-on-linux), um serviço de hospedagem Web do Azure que é altamente escalonável e conta com aplicação automática de patch. Use a [CLI (interface de linha de comando) do Azure](/cli/azure/install-azure-cli) local em um computador Mac, Linux ou Windows para implantar um exemplo com as estruturas Flask ou Django. O aplicativo Web que você configura usa uma camada básica de Serviço de Aplicativo que gera um pequeno custo na sua assinatura do Azure.
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 
@@ -230,7 +227,7 @@ Está enfrentando problemas? Confira primeiro o [Guia de solução de problemas]
 
 Você pode acessar os logs do console gerados de dentro do aplicativo e do contêiner no qual ele é executado. Os logs incluem todas as saídas geradas usando instruções `print`.
 
-Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail):
+Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail):
 
 ```azurecli
 az webapp log tail
@@ -244,7 +241,7 @@ Você também pode inspecionar os arquivos de log do navegador em `https://<app-
 
 Para interromper o streaming de log a qualquer momento, pressione **CTRL**+**C** no terminal.
 
-Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
+Está enfrentando problemas? Veja primeiro o [Guia de solução de problemas](configure-language-python.md#troubleshooting). Caso contrário, [fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 

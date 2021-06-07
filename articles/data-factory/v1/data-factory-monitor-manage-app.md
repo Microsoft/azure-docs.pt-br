@@ -3,16 +3,16 @@ title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380365"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779589"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
@@ -172,7 +172,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>ActivityResume</td><td>A atividade estiver em pausa e não poderá executar as janelas de atividades até ser retomada.</td>
 </tr>
 <tr>
-<td>Tentar novamente</td><td>A execução da atividade está sendo repetida.</td>
+<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -188,7 +188,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>

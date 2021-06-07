@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390174"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800737"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
-A exclusão reversível para contêineres (versão prévia) protege seus dados contra exclusão acidental ou maliciosa. Quando a exclusão reversível de contêiner está habilitada para uma conta de armazenamento, qualquer contêiner excluído e seu conteúdo são retidos no armazenamento do Azure para o período especificado. Durante o período de retenção, você pode restaurar os contêineres excluídos anteriormente. A restauração de um contêiner restaura todos os BLOBs dentro desse contêiner quando ele foi excluído.
+A exclusão reversível para contêineres (versão prévia) protege seus dados contra exclusão acidental ou maliciosa. Quando a exclusão reversível de contêiner está habilitada para uma conta de armazenamento, os contêineres excluídos e seu conteúdo são retidos no armazenamento do Azure durante o período especificado. Durante o período de retenção, é possível restaurar os contêineres excluídos anteriormente. A restauração de um contêiner restaura todos os blobs que estavam nesse contêiner quando ele foi excluído.
 
 Para proteção de ponta a ponta para seus dados de BLOB, a Microsoft recomenda habilitar os seguintes recursos de proteção de dados:
 
@@ -27,14 +27,17 @@ Para proteção de ponta a ponta para seus dados de BLOB, a Microsoft recomenda 
 - Controle de versão de BLOB, para manter automaticamente as versões anteriores de um blob. Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente. Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e gerenciar o controle de versão de blob](versioning-enable.md).
 - Exclusão reversível de BLOB, para restaurar um BLOB ou uma versão que foi excluída. Para saber como habilitar a exclusão reversível de BLOB, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> Não é possível desfazer a exclusão de uma conta de armazenamento. A exclusão reversível de contêiner não protege contra a exclusão de uma conta de armazenamento, mas somente contra a exclusão de contêineres nessa conta. Para proteger uma conta de armazenamento da exclusão, configure um bloqueio no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear Azure Resource Manager recursos, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> A exclusão reversível de contêiner está atualmente em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 ## <a name="how-container-soft-delete-works"></a>Como funciona a exclusão reversível de contêiner
 
 Ao habilitar a exclusão reversível de contêiner, você pode especificar um período de retenção para contêineres excluídos entre 1 e 365 dias. O período de retenção padrão é de 7 dias. Durante o período de retenção, você pode recuperar um contêiner excluído chamando a operação **restaurar contêiner** .
 
 Quando você restaura um contêiner, os BLOBs do contêiner e as versões de blob também são restaurados. No entanto, você só poderá usar a exclusão reversível de contêiner para restaurar BLOBs se o próprio contêiner tiver sido excluído. Para restaurar um blob excluído quando seu contêiner pai não foi excluído, você deve usar a exclusão reversível de BLOB ou o controle de versão de BLOB.
+
+> [!WARNING]
+> A exclusão reversível de contêiner pode restaurar somente contêineres inteiros e os BLOBs contidos no momento da exclusão. Não é possível restaurar um blob excluído dentro de um contêiner usando a exclusão reversível do contêiner.
 
 O diagrama a seguir mostra como um contêiner excluído pode ser restaurado quando a exclusão reversível do contêiner está habilitada:
 
@@ -46,14 +49,14 @@ Depois que o período de retenção tiver expirado, o contêiner será excluído
 
 Desabilitar a exclusão reversível de contêiner não resulta na exclusão permanente de contêineres que foram excluídos anteriormente. Todos os contêineres excluídos por software serão excluídos permanentemente na expiração do período de retenção que estava em vigor no momento em que o contêiner foi excluído.
 
+> [!IMPORTANT]
+> A exclusão reversível de contêiner não protege contra a exclusão de uma conta de armazenamento, mas somente contra a exclusão de contêineres nessa conta. Para proteger uma conta de armazenamento da exclusão, configure um bloqueio no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear Azure Resource Manager recursos, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+
 ## <a name="about-the-preview"></a>Sobre a visualização
 
 A exclusão reversível de contêiner está disponível na visualização em todas as regiões do Azure.
 
-> [!IMPORTANT]
-> A visualização de exclusão reversível de contêiner é destinada somente ao uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
-
-A versão 2019-12-12 e superior da API REST do armazenamento do Azure dá suporte à exclusão reversível de contêiner.
+A versão 2019-12-12 ou superior da API REST do armazenamento do Azure dá suporte à exclusão reversível de contêiner.
 
 ### <a name="storage-account-support"></a>Suporte da conta de armazenamento
 

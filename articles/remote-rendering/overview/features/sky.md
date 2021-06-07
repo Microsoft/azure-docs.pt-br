@@ -7,10 +7,10 @@ ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c5ad4b21b428f38bbd4d9f7d19fa633c5161b5c
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594173"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu

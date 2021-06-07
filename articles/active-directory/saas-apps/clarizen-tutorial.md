@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672919"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Active Directory do Azure ao Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integração do Active Directory do Azure ao Clarizen
 
 Neste tutorial, você aprenderá a integrar o Clarizen ao Azure AD (Azure Active Directory).
 A integração do Clarizen ao Azure AD oferece os seguintes benefícios:
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
     a. Selecione **Habilitar Autenticação Federada**.
 
-    b. Clique em **Carregar** para carregar o certificado baixado.
+    b. Clique em **Carregar** para carregar seu certificado baixado.
 
     c. Na caixa de texto **URL de Entrada**, insira o valor da **URL de Logon** da janela de configuração de aplicativo do Azure AD.
 
@@ -215,7 +215,7 @@ Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá pro
 
     ![Clicar em "Pessoas"](./media/clarizen-tutorial/create_aaduser_001.png "Pessoas")
 
-3. Clique em **Convidar Usuário**.
+3. Clique em **Convidar Usuários**.
 
     ![Botão "Convidar Usuário"](./media/clarizen-tutorial/create_aaduser_002.png "Convidar Usuários")
 

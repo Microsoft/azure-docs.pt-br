@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: ad16b63360364acd88ab12fb4715d1fd3115c0fb
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209365"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104720008"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados em uma conta de armazenamento
 
@@ -45,14 +45,15 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 Você pode analisar os dados na conta do ADLS Gen2 padrão do seu workspace ou vincular uma conta de armazenamento do ADLS Gen2 ou de Blobs ao seu workspace por meio de "**Gerenciar**" > "**Serviços Vinculados**" > "**Novo**" (As etapas abaixo se referem à conta do ADLS Gen2 primária).
 
 1. No Synapse Studio, acesse o hub **Dados** e, em seguida, selecione **Vinculado**.
-1. Navegue até **Contas de armazenamento** > **myworkspace (Primário – contosolake)** .
+1. Acesse **Azure Data Lake Storage Gen2** > **myworkspace (Primário – contosolake)** .
 1. Selecione **usuários (Primário)** . Você deve ver a pasta **NYCTaxi**. Nela, você verá duas pastas chamadas **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
 1. Abra a pasta **PassengerCountStats_parquetformat**. Dentro dela, você verá um arquivo Parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
 1. Clique com o botão direito do mouse em **.parquet**, selecione **Novo notebook** e **Carregar no DataFrame**. Um notebook será criado com uma célula desta forma:
 
     ```py
     %%pyspark
-    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
 

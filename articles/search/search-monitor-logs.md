@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499927"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709932"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
 
-Os logs de diagnóstico ou operacionais fornecem informações sobre as operações detalhadas do Azure Pesquisa Cognitiva e são úteis para monitorar processos de serviço e carga de trabalho. Internamente, algumas informações do sistema existem no back-end por um curto período de tempo, suficiente para investigação e análise se você arquivar um tíquete de suporte. No entanto, se você quiser a autodireção sobre os dados operacionais, deverá configurar uma configuração de diagnóstico para especificar onde as informações de log serão coletadas.
+Os logs de diagnóstico ou operacionais fornecem informações sobre as operações detalhadas do Azure Pesquisa Cognitiva e são úteis para monitorar processos de serviço e carga de trabalho. Internamente, a Microsoft preserva as informações do sistema no back-end por um curto período de tempo (cerca de 30 dias), suficiente para investigação e análise se você arquivar um tíquete de suporte. No entanto, se você quiser a propriedade sobre os dados operacionais, deverá definir uma configuração de diagnóstico para especificar onde as informações de log serão coletadas.
 
 O log de diagnóstico é habilitado por meio da integração com o [Azure monitor](../azure-monitor/index.yml). 
 
 Ao configurar o log de diagnóstico, você será solicitado a especificar um mecanismo de armazenamento. A tabela a seguir enumera as opções para coletar e manter dados.
 
-| Recurso | Usada para |
+| Recurso | Usado para |
 |----------|----------|
-| [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Enviar para o workspace do Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Arquivar com armazenamento de BLOBs](../storage/blobs/storage-blobs-overview.md) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
 | [Transmitir para o Hub de eventos](../event-hubs/index.yml) | Os eventos e as métricas são transmitidos para um serviço de hubs de eventos do Azure. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 
@@ -33,7 +33,7 @@ Ao configurar o log de diagnóstico, você será solicitado a especificar um mec
 
 Crie recursos com antecedência para que você possa selecionar um ou mais ao configurar o log de diagnóstico.
 
-+ [Criar um espaço de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Criar um espaço de trabalho do log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Criar uma conta de armazenamento](../storage/common/storage-account-create.md)
 
@@ -45,7 +45,7 @@ As configurações de diagnóstico especificam como os eventos registrados e as 
 
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
-   ![Configurações de Diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de Diagnóstico")
+   ![Configurações de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de Diagnóstico")
 
 1. Selecione **+ Adicionar configuração de diagnóstico**
 
@@ -76,14 +76,14 @@ Duas tabelas contêm logs e métricas para o Azure Pesquisa Cognitiva: **AzureDi
 
 1. Insira a consulta a seguir para retornar um conjunto de resultados tabulares.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Repita as etapas anteriores, começando com **AzureDiagnostics** para retornar todas as colunas para fins informativos, seguidos por uma consulta mais seletiva que extrai informações mais interessantes.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -99,7 +99,7 @@ Se você habilitou o log de diagnóstico, poderá consultar **AzureDiagnostics**
 
 Retornar uma lista de operações e uma contagem de cada uma delas.
 
-```
+```kusto
 AzureDiagnostics
 | summarize count() by OperationName
 ```
@@ -108,7 +108,7 @@ AzureDiagnostics
 
 Correlacione a solicitação de consulta com operações de indexação e processe os pontos de dados em um gráfico de tempo para ver as operações coincidirem.
 
-```
+```kusto
 AzureDiagnostics
 | summarize OperationName, Count=count()
 | where OperationName in ('Query.Search', 'Indexing.Index')

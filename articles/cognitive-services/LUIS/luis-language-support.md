@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845458"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799320"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -28,7 +28,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Linguagem |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Locale  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -38,13 +38,13 @@ O LUIS compreende declarações nos seguintes idiomas:
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Guzerate | `gu-IN`|-|-|-|-|
-| Hindi | `hi-IN`|-|✔|-|-|
+| Híndi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase principal|
 | Coreano |`ko-KR` |✔|-|-|Somente frase principal|
 | Marati | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
-| Espanhol (México)|`es-MX` |-|-|✔|✔|
+| Espanhol (México)|`es-MX` |-|✔|✔|✔|
 | Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Tâmil | `ta-IN`|-|-|-|-|
 | Télugo | `te-IN`|-|-|-|-|
@@ -92,7 +92,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Francês (fr-CA)|✔|||
 |Alemão|✔||✔|
 |Guzerate|✔|||
-|Hindi|✔|||
+|Híndi|✔|||
 |Italiano|✔|||
 |Japonês|||✔
 |Coreano||✔||
@@ -101,7 +101,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Espanhol (es-ES)|✔|||
 |Espanhol (es-MX)|✔|||
 |Tâmil|✔|||
-|Telugu|✔|||
+|Télugo|✔|||
 |Turco|✔|||
 
 

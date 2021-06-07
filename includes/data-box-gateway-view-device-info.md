@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: ca060e75e50a3e2327fc0516c3cfc9550afbf90f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96581484"
 ---
 1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
@@ -49,7 +49,7 @@ ms.locfileid: "96581484"
     |-----------|-------------|
     | FriendlyName                   | O nome amigável do dispositivo, conforme configurado por meio da interface do usuário da Web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |
     | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |
-    | Modelar                          | O modelo para seu dispositivo. O modelo é virtual para Gateway do Data Box.                   |
+    | Modelo                          | O modelo para seu dispositivo. O modelo é virtual para Gateway do Data Box.                   |
     | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para um sistema executando a visualização, a versão de software amigável seria Data Box Edge 1902. |
     | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao Data Box Edge 1902 é 1.4.771.324.            |
     | LocalCapacityInMb              | A capacidade local total do dispositivo em megabits.                                                                                                        |

@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
 ms.openlocfilehash: fc8ddba2ec9b7bc9f1c2db8673ab805810afe17e
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99981282"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Início Rápido: Implantar um Hub IoT do Azure e uma conta de armazenamento usando um modelo do ARM

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752270"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
@@ -41,7 +41,7 @@ O Azure Key Vault oferece suporte a solicitações e respostas no formato JSON. 
 
 Este tópico aborda informações específicas para o serviço do Azure Key Vault. Para obter informações gerais sobre o uso de interfaces de REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte a [Referência da API REST do Azure](/rest/api/azure).
 
-## <a name="request-url"></a>URL da solicitação  
+## <a name="request-url"></a>URL de Solicitação  
  As principais operações de gerenciamento usam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes usam HTTP POST. Os clientes que não suportam verbos HTTP específicos também podem usar HTTP POST usando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; solicitações que normalmente não exigem um corpo devem incluir um corpo vazio quando usando HTTP POST, por exemplo, ao usar POST em vez de DELETE.  
 
  Para trabalhar com objetos no Azure Key Vault, a seguir estão exemplos de URLs:  

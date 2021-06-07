@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271834"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
@@ -41,12 +41,12 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Po exemplo, Contoso                                                        | String        |
 | offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
-| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer       |
+| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Inteiro       |
 | slotId      | O slot do qual a oferta deve ser recuperada pode ser um dos a seguir:      <br/>  - `Draft` (padrão) recupera a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` recupera a versão da oferta atualmente na visualização.     <br/>  -  `Production` recupera a versão da oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
 
-## <a name="header"></a>Cabeçalho
+## <a name="header"></a>parâmetro
 
 |  **Nome**          |   **Valor**            |
 |  ---------------   |  --------------        |
@@ -200,7 +200,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
 |  Executando                    | O envio da oferta está sendo processado.          |
-|  Êxito                  | O envio da oferta concluiu o processamento.    |
+|  Com sucesso                  | O envio da oferta concluiu o processamento.    |
 |  Canceled                   | O envio da oferta foi cancelado.                |
-|  Failed (Falha)                     | O envio da oferta falhou.                      |
+|  Com falha                     | O envio da oferta falhou.                      |
 |  |  |

@@ -1,16 +1,14 @@
 ---
 title: Monitoramento de integridade no Service Fabric
 description: Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008269"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627408"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -79,6 +77,7 @@ Por padrão, o Service Fabric aplica regras rígidas (tudo deve estar íntegro) 
 
 ### <a name="cluster-health-policy"></a>Política de integridade do cluster
 A [política de integridade do cluster](/dotnet/api/system.fabric.health.clusterhealthpolicy) é usada para avaliar o estado de integridade do cluster e os estados de integridade do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, a política padrão (zero falhas toleradas) é usada.
+
 A política de integridade do cluster contém:
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
@@ -87,18 +86,33 @@ A política de integridade do cluster contém:
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se alguns tipos de aplicativos tiverem que ser tratados de forma diferente, eles poderão ser criados fora do pool global. Em vez disso, eles são avaliados em relação às porcentagens associadas com seu nome de tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Você pode especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", defina MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Mas mesmo um aplicativo de controle em erro tornaria o cluster não íntegro, o que aciona a reversão ou pausa a atualização do cluster, dependendo da configuração da atualização.
   Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
 
-O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com “ApplicationTypeMaxPercentUnhealthyApplications-”, seguido do nome do tipo de aplicativo.
+  O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com “ApplicationTypeMaxPercentUnhealthyApplications-”, seguido do nome do tipo de aplicativo.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). O mapa da política de integridade do tipo de nó pode ser usado durante a avaliação de integridade do cluster para descrever os tipos de nó especiais. Os tipos de nó são avaliados em relação às porcentagens associadas ao nome do tipo de nó no mapa. A definição desse valor não tem nenhum efeito no pool global de nós usados para o `MaxPercentUnhealthyNodes` . Por exemplo, um cluster tem centenas de nós de tipos diferentes e alguns tipos de nós que hospedam um trabalho importante. Nenhum nó desse tipo deve estar inoperante. Você pode especificar global `MaxPercentUnhealthyNodes` a 20% para tolerar algumas falhas para todos os nós, mas para o tipo de nó `SpecialNodeType` , defina `MaxPercentUnhealthyNodes` como 0. Dessa forma, se alguns dos muitos nós não estiverem íntegros, mas abaixo do percentual não íntegro global, o cluster será avaliado como estando no estado de integridade de aviso. Um estado de integridade de aviso não afeta a atualização do cluster ou outro monitoramento disparado por um estado de integridade de erro. Mas mesmo um nó do tipo `SpecialNodeType` em um estado de integridade de erro tornaria o cluster não íntegro e dispararia a reversão ou pausarei a atualização do cluster, dependendo da configuração da atualização. Por outro lado, definir o global `MaxPercentUnhealthyNodes` como 0 e definir o `SpecialNodeType` percentual máximo de nós não íntegros como 100 com um nó do tipo `SpecialNodeType` em um estado de erro ainda colocaria o cluster em um estado de erro porque a restrição global é mais estrita nesse caso. 
+
+  O exemplo a seguir é um trecho de um manifesto do cluster. Para definir entradas no mapa do tipo de nó, Prefixe o nome do parâmetro com "NodeTypeMaxPercentUnhealthyNodes-", seguido pelo nome do tipo de nó.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Política de integridade do aplicativo
 A [política de integridade do aplicativo](/dotnet/api/system.fabric.health.applicationhealthpolicy) descreve como a avaliação da agregação dos estados de eventos e filhos é feita para aplicativos e seus filhos. Ela pode ser definida no manifesto do aplicativo, **ApplicationManifest.xml**, no pacote de aplicativos. Se nenhuma política for especificada, o Service Fabric suporá que a entidade não está íntegra se ela tiver um relatório de integridade ou um filho no estado de integridade com erro ou aviso.
@@ -187,7 +201,7 @@ Os [relatórios de integridade](/dotnet/api/system.fabric.health.healthreport) d
 * **SourceID**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
 * **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. nenhuma.
+  * Cluster. Nenhum.
   * Nó. Nome do nó (cadeia de caracteres).
   * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.

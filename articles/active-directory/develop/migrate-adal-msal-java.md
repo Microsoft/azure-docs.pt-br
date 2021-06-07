@@ -15,10 +15,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
 ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99583986"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java

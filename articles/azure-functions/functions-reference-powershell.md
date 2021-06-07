@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936780"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding` :
 
-| Nome | Tipo | Posição | Descrição |
+| Nome | Type | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
@@ -227,7 +227,7 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Log
+## <a name="logging"></a>Registro em log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
@@ -297,7 +297,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 | Propriedade  | Descrição                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
+| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | object |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
@@ -312,7 +312,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |

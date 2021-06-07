@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: e4f1931aab056306ac5e9f9e9ef402ca26ec2d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86528937"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
@@ -51,7 +51,7 @@ A ferramenta fornece os seguintes detalhes:
 * O espaço de armazenamento livre necessário em cada volume do armazenamento do Hyper-V para a replicação inicial e a replicação delta bem-sucedidas para garantir que a replicação de VM não causará nenhum tempo de inatividade indesejado para seus aplicativos de produção
 * Frequência máxima de cópia a ser definida para replicação do Hyper-V
 
-**Diretrizes de envio em lote da replicação inicial** 
+**Diretriz de envio em lote da replicação inicial** 
 * Número de lotes de VMs a serem usados para proteção
 * Lista de VMs em cada lote
 * Ordem na qual cada lote deve ser protegido

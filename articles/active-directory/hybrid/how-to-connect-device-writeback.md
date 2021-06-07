@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95973415"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
@@ -97,7 +97,7 @@ Primeiro as prioridades:
   * No menu Iniciar, abra **Serviço de sincronização**.
   * Abra a guia **Conectores** .
   * Localize o conector com o tipo de Serviços de Domínio do Active Directory e selecione-o.
-  * Em **ações**, selecione **Propriedades**.
+  * Em **Ações**, selecione **Propriedades**.
   * Vá para **Conectar-se à floresta do Active Directory**. Verifique o nome de usuário e domínio especificado nessa correspondência de tela a conta fornecida para o script.
     ![Conta do conector no Sync Service Manager](./media/how-to-connect-device-writeback/connectoraccount.png)
 

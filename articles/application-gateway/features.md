@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355730"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos de gateway de Aplicativo Azure
@@ -149,13 +149,13 @@ Para obter mais informações, consulte [reescrever cabeçalhos HTTP e URL](rewr
 
 Os Standard_v2 do gateway de aplicativo podem ser configurados para implantações de tamanho automático ou fixo. A SKU v2 não oferece tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços de v2, consulte [dimensionamento automático v2](application-gateway-autoscaling-zone-redundant.md) e [noções básicas sobre preços](understanding-pricing.md).
 
-O padrão de gateway de aplicativo (v1) é oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+O padrão de gateway de aplicativo (v1) é oferecido em três tamanhos: **pequeno**, **médio** e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
 
 Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do Gateway de Aplicativo v1 com o descarregamento SSL habilitado:
 
-| Tamanho médio de resposta de página de back-end | Pequena | Médio | grande |
+| Tamanho médio de resposta de página de back-end | Small | Médio | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |

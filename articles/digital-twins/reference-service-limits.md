@@ -8,10 +8,10 @@ ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
 ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054392"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Limites do serviço gêmeos do Azure digital

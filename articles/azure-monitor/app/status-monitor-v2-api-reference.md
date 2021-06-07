@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5c2f1d055ec6270892873548872b20b17b4158
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318990"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566890"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência da API do agente do Application Insights Azure Monitor
 
@@ -47,7 +47,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>Parâmetros
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Adicional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
+**Opcional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -100,6 +100,8 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ```
 
+> [!NOTE]
+> A nomenclatura de AppFilter nesse contexto pode ser confusa, `AppFilter` define o filtro Regex do nome do aplicativo (HostingEnvironment. SiteName no caso do .net no IIS). `VirtualPathFilter` define o filtro Regex de caminho virtual (HostingEnvironment. ApplicationVirtualPath no caso do .net no IIS). Para instrumentar um único aplicativo, você usaria o VirtualPathFilter da seguinte maneira: `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -127,12 +129,12 @@ Você pode criar um único script de instalação para vários computadores defi
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Adicional.** Use essa opção para habilitar o mecanismo de instrumentação para coletar eventos e mensagens sobre o que está acontecendo durante a execução de um processo gerenciado. Esses eventos e mensagens incluem códigos de resultado de dependência, verbos HTTP e texto de comando SQL.
+**Opcional.** Use essa opção para habilitar o mecanismo de instrumentação para coletar eventos e mensagens sobre o que está acontecendo durante a execução de um processo gerenciado. Esses eventos e mensagens incluem códigos de resultado de dependência, verbos HTTP e texto de comando SQL.
 
 O mecanismo de instrumentação adiciona sobrecarga e está desativado por padrão.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**Adicional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
+**Opcional.** Use essa opção para aceitar a licença e a política de privacidade em instalações sem periféricos.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 Quando você tem um cluster de servidores Web, você pode estar usando uma [configuração compartilhada](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
@@ -392,7 +394,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Você pode inspecionar o processo no computador instrumentado para ver se todas as DLLs estão carregadas. Se o monitoramento estiver funcionando, pelo menos 12 DLLs deverão ser carregadas.
 
-Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess` :
+Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -585,17 +587,17 @@ Você tem três opções ao coletar eventos:
 ### <a name="parameters"></a>Parâmetros
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Adicional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.
+**Opcional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. O padrão é de 5 minutos.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**Adicional.** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
+**Opcional.** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Adicional.** Use essa opção para coletar Application Insights eventos do SDK.
+**Opcional.** Use essa opção para coletar Application Insights eventos do SDK.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Adicional.** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
+**Opcional.** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
 
 #### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
@@ -637,9 +639,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Próximas etapas
 
   Exiba sua telemetria:
- - [Explore as métricas](../platform/metrics-charts.md) para monitorar o desempenho e o uso.
+ - [Explore as métricas](../essentials/metrics-charts.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](./diagnostic-search.md) para diagnosticar problemas.
-- Use a [análise](../log-query/log-query-overview.md) para consultas mais avançadas.
+- Use a [análise](../logs/log-query-overview.md) para consultas mais avançadas.
 - [Crie painéis](./overview-dashboard.md).
  
  Adicione mais telemetria:

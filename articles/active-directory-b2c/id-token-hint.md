@@ -12,10 +12,10 @@ ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97669152"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de dicas de token de ID em uma política personalizada de Azure Active Directory B2C
@@ -84,16 +84,16 @@ Os metadados a seguir são relevantes ao usar a chave simétrica.
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| emissor | Yes | Identifica o serviço de token de segurança (emissor do token). Esse valor deve ser idêntico à `iss` declaração dentro da declaração de token JWT. | 
-| IdTokenAudience | Yes | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. | 
+| emissor | Sim | Identifica o serviço de token de segurança (emissor do token). Esse valor deve ser idêntico à `iss` declaração dentro da declaração de token JWT. | 
+| IdTokenAudience | Sim | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. | 
 
 Os metadados a seguir são relevantes ao usar uma chave assimétrica. 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| METADATA| Yes | Uma URL que aponta para um documento de configuração de emissor de token, que também é conhecido como um ponto de extremidade de configuração conhecido do OpenID.   |
-| emissor | No | Identifica o serviço de token de segurança (emissor do token). Esse valor pode ser usado para substituir o valor configurado nos metadados e deve ser idêntico à `iss` declaração dentro da declaração de token JWT. |  
-| IdTokenAudience | No | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. |  
+| METADATA| Sim | Uma URL que aponta para um documento de configuração de emissor de token, que também é conhecido como um ponto de extremidade de configuração conhecido do OpenID.   |
+| emissor | Não | Identifica o serviço de token de segurança (emissor do token). Esse valor pode ser usado para substituir o valor configurado nos metadados e deve ser idêntico à `iss` declaração dentro da declaração de token JWT. |  
+| IdTokenAudience | Não | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` declaração dentro da declaração de token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -101,7 +101,7 @@ Ao usar uma chave simétrica, o elemento **CryptographicKeys** contém o seguint
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Yes | A chave de criptografia usada para validar a assinatura de token JWT.|
+| client_secret | Sim | A chave de criptografia usada para validar a assinatura de token JWT.|
 
 
 ## <a name="how-to-guide"></a>Guia de instruções
@@ -185,7 +185,7 @@ O emissor do token deve fornecer os seguintes pontos de extremidade:
 * `/.well-known/openid-configuration` -Um ponto de extremidade de configuração bem conhecido com informações relevantes sobre o token, como o nome do emissor do token e o link para o ponto de extremidade JWK. 
 * `/.well-known/keys` -o ponto de extremidade da chave da Web JSON (JWK) com a chave pública usada para assinar a chave (com a parte da chave privada do certificado).
 
-Consulte o exemplo do controlador [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC.
+Consulte o exemplo do controlador do .NET MVC do [TokenMetadataController. cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Etapa 1. Preparar um certificado autoassinado
 

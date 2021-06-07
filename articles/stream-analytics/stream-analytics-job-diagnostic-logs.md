@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574418"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -24,9 +24,9 @@ Ocasionalmente, um trabalho do Stream Analytics do Azure interrompe o processame
 
 O Stream Analytics oferece dois tipos de logs:
 
-* [Logs de atividades](../azure-monitor/platform/platform-logs-overview.md) (Always On), que fornecem informações sobre as operações realizadas nos trabalhos.
+* [Logs de atividades](../azure-monitor/essentials/platform-logs-overview.md) (Always On), que fornecem informações sobre as operações realizadas nos trabalhos.
 
-* [Logs de recursos](../azure-monitor/platform/platform-logs-overview.md) (configuráveis), que fornecem informações mais ricas sobre tudo o que acontece com um trabalho. Os logs de recursos iniciam quando o trabalho é criado e terminam quando o trabalho é excluído. Eles abrangem eventos quando o trabalho é atualizado e durante sua execução.
+* [Logs de recursos](../azure-monitor/essentials/platform-logs-overview.md) (configuráveis), que fornecem informações mais ricas sobre tudo o que acontece com um trabalho. Os logs de recursos iniciam quando o trabalho é criado e terminam quando o trabalho é excluído. Eles abrangem eventos quando o trabalho é atualizado e durante sua execução.
 
 > [!NOTE]
 > Você pode usar serviços como o armazenamento do Azure, hubs de eventos do Azure e logs de Azure Monitor para analisar dados não conformes. Você é cobrado com base no modelo de preço desses serviços.
@@ -65,7 +65,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Save** (Salvar).
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 

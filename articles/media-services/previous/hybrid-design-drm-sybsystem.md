@@ -3,7 +3,7 @@ title: Design híbrido dos subsistemas DRM usando os Serviços de Mídia do Azur
 description: Este tópico discute o design híbrido dos subsistemas DRM usando os Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48e761c4fb74802c6b1db63884ee192446720a4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266894"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103016263"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM
 
@@ -95,7 +95,7 @@ Por meio da configuração de uma política de entrega de ativos, você pode con
 
 ## <a name="scenarios-and-samples"></a>Cenários e exemplos
 
-Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam combinações de configuração da política de entrega de ativos de **chave de conteúdo** - **Asset delivery policy** (os exemplos mencionados na última coluna seguem a tabela):
+Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam combinações de configuração da política de entrega de ativos de **chave de conteúdo** -  (os exemplos mencionados na última coluna seguem a tabela):
 
 |**Hospedagem e origem de conteúdo**|**Criptografia do DRM**|**Entrega de licença do DRM**|**Configurar chave de conteúdo**|**Configurar política de entrega de ativos**|**Amostra**|
 |---|---|---|---|---|---|

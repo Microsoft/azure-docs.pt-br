@@ -4,10 +4,10 @@ description: Este artigo descreve como começar a usar o Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
 ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98165035"
 ---
 # <a name="get-started-with-lab-services"></a>Introdução aos serviços de laboratório 
@@ -113,7 +113,7 @@ Os professores podem adicionar usuários de aluno a um laboratório e monitorar 
 
 Depois de ter convidado usuários ou compartilhado o link, você poderá monitorar quais usuários registraram com êxito na página **usuários** na coluna **status** . 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não pretende usar os recursos que criou neste guia de início rápido, exclua os recursos.
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90933156"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Restauração pontual de um servidor flexível
@@ -30,7 +30,7 @@ Para concluir este guia de instruções, você precisa:
 
 Siga estas etapas para restaurar seu servidor flexível usando um backup existente mais antigo.
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível do qual você deseja restaurar o backup.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível do qual você deseja restaurar o backup.
 
 2.  Clique em **visão geral** no painel esquerdo e clique em **restaurar**
    
@@ -40,7 +40,7 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 
 4.  Selecione **ponto de restauração mais antigo** e forneça um novo nome de servidor no campo **restaurar para o novo servidor** . O carimbo de data/hora mais antigo no qual você pode restaurar é exibido. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Visão geral da restauração":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Hora de restauração mais antiga":::
 
 5.  Clique em **OK**.
 
@@ -50,7 +50,7 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 
 Siga estas etapas para restaurar seu servidor flexível usando um backup existente mais antigo.
 
-1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível do qual você deseja restaurar o backup.
+1.  Na [portal do Azure](https://portal.azure.com/), escolha o servidor flexível do qual você deseja restaurar o backup.
 
 2.  Na página Visão geral, clique em **restaurar**.
  :::image type="content" source="./media/how-to-restore-server-portal/restore-overview.png" alt-text="Visão geral da restauração":::
@@ -61,7 +61,7 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 
 5.  Selecione data e hora e forneça um novo nome de servidor no campo **restaurar para o novo servidor** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Visão geral da restauração":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Tempo de restauração personalizado":::
  
 6.  Clique em **OK**.
 
@@ -70,5 +70,5 @@ Siga estas etapas para restaurar seu servidor flexível usando um backup existen
 ## <a name="next-steps"></a>Próximas etapas
 
 -   Saiba mais sobre a [continuidade dos negócios](./concepts-business-continuity.md)
--   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
+-   Saiba mais sobre [alta disponibilidade redundante de zona](./concepts-high-availability.md)
 -   Saiba mais sobre [backup e recuperação](./concepts-backup-restore.md)

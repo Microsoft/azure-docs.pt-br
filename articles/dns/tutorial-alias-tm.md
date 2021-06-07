@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149942"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio apex com o Gerenciador de Tráfego 
 
 Você pode criar um registro de alias para o apex do nome de domínio fazer referência a um perfil do Gerenciador de Tráfego. Um exemplo é contoso.com. Em vez de usar um serviço de redirecionamento, configure o DNS do Azure para fazer referência a um perfil do Gerenciador de Tráfego diretamente da sua zona. 
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
-Para obter instruções sobre como hospedar seu domínio no DNS do Azure, consulte o Tutorial [: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções sobre como hospedar seu domínio no DNS do Azure, confira [Tutorial: Hospedar seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 O domínio de exemplo usado neste tutorial é contoso.com, mas use seu próprio nome de domínio.
 
@@ -73,7 +73,7 @@ Instale o IIS em ambos **Web-01** e **Web 02**.
 2. No painel **Gerenciador do Servidor**, escolha **Adicionar funções e recursos**.
 3. Marque **Avançar** três vezes. Na página **Funções do Servidor**, selecione **Servidor Web (IIS)** .
 4. Escolha **Adicionar Recursos** e, em seguida, **Avançar**.
-5. Marque **Avançar** quatro vezes. Em seguida, escolha **Instalar**. Esse procedimento leva alguns minutos para ser concluído.
+5. Marque **Avançar** quatro vezes. Em seguida, selecione **Instalar**. Esse procedimento leva alguns minutos para ser concluído.
 6. Quando a instalação for concluída, marque **Fechar**.
 7. Abra um navegador da Web. Navegue até **localhost** para verificar se a página da Web do IIS padrão é exibida.
 
@@ -108,12 +108,12 @@ Crie um registro de alias que aponta para o perfil do Gerenciador de Tráfego.
 
 ## <a name="test-the-alias-record"></a>Testar o registro de alias
 
-1. Em um navegador da Web, navegue até seu apex de nome de domínio. Um exemplo é contoso.com. Você verá a página da Web do IIS padrão. Feche o navegador da web.
+1. Em um navegador da Web, navegue até seu apex de nome de domínio. Um exemplo é contoso.com. Você verá a página da Web do IIS padrão. Feche o navegador da Web.
 2. Desligue a máquina virtual **Web-01**. Aguarde alguns minutos até que ela seja completamente desligada.
 3. Abra um novo navegador da web e navegue até seu nome de domínio apex novamente.
 4. Você verá a página da Web do IIS padrão novamente já que o Gerenciador de Tráfego tratou da situação e direcionou o tráfego para **Web-02**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você não precisar mais dos recursos criados para este tutorial, exclua o grupo de recursos **RG-DNS-Alias-TM**.
 

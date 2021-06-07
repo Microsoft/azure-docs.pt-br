@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88205515"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorar suas APIs com Gerenciamento de API do Azure, os Hubs de Eventos e Moesif
@@ -295,7 +295,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API do coletor do Moesif, você precisa de uma conta e uma ID do aplicativo. Você Obtém uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acessando a configuração do aplicativo de _menu superior direito_  ->  _App Setup_.
+O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API do coletor do Moesif, você precisa de uma conta e uma ID do aplicativo. Você Obtém uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acessando a configuração do aplicativo de _menu superior direito_  ->  .
 
 ## <a name="complete-sample"></a>Exemplo completo
 O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes do exemplo estão no GitHub. Para executar o exemplo, você precisará de um [Serviço de Gerenciamento de API](get-started-create-service-instance.md), de um [Hub de Eventos conectado](api-management-howto-log-event-hubs.md) e de uma [Conta de Armazenamento](../storage/common/storage-account-create.md).   

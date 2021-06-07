@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: e22014380d568b12e1e3bec751a75180d0760ab7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062486"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568395"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Implantar um módulo IoT habilitado para GPU do Azure Marketplace no dispositivo Azure Stack Edge pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 Este artigo descreve como implantar uma GPU (unidade de processamento gráfico) habilitada IoT Edge módulo do Azure Marketplace em seu dispositivo Azure Stack Edge pro. 
 
@@ -49,7 +51,7 @@ Antes de começar, verifique se você tem:
 
     ![Pesquisar módulo de exemplo de GPU](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/search-gpu-sample-module-1.png)
 
-3. Selecione **Obtenha agora**.
+3. Selecione **Obter agora**.
 
     ![Obter módulo de exemplo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
@@ -111,4 +113,4 @@ Antes de começar, verifique se você tem:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como [Configurar a GPU para usar um módulo](azure-stack-edge-j-series-configure-gpu-modules.md).
+- Saiba mais sobre como [Configurar a GPU para usar um módulo](./azure-stack-edge-gpu-configure-gpu-modules.md).

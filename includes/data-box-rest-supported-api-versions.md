@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
 ms.openlocfilehash: 0dc44e593f913f2c81cdf6f740127a98bf3f6e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744078"
 ---
 - [2019-02-02](/rest/api/storageservices/version-2019-02-02)

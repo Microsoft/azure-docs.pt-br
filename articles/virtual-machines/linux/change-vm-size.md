@@ -2,16 +2,17 @@
 title: Como redimensionar uma VM Linux com o CLI do Azure
 description: Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM.
 author: DavidCBerry13
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 02/10/2017
 ms.author: daberry
-ms.openlocfilehash: a93b1dcfe803fdead0d741553c45894f1675372b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.collection: linux
+ms.openlocfilehash: 290c42cadd840e5a292201247b1555059b5b4381
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372256"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556631"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionar uma máquina virtual do Linux usando a CLI do Azure 
 

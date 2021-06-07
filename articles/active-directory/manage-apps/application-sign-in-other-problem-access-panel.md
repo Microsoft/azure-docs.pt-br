@@ -12,12 +12,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5d314331059a96388f23cd43667fca20a689f167
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a54c7d6cc4ccf1d9f42702be030598ad1edfab24
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258839"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225142"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos
 
@@ -141,14 +141,15 @@ Para verificar as associações de grupo de um usuário, siga estas etapas:
 7.  Selecione **grupos** para ver de quais grupos o usuário é membro.
 
 ### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Verificar se um usuário tem mais de 999 atribuições de função de aplicativo
-Se um usuário tiver mais de 999 atribuições de função de aplicativo atribuídas a eles, eles não poderão ver todos os seus aplicativos em meus aplicativos.
+Se um usuário tiver mais de 999 atribuições de função de aplicativo, eles não poderão ver todos os seus aplicativos em meus aplicativos.
 
 Isso ocorre porque meus aplicativos atualmente lêem até 999 atribuições de função de aplicativo para determinar os aplicativos aos quais os usuários são atribuídos. Se um usuário for atribuído a mais de 999 aplicativos, não será possível controlar quais desses aplicativos serão mostrados no portal meus aplicativos.
 
-Para verificar o número de atribuições de função de aplicativo concedidas a um usuário, siga estas etapas:
+Para verificar se um usuário tem mais de 999 atribuições de função de aplicativo, siga estas etapas:
 1. Instale o módulo [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell.
-2. Execute `Connect-MgGraph -Scopes "Directory.Read.All"` e autentique como um **administrador global.**
-3. Execute `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` para determinar o número de atribuições de função de aplicativo que o usuário concedeu atualmente.
+2. Execute `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Execute `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` para determinar o número de atribuições de função de aplicativo que o usuário concedeu atualmente.
+4. Se o resultado for 999, o usuário provavelmente terá mais de 999 atribuições de funções de aplicativo.
 
 ### <a name="check-a-users-assigned-licenses"></a>Verificar as licenças atribuídas de um usuário
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:

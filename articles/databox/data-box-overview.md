@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678621"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100389800"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 

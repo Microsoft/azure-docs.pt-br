@@ -7,31 +7,43 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ec4ac5d355266a46b33d89fd25c2665493773f5d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916689"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100807"
 ---
-# <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para Serviço de Aplicativo
+# <a name="protect-your-web-apps-and-apis"></a>Proteger os seus aplicativos Web e APIs
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+A Central de Segurança é integrada de maneira nativa ao Serviço de Aplicativo, eliminando a necessidade de implantação e integração – A integração é transparente.
+
+Para proteger o seu Plano do Serviço de Aplicativo do Azure com o Azure Defender para Serviço de Aplicativo, você precisará de:
+
+- Um plano do Serviço de Aplicativo compatível associado aos computadores dedicados. Os planos compatíveis são listados em [Disponibilidade](#availability).
+
+- O Azure Defender habilitado na sua assinatura, conforme descrito em [Guia de início rápido: Habilitar o Azure Defender](enable-azure-defender.md).
+
+    > [!TIP]
+    > Opcionalmente, você pode habilitar planos individuais no Azure Defender (como o Azure Defender para o Serviço de Aplicativo).
+
+## <a name="availability"></a>Disponibilidade
+
+| Aspecto                       | Detalhes                                                                                                                                                                                        |
+|------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado da versão:               | GA (Disponibilidade Geral)                                                                                                                                                                      |
+| Preço:                     | O [Azure Defender para Serviço de Aplicativo](azure-defender.md) é cobrado conforme mostrado em [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/)<br>A cobrança é de acordo com as instâncias de computação totais em todos os planos       |
+| Planos do Serviço de Aplicativo compatíveis: | [Todos os Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/) têm suporte, exceto o [Azure Functions no plano de consumo](../azure-functions/functions-scale.md). |
+| Nuvens:                      | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)                                                     |
+|                              |                                                                                                                                                                                                |
+
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quais são os benefícios do Azure Defender para o Serviço de Aplicativo?
 
 O Serviço de Aplicativo do Azure é uma plataforma totalmente gerenciada para criar e hospedar seus aplicativos Web e APIs. Como a plataforma é totalmente gerenciada, você não precisa se preocupar com a infraestrutura. Ele fornece gerenciamento, monitoramento e informações operacionais para atender aos requisitos de desempenho, segurança e conformidade em nível empresarial. Para obter mais informações, confira [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/).
 
 O **Azure Defender para Serviço de Aplicativo** usa a escala da nuvem para identificar os ataques direcionados a aplicativos em execução no Serviço de Aplicativo. Os invasores investigam aplicativos Web para encontrar e explorar pontos fracos. Antes de serem roteadas para ambientes específicos, as solicitações para aplicativos em execução no Azure passam por vários gateways, onde são inspecionadas e registradas. Esses dados são usados para identificar explorações e invasores e para aprender novos padrões que serão usados posteriormente.
-
-
-## <a name="availability"></a>Disponibilidade
-
-|Aspecto|Detalhes|
-|----|:----|
-|Estado da versão:|GA (Disponibilidade Geral)|
-|Preço:|O [Azure Defender para Serviço de Aplicativo](azure-defender.md) é cobrado conforme mostrado na [página de preços](security-center-pricing.md)<br>A página de preços e configurações lista o número de instâncias para sua **Quantidade de Recursos**. Esse número é o total de instâncias de computação, em todos os planos do Serviço de Aplicativo nessa assinatura, em execução no momento em que você abriu a página de tipo de preço.<br>Para validar a contagem, abra os **planos do Serviço de Aplicativo** no portal do Azure e confira o número de instâncias de computação usadas que cada plano usou.|
-|Planos do Serviço de Aplicativo compatíveis:|![Sim](./media/icons/yes-icon.png) Básico, Padrão, Premium, Isolado ou Linux<br>![Não](./media/icons/no-icon.png) Gratuito, Compartilhado ou Consumo<br>[Saiba mais sobre os Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
-|||
-
-## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quais são os benefícios do Azure Defender para o Serviço de Aplicativo?
 
 Quando você habilita o Azure Defender para o Serviço de Aplicativo, você se beneficia imediatamente dos seguintes serviços oferecidos por esse plano do Azure Defender:
 
@@ -77,19 +89,6 @@ Para obter uma lista completa dos alertas do Serviço de Aplicativo do Azure, co
 > [!NOTE]
 > O Defender poderá não disparar alertas de DNS pendente se seu domínio personalizado não apontar diretamente para um recurso do Serviço de Aplicativo ou se o Defender não tiver monitorado o tráfego para seu site desde que a proteção de DNS pendente foi habilitada (porque não haverá logs para ajudar a identificar o domínio personalizado).
 
-## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Como proteger os seus aplicativos Web e APIs do Serviço de Aplicativo do Azure
-
-Para proteger seu Plano do Serviço de Aplicativo do Azure com o Azure Defender para Serviço de Aplicativo:
-
-1. Verifique se você tem um Plano do Serviço de Aplicativo compatível, associado aos computadores dedicados. Os planos compatíveis são listados acima em [Disponibilidade](#availability).
-
-2. Habilite o **Azure Defender** em sua assinatura conforme descrito em [Preços da Central de Segurança do Azure](security-center-pricing.md).
-
-    Opcionalmente, você pode habilitar planos individuais no Azure Defender (como o Azure Defender para o Serviço de Aplicativo).
-
-    A Central de Segurança é integrada de maneira nativa ao Serviço de Aplicativo, eliminando a necessidade de implantação e integração – A integração é transparente.
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre o Azure Defender para Serviço de Aplicativo. 
@@ -100,4 +99,4 @@ Para obter material relacionado, consulte os seguintes artigos:
 - Para obter uma lista dos alertas do Azure Defender para o Serviço de Aplicativo, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureappserv).
 - Para saber mais sobre os planos do Serviço de Aplicativo, confira [Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitar o Azure Defender](enable-azure-defender.md)

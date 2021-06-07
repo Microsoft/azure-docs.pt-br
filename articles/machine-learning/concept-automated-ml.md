@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ee9267637c5e3250bfcd543ca46c39d513725819
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072217"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643652"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -116,7 +116,7 @@ Para experiências automatizadas de aprendizado de máquina, o personalização 
 
 Em todo experimento de machine learning automatizado, seus dados são dimensionados ou normalizados automaticamente para ajudar os algoritmos a ter um bom desempenho. Durante o treinamento de modelos, uma das técnicas de dimensionamento ou normalização a seguir serão aplicadas a cada modelo. Saiba como o AutoML ajuda a [impedir o ajuste excessivo e os dados desequilibrados](concept-manage-ml-pitfalls.md) em seus modelos.
 
-|Dimensionamento&nbsp;&&nbsp;normalização| Descrição |
+|Processamento de dimensionamento &nbsp; & &nbsp;| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a mediana e dimensionando para a variância da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformar os recursos dimensionando cada recurso pelo mínimo e máximo dessa coluna  |
@@ -204,7 +204,7 @@ Por exemplo, criar um modelo __para cada instância ou indivíduo__ nos cenário
 
 O Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado:
 
-* Para clientes experientes em código, [SDK do Python do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
+* Para clientes experientes em código, [SDK do Python do Azure Machine Learning](/python/api/overview/azure/ml/intro) 
 
 * Para clientes com experiência limitada/sem código, confira o Azure Machine Learning Studio em [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -263,7 +263,7 @@ Com o Azure Machine Learning, você pode usar o ML automatizado para criar um mo
 
 Veja como converter em formato ONNX [neste exemplo de notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Saiba quais [algoritmos têm suporte no ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-O runtime do ONNX também dá suporte ao C#, assim você pode usar o modelo criado automaticamente em seus aplicativos C# sem a necessidade de registrar ou sem nenhuma latência de rede que os pontos de extremidade REST introduzem. Saiba mais sobre como [usar um modelo AUTOML ONNX em um aplicativo .NET com](./how-to-use-automl-onnx-model-dotnet.md) [os modelos ml.net e inferência ONNX com a API C# do tempo de execução do ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
+O runtime do ONNX também dá suporte ao C#, assim você pode usar o modelo criado automaticamente em seus aplicativos C# sem a necessidade de registrar ou sem nenhuma latência de rede que os pontos de extremidade REST introduzem. Saiba mais sobre como [usar um modelo AUTOML ONNX em um aplicativo .NET com](./how-to-use-automl-onnx-model-dotnet.md) [os modelos ml.net e inferência ONNX com a API C# do tempo de execução do ONNX](https://github.com/plaidml/onnxruntime/blob/plaidml/docs/CSharp_API.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -289,7 +289,7 @@ Examine exemplos de código detalhados e casos de uso no [repositório do bloco 
 
 ### <a name="python-sdk-reference"></a>Referência do SDK do Python
 
-Aprofunde sua experiência em padrões de design do SDK e especificações de classe com a [documentação de referência da classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
+Aprofunde sua experiência em padrões de design do SDK e especificações de classe com a [documentação de referência da classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 > [!Note]
 > Os recursos automatizados de aprendizado de máquina também estão disponíveis em outras soluções da Microsoft, como [ml.net](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

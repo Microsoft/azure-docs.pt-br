@@ -2,13 +2,13 @@
 title: Clusters gerenciados do Service Fabric (versão prévia)
 description: Os clusters gerenciados do Service Fabric são uma evolução do modelo de recurso de cluster do Azure Service Fabric que simplifica a sua implantação e gerenciamento de cluster.
 ms.topic: overview
-ms.date: 09/28/2020
-ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.date: 02/15/2021
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410367"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102041222"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Clusters gerenciados do Service Fabric (versão prévia)
 
@@ -62,21 +62,26 @@ Os clusters gerenciados do Service Fabric estão disponíveis nos SKUs Básico e
 | Adicionar/remover tipos de nós | Não | Sim |
 | Redundância de zona | Não | Sim |
 
-## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Implantar um roteiro do recurso de cluster gerenciado do Service Fabric
-Como esta é uma versão prévia inicial dos clusters gerenciados do Service Fabric, há algumas lacunas a serem consideradas. Esses recursos estarão disponíveis em versões futuras. 
+## <a name="whats-new-for-service-fabric-managed-clusters"></a>Novidades para os clusters gerenciados pelo Service Fabric
 
-* Como publicar aplicativos em clusters diretamente do Visual Studio
-* Identidades gerenciadas 
-* Implantações de aplicativo do ARM 
-* Zonas de Disponibilidades 
-* Proxy inverso 
-* Dimensionamento automático 
-* Atualização de regras de NSG 
-* Atualizações automáticas do sistema operacional
+Os recursos mais recentes para a versão prévia dos clusters gerenciados pelo Service Fabric incluem suporte para:
+
+* [Implantação de aplicativos usando modelos do ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Atualizações automáticas do SO](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Criptografia do disco](how-to-enable-managed-cluster-disk-encryption.md)
+* [Aplicação de regras NSG](how-to-managed-cluster-networking.md)
+
+Os recursos a serem adicionados em versões futuras incluem:
+
+* Implantação de aplicativos usando o Visual Studio
+* Suporte a identidades gerenciadas
+* Zonas de Disponibilidades
+* Proxy inverso
+* Dimensionamento automático
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar os clusters gerenciados do Service Fabric, experimente o guia de início rápido:
+Para começar a usar clusters gerenciados pelo Service Fabric, experimente o guia de início rápido:
 
 > [!div class="nextstepaction"]
 > [Criar um cluster gerenciado do Service Fabric (versão prévia)](quickstart-managed-cluster-template.md)

@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 4e35f8cbf6c32bdfd100b651ab10e3248f8b8b2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86244117"
 ---
 Em um shell baseado em bash no Linux, [subsistema do Windows para Linux][install-wsl] ou MacOS, use `curl` para baixar a versão do gráfico Consul Helm da seguinte maneira:

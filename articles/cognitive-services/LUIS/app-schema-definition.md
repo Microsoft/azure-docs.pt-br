@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
 ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327316"
 ---
 # <a name="app-schema-definition"></a>Definição de esquema de aplicativo
@@ -20,7 +20,7 @@ O aplicativo LUIS é representado no `.json` ou `.lu` e inclui todas as intenç�
 
 Ao importar e exportar o aplicativo, escolha `.json` ou `.lu` .
 
-|Formatar|Informações|
+|Formatar|Informações do|
 |--|--|
 |`.json`| Formato de programação padrão|
 |`.lu`|Com suporte nas [ferramentas de bot Builder](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md)da estrutura de bot.|

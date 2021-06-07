@@ -7,16 +7,16 @@ ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007804"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição do pool de hosts da área de trabalho pessoal
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 Você pode configurar o tipo de atribuição de seu pool de hosts da área de trabalho pessoal para ajustar o ambiente da Área de Trabalho Virtual do Windows e atender melhor às suas necessidades. Neste tópico, mostraremos como configurar a atribuição automática ou direta para seus usuários.
 
@@ -76,7 +76,7 @@ Para atribuir diretamente um usuário a um host de sessão no portal do Azure:
 5. Selecione o nome do pool de hosts que você deseja atualizar.
 6. Em seguida, vá para o menu no lado esquerdo da janela e selecione **grupos de aplicativos**.
 7. Selecione o nome do grupo de aplicativos da área de trabalho que você deseja editar e, em seguida, selecione **atribuições** no menu no lado esquerdo da janela.
-8. Selecione **+ Adicionar**e, em seguida, selecione os usuários ou grupos de usuários para os quais você deseja publicar esse grupo de aplicativos de desktop.
+8. Selecione **+ Adicionar** e, em seguida, selecione os usuários ou grupos de usuários para os quais você deseja publicar esse grupo de aplicativos de desktop.
 9. Selecione **atribuir VM** na barra de informações para atribuir um host de sessão a um usuário.
 10. Selecione o host de sessão que você deseja atribuir ao usuário e, em seguida, selecione **atribuir**.
 11. Selecione o usuário ao qual você deseja atribuir o host de sessão da lista de usuários disponíveis.

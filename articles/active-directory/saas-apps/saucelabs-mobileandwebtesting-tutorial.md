@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 087e2d7f2db8f27378b54675095e97256d6aae9b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92895087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Active Directory do Azure com o Sauce Labs - Teste Móvel e da Web
@@ -62,7 +62,7 @@ Para configurar a integração do Sauce Labs - Mobile e Web Testing no Azure AD,
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Sauce Labs - Mobile e Web Testing** , selecione **Sauce Labs - Mobile e Web Testing** no painel de resultados e clique no botão **Add** para adicionar o aplicação.
+4. Na caixa de pesquisa, digite **Sauce Labs - Mobile e Web Testing**, selecione **Sauce Labs - Mobile e Web Testing** no painel de resultados e clique no botão **Add** para adicionar o aplicação.
 
     ![Sauce Labs - Mobile e Web Testing na lista de resultados](common/search-new-app.png)
 
@@ -86,27 +86,27 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Sauce Labs – Mobile and Web Testing, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Sauce Labs – Mobile and Web Testing** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Sauce Labs – Mobile and Web Testing**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração Básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
+4. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
     ![Sauce Labs - Mobile e Web Testing Informações de logon único de domínio e URLs](common/preintegrated.png)
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Sauce Labs – Mobile and Web Testing** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Sauce Labs – Mobile and Web Testing**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o Sauce Labs – Mobile and Web T
 
     ![Captura de tela que mostra a guia "Configurar" selecionada em "O logon único está habilitado".](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
-5. Na seção **Configurar Logon Único** , execute as etapas a seguir.
+5. Na seção **Configurar Logon Único**, execute as etapas a seguir.
 
     ![Configurar o logon único](./media/saucelabs-mobileandwebtesting-tutorial/configure4.png)
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Sauce Labs – Mobile and Web T
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -158,9 +158,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`  
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -171,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Sauce Labs - Mobile e Web Testing.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Sauce Labs – Mobile and Web Testing**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Sauce Labs – Mobile and Web Testing**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -187,11 +187,11 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-sauce-labs---mobile-and-web-testing-test-user"></a>Criar usuário de teste do Sauce Labs – Mobile and Web Testing
 

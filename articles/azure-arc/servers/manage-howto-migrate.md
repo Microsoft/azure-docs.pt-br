@@ -3,12 +3,12 @@ title: Como migrar servidores habilitados para Arc do Azure entre regiões
 description: Saiba como migrar um servidor habilitado para Arc do Azure de uma região para outra.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4e0f1e41e928ab489f7c2c167eea31785d9bc21
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 251a347205d93af715add52db293d8000438df44
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416995"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101650168"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>Como migrar servidores habilitados para Arc do Azure entre regiões
 
@@ -36,4 +36,4 @@ Para migrar um servidor habilitado para Arc do Azure de uma região do Azure par
 
 * Informações de solução de problemas podem ser encontradas no [guia solucionar problemas do agente do computador conectado](troubleshoot-agent-onboard.md).
 
-* Saiba como gerenciar seu computador usando [Azure Policy](../../governance/policy/overview.md), para tarefas como [configuração de convidado](../../governance/policy/concepts/guest-configuration.md)de VM, verificar se o computador está relatando para o espaço de trabalho esperado log Analytics, habilitar o monitoramento com a política de [Azure monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md) e muito mais.
+* Saiba como gerenciar seu computador usando [Azure Policy](../../governance/policy/overview.md), para tarefas como [configuração de convidado](../../governance/policy/concepts/guest-configuration.md)de VM, verificar se o computador está relatando para o espaço de trabalho esperado log Analytics, habilitar o monitoramento com a política de [Azure monitor com VMs](../../azure-monitor/vm/vminsights-enable-policy.md) e muito mais.

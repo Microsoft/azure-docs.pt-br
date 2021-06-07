@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261013"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote Autônomo do Service Fabric para Windows Server

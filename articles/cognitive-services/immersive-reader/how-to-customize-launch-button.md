@@ -1,5 +1,5 @@
 ---
-title: Botão Personalizar a Leitura Avançada
+title: Editar o botão de inicialização da Leitura Avançada
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostrará como personalizar o botão que inicia o leitor de imersão.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: conceptual
-ms.date: 01/14/2020
+ms.topic: how-to
+ms.date: 03/08/2021
 ms.author: metang
-ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d60e37a437cacda8afbe88a901089f9478a53c16
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146868"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608607"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Como personalizar o botão do leitor de imersão
 

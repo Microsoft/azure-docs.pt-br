@@ -34,7 +34,19 @@
       href: application-proxy-add-on-premises-application.md
 - name: Exemplos
   items:
-    - name: Exemplos do Azure PowerShell para Proxy de Aplicativo
+    - name: Exemplos do PowerShell de gerenciamento de aplicativo
+      items:
+        - name: Visão geral de exemplos de gerenciamento de aplicativo
+          href: app-management-powershell-samples.md
+        - name: Exportar segredos e certificados (registros de aplicativo)
+          href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+        - name: Exportar segredos e certificados (aplicativos empresariais)
+          href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+        - name: Exportar segredos e certificados expirados
+          href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+        - name: Exportar segredos e certificados que expiram além da data necessária
+          href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
+    - name: Exemplos do PowerShell do proxy de aplicativo
       href: application-proxy-powershell-samples.md
 - name: Conceitos
   expanded: true
@@ -150,8 +162,10 @@
           href: disable-user-sign-in-portal.md
         - name: Configurar atribuição de aplicativo de autoatendimento
           href: manage-self-service-access.md
-        - name: Descoberta de Realm Inicial
+        - name: Forçar a aceleração automática por meio da política de Descoberta de Realm Inicial
           href: configure-authentication-for-federated-users-portal.md
+        - name: Impedir a aceleração automática de credenciais com a política de Descoberta de Realm Inicial
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrar o gerenciamento de identidades para o Azure AD
       items:
         - name: Recursos de migração
@@ -212,8 +226,10 @@
               href: application-proxy-integrate-with-microsoft-cloud-application-security.md
             - name: Integrar à área de trabalho remota
               href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: Integrar ao SharePoint
+            - name: Integrar ao SharePoint (Kerberos)
               href: application-proxy-integrate-with-sharepoint-server.md
+            - name: Integrar ao SharePoint (SAML)
+              href: application-proxy-integrate-with-sharepoint-server-saml.md
             - name: Integrar às equipes
               href: application-proxy-integrate-with-teams.md
             - name: Integrar ao Tableau

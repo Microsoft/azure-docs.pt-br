@@ -1,0 +1,38 @@
+---
+title: Parceiros de arquivamento de armazenamento, backup e recuperação de desastre
+titleSuffix: Azure Storage
+description: Lista de empresas parceiras da Microsoft que criam soluções de clientes para arquivamento, backup e BCDR com o armazenamento do Azure
+author: beber-msft
+ms.author: beber
+ms.date: 03/15/2021
+ms.topic: conceptual
+ms.service: storage
+ms.subservice: partner
+ms.openlocfilehash: 9e7f407ecda1fec8d8ae02e21f3b5a5ea4b0befb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561491"
+---
+# <a name="azure-storage-archive-backup-and-disaster-recovery-partners"></a>Parceiros de arquivamento de armazenamento do Azure, backup e recuperação de desastre
+
+Este artigo destaca os parceiros da Microsoft que estão integrados ao armazenamento do Azure para arquivamento, backup e continuidade dos negócios e cargas de trabalho de recuperação de desastre (BCDR). Essas soluções de parceiros aproveitam os benefícios de escala e custo do armazenamento do Azure. Você pode usar as soluções para ajudar a solucionar os desafios de backup, criar um site de recuperação de desastre ou arquivar conteúdo não utilizado para retenção de longo prazo. Com todos os padrões de conformidade que o armazenamento do Azure atende e com recursos do Azure, como [armazenamento imutável](../../../blobs/storage-blob-immutable-storage.md) e [Gerenciamento do ciclo de vida](../../../blobs/storage-lifecycle-management-concepts.md), essas soluções podem facilmente substituir backups baseados em fita e oferecer um site de recuperação econômico sob demanda.
+
+## <a name="verified-partners"></a>Parceiros verificados
+
+| Partner (parceiro) | Descrição | Link de site/produto |
+| ------- | ----------- | -------------------- |
+|![Logotipo da empresa CommVault](./media/commvault-logo.jpg) |**Commvault**<br>Otimize, proteja, migre e indexe seus dados usando a infraestrutura da Microsoft com o CommVault. Assuma o controle de seus dados com a proteção completa de dados do CommVault, a solução de gerenciamento de dados centrada na Microsoft e centrada no Azure. A CommVault fornece as ferramentas de que você precisa para gerenciar, migrar, acessar e recuperar seus dados, independentemente de onde eles residem, reduzindo, ao mesmo tempo, os custos e os riscos.|[Página de parceiro](https://www.commvault.com/complete-data-protection)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault)<br>[Guia de introdução](./commvault/commvault-solution-guide.md)|
+|![Logotipo da empresa do Datadobi](./media/datadob-logo.png) |**Datadobi**<br> O Datadobi pode otimizar seus ambientes de armazenamento não estruturados. O DobiProtect ajuda você a manter uma "cópia ouro" de seus dados de NAS (armazenamento conectado à rede) críticos para os negócios no Azure. Isso ajuda a proteger contra ameaças cibernéticas, ransomware, exclusões acidentais e vulnerabilidades de software. Para reduzir os custos de armazenamento para um mínimo, selecione apenas os dados que você precisará quando ocorrer um desastre. Quando ocorrer um desastre, recupere os dados inteiramente, restaure apenas um subconjunto de dados ou faça failover para sua cópia dourada. |[Página de parceiro](https://datadobi.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobiprotect?tab=Overview)|
+ ![Logotipo da empresa de tecnologia Tiger](./media/tiger-logo.png) |**Tecnologia Tiger**<br>A tecnologia Tiger oferece soluções de software de alto desempenho, seguras e de gerenciamento de dados. A tecnologia Tiger permite que as organizações de qualquer tamanho gerenciem seus ativos digitais locais, em qualquer nuvem pública ou por meio de um modelo híbrido. <br><br> A ponte Tiger é um sistema de gerenciamento de dados e armazenamento somente de software não proprietário. Ele combina o armazenamento em nuvem local e de várias camadas em um único espaço e permite fluxos de trabalho híbridos. Essa extensão de servidor de arquivos transparente permite que você se beneficie da escala e dos serviços do Azure, preservando os aplicativos herdados e os fluxos de trabalho. A ponte Tiger resolve vários desafios de gerenciamento de dados, incluindo: extensão de servidor de arquivos, recuperação de desastre, migração de nuvem, backup e arquivamento, colaboração remota e sincronização de vários sites. Ele também oferece proteção contínua de dados. |[Página do parceiro](https://www.tiger-technology.com/partners/microsoft-azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)|
+| ![Logotipo da empresa do Veeam](./media/veeam-logo.png) |**Veeam**<br> O Veeam backup for Microsoft Azure fornece tudo o que você precisa para proteger nativamente suas VMs do Azure automaticamente. A solução também se integra ao Veeam Backup & replicação para gerenciamento de dados de nuvem híbrida transparente no Azure e em sua nuvem privada. <br><br>O Veeam Backup & Replication oferece proteção de todas as suas cargas de trabalho de nuvem, virtuais e físicas. Obtenha um backup rápido, flexível e confiável com restaurações rápidas. Isso garante a recuperação e a replicação de RTO (objetivo de tempo de recuperação) para todos os seus aplicativos e dados. |Páginas de parceiros:<br>[Backup do Azure](https://www.veeam.com/backup-azure.html)<br>[Backup e replicação](https://www.veeam.com/vm-backup-recovery-replication-software.html) <br>Azure Marketplace: [backup para Azure](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.azure_backup_free?tab=Overview)<br>[Backup e replicação](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication)<br>[Guia de introdução](./veeam/veeam-solution-guide.md)|
+| ![Logotipo da empresa Veritas](./media/veritas-logo.png) |**Veritas**<br>As soluções da Veritas Technologies abrangem o gerenciamento de dados de várias nuvens, proteção de dados, otimização de armazenamento, bem como a prontidão de conformidade e portabilidade de carga de trabalho.<br><br>O NetBackup oferece uma solução de recuperação e proteção de dados unificada. O NetBackup ajuda você a padronizar em seu ambiente, reduzindo significativamente a complexidade e o risco, independentemente da carga de trabalho ou da nuvem. O NetBackup oferece recuperação de desastre orquestrada por push, capacidade de porta de trabalho e confiabilidade integradas, além de resiliência e mobilidade entre os ambientes de Azure Stack ou entre regiões do Azure.<br><br>O Veritas Backup Exec fornece backup externo simples, rápido e seguro para o Azure para seus ambientes físicos e virtuais internos. Ele também protege cargas de trabalho baseadas em nuvem no Azure.|[Página de parceiro](https://www.veritas.com/partners/microsoft-azure)<br>Azure Marketplace:<br>[NetBackup](https://azuremarketplace.microsoft.com/marketplace/apps/veritas.veritas-netbackup-8-s?tab=Overview)<br>[Backup Exec](https://azuremarketplace.microsoft.com/marketplace/apps/veritas.backup-exec-20?tab=Overview)|
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre alguns de nossos outros parceiros, consulte:
+- [Parceiros de Big Data e análise](..\analytics\partner-overview.md)
+- [Parceiros de solução de contêiner](..\container-solutions\partner-overview.md)
+- [Parceiros de gerenciamento de dados e migração](..\data-management\partner-overview.md)
+- [Parceiros de armazenamento primários e secundários](..\primary-secondary-storage\partner-overview.md).

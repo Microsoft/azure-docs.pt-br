@@ -1,25 +1,14 @@
 ---
 title: Instalar & implantar o agente C# do Linux
 description: Saiba como instalar e implantar o agente de segurança baseado no defender para IoT em C# no Linux
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 48737831440a1402b6974955b4da61a4216b011f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84a70928be13212b56636ad1fbb9baaadd0e7d0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933279"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784196"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implantar o defender para IoT C# com base no agente de segurança para Linux
 
@@ -27,11 +16,10 @@ Este guia explica como instalar e implantar o agente de segurança baseado em C#
 
 Neste guia, você aprenderá a:
 
-> [!div class="checklist"]
-> * Instalar
-> * Verificar implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +27,7 @@ Para outras plataformas e tipos de agente, consulte [escolher o agente de segura
 
 1. Para implantar o agente de segurança, são necessários direitos de administrador local no computador em que você deseja instalar.
 
-1. [Criar um módulo de segurança](quickstart-create-security-twin.md) para o dispositivo.
+1. [Crie um defender-IOT-micro-Agent](quickstart-create-security-twin.md) para o dispositivo.
 
 ## <a name="installation"></a>Instalação
 

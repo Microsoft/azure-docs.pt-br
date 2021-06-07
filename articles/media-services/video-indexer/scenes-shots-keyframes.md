@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041899"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e quadros-chave
@@ -46,7 +46,7 @@ Para extrair quadros-chave de alta resolução para seu vídeo, você deve prime
 
 #### <a name="with-the-video-indexer-website"></a>Com o site Video Indexer
 
-Para extrair quadros-chave usando o site Video Indexer, carregue e indexe seu vídeo. Depois que o trabalho de indexação for concluído, clique no botão **baixar** e selecione **artefatos (zip)** . Isso baixará a pasta de artefatos em seu computador. 
+Para extrair quadros-chave usando o site Video Indexer, carregue e indexe seu vídeo. Depois que o trabalho de indexação for concluído, clique no botão **baixar** e selecione **artefatos (zip)**. Isso baixará a pasta de artefatos em seu computador. 
 
 ![Captura de tela que mostra o menu suspenso "baixar" com "artefatos" selecionado.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  

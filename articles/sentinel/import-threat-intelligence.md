@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807132"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574991"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
 
@@ -419,7 +419,7 @@ Vamos examinar como encontrar a pasta de trabalho de inteligência contra ameaç
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
 
-As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md). 
+As pastas de trabalho fornecem painéis interativos avançados que fornecem informações sobre todos os aspectos do Azure Sentinel. Há muito que você pode fazer com pastas de trabalho e, embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente desejará se aprofundar e personalizar esses modelos ou criar novos painéis combinando várias fontes de dados diferentes, para que você possa visualizar seus dados de maneiras exclusivas. Como as pastas de trabalho do Azure Sentinel são baseadas em pastas de trabalho Azure Monitor, já existe uma ampla documentação disponível e muitos outros modelos. Um ótimo lugar para começar é o artigo sobre como [criar relatórios interativos com Azure monitor pastas de trabalho](../azure-monitor/visualize/workbooks-overview.md). 
 
 Também há uma rica comunidade de [pastas de trabalho do Azure monitor no GitHub](https://github.com/microsoft/Application-Insights-Workbooks) , em que você pode baixar modelos adicionais e contribuir com seus próprios modelos.
 

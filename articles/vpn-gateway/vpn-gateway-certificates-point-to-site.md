@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: c1c69b301199b054fe6b1ef42cfcf7878a7a161c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306677"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Gerar e exportar certificados para Ponto a Site usando o PowerShell
@@ -25,7 +25,7 @@ Se você não tiver acesso a um computador com Windows 10 ou Windows Server 2016
 
 [!INCLUDE [generate and export certificates](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="install-an-exported-client-certificate"></a><a name="install"></a>Instalar um certificado do cliente exportado
+## <a name="install-an-exported-client-certificate"></a><a name="install"></a>Instalar um certificado de cliente exportado
 
 Cada cliente que conecta-se à VNet através de uma conexão P2S requer um certificado do cliente para ser instalado localmente.
 

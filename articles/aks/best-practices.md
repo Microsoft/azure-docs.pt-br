@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94686252"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
@@ -21,7 +21,7 @@ Essas práticas recomendadas e os artigos conceituais foram escritos em conjunto
 
 Como um operador de cluster, trabalhe junto com os proprietários e desenvolvedores do aplicativo para compreender suas necessidades. Em seguida, você pode usar as seguintes práticas recomendadas para configurar seus clusters AKS, conforme necessário.
 
-**Multilocação**
+**Várias locação**
 
 * [Práticas recomendadas para isolamento do cluster](operator-best-practices-cluster-isolation.md)
     * Inclui os componentes principais de multilocação e isolamento lógico com namespaces.

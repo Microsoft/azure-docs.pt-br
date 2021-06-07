@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389479"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
@@ -19,7 +19,7 @@ ms.locfileid: "100389479"
 
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
 
-Um tempo de execução de integração auto-hospedado pode executar atividades de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados em uma rede privada. Ele também pode distribuir atividades de transformação em relação aos recursos de computação em uma rede local ou em uma rede virtual do Azure. A instalação de um tempo de execução de integração auto-hospedado precisa de um computador local ou de uma máquina virtual dentro de uma rede privada.  
+Um runtime de integração auto-hospedada pode executar atividades de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados em uma rede privada. Ele também pode distribuir atividades de transformação em relação aos recursos de computação em uma rede local ou em uma rede virtual do Azure. A instalação de um runtime de integração auto-hospedada precisa de um computador local ou uma máquina virtual em uma rede privada.  
 
 Este artigo descreve como você pode criar e configurar um IR para hospedagem interna.
 

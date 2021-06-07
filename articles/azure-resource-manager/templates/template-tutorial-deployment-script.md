@@ -12,10 +12,10 @@ ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97963956"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado

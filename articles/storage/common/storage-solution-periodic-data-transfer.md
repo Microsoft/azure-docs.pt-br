@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96573911"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
@@ -33,7 +33,7 @@ As opções recomendadas para a transferência de dados periódica se enquadram 
 - **Ferramentas de ingestão de dados contínuas** – para a ingestão de dados contínua, em andamento, você pode selecionar um dispositivo de transferência online Data Box ou Azure Data Factory. Essas ferramentas são configuradas por profissionais de TI e podem automatizar a transferência de dados de forma transparente.
 
     - **Azure Data Factory** – o Data Factory deve ser usado para expandir uma operação de transferência e se houver necessidade de funcionalidades de monitoramento de nível empresarial e de orquestração. Use o Azure Data Factory para configurar um pipeline de nuvem para regularmente transferir arquivos entre vários serviços do Azure, no local ou uma combinação dos dois. O Azure Data Factory permite que você orquestre fluxos de trabalho controlados por dados que ingerem dados de armazenamentos de dados diferentes e automatizam a movimentação e transformação de dados.
-    - **Família de Azure data box para transferências online** – Data Box Edge e gateway do data box são dispositivos de rede online que podem mover dados para dentro e fora do Azure. O Azure Data Box Edge usa a inteligência artificial (AI)-habilitado a computação de borda pré-processar os dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados.
+    - **Família Azure Data Box para transferências online** – o Data Box Edge e o Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. O Azure Data Box Edge usa a inteligência artificial (AI)-habilitado a computação de borda pré-processar os dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das principais funcionalidades
@@ -45,7 +45,7 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 | Funcionalidade                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem em relação ao armazenamento <br> APIs REST usando bibliotecas de cliente do Azure |
-| Configuração única inicial     | Mínimo                                | Esforço moderado, variáveis, desenvolvimento    |
+| Configuração única inicial     | Minimal                                | Esforço moderado, variáveis, desenvolvimento    |
 | Formato de Dados                 | Blobs do Azure, Azure Files, Tabelas do Azure | Blobs do Azure, Azure Files, Tabelas do Azure   |
 | Desempenho                 | Já otimizado                      | Otimize à medida que desenvolve                  |
 | Preços                     | Gratuito, são cobrados encargos de saída de dados      | Gratuito, são cobrados encargos de saída de dados        |
@@ -69,5 +69,5 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 - [Mais informações sobre transferência de dados com APIs REST do Armazenamento](/dotnet/api/overview/azure/storage).
 - Entenda como:
     - [Transferir dados com o Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Transforme dados com data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+    - [Transformar dados com o Data Box Edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 - [Saiba como transferir dados com o Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

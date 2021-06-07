@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603150"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>Referência de API do plano de dados do Hub IoT MQTT 5
 
 Este documento define as operações disponíveis na versão 2,0 (API-Version: `2020-10-01-preview` ) da API do plano de dados do Hub IOT.
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 ### <a name="get-twin"></a>Colocar o entrelaçado
 
@@ -76,7 +76,7 @@ Estado relatado do patch "s"
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| If-Version | u64 | no |  |
+| If-Version | u64 | não |  |
 
 **Payload**:
 
@@ -133,12 +133,12 @@ Receber e manipular comandos
 | sequência-não | u64 | sim | Número de sequência da mensagem |
 | em tempo de enfileiramento | time | sim | Carimbo de data/hora de quando a mensagem entrou no sistema |
 | Contagem de entrega | u32 | sim | Número de vezes que a entrega da mensagem foi tentada |
-| creation-time | time | no | Carimbo de data/hora de quando a mensagem foi criada (fornecida pelo remetente) |
-| message-id | string | no | Identidade da mensagem (fornecida pelo remetente) |
-| user-id | string | no | Identidade do usuário (fornecida pelo remetente) |
-| correlation-id | string | no | Identidade de correlação (fornecida pelo remetente) |
-| Tipo de conteúdo | string | no | determina o tipo de conteúdo da carga |
-| content-encoding | string | no | determina a codificação de conteúdo da carga |
+| creation-time | time | não | Carimbo de data/hora de quando a mensagem foi criada (fornecida pelo remetente) |
+| message-id | string | não | Identidade da mensagem (fornecida pelo remetente) |
+| user-id | string | não | Identidade do usuário (fornecida pelo remetente) |
+| correlation-id | string | não | Identidade de correlação (fornecida pelo remetente) |
+| Tipo de conteúdo | string | não | determina o tipo de conteúdo da carga |
+| content-encoding | string | não | determina a codificação de conteúdo da carga |
 
 **Carga**: qualquer sequência de bytes
 
@@ -262,12 +262,12 @@ Poste a mensagem no canal de telemetria-EventHubs por padrão ou outro ponto de 
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| Tipo de conteúdo | string | no | traduz na `content-type` Propriedade do sistema na mensagem postada |
-| content-encoding | string | no | traduz na `content-encoding` Propriedade do sistema na mensagem postada |
-| message-id | string | no | traduz na `message-id` Propriedade do sistema na mensagem postada |
-| user-id | string | no | traduz na `user-id` Propriedade do sistema na mensagem postada |
-| correlation-id | string | no | traduz na `correlation-id` Propriedade do sistema na mensagem postada |
-| creation-time | time | no | traduz em `iothub-creation-time-utc` Propriedade na mensagem postada |
+| Tipo de conteúdo | string | não | traduz na `content-type` Propriedade do sistema na mensagem postada |
+| content-encoding | string | não | traduz na `content-encoding` Propriedade do sistema na mensagem postada |
+| message-id | string | não | traduz na `message-id` Propriedade do sistema na mensagem postada |
+| user-id | string | não | traduz na `user-id` Propriedade do sistema na mensagem postada |
+| correlation-id | string | não | traduz na `correlation-id` Propriedade do sistema na mensagem postada |
+| creation-time | time | não | traduz em `iothub-creation-time-utc` Propriedade na mensagem postada |
 
 **Carga**: qualquer sequência de bytes
 
@@ -323,7 +323,7 @@ A mensagem da operação está malformada e não pode ser processada.
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -339,8 +339,8 @@ A operação está em conflito com outra operação em andamento.
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -356,7 +356,7 @@ A operação não é permitida.
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -372,7 +372,7 @@ O cliente não está autorizado a executar a operação.
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
 
 **Carga**: vazia
 
@@ -388,7 +388,7 @@ o recurso solicitado não existe
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -440,7 +440,7 @@ o recurso não tem capacidade para concluir a operação
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -456,7 +456,7 @@ servidor ocupado
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
 
 **Carga**: vazia
 
@@ -472,7 +472,7 @@ erro interno do servidor
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
 
 **Carga**: vazia
 
@@ -488,7 +488,7 @@ O destino respondeu, mas a resposta era inválida ou malformada
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -504,8 +504,8 @@ tempo limite excedido ao aguardar o destino concluir a solicitação
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
-| reason | string | no | contém informações sobre o que especificamente não é válido sobre a mensagem |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| reason | string | não | contém informações sobre o que especificamente não é válido sobre a mensagem |
 
 **Carga**: vazia
 
@@ -545,7 +545,7 @@ a operação atingiu o tempo limite antes de ser concluída
 
 | Nome | Type | Obrigatório | Descrição |
 | :--- | :--- | :------- | :---------- |
-| ID do rastreamento | string | no | ID de rastreamento para correlação com diagnóstico adicional para o erro |
+| ID do rastreamento | string | não | ID de rastreamento para correlação com diagnóstico adicional para o erro |
 
 **Carga**: vazia
 

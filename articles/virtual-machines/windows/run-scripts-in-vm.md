@@ -3,17 +3,18 @@ title: Executar scripts em uma VM Windows do Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual Windows
 services: automation
 ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 23abc86e26686d9a23ed94d0311a44ffe3012657
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
-ms.translationtype: MT
+ms.openlocfilehash: 7bf62eb2ab8d2ce82ce73e3e8ae26cf303b8ba67
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201766"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765873"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executar scripts na sua VM Windows
 
@@ -34,7 +35,7 @@ A [extensão de Script personalizada](../extensions/custom-script-windows.md) é
 O recurso [Executar Comando](run-command.md) permite o gerenciamento de máquinas virtuais e de aplicativos, a solução de problemas usando scripts e está disponível mesmo quando o computador não pode ser acessado, por exemplo, se o firewall convidado não tem a porta RDP ou SSH aberta.
 
 * Execute scripts em máquinas virtuais do Azure.
-* Podem ser executados usando o [Portal do Azure](run-command.md), a [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), a [CLI do Azure](/cli/azure/vm/run-command#az-vm-run-command-invoke) ou o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* Podem ser executados usando o [Portal do Azure](run-command.md), a [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), a [CLI do Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) ou o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Execute rapidamente um script e exiba a saída e repetição conforme necessário no Portal do Azure.
 * O script pode ser digitado diretamente ou você pode executar um dos scripts internos.
 * Execute o script do PowerShell em computadores Windows e o script Bash em computadores Linux.
@@ -57,7 +58,7 @@ O [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) 
 
 ## <a name="serial-console"></a>Console serial
 
-O [Console serial](../troubleshooting/serial-console-windows.md) fornece acesso direto a uma VM, semelhante a ter um teclado conectado à VM.
+O [Console serial](/troubleshoot/azure/virtual-machines/serial-console-windows) fornece acesso direto a uma VM, semelhante a ter um teclado conectado à VM.
 
 * Execute comandos em máquinas virtuais do Azure.
 * Pode ser executado usando um console baseado em texto para o computador no portal do Azure.
@@ -71,4 +72,4 @@ Saiba mais sobre os diferentes recursos disponíveis para executar scripts e com
 * [Extensão de script personalizado](../extensions/custom-script-windows.md)
 * [Executar Comando](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [Console serial](../troubleshooting/serial-console-windows.md)
+* [Console serial](/troubleshoot/azure/virtual-machines/serial-console-windows)

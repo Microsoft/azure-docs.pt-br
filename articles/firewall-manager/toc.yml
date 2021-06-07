@@ -10,6 +10,9 @@
     - name: Hub virtual seguro – modelo do ARM
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: Implantar o firewall com uma política – modelo do ARM
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Tutoriais
   items:
     - name: Proteger seu hub virtual – Portal
@@ -48,6 +51,8 @@
   items:
     - name: Implantar provedores de parceiro de segurança
       href: deploy-trusted-security-partner.md
+    - name: Proteger pontos de extremidade privados
+      href: private-link-inspection-secure-virtual-hub.md
     - name: Migrar para a política de firewall – PowerShell
       href: migrate-to-policy.md
     - name: Configurações DNS

@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 40472dc2446133ec23d1d62343a93d2d69fc90cd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99260139"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure AD
@@ -35,15 +35,15 @@ O Proxy de Aplicativo é um recurso do Azure AD que permite que os usuários ace
 
 O Proxy de Aplicativo funciona com:
 
-* Aplicativos Web que usam a [Autenticação Integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação
-* Aplicativos Web que usam o acesso baseado em formulário ou [baseado em cabeçalho](./application-proxy-configure-single-sign-on-with-headers.md)
+* Aplicativos Web que usam a [autenticação integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação
+* Aplicativos Web que usam acesso baseado em formulário ou em [cabeçalho](./application-proxy-configure-single-sign-on-with-headers.md)
 * APIs Web que você deseja expor a aplicativos avançados em diferentes dispositivos
 * Aplicativos hospedados atrás de um [Gateway de área de trabalho remota](application-proxy-integrate-with-remote-desktop-services.md)
-* Aplicativos cliente avançados integrados com a MSAL (Biblioteca de Autenticação da Microsoft)
+* Aplicativos cliente avançados que são integrados com a MSAL (biblioteca de autenticação da Microsoft)
 
 O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](sso-options.md#choosing-a-single-sign-on-method).
 
-O proxy de aplicativo é recomendado para conceder aos usuários remotos acesso a recursos internos. O proxy de aplicativo substitui a necessidade de um proxy reverso ou VPN. Ele não se destina a usuários internos na rede corporativa.  Esses usuários que desnecessariamente usam o proxy de aplicativo podem introduzir problemas de desempenho inesperados e indesejáveis.
+O Proxy de Aplicativo é recomendado para conceder aos usuários remotos o acesso a recursos internos. O proxy de aplicativo substitui a necessidade de um proxy reverso ou VPN. Não é destinado a usuários internos na rede corporativa.  Esses usuários que usam desnecessariamente o Proxy de Aplicativo podem apresentar problemas de desempenho inesperados e indesejados.
 
 ## <a name="how-application-proxy-works"></a>Como o Proxy de Aplicativo funciona
 
@@ -65,7 +65,7 @@ O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham jun
 
 | Componente | Descrição |
 | --------- | ----------- |
-| Ponto de Extremidade  | O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
+| Ponto de extremidade  | O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
 | AD do Azure | O Azure AD executa a autenticação usando o diretório do locatário armazenado na nuvem. |
 | Serviço do Proxy de Aplicativo | Esse serviço de Proxy de Aplicativo é executado na nuvem como parte do Azure AD. Ele passa o token de logon do usuário para o Conector de Proxy de Aplicativo. O Proxy de Aplicativo encaminha qualquer cabeçalho acessível na solicitação e define os cabeçalhos de acordo com seu protocolo para o endereço IP do cliente. Se a solicitação de entrada para o proxy já tiver esse cabeçalho, o endereço IP do cliente será adicionado ao final da lista separada por vírgulas que é o valor do cabeçalho.|
 | Conector de Proxy de Aplicativo | O conector é um agente leve executado em um Windows Server na sua rede. Ele gerencia a comunicação entre o serviço de Proxy de Aplicativo na nuvem e o aplicativo local. O conector usa apenas conexões de saída, portanto você não precisa abrir portas de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e efetuam pull de informações da nuvem conforme necessário. Para obter mais informações sobre conectores, como eles fazem o balanceamento de carga e a autenticação, consulte [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).|

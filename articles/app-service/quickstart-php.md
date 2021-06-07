@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6876d0aef0d3d87e038b623c395f8368a14e90c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: c04e1b33233abebde746fd7fb1ef8d761dba7e4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561844"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788197"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo do Azure
 
@@ -78,9 +78,9 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-No Cloud Shell, crie um aplicativo Web no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp#az-webapp-create). 
+No Cloud Shell, crie um aplicativo Web no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [`az webapp create`](/cli/azure/webapp#az_webapp_create). 
 
-No exemplo a seguir, substitua `<app-name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `PHP|7.4`. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes). 
+No exemplo a seguir, substitua `<app-name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `PHP|7.4`. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 # Bash

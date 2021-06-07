@@ -3,7 +3,7 @@ title: Como executar a transmissão ao vivo usando os Serviços de Mídia do Azu
 description: Este tutorial orienta você pelas etapas de criação de um Canal que recebe um fluxo em tempo real de taxa de bits única e o codifica em um fluxo de múltiplas taxas de bits usando o SDK do .NET.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: be98ab20fb29ae50445494a3c5f1558fd43420a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 7bf00abfaa56453303fa85e3062a7fafc7e0ac56
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268684"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103014155"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
 
@@ -110,7 +110,7 @@ Você pode baixar o exemplo descrito neste artigo [aqui](https://azure.microsoft
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configurar para o desenvolvimento com o SDK dos Serviços de Mídia para .NET
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="code-example"></a>Exemplo de código
 

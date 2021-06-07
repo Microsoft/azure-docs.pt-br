@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342392"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
@@ -86,7 +86,7 @@ O cluster do Avere vFXT usa os seguintes endereços IP:
 
 * Um endereço IP de gerenciamento de cluster. Esse endereço pode ser movido do nó para o nó no cluster, conforme necessário, para que ele esteja sempre disponível. Use esse endereço para se conectar à ferramenta de configuração do painel de controle do avere.
 * Para cada nó de cluster:
-  * Pelo menos um endereço IP voltado para o cliente. (Todos os endereços voltados para o cliente são gerenciados pelo *vserver*do cluster, que pode mover os endereços IP entre os nós, conforme necessário.)
+  * Pelo menos um endereço IP voltado para o cliente. (Todos os endereços voltados para o cliente são gerenciados pelo *vserver* do cluster, que pode mover os endereços IP entre os nós, conforme necessário.)
   * Um endereço IP para comunicação de cluster
   * Endereço IP de uma instância (atribuído à VM)
 

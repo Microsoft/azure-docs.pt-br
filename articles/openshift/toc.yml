@@ -28,6 +28,8 @@
           href: dns-forwarding.md
     - name: Armazenamento
       items:
+        - name: Criptografar PVCs com chave gerenciada pelo cliente (versão prévia)
+          href: howto-encrypt-data-disks.md
         - name: Criar um Storageclass dos Arquivos do Azure
           href: howto-create-a-storageclass.md
         - name: Usar o registro de contêiner interno
@@ -55,7 +57,7 @@
             - name: Configurar o Azure Monitor para contêineres para o ARO 4 (versão prévia)
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Desabilitar o Azure Monitor para contêineres no ARO 4 (versão prévia)
-              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+              href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Desenvolver e executar aplicativos
       items:
         - name: Implantar um aplicativo do Open Liberty/WebSphere Liberty
@@ -80,10 +82,10 @@
             - name: Azure Monitor para contêineres no Red Hat OpenShift 3.11 no Azure (versão prévia)
               items:
                 - name: Configurar o Azure Monitor para contêineres no Red Hat OpenShift 3.11 no Azure
-                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  href: ../azure-monitor/containers/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Desabilitar o Azure Monitor para contêineres no Red Hat OpenShift 3.11 no Azure
-                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
+                  href: ../azure-monitor/containers/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Executar contêineres privilegiados no Red Hat OpenShift 3.11 no Azure
           href: howto-run-privileged-containers.md

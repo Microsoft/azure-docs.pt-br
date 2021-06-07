@@ -9,10 +9,10 @@ author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
 ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "75659858"
 ---
 >[!IMPORTANT]
@@ -36,7 +36,7 @@ A exclusão de um grupo de recursos também exclui todos os recursos criados no 
 
 No designer em que você criou seu experimento, exclua ativos individuais selecionando-os e, em seguida, selecionando o botão **Excluir**.
 
-O destino de computação que você criou aqui é *dimensionado automaticamente* para zero nós quando não estiver sendo usado. Essa ação é executada para minimizar encargos. Se você quiser excluir o destino de computação, siga estas etapas:
+O destino de computação que você criou aqui é *dimensionado automaticamente* para zero nós quando não estiver sendo usado. Essa ação é executada para minimizar encargos. Se você quiser excluir o destino de computação, siga estas etapas:
 
 ![Excluir ativos](./media/aml-ui-cleanup/delete-asset.png)
 

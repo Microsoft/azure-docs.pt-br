@@ -6,20 +6,20 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 652986c4850a0b51fc86b84133d7e93813423c9a
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 6268ff6cfb3d3e856edcd8f84af930d52f4cf9d3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550312"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102096166"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas para gatilhos da central de segurança
 
-Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de stakeholders relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga. Ele também pode melhorar sua segurança, garantindo que as etapas do processo sejam feitas de forma rápida, consistente e de acordo com seus requisitos predefinidos.
+Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de stakeholders relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga. Além disso, ela pode aprimorar sua segurança, garantindo que as etapas do processo sejam feitas de maneira rápida, consistente e de acordo com seus requisitos predefinidos.
 
-Este artigo descreve o recurso de automação de fluxo de trabalho da central de segurança do Azure. Esse recurso pode disparar aplicativos lógicos sobre alertas de segurança, recomendações e alterações na conformidade regulatória. Por exemplo, talvez você queira que a central de segurança envie por email um usuário específico quando ocorrer um alerta. Você também aprenderá a criar aplicativos lógicos usando [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md).
+Este artigo descreve o recurso de automação de fluxo de trabalho da central de segurança do Azure. Esse recurso pode disparar aplicativos lógicos sobre alertas de segurança, recomendações e alterações na conformidade regulatória. Por exemplo, talvez você queira que a Central de Segurança envie por email um usuário específico quando uma avaliação de conformidade falhar. Você também aprenderá a criar aplicativos lógicos usando [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="availability"></a>Disponibilidade
@@ -46,18 +46,18 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
     Um painel é exibido com as opções para sua nova automação. Aqui você pode inserir:
     1. Um nome e uma descrição para a automação.
-    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha "SQL" for gerado.
+    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu Aplicativo Lógico seja executado quando um alerta de segurança que contenha "SQL" for gerado.
 
         > [!NOTE]
         > Se o gatilho for uma recomendação que tenha "subrecomendações", por exemplo, as **descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas**, o aplicativo lógico não será disparado para cada nova descoberta de segurança; somente quando o status da recomendação pai for alterado.
 
-    1. O aplicativo lógico que será executado quando suas condições de disparo forem atendidas. 
+    1. O Aplicativo Lógico que será executado quando suas condições de disparo forem atendidas. 
 
         :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Adicionar painel de automação de fluxo de trabalho":::
 
 1. Na seção ações, clique em **criar um novo** para iniciar o processo de criação do aplicativo lógico.
 
-    Você será levado para os aplicativos lógicos do Azure.
+    Você será levado para os Aplicativos Lógicos do Azure.
 
     [![Criando um novo aplicativo lógico](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
@@ -90,7 +90,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
 ## <a name="manually-trigger-a-logic-app"></a>Disparar um aplicativo lógico manualmente
 
-Você também pode executar aplicativos lógicos manualmente ao exibir qualquer alerta de segurança ou recomendação.
+Você também pode executar Aplicativos Lógicos manualmente ao exibir qualquer alerta de segurança ou recomendação.
 
 Para executar manualmente um aplicativo lógico, abra um alerta ou uma recomendação e clique em **disparar aplicativo lógico**:
 
@@ -113,6 +113,7 @@ Para implementar essas políticas:
     |---------|---------|---------|
     |Automação de fluxo de trabalho para alertas de segurança|[Implantar a Automação de Fluxo de Trabalho para alertas da Central de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
     |Automação de fluxo de trabalho para recomendações de segurança|[Implantar a Automação de Fluxo de Trabalho para recomendações da Central de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    |Automação do fluxo de trabalho para alterações de conformidade regulatória|[Implantar a Automação de Fluxo de Trabalho para conformidade regulatória da Central de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-509122b9-ddd9-47ba-a5f1-d0dac20be63c)|509122b9-ddd9-47ba-a5f1-d0dac20be63c|
     ||||
 
     > [!TIP]
@@ -155,7 +156,7 @@ Saiba mais sobre [continuidade de negócios e recuperação de desastre para apl
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar aplicativos lógicos, automatizar sua execução na central de segurança e executá-los manualmente. 
+Neste artigo, você aprendeu a criar aplicativos lógicos, automatizar sua execução na central de segurança e executá-los manualmente.
 
 Para obter materiais relacionados, confira: 
 

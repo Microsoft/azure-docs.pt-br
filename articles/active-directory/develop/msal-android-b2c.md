@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Azure AD B2C com a biblioteca de autenticação da Microsoft para Android (MSAL. Android
 services: active-directory
-author: brianmel
+author: iambmelt
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,19 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680358"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101688868"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
 
 A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem usuários com identidades locais e sociais usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml). O Azure AD B2C é um serviço de gerenciamento de identidades. Use-o para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
+
+## <a name="choosing-a-compatible-authorization_user_agent"></a>Escolhendo um authorization_user_agent compatível
+O sistema de gerenciamento de identidade B2C dá suporte à autenticação com vários provedores de conta social, como Google, Facebook, Twitter e Amazon. Se você planeja oferecer suporte a esses tipos de conta em seu aplicativo, é recomendável que você configure seu aplicativo cliente público MSAL para usar `DEFAULT` o `BROWSER` valor ou ao especificar o manifesto [`authorization_user_agent`](msal-configuration.md#authorization_user_agent) devido a restrições que proíbem o uso de autenticação baseada em WebView com alguns provedores de identidade externos.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configurar autoridades conhecidas e URI de redirecionamento
 
@@ -39,21 +42,24 @@ O arquivo de configuração para o aplicativo declararia dois `authorities` . Um
 >Observação: o `account_mode` deve ser definido como **vários** para aplicativos B2C. Consulte a documentação para obter mais informações sobre [aplicativos cliente públicos de várias contas](./single-multi-account.md#multiple-account-public-client-application).
 
 ### `app/src/main/res/raw/msal_config.json`
+
 ```json
 {
-    "client_id": "<your_client_id_here>",
-    "redirect_uri": "<your_redirect_uri_here>",
-    "account_mode" : "MULTIPLE",
-    "authorities": [{
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-            "default": true
-        },
-        {
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-        }
-    ]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorization_user_agent" : "DEFAULT",
+  "authorities": [
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 
@@ -118,7 +124,7 @@ pca.acquireToken(parameters);
 Para adquirir um token silenciosamente com MSAL, crie uma `AcquireTokenSilentParameters` instância e forneça-a ao `acquireTokenSilentAsync` método. Ao contrário do `acquireToken` método, o `authority` deve ser especificado para adquirir um token silenciosamente.
 
 ```java
-IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)

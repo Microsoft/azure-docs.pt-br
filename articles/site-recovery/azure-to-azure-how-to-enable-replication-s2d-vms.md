@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92424824"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs do Azure em execução Espaços de Armazenamento Diretos para outra região
@@ -77,10 +77,10 @@ Ambos os nós das VMs precisam fazer failover usando o [plano de recuperação](
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 1.  No Portal do Azure, selecione seu cofre de Serviços de Recuperação.
 2.  Selecione o plano de recuperação que você criou.
-3.  Selecione **Failover de Teste**.
+3.  Selecione **failover de teste**.
 4.  Para iniciar o processo de failover de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 5.  Quando o ambiente secundário está ativo, faça validações.
-6.  Quando as validações forem concluídas, para limpar o ambiente de failover, selecione **Limpar failover de teste**.
+6.  Quando as validações forem concluídas, para limpar o ambiente de failover, selecione **limpar failover de teste**.
 
 Para obter mais informações, consulte [Failover de teste para Azure no Site Recovery ](site-recovery-test-failover-to-azure.md).
 

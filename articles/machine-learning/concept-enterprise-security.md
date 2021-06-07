@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
 ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992022"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governança corporativas para Azure Machine Learning
@@ -97,7 +97,7 @@ Ao implantar modelos como serviços Web, você pode habilitar o TLS (segurança 
 
 ## <a name="vulnerability-scanning"></a>Verificação de vulnerabilidade
 
-A [central de segurança do Azure](../security-center/security-center-introduction.md) fornece gerenciamento de segurança unificado e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Para o Azure Machine Learning, você deve habilitar a verificação do recurso de [registro de contêiner do Azure](../container-registry/container-registry-intro.md) e os recursos do serviço kubernetes do Azure. Para obter mais informações, consulte [verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/defender-for-container-registries-introduction.md) e [integração dos serviços Kubernetess do Azure com a central de segurança](../security-center/defender-for-kubernetes-introduction.md).
+A [Central de Segurança do Azure](../security-center/security-center-introduction.md) fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Para o Azure Machine Learning, você deve habilitar a verificação do recurso de [registro de contêiner do Azure](../container-registry/container-registry-intro.md) e os recursos do serviço kubernetes do Azure. Para obter mais informações, consulte [verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/defender-for-container-registries-introduction.md) e [integração dos serviços Kubernetess do Azure com a central de segurança](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Auditar e gerenciar conformidade
 

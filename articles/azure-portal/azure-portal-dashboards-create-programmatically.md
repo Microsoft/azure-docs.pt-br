@@ -3,12 +3,12 @@ title: Criar de maneira programática Painéis do Azure
 description: Use um Dashboard no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745801"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101095173"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -46,7 +46,7 @@ Depois de configurar o painel, a próxima etapa é publicar o painel usando o co
 
 ![compartilhando um painel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![fazer alterações no compartilhamento e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -665,7 +665,7 @@ az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Você pode atualizar um painel usando o comando [AZ portal Dashboard Update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+Você pode atualizar um painel usando o comando [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update):
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -678,7 +678,7 @@ Consulte os detalhes de um painel executando o comando [AZ portal Dashboard show
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-Para ver todos os painéis para a assinatura atual, use a [lista AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+Para ver todos os painéis para a assinatura atual, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 Para obter mais informações sobre áreas de trabalho, consulte [Manage portal do Azure Settings and Preferences](set-preferences.md).
 
-Para obter mais informações sobre CLI do Azure suporte para painéis, consulte [AZ portal Dashboard](/cli/azure/ext/portal/portal/dashboard).
+Para obter mais informações sobre o suporte à CLI do Azure para painéis, confira [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

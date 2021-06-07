@@ -12,16 +12,21 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: leitores, aprendizes de idioma, exibir imagens, aprimorar leitura, ler conteúdo, traduzir
-ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631229"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801563"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente desenvolvida que implementa técnicas comprovadas para melhorar a compreensão de leitura para novos leitores, aprendizes da idioma e pessoas com diferenças de aprendizado, como dislexia. Com a biblioteca de clientes da Leitura Avançada, você pode aproveitar a mesma tecnologia usada no Microsoft Word e no Microsoft One para aprimorar os seus aplicativos Web. 
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* Os **[guias de início rápido](quickstarts/client-libraries.md)** são instruções de introdução que orientam sobre como fazer solicitações ao serviço.
+* Os **[guias de instruções](how-to-create-immersive-reader.md)** contêm instruções de uso do serviço de maneiras mais específicas ou personalizadas.
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Usar a Leitura Avançada para aprimorar a acessibilidade da leitura 
 
@@ -72,10 +77,3 @@ A Leitura Avançada é um aplicativo Web autônomo. Quando invocado usando a bib
 A biblioteca de clientes da Leitura Avançada está disponível em C#, JavaScript, Java (Android), Kotlin (Android) e Swift (iOS). Comece com:
 
 * [Início Rápido: Usar a biblioteca de clientes de Leitura Avançada](quickstarts/client-libraries.md)
-
-## <a name="next-steps"></a>Próximas etapas
-
-Introdução à Leitura Avançada:
-
-* Leia a [Referência da biblioteca de clientes de Leitura Avançada](./reference.md)
-* Explore a [Biblioteca de clientes de Leitura Avançada no GitHub](https://github.com/microsoft/immersive-reader-sdk)

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183967"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100572254"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
 
@@ -20,8 +20,8 @@ Este tutorial discute quais logs de recursos do serviço de Signaler do Azure s�
 ## <a name="prerequisites"></a>Pré-requisitos
 Para habilitar os logs de recursos, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
 
-* [Armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – mantém logs de recursos para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
+* [Armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) – mantém logs de recursos para auditoria de política, análise estática ou backup.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurar logs de recursos para um serviço de Signaler do Azure
 
@@ -50,7 +50,7 @@ Os logs de recursos são desabilitados por padrão. Para habilitar os logs de re
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-Para obter mais informações sobre como configurar o diagnóstico, consulte a [visão geral dos logs de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre como configurar o diagnóstico, consulte a [visão geral dos logs de recursos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="resource-logs-categories"></a>Categorias de logs de recursos
 
@@ -122,7 +122,7 @@ Para exibir os logs de recursos, siga estas etapas:
 
     ![Log Analytics item de menu](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+2. Insira `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar os logs de recursos. Para consulta avançada, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
     ![Log de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -133,7 +133,7 @@ Nome | Descrição
 TimeGenerated | Hora do evento de log
 Coleção | Coleção do evento de log. Os valores permitidos são: `Connection` , `Authorization` e `Throttling`
 OperationName | Nome da operação do evento
-Localização | Local do serviço de Signaler do Azure
+Location | Local do serviço de Signaler do Azure
 Nível | Nível de evento de log
 CallerIpAddress | Endereço IP do servidor/cliente
 Mensagem | Mensagem detalhada do evento de log

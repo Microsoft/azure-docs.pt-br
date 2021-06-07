@@ -4,10 +4,10 @@ description: Você pode usar Azure Data Box para propagar dados de backup inicia
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752542"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
@@ -26,7 +26,7 @@ O backup offline baseado no Azure Data Box fornece duas vantagens distintas em r
 
 - O Backup do Azure (Agente MARS) pode gravar dados de backup diretamente nos SKUs compatíveis do Azure Data Box. Essa funcionalidade elimina a necessidade de provisionar um local de preparo para os dados do backup inicial. Também não é necessário usar utilitários para formatar e copiar esses dados nos discos.
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 As seguintes plataformas são compatíveis:
 
@@ -84,7 +84,7 @@ Caso tenho solicitado um ou mais Azure Data Box Disks (até 8 TB cada), siga as 
 
 ## <a name="setup-azure-data-box"></a>Configurar o Azure Data Box
 
-Se você solicitou um Azure Data Box (até 100 TB), siga as etapas mencionadas [aqui](../databox/data-box-deploy-set-up.md) para configurar sua data box.
+Caso tenha solicitado um Azure Data Box (até 100 TB), siga as etapas mencionadas [aqui](../databox/data-box-deploy-set-up.md) para configurar seu Data Box.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Monte o Azure Data Box como um sistema local
 

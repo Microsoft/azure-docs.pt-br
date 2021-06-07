@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: eddcab2c0a34ef437e4f2f1e2203fee9065133a4
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040169"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781875"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Guia de início rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,13 +48,13 @@ Para migrar um banco de dados para uma [Instância Gerenciada de SQL do Azure](.
 
 1. Selecione a conta de armazenamento e o contêiner para o arquivo BACPAC e, em seguida, selecione o arquivo BACPAC do qual importar.
 
-1. Especifique o tamanho do novo banco de dados (normalmente, o mesmo que o original) e forneça as credenciais do SQL Server de destino. Para obter uma lista de valores possíveis para um novo banco de dados do Banco de Dados SQL do Azure, confira [Criar Banco de Dados](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Especifique o tamanho do novo banco de dados (normalmente, o mesmo que o original) e forneça as credenciais do SQL Server de destino. Para obter uma lista de valores possíveis para um novo banco de dados do Banco de Dados SQL do Azure, confira [Criar Banco de Dados](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
    ![Banco de dados import2](./media/database-import/sql-server-import-database-settings.png)
 
 1. Clique em **OK**.
 
-1. Para monitorar o progresso de uma importação, abra a página do servidor do banco de dados e, em **Configurações** , selecione **Histórico de importação/exportação**. Quando obtiver êxito, a importação terá o status **Concluído**.
+1. Para monitorar o progresso de uma importação, abra a página do servidor do banco de dados e, em **Configurações**, selecione **Histórico de importação/exportação**. Quando obtiver êxito, a importação terá o status **Concluído**.
 
    ![Status de importação do banco de dados](./media/database-import/sql-server-import-database-history.png)
 
@@ -128,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Use o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
+Use o comando [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) para enviar uma solicitação de importação de banco de dados para o Azure. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída. O modelo de provisionamento baseado em DTU é compatível com valores de tamanho máximo de banco de dados selecionados para cada camada. Ao importar um banco de dados [use um desses valores compatíveis](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key
@@ -144,6 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 > [!TIP]
 > Para outro exemplo de script, confira [Importar um banco de dados de um arquivo BACPAC](scripts/import-from-bacpac-powershell.md).
+
+## <a name="cancel-the-import-request"></a>Cancelar a solicitação de importação
+
+Use a [API de Cancelamento – Operações de Banco de Dados](/rest/api/sql/databaseoperations/cancel) ou o [comando Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) do PowerShell, no caso um exemplo de comando do PowerShell.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## <a name="limitations"></a>Limitações
 

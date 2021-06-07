@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: f60c91d31b7a97d2a17414cf42e85c27451ad4ce
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97372068"
 ---
 # <a name="supported-browsers"></a>Navegadores com suporte 

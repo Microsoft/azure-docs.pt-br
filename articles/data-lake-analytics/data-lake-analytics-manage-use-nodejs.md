@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/05/2016
 ms.custom: devx-track-js
 ms.openlocfilehash: ca1c865b31739e7163b0db26cb666a8a42edbaa2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92218452"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gerenciar a Análise Azure Data Lake usando o SDK do Azure para Node.js

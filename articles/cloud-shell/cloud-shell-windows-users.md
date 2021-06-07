@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 109067899884c04cbd283b5eef1d7e0089556b07
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 8cc1934cc97ecf821de8644dda45d867b3ca3e85
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301715"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102508939"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell no Azure Cloud Shell para usuários do Windows
 
@@ -69,4 +69,4 @@ Sob `$HOME/.config/PowerShell`, você pode criar seus arquivos de perfil - `prof
 
 ## <a name="whats-new-in-powershell-core-6"></a>O que há de novo no PowerShell Core 6
 
-Para obter mais informações sobre o que há de novo no PowerShell Core 6, consulte os [documentos do PowerShell](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1) e a postagem do blog [Introdução ao PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/).
+Para obter mais informações sobre o que há de novo no PowerShell Core 6, consulte os [documentos do PowerShell](/powershell/scripting/whats-new/what-s-new-in-powershell-70) e a postagem do blog [Introdução ao PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/).

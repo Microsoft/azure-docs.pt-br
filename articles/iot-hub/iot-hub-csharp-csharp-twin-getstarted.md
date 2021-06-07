@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013751"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introdução a dispositivos gêmeos (.NET)
@@ -234,7 +234,7 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
 
 1. Em **Propriedades Comuns** > **Projeto de Inicialização**, selecione **Vários projetos de inicialização**. Para **ReportConnectivity**, selecione **Iniciar** como a **Ação**. Selecione **OK** para salvar suas alterações.  
 
-1. Execute esse aplicativo clicando com o botão direito do mouse no projeto **ReportConnectivity**, selecione **Depurar** e, em seguida, **Iniciar nova instância**. Você deve ver o aplicativo obter as informações de gêmeo e enviar a conectividade como uma ***propriedade relatada***.
+1. Execute esse aplicativo clicando com o botão direito do mouse no projeto **ReportConnectivity**, selecione **Depurar** e, em seguida, **Iniciar nova instância**. Você deve ver o aplicativo obtendo as informações de conexão e, em seguida, enviando a conectividade como uma **_Propriedade relatada_**.
 
     ![Execute o aplicativo de dispositivo para conectividade de relatório](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

@@ -4,10 +4,10 @@ description: Monitorar aplicativos com o Azure Application Insights para possív
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 3fe58cd7d61246c5565cd89fa782c8a977f09499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86539883"
 ---
 # <a name="memory-leak-detection-preview"></a>Detecção de perda de memória (visualização)

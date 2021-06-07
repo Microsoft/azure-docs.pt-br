@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
 ms.openlocfilehash: 0d56a1c46f251307755416ef44991ac6f809f330
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566734"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando a CLI do Azure
@@ -21,7 +21,7 @@ Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md
 
 Neste artigo, você aprenderá como:
 
-* Criará um certificado autoassinado
+* Crie um certificado autoassinado
 * Configurar uma rede
 * Criar um gateway de aplicativo com o certificado
 * Adicionar um ouvinte e uma regra de direcionamento
@@ -31,9 +31,9 @@ Neste artigo, você aprenderá como:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer a versão 2.0.4 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+ - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este tutorial, você pode criar um certificado autoassinado e o arquivo pfx usando o comando openssl.
 

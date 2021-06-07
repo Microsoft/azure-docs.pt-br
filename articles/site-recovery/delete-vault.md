@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: sideeksh
 ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426377"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação de Site
@@ -43,14 +43,14 @@ Antes de excluir um cofre, você deve remover os servidores registrados e os ite
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Excluir um cofre-VM Hyper-V (com VMM) para o Azure
 
 1. Siga [estas etapas](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) para excluir VMs do Hyper-V gerenciadas pelo System Center VMM.
-2. Desassocie e exclua todas as políticas de replicação. Faça isso em seu cofre > **infraestrutura**  >  **de site Recovery para as políticas de replicação do System Center VMM**  >  **Replication Policies**.
+2. Desassocie e exclua todas as políticas de replicação. Faça isso em seu cofre > **infraestrutura**  >  **de site Recovery para as políticas de replicação do System Center VMM**  >  .
 3. Siga [estas etapas](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) para cancelar o registro de um servidor VMM conectado.
 4. Em seguida, exclua o cofre.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Excluir um cofre-VM Hyper-V para o Azure
 
 1. Siga [estas etapas](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) para excluir todas as VMs protegidas.
-2. Desassocie e exclua todas as políticas de replicação. Faça isso em seu cofre > **site Recovery infraestrutura**  >  **para políticas de replicação de sites do Hyper-V**  >  **Replication Policies**.
+2. Desassocie e exclua todas as políticas de replicação. Faça isso em seu cofre > **site Recovery infraestrutura**  >  **para políticas de replicação de sites do Hyper-V**  >  .
 3. Siga [estas instruções](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) para cancelar o registro de um host Hyper-V.
 4. Exclua o site do Hyper-V.
 5. Em seguida, exclua o cofre.

@@ -9,10 +9,10 @@ ms.date: 12/14/2020
 ms.author: abhishgu
 ms.reviewer: abhishgu
 ms.openlocfilehash: 25972ba2bb30c39838c4822a42af292e8d8b1dba
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803622"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-cosmos-db-cassandra-api-using-kafka-connect"></a>Ingerir dados de Apache Kafka para Azure Cosmos DB API do Cassandra usando o Kafka Connect

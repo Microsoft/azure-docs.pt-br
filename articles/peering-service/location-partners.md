@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
-ms.openlocfilehash: da6c53675378fcf9d395debe750bb97738763a09
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: cd57825172f69811dfa63e1d1dea048bbf1d5c82
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059510"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626190"
 ---
 # <a name="peering-service-partners"></a>Parceiros de serviço de emparelhamento
 
@@ -39,7 +39,7 @@ A tabela neste artigo fornece informações sobre os parceiros de conectividade 
 | [InterCloud](https://intercloud.com/microsoft-saas-applications/)|Europa  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | África  |
-| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japão |
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japão, Indonésia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Ásia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Ásia |
 | [África do NAP](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |África|

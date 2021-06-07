@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980602"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950171"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ A opção **FileSystem** é para fins de depuração temporária e fica desativa
 
 Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
 
-| Level | Categorias incluídas |
+| Nível | Categorias incluídas |
 |-|-|
 |**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
@@ -116,7 +116,7 @@ No código do aplicativo, você usa os recursos de log usuais para enviar mensag
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Por padrão, ASP.NET Core usa o provedor de log [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Para obter mais informações, consulte [Registro do ASP.NET Core no Azure](/aspnet/core/fundamentals/logging/).
+- Por padrão, ASP.NET Core usa o provedor de log [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Para obter mais informações, consulte [Registro do ASP.NET Core no Azure](/aspnet/core/fundamentals/logging/). Para obter informações sobre o log do SDK de trabalhos Web, consulte Introdução [ao SDK do Azure WebJobs](./webjobs-sdk-get-started.md#enable-console-logging)
 
 ## <a name="stream-logs"></a>Transmitir logs
 
@@ -134,19 +134,17 @@ Para transmitir logs no [portal do Azure](https://portal.azure.com), navegue at�
 
 Para transmitir logs ao vivo em [Cloud Shell](../cloud-shell/overview.md), use o seguinte comando:
 
+> [!IMPORTANT]
+> Este comando pode não funcionar com aplicativos Web hospedados em um plano do serviço de aplicativo do Linux.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo:
+Para filtrar tipos de log específicos, como HTTP, use o parâmetro **--Provider** . Por exemplo:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>No terminal local
@@ -185,7 +183,7 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Description |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Descrição |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Logs do Web Server |
@@ -200,7 +198,7 @@ A tabela a seguir mostra os tipos de log e as descrições com suporte:
 <sup>1</sup> para aplicativos Java se, adicione "$website _AZMON_PREVIEW_ENABLED" às configurações do aplicativo e defina-o como 1 ou como true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
-* [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consultar logs com o Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Como monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

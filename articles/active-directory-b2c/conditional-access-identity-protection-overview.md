@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 03/03/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928385"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102033819"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Identity Protection e acesso condicional do Azure AD B2C
 
@@ -49,21 +49,21 @@ O Identity Protection e o acesso condicional do Azure AD B2C geralmente funciona
 
 - Nos locatários do Azure AD B2C, as detecções de risco do Identity Protection estão disponíveis somente para contas locais do B2C, não para identidades sociais, como o Google ou o Facebook.
 
-- Nos locatários do Azure AD B2C, um subconjunto das detecções de risco do Identity Protection está disponível. Confira [Configurar o Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
+- Nos locatários do Azure AD B2C, um subconjunto das detecções de risco do Identity Protection está disponível. Confira [Investigar o risco com o Identity Protection](identity-protection-investigate-risk.md) e [Adicionar acesso condicional a fluxos de usuário](conditional-access-user-flow.md).
 
 - O recurso de conformidade do dispositivo do acesso condicional não está disponível nos locatários do Azure AD B2C.
 
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>Integrar o acesso condicional aos fluxos dos usuários e às políticas personalizadas
 
-No Azure AD B2C, você pode disparar condições de acesso condicional em fluxos dos usuários internos. Você também pode incorporar o acesso condicional a políticas personalizadas. Assim como ocorre com outros aspectos do fluxo de usuário B2C, as mensagens de experiência do usuário final podem ser personalizadas de acordo com a voz, a marca e as alternativas de mitigação da sua organização. Confira [Definir um perfil técnico do acesso condicional](conditional-access-technical-profile.md).
+No Azure AD B2C, você pode disparar condições de acesso condicional em fluxos dos usuários internos. Você também pode incorporar o acesso condicional a políticas personalizadas. Assim como ocorre com outros aspectos do fluxo de usuário B2C, as mensagens de experiência do usuário final podem ser personalizadas de acordo com a voz, a marca e as alternativas de mitigação da sua organização. Confira [Adicionar o acesso condicional a fluxos de usuário](conditional-access-user-flow.md).
 
 ## <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
-Gerencie também as políticas de acesso condicional do Azure AD B2C com a API do Microsoft Graph. Para obter detalhes, confira a [documentação do acesso condicional](../active-directory/conditional-access/overview.md) e a [referência do Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta).
+Gerencie também as políticas de acesso condicional do Azure AD B2C com a API do Microsoft Graph. Para obter detalhes, confira a [documentação do acesso condicional](../active-directory/conditional-access/overview.md) e as [operações do Microsoft Graph](microsoft-graph-operations.md#conditional-access).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar o Identity Protection e o acesso condicional do Azure AD B2C](conditional-access-identity-protection-setup.md)
+- [Adicionar o acesso condicional a fluxos de usuário](conditional-access-user-flow.md)
 - [Saiba mais sobre o Identity Protection no Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 - [Saiba mais sobre o acesso condicional](../active-directory/conditional-access/overview.md)

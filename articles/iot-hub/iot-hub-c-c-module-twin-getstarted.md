@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142913"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introdução à identidade do módulo do Hub IoT e ao módulo d (C)

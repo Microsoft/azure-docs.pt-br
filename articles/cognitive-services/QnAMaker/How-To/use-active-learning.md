@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: ffc1a0a401de634c1932b9653f231b377c4f154e
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 87dde7662050794a24cf976a0bae6237b91d29b2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591915"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102213701"
 ---
 # <a name="active-learning"></a>Aprendizado ativo
 
@@ -128,7 +128,7 @@ Use a [API de treinamento](/rest/api/cognitiveservices/qnamaker4.0/runtime/train
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-O aprendizado ativo é compatível com a versão de runtime 4.4.0 e superior. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para usar esse recurso.
+O aprendizado ativo é compatível com a versão de runtime 4.4.0 e superior. Se sua base de dados de conhecimento foi criada em uma versão anterior, [atualize seu runtime](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) para usar esse recurso.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 

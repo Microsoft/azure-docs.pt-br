@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631314"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640042"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração-Azure Monitor Application Insights para Java
 
@@ -61,7 +61,7 @@ A cadeia de conexão é necessária. Você pode encontrar a cadeia de conexão e
 }
 ```
 
-Você também pode definir a cadeia de conexão usando a variável de ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+Você também pode definir a cadeia de conexão usando a variável de ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` (que, em seguida, terá precedência se a cadeia de conexão também for especificada na configuração JSON).
 
 Se a cadeia de conexão não for definida, o agente Java será desabilitado.
 
@@ -81,7 +81,7 @@ Se você quiser definir o nome da função de nuvem:
 
 Se o nome da função de nuvem não for definido, o nome do recurso de Application Insights será usado para rotular o componente no mapa do aplicativo.
 
-Você também pode definir o nome da função de nuvem usando a variável de ambiente `APPLICATIONINSIGHTS_ROLE_NAME` .
+Você também pode definir o nome da função de nuvem usando a variável de ambiente `APPLICATIONINSIGHTS_ROLE_NAME` (que, em seguida, terá precedência se o nome da função de nuvem também for especificado na configuração JSON).
 
 ## <a name="cloud-role-instance"></a>Instância de função de nuvem
 
@@ -98,7 +98,7 @@ Se você quiser definir a instância de função de nuvem para algo diferente, e
 }
 ```
 
-Você também pode definir a instância de função de nuvem usando a variável de ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
+Você também pode definir a instância de função de nuvem usando a variável de ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` (que, em seguida, terá precedência se a instância de função de nuvem também for especificada na configuração JSON).
 
 ## <a name="sampling"></a>amostragem
 
@@ -117,10 +117,21 @@ Veja um exemplo de como definir a amostragem para capturar aproximadamente **1/3
 }
 ```
 
-Você também pode definir o percentual de amostragem usando a variável de ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+Você também pode definir o percentual de amostragem usando a variável de ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (que, em seguida, terá precedência se a porcentagem de amostragem também for especificada na configuração JSON).
 
 > [!NOTE]
 > Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
+
+## <a name="sampling-overrides-preview"></a>Substituições de amostragem (visualização)
+
+Este recurso está em versão prévia, Iniciando em 3.0.3-BETA. 2.
+
+As substituições de amostragem permitem que você substitua a [porcentagem de amostragem padrão](#sampling), por exemplo:
+* Defina o percentual de amostragem como 0 (ou algum valor pequeno) para verificações de integridade ruidosas.
+* Defina o percentual de amostragem como 0 (ou algum valor pequeno) para chamadas de dependência com ruído.
+* Defina o percentual de amostragem como 100 para um tipo de solicitação importante (por exemplo, `/login` ) mesmo que você tenha a amostragem padrão configurada para algo menor.
+
+Para obter mais informações, confira a documentação de [substituições de amostragem](./java-standalone-sampling-overrides.md) .
 
 ## <a name="jmx-metrics"></a>Métricas JMX
 
@@ -151,9 +162,6 @@ Se você quiser coletar algumas métricas JMX adicionais:
 
 Há suporte para valores de métrica JMX numéricos e boolianos. As métricas do JMX booliano são mapeadas para `0` for false e `1` para true.
 
-[//]: # "Observação: não está documentando APPLICATIONINSIGHTS_JMX_METRICS aqui"
-[//]: # "JSON Embedded in env var é confuso e deve ser documentado apenas para o cenário de anexação de código"
-
 ## <a name="custom-dimensions"></a>Dimensões personalizadas
 
 Se você quiser adicionar dimensões personalizadas a toda a sua telemetria:
@@ -179,17 +187,23 @@ Esse recurso está em visualização.
 Ele permite que você configure regras que serão aplicadas à telemetria de solicitação, dependência e rastreamento, por exemplo:
  * Mascarar dados confidenciais
  * Adicionar dimensões personalizadas condicionalmente
- * Atualizar o nome de telemetria usado para agregação e exibição
+ * Atualize o nome do span, que é usado para agregar telemetria semelhante no portal do Azure.
+ * Descartar atributos de span específicos para controlar os custos de ingestão.
 
 Para obter mais informações, confira a documentação do [processador de telemetria](./java-standalone-telemetry-processors.md) .
+
+> [!NOTE]
+> Se você pretende descartar spans (inteiros) específicos para controlar o custo de ingestão, consulte [substituições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Registro em log coletado automaticamente
 
 Log4J, Logback e Java. util. Logging são instrumentados automaticamente e o registro em log realizado por meio dessas estruturas de log é automaticamente coletado.
 
-O registro em log só será capturado se ele atender primeiro ao limite configurado da estrutura de registro em log e o segundo também atender ao limite configurado Application Insights.
+O registro em log só será capturado se ele atender primeiro ao nível configurado para a estrutura de registro em log e, segundo, também atender ao nível configurado para Application Insights.
 
-O limite de Application Insights padrão é `INFO` . Se você quiser alterar este nível:
+Por exemplo, se sua estrutura de registro em log estiver configurada para registrar `WARN` (e acima) do pacote `com.example` e Application insights estiver configurada para capturar `INFO` (e acima), Application insights só capturará `WARN` (e acima) do pacote `com.example` .
+
+O nível padrão configurado para Application Insights é `INFO` . Se você quiser alterar este nível:
 
 ```json
 {
@@ -201,7 +215,7 @@ O limite de Application Insights padrão é `INFO` . Se você quiser alterar est
 }
 ```
 
-Você também pode definir o limite usando a variável de ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
+Você também pode definir o nível usando a variável de ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (que, em seguida, terá precedência se o nível também for especificado na configuração JSON).
 
 Esses são os `level` valores válidos que você pode especificar no `applicationinsights.json` arquivo e como eles correspondem aos níveis de log em diferentes estruturas de log:
 
@@ -217,6 +231,9 @@ Esses são os `level` valores válidos que você pode especificar no `applicatio
 | FINER             | DEBUG  | DEBUG   | FINER   |
 | RASTREAMENTO (ou melhor) | RASTREAMENTO  | RASTREAMENTO   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
+
+> [!NOTE]
+> Se um objeto de exceção for passado para o agente, a mensagem de log (e os detalhes do objeto de exceção) aparecerá na portal do Azure na `exceptions` tabela em vez da `traces` tabela.
 
 ## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometer coletadas automaticamente (incluindo as métricas do acionador do Spring boot)
 
@@ -268,6 +285,9 @@ A partir da versão 3.0.2, a telemetria específica de coleta automática pode s
 }
 ```
 
+> Observação Se você estiver procurando um controle mais refinado, por exemplo, para suprimir algumas chamadas Redis, mas não todas as chamadas Redis, consulte [substituições de amostragem](./java-standalone-sampling-overrides.md).
+
+
 ## <a name="heartbeat"></a>Pulsação
 
 Por padrão, Application Insights Java 3,0 envia uma métrica de pulsação uma vez a cada 15 minutos. Se você estiver usando a métrica de pulsação para disparar alertas, poderá aumentar a frequência dessa pulsação:
@@ -281,7 +301,7 @@ Por padrão, Application Insights Java 3,0 envia uma métrica de pulsação uma 
 ```
 
 > [!NOTE]
-> Não é possível diminuir a frequência da pulsação, pois os dados de pulsação também são usados para rastrear Application Insights uso.
+> Não é possível aumentar o intervalo para mais de 15 minutos, pois os dados de pulsação também são usados para rastrear Application Insights uso.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
@@ -297,6 +317,30 @@ Se seu aplicativo estiver protegido por um firewall e não puder se conectar dir
 ```
 
 Application Insights Java 3,0 também respeita o global `-Dhttps.proxyHost` e `-Dhttps.proxyPort` se eles estão definidos.
+
+## <a name="metric-interval"></a>Intervalo de métrica
+
+Esse recurso está em visualização.
+
+Por padrão, as métricas são capturadas a cada 60 segundos.
+
+A partir da versão 3.0.3-BETA, você pode alterar este intervalo:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+A configuração se aplica a todas essas métricas:
+
+* Contadores de desempenho padrão, por exemplo, CPU e memória
+* Métricas personalizadas padrão, por exemplo, tempo de coleta de lixo
+* Métricas JMX configuradas ([veja acima](#jmx-metrics))
+* Métricas de micrometer ([veja acima](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "Observação o suporte do OpenTelemetry está em visualização privada até a API do OpenTelemetry atingir 1,0"
 
@@ -346,7 +390,7 @@ Por padrão, Application Insights logs do Java 3,0 em nível `INFO` tanto para o
 
 `maxHistory` é o número de arquivos de log substituídos que são retidos (além do arquivo de log atual).
 
-A partir da versão 3.0.2, você também pode definir o autodiagnóstico `level` usando a variável de ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
+A partir da versão 3.0.2, você também pode definir o autodiagnóstico `level` usando a variável de ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (que, em seguida, terá precedência se o autodiagnóstico `level` também for especificado na configuração JSON).
 
 ## <a name="an-example"></a>Um exemplo
 

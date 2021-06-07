@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897978"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerenciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure
@@ -90,7 +90,7 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
  
 
 > [!IMPORTANT]
-> A redefinição da senha de administrador do servidor redefinirá automaticamente os privilégios de administrador do servidor como padrão. Considere redefinir a senha de administrador do servidor se você acidentalmente revogou um ou mais privilégios de administrador do servidor.
+> Redefinir a senha de administrador do servidor redefinirá automaticamente os privilégios de administrador do servidor como o padrão. Considere redefinir a senha de administrador do servidor se você acidentalmente revogou um ou mais privilégios de administrador do servidor.
    
 > [!NOTE]
 > O usuário administrador do servidor tem os seguintes privilégios por padrão: selecionar, inserir, atualizar, excluir, criar, descartar, recarregar, processar, fazer referência, INDEXar, alterar, mostrar bancos de dados, criar tabelas TEMPORÁRIAs, bloquear tabelas, executar, replicação escravo, cliente de replicação, criar exibição, mostrar exibição, criar rotina, alterar rotina, criar usuário, evento, gatilho

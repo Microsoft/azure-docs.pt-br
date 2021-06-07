@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998576"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando a CLI
@@ -171,7 +171,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     | ------- | ----- |
     | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
     | Nome do host | Selecionar *mydemoserver.privatelink.mysql.Database.Azure.com* |
-    | Nome de usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MySQL. |
+    | Nome de Usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MySQL. |
     | Senha | Insira uma senha fornecida durante a criação do servidor MySQL. |
     ||
 

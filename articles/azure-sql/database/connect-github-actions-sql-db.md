@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ceb9f0f9ef2a88532d5af16a03fcfd0282da84f8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606973"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787279"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Usar o GitHub Actions para conectar-se ao Banco de Dados SQL do Azure
 
-Comece a usar o [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados SQL do Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Comece a usar o [GitHub Actions](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados SQL do Azure](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ O arquivo tem duas seções:
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
+Crie uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 Substitua os espaços reservados `server-name` pelo nome do seu servidor SQL hospedado no Azure. Substitua o `subscription-id` e `resource-group` pela ID de assinatura e o grupo de recursos conectados ao SQL Server.  
 

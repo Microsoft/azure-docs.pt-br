@@ -4,12 +4,12 @@ description: 'Início Rápido: Este artigo apresenta instruções passo a passo 
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c2ce58f86fa27544641c0917e96fa3172017232
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334269"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309349"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o .NET Framework
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
@@ -34,7 +34,7 @@ No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Vis
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **Remetente** clique em **Gerenciar Pacotes NuGet para Solução**. 
-2. Clique na guia **Procurar** e procure `WindowsAzure.ServiceBus`. Clique em **Instalar**e aceite os termos de uso. 
+2. Clique na guia **Procurar** e procure `WindowsAzure.ServiceBus`. Clique em **Instalar** e aceite os termos de uso. 
    
     ![Instale o pacote do NuGet do Barramento de Serviço](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -105,7 +105,7 @@ No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Vis
 ### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
 1. No Gerenciador de Soluções, clique com o botão direito no projeto **Destinatário** e clique em **Gerenciar Pacotes NuGet para Solução**.
-2. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Clique em **Instalar**e aceite os termos de uso.
+2. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Clique em **Instalar** e aceite os termos de uso.
    
     ![Pesquisar pacote NuGet do Host do Processador de Eventos](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -208,7 +208,7 @@ Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md).
-- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.yml)
 
 
 <!-- Links -->

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913748"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Usar o link privado na WAN virtual
@@ -38,11 +38,11 @@ Você pode criar um ponto de extremidade de link privado para vários serviços 
 
 Depois de criar o banco de dados SQL do Azure, você pode verificar se o endereço IP do ponto de extremidade privado está navegando pelos pontos de extremidades particulares:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="criar link privado" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="pontos de extremidade privados" lightbox="./media/howto-private-link/endpoints.png":::
 
 Ao clicar no ponto de extremidade privado que criamos, você deverá ver seu endereço IP privado, bem como seu FQDN (nome de domínio totalmente qualificado). Observe que o ponto de extremidade privado tem um endereço IP no intervalo da VNet em que foi implantado (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="criar link privado" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Ponto de extremidade SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Verificar a conectividade da mesma VNet
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Como você pode ver na saída anterior, o FQDN `wantest.database.windows.net` é mapeado para `wantest.privatelink.database.windows.net` , que a zona DNS privada criada ao longo do ponto de extremidade privado será resolvida para o endereço IP privado `10.1.3.228` . Examinar a zona DNS privada confirmará que há um registro A para o ponto de extremidade privado mapeado para o endereço IP privado:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="criar link privado" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Zona DNS" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Depois de verificar a resolução DNS correta, podemos tentar se conectar ao banco de dados:
 
@@ -87,7 +87,7 @@ Depois de ter conectividade entre a VNet ou a ramificação para a VNet em que o
 
 Neste exemplo, vamos nos conectar de uma VNet diferente, portanto, primeiro anexaremos a zona DNS privada à nova VNet para que suas cargas de trabalho possam resolver o nome de domínio totalmente qualificado do banco de dados SQL do Azure para o endereço IP privado. Isso é feito por meio da vinculação da zona DNS privada à nova VNet:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="criar link privado" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Link DNS" lightbox="./media/howto-private-link/dns-link.png":::
 
 Agora, qualquer máquina virtual na VNet conectada deve resolver corretamente o FQDN do banco de dados SQL do Azure para o endereço IP privado do link privado:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Para verificar se essa VNet (10.1.1.0/24) tem conectividade com a VNet original em que o ponto de extremidade privado foi configurado (10.1.3.0/24), você pode verificar a tabela de rotas em vigor em qualquer máquina virtual na VNet:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="criar link privado" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="rotas efetivas" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Como você pode ver, há uma rota apontando para a VNet 10.1.3.0/24 injetada pelos gateways de rede virtual na WAN virtual do Azure. Agora, podemos finalmente testar a conectividade com o banco de dados:
 

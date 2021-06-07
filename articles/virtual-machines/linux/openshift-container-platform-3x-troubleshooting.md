@@ -3,20 +3,21 @@ title: Solucionar problemas de implantação da plataforma de contêiner do Open
 description: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: 9595627e9d7ca2de577aa83ebba3dd58d69e6750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6dfb4cb697e7d66c7db323df9786ff7ad45e1d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373548"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101672330"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
 

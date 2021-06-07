@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 11/12/2019
+ms.date: 03/05/2021
 ms.author: ajburnle
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996688"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594590"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -74,6 +74,9 @@ Se você tiver um ambiente com o Azure Active Directory (nuvem) e o Windows Serv
 
 Você pode excluir um usuário existente usando o portal do Azure Active Directory.
 
+>[!Note]
+>Você deve ter uma atribuição de função de administrador global ou de usuário para excluir usuários em sua organização. Os administradores globais podem excluir qualquer usuário, incluindo outros administradores. Os administradores de usuários podem excluir qualquer usuário não administrador, administradores de assistência técnica e outros administradores de usuários. Para obter mais informações, consulte [permissões de função de administrador no Azure ad](../roles/permissions-reference.md).
+
 Para excluir um usuário, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador de usuário para a organização.
@@ -91,7 +94,7 @@ O usuário é excluído e não aparece mais na página **Usuários - Todos os us
 Quando um usuário é excluído, todas as licenças consumidas pelo usuário são disponibilizadas para outros usuários.
 
 >[!Note]
->Você deve usar o Windows Server Active Directory para atualizar a identidade, as informações de contato ou as informações do trabalho para usuários cuja origem de autoridade é Active Directory do Windows Server. Depois de concluir sua atualização, você deve aguardar a conclusão do próximo ciclo de sincronização antes de ver as alterações.
+>Para atualizar a identidade, as informações de contato ou as informações de trabalho para os usuários cuja fonte de autoridade é o Windows Server Active Directory, você deve usar o Windows Server Active Directory. Depois de concluir a atualização, você deve aguardar a conclusão do próximo ciclo de sincronização antes de ver as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

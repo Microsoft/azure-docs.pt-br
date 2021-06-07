@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o armazenamento de BLOBs como um arm
 ms.topic: how-to
 ms.date: 12/09/2020
 ms.openlocfilehash: 07d7cf844480a9a88468c17cecc7ca38cca5d176
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007816"
 ---
 # <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub"></a>Usar o armazenamento de BLOBs como ponto de verificação do repositório-hubs de eventos no Hub Azure Stack

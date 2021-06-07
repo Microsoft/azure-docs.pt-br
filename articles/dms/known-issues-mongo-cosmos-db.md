@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/27/2020
 ms.openlocfilehash: be6d9d3b8a20e11c874234baae26629ce0187e4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91291803"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problemas conhecidos/limitações de migração com migrações do MongoDB para a API do Azure Cosmos DB para MongoDB

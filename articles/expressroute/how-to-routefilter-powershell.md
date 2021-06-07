@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 90d4def5a1c08e305b9315f299e83e2187b6be2c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91969867"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>Tutorial: Configurar os filtros de rota para o emparelhamento da Microsoft usando o PowerShell
@@ -35,7 +35,7 @@ A conectividade com todos os serviços do Azure e Microsoft 365 faz um grande n�
 
 * Defina filtros de rota e aplique-as ao circuito de ExpressRoute. Um filtro de rota é um novo recurso que permite a você selecionar a lista de serviços que você planeja consumir por meio do emparelhamento da Microsoft. Roteadores do ExpressRoute enviam apenas a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > - Obter valores de comunidade BGP.
 > - Criar um filtro de rota e uma regra de filtro.
@@ -47,7 +47,7 @@ Quando o emparelhamento da Microsoft é configurado no seu circuito do ExpressRo
 
 Um filtro de rota permite identificar os serviços que você deseja consumir por meio de emparelhamento da Microsoft do seu circuito de ExpressRoute. Ele é essencialmente uma lista de permissões de todos os valores de comunidade do BGP. Depois que um recurso de filtro de rota é definido e anexado a um circuito do ExpressRoute, todos os prefixos que são mapeados para os valores de comunidade do BGP são anunciados para sua rede.
 
-Para anexar filtros de rota aos serviços do Microsoft 365, você precisa ter autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute. Se você não tiver autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute, a operação de anexação de filtros de rota falhará. Para obter mais informações sobre o processo de autorização, confira [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
+Para anexar filtros de rota aos serviços do Microsoft 365, você precisa ter autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute. Se você não tiver autorização para consumir serviços do Microsoft 365 por meio do ExpressRoute, a operação de anexação de filtros de rota falhará. Para obter mais informações sobre o processo de autorização, confira o [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > O emparelhamento da Microsoft de circuitos de ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos. O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito.

@@ -4,25 +4,20 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806097"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612850"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
-
->[!IMPORTANT]
->O backup em disco do Azure está em versão prévia sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
+# <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte de Backup de Disco do Azure
 
 Você pode usar o [backup do Azure](./backup-overview.md) para proteger os discos do Azure. Este artigo resume a disponibilidade da região, os cenários com suporte e as limitações.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O backup em disco do Azure está disponível em versão prévia nas seguintes regiões: oeste dos EUA, Oeste EUA Central, leste dos EUA 2, Canadá central, Oeste do Reino Unido, Norte da Suíça, Oeste da Suíça, Austrália Central, Austrália Central 2, Coreia central, sul da Coreia, oeste do Japão, Ásia Oriental, Norte dos EAU, sul do Brasil, Índia central. 
+O backup em disco do Azure está disponível nas seguintes regiões: oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, norte EUA Central, Canadá central, sul do Brasil, norte da África do Sul, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, Europa Setentrional, Norte da Suíça, Oeste da Suíça, Centro-oeste da Alemanha, França central, Noruega Oriental, Norte dos EAU, Austrália Central, Austrália Central , Leste da Austrália, Coreia central, sul da Coreia, leste do Japão, oeste do Japão, Ásia Oriental, Sudeste Asiático, Índia central. 
 
 Mais regiões serão anunciadas quando forem disponibilizadas.
 
@@ -56,9 +51,9 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - Atualmente, a experiência de portal do Azure para configurar o backup de discos é limitada a um máximo de 20 discos da mesma assinatura.
 
-- No momento (durante a versão prévia), o uso do PowerShell e do CLI do Azure para configurar o backup e a restauração de discos não é suportado.
+- O backup em disco do Azure dá suporte ao PowerShell. No momento, não há suporte para CLI do Azure.
 
-- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
+- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
 
 - Para operações de backup e restauração bem-sucedidas, as atribuições de função são exigidas pela identidade gerenciada do cofre de backup. Use apenas as definições de função fornecidas na documentação do. O uso de outras funções, como Owner, Contributor e assim por diante, não tem suporte. Você pode enfrentar problemas de permissão se começar a configurar operações de backup ou restauração logo após atribuir funções. Isso ocorre porque as atribuições de função levam alguns minutos para entrar em vigor.
 
@@ -66,7 +61,7 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - O suporte a [links privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que ele ocorra apenas dentro de sua rede virtual do Azure. O backup em disco do Azure dá suporte ao backup de discos que têm pontos de extremidade privados habilitados. Isso não inclui os dados de backup ou instantâneos para serem acessíveis por meio do ponto de extremidade privado.
 
-- Durante a versão prévia, não é possível desabilitar o backup, portanto a opção **parar backup e reter os dados de backup** não tem suporte. Você pode excluir uma instância de backup, o que só interromperá o backup, mas também excluirá todos os dados de backup.
+- Você pode excluir uma instância de backup, que irá parar o backup e também excluir todos os dados de backup. No momento, não é possível desabilitar um backup, pois a opção **parar o backup e reter os dados de backup** não é suportada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

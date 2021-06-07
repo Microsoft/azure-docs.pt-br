@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: wellee
 ms.openlocfilehash: e8e5a5a1b9325f40fdd51133155a0daffaa55a7b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99408465"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>Cenário: isolamento personalizado para redes virtuais e branches

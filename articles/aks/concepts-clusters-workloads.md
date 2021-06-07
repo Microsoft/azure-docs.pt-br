@@ -4,12 +4,12 @@ description: Conheça os cluster básico e os componentes de carga de trabalho d
 services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373225"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102122435"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -17,7 +17,7 @@ ms.locfileid: "100373225"
 
 Este artigo apresenta os principais componentes da infraestrutura kubernetes, como o *plano de controle*, *nós* e *pools de nós*. Recursos de carga de trabalho, como *pods*, *implantações* e *conjuntos*, também são apresentados, além de como agrupar recursos em *namespaces*.
 
-## <a name="what-is-kubernetes"></a>O que é Kubernetes?
+## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
 
 O Kubernetes é uma plataforma em rápida evolução que gerencia aplicativos baseados em contêiner e seus componentes de rede e armazenamento associados. O foco está nas cargas de trabalho de aplicativos, não nos componentes de infraestrutura subjacentes. O Kubernetes fornece uma abordagem declarativa para implementações, apoiada por um conjunto robusto de APIs para operações de gerenciamento.
 
@@ -61,7 +61,7 @@ Para executar seus aplicativos e serviços de suporte, é necessário um Kuberne
 
 - O `kubelet` é o agente kubernetes que processa as solicitações de orquestração do plano de controle e o agendamento da execução dos contêineres solicitados.
 - A rede virtual é tratada pelos *kube-proxy* em cada nó. As rotas de proxy o tráfego de rede e gerencia o endereçamento IP para os serviços e os pods.
-- O *runtime do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. Em AKS, Moby é usado como o tempo de execução do contêiner.
+- O *runtime do contêiner* é o componente que permite que aplicativos em contêiner sejam executados e interajam com recursos adicionais, como a rede virtual e o armazenamento. Clusters AKS usando pools de nós do kubernetes versão 1,19 e maior uso `containerd` como seu tempo de execução de contêiner. Os clusters AKS usando kubernetes antes do v 1.19 para pools de nós usam [Moby](https://mobyproject.org/) (upstream Docker) como seu tempo de execução de contêiner.
 
 ![Máquina virtual do Azure e recursos de suporte para um nó do Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -69,7 +69,7 @@ O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória 
 
 No AKS, a imagem de VM para os nós no cluster está atualmente baseada no Ubuntu Linux ou no Windows Server 2019. Quando você cria um cluster AKS ou escala horizontalmente o número de nós, a plataforma Azure cria o número solicitado de VMs e os configura. Não há nenhuma configuração manual a ser executada. Os nós de agente são cobrados como máquinas virtuais padrão, portanto, os descontos que você tem no tamanho da VM que você está usando (incluindo as [reservas do Azure][reservation-discounts]) são aplicados automaticamente.
 
-Se você precisar usar um SO de host diferente, um runtime do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução de contêiner diferente de Moby, poderá usar o `aks-engine` para configurar e implantar um cluster kubernetes que atenda às suas necessidades atuais.
+Se você precisar usar um SO de host diferente, um runtime do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução de contêiner diferente de `containerd` ou Moby, poderá usar o `aks-engine` para configurar e implantar um cluster kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 

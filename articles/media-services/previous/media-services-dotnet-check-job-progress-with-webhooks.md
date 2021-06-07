@@ -3,7 +3,7 @@ title: Usar o Azure Webhooks para monitorar as notificações de trabalho dos Se
 description: Saiba como usar o Azure Webhooks para monitorar as notificações de trabalho dos Serviços de Mídia. O exemplo de código é escritos em C# e usam o SDK dos Serviços de Mídia para .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e99d2c2676d05772106296d8b960dd55fd30501c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5ae1bdfeeffdb904ba80ed42919e4f51411871c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696465"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103016144"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usar o Azure Webhooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET
 
@@ -64,7 +64,7 @@ Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis 
 
 A seção [configurações de aplicativo](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) define os parâmetros usados no webhook definido neste artigo. Também adicione os parâmetros a seguir às configurações de aplicativo. 
 
-|Name|Definição|Exemplo| 
+|Nome|Definição|Exemplo| 
 |---|---|---|
 |SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço do ponto de extremidade do webhook. Depois que a função de webhook for criada, copie a URL do link **Obter URL de função**. | https: \/ /juliakofuncapp.azurewebsites.NET/API/Notification_Webhook_Function?Code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|

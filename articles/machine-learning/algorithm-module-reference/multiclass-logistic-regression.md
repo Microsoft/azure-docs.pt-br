@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420726"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística multiclasse
@@ -38,13 +38,13 @@ Em regressão logística multiclasse, o classificador pode ser usado para prever
 
 2. Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .
 
-    + **Parâmetro único** : Use essa opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: Use essa opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos.
 
-    + **Intervalo de parâmetros** : Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
+    + **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
 
-3. **Tolerância de otimização** , especifique o valor de limite para a convergência do otimizador. Se a melhoria entre as iterações for menor que o limite, o algoritmo para e retorna o modelo atual.
+3. **Tolerância de otimização**, especifique o valor de limite para a convergência do otimizador. Se a melhoria entre as iterações for menor que o limite, o algoritmo para e retorna o modelo atual.
 
-4. **Peso de regularização de L1** , **peso de regularização L2** : digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.
+4. **Peso de regularização de L1**, **peso de regularização L2**: digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.
 
     A regularização é um método para evitar o superajuste por meio da penalização de modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.
 
@@ -52,13 +52,13 @@ Em regressão logística multiclasse, o classificador pode ser usado para prever
 
      Combinações lineares diferentes de termos de L1 e L2 foram desenvolvedas para modelos de regressão logística, como [regularização de rede elástica](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Semente de número aleatório** : digite um valor inteiro para usar como a semente do algoritmo se desejar que os resultados sejam repetidos em execuções. Caso contrário, um valor de relógio do sistema será usado como a semente, o que pode produzir resultados ligeiramente diferentes em execuções do mesmo pipeline.
+6. **Semente de número aleatório**: digite um valor inteiro para usar como a semente do algoritmo se desejar que os resultados sejam repetidos em execuções. Caso contrário, um valor de relógio do sistema será usado como a semente, o que pode produzir resultados ligeiramente diferentes em execuções do mesmo pipeline.
 
 8. Conecte um DataSet rotulado e treine o modelo:
 
-    + Se você definir **criar modo de instrutor** como um **único parâmetro** , conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros** , conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88761637"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerenciar recursos do banco de dados IBM Informix usando aplicativos lógicos do Azure
@@ -83,10 +83,10 @@ Este tópico mostra como usar o Conector em um aplicativo lógico para processar
    | Nome da conexão | `name` | Sim | `informix-demo-connection` | O nome a ser usado para a conexão com o banco de dados Informix |
    | Servidor | `server` | Sim | Nuvem `informixdemo.cloudapp.net:9089` <br>-Local: `informixdemo:9089` | O endereço TCP/IP ou alias que está no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP |
    | Banco de dados | `database` | Sim | `nwind` | O nome do banco de dados relacional DRDA (RDBNAM) ou o nome do banco de dados Informix (dbname). A Informix aceita uma cadeia de caracteres de 128 bytes. |
-   | Autenticação | `authentication` | Somente local | **Básico** ou **Windows** (Kerberos) | O tipo de autenticação exigido pelo seu banco de dados Informix. Essa propriedade só aparece quando você seleciona **conectar por meio do gateway de dados local**. |
+   | Autenticação | `authentication` | Somente no local | **Básico** ou **Windows** (Kerberos) | O tipo de autenticação exigido pelo seu banco de dados Informix. Essa propriedade só aparece quando você seleciona **conectar por meio do gateway de dados local**. |
    | Nome de Usuário | `username` | Não | <*nome de usuário do banco de dados*> | Um nome de usuário para o banco de dados |
    | Senha | `password` | Não | <*banco de dados-senha*> | Uma senha para o banco de dados |
-   | Gateway | `gateway` | Somente local | -<*Azure-assinatura*> <br>-<*Azure-local-data-gateway-Resource*> | A assinatura do Azure e o nome do recurso do Azure para o gateway de dados local que você criou na portal do Azure. As propriedades e as subpropriedades de **Gateway** só aparecem quando você seleciona **conectar por meio do gateway de dados local**. |
+   | Gateway | `gateway` | Somente no local | -<*Azure-assinatura*> <br>-<*Azure-local-data-gateway-Resource*> | A assinatura do Azure e o nome do recurso do Azure para o gateway de dados local que você criou na portal do Azure. As propriedades e as subpropriedades de **Gateway** só aparecem quando você seleciona **conectar por meio do gateway de dados local**. |
    ||||||
 
    Por exemplo:
@@ -107,7 +107,7 @@ Este tópico mostra como usar o Conector em um aplicativo lógico para processar
 
 1. Na barra de ferramentas do designer do aplicativo lógico, selecione **executar**. Depois que o aplicativo lógico for executado, você poderá exibir as saídas dessa execução.
 
-1. No menu do seu aplicativo lógico, selecione **visão geral**. No painel Visão geral, em **Summary**  >  **histórico de execuções**de resumo, selecione a execução mais recente.
+1. No menu do seu aplicativo lógico, selecione **visão geral**. No painel Visão geral, em   >  **histórico de execuções** de resumo, selecione a execução mais recente.
 
 1. Em **execução do aplicativo lógico**, selecione **detalhes da execução**.
 

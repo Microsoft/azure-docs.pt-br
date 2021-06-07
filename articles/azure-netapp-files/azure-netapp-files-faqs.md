@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881411"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607993"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -110,7 +110,7 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual é o impacto no desempenho do Kerberos no NFSv 4.1?
 
-Consulte [impacto no desempenho do Kerberos no nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) para obter informações sobre as opções de segurança do nfsv 4.1, os vetores de desempenho testados e o impacto esperado no desempenho. 
+Consulte [impacto no desempenho do Kerberos em volumes nfsv 4.1](performance-impact-kerberos.md) para obter informações sobre as opções de segurança do nfsv 4.1, os vetores de desempenho testados e o impacto esperado no desempenho. 
 
 ## <a name="nfs-faqs"></a>Perguntas frequentes sobre NFS
 
@@ -148,6 +148,16 @@ Verifique se `CaseSensitiveLookup` o está habilitado no cliente Windows para ac
     Exemplo:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
+### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Como Azure NetApp Files dá suporte ao bloqueio de arquivos do NFSv 4.1? 
+
+Para clientes NFSv 4.1, o Azure NetApp Files dá suporte ao mecanismo de bloqueio de arquivos NFSv 4.1 que mantém o estado de todos os bloqueios de arquivo em um modelo baseado em concessão. 
+
+Por RFC 3530, Azure NetApp Files define um único período de concessão para todos os Estados mantidos por um cliente NFS. Se o cliente não renovar sua concessão dentro do período definido, todos os Estados associados à concessão do cliente serão liberados pelo servidor.  
+
+Por exemplo, se um cliente montando um volume ficar sem resposta ou falhar além dos tempos limite, os bloqueios serão liberados. O cliente pode renovar sua concessão de forma explícita ou implícita, executando operações como a leitura de um arquivo.   
+
+Um período de carência define um período de processamento especial no qual os clientes podem tentar recuperar seu estado de bloqueio durante a recuperação de um servidor. O tempo limite padrão para as concessões é de 30 segundos com um período de carência de 45 segundos. Após esse período, a concessão do cliente será liberada.   
+
 ## <a name="smb-faqs"></a>Perguntas frequentes sobre o SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Quais versões SMB têm suporte pelo Azure NetApp Files?
@@ -182,11 +192,9 @@ O tamanho do volume relatado pelo cliente SMB é o tamanho máximo para o qual o
 
 Como prática recomendada, defina a tolerância máxima para a sincronização do relógio do computador como cinco minutos. Para obter mais informações, consulte [tolerância máxima para sincronização de relógio do computador](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
-<!--
-### Does Azure NetApp Files support LDAP signing? 
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Como posso obter o endereço IP de um volume SMB por meio do portal?
 
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
---> 
+Use o link **modo de exibição JSON** no painel Visão geral do volume e procure o identificador **IP_inicial** em **Propriedades**  ->  **mountTargets**.
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes sobre gerenciamento de capacidade
 
@@ -200,9 +208,9 @@ Não. O Gerenciador de Armazenamento do Azure não dá suporte a Azure NetApp Fi
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como fazer determinar se um diretório está se aproximando do tamanho do limite?
 
-Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB).
+Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB).   
 
-Para um diretório de 320 MB, o número de blocos é 655360, sendo que cada tamanho de bloco é de 512 bytes.  (Ou seja, 320x1024x1024/512.)  
+Para um diretório de 320 MB, o número de blocos é 655360, sendo que cada tamanho de bloco é de 512 bytes.  (Ou seja, 320x1024x1024/512.)  Esse número se traduz em aproximadamente 4 milhões arquivos máximos para um diretório de 320 MB. No entanto, o número real de arquivos máximos pode ser menor, dependendo de fatores como o número de arquivos que contêm caracteres não-ASCII no diretório. Como tal, você deve usar o `stat` comando da seguinte maneira para determinar se seu diretório está se aproximando do seu limite.  
 
 Exemplos:
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013525"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o Azure Active Directory B2C no Gerenciamento de API do Azure
@@ -44,7 +44,7 @@ O Azure Active Directory B2C é uma solução de gerenciamento de identidade na 
     
    ![Adicione AAD B2C como o provedor de identidade][api-management-howto-add-b2c-identity-provider]
 
-1. Copie a **URL de Redirecionamento**.
+1. Copie a **URL de redirecionamento**.
 
    ![URL de redirecionamento do provedor de identidade do AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
 

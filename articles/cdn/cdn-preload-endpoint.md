@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: 186ded90b504420a2f315d054551d97821cf8465
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385040"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar ativos em um ponto de extremidade da CDN do Azure
@@ -66,7 +66,7 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 > 
 > 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 * [Referência da API REST da CDN do Azure: pré-carregar conteúdo em um ponto de extremidade](/rest/api/cdn/cdn/endpoints/loadcontent)
 * [Referência da API REST da CDN do Azure: limpar conteúdo de um ponto de extremidade](/rest/api/cdn/cdn/endpoints/purgecontent)

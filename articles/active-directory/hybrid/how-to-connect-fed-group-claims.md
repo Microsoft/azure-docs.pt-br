@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349343"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
@@ -64,7 +64,7 @@ No entanto, se um aplicativo existente espera consumir informações de grupo po
 
 ## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Pré-requisitos para usar atributos de grupo sincronizados do Active Directory
 
-As declarações de associação de grupo podem ser emitidas em tokens para qualquer grupo se você usar o formato ObjectId. Para usar declarações de grupo em formatos diferentes do ObjectId do grupo, os grupos devem ser sincronizados Active Directory usando Azure AD Connect.
+As declarações de associação de grupo poderão ser emitidas em tokens para qualquer grupo se você usar o formato ObjectId. Para usar declarações de grupo em formatos diferentes do ObjectId do grupo, os grupos devem ser sincronizados Active Directory usando Azure AD Connect.
 
 Há duas etapas para configurar Azure Active Directory para emitir nomes de grupo para grupos de Active Directory.
 

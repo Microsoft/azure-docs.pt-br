@@ -7,10 +7,10 @@ ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
 ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007663"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um pool do Lote do Azure sem endereços IP públicos

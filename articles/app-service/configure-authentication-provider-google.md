@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80519936"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para usar o logon do Google
@@ -36,7 +36,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 
 1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo.
 1. Selecione **Configurações** > **Autenticação/Autorização** e verifique se a **Autenticação do Serviço de Aplicativo** está **Ativada**.
-1. Selecione **Google**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
+1. Selecione **Google** e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
 
    O serviço de aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo e às APIs do site. Para obter mais informações, consulte [autorizar ou negar usuários](app-service-authentication-how-to.md#authorize-or-deny-users).

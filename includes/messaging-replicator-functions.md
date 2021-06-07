@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 1ce983ee739a4a124a93c7913f092b23dfec3cbd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98900753"
 ---
 ## <a name="what-is-a-replication-task"></a>O que é uma tarefa de replicação?

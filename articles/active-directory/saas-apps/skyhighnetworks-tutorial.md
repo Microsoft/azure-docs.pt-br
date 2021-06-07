@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf6b2526125b13eec67680c292ed1dbae6fcfee
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015138"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284389"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Tutorial: Integrar a Configuração de SSO do Azure AD do MVISION Cloud ao Azure Active Directory
 
@@ -26,39 +26,35 @@ Neste tutorial, você aprenderá a integrar a Configuração de SSO do Azure AD 
 * Permitir que os usuários sejam conectados automaticamente à Configuração de SSO do Azure AD do MVISION Cloud com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Uma assinatura da Configuração de SSO do Azure AD do MVISION Cloud habilitada para SSO (logon único).
-
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* A Configuração de SSO do Azure AD do MVISION Cloud é compatível com SSO iniciado por **SP e IDP**
-* Depois de configurar o Dropbox, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* A Configuração de SSO do Azure AD do MVISION Cloud dá suporte ao SSO iniciado por **SP e IdP**.
 
-## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Como adicionar a Configuração de SSO do Azure AD do MVISION Cloud por meio da galeria
+## <a name="add-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Adicionar a Configuração de SSO do Azure AD do MVISION Cloud por meio da galeria
 
 Para configurar a integração da Configuração de SSO do Azure AD do MVISION Cloud ao Azure AD, você precisará adicionar a Configuração de SSO do Azure AD do MVISION Cloud por meio da galeria à lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Configuração de SSO do Azure AD do MVISION Cloud** na caixa de pesquisa.
 1. Selecione **Configuração de SSO do Azure AD do MVISION Cloud** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-mvision-cloud-azure-ad-sso-configuration"></a>Configurar e testar o SSO do Azure AD para a Configuração de SSO do Azure AD do MVISION Cloud
 
 Configure e teste o SSO do Azure AD com a Configuração de SSO do Azure AD do MVISION Cloud usando um usuário de teste chamado **Brenda Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado na Configuração de SSO do Azure AD do MVISION Cloud.
 
-Para configurar e testar o SSO do Azure AD com a Configuração de SSO do Azure AD do MVISION Cloud, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com a Configuração de SSO do Azure AD do MVISION Cloud, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
@@ -73,10 +69,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Datadog**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
 
 4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
@@ -85,8 +80,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
-
-    ![Informações de logon único de domínio e URLs da Configuração de SSO do Azure AD do MVISION Cloud](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
@@ -101,82 +94,54 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure AD permitindo a ela acesso à Configuração de SSO do Azure AD do MVISION Cloud.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure AD permitindo acesso à Configuração de SSO do Azure AD do MVISION Cloud.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e **Configuração de SSO do Azure AD do MVISION Cloud**.
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **Configuração de SSO do Azure AD do MVISION Cloud**.
-
-    ![O link da Configuração de SSO do Azure AD do MVISION Cloud na lista de aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
-
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Configuração de SSO do Azure AD do MVISION Cloud**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-mvision-cloud-azure-ad-sso-configuration-sso"></a>Configurar o SSO na Configuração de SSO do Azure AD do MVISION Cloud
 
 Para configurar o logon único no lado da **Configuração de SSO do Azure AD do MVISION Cloud**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte da Configuração de SSO do Azure AD do MVISION Cloud](mailto:support@skyhighnetworks.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-
 ### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Criar um usuário de teste da Configuração de SSO do Azure AD do MVISION Cloud
 
 Nesta seção, você criará um usuário chamado B.Fernandes na Configuração de SSO do Azure AD do MVISION Cloud. Trabalhe com a [equipe de suporte da Configuração de SSO do Azure AD do MVISION Cloud](mailto:support@skyhighnetworks.com) para adicionar os usuários na plataforma da Configuração de SSO do Azure AD do MVISION Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco da Configuração de SSO do Azure AD do MVISION Cloud no Painel de Acesso, você deverá ser conectado automaticamente à Configuração de SSO do Azure AD do MVISION Cloud para a qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Iniciado por SP:
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon da Configuração de SSO do Azure AD do MVISION Cloud, na qual você poderá iniciar o fluxo de logon.  
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
+* Acesse diretamente a URL de Logon da Configuração de SSO do Azure AD do MVISION Cloud e inicie o fluxo de logon nela.
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Iniciado por IdP:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar este aplicativo** no portal do Azure e você entrará automaticamente na Configuração de SSO do Azure AD do MVISION Cloud, para a qual configurou o SSO. 
 
-- [Experimente a Configuração de SSO do Azure AD do MVISION Cloud com o Azure AD](https://aad.portal.azure.com/)
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco da Configuração de SSO do Azure AD do MVISION Cloud em Meus Aplicativos, se ela estiver configurada no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ela estiver configurada no modo IdP, você entrará automaticamente na Configuração de SSO do Azure AD do MVISION Cloud, para a qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de configurar a Configuração de SSO do Azure AD do MVISION Cloud, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -10,10 +10,10 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936700"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Atualizando versões do SDK de gerenciamento do .NET Azure Search
@@ -26,7 +26,7 @@ Os SDKs de gerenciamento visam uma versão específica da API REST de gerenciame
 
 | Versão do SDK | Versão da API REST correspondente | Adição de recurso ou alteração de comportamento |
 |-------------|--------------------------------|-------------------------------------|
-| [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Adiciona segurança de ponto de extremidade (firewalls de IP e integração com o [link privado do Azure](../private-link/private-endpoint-overview.md)) |
+| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-Version = 2020-30-20 | Adiciona segurança de ponto de extremidade (firewalls de IP e integração com o [link privado do Azure](../private-link/private-endpoint-overview.md)) |
 | [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-Version = 2019-10-01 | Aperfeiçoamentos no uso. Alteração significativa em [chaves de consulta de lista](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get é descontinuado). |
 | [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-Version = 2015-08-19  | Primeira versão |
 

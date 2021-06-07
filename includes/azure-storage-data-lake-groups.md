@@ -7,10 +7,10 @@ ms.date: 09/29/2020
 ms.author: normesta
 ms.custom: include file
 ms.openlocfilehash: 9750eabf2aa5af4f431f2db17e113b07d3bce863
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017656"
 ---
 Sempre use os [grupos de segurança do Azure ad](../articles/active-directory/fundamentals/active-directory-manage-groups.md) como a entidade atribuída em uma entrada de ACL. Resista a oportunidade de atribuir diretamente a usuários individuais ou entidades de serviço. Usar essa estrutura permitirá que você adicione e remova usuários ou entidades de serviço sem a necessidade de reaplicar as ACLs para uma estrutura de diretório inteiro. Em vez disso, você pode apenas adicionar ou remover usuários e entidades de serviço do grupo de segurança apropriado do Azure AD. 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927485"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728001"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar um aplicativo de tradução com o WPF
 
@@ -41,7 +41,7 @@ Essa lista inclui os Serviços Cognitivos usados neste tutorial. Siga o link par
 | Serviço | Recurso | Descrição |
 |---------|---------|-------------|
 | Tradutor | [Obter Idiomas](./reference/v3-0-languages.md) | Recupera uma lista completa dos idiomas com suporte para tradução de texto. |
-| Tradutor | [Translate](./reference/v3-0-translate.md) | Traduza textos para mais de 70 idiomas. |
+| Tradutor | [Translate](./reference/v3-0-translate.md) | Traduza o texto em 90 idiomas e dialetos. |
 | Tradutor | [Detect](./reference/v3-0-detect.md) | Detecta o idioma do texto de entrada. Inclui a pontuação de confiança para detecção. |
 | Verificação Ortográfica do Bing | [Verificação ortográfica](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige erros de ortografia para melhorar a precisão da tradução. |
 
@@ -115,7 +115,7 @@ Vamos dar uma olhada no que estamos criando.
 
 A interface do usuário inclui estes componentes:
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox | Exibe uma lista dos idiomas compatíveis com o Microsoft Translator para a tradução de texto. O usuário seleciona o idioma a partir do qual traduzir. |
 | `ToLanguageComboBox` | ComboBox | Exibe a mesma lista de idiomas de `FromComboBox`, mas é usada para selecionar o idioma para o qual usuário está traduzindo. |
@@ -264,7 +264,7 @@ Por último, adicionamos código para chamar métodos para recuperar os idiomas 
 
 ## <a name="get-supported-languages"></a>Obter idiomas com suporte
 
-Atualmente, o Tradutor dá suporte a mais de 70 idiomas. Como o novo suporte de idiomas será adicionado com o tempo, é recomendável chamar o recurso Idiomas exposto pelo Tradutor, em vez de incorporar o código da lista de idiomas em seu aplicativo.
+No momento, o Tradutor dá suporte a 90 idiomas e dialetos. Como o novo suporte de idiomas será adicionado com o tempo, é recomendável chamar o recurso Idiomas exposto pelo Tradutor, em vez de incorporar o código da lista de idiomas em seu aplicativo.
 
 Nesta seção, vamos criar uma solicitação `GET` ao recurso de Idiomas, especificando que queremos uma lista de idiomas disponíveis para a tradução.
 

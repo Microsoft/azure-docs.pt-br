@@ -5,25 +5,25 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 03/02/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 8d19a5dadffdfa26ccb2d84e6dab278ad272c7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060054"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101658039"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A API do Azure Cosmos DB para MongoDB aproveita os principais recursos de gerenciamento de índice do Azure Cosmos DB. Este artigo se concentra em como adicionar índices usando a API do Azure Cosmos DB para MongoDB. Você também pode ler uma [visão geral da indexação em Azure Cosmos DB](index-overview.md) relevante em todas as APIs.
 
-## <a name="indexing-for-mongodb-server-version-36"></a>Indexação para o servidor MongoDB versão 3,6
+## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>Indexação para o servidor MongoDB versão 3,6 e superior
 
-A API do Azure Cosmos DB para o servidor MongoDB versão 3,6 indexa automaticamente o `_id` campo, que não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Na API do Azure Cosmos DB para MongoDB, a fragmentação e a indexação são conceitos separados. Você não precisa indexar sua chave de fragmento. No entanto, assim como com qualquer outra propriedade em seu documento, se essa propriedade for um filtro comum em suas consultas, é recomendável indexar a chave de fragmentação.
+A API do Azure Cosmos DB para o servidor MongoDB versão 3.6 + indexa automaticamente o `_id` campo, que não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Na API do Azure Cosmos DB para MongoDB, a fragmentação e a indexação são conceitos separados. Você não precisa indexar sua chave de fragmento. No entanto, assim como com qualquer outra propriedade em seu documento, se essa propriedade for um filtro comum em suas consultas, é recomendável indexar a chave de fragmentação.
 
 Para indexar campos adicionais, você aplica os comandos de gerenciamento de índice do MongoDB. Como no MongoDB, a API do Azure Cosmos DB para MongoDB indexa automaticamente o `_id` campo somente. Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
 
@@ -53,9 +53,9 @@ Você pode criar o mesmo índice de campo único no `name` portal do Azure:
 
 Uma consulta usa vários índices de campo único, quando disponíveis. Você pode criar até 500 índices de campo único por contêiner.
 
-### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compostos (servidor MongoDB versão 3,6)
+### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compostos (servidor MongoDB versão 3.6 +)
 
-A API do Azure Cosmos DB para MongoDB dá suporte a índices compostos para contas que usam o protocolo de transmissão da versão 3,6. Você pode incluir até oito campos em um índice composto. Ao contrário do MongoDB, você deve criar um índice composto somente se sua consulta precisar classificar com eficiência em vários campos ao mesmo tempo. Para consultas com vários filtros que não precisam ser classificados, crie vários índices de campo único em vez de um único índice composto. 
+A API do Azure Cosmos DB para MongoDB dá suporte a índices compostos para contas que usam o protocolo de transmissão da versão 3,6 e 4,0. Você pode incluir até oito campos em um índice composto. Ao contrário do MongoDB, você deve criar um índice composto somente se sua consulta precisar classificar com eficiência em vários campos ao mesmo tempo. Para consultas com vários filtros que não precisam ser classificados, crie vários índices de campo único em vez de um único índice composto. 
 
 > [!NOTE]
 > Você não pode criar índices compostos em propriedades aninhadas ou matrizes.
@@ -102,30 +102,31 @@ Você pode usar índices curinga para dar suporte a consultas em campos desconhe
 Aqui está parte de um documento de exemplo nessa coleção:
 
 ```json
-  "children": [
-     {
-         "firstName": "Henriette Thaulow",
-         "grade": "5"
-     }
-  ]
+"children": [
+   {
+     "firstName": "Henriette Thaulow",
+     "grade": "5"
+   }
+]
 ```
 
 Aqui está outro exemplo, desta vez com um conjunto ligeiramente diferente de propriedades em `children` :
 
 ```json
-  "children": [
-      {
-        "familyName": "Merriam",
-        "givenName": "Jesse",
-        "pets": [
-            { "givenName": "Goofy" },
-            { "givenName": "Shadow" }
-      },
-      {
-        "familyName": "Merriam",
-        "givenName": "John",
-      }
-  ]
+"children": [
+    {
+     "familyName": "Merriam",
+     "givenName": "Jesse",
+     "pets": [
+         { "givenName": "Goofy" },
+         { "givenName": "Shadow" }
+         ]
+   },
+   {
+     "familyName": "Merriam",
+     "givenName": "John",
+   }
+]
 ```
 
 Nesta coleção, os documentos podem ter muitas propriedades possíveis diferentes. Se você quisesse indexar todos os dados na `children` matriz, você tem duas opções: criar índices separados para cada propriedade individual ou criar um índice curinga para toda a `children` matriz.
@@ -140,8 +141,8 @@ O comando a seguir cria um índice curinga em qualquer propriedade em `children`
 
 Você pode criar os seguintes tipos de índice usando a sintaxe curinga:
 
-- Campo único
-- Geoespacial
+* Campo único
+* Geoespacial
 
 ### <a name="indexing-all-properties"></a>Indexando todas as propriedades
 
@@ -162,41 +163,45 @@ Documentos com muitos campos podem ter uma cobrança de alta unidade de solicita
 
 Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índice ou propriedades:
 
-- Composto
-- TTL
-- Exclusivo
+* Composto
+* TTL
+* Exclusivo
 
 **Ao contrário do MongoDB**, na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
 
-- Criar um índice curinga que inclui vários campos específicos
+* Criar um índice curinga que inclui vários campos específicos
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection " :
-        {
-           "children.givenName" : 1,
-           "children.grade" : 1
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection " :
+          {
+             "children.givenName" : 1,
+             "children.grade" : 1
+          }
+      }
+  )
+  ```
 
-- Criar um índice curinga que exclui vários campos específicos
+* Criar um índice curinga que exclui vários campos específicos
 
-`db.coll.createIndex(
-    { "$**" : 1 },
-    { "wildcardProjection" :
-        {
-           "children.givenName" : 0,
-           "children.grade" : 0
-        }
-    }
-)`
+  ```json
+  db.coll.createIndex(
+      { "$**" : 1 },
+      { "wildcardProjection" :
+          {
+             "children.givenName" : 0,
+             "children.grade" : 0
+          }
+      }
+  )
+  ```
 
 Como alternativa, você pode criar vários índices curinga.
 
 ## <a name="index-properties"></a>Propriedades de índice
 
-As operações a seguir são comuns para as contas que servem o protocolo de conexão versão 3,6 e as contas que atendem a versões anteriores. Você pode saber mais sobre [índices com suporte e propriedades indexadas](mongodb-feature-support-36.md#indexes-and-index-properties).
+As operações a seguir são comuns para as contas que servem o protocolo de conexão versão 4,0 e as contas que atendem a versões anteriores. Você pode saber mais sobre [índices com suporte e propriedades indexadas](mongodb-feature-support-40.md#indexes-and-index-properties).
 
 ### <a name="unique-indexes"></a>Índices exclusivos
 
@@ -210,11 +215,11 @@ O comando a seguir cria um índice exclusivo no campo `student_id` :
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 1,
+    "numIndexesAfter" : 4
 }
 ```
 
@@ -225,23 +230,23 @@ Os comandos a seguir criam uma coleção fragmentada ```coll``` (a chave de frag
 ```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
-        "_t" : "ShardCollectionResponse",
-        "ok" : 1,
-        "collectionsharded" : "test.coll"
+    "_t" : "ShardCollectionResponse",
+    "ok" : 1,
+    "collectionsharded" : "test.coll"
 }
 globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 3,
-        "numIndexesAfter" : 4
+    "_t" : "CreateIndexesResponse",
+    "ok" : 1,
+    "createdCollectionAutomatically" : false,
+    "numIndexesBefore" : 3,
+    "numIndexesAfter" : 4
 }
 ```
 
 No exemplo anterior, omitir a ```"university":1``` cláusula retorna um erro com a seguinte mensagem:
 
-```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
+*Não é possível criar índice exclusivo em {student_id: 1,0} com padrão de chave de fragmento {Universidade: 1,0}*
 
 ### <a name="ttl-indexes"></a>Índices TTL
 
@@ -260,7 +265,7 @@ O comando anterior exclui todos os documentos na ```db.coll``` coleção que nã
 
 ## <a name="track-index-progress"></a>Acompanhar o progresso do índice
 
-A versão 3,6 da API do Azure Cosmos DB para MongoDB dá suporte ao `currentOp()` comando para acompanhar o progresso do índice em uma instância de banco de dados. Esse comando retorna um documento que contém informações sobre operações em andamento em uma instância de banco de dados. Você usa o `currentOp` comando para controlar todas as operações em andamento no MongoDB nativo. Na API do Azure Cosmos DB para MongoDB, esse comando só dá suporte ao acompanhamento da operação de índice.
+A versão 3.6 + da API do Azure Cosmos DB para MongoDB dá suporte ao `currentOp()` comando para acompanhar o progresso do índice em uma instância de banco de dados. Esse comando retorna um documento que contém informações sobre operações em andamento em uma instância de banco de dados. Você usa o `currentOp` comando para controlar todas as operações em andamento no MongoDB nativo. Na API do Azure Cosmos DB para MongoDB, esse comando só dá suporte ao acompanhamento da operação de índice.
 
 Aqui estão alguns exemplos que mostram como usar o `currentOp` comando para acompanhar o progresso do índice:
 
@@ -286,7 +291,7 @@ Aqui estão alguns exemplos que mostram como usar o `currentOp` comando para aco
 
 Os detalhes do progresso do índice mostram a porcentagem de progresso para a operação de índice atual. Aqui está um exemplo que mostra o formato do documento de saída para diferentes estágios do progresso do índice:
 
-- Uma operação de índice em uma coleção "foo" e no banco de dados de "barra" que é 60 por cento concluído terá o seguinte documento de saída. O `Inprog[0].progress.total` campo mostra 100 como a porcentagem de conclusão de destino.
+* Uma operação de índice em uma coleção "foo" e no banco de dados de "barra" que é 60 por cento concluído terá o seguinte documento de saída. O `Inprog[0].progress.total` campo mostra 100 como a porcentagem de conclusão de destino.
 
    ```json
    {
@@ -310,7 +315,7 @@ Os detalhes do progresso do índice mostram a porcentagem de progresso para a op
    }
    ```
 
-- Se uma operação de índice acabou de ser iniciada em uma coleção "foo" e no banco de dados "bar", o documento de saída poderá mostrar 0% de progresso até atingir um nível mensurável.
+* Se uma operação de índice acabou de ser iniciada em uma coleção "foo" e no banco de dados "bar", o documento de saída poderá mostrar 0% de progresso até atingir um nível mensurável.
 
    ```json
    {
@@ -334,7 +339,7 @@ Os detalhes do progresso do índice mostram a porcentagem de progresso para a op
    }
    ```
 
-- Quando a operação de índice em andamento for concluída, o documento de saída mostrará operações vazias `inprog` .
+* Quando a operação de índice em andamento for concluída, o documento de saída mostrará operações vazias `inprog` .
 
    ```json
    {
@@ -407,26 +412,26 @@ No momento, você só pode criar índices exclusivos quando a coleção não con
 
 Os recursos de indexação disponíveis e os padrões são diferentes para contas do Azure cosmos que são compatíveis com a versão 3,2 do protocolo de transmissão do MongoDB. Você pode [verificar a versão da sua conta](mongodb-feature-support-36.md#protocol-support) e [atualizar para a versão 3,6](mongodb-version-upgrade.md).
 
-Se você estiver usando a versão 3,2, esta seção descreve as principais diferenças com a versão 3,6.
+Se você estiver usando a versão 3,2, esta seção descreve as principais diferenças com as versões 3.6 +.
 
 ### <a name="dropping-default-indexes-version-32"></a>Descartando índices padrão (versão 3,2)
 
-Ao contrário da versão 3,6 da API do Azure Cosmos DB para MongoDB, a versão 3,2 indexa cada propriedade por padrão. Você pode usar o seguinte comando para descartar esses índices padrão para uma coleção ( ```coll``` ):
+Ao contrário das versões 3.6 + da API do Azure Cosmos DB para MongoDB, a versão 3,2 indexa cada propriedade por padrão. Você pode usar o seguinte comando para descartar esses índices padrão para uma coleção ( ```coll``` ):
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-Depois de descartar os índices padrão, você pode adicionar mais índices como faria na versão 3,6.
+Depois de descartar os índices padrão, você pode adicionar mais índices como faria na versão 3.6 +.
 
 ### <a name="compound-indexes-version-32"></a>Índices compostos (versão 3,2)
 
-Os índices compostos possuem referências a vários campos de um documento. Se você quiser criar um índice composto, [atualize para a versão 3,6](mongodb-version-upgrade.md).
+Os índices compostos possuem referências a vários campos de um documento. Se você quiser criar um índice composto, [atualize para a versão 3,6 ou 4,0](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Índices curinga (versão 3,2)
 
-Se você quiser criar um índice curinga, [atualize para a versão 3,6](mongodb-version-upgrade.md).
+Se você quiser criar um índice curinga, [atualize para a versão 4,0 ou 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724535"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101648510"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resiliência por meio de monitoramento e análise
 
@@ -49,7 +49,7 @@ Por exemplo, acompanhe as métricas a seguir, uma vez que uma queda repentina em
 
    - **Período anterior**: criar gráficos temporais para mostrar alterações no total de solicitações e taxa de êxito (%) em um período anterior para fins de referência, por exemplo, última semana.
 
-- **Alerta**: usar o log Analytics define [alertas](../../azure-monitor/platform/alerts-log.md) que são disparados quando há alterações súbitas nos indicadores de chave. Essas alterações podem afetar negativamente o SLOs. Os alertas usam várias formas de métodos de notificação, incluindo email, SMS e WebHooks. Comece definindo um critério que atue como um limite no qual o alerta será disparado. Por exemplo:
+- **Alerta**: usar o log Analytics define [alertas](../../azure-monitor/alerts/alerts-log.md) que são disparados quando há alterações súbitas nos indicadores de chave. Essas alterações podem afetar negativamente o SLOs. Os alertas usam várias formas de métodos de notificação, incluindo email, SMS e WebHooks. Comece definindo um critério que atue como um limite no qual o alerta será disparado. Por exemplo:
   - Alerta contra queda abrupta em total de solicitações: disparar um alerta quando o número total de solicitações for descartado abruptamente. Por exemplo, quando há um descarte de 25% no número total de solicitações comparadas ao período anterior, gere um alerta.  
   - Alertar em relação à taxa de êxito de queda significativa (%): disparar um alerta quando a taxa de êxito da política selecionada for eliminada significativamente.
   - Após receber um alerta, solucione o problema usando [log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)e [extensão de vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) para Azure ad B2C. Depois de resolver o problema e implantar um aplicativo ou uma política atualizada, ele continua a monitorar os principais indicadores até que eles retornem ao intervalo normal.
@@ -57,7 +57,7 @@ Por exemplo, acompanhe as métricas a seguir, uma vez que uma queda repentina em
 - **Alertas de serviço**: Use o [Azure ad B2C alertas de nível de serviço](../../service-health/service-health-overview.md) para ser notificado sobre problemas de serviço, manutenção planejada, consultoria de integridade e consultoria de segurança.
 
 - **Relatórios**: [usando o log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), crie relatórios que ajudam você a obter noções básicas sobre o usuário, desafios técnicos e oportunidades de crescimento.
-  - **Painel de integridade**: Crie [painéis personalizados usando o recurso de painel do Azure](../../azure-monitor/learn/tutorial-app-dashboards.md) , que oferece suporte à adição de gráficos usando consultas log Analytics. Por exemplo, identifique o padrão de entradas bem-sucedidas e com falha, os motivos de falha e a telemetria sobre os dispositivos usados para fazer as solicitações.
+  - **Painel de integridade**: Crie [painéis personalizados usando o recurso de painel do Azure](../../azure-monitor/app/tutorial-app-dashboards.md) , que oferece suporte à adição de gráficos usando consultas log Analytics. Por exemplo, identifique o padrão de entradas bem-sucedidas e com falha, os motivos de falha e a telemetria sobre os dispositivos usados para fazer as solicitações.
   - **Abandonar Azure ad B2C jornadas**: Use a [pasta de trabalho](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) para acompanhar a lista de percursos Azure ad B2Cdos em que o usuário iniciou a entrada ou a jornada de inscrição, mas nunca a concluiu. Ele fornece detalhes sobre a ID da política e a divisão de etapas que são tomadas pelo usuário antes de abandonar a jornada.
   - **Azure ad B2C pastas de trabalho de monitoramento**: Use as [pastas de trabalho de monitoramento](https://github.com/azure-ad-b2c/siem), que incluem painel de Azure ad B2C, operações de MFA (autenticação multifator), relatório de acesso condicional e logs de pesquisa por CorrelationId, para obter melhores informações sobre a integridade de seu ambiente de Azure ad B2C.
   

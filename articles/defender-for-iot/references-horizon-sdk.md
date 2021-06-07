@@ -1,19 +1,14 @@
 ---
 title: SDK do Horizon
-titleSuffix: Azure Defender for IoT
 description: O SDK do horizonte permite que os desenvolvedores do Azure defender para IoT projetem plugins de dessetor que decodifiquem o tráfego de rede para que possam ser processados por programas de análise de rede do defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523355"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782479"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dessetor de protocolo proprietário do horizonte
 
@@ -103,7 +98,7 @@ Entre em contato <support@cyberx-labs.com> para obter informações sobre como r
 
 - Defender para IoT versão 3,0 e posterior.
 
-### <a name="process"></a>Processar
+### <a name="process"></a>Processo
 
 1. [Baixe](https://www.eclipse.org/) o Eclipse IDE para desenvolvedores de C/C++. Você pode usar qualquer outro IDE que preferir. Este documento orienta você pela configuração usando o IDE do eclipse.
 
@@ -1110,7 +1105,7 @@ Você pode aprimorar o dispositivo das informações disponíveis no dispositivo
 
 - Fornecedor
 
-- Sistema operacional
+- Sistema Operacional
 
 Para conseguir isso, o arquivo de configuração JSON precisa ser atualizado usando a propriedade **Properties** . 
 
@@ -1149,7 +1144,7 @@ As propriedades que podem ser configuradas neste arquivo são:
 | Campo | Descrição |
 |--|--|
 | chave | Indica a chave. |
-| value | Indica o campo de implementação a ser usado para fornecer os dados. |
+| valor | Indica o campo de implementação a ser usado para fornecer os dados. |
 | is_static_key | Indica se o `key` campo é derivado como um valor do pacote ou é um valor predefinido. |
 
 ### <a name="working-with-static-keys-only"></a>Trabalhando somente com chaves estáticas
@@ -1606,7 +1601,7 @@ Para carregar:
 1.  Entre no sensor.
 
 
-2. Selecione **Carregar**.
+2. Escolha **Carregar**.
 
     :::image type="content" source="media/references-horizon-sdk/upload.png" alt-text="Carregue seus plugins.":::
 
@@ -1624,7 +1619,7 @@ A janela **visão geral** do console de horizonte fornece informações sobre o 
 | :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="A opção liga e desliga."::: | Ativar **ou** **desativar** o plug-in. O defender para IoT não tratará o tráfego de protocolo definido no plug-in quando você desativar o plug-in. |
 | Hora | A hora em que os dados foram analisados pela última vez. Atualizado a cada 5 segundos. |
 | PPS | O número de pacotes por segundo. |
-| Largura de Banda | A largura de banda média detectada nos últimos 5 segundos. |
+| Largura de banda | A largura de banda média detectada nos últimos 5 segundos. |
 | Malforms | Validações malformadas são usadas depois que o protocolo tiver sido validado positivamente. Se houver uma falha ao processar os pacotes com base no protocolo, uma resposta de falha será retornada.   <br><br>Esta coluna indica o número de erros malform nos últimos 5 segundos. Para obter mais informações, consulte [validações de código malformado](#malformed-code-validations) para obter detalhes. |
 | Warnings | Os pacotes correspondem à estrutura e à especificação, mas há um comportamento inesperado com base na configuração de aviso do plug-in. |
 | Errors | O número de pacotes que falharam validações de protocolo básicas. Valida se o pacote corresponde às definições de protocolo. O número exibido aqui indica o número de erros detectados nos últimos 5 segundos. Para obter mais informações, consulte [validações de código de sanidade](#sanity-code-validations) para obter detalhes. |
@@ -1640,6 +1635,6 @@ Para monitorar:
 
 Selecione o botão monitorar para o plug-in na visão geral.
 
-## <a name="next-steps"></a>Próximas etapas
+Próximas etapas
 
 Configurar sua [API do horizonte](references-horizon-api.md)

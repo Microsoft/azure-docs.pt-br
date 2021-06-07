@@ -4,10 +4,10 @@ description: Saiba como criar uma imagem personalizada no Azure DevTest Labs de 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cac812a9c38fc1dedfd31659a626b122f9527e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87289408"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
@@ -24,7 +24,7 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074790"
 ---
 # <a name="overview-of-the-developer-portal"></a>Visão geral do portal do desenvolvedor
@@ -62,7 +62,7 @@ Quando você iniciou pela primeira vez a versão de visualização do portal do 
 
 Se você tiver personalizado bastante seu portal com base na versão de visualização do conteúdo, poderá continuar a usá-lo como está e posicionar novos widgets manualmente nas páginas do Portal. Caso contrário, é recomendável substituir o conteúdo do portal pelo novo conteúdo padrão.
 
-Para redefinir o conteúdo em um portal gerenciado, selecione **Redefinir Conteúdo** na seção do menu **operações** . Esta operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. Você perderá todas as personalizações e alterações do portal do desenvolvedor. **Não é possível desfazer esta ação** .
+Para redefinir o conteúdo em um portal gerenciado, selecione **Redefinir Conteúdo** na seção do menu **operações** . Esta operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. Você perderá todas as personalizações e alterações do portal do desenvolvedor. **Não é possível desfazer esta ação**.
 
 ![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -196,7 +196,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | No              |
+| Microsoft Internet Explorer | Não              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> com suporte nas duas versões de produção mais recentes.</small>

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: a7978410dbe28a5da5dae81cb380d118fe13a159
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240742"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869371"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de servidor no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -38,7 +38,7 @@ Um servidor flexível do banco de dados do Azure para MySQL:
 - Fornece uma integração de rede virtual para o acesso ao servidor de banco de dados
 - Fornece uma maneira de economizar custos pausando o servidor flexível quando não estiver em uso
 - Fornece o escopo para políticas de gerenciamento que se aplicam a seus bancos de dados: logons, firewall, usuários, funções, configurações etc.
-- Atualmente, tem suporte com a versão MySQL 5,7. Para obter mais informações, consulte [versões do mecanismo do banco de dados do Azure para MySQL com suporte](./concepts-supported-versions.md).
+- Dá suporte à versão principal MySQL 5,7 e MySQL 8,0. Para obter mais informações, consulte [versões do mecanismo do banco de dados do Azure para MySQL com suporte](./../concepts-supported-versions.md).
 
 Em um servidor flexível do banco de dados do Azure para MySQL, você pode criar um ou vários bancos. É possível optar por criar um único banco de dados por servidor para utilizar todos os recursos ou criar vários bancos de dados para compartilhar os recursos. O preço é estruturado por servidor, com base na configuração da camada de computação, vCores e armazenamento (GB). Para obter mais informações, consulte [computação e armazenamento](./concepts-compute-storage.md).
 
@@ -55,7 +55,14 @@ Durante a interrupção do servidor de horário, nenhuma operação de gerenciam
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
 
-Você pode gerenciar o servidor flexível do banco de dados do Azure para MySQL usando o [portal do Azure](./quickstart-create-server-portal.md) ou o [CLI do Azure](./quickstart-create-server-cli.md).
+Você pode gerenciar a criação, a exclusão, a configuração de parâmetro do servidor (My. cnf), o dimensionamento, a rede, a segurança, a alta disponibilidade, o backup & restauração, o monitoramento de seu banco de dados do Azure para o servidor flexível do MySQL usando o [portal do Azure](./quickstart-create-server-portal.md) ou o [CLI do Azure](./quickstart-create-server-cli.md). Além disso, os procedimentos armazenados a seguir estão disponíveis no banco de dados do Azure para MySQL para executar determinadas tarefas de administração de banco de dados necessárias, pois não há suporte para o privilégio de superusuário no servidor.
+
+|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Observação de uso**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/D|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
+|*mysql.az_kill_query*|processlist_id|N/D|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
+|*mysql.az_load_timezone*|N/D|N/D|Carrega [tabelas de fuso horário](../howto-server-parameters.md#working-with-the-time-zone-parameter) para permitir que o `time_zone` parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

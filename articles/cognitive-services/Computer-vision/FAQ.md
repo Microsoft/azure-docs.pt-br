@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "68564598"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Perguntas frequentes da API da Pesquisa Visual Computacional
@@ -25,7 +25,7 @@ ms.locfileid: "68564598"
 
 ---
 
-**Pergunta**: *posso treinar API da pesquisa Visual computacional usar marcas personalizadas?  Por exemplo, eu gostaria de alimentar fotos de gatos para "treinar" o ia e, em seguida, receber o valor de mercado em uma solicitação de ia.*
+**Pergunta**: *posso treinar uma API de Pesquisa Visual Computacional para usar marcas personalizadas? Por exemplo, eu gostaria de fornecer imagens de raças de gatos para "treinar" a IA e receber o valor da raça em uma solicitação da IA.*
 
 **Resposta**: Essa função não está disponível no momento. No entanto, nossos engenheiros estão trabalhando para trazer essa funcionalidade para a Pesquisa Visual Computacional.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75610090"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurando as definições do gerenciador de recursos de cluster para serviços do Service Fabric
@@ -26,7 +26,7 @@ As restrições de posicionamento são usadas para controlar em quais nós no cl
 Métricas são o conjunto de recursos de que um determinado serviço nomeado precisa. Uma configuração do serviço métrica inclui a quantidade do recurso consome cada instância sem monitoração de estado de serviço ou réplica com monitoração de estado por padrão. As métricas também incluem um peso que indica até que ponto o balanceamento dessa métrica é importante para o serviço, caso as compensações sejam necessárias.
 
 ## <a name="advanced-placement-rules"></a>Regras de posicionamento avançadas
-Há outros tipos de regras de posicionamento que são úteis em cenários menos comuns. Alguns exemplos são:
+Há outros tipos de regras de posicionamento que são úteis em cenários menos comuns. Alguns exemplos incluem:
 - Restrições que ajudam com clusters distribuídos geograficamente
 - Determinadas arquiteturas de aplicativo
 

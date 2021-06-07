@@ -31,7 +31,7 @@ Conheça o que há de novo no serviço. Esses itens podem incluir notas sobre a 
 
 ### <a name="may-2020---build-conference"></a>Maio de 2020 – //Conferência Build
 
-Os seguintes recursos estão disponíveis em **Versão prévia pública** :
+Os seguintes recursos estão disponíveis em **Versão prévia pública**:
 
  * [Modo Aprendiz](concept-apprentice-mode.md) como um comportamento de aprendizado.
 

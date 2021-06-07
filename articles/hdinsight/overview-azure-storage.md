@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938952"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865461"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento do Azure no HDInsight
 
@@ -24,7 +24,7 @@ Se você optar por proteger sua conta de armazenamento com as restrições de **
 
 O diagrama a seguir fornece uma exibição abstrata da arquitetura do HDInsight do Armazenamento do Azure:
 
-![' Arquitetura de armazenamento do HDInsight '](./media/overview-azure-storage/storage-architecture.png "Arquitetura de armazenamento do HDInsight")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Arquitetura de armazenamento do HDInsight" border="false":::
 
 O HDInsight fornece acesso ao sistema de arquivos distribuídos que está anexado localmente aos nós de computação. Esse sistema de arquivos pode ser acessado usando o URI totalmente qualificado, por exemplo:
 
@@ -40,7 +40,7 @@ Considere os seguintes princípios ao usar uma conta de Armazenamento do Azure c
 
 * **Contêineres públicos ou BLOBs públicos em contas de armazenamento que não estão conectadas a um cluster:** Você tem permissão somente leitura para os BLOBs nos contêineres.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Os contêineres públicos permitem obter uma lista de todos os blobs disponíveis nesse contêiner e os metadados do contêiner. Um blob público somente permite acessar os blobs se você souber a URL exata. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Contêineres privados em contas de armazenamento que não estão conectadas a um cluster:** Não é possível acessar os BLOBs nos contêineres, a menos que você defina a conta de armazenamento ao enviar os trabalhos do WebHCat.

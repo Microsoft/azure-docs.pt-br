@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600500"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954642"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
-As entidades em seu ambiente são representadas por [gêmeos digital](concepts-twins-graph.md). Gerenciar seu gêmeos digital pode incluir criação, modificação e remoção. Para executar essas operações, você pode usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
+As entidades em seu ambiente são representadas por [gêmeos digital](concepts-twins-graph.md). Gerenciar seu gêmeos digital pode incluir criação, modificação e remoção. Para executar essas operações, você pode usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de gêmeos digitais; para trabalhar com relações e o [gráfico de bispersão](concepts-twins-graph.md) como um todo, confira [*como gerenciar o grafo de entrelaçamento com relações*](how-to-manage-graph.md).
 
@@ -86,7 +86,7 @@ Você pode acessar os detalhes de qualquer tipo de informações digitais chaman
 
 Essa chamada retorna dados de texto cruzado como um tipo de objeto fortemente tipado, como `BasicDigitalTwin` . `BasicDigitalTwin` é uma classe auxiliar de serialização incluída no SDK, que retornará os metadados e as propriedades principais de entrelaçamento no formulário previamente analisado. Aqui está um exemplo de como usar isso para exibir os detalhes de entrelaçamento:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Somente as propriedades que foram definidas pelo menos uma vez são retornadas quando você recupera um conjunto de entrelaçar com o `GetDigitalTwin()` método.
 
@@ -127,13 +127,13 @@ O resultado da chamada `object result = await client.GetDigitalTwinAsync("my-moo
 }
 ```
 
-As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem:
-* A ID do cópia digital nesta instância de gêmeos digital do Azure, como `$dtId` .
-* `$etag`, um campo HTTP padrão atribuído pelo servidor Web.
-* Outras propriedades em uma `$metadata` seção. Elas incluem:
-    - O DTMI do modelo do teledigital.
-    - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
-    - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
+As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem os seguintes valores:
+* `$dtId`: A ID da cópia digital nesta instância de gêmeos digital do Azure
+* `$etag`: Um campo HTTP padrão atribuído pelo servidor Web. Isso é atualizado para um novo valor sempre que a atualização de dados é atualizada, o que pode ser útil para determinar se o dado do entrelaçamento foi atualizado no servidor desde uma verificação anterior. Você pode usar `If-Match` para executar atualizações e exclusões que só são concluídas se a ETag da entidade corresponder à ETag fornecida. Para obter mais informações sobre essas operações, consulte a documentação para [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) e [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
+* `$metadata`: Um conjunto de outras propriedades, incluindo:
+  - O DTMI do modelo do teledigital.
+  - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
+  - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
 
 Você pode ler mais sobre as classes auxiliares de `BasicDigitalTwin` serialização [*, como em How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
 
@@ -160,7 +160,7 @@ Aqui está um exemplo de código de patch JSON. Este documento substitui os valo
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Você pode criar patches usando um `JsonPatchDocument` no [SDK](how-to-use-apis-sdks.md)do. Veja um exemplo.
+Você pode criar patches usando o [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument)do SDK do .net do Azure. Veja um exemplo.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -208,13 +208,13 @@ As duas chamadas que modificam *Twin1* são executadas uma após a outra e as me
 
 Você pode excluir gêmeos usando o `DeleteDigitalTwin()` método. No entanto, você só pode excluir um "n" quando ele não tiver mais relações. Portanto, exclua as relações de entrada e saída do "s" primeiro.
 
-Aqui está um exemplo do código para excluir gêmeos e suas relações:
+Aqui está um exemplo do código para excluir gêmeos e suas relações. A `DeleteDigitalTwin` chamada do SDK é realçada para esclarecer onde ela cai no contexto de exemplo mais amplo.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Excluir todos os gêmeos digitais
 
-Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllTwins()` função.
+Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop. cs* faz isso em uma `CommandDeleteAllTwins()` função.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Exemplo de código de teledigital executável
 
@@ -227,7 +227,7 @@ O trecho de código usa o [Room.jsna](https://github.com/Azure-Samples/digital-t
 Antes de executar o exemplo, faça o seguinte:
 1. Baixe o arquivo de modelo, coloque-o em seu projeto e substitua o `<path-to>` espaço reservado no código abaixo para dizer ao seu programa onde encontrá-lo.
 2. Substitua o espaço reservado `<your-instance-hostname>` pelo nome de host da instância do gêmeos digital do Azure.
-3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. O primeiro é o pacote para o [SDK do gêmeos digital do Azure para .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), o segundo fornece ferramentas para ajudar com a autenticação no Azure.
+3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

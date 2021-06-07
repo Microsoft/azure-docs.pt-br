@@ -7,13 +7,13 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73468545"
 ---
-# <a name="azure-data-share-concepts"></a>Conceitos de compartilhamento de dados do Azure 
+# <a name="azure-data-share-concepts"></a>Conceitos do Azure Data Share 
 
 O compartilhamento de dados do Azure apresenta uma nova terminologia relacionada ao compartilhamento de dados. Este artigo explica alguns termos usados com frequência que você pode ver em todo o serviço. 
 
@@ -27,7 +27,7 @@ Um consumidor de dados é a organização que está recebendo dados de um proved
 
 ## <a name="data-share"></a>Data Share
 
-Um compartilhamento de dados é um grupo de DataSets que são compartilhados como uma única entidade. Conjuntos de dados podem ser de várias fontes de dados do Azure que são compatíveis com o Azure data share. Atualmente, o compartilhamento de dados do Azure dá suporte ao armazenamento de BLOBs do Azure e Azure Data Lake Store. 
+Um compartilhamento de dados é um grupo de conjuntos de dados que são compartilhados como uma entidade única. Os conjuntos de dados podem ser de várias fontes de dados do Azure com suporte do Azure Data Share. Atualmente, o Azure Data Share dá suporte ao Armazenamento de Blobs do Azure e ao Azure Data Lake Storage. 
 
 ## <a name="share-subscription"></a>Compartilhar assinatura 
 

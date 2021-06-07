@@ -1,19 +1,23 @@
-- name: Assistente de Métricas
+- name: Documentação do Assistente de Métricas
   href: index.yml
 - name: Visão geral
   expanded: true
   items:
     - name: O que é o Assistente de Métricas?
       href: overview.md
+    - name: Preços
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: Novidades
       href: whats-new.md
 - name: Inícios rápidos
   items:
-    - name: Usar o portal da Web
+    - name: Portal da Web
       href: quickstarts/web-portal.md
-    - name: Usar a API REST ou bibliotecas de clientes
+    - name: Bibliotecas de cliente e API REST
       href: quickstarts/rest-api-and-client-library.md
-- name: Instruções
+- name: Exemplos
+  href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
+- name: Guias de instruções
   items:
     - name: Integrar os dados
       href: how-tos/onboard-your-data.md
@@ -31,27 +35,29 @@
       href: how-tos/anomaly-feedback.md
     - name: Criar um grafo de métricas
       href: how-tos/metrics-graph.md
+    - name: Preparação corporativa
+      items:
+        - name: Usar chaves gerenciadas pelo cliente
+          href: encryption.md
+- name: Conceitos
+  items:
+    - name: Termos principais do Assistente de Métricas
+      href: glossary.md
 - name: Referência
   items:
-    - name: Glossário
-      href: glossary.md
-    - name: Perguntas frequentes
-      href: faq.md
-    - name: API do Assistente de Métricas
+    - name: API REST do Assistente de Métricas
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Referência da CLI do Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Referência do PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Recursos
   items:
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Preços
-      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: encryption.md

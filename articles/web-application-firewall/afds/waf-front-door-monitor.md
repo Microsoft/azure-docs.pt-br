@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84808945"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitoramento e registro em log do firewall do aplicativo Web do Azure
@@ -22,11 +22,11 @@ O monitoramento e o registro em log do WAF (firewall do aplicativo Web) do Azure
 
 O WAF com o log do FrontDoor é integrado ao [Azure monitor](../../azure-monitor/overview.md). Azure Monitor permite que você acompanhe informações de diagnóstico, incluindo alertas e logs do WAF. Você pode configurar o monitoramento de WAF dentro do recurso de porta frontal no portal na guia **diagnóstico** ou por meio do serviço de Azure monitor diretamente.
 
-Em portal do Azure, vá para tipo de recurso da porta frontal. Na **Monitoring** / guia**métricas** de monitoramento à esquerda, você pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de solicitações que correspondem às regras de WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regra.
+Em portal do Azure, vá para tipo de recurso da porta frontal. Na  / guia **métricas** de monitoramento à esquerda, você pode adicionar **WebApplicationFirewallRequestCount** para rastrear o número de solicitações que correspondem às regras de WAF. Os filtros personalizados podem ser criados com base em tipos de ação e nomes de regra.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
-## <a name="logs-and-diagnostics"></a>Logs e diagnósticos
+## <a name="logs-and-diagnostics"></a>Configurar logs e diagnósticos
 
 WAF com a porta frontal fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado aos Logs de diagnóstico do Azure e os alertas são registrados em um formato json. Esses logs podem ser integrados aos [logs do Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md).
 

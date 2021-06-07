@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91978961"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Stack Edge pro  
@@ -40,7 +40,7 @@ Para adicionar um agendamento, siga as etapas a seguir no portal do Azure.
 
 3. Em **Adicionar agendamento**: 
 
-   1. Forneça o **dia de início**, o **dia de término**, a hora de **início**e a **hora de término** da agenda.
+   1. Forneça o **dia de início**, o **dia de término**, a hora de **início** e a **hora de término** da agenda.
    2. Marque a opção **todos os dias** se essa agenda deve ser executada o dia inteiro.
    3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 20 e 1.000.000.007 para esse campo.
    4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados.

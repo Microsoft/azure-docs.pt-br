@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956544"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
@@ -217,7 +217,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 12. Atribua uma letra da unidade ao volume e clique em **Avançar**.
     
     ![assistente de novo volume 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Avançar**.
+13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina o tamanho da unidade de alocação como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em sua Matriz Virtual StorSimple. Clique em **Próximo**.
     
     ![assistente de novo volume 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. Verifique os valores do volume e clique em **Concluir**.

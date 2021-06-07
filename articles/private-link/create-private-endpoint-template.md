@@ -1,19 +1,19 @@
 ---
-title: Criar um ponto de extremidade privado no Link Privado do Azure
+title: Guia de início rápido – Criar um ponto de extremidade privado usando um modelo do ARM
 description: Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um ponto de extremidade privado.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e80adc16e08e676ac2daabec01a11c10d537c547
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705802"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102562938"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Início Rápido: Criar um ponto de extremidade privado usando um modelo do ARM
 
@@ -137,4 +137,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Link Privado do Azure](private-link-overview.md).
+Para obter mais informações sobre os serviços que dão suporte a um ponto de extremidade privado, confira:
+> [!div class="nextstepaction"]
+> [Disponibilidade de Link Privado](private-link-overview.md#availability)

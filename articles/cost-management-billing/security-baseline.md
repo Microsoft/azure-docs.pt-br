@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0155ed4df9ee2c22d1461633ac9efe225b53f9ca
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 627c6bcd01a11356d1f207aa079c75d4b6194c59
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530503"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093261"
 ---
 # <a name="azure-security-baseline-for-cost-management"></a>Linha de base de segurança do Azure para o Gerenciamento de Custos
 
@@ -174,7 +174,7 @@ O Gerenciamento de Custos do Azure oferece funções internas, leitores e colabo
 
 O que é o RBAC do Azure (controle de acesso baseado em função do Azure) ../role-based-access-control/overview.md 
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 

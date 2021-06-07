@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582002"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496466"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -55,6 +55,11 @@ Sim. Pontos de extremidade privados podem se conectar aos recursos de PaaS do Az
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar minha NIC (interface de rede de ponto de extremidade) privada?
 Quando um ponto de extremidade privado é criado, uma NIC somente leitura é atribuída. Isso não pode ser modificado e permanecerá para o ciclo de vida do ponto de extremidade privado.
 
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Como fazer obter disponibilidade ao usar pontos de extremidade privados em caso de falhas regionais?
+
+Pontos de extremidade privados são recursos altamente disponíveis com SLA de 99,99% [[SLA para o link privado do Azure]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). No entanto, como são recursos regionais, qualquer interrupção de região do Azure pode afetar a disponibilidade. Para obter disponibilidade em caso de falhas regionais, várias PEs conectadas ao mesmo recurso de destino podem ser implantadas em regiões diferentes. Dessa forma, se uma região ficar inativa, você ainda poderá rotear o tráfego para seus cenários de recuperação por meio do PE em uma região diferente para acessar o recurso de destino. Para obter informações sobre como as falhas regionais são tratadas no lado do serviço de destino, consulte a documentação do serviço em failover e recuperação. O tráfego de link privado segue a resolução de DNS do Azure para o ponto de extremidade de destino. 
+
+
 ## <a name="private-link-service"></a>Serviço de Link Privado
  
 ### <a name="what-are-the-pre-requisites-for-creating-a-private-link-service"></a>Quais são os pré-requisitos para criar um serviço de link privado? 
@@ -65,6 +70,12 @@ Você pode dimensionar seu serviço de vínculo privado de algumas maneiras dife
 - Adicionar VMs de back-end ao pool por trás de seu Standard Load Balancer 
 - Adicione um IP ao serviço de vínculo privado. Permitimos até 8 IPs por serviço de link privado.  
 - Adicione um novo serviço de vínculo privado a Standard Load Balancer. Permitimos até oito serviços de link privado por balanceador de carga.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>O que é a configuração de IP NAT (conversão de endereços de rede) usada no serviço de link privado? Como posso dimensionar em termos de conexões e portas disponíveis? 
+
+A configuração de IP de NAT garante que não haja conflito de IP entre a origem (lado do consumidor) e o espaço de endereço de destino (provedor de serviço) fornecendo o NAT de origem no tráfego de link privado no lado de destino (lado do provedor de serviço). O endereço IP de NAT aparecerá como IP de origem para todos os pacotes recebidos pelo seu serviço e IP de destino para todos os pacotes enviados pelo seu serviço.  O IP de NAT pode ser escolhido de qualquer sub-rede em uma rede virtual do provedor de serviços. 
+
+Cada IP de NAT fornece conexões TCP de 64K (portas de 64K) por VM por trás do Standard Load Balancer. Para dimensionar e adicionar mais conexões, você pode adicionar novos IPs de NAT ou adicionar mais VMs por trás do Standard Load Balancer. Isso irá dimensionar a disponibilidade da porta e permitir mais conexões. As conexões serão distribuídas entre IPs NAT e VMs por trás do Standard Load Balancer.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Posso conectar meu serviço a vários pontos de extremidade privados?
 Sim. Um serviço de vínculo privado pode receber conexões de vários pontos de extremidade privados. No entanto, um ponto de extremidade privado só pode se conectar a um serviço de link privado.  

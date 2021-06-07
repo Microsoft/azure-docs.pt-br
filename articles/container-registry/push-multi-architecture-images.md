@@ -4,12 +4,12 @@ description: Use o registro de contêiner do Azure para criar, importar, armazen
 ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
-ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 520518a275e0a9d191ae770e560a0e6e8278eae2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012292"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802447"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Imagens de várias arquiteturas no registro de contêiner do Azure
 
@@ -165,7 +165,7 @@ steps:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Use [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) para criar imagens de contêiner para diferentes arquiteturas.
+* Use [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para criar imagens de contêiner para diferentes arquiteturas.
 * Saiba mais sobre como criar imagens de várias plataformas usando o plug-in experimental do Docker [buildx](https://docs.docker.com/buildx/working-with-buildx/) .
 
 <!-- LINKS - external -->

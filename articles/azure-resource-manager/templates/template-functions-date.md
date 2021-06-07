@@ -3,12 +3,12 @@ title: Funções de modelo-data
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para trabalhar com datas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920488"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889919"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos de ARM
 
@@ -33,7 +33,7 @@ Adiciona uma duração de tempo a um valor base. O formato ISO 8601 é esperado.
 | duration | Sim | string | O valor de tempo a ser adicionado à base. Pode ser um valor negativo. Use o [formato de duração ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | format | Não | string | O formato de saída para o resultado de data e hora. Se não for fornecido, o formato do valor de base será usado. Use cadeias de caracteres de [formato padrão](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor de data e hora que resulta da adição do valor de duração ao valor base.
 
@@ -198,7 +198,7 @@ Se você usar a [opção para reverter em](rollback-on-error.md) caso de erro pa
 
 Tenha cuidado ao reimplantar um modelo que dependa da função utcNow para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O valor DateTime UTC atual.
 
@@ -263,9 +263,9 @@ A saída do exemplo anterior varia de acordo com cada implantação, mas será s
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| utcOutput | string | 20190305T175318Z |
-| utcShortOutput | string | 05/03/2019 |
-| utcCustomOutput | string | 3 5 |
+| utcOutput | Cadeia de caracteres | 20190305T175318Z |
+| utcShortOutput | Cadeia de caracteres | 05/03/2019 |
+| utcCustomOutput | Cadeia de caracteres | 3 5 |
 
 O exemplo a seguir mostra como usar um valor da função ao definir um valor de marca.
 
@@ -287,7 +287,7 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -311,7 +311,7 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

@@ -1,15 +1,15 @@
 ---
 title: Estender scripts U-SQL com R no Azure Data Lake Analytics
-description: Saiba como executar o código R em scripts U-SQL usando Azure Data Lake Analytics. Inserir código R embutido ou referência de arquivos.
+description: Saiba como executar o código R em scripts U-SQL usando o Azure Data Lake Analytics. Inserir o código R embutido ou referência dos arquivos.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.openlocfilehash: ab28ba1bb6185f5f0ab90df99f0abea7895b1bf4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92217993"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código R no Azure Data Lake Analytics
@@ -17,9 +17,9 @@ ms.locfileid: "92217993"
 O exemplo a seguir ilustra as etapas básicas para implantar código R:
 
 * Use a instrução `REFERENCE ASSEMBLY` para habilitar as extensões R para o Script U-SQL.
-* Use a `REDUCE` operação para particionar os dados de entrada em uma chave.
+* Use a `REDUCE` operação para a partição dos dados de entrada em uma chave.
 * As extensões R para U-SQL incluem um redutor interno (`Extension.R.Reducer`) que executa o código R em cada vértice atribuído ao redutor.
-* Uso de quadros de dados nomeados dedicados chamados `inputFromUSQL` e `outputToUSQL` respectivamente para passar dados entre U-SQL e R. os nomes de identificador de dataframe de entrada e saída são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos de identificadores de dataframe de entrada e saída).
+* O uso de quadros de dados nomeados dedicados chamados de `inputFromUSQL` e `outputToUSQL`, respectivamente, para passar dados entre U-SQL e R. Os nomes de identificador DataFrame de entrada e saída são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos de identificadores DataFrame de entrada e saída).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Inserindo código R no script U-SQL
 

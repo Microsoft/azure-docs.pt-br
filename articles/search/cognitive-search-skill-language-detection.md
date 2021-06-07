@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078a9312a7ee1b3b0eafd000928ed74348a540c3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935986"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102548046"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de idioma
 
@@ -21,7 +21,7 @@ A **detecção de idioma** habilidade detecta o idioma do texto de entrada e rel
 
 Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a habilidade de [Análise de Sentimento](cognitive-search-skill-sentiment.md) ou [Habilidade de Divisão de Texto](cognitive-search-skill-textsplit.md)).
 
-A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](../cognitive-services/text-analytics/language-support.md) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
+A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](../cognitive-services/text-analytics/language-support.md) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `(Unknown)`.
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -35,6 +35,15 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 ## <a name="data-limits"></a>Limites de dados
 O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para a habilidade de detecção de idioma, poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
+## <a name="skill-parameters"></a>Parâmetros de habilidades
+
+Os parâmetros diferenciam maiúsculas de minúsculas.
+
+| Entradas | Descrição |
+|---------------------|-------------|
+| `defaultCountryHint` | Adicional Um código de país da letra ISO 3166-1 alfa-2 2 pode ser fornecido para ser usado como uma dica para o modelo de detecção de idioma se não for possível eliminar a ambiguidade do idioma. Consulte [a documentação do análise de texto](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) neste tópico para obter mais detalhes. Especificamente, o `defaultCountryHint` parâmetro é usado com documentos que não especificam a `countryHint` entrada explicitamente.  |
+| `modelVersion`   | Adicional A versão do modelo a ser usada ao chamar o serviço de Análise de Texto. O padrão será o mais recente disponível quando não for especificado. Recomendamos que você não especifique esse valor, a menos que seja absolutamente necessário. Consulte [controle de versão de modelo no API de análise de texto](../cognitive-services/text-analytics/concepts/model-versioning.md) para obter mais detalhes. |
+
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
@@ -42,6 +51,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Entradas     | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
+| `countryHint` | Um código de país de letra ISO 3166-1 alfa-2 2 para usar como uma dica para o modelo de detecção de idioma se não for possível desambiguar o idioma. Consulte [a documentação do análise de texto](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md#ambiguous-content) neste tópico para obter mais detalhes. |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
@@ -60,6 +70,10 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
       {
         "name": "text",
         "source": "/document/text"
+      },
+      {
+        "name": "countryHint",
+        "source": "/document/countryHint"
       }
     ],
     "outputs": [
@@ -98,6 +112,14 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
            {
              "text": "Estamos muy felices de estar con ustedes."
            }
+      },
+      {
+        "recordId": "3",
+        "data":
+           {
+             "text": "impossible",
+             "countryHint": "fr"
+           }
       }
     ]
 ```
@@ -125,14 +147,19 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
               "languageName": "Spanish",
               "score": 1,
             }
+      },
+      {
+        "recordId": "3",
+        "data":
+            {
+              "languageCode": "fr",
+              "languageName": "French",
+              "score": 1,
+            }
       }
     ]
 }
 ```
-
-
-## <a name="error-cases"></a>Casos de erro
-Se o texto é expresso em um idioma sem suporte, um erro será gerado e nenhum identificador de idioma será retornado.
 
 ## <a name="see-also"></a>Confira também
 

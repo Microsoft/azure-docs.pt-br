@@ -4,10 +4,10 @@ description: Saiba como se conectar às suas máquinas virtuais por meio de um n
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 352fc5fd3ff53a00d9f62966ecf21417ad898706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288059"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conectar-se às suas máquinas virtuais por meio de um navegador 

@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88116437"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na v1.0
@@ -47,7 +47,7 @@ Você pode desenvolver qualquer um dos aplicativos e cenários descritos aqui, u
 
 Além disso, se seu aplicativo precisar de uma parte ou segmento específico de um cenário de ponta a ponta, na maioria dos casos, essa funcionalidade pode ser adicionada independentemente. Por exemplo, se você tiver um aplicativo nativo que chama uma API da Web, você pode adicionar facilmente um aplicativo Web que também chama a API da Web.
 
-## <a name="app-registration"></a>Registro do aplicativo
+## <a name="app-registration"></a>Registro de aplicativo
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Como registrar um aplicativo que usa o ponto de extremidade do Azure AD v 1.0
 

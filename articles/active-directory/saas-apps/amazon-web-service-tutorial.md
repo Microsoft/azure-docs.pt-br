@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services) | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o AWS (Amazon Web Services).
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AWS Single-Account Access | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o AWS Single-Account Access.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,26 +9,43 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/08/2020
+ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: eb469c757e2898a9925dd7d3358cfe95734cb2e9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736181"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537722"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AWS Single-Account Access
 
-Neste tutorial, você aprenderá a integrar a AWS (Amazon Web Services) ao Azure AD (Azure Active Directory). Quando você integra a AWS (Amazon Web Services) com o Azure Active Directory, pode:
+Neste tutorial, você aprenderá a integrar o AWS Single-Account Access ao Azure AD (Azure Active Directory). Ao integrar o AWS Single-Account Access ao Azure AD, você pode:
 
-* Controlar no Azure Active Directory quem tem acesso à AWS (Amazon Web Services).
-* Habilitar seus usuários a fazer logon automaticamente na AWS (Amazon Web Services) usando as próprias contas do Azure Active Directory.
+* Controlar no Azure AD quem tem acesso ao AWS Single-Account Access.
+* Permitir que os usuários sejam conectados automaticamente ao AWS Single-Account Access com as respectivas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-> [!Note]
-> O Azure AD não é compatível com a integração de logon único com o SSO da AWS, é um produto diferente da AWS. Embora a AWS mencione isso [aqui](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html), o Azure AD recomenda que os clientes usem a integração IAM da AWS, para que você possa obter controles de segurança melhores usando políticas de Acesso Condicional em contas individuais e também melhor governança desses aplicativos.
+## <a name="understanding-the-different-aws-applications-in-the-azure-ad-application-gallery"></a>Compreensão dos diferentes aplicativos do AWS na galeria de aplicativos do Azure AD
+Use as informações abaixo para tomar uma decisão entre usar os aplicativos de acesso Logon Único do AWS e a Conta Única do AWS na galeria de aplicativos do Azure AD.
 
+**Logon Único do AWS**
+
+O [Logon Único do AWS](./aws-single-sign-on-tutorial.md) foi adicionado à galeria de aplicativos do Azure AD em fevereiro de 2021. Ele facilita o gerenciamento central do acesso a várias contas e aplicativos do AWS, com a entrada via Microsoft Azure AD. Use o SSO do AWS para federar o Microsoft Azure AD uma vez e para gerenciar permissões em todas as suas contas do AWS em um só lugar. O SSO do AWS provisiona permissões automaticamente e as mantém atualizadas à medida que você atualiza as políticas e atribuições de acesso. Os usuários finais podem se autenticar com suas credenciais do Azure AD para acessar o Console do AWS, a Interface de Linha de Comando e os aplicativos integrados do SSO do AWS.
+
+**Acesso de Conta Única do AWS**
+
+O [Acesso de Conta Única do AWS]() tem sido usado pelos clientes nos últimos anos e permite que você federe o Azure AD a uma única conta do AWS e use o Azure AD para gerenciar o acesso às funções de IAM do AWS. Os administradores de IAM do AWS definem funções e políticas em cada conta do AWS. Para cada conta do AWS, os administradores do Azure AD federam para o IAM do AWS, atribuem usuários ou grupos à conta e configuram o Azure AD para enviar asserções que autorizam o acesso à função.  
+
+| Recurso | Logon Único do AWS | Acesso de Conta Única do AWS |
+|:--- |:---:|:---:|
+|Acesso condicional| Dá suporte a uma única política de acesso condicional a todas as contas do AWS. | Dá suporte a uma única política de acesso condicional a todas as contas ou políticas personalizadas por conta|
+| Acesso à CLI | Com suporte | Com suporte|
+| Privileged Identity Management | Ainda não compatível | Ainda não compatível |
+| Centralizar o gerenciamento de conta | Centralizar o gerenciamento de conta no AWS. | Centraliza o gerenciamento de conta no Azure AD (provavelmente exigirá um aplicativo empresarial do Azure AD por conta). |
+| Certificado SAML| Certificado único| Separar certificados por aplicativo/conta | 
+
+## <a name="aws-single-account-access-architecture"></a>Arquitetura de Acesso de Conta Única do AWS
 ![Diagrama do relacionamento do Azure AD e do AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
 Você pode configurar vários identificadores para várias instâncias. Por exemplo:
@@ -57,45 +74,48 @@ Para começar, você precisará dos seguintes itens:
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do AWS.
 
+> [!Note]
+> As funções não devem ser editadas manualmente no Azure AD ao fazer importações de função.
+
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* A AWS (Amazon Web Services) dá suporte ao SSO iniciado por **SP e IDP**
+* O AWS Single-Account Access é compatível com SSO iniciado por **SP e IDP**.
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
-## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
+## <a name="adding-aws-single-account-access-from-the-gallery"></a>Adicionando o AWS Single-Account Access por meio da galeria
 
-Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, você precisa adicionar o AWS (Amazon Web Services), por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
+Para configurar a integração do AWS Single-Account Access ao Azure AD, você precisará adicionar o AWS Single-Account Access da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no portal do Azure usando uma conta corporativa, de estudante ou uma conta pessoal da Microsoft.
 1. Na portal do Azure, procure e selecione **Azure Active Directory**.
 1. No menu de visão geral do Azure Active Directory, escolha **Aplicativos empresariais** > **Todos os aplicativos**.
 1. Para adicionar um aplicativo, selecione **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Amazon Web Services (AWS)** na caixa de pesquisa.
-1. Selecione **AWS (Amazon Web Services)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar por meio da galeria**, digite **AWS Single-Account Access** na caixa de pesquisa.
+1. Selecione **AWS Single-Account Access** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-sso-for-amazon-web-services-aws"></a>Configurar e testar o SSO do Azure AD para o AWS (Amazon Web Services)
+## <a name="configure-and-test-azure-ad-sso-for-aws-single-account-access"></a>Configurar e testar o SSO do Azure AD para o AWS Single-Account Access
 
-Configure e teste o SSO do Azure AD com a AWS (Amazon Web Services) usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado na AWS (Amazon Web Services).
+Configure e teste o SSO do Azure AD com o AWS Single-Account Access usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no AWS Single-Account Access.
 
-Para configurar e testar o SSO do Azure AD com a AWS (Amazon Web Services), execute as seguintes etapas:
+Para configurar e testar o SSO do Azure AD com o AWS Single-Account Access, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste da AWS (Amazon Web Services)](#create-amazon-web-services-aws-test-user)** – para ter um equivalente de B.Fernandes na AWS (Amazon Web Services) que esteja vinculado à representação de usuário do Azure AD.
-    1. **[Como configurar o provisionamento de função na AWS (Amazon Web Services)](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
+1. **[Configurar o SSO do AWS Single-Account Access](#configure-aws-single-account-access-sso)** : para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do AWS Single-Account Access](#create-aws-single-account-access-test-user)** : para ter um equivalente de B.Fernandes no AWS Single-Account Access que esteja vinculado à representação de usuário do Azure AD.
+    1. **[Como configurar o provisionamento de função no AWS Single-Account Access](#how-to-configure-role-provisioning-in-aws-single-account-access)**
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos da **AWS (Amazon Web Services)** , localize a seção **Gerenciar** e selecione **logon único**.
+1. No portal do Azure, na página de integração do aplicativo **AWS Single-Account Access**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -134,7 +154,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![O link de download do Certificado](./media/amazon-web-service-tutorial/certificate.png)
 
-1. Na seção **Configurar o AWS (Amazon Web Services)** , copie a URL apropriada, com base nas suas necessidades.
+1. Na seção **Configurar o AWS Single-Account Access**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -153,17 +173,17 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo acesso à AWS (Amazon Web Services).
+Nesta seção, você habilita B.Fernandes a usar o logon único do Azure concedendo a ela acesso ao AWS Single-Account Access.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **AWS (Amazon Web Services)**.
+1. Na lista de aplicativos, selecione **AWS Single-Account Access**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-amazon-web-services-aws-sso"></a>Configurar o SSO da AWS (Amazon Web Services)
+## <a name="configure-aws-single-account-access-sso"></a>Configurar o SSO do AWS Single-Account Access
 
 1. Em uma janela diferente do navegador, entre no site da empresa do AWS como administrador.
 
@@ -326,7 +346,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     c. Selecione **Fechar**.
 
-### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>Como configurar o provisionamento de função na AWS (Amazon Web Services)
+### <a name="how-to-configure-role-provisioning-in-aws-single-account-access"></a>Como configurar o provisionamento de função no AWS Single-Account Access
 
 1. No portal de gerenciamento do Azure AD, no aplicativo AWS, acesse **Provisionamento**.
 
@@ -354,9 +374,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 > [!NOTE]
 > Depois de salvar as credenciais de provisionamento, você deve aguardar a execução do ciclo de sincronização inicial. A conclusão da sincronização leva cerca de 40 minutos. Você pode ver o status na parte inferior da página **Provisionamento**, em **Status Atual**.
 
-### <a name="create-amazon-web-services-aws-test-user"></a>Criar usuário de teste da AWS (Amazon Web Services)
+### <a name="create-aws-single-account-access-test-user"></a>Criar usuário de teste do AWS Single-Account Access
 
-O objetivo desta seção é criar uma usuária chamada B.Fernandes na AWS (Amazon Web Services). O AWS (Amazon Web Services) não precisa que um usuário seja criado em seu sistema para o SSO, portanto você não precisa realizar nenhuma ação aqui.
+O objetivo desta seção é criar uma usuária chamada B.Fernandes no AWS Single-Account Access. O AWS Single-Account Access não precisa que um usuário seja criado em seu sistema para o SSO, portanto você não precisa realizar nenhuma ação aqui.
 
 ## <a name="test-sso"></a>Testar o SSO
 
@@ -364,26 +384,28 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 #### <a name="sp-initiated"></a>Iniciado por SP:
 
-* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon da AWS (Amazon Web Services), na qual poderá iniciar o fluxo de logon.  
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do AWS Single-Account Access, na qual você poderá iniciar o fluxo de logon.  
 
-* Acesse a URL de Logon da AWS (Amazon Web Services) diretamente e inicie o fluxo de logon nessa URL.
+* Acesse a URL de Logon do AWS Single-Account Access diretamente e inicie o fluxo de logon nela.
 
 #### <a name="idp-initiated"></a>Iniciado por IdP:
 
-* Clique em **Testar este aplicativo** no portal do Azure e entre automaticamente na AWS (Amazon Web Services) para o qual configurou o SSO 
+* Clique em **Testar este aplicativo** no portal do Azure e você será conectado automaticamente ao AWS Single-Account Access, para o qual configurou o SSO 
 
-Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco da AWS (Amazon Web Services) no Painel de Acesso, se ele estiver configurado no modo SP, você será redirecionado para a página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente à AWS (Amazon Web Services) para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do AWS Single-Account Access em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você será conectado automaticamente ao AWS Single-Account Access, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
- * Na seção **Provisionamento**, a subseção **Mapeamentos** mostra uma mensagem "Carregando..." e nunca exibe os mapeamentos de atributo. O único fluxo de trabalho de provisionamento compatível hoje é a importação de funções do AWS no Azure AD para seleção durante a atribuição de um usuário ou grupo. Os mapeamentos de atributo para isso são predeterminados e não são configuráveis.
+* A integração de provisionamento do AWS Single-Account Access pode ser usada somente para se conectar a pontos de extremidade de nuvem pública do AWS. A integração de provisionamento do AWS Single-Account Access não pode ser usada para acessar ambientes do AWS Governamental.
+ 
+* Na seção **Provisionamento**, a subseção **Mapeamentos** mostra uma mensagem "Carregando..." e nunca exibe os mapeamentos de atributo. O único fluxo de trabalho de provisionamento compatível hoje é a importação de funções do AWS no Azure AD para seleção durante a atribuição de um usuário ou grupo. Os mapeamentos de atributo para isso são predeterminados e não são configuráveis.
 
- * A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são escritas na propriedade `appRoles` do [`servicePrincipal` objeto](/graph/api/resources/serviceprincipal?view=graph-rest-beta) do Azure AD para o locatário do AWS.
+* A seção **Provisionamento** só dá suporte a um conjunto de credenciais para um locatário do AWS por vez. Todas as funções importadas são escritas na propriedade `appRoles` do [`servicePrincipal` objeto](/graph/api/resources/serviceprincipal) do Azure AD para o locatário do AWS.
 
-   Vários locatários AWS (representados por `servicePrincipals`) podem ser adicionados ao Azure AD da galeria para provisionamento. Há um problema conhecido, no entanto, sem ser possível gravar automaticamente todas as funções importadas de vários `servicePrincipals` do AWS usados para provisionamento em um único `servicePrincipal` usado para SSO.
+  Vários locatários AWS (representados por `servicePrincipals`) podem ser adicionados ao Azure AD da galeria para provisionamento. Há um problema conhecido, no entanto, sem ser possível gravar automaticamente todas as funções importadas de vários `servicePrincipals` do AWS usados para provisionamento em um único `servicePrincipal` usado para SSO.
 
-   Como alternativa, você pode usar a [API do Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todo o `appRoles` importado em cada `servicePrincipal` do AWS em que o provisionamento é configurado. Posteriormente, você pode adicionar essas cadeias de caracteres de função ao `servicePrincipal` do AWS em que o SSO está configurado.
+  Como alternativa, você pode usar a [API do Microsoft Graph](/graph/api/resources/serviceprincipal) para extrair todo o `appRoles` importado em cada `servicePrincipal` do AWS em que o provisionamento é configurado. Posteriormente, você pode adicionar essas cadeias de caracteres de função ao `servicePrincipal` do AWS em que o SSO está configurado.
 
 * As funções deverão atender aos seguintes requisitos para que sejam elegíveis a serem importadas do AWS para o Azure AD:
 
@@ -396,7 +418,7 @@ Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar a AWS (Amazon Web Services), você poderá impor o Controle de Sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Depois de configurar o AWS Single-Account Access, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png

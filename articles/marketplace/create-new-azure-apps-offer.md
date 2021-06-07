@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 3cc5e5114b435965eee4aa096e5898538b0a56e7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94369931"
 ---
 # <a name="how-to-create-an-azure-application-offer-in-the-commercial-marketplace"></a>Como criar uma oferta de aplicativo do Azure no Marketplace comercial
@@ -25,7 +25,7 @@ Se você ainda não fez isso, leia [planejar uma oferta de aplicativo do Azure p
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial.
+1. No menu de navegação à esquerda, selecione   >  **visão geral** do Marketplace comercial.
 
 1. Na página Visão geral, selecione **+ Nova oferta** > **Aplicativo do Azure**.
 
@@ -46,7 +46,7 @@ Se você ainda não fez isso, leia [planejar uma oferta de aplicativo do Azure p
 
 ## <a name="configure-your-azure-application-offer-setup-details"></a>Configurar os detalhes da instalação da oferta de aplicativo do Azure
 
-Na guia **instalação de oferta** , em **detalhes da instalação** , você escolherá se deseja configurar um test drive. Você também conectará seu sistema CRM (gerenciamento de relacionamento com o cliente) com sua oferta de Marketplace comercial.
+Na guia **instalação de oferta** , em **detalhes da instalação**, você escolherá se deseja configurar um test drive. Você também conectará seu sistema CRM (gerenciamento de relacionamento com o cliente) com sua oferta de Marketplace comercial.
 
 ### <a name="enable-a-test-drive-optional"></a>Habilitar um test drive (opcional)
 
@@ -54,7 +54,7 @@ Uma test drive é uma ótima maneira de demonstrar sua oferta a clientes potenci
 
 #### <a name="to-enable-a-test-drive"></a>Para habilitar um test drive
 
-- Em **testar unidade** , marque a caixa de seleção **habilitar um test drive** .
+- Em **testar unidade**, marque a caixa de seleção **habilitar um test drive** .
 
 ### <a name="customer-lead-management"></a>Gerenciamento de leads do cliente
 
@@ -62,7 +62,7 @@ Conecte seu sistema de CRM (gerenciamento de relacionamento com o cliente) com s
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Para configurar os detalhes de conexão no Partner Center
 
-1. Em **clientes potenciais do cliente** , selecione o link **conectar** .
+1. Em **clientes potenciais do cliente**, selecione o link **conectar** .
 1. Na caixa de diálogo **detalhes da conexão** , selecione um destino de Lead na lista.
 1. Preencha os campos que aparecem. Para obter etapas detalhadas, consulte os seguintes artigos:
 

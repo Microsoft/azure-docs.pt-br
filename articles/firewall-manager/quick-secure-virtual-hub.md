@@ -3,17 +3,19 @@ title: 'Início Rápido: Proteger o hub virtual usando o Gerenciador de Firewall
 description: Neste guia de início rápido, saiba como proteger o seu hub virtual usando o Gerenciador de Firewall do Azure.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 08/28/2020
+ms.topic: quickstart
+ms.service: firewall-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 88b961f269c89a1e19c0fd4419ffdc33706423de
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89075334"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529646"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Início Rápido: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure – modelo ARM
 

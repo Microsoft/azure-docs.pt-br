@@ -4,10 +4,10 @@ description: Configure seu ambiente de solução do Azure VMware para fazer back
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581475"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar Servidor de Backup do Azure para a solução VMware do Azure
@@ -134,7 +134,7 @@ Servidor de Backup do Azure implantadas em uma VM do Azure podem fazer backup de
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-Um cofre dos serviços de recuperação é uma entidade de armazenamento que armazena os pontos de recuperação criados ao longo do tempo. Ele também contém políticas de backup associadas a itens protegidos.
+Um cofre dos Serviços de Recuperação é uma entidade que armazena os pontos de recuperação criados ao longo do tempo. Ele também contém políticas de backup associadas a itens protegidos.
 
 1. Entre na sua assinatura no [Portal do Azure](https://portal.azure.com/).
 
@@ -150,7 +150,7 @@ Um cofre dos serviços de recuperação é uma entidade de armazenamento que arm
 
 1. No painel **Cofres dos Serviços de Recuperação**, selecione **Adicionar**.
 
-   ![Adicione um cofre dos serviços de recuperação.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Adicionar um cofre dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    A caixa de diálogo **Cofre dos Serviços de Recuperação** é aberta.
 

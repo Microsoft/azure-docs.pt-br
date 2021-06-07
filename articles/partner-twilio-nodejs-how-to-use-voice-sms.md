@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: c4b1c506ff0e78e5e304ceb1682c73f9cd784c95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88080534"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Usando o Twilio para voz, VoIP e mensagens SMS no Azure
@@ -31,7 +31,7 @@ O Twilio permite que os desenvolvedores [comprem números de telefone programáv
 Ao fazer solicitações HTTP para a API do serviço web do Twilio, os desenvolvedores podem enviar mensagens de texto ou iniciar chamadas telefônicas de saída. Para chamadas de saída, o desenvolvedor também deve especificar uma URL que retorne instruções TwiML de como lidar com a chamada de saída depois que ela estiver conectada.
 
 ### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>Inserindo recursos de VoIP no código da interface do usuário (JavaScript, iOS ou Android)
-O Twilio fornece um SDK do lado do cliente que pode transformar qualquer navegador da web da área de trabalho, aplicativo iOS ou aplicativo Android em um telefone VoIP. Neste artigo, iremos nos concentrar em como usar as chamadas VoIP no navegador. Além do SDK do *JavaScript do twilio* em execução no navegador, um aplicativo do lado do servidor (nosso aplicativo de node.js) deve ser usado para emitir um "token de recurso" para o cliente JavaScript. Você poderá ler mais sobre como usar VoIP com o node.js [no blog de desenvolvimento do Twilio][voipnode].
+O Twilio fornece um SDK do lado do cliente que pode transformar qualquer navegador da web da área de trabalho, aplicativo iOS ou aplicativo Android em um telefone VoIP. Neste artigo, iremos nos concentrar em como usar as chamadas VoIP no navegador. Além do *SDK do JavaScript para Twilio* executado no navegador, um aplicativo do lado do servidor (nosso aplicativo node.js) deve ser usado para emitir um "token de funcionalidade" para o cliente JavaScript. Você poderá ler mais sobre como usar VoIP com o node.js [no blog de desenvolvimento do Twilio][voipnode].
 
 <a name="signup"></a>
 

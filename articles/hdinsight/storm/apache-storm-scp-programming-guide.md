@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932637"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864101"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guia de programação do SCP para Apache Storm no Azure HDInsight
 
@@ -28,7 +28,7 @@ Os dados no SCP são modelados como fluxos contínuos de tuplas. Normalmente, as
 1. São coletados e transformados pela lógica comercial hospedada dentro de uma topologia Storm.
 1. Faça com que sua saída seja canalizada como tuplas para outro sistema SCP ou que seja confirmada em lojas como sistemas de arquivos distribuídos e bancos de dados como SQL Server.
 
-![Um diagrama de uma fila que alimenta dados para processamento, que por sua vez alimenta um armazenamento de dados](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="Um diagrama de uma fila que alimenta dados para processamento, que por sua vez alimenta um armazenamento de dados" border="false":::
 
 No Storm, uma topologia de aplicativo define um grafo de computação. Cada nó em uma topologia contém a lógica de processamento. Os links entre nós indicam o fluxo de dados.
 
@@ -570,7 +570,7 @@ Aqui `examples\HybridTopology\java\target\` está a pasta que contém o arquivo 
 
 Um componente SCP inclui o lado do Java e o lado do C#. Para interagir com esgotamentos/limites de Java nativos, a serialização e a desserialização devem ocorrer entre o lado do Java e o lado do C#, conforme ilustrado no grafo a seguir:
 
-![Diagrama do componente Java enviando para o componente SCP, que então envia para um componente Java diferente](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="Diagrama do componente Java enviando para o componente SCP, que então envia para um componente Java diferente" border="false":::
 
 #### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Serialização no lado do Java e desserialização no lado do C#
 

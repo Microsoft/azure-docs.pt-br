@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413183"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
@@ -52,7 +52,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | assistente |X |X | | |
@@ -175,7 +175,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint online
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | authOrig |X |X |X | |
@@ -257,7 +257,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="teams-and-skype-for-business-online"></a>Equipes e Skype for Business Online
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -305,7 +305,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | cn |X | |X |Alias ou nome comum. Geralmente, o prefixo do valor [mail]. |
@@ -320,7 +320,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |Este UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ Nesse caso, comece com a lista de atributos neste tópico e identifique os atrib
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -377,7 +377,7 @@ Esse grupo é um conjunto de atributos usados como os atributos mínimos necess�
 
 Esse grupo é um conjunto de atributos que podem ser usados se o diretório do Azure AD não for usado para dar suporte a Microsoft 365, Dynamics ou Intune. Ele tem um pequeno conjunto de atributos principais. Observe que o logon único ou o provisionamento para alguns aplicativos de terceiros requer a configuração da sincronização de atributos, além dos atributos descritos aqui. Os requisitos do aplicativo são descritos no tutorial do aplicativo [SaaS](../saas-apps/tutorial-list.md) para cada aplicativo.
 
-| Nome do atributo | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | cn |X | |X | |
@@ -422,7 +422,7 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 ## <a name="exchange-hybrid-writeback"></a>Write-back híbrido do Exchange
 É feito write-back desses atributos do Azure AD para o Active Directory local quando você opta por habilitar **Híbrido do Exchange**. Dependendo da sua versão do Exchange, menos atributos poderão ser sincronizados.
 
-| Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Usuário | Contact | Grupo | Comentário |
+| Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no AD do Windows Server 2016 e Exchange 2016. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo online: permite que os clientes arquivem emails. |

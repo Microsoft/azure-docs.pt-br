@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91818541"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual

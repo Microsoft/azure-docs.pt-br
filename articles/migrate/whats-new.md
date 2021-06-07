@@ -7,21 +7,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: fbafed60019005fe2d81c96fb9557e3c307669ac
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233756"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104786661"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
 
+## <a name="update-march-2021"></a>Atualização (março de 2021)
+- Suporte para fornecer várias credenciais de servidor no dispositivo das Migrações para Azure para descobrir aplicativos instalados (inventário de software), análise de dependência sem agente e descobrir instâncias e bancos de dados do SQL Server em seu ambiente VMware. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials)
+- A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. [Saiba mais](concepts-azure-sql-assessment-calculation.md) – Confira tutoriais de [Descoberta](tutorial-discover-vmware.md) e [Avaliação](tutorial-assess-sql.md) para começar.
+- Agora, a migração do VMware sem agente dá suporte à replicação simultânea de 500 VMs por vCenter.
+- As Migrações para Azure já instalam automaticamente o agente de VM do Azure nas VMs do VMware durante a migração delas para o Azure usando o método sem agente de migração do VMware.
+
 ## <a name="update-january-2021"></a>Atualização (janeiro de 2021)
--  A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando criptografia dupla com CMK (chaves gerenciadas pelo cliente) e chaves gerenciadas pela plataforma, usando a Migração de Servidor das Migrações para Azure (replicação sem agente) já está disponível por meio do portal do Azure.
-- A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e criptografia dupla com chaves gerenciadas pela plataforma e pelo cliente, usando a Migração de Servidor das Migrações para Azure (replicação baseada em agente) já está disponível por meio do portal do Azure.
-- A migração de servidores físicos e VMs de outras nuvens, como a AWS e o GCP, para máquinas virtuais do Azure com discos criptografados usando SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e criptografia dupla com chaves gerenciadas pela plataforma e pelo cliente, usando a Migração de Servidor das Migrações para Azure (replicação baseada em agente) já está disponível por meio do portal do Azure.
+-  Migrações para Azure: agora, a ferramenta de Migração de Servidor permite migrar máquinas virtuais do VMware, servidores físicos e máquinas virtuais de outras nuvens para máquinas virtuais do Azure com discos criptografados e a criptografia do lado do servidor com CMK (chaves gerenciadas pelo cliente).
 
 ## <a name="update-december-2020"></a>Atualização (dezembro de 2020)
 - As Migrações para Azure já instalam automaticamente o agente de VM do Azure nas VMs do VMware durante a migração delas para o Azure usando o método sem agente de migração do VMware.
@@ -86,7 +90,7 @@ Vários novos recursos foram adicionados à migração do Azure:
 
 Novas ferramentas de avaliação e migração foram adicionadas às Migrações para Azure:
 
-- **Rackware**: oferta de migração para a nuvem.
+- **RackWare**: oferta de migração para a nuvem.
 - **Movere**: oferta de avaliação.
 
 [Saiba mais](migrate-services-overview.md) sobre como usar ferramentas e ofertas de ISV para avaliação e migração nas Migrações para Azure.

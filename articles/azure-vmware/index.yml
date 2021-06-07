@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: f5b22f1211076ee0d7990103586659c12eae66c9
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: 9412889bef1ababa6d44d5cf3aa48c2231bed08d
+  ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100092682"
+  ms.lasthandoff: 03/07/2021
+  ms.locfileid: "102436185"
 landingContent:
 - title: Sobre a Solução VMware no Azure
   linkLists:
@@ -22,6 +22,8 @@ landingContent:
     links:
     - text: O que é a Solução VMware no Azure?
       url: introduction.md
+    - text: Atualizações da plataforma
+      url: azure-vmware-solution-platform-updates.md
   - linkListType: concept
     links:
     - text: Nuvem privada e clusters
@@ -72,7 +74,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Habilitar a Solução VMware no Azure
+    - text: Solicitar a cota de host e habilitar a Solução VMware no Azure
       url: enable-azure-vmware-solution.md
     - text: Economize custos com uma instância reservada
       url: reserved-instance.md
@@ -80,6 +82,8 @@ landingContent:
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Gerenciar DHCP
       url: manage-dhcp.md
+    - text: Configurar componentes de rede do NSX
+      url: configure-nsx-network-components-azure-portal.md
     - text: Implantar a recuperação de desastre para VMs
       url: disaster-recovery-for-virtual-machines.md
     - text: Implantar VM por meio da biblioteca de conteúdo

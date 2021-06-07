@@ -3,16 +3,18 @@ title: Criar um provedor de recursos personalizado do Azure com o Azure PowerShe
 description: Descreve como criar um provedor de recursos personalizado do Azure com o Azure PowerShell
 author: MSEvanhi
 ms.author: evanhi
+ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.date: 09/22/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6912f7f6fdc88c5d611bfbfd78f15e5f7a949f70
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 9c19eb41210b6fba1935a0d158c8240375f4f8f5
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951835"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533919"
 ---
 # <a name="quickstart-create-an-azure-custom-resource-provider-with-azure-powershell"></a>Início Rápido: Criar um provedor de recursos personalizado do Azure com o Azure PowerShell
 

@@ -33,8 +33,14 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurar porta de encaminhamento no Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
-    - name: Criar balanceador de carga entre regiões – Portal
-      href: tutorial-cross-region-portal.md
+    - name: Balanceador de carga entre regiões
+      items:
+        - name: Criar balanceador de carga entre regiões – Portal
+          href: tutorial-cross-region-portal.md
+        - name: Criar um balanceador de carga entre regiões – PowerShell
+          href: tutorial-cross-region-powershell.md
+        - name: Criar um balanceador de carga entre regiões – CLI do Azure
+          href: tutorial-cross-region-cli.md
 - name: Exemplos
   items:
     - name: CLI do Azure
@@ -89,6 +95,8 @@
       href: backend-pool-management.md
     - name: Standard Load Balancer e Conjuntos de Dimensionamento de Máquinas Virtuais
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Recuperar informações usando o Serviço de Metadados de Instância do Azure
+      href: instance-metadata-service-load-balancer.md
 - name: Como fazer
   items:
     - name: Configurações do portal
@@ -144,6 +152,8 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configuração do balanceador de carga somente de saída
       href: egress-only.md
+    - name: Recuperar metadados usando o IMDS do Azure
+      href: howto-load-balancer-imds.md
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas do Azure Load Balancer
@@ -152,8 +162,6 @@
           href: load-balancer-troubleshoot-health-probe-status.md
         - name: Tráfego de pool de back-end (VM)
           href: load-balancer-troubleshoot-backend-traffic.md
-        - name: Erros de implantação comuns
-          href: load-balancer-common-deployment-errors.md
         - name: Problemas comuns de conexão de saída
           href: troubleshoot-outbound-connection.md
         - name: Problemas de integridade do recurso e de disponibilidade de entrada
@@ -181,6 +189,10 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
+    - name: Códigos de erro comuns para o IMDS (Serviço de Metadados de Instância) do Azure
+      href: troubleshoot-load-balancer-imds.md
+    - name: Erros de implantação comuns
+      href: load-balancer-common-deployment-errors.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/21/2020
 ms.author: cherylmc
 ms.openlocfilehash: 708bd1f61da2f3973333f8e68cabdceee0717bee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521520"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conectar-se a uma máquina virtual do Windows usando a bastiões do Azure

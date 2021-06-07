@@ -13,10 +13,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861146"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Preencher previamente as informações de contato de autenticação de usuário para Azure Active Directory redefinição de senha de autoatendimento (SSPR)
@@ -39,7 +39,7 @@ Os números de telefone devem estar no formato *+ CountryCode PhoneNumber*, como
 
 Se você usar as configurações padrão no Azure AD Connect, os seguintes mapeamentos serão feitos para popular as informações de contato de autenticação para SSPR:
 
-| Active Directory local | AD do Azure     |
+| Active Directory local | Azure AD     |
 |------------------------------|--------------|
 | telephoneNumber              | Telefone comercial |
 | Serviço Móvel                       | Telefone celular |
@@ -69,7 +69,7 @@ Quando um usuário se registra, a página de registro define os seguintes campos
 * **E-mail de autenticação**
 * **Perguntas de segurança e respostas**
 
-Se você forneceu um valor *Mobile phone* para celular ou *email alternativo*, os usuários poderão usar esses valores imediatamente para redefinir suas senhas, mesmo que não tenham se registrado no serviço.
+Se você forneceu um valor  para celular ou *email alternativo*, os usuários poderão usar esses valores imediatamente para redefinir suas senhas, mesmo que não tenham se registrado no serviço.
 
 Os usuários também veem esses valores quando se registram pela primeira vez e podem modificá-los se desejarem. Depois de registrados com êxito, esses valores são persistidos nos campos *telefone de autenticação* e *email de autenticação* , respectivamente.
 

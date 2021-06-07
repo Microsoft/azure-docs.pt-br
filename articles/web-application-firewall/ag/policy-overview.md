@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 11/20/2020
 ms.author: victorh
 ms.openlocfilehash: 59ca0b85ba2aff29bdb2ad3379c1054041d2b4cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518729"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do firewall do aplicativo Web do Azure (WAF)

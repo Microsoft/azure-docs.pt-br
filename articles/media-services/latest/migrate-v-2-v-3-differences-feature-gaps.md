@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 2fa827bc2841a0bae4c9646c8a70e42dc2b500e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898402"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567943"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Lacunas de recursos entre os serviços de mídia do Azure V2 e v3
 
@@ -42,12 +42,12 @@ A API v3 tem as seguintes lacunas de recursos com a API v2. Alguns dos recursos 
     - Adicionamos suporte para o mapeamento de canal de áudio para o codificador Standard.  Consulte [áudio na documentação do Swagger de codificação dos serviços de mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Se você estivesse usando recursos avançados ou formatos de saída do produto licenciado de terceiros, como MXF ou ProRes, use a solução de parceiro do Azure do Telestream, que será transacional no momento da desativação da v2. Como alternativa, você pode usar as comunicações imagine ou [Bitmovin](http://bitmovin.com).
 
-- Não há mais suporte para a propriedade "conjunto de disponibilidade" no ponto de extremidade de streaming na v2. Consulte o projeto de exemplo e as diretrizes para a entrega de [VOD de alta disponibilidade](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) na API v3.
+- Não há mais suporte para a propriedade "conjunto de disponibilidade" no ponto de extremidade de streaming na v2. Consulte o projeto de exemplo e as diretrizes para a entrega de [VOD de alta disponibilidade](./media-services-high-availability-encoding.md) na API v3.
 
 - Nos serviços de mídia v3, FairPlay IV não pode ser especificado. Embora não afete os clientes que usam os serviços de mídia para o empacotamento e a entrega de licença, pode ser um problema ao usar um sistema DRM de terceiros para fornecer as licenças FairPlay (modo híbrido).
 
 - A criptografia de armazenamento do lado do cliente para proteção de ativos em repouso foi removida na API v3 e substituída pela criptografia do serviço de armazenamento para dados em repouso. As APIs v3 continuam a trabalhar com ativos criptografados de armazenamento existentes, mas não permitem a criação de novos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="terminology-and-entity-changes"></a>Alterações de terminologia e entidade
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+Consulte [terminologia e](migrate-v-2-v-3-differences-terminology.md) alterações de entidade para obter alterações adicionais na API.

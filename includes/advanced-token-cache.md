@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: kkrishna
 ms.openlocfilehash: 174946667885debc348370ef2c6f93206890e9c1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94627993"
 ---
 Você pode usar a implementação de cache de token do MSAL para permitir que aplicativos em segundo plano, APIs e serviços usem o cache de token de acesso para continuar a agir em nome dos usuários em sua ausência. Fazer isso é especialmente útil se os aplicativos e serviços em segundo plano precisarem continuar a trabalhar em nome do usuário depois que o usuário sair do aplicativo Web de front-end.

@@ -4,10 +4,10 @@ description: Este artigo resume o suporte ao backup do Azure ao fazer backup de 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98985607"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
@@ -122,7 +122,7 @@ Leia mais sobre [pontos de extremidade privados para o backup do Azure](private-
 Controle de Largura de Banda | Com suporte. No agente MARS, use **alterar propriedades** para ajustar a largura de banda.
 Limitação de rede | Não disponível para computadores com backup que executam o Windows Server 2008 R2, o Windows Server 2008 SP2 ou o Windows 7.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 >[!NOTE]
 > O agente MARS não dá suporte a SKUs do Windows Server Core.
@@ -179,7 +179,7 @@ Windows 7| 1\.700 GB
 
 A seguir estão as durações mínimas de retenção que podem ser definidas para os diferentes pontos de recuperação:
 
-|Ponto de recuperação |Duração  |
+|Ponto de recuperação |Duration  |
 |---------|---------|
 |Ponto de recuperação diário    |   7 dias      |
 |Ponto de recuperação semanal     |    4 semanas     |
@@ -198,13 +198,13 @@ Criptografados<sup>*</sup>| Com suporte.
 Compressed | Com suporte.
 Esparsos | Com suporte.
 Compactados e esparsos |Com suporte.
-Links físicos| Não há suporte. Ignorada.
-Ponto de nova análise| Não há suporte. Ignorada.
-Criptografados e esparsos |Não há suporte. Ignorada.
-Fluxo compactado| Não há suporte. Ignorada.
-Fluxo esparso| Não há suporte. Ignorada.
-OneDrive (arquivos sincronizados são fluxos esparsos)| Não há suporte.
-Pastas com Replicação do DFS habilitado | Não há suporte.
+Links físicos| Sem suporte. Ignorada.
+Ponto de nova análise| Sem suporte. Ignorada.
+Criptografados e esparsos |Sem suporte. Ignorada.
+Fluxo compactado| Sem suporte. Ignorada.
+Fluxo esparso| Sem suporte. Ignorada.
+OneDrive (arquivos sincronizados são fluxos esparsos)| Sem suporte.
+Pastas com Replicação do DFS habilitado | Sem suporte.
 
 \* Verifique se o agente MARS tem acesso aos certificados necessários para acessar os arquivos criptografados. Arquivos inacessíveis serão ignorados.
 

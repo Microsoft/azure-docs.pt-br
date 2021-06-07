@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurepowershell
-ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.custom: avverma, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 078c78f9fe9e52ee2a71784d5c5ae5c2a478fbe4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079584"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484247"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
 

@@ -16,10 +16,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090356"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
@@ -142,7 +142,7 @@ Em um alto nível:
 Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de uma notificação, altere seu aplicativo IOS para lidar com essa ID e recupere a mensagem avançada do seu back-end:
 
 1. Abra o projeto do iOS e habilite notificações remotas indo para o destino do aplicativo principal na seção **Destinos** .
-2. Selecione **recursos**, habilitar **modos de segundo plano**e marque a caixa de seleção **notificações remotas** .
+2. Selecione **recursos**, habilitar **modos de segundo plano** e marque a caixa de seleção **notificações remotas** .
 
     ![Captura de tela do projeto do iOS que mostra as telas de recursos. Os modos de segundo plano são ativados e a caixa de seleção notificações remotas é marcada.][IOS3]
 3. Abra `Main.storyboard` o e verifique se você tem um controlador de exibição (conhecido como controlador de exibição de página inicial neste tutorial) no tutorial [notificar usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .

@@ -2,17 +2,17 @@
 title: Configuração de DNS do ponto de extremidade privado do Azure
 description: Aprenda a configuração de DNS do ponto de extremidade privado do Azure
 services: private-link
-author: allensu
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 3f858067d8a44b1d8c46b04b9912df9bbcf17b26
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 42c5b315c9c3560c400c685448a11dc61bf64eb6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526697"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102215605"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -43,8 +43,8 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Tipo/subrecurso de recurso de link privado |Nome da zona de DNS privado | Encaminhadores de zona DNS pública |
 |---|---|---|
 | Automação do Azure/(Microsoft. Automation/automationAccounts)/webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
-| Banco de dados SQL do Azure (Microsoft. SQL/Servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
-| Análise de Synapse do Azure (Microsoft. SQL/Servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Banco de dados SQL do Azure (Microsoft. SQL/Servers)/sqlServer | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft. SQL/Servers)/sqlServer  | privatelink.database.windows.net | database.windows.net |
 | Conta de armazenamento (Microsoft. Storage/storageAccounts)/BLOB (BLOB, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Conta de armazenamento (Microsoft. Storage/storageAccounts)/tabela (tabela, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Conta de armazenamento (Microsoft. Storage/storageAccounts)/fila (fila, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
@@ -65,6 +65,7 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Registro de Contêiner do Azure (Microsoft.ContainerRegistry/registries)/registry | privatelink.azurecr.io | azurecr.io |
 | Configuração de Aplicativos do Azure (Microsoft.AppConfiguration/configurationStores)/configurationStore | privatelink.azconfig.io | azconfig.io |
 | Backup do Azure (Microsoft.RecoveryServices/vaults)/vault | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
+| Azure Site Recovery (Microsoft. Recoveryservices/cofres)/cofre | {Region}. privatelink. siterecovery. WindowsAzure. com | {Region}. hypervrecoverymanager. WindowsAzure. com |
 | Hubs de eventos do Azure (Microsoft. EventHub/namespaces)/namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Barramento de Serviço do Azure (Microsoft.ServiceBus/namespaces)/namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Hub IoT do Azure (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
@@ -72,14 +73,13 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Grade de Eventos do Azure (Microsoft.EventGrid/topics)/tópico | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Grade de Eventos do Azure (Microsoft.EventGrid/domains)/domínio | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Aplicativos Web do Azure (Microsoft. Web/sites)/sites | privatelink.azurewebsites.net | azurewebsites.net |
-| Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>aznbcontent.net |
-| Hub IoT (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
+| Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net |
 | Signalr (Microsoft. SignalRService/Signalr)/signalr | privatelink.service.signalr.net | service.signalr.net |
 | Azure Monitor (Microsoft. insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Serviços cognitivas (Microsoft. Cognitivaservices/contas)/conta | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Sincronização de Arquivos do Azure (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
 | Azure Data Factory (Microsoft. datafactory/fábricas)/datafactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
-| Azure Data Factory (Microsoft. datafactory/fábricas)/Portal |  privatelink.azure.com  |  azure.com  |
+| Azure Data Factory (Microsoft. datafactory/fábricas)/Portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Cache do Azure para Redis (Microsoft. cache/Redis)/redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
 <sup>1</sup> Para usar com o ponto de extremidade compatível com o Hub de eventos interno do Hub IoT. Para saber mais, consulte [suporte de link privado para ponto de extremidade interno do Hub IOT](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
@@ -97,7 +97,6 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Banco de Dados do Azure para PostgreSQL - servidor único (Microsoft.DBforPostgreSQL/servers)/postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Banco de Dados do Azure para MySQL (Microsoft.DBforMySQL/servers)/mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Banco de Dados do Azure para MariaDB (Microsoft.DBforMariaDB/servers)/mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
-
 
 ## <a name="dns-configuration-scenarios"></a>Cenários de configuração de DNS
 

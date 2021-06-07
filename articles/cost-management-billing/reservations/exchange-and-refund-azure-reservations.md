@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601465"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035986"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
-As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas necessidades em constante evolução. Você pode trocar uma reserva por outra do mesmo tipo. Por exemplo, você pode trocar uma reserva de máquina virtual para comprar outra reserva de qualquer outro tamanho ou região de VM. Da mesma forma, uma reserva do Banco de Dados de PaaS do SQL pode ser trocada para comprar outra reserva de qualquer tipo ou região do Banco de Dados de PaaS do SQL. Você também pode reembolsar reservas, mas a soma total de todos os compromissos de reserva cancelados em seu escopo do orçamento (como EA, Contrato de Cliente da Microsoft e Contrato de Parceiro da Microsoft) não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses. A capacidade reservada do Azure Databricks, a reserva da solução VMware da CloudSimple no Azure, a reserva do Azure Red Hat Open Shift, planos do Red Hat e planos do SUSE Linux não são elegíveis para reembolsos.
+As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas necessidades em constante evolução. Você pode trocar reservas por outra reserva do mesmo tipo. Por exemplo, você pode retornar várias reservas de computação, incluindo o Host Dedicado do Azure, a Solução VMware no Azure e as Máquinas Virtuais do Azure entre si de uma só vez. Em outras palavras, os produtos de reserva serão intercambiáveis entre si se forem o mesmo tipo de reserva. Em outro exemplo, você pode trocar vários tipos de reserva de banco de dados SQL, incluindo Instâncias Gerenciadas e o Pool Elástico, entre si.
+
+No entanto, não é possível trocar reservas não semelhantes. Por exemplo, você não pode trocar uma reserva do Cosmos DB para o Banco de Dados SQL.
+
+Você também pode trocar uma reserva para comprar outra reserva de um tipo semelhante em uma região diferente. Por exemplo, você pode trocar uma reserva que está no Oeste dos EUA 2 para uma que esteja no Oeste da Europa.
+
+Ao trocar uma reserva, você pode alterar seu termo de um ano para três anos.
+
+Você também pode reembolsar reservas, mas a soma total de todos os compromissos de reserva cancelados em seu escopo do orçamento (como EA, Contrato de Cliente da Microsoft e Contrato de Parceiro da Microsoft) não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses.
+
+A capacidade reservada do Azure Databricks, a reserva da solução VMware da CloudSimple no Azure, a reserva do Azure Red Hat Open Shift, planos do Red Hat e planos do SUSE Linux não são elegíveis para reembolsos.
 
 Os recursos de cancelamento e troca de autoatendimento não estão disponíveis para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA, incluindo Pagamento Conforme o Uso e CSP (Provedor de Solução de Nuvem).
 
@@ -37,9 +47,26 @@ Você pode trocar sua reserva no [portal do Azure](https://portal.azure.com/#bla
 
 Para reembolsar uma reserva, acesse **Detalhes da Reserva** e selecione **Reembolsar**.
 
+## <a name="exchange-multiple-reservations"></a>Trocar várias reservas
+
+Você pode retornar tipos semelhantes de reservas em uma ação.
+
+Quando você troca reservas, o novo valor da moeda de compra precisa ser maior que o valor do reembolso. Se o novo valor de compra for menor que o valor do reembolso, você receberá um erro. Se você vir o erro, reduza a quantidade que deseja retornar ou aumente o valor a ser comprado.
+
+1. Entre no portal do Azure e navegue até **Reservas**.
+1. Na lista de reservas, selecione a caixa para cada reserva que você deseja trocar.
+1. Na parte superior da página, selecione **Trocar**.
+1. Se necessário, revise a quantidade a ser retornada para cada reserva.
+1. Se você selecionar a quantidade de retorno de preenchimento automático, você poderá optar por **Reembolsar tudo** para preencher a lista com a quantidade completa que você tem para cada reserva ou **Otimizar para utilização (7 dias)** para preencher a lista com uma quantidade que otimize a utilização baseada nos últimos sete dias de uso. **Selecione Aplicar**.
+1. Na parte inferior da página, selecione **Próximo: Comprar**.
+1. Na guia de compra, selecione os produtos disponíveis pelos quais você deseja trocar. Você pode selecionar vários produtos de tipos diferentes.
+1. No painel Selecionar o produto que você deseja comprar, selecione os produtos desejados e, em seguida, selecione **Adicionar ao carrinho** e, em seguida, selecione **Fechar**.
+1. Quando terminar, selecione **Avançar: Examinar**.
+1. Examine suas reservas para retornar e novas reservas para comprar e, em seguida, selecione **Confirmar troca**.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Trocar armazenamento não Premium por armazenamento Premium
 
-Você pode trocar uma reserva comprada para um tamanho de VM que não é compatível com o armazenamento Premium por um tamanho de VM correspondente que é compatível. Por exemplo, uma _F1_ por uma _F1s_. Para fazer a troca, acesse os Detalhes da Reserva e selecione **Trocar**. A troca não redefine o prazo da instância reservada, nem cria uma nova transação. 
+Você pode trocar uma reserva comprada para um tamanho de VM que não é compatível com o armazenamento Premium por um tamanho de VM correspondente que é compatível. Por exemplo, uma _F1_ por uma _F1s_. Para fazer a troca, acesse os Detalhes da Reserva e selecione **Trocar**. A troca não redefine o prazo da instância reservada, nem cria uma nova transação.
 
 ## <a name="how-transactions-are-processed"></a>Como as transações são processadas
 

@@ -3,7 +3,7 @@ title: Configurar Postman para chamadas de API de REST dos Serviços de Mídia d
 description: Este artigo descreve como configurar o postmaster para chamadas à API REST dos serviços de mídia.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2020
-ms.author: juliako
-ms.openlocfilehash: a95e6c9554c96a530b4c92832a57b4febda86002
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: ef92e772085b1b89388c3f85fb3fdb91df0f6a75
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695680"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103012200"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST do Media Services v2
 
@@ -37,7 +37,7 @@ Este ambiente e a coleção são usados em artigos que mostram como realizar vá
 
     Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. As outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
-## <a name="configure-the-environment"></a>Configurar o ambiente 
+## <a name="configure-the-environment"></a>Configure o ambiente 
 
 1. Crie um arquivo. JSON contendo as variáveis de ambiente usadas nos tutoriais AMS. Nomeie o arquivo (por exemplo, **AzureMediaServices.postman_environment.json**). Abra o arquivo e cole o código que define o ambiente do Postman nesta [listagem de código](postman-environment.md). 
 2. Abra o aplicativo **Postman**.

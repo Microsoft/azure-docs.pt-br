@@ -1,24 +1,14 @@
 ---
 title: Agentes de segurança
 description: Comece a entender, configurar, implantar e usar o Azure defender para agentes de serviço de segurança de IoT em seus dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/24/2021
-ms.author: shhazam
-ms.openlocfilehash: a40b64dd3b8f898c961863c1d78a2a56642c44b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: a1d74de9824b9e825f87754da21070d4e7f1ee33
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521604"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783482"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Introdução ao Azure defender para micro agentes de dispositivo IoT
 
@@ -44,6 +34,7 @@ Use o seguinte fluxo de trabalho para implantar e testar seus agentes de seguran
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Configurar sua [solução](quickstart-configure-your-solution.md) 
- [criar módulos de segurança](quickstart-create-security-twin.md) configurar [alertas personalizados](quickstart-create-custom-alerts.md) 
- [implantar um agente de segurança](how-to-deploy-agent.md)
+- Configurar sua [solução](quickstart-configure-your-solution.md)
+- [Criar defender-IoT-micro-Agents](quickstart-create-security-twin.md)
+- Configurar [alertas personalizados](quickstart-create-custom-alerts.md)
+- [Implantar um agente de segurança](how-to-deploy-agent.md)

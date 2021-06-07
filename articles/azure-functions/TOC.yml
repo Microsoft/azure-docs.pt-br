@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Conceitos
   items:
+    - name: Práticas recomendadas
+      items:
+        - name: Desempenho e confiabilidade
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Gerenciar conexões
+          href: manage-connections.md
+          displayName: best practices
+        - name: Considerações de armazenamento
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: Tratamento de erro e novas tentativas de função
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Segurança
+          href: security-concepts.md
+          displayName: best practices
     - name: Comparar versões de tempo de execução
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -180,6 +197,9 @@
           href: supported-languages.md
         - name: C# (biblioteca de classes)
           href: functions-dotnet-class-library.md
+        - name: C# (processo isolado)
+          displayName: '.NET isolated, .NET 5'
+          href: dotnet-isolated-process-guide.md
         - name: Script do C# (.csx)
           href: functions-reference-csharp.md
         - name: F#
@@ -212,12 +232,7 @@
       href: functions-diagnostics.md
     - name: Custos de plano de consumo
       href: functions-consumption-costs.md
-    - name: Considerações sobre o desempenho
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Considerações de armazenamento
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Proxies de Funções
       href: functions-proxies.md
     - name: Opções de rede
@@ -255,6 +270,8 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
+                - name: C# isolado (.NET 5)
+                  href: dotnet-isolated-process-developer-howtos.md
                 - name: Java usando o Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java usando o Eclipse
@@ -439,9 +456,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
+          href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: Referência de configurações do aplicativo
       href: functions-app-settings.md
     - name: Gatilhos e associações

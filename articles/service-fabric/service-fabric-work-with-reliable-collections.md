@@ -4,10 +4,10 @@ description: Conheça as práticas recomendadas para trabalhar com coleções co
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787868"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections

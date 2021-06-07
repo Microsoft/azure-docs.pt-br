@@ -2,14 +2,14 @@
 title: Configurar identidades gerenciadas em pools do lote
 description: Saiba como habilitar identidades gerenciadas atribuídas pelo usuário em pools do lote e como usar identidades gerenciadas dentro dos nós.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416944"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950154"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Configurar identidades gerenciadas em pools do lote
 
@@ -100,3 +100,4 @@ Para obter mais informações, consulte [como usar identidades gerenciadas para 
 
 - Saiba mais sobre [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 - Saiba como usar [chaves gerenciadas pelo cliente com identidades gerenciadas pelo usuário](batch-customer-managed-key.md).
+- Saiba como [habilitar a rotação automática de certificado em um pool do lote](automatic-certificate-rotation.md).

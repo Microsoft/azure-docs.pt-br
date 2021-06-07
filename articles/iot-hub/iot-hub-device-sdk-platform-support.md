@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588753"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045631"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
@@ -59,9 +59,9 @@ O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure
 
 | Sistema operacional                  | Compilador                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2,7. *, 3,5 ou posterior |
-| macOS High Sierra   | Python 2,7. *, 3,5 ou posterior |
-| Família Windows 10   | Python 2,7. *, 3,5 ou posterior |
+| Linux               | Python 2,7. *, 3,6 ou posterior |
+| macOS High Sierra   | Python 2,7. *, 3,6 ou posterior |
+| Família Windows 10   | Python 2,7. *, 3,6 ou posterior |
 
 Somente o Python versão 3.5.3 ou posterior dá suporte às APIs assíncronas, recomendamos o uso da versão 3,7 ou posterior.
 
@@ -99,7 +99,7 @@ O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-i
 
 A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessador. Esses parceiros portaram o SDK do Azure IoT C para sua plataforma. Os parceiros criam e mantêm a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com esses parceiros para fornecer suporte estendido.
 
-| Parceiro             | Dispositivos                            | Link                     | Suporte |
+| Partner (parceiro)             | Dispositivos                            | Link                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

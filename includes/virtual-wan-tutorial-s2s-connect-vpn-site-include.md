@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856698"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "99627677"
 ---
 1. Selecione **Conectar sites VPN** para abrir a página **Conectar sites**.
 
@@ -26,13 +26,13 @@ ms.locfileid: "91856698"
    * Selecione a opção apropriada para **Propagar Rota Padrão**. A opção **Habilitar** permite que o hub virtual propague uma rota padrão aprendida para essa conexão. Esse sinalizador habilita a propagação da rota padrão para uma conexão somente se já foi aprendida pelo hub de WAN Virtual como resultado da implantação de um firewall no hub ou se a opção de túnel forçado está habilitada em outro site conectado. A rota padrão não se origina no hub da WAN virtual.
 
 2. Selecione **Conectar**.
-3. Dentro de alguns minutos, o site mostrará o status de conexão e conectividade.
+3. Após alguns minutos, o site exibirá o status de conexão e conectividade.
 
-   ![A captura de tela mostra uma conexão de site a site de VPN e o status de conectividade.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![A captura de tela mostra uma conexão de site a site e o status de conectividade.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **Status da conexão:** Esse é o status do recurso do Azure para a conexão entre o site VPN e o gateway de VPN do hub do Azure. Quando essa operação do plano de controle for bem-sucedida, o gateway de VPN do Azure e o dispositivo VPN local continuarão a estabelecer conectividade.
+   **Status da conexão:** esse é o status do recurso do Azure para a conexão entre o site VPN e o gateway de VPN do hub do Azure. Quando essa operação do plano de controle for bem-sucedida, o gateway de VPN do Azure e o dispositivo VPN local continuarão a estabelecer conectividade.
 
-   **Status da conectividade:** Esse é o status de conectividade real (caminho de dados) entre o gateway de VPN do Azure no hub e o site VPN. Pode mostrar qualquer um dos seguintes estados:
+   **Status da conectividade:** esse é o status de conectividade real (caminho de dados) entre o gateway de VPN do Azure no hub e o site VPN. Pode mostrar qualquer um dos seguintes estados:
 
     * **Desconhecido**: Esse estado é normalmente visto quando os sistemas de back-end estão trabalhando para fazer a transição para outro status.
     * **Conectando**: O gateway de VPN do Azure está tentando entrar em contato com o site VPN local real.

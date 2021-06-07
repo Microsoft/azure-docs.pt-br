@@ -3,16 +3,18 @@ title: 'Início Rápido: Criar um servidor – Portal do Azure – Banco de Dado
 description: Este artigo mostra como usar o portal do Azure para criar rapidamente um servidor de Banco de Dados do Azure para MariaDB de exemplo em aproximadamente cinco minutos.
 author: savjani
 ms.author: pariks
-ms.service: jroth
-ms.custom: mvc
-ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: d7ec7a2c70ae860a54b3771927a79449953e8569
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.topic: quickstart
+ms.service: mariadb
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: bcb8091bad6190648f35d8acdcb457f8b153ed63
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662102"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531345"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MariaDB usando o portal do Azure
 

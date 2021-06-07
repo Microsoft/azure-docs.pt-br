@@ -3,16 +3,16 @@ title: Início Rápido – criar um trabalho do Stream Analytics usando o portal
 description: Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics, a configuração das entradas e saídas e a definição de uma consulta.
 author: enkrumah
 ms.author: ebnkruma
-ms.date: 06/21/2019
+ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: c585cedce677599528e036525dead13a85c8b102
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2b5e6ba551f8f02aa93d157fa39e6b951d977ab8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012369"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092374"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure
 
@@ -36,7 +36,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de
    
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que deseja usar. |
+   |Subscription  | \<Your subscription\> |  Selecione a assinatura do Azure que você deseja usar. |
    |Resource group   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta. |
    |Região  |  \<Select the region that is closest to your users\> | Selecione uma localização geográfica na qual você possa hospedar o Hub IoT. Use a localização mais próxima dos usuários. |
    |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o Hub IoT.   |

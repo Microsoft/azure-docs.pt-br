@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97563068"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites Next.js estáticos renderizados na versão prévia dos Aplicativos Web Estáticos do Azure
@@ -135,8 +135,8 @@ As etapas a seguir mostram como vincular o aplicativo que você acabou de enviar
 ### <a name="create-a-static-app"></a>Criar um aplicativo estático
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
-1. Pesquise **Aplicativos Web Estáticos**
+1. Clique em **Criar um Recurso**
+1. Pesquise por **Aplicativos Web Estáticos**
 1. Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 1. Clique em **Criar**
 

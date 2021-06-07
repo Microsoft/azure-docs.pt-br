@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 2d0baed53441893ec294784f0f8092fe89a347c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a8d8fcd0b9b9ee1ff918ead250c88b83f86cb7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523699"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674828"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salva pesquisas e fixa ativos de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introdução
 O Catálogo de Dados do Azure fornece recursos para descoberta de fontes de dados. Você pode rapidamente pesquisar e filtrar o catálogo para localizar fontes de dados e entender a finalidade pretendida, facilitando a localização dos dados corretos para o trabalho em questão.
 

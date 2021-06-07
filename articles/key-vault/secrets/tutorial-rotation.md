@@ -3,7 +3,6 @@ title: Tutorial de rotação para recursos com um conjunto de credenciais de aut
 description: Use este tutorial para aprender a automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: rotation
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd90043c8f03361244d3500f83f6df5347f1d867
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: e66be3b0e3ecae5caa1a76294cc8b8dc11a5f207
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539393"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748656"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -213,7 +212,7 @@ A criação de um segredo com uma data de validade curta publicará um evento `S
 
 Para verificar se a rotação do segredo foi realizada, acesse **Key Vault** > **Segredos**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Acessar Segredos":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Captura de tela que mostra como acessar Key Vault > Segredos.":::
 
 Abra o segredo **sqlPassword** e veja as versões originais e com rotação:
 

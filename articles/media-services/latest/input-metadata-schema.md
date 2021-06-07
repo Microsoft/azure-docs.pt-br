@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360047"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634678"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 
@@ -39,9 +39,7 @@ Você pode encontrar o exemplo de esquema JSON no final deste artigo.
 Contém uma coleção de elementos AssetFile para o trabalho de codificação.  
 
 > [!NOTE]
-> Os quatro elementos filhos a seguir devem aparecer em uma sequência.  
-> 
-> 
+> Os quatro elementos filhos a seguir devem aparecer em uma sequência.
 
 | Nome  | Descrição |
 | --- | --- | 
@@ -67,12 +65,12 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 | Nome | Descrição |
 | --- | --- |
-| **FourCC**<br />Obrigatório |Código FourCC do codec de vídeo relatado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
+| **FourCC**<br />Obrigatório |Código FourCC do codec de vídeo relatado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **Perfil** |Perfil da faixa de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
 | **Level** |Nível da faixa de vídeo. <br /><br />Exemplo: `"Level": "3.2"`|
 | **PixelFormat** |Formato de pixel da faixa de vídeo. <br /><br />Exemplo: `"PixelFormat": "yuv420p"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels. <br /><br />Exemplo: `"Width": "1280"`|
-| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
+| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Obrigatório |Numerador de taxa de proporção de exibição do vídeo.<br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo. <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Numerador de proporção de amostra de vídeo. <br /><br />Exemplo: `"SampleAspectRatioNumerator": 1.0`|
@@ -82,9 +80,9 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 | **HasBFrames** |Número de faixas de vídeo de quadros B. <br /><br />Exemplo: `"HasBFrames": 2`|
 | **Metadados** |As cadeias de caracteres de chave/valor genéricas que podem ser usadas para armazenar uma variedade de informações. <br />Consulte o exemplo completo no final do artigo. |
 | **Id**<br />Obrigatório |Índice baseado em zero da faixa de áudio ou de vídeo.<br /><br /> Essa **ID** não é necessariamente o TrackID assim como utilizado em um arquivo MP4. <br /><br />Exemplo: `"Id": 2`|
-| **Codec** |Cadeia de caracteres de codec de faixa de vídeo. <br /><br />Exemplo: `"Codec": "h264"`|
+| **Codec** |Cadeia de caracteres de codec de faixa de vídeo. <br /><br />Exemplo: `"Codec": "h264 | hev1"`|
 | **CodecLongName** |Nome longo de codec de faixa de áudio ou vídeo. <br /><br />Exemplo: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
-| **Codec** |Cadeia de caracteres de codec de faixa de vídeo. <br /><br />Exemplo: `"Codec": "h264"`|
+| **Codec** |Cadeia de caracteres de codec de faixa de vídeo. <br /><br />Exemplo: `"Codec": "h264 | hev1"`|
 | **TimeBase**<br />Obrigatório |Base de tempo.<br /><br />Exemplo: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Número de quadros (presentes em faixas de vídeo). <br /><br />Exemplo: `"NumberOfFrames": 2107`|
 | **StartTime** |Hora de início da faixa.<br /><br />Exemplo: `"StartTime": "PT0.033S"` |

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: a94389a075fd62d80345a21e32f1bc977dfdee87
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020053"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
@@ -70,7 +70,7 @@ Anterior/atual | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | Cadeia de caracteres | Cadeia de caracteres | Cadeia de caracteres | String 
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída

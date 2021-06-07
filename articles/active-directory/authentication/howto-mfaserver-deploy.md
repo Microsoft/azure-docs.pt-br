@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7bd9913cccbe077a4deed9a7c5bfdc601f3dd5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742333"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor de Autenticação Multifator do Azure
@@ -119,7 +119,7 @@ Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure d
 > Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume. As etapas a seguir funcionarão apenas se você for um cliente do servidor MFA existente.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Pesquise *Azure Active Directory* e selecione-o. Selecione **Security**  >  **MFA** de segurança.
+2. Pesquise *Azure Active Directory* e selecione-o. Selecione   >  **MFA** de segurança.
 3. Em **Gerenciador servidor MFA**, selecione **configurações do servidor**.
 4. Selecione **Baixar** e siga as instruções na página de downloads para salvar o instalador. 
 

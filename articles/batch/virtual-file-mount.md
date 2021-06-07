@@ -3,30 +3,30 @@ title: Montar um sistema de arquivos virtual em um pool
 description: Saiba como montar um sistema de arquivos virtual em um pool do Lote.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 08/13/2019
-ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/26/2021
+ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145477"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626020"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montar um sistema de arquivos virtual em um pool do Lote
 
-Agora o Lote do Azure dá suporte à montagem de armazenamento em nuvem ou um sistema de arquivos externo nos nós de computação do Windows ou Linux nos pools do Lote. Quando um nó de computação entra em um pool, o sistema de arquivos virtual é montado e tratado como uma unidade local nesse nó. Você pode montar sistemas de arquivos, como Arquivos do Azure, armazenamento de Blobs do Azure, NFS (sistema de arquivos de rede), incluindo um [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) ou CIFS (sistema de arquivos de Internet comum).
+O lote do Azure dá suporte à montagem de armazenamento em nuvem ou de um sistema de arquivos externo em nós de computação do Windows ou Linux em seus pools do lote. Quando um nó de computação entra em um pool, o sistema de arquivos virtual é montado e tratado como uma unidade local nesse nó. Você pode montar sistemas de arquivos, como Arquivos do Azure, armazenamento de Blobs do Azure, NFS (sistema de arquivos de rede), incluindo um [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) ou CIFS (sistema de arquivos de Internet comum).
 
 Neste artigo, você saberá como montar um sistema de arquivos virtual em um pool de nós de computação, usando a [Biblioteca de gerenciamento de lotes para .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
-> A montagem de um sistema de arquivos virtual é compatível com os pools do Lote criados na versão 2019-08-19 ou posterior. Os pools do Lote criados antes da versão 2019-08-19 não são compatíveis com esse recurso.
-> 
-> As APIs de montagem dos sistemas de arquivos em um nó de computação fazem parte da [Biblioteca do Lote para .NET](/dotnet/api/microsoft.azure.batch).
+> A montagem de um sistema de arquivos virtual só tem suporte em pools do lote criados em ou após 8 de agosto de 2019. Os pools do lote criados antes dessa data não terão suporte para esse recurso.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Benefícios da montagem em um pool
 
 A montagem do sistema de arquivos no pool, em vez de permitir que as tarefas recuperem seus próprios dados de um grande conjunto de dados, torna mais fácil e mais eficiente que as tarefas acessem os dados necessários.
 
-Considere um cenário com várias tarefas que exigem acesso a um conjunto comum de dados, como a renderização de um filme. Cada tarefa renderiza um ou mais quadros por vez a partir dos arquivos de cena. Ao montar uma unidade que contém os arquivos de cena, é mais fácil para nós de computação acessar dados compartilhados. Além disso, o sistema de arquivos subjacente pode ser escolhido e dimensionado de forma independente com base no desempenho e na escala (taxa de transferência e IOPS) exigidos pelo número de nós de computação que acessam os dados simultaneamente. Por exemplo, um cache distribuído na memória do [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pode ser usado para dar suporte a renderizações em grande escala de filme com milhares de nós de renderização simultâneos, acessando os dados de origem que residem no local. Como alternativa, para dados que já residem no armazenamento de Blobs em nuvem, o [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) pode ser usado para montar esses dados como um sistema de arquivos local. O blobfuse está disponível apenas nos nós do Linux. No entanto, os [Arquivos do Azure](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) fornecem um fluxo de trabalho semelhante e está disponível no Windows e no Linux.
+Considere um cenário com várias tarefas que exigem acesso a um conjunto comum de dados, como a renderização de um filme. Cada tarefa renderiza um ou mais quadros por vez a partir dos arquivos de cena. Ao montar uma unidade que contém os arquivos de cena, é mais fácil para nós de computação acessar dados compartilhados.
+
+Além disso, o sistema de arquivos subjacente pode ser escolhido e dimensionado de forma independente com base no desempenho e na escala (taxa de transferência e IOPS) exigidos pelo número de nós de computação que acessam os dados simultaneamente. Por exemplo, um cache distribuído na memória do [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pode ser usado para dar suporte a renderizações em grande escala de filme com milhares de nós de renderização simultâneos, acessando os dados de origem que residem no local. Como alternativa, para dados que já residem no armazenamento de Blobs em nuvem, o [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) pode ser usado para montar esses dados como um sistema de arquivos local. O Blobfuse só está disponível em nós do Linux, embora [os arquivos do Azure](../storage/files/storage-files-introduction.md) forneçam um fluxo de trabalho semelhante e esteja disponível no Windows e no Linux.
 
 ## <a name="mount-a-virtual-file-system-on-a-pool"></a>Montar um sistema de arquivos virtual em um pool  
 
@@ -78,9 +78,11 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de arquivos de blob do Azure
 
-Outra opção é usar o armazenamento de blob do Azure por meio do [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de arquivos de blob requer um `AccountKey` ou `SasKey` para sua conta de armazenamento. Para obter informações sobre como obter essas chaves, confira [Gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md) ou [Uso de assinaturas de acesso compartilhado (SAS)](../storage/common/storage-sas-overview.md). Para obter mais informações sobre o uso do blobfuse, confira as [Perguntas frequentes sobre solução de problemas](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) do blobfuse. Para obter acesso padrão ao diretório montado do blobfuse, execute a tarefa como **Administrador**. O blobfuse monta o diretório no espaço do usuário e, na criação do pool, é montado como raiz. No Linux, todas as tarefas de **Administrador** são raiz. Todas as opções do módulo FUSE são descritas na [página de referência do FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Outra opção é usar o armazenamento de blob do Azure por meio do [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de arquivos de blob requer um `AccountKey` ou `SasKey` para sua conta de armazenamento. Para obter informações sobre como obter essas chaves, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md) ou [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md). Para obter mais informações e dicas sobre como usar o blobfuse, consulte o blobfuse.
 
-Além do guia de solução de problemas, os problemas do GitHub no repositório blobfuse são uma maneira útil de verificar os problemas e as resoluções atuais do blobfuse. Para obter mais informações, confira [problemas do blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
+Para obter acesso padrão ao diretório montado do blobfuse, execute a tarefa como **Administrador**. O blobfuse monta o diretório no espaço do usuário e, na criação do pool, é montado como raiz. No Linux, todas as tarefas de **Administrador** são raiz. Todas as opções para o módulo fusível são descritas na [página de referência de fusível](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+
+Examine as [perguntas frequentes sobre solução de problemas](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) para obter mais informações e dicas sobre como usar o blobfuse. Você também pode examinar [os problemas do GitHub no repositório blobfuse](https://github.com/Azure/azure-storage-fuse/issues) para verificar os problemas e as resoluções atuais do blobfuse.
 
 ```csharp
 new PoolAddParameter
@@ -106,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>NFS
 
-O NFS (sistema de arquivos de rede) também pode ser montado nos nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados facilmente pelos nós do Lote do Azure. Pode ser um único servidor NFS implantado na nuvem ou um servidor NFS local acessado em uma rede virtual. Como alternativa, aproveite a solução de cache distribuído na memória do [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), que fornece conectividade contínua ao armazenamento local, lendo dados sob demanda no cache e oferece alto desempenho e escalabilidade para nós de computação em nuvem.
+NFS (Network File Systems) pode ser montado em nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados pelo lote do Azure. Pode ser um único servidor NFS implantado na nuvem ou um servidor NFS local acessado em uma rede virtual. Como alternativa, você pode usar a solução de cache distribuída na memória do [avere vFXT](../avere-vfxt/avere-vfxt-overview.md) para tarefas HPC (computação de alto desempenho) com uso intensivo de dados
 
 ```csharp
 new PoolAddParameter
@@ -129,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Sistema de arquivos de Internet comum
 
-O CIFS (sistema de arquivos de Internet comum) também pode ser montado nos nós de pool, permitindo que os sistemas de arquivos tradicionais sejam acessados facilmente pelos nós do Lote do Azure. O CIFS é um protocolo de compartilhamento de arquivos que fornece um mecanismo de plataforma cruzada e aberta para solicitar serviços e arquivos do servidor de rede. O CIFS é baseado na versão aprimorada do protocolo SMB da Microsoft para compartilhamento de arquivos na Internet e intranet, além de ser usado para montar sistemas de arquivos externos nos nós do Windows. Para saber mais sobre o SMB, confira [Servidor de arquivos e SMB](/windows-server/storage/file-server/file-server-smb-overview).
+A montagem de [CIFS (Common Internet File System)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) para nós de pool é outra maneira de fornecer acesso aos sistemas de arquivos tradicionais. O CIFS é um protocolo de compartilhamento de arquivos que fornece um mecanismo de plataforma cruzada e aberta para solicitar serviços e arquivos do servidor de rede. O CIFS é baseado na versão aprimorada do protocolo [SMB](/windows-server/storage/file-server/file-server-smb-overview) para compartilhamento de arquivos de Internet e intranet e pode ser usado para montar sistemas de arquivos externos em nós do Windows.
 
 ```csharp
 new PoolAddParameter
@@ -154,7 +156,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnosticar erros de montagem
 
-Se uma configuração de montagem falhar, o nó de computação no pool falhará e o estado do nó se tornará inutilizável. Para diagnosticar uma falha na configuração de montagem, inspecione a propriedade [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
+Se uma configuração de montagem falhar, o nó de computação no pool falhará e o estado do nó será definido como `unusable` . Para diagnosticar uma falha na configuração de montagem, inspecione a propriedade [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) para obter detalhes sobre o erro.
 
 Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-output-files.md) para carregar os arquivos de `*.log`. Os arquivos de `*.log` contêm informações sobre a montagem do sistema de arquivos no local `AZ_BATCH_NODE_MOUNTS_DIR`. Os arquivos de log de montagem têm o formato: `<type>-<mountDirOrDrive>.log` para cada montagem. Por exemplo, uma montagem `cifs` em um diretório de montagem chamado `test` terá um arquivo de log de montagem chamado: `cifs-test.log`.
 
@@ -176,9 +178,25 @@ Para obter os arquivos de log para depuração, use [OutputFiles](batch-task-out
 | Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
+## <a name="networking-requirements"></a>Requisitos de rede
+
+Ao usar montagens de arquivo virtual com [pools do lote do Azure em uma rede virtual](batch-virtual-network.md), tenha em mente os requisitos a seguir e certifique-se de que nenhum tráfego necessário esteja bloqueado.
+
+- **Arquivos do Azure**:
+  - Requer que a porta TCP 445 esteja aberta para o tráfego de/para a marca de serviço "armazenamento". Para obter mais informações, consulte [usar um compartilhamento de arquivos do Azure com o Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
+- **Blobfuse**:
+  - Requer que a porta TCP 443 esteja aberta para o tráfego de/para a marca de serviço "armazenamento".
+  - As VMs devem ter acesso para https://packages.microsoft.com baixar os pacotes blobfuse e GPG. Dependendo de sua configuração, talvez você também precise de acesso a outras URLs para baixar pacotes adicionais.
+- **NFS (sistema de arquivos de rede)**:
+  - Requer acesso à porta 2049 (por padrão, sua configuração pode ter outros requisitos).
+  - As VMs devem ter acesso ao Gerenciador de pacotes apropriado para baixar o pacote NFS-comum (para Debian ou Ubuntu) ou NFS-utils (para CentOS). Essa URL pode variar com base na versão do sistema operacional. Dependendo de sua configuração, talvez você também precise de acesso a outras URLs para baixar pacotes adicionais.
+- **CIFS (sistema de arquivos de Internet comum)**:
+  - Requer acesso à porta TCP 445.
+  - As VMs devem ter acesso ao (s) Gerenciador (es) de pacotes apropriado para baixar o pacote CIFS-utils. Essa URL pode variar com base na versão do sistema operacional.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais detalhes sobre a montagem de um compartilhamento de Arquivos do Azure com o [Windows](../storage/files/storage-how-to-use-files-windows.md) ou o [Linux](../storage/files/storage-how-to-use-files-linux.md).
+- Saiba mais sobre como montar um compartilhamento de arquivos do Azure com [Windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Saiba mais sobre como usar e montar os sistemas de arquivos virtuais do [blobfuse](https://github.com/Azure/azure-storage-fuse).
 - Confira [Visão geral do sistema de arquivos de rede](/windows-server/storage/nfs/nfs-overview) para saber mais sobre o NFS e seus aplicativos.
 - Confira [Protocolo SMB da Microsoft e visão geral do protocolo CIFS](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) para saber mais sobre o CIFS.

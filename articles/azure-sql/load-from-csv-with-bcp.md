@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d2d501206dcb1fc6b9bb545f9dcf4d5c61af994e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 09ae46ec6455b6998bcf4da5648d2ceaef4d5b19
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777870"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644790"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>Carregar dados do CSV no banco de dados SQL do Azure ou no SQL Instância Gerenciada (arquivos simples)
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Para completar as etapas neste artigo, você precisa:
 * O utilitário de linha de comando bcp instalado
 * O utilitário de linha de comando sqlcmd instalado
 
-Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][Microsoft Download Center].
+Você pode baixar os utilitários bcp e sqlcmd da [documentação do Microsoft sqlcmd](/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true).
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dados em formato ASCII ou UTF-16
 

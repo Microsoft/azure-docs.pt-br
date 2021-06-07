@@ -1,5 +1,5 @@
 ---
-title: Como migrar para contêineres de OCR de Leitura v3.x
+title: Migração para os contêineres de Leitura v3.x
 titleSuffix: Azure Cognitive Services
 description: Saiba como migrar para os contêineres de OCR de Leitura v3
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/29/2021
 ms.author: aahi
-ms.openlocfilehash: baa91e21979022064aaf13aca6079f8d092d673e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221146"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284678"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para contêineres de OCR de Leitura v3.x
 
@@ -24,7 +24,7 @@ Caso esteja usando a versão 2 do contêiner de OCR de Leitura da Pesquisa Visua
 
 ## <a name="configuration-changes"></a>Alterações de configuração
 
-* `ReadEngineConfig:ResultExpirationPeriod` não é mais suportada. O contêiner de Leitura tem um trabalho Cron integrado que remove resultados e metadados associados a uma solicitação após 48 horas.
+* `ReadEngineConfig:ResultExpirationPeriod` não é mais suportada. O contêiner de OCR de Leitura tem um trabalho cron integrado que remove os resultados e os metadados associados a uma solicitação após 48 horas.
 * `Cache:Redis:Configuration` não é mais suportada. O Cache não é usado nos contêineres v3.x, portanto, não será necessário defini-lo.
 
 ## <a name="api-changes"></a>Alterações de API
@@ -39,7 +39,7 @@ Confira o [guia de migração da API REST da Pesquisa Visual Computacional v3](.
 
 ## <a name="memory-requirements"></a>Requisitos de memória
 
-Os requisitos e as recomendações são baseados em parâmetros de comparação com uma solicitação por segundo, usando uma imagem de 8 MB de uma carta empresarial digitalizada que contém 29 linhas e 803 caracteres no total. A tabela a seguir descreverá a alocação mínima e recomendada de recursos para cada contêiner de Leitura.
+Os requisitos e as recomendações são baseados em parâmetros de comparação com uma solicitação por segundo, usando uma imagem de 8 MB de uma carta empresarial digitalizada que contém 29 linhas e 803 caracteres no total. A tabela a seguir descreverá a alocação mínima e recomendada de recursos para cada contêiner de OCR de Leitura.
 
 |Contêiner  |Mínimo | Recomendado  |
 |---------|---------|------|
@@ -81,7 +81,7 @@ Defina o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, qu
 ## <a name="next-steps"></a>Próximas etapas
 
 * Revise [Configurar contêineres](computer-vision-resource-container-config.md) para configurações
-* Examinar [Visão geral da Pesquisa Visual Computacional](overview.md) para saber mais sobre como reconhecer texto impresso e manuscrito
-* Veja a [API da Pesquisa Visual Computacional](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos compatíveis com o contêiner.
+* Examine [Visão geral de OCR](overview-ocr.md) para saber mais sobre como reconhecer um texto impresso e manuscrito
+* Veja a [API de Leitura](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos compatíveis com o contêiner.
 * Veja as [Perguntas frequentes](FAQ.md) para resolver problemas relacionados à funcionalidade de Pesquisa Visual Computacional.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

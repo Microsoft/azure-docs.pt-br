@@ -10,16 +10,16 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374729"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669501"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Carregar dados de uso para Azure Monitor
 
-Periodicamente, você pode exportar informações de uso. A exportação e o upload dessas informações criam e atualizam os recursos do grupo de servidores, da instância gerenciada do SQL e do servidor de hiperescala do PostgreSQL no Azure.
+Periodicamente, você pode exportar informações de uso. A exportação e o upload dessas informações criam e atualizam os recursos do grupo de servidores, instância gerenciada do SQL e servidor de hiperescala do PostgreSQL no Azure.
 
 > [!NOTE] 
 > Durante o período de versão prévia, não há nenhum custo para usar os serviços de dados habilitados para Arc do Azure.
@@ -32,7 +32,7 @@ Periodicamente, você pode exportar informações de uso. A exportação e o upl
 
 ## <a name="create-service-principal-and-assign-roles"></a>Criar entidade de serviço e atribuir funções
 
-Antes de prosseguir, verifique se você criou a entidade de serviço necessária e a atribuiu a uma função apropriada. Para obter detalhes, consulte:
+Antes de prosseguir, verifique se você criou a entidade de serviço necessária e a atribuiu a uma função apropriada. Para obter detalhes, confira:
 * [Criar entidade de serviço](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 * [Atribuir funções à entidade de serviço](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
@@ -64,7 +64,7 @@ Informações de uso, como inventário e uso de recursos, podem ser carregadas n
 
 Se você quiser carregar as métricas e os logs de forma agendada, poderá criar um script e executá-lo em um temporizador a cada poucos minutos. Veja abaixo um exemplo de como automatizar os carregamentos usando um script de shell do Linux.
 
-Em seu editor de texto/código favorito, adicione o script a seguir ao arquivo e salve como um arquivo executável de script, como. sh (Linux/Mac) ou. cmd,. bat,. ps1.
+Em seu editor de texto/código favorito, adicione o script a seguir ao arquivo e salve como um arquivo executável de script, como `.sh` (Linux/Mac) ou `.cmd` , `.bat` ou `.ps1` .
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

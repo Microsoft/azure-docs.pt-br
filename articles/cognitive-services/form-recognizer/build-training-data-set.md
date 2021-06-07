@@ -2,23 +2,23 @@
 title: Como criar um conjunto de dados de treinamento para um reconhecedor de formulário de modelo personalizado
 titleSuffix: Azure Cognitive Services
 description: Saiba como garantir que o conjunto de dados de treinamento seja otimizado para treinar um modelo de reconhecimento de formulário.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.author: pafarley
-ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.author: lajanuar
+ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585102"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467486"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
-Ao usar o modelo personalizado do reconhecedor de formulário, você fornece seus próprios dados de treinamento para a operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , para que o modelo possa treinar seus formulários específicos do setor. Siga este guia para aprender a coletar e preparar dados para treinar o modelo com eficiência.
+Ao usar o modelo personalizado do reconhecedor de formulário, você fornece seus próprios dados de treinamento para a operação [treinar modelo personalizado](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) , para que o modelo possa treinar seus formulários específicos do setor. Siga este guia para aprender a coletar e preparar dados para treinar o modelo com eficiência.
 
 Você precisa de pelo menos cinco formulários preenchidos do mesmo tipo.
 
@@ -47,7 +47,7 @@ Se você quiser usar dados rotulados manualmente, também precisará carregar o 
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizar seus dados em subpastas (opcional)
 
-Por padrão, a API de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
+Por padrão, a API de [modelo personalizado Train](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) só usará documentos de formulário localizados na raiz do seu contêiner de armazenamento. No entanto, você pode treinar com dados em subpastas se especificá-los na chamada à API. Normalmente, o corpo da chamada de [modelo personalizado Train](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) tem o seguinte formato, em que `<SAS URL>` é a URL de assinatura de acesso compartilhado do seu contêiner:
 
 ```json
 {

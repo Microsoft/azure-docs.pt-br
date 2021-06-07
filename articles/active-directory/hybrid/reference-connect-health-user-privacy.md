@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89182353"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do usuário e Azure AD Connect Health 
@@ -35,7 +35,7 @@ O Azure AD Connect Health se encaixa na categoria **processador de dados** da cl
 ## <a name="data-retention-policy"></a>Política de retenção de dados
 O Azure AD Connect Health não gera relatórios, realiza análise nem fornece informações com mais de 30 dias. Portanto, o Azure AD Connect Health não armazena, processa ou retém quaisquer dados com mais de 30 dias. Este design está em conformidade com os regulamentos do GDPR, com os regulamentos de conformidade de privacidade da Microsoft e com as políticas de retenção de dados do Azure Active Directory. 
 
-Servidores com alertas **Os dados do serviço de integridade não estão atualizados de ** **erro** ativo por mais de 30 dias consecutivos sugerem que nenhum dado atingiu o Connect Health durante esse intervalo de tempo. Esses servidores serão desabilitados e não exibidos no Portal do Connect Health. Para habilitar novamente os servidores, será necessário desinstalar e [reinstalar o agente de integridade](how-to-connect-health-agent-install.md). Observe que isso não se aplica a **avisos** com o mesmo tipo de alerta. Os avisos indicam que faltam dados parciais do servidor do qual você é alertado. 
+Servidores com alertas **Os dados do serviço de integridade não estão atualizados de** **erro** ativo por mais de 30 dias consecutivos sugerem que nenhum dado atingiu o Connect Health durante esse intervalo de tempo. Esses servidores serão desabilitados e não exibidos no Portal do Connect Health. Para habilitar novamente os servidores, será necessário desinstalar e [reinstalar o agente de integridade](how-to-connect-health-agent-install.md). Observe que isso não se aplica a **avisos** com o mesmo tipo de alerta. Os avisos indicam que faltam dados parciais do servidor do qual você é alertado. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Desabilitar a coleta e monitoramento de dados no Azure AD Connect Health
 O Azure AD Connect Health habilita interromper a coleta de dados para cada servidor monitorado individual ou para uma instância de um serviço monitorado. Por exemplo, é possível parar a coleta de dados de servidores individuais AD FS (Serviços de Federação do Active Directory) que são monitorados usando o Azure AD Connect Health. Você também pode parar a coleta de dados de toda a instância do AD FS que está sendo monitorada usando o Azure AD Connect Health. Ao optar por fazer isso, os servidores correspondentes serão excluídos do Portal do Azure AD Connect Health após parar a coleta de dados. 

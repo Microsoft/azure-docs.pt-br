@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87089610"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Windows no Service Fabric
@@ -30,7 +30,7 @@ Neste guia de início rápido, você aprende a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure (você pode criar um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Um computador de desenvolvimento executando:
@@ -146,7 +146,7 @@ Abra um navegador e navegue até o endereço que você colocou no campo **Ponto 
 
  Você deve ver a página da Web do IIS padrão: ![Página da Web do IIS padrão][iis-default]
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Você continuará incorrendo em encargos enquanto o cluster estiver em execução. Considere [excluir o cluster](./service-fabric-tutorial-delete-cluster.md).
 

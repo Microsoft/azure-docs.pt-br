@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/01/2021
+ms.date: 03/15/2021
 ms.custom: generated
-ms.openlocfilehash: 384d00ee41f2b6bfc2e91815bfcf54819c7d9ab2
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ba5340fdc12bf3141c5e3f24b6b9d178a5db600d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809364"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602512"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -116,7 +116,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Receptor de dados dos Hubs de Eventos do Azure](#azure-event-hubs-data-receiver) | Permite acesso de recebimento aos recursos dos Hubs de Eventos do Azure. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Remetente de dados dos Hubs de Eventos do Azure](#azure-event-hubs-data-sender) | Permite acesso de envio aos recursos dos Hubs de Eventos do Azure. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | [Colaborador da fábrica de dados](#data-factory-contributor) | Cria e gerencia data factories, assim como os recursos filhos neles. | 673868aa-7521-48A0-acc6-0f60742d39f5 |
-> | [Limpador de Dados](#data-purger) | Pode limpar os dados de análise | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Limpador de Dados](#data-purger) | Exclua dados privados de um espaço de trabalho Log Analytics. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [Operador de Cluster do HDInsight](#hdinsight-cluster-operator) | Permite que você leia e modifique as configurações de cluster do HDInsight. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Colaborador do Log Analytics](#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
@@ -140,6 +140,13 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Editor de QnA Maker de serviços cognitivas](#cognitive-services-qna-maker-editor) | Permite criar, editar, importar e exportar um KB. Não é possível publicar ou excluir um KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [QnA Maker leitor de serviços cognitivas](#cognitive-services-qna-maker-reader) | Vamos ler e testar apenas um KB. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Usuário dos Serviços Cognitivos](#cognitive-services-user) | Permite ler e listar as chaves dos Serviços Cognitivos. | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Internet das coisas** |  |  |
+> | [Administrador de atualização de dispositivo](#device-update-administrator) | Oferece acesso completo às operações de gerenciamento e conteúdo | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
+> | [Administrador de conteúdo de atualização de dispositivo](#device-update-content-administrator) | Oferece acesso completo às operações de conteúdo | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
+> | [Leitor de conteúdo de atualização de dispositivo](#device-update-content-reader) | Fornece acesso de leitura às operações de conteúdo, mas não permite fazer alterações | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
+> | [Administrador de implantações de atualização de dispositivo](#device-update-deployments-administrator) | Oferece acesso completo às operações de gerenciamento | e4237640-0e3d-4a46-8fda-70bc94856432 |
+> | [Leitor de implantações de atualização de dispositivo](#device-update-deployments-reader) | Fornece acesso de leitura às operações de gerenciamento, mas não permite fazer alterações | 49e2f5d2-7741-4835-8efa-19e1fe35e47f |
+> | [Leitor de atualização de dispositivo](#device-update-reader) | Fornece acesso de leitura às operações de gerenciamento e conteúdo, mas não permite fazer alterações | e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f |
 > | **Realidade misturada** |  |  |
 > | [Administrador de renderização remoto](#remote-rendering-administrator) | Fornece ao usuário recursos de conversão, gerenciamento de sessão, renderização e diagnóstico para renderização remota do Azure | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | [Cliente de renderização remota](#remote-rendering-client) | Fornece ao usuário recursos de gerenciamento de sessão, renderização e diagnóstico para a renderização remota do Azure. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
@@ -156,6 +163,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Receptor de dados do Barramento de Serviço do Azure](#azure-service-bus-data-receiver) | Permite acesso de recebimento aos recursos do Barramento de Serviço do Azure. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | [Remetente de dados do Barramento de Serviço do Azure](#azure-service-bus-data-sender) | Permite o acesso de envio aos recursos do Barramento de Serviço do Azure. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | [Proprietário de registro do Microsoft Azure Stack](#azure-stack-registration-owner) | Permite que você gerencie registros do Microsoft Azure Stack. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
+> | [Colaborador de EventGrid](#eventgrid-contributor) | Permite que você gerencie operações EventGrid. | 1e241071-0855-49ea-94dc-649edcd759de |
 > | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite que você gerencie operações de assinatura de evento EventGrid. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [Leitor de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite que você gerencie operações de assinatura de evento EventGrid. | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | [Colaborador de dados do FHIR](#fhir-data-contributor) | A função permite o acesso completo do usuário ou principal aos dados do FHIR | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
@@ -176,15 +184,15 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador do Azure Sentinel](#azure-sentinel-contributor) | Colaborador do Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Respondente do Azure Sentinel](#azure-sentinel-responder) | Respondente do Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Key Vault administrador (versão prévia)](#key-vault-administrator-preview) | Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | [Key Vault o responsável por certificados (versão prévia)](#key-vault-certificates-officer-preview) | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Administrador de Key Vault](#key-vault-administrator) | Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Diretor de certificados Key Vault](#key-vault-certificates-officer) | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Colaborador do Key Vault](#key-vault-contributor) | Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC do Azure e não permite que você acesse segredos, chaves ou certificados. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Key Vault de criptografia (versão prévia)](#key-vault-crypto-officer-preview) | Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Key Vault usuário de criptografia do serviço de criptografia (visualização)](#key-vault-crypto-service-encryption-user-preview) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | [Key Vault usuário de criptografia (visualização)](#key-vault-crypto-user-preview) | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Leitor de Key Vault (versão prévia)](#key-vault-reader-preview) | Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | [Diretor de segredos Key Vault (versão prévia)](#key-vault-secrets-officer-preview) | Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-> | [Usuário Key Vault segredos (visualização)](#key-vault-secrets-user-preview) | Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Key Vault o analista de criptografia](#key-vault-crypto-officer) | Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Key Vault usuário de criptografia do serviço de criptografia](#key-vault-crypto-service-encryption-user) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault usuário de criptografia](#key-vault-crypto-user) | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Leitor de Key Vault](#key-vault-reader) | Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Diretor de segredos Key Vault](#key-vault-secrets-officer) | Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Usuário de Key Vault segredos](#key-vault-secrets-user) | Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Colaborador de HSM gerenciado](#managed-hsm-contributor) | Permite que você gerencie pools HSM gerenciados, mas não tem acesso a eles. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Administrador de Segurança](#security-admin) | Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissões que a função de leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Colaborador de avaliação de segurança](#security-assessment-contributor) | Permite enviar avaliações por push para a Central de Segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -196,9 +204,9 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | **Monitorar** |  |  |
 > | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Quando você concede aos usuários a função de Depurador de Instantâneos do Application Insights, deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Publicador de Métricas de Monitoramento](#monitoring-metrics-publisher) | Habilita a publicação de métricas com base nos recursos do Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Colaborador da pasta de trabalho](#workbook-contributor) | Pode salvar as pastas de trabalho compartilhadas. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Leitor de pasta de trabalho](#workbook-reader) | Pode ler as pastas de trabalho. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Gerenciamento + governança** |  |  |
@@ -222,6 +230,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Leitor do Grupo de Gerenciamento](#management-group-reader) | Função de Leitor do Grupo de Gerenciamento | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [Colaborador de Conta APM do New Relic](#new-relic-apm-account-contributor) | Permite que você gerencie contas e aplicativos do Gerenciamento de desempenho de aplicativos da New Relic, mas não tem acesso a eles. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Gravador de Dados de Insights de Política (Versão Prévia)](#policy-insights-data-writer-preview) | Permite o acesso de leitura às políticas de recurso e o acesso de gravação aos eventos de política de componente de recurso. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | [Função operador de solicitação de cota](#quota-request-operator-role) | Ler e criar solicitações de cota, obter status de solicitação de cota e criar tíquetes de suporte. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | [Comprador de reserva](#reservation-purchaser) | Permite que você compre reservas | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Colaborador da Política de Recurso](#resource-policy-contributor) | Usuários com direitos para criar ou modificar a política de recursos, criar tíquete de suporte e ler recursos ou hierarquias. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Colaborador do Site Recovery](#site-recovery-contributor) | Permite gerenciar o serviço do Azure Site Recovery, exceto a criação de cofre e atribuição de função | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
@@ -230,7 +239,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador de solicitação de suporte](#support-request-contributor) | Permite criar e gerenciar Solicitações de Suporte | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Colaborador de Marca](#tag-contributor) | Permite que você gerencie marcas em entidades, sem fornecer acesso às entidades propriamente ditas. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Outros** |  |  |
-> | [Proprietário de dados do gêmeos digital do Azure](#azure-digital-twins-data-owner) | Função de acesso completo para o plano de dados gêmeos digital | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+> | [Proprietário de Dados dos Gêmeos Digitais do Azure](#azure-digital-twins-data-owner) | Função de acesso completo para o plano de dados gêmeos digital | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | [Leitor de dados do Azure digital gêmeos](#azure-digital-twins-data-reader) | Função somente leitura para propriedades do plano de dados gêmeos digital | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [Colaborador do BizTalk](#biztalk-contributor) | Permite gerenciar serviços do BizTalk, mas não acessá-los. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Colaborador do grupo de aplicativos de virtualização de desktop](#desktop-virtualization-application-group-contributor) | Colaborador do grupo de aplicativos de virtualização de desktop. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
@@ -2175,8 +2184,9 @@ Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber
 > | **DataActions** |  |
 > | /StorageAccounts/blobServices/containers/BLOBs/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir um blob. |
 > | /StorageAccounts/blobServices/containers/BLOBs/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retornar um blob ou uma lista de blobs. |
-> | /StorageAccounts/blobServices/containers/BLOBs/move/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Move o blob de um caminho para outro |
 > | /StorageAccounts/blobServices/containers/BLOBs/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Gravar em um blob. |
+> | /StorageAccounts/blobServices/containers/BLOBs/move/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Move o blob de um caminho para outro |
+> | /StorageAccounts/blobServices/containers/BLOBs/Add/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado da adição de conteúdo do blob |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2200,8 +2210,9 @@ Ler, gravar e excluir contêineres e blobs de Armazenamento do Azure. Para saber
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
       ],
       "notDataActions": []
     }
@@ -3942,6 +3953,10 @@ Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados n
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listKeys/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Write | Criar ou atualizar uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Delete | Excluir uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Write | Criar ou atualizar uma atribuição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Delete | Excluir uma atribuição de função SQL |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3971,7 +3986,11 @@ Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados n
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
         "Microsoft.DocumentDB/databaseAccounts/listKeys/*",
-        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*"
+        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4390,6 +4409,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentScans/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/devOpsAuditingSettings/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/firewallRules/* |  |
 > | /Servers/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de servidores ou obter as propriedades para o servidor especificado. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de servidor SQL |
@@ -4399,6 +4419,8 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 > | /ManagedInstances/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de instâncias gerenciadas ou obter as propriedades para a instância gerenciada especificada. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
 > | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
+> | /ManagedInstances/Administrators/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obter uma lista de administradores de instância gerenciada. |
+> | /Servers/Administrators/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obtém um objeto de administrador de Azure Active Directory específico |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4453,6 +4475,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
         "Microsoft.Sql/servers/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/*",
+        "Microsoft.Sql/servers/devOpsAuditingSettings/*",
         "Microsoft.Sql/servers/firewallRules/*",
         "Microsoft.Sql/servers/read",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
@@ -4461,7 +4484,9 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
         "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
-        "Microsoft.Security/sqlVulnerabilityAssessments/*"
+        "Microsoft.Security/sqlVulnerabilityAssessments/*",
+        "Microsoft.Sql/managedInstances/administrators/read",
+        "Microsoft.Sql/servers/administrators/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4514,6 +4539,7 @@ Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentScans/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/devOpsAuditingSettings/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/extendedAuditingSettings/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Editar políticas de alerta de segurança de servidor SQL |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
@@ -4569,6 +4595,7 @@ Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as
         "Microsoft.Sql/servers/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/*",
+        "Microsoft.Sql/servers/devOpsAuditingSettings/*",
         "Microsoft.Sql/servers/extendedAuditingSettings/*",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
         "Microsoft.Sql/servers/vulnerabilityAssessments/*",
@@ -4768,7 +4795,7 @@ Cria e gerencia data factories, assim como os recursos filhos neles. [Saiba mais
 
 ### <a name="data-purger"></a>Limpador de Dados
 
-Pode limpar dados de análise [saiba mais](../azure-monitor/platform/personal-data-mgmt.md)
+Exclua dados privados de um espaço de trabalho Log Analytics. [Saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4911,7 +4938,7 @@ Pode ler, criar, modificar e excluir as operações relacionadas ao serviço de 
 
 ### <a name="log-analytics-contributor"></a>Colaborador do Log Analytics
 
-O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4976,7 +5003,7 @@ O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5710,6 +5737,19 @@ Permite criar, editar, importar e exportar um KB. Não é possível publicar ou 
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/Read | Obtém as configurações do ponto de extremidade para um ponto de extremidade |
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/Write | Atualize o ponto de extremidade Seettings para um ponto de extremidade. |
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/Operations/Read | Obtém detalhes de uma operação de execução prolongada específica. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/Read | Obtém a lista de bases de conhecimentos ou detalhes de uma base de conhecimento específica. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/Read | Baixe a base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/Create/Write | Operação assíncrona para criar uma nova base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/Write | Operação assíncrona para modificar uma base de conhecimento ou substituir o conteúdo da base de conhecimento. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/Action | GenerateAnswer chamada para consultar a base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/Train/Action | Treine a chamada para adicionar sugestões à base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/Alterations/Read | Baixar alterações do tempo de execução. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/Alterations/Write | Substituir dados de alteração. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/Read | Obtém as chaves do ponto de extremidade para um ponto de extremidade |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/Action | Gera novamente uma chave de ponto de extremidade. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/Read | Obtém as configurações do ponto de extremidade para um ponto de extremidade |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/Write | Atualize o ponto de extremidade Seettings para um ponto de extremidade. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/Operations/Read | Obtém detalhes de uma operação de execução prolongada específica. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -5755,7 +5795,20 @@ Permite criar, editar, importar e exportar um KB. Não é possível publicar ou 
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/write",
-        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read"
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/create/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/train/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/operations/read"
       ],
       "notDataActions": []
     }
@@ -5791,6 +5844,12 @@ Vamos ler e testar apenas um KB. [Saiba mais](../cognitive-services/qnamaker/ref
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/Alterations/Read | Baixar alterações do tempo de execução. |
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/Read | Obtém as chaves do ponto de extremidade para um ponto de extremidade |
 > | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/Read | Obtém as configurações do ponto de extremidade para um ponto de extremidade |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/Read | Obtém a lista de bases de conhecimentos ou detalhes de uma base de conhecimento específica. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/Read | Baixe a base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/Action | GenerateAnswer chamada para consultar a base de conhecimentos. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/Alterations/Read | Baixar alterações do tempo de execução. |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/Read | Obtém as chaves do ponto de extremidade para um ponto de extremidade |
+> | [Microsoft. cognitivaservices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/Read | Obtém as configurações do ponto de extremidade para um ponto de extremidade |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -5822,7 +5881,13 @@ Vamos ler e testar apenas um KB. [Saiba mais](../cognitive-services/qnamaker/ref
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/generateanswer/action",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read",
-        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read"
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/read"
       ],
       "notDataActions": []
     }
@@ -5898,6 +5963,323 @@ Permite ler e listar as chaves dos Serviços Cognitivos. [Saiba mais](../cogniti
 }
 ```
 
+## <a name="internet-of-things"></a>Internet das coisas
+
+
+### <a name="device-update-administrator"></a>Administrador de atualização de dispositivo
+
+Oferece acesso completo às operações de gerenciamento e conteúdo [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Read | Executa uma operação de leitura relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Write | Executa uma operação de gravação relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Delete | Executa uma operação de exclusão relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Read | Executa uma operação de leitura relacionada ao gerenciamento |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Write | Executa uma operação de gravação relacionada ao gerenciamento |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Delete | Executa uma operação de exclusão relacionada ao gerenciamento |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to management and content operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/02ca0879-e8e4-47a5-a61e-5c618b76e64a",
+  "name": "02ca0879-e8e4-47a5-a61e-5c618b76e64a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/write",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/delete",
+        "Microsoft.DeviceUpdate/accounts/instances/management/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/write",
+        "Microsoft.DeviceUpdate/accounts/instances/management/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="device-update-content-administrator"></a>Administrador de conteúdo de atualização de dispositivo
+
+Fornece acesso completo a operações de conteúdo [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Read | Executa uma operação de leitura relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Write | Executa uma operação de gravação relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Delete | Executa uma operação de exclusão relacionada a atualizações |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to content operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0378884a-3af5-44ab-8323-f5b22f9f3c98",
+  "name": "0378884a-3af5-44ab-8323-f5b22f9f3c98",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/write",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Content Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="device-update-content-reader"></a>Leitor de conteúdo de atualização de dispositivo
+
+Fornece acesso de leitura às operações de conteúdo, mas não permite fazer alterações [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Read | Executa uma operação de leitura relacionada a atualizações |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to content operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d1ee9a80-8b14-47f0-bdc2-f4a351625a7b",
+  "name": "d1ee9a80-8b14-47f0-bdc2-f4a351625a7b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Content Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="device-update-deployments-administrator"></a>Administrador de implantações de atualização de dispositivo
+
+Oferece acesso completo às operações de gerenciamento [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Read | Executa uma operação de leitura relacionada ao gerenciamento |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Write | Executa uma operação de gravação relacionada ao gerenciamento |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Delete | Executa uma operação de exclusão relacionada ao gerenciamento |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to management operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e4237640-0e3d-4a46-8fda-70bc94856432",
+  "name": "e4237640-0e3d-4a46-8fda-70bc94856432",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/management/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/write",
+        "Microsoft.DeviceUpdate/accounts/instances/management/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Deployments Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="device-update-deployments-reader"></a>Leitor de implantações de atualização de dispositivo
+
+Fornece acesso de leitura para operações de gerenciamento, mas não permite fazer alterações [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Read | Executa uma operação de leitura relacionada ao gerenciamento |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to management operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/49e2f5d2-7741-4835-8efa-19e1fe35e47f",
+  "name": "49e2f5d2-7741-4835-8efa-19e1fe35e47f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/management/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Deployments Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="device-update-reader"></a>Leitor de atualização de dispositivo
+
+Fornece acesso de leitura às operações de gerenciamento e conteúdo, mas não permite fazer alterações [saiba mais](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/Read | Executa uma operação de leitura relacionada a atualizações |
+> | [Microsoft. DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/Management/Read | Executa uma operação de leitura relacionada ao gerenciamento |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to management and content operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f",
+  "name": "e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## <a name="mixed-reality"></a>Realidade misturada
 
 
@@ -5918,7 +6300,7 @@ Fornece ao usuário recursos de conversão, gerenciamento de sessão, renderiza�
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
-> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a um servidor |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -5968,7 +6350,7 @@ Fornece ao usuário recursos de gerenciamento de sessão, renderização e diagn
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
-> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a um servidor |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -6582,6 +6964,55 @@ Permite que você gerencie registros do Microsoft Azure Stack.
 }
 ```
 
+### <a name="eventgrid-contributor"></a>Colaborador de EventGrid
+
+Permite que você gerencie operações EventGrid.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/* | Criar e gerenciar recursos da grade de eventos |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage EventGrid operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1e241071-0855-49ea-94dc-649edcd759de",
+  "name": "1e241071-0855-49ea-94dc-649edcd759de",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.EventGrid/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "EventGrid Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventGrid EventSubscription
 
 Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba mais](../event-grid/security-authorization.md)
@@ -6590,7 +7021,7 @@ Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba
 > | Ações | Descrição |
 > | --- | --- |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
-> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/* |  |
+> | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/* | Criar e gerenciar assinaturas de eventos regionais |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos globais por tipo de tópico |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/eventSubscriptions/Read | Listar assinaturas de eventos regionais |
 > | [Microsoft. EventGrid](resource-provider-operations.md#microsofteventgrid)/Locations/topicTypes/eventSubscriptions/Read | Listar assinaturas de eventos regionais por tipo de tópico |
@@ -6688,7 +7119,7 @@ Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba
 
 ### <a name="fhir-data-contributor"></a>Colaborador de dados do FHIR
 
-A função permite acesso completo de usuário ou principal aos dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite acesso completo de usuário ou principal aos dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6727,7 +7158,7 @@ A função permite acesso completo de usuário ou principal aos dados do FHIR [s
 
 ### <a name="fhir-data-exporter"></a>Exportador de dados FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia e exporte dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia e exporte dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6768,7 +7199,7 @@ A função permite que o usuário ou a entidade de segurança Leia e exporte dad
 
 ### <a name="fhir-data-reader"></a>Leitor de dados do FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia FHIR dados [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia FHIR dados [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6807,7 +7238,7 @@ A função permite que o usuário ou a entidade de segurança Leia FHIR dados [s
 
 ### <a name="fhir-data-writer"></a>Gravador de dados FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7562,7 +7993,7 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 }
 ```
 
-### <a name="key-vault-administrator-preview"></a>Key Vault administrador (versão prévia)
+### <a name="key-vault-administrator"></a>Administrador de Key Vault
 
 Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7615,13 +8046,13 @@ Execute todas as operações de plano de dados em um cofre de chaves e todos os 
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Administrator (preview)",
+  "roleName": "Key Vault Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-certificates-officer-preview"></a>Key Vault o responsável por certificados (versão prévia)
+### <a name="key-vault-certificates-officer"></a>Diretor de certificados Key Vault
 
 Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7676,7 +8107,7 @@ Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleName": "Key Vault Certificates Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7737,7 +8168,7 @@ Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC 
 }
 ```
 
-### <a name="key-vault-crypto-officer-preview"></a>Key Vault de criptografia (versão prévia)
+### <a name="key-vault-crypto-officer"></a>Key Vault o analista de criptografia
 
 Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7790,13 +8221,13 @@ Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permi
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleName": "Key Vault Crypto Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-user-preview"></a>Key Vault usuário de criptografia do serviço de criptografia (visualização)
+### <a name="key-vault-crypto-service-encryption-user"></a>Key Vault usuário de criptografia do serviço de criptografia
 
 Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7839,13 +8270,13 @@ Ler metadados de chaves e executar operações de encapsulamento/desencapsulamen
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption User (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-user-preview"></a>Key Vault usuário de criptografia (visualização)
+### <a name="key-vault-crypto-user"></a>Key Vault usuário de criptografia
 
 Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7894,13 +8325,13 @@ Executar operações criptográficas usando chaves. Funciona somente para cofres
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto User (preview)",
+  "roleName": "Key Vault Crypto User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-reader-preview"></a>Leitor de Key Vault (versão prévia)
+### <a name="key-vault-reader"></a>Leitor de Key Vault
 
 Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7955,13 +8386,13 @@ Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não �
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Reader (preview)",
+  "roleName": "Key Vault Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-officer-preview"></a>Diretor de segredos Key Vault (versão prévia)
+### <a name="key-vault-secrets-officer"></a>Diretor de segredos Key Vault
 
 Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -8014,13 +8445,13 @@ Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar per
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleName": "Key Vault Secrets Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-user-preview"></a>Usuário Key Vault segredos (visualização)
+### <a name="key-vault-secrets-user"></a>Usuário de Key Vault segredos
 
 Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -8055,7 +8486,7 @@ Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo 
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets User (preview)",
+  "roleName": "Key Vault Secrets User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -8590,7 +9021,7 @@ Concede permissão ao usuário para exibir e baixar os instantâneos de depuraç
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
-Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8604,7 +9035,7 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRules/* |  |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRuleAssociations/* |  |
-> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/EventTypes/* | Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/LogDefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricalerts/* |  |
@@ -8736,7 +9167,7 @@ Permite a publicação de métricas em relação aos recursos do Azure [saiba ma
 
 ### <a name="monitoring-reader"></a>Leitor de monitoramento
 
-Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -9866,6 +10297,61 @@ Permite o acesso de leitura às políticas de recurso e o acesso de gravação a
 }
 ```
 
+### <a name="quota-request-operator-role"></a>Função operador de solicitação de cota
+
+Ler e criar solicitações de cota, obter status de solicitação de cota e criar tíquetes de suporte. [Saiba mais](/rest/api/reserved-vm-instances/quotaapi)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | /ResourceProviders/Locations/serviceLimits/Read [Microsoft. Capacity](resource-provider-operations.md#microsoftcapacity) | Obter o limite ou a cota de serviço atual do recurso e do local especificados |
+> | /ResourceProviders/Locations/serviceLimits/Write [Microsoft. Capacity](resource-provider-operations.md#microsoftcapacity) | Criar limite ou cota de serviço para o recurso e o local especificados |
+> | /ResourceProviders/Locations/serviceLimitsRequests/Read [Microsoft. Capacity](resource-provider-operations.md#microsoftcapacity) | Obter qualquer solicitação de limite de serviço para o recurso e o local especificados |
+> | /Register/Action [Microsoft. Capacity](resource-provider-operations.md#microsoftcapacity) | Registrar o provedor de recursos de Capacidade e permitir a criação de recursos de Capacidade. |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role to read and create Quota Requests and get Quota Request Status.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0e5f05e5-9ab9-446b-b98d-1e2157c94125",
+  "name": "0e5f05e5-9ab9-446b-b98d-1e2157c94125",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Capacity/resourceProviders/locations/serviceLimits/read",
+        "Microsoft.Capacity/resourceProviders/locations/serviceLimits/write",
+        "Microsoft.Capacity/resourceProviders/locations/serviceLimitsRequests/read",
+        "Microsoft.Capacity/register/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Quota Request Operator Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="reservation-purchaser"></a>Comprador de reserva
 
 Permite que você compre reservas para [saber mais](../cost-management-billing/reservations/prepare-buy-reservation.md)
@@ -10418,7 +10904,7 @@ Permite que você gerencie marcas em entidades, sem fornecer acesso às entidade
 ## <a name="other"></a>Outros
 
 
-### <a name="azure-digital-twins-data-owner"></a>Proprietário de dados do gêmeos digital do Azure
+### <a name="azure-digital-twins-data-owner"></a>Proprietário de Dados dos Gêmeos Digitais do Azure
 
 Função de acesso completo para digital gêmeos data-plano [saiba mais](../digital-twins/concepts-security.md)
 

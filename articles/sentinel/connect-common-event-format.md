@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747484"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772052"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -42,7 +42,7 @@ Como alternativa, essa configuração existirá se você usar uma VM em outra nu
 
  ![CEF no local](./media/connect-cef/cef-syslog-onprem.png)
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
 
@@ -99,5 +99,7 @@ Neste documento, você aprendeu como o Azure Sentinel coleta logs de CEF de solu
 - ETAPA 3: [verificar a conectividade](connect-cef-verify.md)
 
 Para saber mais sobre o que fazer com os dados que você coletou no Azure Sentinel, consulte os seguintes artigos:
+
+- Saiba mais sobre o [mapeamento de campo CEF e CommonSecurityLog](cef-name-mapping.md).
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

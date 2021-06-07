@@ -1,7 +1,7 @@
 ---
 title: H264 Taxas de Bits Múltiplas 4x3 SD Audio 5.1 | Microsoft Docs
-description: O tópico fornece uma visão geral da predefinição de tarefa **H264 taxas de bits múltiplas 4x3 SD Audio 5,1** .
-author: Juliako
+description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxas de Bits Múltiplas 4x3 SD Audio 5.1**.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 200b90b2983a85ce546bd74bc28056ced5bba780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 6b0be965d3393be19727467b75d5eb9b8b35353f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266826"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103015158"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd-audio-51"></a>H264 Taxas de Bits Múltiplas 4x3 SD Audio 5.1
 
@@ -29,7 +29,7 @@ ms.locfileid: "89266826"
   
  Este tópico mostra a predefinição `H264 Multiple Bitrate 4x3 SD Audio 5.1` no formato XML e JSON.  
   
- Essa predefinição produz um conjunto de 5 arquivos MP4 alinhados a GOP, variando de 1600 kbps a 400 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o que cada elemento significa e os valores válidos para cada elemento, consulte o [esquema de Media Encoder Standard](media-services-mes-schema.md)..  
+ Essa predefinição produz um conjunto de 5 arquivos MP4 alinhados a GOP, variando de 1600 kbps a 400 kbps, e áudio AAC 5.1. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento, e os valores válidos para cada elemento, veja [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
 >  Ao modificar os valores de `Width` e `Height` em camadas, certifique-se de que a taxa de proporção permaneça consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Você não deve usar uma combinação de taxas de proporção, como: 1280 x 720, 720 x 480, 640 x 360.  

@@ -4,10 +4,10 @@ description: Saiba como criar agendas de serviços de laboratório dentro das eq
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042330"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>Criar e gerenciar agendas de serviços de laboratório dentro de equipes
@@ -28,7 +28,7 @@ Os usuários podem criar, editar e excluir agendas de laboratório em equipes, a
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>Configurações de desligamento e desconexão automáticas
 
 Você pode habilitar vários recursos de controle de custos de desligamento automático para prevenir de forma proativa custos adicionais quando as máquinas virtuais não estiverem sendo usadas ativamente. A combinação dos seguintes três recursos automáticos de desligamento e desconexão captura a maioria dos casos em que os usuários deixam acidentalmente suas máquinas virtuais em execução:
- 
+ 
 - Desconectar automaticamente os usuários de máquinas virtuais que o sistema operacional considera ocioso.
 - Desligar automaticamente as máquinas virtuais quando os usuários se desconectarem.
 - Desligar automaticamente as máquinas virtuais que são iniciadas, mas os usuários não se conectam.

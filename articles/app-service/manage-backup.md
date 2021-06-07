@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827467"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101714486"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups para que sejam mantidos até um período indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
@@ -44,10 +44,10 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 * O recurso de Backup e Restauração exige que o Plano do Serviço de Aplicativo esteja no nível **Standard**, **Premium** ou **Isolado**. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](manage-scale-up.md). As camadas **Premium** e **Isolado** permitem um número maior de backups diários do que o nível **Standard**.
 * Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para saber mais sobre as contas de armazenamento do Microsoft Azure, confira [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 * Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
-* Não há suporte para backups do Banco de Dados do Azure para MySQL habilitado para TLS. Se houver um backup configurado, os backups falharão.
-* Não há suporte para backups do Banco de Dados do Azure para PostgreSQL habilitado para TLS. Se houver um backup configurado, os backups falharão.
+* Não há suporte para backups do Banco de Dados do Azure para MySQL habilitado para TLS. Se um backup estiver configurado, você encontrará falhas de backup.
+* Não há suporte para backups do Banco de Dados do Azure para PostgreSQL habilitado para TLS. Se um backup estiver configurado, você encontrará falhas de backup.
 * O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
-* Não há suporte para usar uma conta de armazenamento habilitada para firewall como o destino dos backups. Se houver um backup configurado, os backups falharão.
+* Não há suporte para usar uma conta de armazenamento habilitada para firewall como o destino dos backups. Se um backup estiver configurado, você encontrará falhas de backup.
 
 
 <a name="manualbackup"></a>
@@ -70,18 +70,18 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 
 3. Na página **Configuração de Backup**, clique em **O armazenamento não está configurado** para configurar uma conta de armazenamento.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de tela de uma faixa com uma mensagem para atualizar o plano do serviço de aplicativo para acessar o recurso de backup e restauração.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Captura de tela da seção armazenamento de backup com a configuração armazenamento não configurado selecionada.":::
 
 4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, será possível criar uma nova conta de armazenamento ou um novo contêiner nas respectivas páginas. Quando terminar, clique em **Selecionar**.
 
-5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup**e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.
+5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup** e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de tela de uma faixa com uma mensagem para atualizar o plano do serviço de aplicativo para acessar o recurso de backup e restauração.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Captura de tela da seção banco de dados de backup mostrando a seleção incluir no backup.":::
 
     > [!NOTE]
     > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo. 
     >
-    > O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
+    > O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer configurações para bancos de dados MySQL no aplicativo manualmente, como adicionar cadeias de conexão, os backups podem não funcionar corretamente.
     > 
     > 
 

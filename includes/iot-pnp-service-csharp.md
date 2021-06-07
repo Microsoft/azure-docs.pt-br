@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
 ms.openlocfilehash: 4308dd2b63b33604af83b360e5c1c0f02a3dec27
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95487771"
 ---
 O IoT Plug and Play simplifica a IoT, permitindo que você interaja com as funcionalidades de um dispositivo sem conhecer a implementação do dispositivo subjacente. Este início rápido mostra como usar o C# para se conectar a um dispositivo IoT Plug and Play conectado à sua solução e controlá-lo.
@@ -40,7 +40,7 @@ Neste início rápido, você usa um dispositivo de termostato de exemplo escrito
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -65,7 +65,7 @@ Neste guia de início rápido, você usa uma solução de IoT de exemplo em C# p
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-pnp-device |
     | IOTHUB_CONNECTION_STRING | O valor anotado quando você concluiu [Configurar seu ambiente](../articles/iot-pnp/set-up-environment.md) |

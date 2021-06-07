@@ -9,10 +9,10 @@ ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 66aefea441d78303ccd611d9df10eea985d61e7c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097389"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obter métricas de execução de consulta SQL e analisar o desempenho de consulta usando o SDK do .NET

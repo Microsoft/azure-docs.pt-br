@@ -5,23 +5,23 @@ description: Este início rápido mostra como criar um balanceador de carga usan
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
-ms.service: load-balancer
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/22/2020
 ms.author: allensu
-ms:custom: seodec18
-ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+manager: KumudD
+ms.date: 11/22/2020
+ms.assetid: ''
+ms.topic: quickstart
+ms.service: load-balancer
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+- mode-api
+ms.openlocfilehash: 0ddaf0eede59053cd8022fef24d37a37c6d7db5a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594545"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529568"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Azure PowerShell
 
@@ -327,6 +327,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name="create-outbound-rule-configuration"></a>Criar configuração de regra de saída
 As regras de saída do balanceador de carga configuram a SNAT (conversão de endereços de rede de origem) de saída para as VMs no pool de back-end. 
 
@@ -368,7 +370,7 @@ New-AzPublicIpAddress @publicipout
 
 * Crie uma configuração de IP de front-end com [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig).
 
-* Crie um pool de saída com [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+* Crie um pool de endereços de back-end de saída com [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
 * Aplique o endereço IP do pool e do front-end ao balanceador de carga com [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer).
 *  Crie uma regra de saída para o pool de back-end de saída com [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
@@ -721,6 +723,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

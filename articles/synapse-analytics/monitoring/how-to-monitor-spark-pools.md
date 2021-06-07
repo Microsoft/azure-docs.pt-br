@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 8d95897e0c2d58b2a3955918be945800eed9ba56
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96465960"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-pools"></a>Use o Synapse Studio para monitorar seus pools de Apache Spark

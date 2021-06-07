@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788478"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)

@@ -13,12 +13,12 @@ ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 374e8bb61886a78289fcf44ce9582df325a4e64c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428142"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102549032"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
@@ -240,7 +240,7 @@ Imediatamente depois, o usuário tenta acessar o aplicativo Web B. O usuário é
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlet
 
-Estes são os cmdlets no [módulo Azure Active Directory PowerShell for Graph Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+Estes são os cmdlets no [módulo Azure Active Directory PowerShell for Graph Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#service-principals).
 
 ### <a name="manage-policies"></a>Gerenciar políticas
 

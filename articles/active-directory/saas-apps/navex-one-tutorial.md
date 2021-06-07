@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/28/2021
 ms.author: jeedes
 ms.openlocfilehash: c6eac316a8d1849e193add2d74e81f8652c7a676
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99090580"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-navex-one"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao NAVEX One

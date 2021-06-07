@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95527319"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrar um site estático com a CDN do Azure

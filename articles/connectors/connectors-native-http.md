@@ -3,16 +3,16 @@ title: Chamar pontos de extremidade de serviço usando HTTP ou HTTPS
 description: Enviar solicitações HTTP ou HTTPS de saída para pontos de extremidade de serviço de aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062988"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101719433"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -104,11 +104,11 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da solicitação |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| `status code` | Integer | O código de status da solicitação |
+| `status code` | Inteiro | O código de status da solicitação |
 |||
 
 | Código de status | Descrição |
@@ -249,8 +249,8 @@ Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos 
 
 * `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
-* `Cookie`
+* `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` , que são respeitados quando você usa as operações post e put. No entanto, os aplicativos lógicos descartam esses cabeçalhos quando você usa a operação GET.
+* `Cookie` cabeçalho, mas os aplicativos lógicos honram qualquer valor que você especificar usando a propriedade **Cookie** .
 * `Expires`
 * `Host`
 * `Last-Modified`

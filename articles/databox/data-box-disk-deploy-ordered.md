@@ -8,13 +8,12 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 04ae2589e8abfab4826f2286d5f00869c24442f5
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125262"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057959"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 

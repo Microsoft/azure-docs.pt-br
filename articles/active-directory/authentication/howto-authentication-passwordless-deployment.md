@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743608"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579358"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -78,7 +78,7 @@ As organizações devem atender aos seguintes pré-requisitos antes de iniciar u
 
 Os pré-requisitos para o Windows Hello são altamente dependentes se você estiver implantando em uma configuração local, híbrida ou somente na nuvem. Para obter mais informações, consulte a [lista completa de pré-requisitos para o Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação Multifator do Azure AD
 
 Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure AD. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
 
@@ -149,8 +149,8 @@ Há três tipos de implantações de entrada sem senha disponíveis com chaves d
 
 -    Azure Active Directory aplicativos Web em um navegador com suporte
 -    Azure Active Directory dispositivos Windows 10 associados
--    Dispositivos Windows 10 ingressados Azure Active Directory híbridos (visualização)
-     -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
+-    Dispositivos Windows 10 ingressados Azure Active Directory híbridos
+     -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDO2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Você deve habilitar **as chaves de segurança FIDO2 compatíveis**. A Microsoft anunciou as [principais parcerias com os principais fornecedores de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -193,7 +193,7 @@ Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a hab
 
 #### <a name="enable-on-premises-integration"></a>Habilitar a integração local
 
-Para habilitar o acesso a recursos locais, siga as etapas para [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md).
+Para habilitar o acesso a recursos locais, siga as etapas para [habilitar a entrada de chave de segurança sem senha para recursos locais](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.
@@ -294,9 +294,9 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 | Função do Azure AD | Descrição |
 | --- | --- |
-| Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
+| Administrador Global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
-| Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
+| User | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
 
 ### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Implantar a entrada pelo telefone com o aplicativo Microsoft Authenticator
 
@@ -330,4 +330,4 @@ Siga as etapas descritas no artigo [habilitar a entrada de chave de segurança s
 
 - [Habilitar chaves de segurança sem senha para entrar no Azure AD](howto-authentication-passwordless-security-key.md)
 - [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Saiba mais sobre o uso de métodos de autenticação & insights](howto-authentication-methods-usage-insights.md)
+- [Saiba mais sobre o uso de métodos de autenticação & insights](./howto-authentication-methods-activity.md)

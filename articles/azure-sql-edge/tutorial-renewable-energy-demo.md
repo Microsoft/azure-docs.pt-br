@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 12/18/2020
 ms.openlocfilehash: e966d756744210dc8f6739b96501dd91f0d8d1b5
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97723466"
 ---
 # <a name="using-azure-sql-edge-to-build-smarter-renewable-resources"></a>Usando o SQL do Azure no Edge para criar recursos renováveis mais inteligentes

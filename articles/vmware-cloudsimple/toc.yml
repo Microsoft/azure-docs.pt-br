@@ -152,8 +152,6 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Como migrar VMs de carga de trabalho para uma nuvem privada
               href: migrate-workloads.md
-            - name: Migração usando o Azure Data Box
-              href: migration-using-azure-data-box.md
             - name: Como garantir alta disponibilidade do aplicativo no VMware no Azure
               href: ensuring-high-availability.md
             - name: Escolher uma solução de balanceamento de carga

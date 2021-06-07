@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 03/24/2021
+ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017042"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644876"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando o Azure Data Share  
 
@@ -42,23 +42,10 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 Se você optar por receber os dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics, veja abaixo a lista de pré-requisitos. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para o recebimento de dados no Banco de Dados SQL do Azure ou no Azure Synapse Analytics (antigo SQL DW do Azure)
-Siga a [demonstração passo a passo](https://youtu.be/aeGISgK1xro) para configurar os pré-requisitos.
 
 * Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL DW do Azure).
 * Permissão para gravar nos bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função **Colaborador**. 
-* Permissão para que a identidade gerenciada do recurso do Data Share acesse o Banco de Dados SQL do Azure ou o Azure Synapse Analytics. Isso pode ser feito executando as seguintes etapas: 
-    1. No portal do Azure, navegue até o SQL Server e defina você mesmo como o **Administrador do Azure Active Directory**.
-    1. Conecte-se ao Data Warehouse/Banco de Dados SQL do Azure usando o [Editor de Consultas](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Active Directory. 
-    1. Execute o script a seguir para adicionar a identidade gerenciada do Data Share como um 'db_datareader, db_datawriter, db_ddladmin'. Você deve se conectar usando o Active Directory e não a autenticação do SQL Server. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        Observe que *<share_acc_name>* é o nome do seu recurso do Data Share. Se você ainda não tiver criado um recurso do Data Share, poderá voltar para esse pré-requisito mais tarde.         
-
+* **Administrador do Azure Active Directory** do SQL Server
 * Acesso ao firewall do SQL Server. Isso pode ser feito executando as seguintes etapas: 
     1. No SQL Server, no portal do Azure, navegue até *Firewalls e redes virtuais*
     1. Clique em **Sim** na opção *Permitir que serviços e recursos do Azure acessem este servidor*.
@@ -92,7 +79,6 @@ Siga a [demonstração passo a passo](https://youtu.be/aeGISgK1xro) para configu
 
 * Um cluster do Azure Data Explorer no mesmo data center do Azure que o cluster do Data Explorer do provedor de dados: Se você não tiver, poderá criar um [cluster do Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal). Se você não conhecer o data center do Azure do cluster do provedor de dados, poderá criá-lo posteriormente no processo.
 * Permissão para gravar no cluster do Azure Data Explorer, que está presente em *Microsoft.Kusto/clusters/write*. Essa permissão existe na função Colaborador. 
-* Permissão para adicionar uma atribuição de função ao cluster do Azure Data Explorer, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -175,13 +161,13 @@ Siga as etapas abaixo para configurar o local em que deseja receber os dados.
 
    ![Mapear para o destino](./media/dataset-map-target.png "Mapear para o destino") 
 
-1. Selecione um tipo de armazenamento de dados de destino no qual deseja que os dados sejam inseridos. Todos os arquivos de dados ou tabelas no armazenamento de dados de destino com o mesmo caminho e nome serão substituídos. 
+1. Selecione um tipo de armazenamento de dados de destino no qual deseja que os dados sejam inseridos. Todos os arquivos de dados ou tabelas no armazenamento de dados de destino com o mesmo caminho e nome serão substituídos. Se você estiver recebendo dados para o Banco de Dados SQL do Azure ou o Azure Synapse Analytics (chamado anteriormente de Azure SQL DW), marque a caixa de seleção **Permitir que o compartilhamento de dados execute o script 'create user' acima em meu nome**.
 
    Para o compartilhamento in-loco, selecione um armazenamento de dados na Localização especificada. A Localização é o data center do Azure no qual o armazenamento de dados de origem do provedor de dados está localizado. Depois que o conjunto de dados for mapeado, siga o link no Caminho de Destino para acessar os dados.
 
    ![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de destino") 
 
-1. Para o compartilhamento baseado em instantâneo, se o provedor de dados tiver criado um agendamento de instantâneo para fornecer atualização regular aos dados, você também poderá habilitar o agendamento de instantâneo selecionando a guia **Agendamento de Instantâneos**. Marque a caixa ao lado do agendamento de instantâneo e selecione **+ Habilitar**.
+1. Para o compartilhamento baseado em instantâneo, se o provedor de dados tiver criado um agendamento de instantâneo para fornecer atualização regular aos dados, você também poderá habilitar o agendamento de instantâneo selecionando a guia **Agendamento de Instantâneos**. Marque a caixa ao lado do agendamento de instantâneo e selecione **+ Habilitar**. Observe que o primeiro instantâneo agendado começará dentro de um minuto após a hora agendada e os instantâneos posteriores começarão em segundos da hora agendada.
 
    ![Habilitar o agendamento de instantâneo](./media/enable-snapshot-schedule.png "Habilitar o agendamento de instantâneo")
 

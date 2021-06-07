@@ -7,10 +7,10 @@ ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368708"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao Cliente de Área de Trabalho do Windows
@@ -18,7 +18,7 @@ ms.locfileid: "97368708"
 > Aplica-se a: Windows 10, Windows 10 IoT Enterprise e Windows 7
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 10, Windows 10 IoT Enterprise e Windows 7 usando o cliente de área de trabalho do Windows. O cliente não dá suporte à janela 8 ou Windows 8.1.
 

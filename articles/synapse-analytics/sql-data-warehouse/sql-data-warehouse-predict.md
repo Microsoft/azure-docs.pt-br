@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 9e7d45a588e60cd082f1eef43d1d1b6681b9e912
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117734"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Pontuar modelos de aprendizado de máquina com previsão

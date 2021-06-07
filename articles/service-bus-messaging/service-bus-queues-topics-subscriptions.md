@@ -1,14 +1,14 @@
 ---
 title: Mensagens do barramento de serviço do Azure – filas, tópicos e assinaturas
 description: Este artigo fornece uma visão geral das entidades de mensagens do barramento de serviço do Azure (fila, tópicos e assinaturas).
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101096331"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
 O Barramento de Serviço do Azure oferece suporte a um conjunto de tecnologias middleware orientado a mensagens, baseado em nuvem, incluindo o serviço de enfileiramento de mensagens confiável e o sistema de mensagens de publicação/assinatura durável. Esses recursos de mensagens orientadas podem ser considerados como recursos de mensagens dissociados que dão suporte a cenários de publicação-assinatura, desacoplamento temporal e balanceamento de carga usando a carga de trabalho de mensagens do barramento de serviço. A comunicação dissociada tem muitas vantagens. Por exemplo, clientes e servidores podem se conectar conforme necessário e realizar suas operações de maneira assíncrona.
@@ -26,19 +26,19 @@ A utilização de filas para intermediar entre produtores e consumidores oferece
 Você pode criar filas usando os modelos [portal do Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md)ou [Resource Manager](service-bus-resource-manager-namespace-queue.md). Em seguida, envie e receba mensagens usando clientes escritos em [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [php](service-bus-php-how-to-use-queues.md)e [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Modos de recepção
-É possível especificar dois modos diferentes nos quais o Barramento de Serviço recebe mensagens: **ReceiveAndDelete** ou **PeekLock**. No modo [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) , quando o barramento de serviço recebe a solicitação do consumidor, ele marca a mensagem como sendo consumida e a retorna ao aplicativo consumidor. Esse modo é o modelo mais simples. Ele funciona melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem se ocorrer uma falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o barramento de serviço marca a mensagem como sendo consumida, o aplicativo começa a consumir mensagens após a reinicialização. Ela perderá a mensagem consumida antes da falha.
+Você pode especificar dois modos diferentes em que o barramento de serviço recebe mensagens.
 
-No modo [Peeklock](/dotnet/api/microsoft.azure.servicebus.receivemode) , a operação Receive se torna duas etapas, o que torna possível dar suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe a solicitação, ele realiza as seguintes operações:
+- **Receber e excluir**. Nesse modo, quando o barramento de serviço recebe a solicitação do consumidor, ele marca a mensagem como sendo consumida e a retorna ao aplicativo consumidor. Esse modo é o modelo mais simples. Ele funciona melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem se ocorrer uma falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o barramento de serviço marca a mensagem como sendo consumida, o aplicativo começa a consumir mensagens após a reinicialização. Ela perderá a mensagem consumida antes da falha.
+- **Bloqueio de inspeção**. Nesse modo, a operação de recebimento se torna duas etapas, o que torna possível dar suporte a aplicativos que não podem tolerar mensagens ausentes. 
+    1. Localiza a próxima mensagem a ser consumida, a **bloqueia** para impedir que outros consumidores a recebam e, em seguida, retornam a mensagem para o aplicativo. 
+    1. Depois que o aplicativo termina de processar a mensagem, ele solicita que o serviço do barramento de serviço conclua o segundo estágio do processo de recebimento. Em seguida, o serviço **marca a mensagem como sendo consumida**. 
 
-1. Localiza a próxima mensagem a ser consumida.
-1. Bloqueia-o para impedir que outros consumidores o recebam.
-1. Em seguida, retorne a mensagem para o aplicativo. 
+        Se o aplicativo não puder processar a mensagem por algum motivo, ele poderá solicitar que o serviço do barramento de serviço **abandone** a mensagem. O barramento de serviço **desbloqueia** a mensagem e a disponibiliza para ser recebida novamente, seja pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um **tempo limite** associado ao bloqueio. Se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio, o barramento de serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente.
 
-Depois que o aplicativo termina de processar a mensagem ou a armazena de forma confiável para processamento futuro, ele conclui o segundo estágio do processo de recebimento chamando [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) a mensagem. Quando o barramento de serviço recebe a solicitação **CompleteAsync** , ele marca a mensagem como sendo consumida.
+        Se o aplicativo falhar depois de processar a mensagem, mas antes de solicitar que o serviço do barramento de serviço conclua a mensagem, o barramento de serviço reentregará a mensagem ao aplicativo quando ele for reiniciado. Esse processo é geralmente chamado de processamento **pelo menos uma vez** . Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações a mesma mensagem poderá ser entregue novamente. Se seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional em seu aplicativo para detectar duplicatas. Para saber mais, confira [Detecção de duplicatas](duplicate-detection.md). Esse recurso é conhecido como processamento **exatamente uma vez** .
 
-Se o aplicativo não puder processar a mensagem por algum motivo, ele poderá chamar o [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) método na mensagem (em vez de [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) ). Esse método permite que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado ao bloqueio. Se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio, o barramento de serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente.
-
-Se o aplicativo falhar depois de processar a mensagem, mas antes de chamar [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) , o barramento de serviço reentregará a mensagem ao aplicativo quando ele reiniciar. Esse processo é geralmente chamado de processamento **pelo menos uma vez** . Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações a mesma mensagem poderá ser entregue novamente. Se seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional em seu aplicativo para detectar duplicatas. Você pode obtê-lo usando a propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) da mensagem, que permanece constante nas tentativas de entrega. Esse recurso é conhecido como processamento **exatamente uma vez** .
+        > [!NOTE]
+        > Para obter mais informações sobre esses dois modos, consulte [liquidar operações de recebimento](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Tópicos e assinaturas
 Uma fila permite o processamento de uma mensagem por um único consumidor. Em contraste com as filas, os tópicos e as assinaturas fornecem uma forma de comunicação de um para muitos em um padrão de **publicação e assinatura** . É útil para dimensionar para um grande número de destinatários. Cada mensagem publicada é disponibilizada para cada assinatura registrada com o tópico. O Publicador envia uma mensagem para um tópico e um ou mais assinantes recebem uma cópia da mensagem, dependendo das regras de filtro definidas nessas assinaturas. As assinaturas podem usar filtros adicionais para restringir as mensagens que desejam receber. Os editores enviam mensagens para um tópico da mesma forma que enviam mensagens para uma fila. No entanto, os consumidores não recebem mensagens diretamente do tópico. Em vez disso, os consumidores recebem mensagens de assinaturas do tópico. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Os consumidores recebem mensagens de uma assinatura de forma idêntica à maneira como recebem mensagens de uma fila.
@@ -55,7 +55,7 @@ Para um exemplo de trabalho completo, consulte o [exemplo TopicSubscriptionWithR
 
 Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Java Message Service (JMS) 2,0 entidades (visualização)
+## <a name="java-message-service-jms-20-entities"></a>Entidades do JMS (Serviço de Mensagens Java) 2.0
 As entidades a seguir podem ser acessadas por meio da API do Java Message Service (JMS) 2,0.
 
   * Filas temporárias

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550871"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104592176"
 ---
 # <a name="what-is-azure-sql"></a>O que é o SQL Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,11 +32,11 @@ O SQL do Azure é criado com base no já conhecido mecanismo do SQL Server, para
 
 Saiba como cada produto se encaixa na plataforma de dados do SQL do Azure da Microsoft para encontrar a opção certa para seus requisitos de negócios. Se você prioriza a economia ou a administração mínima, este artigo pode ajudar você a decidir qual abordagem cumpre os requisitos de negócios com os quais você se preocupa mais.
 
-
 Se você não está familiarizado com o SQL do Azure, confira o vídeo *O que é o SQL do Azure* da nossa [série detalhada de vídeos do SQL do Azure](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-
+> [!TIP]
+> Como podemos aprimorar o SQL do Azure? [Responda à pesquisa](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="overview"></a>Visão geral
 

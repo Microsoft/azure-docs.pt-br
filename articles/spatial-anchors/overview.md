@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a422371bacddf049365562fce9af7e61f35089a1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0b4c3b281f2eac6263ef578dee5419bd9f2eb8a7
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487377"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058554"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Visão geral de Âncoras Espaciais do Azure
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964364"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100556178"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -63,7 +63,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
@@ -121,7 +121,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
-### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
 
 1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
 
@@ -159,7 +159,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique em **baixar atribuições de função** para abrir o painel de atribuições de função de download.
 
@@ -185,5 +185,5 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md)
 - [Solucionar problemas do RBAC do Azure](troubleshooting.md)

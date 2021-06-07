@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093253"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notas de versão para Microsoft. ApplicationInsights. SnapshotCollector
@@ -70,7 +70,7 @@ Uma versão pontual para resolver alguns problemas de alto impacto.
 - Adicionar o coletor de instantâneos ficou mais fácil usando AddSnapshotCollector (). Encontre mais informações [aqui](./snapshot-debugger-appservice.md).
 - Use a configuração de MD5 do FISMA para verificar blocos de BLOB. Isso evita o algoritmo de criptografia MD5 padrão do .NET, que não está disponível quando o sistema operacional é definido para o modo compatível com FIPS.
 - Ignore .NET Framework quadros ao desotimizar as chamadas de função. Esse comportamento pode ser controlado pela definição de configuração DeoptimizeIgnoredModules.
-- Adicione `DeoptimizeMethodCount` uma definição de configuração que permita a desotimização de mais de uma chamada de função. Mais informações podem ser obtidas aqui
+- Adicione `DeoptimizeMethodCount` uma definição de configuração que permita a desotimização de mais de uma chamada de função. Mais informações aqui
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Permitir chaves de instrumentação estruturada.

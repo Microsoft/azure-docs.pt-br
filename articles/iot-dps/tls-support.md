@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
 ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91761287"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Suporte a TLS no DPS (Serviço de Provisionamento de Dispositivos) no Hub IoT do Azure
 
-O DPS usa [TLS (Transport Layer Security)](http://wikipedia.org/wiki/Transport_Layer_Security) para proteger conexões de dispositivos IOT. 
+O DPS usa o [Protocolo TLS](http://wikipedia.org/wiki/Transport_Layer_Security) para proteger conexões de dispositivos IoT. 
 
-As versões de protocolo TLS atuais com suporte do DPS são: 
+As versões atuais de protocolo TLS com suporte do DPS são: 
 * TLS 1.2
 
 O TLS 1.0 e o 1.1 são considerados herdados e são planejados para substituição. Para obter mais informações, confira [Substituir TLS 1.0 e 1.1 para o Hub IoT](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
@@ -27,7 +27,7 @@ O TLS 1.0 e o 1.1 são considerados herdados e são planejados para substituiç�
 
 Para maior segurança, é aconselhável configurar suas instâncias de DPS para permitir *somente* conexões de cliente de dispositivo que usam a versão 1.2 do TLS e para impor o uso das [codificações recomendadas](#recommended-ciphers).
 
-Para fazer isso, provisione um novo recurso de DPS definindo a `minTlsVersion` propriedade como `1.2` na especificação de recurso do DPS do modelo de Azure Resource Manager. O JSON de modelo de exemplo a seguir especifica a propriedade `minTlsVersion` para uma nova instância de DPS.
+Para fazer isso, provisione um novo recurso DPS definindo a `minTlsVersion` propriedade na `1.2` especificação de recurso DPS de modelos do Azure Resource Manager. O JSON de modelo de exemplo a seguir especifica a propriedade `minTlsVersion` para uma nova instância de DPS.
 
 ```json
 {
@@ -70,23 +70,23 @@ O recurso de DPS criado usando essa configuração recusará dispositivos que te
 
 ## <a name="recommended-ciphers"></a>Codificações recomendadas
 
-As instâncias de DPS configuradas para aceitar somente o TLS 1,2 também impedirão o uso dos seguintes conjuntos de codificação:
+As instâncias de DPS configuradas para aceitar somente o TLS 1.2 também vão impor o uso dos pacotes de codificação a seguir:
 
 
-| Pacotes de codificação TLS 1,2 recomendados |
+| Pacotes de codificação TLS 1.2 recomendados |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
 
-### <a name="legacy-cipher-suites"></a>Conjuntos de codificação herdados 
+### <a name="legacy-cipher-suites"></a>Pacotes de codificação herdados 
 
-Atualmente, esses conjuntos de codificação ainda têm suporte pelo DPS, mas serão depreciados. Use os pacotes de codificação recomendados acima, se possível.
+Esses pacotes de criptografia ainda são compatíveis com o DPS, mas logo serão depreciados. Se possível, use os pacotes de criptografia recomendados acima.
 
-| Opção #1 (melhor segurança) |
+| Opção nº 1 (melhor segurança) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
-| Opção #2 (melhor desempenho) |
+| Opção nº 2 (melhor desempenho) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
@@ -103,10 +103,10 @@ Use os links abaixo para configurar o TLS 1.2 e as codificações permitidas nos
 | Java     | Versão 1.19.0 ou mais recente            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
 | NodeJS   | Versão 1.12.2 ou mais recente            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
-## <a name="use-tls-12-with-iot-hub"></a>Usar o TLS 1,2 com o Hub IoT
+## <a name="use-tls-12-with-iot-hub"></a>Usar o TLS 1.2 com o Hub IoT
 
-O Hub IoT pode ser configurado para usar o TLS 1,2 ao se comunicar com dispositivos. Para obter mais informações, confira [Substituir TLS 1.0 e 1.1 para o Hub IoT](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
+O Hub IoT pode ser configurado para usar o TLS 1.2 ao se comunicar com dispositivos. Para obter mais informações, confira [Substituir TLS 1.0 e 1.1 para o Hub IoT](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
 
 ## <a name="use-tls-12-with-iot-edge"></a>Usar o TLS 1.2 com IoT Edge
 
-Dispositivos do IoT Edge podem ser configurados para usar o TLS 1.2 ao se comunicarem com o Hub IoT e o DPS. Para obter mais informações, consulte a [página de documentação do IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+Dispositivos do IoT Edge podem ser configurados para usar o TLS 1.2 ao se comunicarem com o Hub IoT e o DPS. Para saber mais, confira a [página de documentação IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

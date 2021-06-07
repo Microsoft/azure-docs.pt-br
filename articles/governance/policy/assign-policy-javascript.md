@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: nova atribuição de política com JavaScript'
 description: Neste início rápido, use JavaScript para criar uma atribuição do Azure Policy a fim de identificar recursos sem conformidade.
-ms.date: 09/24/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d42156e68747b66778ea1cf2001d2b4bfc901bb0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91347807"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090147"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>Início Rápido: criar uma atribuição de política para identificar recurso sem conformidade usando JavaScript
 

@@ -4,10 +4,10 @@ description: Criar um ponto de extremidade SSL ou TLS para um grupo de contêine
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558072"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilitar um ponto de extremidade TLS em um contêiner sidecar
@@ -26,7 +26,7 @@ Consulte [as próximas etapas](#next-steps) para obter outras abordagens para ha
 
 - Este artigo requer a versão 2.0.55 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Para configurar o Nginx como um provedor de TLS, você precisa de um certificado TLS/SSL. Este artigo mostra como criar e configurar um certificado TLS/SSL autoassinado. Para cenários de produção, você deve obter um certificado de uma autoridade de certificação.
 

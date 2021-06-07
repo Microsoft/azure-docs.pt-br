@@ -9,10 +9,10 @@ ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790792"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem

@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 21f7203af267f53d37e26390ea73c896ea9db76e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 92f89bafe1b96b575d12e8a09289a05c2379d837
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953981"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280013"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Os Serviços de Mídia do Azure permitem codificar os arquivos de mídia em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. Por exemplo, talvez você queira transmitir por streaming o conteúdo nos formatos MPEG-DASH ou HLS da Apple. Antes do streaming, será necessário codificar o arquivo de mídia digital de alta qualidade. Para obter diretrizes de codificação, consulte [Conceito de codificação](encoding-concept.md).
+Os Serviços de Mídia do Azure permitem codificar os arquivos de mídia em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. Por exemplo, talvez você queira transmitir por streaming o conteúdo nos formatos MPEG-DASH ou HLS da Apple. Antes do streaming, será necessário codificar o arquivo de mídia digital de alta qualidade. Para obter diretrizes de codificação, consulte [Conceito de codificação](encode-concept.md).
 
 Este tutorial mostra como codificar um arquivo baseado em uma URL e transmitir o vídeo com os Serviços de Mídia do Azure usando a REST. 
 
@@ -44,7 +44,7 @@ Este tutorial mostra como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
+- [Crie uma conta de Serviços de Mídia](./account-create-how-to.md).
 
     Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia
 
@@ -127,7 +127,7 @@ Nesta seção, enviamos solicitações relevantes para codificar e criar URLs pa
 
 ### <a name="start-a-streaming-endpoint"></a>Iniciar um ponto de extremidade de streaming
 
-Para habilitar o streaming, primeiro é necessário iniciar o [Ponto de Extremidade de Streaming](./streaming-endpoint-concept.md) do qual você deseja transmitir o vídeo.
+Para habilitar o streaming, primeiro é necessário iniciar o [Ponto de Extremidade de Streaming](./stream-streaming-endpoint-concept.md) do qual você deseja transmitir o vídeo.
 
 > [!NOTE]
 > Você só será cobrado quando o ponto de extremidade de streaming estiver no estado de execução.
@@ -184,9 +184,9 @@ O [Ativo](/rest/api/media/assets) de saída armazena o resultado do trabalho de 
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
-Ao codificar ou processar o conteúdo nos Serviços de Mídia do Microsoft Azure, é um padrão comum para configurar as configurações de codificação como uma receita. Em seguida, você pode enviar um **Trabalho** para aplicar essa fórmula a um vídeo. Ao enviar novos trabalhos para cada novo vídeo, você está aplicando essa fórmula em todos os vídeos na biblioteca. Uma receita nos Serviços de Mídia do Microsoft Azure é chamada de **Transformação**. Para obter mais informações, consulte [Transformações e Trabalhos](./transforms-jobs-concept.md). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmitir para uma variedade de dispositivos de iOS e Android. 
+Ao codificar ou processar o conteúdo nos Serviços de Mídia do Microsoft Azure, é um padrão comum para configurar as configurações de codificação como uma receita. Em seguida, você pode enviar um **Trabalho** para aplicar essa fórmula a um vídeo. Ao enviar novos trabalhos para cada novo vídeo, você está aplicando essa fórmula em todos os vídeos na biblioteca. Uma receita nos Serviços de Mídia do Microsoft Azure é chamada de **Transformação**. Para obter mais informações, consulte [Transformações e Trabalhos](./transform-jobs-concept.md). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmitir para uma variedade de dispositivos de iOS e Android. 
 
-Ao criar um novo exemplo de [Transformação](/rest/api/media/transforms), você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. O exemplo descrito neste artigo usa uma predefinição chamada **AdaptiveStreaming**. A predefinição codifica o vídeo de entrada em uma escada de taxa de bits gerada automaticamente (pares de resolução de taxa de bits) com base na taxa de bits e resolução de entrada e produz arquivos ISO MP4 com vídeo H. 264 e correspondente a cada par de resolução de taxa de bits de áudio AAC. Para obter informações sobre essa predefinição, consulte [escada de bitrate de geração automática](autogen-bitrate-ladder.md).
+Ao criar um novo exemplo de [Transformação](/rest/api/media/transforms), você precisa especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém um **Predefinição**. **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que serão usadas para gerar o **TransformOutput** desejado. O exemplo descrito neste artigo usa uma predefinição chamada **AdaptiveStreaming**. A predefinição codifica o vídeo de entrada em uma escada de taxa de bits gerada automaticamente (pares de resolução de taxa de bits) com base na taxa de bits e resolução de entrada e produz arquivos ISO MP4 com vídeo H. 264 e correspondente a cada par de resolução de taxa de bits de áudio AAC. Para obter informações sobre essa predefinição, consulte [escada de bitrate de geração automática](encode-autogen-bitrate-ladder.md).
 
 Você pode usar um EncoderNamedPreset interno ou usar as predefinições personalizadas. 
 
@@ -259,7 +259,7 @@ Neste exemplo, a entrada do trabalho é baseada na URL HTTPS ("https:\//nimbuscd
         }
         ```
 
-Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Para ver o progresso do trabalho, é recomendável usar a Grade de Eventos. Ela é projetada para alta disponibilidade, desempenho consistente e escala dinâmica. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. A manipulação de eventos simples e reativa baseada em HTTP ajuda você a criar soluções eficientes por meio da filtragem e do roteamento de eventos.  Consulte [Rotear eventos para um ponto de extremidade personalizado de web](job-state-events-cli-how-to.md).
+Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Para ver o progresso do trabalho, é recomendável usar a Grade de Eventos. Ela é projetada para alta disponibilidade, desempenho consistente e escala dinâmica. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. A manipulação de eventos simples e reativa baseada em HTTP ajuda você a criar soluções eficientes por meio da filtragem e do roteamento de eventos.  Consulte [Rotear eventos para um ponto de extremidade personalizado de web](monitoring/job-state-events-cli-how-to.md).
 
 O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfileirado**, **Processando**, **Concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
@@ -413,4 +413,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 Agora que você sabe como carregar, codificar e transmitir seu vídeo, consulte o seguinte artigo: 
 
 > [!div class="nextstepaction"]
-> [Analisar vídeos](analyze-videos-tutorial-with-api.md)
+> [Analisar vídeos](analyze-videos-tutorial.md)

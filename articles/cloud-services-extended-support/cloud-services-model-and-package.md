@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744171"
 ---
 # <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço de nuvem do Azure e como empacotá-lo?
@@ -276,6 +276,6 @@ Onde as variáveis são definidas da seguinte maneira:
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
 

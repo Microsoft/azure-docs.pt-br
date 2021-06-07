@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dc7b37c96d2d82ae42d9bce32a97beab2d91e9
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 7a9d80344a31023d174935e7f785e36102e99eba
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740509"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103011504"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar usuários em uma unidade administrativa no Azure Active Directory
 
@@ -29,7 +29,7 @@ Para se preparar para usar o PowerShell e Microsoft Graph para o gerenciamento d
 
 ## <a name="add-users-to-an-administrative-unit"></a>Adicionar usuários a uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Você pode atribuir usuários a unidades administrativas individualmente ou como uma operação em massa.
 
@@ -70,9 +70,9 @@ Você pode atribuir usuários a unidades administrativas individualmente ou como
 No PowerShell, use o `Add-AzureADAdministrativeUnitMember` cmdlet no exemplo a seguir para adicionar o usuário à unidade administrativa. A ID de objeto da unidade administrativa à qual você deseja adicionar o usuário e a ID de objeto do usuário que você deseja adicionar são usadas como argumentos. Altere a seção realçada conforme necessário para seu ambiente específico.
 
 ```powershell
-$administrativeunitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-$UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
-Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefObjectId $UserObj.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
+$userObj = Get-AzureADUser -Filter "UserPrincipalName eq 'bill@example.onmicrosoft.com'"
+Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.ObjectId -RefObjectId $userObj.ObjectId
 ```
 
 
@@ -80,26 +80,31 @@ Add-AzureADMSAdministrativeUnitMember -Id $administrativeunitObj.ObjectId -RefOb
 
 Substitua o espaço reservado por informações de teste e execute o seguinte comando:
 
+Solicitação
+
 ```http
-Http request
-POST /administrativeUnits/{Admin Unit id}/members/$ref
-Request body
+POST /administrativeUnits/{admin-unit-id}/members/$ref
+```
+
+Corpo
+
+```http
 {
-  "@odata.id":"https://graph.microsoft.com/v1.0/users/{id}"
+  "@odata.id":"https://graph.microsoft.com/v1.0/users/{user-id}"
 }
 ```
 
-Exemplo:
+Exemplo
 
 ```http
 {
-  "@odata.id":"https://graph.microsoft.com/v1.0/users/johndoe@fabidentity.com"
+  "@odata.id":"https://graph.microsoft.com/v1.0/users/john@example.com"
 }
 ```
 
 ## <a name="view-a-list-of-administrative-units-for-a-user"></a>Exibir uma lista de unidades administrativas para um usuário
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 No portal do Azure, você pode abrir o perfil de um usuário fazendo o seguinte:
 
@@ -118,6 +123,7 @@ Execute o comando a seguir:
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+
 > [!NOTE]
 > Por padrão, `Get-AzureADAdministrativeUnitMember` retorna apenas 100 membros de uma unidade administrativa. Para recuperar mais membros, você pode adicionar `"-All $true"` .
 
@@ -126,12 +132,12 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 Substitua o espaço reservado por informações de teste e execute o seguinte comando:
 
 ```http
-https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
+https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ## <a name="remove-a-single-user-from-an-administrative-unit"></a>Remover um único usuário de uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Você pode remover um usuário de uma unidade administrativa de uma das duas maneiras: 
 
@@ -152,14 +158,16 @@ Você pode remover um usuário de uma unidade administrativa de uma das duas man
 Execute o comando a seguir:
 
 ```powershell
-Remove-AzureADMSAdministrativeUnitMember -Id $auId -MemberId $memberUserObjId
+Remove-AzureADMSAdministrativeUnitMember -Id $adminUnitId -MemberId $memberUserObjId
 ```
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
 Substitua os espaços reservados por informações de teste e execute o seguinte comando:
 
-`https://graph.microsoft.com/v1.0/directory/administrativeUnits/{adminunit-id}/members/{user-id}/$ref`
+```http
+https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{user-id}/$ref
+```
 
 ## <a name="remove-multiple-users-as-a-bulk-operation"></a>Remover vários usuários como uma operação em massa
 

@@ -1,6 +1,6 @@
 ---
-title: Implantar um Serviço de Nuvem (suporte estendido) – SDK
-description: Implantar um Serviço de Nuvem (suporte estendido) usando o SDK do Azure
+title: Implantar Serviços de Nuvem (suporte estendido) – SDK
+description: Implantar Serviços de Nuvem (suporte estendido) usando o SDK do Azure
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf8d2696732c2947ce86b9509720898fd63c1e16
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98886963"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166880"
 ---
-# <a name="deploy-a-cloud-services-extended-support-using-sdk"></a>Implantar um Serviço de Nuvem (suporte estendido) usando o SDK
+# <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Implantar Serviços de Nuvem (suporte estendido) usando o SDK do Azure
 
-Este artigo mostra como usar o [SDK do Azure](https://azure.microsoft.com/downloads/) para implantar Serviços de Nuvem (suporte estendido) que têm várias funções (WebRole e WorkerRole) e a extensão de Área de Trabalho Remota. 
+Este artigo mostra como usar o [SDK do Azure](https://azure.microsoft.com/downloads/) para implantar uma instância de Serviços de Nuvem (suporte estendido) que tem várias funções (função Web e função de trabalho) e a extensão de área de trabalho remota. Serviços de Nuvem (suporte estendido) é um modelo de implantação dos Serviços de Nuvem do Azure com base no Azure Resource Manager.
 
 > [!IMPORTANT]
 > No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -26,8 +26,8 @@ Este artigo mostra como usar o [SDK do Azure](https://azure.microsoft.com/downlo
 
 Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Serviços de Nuvem (suporte estendido) e crie recursos associados.
 
-## <a name="deploy-a-cloud-services-extended-support"></a>Implantar Serviços de Nuvem (suporte estendido)
-1. Instale o [pacote NuGet do SDK da Computação do Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) e inicialize o cliente usando um mecanismo de autenticação padrão.
+## <a name="deploy-cloud-services-extended-support"></a>Implantar Serviços de Nuvem (suporte estendido)
+1. Instale o [pacote NuGet do SDK de Computação do Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) e inicialize o cliente usando um mecanismo de autenticação padrão.
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
@@ -73,7 +73,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-3. Crie uma conta de armazenamento e um contêiner que serão usados para armazenar o pacote do Serviço de Nuvem (.cspkg) e os arquivos de configuração do serviço (.cscfg). Instale o [pacote NuGet do Armazenamento do Azure](https://www.nuget.org/packages/Azure.Storage.Common/). Essa etapa é opcional se você está usando uma conta de armazenamento existente. O nome da conta de armazenamento deve ser exclusivo.
+3. Crie uma conta de armazenamento e um contêiner em que você armazenará os arquivos do pacote de serviço (.cspkg) e de configuração do serviço (.cscfg). Instale o [pacote NuGet do Armazenamento do Azure](https://www.nuget.org/packages/Azure.Storage.Common/). Essa etapa será opcional se você estiver usando uma conta de armazenamento existente. O nome da conta de armazenamento deve ser exclusivo.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -109,7 +109,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     sasConstraints.Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write;
     ```
 
-4. Carregue o arquivo do pacote do Serviço de Nuvem (.cspkg) na conta de armazenamento. A URL do pacote pode ser um URI de SAS (Assinatura de Acesso Compartilhado) de qualquer conta de armazenamento.
+4. Carregue o arquivo do pacote de serviço (.cspkg) na conta de armazenamento. A URL do pacote pode ser um URI de SAS (assinatura de acesso compartilhado) de qualquer conta de armazenamento.
 
     ```csharp
     CloudBlockBlob cspkgblockBlob = container.GetBlockBlobReference(“ContosoApp.cspkg”);
@@ -122,7 +122,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     string cspkgSASUrl = cspkgblockBlob.Uri + cspkgsasContainerToken;
     ```
 
-5. Carregue a configuração do Serviço de Nuvem (.cscfg) na conta de armazenamento. A configuração do serviço pode ser especificada como cadeia de caracteres XML ou formato de URL.
+5. Carregue o arquivo de configuração de serviço (.cscfg) na conta de armazenamento. Especifique a configuração de serviço como cadeia de caracteres XML ou formato de URL.
 
     ```csharp
     CloudBlockBlob cscfgblockBlob = container.GetBlockBlobReference(“ContosoApp.cscfg”);
@@ -135,7 +135,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     string cscfgSASUrl = cscfgblockBlob.Uri + sasCscfgContainerToken;
     ```
 
-6. Criar uma rede virtual e sub-rede. Instale o [pacote NuGet da Rede do Azure](https://www.nuget.org/packages/Azure.ResourceManager.Network/). Essa etapa é opcional se você está usando uma rede e uma sub-rede existentes.
+6. Criar uma rede virtual e sub-rede. Instale o [pacote NuGet da Rede do Azure](https://www.nuget.org/packages/Azure.ResourceManager.Network/). Essa etapa será opcional se você estiver usando rede e sub-rede existentes.
 
     ```csharp
     VirtualNetwork vnet = new VirtualNetwork(name: vnetName) 
@@ -156,7 +156,8 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Crie um endereço IP público e (opcionalmente) defina a propriedade rótulo DNS do endereço IP público. Se você estiver usando um IP estático, ele precisará ser referenciado como um IP Reservado no arquivo de configuração de serviço.
+7. Crie um endereço IP público e defina a propriedade rótulo DNS do endereço IP público. Os Serviços de Nuvem (suporte estendido) dão suporte somente aos endereços IP Públicos do SKU (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) ) [Básico]. Os IPs públicos do SKU Standard não funcionam com os Serviços de Nuvem.
+Se você estiver usando um IP estático, ele precisará ser referenciado como um IP Reservado no arquivo de Configuração de Serviço (.cscfg)
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Crie um objeto de perfil de rede e associe o endereço IP público ao front-end do balanceador de carga criado pela plataforma.
+8. Crie um objeto de perfil de rede e associe o endereço IP público ao front-end do balanceador de carga. A plataforma Azure cria automaticamente um recurso de balanceador de carga de SKU 'clássico' na mesma assinatura que o recurso de serviço de nuvem. O recurso de balanceador de carga é um recurso somente leitura no ARM. Todas as atualizações para o recurso têm suporte apenas por meio dos arquivos de implantação do serviço de nuvem (.cscfg e .csdef)
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 
@@ -206,32 +207,32 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
     
     ```
 
-9. Criar um Cofre de Chaves. Esse Key Vault será usado para armazenar certificados associados às funções do Serviço de Nuvem (suporte estendido). O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
+9. Crie um cofre da chave. Esse cofre de chaves será usado para armazenar certificados associados às funções de Serviços de Nuvem (suporte estendido). O cofre de chaves precisa estar localizado na mesma região e assinatura que os Serviços de Nuvem (suporte estendido) e ter um nome exclusivo. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
     ```
 
-10. Atualize a política de acesso para o Key Vault e conceda à sua conta de usuário permissões para o certificado.
+10. Atualize a política de acesso do cofre de chaves e conceda à sua conta de usuário permissões para o certificado.
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg'      -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
     ```
 
-    Como alternativa, defina a política de acesso por meio do ObjectId (que pode ser obtido executando Get-AzADUser)
+    Como alternativa, defina a política de acesso por meio da ID de objeto (que você pode obter executando `Get-AzADUser`).
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -     ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates          create,get,list,delete
     ```
 
-11. Neste exemplo, adicionaremos um certificado autoassinado a um Key Vault. A impressão digital do certificado precisa ser adicionada no arquivo de configuração do Serviço de Nuvem (.cscfg) para implantação em funções de serviço de nuvem.
+11. Neste exemplo, adicionaremos um certificado autoassinado a um cofre de chaves. A impressão digital do certificado precisa ser adicionada ao arquivo de configuração de serviço (.cscfg) para implantação em funções de Serviços de Nuvem (suporte estendido).
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -       SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -      CertificatePolicy $Policy
     ```
 
-12. Crie um objeto de Perfil de SO. O Perfil de SO especifica os certificados que estão associados às funções de serviço de nuvem. Esse será o mesmo certificado criado na etapa anterior.
+12. Crie um objeto de perfil de sistema operacional. O perfil do sistema operacional especifica os certificados que estão associados a funções dos Serviços de Nuvem (suporte estendido). Aqui, é o mesmo certificado que criamos na etapa anterior.
 
     ```csharp
     CloudServiceOsProfile cloudServiceOsProfile = 
@@ -247,7 +248,9 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
            };
     ```
 
-13. Crie um objeto de Perfil de Função. O perfil de função define as propriedades específicas a um SKU de função, como nome, capacidade e camada. Neste exemplo, definimos duas funções: frontendRole e backendRole. As informações do perfil de função devem corresponder à configuração de função definida no arquivo de configuração (cscfg) e no arquivo de definição de serviço (csdef).
+13. Crie um objeto de perfil de função. O perfil de função define as propriedades específicas da função para um SKU, como nome, capacidade e camada. 
+
+    Neste exemplo, definimos duas funções: ContosoFrontend e ContosoBackend. As informações do perfil de função devem corresponder à configuração de função definida no arquivo de configuração de serviço (.cscfg) e de definição de serviço (.csdef).
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()
@@ -281,7 +284,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
                     }
     ```
 
-14. (Opcional) Crie um objeto de Perfil de Extensão que você deseja adicionar ao serviço de nuvem. Neste exemplo, adicionaremos a extensão RDP.
+14. (Opcional) Crie um objeto de perfil de extensão que você deseja adicionar à sua instância de Serviços de Nuvem (suporte estendido). Neste exemplo, adicionamos uma extensão RDP.
 
     ```csharp
     string rdpExtensionPublicConfig = "<PublicConfig>" +
@@ -313,7 +316,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
         };
     ```
 
-15. Crie uma implantação do Serviço de Nuvem.
+15. Crie a implantação da instância de Serviços de Nuvem (suporte estendido).
 
     ```csharp
     CloudService cloudService = new CloudService
@@ -322,7 +325,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
                 {
                     RoleProfile = cloudServiceRoleProfile
                     Configuration = < Add Cscfg xml content here>,
-                    // ConfigurationUrl = <Add you configuration URL here>,
+                    // ConfigurationUrl = <Add your configuration URL here>,
                     PackageUrl = <Add cspkg SAS url here>,
                     ExtensionProfile = cloudServiceExtensionProfile,
                     OsProfile= cloudServiceOsProfile,
@@ -337,5 +340,5 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para os Se
 
 ## <a name="next-steps"></a>Próximas etapas
 - Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
-- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
-- Visite o [repositório de exemplos dos Serviços de Nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Implante os Serviços de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), um [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Acesse o [Repositório de amostras dos Serviços de Nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

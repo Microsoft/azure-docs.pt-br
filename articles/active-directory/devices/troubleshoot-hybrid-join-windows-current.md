@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083209"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578011"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que você tenha [dispositivos configurados e ingressados 
 
 - Acesso Condicional baseado no dispositivo
 - [Roaming corporativo de configurações](./enterprise-state-roaming-overview.md)
-- [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Este documento fornece diretrizes de solução de problemas para resolver possíveis problemas.
 
@@ -95,16 +95,16 @@ Examine os seguintes campos e garanta que eles tenham os valores esperados:
 
 #### <a name="domainjoined--yes"></a>DomainJoined : YES
 
-Esse campo indica se o dispositivo ingressou em um Active Directory local ou não. Se o valor for **NO** , o dispositivo não poderá executar um ingresso do Azure AD híbrido.
+Esse campo indica se o dispositivo ingressou em um Active Directory local ou não. Se o valor for **NO**, o dispositivo não poderá executar um ingresso do Azure AD híbrido.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho* ). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES** , uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar o Windows 10 versão 1607 ou posterior.
+Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES**, uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar o Windows 10 versão 1607 ou posterior.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
 Este campo indica se o dispositivo está Unido. O valor será **Sim** se o dispositivo for um dispositivo ingressado no Azure ad ou um dispositivo ingressado no Azure ad híbrido.
-Se o valor for **NO** , a associação ao Azure AD ainda não terá sido concluída.
+Se o valor for **NO**, a associação ao Azure AD ainda não terá sido concluída.
 
 Prossiga para as próximas etapas para solução de problemas.
 
@@ -132,12 +132,12 @@ O campo ' fase de erro ' denota a fase da falha de junção enquanto ' Client Er
 
 Use logs de Visualizador de Eventos para localizar a fase e o código de erro para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  
 2. Procure eventos com as seguintes eventIDs 304, 305, 307.
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 304 é selecionado e suas informações são exibidas, com o código de erro e a fase realçados." border="false":::
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 304 é selecionado e suas informações são exibidas, com o código de erro e a fase realçados." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 305 é visível e suas informações são exibidas, com o código de erro realçado." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Etapa 4: verificar possíveis causas e resoluções nas listas abaixo
 
@@ -207,10 +207,10 @@ Procure ' teste de descoberta do DRS ' na seção ' dados de diagnóstico ' da s
 
 Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  
 2. Procure eventos com as seguintes eventIDs 201
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 304 é selecionado e suas informações são exibidas, com o código de erro e a fase realçados." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 201 é selecionado e suas informações são exibidas, com o código de erro realçado." border="false":::
 
 ###### <a name="network-errors"></a>Erros de rede
 
@@ -252,10 +252,10 @@ Motivos da falha:
 
 Use os logs de Visualizador de Eventos para localizar o código de erro, o código de suberro, o código de erro do servidor e a mensagem de erro do servidor.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  
 2. Procure eventos com o seguinte eventID 305
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 304 é selecionado e suas informações são exibidas, com o código de erro e a fase realçados." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 305 é visível. Suas informações são exibidas, com os códigos de erro D a L e status realçados." border="false":::
 
 ##### <a name="configuration-errors"></a>Erros de configuração
 
@@ -327,10 +327,10 @@ O campo ' tipo de registro ' denota o tipo de junção executada.
 
 Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as falhas de junção.
 
-1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  **User Device Registration**
+1. Abra os logs de eventos de **registro de dispositivo do usuário** no Visualizador de eventos. Localizado em **logs de aplicativos e serviços registro de dispositivo de**  >  **usuário do Microsoft**  >  **Windows**  >  
 2. Procure eventos com as seguintes eventIDs 204
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Captura de tela do Visualizador de eventos. Um evento com I D 304 é selecionado e suas informações são exibidas, com o código de erro e a fase realçados." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Captura de tela do Visualizador de eventos. As informações sobre um evento com I D 204 são exibidas, com o código de erro, H T T P status e a mensagem realçada." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>Erros de HTTP retornados do servidor DRS
 
@@ -387,14 +387,14 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Etapa 5: coletar logs e contatar Suporte da Microsoft
 
-Baixar o arquivo Auth.zip de [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Baixar o arquivo Auth.zip de [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
-1. Descompacte os arquivos e renomeie os arquivos incluídos **start-auth.txt** e **stop-auth.txt** para **Start-auth. cmd** e **Stop-auth. cmd** .
-1. Em um prompt de comandos com privilégios elevados, execute **Start-auth. cmd** .
+1. Descompacte os arquivos e renomeie os arquivos incluídos **start-auth.txt** e **stop-auth.txt** para **Start-auth. cmd** e **Stop-auth. cmd**.
+1. Em um prompt de comandos com privilégios elevados, execute **Start-auth. cmd**.
 1. Use alternar conta para alternar para outra sessão com o problema do usuário.
 1. Reproduza o problema.
 1. Use alternar conta para alternar de volta para a sessão de administrador que executa o rastreamento.
-1. Em um prompt de comandos com privilégios elevados, execute **Stop-auth. cmd** .
+1. Em um prompt de comandos com privilégios elevados, execute **Stop-auth. cmd**.
 1. Zip e enviar a pasta **Authlogs** da pasta na qual os scripts foram executados.
 
 ## <a name="troubleshoot-post-join-issues"></a>Solucionar problemas de pós-junção
@@ -404,7 +404,7 @@ Baixar o arquivo Auth.zip de [https://github.com/CSS-Windows/WindowsDiag/tree/ma
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Sim e AzureADPrt: Sim
 
 Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao se conectar ao dispositivo.
-Se os valores forem **NO** , talvez o motivo seja:
+Se os valores forem **NO**, talvez o motivo seja:
 
 - Chave de armazenamento inadequada no TPM associado ao dispositivo após o registro (verifique o KeySignTest ao executar com privilégios elevados).
 - ID de logon alternativo

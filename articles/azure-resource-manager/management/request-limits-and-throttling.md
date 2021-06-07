@@ -4,12 +4,12 @@ description: Descreve como usar a limitação com solicitações Azure Resource 
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563119"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024618"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
@@ -27,9 +27,9 @@ Os limites de limitação padrão por hora são mostrados na tabela a seguir.
 
 | Escopo | Operations | Limite |
 | ----- | ---------- | ------- |
-| Assinatura | reads | 12000 |
-| Assinatura | deletes | 15000 |
-| Assinatura | writes | 1200 |
+| Subscription | reads | 12000 |
+| Subscription | deletes | 15000 |
+| Subscription | writes | 1200 |
 | Locatário | reads | 12000 |
 | Locatário | writes | 1200 |
 
@@ -58,7 +58,7 @@ O provedor de recursos Microsoft. Network aplica os seguintes limites de limita�
 
 ### <a name="compute-throttling"></a>Limitação de computação
 
-Para obter informações sobre limites de limitação para operações de computação, consulte [Solucionando problemas de erros de limitação de API-Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Para obter informações sobre limites de limitação para operações de computação, consulte [Solucionando problemas de erros de limitação de API-Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Para verificar as instâncias de máquina virtual em um conjunto de dimensionamento de máquinas virtuais, use as [operações de conjuntos de dimensionamento de máquinas virtuais](/rest/api/compute/virtualmachinescalesetvms). Por exemplo, use o [conjunto de dimensionamento de máquinas virtuais VMs-List](/rest/api/compute/virtualmachinescalesetvms/list) com parâmetros para verificar o estado de energia de instâncias de máquina virtual. Essa API reduz o número de solicitações.
 
@@ -98,7 +98,7 @@ Você pode determinar o número de solicitações restantes ao examinar cabeçal
 | x-ms-ratelimit-remaining-tenant-resource-requests |Solicitações de tipo de recurso no escopo do locatário restantes.<br /><br />Esse cabeçalho será adicionado somente para solicitações em nível de locatário e somente se um serviço tiver substituído o limite padrão. O Resource Manager adiciona esse valor em vez das leituras ou gravações do locatário. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Solicitações de coletas de tipo de recurso no escopo do locatário restantes.<br /><br />Esse cabeçalho será adicionado somente para solicitações em nível de locatário e somente se um serviço tiver substituído o limite padrão. |
 
-O provedor de recursos também pode retornar cabeçalhos de resposta com informações sobre as solicitações restantes. Para obter informações sobre cabeçalhos de resposta retornados pelo provedor de recursos de computação, consulte [cabeçalhos de resposta informativo de taxa de chamada](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+O provedor de recursos também pode retornar cabeçalhos de resposta com informações sobre as solicitações restantes. Para obter informações sobre cabeçalhos de resposta retornados pelo provedor de recursos de computação, consulte [cabeçalhos de resposta informativo de taxa de chamada](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Recuperar os valores de cabeçalho
 

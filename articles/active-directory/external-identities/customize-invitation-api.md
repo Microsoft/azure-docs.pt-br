@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99548654"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
@@ -124,7 +124,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Verifique se você possui a versão mais recente do módulo do PowerShell do AzureAD ou do módulo PowerShell do AzureADPreview. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 Confira a referência da API de convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 

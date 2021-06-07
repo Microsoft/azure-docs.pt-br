@@ -10,12 +10,12 @@ ms.custom: REST, seodec18
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: fbf21ba359ae7914acd2d812ec9e12f9f3ee557a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 391be596d890e05e6a8fdaf35d2cade371e468d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511936"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102213175"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obter Load Balancer métricas de uso usando a API REST
 
@@ -31,7 +31,7 @@ Use a seguinte solicitação GET para coletar a [métrica ByteCount](./load-bala
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Os cabeçalhos a seguir são necessários: 
 
@@ -44,7 +44,7 @@ Os cabeçalhos a seguir são necessários:
 
 | Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor por meio da API do Azure Resource Manager, da CLI ou do portal. |
 | loadBalancerName | O nome do Azure Load Balancer. |
 | nomes de métrica | Lista separada por vírgulas de [métricas válidas do Load Balancer](./load-balancer-standard-diagnostics.md). |

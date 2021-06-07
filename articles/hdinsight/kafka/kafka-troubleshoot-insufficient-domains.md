@@ -4,12 +4,12 @@ description: Falha na criação do cluster devido a domínios de falha insuficie
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/09/2019
-ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ed9e98750a469f78855096c3149254cf92c2788f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939054"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102501338"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Cenário: falha na criação do cluster devido ao `not sufficient fault domains in region` Azure HDInsight
 
@@ -23,7 +23,7 @@ Receber mensagem de erro semelhante a `not sufficient fault domains in region` a
 
 Um domínio de falha é um agrupamento lógico de hardware subjacente em um data center do Azure. Cada domínio de falha tem um comutador de rede e uma fonte de alimentação em comum. As máquinas virtuais e os discos gerenciados que implementam os nós em um cluster HDInsight são distribuídos entre esses domínios de falha. Essa arquitetura limita o possível impacto de falhas físicas de hardware.
 
-Cada região do Azure tem um número específico de domínios de falha. Para obter uma lista de domínios e o número de domínios de falha que eles contêm, consulte a documentação sobre [conjuntos de disponibilidade](../../virtual-machines/manage-availability.md).
+Cada região do Azure tem um número específico de domínios de falha. Para obter uma lista de domínios e o número de domínios de falha que eles contêm, consulte a documentação sobre [conjuntos de disponibilidade](../../virtual-machines/availability.md).
 
 No HDInsight, os clusters Kafka devem ser provisionados em uma região com pelo menos três domínios de falha.
 

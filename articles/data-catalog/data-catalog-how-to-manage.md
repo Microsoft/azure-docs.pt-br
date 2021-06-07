@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 9d035417b613c81487c493bde90cdcc461f04412
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0182f744e038bc8080b9fb96bfdb1eeda16b86c0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017280"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674845"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introdução
 O Catálogo de Dados do Azure é desenvolvido para descoberta de fonte de dados para que você possa facilmente descobrir e entender as fontes de dados de que você precisa para executar a análise e tomar decisões. Esses recursos de descoberta têm maior impacto quando você e outros usuários podem localizar e compreender a mais ampla variedade de fontes de dados disponíveis. Com esses elementos em mente, o comportamento padrão do Catálogo de Dados é que todas as fontes de dados registradas fiquem visíveis e detectáveis por todos os usuários do catálogo.
 

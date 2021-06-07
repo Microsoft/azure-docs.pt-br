@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655851"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182240"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -28,7 +28,7 @@ Este artigo explica como trabalhar com o gatilho aquecimento no Azure Functions.
 
 ## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/). 
+O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup). 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 

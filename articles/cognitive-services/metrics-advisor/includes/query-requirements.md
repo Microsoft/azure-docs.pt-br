@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: mbullwin
 ms.openlocfilehash: 777e3261bd6f842861ed6622b78589eedaaf65d7
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92043180"
 ---
 Na consulta, use o parâmetro `@StartTime` para obter dados de métrica de um carimbo de data/hora específico. O Assistente de Métricas substitui o parâmetro por uma cadeia de caracteres de formato `yyyy-MM-ddTHH:mm:ss` quando executa a consulta.

@@ -3,18 +3,18 @@ title: Noções básicas dos dados do Gerenciamento de Custos do Azure
 description: Este artigo ajuda você a entender melhor os dados incluídos em seu Gerenciamento de Custos do Azure e a frequência com que eles são processados, coletados, mostrados e fechados.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 01/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 568f3d811876073dc899204cb8ca4d1753d9cfd0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964143"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499288"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -31,6 +31,7 @@ As informações a seguir mostram as atuais [ofertas do Microsoft Azure](https:/
 | **Categoria**  | **Nome da oferta** | **ID da Cota** | **Número da oferta** | **Data de disponibilidade dos dados** |
 | --- | --- | --- | --- | --- |
 | **Azure Governamental** | Azure Governamental Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Maio de 2014<sup>1</sup> |
+| **Azure Governamental** | Azure Government de Pagamento Conforme o Uso | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2 de outubro de 2018<sup>2</sup> |
 | **Enterprise Agreement (EA)** | Desenvolvimento/Teste Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Maio de 2014<sup>1</sup> |
 | **Enterprise Agreement (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maio de 2014<sup>1</sup> |
 | **Contrato de Cliente da Microsoft** | Plano do Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | Março de 2019<sup>3</sup> |
@@ -51,7 +52,7 @@ As informações a seguir mostram as atuais [ofertas do Microsoft Azure](https:/
 
 _<sup>**1**</sup> Para dados antes de maio de 2014, acesse o [Azure Enterprise Portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> Para dados antes de 2 de outubro de 2018, acesse o [Centro de Contas do Azure](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup> Para dados de antes de 2 de outubro de 2018, acesse o [Centro de Contas do Azure](https://account.azure.com/subscriptions) para contas globais e o [Centro de Contas Governamentais do Azure](https://account.windowsazure.us/subscriptions) para contas governamentais._
 
 _<sup>**3**</sup> Os Contratos de Clientes da Microsoft foram iniciados em março de 2019 e não apresentam dados históricos antes disso._
 
@@ -62,7 +63,6 @@ Ainda não há compatibilidade para as seguintes ofertas:
 | Categoria  | **Nome da oferta** | **ID da Cota** | **Número da oferta** |
 | --- | --- | --- | --- |
 | **Azure Alemanha** | Pagamento Conforme o Uso do Azure Alemanha | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Governamental** | Azure Government de Pagamento Conforme o Uso | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **CSP (Provedor de Soluções na Nuvem)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP (Provedor de Soluções na Nuvem)** | CSP do Azure Governamental                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP (Provedor de Soluções na Nuvem)** | CSP do Azure na Alemanha para o Microsoft Cloud Alemanha   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -130,6 +130,7 @@ Se você não vir alguma marca específica em Gerenciamento de Custos, considere
     - Data Factory
     - Databricks
     - Balanceadores de carga
+    - Instâncias de computação do workspace do Machine Learning
     - Observador de Rede
     - Hubs de Notificação
     - Barramento de Serviço
@@ -161,7 +162,7 @@ Depois que os dados de custo e de uso estiverem disponíveis em Gerenciamento de
 
 ### <a name="rerated-data"></a>Dados recalculados
 
-Se você usa as APIs de Gerenciamento de Custos, o Power BI ou o portal do Azure para recuperar dados, espere que os encargos do período de cobrança atual sejam recalculados e, assim, alterados até que a fatura seja fechada.
+Se você usa as APIs de Gerenciamento de Custos, o Power BI ou o portal do Azure para recuperar dados, espere que os encargos do período de cobrança atual sejam recalculados. Os encargos poderão mudar até que a fatura seja fechada.
 
 ## <a name="cost-rounding"></a>Arredondamento de custo
 
@@ -175,7 +176,7 @@ Os custos mostrados no Gerenciamento de Custos são arredondados. Os custos reto
 
 ## <a name="historical-data-might-not-match-invoice"></a>Os dados históricos podem não corresponder à fatura
 
-Os dados históricos para ofertas com base em crédito e de pagamento antecipado podem não corresponder à fatura. Algumas ofertas do MSDN, do Visual Studio e pagas conforme o uso do Azure podem ter créditos Azure e pagamentos antecipados aplicados à fatura. No entanto, os dados históricos mostrados no Gerenciamento de Custos baseiam-se apenas nos encargos de consumo estimados. Os dados históricos do Gerenciamento de Custos não incluem pagamentos e créditos. Assim, os dados históricos mostrados para as ofertas a seguir podem não corresponder exatamente à sua fatura.
+Os dados históricos para ofertas com base em crédito e de pagamento antecipado podem não corresponder à fatura. Algumas ofertas do MSDN, do Visual Studio e pagas conforme o uso do Azure podem ter créditos Azure e pagamentos antecipados aplicados à fatura. Os dados históricos mostrados no Gerenciamento de Custos baseiam-se apenas nos encargos de consumo estimados. Os dados históricos do Gerenciamento de Custos não incluem pagamentos e créditos. Os dados históricos mostrados para as ofertas a seguir podem não corresponder exatamente à sua fatura.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure via Open (MS-AZR-0111P)

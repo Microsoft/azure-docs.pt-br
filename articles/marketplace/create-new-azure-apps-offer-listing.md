@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 91b6d432042aa37a1b929f61e9742f814fb9dc40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94369949"
 ---
 # <a name="how-to-configure-your-azure-application-offer-listing-details"></a>Como configurar os detalhes de listagem da oferta de Aplicativo Azure
@@ -24,7 +24,7 @@ As informações fornecidas na página de **listagem de ofertas** para sua ofert
 
 ## <a name="marketplace-details"></a>Detalhes do marketplace
 
-Na página **listagem de ofertas** , em **detalhes do Marketplace** , conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-azure-application-offer.md#offer-listing-details).
+Na página **listagem de ofertas** , em **detalhes do Marketplace**, conclua as etapas a seguir. Para saber mais sobre esses detalhes necessários, consulte [detalhes da lista de ofertas](plan-azure-application-offer.md#offer-listing-details).
 
 1. A caixa **nome** é preenchida com o nome que você inseriu anteriormente na caixa de diálogo **nova oferta** . É possível alterar o nome a qualquer momento. O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas.
 1. Na caixa **Resumo dos resultados da pesquisa** , insira até 100 caracteres de texto. Esse resumo é usado no Marketplace listando os resultados da pesquisa.
@@ -37,13 +37,13 @@ Na página **listagem de ofertas** , em **detalhes do Marketplace** , conclua as
 
 Conclua estas etapas para adicionar links à documentação online complementar.
 
-1. Para adicionar documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados, em **links úteis** , selecione **Adicionar um link**.
+1. Para adicionar documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados, em **links úteis**, selecione **Adicionar um link**.
 1. Nos campos que aparecem, insira um título (até 255 caracteres) e o link (começando com `https://` ) para o documento online.
 1. Para inserir outro link, repita as etapas 1 a 2.
 
 ## <a name="enter-your-contact-information"></a>Insira suas informações de contato
 
-Em **informações de contato** , forneça informações para os seguintes contatos:
+Em **informações de contato**, forneça informações para os seguintes contatos:
 
 - **Contato do Suporte** (obrigatório) – para perguntas de suporte em geral.
 - **Contato de engenharia** (obrigatório) – para perguntas técnicas. Usaremos essas informações para entrar em contato com você quando houver problemas com sua oferta, incluindo problemas de certificação.
@@ -63,7 +63,7 @@ Para cada contato, você fornecerá um nome, número de telefone e endereço de 
 
 ### <a name="store-logos"></a>Armazenar logotipos
 
-Em **logotipos** , carregue um logotipo **grande** no formato PNG entre 216 x 216 e 350 x 350 pixels. O Partner Center criará automaticamente logotipos **pequenos** (48 x 48) e **médios** (90 x 90), que você poderá substituir posteriormente, se desejar.
+Em **logotipos**, carregue um logotipo **grande** no formato PNG entre 216 x 216 e 350 x 350 pixels. O Partner Center criará automaticamente logotipos **pequenos** (48 x 48) e **médios** (90 x 90), que você poderá substituir posteriormente, se desejar.
 
 Todos os três tamanhos de logotipo são usados em locais diferentes nas lojas online.
 
@@ -75,8 +75,8 @@ Todos os três tamanhos de logotipo são usados em locais diferentes nas lojas o
 
 Adicione até cinco capturas de tela que demonstram sua oferta. Todas as imagens devem ter 1280 x 720 pixels de tamanho e em. Formato PNG.
 
-1. Em **capturas de tela** , arraste e solte seu. Arquivo PNG na caixa **captura de tela** .
-1. Ao lado de **Adicionar Legenda da imagem** , clique no ícone Editar.
+1. Em **capturas de tela**, arraste e solte seu. Arquivo PNG na caixa **captura de tela** .
+1. Ao lado de **Adicionar Legenda da imagem**, clique no ícone Editar.
 1. Na caixa de diálogo exibida, insira uma legenda e clique em **OK**.
 1. Repita as etapas 1 a 3 para adicionar capturas de tela adicionais.
 
@@ -84,7 +84,7 @@ Adicione até cinco capturas de tela que demonstram sua oferta. Todas as imagens
 
 Você pode adicionar links para vídeos do YouTube ou do Vimeo que demonstram sua oferta. Esses vídeos são mostrados aos clientes junto com sua oferta. Você deve inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels de tamanho e em. Formato PNG. Você pode adicionar no máximo quatro vídeos por oferta.
 
-1. Em **vídeos** , selecione o link **Adicionar vídeo** .
+1. Em **vídeos**, selecione o link **Adicionar vídeo** .
 1. Nas caixas que aparecem, insira o nome e o link para o vídeo.
 1. Arraste e solte um. Arquivo PNG (1280 x 720 pixels) na caixa de **miniatura** cinza.
 1. Para adicionar outro vídeo, repita as etapas de 1 a 3.

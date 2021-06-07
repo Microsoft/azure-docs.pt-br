@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019522"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553032"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar arquivos com o Hub IoT
 
@@ -39,12 +39,18 @@ Veja as [Diretrizes de comunicação do dispositivo para nuvem](iot-hub-devguide
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Associar uma conta do Armazenamento do Azure com o Hub IoT
 
-Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode concluir essa tarefa por meio da portal do Azure ou programaticamente por meio das [APIs REST do provedor de recursos do Hub IOT](/rest/api/iothub/iothubresource). Depois de associar uma conta do Armazenamento do Azure ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo iniciar uma solicitação de upload de arquivos.
+Para usar a funcionalidade de upload de arquivos, primeiro você deve vincular uma conta do Armazenamento do Azure para o Hub IoT. Você pode concluir essa tarefa por meio do portal do Azure ou programaticamente por meio das [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource). Depois de associar uma conta do Armazenamento do Azure ao Hub IoT, o serviço retorna um URI de SAS para um dispositivo quando o dispositivo iniciar uma solicitação de upload de arquivos.
 
 Os [arquivos de upload do seu dispositivo para a nuvem com os ](iot-hub-csharp-csharp-file-upload.md)guias de instruções do Hub IoT fornecem uma explicação completa do processo de upload de arquivo. Esses guias de instruções mostram como usar o portal do Azure para associar uma conta de armazenamento a um hub IoT.
 
 > [!NOTE]
-> Os [SDKs do Azure IoT](iot-hub-devguide-sdks.md) tratam automaticamente da recuperação do URI de SAS, do upload do arquivo e da notificação do Hub IoT de um upload concluído.
+> Os [SDKs do Azure IoT](iot-hub-devguide-sdks.md) tratam automaticamente da recuperação do URI de assinatura de acesso compartilhado, do upload do arquivo e da notificação do Hub IoT de um upload concluído. Se um firewall bloquear o acesso ao ponto de extremidade do Armazenamento de Blobs, mas permitir o acesso ao ponto de extremidade do Hub IoT, o processo de upload de arquivo falhará e mostrará o seguinte erro para o SDK do dispositivo IoT C#:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Para que o recurso de upload de arquivo funcione, o acesso ao ponto de extremidade do Hub IoT e ao ponto de extremidade do Armazenamento de Blobs deve estar disponível para o dispositivo.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Inicializar um upload de arquivo
 O Hub IoT tem um ponto de extremidade especificamente para os dispositivos solicitarem um URI SAS para armazenamento a fim de carregar um arquivo. Para iniciar o processo de upload de arquivo, o dispositivo envia uma solicitação POST para `{iot hub}.azure-devices.net/devices/{deviceId}/files` com o seguinte corpo JSON:
@@ -101,12 +107,12 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 Opcionalmente, quando um dispositivo notifica o Hub IoT de que o upload foi concluído, o Hub IoT gera uma mensagem de notificação. Essa mensagem contém o nome e o local de armazenamento do arquivo.
 
-Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento para notificações de upload de arquivo é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
+Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub IoT fornece notificações de upload de arquivos por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de recebimento das notificações de upload de arquivos é a mesma das mensagens da nuvem para dispositivo e tem o mesmo [ciclo de vida da mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem recuperada do ponto de extremidade de notificação de upload de arquivos é um registro JSON com as seguintes propriedades:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | EnqueuedTimeUtc |Carimbo de data/hora que indica quando a notificação foi criada. |
-| DeviceId |**DeviceId** do dispositivo que carregou o arquivo. |
+| deviceId |**DeviceId** do dispositivo que carregou o arquivo. |
 | BlobUri |URI do arquivo carregado. |
 | BlobName |Nome do arquivo carregado. |
 | LastUpdatedTime |Carimbo de data/hora que indica quando o arquivo foi atualizado pela última vez. |
@@ -129,14 +135,14 @@ Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub 
 
 Cada hub IoT tem as seguintes opções de configuração para notificações de upload de arquivos:
 
-| Propriedade | Descrição | Intervalo e padrão |
+| Propriedade | DESCRIÇÃO | Intervalo e padrão |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controla se as notificações de upload de arquivos serão gravadas no ponto de extremidade de notificações de arquivo. |Bool. Padrão: True. |
 | **fileNotifications.ttlAsIso8601** |TTL padrão para notificações de upload de arquivos. |Intervalo ISO_8601 de até 48H (mínimo de um minuto). Padrão: 1 hora. |
 | **fileNotifications.lockDuration** |Duração de bloqueio para a fila de notificações de upload de arquivos. |5 a 300 segundos (mínimo de cinco segundos). Padrão: 60 segundos. |
 | **fileNotifications.maxDeliveryCount** |Contagem máxima de entregas para a fila de notificação de upload de arquivos. |1 a 100. Padrão: 100. |
 
-Você pode definir essas propriedades no Hub IoT usando o portal do Azure, o CLI do Azure ou o PowerShell. Para saber como, consulte os tópicos em [Configurar upload de arquivo](iot-hub-configure-file-upload.md).
+É possível definir essas propriedades no hub IoT usando o portal do Azure, a CLI do Azure ou o PowerShell. Para saber como, confira os tópicos em [Configurar upload de arquivo](iot-hub-configure-file-upload.md).
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 

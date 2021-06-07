@@ -1,7 +1,7 @@
 ---
 title: Modo de dispositivo compartilhado para dispositivos Android
 titleSuffix: Microsoft identity platform | Azure
-description: Saiba como habilitar o modo de dispositivo compartilhado para permitir que os trabalhadores de primeira a compartilhem um dispositivo Android
+description: Saiba como habilitar o modo de dispositivo compartilhado para permitir que os trabalhadores do frente compartilhem um dispositivo Android
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,19 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: 85f8b340635354d4bb0f28f2b3d79b617bd897f8
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 005f69473fa238d56cf7d582a8af4000166d6939
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754884"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612425"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartilhado para dispositivos Android
 
->[!IMPORTANT]
-> Este recurso [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
-Os funcionários de primeira a, como Retail Associates, membros da equipe de voo e funcionários de serviço de campo, geralmente usam um dispositivo móvel compartilhado para realizar seu trabalho. Isso se torna problemático quando começa a compartilhar senhas ou números de PIN para acessar dados de clientes e negócios no dispositivo compartilhado.
+Os operadores de frente como Retail Associates, membros da equipe de voo e funcionários de serviço de campo geralmente usam um dispositivo móvel compartilhado para realizar seu trabalho. Isso se torna problemático quando começa a compartilhar senhas ou números de PIN para acessar dados de clientes e negócios no dispositivo compartilhado.
 
 O modo de dispositivo compartilhado permite que você configure um dispositivo Android para que ele possa ser facilmente compartilhado por vários funcionários. Os funcionários podem entrar e acessar as informações do cliente rapidamente. Quando eles forem concluídos com sua mudança ou tarefa, eles poderão sair do dispositivo e estarão imediatamente prontos para o próximo funcionário usar.
 
@@ -34,7 +31,7 @@ O modo de dispositivo compartilhado também fornece o gerenciamento de Microsoft
 Para criar um aplicativo de modo de dispositivo compartilhado, os desenvolvedores e os administradores de dispositivo de nuvem funcionam juntos:
 
 - Os desenvolvedores escrevem um aplicativo de conta única (aplicativos com várias contas não têm suporte no modo de dispositivo compartilhado), adicionam `"shared_device_mode_supported": true` à configuração do aplicativo e gravam o código para lidar com coisas como a saída do dispositivo compartilhado.
-- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../roles/permissions-reference.md#cloud-device-administrator-permissions) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio do:  >  **funções de Azure Active Directory e administradores**  >  **administrador de dispositivo de nuvem**.
+- Os administradores de dispositivo preparam o dispositivo a ser compartilhado instalando o aplicativo autenticador e definindo o dispositivo para o modo compartilhado usando o aplicativo autenticador. Somente os usuários que estão na função de [administrador de dispositivo de nuvem](../roles/permissions-reference.md#cloud-device-administrator) podem colocar um dispositivo no modo compartilhado usando o [aplicativo autenticador](../user-help/user-help-auth-app-overview.md). Você pode configurar a associação de suas funções organizacionais no portal do Azure por meio do:  >  **funções de Azure Active Directory e administradores**  >  **administrador de dispositivo de nuvem**.
 
  Este artigo se concentra principalmente no que os desenvolvedores devem pensar.
 
@@ -88,7 +85,7 @@ As seguintes diferenças se aplicam dependendo se seu aplicativo está em execu�
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Por que você talvez queira dar suporte apenas ao modo de conta única
 
-Se você estiver escrevendo um aplicativo que será usado apenas para os primeiros trabalhadores que usam um dispositivo compartilhado, recomendamos que você escreva seu aplicativo para dar suporte apenas ao modo de conta única. Isso inclui a maioria dos aplicativos focados em tarefas, como os aplicativos de registros médicos, aplicativos de fatura e a maioria dos aplicativos de linha de negócios. Dar suporte apenas ao modo de conta única simplifica o desenvolvimento porque você não precisará implementar os recursos adicionais que fazem parte de aplicativos de várias contas.
+Se você estiver escrevendo um aplicativo que só será usado para trabalhadores frente usando um dispositivo compartilhado, recomendamos que você escreva seu aplicativo para dar suporte apenas ao modo de conta única. Isso inclui a maioria dos aplicativos focados em tarefas, como os aplicativos de registros médicos, aplicativos de fatura e a maioria dos aplicativos de linha de negócios. Dar suporte apenas ao modo de conta única simplifica o desenvolvimento porque você não precisará implementar os recursos adicionais que fazem parte de aplicativos de várias contas.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>O que acontece quando o modo do dispositivo é alterado
 
@@ -106,4 +103,4 @@ O diagrama a seguir mostra o ciclo de vida geral do aplicativo e eventos comuns 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente [usar o modo de dispositivo compartilhado no seu aplicativo Android,](tutorial-v2-shared-device-mode.md) que mostra como executar um aplicativo de trabalho de início em um dispositivo Android de modo compartilhado.
+Experimente [usar o modo de dispositivo compartilhado no seu aplicativo Android,](tutorial-v2-shared-device-mode.md) que mostra como executar um aplicativo de trabalho do frente em um dispositivo Android de modo compartilhado.

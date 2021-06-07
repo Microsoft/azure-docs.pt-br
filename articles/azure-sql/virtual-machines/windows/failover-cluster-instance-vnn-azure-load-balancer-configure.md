@@ -16,10 +16,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5670a29e86eb201a707e5ceef28043aafe4839d9
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97357969"
 ---
 # <a name="configure-azure-load-balancer-for-failover-cluster-instance-vnn"></a>Configurar Azure Load Balancer para a instância de cluster de failover VNN

@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94442898"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protegida: Verificar escopos e funções de aplicativo
@@ -113,7 +113,7 @@ public class TodoListController : ApiController
     }
 ```
 
-O `ValidateAppRole` método é definido em Microsoft. Identity. Web em [RolesRequiredHttpContextExtensions.cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
+O `ValidateAppRole` método é definido em Microsoft. Identity. Web em [RolesRequiredHttpContextExtensions. cs](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs#L28).
 
 ### <a name="aspnet-mvc"></a>ASP.NET MVC
 

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092135"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101652378"
 ---
 # <a name="api-management-soft-delete-preview"></a>Exclusão reversível do gerenciamento de API (versão prévia)
 
 Com a exclusão reversível do gerenciamento de API (versão prévia), você pode recuperar e restaurar instâncias de APIM (gerenciamento de API) excluídas recentemente.
 
 > [!IMPORTANT]
-> Somente instâncias de gerenciamento de API excluídas usando `2020-01-01-preview` o e versões de API posteriores serão excluídas por software e recuperáveis usando as etapas descritas neste artigo. Instâncias APIM excluídas usando versões anteriores da API continuarão a ser excluídas. Azure PowerShell e CLI do Azure atualmente não usam a `2020-06-01-preview` versão e também resultarão em um comportamento de exclusão de hardware.
+> Somente instâncias de gerenciamento de API excluídas usando `2020-06-01-preview` o e versões de API posteriores serão excluídas por software e recuperáveis usando as etapas descritas neste artigo. Instâncias APIM excluídas usando versões anteriores da API continuarão a ser excluídas. Azure PowerShell e CLI do Azure atualmente não usam a `2020-06-01-preview` versão e também resultarão em um comportamento de exclusão de hardware.
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
@@ -31,14 +31,14 @@ O recurso de exclusão reversível está disponível por meio da [API REST](/res
 |--|--|--|--|
 | [Criar ou atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Cria ou atualiza um serviço de gerenciamento de API.  | Serviço de gerenciamento de API | Qualquer |
 | [Criar ou atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) com `restore` a propriedade definida como **true** | O não excluirá o serviço de gerenciamento de API se ele tiver sido excluído anteriormente por software. Se `restore` for especificado e definido como `true` todas as outras propriedades será ignorado.  | Serviço de gerenciamento de API |  2020-06-01-visualização |
-| [Excluir](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Exclui um serviço de gerenciamento de API existente. | Serviço de gerenciamento de API | 2020-01-01-visualização|
+| [Excluir](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Exclui um serviço de gerenciamento de API existente. | Serviço de gerenciamento de API | 2020-06-01-visualização|
 | [Obter por nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Obtenha o serviço de gerenciamento de API com exclusão reversível por nome. | Serviços excluídos | 2020-06-01-visualização |
 | [Listar por assinatura](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Lista todos os serviços excluídos de forma reversível disponíveis para a exclusão da assinatura especificada. | Serviços excluídos | 2020-06-01-visualização
 | [Limpar](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Limpa o serviço de gerenciamento de API (exclui-o sem a opção de restaurar). | Serviços excluídos | 2020-06-01-visualização
 
 ## <a name="soft-delete-behavior"></a>Comportamento de exclusão reversível
 
-Você pode usar qualquer versão de API para criar sua instância de gerenciamento de API, no entanto, você precisará usar o `2020-01-01-preview` ou versões posteriores para excluir a instância do APIM (e ter a opção de recuperá-la).
+Você pode usar qualquer versão de API para criar sua instância de gerenciamento de API, no entanto, você precisará usar o `2020-06-01-preview` ou versões posteriores para excluir a instância do APIM (e ter a opção de recuperá-la).
 
 Após a exclusão de uma instância de gerenciamento de API, o serviço existirá em um estado excluído, tornando-o inacessível para qualquer operação APIM. Enquanto estiver nesse estado, a instância de APIM só poderá ser listada, recuperada ou descartada (permanentemente excluída).
 

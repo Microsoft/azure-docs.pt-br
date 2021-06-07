@@ -3,12 +3,14 @@ title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 75a4e9deca4859ac8b9f302fcb62ecc1d12dd8c9
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 94555b1b73fdac7368c9ac96fa682fb09afc83eb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918323"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538965"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Definir e atribuir um blueprint no portal
 

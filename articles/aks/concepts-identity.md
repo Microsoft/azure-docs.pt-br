@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 8d69033dedc3a45263b087c9b9ee5b156af460be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361053"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949984"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -42,6 +42,7 @@ As permissões a seguir são usadas pela identidade do cluster AKS, que é criad
 
 | Permissão | Motivo |
 |---|---|
+| Microsoft. ContainerService/managedClusters/*  <br/> | Necessário para criar usuários e operar o cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Necessário para configurar o balanceador de carga para um serviço Balancer. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Necessário para localizar e configurar IPS públicos para um serviço Balancer. |
 | Microsoft.Network/publicIPAddresses/join/action | Necessário para configurar IPS públicos para um serviço Balancer. |
@@ -72,6 +73,7 @@ As permissões adicionais a seguir são necessárias para a identidade do cluste
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Necessário se estiver usando uma sub-rede em outro grupo de recursos, como uma VNET personalizada. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Necessário se estiver usando uma sub-rede associada a uma tabela de rotas em outro grupo de recursos, como uma VNET personalizada com uma tabela de rotas personalizada. Necessário para verificar se uma sub-rede já existe para a sub-rede no outro grupo de recursos. |
 | Microsoft.Network/virtualNetworks/subnets/read | Necessário se estiver usando um balanceador de carga interno em outro grupo de recursos. Necessário para verificar se uma sub-rede já existe para o balanceador de carga interno no grupo de recursos. |
+| Microsoft. Network/privatednszones/* | Necessário se estiver usando uma zona DNS privada em outro grupo de recursos, como um privateDNSZone personalizado. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Controle de acesso baseado em função do kubernetes (kubernetes RBAC)
 
@@ -236,4 +238,4 @@ Para obter mais informações sobre os principais conceitos do Kubernetes e do A
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5422fe324ca1f3ef5bb2d14fb04664c8fb03fe3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942533"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866226"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Falha na depuração do trabalho Spark com Azure Toolkit for IntelliJ (versão prévia)
 
@@ -40,13 +40,13 @@ Criar um projeto do Spark 2.3.2 para continuar a depuração de falha, escolher 
 
    b. Selecione **projeto do Spark com falha de depuração da tarefa de falhas (visualização) (escala)** na janela principal.
 
-     ![IntelliJ criar um projeto de depuração](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="IntelliJ criar um projeto de depuração" border="true":::
 
    c. Selecione **Avançar**.
 
 2. Na janela **Novo Projeto**, execute as seguintes etapas:
 
-   ![IntelliJ novo projeto selecione versão do Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="IntelliJ novo projeto selecione versão do Spark" border="true":::
 
    a. Insira um nome de projeto e o local do projeto.
 
@@ -64,25 +64,25 @@ Crie um aplicativo do Spark escala/Java e execute o aplicativo em um cluster Spa
 
 1. Clique em **Adicionar configuração** para abrir a janela **executar/depurar configurações** .
 
-   ![HDI IntelliJ adicionar configuração](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI IntelliJ adicionar configuração" border="true":::
 
 2. Na caixa de diálogo **Configurações de Execução/Depuração**, selecione o sinal de mais (**+**). Em seguida, selecione a opção **Apache Spark no HDInsight** .
 
-   ![IntelliJ Adicionar nova configuração](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="IntelliJ Adicionar nova configuração" border="true":::
 
 3. Alterne para **execução remota na guia cluster** . Insira informações para **nome**, **cluster do Spark** e **nome da classe principal**. Nossas ferramentas oferecem suporte à depuração com **Executores**. O **numExectors**, o valor padrão é 5, e você melhor não definiu mais que 3. Para reduzir o tempo de execução, você pode adicionar **Spark. yarn. maxAppAttempts** às **configurações de trabalho** e definir o valor como 1. Clique no botão **OK** para salvar a configuração.
 
-   ![IntelliJ executar configurações de depuração novas](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="IntelliJ executar configurações de depuração novas" border="true":::
 
 4. Agora, a configuração está salva com o nome fornecido. Para exibir os detalhes de configuração, selecione o nome da configuração. Para fazer alterações, selecione **Editar configurações**.
 
 5. Depois de concluir as configurações, você pode executar o projeto no cluster remoto.
 
-   ![Botão de execução remota do trabalho do Spark remoto do IntelliJ Debug](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="Botão de execução remota do trabalho do Spark remoto do IntelliJ Debug" border="true":::
 
 6. Você pode verificar a ID do aplicativo na janela saída.
 
-   ![Resultado da execução remota do trabalho do Spark remoto do IntelliJ de depuração](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="Resultado da execução remota do trabalho do Spark remoto do IntelliJ de depuração" border="true":::
 
 ## <a name="download-failed-job-profile"></a>Baixar perfil de trabalho com falha
 
@@ -90,9 +90,9 @@ Se o envio do trabalho falhar, você poderá baixar o perfil de trabalho com fal
 
 1. Abra **Gerenciador de armazenamento do Microsoft Azure**, localize a conta do HDInsight do cluster para o trabalho com falha, baixe os recursos de trabalho com falha do local correspondente: **\hdp\spark2-Events \\ . Spark \\ \<application ID> -falhas** em uma pasta local. A janela **atividades** mostrará o progresso do download.
 
-   ![Falha no download do Gerenciador de Armazenamento do Azure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png" alt-text="Falha no download do Gerenciador de Armazenamento do Azure" border="true":::
 
-   ![Êxito no download de Gerenciador de Armazenamento do Azure](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png" alt-text="Êxito no download de Gerenciador de Armazenamento do Azure" border="true":::
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurar o ambiente de depuração local e depurar em caso de falha
 
@@ -100,13 +100,13 @@ Se o envio do trabalho falhar, você poderá baixar o perfil de trabalho com fal
 
 1. Em IntelliJ IDEA, crie um arquivo de configuração de **depuração de falha do Spark** , selecione o arquivo FTD dos recursos de trabalho com falha baixados anteriormente para o campo local do contexto de falha do trabalho do **Spark** .
 
-   ![configuração de falha de criar](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png" alt-text="configuração de falha de criar" border="true":::
 
 1. Clique no botão Executar local na barra de ferramentas, o erro será exibido na janela Executar.
 
-   ![executar-falha-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png" alt-text="executar-falha-configuration1" border="true":::
 
-   ![executar-falha-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png" alt-text="executar-falha-configuration2" border="true":::
 
 1. Defina ponto de interrupção conforme o log indica, em seguida, clique no botão de depuração local para fazer a depuração local da mesma forma que seus projetos escalares/Java normais no IntelliJ.
 

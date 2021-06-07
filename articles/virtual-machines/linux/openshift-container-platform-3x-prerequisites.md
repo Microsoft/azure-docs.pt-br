@@ -3,18 +3,19 @@ title: Plataforma de contêiner OpenShift 3,11 em pré-requisitos do Azure
 description: Pré-requisitos para implantar a plataforma de contêiner OpenShift 3,11 no Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 645402d6c6b1fe744938ef5597098f46bc80c78e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734723"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101672365"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantar a plataforma de contêiner do OpenShift 3,11 no Azure
 
@@ -63,7 +64,7 @@ O exemplo abaixo cria um grupo de recursos denominado *keyvaultrg* no local *eas
 az group create --name keyvaultrg --location eastus
 ```
 
-## <a name="create-a-key-vault"></a>Criar um cofre de chave
+## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault). O nome do cofre de chaves deve ser globalmente exclusivo e deve ser habilitado para implantação de modelo, ou a implantação falhará com o erro "KeyVaultParameterReferenceSecretRetrieveFailed".
 
 O exemplo abaixo cria um keyvault denominado *keyvault* no grupo de recursos *keyvaultrg*:

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763278"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Associação de saída do serviço signalr para Azure Functions
@@ -734,7 +734,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction**| n/d | Deve ser definido como `in`.|
 |**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
-|**ID**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
+|**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR

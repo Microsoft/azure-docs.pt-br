@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94964976"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
@@ -41,7 +41,7 @@ O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervis
 
 Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 
-|  | Hyper-V | VMware |
+|  | Hyper-v | VMware |
 | --- | --- | --- |
 | **Tipo de máquina virtual** |**geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx* . <br></br> **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd* . |Utilize a máquina virtual versão 8 ao usar a imagem *.vmdk*. |
 | **Tipo de memória** |Configurar como **memória estática**. <br></br> Não use a opção **memória dinâmica** . | |

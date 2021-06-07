@@ -3,19 +3,20 @@ title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – 
 description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2 usando um exemplo do Linux.
 services: virtual-machines-linux
 author: laurenhughes
-ms.service: virtual-machines-linux
-ms-subservice: sizes
+ms.service: virtual-machines
+ms-subservice: vm-sizes-storage
+ms.collection: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99349654bb01f368a2a3a84c4ecc01f248b25175
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307094"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552755"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais do Linux da série Lsv2
 

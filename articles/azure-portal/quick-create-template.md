@@ -3,13 +3,13 @@ title: Criar um painel do portal do Azure usando um modelo do Azure Resource Man
 description: Saiba como criar um painel do portal do Azure usando um modelo do Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745716"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104658311"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Início Rápido: Criar um painel no portal do Azure usando um modelo do Resource Manager
 
@@ -30,9 +30,13 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 O painel que você criará na próxima parte deste guia de início rápido exige uma VM existente. Crie uma VM seguindo estas etapas.
 
-1. No portal do Azure, selecione Cloud Shell.
+1. No portal do Azure, selecione **Cloud Shell**.
 
     ![Selecionar o Cloud Shell na faixa de opções do portal do Azure](media/quick-create-template/cloud-shell.png)
+
+1. Na janela **Cloud Shell**, selecione a opção **PowerShell**.
+
+    ![Selecionar o PowerShell na janela do terminal](media/quick-create-template/powershell.png)
 
 1. Copie o comando a seguir e insira-o no prompt de comando para criar um grupo de recursos.
 
@@ -85,19 +89,7 @@ O portal do Azure foi usado para implantar o modelo. Além do portal do Azure, v
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 
-Verifique se o painel foi criado com êxito e se você pode ver os dados na VM.
-
-1. No portal do Azure, selecione **Painel**.
-
-    ![Navegação do portal do Azure até o painel](media/quick-create-template/navigate-to-dashboards.png)
-
-1. Na página do painel, selecione **Painel de VM Simples**.
-
-    ![Navegar até o Painel de VM Simples](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Examine o painel criado pelo modelo do Resource Manager. Você pode ver que parte do conteúdo é estático, mas também há gráficos que mostram o desempenho da VM que você criou no início.
-
-    ![Examinar o Painel de VM Simples](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

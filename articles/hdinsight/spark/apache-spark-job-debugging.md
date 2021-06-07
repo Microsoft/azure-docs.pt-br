@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: f332416a10aa86cb7e0bc7ba560537955d9f2faa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0dd250f0a8f67d7e370b8ff453e9cff4d88b7896
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930564"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866090"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
@@ -28,20 +28,20 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. Inicie a interface do usuário do YARN. Selecione **yarn** em **painéis de cluster**.
 
-    ![portal do Azure iniciar a interface do usuário do YARN](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/launch-apache-yarn-ui.png" alt-text="portal do Azure iniciar a interface do usuário do YARN" border="true":::
 
    > [!TIP]  
    > Alternativamente, também é possível iniciar a interface do usuário do YARN na interface do usuário do Ambari. Para iniciar a interface do usuário do amAmbari, selecione **Ambari página inicial** em **painéis do cluster**. Na interface do usuário do amAmbari, navegue até **yarn**  >  **links rápidos** > o Active Resource Manager > **interface do usuário do Resource Manager**.
 
 2. Como você iniciou o trabalho do Spark usando notebooks Jupyter, o aplicativo tem o nome **remotesparkmagics** (o nome de todos os aplicativos iniciados a partir dos notebooks). Selecione a ID do aplicativo em relação ao nome do aplicativo para obter mais informações sobre o trabalho. Essa ação inicia a exibição do aplicativo.
 
-    ![Servidor de histórico do Spark localizar ID do aplicativo Spark](./media/apache-spark-job-debugging/find-application-id1.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/find-application-id1.png" alt-text="Servidor de histórico do Spark localizar ID do aplicativo Spark" border="true":::
 
     Para esses aplicativos que são iniciados a partir dos Notebooks Jupyter, o status é sempre **em execução** até que você saia do notebook.
 
 3. Na exibição de aplicativo, você pode fazer drill down para descobrir os contêineres associados ao aplicativo e os logs (stdout/stderr). Você também pode iniciar a interface do usuário do Spark clicando no link correspondente para a **URL de Rastreamento**, conforme mostrado abaixo.
 
-    ![Servidor de histórico do Spark-baixar logs de contêiner](./media/apache-spark-job-debugging/download-container-logs.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/download-container-logs.png" alt-text="Servidor de histórico do Spark-baixar logs de contêiner" border="true":::
 
 ## <a name="track-an-application-in-the-spark-ui"></a>Rastrear um aplicativo na interface do usuário do Spark
 
@@ -49,29 +49,29 @@ Na interface do usuário do Spark, é possível fazer drill down em trabalhos do
 
 1. Para iniciar a interface do usuário do Spark, na exibição do aplicativo, selecione o link em relação à **URL de rastreamento**, conforme mostrado na captura de tela acima. Você pode ver todos os trabalhos do Spark que são iniciados pelo aplicativo em execução no Jupyter Notebook.
 
-    ![Guia trabalhos do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-apache-spark-jobs.png" alt-text="Guia trabalhos do servidor de histórico do Spark" border="true":::
 
 2. Selecione a guia **executores** para ver as informações de processamento e armazenamento de cada executor. Você também pode recuperar a pilha de chamadas selecionando o link de **despejo de thread** .
 
-    ![Guia executores do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-spark-executors.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-executors.png" alt-text="Guia executores do servidor de histórico do Spark" border="true":::
 
 3. Selecione a guia **estágios** para ver os estágios associados ao aplicativo.
 
-    ![Guia de estágios do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Exibir estágios do Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-apache-spark-stages.png " alt-text="Guia de estágios do servidor de histórico do Spark" border="true":::
 
     Cada estágio pode ter várias tarefas para as quais você pode exibir estatísticas de execução, como mostrado abaixo.
 
-    ![Detalhes da guia de estágios do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-spark-stages-details.png "Exibir detalhes de estágios do Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-details.png " alt-text="Detalhes da guia de estágios do servidor de histórico do Spark" border="true":::
 
 4. Na página de detalhes do estágio, você pode iniciar Visualização de DAG. Expanda o link **DAG Visualization** (Visualização de DAG) na parte superior da página, como mostrado abaixo.
 
-    ![Exibir a visualização de DAG dos estágios do Spark](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png" alt-text="Exibir a visualização de DAG dos estágios do Spark" border="true":::
 
     O DAG ou Grafo Acíclico Direto representa os diferentes estágios no aplicativo. Cada caixa azul no grafo representa uma operação do Spark iniciada do aplicativo.
 
 5. Na página de detalhes do estágio, você também pode iniciar o modo de exibição de linha do tempo do aplicativo. Expanda o link **Event Timeline** (Linha do Tempo do Evento) na parte superior da página, como mostrado abaixo.
 
-    ![Exibir linha do tempo de evento de estágios do Spark](./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png)
+    :::image type="content" source="./media/apache-spark-job-debugging/view-spark-stages-event-timeline.png" alt-text="Exibir linha do tempo de evento de estágios do Spark" border="true":::
 
     Essa imagem exibe os eventos do Spark na forma de uma linha do tempo. O modo de exibição de tempo está disponível em três níveis, entre trabalhos, dentro de um trabalho e dentro de um estágio. A imagem acima captura o modo de exibição de linha do tempo de um determinado estágio.
 
@@ -92,16 +92,16 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
 1. Para iniciar o servidor de histórico do Spark, na página **visão geral** , selecione **servidor de histórico do Spark** em **painéis do cluster**.
 
-    ![portal do Azure iniciar o servidor de histórico do Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png "Iniciar Server1 do histórico do Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/launch-spark-history-server.png " alt-text="portal do Azure iniciar o servidor de histórico do Spark" border="true":::
 
    > [!TIP]  
    > Alternativamente, também é possível iniciar a interface do usuário do Servidor de Histórico do Spark na interface do usuário do Ambari. Para iniciar a interface do usuário do amAmbari, na folha visão geral, selecione **Ambari página inicial** em **painéis do cluster**. Na interface do usuário do amAmbari, navegue até **Spark2**  >  **links rápidos**  >  **Spark2 UI do servidor de histórico**.
 
 2. Você verá todos os aplicativos concluídos listados. Selecione uma ID de aplicativo para fazer uma busca detalhada em um aplicativo para obter mais informações.
 
-    ![Aplicativos concluídos do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Iniciar Server2 do histórico do Spark")
+    :::image type="content" source="./media/apache-spark-job-debugging/view-completed-applications.png " alt-text="Aplicativos concluídos do servidor de histórico do Spark" border="true":::
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Depure as tarefas do Spark do Apache usando o Extended History Server estendido](apache-azure-spark-history-server.md)

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906022"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Solicitar dados de trânsito públicos usando os serviços de mobilidade do Azure Maps (versão prévia) 

@@ -4,10 +4,10 @@ description: Este artigo descreve diferentes maneiras de autenticar a entrega pa
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98633113"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega de eventos para manipuladores de eventos (grade de eventos do Azure)
@@ -16,7 +16,7 @@ Este artigo fornece informações sobre como autenticar a entrega de eventos par
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usar identidades atribuídas pelo sistema para entrega de eventos
 Você pode habilitar uma identidade gerenciada atribuída pelo sistema para um tópico ou domínio e usar a identidade para encaminhar eventos para destinos com suporte, como filas e tópicos do barramento de serviço, hubs de eventos e contas de armazenamento.
 
-Siga estas etapas: 
+Estas são as etapas: 
 
 1. Crie um tópico ou domínio com uma identidade atribuída pelo sistema ou atualize um tópico ou domínio existente para habilitar a identidade. 
 1. Adicione a identidade a uma função apropriada (por exemplo, remetente de dados do barramento de serviço) no destino (por exemplo, uma fila do barramento de serviço).

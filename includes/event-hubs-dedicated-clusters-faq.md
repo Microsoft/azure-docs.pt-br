@@ -9,10 +9,10 @@ ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516980"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>O que posso conseguir com um cluster?
@@ -35,7 +35,7 @@ No teste, usamos os critérios a seguir:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>Posso escalar/reduzir verticalmente o meu cluster?
 
-Após a criação, os clusters são cobrados por um mínimo de 4 horas de uso. Na versão de visualização da experiência de autoatendimento, você pode enviar uma [solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) à equipe de hubs de eventos sob solicitação de cota **técnica**  >  **Quota**  >  **para escalar ou reduzir verticalmente o cluster dedicado** para dimensionar ou reduzir verticalmente o cluster. Pode levar até 7 dias para concluir a solicitação para reduzir verticalmente o cluster. 
+Após a criação, os clusters são cobrados por um mínimo de 4 horas de uso. Na versão de visualização da experiência de autoatendimento, você pode enviar uma [solicitação de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) à equipe de hubs de eventos sob solicitação de cota **técnica**  >    >  **para escalar ou reduzir verticalmente o cluster dedicado** para dimensionar ou reduzir verticalmente o cluster. Pode levar até 7 dias para concluir a solicitação para reduzir verticalmente o cluster. 
 
 ### <a name="how-does-geo-dr-work-with-my-cluster"></a>Como o geo-DR funciona com o meu cluster?
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987391"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Diretrizes de privacidade para assistentes de voz no Windows
@@ -50,7 +50,7 @@ Se qualquer um dos anteriores for descoberto, a Microsoft poderá remover um ass
 
 Os autores do assistente que desejam tornar mais fácil e suave que os usuários aceitem a ativação de voz podem fazer isso atendendo aos requisitos adicionais para atender adequadamente à divulgação e ao consentimento sem uma viagem extra para a página de configurações. Depois de aprovado, a ativação de voz ficará disponível imediatamente quando um usuário conceder permissão de microfone ao aplicativo assistente. Para se qualificar para isso, um aplicativo assistente deve fazer o seguinte **antes** de solicitar o consentimento do microfone (por exemplo, usando a `AppCapability.RequestAccessAsync` API):
 
-1. Forneça uma indicação clara e proeminente ao usuário que o aplicativo gostaria de escutar na voz do usuário por uma palavra-chave, *mesmo quando o aplicativo não está em execução*e gostaria do consentimento do usuário
+1. Forneça uma indicação clara e proeminente ao usuário que o aplicativo gostaria de escutar na voz do usuário por uma palavra-chave, *mesmo quando o aplicativo não está em execução* e gostaria do consentimento do usuário
 1. Inclua informações relevantes sobre o uso de dados e políticas de privacidade, como um link para uma política de privacidade oficial
 1. Evite qualquer diretiva ou palavra à esquerda (por exemplo, "clique em Sim no seguinte prompt") no fluxo de experiência que divulga o comportamento de captura de áudio
 

@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3eb3b3b015f401e872a879c46ec6f8c69df5f87f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735836"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102455409"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -20,6 +20,9 @@ Como desenvolvedor de Python, você também pode estar interessado em um dos seg
 | Introdução | Conceitos| Cenários/exemplos |
 | -- | -- | -- | 
 | <ul><li>[Função do Python usando Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Função do Python com terminal/prompt de comando](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com o PyTorch](machine-learning-pytorch.md)</li><li>[Exemplo de automação do Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizado de máquina com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Procurar exemplos do Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> Embora você possa [desenvolver seu Azure Functions baseado em Python localmente no Windows, o](create-first-function-vs-code-python.md#run-the-function-locally)Python só tem suporte em um plano de hospedagem baseado em Linux quando executado no Azure. Consulte a lista de combinações de [sistema operacional/tempo de execução](functions-scale.md#operating-systemruntime) com suporte.
 
 ## <a name="programming-model"></a>Modelo de programação
 
@@ -48,7 +51,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Use as anotações do Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) para associar a entrada e as saídas a seus métodos.
+Use as anotações do Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions) para associar a entrada e as saídas a seus métodos.
 
 ## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
 
@@ -196,7 +199,7 @@ A saída pode ser expressa em parâmetros de saída e em valores retornados. Se 
 
 Para usar o valor retornado de uma função como o valor de uma associação de saída, a propriedade `name` da associação deve ser definida como `$return` em `function.json`.
 
-Para produzir várias saídas, use o método `set()` fornecido pela interface [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) a fim de atribuir um valor à associação. Por exemplo, a função a seguir pode enviar uma mensagem para uma fila e também retornar uma resposta HTTP.
+Para produzir várias saídas, use o método `set()` fornecido pela interface [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) a fim de atribuir um valor à associação. Por exemplo, a função a seguir pode enviar uma mensagem para uma fila e também retornar uma resposta HTTP.
 
 ```json
 {
@@ -303,7 +306,7 @@ Para obter as práticas recomendadas de dimensionamento e desempenho para aplica
 
 ## <a name="context"></a>Contexto
 
-Para obter o contexto de invocação de uma função durante a execução, inclua o argumento [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) em sua assinatura.
+Para obter o contexto de invocação de uma função durante a execução, inclua o argumento [`context`](/python/api/azure-functions/azure.functions.context) em sua assinatura.
 
 Por exemplo:
 
@@ -316,7 +319,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-a classe [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) tem os seguintes atributos de cadeia de caracteres:
+a classe [**Context**](/python/api/azure-functions/azure.functions.context) tem os seguintes atributos de cadeia de caracteres:
 
 `function_directory` O diretório no qual a função está em execução.
 
@@ -615,8 +618,8 @@ Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Dock
 
 |  runtime do Functions  | Versão do Debian | Versões do Python |
 |------------|------------|------------|
-| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 
@@ -637,7 +640,7 @@ Todos os problemas conhecidos e solicitações de recursos são controlados usan
 
 Para saber mais, consulte os recursos a seguir:
 
-* [Documentação da API do pacote do Azure Functions](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
+* [Documentação da API do pacote do Azure Functions](/python/api/azure-functions/azure.functions)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 * [Associações do armazenamento de blobs](functions-bindings-storage-blob.md)
@@ -648,5 +651,5 @@ Para saber mais, consulte os recursos a seguir:
 [Está com problemas? Fale conosco.](https://aka.ms/python-functions-ref-survey)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse

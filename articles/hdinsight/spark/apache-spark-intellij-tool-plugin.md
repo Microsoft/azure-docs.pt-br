@@ -4,13 +4,13 @@ description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolve
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/13/2020
-ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 04/14/2020
+ms.openlocfilehash: 29fb96dc83ada329910844506838dee461321343
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931043"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866328"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight
 
@@ -46,11 +46,11 @@ Etapas para instalar o plug-in escalar:
 
 2. Na tela de boas-vindas, navegue até **Configurar** > **Plug-ins** para abrir a janela **Plug-ins**.
 
-    ![IntelliJ IDEA habilita o plug-in escalar](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png" alt-text="IntelliJ IDEA habilita o plug-in escalar" border="true":::
 
 3. Selecione **Instalar** para o plug-in Scala caracterizado na nova janela.  
 
-    ![IntelliJ IDEA instala o plug-in escalar](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png" alt-text="IntelliJ IDEA instala o plug-in escalar" border="true":::
 
 4. Depois que o plug-in foi instalado com êxito, você deve reiniciar o IDE.
 
@@ -66,7 +66,7 @@ Etapas para instalar o plug-in escalar:
    * **Maven** para obter suporte ao assistente de criação de projetos Scala.
    * **SBT** para gerenciar as dependências e para criar no projeto Scala.
 
-     ![A caixa de diálogo Novo Projeto no IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png" alt-text="A caixa de diálogo Novo Projeto no IntelliJ IDEA" border="true":::
 
 5. Selecione **Avançar**.
 
@@ -79,7 +79,7 @@ Etapas para instalar o plug-in escalar:
     |SDK do projeto| Esse campo pode estar em branco no primeiro uso da ideia.  Selecione **Novo...** e navegue até o JDK.|
     |Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o **Spark 2.3.0 (Scala 2.11.8)** .|
 
-    ![Selecionar o SDK do Apache Spark](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-new-project.png" alt-text="Selecionar o SDK do Apache Spark" border="true":::
 
 7. Selecione **Concluir**.  Pode levar alguns minutos antes que o projeto fique disponível.
 
@@ -91,7 +91,7 @@ Etapas para instalar o plug-in escalar:
 
    c. Selecione **Cancelar**  depois de exibir o artefato.
 
-      ![Informações do artefato na caixa de diálogo](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
+      :::image type="content" source="./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png" alt-text="Informações do artefato na caixa de diálogo" border="true":::
 
 9. Adicione o código-fonte do aplicativo executando as seguintes etapas:
 
@@ -99,11 +99,11 @@ Etapas para instalar o plug-in escalar:
 
     b. Clique com o botão direito do mouse em **scala** e, em seguida, navegue até **Novo** > **classe Scala**.
 
-   ![Comandos para criar uma classe Scala do Projeto](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png" alt-text="Comandos para criar uma classe Scala do Projeto" border="true":::
 
    c. Na caixa de diálogo **Criar Nova Classe do Scala**, forneça um nome, selecione **Objeto** na lista suspensa **Tipo** e selecione **OK**.
 
-     ![Criar caixa de diálogo Nova Classe Scala](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png" alt-text="Criar caixa de diálogo Nova Classe Scala" border="true":::
 
    d. O arquivo **myApp.scala** então se abre na exibição principal. Substitua o código padrão pelo código localizado abaixo:  
 
@@ -137,39 +137,39 @@ O usuário pode [entrar na assinatura do Azure](#sign-in-to-your-azure-subscript
 
 1. Na barra de menus, navegue até **Exibição** > **Janelas de Ferramentas** > **Azure Explorer**.
 
-   ![IntelliJ IDEA mostra o Azure Explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png" alt-text="IntelliJ IDEA mostra o Azure Explorer" border="true":::
 
 2. No Azure Explorer, clique com o botão direito do mouse no nó **Azure** e, em seguida, selecione **Entrar**.
 
-   ![IntelliJ IDEA explorer clique com o botão direito do mouse no Azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png" alt-text="IntelliJ IDEA Explorer clique com o botão direito do mouse em Azure" border="true":::
 
 3. Na caixa de diálogo **Entrar no Azure**, escolha **Logon do Dispositivo** e selecione **Entrar**.
 
-    ![' IntelliJ ideia Azure login Device login](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png" alt-text="' IntelliJ ideia Azure login Device login" border="true":::
 
 4. Na caixa de diálogo **Logon no Dispositivo do Azure**, clique em **Copiar e Abrir**.
 
-   ![' IntelliJ ideia Azure Device login](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png" alt-text="' IntelliJ ideia Azure Device login" border="true":::
 
 5. Na interface do navegador, cole o código e clique em **Avançar**.
 
-   ![' Caixa de diálogo Inserir código da Microsoft para HDI '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png" alt-text="' Caixa de diálogo Inserir código da Microsoft para HDI '" border="true":::
 
 6. Insira suas credenciais do Azure e feche o navegador.
 
-   ![' Caixa de diálogo Inserir email da Microsoft para HDI '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png" alt-text="' Caixa de diálogo Inserir email da Microsoft para HDI '" border="true":::
 
 7. Depois que você estiver conectado, a caixa de diálogo **Selecionar Assinaturas** listará todas as assinaturas do Azure associadas às credenciais. Selecione sua assinatura e, em seguida, selecione o botão **Selecionar**.
 
-    ![A caixa de diálogo Selecionar Assinaturas](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png" alt-text="A caixa de diálogo Selecionar Assinaturas" border="true":::
 
 8. No **Azure Explorer**, expanda **HDInsight** para exibir os clusters Spark do HDInsight em suas assinaturas.
 
-    ![IntelliJ IDEA exibição principal do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png" alt-text="IntelliJ IDEA exibição principal do Azure Explorer" border="true":::
 
 9. Para exibir os recursos (por exemplo, contas de armazenamento) associados ao cluster, você poderá expandir ainda mais um nó de nome de cluster.
 
-    ![Contas de armazenamento do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png" alt-text="Contas de armazenamento do Azure Explorer" border="true":::
 
 ### <a name="link-a-cluster"></a>Vincular um cluster
 
@@ -179,7 +179,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
 
 1. No Azure Explorer, clique com o botão direito do mouse em **HDInsight** nó e selecione **Vincular um Cluster**.
 
-   ![Menu de contexto do cluster do link do Azure Explorer](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png" alt-text="Menu de contexto do cluster do link do Azure Explorer" border="true":::
 
 1. As opções disponíveis na janela **Vincular um Cluster** vão variar conforme o valor selecionado na lista suspensa **Tipo de Recurso de Link**.  Insira seus valores e, em seguida, selecione **OK**.
 
@@ -193,7 +193,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
         |Nome do Usuário| Insira o nome de usuário do cluster, o padrão é admin.|
         |Senha| Insira a senha do nome de usuário.|
 
-        ![Caixa de diálogo vincular um cluster do IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png" alt-text="Caixa de diálogo vincular um cluster do IntelliJ IDEA" border="true":::
 
     * **Serviço Livy**  
   
@@ -207,15 +207,15 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
         |Nome do Usuário| Insira o nome de usuário do cluster, o padrão é admin.|
         |Senha| Insira a senha do nome de usuário.|
 
-        ![Caixa de diálogo vincular cluster do Livy do IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png" alt-text="Caixa de diálogo vincular cluster do Livy do IntelliJ IDEA" border="true":::
 
 1. Você pode ver seu cluster vinculado do nó do **HDInsight**.
 
-   ![Azure Explorer cluster vinculado1](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png" alt-text="Azure Explorer cluster vinculado1" border="true":::
 
 1. Também é possível desvincular um cluster a partir do **Azure Explorer**.
 
-   ![Azure Explorer cluster não vinculado](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png" alt-text="Azure Explorer cluster não vinculado" border="true":::
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Executar um aplicativo Scala Spark em um cluster HDInsight Spark
 
@@ -223,7 +223,7 @@ Depois de criar um aplicativo Scala, você poderá enviá-lo ao cluster.
 
 1. De Projeto, navegue até **myApp** > **src** > **main** > **scala** > **myApp**.  Clique com o botão direito do mouse em **myApp** e selecione **Enviar Aplicativo Spark** (provavelmente estará localizado na parte inferior da lista).
 
-      ![O comando Enviar Aplicativo Spark para HDInsight](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
+      :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png" alt-text="O comando Enviar Aplicativo Spark para HDInsight" border="true":::
 
 2. Na janela da caixa de diálogo **Enviar aplicativo Spark** , selecione **1. Spark no HDInsight**.
 
@@ -243,11 +243,11 @@ Depois de criar um aplicativo Scala, você poderá enviá-lo ao cluster.
     |Chave de Armazenamento|Insira sua chave de armazenamento.|
     |Contêiner de armazenamento|Selecione seu contêiner de armazenamento na lista suspensa depois que **Conta de Armazenamento** e **Chave de Armazenamento** tiverem sido inseridas.|
 
-    ![A caixa de diálogo Envio do Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="A caixa de diálogo Envio do Spark" border="true":::
 
 4. Selecione **SparkJobRun** para enviar seu projeto para o cluster selecionado. A guia **Trabalho do Spark Remoto no Cluster** exibe o andamento da execução do trabalho na parte inferior. Você pode parar o aplicativo clicando no botão vermelho.
 
-    ![A janela Envio do Apache Spark](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png" alt-text="A janela Envio do Apache Spark" border="true":::
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depurar aplicativos do Apache Spark local ou remotamente em um cluster do HDInsight
 
@@ -261,19 +261,19 @@ Você pode realizar várias operações usando Azure Toolkit for IntelliJ.  A ma
 
 1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  .
 
-    ![IntelliJ nó de exibição de trabalho do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png" alt-text="IntelliJ nó de exibição de trabalho do Azure Explorer" border="true":::
 
 2. No painel direito, a guia **Exibição de Trabalho do Spark** exibe todos os aplicativos que foram executados no cluster. Selecione o nome do aplicativo do qual você deseja ver mais detalhes.
 
-    ![Spark detalhes do aplicativo de exibição de trabalho](./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png" alt-text="Spark detalhes do aplicativo de exibição de trabalho" border="true":::
 
 3. Para exibir informações básicas do trabalho em execução, passe o mouse sobre o grafo de trabalhos. Para exibir o grafo de estágios e as informações geradas pelos trabalhos, escolha um nó no grafo de trabalhos.
 
-    ![Detalhes de preparação de trabalhos da exibição de trabalho do Spark](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png" alt-text="Detalhes de preparação de trabalhos da exibição de trabalho do Spark" border="true":::
 
 4. Para exibir logs usados frequentemente, como *Stderr do Driver*, *Stdout do Driver* e *Informações do diretório*, escolha a guia **Log**.
 
-    ![Spark detalhes do Log de Exibição de Trabalho](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png" alt-text="Spark detalhes do Log de Exibição de Trabalho" border="true":::
 
 5. Você pode exibir a interface do usuário do histórico do Spark e a interface do usuário do YARN (no nível do aplicativo). Selecione um link na parte superior da janela.
 
@@ -320,7 +320,7 @@ Verifique se você satisfez o pré-requisito do WINUTILS.EXE.
     |Variáveis de ambiente|Verifique se o valor de HADOOP_HOME está correto.|
     |Localização de WINUTILS.exe|Verifique se o caminho está correto.|
 
-    ![Configuração do conjunto de console local](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/console-set-configuration.png" alt-text="Configuração do conjunto de console local" border="true":::
 
 5. De Projeto, navegue até **myApp** > **src** > **main** > **scala** > **myApp**.  
 
@@ -328,13 +328,13 @@ Verifique se você satisfez o pré-requisito do WINUTILS.EXE.
 
 7. Em seguida, duas caixas de diálogo poderão ser exibidas para perguntar se você deseja corrigir automaticamente as dependências. Em caso afirmativo, selecione **Autocorreção**.
 
-    ![IntelliJ IDEA Spark caixa de diálogo correção automática1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png" alt-text="IntelliJ IDEA Spark caixa de diálogo correção automática1" border="true":::
 
-    ![IntelliJ IDEA Spark caixa de diálogo correção automática2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png" alt-text="IntelliJ IDEA Spark caixa de diálogo correção automática2" border="true":::
 
 8. O console deve ser semelhante à imagem abaixo. Na janela do console, digite `sc.appName` e pressione ENTER.  O resultado será exibido. Você pode encerrar o console local clicando em um botão vermelho.
 
-    ![IntelliJ IDEA resultado do console local](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/local-console-result.png" alt-text="IntelliJ IDEA resultado do console local" border="true":::
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Console de Sessão Interativa do Spark Livy (Scala)
 
@@ -351,7 +351,7 @@ Verifique se você satisfez o pré-requisito do WINUTILS.EXE.
     |Clusters do Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticência ( **...** ) e escolhendo outra classe.|
 
-    ![Configuração do conjunto de console interativo](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png" alt-text="Configuração do conjunto de console interativo" border="true":::
 
 5. De Projeto, navegue até **myApp** > **src** > **main** > **scala** > **myApp**.  
 
@@ -359,13 +359,13 @@ Verifique se você satisfez o pré-requisito do WINUTILS.EXE.
 
 7. O console deve ser semelhante à imagem abaixo. Na janela do console, digite `sc.appName` e pressione ENTER.  O resultado será exibido. Você pode encerrar o console local clicando em um botão vermelho.
 
-    ![IntelliJ IDEA resultado do Console Interativo](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/interactive-console-result.png" alt-text="IntelliJ IDEA resultado do Console Interativo" border="true":::
 
 ### <a name="send-selection-to-spark-console"></a>Enviar seleção para o Console do Spark
 
 É conveniente para você prever o resultado do script enviando algum código para o console local ou Console (Scala) de sessão interativa Livy. Você pode realçar código no arquivo do Scala e, em seguida, clicar com o botão direito do mouse em **Enviar Seleção ao Console do Spark**. O código selecionado será enviado para o console. O resultado será exibido após o código no console. O console verificará erros, se houver.  
 
-   ![Enviar seleção para o Console do Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png" alt-text="Enviar seleção para o console do Spark" border="true":::
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integrar com o (HIB) Agente de Identidade do HDInsight
 
@@ -379,7 +379,7 @@ Você pode seguir as etapas normais para enviar o trabalho ao cluster do HDInsig
 
 Nós carregamos os arquivos necessários em uma pasta chamada com sua conta de entrada e você pode ver o caminho de upload no arquivo de configuração.
 
-   ![fazer upload do caminho na configuração](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png" alt-text="fazer upload do caminho na configuração" border="true":::
 
 ### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Console do Spark em um cluster do HDInsight com o agente de ID (HIB)
 
@@ -398,16 +398,16 @@ Quando os usuários enviam um trabalho a um cluster com permissão de função s
 
 2. No **Azure Explorer**, expanda **HDInsight** para exibir os clusters do HDInsight em sua assinatura. Os clusters marcados **"Role:Reader"** só tem permissão para a função somente leitura.
 
-    ![' IntelliJ função do Azure Explorer: leitor '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png" alt-text="' IntelliJ função do Azure Explorer: leitor '" border="true":::
 
 3. Clique com botão direito do mouse no cluster com permissão para a função somente leitura. Selecione **Vincular este cluster** no menu de contexto para vincular o cluster. Insira o nome de usuário e a senha do Ambari.
 
-    ![IntelliJ Azure Explorer vincular este cluster](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png" alt-text="IntelliJ Azure Explorer vincular este cluster" border="true":::
 
 4. Se o cluster for vinculado com êxito, o HDInsight será atualizado.
    O estágio do cluster será se tornará vinculado.
   
-    ![IntelliJ Azure Explorer caixa de diálogo vinculada](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png" alt-text="IntelliJ Azure Explorer caixa de diálogo vinculada" border="true":::
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>Vincular cluster expandindo o nó Trabalhos
 
@@ -415,7 +415,7 @@ Quando os usuários enviam um trabalho a um cluster com permissão de função s
 
 2. Clique em **Vincular este cluster** para vincular o cluster.
 
-    ![caixa de diálogo acesso negado ao trabalho do cluster](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png" alt-text="caixa de diálogo acesso negado ao trabalho do cluster" border="true":::
 
 ### <a name="link-cluster-from-rundebug-configurations-window"></a>Vincular cluster da janela Configurações de execução/depuração
 
@@ -423,21 +423,21 @@ Quando os usuários enviam um trabalho a um cluster com permissão de função s
 
 2. Selecione um cluster, que tenha a permissão de função somente leitura, para **Clusters do Spark (somente Linux)**. Mensagem de aviso mostrada. Você pode clicar em **vincular este cluster** para vincular o cluster.
 
-   ![IntelliJ IDEA executar/depurar criação de configuração](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/create-configuration.png" alt-text="IntelliJ IDEA executar/depurar criação de configuração" border="true":::
 
 ### <a name="view-storage-accounts"></a>Exibir Contas de Armazenamento
 
 * Para clusters com permissão de função somente leitura, clique no nó **Contas de Armazenamento**, a janela **Acesso Negado ao Armazenamento** aparece. Você pode clicar em **Abrir Gerenciador de Armazenamento do Azure** para abrir o Gerenciador de Armazenamento.
 
-   ![' IntelliJ ideia acesso ao armazenamento negado '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png" alt-text="' IntelliJ ideia acesso ao armazenamento negado '" border="true":::
 
-   ![IntelliJ IDEA botão Acesso de Armazenamento Negado](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png" alt-text="IntelliJ IDEA botão Acesso de Armazenamento Negado" border="true":::
 
 * Para clusters vinculados, clique no nó **Contas de Armazenamento**, a janela **Acesso Negado ao Armazenamento** aparece. Você pode clicar em **Abrir Armazenamento do Azure** para abrir o Gerenciador de Armazenamento.
 
-   ![' IntelliJ IDEA Storage Access Denied2 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png" alt-text="' IntelliJ IDEA Storage Access Denied2 '" border="true":::
 
-   ![IntelliJ IDEA botão Acesso de Armazenamento Negado2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png" alt-text="IntelliJ IDEA botão Acesso de Armazenamento Negado2" border="true":::
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Converter aplicativos IntelliJ IDEA existentes a fim de usar o Kit de Ferramentas do Azure para IntelliJ
 
@@ -473,7 +473,7 @@ Se não for continuar a usar este aplicativo, exclua o cluster que criou seguind
 
 1. Selecione **Excluir**. Selecione **Sim** na barra superior.
 
-![portal do Azure exclui o cluster HDInsight](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png " alt-text="portal do Azure exclui o cluster HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

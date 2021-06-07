@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
-ms.openlocfilehash: 5abece0e272d4b72ba6f787ad44b091df5d45226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f63d7aed75b14f5f008a639d667d8806b233b9fa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416926"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102174591"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Dar suporte à autenticação sem senha com chaves FIDO2 em aplicativos que você desenvolve
 
@@ -42,17 +42,17 @@ O método de entrada que foi usado mais recentemente por um usuário será apres
 
 ## <a name="platform-specific-best-practices"></a>Práticas recomendadas específicas da plataforma
 
-### <a name="desktop"></a>Desktop
+### <a name="desktop"></a>Área de trabalho
 
 As opções recomendadas para implementar a autenticação são, em ordem:
 
 - Os aplicativos de área de trabalho .NET que estão usando a MSAL (biblioteca de autenticação da Microsoft) devem usar o Gerenciador de autenticação do Windows (WAM). Essa integração e seus benefícios estão [documentados no GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) para dar suporte a FIDO2 em um navegador inserido.
+- Use [WebView2](/microsoft-edge/webview2/) para dar suporte a FIDO2 em um navegador inserido.
 - Use o navegador do sistema. As bibliotecas de MSAL para plataformas de desktop usam esse método por padrão. Você pode consultar nossa página sobre a compatibilidade do navegador FIDO2 para garantir que o navegador que você usa dê suporte à autenticação do FIDO2.
 
 ### <a name="mobile"></a>Dispositivos móveis
 
-A partir de fevereiro de 2020, o FIDO2 não tem suporte atualmente para aplicativos iOS ou Android nativos, mas está em desenvolvimento.
+A partir de fevereiro de 2021, o FIDO2 não tem suporte atualmente para aplicativos iOS ou Android nativos, mas está em desenvolvimento.
 
 Para preparar aplicativos para sua disponibilidade e, como prática recomendada geral, os aplicativos iOS e Android devem usar o MSAL com sua configuração padrão de usar o navegador da Web do sistema.
 

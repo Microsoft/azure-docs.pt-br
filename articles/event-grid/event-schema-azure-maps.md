@@ -4,10 +4,10 @@ description: Descreve as propriedades e o esquema fornecidos para eventos do Azu
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 88cf0c8274d685a45862bc7b7884b5e4a686c22d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363671"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>O Azure mapeia como uma fonte de grade de eventos
@@ -168,7 +168,7 @@ O exemplo a seguir mostra o esquema para **GeofenceResult**
 # <a name="event-grid-event-schema"></a>[Esquema de eventos da Grade de Eventos](#tab/event-grid-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `topic` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -182,7 +182,7 @@ Um evento tem os seguintes dados de nível superior:
 # <a name="cloud-event-schema"></a>[Esquema de evento de nuvem](#tab/cloud-event-schema)
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `source` | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor. |
 | `subject` | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -196,7 +196,7 @@ Um evento tem os seguintes dados de nível superior:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `apiCategory` | string | Categoria da API do evento. |
 | `apiName` | string | Nome da API do evento. |
@@ -206,13 +206,13 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de erro é retornado quando ocorre um erro na API de Mapas. O objeto de erro tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `error` | ErrorDetails |Esse objeto é retornado quando ocorre um erro na API de Mapas  |
 
 O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O ErrorDetails ou objeto tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `code` | string | O código de status HTTP. |
 | `message` | string | Se disponível, uma descrição do erro em formato legível por humanos. |
@@ -220,13 +220,13 @@ O objeto ErrorDetails é retornado quando ocorre um erro na API de Mapas. O Erro
 
 O InnerError é um objeto que contém informações específicas do serviço sobre o erro. O objeto InnerError tem as seguintes propriedades: 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `code` | string | A mensagem de erro. |
 
 O objeto de geometrias lista as IDs de geometria das cercas geográficas que expiraram em relação ao tempo do usuário na solicitação. O objeto de geometrias contém itens de geometria com as seguintes propriedades: 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |:-------- |:---- |:----------- |
 | `deviceid` | string | ID do dispositivo. |
 | `distance` | string | <p>Distância da coordenada até a borda mais próxima da cerca geográfica. Positivo significa que a coordenada está fora da cerca geográfica. Se a coordenada estiver fora da cerca geográfica, mas for maior que o valor de searchBuffer distante da borda da cerca geográfica mais próxima, o valor será 999. Negativo significa que a coordenada está dentro da cerca geográfica. Se a coordenada estiver dentro do polígono, mas for maior que o valor de searchBuffer distante da borda de delimitação geográfica mais próxima, o valor será -999. Um valor de 999 significa que há grande confiança de que a coordenada esteja bem fora da cerca geográfica. Um valor de -999 significa que há uma grande confiança de que a coordenada esteja bem dentro da cerca geográfica.<p> |
@@ -237,12 +237,12 @@ O objeto de geometrias lista as IDs de geometria das cercas geográficas que exp
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | `expiredGeofenceGeometryId` | string[] | Listas da ID de geometria da cerca geográfica que é expirada em relação ao tempo do usuário na solicitação. |
 | `geometries` | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 | `invalidPeriodGeofenceGeometryId` | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
-| `isEventPublished` | booleano | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
+| `isEventPublished` | boolean | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Título  |Descrição  |

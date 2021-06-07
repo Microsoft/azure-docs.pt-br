@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 robots: noindex
 ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379362"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para o Azure Cosmos DB usando o Azure Data Factory
@@ -116,17 +116,17 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 
 No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollectionSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| **Propriedade** | **Descrição** | **Valores permitidos** | **Necessária** |
+| **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
 | Consulta |Especifique a consulta para ler dados. |Cadeia de consulta com suporte no Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificada, a instrução SQL executada será: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractere especial para indicar que o documento está aninhado |Qualquer caractere. <br/><br/>O Azure Cosmos DB é um repositório NoSQL para documentos JSON, em que estruturas aninhadas são permitidas. Azure Data Factory permite que o usuário denotasse hierarquia via nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia gerará o objeto "nome" com três elementos filhos primeiro, meio e último, de acordo com "nome. primeiro", "nome. meio" e "nome. último" na definição da tabela. |Não |
 
 **DocumentDbCollectionSink** dá suporte às seguintes propriedades:
 
-| **Propriedade** | **Descrição** | **Valores permitidos** | **Necessária** |
+| **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
 | nestingSeparator |Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>No exemplo acima: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento do Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Caractere que é usado para separar os níveis de aninhamento.<br/><br/>O valor padrão é `.` (ponto). |Caractere que é usado para separar os níveis de aninhamento. <br/><br/>O valor padrão é `.` (ponto). |
-| writeBatchSize |Número de solicitações paralelas ao serviço Azure Cosmos DB para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para o Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar writeBatchSize, pois mais solicitações paralelas para o Cosmos DB são enviadas. No entanto, você precisará evitar a limitação que pode gerar a mensagem de erro: "a taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter a maior taxa de transferência disponível (2.500 unidades de solicitação/segundo). |Integer |Não (padrão: 5) |
+| writeBatchSize |Número de solicitações paralelas ao serviço Azure Cosmos DB para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para o Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar writeBatchSize, pois mais solicitações paralelas para o Cosmos DB são enviadas. No entanto, você precisará evitar a limitação que pode gerar a mensagem de erro: "a taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter a maior taxa de transferência disponível (2.500 unidades de solicitação/segundo). |Inteiro |Não (padrão: 5) |
 | writeBatchTimeout |Tempo de espera para a operação ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 ## <a name="importexport-json-documents"></a>Importar/Exportar documentos JSON

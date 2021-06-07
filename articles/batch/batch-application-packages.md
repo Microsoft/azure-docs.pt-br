@@ -2,17 +2,17 @@
 title: Implantar pacotes de aplicativos em nós de computação
 description: Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033724"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045783"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -59,6 +59,9 @@ Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa esp
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
 
 Você pode usar o [portal do Azure](https://portal.azure.com) ou as APIs de Gerenciamento do Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. As seções a seguir explicam como vincular uma conta de armazenamento e como adicionar e gerenciar aplicativos e pacotes de aplicativos no portal do Azure.
+
+> [!NOTE]
+> Embora você possa definir valores de aplicativo no recurso [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) de um [modelo do ARM](quick-create-template.md), atualmente não é possível usar um modelo ARM para carregar pacotes de aplicativos para usar em sua conta do lote. Você deve carregá-los em sua conta de armazenamento vinculada, conforme descrito [abaixo](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
 

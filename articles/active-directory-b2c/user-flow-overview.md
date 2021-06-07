@@ -13,19 +13,19 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06253b571fd71623501c27fd5b0d9d4013727fc2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94840180"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos dos usuários no Azure Active Directory B2C
 
-Para ajudá-lo a configurar as tarefas de identidade mais comuns para seus aplicativos, o portal de Azure AD B2C inclui políticas configuráveis, predefinidas, chamadas de **fluxos de usuário**. Um fluxo de usuário permite que você determine como os usuários interagem com seu aplicativo quando fazem coisas como entrar, inscrever-se, editar um perfil ou redefinir uma senha. Com os fluxos de usuário, você pode controlar os seguintes recursos:
+Para ajudá-lo a configurar as tarefas de identidade mais comuns para seus aplicativos, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**. Um fluxo de usuário permite que você determine como os usuários interagem com seu aplicativo quando fazem coisas como entrar, inscrever-se, editar um perfil ou redefinir uma senha. Com os fluxos de usuário, você pode controlar os seguintes recursos:
 
 - Tipos de conta usados para entrar, por exemplo, contas sociais como as do Facebook ou locais
 - Atributos a serem coletados do consumidor, tais como nome, código postal e tamanho do calçado
-- Autenticação multifator do Azure AD
+- Autenticação Multifator do Azure AD
 - Personalização da interface do usuário
 - Informações de que o aplicativo recebe como declarações em um token
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99820189"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery

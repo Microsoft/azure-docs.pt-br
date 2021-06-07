@@ -9,10 +9,10 @@ ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: f634ceb60ae78d4d825c73bd2e98da2fb951b374
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706174"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Examinando o Status do trabalho de Importação/Exportação do Azure com cópias de arquivos de log

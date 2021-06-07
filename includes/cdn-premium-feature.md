@@ -9,10 +9,10 @@ ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: include file
 ms.openlocfilehash: 5c6f79cb7ad0a31eb3461d6d8e54307537f0491e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95978022"
 ---
 > [!IMPORTANT]

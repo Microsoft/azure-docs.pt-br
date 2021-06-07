@@ -1,17 +1,23 @@
 ---
-title: 'Início Rápido: Criar um aplicativo Spring Boot no Azure Service Fabric'
+title: 'Guia de início rápido: criar um aplicativo do Spring Boot no Azure Service Fabric'
 description: Neste guia de início rápido, você implanta um aplicativo Spring Boot para o Azure Service Fabric usando um aplicativo Spring Boot de exemplo.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: ad01697349eab20aa55fc6f6b59bc0d317c5a7e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91529993"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530852"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Início Rápido: Implantar um aplicativo Spring Boot Java no Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guia de início rápido: implantar um aplicativo Java do Spring Boot no Azure Service Fabric
 
 Neste início rápido, você implantará um aplicativo Java Spring Boot no Azure Service Fabric usando ferramentas de linha de comando conhecidas no Linux ou no macOS. O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços. 
 
@@ -150,7 +156,7 @@ O Service Fabric Explorer é executado em todos os clusters do Service Fabric e 
 Para dimensionar o serviço de front-end da Web, faça o seguinte:
 
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://localhost:19080`.
-1. Selecione as reticências ( **...** ) ao lado do nó **fabric:/SpringServiceFabric/SpringGettingStarted** no modo de exibição de árvore e selecione **Dimensionar Serviço**.
+1. Selecione as reticências (**...**) ao lado do nó **fabric:/SpringServiceFabric/SpringGettingStarted** no modo de exibição de árvore e selecione **Dimensionar Serviço**.
 
     ![Amostra do serviço de escala do Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
@@ -181,7 +187,7 @@ Com essa tarefa de gerenciamento simples, você dobrou o número de recursos dis
 Para demonstrar o failover do serviço, é possível simular uma reinicialização do nó usando o Service Fabric Explorer. Verifique se apenas uma instância do seu serviço está em execução.
 
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://localhost:19080`.
-1. Clique nas reticências ( **...** ) ao lado do nó que está executando a instância do serviço e reinicie o nó.
+1. Clique nas reticências (**...**) ao lado do nó que está executando a instância do serviço e reinicie o nó.
 
     ![Reiniciar o nó no Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. Agora a instância do serviço é movida para um nó diferente, e seu aplicativo não passa por nenhum tempo de inatividade.

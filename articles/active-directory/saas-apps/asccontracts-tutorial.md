@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: d1f45244d09ce55b61b04d88ce2eb4a16289b1ab
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integração do Azure Active Directory ao ASC Contracts
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o ASC Contracts, realize as segui
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a equipe da ASC Networks Inc. (ASC) pelo telefone **+1-613-599-6178** para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a equipe ASC Networks Inc. (ASC) **613.599.6178** para obter esses valores.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -179,7 +179,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-asc-contracts-test-user"></a>Criar um usuário de teste do ASC Contracts
 
-Fale com a equipe de suporte da ASC Networks Inc. pelo telefone **+1-613-599-6178** para adicionar os usuários à plataforma da ASC Contracts.
+Trabalhe com a equipe de suporte da ASC Networks Inc. (ASC) em **613.599.6178** para obter os usuários adicionados na plataforma ASC Contracts.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -193,4 +193,4 @@ Ao clicar no bloco do ASC Contracts no Painel de Acesso, você deverá ser conec
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

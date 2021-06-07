@@ -4,10 +4,10 @@ description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94565884"
 ---
 # <a name="back-up-azure-file-shares-with-azure-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
@@ -22,7 +22,7 @@ Ao final deste tutorial, você aprenderá a executar as operações abaixo com C
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer a versão 2.0.18 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+ - Este tutorial exige a versão 2.0.18 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 

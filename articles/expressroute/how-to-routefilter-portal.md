@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92109129"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutorial: Configurar filtros de rota para o emparelhamento da Microsoft usando o portal do Azure
@@ -79,27 +79,27 @@ Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Es
 
 1. Coloque o filtro de rota em um grupo de recursos. Verifique se a localização é a mesma que o circuito do ExpressRoute. Selecione **Examinar + criar** e depois **Criar**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Captura de tela que mostra a página Criar filtro de rota com valores de exemplo inseridos":::
 
 ### <a name="create-a-filter-rule"></a>Criar uma regra de filtro
 
 1. Para adicionar e atualizar regras, selecione a guia gerenciar regra para o filtro de rota.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Captura de tela que mostra a página Visão geral com a ação Gerenciar regra realçada":::
 
 1. Selecione os serviços aos quais deseja se conectar na lista suspensa e salve a regra quando terminar.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a janela Gerenciar regra com os serviços selecionados na lista suspensa Comunidades de serviço permitidas":::
 
 ## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Anexar o filtro de rota a um circuito de ExpressRoute
 
 Anexe o filtro de rota a um circuito selecionando o botão **+ Adicionar Circuito** e selecionando o circuito do ExpressRoute na lista suspensa.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Captura de tela que mostra a página Visão geral com a ação Adicionar circuito selecionada":::
 
 Se o provedor de conectividade configura o emparelhamento do seu circuito do ExpressRoute, atualize o circuito da página do circuito do ExpressRoute antes de selecionar o botão **+ Adicionar Circuito**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Captura de tela que mostra a página Visão geral com a ação Atualizar selecionada.":::
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Tarefas comuns
 
@@ -107,30 +107,30 @@ Se o provedor de conectividade configura o emparelhamento do seu circuito do Exp
 
 Você pode exibir as propriedades de um filtro de rota quando abre o recurso no portal.
 
-:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Captura de tela mostrando a página Visão geral":::
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
 
 1. Você pode atualizar a lista de valores de comunidade BGP anexada a um circuito selecionando o botão **Gerenciar regra**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Atualizar Filtros de rota com a ação Gerenciar regra":::
 
 1. Selecione as comunidades de serviço que você deseja e, em seguida, selecione **Salvar**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Captura de tela que mostra a janela Gerenciar regra com os serviços selecionados":::
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Para desanexar um filtro de rota de um circuito de ExpressRoute
 
 Para desanexar um circuito do filtro de rota, clique com o botão direito do mouse no circuito e selecione **Desassociar**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Captura de tela que mostra a página Visão geral com a ação Desassociar realçada":::
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode excluir um filtro de rota selecionando o botão **Excluir**. Verifique se o Filtro de rota não está associado a nenhum circuito antes de fazer isso.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Captura de tela que mostra a página Filtro de rota":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Excluir um filtro de rota":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,10 +4,10 @@ description: Use o Backup do Azure para fazer backup e recuperar aplicativos e a
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89180976"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
@@ -77,7 +77,7 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
 10. Em **Especificar agendamento de backup online**, selecione quando os backups incrementais para o Azure devem ocorrer.
 
-    Você pode agendar para que os backups sejam executados a cada dia/semana/mês/ano e a data/hora em que eles deverão acontecer. Os backups poderão ocorrer até duas vezes por dia. Cada vez que um trabalho de backup é executado, um ponto de recuperação de dados é criado no Azure da cópia dos dados de backup armazenados no disco do Servidor de Backup do Azure.
+    Você pode agendar backups para executar a cada dia/semana/mês/ano e também a data/hora em que eles devem ser executados. Os backups poderão ocorrer até duas vezes por dia. Cada vez que um trabalho de backup é executado, um ponto de recuperação de dados é criado no Azure da cópia dos dados de backup armazenados no disco do Servidor de Backup do Azure.
 
 11. Em **Especificar política de retenção online**, especifique como os pontos de recuperação criados dos backups diários, semanais, mensais e anuais são mantidos no Azure.
 
@@ -107,7 +107,7 @@ Use o console do Servidor de Backup do Azure para recuperar dados para sua máqu
     * Para **Comportamento de recuperação da versão existente**, selecione **Criar cópia**, **Ignorar** ou **Substituir**. Substituir está disponível somente ao recuperar para o local original.
     * Para **Restaurar segurança**, escolha **Aplicar as configurações do computador de destino** ou **Aplicar as configurações de segurança da versão do ponto de recuperação**.
     * Para **limitação do uso de largura de banda**, selecione **Modificar** para habilitar a limitação do uso de largura de banda da rede.
-    * **Notificação** do Selecione **enviar um email quando a recuperação for concluída**e especifique os destinatários que receberão a notificação. Separe os endereços de email por vírgulas.
+    * **Notificação** do Selecione **enviar um email quando a recuperação for concluída** e especifique os destinatários que receberão a notificação. Separe os endereços de email por vírgulas.
     * Depois de fazer as seleções, selecione **Avançar**
 
 7. Examine as configurações de recuperação e selecione **recuperar**.

@@ -3,19 +3,18 @@ title: Receber notificações do cofre de chaves e responder a elas com a Grade 
 description: Saiba como integrar o Key Vault com a Grade de Eventos do Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e46161812d122a1d5647e8589c58f9528578b878
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187367"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749826"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure
 

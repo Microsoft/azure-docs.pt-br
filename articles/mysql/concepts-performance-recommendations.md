@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 1445ad3d6be020326c34d60c555c24c435548fd0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94537638"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recomendações de desempenho no Banco de Dados do Azure para MySQL

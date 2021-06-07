@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 7068409c8d1dee7181948e3c3d1326f8538c6daf
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 43edf62a625d80de0a5de8e0924e771d68a595e8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430489"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101647079"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o People
 
@@ -156,7 +156,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do People e inicie o fluxo de logon de lá.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do People em Meus Aplicativos, isso vai redirecionar você à URL de Logon do People. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do People em Meus Aplicativos, isso vai redirecionar você à URL de Logon do People. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-people-mobile"></a>Testar o SSO para o People (móvel)
 
@@ -174,4 +174,4 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o People, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o People, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

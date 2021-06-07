@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Saiba como atualizar do CentOS e do Ubuntu 16, 4 para o Máquina Virtual de Ciência de Dados mais recente do Ubuntu 18, 4.
 keywords: aprendizado profundo, ia, ferramentas de ciência de dados, máquina virtual de ciência de dados, processo de ciência de dados de equipe
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b897ff7527d2d60234162ccbdeb08a00260bb1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320989"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101659453"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar sua Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
 
@@ -38,7 +37,7 @@ Na portal do Azure, use a barra de pesquisa para localizar a funcionalidade de *
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Captura de tela mostrando portal do Azure e barra de pesquisa, com * * instantâneos * * realçados":::
 
-1. Selecione **Adicionar** , que levará você para a página **criar instantâneo** . Selecione a assinatura e o grupo de recursos de sua máquina virtual. Para **região** , selecione a mesma região em que o armazenamento de destino existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **HDD Standard** é um tipo de armazenamento apropriado para este cenário de backup.
+1. Selecione **Adicionar**, que levará você para a página **criar instantâneo** . Selecione a assinatura e o grupo de recursos de sua máquina virtual. Para **região**, selecione a mesma região em que o armazenamento de destino existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **HDD Standard** é um tipo de armazenamento apropriado para este cenário de backup.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Captura de tela mostrando opções ' criar instantâneo '":::
 
@@ -65,7 +64,7 @@ O processo de atualização levará um tempo para ser concluído. Quando termina
 
 Depois que a VM tiver sido atualizada e reinicializada, tente acessá-la novamente via SSH. O endereço IP pode ter sido alterado durante a reinicialização, portanto, confirme-o antes de tentar se conectar.
 
-Se você receber o erro a **identificação do host remoto foi alterada** , você precisará regenerar suas credenciais SSH.
+Se você receber o erro a **identificação do host remoto foi alterada**, você precisará regenerar suas credenciais SSH.
 
 :::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Captura de tela do PowerShell mostrando aviso de alteração de identificação de host remoto":::
 
@@ -103,11 +102,11 @@ Você pode optar por atualizar as partes do sistema operacional do FileSystem e 
 
 Se você ainda não criou um instantâneo de VM, conforme descrito anteriormente, faça isso. 
 
-1. No portal do Azure, procure **discos** e selecione **Adicionar** , que abrirá a página do **disco** .
+1. No portal do Azure, procure **discos** e selecione **Adicionar**, que abrirá a página do **disco** .
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Captura de tela de portal do Azure mostrando a página Pesquisar discos e o botão Adicionar":::
 
-2. Defina a **assinatura** , o **grupo de recursos** e a **região** com os valores de seu instantâneo de VM. Escolha um **nome** para o disco a ser criado.
+2. Defina a **assinatura**, o **grupo de recursos** e a **região** com os valores de seu instantâneo de VM. Escolha um **nome** para o disco a ser criado.
 
 3. Selecione o **tipo de origem** como **instantâneo** e selecione o instantâneo da VM como o instantâneo de **origem**. Examine e crie o disco. 
 

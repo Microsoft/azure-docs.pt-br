@@ -1,18 +1,18 @@
 ---
 title: Amostras de Java para ilustrar o pool de conexões
 description: Este artigo lista amostras de Java para ilustrar o pool de conexões.
-author: ambhatna
+author: savjani
+ms.author: pariks
 ms.custom: devx-track-java
-ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: b108dc8a04825826d7e0887d8fd5884b122827f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d7977bc0943317cb52ba0bf98e2d1240a9031d2
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87314689"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226465"
 ---
 # <a name="java-sample-to-illustrate-connection-pooling"></a>Amostra de Java para ilustrar o pool de conexões
 

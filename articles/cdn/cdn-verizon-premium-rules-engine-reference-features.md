@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020408"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure da Verizon Premium
@@ -30,7 +30,7 @@ Os tipos de recursos disponíveis são:
 * [Cabeçalhos](#headers)
 * [Logs](#logs)
 * [Otimizar](#optimize)
-* [Origem](#origin)
+* [Ter](#origin)
 * [Especialidade](#specialty)
 * [URL](#url)
 * [Firewall do Aplicativo Web](#waf)
@@ -49,7 +49,7 @@ Esses recursos são projetados para controlar o acesso ao conteúdo.
 
 **[Voltar ao início](#top)**
 
-### <a name="caching"></a><a name="caching"></a>Cache
+### <a name="caching"></a><a name="caching"></a>Colocar
 
 Esses recursos são projetados para personalizar quando e como o conteúdo é armazenado.
 
@@ -113,7 +113,7 @@ Esses recursos são projetados para personalizar os dados armazenados em arquivo
 
 **[Voltar ao início](#top)**
 
-### <a name="optimize"></a><a name="optimize"></a>Otimizar
+### <a name="optimize"></a><a name="optimize"></a>Formato
 
 Esses recursos determinam se uma solicitação passará as otimizações fornecidas pelo Otimizador de Borda.
 
@@ -124,7 +124,7 @@ Esses recursos determinam se uma solicitação passará as otimizações forneci
 
 **[Voltar ao início](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Origem
+### <a name="origin"></a><a name="origin"></a>Ter
 
 Esses recursos são criados para controlar como a CDN se comunica com um servidor de origem.
 
@@ -161,7 +161,7 @@ Esses recursos permitem que uma solicitação seja redirecionada ou reescrita em
 
 **[Voltar ao início](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do Aplicativo Web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do aplicativo Web
 
 O recurso de [Firewall do aplicativo Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) determina se uma solicitação será filtrada pelo firewall do aplicativo Web.
 

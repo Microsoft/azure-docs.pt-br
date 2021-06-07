@@ -1,6 +1,6 @@
 ---
 title: 'Regressão rápida de Quantil de floresta: referência de módulo'
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Saiba como usar o módulo regressão rápida de Quantil de floresta para criar um modelo de regressão que pode prever valores para um número especificado de quantis.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907949"
 ---
 # <a name="fast-forest-quantile-regression"></a>Regressão rápida de quantil de floresta

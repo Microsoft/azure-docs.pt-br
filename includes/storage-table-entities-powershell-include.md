@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67171597"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,7 +18,7 @@ ms.locfileid: "67171597"
 
 Agora que você tem uma tabela, vamos examinar como gerenciar entidades ou linhas, na tabela. 
 
-As entidades podem ter até 255 Propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey**e **timestamp**. Você é responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gerencia o valor do **carimbo de data/hora**, que não pode ser modificado. Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade dentro de uma tabela.
+As entidades podem ter até 255 Propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey** e **timestamp**. Você é responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gerencia o valor do **carimbo de data/hora**, que não pode ser modificado. Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade dentro de uma tabela.
 
 * **PartitionKey**: determina a partição em que a entidade está armazenada.
 * **RowKey**: identifica exclusivamente a entidade dentro da partição.
@@ -60,7 +60,7 @@ Add-AzTableRow `
 Você pode consultar as entidades em uma tabela usando o comando **Get-AzTableRow** .
 
 > [!NOTE]
-> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**e **Get-AzureStorageTableRowByCustomFilter** são preteridos e serão removidos em uma atualização de versão futura.
+> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName** e **Get-AzureStorageTableRowByCustomFilter** são preteridos e serão removidos em uma atualização de versão futura.
 
 #### <a name="retrieve-all-entities"></a>Recuperar todas as entidades
 
@@ -101,7 +101,7 @@ Get-AzTableRow -table $cloudTable `
 
 Essa consulta recupera um registro.
 
-|field|value|
+|field|valor|
 |----|----|
 | userid | 1 |
 | Nome de Usuário | Chris |
@@ -118,7 +118,7 @@ Get-AzTableRow `
 
 Essa consulta recupera um registro.
 
-|field|value|
+|field|valor|
 |----|----|
 | userid | 1 |
 | Nome de Usuário | Chris |
@@ -153,7 +153,7 @@ Get-AzTableRow -table $cloudTable `
 
 Os resultados mostram o registro Jessie2.
 
-|field|value|
+|field|valor|
 |----|----|
 | userid | 2 |
 | Nome de Usuário | Jessie2 |

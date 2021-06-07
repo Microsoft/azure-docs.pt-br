@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0efe0164d8e1a4e5bc3b9d6d7313855740afd316
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233637"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767899"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportar certificados do Azure Key Vault
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Veja [exemplos e definições de parâmetro](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) para obter mais informações.
+Veja [exemplos e definições de parâmetro](/cli/azure/keyvault/certificate#az_keyvault_certificate_download) para obter mais informações.
 
 Baixar como certificado significa obter a parte pública. Se você quiser a chave privada e os metadados públicos, poderá baixá-los como um segredo.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Para obter mais informações, confira [definições de parâmetro](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+Para obter mais informações, confira [definições de parâmetro](/cli/azure/keyvault/secret#az_keyvault_secret_download).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -101,8 +101,8 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 [System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-Esse comando exporta toda a cadeia de certificados com a chave privada. O certificado é protegido por senha.
-Para obter mais informações sobre o comando **Get-AzKeyVaultCertificate** e os parâmetros, consulte [Get-AzKeyVaultCertificate – Exemplo 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+Esse comando exportará toda a cadeia de certificados com uma chave privada (ou seja, a mesma que foi importada). O certificado é protegido por senha.
+Para obter mais informações sobre o comando **Get-AzKeyVaultCertificate** e os parâmetros, consulte [Get-AzKeyVaultCertificate – Exemplo 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

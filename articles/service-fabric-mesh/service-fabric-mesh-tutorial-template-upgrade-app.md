@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a71e854f03bee75b757e0a0aa02e7aa2c24469b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747858"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99626554"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar um aplicativo do Service Fabric em execução na Malha do Service Fabric
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial é a parte três de uma série. Você aprenderá a atualizar um aplicativo do Service Fabric que estava [implantado anteriormente na Malha do Service Fabric](service-fabric-mesh-tutorial-template-deploy-app.md) aumentando os recursos de CPU alocados.  Quando terminar, você terá um serviço de front-end da Web funcionando com mais recursos de CPU.
 
@@ -50,7 +55,7 @@ Este tutorial usa uma lista de tarefas como exemplo, que [já foi implantada](se
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-No modelo de implantação do recurso de aplicativo, cada serviço tem uma propriedade *cpu* que pode ser usada para definir os recursos de CPU solicitados. Um aplicativo pode consistir em vários serviços, cada serviço com uma única configuração de *cpu* , que são implantados e gerenciados em conjunto. Para aumentar os recursos de CPU do serviço de front-end da Web, modifique o valor de *cpue* no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
+No modelo de implantação do recurso de aplicativo, cada serviço tem uma propriedade *cpu* que pode ser usada para definir os recursos de CPU solicitados. Um aplicativo pode consistir em vários serviços, cada serviço com uma única configuração de *cpu*, que são implantados e gerenciados em conjunto. Para aumentar os recursos de CPU do serviço de front-end da Web, modifique o valor de *cpue* no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implantação
 
@@ -80,7 +85,7 @@ O parâmetro *frontEndCpu* é declarado na seção *parameters* do [modelo de im
 }
 ```
 
-A propriedade *codePackages->resources->requests->cpu* do serviço WebFrontEnd referencia o parâmetro *frontEndCpu* :
+A propriedade *codePackages->resources->requests->cpu* do serviço WebFrontEnd referencia o parâmetro *frontEndCpu*:
 
 ```json
     "services": [

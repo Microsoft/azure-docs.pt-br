@@ -13,12 +13,12 @@ ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: conversão de fala em texto, software de conversão de fala em texto
-ms.openlocfilehash: 593fb9bb89bfa43c2eb186a3b9d3c5bc2322c956
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 26314d8ebd86d6cd041d9c275db53127d4b22606
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014130"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180030"
 ---
 # <a name="get-started-with-speech-to-text"></a>Introdução à conversão de fala em texto
 
@@ -38,8 +38,12 @@ ms.locfileid: "92014130"
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-nodejs"
 [!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-browserjs"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-browser-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-languages-objectivec-swift"

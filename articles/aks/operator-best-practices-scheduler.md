@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87015673"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do Agendador básico no serviço de Kubernetes do Azure (AKS)
@@ -38,7 +38,7 @@ Kubernetes não sobrecarregam os recursos. Depois do total acumulado de solicita
 
 Quando você define as cotas de recursos, todos os pods criados no namespace devem fornecer limites ou solicitações em suas especificações de pod. Se eles não fornecerem esses valores, você pode rejeitar a implantação. Em vez disso, você pode [configurar limites para um namespace e as solicitações padrão][configure-default-quotas].
 
-O manifesto YAML do exemplo a seguir chamado *dev-app-team-quotas.yaml* define um limite rígido de um total de *10* CPUs, *Gi 20* de memória, e *10*pods:
+O manifesto YAML do exemplo a seguir chamado *dev-app-team-quotas.yaml* define um limite rígido de um total de *10* CPUs, *Gi 20* de memória, e *10* pods:
 
 ```yaml
 apiVersion: v1
@@ -131,7 +131,7 @@ Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, 
 
 Este artigo se concentra nos recursos básicos de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Isolamento de multilocação e cluster][aks-best-practices-cluster-isolation]
+* [Multilocação e isolamento de cluster][aks-best-practices-cluster-isolation]
 * [Recursos avançados de Agendador Kubernetes][aks-best-practices-advanced-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 

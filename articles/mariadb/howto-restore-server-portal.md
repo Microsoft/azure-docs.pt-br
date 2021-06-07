@@ -3,14 +3,14 @@ title: Backup e restauração-portal do Azure-banco de dados do Azure para Maria
 description: Este artigo descreve como restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 06da58b5c82af39abbaa1cbc15a217c25d7808f9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664810"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure
@@ -37,7 +37,7 @@ Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é
 Para saber mais sobre como definir esses valores de durante a criação, confira [início rápido do servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione o servidor do Banco de Dados do Azure para MariaDB. Essa ação abre a página **Visão geral** do runbook.
 
@@ -89,7 +89,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 3. Selecione **backup** como a **fonte de dados**. Essa ação carrega um menu suspenso que fornece uma lista de servidores que têm backups com redundância geográfica habilitada.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione uma fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione a fonte de dados.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.

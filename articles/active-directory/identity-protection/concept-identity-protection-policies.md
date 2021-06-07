@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835961"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
@@ -58,8 +58,8 @@ Se for detectado um risco, os usuários podem realizar a redefinição de senha 
 
 - [Habilitar a redefinição de senha self-service do Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitar a autenticação multifator do Azure AD](../authentication/howto-mfa-getstarted.md)
+- [Habilitar a Autenticação Multifator do Azure AD](../authentication/howto-mfa-getstarted.md)
 
 - [Habilitar a política de registro da autenticação multifator do Azure AD](howto-identity-protection-configure-mfa-policy.md)
 
-- [Habilitar as políticas de entrada e de risco do usuário](howto-identity-protection-configure-risk-policies.md)
+- [Habilitar as políticas de risco com usuários e entradas](howto-identity-protection-configure-risk-policies.md)

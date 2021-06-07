@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: d9e01ee8b1f6c1cd04e665ad9f7bc57155abfaab
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: ce6b01a99c29020b0ede5a860da9d3d6f37e9f06
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028974"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104605742"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.2): sintaxe e recursos compatíveis
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefícios do MongoDB com os quais está acostumado, com todas as funcionalidades empresariais que o Cosmos DB oferece: [distribuição global](distribute-data-globally.md), [fragmentação automática](partitioning-overview.md), garantias de disponibilidade e latência, indexação automática de cada campo, criptografia em repouso, backups e muito mais.
 
 > [!NOTE]
-> Este artigo refere-se à API do Azure Cosmos DB para MongoDB 3.2. Para o MongoDB versão 3.6, confira [Sintaxe e recursos compatíveis do MongoDB 3.6](mongodb-feature-support-36.md).
+> A versão 3.2 da API do Cosmos DB para MongoDB não tem planos atuais para EOL (fim da vida útil). O aviso mínimo para um futuro EOL é de três anos.
 
 ## <a name="protocol-support"></a>Suporte de protocolo
 
@@ -234,24 +234,24 @@ A seguir estão os operadores com suporte e seus exemplos correspondentes de uso
 }
 ```
 
-Operador | Exemplo |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+| Operador | Exemplo |
+| --- | --- |
+| $eq | `{ "Volcano Name": { $eq: "Rainier" } }` |
+| $gt | `{ "Elevation": { $gt: 4000 } }` | 
+| $gte | `{ "Elevation": { $gte: 4392 } }` | 
+| $lt | `{ "Elevation": { $lt: 5000 } }` | 
+| $lte | `{ "Elevation": { $lte: 5000 } }` | 
+| $ne | `{ "Elevation": { $ne: 1 } }` | 
+| $in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
+| $nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
+| $or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` | 
+| $and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+| $not | `{ "Elevation": { $not: { $gt: 5000 } } }`| 
+| $nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
+| $exists | `{ "Status": { $exists: true } }`|
+| $type | `{ "Status": { $type: "string" } }`| 
+| $mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` | 
+| $regex | `{ "Volcano Name": { $regex: "^Rain"} }`| 
 
 ### <a name="notes"></a>Observações
 
@@ -367,5 +367,3 @@ O Azure Cosmos DB oferece suporte à fragmentação automática, do lado do serv
 - Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
 - Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.
-
-<sup>Observação: este artigo descreve um recurso do Azure Cosmos DB que fornece a compatibilidade de protocolo de transmissão com bancos de dados MongoDB. A Microsoft não executa bancos de dados MongoDB para fornecer esse serviço. O Azure Cosmos DB não está afiliado à MongoDB, Inc.</sup>

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929758"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870289"
 ---
 # <a name="configure-apache-spark-settings"></a>Definir configurações do Apache Spark
 
@@ -18,7 +18,7 @@ Um cluster HDInsight Spark inclui uma instalação da biblioteca Apache Spark.  
 
 O cluster padrão do HDInsight Apache Spark inclui os seguintes nós: três nós do Apache ZooKeeper, dois nós principais e um ou mais nós do trabalhador:
 
-![Arquitetura do HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
+:::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Arquitetura do HDInsight Spark" border="false":::
 
 O número de VMs e os tamanhos de VM para os nós em seu cluster HDInsight podem afetar a configuração do Spark. Valores de configuração do HDInsight não padrão geralmente requerem valores de configuração do Spark não padrão. Quando você cria um cluster HDInsight Spark, são mostrados tamanhos de VM sugeridos para cada um dos componentes. Atualmente os [tamanhos de VM do Linux com otimização de memória](../../virtual-machines/sizes-memory.md) do Azure são D12 v2 ou posterior.
 
@@ -59,7 +59,7 @@ A interface do usuário da Web do Apache Ambari é exibida com um painel de mét
 
 Para ver os valores de configuração para o Apache Spark, selecione **Histórico de Configuração**, em seguida, selecione **Spark2**.  Selecione a guia **configurações** e, em seguida, selecione o link `Spark` (ou `Spark2`, dependendo de sua versão) na lista de serviços.  Você verá uma lista de valores de configuração para o cluster:
 
-![Configurações Spark](./media/apache-spark-settings/spark-configurations.png)
+:::image type="content" source="./media/apache-spark-settings/spark-configurations.png" alt-text="Configurações Spark" border="true":::
 
 Para ver e alterar valores de configuração individuais do Spark, selecione qualquer link com "Spark" no título.  Configurações para Spark incluem os dois valores de configuração avançada e personalizada nestas categorias:
 
@@ -78,7 +78,7 @@ Se você criar um conjunto não padrão de valores de configuração, seu histó
 
 O diagrama a seguir mostra os objetos de chave Spark: o programa de driver e seu contexto Spark associado e o gerenciador de cluster e seus *n* nós de trabalho.  Cada nó de trabalho inclui um Executor, um cache, e *n* instâncias da tarefa.
 
-![Objetos de cluster](./media/apache-spark-settings/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Objetos de cluster" border="false":::
 
 Os trabalhos de Spark usam recursos de trabalho, particularmente, memória, portanto, é comum para ajustar os valores de configuração do Spark para executores de nó de trabalho.
 
@@ -89,7 +89,7 @@ Três parâmetros de chave que geralmente são ajustados para ajustar as configu
 
 Outra fonte de informações sobre os recursos usados pelos executores do Spark é a interface do usuário do aplicativo Spark.  Na interface do usuário, os  **executores** exibem exibições de resumo e detalhes da configuração e dos recursos consumidos.  Determine se os valores de executores devem ser alterados para todo o cluster ou para um conjunto específico de execuções de trabalho.
 
-![Executores Spark](./media/apache-spark-settings/apache-spark-executors.png)
+:::image type="content" source="./media/apache-spark-settings/apache-spark-executors.png" alt-text="Executores Spark" border="true":::
 
 Ou você pode usar a API REST do amAmbari para verificar programaticamente as definições de configuração do cluster HDInsight e Spark.  Mais informações estão disponíveis na [Referência da API do Apache Ambari no GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -103,7 +103,7 @@ Dependendo da carga de trabalho do Spark, você poderá determinar que uma confi
 
 Aqui está um exemplo de dois nós de trabalho com valores de configuração diferentes:
 
-![Duas configurações de nó](./media/apache-spark-settings/executor-configuration.png)
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Duas configurações de nó" border="false":::
 
 A lista a seguir mostra os principais parâmetros de memória de executor Spark.
 
@@ -116,7 +116,7 @@ A lista a seguir mostra os principais parâmetros de memória de executor Spark.
 
 O YARN controla a soma máxima da memória usada por todos os contêineres em cada nó do Spark. O diagrama a seguir mostra as relações por nó entre objetos de configuração YARN e objetos Spark.
 
-![Gerenciamento de memória YARN do Spark](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="Gerenciamento de memória YARN do Spark" border="false":::
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar parâmetros para um aplicativo em execução no Jupyter Notebook
 

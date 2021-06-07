@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991223"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
@@ -359,14 +359,14 @@ A tabela a seguir lista as propriedades de configuração de associação dispon
 
 | *function.jsna* Propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| tipo |n/d| Deve ser definido como `sendGrid`.| No |
+| type |n/d| Deve ser definido como `sendGrid`.| Não |
 | direction |n/d| Deve ser definido como `out`.| Não |
-| name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | No |
+| name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
 | apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
-| para| Para | O endereço de email do destinatário. | Yes |
-| de| De | O endereço de email do remetente. |  Yes |
+| para| Para | O endereço de email do destinatário. | Sim |
+| de| De | O endereço de email do remetente. |  Sim |
 | subject| Assunto | O assunto do email. | Sim |
-| text| Texto | O conteúdo do email. | Yes |
+| texto| Texto | O conteúdo do email. | Sim |
 
 As propriedades opcionais podem ter valores padrão definidos na associação e adicionadas ou substituídas programaticamente.
 

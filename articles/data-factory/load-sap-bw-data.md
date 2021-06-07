@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370692"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
@@ -188,7 +188,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
       3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
-      4. Selecione **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
+      4. Clique em **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
 4. Depois de fornecer os parâmetros de pipeline data Factory, selecione **depurar**  >  **concluir** para invocar uma execução para validar a configuração. Ou selecione **publicar** para publicar todas as alterações e, em seguida, selecione **Adicionar gatilho** para executar uma execução.
 

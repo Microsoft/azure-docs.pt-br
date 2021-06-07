@@ -2,20 +2,20 @@
 title: 'Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)'
 description: Este início rápido usa o portal do Azure para excluir um aplicativo de seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 1/5/2021
-ms.author: kenwith
-ms.openlocfilehash: 187f4a1d524e0343130808aa4b4c18222fa982c3
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: 55607d520affe704cecd2e16fb64b3a65c04e167
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259263"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374294"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)
 
@@ -51,7 +51,7 @@ Para excluir um aplicativo do seu locatário do Azure AD:
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando concluir esta série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo foi abordada neste guia de início rápido.
+Quando concluir esta série de inícios rápidos, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo foi abordada neste guia de início rápido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

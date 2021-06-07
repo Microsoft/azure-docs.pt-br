@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87040997"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
@@ -62,7 +62,7 @@ Essas funções podem ser usadas para converter valores entre tipos de dados JSO
 * [encodeUriComponent](create-ui-definition-conversion-functions.md#encodeuricomponent)
 * [float](create-ui-definition-conversion-functions.md#float)
 * [int](create-ui-definition-conversion-functions.md#int)
-* [passar](create-ui-definition-conversion-functions.md#parse)
+* [parse](create-ui-definition-conversion-functions.md#parse)
 * [cadeia de caracteres](create-ui-definition-conversion-functions.md#string)
 
 ## <a name="date-functions"></a>Funções de data

@@ -3,17 +3,18 @@ title: Criar e criptografar uma VM do Windows com a CLI do Azure
 description: Neste início rápido, você aprende a usar a CLI do Azure para criar e criptografar uma máquina virtual Windows
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 90c2584ef56922fc2cd57f445201b63550c485c1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e81d29922bee53ba9021c9c26816258f7922a59c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200661"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107759697"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Início Rápido: Criar e criptografar uma VM do Windows com a CLI do Azure
 
@@ -27,7 +28,7 @@ A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de com
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -35,7 +36,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha.
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha.
 
 ```azurecli-interactive
 az vm create \
@@ -63,7 +64,7 @@ A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte ex
 
 ## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Criar um Key Vault configurado para chaves de criptografia
 
-A criptografia de disco do Azure armazena sua chave de criptografia em um Azure Key Vault. Crie um Key Vault com [az keyvault create](/cli/azure/keyvault#az-keyvault-create). Para habilitar o Key Vault para armazenar chaves de criptografia, use o parâmetro --enabled-for-disk-encryption.
+A criptografia de disco do Azure armazena sua chave de criptografia em um Azure Key Vault. Crie um Key Vault com [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Para habilitar o Key Vault para armazenar chaves de criptografia, use o parâmetro --enabled-for-disk-encryption.
 > [!Important]
 > Cada Key Vault deve ter um nome exclusivo. O exemplo a seguir cria um Key Vault chamado *myKV*, mas você deve colocar um nome diferente.
 
@@ -79,7 +80,7 @@ Criptografe sua VM com [az vm encryption](/cli/azure/vm/encryption), fornecendo 
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-Você pode verificar que a criptografia está habilitada na sua VM com [show az vm](/cli/azure/vm/encryption#az-vm-encryption-show)
+Você pode verificar que a criptografia está habilitada na sua VM com [show az vm](/cli/azure/vm/encryption#az_vm_encryption_show)
 
 ```azurecli-interactive
 az vm encryption show --name MyVM -g MyResourceGroup

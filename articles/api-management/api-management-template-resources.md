@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84689980"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
@@ -181,7 +181,7 @@ Há suporte para as seguintes opções de localização:
 |PagerLabelPageSize|Tamanho da página|  
 |CurtainLabelLoading|Carregando...|  
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
-|ButtonLabelClose|Feche|  
+|ButtonLabelClose|Fechar|  
   
 ###  <a name="documentation"></a><a name="Documentation"></a> Sobre  
   
@@ -303,7 +303,7 @@ Há suporte para as seguintes opções de localização:
 |OAuth2InvalidState|Resposta inválida do servidor de autorização|  
 |OAuth2GrantType_AuthorizationCode|Código de Autorização|  
 |OAuth2GrantType_Implicit|Implícita|  
-|OAuth2GrantType_ClientCredentials|Credenciais de cliente|  
+|OAuth2GrantType_ClientCredentials|Credenciais do cliente|  
 |OAuth2GrantType_ResourceOwnerPassword|Senha de proprietário do recurso|  
 |WebDocumentation302Code|302 Encontrado|  
 |WebDocumentation400Code|400 (Solicitação incorreta)|  
@@ -324,10 +324,10 @@ Há suporte para as seguintes opções de localização:
 |ButtonLinkOpenConsole|Experimentar|  
 |SectionHeadingRequestBody|Corpo da solicitação|  
 |SectionHeadingRequestParameters|Parâmetros da solicitação|  
-|SectionHeadingRequestUrl|URL de Solicitação|  
+|SectionHeadingRequestUrl|URL da solicitação|  
 |SectionHeadingResponse|Resposta|  
-|SectionHeadingRequestHeaders|Cabeçalhos de solicitação|  
-|FormLabelSubtextOptional|opcional|  
+|SectionHeadingRequestHeaders|Cabeçalhos da solicitação|  
+|FormLabelSubtextOptional|opcionais|  
 |SectionHeadingCodeSamples|Exemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do <eu \> {0}</i \> . Tipos de concessão com suporte: < i\>{1}</i\>.|  
   
@@ -434,7 +434,7 @@ Há suporte para as seguintes opções de localização:
 |ValidationErrorEmailInvalid|Endereço de email inválido|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|O email é obrigatório.|  
-|WebAuthenticationErrorNoticeHeader|Erro do|  
+|WebAuthenticationErrorNoticeHeader|Erro|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve ser um comprimento máximo de {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|O nome é obrigatório.|  
@@ -535,7 +535,7 @@ Há suporte para as seguintes opções de localização:
 |----------|----------|  
 |SubscriptionCancelConfirmation|Tem certeza de que deseja cancelar esta assinatura?|  
 |SubscriptionRenewConfirmation|Tem certeza de que deseja renovar esta assinatura?|  
-|WebDevelopersManageSubscriptions|Gerenciar assinaturas|  
+|WebDevelopersManageSubscriptions|Gerenciar Assinaturas|  
 |WebDevelopersPrimaryKey|Chave primária|  
 |WebDevelopersRegenerateLink|Regenerar|  
 |WebDevelopersSecondaryKey|Chave secundária|  

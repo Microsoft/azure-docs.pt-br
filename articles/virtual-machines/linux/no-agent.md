@@ -2,19 +2,20 @@
 title: Criar imagens do Linux sem um agente de provisionamento
 description: Crie imagens do Linux generalizadas sem um agente de provisionamento no Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c9ac872587804adbd9e62a3dc3ef3daed9e0c25
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: c7ca147f0a5b907ee0c5c66d53a219fe75ab2179
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223044"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102551701"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criando imagens generalizadas sem um agente de provisionamento
 

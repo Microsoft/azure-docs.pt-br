@@ -3,12 +3,12 @@ title: Configurar seu ambiente para o operador Blueprint
 description: Saiba como configurar seu ambiente do Azure para uso com a função interna do operador Blueprint do Azure.
 ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591594"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100558726"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar seu ambiente para um operador de Blueprint
 
@@ -22,7 +22,7 @@ A primeira etapa é conceder a função **operador de Blueprint** para a conta o
 
 1. Aconselhável [Criar um grupo de segurança e adicionar membros](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Adicionar uma atribuição de função](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) do **operador Blueprint** à conta ou ao grupo de segurança
+1. [Atribuir função do Azure](../../../role-based-access-control/role-assignments-portal.md) do **operador Blueprint** à conta ou ao grupo de segurança
 
 ## <a name="user-assign-managed-identity"></a>Identidade gerenciada de atribuição de usuário
 
@@ -32,7 +32,7 @@ Uma definição de Blueprint pode usar identidades gerenciadas atribuídas pelo 
 
 1. Conceda à identidade gerenciada atribuída pelo usuário qualquer função ou permissão exigida pela definição do Blueprint para o escopo pretendido.
 
-1. [Adicione uma atribuição de função](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) do **operador de identidade gerenciada** à conta ou ao grupo de segurança. Escopo a atribuição de função para a nova identidade gerenciada atribuída pelo usuário.
+1. [Atribua a função do Azure](../../../role-based-access-control/role-assignments-portal.md) do **operador de identidade gerenciada** à conta ou ao grupo de segurança. Escopo a atribuição de função para a nova identidade gerenciada atribuída pelo usuário.
 
 1. Como o **operador Blueprint**, [atribua um plano gráfico](../create-blueprint-portal.md#assign-a-blueprint) que usa a nova identidade gerenciada atribuída pelo usuário.
 

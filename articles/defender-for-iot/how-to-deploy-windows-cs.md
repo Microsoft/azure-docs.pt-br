@@ -1,25 +1,14 @@
 ---
 title: Instalar o agente C# no dispositivo Windows
 description: Saiba mais sobre como instalar o defender para agente de IoT em dispositivos Windows de 32 bits ou 64 bits.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 4d99cdbb2f50d04eff790cdfe675d0f8031c48a9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b5efc9ce675fa068f378cdc2bdd5a077d3437a93
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517171"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778756"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado no defender para IoT em C# para Windows
 
@@ -27,11 +16,10 @@ Este guia explica como instalar o agente de segurança baseado no defender para 
 
 Neste guia, você aprenderá a:
 
-> [!div class="checklist"]
-> * Instalar
-> * Verificar a implantação
-> * Desinstalar o agente
-> * Solucionar problemas
+- Instalar
+- Verificar implantação
+- Desinstalar o agente
+- Solucionar problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +27,7 @@ Para outras plataformas e tipos de agente, consulte [escolher o agente de segura
 
 1. Direitos de administrador local no computador em que você deseja instalar.
 
-1. [Criar um módulo de segurança](quickstart-create-security-twin.md) para o dispositivo.
+1. [Crie um defender-IOT-micro-Agent](quickstart-create-security-twin.md) para o dispositivo.
 
 ## <a name="installation"></a>Instalação
 

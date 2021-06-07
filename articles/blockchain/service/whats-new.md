@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94335019"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>O que há de novo no serviço Blockchain do Azure?
@@ -69,7 +69,7 @@ Duas fases ajudam a otimizar cenários em que um membro está sendo criado em um
 No quorum v 2.6.0, as chamadas para a função *ETH. estimateGas* sem fornecer o parâmetro de *valor* adicional causam uma falha na exceção do *manipulador de método* . A equipe de quorum foi notificada e uma correção é esperada no final de julho de 2020. Você pode usar as seguintes soluções alternativas até que uma correção esteja disponível:
 
 - Evite usar *ETH. estimateGas* , já que ele pode afetar o desempenho. Para obter mais informações sobre problemas de desempenho ETH. estimateGas, consulte [chamando a função ETH. estimateGas reduz o desempenho](#calling-ethestimategas-function-reduces-performance). Inclua um valor de gás para cada transação. A maioria das bibliotecas chamará ETH. estimateGas se um valor de gás não for fornecido, fazendo com que o quorum v 2.6.0 falhe.
-- Se você precisar chamar *ETH. estimateGas* , a equipe de quorum sugere que você passe o *valor* de parâmetro adicional como *0* como uma solução alternativa.
+- Se você precisar chamar *ETH. estimateGas*, a equipe de quorum sugere que você passe o *valor* de parâmetro adicional como *0* como uma solução alternativa.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>A mineração será interrompida se menos de quatro nós de validação
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 32757fef131c5e443350f032c0ac987d7f491396
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945932"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864305"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
@@ -25,7 +25,7 @@ Saiba como usar ações de script para adicionar mais *contas* de armazenamento 
 * Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 * Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](/powershell/azure/).
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 Durante o processamento, o script executa as seguintes ações:
 
@@ -98,7 +98,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Observe as chaves que começam com `fs.azure.account.key` . O nome da conta fará parte da chave, como visto nesta imagem de exemplo:
 
-   ![verificação por meio do Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
+   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verificação por meio do Apache Ambari":::
 
 ## <a name="remove-storage-account"></a>Remover conta de armazenamento
 

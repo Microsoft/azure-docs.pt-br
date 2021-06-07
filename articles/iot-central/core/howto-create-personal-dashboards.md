@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 6fc99470fdc52a2dc6553056f305226f8348550c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100366714"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerenciar vários painéis
@@ -40,7 +40,7 @@ Se você for um **administrador** do aplicativo, terá a opção de criar um pai
 
 Por exemplo, você pode adicionar um bloco de **Telemetria** para a temperatura atual do dispositivo. Para fazer isso:
 
-1. Selecionar um **Modelo de dispositivo**
+1. Selecione um **Modelo de dispositivo**
 1. Selecione um dispositivo em **Dispositivos** para o dispositivo que você deseja ver em um bloco do painel. Em seguida, você verá uma lista das propriedades do dispositivo que podem ser usadas no bloco.
 1. Para criar o bloco no painel, selecione **temperatura** e arraste-o para a área painel. Você também pode marcar a caixa de seleção ao lado de **temperatura** e selecionar **Adicionar bloco**. A captura de tela a seguir mostra a seleção de um dispositivo e modelo de dispositivo, criando um bloco de Telemetria de temperatura no painel.
 1. Selecione **Salvar** na parte superior esquerda para salvar as alterações no painel.

@@ -3,12 +3,12 @@ title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 51d54ca4d46af3b9e0746f36114fadc47edd5b1f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 423fbc563878d0cc2a63a5366d2226281a204e87
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805046"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102454577"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -22,6 +22,7 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 **Atualizar** |  **Instalação unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Site** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[ROLLUP 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
 [ROLLUP 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [ROLLUP 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [ROLLUP 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
@@ -30,6 +31,21 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
+
+## <a name="updates-february-2021"></a>Atualizações (fevereiro de 2021)
+
+### <a name="update-rollup-54"></a>Pacote cumulativo de atualizações 54
+
+O [pacote cumulativo](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) de atualizações 54 fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo. 
+**Recuperação de desastre da VM do Azure** | A recuperação de desastre de zona para zona usando Azure Site Recovery agora é GA em quatro outras regiões – Europa Setentrional, leste dos EUA, EUA Central e oeste dos EUA 2.<br/>
+**VM VMware/recuperação de desastre físico para o Azure** | A atualização inclui suporte ao portal para a seleção de grupos de posicionamentos de proximidade para máquinas físicas/VMware após habilitar a replicação.<br/><br/> A proteção de máquinas VMware com tamanho de disco de dados de até 32 TB ISS agora é suportada.
+**Recuperação de desastre do Hyper-V para o Azure** | A atualização inclui suporte ao portal para a seleção de grupos de posicionamento de proximidade para computadores Hyper-V depois de habilitar a replicação.
+
 
 ## <a name="updates-january-2021"></a>Atualizações (janeiro de 2021)
 

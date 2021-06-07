@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445383"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitar e trabalhar com logs de recursos do Bastion
@@ -23,7 +23,7 @@ ms.locfileid: "91445383"
 1. Na [portal do Azure](https://portal.azure.com), navegue até o recurso de bastiões do Azure e selecione **configurações de diagnóstico** na página de bastiões do Azure.
 
    ![Captura de tela que mostra a página "configurações de diagnóstico".](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Selecione **configurações de diagnóstico**e, em seguida, selecione **+ Adicionar configuração de diagnóstico** para adicionar um destino para os logs.
+2. Selecione **configurações de diagnóstico** e, em seguida, selecione **+ Adicionar configuração de diagnóstico** para adicionar um destino para os logs.
 
    ![Captura de tela que mostra a página "configurações de diagnóstico" com o botão "adicionar configuração de diagnóstico" selecionado.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Na página **configurações de diagnóstico** , selecione o tipo de conta de armazenamento a ser usado para armazenar os logs de diagnóstico.

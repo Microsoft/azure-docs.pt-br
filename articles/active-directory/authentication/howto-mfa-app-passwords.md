@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743098"
 ---
-# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitar e usar a autenticação multifator do Azure AD com aplicativos herdados usando senhas de aplicativo
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitar e usar a autenticação multifator do Azure Active Directory com aplicativos herdados usando senhas de aplicativo
 
 Alguns aplicativos mais antigos, sem navegador, como o Office 2010 ou anterior e o Apple mail antes do iOS 11, não entendem pausas ou interrupções no processo de autenticação. Se um usuário estiver habilitado para a autenticação multifator do Azure AD e tentar usar um desses aplicativos mais antigos, sem navegador, eles não poderão se autenticar com êxito. Para usar esses aplicativos de forma segura com a autenticação multifator do Azure AD habilitada para contas de usuário, você pode usar senhas de aplicativo. Essas senhas de aplicativo substituíram sua senha tradicional para permitir que um aplicativo ignore a autenticação multifator e funcione corretamente.
 

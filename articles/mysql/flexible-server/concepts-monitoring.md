@@ -1,17 +1,17 @@
 ---
 title: Monitoramento-banco de dados do Azure para MySQL-servidor flexível
 description: Este artigo descreve as métricas para monitoramento e alertas para o servidor flexível do banco de dados do Azure para MySQL, incluindo a CPU, o armazenamento e as estatísticas de conexão.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 660e87e0c09d1bf052b20f60276a30e572ab825b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538656"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110467"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitorar servidores flexíveis do banco de dados do Azure para MySQL com métricas internas
 
@@ -24,14 +24,14 @@ Neste artigo, você aprenderá sobre as várias métricas disponíveis para seu 
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
-O banco de dados do Azure para MySQL servidor flexível fornece várias métricas para entender como a carga de trabalho está sendo executada e baseada nesses dados, você pode entender o impacto em seu servidor e aplicativo. Por exemplo, em um servidor flexível, você pode monitorar **porcentagem de CPU do host** , **conexões ativas** , **porcentagem de e/s** e **porcentagem de memória do host** para identificar quando há um impacto no desempenho. A partir daí, talvez você precise otimizar sua carga de trabalho, dimensionar verticalmente alterando as camadas de computação ou dimensionar horizontalmente usando a réplica de leitura.
+O banco de dados do Azure para MySQL servidor flexível fornece várias métricas para entender como a carga de trabalho está sendo executada e baseada nesses dados, você pode entender o impacto em seu servidor e aplicativo. Por exemplo, em um servidor flexível, você pode monitorar **porcentagem de CPU do host**, **conexões ativas**, **porcentagem de e/s** e **porcentagem de memória do host** para identificar quando há um impacto no desempenho. A partir daí, talvez você precise otimizar sua carga de trabalho, dimensionar verticalmente alterando as camadas de computação ou dimensionar horizontalmente usando a réplica de leitura.
 
-Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas fornece 30 dias de histórico. É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../../azure-monitor/platform/data-platform.md).
+Todas as métricas do Azure têm uma frequência de um minuto e cada uma delas fornece 30 dias de histórico. É possível configurar alertas nas métricas. Para obter diretrizes passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a configuração de ações automatizadas, execução de análises avançadas e arquivamento de histórico. Para obter mais informações, consulte a [Visão geral das métricas no Microsoft Azure](../../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 
-|Nome de exibição da métrica|Métrica|Unit|Descrição|
+|Nome de exibição da métrica|Métrica|Unidade|Descrição|
 |---|---|---|---|
 |Porcentagem de CPU do host|cpu_percent|Porcentagem|A porcentagem de utilização da CPU no servidor, incluindo a utilização da CPU dos processos de carga de trabalho do cliente e MySQL do Azure|
 |Rede de host em |network_bytes_ingress|Bytes|Tráfego de rede de entrada no servidor, incluindo o tráfego do banco de dados do cliente e recursos do Azure MySQL, como replicação, monitoramento, logs etc.|

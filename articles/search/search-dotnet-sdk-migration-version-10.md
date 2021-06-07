@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002803"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
@@ -112,7 +112,7 @@ var webApiSkill = new WebApiSkill(
 
 A habilidade de Modelador agora pode permitir a consolidação de entrada de contextos aninhados. Para habilitar essa alteração, modificamos `InputFieldMappingEntry` para que ela possa ser instanciada especificando apenas uma `Source` propriedade, ou ambas as `SourceContext` Propriedades e `Inputs` .
 
-Provavelmente, você não precisará fazer nenhuma alteração de código; no entanto, observe que apenas uma dessas duas combinações é permitida. Isso significa que:
+Provavelmente, você não precisará fazer nenhuma alteração de código; no entanto, observe que apenas uma dessas duas combinações é permitida. Isso significa:
 
 - A criação de um `InputFieldMappingEntry` em que apenas `Source` é inicializado é válida.
 - A criação de um `InputFieldMappingEntry` somente onde `SourceContext` e `Inputs` inicializado é válida.

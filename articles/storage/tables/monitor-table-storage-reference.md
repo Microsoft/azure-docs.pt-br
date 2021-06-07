@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ad56b6af9a9071812ad6fa581954010df3b6b5d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574836"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento de tabelas do Azure
 
@@ -36,7 +36,7 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 
 #### <a name="table-storage"></a>Armazenamento de tabela
 
-Esta tabela mostra as [métricas de armazenamento de tabela](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
+Esta tabela mostra as [métricas de armazenamento de tabela](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitorando o armazenamento de tabelas do Azure](monitor-table-storage.md) para obter uma descrição de monitoramento do armazenamento do Azure.
-- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.
+- Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

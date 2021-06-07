@@ -5,23 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bcacfc8cede0ab91241fd431aace10cbbfbea916
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441990"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709677"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Adicionar o Facebook como um provedor de identidade para identidades externas
 
-Você pode adicionar o Facebook a seus fluxos de usuário de inscrição por autoatendimento (versão prévia) para que os usuários possam entrar em seus aplicativos usando suas próprias contas do Facebook. Para permitir que os usuários entrem usando o Facebook, primeiro você precisa [habilitar a inscrição por autoatendimento](self-service-sign-up-user-flow.md) para seu locatário. Depois de adicionar o Facebook como um provedor de identidade, configure um fluxo de usuário do aplicativo e selecione o Facebook como uma das opções de credenciais.
+Você pode adicionar o Facebook a seus fluxos de usuário de inscrição de autoatendimento para que os usuários possam entrar em seus aplicativos usando suas próprias contas do Facebook. Para permitir que os usuários entrem usando o Facebook, primeiro você precisa [habilitar a inscrição por autoatendimento](self-service-sign-up-user-flow.md) para seu locatário. Depois de adicionar o Facebook como um provedor de identidade, configure um fluxo de usuário do aplicativo e selecione o Facebook como uma das opções de credenciais.
+
+Depois de adicionar o Facebook como uma das opções de entrada do seu aplicativo, na página de **entrada** , um usuário pode simplesmente inserir o email que eles usam para entrar no Facebook ou pode selecionar **as opções de entrada** e escolher **entrar com o Facebook**. Em ambos os casos, eles serão redirecionados para a página de logon do Facebook para autenticação.
+
+![Opções de entrada para usuários do Facebook](media/facebook-federation/sign-in-with-facebook-overview.png)
 
 > [!NOTE]
 > Os usuários só podem usar suas contas do Facebook para inscreverem-se por meio de aplicativos usando a inscrição e os fluxos dos usuários de autoatendimento. Os usuários não podem ser convidados e resgatar o convite usando uma conta do Facebook.
@@ -32,7 +36,7 @@ Para usar uma conta do Facebook como [provedor de identidade](identity-providers
 
 > [!NOTE]  
 > Use as URLs a seguir nas etapas 9 e 16 abaixo.
-> - Para **URL do site** , insira o endereço do seu aplicativo, como `https://contoso.com` .
+> - Para **URL do site**, insira o endereço do seu aplicativo, como `https://contoso.com`.
 > - Para **URIs de redirecionamento do OAuth válidos**, insira `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. Você encontra seu `<tenant-ID>` na folha Visão Geral do Azure Active Directory.
 
 
@@ -78,7 +82,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Facebook, seja 
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Use a ID do cliente e o segredo do cliente do aplicativo que você criou acima no console do desenvolvedor do Facebook. Para obter mais informações, consulte o artigo [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Use a ID do cliente e o segredo do cliente do aplicativo que você criou acima no console do desenvolvedor do Facebook. Para obter mais informações, consulte o artigo [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>Como faço para remover a federação do Facebook?
 Você pode excluir a configuração da federação do Facebook. Se você fizer isso, os usuários que se inscreveram por meio de fluxos dos usuários com suas contas do Facebook não poderão mais fazer logon. 
@@ -99,7 +103,7 @@ Você pode excluir a configuração da federação do Facebook. Se você fizer i
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

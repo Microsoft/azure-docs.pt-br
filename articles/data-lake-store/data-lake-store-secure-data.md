@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370688"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
@@ -86,7 +86,7 @@ Ao atribuir grupos de usuários / segurança ao sistema de arquivos do Data Lake
 1. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
    
     ![Exibir dados por meio de Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Exibir dados por meio de Data Explorer")
-2. Na folha **Data Explorer**, clique na pasta para o qual você deseja configurar a ACL e, em seguida, clique em **Acessar**. Para atribuir as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da ** folha Exibição de arquivo**.
+2. Na folha **Data Explorer**, clique na pasta para o qual você deseja configurar a ACL e, em seguida, clique em **Acessar**. Para atribuir as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da **folha Exibição de arquivo**.
    
     ![Definir ACLs no sistema de arquivos Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.acl.1.png "Definir ACLs no sistema de arquivos Data Lake Storage Gen1")
 3. A folha de **Acesso** lista os proprietários e permissões já atribuído para a raiz. Clique no ícone **Adicionar** para adicionar ACLs de Acesso.
@@ -140,7 +140,7 @@ Quando você remove as ACLs do grupo de segurança de um sistema de arquivos do 
 1. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
    
     ![Criar diretórios na conta de Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Criar diretórios na conta de Data Lake Storage Gen1")
-2. Na folha **Data Explorer**, clique na pasta para o qual você deseja remover a ACL e, em seguida, clique em **Acessar**. Para remover as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da ** folha Exibição de arquivo**. 
+2. Na folha **Data Explorer**, clique na pasta para o qual você deseja remover a ACL e, em seguida, clique em **Acessar**. Para remover as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da **folha Exibição de arquivo**. 
    
     ![Definir ACLs no sistema de arquivos Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.acl.1.png "Definir ACLs no sistema de arquivos Data Lake Storage Gen1")
 3. Na folha **Acesso**, clique no grupo de segurança que você deseja remover. Na folha **Acessar detalhes**, clique em **Remover**.

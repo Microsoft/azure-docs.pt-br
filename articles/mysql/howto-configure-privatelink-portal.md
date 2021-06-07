@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221019"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -234,7 +234,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     | ------- | ----- |
     | Tipo de servidor| Selecione **MySQL**.|
     | Nome do servidor| Selecionar *MyServer.privatelink.mysql.Database.Azure.com* |
-    | Nome do usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MySQL. |
+    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MySQL. |
     |Senha |Insira uma senha fornecida durante a criação do servidor MySQL. |
     |SSL|Selecione **obrigatório**.|
     ||
@@ -247,7 +247,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o MySQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927756"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK do Application Insights
@@ -282,7 +282,7 @@ Em ApplicationInsights.config:
 </ApplicationInsights>
 ```
 
-Como alternativa, você pode instanciar o inicializador no código, por exemplo, em Global.aspx.cs:
+Como alternativa, você pode instanciar o inicializador no código, por exemplo, em global. aspx. cs:
 
 ```csharp
 protected void Application_Start()

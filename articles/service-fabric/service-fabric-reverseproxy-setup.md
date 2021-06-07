@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256348"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
@@ -74,7 +74,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
         ...
     }
     ```
-3. Para configurar certificados TLS/SSL na porta para o proxy reverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na [seção tipo de recurso](../azure-resource-manager/templates/template-syntax.md) **Microsoft. ServicePortal/clusters** .
+3. Para configurar certificados TLS/SSL na porta para o proxy reverso, adicione o certificado à propriedade ***reverseProxyCertificate** _ na seção do tipo de recurso _ *Microsoft. ServicePortal/clusters* *  [](../azure-resource-manager/templates/template-syntax.md).
 
     ```json
     {
@@ -98,7 +98,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Suporte um certificado de proxy reverso diferente do certificado de cluster
- Se o certificado de proxy reverso é diferente do certificado que protege o cluster, o certificado especificado anteriormente deve ser instalado na máquina virtual e adicionado à ACL (lista de controle de acesso) para que o Service Fabric possa acessá-lo. Isso pode ser feito na [** seção de tipo de recurso**](/azure/templates/microsoft.compute/virtualmachinescalesets) [ Microsoft.Compute/virtualMachineScaleSets](../azure-resource-manager/templates/template-syntax.md). Para instalação, adicione o certificado ao osProfile. A seção de extensão do modelo pode atualizar o certificado na ACL.
+ Se o certificado de proxy reverso é diferente do certificado que protege o cluster, o certificado especificado anteriormente deve ser instalado na máquina virtual e adicionado à ACL (lista de controle de acesso) para que o Service Fabric possa acessá-lo. Isso pode ser feito na [**seção de tipo de recurso**](/azure/templates/microsoft.compute/virtualmachinescalesets) [ Microsoft.Compute/virtualMachineScaleSets](../azure-resource-manager/templates/template-syntax.md). Para instalação, adicione o certificado ao osProfile. A seção de extensão do modelo pode atualizar o certificado na ACL.
 
   ```json
   {

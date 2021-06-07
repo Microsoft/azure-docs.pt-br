@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 339ae9a0a799a0a03f1fcf37dadf2e1ffa724243
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cca47269e632e1fcba1f8f9eb1c835f27e63059
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028675"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582746"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>Guia do desenvolvedor do dispositivo IoT Plug and Play
 
@@ -26,7 +26,7 @@ Este guia descreve as etapas básicas necessárias para criar um dispositivo, m�
 Para criar um dispositivo Plug and Play de IoT, módulo ou módulo de IoT Edge, siga estas etapas:
 
 1. Verifique se o dispositivo está usando o protocolo MQTT ou MQTT sobre Websockets para se conectar ao Hub IoT do Azure.
-1. Crie um modelo de [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) para descrever seu dispositivo. Para saber mais, confira [entender os componentes em modelos de plug and Play IOT](concepts-components.md).
+1. Crie um modelo de [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) para descrever seu dispositivo. Para saber mais, confira [entender os componentes em modelos de plug and Play IOT](concepts-modeling-guide.md).
 1. Atualize seu dispositivo ou módulo para anunciar o `model-id` como parte da conexão do dispositivo.
 1. Implementar telemetria, propriedades e comandos usando as [convenções de plug and Play IOT](concepts-convention.md)
 
@@ -67,8 +67,8 @@ Depois que a implementação do dispositivo ou do módulo estiver pronta, use o 
 Agora que você aprendeu sobre o desenvolvimento de dispositivos IoT Plug and Play, aqui estão alguns recursos adicionais:
 
 - [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [SDK do Dispositivo C](/azure/iot-hub/iot-c-sdk-ref/)
+- [SDK do dispositivo C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](/rest/api/iothub/device)
-- [Componentes do modelo](concepts-components.md)
+- [Entender os componentes em modelos de Plug and Play IoT](concepts-modeling-guide.md)
 - [Instalar e usar as ferramentas de criação do DTDL](howto-use-dtdl-authoring-tools.md)
 - [Guia do desenvolvedor do serviço de Plug and Play de IoT](concepts-developer-guide-service.md)

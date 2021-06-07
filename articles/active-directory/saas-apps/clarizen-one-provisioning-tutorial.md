@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: f3a19d3c3bf3e4340bb36fd683453541fa15eb6c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673657"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101650806"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutorial: Configurar o Clarizen One para o provisionamento automático de usuário
 
@@ -113,7 +113,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |ativo|Boolean|
    |título|String|
    |emails[type eq "work"].value|String|
-   |emails[type eq "home"].value|Cadeia de caracteres|
+   |emails[type eq "home"].value|String|
    |emails[type eq "other"].value|String|
    |preferredLanguage|String|
    |name.givenName|String|
@@ -137,8 +137,8 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |externalId|String|
    |nickName|String|
    |localidade|String|
-   |roles[primary eq"True".type]|String|
-   |roles[primary eq"True".value]|String|
+   |roles[primary eq "True".type]|String|
+   |roles[primary eq "True".value]|String|
    |timezone|String|
    |userType|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|

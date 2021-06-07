@@ -2,18 +2,18 @@
 title: Atualização in-loco de Red Hat Enterprise Linux imagens no Azure
 description: Saiba como fazer uma atualização in-loco das imagens do Red Hat Enterprise 7. x para a versão mais recente do 8. x.
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
-ms.reviewer: cynthn
-ms.openlocfilehash: 9b35a3cbe23af91f7f0b8aceecfb8ba3c9720461
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1be0904cc640eff5af7a77bba3abd6aa062991a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484406"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676066"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux atualizações in-loco
 

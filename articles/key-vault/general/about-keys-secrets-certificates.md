@@ -3,19 +3,18 @@ title: Visão geral das chaves, dos segredos e dos certificados do Azure Key Vau
 description: Visão geral dos detalhes de interface e desenvolvedor de REST do Azure Key Vault para chaves, segredos e certificados.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e3eb77d15c288c93298da6dd79a76565e5d67f96
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327076"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749934"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
@@ -44,7 +43,7 @@ Chaves protegidas por software|/keys|Com suporte|Sem suporte
 **Outros tipos de objetos**||
 Segredos|/secrets|Com suporte|Sem suporte
 Certificados|/certificates|Com suporte|Sem suporte
-Chaves de conta de armazenamento|/storageaccount|Com suporte|Sem suporte
+Chaves de conta de armazenamento|/storage|Com suporte|Sem suporte
 |||
 - **Chaves de criptografia**: Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
 - **Segredos**: Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).

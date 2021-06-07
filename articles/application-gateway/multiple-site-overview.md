@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87474318"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
@@ -35,7 +35,7 @@ O gateway de aplicativo permite o roteamento baseado em host usando o ouvinte de
 
 Usando um caractere curinga no nome do host, você pode corresponder a vários nomes de host em um único ouvinte. Por exemplo, `*.contoso.com` pode corresponder a `ecom.contoso.com` , `b2b.contoso.com` bem como `customer1.b2b.contoso.com` e assim por diante. Usando uma matriz de nomes de host, você pode configurar mais de um nome de host para um ouvinte para rotear solicitações para um pool de back-end. Por exemplo, um ouvinte pode conter `contoso.com, fabrikam.com` , que aceitará solicitações para ambos os nomes de host.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway de Aplicativo multissite":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Ouvinte curinga":::
 
 >[!NOTE]
 > Este recurso está em visualização e está disponível somente para Standard_v2 e WAF_v2 SKU do gateway de aplicativo. Para saber mais sobre visualizações, confira [termos de uso aqui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

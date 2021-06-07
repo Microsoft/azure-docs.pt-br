@@ -4,10 +4,10 @@ description: O DevTest Labs agora se integra à bastiões do Azure, como proprie
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341165"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Labs 

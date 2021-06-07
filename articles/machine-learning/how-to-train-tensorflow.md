@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 41231e19960edfe1a4f0521b8738fa62a463c927
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796458"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102518323"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Treine os modelos TensorFlow em escala com Azure Machine Learning
 
@@ -36,7 +36,7 @@ Execute este código em qualquer um destes ambientes:
  
  - Seu próprio servidor Jupyter Notebook
 
-    - [Instale o SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Instale o SDK do Azure Machine Learning](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Criar um arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
     - [Baixar os arquivos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` de script de exemplo e `utils.py`
      
@@ -66,7 +66,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicializar um workspace
 
-O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objeto.
+O [espaço de trabalho Azure Machine Learning](concept-workspace.md) é o recurso de nível superior para o serviço. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar. No SDK do Python, você pode acessar os artefatos do espaço de trabalho criando um [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) objeto.
 
 Crie um objeto de espaço de trabalho a partir do `config.json` arquivo criado na [seção pré-requisitos](#prerequisites).
 
@@ -192,7 +192,7 @@ Para obter mais informações sobre como criar e usar ambientes, consulte [criar
 
 ### <a name="create-a-scriptrunconfig"></a>Criar um ScriptRunConfig
 
-Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro.
+Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) para especificar os detalhes da configuração de seu trabalho de treinamento, incluindo o script de treinamento, o ambiente a ser usado e o destino de computação para a execução. Todos os argumentos para seu script de treinamento serão passados por meio da linha de comando, se especificado no `arguments` parâmetro.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -220,7 +220,7 @@ Para obter mais informações sobre como configurar trabalhos com o ScriptRunCon
 
 ### <a name="submit-a-run"></a>Enviar uma execução
 
-O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
+O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
@@ -289,7 +289,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Para executar um trabalho distribuído usando MPI/Horovod no Azure ML, você deve especificar um [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. O código abaixo configurará um trabalho distribuído de 2 nós que executa um processo por nó. Se você também quiser executar vários processos por nó (ou seja, se o SKU do cluster tiver várias GPUs), especifique também o `process_count_per_node` parâmetro em MpiConfiguration (o padrão é `1` ).
+Para executar um trabalho distribuído usando MPI/Horovod no Azure ML, você deve especificar um [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. O código abaixo configurará um trabalho distribuído de 2 nós que executa um processo por nó. Se você também quiser executar vários processos por nó (ou seja, se o SKU do cluster tiver várias GPUs), especifique também o `process_count_per_node` parâmetro em MpiConfiguration (o padrão é `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -309,7 +309,7 @@ Para obter um tutorial completo sobre como executar TensorFlow distribuídas com
 
 Se você estiver usando [TensorFlow distribuídas nativas](https://www.tensorflow.org/guide/distributed_training) no seu código de treinamento, por exemplo, a API do TensorFlow 2. x `tf.distribute.Strategy` , você também poderá iniciar o trabalho distribuído por meio do Azure ml. 
 
-Para fazer isso, especifique um [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. Se você estiver usando o `tf.distribute.experimental.MultiWorkerMirroredStrategy` , especifique o `worker_count` no TensorflowConfiguration correspondente ao número de nós para seu trabalho de treinamento.
+Para fazer isso, especifique um [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) para o `distributed_job_config` parâmetro do Construtor ScriptRunConfig. Se você estiver usando o `tf.distribute.experimental.MultiWorkerMirroredStrategy` , especifique o `worker_count` no TensorflowConfiguration correspondente ao número de nós para seu trabalho de treinamento.
 
 ```python
 import os

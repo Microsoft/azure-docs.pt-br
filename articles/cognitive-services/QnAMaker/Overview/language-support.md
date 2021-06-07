@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
 ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97605052"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento

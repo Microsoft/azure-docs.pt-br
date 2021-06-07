@@ -4,10 +4,10 @@ description: Use a Pontuação do supervisor do Azure para obter o máximo do Az
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 11b20bc3b4d604d3a7ff4608cd1c21f129c1cb6d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630115"
 ---
 # <a name="optimize-azure-workloads-by-using-advisor-score"></a>Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
@@ -52,25 +52,25 @@ Se qualquer recomendação do Advisor não for relevante para um recurso individ
 
 O Advisor exibe as pontuações de categoria e sua pontuação geral do consultor como porcentagens. Uma pontuação de 100% em qualquer categoria significa todos os seus recursos, *avaliados pelo Advisor*, siga as práticas recomendadas que o Advisor recomenda. Na outra extremidade do espectro, uma pontuação de 0% significa que nenhum dos seus recursos, avaliados pelo Advisor, segue as recomendações do Advisor.
 
-**Cada uma das cinco categorias tem uma pontuação potencial mais alta de 100.** A pontuação geral do consultor é calculada como uma soma de cada Pontuação de categoria aplicável, dividida pela soma da Pontuação potencial mais alta de todas as categorias aplicáveis. Para a maioria das assinaturas, isso significa que o Advisor soma a pontuação de cada categoria e divide por 500. Mas *cada Pontuação de categoria é calculada somente se você usar recursos que são avaliados pelo Advisor*.
+**Cada uma das cinco categorias tem uma pontuação potencial mais alta de 100.** A pontuação geral do consultor é calculada como uma soma de cada Pontuação de categoria aplicável, dividida pela soma da Pontuação potencial mais alta de todas as categorias aplicáveis. Para a maioria das assinaturas, isso significa que o Assistente soma a pontuação de cada categoria e divide por 500. Mas *cada Pontuação de categoria é calculada somente se você usar recursos que são avaliados pelo Advisor*.
 
 ### <a name="advisor-score-calculation-example"></a>Exemplo de cálculo de Pontuação do Advisor
 
 * **Pontuação de assinatura única:** Este exemplo é a média simples de todas as pontuações de categoria do Advisor para sua assinatura. Se as pontuações de categoria do supervisor forem- **cost** = 73, **fiabilidade** = 85, **excelência operacional** = 77 e **desempenho** = 100, a Pontuação do supervisor será (73 + 85 + 77 + 100)/(4x100) = 0,84% ou 84%.
 * **Pontuação de várias assinaturas:** Quando várias assinaturas são selecionadas, as pontuações gerais do consultor geradas são pontuações de categoria agregadas ponderadas. Aqui, cada Pontuação de categoria do supervisor é agregada com base nos recursos consumidos pelas assinaturas. Depois que o supervisor tem as pontuações de categoria agregadas ponderadas, o Advisor faz um simples cálculo médio para fornecer uma pontuação geral para assinaturas.
 
-### <a name="scoring-methodology"></a>Metodologia de Pontuação
+### <a name="scoring-methodology"></a>Metodologia de pontuação
 
 O cálculo da Pontuação do supervisor pode ser resumido em quatro etapas:
 
-1. O Advisor calcula o *custo de varejo dos recursos afetados*. Esses recursos são aqueles em suas assinaturas que têm pelo menos uma recomendação no Advisor.
-1. O Advisor calcula o *custo de varejo dos recursos avaliados*. Esses recursos são aqueles monitorados pelo Advisor, independentemente de terem ou não recomendações.
+1. O Advisor calcula o *custo de varejo dos recursos afetados*. Esses recursos são aqueles em suas assinaturas que têm pelo menos uma recomendação no Assistente.
+1. O Advisor calcula o *custo de varejo dos recursos avaliados*. Esses recursos são aqueles monitorados pelo Assistente, independentemente de terem ou não recomendações.
 1. Para cada tipo de recomendação, o Advisor calcula a *taxa de recursos íntegros*. Essa taxa é o custo de varejo dos recursos afetados divididos pelo custo de varejo dos recursos avaliados.
-1. O Advisor aplica três pesos adicionais à taxa de recursos íntegros em cada categoria:
+1. O Assistente aplica três pesos adicionais à taxa de recursos íntegros em cada categoria:
 
    * As recomendações com maior impacto são ponderadas mais pesadas do que as recomendações com menor impacto.
    * Os recursos com recomendações duradouras conterão mais em relação à sua pontuação.
-   * Os recursos que você adiar ou ignorar no Advisor serão removidos inteiramente do seu cálculo de pontuação.
+   * Os recursos que você adiar ou ignorar no Assistente serão removidos inteiramente do seu cálculo de pontuação.
 
 O Advisor aplica esse modelo em um nível de categoria do Advisor para fornecer uma pontuação de supervisor para cada categoria. A **segurança** usa um modelo de [Pontuação seguro](../security-center/secure-score-security-controls.md#introduction-to-secure-score) . Uma média simples produz a pontuação final do consultor.
 

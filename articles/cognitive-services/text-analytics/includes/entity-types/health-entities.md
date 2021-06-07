@@ -7,36 +7,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/02/2020
+ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 614d0fe69cee88791559758d5e08dda66672669b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 805c726d33f2050f6f2797c0689069aa5ec4ee71
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097246"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599283"
 ---
-[Análise de texto para integridade](../../how-tos/text-analytics-for-health.md) detecta os conceitos médicos nas categorias a seguir.  (Observe que somente o texto em inglês tem suporte nesta visualização de contêiner e apenas uma única versão de modelo é fornecida em cada imagem de contêiner.)
+[Análise de texto para processos de integridade](../../how-tos/text-analytics-for-health.md) e extrai informações de dados médicos não estruturados. O serviço detecta e superfícies conceitos médicos, atribui asserções a conceitos, infere relações semânticas entre os conceitos e os vincula a ontologies médicos comuns.
 
+Análise de Texto para integridade detecta os conceitos médicos nas categorias a seguir. Somente o texto em inglês tem suporte nesta visualização e apenas uma única versão de modelo está disponível.
 
 | Categoria  | Descrição  |
 |---------|---------|
 | [Anatomia](#anatomy) | conceitos que capturam informações sobre o corpo e sistemas, sites, locais ou regiões. |
  | [DADOS demográficos](#demographics) | conceitos que capturam informações sobre sexo e idade. |
  | [EXAME](#examinations) | conceitos que capturam informações sobre testes e procedimentos de diagnóstico. |
+ | [ATRIBUTOS GERAIS](#general-attributes) | conceitos que fornecem mais informações sobre outros conceitos das categorias acima. |
  | [GENOMICS](#genomics) | conceitos que capturam informações sobre genes e variantes. |
- | [EMPRESAS](#healthcare) | conceitos que capturam informações sobre eventos administrativos, ambientes de cuidado e prestações de saúde. |
+ | [EMPRESAS](#healthcare) | conceitos que capturam informações sobre eventos administrativos, ambientes de atendimento e prestações de saúde. |
  | [CONDIÇÃO MÉDICA](#medical-condition) | conceitos que capturam informações sobre diagnósticos, sintomas ou sinais. |
  | [MEDICAMENTOS](#medication) | conceitos que capturam informações sobre medicamentos, incluindo nomes medicamentos, classes, dosage e rota de administração. |
  | [RG](#social) | conceitos que capturam informações sobre aspectos sociais de medicinaidade relevantes, como a relação de família. |
  | [TRATAMENTOS](#treatment) | conceitos que capturam informações sobre procedimentos therapeutic. |
-  
-Cada categoria pode incluir dois grupos de conceito:
 
-* **Entidades** – termos que capturam conceitos médicos como diagnóstico, nome do medicamentos ou nome do tratamento.  Por exemplo, *bronchitis* é um diagnóstico e *Aspirin* é um nome medicamentos.  As menção nesse grupo podem estar vinculadas a uma ID de conceito de UMLS.
-* **Atributos** -frases que fornecem mais informações sobre a entidade detectada, por exemplo, *severo* é um qualificador de condição para *bronchitis* ou *81 mg* é um dosage para *Aspirin*.  As menção nesta categoria não serão vinculadas a uma ID de conceito UMLS.
-
-Além disso, o serviço reconhece as relações entre os diferentes conceitos, incluindo relações entre atributos e entidades, por exemplo, *direção* para a *estrutura de corpo* ou *dosage* para *medicamentos nome* e relações entre entidades, por exemplo, na detecção de abreviação.
+Você encontrará mais informações e exemplos abaixo.
 
 ## <a name="anatomy"></a>Anatomia
 
@@ -49,21 +46,11 @@ Sistemas de **BODY_STRUCTURE** corpo, locais ou regiões de anatômicas e sites 
 
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Um exemplo expandido da entidade de estrutura do corpo.":::
 
-### <a name="attributes"></a>Atributos
-
-Termos **direcionais** , como: esquerda, lateral, superior, posteriores, que caracteriza uma estrutura de corpo.
-
-:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Um exemplo de um atributo direcional.":::
-
-### <a name="supported-relations"></a>Relações com suporte
-
-* **DIRECTION_OF_BODY_STRUCTURE**
-
 ## <a name="demographics"></a>Dados demográficos
 
 ### <a name="entities"></a>Entidades
 
-**Idade** – todos os termos e frases do Age, incluindo aqueles de um paciente, membros da família e outros. Por exemplo, 40-ano-antigo, 51 Yo, 3 meses antigos, adulto, Infant, idosa, Young, menor, médio.
+**Idade** – todos os termos e frases do Age, incluindo aqueles para pacientes, membros da família e outros. Por exemplo, 40-ano-antigo, 51 Yo, 3 meses antigos, adulto, Infant, idosa, Young, menor, médio.
 
 :::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Um exemplo de uma entidade etária.":::
 
@@ -74,61 +61,43 @@ Termos **direcionais** , como: esquerda, lateral, superior, posteriores, que car
 
 :::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Um exemplo de uma entidade de gênero.":::
 
-### <a name="attributes"></a>Atributos
-
-**RELATIONAL_OPERATOR** -frases que expressam a relação entre uma entidade demográfica e informações adicionais.
-
-:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Um exemplo de um operador relacional.":::
-
 ## <a name="examinations"></a>Análises
 
 ### <a name="entities"></a>Entidades
 
-**EXAMINATION_NAME** – procedimentos e testes de diagnóstico. Por exemplo, MRI, ECG, teste de HIV, Hemoglobin, contagem de platelets, sistemas de escala como *Bristol Stool Scale*.
+**EXAMINATION_NAME** – procedimentos e testes de diagnóstico, incluindo sinais vitais e medidas de corpo. Por exemplo, MRI, ECG, teste de HIV, Hemoglobin, contagem de platelets, sistemas de escala como *Bristol Stool Scale*.
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Um exemplo de uma entidade de exame.":::
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Outro exemplo de uma entidade de nome de exame.":::
 
-### <a name="attributes"></a>Atributos
+## <a name="general-attributes"></a>Atributos gerais
 
-**Direção** – termos direcionais que caracterizam um exame.
+### <a name="entities"></a>Entidades
 
-:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Um exemplo de um atributo de direção com uma entidade de nome de exame.":::
+**Data** -data completa relacionada a uma condição médica, exame, tratamento, medicamentos ou evento administrativo.
 
-**MEASUREMENT_UNIT** – a unidade do exame. Por exemplo, em *hemoglobin > 9,5 g/dl*, o termo *g/dl* é a unidade para o teste *Hemoglobin* .
+**Direção** – termos direcionais que podem estar relacionados a uma estrutura de corpo, condição médica, exame ou tratamento, como: esquerda, lateral, superior, posteriores.
 
-:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Um exemplo de um atributo de unidade de medida com uma entidade de nome de exame.":::
+**Frequência** – descreve com que frequência uma condição médica, exame, tratamento ou medicamentos ocorreu, ocorre ou deve ocorrer.
 
-**MEASUREMENT_VALUE** – o valor do exame. Por exemplo, em *hemoglobin > 9,5 g/dl*, o termo *9,5* é o valor para o teste *Hemoglobin* .
+**MEASUREMENT_VALUE** – o valor relacionado a uma medição de condições médicas ou de exame.
 
-:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Um exemplo de um atributo de valor de medição com uma entidade de nome de exame.":::
+**MEASUREMENT_UNIT** – a unidade de medida relacionada a um exame ou uma medida de condição médica.
 
-**RELATIONAL_OPERATOR** – frases que expressam a relação entre um exame e informações adicionais. Por exemplo, o valor de medição necessário para um exame de destino.
+**RELATIONAL_OPERATOR** -frases que expressam a relação quantitativa entre uma entidade e algumas informações adicionais.
 
-:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Um exemplo de um operador relacional com uma entidade de nome de exame.":::
-
-**Tempo** – termos temporais relacionados ao início e/ou comprimento (duração) de um exame. Por exemplo, quando o teste ocorreu.
-
-:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Um exemplo de um atributo de tempo com uma entidade de nome de exame.":::
-
-### <a name="supported-relations"></a>Relações com suporte
-
-+ **DIRECTION_OF_EXAMINATION**
-+   **RELATION_OF_EXAMINATION**
-+   **TIME_OF_EXAMINATION**
-+   **UNIT_OF_EXAMINATION**
-+   **VALUE_OF_EXAMINATION**
+**Tempo** -termos temporais relacionados ao início e/ou comprimento (duração) de uma condição médica, exame, tratamento, medicamentos ou evento administrativo. 
 
 ## <a name="genomics"></a>Genomics
 
 ### <a name="entities"></a>Entidades
 
-**Gene** – todas as menção de genes. Por exemplo, MTRR, F2.
+**GENE_OR_PROTEIN** – todas as menção de nomes e símbolos de genes humana, bem como os cromossomas e partes de cromossomas e proteínas. Por exemplo, MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Um exemplo de uma entidade de Gene.":::
 
-**Variante** – todas as menção de gene variações. Por exemplo, c. 524C>T, (MTRR): r.1462_1557del96
+**Variante** – todas as menção de variações de genes e mutações. Por `c.524C>T` exemplo, `(MTRR):r.1462_1557del96`
   
 ## <a name="healthcare"></a>Serviços de saúde
 
@@ -164,9 +133,7 @@ Termos **direcionais** , como: esquerda, lateral, superior, posteriores, que car
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Outro exemplo de uma entidade de sinal de condição médica ou de sintoma.":::
 
-### <a name="attributes"></a>Atributos
-
-Termos de **CONDITION_QUALIFIER** qualidade usados para descrever uma condição médica. Todas as subcategorias a seguir são consideradas qualificadores:
+**CONDITION_QUALIFIER** -termos qualitativos que são usados para descrever uma condição médica. Todas as subcategorias a seguir são consideradas qualificadores:
 
 1.  Expressões relacionadas a tempo: são termos que descrevem a dimensão de tempo qualitativamente, como repentina, acento agudo, crônicos, permanente. 
 2.  Expressões de qualidade: são termos que descrevem a "natureza" da condição médica, como a gravação, nítida.
@@ -186,40 +153,6 @@ Termos de **CONDITION_QUALIFIER** qualidade usados para descrever uma condição
 
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Esta captura de tela mostra um exemplo adicional de um atributo de qualificador de condição com uma entidade de diagnóstico.":::
 
-Termos direcionais de **direção** que caracterizam uma condição médica de corpo.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Um exemplo de um atributo de direção com uma entidade de condição médica.":::
-
-**Frequência** -com que frequência uma condição médica ocorreu, ocorre ou deve ocorrer.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Um exemplo de um atributo Frequency com uma entidade de condição médica.":::
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Outro exemplo de um atributo de direção com uma entidade de sintoma ou sinal.":::
-
-**MEASUREMENT_UNIT** -a unidade que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor*, o termo *cm* é a unidade de medida para o *tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Um exemplo de um atributo de unidade de medida com entidade de condição médica.":::
-
-**MEASUREMENT_VALUE** -o valor que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor*, o termo *1.5 X2X1* é o valor de medida para o *tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Captura de tela mostra um exemplo de um atributo de direção com uma entidade sintoma ou sinal.":::
-
-**RELATIONAL_OPERATOR** -frases que expressam a relação entre informações adicionais da condição médica. Por exemplo, tempo ou valor de medição. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Captura de tela mostra outro exemplo de um atributo de direção com uma entidade sintoma ou sinal.":::
-
-**Tempo** -termos temporais relacionados ao início e/ou comprimento (duração) de uma condição médica. Por exemplo, quando um sintoma foi iniciado (início) ou quando ocorreu uma doença.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Captura de tela mostra um exemplo adicional de um atributo de direção com uma entidade sintoma ou sinal.":::
-
-### <a name="supported-relations"></a>Relações com suporte
-
-+ **DIRECTION_OF_CONDITION**
-+   **QUALIFIER_OF_CONDITION**
-+   **TIME_OF_CONDITION**
-+   **UNIT_OF_CONDITION**
-+   **VALUE_OF_CONDITION**
-
 ## <a name="medication"></a>Medicamentos
 
 ### <a name="entities"></a>Entidades
@@ -228,21 +161,13 @@ Termos direcionais de **direção** que caracterizam uma condição médica de c
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Um exemplo de uma entidade de classe medicamentos.":::
 
-**MEDICATION_NAME** – medicamentos menciona, incluindo nomes de marca com direitos autorais e nomes que não são da marca. Por exemplo, Advil, Ibuprofen.
+**MEDICATION_NAME** – medicamentos menciona, incluindo nomes de marca com direitos autorais e nomes que não são da marca. Por exemplo, Ibuprofen.
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Um exemplo de uma entidade de nome de medicamentos.":::
-
-### <a name="attributes"></a>Atributos
 
 **DOSAGE** -quantidade de medicamentos ordenados. Por exemplo, Turbine sodium Chloride Solution *1000 ml*.
 
 :::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Um exemplo de um atributo medicamentos dosage.":::
-
-**Frequência** -com que frequência um medicamentos deve ser obtido.
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Um exemplo de um atributo de frequência medicamentos.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Outro exemplo de um atributo de frequência medicamentos.":::
 
 **MEDICATION_FORM** -a forma do medicamentos. Por exemplo, solução, Pill, cápsula, Tablet, patch, gel, colar, espuma, spray, quedas, sorvete, Syrup.
 
@@ -251,20 +176,6 @@ Termos direcionais de **direção** que caracterizam uma condição médica de c
 **MEDICATION_ROUTE** -o método de administração de medicamentos. Por exemplo, oral, vaginal, IV, epidural, tópicas, Inhaled.
 
 :::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Um exemplo de um atributo de rota medicamentos.":::
-
-**RELATIONAL_OPERATOR** -frases que expressam a relação entre medicamentos e informações adicionais. Por exemplo, o valor de medição necessário.
-
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Captura de tela mostra um exemplo de um atributo de operador relacional com uma entidade medicamentos.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Captura de tela mostra outro exemplo de um atributo de operador relacional com uma entidade medicamentos.":::
-
-### <a name="supported-relations"></a>Relações com suporte
-
-+ **DOSAGE_OF_MEDICATION**
-+   **FORM_OF_MEDICATION**
-+   **FREQUENCY_OF_MEDICATION**
-+   **ROUTE_OF_MEDICATION**
-+   **TIME_OF_MEDICATION**
 
 ## <a name="social"></a>Social
 
@@ -281,27 +192,3 @@ Termos direcionais de **direção** que caracterizam uma condição médica de c
 **TREATMENT_NAME** – procedimentos therapeutic. Por exemplo, joelho Replacement cirurgia, Bone Marrow transplant, TAVI, dieta.
 
 :::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Um exemplo de uma entidade de nome de tratamento.":::
-
-### <a name="attributes"></a>Atributos
-
-Termos direcionais de **direção** que caracterizam um tratamento.
-
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Captura de tela mostra um exemplo de um atributo de direção de tratamento.":::
-
-**Frequência** -com que frequência um tratamento ocorre ou deve ocorrer.
-
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Captura de tela mostra outro exemplo de um atributo de direção de tratamento.":::
- 
-**RELATIONAL_OPERATOR** -frases que expressam a relação entre tratamento e informações adicionais.  Por exemplo, quanto tempo foi passado do procedimento anterior.
-
-:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Um exemplo de um atributo de operador relacional de tratamento.":::
-
-**Tempo** -termos temporais relacionados ao início e/ou comprimento (duração) de um tratamento. Por exemplo, a data em que o tratamento foi fornecido.
-
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Captura de tela mostra um exemplo de um atributo de tempo de tratamento.":::
-
-### <a name="supported-relations"></a>Relações com suporte
-
-+ **DIRECTION_OF_TREATMENT**
-+   **TIME_OF_TREATMENT**
-+   **FREQUENCY_OF_TREATMENT**

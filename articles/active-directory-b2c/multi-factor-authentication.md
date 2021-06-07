@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525137"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102033513"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Active Directory B2C
 
@@ -43,10 +43,10 @@ Esse recurso ajuda os aplicativos a lidar com cenários como:
 1. Na seção **autenticação multifator** , selecione o **método MFA** desejado e, em seguida, em **imposição de MFA** , selecione **Always on** ou **condicional (recomendado)**.
    > [!NOTE]
    >
-   > - Se você selecionar **condicional (recomendado)**, também precisará [Adicionar uma política de acesso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar os aplicativos aos quais deseja que a política se aplique.
+   > - Se você selecionar **condicional (recomendado)**, também precisará [Adicionar acesso condicional aos fluxos de usuário](conditional-access-user-flow.md)e especificar os aplicativos aos quais deseja que a política se aplique.
    > - A autenticação multifator (MFA) é desabilitada por padrão para fluxos de usuário de inscrição. Você pode habilitar a MFA em fluxos de usuário com inscrição no telefone, mas como um número de telefone é usado como o identificador primário, o email de senha de uso único é a única opção disponível para o segundo fator de autenticação.
 
-1. Selecione **Salvar**. A MFA agora está habilitada para este fluxo de usuário.
+1. Clique em **Salvar**. A MFA agora está habilitada para este fluxo de usuário.
 
 Você pode usar **Executar fluxo de usuário** na política para verificar a experiência. Confirme o seguinte cenário:
 

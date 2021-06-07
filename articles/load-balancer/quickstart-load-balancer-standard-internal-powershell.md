@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -15,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms:custom: seodec18
-ms.openlocfilehash: 5844b321fd3050bab9288657189ddcd87bba14db
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 618ca8722cef1959fddc5dcd24e8e8bdbb1f620a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562328"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530047"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o Azure PowerShell
 
@@ -304,6 +302,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
@@ -577,6 +577,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

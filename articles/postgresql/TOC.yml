@@ -113,6 +113,9 @@
       items:
         - name: CLI do Azure
           href: sample-scripts-azure-cli.md
+        - name: Itens internos do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -421,6 +424,8 @@
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Conectar e consultar
           items:
+            - name: CLI do Azure
+              href: flexible-server/connect-azure-cli.md
             - name: Python
               href: flexible-server/connect-python.md
             - name: Java
@@ -572,14 +577,6 @@
         - name: Criar um painel em tempo real
           href: tutorial-design-database-hyperscale-realtime.md
           displayName: 'hyperscale, tutorial, real-time'
-    - name: Exemplos
-      items:
-        - name: CLI do Azure
-          href: sample-scripts-azure-cli.md
-          displayName: 'samples, azure cli'
-        - name: Itens internos do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Dados distribuídos

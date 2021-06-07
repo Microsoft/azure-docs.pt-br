@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: e2a1f38918b2ea6af8a334b6648a463753f5c7b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+manager: femila
+ms.openlocfilehash: 0b95c87ad447b92532bc6c456c06eb85162c7247
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295202"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444404"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows (clássica)
 

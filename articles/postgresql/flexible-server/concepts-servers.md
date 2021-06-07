@@ -1,17 +1,17 @@
 ---
 title: Servidores no banco de dados do Azure para PostgreSQL – servidor flexível (visualização)
 description: Este artigo fornece considerações e diretrizes para configurar e gerenciar o banco de dados do Azure para PostgreSQL-servidor flexível.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 5cd4454d5b77d18940f6693a25a691a01f4fedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933732"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626836"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>Servidores-Banco de dados do Azure para PostgreSQL-servidor flexível
 
@@ -42,8 +42,8 @@ Dentro de um banco de dados do Azure para o servidor PostgreSQL, você pode cria
 
 Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados:
 
-|||
-|:--|:--|
+| Conceito de segurança | Descrição |
+| :-- | :-- |
 | **Autenticação e autorização** | O Banco de Dados do Azure para servidor PostgreSQL oferece suporte à autenticação de PostgreSQL nativa. Você pode se conectar e autenticar no servidor com logon de administrador do servidor. |
 | **Protocolo** | O serviço oferece suporte a um protocolo baseado em mensagem usado pelo PostgreSQL. |
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |

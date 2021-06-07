@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 8cf8fdfe0c8eb557946baa95d0d8beb2b388baa5
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2af97206db00d683ab409710bc71a3b5048bf6ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674439"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104658458"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -22,6 +22,9 @@ ms.locfileid: "97674439"
 Em vez de criar e gerenciar aplicativos IoT Central no site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) , você pode usar o [portal do Azure](https://portal.azure.com) para gerenciar seus aplicativos.
 
 ## <a name="create-iot-central-applications"></a>Criar aplicativos do IoT Central
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 
 Para criar um aplicativo, navegue até a [portal do Azure](https://ms.portal.azure.com) e selecione **criar um recurso**.
 
@@ -50,7 +53,7 @@ Depois de preencher todos os campos, selecione **criar**.
 Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo ou movê-lo para uma assinatura ou grupo de recursos diferente no portal do Azure.
 
 > [!NOTE]
-> Os aplicativos criados usando o plano *gratuito* não exigem assinaturas do Azure e, portanto, você não os encontrará na sua assinatura do azure na portal do Azure. Você só pode ver e gerenciar aplicativos gratuitos no portal de IoT Central.
+> Os aplicativos criados por meio do plano *gratuito* não exigem assinaturas do Azure e, portanto, você não os encontrará na sua assinatura do Azure no portal do Azure. Você só poderá ver e gerenciar aplicativos gratuitos no portal do IoT Central.
 
 Para começar, selecione **todos os recursos** no Portal. Selecione **Mostrar tipos ocultos** e comece a digitar o nome do seu aplicativo em **Filtrar por nome** para localizá-lo. Em seguida, selecione o aplicativo IoT Central que você gostaria de gerenciar.
 

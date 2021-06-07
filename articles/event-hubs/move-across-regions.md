@@ -4,10 +4,10 @@ description: Este artigo mostra como mover um namespace de hubs de eventos do Az
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019915"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um namespace de hubs de eventos do Azure para outra região
@@ -40,7 +40,7 @@ Para começar, exporte um modelo do Resource Manager. Este modelo contém config
 Implante o modelo para criar um namespace de hubs de eventos na região de destino. 
 
 
-1. Na portal do Azure, selecione **criar um recurso**.
+1. No portal do Azure, selecione **Criar um recurso**.
 2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e selecione **implantação de modelo (implantar usando modelos personalizados)**.
 5. Selecione **Criar seu próprio modelo no editor**.
 6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.

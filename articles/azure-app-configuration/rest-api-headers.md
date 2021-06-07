@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 80b20b0b55219766872166685c0b1257f3c39c55
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932567"
 ---
 # <a name="headers"></a>Cabeçalhos
@@ -21,7 +21,7 @@ Este artigo fornece links para páginas de referência para cabeçalhos usados c
 
 A tabela a seguir descreve os cabeçalhos de solicitação comuns usados na configuração do Azure App.
 
-| Cabeçalho | Descrição | Exemplo |
+| parâmetro | Descrição | Exemplo |
 |--|--|--|
 | **Autorização** | Usado para [autenticar](./rest-api-authentication-index.md) uma solicitação para o serviço. Consulte a [seção 14,8](https://tools.ietf.org/html/rfc2616#section-14.8) | `Authorization: HMAC-SHA256 Credential=<Credential>&SignedHeaders=Host;x-ms-date;x-ms-content-sha256&Signature=<Signature>` |
 | **Aceitar** | Informa ao servidor qual tipo de mídia o cliente aceitará em uma resposta HTTP. Consulte a [seção 14,1](https://tools.ietf.org/html/rfc2616#section-14.1) | `Accept: application/vnd.microsoft.appconfig.kv+json;` |
@@ -33,7 +33,7 @@ A tabela a seguir descreve os cabeçalhos de solicitação comuns usados na conf
 | **If-None-Match** | Usado para fazer uma solicitação HTTP condicional. Essa solicitação só deverá ser realizada se a ETag do recurso de destino não corresponder ao valor desse cabeçalho. O valor ' * ' corresponde a qualquer ETag. Consulte a [seção 14,26](https://tools.ietf.org/html/rfc2616#section-14.26) | `If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"` |
 | **Sincronizar token** | Usado para habilitar a consistência em tempo real durante uma sequência de solicitações. | `Sync-Token: jtqGc1I4=MDoyOA==;sn=28` |
 | **x-ms-client-request-id** | Uma ID exclusiva fornecida pelo cliente usado para acompanhar a viagem de ida e volta de uma solicitação. | `x-ms-client-request-id: 00000000-0000-0000-0000-000000000000` |
-| **x-MS-Content-SHA256** | Um resumo SHA256 do corpo da solicitação HTTP. Esse cabeçalho é usado na [autenticação HMAC](./rest-api-authentication-hmac.md). | `x-ms-content-sha256: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=` |
+| **x-ms-content-sha256** | Um resumo SHA256 do corpo da solicitação HTTP. Esse cabeçalho é usado na [autenticação HMAC](./rest-api-authentication-hmac.md). | `x-ms-content-sha256: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=` |
 | **x-ms-date** | Esse cabeçalho pode ser definido e usado no lugar do `Date` cabeçalho se o cabeçalho de data não puder ser acessado. Esse cabeçalho é usado na [autenticação HMAC](./rest-api-authentication-hmac.md). | `x-ms-date: Fri, 11 May 2018 18:48:36 GMT` |
 | **x-ms-return-client-request-id** | Usado em conjunto com o `x-ms-client-request-id` cabeçalho. Se o valor desse cabeçalho for ' true ', o servidor será instruído a retornar o valor do `x-ms-client-request-id` cabeçalho da solicitação. | `x-ms-return-client-request-id: true` |
 
@@ -41,7 +41,7 @@ A tabela a seguir descreve os cabeçalhos de solicitação comuns usados na conf
 
 O servidor pode incluir os seguintes cabeçalhos HTTP em suas respostas.
 
-| Cabeçalho | Descrição | Exemplo |
+| parâmetro | Descrição | Exemplo |
 |--|--|--|
 | **Content-Type** | Contém o tipo de mídia do conteúdo no corpo da resposta HTTP. Consulte a [seção 14,17](https://tools.ietf.org/html/rfc2616#section-14.17) | `Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8;` |
 | **ETag** | Um token opaco que representa o estado de um determinado recurso. Pode ser usado em operações condicionais. Consulte a [seção 14,19](https://tools.ietf.org/html/rfc2616#section-14.19) | `ETag: "4f6dd610dd5e4deebc7fbaef685fb903"` |

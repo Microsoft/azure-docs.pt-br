@@ -4,12 +4,12 @@ description: Compreendendo como os endereços IP e a localização geográfica s
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521910"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100584075"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e manipulação de endereço IP
 
@@ -30,7 +30,7 @@ Esse comportamento é por design para ajudar a evitar a coleta desnecessária de
 
 Embora o padrão seja não coletar endereços IP. Ainda oferecemos a flexibilidade para substituir esse comportamento. No entanto, é recomendável verificar se a coleção não interrompe quaisquer requisitos de conformidade ou regulamentos locais. 
 
-Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](../platform/personal-data-mgmt.md).
+Para saber mais sobre a manipulação de dados pessoais no Application Insights, consulte as [diretrizes para dados pessoais](../logs/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Armazenando dados de endereço IP
 
@@ -245,6 +245,6 @@ Se o teste for de localhost e o valor para `customDimensions_client-ip` for `::1
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [coleta de dados pessoais](../platform/personal-data-mgmt.md) no Application insights.
+* Saiba mais sobre a [coleta de dados pessoais](../logs/personal-data-mgmt.md) no Application insights.
 
 * Saiba mais sobre como a [coleta de endereços IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) no Application insights funciona. (Este artigo é uma postagem de blog externa mais antiga escrita por um de nossos engenheiros. Ele atinge o comportamento padrão atual em que o endereço IP é registrado como `0.0.0.0` , mas ele entra em mais detalhes sobre a mecânica do interno `ClientIpHeaderTelemetryInitializer` .)

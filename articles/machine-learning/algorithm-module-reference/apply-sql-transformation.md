@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
 ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94555593"
 ---
 # <a name="apply-sql-transformation"></a>Aplicar transformação de SQL
@@ -36,7 +36,7 @@ Usando o módulo aplicar transformação SQL, você pode:
 
 O módulo pode ter até três conjuntos de dados como entradas. Ao fazer referência aos conjuntos de dados conectados a cada porta de entrada, você deve usar os nomes `t1` , `t2` e `t3` . O número da tabela indica o índice da porta de entrada.  
 
-Veja a seguir o código de exemplo para mostrar como unir duas tabelas. T1 e T2 são dois conjuntos de dados conectados às portas de entrada esquerda e intermediária de **aplicar transformação SQL** :
+Veja a seguir o código de exemplo para mostrar como unir duas tabelas. T1 e T2 são dois conjuntos de dados conectados às portas de entrada esquerda e intermediária de **aplicar transformação SQL**:
 
 ```sql
 SELECT t1.*

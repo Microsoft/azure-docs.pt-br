@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94352601"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário

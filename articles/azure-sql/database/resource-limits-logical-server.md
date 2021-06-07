@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492375"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543509"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para servidores do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Este artigo fornece uma visão geral dos limites de recursos para o servidor lógico usado pelo banco de dados SQL do Azure e pelo Azure Synapse Analytics. Ele fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados e descreve os mecanismos de governança de recursos usados para impor esses limites.
+Este artigo fornece uma visão geral dos limites de recursos para o [servidor lógico](logical-servers.md) usado pelo banco de dados SQL do Azure e pelo Azure Synapse Analytics. Ele fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou ultrapassados e descreve os mecanismos de governança de recursos usados para impor esses limites.
 
 > [!NOTE]
-> Para limites de Instância Gerenciada do SQL do Azure, consulte [limites de recursos do banco de dados SQL para instâncias gerenciadas](../managed-instance/resource-limits.md).
+> Para limites de Instância Gerenciada do SQL do Azure, consulte [limites de recursos para instâncias gerenciadas](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
 | Recurso | Limite |
 | :--- | :--- |
-| Bancos de dados por servidor | 5.000 |
-| Número padrão de servidores por assinatura por região | 20 |
-| Número máximo padrão de servidores por assinatura por região | 200 |  
-| DTU / cota de eDTU por servidor | 54.000 |  
-| Cota de vCore por servidor/instância | 540 |
-| Pools de máx por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
+| Bancos de dados por servidor lógico | 5.000 |
+| Número padrão de servidores lógicos por assinatura em uma região | 20 |
+| Número máximo de servidores lógicos por assinatura em uma região | 200 |  
+| Cota de DTU/eDTU por servidor lógico | 54.000 |  
+| cota vCore por servidor lógico | 540 |
+| Máximo de pools por servidor lógico | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
 |||
 
 > [!IMPORTANT]
-> Conforme o número de bancos de dados vai se aproximando do limite por servidor, pode ocorrer o seguinte:
+> Como o número de bancos de dados aproxima-se do limite por servidor lógico, pode ocorrer o seguinte:
 >
-> - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
+> - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui exibições de estatísticas de utilização de recursos, como `sys.resource_stats` .
 > - Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
 
 > [!NOTE]
-> Para obter mais cota de DTU/eDTU, cota de vCore ou mais servidores do que o valor padrão, envie uma nova solicitação de suporte no portal do Azure. Para obter mais informações, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md).
+> Para obter mais cotas de DTU/eDTU, cota de vCore ou mais servidores lógicos do que o valor padrão, envie uma nova solicitação de suporte no portal do Azure. Para obter mais informações, consulte [aumentos de cota de solicitação para o banco de dados SQL do Azure](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
 
@@ -70,7 +70,7 @@ Ao encontrar uma utilização alta de espaço, as opções de atenuação inclue
 - Aumentar o tamanho máximo do banco de dados ou do pool elástico ou adicionar mais armazenamento. Consulte [limites de recursos do banco de dados individual em escala](single-database-scale.md) e [limites de recursos do pool elástico](elastic-pool-scale.md).
 - Se o banco de dados estiver em um pool elástico, como alternativa, o banco de dados poderá ser movido para fora do pool para que seu espaço de armazenamento não seja compartilhado com outros bancos de dados.
 - Encolher um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
-- Verifique se a utilização de espaço alta é devido a um pico no tamanho do repositório de versão persistente (PVS). O PVS é uma parte de cada banco de dados e é usado para implementar a  [recuperação de banco de dados acelerada](../accelerated-database-recovery.md). Para determinar o tamanho atual do PVS, consulte [solução de problemas do PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Um motivo comum para o tamanho de PVS grande é uma transação aberta por um longo tempo (horas), impedindo a limpeza de versões mais antigas em PVS.
+- Verifique se a utilização de espaço alta é devido a um pico no tamanho do repositório de versão persistente (PVS). O PVS é uma parte de cada banco de dados e é usado para implementar a  [recuperação de banco de dados acelerada](../accelerated-database-recovery.md). Para determinar o tamanho atual do PVS, consulte [solução de problemas do PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Um motivo comum para o tamanho de PVS grande é uma transação aberta por um longo tempo (horas), impedindo a limpeza de versões mais antigas em PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sessões e trabalhos (solicitações)
 
@@ -106,11 +106,11 @@ Ao encontrar erros de memória insuficiente, as opções de mitigação incluem:
 
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabalho do usuário e processos internos
 
-O consumo de CPU e de memória por cargas de trabalho de usuário em cada banco de dados é relatado nas exibições de [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_cpu_percent` `avg_memory_usage_percent` colunas e. Para pools elásticos, o consumo de recursos no nível do pool é relatado na exibição [Sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . O consumo de CPU da carga de trabalho do usuário também é relatado por meio da `cpu_percent` métrica de Azure monitor, para [bancos de dados individuais](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
+O consumo de CPU e de memória por cargas de trabalho de usuário em cada banco de dados é relatado nas exibições de [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_cpu_percent` `avg_memory_usage_percent` colunas e. Para pools elásticos, o consumo de recursos no nível do pool é relatado na exibição [Sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . O consumo de CPU da carga de trabalho do usuário também é relatado por meio da `cpu_percent` métrica de Azure monitor, para [bancos de dados individuais](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
 
 O banco de dados SQL do Azure requer recursos de computação para implementar recursos de serviço principais, como alta disponibilidade e recuperação de desastre, backup e restauração de banco de dados, monitoramento, Repositório de Consultas, ajuste automático, etc. O sistema separa uma determinada parte limitada dos recursos gerais para esses processos internos usando mecanismos de [governança de recursos](#resource-governance) , tornando os demais recursos disponíveis para cargas de trabalho do usuário. Às vezes, quando os processos internos não estão usando recursos de computação, o sistema os torna disponíveis para cargas de trabalho do usuário.
 
-O consumo total de CPU e memória por cargas de trabalho do usuário e processos internos é relatado nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_instance_cpu_percent` `avg_instance_memory_percent` colunas e. Esses dados também são relatados por meio das `sqlserver_process_core_percent` `sqlserver_process_memory_percent` métricas e Azure monitor, para [bancos de dados individuais](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
+O consumo total de CPU e memória por cargas de trabalho do usuário e processos internos é relatado nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_instance_cpu_percent` `avg_instance_memory_percent` colunas e. Esses dados também são relatados por meio das `sqlserver_process_core_percent` `sqlserver_process_memory_percent` métricas e Azure monitor, para [bancos de dados individuais](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
 
 Uma análise mais detalhada do consumo de recursos recente por cargas de trabalho do usuário e processos internos é relatada nas exibições [Sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) e [Sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) . Para obter detalhes sobre pools de recursos e grupos de carga de trabalho referenciados nessas exibições, consulte [governança de recursos](#resource-governance). Essas exibições relatam sobre a utilização de recursos por cargas de trabalho do usuário e processos internos específicos nos pools de recursos e grupos de carga de trabalho associados.
 

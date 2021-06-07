@@ -2,21 +2,22 @@
 title: Executar tarefas em contas de usuário
 description: Conheça os tipos de contas de usuário e como configurá-las.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719352"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606599"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
 > [!NOTE]
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuário usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança.
 >
-> Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/linux/use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para se conectar a um nó que executa a configuração de máquina virtual do Linux via SSH, consulte [instalar e configurar o xrdp para usar o área de trabalho remota com o Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Para se conectar a nós que executam o Windows via RDP, consulte [como se conectar e entrar em uma máquina virtual do Azure que executa o Windows](../virtual-machines/windows/connect-logon.md).
+>
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Para determinados cenários, talvez você queira configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Este artigo aborda os tipos de contas de usuário e como configurá-las para seu cenário.
@@ -30,7 +31,7 @@ O Lote do Azure fornece dois tipos de conta de usuário para execução de taref
 - **Uma conta de usuário nomeado** Você pode especificar uma ou mais contas de usuário nomeado para um pool ao criar o pool. Cada conta de usuário é criada em cada nó do pool. Além do nome de conta, você especifica a senha, o nível de elevação e, para pools do Linux, a chave privada SSH da conta do usuário. Ao adicionar uma tarefa, você pode especificar a conta de usuário nomeado na qual essa tarefa deve ser executada.
 
 > [!IMPORTANT]
-> A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significativa que exige a atualização do seu código para chamar essa versão. Se você estiver migrando o código de uma versão antiga do Lote, observe que a propriedade **runElevated** não tem mais suporte na API REST ou nas bibliotecas de cliente do Lote. Use a nova propriedade **userIdentity** de uma tarefa para especificar o nível de elevação. Consulte [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote se você estiver usando uma das bibliotecas de cliente.
+> O serviço de lote versão 2017-01-01.4.0 introduziu uma alteração significativa que exige que você atualize seu código para chamar essa versão ou posterior. Consulte [atualizar seu código para a biblioteca de cliente do lote mais recente](#update-your-code-to-the-latest-batch-client-library) para obter diretrizes rápidas para atualizar o código do lote de uma versão mais antiga.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Acesso de conta de usuário a arquivos e diretórios
 
@@ -77,6 +78,7 @@ Os snippets de código a seguir mostram como configurar a especificação de usu
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Java no Lote
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Atualizar seu código para a biblioteca de cliente mais recente do Lote
 
-A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significativa, substituindo a propriedade **runElevated** disponível em versões anteriores pela propriedade **userIdentity**. As tabelas a seguir fornecem um mapeamento simples que você pode usar para atualizar o código de versões anteriores das bibliotecas de cliente.
+O serviço de lote versão 2017-01-01.4.0 introduziu uma alteração significativa, substituindo a propriedade **runElevated** disponível em versões anteriores pela propriedade **UserIdentity** . As tabelas a seguir fornecem um mapeamento simples que você pode usar para atualizar o código de versões anteriores das bibliotecas de cliente.
 
 ### <a name="batch-net"></a>.NET no Lote
 

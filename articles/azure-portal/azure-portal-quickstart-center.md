@@ -1,14 +1,14 @@
 ---
 title: Introdução ao Azure Quickstart Center
 description: Use a experiência guiada do centro de início rápido do Azure para começar a usar o Azure. Aprenda a configurar, migrar e inovar.
-ms.date: 01/29/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2b64e52ed0a15db216d5fb298b66d8ec03fc2f42
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dbfe1ea99b09813edbfaa7bc248b4c71f1dd8a45
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745699"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232980"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao Azure Quickstart Center
 
@@ -30,7 +30,7 @@ O centro de início rápido do Azure tem três opções de introdução:
 
 1. Selecione **todos os serviços** no menu portal do Azure.
 
-1. Selecione **General**  >  **centro de início rápido** geral.
+1. Selecione   >  **centro de início rápido** geral.
 
 Para obter uma visão aprofundada do que o Azure QuickStart Center pode fazer por você, confira este vídeo:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

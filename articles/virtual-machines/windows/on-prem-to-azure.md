@@ -3,19 +3,20 @@ title: Migração do AWS e outras plataformas para os Managed Disks no Azure
 description: Criação de VMs no Azure usando VHDs carregados de outras nuvens, como AWS ou outras plataformas de virtualização, e tirar proveito dos Azure Managed Disks.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subervice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
-ms.translationtype: MT
+ms.openlocfilehash: c817528ff26dd10112eaf69c7ad20f8fb5813695
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200882"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102550392"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar do AWS (Amazon Web Services) e outras plataformas para o Managed Disks no Azure
 
@@ -26,7 +27,7 @@ Você pode carregar VHDs especializados e generalizados.
 - **VHD especializado** – mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. 
 
 > [!IMPORTANT]
-> Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md)
+> Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
@@ -41,7 +42,7 @@ Você pode carregar VHDs especializados e generalizados.
 ## <a name="overview-of-managed-disks"></a>Visão geral do Managed Disks
 
 O Azure Managed Disks simplifica o gerenciamento de VM, eliminando a necessidade de gerenciar contas de armazenamento. O Managed Disks também fornece melhor confiabilidade de VMs em um conjunto de disponibilidade. Isso garante um isolamento suficiente dos discos de VMs diferentes em um conjunto de disponibilidade a fim de evitar um ponto único de falha. Ele coloca automaticamente os discos de VMs diferentes em um conjunto de disponibilidade em unidades de escala (carimbos) de armazenamentos diferentes, o que limita o impacto de falhas em uma única unidade de escala de armazenamento causadas por falhas de hardware e de software.
-Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte nosso artigo [selecionar um tipo de disco](../disks-types.md).
+Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, confira nosso artigo [Selecionar um tipo de disco](../disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Como planejar a migração para os Managed Disks
 
@@ -49,7 +50,7 @@ Esta seção ajuda você a tomar a melhor decisão sobre VM e tipos de disco.
 
 Se você estiver planejando sobre migração de discos não gerenciados para discos gerenciados, você deverá estar ciente de que os usuários com a função [Colaborador de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) não poderão alterar o tamanho da VM (como podiam antes da conversão). Isso ocorre porque as VMs com discos gerenciados requerem que o usuário tenha a permissão Microsoft.Compute/disks/write nos discos do sistema operacional.
 
-### <a name="location"></a>Location
+### <a name="location"></a>Local
 
 Escolha um local onde o Azure Managed Disks estão disponíveis. Se você estiver migrando para Managed Disks Premium, verifique também se o armazenamento premium está disponível na região que você pretende migrar. Confira [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre as localizações disponíveis.
 
@@ -70,7 +71,7 @@ Há sete tipos de discos gerenciados premium que podem ser usados com sua VM e c
 | IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5.000              | 7500              | 7500              | 
 | Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
-**Managed Disks padrão**
+**Managed Disks Standard**
 
 Há sete tipos de discos gerenciados standard que podem ser usados com sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de discos gerenciados Standard com base nas necessidades de capacidade do seu aplicativo.
 
@@ -84,7 +85,7 @@ Há sete tipos de discos gerenciados standard que podem ser usados com sua VM. C
 
 **Managed Disks Premium**
 
-Por padrão, a política de cache de disco é *somente leitura* para todos os discos de dados Premium e *leitura/gravação* para o disco do sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
+Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
 
 ### <a name="pricing"></a>Preços
 
@@ -93,4 +94,4 @@ Confira os [preços dos Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Antes de carregar qualquer VHD no Azure, você deve seguir [preparar um VHD do Windows ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md)
+- Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md)

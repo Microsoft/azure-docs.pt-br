@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94359150"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory

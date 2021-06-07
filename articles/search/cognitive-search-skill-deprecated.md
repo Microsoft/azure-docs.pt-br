@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936088"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Habilidades cognitivas preteridas no Azure Pesquisa Cognitiva
@@ -45,11 +45,11 @@ Para migrar para a [Habilidade de Reconhecimento de Entidade](cognitive-search-s
 
 1. *(Obrigatório)* Altere o `@odata.type` de `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 
-2. *(Opcional) * Se você estiver fazendo uso do `entities` de saída, use o `namedEntities` saída de coleção complexa do `EntityRecognitionSkill` em vez disso. Você pode usar o `targetName` na definição de habilidade para mapeá-lo para uma anotação chamada `entities`.
+2. *(Opcional)* Se você estiver fazendo uso do `entities` de saída, use o `namedEntities` saída de coleção complexa do `EntityRecognitionSkill` em vez disso. Você pode usar o `targetName` na definição de habilidade para mapeá-lo para uma anotação chamada `entities`.
 
 3. *(Opcional)* Se você não especificar explicitamente o `categories`, o `EntityRecognitionSkill` poderá retornar diferentes tipos de categorias além daquelas que foram suportadas pelo `NamedEntityRecognitionSkill`. Se esse comportamento for indesejável, certifique-se de definir explicitamente o `categories` parâmetro para `["Person", "Location", "Organization"]`.
 
-    _ Exemplos de definições de migração _
+    _Exemplos de definições de migração_
 
     * Migração simples
 

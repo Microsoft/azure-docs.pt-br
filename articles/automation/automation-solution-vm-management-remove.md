@@ -3,14 +3,14 @@ title: Remover a automação do Azure Iniciar/Parar VMs fora do horário comerci
 description: Este artigo descreve como remover o recurso Iniciar/Parar VMs fora do horário comercial e desvincular uma conta de automação do espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2021
+ms.date: 03/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 0bab5d8e82ce432e9b3834fe4c003316545eb338
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012288"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102122078"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Remover Iniciar/Parar VMs fora do horário comercial da conta de automação
 
@@ -24,21 +24,7 @@ A exclusão desse recurso remove apenas os runbooks associados, não exclui os a
 
 ## <a name="delete-the-dedicated-resource-group"></a>Excluir o grupo de recursos dedicado
 
-1. Entre no Azure em [https://portal.azure.com](https://portal.azure.com) .
-
-2. Navegue até sua conta de automação e selecione **espaço de trabalho vinculado** em **recursos relacionados**.
-
-3. Selecione **Acessar o workspace**.
-
-4. Em **Geral**, clique em **Soluções**.
-
-5. Na página Soluções, selecione **Start-Stop-VM[Workspace]** .
-
-6. Na página **VMManagementSolution [espaço de trabalho]** , selecione **excluir** no menu.
-
-    ![Excluir recurso de gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-7. Para excluir o grupo de recursos criado para dar suporte apenas ao Iniciar/Parar VMs fora do horário comercial, siga as etapas descritas no [Azure Resource Manager o grupo de recursos e o artigo de exclusão de recursos](../azure-resource-manager/management/delete-resource-group.md) .
+Para excluir o grupo de recursos, siga as etapas descritas na [Azure Resource Manager o grupo de recursos e o artigo de exclusão de recursos](../azure-resource-manager/management/delete-resource-group.md) .
 
 ## <a name="delete-the-automation-account"></a>Excluir a conta de automação
 
@@ -94,7 +80,7 @@ Embora as informações sejam verificadas e a conta seja excluída, você pode a
 
 ## <a name="delete-the-feature"></a>Excluir o recurso
 
-Para excluir Iniciar/Parar VMs fora do horário comercial de sua conta de automação, execute as etapas a seguir. A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se não quiser manter o espaço de trabalho Log Analytics, você deverá excluí-lo manualmente. Para obter mais informações sobre como excluir seu espaço de trabalho, consulte [excluir e recuperar o Azure log Analytics espaço de trabalho](../azure-monitor/platform/delete-workspace.md).
+Para excluir Iniciar/Parar VMs fora do horário comercial de sua conta de automação, execute as etapas a seguir. A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se não quiser manter o espaço de trabalho Log Analytics, você deverá excluí-lo manualmente. Para obter mais informações sobre como excluir seu espaço de trabalho, consulte [excluir e recuperar o Azure log Analytics espaço de trabalho](../azure-monitor/logs/delete-workspace.md).
 
 1. Navegue até sua conta de automação e selecione **espaço de trabalho vinculado** em **recursos relacionados**.
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/22/2021
-ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/23/2021
+ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518038"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107594"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|3200|3840|4480|5120|
-|Taxa máxima de logs (MBps)|36|36|36|36|
+|Taxa máxima de logs (MBps)|45|50|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|750|900|1.050|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|
@@ -103,7 +103,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|5760|6400|7680|10240|12800|
-|Taxa máxima de logs (MBps)|36|36|36|36|36|
+|Taxa máxima de logs (MBps)|50|50|50|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|1350|1500|1800|2400|3000|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -246,7 +246,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo do log (TB)|Ilimitado |Ilimitado |Ilimitado |Ilimitado |
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
 |Tipo de armazenamento| [Observação 1](#notes) |[Observação 1](#notes)|[Observação 1](#notes) |[Observação 1](#notes) |
-|IOPS máximo de SSD local *|8000 |16000 |24.000 |32000 |
+|IOPS máximo de SSD local *|14000|28000|42000|44800|
 |Taxa máxima de logs (MBps)|100 |100 |100 |100 |
 |Latência de E/S (aproximada)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|[Observação 2](#notes)|
 |Máximo de trabalhos simultâneos (solicitações)|160|320|480|640|
@@ -308,7 +308,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)
 |IOPS de dados máximo *|2240|2560|2880|3200|5120|7680|
-|Taxa máxima de logs (MBps)|31,5|36|36|36|36|36|
+|Taxa máxima de logs (MBps)|31,5|36|40,5|45|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -335,7 +335,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|640|1280|1920|2560|3200|3840|4480|
-|Taxa máxima de logs (MBps)|9|18|27|36|36|36|36|
+|Taxa máxima de logs (MBps)|9|18|27|36|45|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -360,7 +360,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|5120|5760|6400|7680|10240|12800|12800|
-|Taxa máxima de logs (MBps)|36|36|36|36|36|36|36|
+|Taxa máxima de logs (MBps)|50|50|50|50|50|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -383,11 +383,11 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1536|
 |Tamanho máximo de log (GB)|336|336|336|336|512|
-|Tamanho máximo de dados de TempDB (GB)|333|333|333|333|333|
+|Tamanho máximo de dados de TempDB (GB)|37|46|56|65|74|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|2560|3200|3840|4480|5120|
-|Taxa máxima de logs (MBps)|36|36|36|36|36|
+|Taxa máxima de logs (MBps)|36|45|50|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|400|500|600|700|800|
 |Máximo de logons simultâneos|800|1000|1200|1.400|1600|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
@@ -409,11 +409,11 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|1536|1536|1536|3072|3072|4096|
 |Tamanho máximo de log (GB)|512|512|512|1024|1024|1024|
-|Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tamanho máximo de dados de TempDB (GB)|83|93|111|148|167|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|5760|6400|7680|10240|11520|12800|
-|Taxa máxima de logs (MBps)|36|36|36|36|36|36|
+|Taxa máxima de logs (MBps)|50|50|50|50|50|50|
 |Máximo de trabalhos simultâneos (solicitações)|900|1000|1200|1600|1800|3600|
 |Máximo de logons simultâneos|1800|2000|2400|3200|3600|7200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -635,7 +635,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|14000|28000|42000|56000|
+|IOPS de dados máximo *|14000|28000|42000|44800|
 |Taxa máxima de logs (MBps)|24|48|72|96|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|
 |Máximo de logons simultâneos|200|400|600|800|

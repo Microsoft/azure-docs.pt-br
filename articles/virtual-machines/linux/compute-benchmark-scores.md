@@ -1,16 +1,18 @@
 ---
 title: Calcular pontuações de parâmetro de comparação para VMs Linux do Azure
 description: Compare as pontuações de parâmetro de comparação de computação do CoreMark de VMs do Linux que executam o Linux.
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: benchmark
+ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: 939b5f6005dcb0b320852aece60db5bcf36dddbd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 04581e34444f929f32af647850766d4df50bf98b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201171"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954064"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Linux
 As pontuações de parâmetro de comparação CoreMark a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Ubuntu. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Windows](../windows/compute-benchmark-scores.md).

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 88a820d0f1fa9515b4f2992a8305a2d1065e0987
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421202"
 ---
 # <a name="resnet"></a>ResNet
@@ -34,9 +34,9 @@ Consulte [Este artigo](https://pytorch.org/docs/stable/torchvision/models.html?h
 
 1.  Adicione o módulo **ResNet** ao seu pipeline no designer.  
 
-2.  Para **nome do modelo** , especifique o nome de uma determinada estrutura ResNet e você pode selecionar entre ResNet com suporte: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 '.
+2.  Para **nome do modelo**, especifique o nome de uma determinada estrutura ResNet e você pode selecionar entre ResNet com suporte: ' resnet18 ', ' resnet34 ', ' resnet50 ', ' resnet101 ', ' resnet152 ', ' resnet152 ', ' resnext50 \_ 32x4d ', ' resnext101 \_ 32x8d ', ' wide_resnet50 \_ 2 ', ' wide_resnet101 \_ 2 '.
 
-3.  Para pré- **treinado** , especifique se deseja usar um modelo previamente treinado em ImageNet. Se selecionado, você pode ajustar o modelo com base no modelo pretreinado selecionado; Se estiver desmarcada, você poderá treinar do zero.
+3.  Para pré- **treinado**, especifique se deseja usar um modelo previamente treinado em ImageNet. Se selecionado, você pode ajustar o modelo com base no modelo pretreinado selecionado; Se estiver desmarcada, você poderá treinar do zero.
 
 4.  Conecte a saída do módulo **DenseNet** módulo do conjunto de módulos de imagem, treinamento e validação ao [modelo Train Pytorch](train-pytorch-model.md). 
 
@@ -50,15 +50,15 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name       | Intervalo | Type    | Padrão           | Descrição                              |
+| Nome       | Intervalo | Type    | Padrão           | Descrição                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
-| Nome do modelo | Qualquer   | Mode    | resnext101 \_ 32x8d | Nome de uma determinada estrutura ResNet       |
+| Nome do modelo | Qualquer   | Modo    | resnext101 \_ 32x8d | Nome de uma determinada estrutura ResNet       |
 | Pré-treinados | Qualquer   | Booliano | verdadeiro              | Se deve ser usado um modelo previamente treinado em ImageNet |
 |            |       |         |                   |                                          |
 
 ###  <a name="output"></a>Saída  
 
-| Nome            | Tipo                    | Descrição                              |
+| Nome            | Type                    | Descrição                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo não treinado | UntrainedModelDirectory | Um modelo de ResNet não treinado que pode ser conectado ao modelo Train Pytorch. |
 

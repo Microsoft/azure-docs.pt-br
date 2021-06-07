@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a87f4d0748d14ab995f75279b6a192f350165d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87843820"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importar uma API SOAP e converter em REST
@@ -30,9 +30,9 @@ Neste artigo, você aprenderá como:
 > * Testar a API no Portal do Azure
 > * Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
+Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -49,7 +49,7 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
 
 5. Pressione Tab.
 
-    Os seguintes campos são preenchidos com as informações da API SOAP: Nome de exibição, Nome, Descrição.
+    Os seguintes campos são preenchidos com as informações da API SOAP: Nome de exibição, nome, descrição.
 6. Adicione um sufixo da URL da API. O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.
 9. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
 

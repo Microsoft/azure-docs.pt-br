@@ -1,35 +1,29 @@
 ---
 title: Adicionar analisadores personalizados a campos de cadeia de caracteres
 titleSuffix: Azure Cognitive Search
-description: Configure criadores de texto e filtros de caracteres usados no Azure Pesquisa Cognitiva consultas de pesquisa de texto completo.
+description: Configure criadores de texto e filtros de caractere para executar a análise de texto em cadeias de caracteres durante a indexação e as consultas.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: fef73a9b98fef40aaceeacca43836d4b2f3c5de0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.date: 03/17/2021
+ms.openlocfilehash: 831e57a68c79c245b96baec0fc3d062c4c9112c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630200"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604433"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores personalizados a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
-Um *analisador personalizado* é um tipo específico de [analisador de texto](search-analyzers.md) composto por uma combinação de um criador de token existente e  filtros opcionais definida pelo usuário. Combinando criadores de token e filtros de novas maneiras, você pode personalizar o processamento de texto no mecanismo de pesquisa para obter resultados específicos. Por exemplo, você poderia criar um analisador personalizado com um *filtro de caracteres* para remover a marcação HTML antes que as entradas de texto sejam tokenizadas.
+Um *analisador personalizado* é uma combinação de criador, um ou mais filtros de token e um ou mais filtros de caracteres que você define no índice de pesquisa e, em seguida, referência em definições de campo que exigem análise personalizada. O criador de token é responsável por quebrar o texto em tokens, e os filtros de token são responsáveis por modificar tokens emitidos pelo criador de token. Os filtros de caractere preparam o texto de entrada antes de serem processados pelo criador. 
 
- Você pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode usar um analisador para análise de indexação e outro para a análise de pesquisa. Para ver qual seria a aparência de um analisador de cliente, consulte [Exemplo de analisador personalizado](search-analyzers.md#Custom-analyzer-example).
+Um analisador personalizado oferece controle sobre o processo de conversão de texto em tokens indexáveis e pesquisáveis, permitindo que você escolha quais tipos de análise ou filtragem devem ser invocados e a ordem na qual eles ocorrem. Se você quiser usar um analisador interno com opções personalizadas, como alterar o maxTokenLength no padrão, você criaria um analisador personalizado, com um nome definido pelo usuário, para definir essas opções.
 
-## <a name="overview"></a>Visão geral
+As situações em que os analisadores personalizados podem ser úteis incluem:
 
- Simplificando, a função de um [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) é processar e armazenar documentos de uma maneira que permita consulta e recuperação eficientes. Em um alto nível, tudo se resume a extrair palavras importantes de documentos, colocá-las em um índice e usar o índice para localizar documentos que correspondam às palavras de uma determinada consulta. O processo de extração de palavras de documentos e consultas de pesquisa é chamado de *análise léxica*. Os componentes que executam a análise léxica são chamados de *analisadores*.
-
- No Azure Pesquisa Cognitiva, você pode escolher entre um conjunto de analisadores independentes de linguagem predefinidos na tabela de [analisadores](#AnalyzerTable) ou analisadores específicos de idioma listados em [analisadores de linguagem &#40;API REST do serviço Pesquisa Cognitiva do Azure&#41;](index-add-language-analyzers.md). Você também tem a opção para definir os próprios analisadores personalizados.  
-
- Um analisador personalizado permite que você assuma o controle do processo de conversão de texto em tokens indexáveis e pesquisáveis. É uma configuração definida pelo usuário composta por um único criador de token predefinido, um ou mais filtros de token e um ou mais filtros de caracteres. O criador de token é responsável por quebrar o texto em tokens, e os filtros de token são responsáveis por modificar tokens emitidos pelo criador de token. Filtros de caracteres são aplicados para preparar o texto de entrada antes de ser processado pelo criador de tokens. Por exemplo, um filtro de caracteres pode substituir certos caracteres ou símbolos.
-
- Entre os cenários populares habilitados pelos analisadores personalizados estão:  
+- Usar filtros de caractere para remover a marcação HTML antes que as entradas de texto sejam indexadas ou substituir determinados caracteres ou símbolos.
 
 - Pesquisa fonética. Adicione um filtro fonético para permitir a pesquisa com base no som de uma palavra, e não na ortografia.  
 
@@ -41,21 +35,28 @@ Um *analisador personalizado* é um tipo específico de [analisador de texto](se
 
 - Folding ASCII. Adicione o filtro Folding ASCII padrão para normalizar diacríticos como ö ou ê em termos de pesquisa.  
 
-  Esta página fornece uma lista de analisadores, criadores de token, filtros de token e filtros de caracteres. Você também pode encontrar uma descrição das alterações na definição de índice, com um exemplo de uso. Para obter mais informações sobre a tecnologia subjacente utilizada na implementação de Pesquisa Cognitiva do Azure, consulte [Resumo do pacote de análise (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). Para obter exemplos de configurações do analisador, consulte [Adicionar analisadores no Azure pesquisa cognitiva](search-analyzers.md#examples).
+Para criar um analisador personalizado, especifique-o na seção "analisadores" de um índice no tempo de design e faça referência a ele nos campos pesquisáveis, EDM. String usando a propriedade "Analyzer" ou o par "indexAnalyzer" e "searchAnalyzer".
 
-## <a name="validation-rules"></a>Regras de validação  
- Os nomes dos analisadores, criadores de token, filtros de token e filtros de caracteres devem ser exclusivos e não podem ser iguais aos dos analisadores, criadores de token, filtros de token ou filtros de caracteres predefinidos. Confira a [Referência de Propriedade](#PropertyReference) para nomes que já estão em uso.
+> [!NOTE]  
+> Os analisadores personalizados que você cria não são expostos no Portal do Azure. A única maneira de adicionar um analisador personalizado é por meio de código que define um índice. 
 
-## <a name="create-custom-analyzers"></a>Criar analisadores personalizados
- Você pode definir analisadores personalizados na hora da criação do índice. A sintaxe para especificar um analisador personalizado é descrita nesta seção. Você também pode se familiarizar com a sintaxe examinando definições de exemplo em [Adicionar analisadores no Azure pesquisa cognitiva](search-analyzers.md#examples).  
+## <a name="create-a-custom-analyzer"></a>Criar um analisador personalizado
 
- Uma definição de analisador inclui um nome, um tipo, um ou mais filtros de caracteres, um máximo de um criador de token e um ou mais filtros de token para processamento de pós-criação de token. Os filtros de caracteres são aplicados antes da criação de token. Filtros de token e filtros de caracteres são aplicados da esquerda para a direita.
+Uma definição do analisador inclui um nome, tipo, um ou mais filtros de caractere, um máximo de um criador e um ou mais filtros de token para o processamento pós-tokening. Os filtros de caractere são aplicados antes da geração de tokens. Filtros de token e filtros de caractere são aplicados da esquerda para a direita.
 
- `tokenizer_name` é o nome de um criador de token, `token_filter_name_1` e `token_filter_name_2` são os nomes dos filtros de token, e `char_filter_name_1` e `char_filter_name_2` são os nomes dos filtros de caracteres (confira os valores válidos nas tabelas [Criadores de token](#Tokenizers), [Filtros de token](#TokenFilters) e Filtros de caracteres ).
+- Os nomes em um analisador personalizado devem ser exclusivos e não podem ser os mesmos dos filtros internos, criadores, filtros de token ou de caracteres. Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres. 
 
-A definição do analisador é uma parte do índice maior. Confira informações sobre o resto do índice em [Criar API de índice](/rest/api/searchservice/create-index).
+- O tipo deve ser #Microsoft. Azure. Search. CustomAnalyzer.
 
-```
+- "charFilters" pode ser um ou mais filtros de [filtros de caractere](#CharFilter), processados antes de geração de tokens, na ordem fornecida. Alguns filtros de caractere têm opções, que podem ser definidas em uma seção "charFilter". Os filtros de caractere são opcionais.
+
+- "criador" é exatamente um [criador](#tokenizers). É necessário um valor. Se precisar de mais de um criador de token, você pode criar vários analisadores personalizados e atribuí-los campo por campo em seu esquema de índice.
+
+- "tokenFilters" pode ser um ou mais filtros de [filtros de token](#TokenFilters), processados após a geração de tokens, na ordem fornecida. Para filtros de token que têm opções, adicione uma seção "tokenFilter" para especificar a configuração. Filtros de token são opcionais.
+
+Os analisadores não devem produzir tokens com mais de 300 caracteres ou haverá falha na indexação. Para aparar o token longo ou para excluí-los, use o **TruncateTokenFilter** e o **LengthTokenFilter** , respectivamente. Consulte [**filtros de token**](#TokenFilters) para referência.
+
+```json
 "analyzers":(optional)[
    {
       "name":"name of analyzer",
@@ -107,12 +108,9 @@ A definição do analisador é uma parte do índice maior. Confira informações
 ]
 ```
 
-> [!NOTE]  
->  Os analisadores personalizados que você cria não são expostos no Portal do Azure. A única maneira de adicionar um analisador personalizado é por meio do código que faz chamadas para a API durante a definição de um índice.  
+Dentro de uma definição de índice, você pode colocar essa seção em qualquer lugar no corpo de uma solicitação de criação de índice, mas geralmente ela ocorre no final:  
 
- Dentro de uma definição de índice, você pode colocar essa seção em qualquer lugar no corpo de uma solicitação de criação de índice, mas geralmente ela ocorre no final:  
-
-```
+```json
 {
   "name": "name_of_index",
   "fields": [ ],
@@ -127,18 +125,17 @@ A definição do analisador é uma parte do índice maior. Confira informações
 }
 ```
 
-As definições para filtros de caracteres, criadores de token e filtros de token serão adicionadas ao índice somente se você estiver definindo opções personalizadas. Para usar um filtro ou criador de token existente no estado em que ele se encontra, especifique-o por nome na definição do analisador.
-
-<a name="Testing custom analyzers"></a>
+A definição do analisador é uma parte do índice maior. As definições para filtros de caracteres, criadores de token e filtros de token serão adicionadas ao índice somente se você estiver definindo opções personalizadas. Para usar um filtro ou criador de token existente no estado em que ele se encontra, especifique-o por nome na definição do analisador. Para obter mais informações, consulte [criar índice (REST)](/rest/api/searchservice/create-index). Para obter mais exemplos, consulte [Adicionar analisadores no Azure pesquisa cognitiva](search-analyzers.md#examples).
 
 ## <a name="test-custom-analyzers"></a>Testar analisadores personalizados
 
-Você pode usar a **operação Analisador de Testes** na [API REST](/rest/api/searchservice/test-analyzer) para verificar como um analisador divide um determinado texto em tokens.
+Você pode usar o [Test Analyzer (REST)](/rest/api/searchservice/test-analyzer) para ver como um analisador quebra o texto em tokens.
 
 **Solicitação**
-```
+
+```http
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
-  Content-Type: application/json
+    Content-Type: application/json
     api-key: [admin key]
 
   {
@@ -146,8 +143,10 @@ Você pode usar a **operação Analisador de Testes** na [API REST](/rest/api/se
      "text": "Vis-à-vis means Opposite"
   }
 ```
+
 **Resposta**
-```
+
+```http
   {
     "tokens": [
       {
@@ -180,147 +179,77 @@ Você pode usar a **operação Analisador de Testes** na [API REST](/rest/api/se
 
 ## <a name="update-custom-analyzers"></a>Atualizar analisadores personalizados
 
-Quando um analisador, um criador de token, um filtro de token ou um filtro de caracteres é definido, ele não pode ser modificado. Outros novos poderão ser adicionados a um índice existente apenas se o sinalizador `allowIndexDowntime` estiver definido como true na solicitação de atualização de índice:
+Depois que um analisador, um criador, um filtro de token ou um filtro de caracteres é definido, ele não pode ser modificado. Outros novos poderão ser adicionados a um índice existente apenas se o sinalizador `allowIndexDowntime` estiver definido como true na solicitação de atualização de índice:
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
 Essa operação deixa seu índice offline por pelo menos alguns segundos, fazendo com que suas solicitações de indexação e de consulta falhem. O desempenho e a disponibilidade de gravação do índice podem ser prejudicados por vários minutos após o índice ser atualizado, ou por mais tempo em caso de índices muito grandes, mas esses efeitos são temporários e acabam se resolvendo sozinhos.
 
- <a name="ReferenceIndexAttributes"></a>
+<a name="built-in-analyzers"></a>
 
-## <a name="analyzer-reference"></a>Referência de analisador
+## <a name="built-in-analyzers"></a>Analisadores internos
 
-A tabela abaixo lista as propriedades de configuração para a seção de analisadores, criadores de token, filtros de token e filtro de caracteres de uma definição de índice. A estrutura de um analisador, criador de token ou filtro em seu índice é composta desses atributos. Para informações de atribuição de valor, confira [Referência de Propriedade](#PropertyReference).
-
-### <a name="analyzers"></a>Analisadores
-
-Para os analisadores, os atributos de índice variam dependendo se você estiver usando analisadores predefinidos ou personalizados.
-
-#### <a name="predefined-analyzers"></a>Analisadores predefinidos
-
-| Tipo | Descrição |
-| ---- | ----------- |  
-|Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
-|Tipo|Tipo de analisador da lista de analisadores com suporte. Confira a coluna **analyzer_type** na tabela [Analisadores](#AnalyzerTable) abaixo.|  
-|Opções|Devem ser opções válidas de um analisador predefinido listado na tabela [Analisadores](#AnalyzerTable) abaixo.|  
-
-#### <a name="custom-analyzers"></a>Analisadores personalizados
-
-| Tipo | Descrição |
-| ---- | ----------- |  
-|Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
-|Tipo|Deve ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Defina como um dos filtros de caracteres predefinidos listados na tabela [Filtros de caracteres](#char-filters-reference) ou um filtro de caracteres personalizado especificado na definição do índice.|  
-|Gerador de token|Obrigatórios. Defina como um dos criadores de token predefinidos listados na tabela [Criadores de token](#Tokenizers) abaixo ou um criador de token personalizado especificado na definição do índice.|  
-|Filtros de token|Defina como um dos filtros de token predefinidos listados na tabela [Filtros de token](#TokenFilters) ou um filtro de token personalizado especificado na definição do índice.|  
-
-> [!NOTE]
-> É necessário que você configure seu analisador personalizado para não produzir tokens com mais de 300 caracteres. A indexação falha para documentos com esses tokens. Para segmentá-los ou ignorá-los, use **TruncateTokenFilter** e **LengthTokenFilter** respectivamente.  Verifique os [**filtros de token**](#TokenFilters) para referência.
-
-<a name="CharFilter"></a>
-
-### <a name="char-filters"></a>Filtros de caracteres
-
- Um filtro de caracteres é usado para preparar o texto de entrada antes de ser processado pelo criador de tokens. Por exemplo, ele pode substituir certos caracteres ou símbolos. Você pode ter vários filtros de caracteres em um analisador personalizado. Filtros de caracteres são executados na ordem em que estão listados.  
-
-| Tipo | Descrição |
-| ---- | ----------- | 
-|Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
-|Tipo|Tipo de filtro de caracteres da lista de filtros de caracteres com suporte. Confira a coluna **char_filter_type** na tabela [Filtros de caracteres](#char-filters-reference) abaixo.|  
-|Opções|Deve ser uma opção válida de um determinado tipo de [Filtros de caracteres](#char-filters-reference).|  
-
-### <a name="tokenizers"></a>Criadores de token
-
- Um criador de token divide o texto contínuo em uma sequência de tokens, assim como quebrar uma frase em palavras.  
-
- Você pode especificar exatamente um criador de token por analisador personalizado. Se precisar de mais de um criador de token, você pode criar vários analisadores personalizados e atribuí-los campo por campo em seu esquema de índice.  
-Um analisador personalizado pode usar um criador de token predefinido com opções personalizadas ou padrão.  
-
-| Tipo | Descrição |
-| ---- | ----------- | 
-|Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
-|Tipo|Nome do criador de token da lista de criadores de token com suporte. Confira a coluna **tokenizer_type** na tabela [Criadores de token](#Tokenizers) abaixo.|  
-|Opções|Deve ser uma opção válida de um determinado tipo de criador de token listado na tabela [Criadores de token](#Tokenizers) abaixo.|  
-
-### <a name="token-filters"></a>Filtros de token
-
- Um filtro de token é usado para filtrar ou modificar os tokens gerados por um criador de token. Por exemplo, você pode especificar um filtro de minúsculas que converte todos os caracteres em letras minúsculas.   
-Você pode ter vários filtros de token em um analisador personalizado. Os filtros de token são executados na ordem em que estão listados.  
-
-| Tipo | Descrição |
-| ---- | ----------- |  
-|Nome|Deve conter apenas letras, números, espaços, traços ou sublinhados, pode começar e terminar apenas com caracteres alfanuméricos e está limitado a 128 caracteres.|  
-|Tipo|Nome do filtro de token da lista de filtros de token com suporte. Confira a coluna **token_filter_type** na tabela [Filtros de token](#TokenFilters) abaixo.|  
-|Opções|Deve ser [Filtros de token](#TokenFilters) de um determinado tipo de filtro de token.|  
-
-<a name="PropertyReference"></a>  
-
-## <a name="property-reference"></a>Referência de propriedade
-
-Esta seção fornece os valores válidos para atributos especificados na definição de um analisador personalizado, criador de token, filtro de caracteres ou filtro de token em seu índice. Analisadores, criadores de token e filtros que são implementados usando o Apache Lucene têm links para a documentação da API Lucene.
-
-<a name="AnalyzerTable"></a>
-
-###  <a name="predefined-analyzers-reference"></a>Referência de analisadores predefinidos
+Se você quiser usar um analisador interno com opções personalizadas, a criação de um analisador personalizado é o mecanismo pelo qual você especifica essas opções. Por outro lado, para usar um analisador interno como está, você simplesmente precisa [fazer referência a ele pelo nome](search-analyzers.md#how-to-specify-analyzers) na definição de campo.
 
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Descrição e opções**|  
-|-|-|-|  
+|-----------------|-------------------------------|---------------------------|  
 |[chaves](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (o tipo aplica-se somente quando há opções disponíveis) |Trata todo o conteúdo de um campo como um único token. É útil para dados como códigos postais, IDs e alguns nomes de produtos.|  
-|[padrão](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Separa texto em termos de forma flexível por meio de um padrão de expressão regular.<br /><br /> **Opções**<br /><br /> lowercase (tipo: bool) — determina se os termos estão em minúscula. O padrão é true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (tipo: cadeia de caracteres) — um padrão de expressão regular para corresponder separadores de token. O padrão é `\W+` , que corresponde a caracteres que não são palavras.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadeia de caracteres) — sinalizadores de expressão regular. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, comentários, dotall, LITERAL, MULTILINHA, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
+|[padrão](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Separa texto em termos de forma flexível por meio de um padrão de expressão regular. </br></br>**Opções** </br></br>lowercase (tipo: bool) — determina se os termos estão em minúscula. O padrão é true. </br></br>[pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (tipo: cadeia de caracteres) — um padrão de expressão regular para corresponder separadores de token. O padrão é `\W+` , que corresponde a caracteres que não são palavras. </br></br>[flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadeia de caracteres) — sinalizadores de expressão regular. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, comentários, dotall, LITERAL, MULTILINHA, UNICODE_CASE, UNIX_LINES </br></br>stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
 |[único](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(o tipo aplica-se somente quando há opções disponíveis) |Divide o texto em não letras e converte em minúsculas. |  
-|[Standardization](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Também conhecido como standard.lucene)|StandardAnalyzer|Analisador padrão Lucene, composto pelo criador de token padrão, filtro de letras minúsculas e interrupção de filtro.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. O padrão é 255. Tokens maiores do que o tamanho máximo são divididos. O comprimento máximo do token que pode ser usado é de 300 caracteres.<br /><br /> stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
+|[Standardization](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) </br>(Também conhecido como standard.lucene)|StandardAnalyzer|Analisador padrão Lucene, composto pelo criador de token padrão, filtro de letras minúsculas e interrupção de filtro. </br></br>**Opções** </br></br>maxTokenLength (tipo: int) — o comprimento máximo do token. O padrão é 255. Tokens maiores do que o tamanho máximo são divididos. O comprimento máximo do token que pode ser usado é de 300 caracteres. </br></br>stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista vazia.|  
 |standardasciifolding.Lucene|(o tipo aplica-se somente quando há opções disponíveis) |Analisador padrão com Filtro Ascii. |  
-|[stop](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Divide o texto em não letras, aplica os filtros de token em minúsculas e de palavras irrelevantes.<br /><br /> **Opções**<br /><br /> stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista predefinida para Inglês. |  
+|[stop](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Divide o texto em não letras, aplica os filtros de token em minúsculas e de palavras irrelevantes. </br></br>**Opções** </br></br>stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. O padrão é uma lista predefinida para Inglês. |  
 |[diferente](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(o tipo aplica-se somente quando há opções disponíveis) |Um analisador que usa o criador de token whitespace. Os tokens com mais de 255 caracteres são divididos.|  
 
- <sup>1</sup> Os tipos de analisadores são sempre prefixados em código com "#Microsoft.Azure.Search", ou seja, "PatternAnalyzer" na verdade seria "#Microsoft.Azure.Search.PatternAnalyzer". Removemos o prefixo para encurtar, mas ele é necessário em seu código. 
- 
-O analyzer_type é fornecido apenas para analisadores que podem ser personalizados. Se não há opções, como é o caso do analisador de palavras-chave, não há nenhum tipo associado do #Microsoft.Azure.Search.
+ <sup>1</sup> Os tipos de analisadores são sempre prefixados em código com "#Microsoft.Azure.Search", ou seja, "PatternAnalyzer" na verdade seria "#Microsoft.Azure.Search.PatternAnalyzer". Removemos o prefixo para encurtar, mas ele é necessário em seu código.
 
+O analyzer_type é fornecido apenas para analisadores que podem ser personalizados. Se não há opções, como é o caso do analisador de palavras-chave, não há nenhum tipo associado do #Microsoft.Azure.Search.
 
 <a name="CharFilter"></a>
 
-###  <a name="char-filters-reference"></a>Referência de filtros de caracteres
+## <a name="character-filters"></a>Filtros de caractere
 
 Na tabela abaixo, filtros de caracteres que são implementados usando o Apache Lucene têm links para a documentação da API Lucene.
 
 |**char_filter_name**|**char_filter_type** <sup>1</sup>|**Descrição e opções**|  
-|-|-|-|
+|--------------------|---------------------------------|---------------------------|
 |[html_strip](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/HTMLStripCharFilter.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Um filtro de caracteres que tenta remover constructos de HTML.|  
-|[mapping](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Um filtro de caracteres que aplica mapeamentos definidos com a opção de mapeamentos. A correspondência é gananciosa (a correspondência de padrões mais longa em um determinado ponto vence). A substituição é permitida como a cadeia de caracteres vazia.<br /><br /> **Opções**<br /><br /> mappings (tipo: cadeia de caracteres) — uma lista de mapeamentos do seguinte formato: "a=>b" (todas as ocorrências do caracter "a" são substituídas pelo caracter "b"). Obrigatórios.|  
-|[pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Um filtro de caracteres que substitui os caracteres na cadeia de entrada. Ele usa uma expressão regular para identificar sequências de caracteres para preservar e um padrão de substituição para identificar caracteres para substituir. Por exemplo, input text = "aa  bb aa bb", pattern="(aa)\\\s+(bb)" replacement="$1#$2", result = "aa#bb aa#bb".<br /><br /> **Opções**<br /><br /> pattern (tipo: cadeia de caracteres) — obrigatório.<br /><br /> replacement (tipo: cadeia de caracteres) — obrigatório.|  
+|[correlação](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Um filtro de caracteres que aplica mapeamentos definidos com a opção de mapeamentos. A correspondência é gananciosa (a correspondência de padrões mais longa em um determinado ponto vence). A substituição é permitida como a cadeia de caracteres vazia.  </br></br>**Opções**  </br></br> mappings (tipo: cadeia de caracteres) — uma lista de mapeamentos do seguinte formato: "a=>b" (todas as ocorrências do caracter "a" são substituídas pelo caracter "b"). Obrigatórios.|  
+|[pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Um filtro de caracteres que substitui os caracteres na cadeia de entrada. Ele usa uma expressão regular para identificar sequências de caracteres para preservar e um padrão de substituição para identificar caracteres para substituir. Por exemplo, input text = "aa  bb aa bb", pattern="(aa)\\\s+(bb)" replacement="$1#$2", result = "aa#bb aa#bb".  </br></br>**Opções**  </br></br>pattern (tipo: cadeia de caracteres) — obrigatório.  </br></br>replacement (tipo: cadeia de caracteres) — obrigatório.|  
 
  <sup>1</sup> Os tipos de filtros de caracteres são sempre prefixados em código com "#Microsoft.Azure.Search", ou seja, "MappingCharFilter" na verdade seria "#Microsoft.Azure.Search.MappingCharFilter. Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo em seu código. Observe que char_filter_type é fornecida somente para filtros que podem ser personalizados. Se não ha opções, como é o caso de html_strip, não há nenhum tipo associado do #Microsoft.Azure.Search.
 
-<a name="Tokenizers"></a>
+<a name="tokenizers"></a>
 
-###  <a name="tokenizers-reference"></a>Referência de criadores de token
+## <a name="tokenizers"></a>Criadores de token
 
-Na tabela abaixo, os criadores de token que são implementados usando o Apache Lucene têm links para a documentação da API Lucene.
+Um criador de token divide o texto contínuo em uma sequência de tokens, assim como quebrar uma frase em palavras. Na tabela abaixo, os criadores de token que são implementados usando o Apache Lucene têm links para a documentação da API Lucene.
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Descrição e opções**|  
-|-|-|-|  
-|[clássico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|O criador de token baseado em gramática é adequado para processar a maioria dos documentos no idioma europeu.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
-|[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Cria tokens para a entrada a partir de uma borda em n-gramas de determinados tamanhos.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) – padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram.<br /><br /> tokenChars (tipo: matriz de cadeia de caracteres) — classes de caracteres para manter nos tokens. Valores permitidos: <br />“letra”, “dígito”, “espaço em branco”, “pontuação”, “símbolo”. O padrão é uma matriz vazia, mantém todos os caracteres. |  
-|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emite a entrada inteira como um único token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 256, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
+|------------------|-------------------------------|---------------------------|  
+|[clássico](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|O criador de token baseado em gramática é adequado para processar a maioria dos documentos no idioma europeu.  </br></br>**Opções**  </br></br>maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
+|[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Cria tokens para a entrada a partir de uma borda em n-gramas de determinados tamanhos.  </br></br> **Opções**  </br></br>minGram (tipo: int) – padrão: 1, máximo: 300.  </br></br>maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram.  </br></br>tokenChars (tipo: matriz de cadeia de caracteres) — classes de caracteres para manter nos tokens. Valores permitidos: </br>“letra”, “dígito”, “espaço em branco”, “pontuação”, “símbolo”. O padrão é uma matriz vazia, mantém todos os caracteres. |  
+|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emite a entrada inteira como um único token.  </br></br>**Opções**  </br></br>maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 256, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
 |[letras](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Divide o texto em não letras. Os tokens com mais de 255 caracteres são divididos.|  
 |[minúsculas](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseTokenizer.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Divide o texto em não letras e converte em minúsculas. Os tokens com mais de 255 caracteres são divididos.|  
-| microsoft_language_tokenizer| MicrosoftLanguageTokenizer| Divide o texto usando regras específicas de idioma.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos. Tokens mais longos que 300 caracteres são divididos em tokens de 300 caracteres, e estes são divididos de acordo com o maxTokenLength definido.<br /><br />isSearchTokenizer (tipo: bool) — defina como true se for usado como o criador de token de pesquisa, defina como false se for usado como criador de token de indexação. <br /><br /> language (tipo: cadeia de caracteres) — idioma a ser usado, o padrão é "english". Entre os valores permitidos estão:<br />"bangla", "bulgarian", "catalan", "chineseSimplified",  "chineseTraditional", "croatian", "czech", "danish", "dutch", "english",  "french", "german", "greek", "gujarati", "hindi", "icelandic", "indonesian", "italian", "japanese", "kannada", "korean", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovenian", "spanish", "swedish", "tamil", "telugu", "thai", "ukrainian", "urdu", "vietnamese" |
-| microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divide o texto usando regras específicas de idioma e reduz palavras para seus formulários base<br /><br /> **Opções**<br /><br />maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos. Tokens mais longos que 300 caracteres são divididos em tokens de 300 caracteres, e estes são divididos de acordo com o maxTokenLength definido.<br /><br /> isSearchTokenizer (tipo: bool) — defina como true se for usado como o criador de token de pesquisa, defina como false se for usado como criador de token de indexação.<br /><br /> language (tipo: cadeia de caracteres) — idioma a ser usado, o padrão é "english". Entre os valores permitidos estão:<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
-|[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Cria tokens de entrada em n-gramas de determinados tamanhos.<br /><br /> **Opções**<br /><br /> minGram (tipo: int) – padrão: 1, máximo: 300.<br /><br /> maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram. <br /><br /> tokenChars (tipo: matriz de cadeia de caracteres) — classes de caracteres para manter nos tokens. Valores permitidos: "letter", "digit", "whitespace", "punctuation", "symbol". O padrão é uma matriz vazia, mantém todos os caracteres. |  
-|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Criador de token para hierarquias de caminho.<br /><br /> **Opções**<br /><br /> delimiter (tipo: cadeia de caracteres) — padrão: '/.<br /><br /> replacement (tipo: cadeia de caracteres) — se definido, substitui o caractere delimitador. Tem como padrão o mesmo valor do delimitador.<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 300, máximo: 300. Caminhos mais longos que o maxTokenLength são ignorados.<br /><br /> reverse (tipo: bool) — se for true, gera o token na ordem inversa. Padrão: falso.<br /><br /> skipl (tipo: bool) — tokens iniciais a ignorar. O padrão é 0.|  
-|[padrão](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Este criador de token usa a correspondência de padrões de regex para criar tokens distintos.<br /><br /> **Opções**<br /><br /> [padrão](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (tipo: cadeia de caracteres)-padrão de expressão regular para corresponder separadores de token. O padrão é `\W+` , que corresponde a caracteres que não são palavras. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadeia de caracteres) — sinalizadores de expressão regular. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, comentários, dotall, LITERAL, MULTILINHA, UNICODE_CASE, UNIX_LINES<br /><br /> group (tipo: int) — qual grupo extrair em tokens. O padrão é -1 (divisão).|
-|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Quebra o texto seguindo as [regras de Segmentação de Texto Unicode](https://unicode.org/reports/tr29/).<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
-|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Cria tokens de urls e emails como um único token.<br /><br /> **Opções**<br /><br /> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
+| microsoft_language_tokenizer| MicrosoftLanguageTokenizer| Divide o texto usando regras específicas de idioma.  </br></br>**Opções**  </br></br>maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos. Tokens mais longos que 300 caracteres são divididos em tokens de 300 caracteres, e estes são divididos de acordo com o maxTokenLength definido.  </br></br>isSearchTokenizer (tipo: bool) — defina como true se for usado como o criador de token de pesquisa, defina como false se for usado como criador de token de indexação. </br></br>language (tipo: cadeia de caracteres) — idioma a ser usado, o padrão é "english". Entre os valores permitidos estão: </br>"bangla", "bulgarian", "catalan", "chineseSimplified",  "chineseTraditional", "croatian", "czech", "danish", "dutch", "english",  "french", "german", "greek", "gujarati", "hindi", "icelandic", "indonesian", "italian", "japanese", "kannada", "korean", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovenian", "spanish", "swedish", "tamil", "telugu", "thai", "ukrainian", "urdu", "vietnamese" |
+| microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divide o texto usando regras específicas de idioma e reduz palavras para seus formulários base </br></br>**Opções** </br></br>maxTokenLength (tipo: int)-o comprimento máximo do token, padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos. Tokens mais longos que 300 caracteres são divididos em tokens de 300 caracteres, e estes são divididos de acordo com o maxTokenLength definido. </br></br> isSearchTokenizer (tipo: bool) — defina como true se for usado como o criador de token de pesquisa, defina como false se for usado como criador de token de indexação. </br></br>language (tipo: cadeia de caracteres) — idioma a ser usado, o padrão é "english". Entre os valores permitidos estão: </br>"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
+|[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Cria tokens de entrada em n-gramas de determinados tamanhos. </br></br>**Opções** </br></br>minGram (tipo: int) – padrão: 1, máximo: 300. </br></br>maxGram (tipo: int) – padrão: 2, máximo: 300. Deve ser maior que minGram. </br></br>tokenChars (tipo: matriz de cadeia de caracteres) — classes de caracteres para manter nos tokens. Valores permitidos: "letter", "digit", "whitespace", "punctuation", "symbol". O padrão é uma matriz vazia, mantém todos os caracteres. |  
+|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Criador de token para hierarquias de caminho. **Opções** </br></br>delimiter (tipo: cadeia de caracteres) — padrão: '/. </br></br>replacement (tipo: cadeia de caracteres) — se definido, substitui o caractere delimitador. Tem como padrão o mesmo valor do delimitador. </br></br>maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 300, máximo: 300. Caminhos mais longos que o maxTokenLength são ignorados. </br></br>reverse (tipo: bool) — se for true, gera o token na ordem inversa. Padrão: falso. </br></br>skipl (tipo: bool) — tokens iniciais a ignorar. O padrão é 0.|  
+|[padrão](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|Este criador de token usa a correspondência de padrões de regex para criar tokens distintos. </br></br>**Opções** </br></br> [padrão](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (tipo: cadeia de caracteres)-padrão de expressão regular para corresponder separadores de token. O padrão é `\W+` , que corresponde a caracteres que não são palavras. </br></br>[flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (tipo: cadeia de caracteres) — sinalizadores de expressão regular. O padrão é uma cadeia de caracteres vazia. Valores permitidos: CANON_EQ, CASE_INSENSITIVE, comentários, dotall, LITERAL, MULTILINHA, UNICODE_CASE, UNIX_LINES </br></br>group (tipo: int) — qual grupo extrair em tokens. O padrão é -1 (divisão).|
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Quebra o texto seguindo as [regras de Segmentação de Texto Unicode](https://unicode.org/reports/tr29/). </br></br>**Opções** </br></br>maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
+|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Cria tokens de urls e emails como um único token. </br></br>**Opções** </br></br> maxTokenLength (tipo: int) — o comprimento máximo do token. Padrão: 255, máximo: 300. Tokens maiores do que o tamanho máximo são divididos.|  
 |[diferente](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(o tipo aplica-se somente quando há opções disponíveis) |Divide o texto em espaços em branco. Os tokens com mais de 255 caracteres são divididos.|  
 
  <sup>1</sup> Os tipos de criadores de token são sempre prefixados em código com "#Microsoft.Azure.Search", ou seja, "ClassicTokenizer" na verdade seria "#Microsoft.Azure.Search.ClassicTokenizer". Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo em seu código. Observe que tokenizer_type é fornecida somente para criadores que podem ser personalizadas. Se não há opções, como é o caso do criador de token de letra, não há nenhum tipo associado do # Microsoft.Azure.Search.
 
 <a name="TokenFilters"></a>
 
-###  <a name="token-filters-reference"></a>Referência de filtros de token
+## <a name="token-filters"></a>Filtros de token
+
+Um filtro de token é usado para filtrar ou modificar os tokens gerados por um criador de token. Por exemplo, você pode especificar um filtro de minúsculas que converte todos os caracteres em letras minúsculas. Você pode ter vários filtros de token em um analisador personalizado. Os filtros de token são executados na ordem em que estão listados. 
 
 Na tabela abaixo, os filtros de token que são implementados usando o Apache Lucene têm links para a documentação da API Lucene.
 
@@ -357,11 +286,11 @@ Na tabela abaixo, os filtros de token que são implementados usando o Apache Luc
 |[scandinavian_folding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ScandinavianFoldingFilter.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Dobra os caracteres escandinavos åÅäæÄÆ->a e öÖøØ->o. Também discrimina o uso de vogais duplas aa, ae, SOL, oe e oo, deixando apenas o primeiro deles. |  
 |[shingle](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|Cria combinações de tokens como um único token.<br /><br /> **Opções**<br /><br /> maxShingleSize (tipo: int) — o padrão é 2.<br /><br /> minShingleSize (tipo: int) — o padrão é 2.<br /><br /> outputUnigrams (tipo: bool) — se true, o fluxo de saída contém os tokens de entrada (unigramas), bem como shingles. O padrão é true.<br /><br /> outputUnigramsIfNoShingles (tipo: bool) — se true, substitui o comportamento outputUnigrams==false para aqueles momentos em que não existem shingles disponíveis. O padrão é falso.<br /><br /> tokenSeparator (tipo: cadeia de caracteres) — a cadeia de caracteres a ser usada ao unir os tokens adjacentes para formar um shingle. O padrão é " ".<br /><br /> filterToken (tipo: cadeia de caracteres) — a cadeia de caracteres a ser inserida para cada posição na qual não há token. O padrão é “_”.|  
 |[snowball](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|Filtro Snowball Token.<br /><br /> **Opções**<br /><br /> language (tipo: cadeia de caracteres) — entre os valores permitidos estão: "armenian", "basque", "catalan", "danish", "dutch", "english", "finnish", "french", "german", "german2", "hungarian", "italian", "kp", "lovins", "norwegian", "porter", "portuguese", "romanian", "russian", "spanish", "swedish", "turkish"|  
-|[sorani_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normaliza a representação Unicode de texto Sorani.<br /><br /> **Opções**<br /><br /> nenhuma.|  
+|[sorani_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normaliza a representação Unicode de texto Sorani.<br /><br /> **Opções**<br /><br /> Nenhum.|  
 |stemmer|StemmerTokenFilter|Filtro de lematização específica de idioma.<br /><br /> **Opções**<br /><br /> language (tipo: cadeia de caracteres) — entre os valores permitidos estão: <br /> -   [árabe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   [armênio](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   [Basco](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   [(](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-"búlgaro"<br />-   [Catalão](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   [tcheco](https://portal.acm.org/citation.cfm?id=1598600)<br />-   [dinamarquês](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   [holandesas](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   [portuguesa](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   [finlandesa](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />- "lightFinnish"<br />-   [francesa](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-"Galego"<br />- "minimalGalician"<br />-   [alemão](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />- "minimalGerman"<br />-   [Ipsum](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-"híndi"<br />-   [Húngaro](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   [Indonésio](https://eprints.illc.uva.nl/741/2/MoL-2003-03.text.pdf)<br />-   [Libra](https://snowballstem.org/otherapps/oregan/)<br />-   [italiano](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   [Letão](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   [noruegues](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   [Portugal](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   [Romeno](https://snowballstem.org/otherapps/romanian/)<br />-   [Rússia](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   [espanhol](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   [sueca](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />- "lightSwedish"<br />-   [Lira](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|Quaisquer termos com base no dicionário são marcados como palavras-chave, o que evita a lematização da cadeia. Deve ser colocado antes de qualquer filtro de lematização.<br /><br /> **Opções**<br /><br /> rules (tipo: cadeia de caracteres) — regras de stemming rules no seguinte formato "word => stem", por exemplo, "ran => run". O padrão é uma lista vazia.  Obrigatórios.|  
 |[palavras irrelevantes](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|Remove palavras irrelevantes de um fluxo de tokens. Por padrão, o filtro usa uma lista de palavras irrelevantes predefinida para inglês.<br /><br /> **Opções**<br /><br /> stopwords (tipo: matriz de cadeia de caracteres) — uma lista de palavras irrelevantes. Não pode ser especificado se a opção stopwordsList for especificada.<br /><br /> stopwordsList (tipo: matriz de cadeia de caracteres) — uma lista predefinida de palavras irrelevantes. Não pode ser especificado se a opção stopwords for especificada. Entre os valores permitidos estão:"arabic", "armenian", "basque", "brazilian", "bulgarian", "catalan", "czech", "danish", "dutch", "english", "finnish", "french", "galician", "german", "greek", "hindi", "hungarian", "indonesian", "irish", "italian", "latvian", "norwegian", "persian", "portuguese", "romanian", "russian", "sorani", "spanish", "swedish", "thai", "turkish", padrão: "english". Não pode ser especificado se a opção stopwords for especificada. <br /><br /> ignoreCase (tipo: bool) — se true, primeiro todas as palavras são alteradas para minúsculas. O padrão é falso.<br /><br /> removeTrailing (tipo: bool) — se true, ignora o último termo de pesquisa se for uma palavra irrelevante. O padrão é true.
-|[sinônimo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Corresponde sinônimos de palavras simples ou múltiplas em um fluxo de token.<br /><br /> **Opções**<br /><br /> synonyms (tipo: cadeia de caracteres) — obrigatório. Lista de sinônimos em um dos dois formatos a seguir:<br /><br /> -incrível, inacreditável, fabuloso => maravilhoso — todos os termos no lado esquerdo da => são substituídos por todos os termos do lado direito.<br /><br /> -incrível, inacreditável, fabuloso, maravilhoso — uma lista separada por vírgulas de palavras equivalentes. Defina a opção de expansão para alterar como essa lista é interpretada.<br /><br /> ignoreCase (tipo: bool) — entrada e maiúscula/minúscula para correspondência. O padrão é falso.<br /><br /> expand (tipo: bool) — se true, todas as palavras na lista de sinônimos (se a notação => não for usada) mapeiam uma a outra. <br />A lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso<br /><br />- Se false, a lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso => incrível.|  
+|[forneça](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Corresponde sinônimos de palavras simples ou múltiplas em um fluxo de token.<br /><br /> **Opções**<br /><br /> synonyms (tipo: cadeia de caracteres) — obrigatório. Lista de sinônimos em um dos dois formatos a seguir:<br /><br /> -incrível, inacreditável, fabuloso => maravilhoso — todos os termos no lado esquerdo da => são substituídos por todos os termos do lado direito.<br /><br /> -incrível, inacreditável, fabuloso, maravilhoso — uma lista separada por vírgulas de palavras equivalentes. Defina a opção de expansão para alterar como essa lista é interpretada.<br /><br /> ignoreCase (tipo: bool) — entrada e maiúscula/minúscula para correspondência. O padrão é falso.<br /><br /> expand (tipo: bool) — se true, todas as palavras na lista de sinônimos (se a notação => não for usada) mapeiam uma a outra. <br />A lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso<br /><br />- Se false, a lista a seguir: incrível, inacreditável, fabuloso, maravilhoso é quivalente a: incrível, inacreditável, fabuloso, maravilhoso => incrível, inacreditável, fabuloso, maravilhoso => incrível.|  
 |[cortar](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/TrimFilter.html)|(o tipo aplica-se somente quando há opções disponíveis)  |Corta o espaço em branco à esquerda e à direita de uma cadeia de tokens. |  
 |[truncate](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/TruncateTokenFilter.html)|TruncateTokenFilter|Trunca os termos em um comprimento específico.<br /><br /> **Opções**<br /><br /> comprimento (tipo: int)-padrão: 300, máximo: 300. Obrigatórios.|  
 |[unique](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/RemoveDuplicatesTokenFilter.html)|UniqueTokenFilter|Filtra os tokens com o mesmo texto como o token anterior.<br /><br /> **Opções**<br /><br /> onlyOnSamePosition (tipo: bool) — se definido, remova duplicatas apenas na mesma posição. O padrão é true.|  
@@ -370,8 +299,8 @@ Na tabela abaixo, os filtros de token que são implementados usando o Apache Luc
 
  <sup>1</sup> Os tipos de filtro de token são sempre prefixados em código com "#Microsoft.Azure.Search", ou seja, "ArabicNormalizationTokenFilter" na verdade seria "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter".  Removemos o prefixo para reduzir a largura da tabela, mas lembre-se de incluí-lo em seu código.  
 
+## <a name="see-also"></a>Confira também
 
-## <a name="see-also"></a>Confira também  
- [APIs REST do Azure Pesquisa Cognitiva](/rest/api/searchservice/)   
- [Exemplos de analisadores no Azure Pesquisa Cognitiva >](search-analyzers.md#examples)    
- [Criar índice &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/create-index)
+- [APIs REST do Azure Pesquisa Cognitiva](/rest/api/searchservice/)
+- [Analisadores no Pesquisa Cognitiva do Azure (exemplos)](search-analyzers.md#examples)
+- [Criar Índice (REST)](/rest/api/searchservice/create-index)

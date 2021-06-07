@@ -1,21 +1,17 @@
 ---
 title: 'Transformar dados usando o Spark no Azure Data Factory '
 description: Este tutorial fornece instruções passo a passo para transformar dados usando uma atividade Spark no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/10/2018
+ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010139"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100377781"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando uma atividade Spark no Azure Data Factory
 
@@ -83,7 +79,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Criar uma subpasta chamada **inputfiles** na pasta **spark**. 
 1. Carregue o arquivo **minecraftstory.txt** na subpasta **inputfiles**. 
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise** e, em seguida, selecione **Data Factory**. 
@@ -255,7 +251,7 @@ Neste exemplo, o pipeline transforma dados usando a atividade Spark e um serviç
 Avance para o próximo tutorial para aprender como transformar dados executando o script Hive em um cluster do Azure HDInsight que está em uma rede virtual: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Transformar dados usando o Hive na Rede Virtual do Azure](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Tutorial: transformar dados usando o Hive na Rede Virtual do Azure](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

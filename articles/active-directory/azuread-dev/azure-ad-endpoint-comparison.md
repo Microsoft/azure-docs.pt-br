@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92055283"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para plataforma de identidade da Microsoft (v2.0)?
@@ -97,7 +97,7 @@ Para saber mais sobre o OAuth 2,0, `refresh_tokens` `access_tokens` o e o, confi
 
 ### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 
-Historicamente, o fluxo de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muitas informações sobre o usuário no *id_token*resultante. As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
+Historicamente, o fluxo de entrada mais básico do OpenID Connect com a plataforma de identidade da Microsoft forneceria muitas informações sobre o usuário no *id_token* resultante. As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
 
 As informações que o escopo de `openid` permite que seu aplicativo acesse agora estão restritas. O escopo de `openid` apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário. Se você quiser obter dados pessoais sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário. Dois novos escopos `email` e `profile` – permitirão que você solicite permissões adicionais.
 
@@ -128,7 +128,7 @@ O ponto de extremidade da plataforma de identidade da Microsoft evoluirá para e
 
 ### <a name="restrictions-on-app-registrations"></a>Restrições quanto a registros de aplicativos
 
-Para cada aplicativo que você deseja integrar com o ponto de extremidade da plataforma de identidade da Microsoft, você pode criar um registro de aplicativo na nova experiência de [ **Registros de aplicativo** ](https://aka.ms/appregistrations) no portal do Azure. Os aplicativos conta Microsoft existentes não são compatíveis com o portal, mas todos os aplicativos do Azure AD são, independentemente de onde ou quando eles foram registrados.
+Para cada aplicativo que você deseja integrar com o ponto de extremidade da plataforma de identidade da Microsoft, você pode criar um registro de aplicativo na nova experiência de [ **Registros de aplicativo**](https://aka.ms/appregistrations) no portal do Azure. Os aplicativos conta Microsoft existentes não são compatíveis com o portal, mas todos os aplicativos do Azure AD são, independentemente de onde ou quando eles foram registrados.
 
 Registros de aplicativo que dão suporte ao trabalho e contas de estudante e contas pessoais têm as seguintes condições:
 

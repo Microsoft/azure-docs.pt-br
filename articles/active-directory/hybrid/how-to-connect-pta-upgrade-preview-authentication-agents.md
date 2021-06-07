@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95973041"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação de passagem do Azure Active Directory: atualização de agentes de autenticação de versão prévia
@@ -42,7 +42,7 @@ Siga essas etapas para verificar o local em que os Agentes de autenticação est
 1. Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do Administrador Global do seu locatário.
 2. Selecione **Azure Active Directory** na navegação à esquerda.
 3. Selecione **Azure AD Connect**. 
-4. Selecione **autenticação de passagem**. Essa folha lista os servidores em que os Agentes de autenticação estão instalados.
+4. Selecione **Autenticação de passagem**. Essa folha lista os servidores em que os Agentes de autenticação estão instalados.
 
 ![Centro de administração do Azure Active Directory - folha Autenticação de Passagem](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
@@ -60,7 +60,7 @@ Para verificar as versões dos seus Agentes de autenticação em cada servidor i
 
 Antes de atualizar, verifique se você tem os seguintes itens no lugar:
 
-1. **Criar conta Administrador Global somente de nuvem**: não atualize sem ter uma conta Administrador Global somente de nuvem para ser usada em situações de emergência em que seus Agentes de Autenticação de passagem não estejam funcionando adequadamente. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../fundamentals/add-users-azure-active-directory.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
+1. **Criar conta Administrador Global somente de nuvem**: não atualize sem ter uma conta Administrador Global somente de nuvem para ser usada em situações de emergência em que seus Agentes de Autenticação de passagem não estejam funcionando adequadamente. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../fundamentals/add-users-azure-active-directory.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
 2.  **Garantir a alta disponibilidade**: se não concluído anteriormente, instale um segundo Agente de autenticação autônomo para fornecer alta disponibilidade para solicitações de conexão, usando essas [instruções](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizando o Agente de autenticação no servidor do Azure AD Connect

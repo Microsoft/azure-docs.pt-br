@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024986"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643248"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>O que é a transcrição de conversa em reuniões (versão prévia)?
+# <a name="what-is-conversation-transcription-preview"></a>O que é a transcrição de conversa (versão prévia)?
 
 A transcrição de conversa é uma solução de [fala para texto](speech-to-text.md) que combina o reconhecimento de fala, a identificação do orador e a atribuição de frase a cada palestrante (também conhecido como _diarization_) para fornecer transcrição em tempo real e/ou assíncrona de qualquer conversa. A transcrição de conversa distingue os alto-falantes em uma conversa para determinar quem disse o que e quando, e torna mais fácil para os desenvolvedores adicionar a conversão de texto em seus aplicativos que executam diarization de vários palestrantes.
 

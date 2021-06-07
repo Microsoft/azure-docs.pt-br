@@ -6,18 +6,18 @@ documentationcenter: ''
 author: ningk
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 897d7f662c4cad4df92eeec66820a0e8cf17b8ad
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: ff2a6618b60ff2cfa5faa74c905e140466a14359
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040612"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563312"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 

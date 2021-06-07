@@ -12,10 +12,10 @@ ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
 ms.openlocfilehash: 48cd4c7996eabad7293aa2429c76b8943e0ab3da
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368465"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Introdução à transcrição de conversa em tempo real

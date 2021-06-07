@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7e022822f1306a5351cef43498f00a0ac0f2ef63
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107117"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101707278"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicionar saídas ao seu modelo do ARM
 
@@ -45,7 +45,7 @@ O tipo de valor retornado é definido como `object`, o que significa que ele ret
 
 Ele usa a função [reference](template-functions-resource.md#reference) para obter o estado do runtime da conta de armazenamento. Para obter o estado do runtime de um recurso, você passa o nome ou a ID de um recurso. Nesse caso, você usa a mesma variável que usou para criar o nome da conta de armazenamento.
 
-Por fim, ele retorna a propriedade `primaryEndpoints` da conta de armazenamento
+Por fim, ela retorna a propriedade `primaryEndpoints` da conta de armazenamento.
 
 ## <a name="deploy-template"></a>Implantar modelo
 

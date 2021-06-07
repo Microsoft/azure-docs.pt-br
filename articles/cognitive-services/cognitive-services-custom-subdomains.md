@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97032959"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
@@ -96,7 +96,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | China | Leste da China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Quais são os serviços cognitivas?](./what-are-cognitive-services.md)
 * [Autenticação](authentication.md)

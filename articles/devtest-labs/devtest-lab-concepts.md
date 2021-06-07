@@ -4,10 +4,10 @@ description: Aprenda os conceitos básicos do DevTest Labs e como ele pode facil
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92327851"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
@@ -56,7 +56,7 @@ Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você 
 Limites são um mecanismo usado para minimizar o desperdício em seu laboratório. Por exemplo, você pode definir um limite para restringir o número de VMs que podem ser criados por usuário ou em um laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança
-O acesso de segurança é determinado pelo Azure RBAC (controle de acesso baseado em função). Para entender como funciona o Access, ele ajuda a entender as diferenças entre uma permissão, uma função e um escopo, conforme definido pelo RBAC do Azure.
+O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função) do Azure. Para entender como funciona o acesso, é importante reconhecer as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC do Azure.
 
 * Permissão – uma permissão é um acesso definido para uma ação específica (por exemplo, acesso de leitura para todas as máquinas virtuais).
 * Função – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, a função *proprietário da assinatura* tem acesso a todos os recursos dentro de uma assinatura.

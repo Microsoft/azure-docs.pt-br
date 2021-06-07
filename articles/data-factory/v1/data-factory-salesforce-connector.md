@@ -8,10 +8,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ccc20f415d13356de755af5d1d3afc5b29de72f2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387046"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
@@ -74,7 +74,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
@@ -282,9 +282,9 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 | --- | --- |
 | Numeração automática |String |
 | Caixa de seleção |Boolean |
-| Currency |Decimal |
+| Moeda |Decimal |
 | Data |Datetime |
-| Data/Hora |Datetime |
+| Data/Hora |DateTime |
 | Email |String |
 | ID |String |
 | Relação de pesquisa |String |

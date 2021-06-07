@@ -2,20 +2,20 @@
 title: 'Início Rápido: Atribuir usuários a um aplicativo que usa o Azure Active Directory como um provedor de identidade'
 description: Este guia de início rápido explica o processo de permitir que os usuários usem um aplicativo que você configurou para usar o Azure AD como um provedor de identidade.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
-ms.author: kenwith
-ms.openlocfilehash: 53dd2d15565149c3a9888ba063a6194ae033d8e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: eb6797fdfb57a503b6dece9f2dfdc3cb0c67feef
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258364"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375331"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade
 

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: c2f66895fccd14dcffd8c5570f1d5f46933090aa
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493905"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102439180"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar Azure Monitor em seu dispositivo de GPU pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Os contêineres de monitoramento em seu dispositivo de GPU pro Azure Stack Edge são críticos, especialmente quando você executa vários aplicativos de computação. Azure Monitor permite que você colete logs de contêiner e a memória e as métricas do processador do cluster kubernetes em execução em seu dispositivo.
 
@@ -49,7 +51,7 @@ Execute as etapas a seguir para criar um espaço de trabalho do log Analytics. U
 
         ![Examinar + criar para Log Analytics espaço de trabalho](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-Para obter mais informações, consulte as etapas detalhadas em [criar um log Analytics espaço de trabalho via portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+Para obter mais informações, consulte as etapas detalhadas em [criar um log Analytics espaço de trabalho via portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -57,7 +59,7 @@ Para obter mais informações, consulte as etapas detalhadas em [criar um log An
 
 Execute as etapas a seguir para habilitar o insights de contêiner em seu espaço de trabalho. 
 
-1. Siga as etapas detalhadas na [solução como adicionar os contêineres de Azure monitor](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use o seguinte arquivo de modelo `containerSolution.json` :
+1. Siga as etapas detalhadas na [solução como adicionar os contêineres de Azure monitor](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use o seguinte arquivo de modelo `containerSolution.json` :
 
     ```yml
     {

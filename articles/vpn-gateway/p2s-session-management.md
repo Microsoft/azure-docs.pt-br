@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274226"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gerenciamento de sessão de VPN ponto a site
@@ -44,7 +44,7 @@ Para exibir e desconectar uma sessão usando o PowerShell:
    ```
 1. Copie o **VpnConnectionId** da sessão que você deseja desconectar.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo de portal":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo de PowerShell":::
 1. Para desconectar a sessão, execute o seguinte comando:
 
    ```azurepowershell-interactive

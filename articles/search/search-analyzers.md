@@ -7,27 +7,29 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbda4268ca00d1c12f851517e2b35add7fba7f9b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: d40dd0b91f9dcfb7bf5b6e8f084f25ee4f90d780
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694293"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596545"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
-Um *analisador* é um componente do [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. O processamento de texto (também conhecido como análise léxica) é transformação, modificando uma cadeia de caracteres por meio de ações como estas:
+Um *analisador* é um componente da [pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. O processamento de texto (também conhecido como análise léxica) é transformação, modificando uma cadeia de caracteres de consulta por meio de ações como estas:
 
 + Remover palavras não essenciais (palavras irrelevantes) e Pontuação
 + Dividir frases e hifenizar palavras em partes do componente
 + Letras minúsculas de qualquer palavra em letras maiúsculas
 + Reduza as palavras em formulários raiz primitivos para eficiência de armazenamento e para que as correspondências possam ser encontradas independentemente do conjugação
 
-A análise se aplica a `Edm.String` campos marcados como "pesquisáveis", que indica a pesquisa de texto completo. Para campos com essa configuração, a análise ocorre durante a indexação quando os tokens são criados e, novamente durante a execução da consulta, quando as consultas são analisadas e o mecanismo verifica se há tokens correspondentes. Uma correspondência é mais provável de ocorrer quando o mesmo analisador é usado para indexação e consultas, mas você pode definir o analisador para cada carga de trabalho de forma independente, dependendo dos seus requisitos.
+A análise se aplica a `Edm.String` campos marcados como "pesquisáveis", que indica a pesquisa de texto completo. 
 
-Os tipos de consulta que não são pesquisa de texto completo, como expressão regular ou pesquisa difusa, não passam pela fase de análise no lado da consulta. Em vez disso, o analisador envia essas cadeias de caracteres diretamente para o mecanismo de pesquisa, usando o padrão que você fornece como base para a correspondência. Normalmente, esses formulários de consulta exigem tokens de cadeia de caracteres inteiras para fazer o trabalho de correspondência de padrões. Para obter os símbolos de termos inteiros durante a indexação, talvez você precise de [analisadores personalizados](index-add-custom-analyzers.md). Para obter mais informações sobre quando e por que os termos de consulta são analisados, consulte [pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
+Para campos com essa configuração, a análise ocorre durante a indexação quando os tokens são criados e, novamente durante a execução da consulta, quando as consultas são analisadas e o mecanismo verifica se há tokens correspondentes. Uma correspondência é mais provável de ocorrer quando o mesmo analisador é usado para indexação e consultas, mas você pode definir o analisador para cada carga de trabalho de forma independente, dependendo dos seus requisitos.
+
+Os tipos de consulta que *não* são pesquisa de texto completo, como filtros ou pesquisa difusa, não passam pela fase de análise no lado da consulta. Em vez disso, o analisador envia essas cadeias de caracteres diretamente para o mecanismo de pesquisa, usando o padrão que você fornece como base para a correspondência. Normalmente, esses formulários de consulta exigem tokens de cadeia de caracteres inteiras para fazer o trabalho de correspondência de padrões. Para garantir os tokens de termos inteiros durante a indexação, talvez você precise de [analisadores personalizados](index-add-custom-analyzers.md). Para obter mais informações sobre quando e por que os termos de consulta são analisados, consulte [pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md).
 
 Para obter mais informações sobre análise lexical, ouça o seguinte clipe de vídeo para obter uma breve explicação.
 
@@ -39,7 +41,7 @@ No Azure Pesquisa Cognitiva consultas, um analisador é invocado automaticamente
 
 Por padrão, o Azure Pesquisa Cognitiva usa o [analisador padrão do Apache Lucene (Lucene padrão)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), que quebra o texto em elementos seguindo as regras de ["segmentação de texto Unicode"](https://unicode.org/reports/tr29/) . Além disso, o analisador padrão converte todos os caracteres em sua forma em letras minúsculas. Documentos indexados e termos de pesquisa são submetidos a análise durante a indexação e o processamento de consultas.  
 
-Você pode substituir o padrão campo por campo. Analisadores alternativos podem ser um [analisador de linguagem](index-add-language-analyzers.md) para processamento linguístico, um [analisador personalizado](index-add-custom-analyzers.md)ou um analisador predefinido da [lista de analisadores disponíveis](index-add-custom-analyzers.md#AnalyzerTable).
+Você pode substituir o padrão campo por campo. Analisadores alternativos podem ser um [analisador de linguagem](index-add-language-analyzers.md) para processamento linguístico, um [analisador personalizado](index-add-custom-analyzers.md)ou um analisador interno da [lista de analisadores disponíveis](index-add-custom-analyzers.md#built-in-analyzers).
 
 ## <a name="types-of-analyzers"></a>Tipos de analisadores
 
@@ -48,16 +50,16 @@ A lista a seguir descreve quais analisadores estão disponíveis no Azure Pesqui
 | Categoria | Descrição |
 |----------|-------------|
 | [Analisador Lucene padrão](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Padrão. Nenhuma especificação ou a configuração é necessária. Esse analisador de uso geral tem um bom desempenho para muitos idiomas e cenários.|
-| Analisadores predefinidos | Oferecidos como um produto acabado destinado a ser usado no estado em que se encontra. <br/>Há dois tipos: especializado e de idioma. O que os torna "predefinidos" é que você os referencia por nome, sem nenhuma configuração ou personalização. <br/><br/>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#AnalyzerTable) são usados quando as entradas de texto exigem processamento especializado ou o mínimo de processamento. Analisadores de idioma não predefinidos incluem **Asciifolding**, **Palavra-chave**, **Padrão**, **Simples**, **Interromper**, **Espaço em branco**.<br/><br/>[Analisadores de idioma](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
+| Analisadores internos | Consumido como está e referenciado pelo nome. Há dois tipos: idioma e independente de idioma. </br></br>[Analisadores especializados (independentes de idioma)](index-add-custom-analyzers.md#built-in-analyzers) são usados quando as entradas de texto exigem processamento especializado ou o mínimo de processamento. Exemplos de analisadores nessa categoria incluem **Asciifolding**, **palavra-chave**, **padrão**, **simples**, **parar**, **espaço em branco**. </br></br>[Analisadores de idioma](index-add-language-analyzers.md) são usados quando você precisa de suporte linguístico avançado para idiomas individuais. O Azure Pesquisa Cognitiva dá suporte a analisadores de linguagem 35 Lucene e a 50 analisadores de processamento de idioma natural da Microsoft. |
 |[Analisadores personalizados](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refere-se a uma configuração definida por usuário de uma combinação de elementos existentes, consistindo em um tokenizer (obrigatório) e filtros opcionais (char ou token).|
 
-Alguns analisadores predefinidos, como **Padrão** ou de **Parar**, dão suporte a um conjunto limitado de opções de configuração. Para definir essas opções, você efetivamente cria um analisador personalizado, consistindo de um analisador predefinido e uma das opções alternativas documentadas na [Referência do analisador predefinido](index-add-custom-analyzers.md#AnalyzerTable). Como ocorre com qualquer configuração personalizada, forneça sua nova configuração com um nome, como *myPatternAnalyzer* para distingui-lo do analisador de padrões Lucene.
+Alguns analisadores internos, como **Pattern** ou **Stop**, dão suporte a um conjunto limitado de opções de configuração. Para definir essas opções, crie um analisador personalizado, que consiste no analisador interno e uma das opções alternativas documentadas em [analisadores internos](index-add-custom-analyzers.md#built-in-analyzers). Como ocorre com qualquer configuração personalizada, forneça sua nova configuração com um nome, como *myPatternAnalyzer* para distingui-lo do analisador de padrões Lucene.
 
 ## <a name="how-to-specify-analyzers"></a>Como especificar os analisadores
 
 A definição de um analisador é opcional. Como regra geral, tente usar o analisador Lucene padrão primeiro para ver como ele é executado. Se as consultas falharem ao retornar os resultados esperados, a alternância para um analisador diferente geralmente é a solução certa.
 
-1. Ao criar uma definição de campo no [índice](/rest/api/searchservice/create-index), defina a propriedade do  **analisador** como um dos seguintes: um [analisador predefinido](index-add-custom-analyzers.md#AnalyzerTable) , como `keyword` um [analisador de idioma](index-add-language-analyzers.md) , como `en.microsoft` , ou um analisador personalizado (definido no mesmo esquema de índice).  
+1. Ao criar uma definição de campo no [índice](/rest/api/searchservice/create-index), defina a propriedade "Analyzer" como uma das opções a seguir: um [analisador interno](index-add-custom-analyzers.md#built-in-analyzers) , como **palavra-chave**, um [analisador de linguagem](index-add-language-analyzers.md) como `en.microsoft` , ou um analisador personalizado (definido no mesmo esquema de índice).  
  
    ```json
      "fields": [
@@ -72,20 +74,20 @@ A definição de um analisador é opcional. Como regra geral, tente usar o anali
     },
    ```
 
-   Se você estiver usando um [analisador de linguagem](index-add-language-analyzers.md), deverá usar a propriedade do **analisador** para especificá-lo. As propriedades **searchAnalyzer** e **indexAnalyzer** não dão suporte a analisadores de idioma.
+   Se você estiver usando um [analisador de linguagem](index-add-language-analyzers.md), deverá usar a propriedade "Analyzer" para especificá-lo. As propriedades "searchAnalyzer" e "indexAnalyzer" não se aplicam a analisadores de idioma.
 
-1. Como alternativa, defina **indexAnalyzer** e **searchAnalyzer** para variar o analisador para cada carga de trabalho. Essas propriedades são definidas juntas e substituem a propriedade do **analisador** , que deve ser NULL. Você pode usar analisadores diferentes para preparação e recuperação de dados se uma dessas atividades exigir uma transformação específica não necessária para a outra.
+1. Como alternativa, defina "indexAnalyzer" e "searchAnalyzer" para variar o analisador para cada carga de trabalho. Essas propriedades são definidas juntas e substituem a propriedade "Analyzer", que deve ser NULL. Você pode usar analisadores diferentes para indexação e consultas se uma dessas atividades exigir uma transformação específica não necessária para a outra.
 
    ```json
      "fields": [
     {
-      "name": "Description",
+      "name": "ProductGroup",
       "type": "Edm.String",
       "retrievable": true,
       "searchable": true,
       "analyzer": null,
       "indexAnalyzer": "keyword",
-      "searchAnalyzer": "whitespace"
+      "searchAnalyzer": "standard"
     },
    ```
 
@@ -95,13 +97,13 @@ A definição de um analisador é opcional. Como regra geral, tente usar o anali
 
 O melhor momento para adicionar e atribuir analisadores é durante o desenvolvimento ativo, quando descartar e recriar índices é a rotina.
 
-Como os analisadores são usados para indexar os termos, você deve atribuir um analisador quando o campo é criado. Na verdade, a atribuição de **analisador** ou **indexAnalyzer** a um campo que já foi criado fisicamente não é permitida (embora você possa alterar a propriedade **searchAnalyzer** a qualquer momento sem impacto no índice).
+Como os analisadores são usados para indexar os termos, você deve atribuir um analisador quando o campo é criado. Na verdade, a atribuição de um analisador ou indexAnalyzer a um campo que já foi criado fisicamente não é permitida (embora você possa alterar a propriedade searchAnalyzer a qualquer momento sem impacto no índice).
 
 Para alterar o analisador de um campo existente, você precisará [Recompilar o índice inteiramente](search-howto-reindex.md) (não é possível recriar campos individuais). Para índices em produção, você pode adiar uma recompilação criando um novo campo com a nova atribuição do analisador e começar a usá-lo no lugar do antigo. Use [Atualizar índice](/rest/api/searchservice/update-index) para incorporar o novo campo e [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) para populá-lo. Posteriormente, como parte da manutenção planejada do índice, será possível limpar o índice para remover campos obsoletos.
 
 Para adicionar um novo campo a um índice existente, chame [Atualizar índice](/rest/api/searchservice/update-index) para adicionar o campo e [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) para preenchê-lo.
 
-Para adicionar um analisador personalizado a um índice existente, passe o sinalizador **allowIndexDowntime** no [índice de atualização](/rest/api/searchservice/update-index) se desejar evitar esse erro:
+Para adicionar um analisador personalizado a um índice existente, passe o sinalizador "allowIndexDowntime" no [índice de atualização](/rest/api/searchservice/update-index) se desejar evitar esse erro:
 
 *"Atualização de índice não permitida porque isso causaria tempo de inatividade. Para adicionar novos analisadores, criadores, filtros de token ou filtros de caractere a um índice existente, defina o parâmetro de consulta ' allowIndexDowntime ' como ' true ' na solicitação de atualização de índice. Observe que essa operação colocará o índice offline por pelo menos alguns segundos, fazendo com que as solicitações de indexação e consulta falhem. O desempenho e a disponibilidade de gravação do índice podem ser prejudicados por vários minutos após o índice ser atualizado ou mais tempo para índices muito grandes. "*
 
@@ -111,7 +113,7 @@ Esta seção oferece sugestões sobre como trabalhar com analisadores.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Um analisador para leitura/gravação, a menos que você tenha requisitos específicos
 
-O Pesquisa Cognitiva do Azure permite que você especifique diferentes analisadores para indexação e pesquisa por meio de propriedades de campo **indexAnalyzer** e **searchAnalyzer** adicionais. Se não forem especificados, o analisador definido com a propriedade **analyzer** será usado para indexação e pesquisa. Se o **Analyzer** não for especificado, o analisador padrão Lucene padrão será usado.
+O Pesquisa Cognitiva do Azure permite que você especifique diferentes analisadores para indexação e pesquisa por meio de propriedades de campo indexAnalyzer e searchAnalyzer adicionais. Se não forem especificados, o analisador definido com a propriedade analyzer será usado para indexação e pesquisa. Se o analisador não for especificado, o analisador padrão Lucene padrão será usado.
 
 Uma regra geral é usar o mesmo analisador para indexação e consulta, a menos que requisitos específicos estabeleçam o contrário. Teste cuidadosamente. Quando o processamento de texto for diferente no momento de pesquisa e de indexação, você corre o risco de haver incompatibilidade entre os termos de consulta e os termos de indexação quando as configurações do analisador de pesquisa e de indexação não estiverem alinhadas.
 
@@ -142,10 +144,13 @@ Este exemplo ilustra uma definição de analisador com opções personalizadas. 
 
 Percorrendo este exemplo:
 
-* Analisadores são uma propriedade da classe do campo para um campo pesquisável.
-* Um analisador personalizado faz parte de uma definição de índice. Ele pode ser levemente personalizado (por exemplo, personalizando uma única opção em um filtro) ou personalizado em vários locais.
-* Nesse caso, o analisador personalizado é "my_analyzer" que, por sua vez, usa um tokenizador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro de letras minúsculas e filtro asciifolding personalizado "my_asciifolding".
-* Ele também define dois filtros de char personalizados “map_dash” e “remove_whitespace”. O primeiro deles substitui todos os traços por sublinhados, enquanto o segundo remove todos os espaços. Os espaços precisam ser codificados com UTF-8 nas regras de mapeamento. Os filtros de char são aplicados antes da geração de tokens e afetarão os tokens resultantes (o tokenizador padrão faz uma quebra com traços e espaços, mas não com sublinhado).
++ Analisadores são uma propriedade da classe do campo para um campo pesquisável.
+
++ Um analisador personalizado faz parte de uma definição de índice. Ele pode ser levemente personalizado (por exemplo, personalizando uma única opção em um filtro) ou personalizado em vários locais.
+
++ Nesse caso, o analisador personalizado é "my_analyzer" que, por sua vez, usa um tokenizador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro de letras minúsculas e filtro asciifolding personalizado "my_asciifolding".
+
++ Ele também define dois filtros de char personalizados “map_dash” e “remove_whitespace”. O primeiro deles substitui todos os traços por sublinhados, enquanto o segundo remove todos os espaços. Os espaços precisam ser codificados com UTF-8 nas regras de mapeamento. Os filtros de char são aplicados antes da geração de tokens e afetarão os tokens resultantes (o tokenizador padrão faz uma quebra com traços e espaços, mas não com sublinhado).
 
 ```json
   {
@@ -245,7 +250,7 @@ O elemento "analisador" substitui o analisador Standard, campo por campo. Não h
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Misturando analisadores para operações de indexação e de pesquisa
 
-As APIs incluem atributos de índice adicionais para especificar diferentes analisadores para indexação e pesquisa. Os atributos **searchAnalyzer** e **indexAnalyzer** devem ser especificados como um par, substituindo o atributo **analyzer** individual.
+As APIs incluem atributos de índice adicionais para especificar diferentes analisadores para indexação e pesquisa. Os atributos searchAnalyzer e indexAnalyzer devem ser especificados como um par, substituindo o atributo analyzer individual.
 
 
 ```json
@@ -369,27 +374,15 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 }
 ```
 
-Para obter mais exemplos, consulte [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Para obter mais exemplos, consulte [CustomAnalyzerTests. cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-+ Examine nossa explicação abrangente sobre [como funciona a pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md). Esse artigo usa exemplos para explicar comportamentos que, à primeira vista, podem parecer contraintuitivos.
+Uma descrição detalhada da execução da consulta pode ser encontrada na [pesquisa de texto completo no Azure pesquisa cognitiva](search-lucene-query-architecture.md). O artigo usa exemplos para explicar os comportamentos que podem parecer um contador intuitivo na superfície.
 
-+ Tente outras sintaxes de consulta a partir da seção de exemplo [Pesquisar documentos](/rest/api/searchservice/search-documents#bkmk_examples) da [sintaxe de consulta simples](query-simple-syntax.md) no gerenciador de pesquisa no portal.
+Para saber mais sobre analisadores, confira os seguintes artigos:
 
-+ Saiba como aplicar [analisadores léxicos específico do idioma](index-add-language-analyzers.md).
-
-+ [Configurar analisadores personalizados](index-add-custom-analyzers.md) para o mínimo de processamento ou processamento especializado em campos individuais.
-
-## <a name="see-also"></a>Consulte também
-
- [API REST para pesquisar documentos](/rest/api/searchservice/search-documents) 
-
- [Sintaxe de consulta simples](query-simple-syntax.md) 
-
- [Sintaxe de consulta Lucene completa](query-lucene-syntax.md) 
- 
- [Controlar os resultados da pesquisa](search-pagination-page-layout.md)
-
-<!--Image references-->
-[1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
++ [Analisadores de linguagem](index-add-language-analyzers.md)
++ [Analisadores personalizados](index-add-custom-analyzers.md)
++ [Criar um índice de pesquisa](search-what-is-an-index.md)
++ [Criar um índice de vários idiomas](search-language-support.md)

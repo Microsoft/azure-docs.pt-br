@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67172563"
 ---
 - **Detalhes do pedido**. Quando um pedido é criado, o endereço de envio, o endereço de email e as informações de contato do usuário são armazenados no portal do Azure. As informações salvas incluem:
   - Nome de contato
-  - Número de telefone
+  - Número do telefone
   - Endereço de email
   - Endereço
   - City

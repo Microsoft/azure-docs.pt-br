@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
 ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82982642"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar transformação de linha no fluxo de dados de mapeamento

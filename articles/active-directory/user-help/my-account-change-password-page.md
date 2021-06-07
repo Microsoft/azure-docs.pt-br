@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: 2e1cfae18265dc00cda9fb66f7b9b5dbbdf6d64d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100092376"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante na página Alterar senha

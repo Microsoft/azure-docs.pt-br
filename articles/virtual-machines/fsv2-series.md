@@ -3,16 +3,16 @@ title: Série Fsv2
 description: Especificações para as VMs da série Fsv2.
 author: brbell
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7071675d4573ebee297217fe216552482cb76406
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7181766d366358719a32b5e7a7f4eeb82de5e935
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096861"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102549151"
 ---
 # <a name="fsv2-series"></a>Série Fsv2
 
@@ -26,7 +26,7 @@ O recurso de VMs da série Fsv2 Intel® Hyper-Threading tecnologia.
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 

@@ -1,18 +1,14 @@
 ---
 title: Controlar atividade do sensor
 description: A linha do tempo de evento apresenta uma linha do tempo de atividade detectada em sua rede, incluindo alertas e ações de gerenciamento de alertas, eventos de rede e operações de usuário, como entrada de usuário e exclusão de usuários.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523593"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781612"
 ---
 # <a name="track-sensor-activity"></a>Controlar atividade do sensor
 
@@ -89,6 +85,6 @@ Para filtrar a linha do tempo:
     
       O arquivo PCAP contém informações técnicas que podem ajudar os engenheiros de rede a determinar os parâmetros exatos do evento. Você pode analisar o arquivo PCAP com um analisador de protocolo de rede, como o Wireshark, um aplicativo de software livre.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Exibir alertas](how-to-view-alerts.md)

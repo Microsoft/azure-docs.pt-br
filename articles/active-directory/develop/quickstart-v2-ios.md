@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d2c5af6aeccfbae0851513ff575bde3c39e3ca5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754307"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100103780"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -46,7 +46,7 @@ O guia de início rápido se aplica a aplicativos iOS e macOS. Algumas etapas s�
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opção 1: Registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo,
-> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -55,7 +55,7 @@ O guia de início rápido se aplica a aplicativos iOS e macOS. Algumas etapas s�
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.    
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -69,7 +69,7 @@ O guia de início rápido se aplica a aplicativos iOS e macOS. Algumas etapas s�
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Etapa 1: Configurar seu aplicativo
-> Para que o exemplo de código deste Início Rápido funcione, é necessário adicionar um URI de redirecionamento compatível com o Agente de autenticação.
+> Para que o exemplo de código deste guia de início rápido funcione, adicione um **URI de Redirecionamento** compatível com o agente de autenticação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
@@ -118,7 +118,7 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 >     ```
 > 1. Abra as configurações do projeto. Na seção **Identidade**, insira o **Identificador do Pacote** que você inseriu no portal.
 > 1. Clique com o botão direito do mouse em **Info.plist** e selecione **Abrir Como** > **Código-Fonte**.
-> 1. No nó raiz dict, substitua `Enter_the_bundle_Id_Here` pela **_ID do Pacote_* _ que você usou no portal.
+> 1. No nó raiz dict, substitua `Enter_the_bundle_Id_Here` pela ***ID do Pacote*** que você usou no portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Em que: | Descrição |
 > |---------|---------|
-> | `clientId` | A ID do Aplicativo registrado em _portal.azure.com* |
+> | `clientId` | A ID do aplicativo registrado em *portal.azure.com* |
 > | `authority` | A plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI de redirecionamento do aplicativo. Você pode passar “nulo” para usar o valor padrão ou o URI de redirecionamento personalizado. |
 
@@ -214,7 +214,7 @@ Seu aplicativo também deve ter o seguinte no `AppDelegate`. Isso permite que o 
     }
  ```
 
-Por fim, seu aplicativo precisa ter uma entrada `LSApplicationQueriesSchemes` em ***Info.plist** _ junto com `CFBundleURLTypes`. A amostra vem com isso incluído.
+Por fim, seu aplicativo deve ter uma entrada `LSApplicationQueriesSchemes` em ***Info.plist*** junto com `CFBundleURLTypes`. A amostra vem com isso incluído.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ A MSAL tem dois métodos usados para adquirir tokens: `acquireToken` e `acquireT
 
 Algumas situações exigem que os usuários interajam com a plataforma de identidade da Microsoft. Nesses casos, o usuário final talvez precise selecionar sua conta, inserir suas credenciais ou dar consentimento às permissões do seu aplicativo. Por exemplo,
 
-_ A primeira vez que os usuários entram no aplicativo
+* A primeira vez que os usuários entram no aplicativo
 * Se um usuário redefinir a senha, ele precisará inserir as credenciais
 * Quando seu aplicativo estiver solicitando acesso a um recurso pela primeira vez
 * Quando a MFA ou outras políticas de Acesso Condicional forem necessárias

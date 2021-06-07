@@ -14,10 +14,10 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
 ms.openlocfilehash: 82e3f3b32c6d96b83ec1d0402f344e7d65788c06
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063698"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Suporte a Serviços de Federação do Active Directory (AD FS) no MSAL para Java

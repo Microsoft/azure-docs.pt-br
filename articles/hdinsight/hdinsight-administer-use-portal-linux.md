@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 33171527f03b0cc386f683f55f6cf9a70913abdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942820"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871207"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -36,7 +36,7 @@ A página **Clusters do HDInsight** lista os clusters existentes.  Do portal:
 
 Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .  Isso abrirá a exibição **Visão geral**, que é semelhante à seguinte imagem:
 
-![Fundamentos do cluster HDInsight do portal do Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Fundamentos do cluster HDInsight do portal do Azure":::
 
 **Menu principal:**  
 
@@ -54,7 +54,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |---|---|
     |Visão geral|Fornece informações gerais para o cluster.|
     |Log de atividades|Mostra e consulta logs de atividades.|
-    |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
+    |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
     |Marcas|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto** e usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Exibe informações sobre solução de problemas.|
     |Guia de Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
@@ -74,7 +74,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
     |Propriedades|Exibe as [propriedades do cluster](#properties).|
-    |Bloqueios|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
+    |Locks|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
     |Exportar modelo|Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menu Monitoramento**
@@ -173,7 +173,7 @@ Na [home page do cluster](#homePage):
 
 1. Selecione **Painéis do cluster**.
 
-    ![Menu de cluster do HDInsight Apache Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="Menu de cluster do HDInsight Apache Hadoop":::
 
 1. Selecione **Página inicial do Ambari** na página nova.
 1. Insira o nome de usuário do cluster e a senha.  O nome de usuário do cluster padrão é _admin_.
@@ -263,7 +263,7 @@ O bloco **tamanho do cluster** do [Home Page de cluster](#homePage) exibe o núm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu algumas funções administrativas básicas. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu algumas funções administrativas básicas. Confira os seguintes artigos para saber mais:
 
 - [Administrar o HDInsight usando o PowerShell do Azure](hdinsight-administer-use-powershell.md)
 - [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)

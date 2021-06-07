@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como autenticar um aplicati
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518221"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
@@ -43,7 +43,7 @@ Antes de atribuir uma função do Azure a uma entidade de segurança, determine 
 
 A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso aos recursos do barramento de serviço, começando com o escopo mais estreito:
 
-- **Fila**, **tópico**ou **assinatura**: a atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções do Azure do barramento de serviço no nível da assinatura. 
+- **Fila**, **tópico** ou **assinatura**: a atribuição de função se aplica à entidade de barramento de serviço específica. Atualmente, o portal do Azure não dá suporte à atribuição de usuários/grupos/identidades gerenciadas às funções do Azure do barramento de serviço no nível da assinatura. 
 - **Namespace do barramento de serviço**: a atribuição de função abrange toda a topologia do barramento de serviço no namespace e no grupo de consumidores associado a ela.
 - **Grupo de recursos**: a atribuição de função se aplica a todos os recursos do barramento de serviço no grupo de recursos.
 - **Assinatura**: a atribuição de função se aplica a todos os recursos do barramento de serviço em todos os grupos de recursos na assinatura.

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 3d4f232d87209a3a5676cac22e67a38b17af6917
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844311"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102455375"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
 
@@ -64,7 +64,7 @@ O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa '
 
 ### <a name="create-appsettingsjson"></a>Criar appsettings.jsem
 
-1. Ir para **General** o  >  **arquivo de texto** geral.
+1. Ir para o  >  **arquivo de texto** geral.
 1. Nomeie-o como "appsettings.js".
 1. Defina a propriedade "copiar para o diretório de saída" do arquivo. JSON como "copiar se for mais recente" (para que o aplicativo possa acessá-lo quando publicado).
 
@@ -76,7 +76,7 @@ Execute o `az ams account sp create` comando conforme descrito em [APIs de acess
 
 Para sua conveniência, adicione um arquivo de configuração que seja responsável por ler valores de "appsettings.jsem".
 
-1. Adicione uma nova classe. cs ao seu projeto. Nomeie-o `ConfigWrapper`. 
+1. Adicione uma nova classe. cs ao seu projeto. Nomeie-o como `ConfigWrapper`. 
 1. Cole o código a seguir neste arquivo (Este exemplo pressupõe que você tem o namespace `ConsoleApp1` ).
 
 ```csharp
@@ -247,7 +247,7 @@ namespace ConsoleApp1
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
-* [Referência do .NET](/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet&preserve-view=true)
+* [Referência do .NET](/dotnet/api/overview/azure/mediaservices/management)
 * Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .

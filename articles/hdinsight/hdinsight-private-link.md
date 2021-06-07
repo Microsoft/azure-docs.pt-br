@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939357"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
@@ -47,7 +47,7 @@ Para acessar o cluster usando FQDNs de cluster, você pode usar os IPs privados 
 <clustername-ssh>    A   10.0.0.2
 ```
 
-## <a name="enable-private-link"></a>Habilitar link privado
+## <a name="enable-private-link"></a>Habilitar o Link Privado
 
 O link privado, que é desabilitado por padrão, requer um amplo conhecimento de rede para configurar UDR (rotas definidas pelo usuário) e regras de firewall corretamente antes de criar um cluster. O uso dessa configuração é opcional, mas só estará disponível quando a `resourceProviderConnection` propriedade de rede estiver definida como de *saída* , conforme descrito na seção anterior.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2021
 ms.author: duau
 ms.openlocfilehash: 7686f2f97da0113704216dcab741c063a80d3136
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99051220"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego

@@ -3,19 +3,14 @@ title: Solucionando problemas de falhas de backup no backup em disco do Azure
 description: Saiba como solucionar problemas de falhas de backup no backup em disco do Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737720"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107237"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Solucionando problemas de falhas de backup no backup em disco do Azure (em versão prévia)
-
->[!IMPORTANT]
->O backup em disco do Azure está em versão prévia sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Solucionando problemas de falhas de backup no backup em disco do Azure
 
 Este artigo fornece informações de solução de problemas de backup e restauração enfrentados com o disco do Azure. Para obter mais informações sobre a disponibilidade da região de [backup em disco do Azure](disk-backup-overview.md) , cenários e limitações com suporte, consulte a [matriz de suporte](disk-backup-support-matrix.md).
 
@@ -157,7 +152,7 @@ Ação recomendada: considere usar outro ponto de recuperação para restaurar. 
 
 Mensagem de erro: o backup em disco ainda não está disponível na região do cofre de backup sob a qual a proteção de configuração está sendo tentada.
 
-Ação recomendada: o cofre de backup deve estar em uma região com suporte de visualização. Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
+Ação recomendada: o cofre de backup deve estar em uma região com suporte. Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Código de erro: UserErrorDppDatasourceAlreadyHasBackupInstance
 

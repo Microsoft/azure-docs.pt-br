@@ -1,20 +1,16 @@
 ---
-title: Configurar a solução baseada no agente do Azure defender para IoT
+title: Configurar a solução baseada em agente do Azure Defender para IoT
 description: Saiba como configurar a coleta de dados na solução baseada no Azure defender para IoT Agent
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 53fc01839ef522afaffe52cd8a3126e40ba94a05
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 9a21b336299438b89fae8d5a837130762a7f36e8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809690"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784383"
 ---
-# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configurar a solução baseada no agente do Azure defender para IoT  
+# <a name="configure-azure-defender-for-iot-agent-based-solution"></a>Configurar a solução baseada em agente do Azure Defender para IoT  
 
 Este artigo descreve como configurar a coleta de dados na solução baseada no Azure defender para IoT Agent.
 
@@ -87,7 +83,7 @@ Para acessar seus alertas em seu espaço de trabalho do Log Analytics após a co
 
 1. Selecione **investigar recomendações no espaço de trabalho log Analytics**. 
  
-Para obter mais informações sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+Para obter mais informações sobre como consultar dados de Log Analytics, consulte Introdução [às consultas no log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## <a name="turn-off-defender-for-iot"></a>Desligar o defender para IoT 
 
@@ -99,4 +95,4 @@ Para ativar ou desativar um serviço defender para IoT em um hub IoT específico
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-Avance para o próximo artigo para [configurar sua solução](quickstart-configure-your-solution.md). 
+Avance para o próximo artigo para [configurar sua solução](quickstart-configure-your-solution.md).

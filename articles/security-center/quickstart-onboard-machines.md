@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740599"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465490"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
@@ -40,7 +40,7 @@ Saiba mais sobre os [servidores habilitados para o Azure Arc](../azure-arc/serve
 
 **Para implantar o Azure Arc:**
 
-- Em um computador, siga as instruções em [Início Rápido: Conectar o computador híbrido com os servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- Em um computador, siga as instruções em [Início Rápido: Conectar computadores híbridos com servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Para conectar vários computadores em escala a servidores habilitados para o Arc, confira [Conectar computadores híbridos ao Azure em escala](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
@@ -75,24 +75,24 @@ Saiba mais sobre os [servidores habilitados para o Azure Arc](../azure-arc/serve
 
     Neste ponto, escolha o procedimento relevante abaixo, com base no tipo de computador que você está integrando:
 
-    - [Integrar as VMs do Azure Stack](#onboard-your-azure-stack-vms)
+    - [Integrar as VMs do Azure Stack Hub](#onboard-your-azure-stack-hub-vms)
     - [Integrar os computadores Linux](#onboard-your-linux-machines)
     - [Integrar os computadores Windows](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>Integrar as VMs do Azure Stack
+### <a name="onboard-your-azure-stack-hub-vms"></a>Integrar as VMs do Azure Stack Hub
 
-Para adicionar as VMs do Azure Stack, você precisará de informações da página **Gerenciamento de agentes** e configurar a extensão da máquina virtual **Azure Monitor, atualização e gerenciamento de configuração** nas máquinas virtuais em execução no Azure Stack.
+Para adicionar as VMs do Azure Stack Hub, você precisará de informações da página **Gerenciamento de agentes** e configurar a extensão da máquina virtual **Azure Monitor, atualização e gerenciamento de configuração** nas máquinas virtuais em execução na instância do Azure Stack Hub.
 
 1. Na página **Gerenciamento de agentes**, copie a **ID do Workspace** e a **Chave Primária** no Bloco de notas.
-1. Faça logon no portal do **Azure Stack** e abra a página **Máquinas virtuais**.
+1. Faça logon no portal do **Azure Stack Hub** e abra a página **Máquinas virtuais**.
 1. Selecione a máquina virtual que você deseja proteger com a Central de Segurança.
     >[!TIP]
-    > Para saber mais sobre como criar uma máquina virtual no Azure Stack, confira [este início rápido para Máquinas Virtuais do Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [este início rápido para Máquinas Virtuais do Linux](/azure-stack/user/azure-stack-quick-linux-portal).
+    > Para saber mais sobre como criar uma máquina virtual no Azure Stack Hub, confira [este início rápido para Máquinas Virtuais do Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [este início rápido para Máquinas Virtuais do Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Selecione **Extensões**. A lista de extensões da máquina virtual instaladas nesta máquina virtual é mostrada.
 1. Selecione a guia **Adicionar**. O menu **Novo Recurso** mostra a lista de extensões da máquina virtual disponíveis.
 1. Selecione a extensão **Azure Monitor, atualização e gerenciamento de configuração** e selecione **Criar**. A página de configuração **Instalar extensão** é aberta.
     >[!NOTE]
-    > Caso você não veja a extensão **Gerenciamento de Configuração, de Atualização e do Azure Monitor** listada no marketplace, contate seu operador do Azure Stack para disponibilizá-lo.
+    > Caso você não veja a extensão **Gerenciamento de Configuração, de Atualização e do Azure Monitor** listada no marketplace, contate seu operador do Azure Stack Hub para disponibilizá-lo.
 1. Na página de configuração **Instalar extensão**, cole a **ID do Workspace** e a **Chave do Workspace (Chave Primária)** que você copiou para o Bloco de Notas na etapa anterior.
 1. Ao concluir a configuração, selecione **OK**. O status da extensão será exibido como **Provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual seja exibida na Central de Segurança.
 
@@ -121,7 +121,7 @@ Para adicionar computadores Windows, você precisará das informações contidas
 
 Após a conclusão, o **Microsoft Monitoring Agent** aparecerá no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
 
-Para obter mais informações sobre como instalar e configurar o agente, confira [Conectar computadores Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+Para obter mais informações sobre como instalar e configurar o agente, confira [Conectar computadores Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 

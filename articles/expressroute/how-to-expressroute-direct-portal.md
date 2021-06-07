@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b133f1cce4af07d8d5e50e04670741fcf7c936a4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018931"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102097067"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute direto usando o portal do Azure
 
@@ -21,12 +21,19 @@ O ExpressRoute Direct permite que você se conecte diretamente à rede global da
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
-Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se registrar, faça o seguinte por meio de Azure PowerShell:
+1.  Entre no Azure e selecione a assinatura que você deseja registrar.
 
-* Cenários que você pretende para realizar com o **ExpressRoute Direct**
-* Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
-* Linha do tempo para implementação
-* Tem mais perguntas?
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Registre sua assinatura para visualização pública usando o seguinte comando:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
 
 Depois de registrado, verifique se o provedor de recursos **Microsoft. Network** está registrado em sua assinatura. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos.
 

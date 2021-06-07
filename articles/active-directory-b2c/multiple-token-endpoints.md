@@ -1,5 +1,5 @@
 ---
-title: Migrar APIs Web baseadas em OWIN para b2clogin.com
+title: Migrar APIs Web baseadas em OWIN para b2clogin.com ou um domínio personalizado
 titleSuffix: Azure AD B2C
 description: Saiba como habilitar uma API Web .NET para dar suporte a tokens emitidos por vários emissores de token enquanto você migra seus aplicativos para o b2clogin.com.
 services: active-directory-b2c
@@ -8,26 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/31/2019
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c362ce256259606c85af0a7e13ccde1715bb012b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953926"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491532"
 ---
-# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrar uma API Web baseada em OWIN para b2clogin.com ou um domínio personalizado
 
-Este artigo descreve uma técnica para habilitar o suporte a vários emissores de token em APIs Web que implementam a [interface da Web aberta para .net (OWIN)](http://owin.org/). O suporte a vários pontos de extremidade de token é útil quando você está migrando APIs de Azure Active Directory B2C (Azure AD B2C) e seus aplicativos de *login.microsoftonline.com* para *b2clogin.com*.
+Este artigo descreve uma técnica para habilitar o suporte a vários emissores de token em APIs Web que implementam a [interface da Web aberta para .net (OWIN)](http://owin.org/). O suporte a vários pontos de extremidade de token é útil quando você está migrando APIs de Azure Active Directory B2C (Azure AD B2C) e seus aplicativos de um domínio para outro. Por exemplo, de *login.microsoftonline.com* para *b2clogin.com*, ou para um [domínio personalizado](custom-domain.md).
 
-Ao adicionar suporte em sua API para aceitar tokens emitidos por b2clogin.com e login.microsoftonline.com, você pode migrar seus aplicativos Web de uma maneira preparada antes de remover o suporte para tokens emitidos por login.microsoftonline.com da API.
+Ao adicionar suporte em sua API para aceitar tokens emitidos por b2clogin.com, login.microsoftonline.com ou um domínio personalizado, você pode migrar seus aplicativos Web de uma maneira preparada antes de remover o suporte para tokens emitidos por login.microsoftonline.com da API.
 
 As seções a seguir apresentam um exemplo de como habilitar vários emissores em uma API Web que usa os componentes do [Microsoft OWIN][katana] middleware (Katana). Embora os exemplos de código sejam específicos para o middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
-
-> [!NOTE]
-> Este artigo destina-se a Azure AD B2C clientes com APIs e aplicativos atualmente implantados que fazem referência `login.microsoftonline.com` e que desejam migrar para o `b2clogin.com` ponto de extremidade recomendado. Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,7 +70,7 @@ Se você tiver políticas personalizadas em vez de fluxos de usuário, poderá u
 1. Registrar o `issuer` valor
 1. Execute as etapas 4-6 para o outro domínio, por exemplo, *login.microsoftonline.com*
 
-## <a name="get-the-sample-code"></a>Obter o código de amostra
+## <a name="get-the-sample-code"></a>Obter o código de exemplo
 
 Agora que você tem os dois URIs de ponto de extremidade de token, você precisa atualizar seu código para especificar que ambos os pontos de extremidades sejam emissores válidos. Para percorrer um exemplo, baixe ou clone o aplicativo de exemplo e, em seguida, atualize o exemplo para dar suporte a ambos os pontos de extremidade como emissores válidos.
 
@@ -88,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta seção, você atualiza o código para especificar que ambos os pontos de extremidade do emissor do token sejam válidos.
 
 1. Abra a solução **B2C-WebAPI-dotnet. sln** no Visual Studio
-1. No projeto **TaskService** , abra o arquivo * TaskService \\ App_Start \\ **Startup.auth.cs** _ em seu editor
+1. No projeto **TaskService** , abra o arquivo *TaskService \\ App_Start \\ * * Startup. auth. cs** * em seu editor
 1. Adicione a seguinte `using` diretiva à parte superior do arquivo:
 
     `using System.Collections.Generic;`
@@ -102,12 +99,13 @@ Nesta seção, você atualiza o código para especificar que ambos os pontos de 
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"//,
+            //"https://your-custom-domain/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
 
-`TokenValidationParameters` é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em _Startup. auth. cs *. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
+`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup. auth. cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -142,6 +140,13 @@ Depois (substitua `{your-b2c-tenant}` pelo nome do seu locatário B2C):
 ```
 
 Quando as cadeias de caracteres de ponto de extremidade são construídas durante a execução do aplicativo Web, os pontos de extremidades baseados em b2clogin.com são usados ao solicitar tokens.
+
+Ao usar o domínio personalizado:
+
+```xml
+<!-- Custom domain -->
+<add key="ida:AadInstance" value="https://custom-domain/{0}/{1}" />
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

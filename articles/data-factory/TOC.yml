@@ -13,7 +13,7 @@
   items:
     - name: Criar data factory - Interface do Usuário (IU)
       href: quickstart-create-data-factory-portal.md
-    - name: Criar fábrica de dados - Ferramenta Copiar Dados
+    - name: Criar data factory – Ferramenta Copiar dados
       href: quickstart-create-data-factory-copy-data-tool.md
     - name: Criar fábrica de dados - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
@@ -26,8 +26,6 @@
     - name: Criar um data factory – Modelo ARM
       displayName: Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Segurança – Habilitar a criptografia de chave gerenciada pelo cliente
-      href: enable-customer-managed-key.md
     - name: Criar fluxo de dados
       href: data-flow-create.md
 - name: Tutoriais
@@ -36,7 +34,7 @@
       items:
         - name: Do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure
           items:
-            - name: Ferramenta Copiar Dados
+            - name: Ferramenta Copiar dados
               href: tutorial-copy-data-tool.md
             - name: Interface do usuário (IU)
               href: tutorial-copy-data-portal.md
@@ -44,7 +42,7 @@
               href: tutorial-copy-data-dot-net.md
         - name: De um banco de dados do SQL Server para o Armazenamento de Blobs do Azure
           items:
-            - name: Ferramenta Copiar Dados
+            - name: Ferramenta Copiar dados
               href: tutorial-hybrid-copy-data-tool.md
             - name: Interface do usuário (IU)
               href: tutorial-hybrid-copy-portal.md
@@ -105,6 +103,8 @@
       items:
         - name: Transformar dados com os fluxos de dados de mapeamento
           items:
+            - name: Transformar dados no lake com o Delta Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Transformar dados com os fluxos de dados de mapeamento
               href: tutorial-data-flow.md
             - name: Mapeamento de tutoriais em vídeo de fluxo de dados
@@ -171,10 +171,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: runtime de integração
       href: concepts-integration-runtime.md
-    - name: Segurança
-      items:
-        - name: Linha de base de segurança
-          href: security-baseline.md
     - name: Fluxos de dados
       items:
         - name: Transformar dados com os fluxos de dados de mapeamento
@@ -431,13 +427,13 @@
           href: connector-zoho.md
     - name: Mover dados
       items:
-        - name: Copiar dados usando Atividade de Cópia
+        - name: Copiar dados usando a atividade Copy
           href: copy-activity-overview.md
         - name: Monitorar atividade de cópia
           href: copy-activity-monitoring.md
-        - name: Excluir arquivos usando a Atividade de Exclusão
+        - name: Excluir arquivos usando a atividade Delete
           href: delete-activity.md
-        - name: Ferramenta Copiar Dados
+        - name: Ferramenta Copiar dados
           href: copy-data-tool.md
         - name: Suporte à compactação e ao formato
           href: supported-file-formats-and-compression-codecs.md
@@ -464,9 +460,9 @@
     - name: Transformar dados
       href: transform-data.md
       items:
-        - name: Atividade de execução de fluxo de dados
+        - name: Atividade Execute Data Flow
           href: control-flow-execute-data-flow-activity.md
-        - name: Executar atividade do Power Query
+        - name: Atividade Execute Power Query
           href: control-flow-power-query-activity.md
         - name: Atividade do Azure Function
           href: control-flow-azure-function-activity.md
@@ -474,13 +470,13 @@
           href: transform-data-using-dotnet-custom-activity.md
         - name: Atividade do Databricks Jar
           href: transform-data-databricks-jar.md
-        - name: Atividade do Databricks Notebook
+        - name: Atividade de Notebook do Databricks
           href: transform-data-databricks-notebook.md
         - name: Atividade do Databricks Python
           href: transform-data-databricks-python.md
-        - name: Atividade de Comando do Data Explorer
+        - name: Atividade Command do Data Explorer
           href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
-        - name: Atividade de U-SQL do Data Lake
+        - name: Atividade U-SQL do Data Lake
           href: transform-data-using-data-lake-analytics.md
         - name: Atividade de Hive do HDInsight
           href: transform-data-using-hadoop-hive.md
@@ -488,49 +484,49 @@
           href: transform-data-using-hadoop-map-reduce.md
         - name: Atividade de Pig do HDInsight
           href: transform-data-using-hadoop-pig.md
-        - name: Atividade do HDInsight Spark
+        - name: Atividade do Spark no HDInsight
           href: transform-data-using-spark.md
         - name: Atividade de Streaming do HDInsight
           href: transform-data-using-hadoop-streaming.md
-        - name: Atividade do Pipeline de Execução do Machine Learning
+        - name: Atividade Execute Pipeline do Machine Learning
           href: transform-data-machine-learning-service.md
-        - name: Atividade de execução em lotes do Machine Learning Studio (clássico)
+        - name: Atividade Batch Execution do Machine Learning Studio (clássico)
           href: transform-data-using-machine-learning.md
-        - name: Atividade do recurso de atualização do Machine Learning Studio (clássico)
+        - name: Atividade Update Resource do Machine Learning Studio (clássico)
           href: update-machine-learning-models.md
-        - name: Atividade de Procedimento Armazenado
+        - name: Atividade Stored Procedure
           href: transform-data-using-stored-procedure.md
         - name: Serviços vinculados de computação
           href: compute-linked-services.md
     - name: Fluxo de controle
       items:
-        - name: Acrescentar Atividade Variável
+        - name: Atividade Append Variable
           href: control-flow-append-variable-activity.md
-        - name: Atividade de execução de pipeline
+        - name: Atividade Execute Pipeline
           href: control-flow-execute-pipeline-activity.md
-        - name: Filtrar atividade
+        - name: Atividade Filter
           href: control-flow-filter-activity.md
-        - name: Para cada atividade
+        - name: Atividade ForEach
           href: control-flow-for-each-activity.md
-        - name: Atividade de obtenção de metadados
+        - name: Atividade Get Metadata
           href: control-flow-get-metadata-activity.md
-        - name: Atividade Condição Se
+        - name: Atividade If Condition
           href: control-flow-if-condition-activity.md
-        - name: Atividade de pesquisa
+        - name: Atividade Lookup
           href: control-flow-lookup-activity.md
-        - name: Definir Atividade Variável
+        - name: Atividade Set Variable
           href: control-flow-set-variable-activity.md
         - name: Atividade Switch
           href: control-flow-switch-activity.md
         - name: Atividade Until
           href: control-flow-until-activity.md
-        - name: Atividade de validação
+        - name: Atividade Validation
           href: control-flow-validation-activity.md
         - name: Atividade Wait
           href: control-flow-wait-activity.md
         - name: Atividade da Web
           href: control-flow-web-activity.md
-        - name: Atividade de webhook
+        - name: Atividade Webhook
           href: control-flow-webhook-activity.md
     - name: Transformações do fluxo de dados
       items:
@@ -556,6 +552,8 @@
           href: data-flow-lookup.md
         - name: Novo branch
           href: data-flow-new-branch.md
+        - name: Analisar
+          href: data-flow-parse.md
         - name: Dinâmico
           href: data-flow-pivot.md
         - name: Rank
@@ -588,13 +586,15 @@
           href: control-flow-system-variables.md
         - name: Parametrizando os fluxos de dados de mapeamento
           href: parameters-data-flow.md
+        - name: Como parametrizar
+          href: how-to-expression-language-functions.md
     - name: Segurança
       items:
         - name: Considerações de segurança da movimentação de dados
           href: data-movement-security-considerations.md
         - name: Estratégias de acesso a dados
           href: data-access-strategies.md
-        - name: Endereços de IP do Azure Integration Runtime
+        - name: Endereços IP do Azure Integration Runtime
           href: azure-integration-runtime-ip-addresses.md
         - name: Armazenar credenciais no Azure Key Vault
           href: store-credentials-in-key-vault.md
@@ -604,12 +604,14 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identidade gerenciada para o Data Factory
           href: data-factory-service-identity.md
-        - name: Criptografia de chave gerenciada pelo cliente
+        - name: Criptografar data factory com uma chave gerenciada pelo cliente
           href: enable-customer-managed-key.md
-        - name: Rede Virtual Gerenciada
+        - name: Rede virtual gerenciada
           href: managed-virtual-network-private-endpoint.md
         - name: Link Privado do Azure para Data Factory
           href: data-factory-private-link.md
+        - name: Linha de base de segurança do Azure
+          href: security-baseline.md
     - name: Monitorar e gerenciar
       items:
         - name: Monitorar visualmente
@@ -692,7 +694,7 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Criar gatilhos
       items:
-        - name: Criar gatilho baseado em eventos
+        - name: Criar um gatilho de evento de armazenamento
           href: how-to-create-event-trigger.md
         - name: Criar um gatilho de agenda
           href: how-to-create-schedule-trigger.md
@@ -700,6 +702,8 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Criar uma dependência de gatilho de janela em cascata
           href: tumbling-window-trigger-dependency.md
+        - name: Metadados de gatilho de referência no pipeline
+          href: how-to-use-trigger-parameterization.md
     - name: Catálogo e Governança de Dados
       items:
         - name: Conectar um Data Factory ao Azure Purview
@@ -732,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Eliminação de duplicados e verificação nula com trechos de código
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Processar dados de modelos do AML usando o fluxo de dados
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Migração do SSIS do local
           items:
             - name: Visão geral de migração do SSIS
@@ -806,6 +812,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Itens internos do Azure Policy
+      href: policy-reference.md
 - name: Recursos
   items:
     - name: White papers

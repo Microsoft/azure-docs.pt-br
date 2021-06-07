@@ -11,10 +11,10 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99257571"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure Active Directory
@@ -87,7 +87,7 @@ Em geral, se a captura automática do campo de entrada não funcionar, tente a o
 ### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Capturar automaticamente os campos de entrada para um aplicativo
 
 Para configurar o SSO baseado em senha usando a captura automática de campo de entrada, siga estas etapas:
-1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
@@ -106,7 +106,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 Para capturar manualmente os campos de entrada, você deve ter a extensão de navegador meus aplicativos instalada. Além disso, seu navegador não pode ser executado no modo *InPrivate*, *Incognito* ou *Private* .
 
 Para configurar o SSO baseado em senha para um aplicativo usando a captura de campo de entrada manual, siga estas etapas:
-1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.

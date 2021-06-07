@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
-ms.translationtype: MT
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491241"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167287"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -56,15 +56,15 @@ Quando o runbook chama um runbook filho do Fluxo de Trabalho gráfico ou do Powe
 O exemplo a seguir inicia um runbook filho de teste que aceita um objeto complexo, um valor inteiro e um valor booliano. A saída do runbook filho é atribuída a uma variável. Nesse caso, o runbook filho é um runbook de Fluxo de Trabalho do PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 A seguir, temos o mesmo exemplo usando um runbook do PowerShell como o filho.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Iniciar um runbook filho usando um cmdlet
@@ -84,7 +84,7 @@ Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma
 
 O contexto da assinatura pode ser perdido ao iniciar runbooks filho como trabalhos separados. Para que o runbook filho execute cmdlets do módulo Az em uma assinatura específica do Azure, o runbook filho precisa se autenticar nessa assinatura independentemente do runbook pai.
 
-Se os trabalhos na mesma conta de Automação funcionarem com mais de uma assinatura, a seleção de uma assinatura em um trabalho poderá mudar o contexto da assinatura atualmente selecionada para outros trabalhos. Para evitar esse problema, use `Disable-AzContextAutosave –Scope Process` no início de cada runbook. Essa ação apenas salva o contexto nessa execução de runbook.
+Se os trabalhos na mesma conta de Automação funcionarem com mais de uma assinatura, a seleção de uma assinatura em um trabalho poderá mudar o contexto da assinatura atualmente selecionada para outros trabalhos. Para evitar esse problema, use `Disable-AzContextAutosave -Scope Process` no início de cada runbook. Essa ação apenas salva o contexto nessa execução de runbook.
 
 ### <a name="example"></a>Exemplo
 
@@ -92,7 +92,7 @@ O exemplo a seguir inicia um runbook filho com parâmetros e, em seguida, aguard
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

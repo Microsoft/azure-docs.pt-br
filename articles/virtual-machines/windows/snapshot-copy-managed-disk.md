@@ -3,18 +3,18 @@ title: Criar um instantâneo de um disco rígido virtual usando o portal ou o Po
 description: Saiba como criar uma cópia de uma VM do Azure para usar como um backup ou para solucionar problemas usando o portal ou o PowerShell.
 author: roygara
 manager: twooley
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
-ms.subservice: disks
-ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9070b69ac4c6b85791ff3dd4662273e75a3cd22c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102556053"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Criar um instantâneo usando o portal ou o PowerShell
 
@@ -22,7 +22,7 @@ Um instantâneo é uma cópia completa, somente leitura de um disco rígido virt
 
 Se você pretende usar o instantâneo para criar uma nova VM, recomendamos desligar a VM antes de capturar um instantâneo para limpar todos os processos em andamento.
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure 
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure 
 
 Para criar um instantâneo, conclua as seguintes etapas: 
 1.  Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.

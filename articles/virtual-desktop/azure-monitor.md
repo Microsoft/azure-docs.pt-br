@@ -1,44 +1,40 @@
 ---
-title: Use monitorar o monitor de área de trabalho virtual do Windows Preview-Azure
+title: Usar monitor de área de trabalho virtual do Windows monitor – Azure
 description: Como usar Azure Monitor para área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0be6decf28fcbb2edacd5019f567d26403b1f31
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466133"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709541"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Usar Azure Monitor para área de trabalho virtual do Windows para monitorar sua implantação (versão prévia)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Usar Azure Monitor para área de trabalho virtual do Windows para monitorar sua implantação
 
->[!IMPORTANT]
->O Azure Monitor para área de trabalho virtual do Windows está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Monitor para área de trabalho virtual do Windows (versão prévia) é um Dashboard criado em pastas de trabalho do Azure Monitor que ajuda os profissionais de ti a compreender seus ambientes de área de trabalho virtual do Windows. Este tópico explicará como configurar Azure Monitor para área de trabalho virtual do Windows para monitorar seus ambientes de área de trabalho virtual do Windows.
+O Azure Monitor para área de trabalho virtual do Windows é um Dashboard criado em pastas de trabalho do Azure Monitor que ajuda os profissionais de ti a compreender seus ambientes de área de trabalho virtual do Windows Este tópico explicará como configurar Azure Monitor para área de trabalho virtual do Windows para monitorar seus ambientes de área de trabalho virtual do Windows.
 
 ## <a name="requirements"></a>Requisitos
 
 Antes de começar a usar o Azure Monitor para área de trabalho virtual do Windows, você precisará configurar os seguintes itens:
 
 - Todos os ambientes de área de trabalho virtual do Windows monitorados devem ser baseados na versão mais recente da área de trabalho virtual do Windows que seja compatível com o Azure Resource Manager.
-
-- Pelo menos um espaço de trabalho de Log Analytics configurado.
-
+- Pelo menos um espaço de trabalho de Log Analytics configurado. Use um espaço de trabalho Log Analytics designado para seus hosts de sessão de área de trabalho virtual do Windows para garantir que os contadores de desempenho e eventos sejam coletados apenas de hosts de sessão em sua implantação de área de trabalho virtual
 - Habilite a coleta de dados para os seguintes itens em seu espaço de trabalho Log Analytics:
-    - Todos os contadores de desempenho necessários
-    - Quaisquer contadores de desempenho ou eventos usados em Azure Monitor para área de trabalho virtual do Windows
-    - Dados da ferramenta de diagnóstico para todos os objetos no ambiente que você monitorará.
-    - VMs (máquinas virtuais) no ambiente que você monitorará.
+    - Diagnóstico do seu ambiente de área de trabalho virtual do Windows
+    - Contadores de desempenho recomendados de seus hosts de sessão de área de trabalho virtual do Windows
+    - Logs de eventos do Windows recomendados de seus hosts de sessão de área de trabalho virtual do Windows
 
-Qualquer pessoa que monitorar o Azure Monitor para área de trabalho virtual do Windows para seu ambiente também precisará das seguintes permissões de acesso de leitura:
+ O processo de configuração de dados descrito neste artigo é o único que você precisará para monitorar a área de trabalho virtual do Windows. Você pode desabilitar todos os outros itens enviando dados para seu espaço de trabalho do Log Analytics para economizar custos.
 
-- Acesso de leitura ao grupo de recursos em que os recursos do ambiente estão localizados.
+Qualquer pessoa que estiver monitorando Azure Monitor para área de trabalho virtual do Windows para seu ambiente também precisará das seguintes permissões de acesso de leitura:
 
-- Acesso de leitura aos grupos de recursos nos quais os hosts de sessão do ambiente estão localizados
+- Acesso de leitura às assinaturas do Azure que mantêm seus recursos de área de trabalho virtual do Windows
+- Acesso de leitura aos grupos de recursos da assinatura que contêm os hosts de sessão da área de trabalho virtual do Windows
+- Acesso de leitura ao espaço de trabalho do Log Analytics ou espaços de trabalho
 
 >[!NOTE]
 > Somente acesso de leitura permite que os administradores exibam dados. Eles precisarão de permissões diferentes para gerenciar recursos no portal de área de trabalho virtual do Windows.
@@ -48,130 +44,138 @@ Qualquer pessoa que monitorar o Azure Monitor para área de trabalho virtual do 
 Você pode abrir Azure Monitor para área de trabalho virtual do Windows com um dos seguintes métodos:
 
 - Vá para [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
-
 - Procure e selecione **área de trabalho virtual do Windows** na portal do Azure e, em seguida, selecione **insights**.
-
-- Procure e selecione **Azure monitor** na portal do Azure. Selecione **Hub de informações** em **insights** e, em **outras** , selecione **área de trabalho virtual do Windows** para abrir o painel na página de Azure monitor.
-
-Quando você tiver Azure Monitor para a área de trabalho virtual do Windows aberta, marque uma ou mais das caixas de seleção rotuladas **assinatura**, **grupo de recursos**, **pool de hosts** e **intervalo de tempo** com base no ambiente que você deseja monitorar.
+- Procure e selecione **Azure monitor** na portal do Azure. Selecione **Hub de informações** em **insights** e, em seguida, selecione **área de trabalho virtual do Windows**.
+Quando a página estiver aberta, insira a **assinatura**, o **grupo de recursos**, o **pool de hosts** e o **intervalo de tempo** do ambiente que você deseja monitorar.
 
 >[!NOTE]
->A área de trabalho virtual do Windows atualmente dá suporte apenas ao monitoramento de uma assinatura, grupo de recursos e pool de hosts por vez. Se você não encontrar o ambiente que deseja monitorar, consulte [nossa documentação de solução de problemas](troubleshoot-azure-monitor.md) para obter solicitações e problemas de recursos conhecidos.
+>A área de trabalho virtual do Windows atualmente dá suporte apenas ao monitoramento de uma assinatura, grupo de recursos e pool de hosts por vez. Se você não encontrar o ambiente que deseja monitorar, consulte [nossa documentação de solução de problemas](troubleshoot-azure-monitor.md) para solicitações e problemas de recursos conhecidos.
 
-## <a name="set-up-with-the-configuration-workbook"></a>Configurar com a pasta de trabalho de configuração
+## <a name="log-analytics-settings"></a>Configurações de Log Analytics
 
-Se esta for a primeira vez que você abrir Azure Monitor para área de trabalho virtual do Windows, você precisará configurar Azure Monitor para os recursos da área de trabalho virtual do Windows. Para configurar seus recursos:
+Para começar a usar o Azure Monitor para área de trabalho virtual do Windows, você precisará de pelo menos um espaço de trabalho Log Analytics. Use um espaço de trabalho Log Analytics designado para seus hosts de sessão de área de trabalho virtual do Windows para garantir que os contadores de desempenho e os eventos sejam coletados apenas em hosts de sessão de formulário na sua implantação de área Se você já tiver um espaço de trabalho configurado, pule para [Configurar usando a pasta de trabalho de configuração](#set-up-using-the-configuration-workbook). Para configurar um, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-1. Abra sua pasta de trabalho no portal do Azure.
-2. Selecione **abrir a pasta de trabalho de configuração**.
+>[!NOTE]
+>Os encargos de armazenamento de dados padrão para Log Analytics serão aplicados. Para começar, recomendamos que você escolha o modelo pago conforme o uso e ajuste à medida que dimensionar sua implantação e obter mais dados. Para saber mais, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-A pasta de trabalho configuração configura seu ambiente de monitoramento e permite que você verifique a configuração depois de concluir o processo de instalação. É importante verificar sua configuração se os itens no painel não estiverem sendo exibidos corretamente ou quando o grupo de produtos publicar atualizações que exigem pontos de dados adicionais.
+## <a name="set-up-using-the-configuration-workbook"></a>Configurar usando a pasta de trabalho de configuração
 
-## <a name="host-pool-diagnostic-settings"></a>Configurações de diagnóstico do pool de host
+Se for a primeira vez que abrir Azure Monitor para área de trabalho virtual do Windows, você precisará configurar o Azure Monitor para seu ambiente de área de trabalho virtual do Windows. Para configurar seus recursos:
 
-Você precisará habilitar Azure Monitor configurações de diagnóstico em todos os objetos no ambiente de área de trabalho virtual do Windows que dão suporte a esse recurso.
+1. Abra Azure Monitor para área de trabalho virtual do Windows no portal do Azure em [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), em seguida, selecione **pasta de trabalho de configuração**.
+2. Selecione um ambiente para configurar em **assinatura**, **grupo de recursos** e **pool de hosts**.
 
-1. Abra Azure Monitor para área de trabalho virtual do Windows em [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)e, em seguida, selecione **pasta de trabalho de configuração**.
+A pasta de trabalho configuração configura seu ambiente de monitoramento e permite que você verifique a configuração depois de concluir o processo de instalação. É importante verificar sua configuração se os itens no painel não estiverem sendo exibidos corretamente ou quando o grupo de produtos publicar atualizações que exigem novas configurações.
 
-2. Selecione um ambiente para monitorar sob **assinatura**, **grupo de recursos** e **pool de hosts**.
+### <a name="resource-diagnostic-settings"></a>Configurações do Diagnóstico do recurso
 
-3. Em **configurações de diagnóstico do pool de hosts**, verifique se o diagnóstico de área de trabalho virtual do Windows está habilitado para o pool de hosts. Se não forem, será exibida uma mensagem de erro dizendo "nenhuma configuração de diagnóstico existente foi encontrada para o pool de hosts selecionado." 
-   
-   As tabelas a seguir devem ser habilitadas:
+Para coletar informações sobre sua infraestrutura de área de trabalho virtual do Windows, você precisará habilitar várias configurações de diagnóstico em seus pools de hosts e espaços de trabalho da área de trabalho virtual do Windows (esse é o seu espaço de trabalho de área de trabalho virtual do Windows, não o seu Log Analytics Para saber mais sobre pools de hosts, espaços de trabalho e outros objetos de recursos de área de trabalho virtual do Windows, consulte nosso [Guia de ambiente](environment-setup.md).
+
+Você pode saber mais sobre o diagnóstico de área de trabalho virtual do Windows e as tabelas de diagnóstico com suporte em [Enviar diagnóstico de área de trabalho virtual do Windows para log Analytics](diagnostics-log-analytics.md).
+
+Para definir as configurações de diagnóstico de recurso na pasta de trabalho de configuração: 
+
+1. Selecione a guia **configurações de diagnóstico de recurso** na pasta de trabalho configuração. 
+2. Selecione **log Analytics espaço de trabalho** para enviar o diagnóstico de área de trabalho virtual do Windows. 
+
+#### <a name="host-pool-diagnostic-settings"></a>Configurações de diagnóstico do pool de host
+
+Para configurar o diagnóstico do pool de hosts usando a seção Configurações de diagnóstico de recurso na pasta de trabalho configuração:
+
+1. Em **pool de hosts**, verifique se o diagnóstico de área de trabalho virtual do Windows está habilitado. Se não forem, será exibida uma mensagem de erro dizendo "nenhuma configuração de diagnóstico existente foi encontrada para o pool de hosts selecionado." Você precisará habilitar as seguintes tabelas de diagnóstico com suporte:
 
     - Ponto de verificação
     - Erro
     - Gerenciamento
     - Conexão
     - HostRegistration
-
+    - AgentHealthStatus
+    
     >[!NOTE]
-    > Se você não vir a mensagem de erro, não precisará executar a etapa 4.
+    > Se você não vir a mensagem de erro, não precisará executar as etapas 2 a 4.
 
-4. Selecione **Configurar pool de hosts**.
+2. Selecione **Configurar pool de hosts**.
+3. Selecione **Implantar**.
+4. Atualize a pasta de trabalho de configuração.
 
-5. Selecione **Implantar**.
+#### <a name="workspace-diagnostic-settings"></a>Configurações de diagnóstico do espaço de trabalho 
 
-6. Atualizar a pasta de trabalho.
+Para configurar o diagnóstico de espaço de trabalho usando a seção Configurações de diagnóstico de recurso na pasta de trabalho configuração:
 
-Você pode aprender mais sobre como habilitar o diagnóstico em todos os objetos no ambiente de área de trabalho virtual do Windows ou acessar o espaço de trabalho Log Analytics em [Enviar diagnóstico de área de trabalho virtual do Windows para log Analytics](diagnostics-log-analytics.md).
+ 1. Em **espaço de trabalho**, verifique se o diagnóstico de área de trabalho virtual do Windows está habilitado para o espaço de trabalho área de trabalho virtual do Windows. Se não forem, será exibida uma mensagem de erro dizendo "nenhuma configuração de diagnóstico existente foi encontrada para o espaço de trabalho selecionado". Você precisará habilitar as seguintes tabelas de diagnóstico com suporte:
+ 
+    - Ponto de verificação
+    - Erro
+    - Gerenciamento
+    - Feed
+    
+    >[!NOTE]
+    > Se você não vir a mensagem de erro, não precisará executar as etapas de 2-4.
 
-## <a name="configure-log-analytics"></a>Configurar a análise de logs
+2. Selecione **Configurar espaço de trabalho**.
+3. Selecione **Implantar**.
+4. Atualize a pasta de trabalho de configuração.
 
-Para começar a usar o Azure Monitor para área de trabalho virtual do Windows, você também precisará de pelo menos um espaço de trabalho Log Analytics para coletar dados do ambiente que planeja monitorar e fornecê-los à pasta de trabalho. Se você já tiver uma configuração, pule para configurar os [contadores de desempenho](#set-up-performance-counters). Para configurar um novo espaço de trabalho Log Analytics para a assinatura do Azure que contém o ambiente de área de trabalho virtual do Windows, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+### <a name="session-host-data-settings"></a>Configurações de dados do host da sessão
 
->[!NOTE]
->Os encargos de armazenamento de dados padrão para Log Analytics serão aplicados. Para começar, recomendamos que você escolha o modelo pago conforme o uso e ajuste à medida que dimensionar sua implantação e obter mais dados. Para saber mais, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Para coletar informações sobre seus hosts de sessão de área de trabalho virtual do Windows, você precisará instalar o agente de Log Analytics em todos os hosts de sessão no pool de hosts, verificar se os hosts de sessão estão enviando para um espaço de trabalho Log Analytics e definir as configurações do Log Analytics Agent para coletar dados de desempenho e logs de eventos do Windows.
 
-### <a name="set-up-performance-counters"></a>Configurar contadores de desempenho
+O espaço de trabalho Log Analytics para o qual você envia dados de host de sessão não precisa ser o mesmo que você envia dados de diagnóstico. Se você tiver hosts de sessão do Azure fora do seu ambiente de área de trabalho virtual do Windows, é recomendável ter um espaço de trabalho Log Analytics designado para os hosts de sessão de área de trabalho virtual 
 
-Você precisa habilitar contadores de desempenho específicos para coleta no intervalo de exemplo correspondente no espaço de trabalho Log Analytics. Esses contadores de desempenho são os únicos contadores que você precisará para monitorar a área de trabalho virtual do Windows. Você pode desabilitar todos os outros para economizar custos.
+Para definir o espaço de trabalho Log Analytics onde você deseja coletar dados de host de sessão: 
 
-Se você já tiver os contadores de desempenho habilitados e quiser removê-los, siga as instruções em [Configurando contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md) para reconfigurar seus contadores de desempenho. Embora o artigo descreva como adicionar contadores, você também pode removê-los no mesmo local.
+1. Selecione a guia **configurações de dados do host da sessão** na pasta de trabalho de configuração. 
+2. Selecione o **log Analytics espaço de trabalho** para o qual você deseja enviar dados de host de sessão. 
 
-Se você ainda não configurou os contadores de desempenho, veja como configurá-los para Azure Monitor para área de trabalho virtual do Windows:
+#### <a name="session-hosts"></a>Hosts de sessão
 
-1. Vá para [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)e, em seguida, selecione a **pasta de trabalho de configuração** na parte inferior da janela.
-
-2. Em **configuração do log Analytics**, selecione o espaço de trabalho que você configurou para sua assinatura.
-
-3. Em **contadores de desempenho do espaço de trabalho**, você verá a lista de contadores necessários para o monitoramento. No lado direito dessa lista, verifique os itens na lista de **contadores ausentes** para habilitar os contadores que você precisará para começar a monitorar seu espaço de trabalho.
-
-4. Selecione **Configurar contadores de desempenho**.
-
-5. Selecione **aplicar configuração**.
-
-6. Atualize a pasta de trabalho de configuração e continue a configurar seu ambiente.
-
-Você também pode adicionar novos contadores de desempenho após a configuração inicial sempre que o serviço for atualizado e exigir novas ferramentas de monitoramento. Você pode verificar se todos os contadores necessários estão habilitados selecionando-os na lista de **contadores ausentes** .
-
->[!NOTE]
->Os contadores de desempenho de atraso de entrada são compatíveis apenas com o Windows 10 RS5 e posterior ou o Windows Server 2019 e posterior.
-
-Para saber mais sobre como adicionar manualmente contadores de desempenho que ainda não estão habilitados para coleta, consulte [Configurando contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md).
-
-### <a name="set-up-windows-events"></a>Configurar eventos do Windows
-
-Em seguida, você precisará habilitar eventos específicos do Windows para coleta no espaço de trabalho Log Analytics. Os eventos descritos nesta seção são os únicos Azure Monitor para as necessidades da área de trabalho virtual do Windows. Você pode desabilitar todos os outros para economizar custos.
-
-Para configurar eventos do Windows:
-
-1. Se você já tiver os eventos do Windows habilitados e quiser removê-los, remova os eventos que não deseja antes de usar a pasta de trabalho de configuração para habilitar o conjunto necessário para o monitoramento.
-
-2. Acesse Azure Monitor para área de trabalho virtual do Windows em [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)e, em seguida, selecione **pasta de trabalho de configuração** na parte inferior da janela.
-
-3. Na **configuração de eventos do Windows**, há uma lista de eventos do Windows necessários para o monitoramento. No lado direito dessa lista está a lista de **eventos ausentes** , em que você encontrará os nomes de eventos e tipos de eventos necessários que não estão atualmente habilitados para seu espaço de trabalho. Registre cada um desses nomes para mais tarde.
-
-4. Selecione **abrir configuração de espaços de trabalho**.
-
-5. Selecione **dados**.
-
-6. Selecione **logs de eventos do Windows**.
-
-7. Adicione os nomes de evento ausentes da etapa 3 e o tipo de evento necessário para cada um.
-
-8. Atualize a pasta de trabalho de configuração e continue a configurar seu ambiente.
-
-Você pode adicionar novos eventos do Windows após a configuração inicial se as atualizações da ferramenta de monitoramento exigirem a habilitação de novos eventos. Para verificar se você tem todos os eventos necessários habilitados, volte para a lista de **eventos ausentes** e habilite os eventos ausentes que você vê lá.
-
-## <a name="install-the-log-analytics-agent-on-all-hosts"></a>Instalar o agente de Log Analytics em todos os hosts
-
-Por fim, você precisará instalar o agente de Log Analytics em todos os hosts no pool de hosts para enviar dados dos hosts para o espaço de trabalho selecionado.
-
-Para instalar o agente de Log Analytics:
-
-1. Acesse Azure Monitor para área de trabalho virtual do Windows em [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)e, em seguida, selecione **pasta de trabalho de configuração** na parte inferior da janela.
-
-2. Se Log Analytics não estiver configurado para todos os hosts no pool de hosts, você verá um erro na parte inferior da seção de configuração de Log Analytics com a mensagem "alguns hosts no pool de hosts não estão enviando dados para o espaço de trabalho de Log Analytics selecionado". Selecione **adicionar hosts ao espaço de trabalho** para adicionar os hosts selecionados. Se você não vir a mensagem de erro, pare aqui.
-
-3. Atualize a pasta de trabalho de configuração.
+Você precisará instalar o agente de Log Analytics em todos os hosts de sessão no pool de hosts e enviar dados desses hosts para o espaço de trabalho de Log Analytics selecionado. Se Log Analytics não estiver configurado para todos os hosts de sessão no pool de hosts, você verá uma seção **hosts de sessão** na parte superior das **configurações de dados do host de sessão** com a mensagem "alguns hosts no pool de hosts não estão enviando dados para o espaço de trabalho de log Analytics selecionado".
 
 >[!NOTE]
->O computador host precisa estar em execução para instalar a extensão de Log Analytics. Se a implantação automática falhar em um host, você sempre poderá instalar a extensão em um host manualmente. Para saber como instalar a extensão manualmente, consulte [log Analytics extensão da máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
+> Se você não vir a seção **hosts de sessão** ou a mensagem de erro, todos os hosts de sessão serão configurados corretamente. Pule para configurar as instruções para [contadores de desempenho do espaço de trabalho](#workspace-performance-counters).
+
+Para configurar seus hosts de sessão restantes usando a pasta de trabalho de configuração:
+
+1. Selecione **adicionar hosts ao espaço de trabalho**. 
+2. Atualize a pasta de trabalho de configuração.
+
+>[!NOTE]
+>O computador host precisa estar em execução para instalar a extensão de Log Analytics. Se a implantação automática não funcionar, você poderá instalar a extensão em um host manualmente. Para saber como instalar a extensão manualmente, consulte [log Analytics extensão da máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
+
+#### <a name="workspace-performance-counters"></a>Contadores de desempenho de espaço de trabalho
+
+Você precisará habilitar contadores de desempenho específicos para coletar informações de desempenho de seus hosts de sessão e enviá-los para o espaço de trabalho Log Analytics.
+
+Se você já tiver os contadores de desempenho habilitados e quiser removê-los, siga as instruções em [Configurando contadores de desempenho](../azure-monitor/agents/data-sources-performance-counters.md). Você pode adicionar e remover contadores de desempenho no mesmo local.
+
+Para configurar contadores de desempenho usando a pasta de trabalho de configuração: 
+
+1. Em **contadores de desempenho do espaço** de trabalho na pasta de trabalho configuração, verifique os **contadores configurados** para ver os contadores que você já habilitou para enviar ao espaço de trabalho do log Analytics. Verifique os **contadores ausentes** para certificar-se de que você habilitou todos os contadores necessários.
+2. Se você tiver contadores ausentes, selecione **Configurar contadores de desempenho**.
+3. Selecione **aplicar configuração**.
+4. Atualize a pasta de trabalho de configuração.
+5. Verifique se todos os contadores necessários estão habilitados verificando a lista de **contadores ausentes** . 
+
+#### <a name="configure-windows-event-logs"></a>Configurar logs de eventos do Windows
+
+Você também precisará habilitar logs de eventos específicos do Windows para coletar erros, avisos e informações dos hosts de sessão e enviá-los para o espaço de trabalho Log Analytics.
+
+Se você já tiver habilitado os logs de eventos do Windows e quiser removê-los, siga as instruções em [Configurando logs de eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).  Você pode adicionar e remover logs de eventos do Windows no mesmo local.
+
+Para configurar logs de eventos do Windows usando a pasta de trabalho de configuração:
+
+1. Em **configuração de logs de eventos do Windows**, verifique os **logs de eventos configurados** para ver os logs de eventos que você já habilitou para enviar ao espaço de trabalho do log Analytics. Verifique os **logs de eventos ausentes** para certificar-se de que você habilitou todos os logs de eventos do Windows.
+2. Se você tiver logs de eventos do Windows ausentes, selecione **Configurar eventos**.
+3. Selecione **Implantar**.
+4. Atualize a pasta de trabalho de configuração.
+5. Verifique se todos os logs de eventos do Windows necessários estão habilitados verificando a lista de **logs de eventos ausentes** . 
+
+>[!NOTE]
+>Se a implantação automática de eventos falhar, selecione **abrir configuração do agente** na pasta de trabalho de configuração para adicionar manualmente quaisquer logs de eventos do Windows ausentes. 
 
 ## <a name="optional-configure-alerts"></a>Opcional: configurar alertas
 
-Você pode configurar Azure Monitor para a área de trabalho virtual do Windows para notificá-lo se qualquer alerta de Azure Monitor grave ocorrer dentro de sua assinatura selecionada. Para fazer isso, siga as instruções em [responder a eventos com Azure monitor alertas](../azure-monitor/learn/tutorial-response.md).
+Azure Monitor para área de trabalho virtual do Windows permite monitorar Azure Monitor alertas que ocorrem dentro de sua assinatura selecionada no contexto dos dados da área de trabalho virtual do Windows. Azure Monitor alertas são um recurso opcional em suas assinaturas do Azure e você precisa configurá-los separadamente do Azure Monitor para a área de trabalho virtual do Windows. Você pode usar a estrutura de alertas de Azure Monitor para definir alertas personalizados em eventos de área de trabalho virtual do Windows, diagnósticos e recursos. Para saber mais sobre alertas de Azure Monitor, confira [responder a eventos com Azure monitor alertas](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 
@@ -186,7 +190,7 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você configurou seu portal do Azure de área de trabalho virtual do Windows, aqui estão alguns recursos que podem ajudá-lo:
+Agora que você configurou Azure Monitor para seu ambiente de área de trabalho virtual do Windows, aqui estão alguns recursos que podem ajudá-lo a começar a monitorar seu ambiente:
 
 - Confira nosso [Glossário](azure-monitor-glossary.md) para saber mais sobre os termos e conceitos relacionados ao Azure monitor para área de trabalho virtual do Windows.
-- Se você encontrar um problema, confira nosso [Guia de solução de problemas](troubleshoot-azure-monitor.md) para obter ajuda.
+- Se você encontrar um problema, confira nosso [Guia de solução de problemas](troubleshoot-azure-monitor.md) para obter ajuda e problemas conhecidos.

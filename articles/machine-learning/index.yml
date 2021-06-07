@@ -13,12 +13,12 @@ metadata:
   author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: b52e7908d07dcd342be59f9870dece13701f1dc6
-  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+  ms.openlocfilehash: 11815192c0076ed826ede60bfbb741caf87545c1
+  ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/10/2021
-  ms.locfileid: "100096320"
+  ms.lasthandoff: 04/22/2021
+  ms.locfileid: "107872021"
 landingContent:
 - title: 'Introdução: Code First'
   linkLists:
@@ -71,11 +71,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: SDK do Python
-      url: /python/api/overview/azure/ml/?view=azure-ml-py
+      url: /python/api/overview/azure/ml/
     - text: API REST
       url: /rest/api/azureml/
     - text: CLI do aprendizado de máquina
-      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+      url: /cli/azure/ml
 - title: Procurar pelo Studio (clássico)
   linkLists:
   - linkListType: overview

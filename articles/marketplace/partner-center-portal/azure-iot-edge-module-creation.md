@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
 ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99096433"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
@@ -33,7 +33,7 @@ Este artigo descreve como criar e publicar uma oferta de módulo do IoT (Interne
 
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
-- Essa ID é visível para os clientes no endereço Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
+- Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
@@ -65,12 +65,12 @@ Ao publicar sua oferta no Marketplace com o Partner Center, você pode opcionalm
 
 1. Escolha um destino de cliente potencial para o qual você deseja que enviemos vendas potenciais de clientes. O Partner Center dá suporte aos seguintes sistemas de CRM:
 
-    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) para Participação do Usuário
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
     - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Se seu sistema de CRM não estiver listado acima, use a [tabela do Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [ponto de extremidade HTTPS](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de clientes potenciais e depois exporte os dados para seu sistema de CRM.
+    > Se seu sistema de CRM não estiver listado acima, use a [tabela do Azure](commercial-marketplace-lead-management-instructions-azure-table.md) ou [ponto de extremidade Https](commercial-marketplace-lead-management-instructions-https.md) para armazenar dados de clientes potenciais e depois exporte os dados para seu sistema de CRM.
 
 2. Conecte sua oferta ao destino do cliente potencial ao publicá-la no Partner Center.
 3. Confirme se a conexão com o destino do cliente potencial está configurada corretamente. Depois de publicá-la no Partner Center, validaremos a conexão e enviaremos um cliente potencial de teste para você. Ao colocar a oferta em versão prévia antes de ela ficar ativa, você também pode testar a conexão do cliente potencial tentando comprar a oferta por conta própria no ambiente de versão prévia.

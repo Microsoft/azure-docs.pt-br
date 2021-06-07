@@ -8,20 +8,19 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 799034d9060e8afe101e86e7b98ac7e01c28d191
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f925e72493a94bcdbde64bdfbcef6acf83977f52
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019303"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101669732"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA entre regiões do Azure
 

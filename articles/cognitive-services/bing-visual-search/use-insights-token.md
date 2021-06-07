@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8f3dd1dcd388ca9b2999c5305bae5456355f8bbd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486817"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102424063"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usar um token de informações para obter informações sobre uma imagem
 
@@ -84,10 +84,10 @@ Para obter exemplos que usam o token de informações, consulte:
 
 ## <a name="use-with-c"></a>Usar com C #
 
-### <a name="c-prerequisites"></a>Pré-requisitos do C#
+### <a name="c-prerequisites"></a>Pré-requisitos para usar C#
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 * Qualquer versão do [Visual Studio 2019](https://www.visualstudio.com/downloads/) para obter esse código em execução no Windows.
 
 ## <a name="run-the-application"></a>Executar o aplicativo
@@ -95,10 +95,10 @@ Para obter exemplos que usam o token de informações, consulte:
 Para executar este aplicativo, siga estas etapas:
 
 1. Criar uma solução de console no Visual Studio.
-2. Substitua o conteúdo de Program.cs pelo código mostrado neste guia de início rápido.
+2. Substitua o conteúdo de Program. cs pelo código mostrado neste guia de início rápido.
 3. Substitua o valor `accessKey` pela sua chave de assinatura.
 4. Substitua o valor `insightsToken` por um símbolo de insights de uma resposta /images/search.
-5. Execute o programa.
+5. executar o programa.
 
 ```csharp
 using System;
@@ -258,10 +258,10 @@ namespace VisualSearchInsightsToken
 
 ## <a name="use-with-java"></a>Usar com Java
 
-### <a name="java-prerequisites"></a>Pré-requisitos do Java
+### <a name="java-prerequisites"></a>Pré-requisitos para usar o Java
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 * [JDK 7 ou 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) para compilar e executar este código. Você pode usar um Java IDE se tiver um favorito, mas um editor de texto será suficiente.
 
 
@@ -273,7 +273,7 @@ Para executar este aplicativo, siga estas etapas:
 2. Crie um projeto Java em seu IDE ou editor favorito.
 3. Adicione o código fornecido em um arquivo nomeado `VisualSearch.java`.
 4. Substitua o valor `subscriptionKey` pela sua chave de assinatura.
-5. Execute o programa.
+5. executar o programa.
 
 ```java
 package insightstoken;
@@ -377,7 +377,7 @@ public class InsightsToken {
 ### <a name="nodejs-prerequisites"></a>Pré-requisitos de Node.js
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 * Você deve ter [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
 ## <a name="run-the-javascript-application"></a>Executar o aplicativo JavaScript
@@ -397,7 +397,7 @@ Para executar este aplicativo, siga estas etapas:
    ```
 1. Crie um arquivo nomeado GetVisualInsights.js e adicione o seguinte código a ele.
 1. Substitua o valor `subscriptionKey` pela sua chave de assinatura.
-1. Execute o programa.  
+1. executar o programa.  
    ```
    node GetVisualInsights.js
    ```
@@ -439,10 +439,10 @@ function requestCallback(err, res, body) {
 
 ## <a name="use-with-python"></a>Usar com Python
 
-### <a name="python-prerequisites"></a>Pré-requisitos do Python
+### <a name="python-prerequisites"></a>Pré-requisitos para usar o Python
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter a assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso de Pesquisa do Bing"  target="_blank">crie um recurso de Pesquisa do Bing </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
 * Você deve ter o [Python 3](https://www.python.org/) para executar este código.
 
 ## <a name="run-the-python-application"></a>Executar o aplicativo Python

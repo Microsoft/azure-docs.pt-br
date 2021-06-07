@@ -1,7 +1,7 @@
 ---
 title: Visão geral de Desired State Configuration para o Azure
 description: Saiba como usar o manipulador de extensão do Microsoft Azure para Desired State Configuration (DSC) do PowerShell. O artigo inclui cmdlets, a arquitetura e os pré-requisitos.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: mgoedtel
 manager: evansma
@@ -9,20 +9,21 @@ editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
 ms.author: magoedte
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17ada83f6fa1b57f8dd72d591b6625f25e9a2388
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dcdc325633aff5ab828cb1c82f4bb2d8becee967
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955847"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102560031"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
 
@@ -61,7 +62,7 @@ Quando a extensão é chamada pela primeira vez, ela instala uma versão do WMF 
 - Se a propriedade **wmfVersion** for especificada, essa versão do WMF é instalada, a menos que essa versão não seja compatível com o sistema operacional da VM.
 - Se nenhuma propriedade **wmfVersion** for especificada, a versão mais recente de WMF aplicável é instalada.
 
-Instalar o WMF requer uma reinicialização. Após a reinicialização, a extensão faz o download do arquivo .zip que é especificado na propriedade **modulesUrl**, se fornecido. Se esse local estiver no armazenamento de blobs do Azure, você pode especificar um token SAS na propriedade **sasToken** para acessar o arquivo. Depois que o. zip é baixado e desempacotado, a função de configuração definida em **configurationFunction** é executada para gerar um arquivo. mof ([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)). Em seguida, a extensão executa `Start-DscConfiguration -Force` usando o arquivo .mof gerado. A extensão captura a saída e a grava no canal de status do Azure.
+Instalar o WMF requer uma reinicialização. Após a reinicialização, a extensão faz o download do arquivo .zip que é especificado na propriedade **modulesUrl**, se fornecido. Se esse local estiver no armazenamento de blobs do Azure, você pode especificar um token SAS na propriedade **sasToken** para acessar o arquivo. Depois que o. zip é baixado e desempacotado, a função de configuração definida em **configurationFunction** é executada para gerar um arquivo. mof ([formato MOF](/windows/win32/wmisdk/managed-object-format--mof-)). Em seguida, a extensão executa `Start-DscConfiguration -Force` usando o arquivo .mof gerado. A extensão captura a saída e a grava no canal de status do Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuração padrão
 

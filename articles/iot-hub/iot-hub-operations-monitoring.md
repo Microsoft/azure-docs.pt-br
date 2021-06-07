@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
 ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408117"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoramento de operações do Hub IoT (preterido)
@@ -197,11 +197,11 @@ Para se conectar ao ponto de extremidade de monitoramento, você precisa de uma 
 
 1. No portal, navegue até a folha de recursos do Hub IoT.
 
-2. Escolha **Monitoramento de operações** e anote os valores do **Nome compatível com o Hub de Eventos** e do **Ponto de extremidade compatível com o Hub de Eventos** :
+2. Escolha **Monitoramento de operações** e anote os valores do **Nome compatível com o Hub de Eventos** e do **Ponto de extremidade compatível com o Hub de Eventos**:
 
     ![Valores de ponto de extremidade compatível com o Hub de Eventos](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote o valor da **Chave primária** :
+3. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote o valor da **Chave primária**:
 
     ![Chave primária de política de acesso compartilhado de serviço](./media/iot-hub-operations-monitoring/service-key.png)
 

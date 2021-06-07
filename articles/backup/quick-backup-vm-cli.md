@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 521f9332590eca5cdf94fadc4b59ab4d482eb658
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805458"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768551"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Fazer backup de uma máquina virtual no Azure com a CLI do Azure
 
@@ -26,7 +26,7 @@ Este início rápido habilita o backup em uma VM do Azure existente. Se você pr
 
 Um cofre dos Serviços de Recuperação é um contêiner lógico que armazena os dados de backup para cada recurso protegido, como VMs do Azure. Quando o trabalho de backup para um recurso protegido é executado, ele cria um ponto de recuperação no cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e o local da VM que você deseja proteger. Se você tiver usado o [início rápido de VM](../virtual-machines/linux/quick-create-cli.md), então criou:
+Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az_backup_vault_create). Especifique o mesmo grupo de recursos e o local da VM que você deseja proteger. Se você tiver usado o [início rápido de VM](../virtual-machines/linux/quick-create-cli.md), então criou:
 
 - um grupo de recursos denominado *myResourceGroup*,
 - uma VM denominada *myVM*,
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por padrão, o cofre dos Serviços de Recuperação é definido para o armazenamento com redundância geográfica. O armazenamento com redundância geográfica verifica se os dados de backup são replicados para uma região secundária do Azure a centenas de quilômetros de distância da região primária. Se a configuração de redundância de armazenamento precisar ser modificada, use o cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set).
+Por padrão, o cofre dos Serviços de Recuperação é definido para o armazenamento com redundância geográfica. O armazenamento com redundância geográfica verifica se os dados de backup são replicados para uma região secundária do Azure a centenas de quilômetros de distância da região primária. Se a configuração de redundância de armazenamento precisar ser modificada, use o cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties#az_backup_vault_backup_properties_set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Habilitar o backup para uma VM do Azure
 
-Crie uma política de proteção para definir: quando um trabalho de backup é executado e por quanto tempo os pontos de recuperação serão armazenados. A política de proteção padrão executa um trabalho de backup a cada dia e retém pontos de recuperação por 30 dias. Você pode usar esses valores de política padrão para proteger rapidamente sua VM. Para habilitar a proteção de backup para uma VM, use [az backup protection enable-for-vm](/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Especifique o grupo de recursos e a VM a serem protegidos e então a política a ser usada:
+Crie uma política de proteção para definir: quando um trabalho de backup é executado e por quanto tempo os pontos de recuperação serão armazenados. A política de proteção padrão executa um trabalho de backup a cada dia e retém pontos de recuperação por 30 dias. Você pode usar esses valores de política padrão para proteger rapidamente sua VM. Para habilitar a proteção de backup para uma VM, use [az backup protection enable-for-vm](/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Especifique o grupo de recursos e a VM a serem protegidos e então a política a ser usada:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -75,7 +75,7 @@ az backup protection enable-for-vm \
 
 ## <a name="start-a-backup-job"></a>Iniciar um trabalho de backup
 
-Para iniciar um backup agora em vez de aguardar a política padrão executar o trabalho no horário agendado, use [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). O primeiro trabalho de backup cria um ponto de recuperação completa. Cada trabalho de backup depois que o backup inicial cria pontos de recuperação incremental. Os pontos de recuperação incrementais são eficientes em termos de armazenamento e de tempo, já que eles transferem somente as alterações feitas desde o último backup.
+Para iniciar um backup agora em vez de aguardar a política padrão executar o trabalho no horário agendado, use [az backup protection backup-now](/cli/azure/backup/protection#az_backup_protection_backup_now). O primeiro trabalho de backup cria um ponto de recuperação completa. Cada trabalho de backup depois que o backup inicial cria pontos de recuperação incremental. Os pontos de recuperação incrementais são eficientes em termos de armazenamento e de tempo, já que eles transferem somente as alterações feitas desde o último backup.
 
 Os seguintes parâmetros são usados para fazer backup da VM:
 
@@ -96,7 +96,7 @@ az backup protection backup-now \
 
 ## <a name="monitor-the-backup-job"></a>Monitorar o trabalho de backup
 
-Para monitorar o status de trabalhos de backup, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
+Para monitorar o status de trabalhos de backup, use [az backup job list](/cli/azure/backup/job#az_backup_job_list):
 
 ```azurecli-interactive
 az backup job list \
@@ -118,7 +118,7 @@ Quando o *Status* do trabalho de backup relatar *Concluído*, sua VM será prote
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
-Quando não for mais necessária, você poderá desabilitar a proteção na máquina virtual, remover os pontos de restauração e o cofre dos Serviços de Recuperação, então excluir o grupo de recursos e recursos associados de VM. Se você tiver usado uma VM existente, poderá ignorar o último comando [az group delete](/cli/azure/group#az-group-delete) para deixar o grupo de recursos e a VM no local.
+Quando não for mais necessária, você poderá desabilitar a proteção na máquina virtual, remover os pontos de restauração e o cofre dos Serviços de Recuperação, então excluir o grupo de recursos e recursos associados de VM. Se você tiver usado uma VM existente, poderá ignorar o último comando [az group delete](/cli/azure/group#az_group_delete) para deixar o grupo de recursos e a VM no local.
 
 Se você quiser experimentar um tutorial de Backup que explique como restaurar dados para sua VM, vá para [Próximas etapas](#next-steps).
 

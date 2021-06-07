@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: ed1fe2885b1be28a03251bcfcecd08bdbd35adcf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 42b33a5b96de7334f8310b040052c633342f5e05
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101712378"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Configurar o registro em log para monitorar aplicativos lógicos na central de segurança do Azure
 
@@ -24,7 +24,7 @@ Ao monitorar os recursos dos aplicativos lógicos na [central de segurança Micr
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * Aplicativos lógicos existentes com [log de diagnóstico habilitado](#enable-diagnostic-logging).
-* Um espaço de trabalho Log Analytics, que é necessário para habilitar o registro em log para seu aplicativo lógico. Se você não tiver um espaço de trabalho, primeiro [crie seu espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
+* Um espaço de trabalho Log Analytics, que é necessário para habilitar o registro em log para seu aplicativo lógico. Se você não tiver um espaço de trabalho, primeiro [crie seu espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 

@@ -12,10 +12,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
 ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325716"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações na documentação das máquinas virtuais do SQL Server no Azure
@@ -84,7 +84,7 @@ O Azure permite implantar uma VM (máquina virtual) com uma imagem do SQL Server
 | **Registro de extensão de IaaS do SQL em massa** | Agora você pode registrar SQL Server máquinas virtuais [em massa](sql-agent-extension-manually-register-vms-bulk.md) com a [extensão do agente IaaS do SQL](sql-server-iaas-agent-extension-automate-management.md). | 
 |**Configuração de armazenamento com otimização de desempenho** | Agora você pode [personalizar totalmente a configuração de armazenamento](storage-configuration.md#new-vms) ao criar uma VM do SQL Server. |
 |**Compartilhamento de arquivo Premium para a FCI** | Agora você pode criar uma instância de cluster de failover usando um [compartilhamento de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) em vez do método original de [espaços de armazenamento diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
-| **Host dedicado do Azure** | Você pode executar sua VM SQL Server no [host dedicado do Azure](dedicated-host.md). | 
+| **Host Dedicado do Azure** | Você pode executar sua VM SQL Server no [host dedicado do Azure](dedicated-host.md). | 
 | **SQL Server migração de VM para uma região diferente** | Use o Azure Site Recovery para [migrar sua VM do SQL Server de uma região para outra](move-sql-vm-different-region.md). |
 |  **Novos modos de instalação do SQL IaaS** | Agora é possível instalar a extensão SQL Server IaaS no [modo leve](sql-server-iaas-agent-extension-automate-management.md) para evitar a reinicialização do serviço SQL Server.  |
 | **Modificação da edição do SQL Server** | Agora você pode alterar a [propriedade de edição](change-sql-server-edition.md) da sua VM do SQL Server. |

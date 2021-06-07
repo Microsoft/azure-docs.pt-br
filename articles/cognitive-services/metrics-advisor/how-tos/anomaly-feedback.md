@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbullwin
 ms.openlocfilehash: 96a6dfebdd0047d5a6f4ff3e295ab96dd8c7226a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184780"
 ---
 # <a name="provide-anomaly-feedback"></a>Fornecer comentários de anomalias

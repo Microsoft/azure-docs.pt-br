@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a764538ebc73927b1d274b2538e123ec90ce60e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5ad1b8318e261c7dfef7fc125716736087a84bdc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741551"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579171"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -53,7 +53,7 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 
 ### <a name="combined-registration"></a>Registro combinado
 
-Se você tiver habilitado o [registro combinado](./concept-registration-mfa-sspr-combined.md), as informações relacionadas à atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  **Authentication Methods**.
+Se você tiver habilitado o [registro combinado](./concept-registration-mfa-sspr-combined.md), as informações relacionadas à atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
@@ -171,7 +171,7 @@ A seguinte lista explica essa atividade em detalhes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Relatórios de uso e informações do SSPR e MFA](howto-authentication-methods-usage-insights.md)
+* [Relatórios de uso e informações do SSPR e MFA](./howto-authentication-methods-activity.md)
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefina ou altere sua senha](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registre-se para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md).

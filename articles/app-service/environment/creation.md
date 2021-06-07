@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 021c85037ea105ff7d8ff642e3a9f28ed3ebe991
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020172"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594109"
 ---
 # <a name="create-an-app-service-environment"></a>Criar um Ambiente do Serviço de Aplicativo
 
@@ -86,4 +86,4 @@ O ASE normalmente é implantado em VMs que são provisionadas em um hipervisor m
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

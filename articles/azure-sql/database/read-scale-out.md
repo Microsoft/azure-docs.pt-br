@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/20/2021
 ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663978"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura

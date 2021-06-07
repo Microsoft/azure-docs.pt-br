@@ -1,17 +1,17 @@
 ---
 title: Ler réplicas-banco de dados do Azure para MySQL-servidor flexível
 description: 'Saiba mais sobre réplicas de leitura no banco de dados do Azure para MySQL servidor flexível: criando réplicas, conectando-se a réplicas, monitorando a replicação e parando a replicação.'
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e51b9667e3bb20a6bd463d3286888085a927f2c0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251294"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109651"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Ler réplicas no banco de dados do Azure para MySQL-servidor flexível
 

@@ -1,19 +1,19 @@
 ---
-title: Listar recursos de armazenamento do Azure com a biblioteca de cliente C++
+title: Listar recursos do Armazenamento do Microsoft Azure com a biblioteca de cliente C++
 description: Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: MT
+ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784086"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279622"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 
@@ -59,8 +59,8 @@ Portanto, é impraticável listar todos os objetos em uma única resposta. Em ve
 
 A resposta para uma operação de listagem segmentada inclui:
 
-* *_segment* , que contém o conjunto de resultados retornado para uma única chamada à API de listagem.
-* *continuation_token* , que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
+* *_segment*, que contém o conjunto de resultados retornado para uma única chamada à API de listagem.
+* *continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
 
 Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte snippet de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -95,7 +95,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Se você não especificar o parâmetro *max_results* , o valor máximo padrão de até 5000 resultados será retornado em uma única página.
+Se você não especificar o parâmetro *max_results*, o valor máximo padrão de até 5000 resultados será retornado em uma única página.
 
 Observe também que uma consulta em relação ao Armazenamento de Tabelas do Azure pode retornar nenhum registro ou menos registros que o valor do parâmetro *max_results* especificado, mesmo se o token de continuação não estiver vazio. Uma razão pode ser que a consulta não conseguiu concluir em cinco segundos. Desde que o token de continuação não esteja vazio, a consulta deve continuar e seu código não deve presumir o tamanho dos resultados de segmento.
 
@@ -196,9 +196,9 @@ Neste artigo, discutimos diferentes sobrecargas para listar as APIs de vários o
 
 Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de Cliente para C++, consulte os seguintes recursos.
 
-* [Como usar o armazenamento de BLOBs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como usar o armazenamento de filas do C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog da equipe de Armazenamento do Azure](/archive/blogs/windowsazurestorage/)
-* [Documentação do armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

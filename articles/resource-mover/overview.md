@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653248"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99820156"
 ---
 # <a name="what-is-azure-resource-mover"></a>O que é o Azure Resource Mover?
 
@@ -29,8 +29,6 @@ Você pode mover recursos para diferentes regiões do Azure para:
 - **Dar uma resposta aos requisitos de implantação**: mover os recursos que foram implantados com erro ou migre em resposta às necessidades de capacidade.
 - **Dar uma resposta ao encerramento**: mover recursos porque uma região foi encerrada.
 
-> [!IMPORTANT]
-> O Azure Resource Mover está em versão prévia pública no momento.
 
 ## <a name="why-use-resource-mover"></a>Por que usar o Resource Mover?
 
@@ -62,6 +60,7 @@ Você pode mover recursos entre regiões no hub do Resource Mover ou de um grupo
 Usando o Resource Mover, no momento, você pode mover os seguintes recursos entre regiões:
 
 - VMs do Azure e discos associados
+- VMs criptografadas do Azure e discos associados. Isso inclui VMs com o Azure Disk Encryption habilitado e VMs do Azure que usam a criptografia padrão do lado do servidor (com chaves de criptografia gerenciadas pela plataforma e chaves gerenciadas pelo cliente)
 - NICs
 - Conjuntos de disponibilidade 
 - Redes virtuais do Azure 

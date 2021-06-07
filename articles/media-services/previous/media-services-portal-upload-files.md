@@ -3,7 +3,7 @@ title: Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azu
 description: Este tutorial orienta você pelas etapas de carregamento de arquivos para uma conta do Serviços de Mídia do Azure no portal do Azure
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: fdb301cd719d98d806e2a9e539cd81e6778461bb
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: c2dc193d65ff1c85837477c0a8fd345f11d59bcd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695297"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103009735"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carregar arquivos para uma conta dos Serviços de Mídia no portal do Azure
 

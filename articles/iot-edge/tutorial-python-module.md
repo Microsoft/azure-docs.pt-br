@@ -10,16 +10,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 402b61bb0845532d601e9f5dcaaf55eacce685d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d6a95dae91ef3e6aa7d39cf8af51c355a87ea73a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959366"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462721"
 ---
-# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python para dispositivos Linux
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python usando contêineres Linux
 
-Use o Visual Studio Code para desenvolver o código do Python e implantá-lo em um dispositivo Linux que executa o Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Use o Visual Studio Code para desenvolver código em Python e implantá-lo em um dispositivo que executa o Azure IoT Edge.
 
 Use os módulos do Azure IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o conduz pela criação e implantação de um módulo do IoT Edge que filtra os dados de sensor no dispositivo do IoT Edge que você configurou no início rápido. Neste tutorial, você aprenderá como:
 
@@ -36,19 +38,21 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial demonstra como desenvolver um módulo em **Python** usando o **Visual Studio Code** e como implantá-lo em um **dispositivo Linux**. O IoT Edge não é compatível com módulos do Python para dispositivos Windows.
+Este tutorial demonstra como desenvolver um módulo em **Python** usando o **Visual Studio Code** e como implantá-lo em um dispositivo IoT Edge.
 
-Use a tabela a seguir para entender as opções para desenvolver e implantar módulos do Python em dispositivos Linux:
+O IoT Edge não dá suporte a módulos Python usando contêineres Windows.
+
+Use a seguinte tabela para entender as opções para desenvolver e implantar módulos do Python usando contêineres Linux:
 
 | Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Use o VS Code para módulos do Python no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use o VS Code para módulos do Python no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
+Antes de iniciar este tutorial, você deve ter percorrido o tutorial anterior para configurar o ambiente de desenvolvimento para o desenvolvimento de contêiner Linux: [Desenvolver módulos do IoT Edge usando contêineres Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos implementados:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
-* Um [dispositivo Linux que executa o Azure IoT Edge](quickstart-linux.md)
+* Um dispositivo que executa o Azure IoT Edge. Você pode usar os inícios rápidos para configurar um [dispositivo Linux](quickstart-linux.md) ou um [dispositivo Windows](quickstart.md).
 * Um registro de contêiner, como o [Registro de Contêiner do Azure](../container-registry/index.yml).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.

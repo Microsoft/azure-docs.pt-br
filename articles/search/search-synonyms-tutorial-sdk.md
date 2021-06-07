@@ -1,5 +1,5 @@
 ---
-title: Exemplo de sinônimos em C#
+title: Exemplo de C# de sinônimos
 titleSuffix: Azure Cognitive Search
 description: Neste exemplo de C#, saiba como adicionar o recurso de sinônimos a um índice no Azure Pesquisa Cognitiva. Um mapa de sinônimos é uma lista de termos equivalentes. Campos com suporte a sinônimos expandem consultas para incluir o termo fornecido pelo usuário e todos os sinônimos de relacionados.
 manager: nitinme
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704649"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Pesquisa Cognitiva em C #

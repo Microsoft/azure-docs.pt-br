@@ -13,17 +13,19 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600288"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771355"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicativos cliente usando o MSAL.NET
-Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
+Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativos cliente, consulte [cliente público e aplicativos cliente confidenciais](msal-client-applications.md).
 
 Com o MSAL.NET 3. x, a maneira recomendada para instanciar um aplicativo é usando os construtores de aplicativo: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder` . Eles oferecem um mecanismo poderoso para configurar o aplicativo a partir do código ou de um arquivo de configuração, ou até mesmo misturando as duas abordagens.
+
+Documentação de referência de [API](/dotnet/api/microsoft.identity.client)  |  [Pacote no NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)  |  Código-fonte da [biblioteca](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)  |  [Exemplos de código](sample-v2-code.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo](quickstart-register-app.md) para que seu aplicativo possa ser integrado à plataforma de identidade da Microsoft.  Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):

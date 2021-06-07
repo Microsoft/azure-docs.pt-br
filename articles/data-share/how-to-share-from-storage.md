@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964092"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644666"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Compartilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos
 Quando os sistemas de arquivos, os contêineres ou as pastas são compartilhados no compartilhamento baseado em instantâneo, os consumidores de dados podem optar por fazer uma cópia completa dos dados de compartilhamento. Ou podem usar o recurso de instantâneo incremental para copiar somente arquivos novos ou atualizados. O recurso de instantâneo incremental se baseia na hora da última modificação dos arquivos. 
 
 Os arquivos existentes com o mesmo nome são substituídos durante um instantâneo. Um arquivo que é excluído da origem não é excluído no destino. Subpastas vazias na origem não são copiadas para o destino. 
+
 ## <a name="share-data"></a>Compartilhar dados
 
 Use as informações nas seções a seguir para compartilhar dados usando o compartilhamento de dados do Azure. 
@@ -177,14 +178,14 @@ Siga as etapas nesta seção para configurar um local para receber dados.
 
    ![Captura de tela mostrando onde selecionar uma conta de armazenamento de destino.](./media/map-target.png "Armazenamento de destino.") 
 
-1. Para o compartilhamento baseado em instantâneo, se o provedor de dados usar um agendamento de instantâneo para atualizar regularmente os dados, você poderá habilitar a agenda na guia **agendamento de instantâneo** . Selecione a caixa ao lado do agendamento do instantâneo. Em seguida, selecione **Habilitar**.
+1. Para o compartilhamento baseado em instantâneo, se o provedor de dados usar um agendamento de instantâneo para atualizar regularmente os dados, você poderá habilitar a agenda na guia **agendamento de instantâneo** . Selecione a caixa ao lado do agendamento do instantâneo. Em seguida, selecione **Habilitar**. Observe que o primeiro instantâneo agendado começará dentro de um minuto após o tempo de agendamento e os instantâneos subsequentes serão iniciados em segundos da hora agendada.
 
    ![Captura de tela mostrando como habilitar uma agenda de instantâneo.](./media/enable-snapshot-schedule.png "Habilitar agendamento de instantâneo.")
 
 ### <a name="trigger-a-snapshot"></a>Disparar um instantâneo
 As etapas nesta seção se aplicam somente ao compartilhamento baseado em instantâneo.
 
-1. Você pode disparar um instantâneo da guia **detalhes** . Na guia, selecione **disparar instantâneo**. Você pode optar por disparar um instantâneo completo ou um instantâneo incremental de seus dados. Se você estiver recebendo dados do seu provedor de dados pela primeira vez, selecione **cópia completa**. 
+1. Você pode disparar um instantâneo da guia **detalhes** . Na guia, selecione **disparar instantâneo**. Você pode optar por disparar um instantâneo completo ou um instantâneo incremental de seus dados. Se você estiver recebendo dados do seu provedor de dados pela primeira vez, selecione **cópia completa**. Quando um instantâneo estiver em execução, os instantâneos subsequentes não serão iniciados até que o anterior seja concluído.
 
    ![Captura de tela mostrando a seleção do instantâneo de gatilho.](./media/trigger-snapshot.png "Disparar instantâneo.") 
 
@@ -194,6 +195,14 @@ As etapas nesta seção se aplicam somente ao compartilhamento baseado em instan
 
 ### <a name="view-history"></a>Exibir histórico
 Você pode exibir o histórico de seus instantâneos somente no compartilhamento baseado em instantâneo. Para exibir o histórico, abra a guia **histórico** . Aqui você vê o histórico de todos os instantâneos que foram gerados nos últimos 30 dias. 
+
+## <a name="storage-snapshot-performance"></a>Desempenho do instantâneo de armazenamento
+O desempenho do instantâneo de armazenamento é afetado por vários fatores, além do número de arquivos e do tamanho dos dados compartilhados. É sempre recomendável realizar seus próprios testes de desempenho. Veja abaixo alguns fatores de exemplo que afetam o desempenho.
+
+* Acesso simultâneo aos armazenamentos de dados de origem e de destino.  
+* Local dos armazenamentos de dados de origem e de destino. 
+* Para o instantâneo incremental, o número de arquivos no conjunto de pesquisa compartilhado pode afetar o tempo necessário para localizar a lista de arquivos com a hora da última modificação após o último instantâneo bem-sucedido. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Você aprendeu como compartilhar e receber dados de uma conta de armazenamento usando o serviço de compartilhamento de dados do Azure. Para saber mais sobre o compartilhamento de outras fontes de dados, consulte [armazenamentos de dados com suporte](supported-data-stores.md).

@@ -2,20 +2,20 @@
 title: Criar uma estratégia de carregamento de dados do polybase para o pool SQL dedicado
 description: Em vez de ETL, crie um processo ELT (extração, carregamento e transformação) para carregar dados com SQL dedicado.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: a89fa72db3deaec12a9073233f861aa6835288a5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 850c03d5cbda8fb11bbc804f2cd2c848a5a2411f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678348"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589492"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Criar uma estratégia de carregamento de dados do polybase para o pool SQL dedicado no Azure Synapse Analytics
 
@@ -50,7 +50,7 @@ Obter dados de fora do seu sistema de origem depende da localização de armazen
 
 O PolyBase carrega dados de arquivos de texto delimitados e codificados de UTF-8 e UTF-16. Além dos arquivos de texto delimitados, ele carrega os formatos de arquivo do Hadoop, o arquivo RC, ORC e Parquet. O PolyBase também pode carregar dados de arquivos compactados Gzip e Snappy. Atualmente, o PolyBase não suporta ASCII estendido, formato de largura fixa, e formatos aninhados, como XML, JSON e WinZip.
 
-Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha de comando bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para exportar os dados para arquivos de texto delimitados. O mapeamento de tipo de dados parquet para o Azure Synapse Analytics é o seguinte:
+Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha de comando bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) para exportar os dados para arquivos de texto delimitados. O mapeamento de tipo de dados parquet para o Azure Synapse Analytics é o seguinte:
 
 | **Tipo de dados parquet** |                      **Tipo de dados SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -58,7 +58,7 @@ Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha d
 |       SMALLINT        |                           SMALLINT                           |
 |          INT          |                             INT                              |
 |        BIGINT         |                            BIGINT                            |
-|        booleano        |                             bit                              |
+|        boolean        |                             bit                              |
 |        double         |                            FLOAT                             |
 |         FLOAT         |                             real                             |
 |        double         |                            money                             |
@@ -79,12 +79,12 @@ Se você estiver exportando do SQL Server, poderá usar a [ferramenta de linha d
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Descarregar os dados no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
 
-Para descarregar dados para o armazenamento do Azure, você pode movê-los para o [armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ou [Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Em qualquer localização, os dados devem ser armazenados em arquivos de texto. O PolyBase pode carregar dessas localizações.
+Para descarregar dados para o armazenamento do Azure, você pode movê-los para o [armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). Em qualquer localização, os dados devem ser armazenados em arquivos de texto. O PolyBase pode carregar dessas localizações.
 
 Ferramentas e serviços que você pode usar para mover dados para o Armazenamento do Microsoft Azure:
 
 - O serviço [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) melhora a taxa de transferência de rede, o desempenho e a previsibilidade. O ExpressRoute é um serviço que encaminha os dados por uma conexão privada dedicada para o Azure. As conexões do ExpressRoute não encaminham dados pela Internet pública. As conexões oferecem mais confiabilidade e velocidade, latências menores e maior segurança do que as conexões comuns pela Internet.
-- O [Utilitário AZCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) move os dados para o Armazenamento do Microsoft Azure pela internet pública. Isso funciona se os tamanhos dos seus dados forem inferiores a 10 TB. Para executar cargas regularmente com AZCopy, teste a velocidade da rede para ver se ela é aceitável.
+- O [Utilitário AZCopy](../../storage/common/storage-use-azcopy-v10.md) move os dados para o Armazenamento do Microsoft Azure pela internet pública. Isso funciona se os tamanhos dos seus dados forem inferiores a 10 TB. Para executar cargas regularmente com AZCopy, teste a velocidade da rede para ver se ela é aceitável.
 - O [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) tem um gateway que você pode instalar no seu servidor local. Em seguida, você pode criar um pipeline para mover os dados do seu servidor local para o Armazenamento do Microsoft Azure. Para usar Data Factory com o pool SQL dedicado, consulte [carregar dados no pool SQL dedicado](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar os dados para o carregamento
@@ -97,9 +97,9 @@ Antes que você possa carregar os seus dados, você precisa definir tabelas exte
 
 Definir tabelas externas envolve a especificação da fonte de dados, o formato dos arquivos de texto e as definições de tabela. O que vem a seguir são os tópicos de sintaxe T-SQL que você precisará:
 
-- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="format-text-files"></a>Arquivos de texto formatados
 
@@ -108,7 +108,7 @@ Para formatar os arquivos de texto:
 
 - Se os seus dados forem provenientes de uma fonte não relacional, você precisa transformá-los em linhas e colunas. Se os dados forem de uma fonte relacional ou não, os dados devem ser transformados para se alinharem com as definições de coluna para a tabela na qual você planeja carregar os dados.
 - Formate os dados no arquivo de texto para alinhá-los com as colunas e os tipos de dados na tabela de destino do pool do SQL. O desalinhamento entre os tipos de dados nos arquivos de texto externos e a tabela do data warehouse faz com que as linhas a sejam rejeitadas durante o carregamento.
-- Separar os campos no arquivo de texto com um terminador.  Certifique-se de usar um caractere ou uma sequência de caracteres que não sejam encontrados na fonte de dados. Use o terminador especificado com [CRIAR FORMATO DE ARQUIVO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Separar os campos no arquivo de texto com um terminador.  Certifique-se de usar um caractere ou uma sequência de caracteres que não sejam encontrados na fonte de dados. Use o terminador especificado com [CRIAR FORMATO DE ARQUIVO EXTERNO](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. carregar os dados em tabelas de preparo do pool do SQL dedicado usando o polybase
 
@@ -119,13 +119,13 @@ Para formatar os arquivos de texto:
 Para carregar dados com o PolyBase, é possível usar qualquer uma destas opções de carregamento:
 
 - O [PolyBase com o T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) funciona bem quando os seus dados estiverem no armazenamento de Blobs do Azure ou no Azure Data Lake Store. Ele oferece mais controle sobre o processo de carregamento, mas também exige que você defina objetos de dados externos. Os outros métodos definem esses objetos em segundo plano, como mapear as tabelas de origem para as tabelas de destino.  Para coordenar as cargas de T-SQL, você pode usar o Azure Data Factory, SSIS ou as funções do Azure.
-- O [polybase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) funciona bem quando os dados de origem estão em SQL Server. O SSIS define a origem para mapeamentos de tabela de destino e também coordena a carga. Se você já tiver pacotes SSIS, você pode modificar os pacotes para trabalhar com o novo destino do data warehouse.
+- O [polybase com o SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) funciona bem quando os dados de origem estão em SQL Server. O SSIS define a origem para mapeamentos de tabela de destino e também coordena a carga. Se você já tiver pacotes SSIS, você pode modificar os pacotes para trabalhar com o novo destino do data warehouse.
 - O [PolyBase com o Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) é outra ferramenta de orquestração.  Ele define um pipeline e agenda de trabalhos.
 - O [polybase com Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) transfere dados de uma tabela do Azure Synapse Analytics para um dataframe do databricks e/ou grava dados de um dataframe do databricks em uma tabela do Azure Synapse Analytics usando o polybase.
 
 ### <a name="non-polybase-loading-options"></a>Opções de carregamento que não sejam PolyBase
 
-Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ou a [API do SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). o bcp é carregado diretamente no pool do SQL dedicado sem passar pelo armazenamento de BLOBs do Azure e destina-se apenas a pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase.
+Se os seus dados não forem compatíveis com o PolyBase, você pode usar [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) ou a [API do SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy). o bcp é carregado diretamente no pool do SQL dedicado sem passar pelo armazenamento de BLOBs do Azure e destina-se apenas a pequenas cargas. Note que o desempenho do carregamento dessas opções é significativamente mais lento do que o PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. Transformar os dados
 

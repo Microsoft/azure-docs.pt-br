@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946257"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225618"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -28,14 +28,14 @@ O Azure Standard Load Balancer dá suporte ao balanceamento de carga entre regi�
 
 * Tráfego de entrada proveniente de várias regiões.
 * [Failover global instantâneo](#regional-redundancy) para a próxima implantação regional ideal.
-* Carregar a distribuição entre regiões para a região do Azure mais próxima com [ultra latência](#ultra-low-latency).
+* Carregar a distribuição entre regiões para a região do Azure mais próxima com [latência extremamente baixa](#ultra-low-latency).
 * Capacidade de [escalar](#ability-to-scale-updown-behind-a-single-endpoint) verticalmente por trás de um único ponto de extremidade.
 * [IP Estático](#static-ip)
 * [Preservação de IP do cliente](#client-ip-preservation)
 * [Criar uma solução de balanceador de carga existente](#build-cross-region-solution-on-existing-azure-load-balancer) sem curva de aprendizado
 
 > [!IMPORTANT]
-> O balanceador de carga entre regiões está atualmente em visualização e pode ser implantado no Portal. Entre no **https://preview.portal.azure.com** para exibir e implantar o recurso.. </br> </br>
+> O balanceador de carga entre regiões está atualmente em visualização.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O balanceamento de carga entre regiões oferece os mesmos benefícios de alto desempenho e baixa latência como balanceador de carga Standard regional. 
@@ -79,7 +79,7 @@ Para saber mais, confira [Configurar o modo de distribuição para o Azure Load 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidade de escalar verticalmente por trás de um único ponto de extremidade
 
-Ao expor o ponto de extremidade global de um balanceador de carga entre regiões para os clientes, você pode adicionar ou remover implantações regionais por trás do ponto de extremidade global sem impacto sobre o cliente. 
+Ao expor o ponto de extremidade global de um balanceador de carga entre regiões para os clientes, você pode adicionar ou remover implantações regionais por trás do ponto de extremidade global sem interrupção. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ O pool de back-end do balanceador de carga entre regiões contém um ou mais bal
 
 Adicione suas implantações de balanceador de carga existentes a um balanceador de carga entre regiões para uma implantação de alta disponibilidade entre regiões.
 
-A **região de residência** é onde o balanceador de carga entre regiões é implantado. Essa região não afeta como o tráfego será roteado. Se uma região de residência falhar, ela não afetará o fluxo do tráfego.
+A **região de residência** é onde o balanceador de carga entre regiões ou o endereço IP público da camada global é implantado. Essa região não afeta como o tráfego será roteado. Se uma região de residência falhar, o fluxo de tráfego não será afetado.
 
 ### <a name="home-regions"></a>Regiões residenciais
 * Leste dos EUA 2
@@ -106,7 +106,7 @@ A **região de residência** é onde o balanceador de carga entre regiões é im
 * Leste da Ásia
 
 > [!NOTE]
-> Você só pode implantar o balanceador de carga entre regiões em uma das 8 regiões acima.
+> Você só pode implantar o balanceador de carga entre regiões ou o IP público na camada global em uma das sete regiões acima.
 
 Uma **região participante** é onde o IP público global do balanceador de carga está disponível. 
 
@@ -137,13 +137,13 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 
 * As configurações de IP de front-end entre regiões são apenas públicas. No momento, não há suporte para um front-end interno.
 
-* O balanceador de carga interno ou privado não pode ser adicionado ao pool de back-end do balanceador de carga entre regiões 
+* O balanceador de carga interno ou privado não pode ser adicionado ao pool de back-end de um balanceador de carga entre regiões 
 
 * Não há suporte para configurações de IP de front-end IPv6 entre regiões. 
 
 * Uma investigação de integridade não pode ser configurada no momento. Uma investigação de integridade padrão coleta automaticamente informações de disponibilidade sobre o balanceador de carga regional a cada 20 segundos. 
 
-* Atualmente, o serviço de kubernetes do Azure (AKS) não pode ser integrado com Load Balancer entre regiões. A perda de conectividade deve ser esperada ao configurar uma Load Balancer de região cruzada na frente de uma Load Balancer pública implantada com AKS.
+* A integração com o serviço de kubernetes do Azure (AKS) não está disponível no momento. A perda de conectividade ocorrerá ao implantar um balanceador de carga entre regiões com o balanceador de carga padrão com o cluster AKS implantado no back-end.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.

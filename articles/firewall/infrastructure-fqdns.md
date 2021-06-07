@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74168972"
 ---
 # <a name="infrastructure-fqdns"></a>FQDNs de infraestrutura
@@ -30,4 +30,4 @@ Você pode substituir essa coleção de regras de infraestrutura interna criando
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md).
+- Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).

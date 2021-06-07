@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
 ms.openlocfilehash: f55793b66654408040c7d29aba04f4fe8b9d550d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98680788"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Listar e obter bancos de dados e grafos do Azure Cosmos DB – API do Gremlin

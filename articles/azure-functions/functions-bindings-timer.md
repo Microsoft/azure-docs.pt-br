@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874076"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595968"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
@@ -342,12 +342,12 @@ Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quand
 |--------------|----------------|
 | "01:00:00"   | a cada hora     |
 | "00:01:00"   | a cada minuto   |
-| "24:00:00"   | a cada 24 dias  |
+| "25:00:00"   | a cada 25 dias  |
 | "1,00:00:00" | Todos os dias      |
 
 ## <a name="scale-out"></a>Escalabilidade horizontal
 
-Se um aplicativo de funções se expandir para várias instâncias, apenas uma única instância de uma função disparada por temporizador será executada em todas as instâncias.
+Se um aplicativo de funções se expandir para várias instâncias, apenas uma única instância de uma função disparada por temporizador será executada em todas as instâncias. Ele não será disparado novamente se houver uma invocação pendente ainda em execução.
 
 ## <a name="function-apps-sharing-storage"></a>Armazenamento de compartilhamento de aplicativos de função
 
@@ -365,6 +365,16 @@ O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haj
 ## <a name="retry-behavior"></a>Tentar comportamento novamente
 
 Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até a próxima vez na agenda.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Invocar manualmente um gatilho de temporizador
+
+O gatilho de temporizador para Azure Functions fornece um webhook HTTP que pode ser invocado para disparar a função manualmente. Isso pode ser extremamente útil nos cenários a seguir.
+
+* Teste de integração
+* Trocas de slot como parte de uma atividade de smoke test ou aquecimento
+* Implantação inicial de uma função para popular imediatamente um cache ou uma tabela de pesquisa em um banco de dados
+
+Veja [executar manualmente uma função não disparada por http](./functions-manually-run-non-http.md) para obter detalhes sobre como invocar manualmente uma função disparada por temporizador.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

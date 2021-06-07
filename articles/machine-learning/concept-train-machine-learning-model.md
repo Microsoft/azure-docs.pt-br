@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: de3d9aa60322cc3e6e189f6f16c35d6f42c0cf61
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880937"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102500403"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -41,13 +41,13 @@ Cada um desses métodos de treinamento pode usar diferentes tipos de recursos de
 
 O SDK do Azure Machine Learning para Python permite criar e executar fluxos de trabalho de machine learning com o Azure Machine Learning. Você pode interagir com o serviço em uma sessão interativa do Python, Jupyter Notebooks, Visual Studio Code ou outro IDE.
 
-* [O que é o SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
-* [Instalar/atualizar o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+* [O que é o SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro)
+* [Instalar/atualizar o SDK](/python/api/overview/azure/ml/install)
 * [Configurar um ambiente de desenvolvimento para Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuração de execução
 
-Um trabalho de treinamento genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). A configuração de execução de script é usada, juntamente com seus scripts de treinamento para treinar um modelo em um destino de computação.
+Um trabalho de treinamento genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig). A configuração de execução de script é usada, juntamente com seus scripts de treinamento para treinar um modelo em um destino de computação.
 
 Você pode começar com uma configuração de execução para seu computador local e, em seguida, alternar para uma configuração de um destino de computação baseado em nuvem, conforme necessário. Ao alterar o destino de computação, você pode alterar a configuração de execução usada. Uma execução também registra informações sobre o trabalho de treinamento, como entradas, saídas e logs.
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131234"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101688409"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
@@ -62,7 +62,10 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 - **Escopos da política:** todos os escopos
 
 ## <a name="cors"></a><a name="CORS"></a> CORS
-A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador.
+A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador. 
+
+> [!NOTE]
+> Se a solicitação corresponder a uma operação com um método de opções definido na API, a lógica de processamento de solicitação de simulação associada às políticas de CORS não será executada. Portanto, essas operações podem ser usadas para implementar a lógica de processamento de simulação personalizada.
 
 O CORS permite que um navegador e um servidor interajam e determina e solicitações entre origens específicas devem ou não ser aceitas (por exemplo, chamadas XMLHttpRequests feitas por meio de JavaScript em uma página da Web para outros domínios). Isso permite maior flexibilidade do que permitir somente solicitações com a mesma origem, mas é mais seguro do que permitir todas as solicitações entre origens.
 
@@ -71,7 +74,7 @@ Você precisa aplicar a política CORS para habilitar o console interativo no po
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -138,6 +141,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 |Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
+|Terminate-sem correspondência-solicitação|Esse atributo controla o processamento de solicitações entre origens que não correspondem às configurações de política de CORS. Quando a solicitação de opções é processada como uma solicitação de simulação e não corresponde às configurações de política de CORS: se o atributo for definido como `true` , encerre imediatamente a solicitação com uma resposta de 200 OK vazia; Se o atributo for definido como `false` , verifique a entrada de outras políticas de CORS no escopo que são filhos diretos do elemento de entrada e aplique-as.  Se nenhuma política de CORS for encontrada, encerre a solicitação com uma resposta de 200 OK vazia. Quando a solicitação GET ou HEAD inclui o cabeçalho Origin (e, portanto, é processada como uma solicitação entre origens) e não corresponde às configurações de política de CORS: se o atributo for definido como `true` , encerre imediatamente a solicitação com uma resposta vazia de 200 OK; Se o atributo for definido como `false` , permita que a solicitação prossiga normalmente e não adicione cabeçalhos CORS à resposta.|Não|true|
 |preflight-result-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do agente do usuário de armazenar em cache a resposta de simulação.|Não|0|
 
 ### <a name="usage"></a>Uso

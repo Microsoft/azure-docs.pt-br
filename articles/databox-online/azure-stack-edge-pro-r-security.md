@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362839"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632026"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para o Azure Stack Edge pro R e Azure Stack o mini R Edge
 
@@ -77,7 +77,7 @@ Você pode:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Estabelecer confiança com o dispositivo por meio de certificados
 
-Azure Stack dispositivo resistente à borda permite que você traga seus próprios certificados e instale-os para serem usados para todos os pontos de extremidade públicos. Para obter mais informações, acesse [carregar seu certificado](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). Para obter uma lista de todos os certificados que podem ser instalados em seu dispositivo, vá para [gerenciar certificados em seu dispositivo](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack dispositivo resistente à borda permite que você traga seus próprios certificados e instale-os para serem usados para todos os pontos de extremidade públicos. Para obter mais informações, acesse [carregar seu certificado](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). Para obter uma lista de todos os certificados que podem ser instalados em seu dispositivo, vá para [gerenciar certificados em seu dispositivo](azure-stack-edge-gpu-manage-certificates.md).
 
 - Quando você configura a computação em seu dispositivo, um dispositivo IoT e um IoT Edge dispositivo são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
 
@@ -133,7 +133,7 @@ Quando o dispositivo passa por uma redefinição de hardware, um apagamento segu
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-j-series-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
+- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-gpu-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
 
 ## <a name="manage-personal-information"></a>Gerenciar informações pessoais
 
@@ -141,7 +141,7 @@ O serviço do Azure Stack Edge coleta informações pessoais nos seguintes cená
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-j-series-manage-shares.md).
+Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-gpu-manage-shares.md).
 
 Para obter mais informações, examine a política de privacidade da Microsoft na [central de confiabilidade](https://www.microsoft.com/trustcenter).
 

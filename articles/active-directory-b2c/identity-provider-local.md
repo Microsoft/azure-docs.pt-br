@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e6b520a32755379fce5326e25b90f135b0d67755
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98574292"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555248"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurar o provedor de identidade da conta local
 
@@ -141,7 +141,7 @@ As políticas personalizadas são um conjunto de arquivos XML que você carrega 
 
 Depois de baixar o pacote inicial.
 
-1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
+1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário do Azure AD B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com`.
 
 1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). Por exemplo, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 1. Carregar os arquivos de política
@@ -150,5 +150,5 @@ Depois de baixar o pacote inicial.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar provedores de identidade externos](tutorial-add-identity-providers.md)
+- [Adicionar provedores de identidade externos](add-identity-provider.md)
 - [Criar um fluxo de usuário](tutorial-create-user-flows.md)

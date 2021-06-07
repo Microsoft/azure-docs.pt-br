@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/23/2019
+ms.date: 01/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 8181718d6524c78e036f6953ebff73217acab890
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 0367581d17545b3334865bae4c74fb095a210664
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672722"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101644792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: integração do Active Directory do Azure ao Condeco
 
-Neste tutorial, você aprenderá a integrar o Condeco ao Azure AD (Azure Active Directory).
-A integração do Condeco ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Condeco ao Azure AD (Azure Active Directory). Ao integrar o Condeco ao Azure AD, você poderá:
 
-* No Azure AD, é possível controlar quem tem acesso ao Condeco.
-* Você pode permitir que seus usuários entrem automaticamente no Condeco (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controle no Azure AD quem tem acesso ao Condeco.
+* Permitir que os usuários sejam conectados automaticamente ao Condeco com suas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
-
-Para configurar a integração do Azure AD ao Condeco, você precisa dos seguintes itens:
-
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Condeco
+Para começar, você precisará dos seguintes itens:
+ 
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura habilitada para SSO (logon único) do Condeco.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -45,63 +41,41 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 * O Condeco dá suporte ao provisionamento de usuário **Just-In-Time**
 
-## <a name="adding-condeco-from-the-gallery"></a>Adicionando Condeco da galeria
+## <a name="add-condeco-from-the-gallery"></a>Adicionar Condeco da galeria
 
 Para configurar a integração do Condeco ao Azure AD, você precisa adicionar o Condeco da galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**Para adicionar o Condeco da galeria, realize as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Condeco** na caixa de pesquisa.
+1. Selecione **Condeco** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-condeco"></a>Configurar e testar o SSO do Azure AD para o Condeco
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o Condeco usando um usuário de teste chamado **B. Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Condeco.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+Execute as seguintes etapas para configurar e testar o SSO do Azure AD com o Condeco:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do Condeco](#configure-condeco-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do Condeco](#create-condeco-test-user)** – para ter um equivalente de B. Fernandes no Condeco que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD 
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **Condeco**, selecione **Condeco** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No portal do Azure, na página de integração de aplicativos do **Condeco**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-    ![Condeco na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Azure AD com o Condeco com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Condeco.
-
-Para configurar e testar o logon único do Azure AD com o Condeco, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Condeco](#configure-condeco-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Condeco](#create-condeco-test-user)** – para ter um equivalente de Brenda Fernandes no Condeco que esteja vinculado à representação do usuário no Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Condeco, realize as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Condeco**, clique em **Logon único**.
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
-
-    ![Informações de logon único em Domínio e URLs do Condeco](common/sp-signonurl.png)
 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<companyname>.condecosoftware.com`
 
@@ -116,86 +90,49 @@ Para configurar o logon único do Azure AD com o Condeco, realize as seguintes e
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
-
-### <a name="configure-condeco-single-sign-on"></a>Configurar o logon único do Condeco
-
-Para configurar o logon único no lado do **Condeco**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Condeco](mailto:supportna@condecosoftware.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Condeco.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao Condeco.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Condeco**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Condeco**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+### <a name="configure-condeco-sso"></a>Configurar o SSO do Condeco
 
-2. Na lista de aplicativos, selecione **Condeco**.
-
-    ![O link do Condeco na lista de Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+Para configurar o logon único no lado do **Condeco**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Condeco](mailto:supportna@condecosoftware.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-condeco-test-user"></a>Criar um usuário de teste do Condeco
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Condeco. O Condeco dá suporte ao **provisionamento just-in-time**, que é habilitado por padrão.
+Nesta seção, um usuário chamado B.Fernandes será criado no Condeco. O Condeco é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Condeco, um novo será criado após a autenticação.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Condeco se ele ainda não existir.
+### <a name="test-sso"></a>Testar o SSO
 
->[!NOTE]
->Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Condeco](mailTo:supportna@condecosoftware.com).
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do Condeco, em que você pode iniciar o fluxo de logon. 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+* Acesse a URL de Logon do Condeco diretamente e inicie o fluxo de logon nela.
 
-Ao clicar no bloco do Condeco no Painel de Acesso, você deverá ser conectado automaticamente ao Condeco no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Condeco em Meus Aplicativos, você deverá ser conectado automaticamente ao Condeco no qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
-
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+Depois de configurar o Condeco, você poderá impor o controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

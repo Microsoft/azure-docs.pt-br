@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88654371"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
@@ -86,11 +86,11 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 ![Local-para-Azure com o ExpressRoute antes do failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
 - **Região**. Os aplicativos são implantados na região Leste da Ásia do Azure.
-- **Redes virtuais de spoke**. Aplicativos são implantados em duas redes virtuais de spoke:
+- **VNets de spoke**. Aplicativos são implantados em duas redes virtuais de spoke:
     - **VNet1 de origem**: 10.1.0.0/24.
     - **VNet2 de origem**: 10.2.0.0/24.
     - Cada rede virtual spoke é conectado ao **vNet do Hub**.
-- **VNet do hub**. Há uma vNet do hub **vNet do Hub de código-fonte**: 10.10.10.0/24.
+- **VNet do Hub**. Há uma vNet do hub **vNet do Hub de código-fonte**: 10.10.10.0/24.
   - Este hub vNet atua como o gatekeeper.
   - Todas as comunicações entre sub-redes passam por esse hub.
     - **Sub-redes vNet do Hub**. O hub vNet tem duas sub-redes:
@@ -106,10 +106,10 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | Habilitada
-Do spoke para o hub | Permitir tráfego encaminhado | Habilitada
+Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
+Do spoke para o hub | Permitir tráfego encaminhado | habilitado
 Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | Habilitada
+Do spoke para o hub | Use remover gateways | habilitado
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Do spoke para o hub | Use remover gateways | Habilitada
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | Habilitada
-Do hub para o spoke | Permitir tráfego encaminhado | Habilitada
-Do hub para o spoke | Permitir trânsito de gateway | Habilitada
+Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
+Do hub para o spoke | Permitir tráfego encaminhado | habilitado
+Do hub para o spoke | Permitir trânsito de gateway | habilitado
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

@@ -7,16 +7,16 @@ author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 511166e156591562b2120b58cc420f3fccd1d8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008916"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102043738"
 ---
 # <a name="client-side-encryption-with-python"></a>Criptografia do lado do cliente com Python
 
@@ -54,7 +54,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **Create** _. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia tem suporte quando os usuários utilizam os métodos **create**\*. Para downloads, os downloads completos e de intervalo têm suporte e a paralelização do download e do upload está disponível.
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -63,9 +63,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência de _*obtenção* *_ . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+Baixar um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência **get**\*. O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-Baixar um intervalo arbitrário (métodos _*Get* *_ com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.
+Baixar um intervalo arbitrário (métodos **get*** com parâmetros de intervalo passados) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.
 
 Os blobs de blocos e os blobs de páginas podem ser criptografados/descriptografadas usando este esquema. No momento, não há suporte para a criptografia de blobs de acréscimo.
 
@@ -114,7 +114,7 @@ Observe que as entidades são criptografadas conforme elas são inseridas no lot
 > [!IMPORTANT]
 > Lembre-se dos seguintes pontos importantes ao usar a criptografia no lado do cliente:
 > 
-> _ Ao ler ou gravar em um blob criptografado, use comandos de carregamento de blob inteiros e comandos de download de blob inteiro/intervalo. Evite gravar em um blob criptografado usando operações de protocolo tais como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, você pode corromper o blob criptografado e torná-lo ilegível.
+> * Durante a leitura ou gravação de um blob criptografado, use comandos de carregamento de blob completos e comandos de download de blob completos/em intervalos. Evite gravar em um blob criptografado usando operações de protocolo tais como Put Block, Put Block List, Write Pages ou Clear Pages; caso contrário, você pode corromper o blob criptografado e torná-lo ilegível.
 > * Para tabelas, existe uma restrição semelhante. Tenha cuidado para não atualizar propriedades criptografadas sem atualizar os metadados de criptografia.
 > * Se você definir os metadados no blob criptografado, poderá substituir os metadados relacionados à criptografia necessários para a descriptografia, uma vez que a definição de metadados não é aditiva. Isso também ocorre em instantâneos. Evite especificar metadados ao criar um instantâneo de um blob criptografado. Se for necessário definir os metadados, lembre-se de chamar o método **get_blob_metadata** primeiro para obter os metadados de criptografia atuais e evitar gravações simultâneas enquanto os metadados estão sendo definidos.
 > * Habilite o sinalizador **require_encryption** no objeto de serviço para usuários que devem trabalhar apenas com dados criptografados. Saiba mais logo abaixo.
@@ -150,6 +150,12 @@ Os usuários podem habilitar opcionalmente um modo de operação no qual todos o
 ### <a name="blob-service-encryption"></a>Criptografia do serviço Blob
 Defina os campos de política de criptografia no objeto blockblobservice. Todo o resto será tratado pela biblioteca de cliente internamente.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 # Create the KEK used for encryption.
 # KeyWrapper is the provided sample implementation, but the user may use their own object as long as it implements the interface above.
@@ -171,9 +177,16 @@ my_block_blob_service.create_blob_from_stream(
 # Download and decrypt the encrypted contents from the blob.
 blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Criptografia do serviço Fila
 Defina os campos de política de criptografia no objeto queueservice. Todo o resto será tratado pela biblioteca de cliente internamente.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -195,11 +208,18 @@ my_queue_service.put_message(queue_name, content)
 # Retrieve message
 retrieved_message_list = my_queue_service.get_messages(queue_name)
 ```
+---
 
 ### <a name="table-service-encryption"></a>Criptografia do serviço Tabela
 Além de criar uma política de criptografia e defini-la nas opções de solicitação, você precisa especificar **encryption_resolver_function** no **tableservice** ou definir o atributo encrypt na EntityProperty.
 
 ### <a name="using-the-resolver"></a>Usando o resolvedor
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -233,13 +253,21 @@ my_table_service.insert_entity(table_name, entity)
 my_table_service.get_entity(
     table_name, entity['PartitionKey'], entity['RowKey'])
 ```
+---
 
 ### <a name="using-attributes"></a>Usando atributos
 Conforme mencionado acima, uma propriedade pode ser marcada para criptografia armazenando-a em um objeto EntityProperty e definindo o campo encrypt.
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
+
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Criptografia e desempenho
 Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga adicional no desempenho. O IV e a chave de conteúdo devem ser gerados, o próprio conteúdo deve ser criptografado e os metadados adicionais devem ser formatados e carregados. Essa sobrecarga poderá variar dependendo da quantidade de dados que está sendo criptografada. Recomendamos que os clientes sempre testem seus aplicativos a fim de verificar o desempenho durante o desenvolvimento.

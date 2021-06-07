@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: a0feaf4a984f40ddee7a30291fe0a8f671b6512a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6f3e408343fc75d6587d1a67a0179edf13d56e36
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636836"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101658241"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar Azure Cosmos DB operações do plano de controle
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -185,15 +185,15 @@ AzureDiagnostics
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Consulte para obter a ActivityId e o chamador que iniciou a operação de exclusão do contêiner:

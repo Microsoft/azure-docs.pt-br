@@ -3,19 +3,20 @@ title: Criar imagens de VM Linux do Azure compartilhadas usando o portal
 description: Saiba como usar portal do Azure para criar e compartilhar imagens de máquinas virtuais do Linux.
 author: cynthn
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
-ms.subservice: imaging
+ms.service: virtual-machines
+ms.subservice: shared-image-gallery
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 01d095a5506ec0886cdee875b57edbbbeca6fc86
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 90ed91caa1c4b71ae90b86f5b0783a6d5c1c669e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878810"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552789"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Criar uma galeria de imagens compartilhada usando o portal
 

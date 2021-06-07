@@ -7,10 +7,10 @@ ms.date: 06/30/2017
 ms.custom: devx-track-java
 ms.author: pakunapa
 ms.openlocfilehash: d53d20510db70d81aab796efab48de40c880bb3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87316117"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Comunicação Remota do Serviço em Java com Reliable Services

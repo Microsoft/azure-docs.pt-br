@@ -7,10 +7,10 @@ ms.date: 01/15/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: f4c6dacf63b1be44e826fe6841c87ccec4bf9b1a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98253623"
 ---
 # <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud"></a>Início Rápido: Introdução ao Apache Kafka para Confluent Cloud

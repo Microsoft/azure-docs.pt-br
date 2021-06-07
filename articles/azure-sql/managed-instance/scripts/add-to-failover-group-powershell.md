@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.openlocfilehash: af1d7110cccfd8b0617d6c79eb5373cc7c087159
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94594004"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Usar o PowerShell para adicionar uma instância gerenciada a um grupo de failover 

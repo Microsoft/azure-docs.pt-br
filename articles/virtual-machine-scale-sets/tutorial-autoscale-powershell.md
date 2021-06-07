@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
 ms.openlocfilehash: 8ee124f866a5241620671ff84c24f3713f62efe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89078462"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell

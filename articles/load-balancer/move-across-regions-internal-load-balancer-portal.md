@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698462"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Mover o Load Balancer interno do Azure para outra região usando o portal do Azure
@@ -180,11 +180,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 13. Clique em **salvar** no editor online.
 
-14. Clique **BASICS** em  >  **assinatura** básica para escolher a assinatura na qual a VNET de destino será implantada.
+14. Clique em  >  **assinatura** básica para escolher a assinatura na qual a VNET de destino será implantada.
 
-15. Clique **BASICS** em  >  **grupo de recursos** básico para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
+15. Clique em  >  **grupo de recursos** básico para escolher o grupo de recursos em que a VNET de destino será implantada.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para a VNET de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem da VNET existente.
 
-16. Verifique **BASICS** se o  >  **local** básico está definido como o local de destino onde você deseja que a VNET seja implantada.
+16. Verifique se o  >  **local** básico está definido como o local de destino onde você deseja que a VNET seja implantada.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -259,7 +259,7 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 10. Você também pode alterar outros parâmetros no modelo se quiser, e eles podem ser opcionais dependendo dos seus requisitos:
 
-    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade **sku**  >  **nome** do SKU na **template.jsno** arquivo:
+    * **SKU** -você pode alterar a SKU do balanceador de carga interno na configuração de Standard para básico ou básico para Standard, alterando a propriedade   >  **nome** do SKU na **template.jsno** arquivo:
 
         ```json
         "resources": [
@@ -377,11 +377,11 @@ As etapas a seguir mostram como preparar o balanceador de carga interno para a m
 
 12. Clique em **salvar** no editor online.
 
-13. Clique **BASICS** em  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
+13. Clique em  >  **assinatura** básica para escolher a assinatura na qual o balanceador de carga interno de destino será implantado.
 
-15. Clique **BASICS** em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
+15. Clique em  >  **grupo de recursos** básico para escolher o grupo de recursos em que o balanceador de carga de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o balanceador de carga interno de destino ou escolher o grupo de recursos existente que foi criado acima para a rede virtual.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador de carga interno de origem existente.
 
-16. Verifique **BASICS** se o  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
+16. Verifique se o  >  **local** básico está definido como o local de destino onde você deseja que o balanceador de carga interno seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.  Verifique se as IDs de recurso estão preenchidas para todas as redes virtuais na configuração.
 

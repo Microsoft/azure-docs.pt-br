@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0a56cfc147d4fb5cbdccf13363ad28bc602d8216
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525374"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182750"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados no Azure SQL Instância Gerenciada para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ A tabela a seguir mostra cenários de restauração pontual para o SQL Instânci
 
 |           |Restaurar o banco de BD existente para a mesma instância do SQL Instância Gerenciada| Restaurar o BD existente para outro SQL Instância Gerenciada|Restaurar o banco de BD removido para o mesmo SQL Instância Gerenciada|Restaurar o BD removido para outro Instância Gerenciada do SQL|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Sim|Não |Sim|Não|
+|**Azure portal**| Sim|Não |Sim|Não|
 |**CLI do Azure**|Sim |Sim |Não|Não|
 |**PowerShell**| Sim|Sim |Sim|Sim|
 
@@ -110,7 +110,7 @@ Para obter detalhes, consulte [Restore-AzSqlInstanceDatabase](/powershell/module
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se você ainda não tiver o CLI do Azure instalado, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você ainda não tiver o CLI do Azure instalado, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 Para restaurar o banco de dados usando o CLI do Azure, especifique os valores para os parâmetros no comando a seguir. Em seguida, execute o comando:
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [documentação da CLI para restaurar um banco de dados em um instância gerenciada do SQL](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ---
 

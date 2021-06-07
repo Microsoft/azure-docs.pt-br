@@ -2,21 +2,21 @@
 title: PowerShell & APIs REST para o pool SQL dedicado (anteriormente conhecido como SQL DW)
 description: Os principais cmdlets do PowerShell para pool de SQL dedicado (anteriormente conhecido como SQL DW) na análise de Synapse do Azure, incluindo como pausar e retomar um banco de dados.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: bb26ac0071a50095f8e93ce0cc25da0055bdbac8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 83e6082025f068e91a3d531f052b746870ffd57a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584101"
 ---
 # <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & APIs REST para o pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics 
 

@@ -3,16 +3,18 @@ title: 'Início Rápido: Como criar seu primeiro aplicativo Web estático com os
 description: Aprenda a implantar um site estático nos Aplicativos Web Estáticos do Azure com o portal do Azure.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030358"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531587"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Início Rápido: Como criar seu primeiro site estático no portal do Azure
 
@@ -55,7 +57,7 @@ Depois de entrar no GitHub, insira as informações do repositório.
 
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-first-web-static-app** na lista suspensa _Repositório_.
-1. Selecione **mestre** na lista suspensa _Branch_
+1. Selecione **principal** na lista suspensa _Ramificação_
 
 > [!NOTE]
 > Caso você não veja nenhum repositório, talvez seja necessário autorizar Aplicativos Web Estáticos do Azure no GitHub. Navegue até o repositório do GitHub e vá para **Configurações > Aplicativos > Aplicativos OAuth Autorizados**, selecione **Aplicativos Web Estáticos do Azure** e **Conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
@@ -116,8 +118,8 @@ Se você não quiser continuar usando esse aplicativo, poderá excluir a instân
 1. Abra o [portal do Azure](https://portal.azure.com)
 1. Pesquise **my-first-web-static-app** na barra de pesquisa superior.
 1. Selecione o nome do aplicativo
-1. Escolha o botão **Excluir**
-1. Selecione **Sim** para confirmar a ação de exclusão
+1. Selecione o botão **Excluir**
+1. Selecione **Sim** para confirmar a ação de exclusão (essa ação pode levar alguns minutos para ser concluída)
 
 ## <a name="next-steps"></a>Próximas etapas
 

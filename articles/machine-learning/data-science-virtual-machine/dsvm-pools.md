@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: a118d5a3e716a80bda21ffe82a8cefd1da1202f3
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100519704"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um pool compartilhado de Máquinas Virtuais de Ciência de Dados

@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4ca74070c1b0d2cd4a5cf4225443465e080b518d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 3b497a8507fb82bfb69fbe7396e5a0d34006a7f1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584882"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102502069"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitorando o armazenamento de BLOBs do Azure
 
@@ -30,7 +30,7 @@ A página de **visão geral** no portal do Azure para cada recurso de armazename
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 O armazenamento de BLOBs do Azure cria dados de monitoramento usando [Azure monitor](../../azure-monitor/overview.md), que é um serviço de monitoramento de pilha completo no Azure. O Azure Monitor oferece um conjunto completo de recursos para monitorar os recursos do Azure e recursos em outras nuvens e locais. 
 
-Comece com o artigo [monitorando os recursos do Azure com Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) que descreve o seguinte:
+Comece com o artigo [monitorando os recursos do Azure com Azure monitor](../../azure-monitor/essentials/monitor-azure-resource.md) que descreve o seguinte:
 
 - O que é o Azure Monitor?
 - Custos associados ao monitoramento
@@ -42,7 +42,7 @@ As seções a seguir se baseiam neste artigo para descrever os dados específico
 
 ## <a name="monitoring-data"></a>Dados de monitoramento
 
-O armazenamento de BLOBs do Azure coleta os mesmos tipos de dados de monitoramento que outros recursos do Azure, que são descritos em [monitoramento de dados de recursos do Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+O armazenamento de BLOBs do Azure coleta os mesmos tipos de dados de monitoramento que outros recursos do Azure, que são descritos em [monitoramento de dados de recursos do Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Consulte [referência de dados de monitoramento do armazenamento de BLOBs do Azure](monitor-blob-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e logs criadas pelo armazenamento de BLOBs do Azure.
 
@@ -69,12 +69,12 @@ Para coletar logs de recursos, você deve criar uma configuração de diagnósti
 
 Você pode criar uma configuração de diagnóstico usando o portal do Azure, o PowerShell, o CLI do Azure ou um modelo de Azure Resource Manager. 
 
-Para obter diretrizes gerais, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Para obter diretrizes gerais, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
 > Os logs do Armazenamento do Microsoft Azure no Azure Monitor estão em versão preliminar pública e disponíveis para teste de versão preliminar em todas as regiões de nuvem pública. Essa visualização habilita logs para BLOBs (que inclui Azure Data Lake Storage Gen2), arquivos, filas e tabelas. Esse recurso está disponível para todas as contas de armazenamento criadas com o modelo de implantação Azure Resource Manager. Consulte [visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
-### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Entre no portal do Azure.
 
@@ -110,8 +110,10 @@ Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pel
 
 2. Na lista suspensa **conta de armazenamento** , selecione a conta de armazenamento na qual você deseja arquivar os logs, clique no botão **OK** e, em seguida, clique no botão **salvar** .
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
-   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [arquivar logs de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
+   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [arquivar logs de recursos do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Transmitir logs para os hubs de eventos do Azure
 
@@ -154,18 +156,20 @@ Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pel
 Habilite logs usando o cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) do PowerShell junto com o `StorageAccountId` parâmetro.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pela ID de recurso do serviço BLOB. Para encontrar o ID do recurso no portal do Azure, você pode abrir a página **Propriedades** da sua conta de armazenamento.
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Aqui está um exemplo:
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
+Veja um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte [arquivar logs de recursos do Azure por meio de Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Para obter uma descrição de cada parâmetro, consulte [arquivar logs de recursos do Azure por meio de Azure PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
@@ -177,11 +181,11 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](/powershel
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os [dados de fluxo para hubs de eventos por meio de cmdlets do PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obter uma descrição de cada parâmetro, consulte os [dados de fluxo para hubs de eventos por meio de cmdlets do PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar logs ao Log Analytics
 
@@ -191,11 +195,11 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](/powershel
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Para obter mais informações, consulte [transmitir logs de recursos do Azure para log Analytics espaço de trabalho no Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Para obter mais informações, consulte [transmitir logs de recursos do Azure para log Analytics espaço de trabalho no Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -216,18 +220,20 @@ Se você optar por arquivar seus logs em uma conta de armazenamento, pagará pel
 Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
 Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pelo serviço de armazenamento de BLOB da ID de recurso. Para encontrar o ID do recurso no portal do Azure, você pode abrir a página **Propriedades** da sua conta de armazenamento.
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Aqui está um exemplo:
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+Veja um exemplo:
 
-Para obter uma descrição de cada parâmetro, consulte os [logs de recursos de arquivo por meio do CLI do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite}]'`
+
+Para obter uma descrição de cada parâmetro, consulte os [logs de recursos de arquivo por meio do CLI do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
@@ -239,11 +245,11 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azu
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Para obter uma descrição de cada parâmetro, consulte os [dados de fluxo para os hubs de eventos por meio de CLI do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obter uma descrição de cada parâmetro, consulte os [dados de fluxo para os hubs de eventos por meio de CLI do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar logs ao Log Analytics
 
@@ -253,21 +259,21 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azu
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Para obter mais informações, consulte [transmitir logs de recursos do Azure para log Analytics espaço de trabalho no Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ Para obter mais informações, consulte [transmitir logs de recursos do Azure para log Analytics espaço de trabalho no Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="template"></a>[Modelo](#tab/template)
 
-Para exibir um modelo de Azure Resource Manager que cria uma configuração de diagnóstico, consulte [configuração de diagnóstico para o armazenamento do Azure](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+Para exibir um modelo de Azure Resource Manager que cria uma configuração de diagnóstico, consulte [configuração de diagnóstico para o armazenamento do Azure](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
 ## <a name="analyzing-metrics"></a>Analisando as métricas
 
-Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor**. Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor**. Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). 
 
 Este exemplo mostra como exibir **Transações** no nível da conta.
 
@@ -284,7 +290,7 @@ As métricas para o armazenamento de BLOBs do Azure estão nestes namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
-Para obter uma lista de todas as métricas de suporte de Azure Monitor, que inclui o armazenamento de BLOBs do Azure, consulte [Azure monitor métricas com suporte](../../azure-monitor/platform/metrics-supported.md).
+Para obter uma lista de todas as métricas de suporte de Azure Monitor, que inclui o armazenamento de BLOBs do Azure, consulte [Azure monitor métricas com suporte](../../azure-monitor/essentials/metrics-supported.md).
 
 
 ### <a name="accessing-metrics"></a>Acessando métricas
@@ -528,22 +534,22 @@ Os logs enviados para um hub de eventos não são armazenados como um arquivo, m
 
 ![Logs de auditoria](media/monitor-blob-storage/event-hub-log.png)
 
-Você pode acessar e ler dados de log enviados ao seu hub de eventos usando informações de segurança e ferramentas de monitoramento e gerenciamento de eventos. Para mais informações, consulte [O que posso fazer com os dados de monitoramento que estão sendo enviados ao meu hub de eventos?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Você pode acessar e ler dados de log enviados ao seu hub de eventos usando informações de segurança e ferramentas de monitoramento e gerenciamento de eventos. Para mais informações, consulte [O que posso fazer com os dados de monitoramento que estão sendo enviados ao meu hub de eventos?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Acessando logs em um espaço de trabalho Log Analytics
 
 Você pode acessar os logs enviados a um workspace do Log Analytics usando consultas de log do Azure Monitor.
 
-Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
+Para obter mais informações, confira [Introdução ao Log Analytics no Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Os dados são armazenados na tabela **StorageBlobLog** . Os logs para Data Lake Storage Gen2 não aparecem em uma tabela dedicada. Isso ocorre porque Data Lake Storage Gen2 não é serviço. É um conjunto de recursos que você pode habilitar em sua conta de armazenamento. Se você habilitou esses recursos, os logs continuarão a aparecer na tabela StorageBlobLogs. 
 
 #### <a name="sample-kusto-queries"></a>Consultas de exemplo do Kusto
 
-Aqui estão algumas consultas que você pode inserir na barra de **pesquisa de log** para ajudá-lo a monitorar seu armazenamento de BLOBs. Essas consultas funcionam com a [nova linguagem](../../azure-monitor/log-query/log-query-overview.md).
+Aqui estão algumas consultas que você pode inserir na barra de **pesquisa de log** para ajudá-lo a monitorar seu armazenamento de BLOBs. Essas consultas funcionam com a [nova linguagem](../../azure-monitor/logs/log-query-overview.md).
 
 > [!IMPORTANT]
-> Quando você seleciona **logs** no menu do grupo de recursos da conta de armazenamento, log Analytics é aberta com o escopo de consulta definido como o grupo de recursos atual. Isso significa que as consultas de log incluirão apenas os dados desse grupo de recursos. Se você quiser executar uma consulta que inclui dados de outros recursos ou dados de outros serviços do Azure, selecione **logs** no menu **Azure monitor** . Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](../../azure-monitor/log-query/scope.md) para obter detalhes.
+> Quando você seleciona **logs** no menu do grupo de recursos da conta de armazenamento, log Analytics é aberta com o escopo de consulta definido como o grupo de recursos atual. Isso significa que as consultas de log incluirão apenas os dados desse grupo de recursos. Se você quiser executar uma consulta que inclui dados de outros recursos ou dados de outros serviços do Azure, selecione **logs** no menu **Azure monitor** . Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](../../azure-monitor/logs/scope.md) para obter detalhes.
 
 Use essas consultas para ajudar a monitorar suas contas do Armazenamento do Microsoft Azure:
 
@@ -602,5 +608,5 @@ Não. A Computação do Azure suporta as métricas em discos. Para obter mais in
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma referência dos logs e métricas criados pelo armazenamento de BLOBs do Azure, consulte [referência de dados de monitoramento do armazenamento de BLOBs do Azure](monitor-blob-storage-reference.md).
-- Para ver informações detalhadas sobre o monitoramento dos recursos do Azure, consulte [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Para ver informações detalhadas sobre o monitoramento dos recursos do Azure, consulte [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - Para obter mais informações sobre a migração de métricas, consulte [Migração de métricas do Armazenamento do Microsoft Azure](../common/storage-metrics-migration.md).

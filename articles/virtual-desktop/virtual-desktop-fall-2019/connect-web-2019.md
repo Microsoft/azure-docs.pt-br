@@ -1,19 +1,19 @@
 ---
-title: Conectar o cliente Web da área de trabalho virtual do Windows (clássico)-Azure
-description: Como se conectar à área de trabalho virtual do Windows (clássico) usando o cliente Web.
+title: Conectar-se ao cliente Web da Área de Trabalho Virtual do Windows (clássica) – Azure
+description: Como se conectar à Área de Trabalho Virtual do Windows (clássica) usando o cliente Web.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c8a55e35ba89caefc362024fc871ac5eb800447b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 0ea095a8ed902b9636b0cb8026f86eb3a0882460
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008416"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445186"
 ---
-# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows (clássico) com o cliente Web
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Conectar à Área de Trabalho Virtual do Windows (clássica) usando o cliente Web
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../connect-web.md).
@@ -40,12 +40,12 @@ Por mais que qualquer navegador compatível com HTML5 funcione, oficialmente dam
 Em um navegador, vá até o cliente Web da Área de Trabalho Virtual do Windows em <https://rdweb.wvd.microsoft.com/webclient> e entre com sua conta de usuário.
 
 >[!NOTE]
->Se você estiver usando a área de trabalho virtual do Windows com a integração Azure Resource Manager, conecte-se aos seus recursos em <https://rdweb.wvd.microsoft.com/arm/webclient> vez disso.
+>Se estiver usando a Área de Trabalho Virtual do Windows com a integração do Azure Resource Manager, conecte-se a seus recursos em <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 >[!NOTE]
 >Se já tiver entrado com uma conta do Azure Active Directory diferente da que deseja usar para a Área de Trabalho Virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
-Depois de entrar, você verá uma lista de recursos. Você pode iniciar os recursos selecionando-os da mesma maneira que faria com um aplicativo normal na guia **Todos os Recursos**.
+Depois de entrar, você verá uma lista de recursos. Você pode iniciar os recursos selecionando-os da mesma maneira que faria com um aplicativo normal na guia **Todos os recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

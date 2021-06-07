@@ -6,18 +6,18 @@ author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: tutorial
+ms.topic: landing-page
 ms.workload: identity
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: jeedes
-ms.custom: it-pro
+ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
-ms.openlocfilehash: 154b9f526dd4df6aabaaf24687a534a28ed1a3a3
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: eda1ad058bf969351122cb9df1b528341067a186
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253164"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640901"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 
@@ -63,6 +63,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo – ArcGIS Enterprise](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
 | ![logotipo – AskYourTeam](./media/tutorial-list/active-directory-saas-askyourteam-tutorial.png)| [AskYourTeam](askyourteam-tutorial.md)|
 | ![logotipo – Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
+| ![logotipo – Logon único da AWS](./media/tutorial-list/active-directory-saas-aws-single-sign-on-tutorial.png)| [Logon Único do AWS](aws-single-sign-on-tutorial.md)|
 | ![logotipo – Box](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)|
 | ![logotipo – CakeHR](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
 | ![logotipo – Carbonite Endpoint Backup](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
@@ -95,6 +96,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo – InVision](./media/tutorial-list/active-directory-saas-invision-tutorial.png)| [InVision](invision-tutorial.md)|
 | ![logotipo – Jamf Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
 | ![logotipo – Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
+| ![logotipo – Kendis – Integração do Azure AD](./media/tutorial-list/active-directory-saas-kendis-azure-ad-integration.png)| [Kendis – Integração com o Azure AD](kendis-scaling-agile-platform-tutorial.md)|
 | ![logotipo – Knowledge Anywhere LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logotipo – Litmus](./media/tutorial-list/active-directory-saas-litmus-tutorial.png)| [Litmus](litmus-tutorial.md)|
 | ![logotipo – Marketo](./media/tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](marketo-tutorial.md)|
@@ -105,6 +107,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo – OneDesk](./media/tutorial-list/active-directory-saas-onedesk-tutorial.png)| [OneDesk](onedesk-tutorial.md)|
 | ![logotipo – OpsGenie](./media/tutorial-list/active-directory-saas-opsgenie-tutorial.png)| [OpsGenie](opsgenie-tutorial.md)|
 | ![logotipo – People](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [Pessoas](people-tutorial.md)|
+| ![logotipo – Perimeter 81](./media/tutorial-list/active-directory-saas-perimeter-81-tutorial.png)| [Perimeter 81](perimeter-81-tutorial.md)|
 | ![logotipo – productboard](./media/tutorial-list/active-directory-saas-productboard-tutorial.png)| [productboard](productboard-tutorial.md)|
 | ![logotipo – PurelyHR](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
 | ![logotipo – RingCentral](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|

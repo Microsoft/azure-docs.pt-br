@@ -1,20 +1,16 @@
 ---
-title: Exibir informações em alertas
+title: Sobre mensagens de alerta
 description: Selecione um alerta na janela alertas para examinar os detalhes.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2fa2b265c7d3983ca6ae2d7507392dd37afabd27
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523576"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781476"
 ---
-# <a name="view-information-in-alerts"></a>Exibir informações em alertas
+# <a name="about-alert-messages"></a>Sobre mensagens de alerta
 
 Selecione um alerta na janela **alertas** para examinar os detalhes do alerta. Os detalhes incluem as seguintes informações:
 
@@ -90,7 +86,7 @@ Para baixar um arquivo PCAP, selecione :::image type="content" source="media/how
 
 A área de **recomendação** de um alerta exibe informações que podem ajudá-lo a entender melhor um evento. Examine essas informações antes de gerenciar o evento de alerta ou executar uma ação no dispositivo ou na rede.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)
 

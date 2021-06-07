@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
 ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99626318"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar computadores como servidores físicos para o Azure

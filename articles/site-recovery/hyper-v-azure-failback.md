@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87416223"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110246"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -25,8 +25,8 @@ Este artigo descreve como executar failback de VMs do Azure que foram criadas ap
 
 ## <a name="before-you-start"></a>Antes de começar
 
-1. [Examine os tipos de failback](failover-failback-overview.md#hyper-v-reprotectionfailback) que você pode usar-recuperação de local original e recuperação de local alternativo.
-2. Verifique se as VMs do Azure estão usando uma conta de armazenamento e não os discos gerenciados. Não há suporte para o failback de VMs do Hyper-V replicadas usando discos gerenciados.
+1. [Examine os tipos de failback](failover-failback-overview.md#hyper-v-reprotectionfailback) você pode usar – recuperação de localização original e recuperação de localização alternativa.
+2. Verifique se as VMs do Azure estão usando uma conta de armazenamento e não os discos gerenciados. O failback de máquinas virtuais Hyper-V, que realizaram failover em computadores do Azure usando discos gerenciados, não tem suporte.
 3. Verifique se o host Hyper-V local (ou o servidor do System Center VMM, se você estiver usando o com Site Recovery) está em execução e conectado ao Azure. 
 4. Verifique se o failover e a confirmação foram concluídos para as VMs. Você não precisa configurar nenhum componente Site Recovery específico para failback de VMs do Hyper-V do Azure.
 5. O tempo necessário para concluir a sincronização de dados e iniciar a VM local dependerá de vários fatores. Para acelerar o download de dados, você pode configurar o agente de serviços de recuperação da Microsoft para usar mais threads para paralelizar o download. [Saiba mais](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
@@ -36,7 +36,7 @@ Este artigo descreve como executar failback de VMs do Azure que foram criadas ap
 
 Para fazer failback de VMs do Hyper-V no Azure para a VM local original, execute um failover planejado do Azure para o site local da seguinte maneira:
 
-1. No cofre > **itens replicados**, selecione a VM. Clique com o botão direito do mouse na VM > **failover planejado**. Se você estiver realizando o failback de um plano de recuperação, selecione o nome do plano **e clique em**failover  >  **planejado**de failover.
+1. No cofre > **Itens replicados**, selecione a VM. Clique com o botão direito do mouse na VM > **failover planejado**. Se você estiver realizando o failback de um plano de recuperação, selecione o nome do plano **e clique em** failover  >  **planejado** de failover.
 2. Em **confirmar failover planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do primário funcionou conforme o esperado e todas as máquinas virtuais estão no local secundário, isso é apenas para fins informativos.
 3. Em **sincronização de dados**, selecione uma opção:
     - **Sincronizar dados antes do failover (sincronizar somente alterações delta)**– essa opção minimiza o tempo de inatividade para VMs à medida que ela é sincronizada sem desligá-las.
@@ -64,7 +64,7 @@ Faça failback para um local alternativo da seguinte maneira:
 
 1. Se você estiver configurando um novo hardware, instale uma [versão com suporte do Windows](hyper-v-azure-support-matrix.md#replicated-vms)e a função Hyper-V no computador.
 2. Crie um comutador de rede virtual com o mesmo nome que você tinha no servidor original.
-3. No grupo de proteção **itens protegidos**  >  **Protection Group**  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> , selecione a VM que você deseja executar o failback e, em seguida, selecione **failover planejado**.
+3. No grupo de proteção **itens protegidos**  >    >  \<ProtectionGroupName>  ->  \<VirtualMachineName> , selecione a VM que você deseja executar o failback e, em seguida, selecione **failover planejado**.
 4. Em **confirmar s de failover planejado**, escolha **criar máquina virtual local se ela não existir**.
 5. Em **nome do host**, selecione o novo servidor de host Hyper-V no qual você deseja posicionar a VM.
 6. Em **sincronização de dados**, recomendamos que você selecione a opção para sincronizar os dados antes do failover. Isso minimiza o tempo de inatividade para VMs à medida que ela é sincronizada sem desligá-las. Ele faz o seguinte:

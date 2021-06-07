@@ -4,10 +4,10 @@ description: Descreve como usar o esquema CloudEvents v 1.0 para eventos na grad
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d17e92c28784ca31f3c9809c93e885b22c6a38d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324171"
 ---
 # <a name="cloudevents-v10-schema-with-azure-event-grid"></a>Esquema do CloudEvents v 1.0 com a grade de eventos do Azure

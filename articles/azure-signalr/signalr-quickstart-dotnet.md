@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
 ms.openlocfilehash: c39ef505b0cea0ad0c03b81683db8441077cd0d2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94874535"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Início Rápido: Criar uma sala de chat com o ASP.NET e o Serviço do SignalR

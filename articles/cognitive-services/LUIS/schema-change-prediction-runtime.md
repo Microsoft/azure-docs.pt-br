@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: 1d94e9f59062e4d730b8f3b71022442e81e6eeda
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98953014"
 ---
 # <a name="extend-app-at-prediction-runtime"></a>Estender o aplicativo no tempo de execução de previsão

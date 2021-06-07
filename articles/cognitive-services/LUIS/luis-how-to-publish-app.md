@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180023"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100558904"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
@@ -24,7 +24,7 @@ Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disp
 
 ## <a name="publishing"></a>Publicando
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
-1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Abra seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 1. Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito.
 
     ![Botão publicar na parte superior, barra de navegação direita](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
@@ -57,7 +57,6 @@ Por exemplo, para um aplicativo criado em [www.Luis.ai](https://www.luis.ai), se
 Depois de selecionar o slot, defina as configurações de publicação para:
 
 * Análise de sentimento
-* [Correção ortográfica](luis-tutorial-bing-spellcheck.md)
 * Preparação da fala
 
 Depois de publicar, essas configurações estarão disponíveis para análise na página **gerenciar** configurações de **publicação** da seção. Você pode alterar as configurações com cada publicação. Se você cancelar uma publicação, as alterações feitas durante a publicação também serão canceladas.
@@ -79,37 +78,6 @@ Você não precisa fornecer uma chave de Análise de Texto e não é cobrando ne
 Dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive`, `neutral` e `negative` é por cultura com suporte. Atualmente, somente inglês dá suporte a rótulos de sentimento.
 
 Para obter mais informações sobre a resposta do ponto de extremidade JSON com análise de sentimento, veja [Análise de sentimento](luis-reference-prebuilt-sentiment.md)
-
-## <a name="spelling-correction"></a>Correção ortográfica
-
-A API de previsão v3 agora dá suporte à API de verificação ortográfica do Bing. Você pode adicionar a verificação ortográfica ao seu aplicativo, incluindo a chave para o recurso de pesquisa do Bing no cabeçalho de suas solicitações. Você pode usar um recurso existente do Bing se você já tiver um ou [criar um novo](https://portal.azure.com/#create/Microsoft.BingSearch) para usar esse recurso. 
-
-|Chave de cabeçalho|Valor do cabeçalho|
-|--|--|
-|`mkt-bing-spell-check-key`|Chaves encontradas em **chaves e** folha de ponto de extremidade do recurso|
-
-Exemplo de saída de previsão para uma consulta grafada incorretamente:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-As correções de ortografia são feitas antes da previsão de expressão do usuário LUIS. Você pode ver quaisquer alterações no expressão original, incluindo a ortografia, na resposta.
 
 ## <a name="speech-priming"></a>Preparação da fala
 

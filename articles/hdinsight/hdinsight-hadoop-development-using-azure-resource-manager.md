@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a8f808cd43f96f26db0de28e8059d02d9488320a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945764"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102434654"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrando para ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters HDInsight
 
@@ -238,7 +238,7 @@ Esta seção fornece sugestões de mais informações sobre como executar determ
 
 | Como usar o SDK do HDInsight baseado no Resource Manager | Links |
 | --- | --- |
-| SDK do Azure HDInsight para .NET|Consulte [SDK do Azure HDInsight para .net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) |
+| SDK do Azure HDInsight para .NET|Consulte [SDK do Azure HDInsight para .net](/dotnet/api/overview/azure/hdinsight) |
 | Autenticar aplicativos de forma interativa usando o Azure Active Directory com o SDK do .NET |Consulte [Executar consultas do Apache Hive usando o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). O snippet de código neste artigo usa o método de autenticação interativa. |
 | Autenticar aplicativos de forma não interativa usando o Azure Active Directory com o SDK do .NET |Veja [Criar aplicativos não interativos para o HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Enviar um trabalho do Apache Hive usando SDK do .NET |Consulte [Enviar trabalhos do Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |

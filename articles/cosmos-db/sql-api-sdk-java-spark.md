@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 7ff75bf9d45803dd96927bcf7c70e7c7912db979
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097151"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>API do Azure Cosmos DB Apache Spark Connector para núcleo (SQL): notas de versão e recursos
@@ -44,7 +44,7 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 
 | Componente | Versão |
 |---------|-------|
-| Apache Spark | 2,4. *x* , 2,3. *x* , 2,2. *x* e 2,1. *x* |
+| Apache Spark | 2,4.*x*, 2,3. *x*, 2,2. *x* e 2,1. *x* |
 | Scala | 2,11 |
 | Azure Databricks (versão de tempo de execução) | Posterior a 3,4 |
 
@@ -70,11 +70,11 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 - Adiciona uma nova opção de configuração, `changefeedstartfromdatetime` , que pode ser usada para especificar a hora de início para quando o changefeed deve ser processado. Para obter mais informações, consulte [Opções de configuração](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references).
 
 ### <a name="320"></a>3.2.0
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 - Corrige uma regressão que causou excesso de consumo de memória nos executores para grandes conjuntos de resultados (por exemplo, com milhões de linhas), em última instância, resultando no erro `java.lang.OutOfMemoryError: GC overhead limit exceeded` .
 
 ### <a name="311"></a>3.1.1
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige um caso de borda de ponto de verificação de streaming no qual o `ID` contém o caractere de pipe (|) com a `ChangeFeedMaxPagesPerBatch` configuração aplicada.
 
 ### <a name="310"></a>3.1.0
@@ -84,7 +84,7 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 * Adiciona suporte para tipos de carimbo de data/hora quando eles estão usando tempo longo (época do UNIX) como um valor.
 
 ### <a name="308"></a>3.0.8
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige a exceção conversão que ocorre quando a `WriteThroughputBudget` configuração é usada.
 
 ### <a name="307"></a>3.0.7
@@ -92,27 +92,27 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 * Adiciona informações de erro para falhas em massa à exceção e ao log.
 
 ### <a name="306"></a>3.0.6
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige problemas de ponto de verificação de streaming.
 
 ### <a name="305"></a>3.0.5
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Para reduzir o ruído, o nível de log de uma mensagem permanece involuntariamente com erro de nível.
 
 ### <a name="304"></a>3.0.4
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige um bug no streaming estruturado durante as divisões de partição. O bug pode resultar em alguns registros de feed de alteração ausentes ou exceções nulas para gravações de ponto de verificação.
 
 ### <a name="303"></a>3.0.3
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige um bug que faz com que um esquema personalizado fornecido para readStream seja ignorado.
 
 ### <a name="302"></a>3.0.2
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige uma regressão (JAR não sombreado inclui todas as dependências sombreadas) que aumenta o tempo de compilação em 50%.
 
 ### <a name="301"></a>3.0.1
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+#### <a name="key-bug-fixes"></a>Principais correções de bug
 * Corrige um problema de dependência que faz com que o transporte direto sobre TCP falhe com RequestTimeoutException.
 
 ### <a name="300"></a>3.0.0

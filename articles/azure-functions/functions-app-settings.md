@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378291"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773072"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -80,7 +80,7 @@ Quando `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` é definido como `true`
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como padrão `Development` um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
+Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é lido durante a inicialização e pode ser definido como qualquer valor. Somente os valores de `Development` , `Staging` e `Production` são respeitados pelo tempo de execução. Quando essa configuração de aplicativo não estiver presente durante a execução no Azure, o ambiente será considerado `Production` . Use essa configuração em vez de `ASPNETCORE_ENVIRONMENT` se você precisar alterar o ambiente de tempo de execução no Azure para algo diferente de `Production` . O Azure Functions Core Tools definido `AZURE_FUNCTIONS_ENVIRONMENT` como `Development` quando executado em um computador local, e isso não pode ser substituído na local.settings.jsno arquivo. Para saber mais, confira [classe e métodos de inicialização baseados em ambiente](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
 
 ## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
 
@@ -159,11 +159,11 @@ Determina se a edição no portal do Azure está habilitada. Os valores válidos
 
 ## <a name="functions_extension_version"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-A versão do runtime do Functions para usar nesse aplicativo de funções. Um til com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~2"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo a uma versão específica, use o número de versão completo (por exemplo, "2.0.12345"). O padrão é "~ 2". Um valor de pinos `~1` seu aplicativo para a versão 1.x do runtime.
+A versão do tempo de execução do Functions que hospeda seu aplicativo de funções. Um til ( `~` ) com a versão principal significa usar a versão mais recente da versão principal (por exemplo, "~ 3"). Quando novas versões da mesma versão principal estão disponíveis, elas são instaladas automaticamente no aplicativo de funções. Para fixar o aplicativo em uma versão específica, use o número de versão completo (por exemplo, "3.0.12345"). O padrão é "~ 3". Um valor de pinos `~1` seu aplicativo para a versão 1.x do runtime. Para obter mais informações, consulte [Visão geral de versões do Azure Functions runtime](functions-versions.md).
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~2|
+|FUNCTIONS\_EXTENSION\_VERSION|~3|
 
 ## <a name="functions_v2_compatibility_mode"></a>Modo de compatibilidade do Functions \_ v2 \_ \_
 
@@ -186,22 +186,24 @@ Especifica o número máximo de processos de trabalho de idioma, com um valor pa
 |---|------------|
 |\_contagem de \_ processos de trabalho do Functions \_|2|
 
-## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
-
-Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
-
-|Chave|Valor de exemplo|Valor máximo|
-|---|------------|---------|
-|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
-O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso irá corresponder ao idioma que está sendo usado em seu aplicativo (por exemplo, "dotnet"). Para funções em vários idiomas, você precisará publicá-las em vários aplicativos, cada um com um valor de runtime de trabalho correspondente.  Os valores válidos são `dotnet` (C#/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) e `python` (Python).
+O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso corresponde ao idioma que está sendo usado em seu aplicativo (por exemplo, `dotnet` ). A partir da versão 2. x do tempo de execução de Azure Functions, um determinado aplicativo de funções só pode dar suporte a um único idioma.   
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO|dotnet|
+|FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO|nó|
+
+Valores válidos: 
+
+| Valor | Idioma |
+|---|---|
+| `dotnet` | [C# (biblioteca de classes)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (processo isolado)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>\_URL de \_ índice \_ extra de Pip
 
@@ -212,6 +214,14 @@ O valor dessa configuração indica uma URL de índice de pacote personalizado p
 |\_URL de \_ índice \_ extra de Pip|http://my.custom.package.repo/simple |
 
 Para saber mais, confira [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor do Python.
+
+## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
+
+Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
+
+|Chave|Valor de exemplo|Valor máximo|
+|---|------------|---------|
+|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>registro em log do controlador de escala \_ \_ \_ habilitado
 
@@ -257,9 +267,17 @@ Usado somente ao implantar em um plano Premium ou em um plano de consumo em exec
 
 Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 
+## <a name="website_dns_server"></a>\_servidor DNS \_ do site
+
+Define o servidor DNS usado por um aplicativo ao resolver endereços IP. Essa configuração geralmente é necessária ao usar determinadas funcionalidades de rede, como [zonas privadas do DNS do Azure](functions-networking-options.md#azure-dns-private-zones) e [pontos de extremidade privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Chave|Valor de exemplo|
+|---|------------|
+|\_servidor DNS \_ do site|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
+O número máximo de instâncias para as quais o aplicativo pode ser expandido. O padrão é sem limites.
 
 > [!IMPORTANT]
 > Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./event-driven-scaling.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
@@ -297,6 +315,14 @@ Permite que você defina o fuso horário para seu aplicativo de funções.
 |\_fuso horário do site \_|Linux|América/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>rota de VNET do site \_ \_ \_ todos
+
+Indica se todo o tráfego de saída do aplicativo é roteado por meio da rede virtual. Um valor de configuração `1` indica que todo o tráfego é roteado por meio da rede virtual. Você precisa usar essa configuração ao usar os recursos de [integração de rede virtual regional](functions-networking-options.md#regional-virtual-network-integration). Ele também é usado quando um [gateway NAT de rede virtual é usado para definir um endereço IP de saída estático](functions-how-to-use-nat-gateway.md). 
+
+|Chave|Valor de exemplo|
+|---|------------|
+|rota de VNET do site \_ \_ \_ todos|1|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70166666"
 ---
 ## <a name="specifying-formats"></a>Especificando formatos
@@ -18,20 +18,20 @@ O Azure Data Factory dá suporte aos tipos de formato a seguir:
 * [Formato JSON](#specifying-jsonformat)
 * [Formato Avro](#specifying-avroformat)
 * [Formato ORC](#specifying-orcformat)
-* [Formato parquet](#specifying-parquetformat)
+* [Formato de Parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Especificando TextFormat
 Se você quiser analisar os arquivos de texto ou gravar os dados no formato de texto, defina a propriedade `format` `type` como **TextFormat**. Você também pode especificar as seguintes propriedades **opcionais** na seção `format`. Veja a seção [Exemplo de TextFormat](#textformat-example) sobre a configuração.
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| columnDelimiter |O caractere usado para separar as colunas em um arquivo. Você pode considerar o uso de um caractere raro não imprimível que provavelmente não existe nos dados: por exemplo, especifique "\u0001" que representa o Início do Título (SOH). |É permitido somente um caractere. O valor **padrão** é **vírgula (', ')**. <br/><br/>Para usar um caractere Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente. |Não |
-| rowDelimiter |o caractere usado para separar linhas em um arquivo. |É permitido somente um caractere. O valor **padrão** é qualquer um dos seguintes valores na leitura: **["\r\n", "\r", "\n"]** e **"\r\n"** na gravação. |Não |
+| columnDelimiter |O caractere usado para separar as colunas em um arquivo. Você pode considerar o uso de um caractere raro não imprimível que provavelmente não existe nos dados: por exemplo, especifique "\u0001" que representa o Início do Título (SOH). |É permitido somente um caractere. O valor **padrão** é **vírgula (‘,’)** . <br/><br/>Para usar um caractere Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente. |Não |
+| rowDelimiter |o caractere usado para separar linhas em um arquivo. |É permitido somente um caractere. O valor **padrão** é um dos seguintes valores na leitura: **["\r\n", "\r" e "\n"]** e **"\r\n"** na gravação. |Não |
 | escapeChar |o caractere especial usado para escapar um delimitador de coluna no conteúdo do arquivo de entrada. <br/><br/>Não é possível especificar escapeChar e quoteChar para uma tabela. |É permitido somente um caractere. Sem valor padrão. <br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: "Hello, world"), você poderá definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na fonte. |Não |
 | quoteChar |o caractere usado para colocar um valor de cadeia de caracteres entre aspas. Os delimitadores de coluna e linha que ficam dentro dos caracteres de aspas seriam tratados como parte do valor da cadeia de caracteres. Essa propriedade se aplica aos conjuntos de dados de entrada e de saída.<br/><br/>Não é possível especificar escapeChar e quoteChar para uma tabela. |É permitido somente um caractere. Sem valor padrão. <br/><br/>Por exemplo, se tiver a vírgula (,) como o delimitador de coluna, mas quiser ter o caractere de vírgula no texto (exemplo: <Hello, world>), você poderá definir " (aspas duplas) como o caractere de citação e usar a cadeia de caracteres "Hello, world" na origem. |Não |
-| nullValue |um ou mais caracteres usados para representar um valor nulo. |Um ou mais caracteres. Os valores **padrão** são **"\n" e "NULL"** na leitura e **"\n"** na gravação. |Não |
-| encodingName |especifica o nome de codificação. |Um nomes de codificação válido. consulte [codificação. EncodingName Propriedade](/dotnet/api/system.text.encoding). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
-| firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |True<br/>**False (padrão)** |Não |
+| nullValue |um ou mais caracteres usados para representar um valor nulo. |Um ou mais caracteres. Os valores **padrão** são **"\N" e "NULL"** na leitura e **"\N"** na gravação. |Não |
+| encodingName |especifica o nome de codificação. |Um nomes de codificação válido. Consulte [Propriedade Encoding.EncodingName](/dotnet/api/system.text.encoding). Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
+| firstRowAsHeader |Especifica se a primeira linha será considerada como cabeçalho. Para um conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Para um conjunto de dados de saída, o Data Factory lê a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Verdadeiro<br/>**False (padrão)** |Não |
 | skipLineCount |Indica o número de linhas a serem ignoradas ao ler dados de arquivos de entrada. Se skipLineCount e firstRowAsHeader forem especificados, primeiro as linhas serão ignoradas e, em seguida, as informações de cabeçalho serão lidas no arquivo de entrada. <br/><br/>Veja [Cenários para usar o `firstRowAsHeader` e o `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para cenários de exemplo. |Integer |Não |
 | treatEmptyAsNull |especifica se é necessário tratar uma cadeia de caracteres nula ou vazia como um valor nulo ao ler dados de um arquivo de entrada. |**True (padrão)**<br/>Falso |Não |
 
@@ -78,7 +78,7 @@ Se você quiser analisar os arquivos de JSON ou gravar os dados no formato JSON,
 | filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
 | jsonNodeReference | Se você quiser fazer uma iteração e extrair dados de objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON da matriz. Esta propriedade só terá suporte na cópia de dados de arquivos JSON. | Não |
 | jsonPathDefinition | Especifique a expressão de caminho JSON para cada mapeamento de coluna com um nome de coluna personalizado (iniciar com letra minúscula). Esta propriedade só terá suporte na cópia de dados de arquivos JSON, e você pode extrair dados de objeto ou de matriz. <br/><br/> Para os campos sob o objeto root, comece com root $; para os campos dentro da matriz escolhidos pela propriedade `jsonNodeReference`, comece do elemento de matriz. Veja a seção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar. | Não |
-| encodingName |especifica o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade [Encoding.EncodingName](/dotnet/api/system.text.encoding) . Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é: **UTF-8**. |Não |
+| encodingName |especifica o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: Propriedade [Encoding.EncodingName](/dotnet/api/system.text.encoding) . Por exemplo: windows-1250 ou shift_jis. O valor **padrão** é **UTF-8**. |Não |
 | nestingSeparator |Caractere que é usado para separar os níveis de aninhamento. O valor padrão é '.' (ponto). |Não |
 
 #### <a name="json-file-patterns"></a>Padrões de arquivo JSON
@@ -400,7 +400,7 @@ Para usar o formato Avro em uma tabela de Hive, confira [Tutorial do Apache Hive
 
 Observe os seguintes pontos:  
 
-* Não há suporte para [tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enums, matrizes, mapas, uniões e fixos).
+* Não há suporte para [Tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumerações, matrizes, mapas, uniões e fixo).
 
 ### <a name="specifying-orcformat"></a>Especificando OrcFormat
 Se você quiser analisar os arquivos ORC ou gravar os dados no formato ORC, defina a propriedade `format` `type` como **OrcFormat**. Não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:

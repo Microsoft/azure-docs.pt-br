@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078173"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão da área de trabalho virtual (clássica) do Windows usando a automação do Azure
@@ -44,7 +44,7 @@ Durante o tempo de uso fora do horário de pico, o trabalho determina quantas VM
 >[!NOTE]
 >Se você definir manualmente a VM do host da sessão para o modo de descarga, o trabalho não gerenciará a VM do host da sessão. Se a VM host de sessão estiver em execução e definida como modo de descarga, ela será tratada como indisponível, o que fará com que o trabalho inicie VMs adicionais para lidar com a carga. Recomendamos que você marque todas as VMs do Azure antes de defini-las manualmente para o modo de descarga. Você pode nomear a marca com o parâmetro *MaintenanceTagName* ao criar o Agendador de aplicativos lógicos do Azure mais tarde. As marcas ajudarão você a distinguir essas VMs das gerenciadas pela ferramenta de dimensionamento. Definir a marca de manutenção também impede que a ferramenta de dimensionamento faça alterações na VM até que você remova a marca.
 
-Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para políticas de **configuração do computador**  >  **Policies**  >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM de host da sessão, o trabalho deixará a VM de host da sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
+Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para políticas de **configuração do computador**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM de host da sessão, o trabalho deixará a VM de host da sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
 
 Durante qualquer momento, o trabalho também usa o *MaxSessionLimit* do pool de hosts em conta para determinar se o número atual de sessões é mais de 90% da capacidade máxima. Se for, o trabalho iniciará VMs de host de sessão adicionais.
 

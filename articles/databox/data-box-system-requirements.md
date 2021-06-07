@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 0190e295c2ab206242ab8a44a09ffb42746d75bd
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 7f999dbf7a4e0262e36181a98560931d32d3296b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209536"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612493"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -39,7 +39,7 @@ Os requisitos de software incluem sistemas operacionais com suporte, protocolos 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 > [!IMPORTANT] 
-> Não há suporte para a conexão com Data Box compartilhamentos via REST para ordens de exportação. 
+> Não há suporte para a conexão com Data Box compartilhamentos via REST para ordens de exportação.
 
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 

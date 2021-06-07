@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91740863"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como criar um filtro de faceta no Azure Pesquisa Cognitiva 
@@ -29,8 +29,8 @@ A navegação facetada é usada para filtragem autodirigida nos resultados da co
 
 As facetas são dinâmicas e retornadas em uma consulta. As respostas da pesquisa trazem com elas as categorias de faceta usadas para navegar pelos resultados. Se você não estiver familiarizado com facetas, o exemplo a seguir é uma ilustração de uma estrutura de navegação por faceta.
 
-:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="resultados da pesquisa filtrada&quot;:::
-&quot;Uma imagem mostrando uma caixa de diálogo de pesquisa com resultados de pesquisa filtrados agrupados por cargo de negócios. Uma seta indica que os resultados são facetas que são exibidas em uma estrutura de navegação de faceta " :::image-end:::
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="resultados da pesquisa filtrada":::
+"Uma imagem mostrando uma caixa de diálogo de pesquisa com resultados de pesquisa filtrados agrupados por cargo de negócios. Uma seta indica que os resultados são facetas que são exibidas em uma estrutura de navegação de faceta " :::image-end:::
 
 Novo com navegação por faceta e deseja mais detalhes? Veja [como implementar a navegação facetada no pesquisa cognitiva do Azure](search-faceted-navigation.md).
 

@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385465"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101712905"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade Lookup pode recuperar um conjunto de dados de quaisquer fontes de dados compatíveis com o Azure Data Factory. Use-a no seguinte cenário:
-- Determinar dinamicamente em quais objetos operar em uma atividade subsequente, em vez de embutir o nome do objeto. Alguns exemplos de objeto são arquivos e tabelas.
+A atividade Lookup pode recuperar um conjunto de dados de quaisquer fontes de dados compatíveis com o Azure Data Factory. Você pode usá-lo para determinar dinamicamente em quais objetos operar em uma atividade subsequente, em vez de embutir o nome do objeto. Alguns exemplos de objeto são arquivos e tabelas.
 
-A atividade Lookup lê e retorna o conteúdo de um arquivo de configuração ou tabela. Ela também retorna o resultado da execução de uma consulta ou procedimento armazenado. A saída da atividade Lookup pode ser usada em uma cópia subsequente ou atividade de transformação se for um valor de banco de dados individual. A saída poderá ser usada em uma atividade ForEach se for uma matriz de atributos.
+A atividade Lookup lê e retorna o conteúdo de um arquivo de configuração ou tabela. Ela também retorna o resultado da execução de uma consulta ou procedimento armazenado. A saída pode ser um valor singleton ou uma matriz de atributos, que pode ser consumida em uma cópia subsequente, transformação ou atividades de fluxo de controle, como a atividade ForEach.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-As seguintes fontes de dados são compatíveis com a atividade Lookup. 
+Observe o seguinte:
 
-A atividade de pesquisa pode retornar até 5000 linhas; Se o conjunto de resultados contiver mais registros, as primeiras 5000 linhas serão retornadas. A saída da atividade de pesquisa dá suporte a até 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de pesquisa antes do tempo limite é de 24 horas.
+- A atividade de pesquisa pode retornar até **5000 linhas**; Se o conjunto de resultados contiver mais registros, as primeiras 5000 linhas serão retornadas.
+- A saída da atividade de pesquisa dá suporte a até **4 MB** de tamanho, a atividade falhará se o tamanho exceder o limite. 
+- A duração mais longa para a atividade de pesquisa antes do tempo limite é de **24 horas**.
+- Quando você usa a consulta ou o procedimento armazenado para pesquisar dados, certifique-se de retornar um conjunto de resultados e um exato. Caso contrário, a atividade de pesquisa falhará.
+
+As seguintes fontes de dados são compatíveis com a atividade Lookup. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -381,7 +385,7 @@ Aqui estão algumas limitações da atividade de pesquisa e soluções alternati
 
 | Limitações | Solução alternativa |
 |---|---|
-| A atividade de pesquisa tem um máximo de 5.000 linhas e um tamanho máximo de 2 MB. | Crie um pipeline de dois níveis onde o pipeline externo itera em um pipeline interno que recupera os dados que não excedem o máximo de linhas ou o tamanho. |
+| A atividade de pesquisa tem um máximo de 5.000 linhas e um tamanho máximo de 4 MB. | Crie um pipeline de dois níveis onde o pipeline externo itera em um pipeline interno que recupera os dados que não excedem o máximo de linhas ou o tamanho. |
 | | |
 
 ## <a name="next-steps"></a>Próximas etapas

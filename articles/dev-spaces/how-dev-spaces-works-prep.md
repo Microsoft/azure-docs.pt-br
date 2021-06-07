@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve como preparar seu projeto com o Azure Dev Spaces funciona
 keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
 ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91968150"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Como a preparação de um projeto para Azure Dev Spaces funciona

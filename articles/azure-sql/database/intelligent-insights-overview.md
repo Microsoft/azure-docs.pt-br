@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488860"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100592087"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ O exemplo a seguir mostra um Intelligent Insights exibido por meio da Análise d
 
 ### <a name="set-up-with-event-hubs"></a>Configuração com os Hubs de Eventos
 
-Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para usar Intelligent Insights com os hubs de eventos, configure Intelligent Insights dados de log a serem transmitidos para os hubs de eventos, consulte [log de métricas e diagnósticos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [transmita logs de diagnóstico do Azure para os hubs de eventos](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 Para usar os hubs de eventos para configurar o monitoramento e alertas personalizados, consulte [o que fazer com métricas e logs de diagnóstico em hubs de eventos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

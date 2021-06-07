@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1efd91d92bac1bc1f39d82aaa0cc71daa0275f8e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100570532"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Conectar sua nuvem do serviço Salesforce ao Azure Sentinel
 
@@ -35,7 +35,7 @@ Este artigo explica como conectar sua solução de nuvem do serviço Salesforce 
 
 - Você deve ter permissão de leitura e gravação no espaço de trabalho do Azure Sentinel.
 
-- Você deve ter permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- Você deve ter permissões de leitura para chaves compartilhadas para o espaço de trabalho. [Saiba mais sobre as chaves do espaço de trabalho](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 - Você deve ter permissões de leitura e gravação para Azure Functions a fim de criar uma Aplicativo de funções. [Saiba mais sobre Azure Functions](../azure-functions/index.yml).
 

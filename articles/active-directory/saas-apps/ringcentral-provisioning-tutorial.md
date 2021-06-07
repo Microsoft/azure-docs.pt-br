@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181605"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800730"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configurar RingCentral para provisionamento automático de usuários
 
@@ -46,15 +46,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o RingCentral para dar suporte ao provisionamento com o Azure AD
 
-1. Entre no [Console de Administração do RingCentral](https://login.ringcentral.com/sw.html). Navegue até **Ferramentas > Integração de Diretórios**.
-
-    ![Console de Administração do RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Escolha **SCIM** em **Selecionar Provedor de Diretórios**. (No futuro, haverá uma opção chamada Azure Active Directory). Clique em **Habilitar Serviço SCIM**.
-
-    ![Adicionar SCIM do RingCentral](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Contate a equipe de suporte do RingCentral em matthew.hunt@ringcentral.com para obter um **Token de autenticação do SCIM**. Esse valor será inserido no campo Token Secreto na guia Provisionamento do aplicativo do RingCentral no portal do Azure.
+É necessária uma conta de administrador do [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) para autorizar na seção de Credenciais de Administrador na Etapa 5.
 
 > [!NOTE]
 > Para atribuir licenças a usuários, consulte o link de vídeo [aqui](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -94,9 +86,13 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Captura de tela da lista suspensa Modo de Provisionamento com a opção Automático destacada.](common/provisioning-automatic.png)
 
-5. Na seção **Credenciais de Administrador**, insira `https://platform.ringcentral.com/scim/v2` em **URL do Locatário**. Insira o valor do **Token de Autenticação do SCIM** recuperado anteriormente em **Token Secreto**. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao RingCentral. Se a conexão falhar, verifique se a conta do RingCentral tem permissões de Administrador e tente novamente.
+5. Na seção **Credenciais de Administrador**, clique em **Autorizar**. Você será redirecionado para a página de entrada do RingCentral. Insira seu email/número de telefone e senha e clique no botão **Entrar**. Clique em **Autorizar** na página de **Solicitação de acesso** do RingCentral. Clique em **Testar Conectividade** para verificar se o Azure AD pode se conectar ao RingCentral. Se a conexão falhar, verifique se a conta do RingCentral tem permissões de Administrador e tente novamente.
 
-    ![Captura de tela dos campos de texto URL do Locatário e Token Secreto com a opção de Testar Conectividade realçada.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Acesso](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autorizar](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
@@ -151,6 +147,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 ## <a name="change-log"></a>Log de alterações
 
 * 10/09/2020 – suporte removido para os atributos "displayName" e "manager".
+* 15/03/2021 – Atualizado o método de autorização de token de portador permanente para fluxo de concessão de código OAuth.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

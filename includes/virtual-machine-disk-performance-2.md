@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100580379"
 ---
 ![Gráfico mostrando as especificações D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ Nesse caso, o aplicativo em execução em um Standard_D8s_v3 máquina virtual fa
 - Como os três discos que usam o cache de host estão dentro dos limites em cache de 16.000, essas solicitações são concluídas com êxito. Nenhum capping de desempenho de armazenamento ocorre.
 - Como os dois discos que não usam o cache de host estão dentro dos limites não armazenados em cache de 12.800, essas solicitações também são concluídas com êxito. Não ocorre nenhum capping.
 
-## <a name="disk-performance-metrics"></a>Métricas de desempenho de disco
-
-Temos métricas no Azure que fornecem informações sobre como as máquinas virtuais e os discos estão sendo executados. Essas métricas podem ser exibidas por meio do portal do Azure. Eles também podem ser recuperados por meio de uma chamada à API. As métricas são calculadas em intervalos de um minuto. As métricas a seguir estão disponíveis para obter informações sobre e/s de disco e de VM e também sobre o desempenho da taxa de transferência:
-
-- **Profundidade da fila de disco do so**: o número de solicitações de e/s pendentes atuais que estão aguardando para serem lidas ou gravadas no disco do sistema operacional.
-- **Bytes de leitura do disco do so/s**: o número de bytes lidos em um segundo do disco do sistema operacional.
-- **Operações de leitura de disco do so/s**: o número de operações de entrada que são lidas em um segundo do disco do sistema operacional.
-- **Bytes de gravação de disco do sistema operacional/s**: o número de bytes gravados em um segundo do disco do sistema operacional.
-- **Operações de gravação de disco do so/s**: o número de operações de saída que são gravadas em um segundo do disco do sistema operacional.
-- **Profundidade da fila do disco de dados**: o número de solicitações de e/s pendentes atuais que estão aguardando para serem lidas ou gravadas nos discos de dados.
-- **Bytes de leitura do disco de dados/s**: o número de bytes lidos em um segundo dos discos de dados.
-- **Operações de leitura de disco de dados/s**: o número de operações de entrada que são lidas em um segundo de discos de dados.
-- **Bytes de gravação do disco de dados/s**: o número de bytes gravados em um segundo dos discos de dados.
-- **Operações de gravação do disco de dados/s**: o número de operações de saída que são gravadas em um segundo a partir de disco (s) de dados.
-- **Bytes de leitura de disco/s**: o número total de bytes lidos em um segundo de todos os discos anexados a uma VM.
-- **Operações de leitura de disco/s**: o número de operações de entrada que são lidas em um segundo de todos os discos anexados a uma VM.
-- **Bytes de gravação de disco/s**: o número de bytes gravados em um segundo de todos os discos anexados a uma VM.
-- **Operações de gravação de disco/s**: o número de operações de saída que são gravadas em um segundo de todos os discos anexados a uma VM.
-
-## <a name="storage-io-utilization-metrics"></a>Métricas de utilização de e/s de armazenamento
-As métricas a seguir ajudam a diagnosticar afunilamento na sua combinação de disco e máquina virtual. Essas métricas só estão disponíveis ao usar a VM habilitada Premium. Essas métricas estão disponíveis para todos os tipos de disco, exceto para ultra. 
-
-Métricas que ajudam a diagnosticar a e/s de disco com limitação:
-
-- **Percentual de IOPS consumido de disco de dados**: a porcentagem calculada pelo IOPS de disco de dados foi concluída sobre o IOPS de disco de dados provisionado. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de IOPS do disco de dados.
-- **Porcentagem consumida da largura de banda do disco de dados**: a porcentagem calculada pela taxa de transferência do disco de dados foi concluída na taxa de transferência do disco de dados provisionado Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de largura de banda do disco de dados.
-- **Porcentagem consumida de IOPS de disco do so**: a porcentagem calculada pelo IOPS de disco do sistema operacional concluída em relação à IOPS de disco do sistema operacional provisionado. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de IOPS do disco do sistema operacional.
-- **Porcentagem consumida da largura de banda do disco do so**: a porcentagem calculada pela taxa de transferência do disco do so concluída sobre a taxa de transferência do disco do so provisionado Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de largura de banda do disco do sistema operacional.
-
-Métricas que ajudam a diagnosticar a e/s de VM com limitação:
-
-- **Porcentagem consumida de IOPS em cache da VM**: a porcentagem calculada pelo total de IOPS concluída em relação ao limite de IOPS máximo em cache da máquina virtual. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de IOPS em cache da VM.
-- **Porcentagem consumida da largura de banda em cache da VM**: a porcentagem calculada pela taxa de transferência total do disco concluída na taxa de transferência máxima de máquina virtual em cache. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de largura de banda em cache da VM.
-- **Percentual de IOPS consumido de VM não armazenado em cache**: a porcentagem calculada pelo IOPS total em uma máquina virtual foi concluída com o limite máximo de IOPS de máquina virtual sem cache. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de IOPS sem cache da sua VM.
-- **Porcentagem consumida da largura de banda não armazenada em cache da VM**: a porcentagem calculada pela taxa de transferência total do disco em uma máquina virtual foi concluída com a taxa de transferência máxima da máquina virtual provisionada. Se esse valor for em 100%, seu aplicativo em execução será e/s limitada do limite de largura de banda sem cache da sua VM.
-
-## <a name="storage-io-utilization-metrics-example"></a>Exemplo de métricas de utilização de e/s de armazenamento
-
-Vamos executar um exemplo de como usar essas novas métricas de utilização de e/s de armazenamento para nos ajudar a depurar onde há um afunilamento em nosso sistema. A configuração do sistema é igual ao exemplo anterior, exceto que, desta vez, o disco do sistema operacional anexado *não* é armazenado em cache.
-
-**Instalação**
-
-- Standard_D8s_v3
-  - IOPS em cache: 16.000
-  - IOPS não armazenado em cache: 12.800
-- Disco do sistema operacional p30
-  - IOPS: 5.000
-  - Cache de host: **desabilitado**
-- Dois discos de dados p30 × 2
-  - IOPS: 5.000
-  - Cache de host: **leitura/gravação**
-- Dois discos de dados p30 × 2
-  - IOPS: 5.000
-  - Cache de host: **desabilitado**

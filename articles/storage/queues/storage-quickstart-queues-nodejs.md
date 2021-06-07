@@ -1,19 +1,21 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 – JavaScript'
 description: Saiba como usar a biblioteca de clientes do Armazenamento de Filas do Azure v12 para JavaScript para criar uma fila e adicionar mensagens a ela. Depois, descubra como ler e excluir mensagens da fila. Você também aprenderá a excluir uma fila.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-js
-ms.openlocfilehash: 23c58526ba481a56b371bd077661d8d0bc7d45c7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 943678debc32116ff7a2e54810c4edcf2d331bd6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586526"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534428"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 para JavaScript
 

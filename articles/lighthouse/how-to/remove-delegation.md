@@ -1,14 +1,14 @@
 ---
 title: Remover o acesso a uma delegação
 description: Saiba como remover o acesso a recursos que foram delegados a um provedor de serviços para o Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791349"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100555779"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
@@ -21,7 +21,7 @@ A remoção de uma delegação pode ser feita por um usuário no locatário do c
 
 ## <a name="customers"></a>Clientes
 
-Os usuários no locatário do cliente que têm a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para uma assinatura podem remover o acesso do provedor de serviço a essa assinatura (ou aos grupos de recursos nessa assinatura). Para fazer isso, um usuário no locatário do cliente pode ir para a [página provedores de serviço](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal do Azure, localizar a oferta na tela **ofertas do provedor de serviço** e selecionar o ícone de lixeira na linha dessa oferta.
+Os usuários no locatário do cliente que têm uma função com a `Microsoft.Authorization/roleAssignments/write` permissão, como [proprietário](../../role-based-access-control/built-in-roles.md#owner), podem remover o acesso do provedor de serviços para essa assinatura (ou para grupos de recursos nessa assinatura). Para fazer isso, o usuário pode ir para a [página provedores de serviço](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal do Azure, localizar a oferta na tela **ofertas de provedor de serviço** e selecionar o ícone de lixeira na linha dessa oferta.
 
 Depois de confirmar a exclusão, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
 

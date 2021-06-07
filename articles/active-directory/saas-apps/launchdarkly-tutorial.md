@@ -9,222 +9,158 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ffa5d359e689220bd8cdbc7b9f6e305f451269a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d9db86e400d862dd67582ede0bf44b9e9fd1c893
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458739"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104954795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Active Directory com o LaunchDarkly
 
-Neste tutorial, você aprenderá a integrar o LaunchDarkly ao Azure AD (Azure Active Directory).
-A integração do LaunchDarkly ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o LaunchDarkly ao Azure AD (Azure Active Directory). Quando integrar o LaunchDarkly ao Azure AD, você poderá:
 
-* No AD do Azure, você pode controlar quem tem acesso ao LaunchDarkly.
-* Você pode permitir que seus usuários entrem automaticamente no LaunchDarkly (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar quem tem acesso ao LaunchDarkly no Azure AD.
+* Permitir que seus usuários entrem automaticamente no LaunchDarkly com as contas do Azure AD deles.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+    > [!NOTE]
+    > A integração do Azure Active Directory do LaunchDarkly é unidirecional. Depois de configurar a integração, você poderá usar o Azure AD para gerenciar usuários, SSO e contas no LaunchDarkly, mas **não pode** usar o LaunchDarkly para gerenciar usuários, SSO e contas no Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao LaunchDarkly, você precisará dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do LaunchDarkly
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para logon único do LaunchDarkly.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O LaunchDarkly é compatível com SSO iniciado por **SP e IDP**
-* O LaunchDarkly dá suporte ao provisionamento de usuário **Just In Time**
+* O LaunchDarkly dá suporte ao SSO iniciado por **IDP**.
+* O LaunchDarkly dá suporte ao provisionamento de usuário **Just In Time**.
 
-## <a name="adding-launchdarkly-from-the-gallery"></a>Adicionar LaunchDarkly da Galeria
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
+
+## <a name="add-launchdarkly-from-the-gallery"></a>Adicionar o LaunchDarkly da galeria
 
 Para configurar a integração do LaunchDarkly ao Azure AD, você precisa adicionar o LaunchDarkly da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o LaunchDarkly da galeria, execute as seguintes etapas:**
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **LaunchDarkly** na caixa de pesquisa.
+1. Selecione **LaunchDarkly** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-launchdarkly"></a>Configurar e testar o SSO do Azure AD para LaunchDarkly
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o LaunchDarkly usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no LaunchDarkly.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+Para configurar e testar o SSO do Azure AD com o LaunchDarkly, execute as seguintes etapas:
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+1. **[Configurar o SSO do LaunchDarkly](#configure-launchdarkly-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do LaunchDarkly](#create-launchdarkly-test-user)** – para ter um equivalente de B.Fernandes no LaunchDarkly vinculado à representação do usuário no Azure AD.
+1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **LaunchDarkly** , selecione **LaunchDarkly** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No portal do Azure, na página de integração de aplicativos do **LaunchDarkly**, encontrar a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
-     ![LaunchDarkly na lista de resultados](common/search-new-app.png)
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o [nome do aplicativo], com base em uma usuária de teste chamada **Brenda Fernandes** .
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do [nome do aplicativo].
-
-Para configurar e testar o logon único do Azure AD com o [nome do aplicativo], você precisará concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do LaunchDarkly](#configure-launchdarkly-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do LaunchDarkly](#create-launchdarkly-test-user)** – para ter um equivalente de Brenda Fernandes no LaunchDarkly vinculado à representação do usuário no Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do AD do Azure com o [nome do aplicativo], execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **LaunchDarkly** , selecione **Logon único** .
-
-    ![Link Configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
-
-    ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
-
-    a. Na caixa de texto **Identificador** , digite uma URL: `app.launchdarkly.com`
+    a. Na caixa de texto **Identificador**, digite a URL `app.launchdarkly.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
     > [!NOTE]
-    > O valor de URL de Resposta não é real. Você atualizará o valor com a URL de Resposta real, que é explicada no tutorial posteriormente. Se estiver pretendendo usar o aplicativo no modo **IDP** , você deverá deixar o campo **URL de Logon** em branco, caso contrário, você não poderá iniciar o logon do **IDP** . Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor de URL de Resposta não é real. Você atualizará o valor com a URL de Resposta real, que é explicada no tutorial posteriormente. Se estiver pretendendo usar o aplicativo no modo **IDP**, você deverá deixar o campo **URL de Logon** em branco, caso contrário, você não poderá iniciar o logon do **IDP**. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
-
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://app.launchdarkly.com`
-
-    ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
-
-6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o LaunchDarkly** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o LaunchDarkly**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    b. Identificador do Azure Ad
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-    c. URL de logoff
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
-### <a name="configure-launchdarkly-single-sign-on"></a>Configurar o logon único do LaunchDarkly
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo a ela acesso ao LaunchDarkly.
+
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **LaunchDarkly**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+## <a name="configure-launchdarkly-sso"></a>Configurar SSO do LaunchDarkly
 
 1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do LaunchDarkly como administrador.
 
 2. Selecione **Configurações de conta** do painel de navegação esquerdo.
 
-    ![A captura de tela mostra o item Configurações de Conta selecionado em Produção.](./media/launchdarkly-tutorial/configure1.png)
+    ![A captura de tela mostra o item Configurações de Conta selecionado em Produção.](./media/launchdarkly-tutorial/configure-1.png)
 
-3. Clique na guia **Segurança** .
+3. Clique na guia **Segurança**.
 
-    ![A captura de tela mostra a guia Segurança das Configurações de conta.](./media/launchdarkly-tutorial/configure2.png)
+    ![A captura de tela mostra a guia Segurança das Configurações de conta.](./media/launchdarkly-tutorial/configure-2.png)
 
-4. Clique em **Habilitar SSO** e **Editar configuração de SAML** .
+4. Clique em **Habilitar SSO** e **Editar configuração de SAML**.
 
-    ![A captura de tela mostra a página Logon único em que você pode HABILITAR O SSO e EDITAR A CONFIGURAÇÃO DO SAML.](./media/launchdarkly-tutorial/configure3.png)
+    ![A captura de tela mostra a página Logon único em que você pode HABILITAR O SSO e EDITAR A CONFIGURAÇÃO DO SAML.](./media/launchdarkly-tutorial/configure-3.png)
 
-5. Na seção **Editar sua configuração do SAML** , realize as seguintes etapas:
+5. Na seção **Editar sua configuração do SAML**, realize as seguintes etapas:
 
-    ![A captura de tela mostra a seção Editar sua configuração do SAML em que você pode fazer as alterações descritas aqui.](./media/launchdarkly-tutorial/configure4.png)
+    ![A captura de tela mostra a seção Editar sua configuração do SAML em que você pode fazer as alterações descritas aqui.](./media/launchdarkly-tutorial/configure-4.png)
 
     a. Copie a **URL de serviço do consumidor do SAML** para a sua instância e cole-a na caixa de texto URL de Resposta na seção **Domínio e URLs do LaunchDarkly** no portal do Azure.
 
-    b. Na caixa de texto **URL de Logon** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    c. Abra o certificado baixado do portal do Azure no Bloco de Notas, copie o conteúdo e, em seguida, cole-o na caixa **certificado x. 509** ou você pode carregar diretamente o certificado clicando em **Carregar um** .
+    c. Abra o certificado baixado do portal do Azure no Bloco de Notas, copie o conteúdo e, em seguida, cole-o na caixa **certificado x. 509** ou você pode carregar diretamente o certificado clicando em **Carregar um**.
 
-    d. Clique em **Salvar**
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
-
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome** , insira **BrendaFernandes** .
-  
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao LaunchDarkly.
-
-1. No portal do Azure, escolha **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, escolha **LaunchDarkly** .
-
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **LaunchDarkly** .
-
-    ![O link do LaunchDarkly na lista de Aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Usuários e grupos** .
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+    d. Clique em **Save** (Salvar).
 
 ### <a name="create-launchdarkly-test-user"></a>Criar um usuário de teste do LaunchDarkly
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no LaunchDarkly. O LaunchDarkly dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o LaunchDarkly, caso ele ainda não exista.
+Nesta seção, um usuário chamado B.Fernandes será criado no LaunchDarkly. O LaunchDarkly é compatível com o provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no LaunchDarkly, um será criado após a autenticação.
 
-> [!Note]
-> Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do LaunchDarkly](mailto:support@launchdarkly.com).
+## <a name="test-sso"></a>Testar o SSO
 
-### <a name="test-single-sign-on"></a>Testar logon único
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+* Clique em Testar este aplicativo no portal do Azure e entre automaticamente no LaunchDarkly para o qual configurou o SSO.
 
-Ao clicar no bloco do LaunchDarkly no Painel de Acesso, você deverá ser conectado automaticamente ao LaunchDarkly no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do LaunchDarkly nos Meus Aplicativos, você deverá ser conectado automaticamente ao LaunchDarkly no qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Próximas etapas
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](./tutorial-list.md)
-
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+Depois de configurar o LaunchDarkly, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

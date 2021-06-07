@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
 ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376274"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
@@ -35,7 +35,7 @@ Recomendamos que você execute as seguintes etapas de validação antes de inici
 - Se esse for um backup offline, verifique se Azure PowerShell versão 3.7.0 está instalada no computador de origem e de cópia antes de começar a operação de backup offline
 - [Consideração quando o agente de backup estiver em execução em uma máquina virtual do Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)
 
-### <a name="limitation"></a>Limitações
+### <a name="limitation"></a>Limitação
 
 - Não é recomendável recuperar para hardware diferente usando a recuperação de estado do sistema pela Microsoft
 - O backup de estado do sistema atualmente dá suporte a servidores Windows "locais". Essa funcionalidade não está disponível para VMs do Azure.

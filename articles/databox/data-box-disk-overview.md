@@ -8,13 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: ea9353ed8c1938fa9b33585a0650b4507c671451
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125023"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770425"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -36,7 +35,7 @@ Os provedores do Azure e os provedores não Azure podem ingerir dados do Azure D
 
 - **SharePoint Online**: use o Azure Data Box e a SPMT (Ferramenta de Migração do SharePoint) para migrar o conteúdo do compartilhamento de arquivo para o SharePoint Online. Usando o Data Box, remova a dependência do link da WAN para transferir os dados. Para obter mais informações, confira [Usar o Azure Data Box Heavy para migrar o conteúdo do compartilhamento de arquivo para o SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Sincronização de Arquivos do Azure**: replica arquivos do Data Box para um compartilhamento de arquivo do Azure, permitindo centralizar seus serviços de arquivo no Azure, mantendo o acesso local aos seus dados. Para obter mais informações, confira [Implantar a Sincronização de Arquivos do Azure](../storage/files/storage-sync-files-deployment-guide.md).
+- **Sincronização de Arquivos do Azure**: replica arquivos do Data Box para um compartilhamento de arquivo do Azure, permitindo centralizar seus serviços de arquivo no Azure, mantendo o acesso local aos seus dados. Para obter mais informações, confira [Implantar a Sincronização de Arquivos do Azure](../storage/file-sync/file-sync-deployment-guide.md).
 
 - **Repositórios HDFS**: migre dados de um repositório HDFS (de Sistema de Arquivos Distribuído Hadoop) local do seu cluster Hadoop para o Armazenamento do Azure usando o Data Box. Para obter mais informações, confira [Migrar do repositório HDFS local para o Armazenamento do Azure com o Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 

@@ -3,12 +3,12 @@ title: Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft D
 description: Saiba como o barramento de serviço do Azure dá suporte a assincronismo por meio de um mecanismo de armazenamento e encaminhamento com filas, tópicos e assinaturas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ea09b809a19cfe7c7f024b059589748ff9e297d4
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631616"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102500624"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
 
@@ -73,5 +73,5 @@ Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no B
 [System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md

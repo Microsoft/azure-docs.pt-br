@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
 ms.openlocfilehash: 6c61e26ca858c5eb12ffe0219993f7477b0e8133
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98605885"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql-flexible-server"></a>Início rápido: Usar o Java e o JDBC com o Servidor Flexível do Banco de Dados do Azure para PostgreSQL

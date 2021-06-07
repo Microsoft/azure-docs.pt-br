@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
 ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91461182"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Início Rápido: Configurar um laboratório usando o Azure DevTest Labs e um modelo do ARM
@@ -65,16 +65,16 @@ Para executar a implantação automaticamente, clique no botão a seguir.
 ## <a name="validate-the-deployment"></a>Validar a implantação
 1. Selecione **Notificações** na parte superior para ver o status da implantação e clique no link **Implantação em andamento**.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notificação de implantação":::
 2. Na página **Implantação – Visão geral**, aguarde até que a implantação seja concluída. Esta operação (especialmente a criação de uma VM) leva algum tempo para ser concluída. Em seguida, selecione **Ir para o grupo de recursos** ou o **nome do grupo de recursos**, conforme mostrado na seguinte imagem: 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Navegar até grupo de recursos":::
 3. Na página **Grupo de recursos**, você vê a lista de recursos no grupo de recursos. Confirme que você vê seu laboratório do tipo: `DevTest Lab` nos recursos. Você também verá os recursos dependentes, como a rede virtual e a máquina virtual, no grupo de recursos. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Home page do grupo de recursos":::
 4. Selecione seu laboratório na lista de recursos para ver a home page dele. Confirme que você vê a VM do Datacenter do Windows Server 2019 na lista **Minhas máquinas virtuais**. Na imagem a seguir, a seção **Essentials** está minimizada. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Home page do laboratório":::
 
     > [!IMPORTANT] 
     > Mantenha esta página aberta e siga as instruções na próxima seção para limpar os recursos, a fim de evitar os custos de execução do laboratório e da VM no Azure. Se quiser seguir o próximo tutorial para testar o acesso à VM no laboratório, limpe os recursos depois de fazer isso. 
@@ -83,14 +83,14 @@ Para executar a implantação automaticamente, clique no botão a seguir.
 
 1. Primeiro, exclua o laboratório para que seja possível excluir o grupo de recursos. Você não poderá excluir o grupo de recursos se houver um laboratório nele. Para excluir o laboratório, selecione **Excluir** na barra de ferramentas. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Botão Excluir laboratório":::
  2. Na página de confirmação, digite o **nome do laboratório** e selecione **Excluir**. 
  3. Aguarde até que o laboratório seja excluído. Selecione o ícone de **sino** para ver a notificação da operação de exclusão. Esse processo demora um pouco. Confirme a exclusão do laboratório e selecione o **grupo de recursos** no menu de navegação estrutural. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirmar exclusão de VM nas notificações":::
  1. Na página **Grupo de recursos**, selecione **Excluir grupo de recursos** na barra de ferramentas. Na página de confirmação, digite o **nome do grupo de recursos** e selecione **Excluir**. Verifique as notificações para confirmar se o grupo de recursos foi excluído.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Página Implantar Modelo":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Botão Excluir grupo de recursos":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste guia de início rápido, você criou um laboratório com uma VM. Para saber como acessar o laboratório, vá para o próximo tutorial:

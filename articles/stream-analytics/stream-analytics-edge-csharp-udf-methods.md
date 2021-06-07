@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020563"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics (versão prévia)
@@ -54,7 +54,7 @@ O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure 
 |string  |  nvarchar(max)   |
 |DateTime  |  dateTime   |
 |struct  |  Record   |
-|objeto  |  Record   |
+|object  |  Record   |
 |Objeto []  |  Array   |
 |Dicionário\<string, object>  |  Record   |
 

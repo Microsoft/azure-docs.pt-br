@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
 ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077942"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Trabalhando remotamente usando a bastiões do Azure

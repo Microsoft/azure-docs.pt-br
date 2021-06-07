@@ -4,10 +4,10 @@ description: Procurar e inspecionar mensagens do barramento de serviço permite 
 ms.topic: article
 ms.date: 11/11/2020
 ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553634"
 ---
 # <a name="message-browsing"></a>Procura de mensagens
@@ -22,7 +22,7 @@ Peek também retorna mensagens que foram bloqueadas e que estão sendo processad
 
 ## <a name="peek-apis"></a>APIs de Peek
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas de cliente .net e Java e nos objetos receptores: **MessageReceiver** , **MessageSession**. Espiar funciona em filas, assinaturas e suas respectivas filas de mensagens mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas de cliente .net e Java e nos objetos receptores: **MessageReceiver**, **MessageSession**. Espiar funciona em filas, assinaturas e suas respectivas filas de mensagens mortas.
 
 Quando chamado repetidamente, **Peek** enumera todas as mensagens no log de fila ou assinatura, em ordem, do número de sequência mais baixo disponível para o mais alto. É a ordem na qual as mensagens foram enfileiradas, não a ordem em que as mensagens podem eventualmente ser recuperadas.
 

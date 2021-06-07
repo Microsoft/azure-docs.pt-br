@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934864"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva- `eq` ,,,, `ne` `gt` `lt` `ge` e `le`
@@ -81,13 +81,13 @@ Os tipos de dados em ambos os lados de um operador de comparação devem ser com
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | A comparação está sujeita a [regras especiais `NaN` para](#special-case-nan) |
 | `Edm.Double` | `Edm.Int64` | A constante é convertida em `Edm.Double` , resultando em uma perda de precisão para valores de grande magnitude |
-| `Edm.Double` | `Edm.Int32` | n/a |
+| `Edm.Double` | `Edm.Int32` | N/D |
 | `Edm.Int64` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
-| `Edm.Int64` | `Edm.Int64` | n/a |
+| `Edm.Int64` | `Edm.Int64` | N/D |
 | `Edm.Int64` | `Edm.Int32` | A constante é convertida `Edm.Int64` antes da comparação |
 | `Edm.Int32` | `Edm.Double` | Comparações com `NaN` , `-INF` , ou `INF` não são permitidas |
-| `Edm.Int32` | `Edm.Int64` | n/d |
-| `Edm.Int32` | `Edm.Int32` | n/d |
+| `Edm.Int32` | `Edm.Int64` | N/D |
+| `Edm.Int32` | `Edm.Int32` | N/D |
 
 Para comparações que não são permitidas, como comparar um campo do tipo `Edm.Int64` como `NaN` , a API REST do Azure pesquisa cognitiva retornará um erro "http 400: solicitação inválida".
 

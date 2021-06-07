@@ -10,10 +10,10 @@ ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368172"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
@@ -162,7 +162,7 @@ A tabela a seguir descreve elementos schedule em detalhes:
 
 | Nome JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **alguns** |Minutos da hora em que o trabalho executa. |Uma matriz de inteiros. |
+| **minutes** |Minutos da hora em que o trabalho executa. |Uma matriz de inteiros. |
 | **duração** |Horas do dia em que o trabalho executa. |Uma matriz de inteiros. |
 | **Dias da semana** |Dias da semana em que o trabalho executa. Pode ser especificado apenas com uma frequência semanal. |Uma matriz de qualquer um dos valores a seguir (o tamanho máximo da matriz é 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Não diferencia maiúsculas de minúsculas. |
 | **monthlyOccurrences** |Determina em quais dias do mês o trabalho executa. Pode ser especificado apenas com uma frequência mensal. |Uma matriz de objetos **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** é o dia da semana em que o trabalho executa. Por exemplo, *{Sunday}* são todos os domingos do mês. Obrigatórios.<br /><br />**occurrence** é a ocorrência do dia durante o mês. Por exemplo,  *{Sunday, -1}* é o último domingo do mês. Opcional. |

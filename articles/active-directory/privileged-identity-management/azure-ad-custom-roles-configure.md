@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94835315"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
@@ -64,7 +64,7 @@ Além disso, você pode escolher uma destas opções de duração da atribuiçã
 - **Permitir atribuição ativa permanente**: os administradores podem atribuir uma associação ativa permanente.
 - **Expirar atribuição ativa após**: os administradores podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada.
 
-### <a name="require-azure-ad-multi-factor-authentication"></a>Exigir autenticação multifator do Azure AD
+### <a name="require-azure-ad-multi-factor-authentication"></a>Exigir a Autenticação Multifator do Azure AD
 
 Privileged Identity Management fornece imposição opcional da autenticação multifator do Azure AD para dois cenários distintos.
 

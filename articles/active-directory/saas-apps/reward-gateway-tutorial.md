@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 202c9d8075a45b1c5479d9cd1fc9f3392ba026f9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92514989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com o Reward Gateway
@@ -61,7 +61,7 @@ Para configurar a integração do Reward Gateway ao Azure AD, você precisa adic
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Reward Gateway** , selecione **Reward Gateway** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Reward Gateway**, selecione **Reward Gateway** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Reward Gateway na lista de resultados](common/search-new-app.png)
 
@@ -85,30 +85,30 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Reward Gateway, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Reward Gateway** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Reward Gateway**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na página **Configurar Logon Único com SAML** , execute as seguintes etapas:
+4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Reward Gateway](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     - `https://<companyname>.rewardgateway.com`
     - `https://<companyname>.rewardgateway.co.uk/`
     - `https://<companyname>.rewardgateway.co.nz/`
     - `https://<companyname>.rewardgateway.com.au/`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
     - `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>`
     - `https://<companyname>.rewardgateway.co.uk/Authentication/EndLogin?idp=<Unique Id>`
@@ -118,11 +118,11 @@ Para configurar o logon único do Azure AD com o Reward Gateway, execute as segu
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Para obter esses valores, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Detalhes podem ser localizados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Reward Gateway** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Reward Gateway**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -134,13 +134,13 @@ Para configurar o logon único do Azure AD com o Reward Gateway, execute as segu
 
 ### <a name="configure-reward-gateway-single-sign-on"></a>Configurar o logon único do Reward Gateway
 
-Para configurar o logon único do **Gateway de Prêmio** , comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
+Para configurar o logon único do **Gateway de Prêmio**, comece a configurar uma Integração no Portal do Gerenciador de Prêmio. Use os metadados baixados para obter o Certificado de Autenticação e carregá-lo durante a configuração. Detalhes podem ser localizados em https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -152,9 +152,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`  
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -165,7 +165,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você habilitará Brenda Fernandes a usar logon único do Azure concedendo acesso ao Reward Gateway.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Reward Gateway**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Reward Gateway**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -181,11 +181,11 @@ Nesta seção, você habilitará Brenda Fernandes a usar logon único do Azure c
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-reward-gateway-test-user"></a>Criar um usuário de teste do Reward Gateway
 

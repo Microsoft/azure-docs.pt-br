@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
 ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89022234"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Exclusão temporária para máquinas virtuais

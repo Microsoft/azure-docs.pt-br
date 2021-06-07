@@ -4,10 +4,10 @@ description: Exiba e filtre as recomendações do Azure Advisor para reduzir o r
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 43bdaba7d774bba8857a6eb3ef296d7ab8e1c264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90986858"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Exibir as recomendações do Azure Advisor que são importantes para você
@@ -47,7 +47,7 @@ O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso
 1. Selecione uma recomendação na lista de recomendações
 1. Selecione adiar ou ignorar para a recomendação que você deseja adiar ou ignorar
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss.png" alt-text="Captura de tela da janela usar Managed Disks mostrando as ações Selecionar coluna e adiar e ignorar para uma única recomendação realçada.":::
 
 ### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Adiar ou ignorar várias recomendações no portal do Azure
 
@@ -57,7 +57,7 @@ O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso
 1. Marque a caixa de seleção à esquerda da linha para todos os recursos que você deseja adiar ou ignorar a recomendação.
 1. Selecione **adiar** ou **ignorar** na parte superior esquerda da tabela.
 
-     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/postpone-dismiss-multiple.png" alt-text="Captura de tela da janela usar Managed Disks mostrando as ações Selecionar coluna e adiar e ignorar na parte superior esquerda da tabela realçada.":::
 
 > [!NOTE]
 > Você precisa de um colaborador ou permissão de proprietário para ignorar ou adiar uma recomendação. Saiba mais sobre as permissões no Azure Advisor.
@@ -67,13 +67,13 @@ O Azure Advisor permite ignorar ou adiar as recomendações em um único recurso
 
 ### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Reativar uma recomendação adiada ou ignorada
 
-Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pode ser feita no portal do Azure ou de forma programática. No Portal do Azure:
+Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pode ser feita no portal do Azure ou de forma programática. No portal do Azure:
 
 1. Abra o [Azure Advisor](https://aka.ms/azureadvisordashboard) no portal do Azure.
 
 1. Altere o filtro no painel Visão geral para **adiado**. Em seguida, o Advisor exibe recomendações adiadas ou ignoradas.
 
-    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
+    :::image type="content" source="./media/view-recommendations/activate-postponed.png" alt-text="Captura de tela da janela do supervisor do Azure mostrando o menu suspenso adiado selecionado.":::
 
 1. Selecione uma categoria para ver as recomendações **adiadas** e **ignoradas** .
 
@@ -81,13 +81,13 @@ Você pode ativar uma recomendação que foi adiada ou ignorada. Essa ação pod
 
 1. Clique em **Ativar** no final da linha. Depois de clicado, a recomendação está ativa para esse recurso e, portanto, removida dessa tabela. A recomendação agora está visível na guia **ativa** .
  
-     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de tela do Azure Advisor mostrando opções de filtragem.":::
+     :::image type="content" source="./media/view-recommendations/activate-postponed-2.png" alt-text="Captura de tela da janela Habilitar exclusão reversível mostrando a guia adiada & ignorada com a ação ativar realçada.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo explica como você pode exibir recomendações relevantes para você no Azure Advisor. Para saber mais sobre o Assistente, consulte: 
 
-- [O que é o Azure Advisor?](advisor-overview.md)
+- [O que é o Assistente do Azure?](advisor-overview.md)
 - [Introdução com o Advisor](advisor-get-started.md)
 - [Permissões no Azure Advisor](permissions.md)
 

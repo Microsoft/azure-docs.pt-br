@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 1/12/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378614"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644922"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
 ### <a name="logins-and-users"></a>Logons e usuários
 
 - Logons do SQL criados usando `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` são compatíveis. Consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Os principais do servidor do Azure Active Directory (Azure AD) (logons) criadas com a sintaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) não são compatíveis. Esses são logons são criados no nível do servidor.
+- Os principais do servidor do Azure Active Directory (Azure AD) (logons) criadas com a sintaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) ou [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) não são compatíveis. Esses são logons são criados no nível do servidor.
 
     O SQL Instância Gerenciada dá suporte a entidades de banco de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Isso também é conhecido como usuários de banco de dados contidos do Azure AD.
 
@@ -252,7 +252,7 @@ Algumas propriedades de arquivo não podem ser definidas ou alteradas:
 As opções a seguir são definidas por padrão e não podem ser alteradas:
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 As seguintes opções não podem ser modificadas:
@@ -277,7 +277,7 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
-Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
 
 Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -395,12 +395,12 @@ Não há suporte para [Pesquisa semântica](/sql/relational-databases/search/sem
 Os servidores vinculados no SQL Instância Gerenciada dão suporte a um número limitado de destinos:
 
 - Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, pools dedicados e sem SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) do Azure Synapse e instâncias de SQL Server. 
-- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). No entanto, não há suporte para MS DTC.
+- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](../database/elastic-transactions-overview.md). No entanto, não há suporte para MS DTC.
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` `OPENROWSET` o ou como uma alternativa para importação de arquivo ou carregue arquivos usando um [pool SQL sem servidor no Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
-- As transações de gravação [entre](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) instâncias são suportadas apenas para instância gerenciadas.
+- As transações de gravação [entre](../database/elastic-transactions-overview.md) instâncias são suportadas apenas para instância gerenciadas.
 - `sp_dropserver` é compatível com o descarte um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` têm suporte como provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -466,11 +466,17 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 
 ### <a name="service-broker"></a>Service Broker
 
-Não há suporte para agente de serviços entre instâncias:
+A troca de mensagens do Service Broker entre instâncias tem suporte apenas entre Instâncias Gerenciadas de SQL do Azure:
 
-- `sys.routes`: Como pré-requisito, você deve selecionar o endereço de sys.routes. O endereço deve ser o LOCAL em cada rota. Confira [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Confira [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: não é possível usar `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Confira [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Você não pode usar `CREATE ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
+- `ALTER ROUTE`: Você não pode usar `ALTER ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
+
+Há suporte para a segurança do transporte, mas não para a segurança da caixa de diálogo:
+- Não há suporte para `CREATE REMOTE SERVICE BINDING`.
+
+O Service Broker está habilitado por padrão e não pode ser desabilitado. Não há suporte para as seguintes opções ALTER bancos:
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procedimentos, funções, gatilhos armazenados
 
@@ -519,7 +525,7 @@ Os bancos de dados do sistema não são replicados para a instância secundária
 ### <a name="tempdb"></a>TEMPDB
 - O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O `tempdb` tamanho máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento de instância gerenciada do SQL. O tamanho do arquivo de log `Tempdb` é limitado a 120 GB na camada uso geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 - `Tempdb` sempre é dividido em 12 arquivos de dados: 1 primário, também chamado de mestre, arquivo de dados e 11 arquivos de dados não primários. A estrutura do arquivo não pode ser alterada e novos arquivos não podem ser adicionados ao `tempdb` . 
-- Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
+- Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
 - Os objetos criados no banco de dados modelo não podem ser criados automaticamente no `tempdb` após uma reinicialização ou um failover porque `tempdb` o não obtém sua lista inicial de objetos do banco de dados modelo. Você deve criar objetos `tempdb` manualmente após cada reinicialização ou um failover.
 
 ### <a name="msdb"></a>MSDB
@@ -528,13 +534,13 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 - Funções gerais
   - TargetServersRole
-- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

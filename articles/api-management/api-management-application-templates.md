@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1452f380cec711fb224f532ccb02d11c5bbad697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86255176"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no Gerenciamento de API do Azure
@@ -80,7 +80,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
 |`Applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos visíveis para o usuário atual.|  

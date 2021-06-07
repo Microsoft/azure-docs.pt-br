@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 5d5961ecae2fbc154ae6f1acd74df2bb74024fa1
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96532611"
 ---
 # <a name="detect-adult-content"></a>Detectar conteúdo adulto
@@ -37,4 +37,4 @@ A classificação "adulto" contém várias categorias diferentes:
 
 Você pode detectar conteúdo adulto com a API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Quando você adiciona o valor de `Adult` ao parâmetro de consulta **visualFeatures** , a API retorna três propriedades booleanas &mdash; `isAdultContent` , `isRacyContent` e `isGoryContent` &mdash; em sua resposta JSON. O método também retorna propriedades correspondentes &mdash; `adultScore` , `racyScore` e `goreScore` &mdash; que representam pontuações de confiança entre zero e um para cada categoria respectiva.
 
-- [Início rápido: Pesquisa Visual Computacional bibliotecas de cliente ou API REST](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Início Rápido: Bibliotecas de clientes ou API REST da Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

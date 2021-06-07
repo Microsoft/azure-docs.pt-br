@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519052"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Criptografia de dados para o Azure Database para MySQL usando o portal do Azure
@@ -40,12 +40,12 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* A chave deve ter os seguintes atributos para usar como uma chave gerenciada pelo cliente:
+* A chave deve ter os seguintes atributos a serem usados como chave gerenciada pelo cliente:
   * Sem data de validade
   * Não desabilitado
   * Executar operações **Get**, **Wrap** e **Unwrap**
   * atributo recoverylevel definido como **recuperável** (isso requer a exclusão reversível habilitada com o período de retenção definido como 90 dias)
-  * Limpeza de proteção habilitada
+  * Proteção de limpeza habilitada
 
 Você pode verificar os atributos acima da chave usando o seguinte comando:
 
@@ -95,7 +95,7 @@ Depois que o Banco de Dados do Azure para MySQL é criptografado com uma chave g
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Captura de tela do banco de dados do Azure para MySQL, com status inacessível realçado":::
 
-3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione **Data encryption** a  >  **chave de revalidação** de criptografia de dados.
+3. Para tornar o servidor acessível, revalide a chave no servidor restaurado. Selecione a  >  **chave de revalidação** de criptografia de dados.
 
    > [!NOTE]
    > A primeira tentativa de revalidação falhará, pois a entidade de serviço do novo servidor precisa receber acesso ao cofre de chaves. Para gerar a entidade de serviço, selecione **chave de revalidação**, que mostrará um erro, mas gerará a entidade de serviço. Depois disso, consulte [estas etapas](#set-the-right-permissions-for-key-operations) anteriormente neste artigo.

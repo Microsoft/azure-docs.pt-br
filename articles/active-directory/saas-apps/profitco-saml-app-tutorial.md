@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: jeedes
 ms.openlocfilehash: 027fb66538dfcead24470507b8080f2e0aacb469
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92515195"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-profitco"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO do Profit.co
@@ -48,15 +48,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Profit.co ao Azure AD, você precisará adicionar o Profit.co por meio da galeria à lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Vá para **Aplicativos da empresa** , em seguida, selecione **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **Profit.co** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Profit.co** na caixa de pesquisa.
 1. Selecione **Profit.co** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-profitco"></a>Configurar e testar logon único do Azure AD para o Profit.co
 
-Configure e teste o SSO do Azure AD com o SSO do Profit.co usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, estabeleça uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Profit.co.
+Configure e teste o SSO do Azure AD com o SSO do Profit.co usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, estabeleça uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Profit.co.
 
 Aqui estão as etapas gerais para configurar e testar o SSO do Azure AD com o Profit.co:
 
@@ -71,15 +71,15 @@ Aqui estão as etapas gerais para configurar e testar o SSO do Azure AD com o Pr
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Profit.co** , localize a seção **Gerenciar** . Selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Profit.co**, localize a seção **Gerenciar**. Selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone de lápis da **Configuração Básica de SAML** para editar as configurações.
 
    ![Captura de tela da página Configurar o logon único com SAML, com o ícone de lápis realçado](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente no Azure. Os usuários precisam salvar a configuração selecionando o botão **Salvar** .
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente no Azure. Os usuários precisam salvar a configuração selecionando o botão **Salvar**.
 
-1. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , selecione o botão **Copiar** . Isso copia a **URL de metadados de federação de aplicativos** e salva em seu computador.
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o botão **Copiar**. Isso copia a **URL de metadados de federação de aplicativos** e salva em seu computador.
 
     ![Captura de tela do Certificado de Autenticação SAML, com o botão de cópia realçado](common/copy-metadataurl.png)
 
@@ -87,31 +87,31 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** > **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor mostrado no campo **Senha** .
-   1. Selecione **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor mostrado no campo **Senha**.
+   1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que B.Fernandes use o logon único do Azure permitindo a ela acesso ao Profit.co.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Profit.co** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Profit.co**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
 
    ![Captura de tela da seção Gerenciar, com Usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** . Na caixa de diálogo **Adicionar Atribuição** , selecione **Usuários e grupos** .
+1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![Captura de tela da página Usuários e grupos, com a função Adicionar usuário destacada](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de usuários. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Se você esperar um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista. Em seguida, escolha o botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ## <a name="configure-profitco-sso"></a>Configurar o SSO do Profit.co
 

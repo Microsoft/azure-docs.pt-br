@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810733"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179656"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -97,7 +97,7 @@ Para executar o código, faça o seguinte:
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o namespace e a fila. Para fazer isso, selecione esses recursos no portal e clique em **Excluir**.
+Quando não forem mais necessários, exclua o namespace e o tópico. Para fazer isso, selecione esses recursos no portal e clique em **Excluir**.
 
 ## <a name="understand-the-sample-code"></a>Entender o código de exemplo
 

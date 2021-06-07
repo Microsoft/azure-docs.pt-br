@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 463e3d594013f2c6fe8ee3ec52d1351ff208f8ac
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: ee3a56fed87f493d79796c0d91e5324c94e87eca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225218"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599350"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Controle de versão de modelo no API de Análise de Texto
 
@@ -26,14 +26,14 @@ A versão 3 do API de Análise de Texto permite que você escolha a versão do m
 Use a tabela abaixo para localizar quais versões de modelo têm suporte em cada ponto de extremidade hospedado.
 
 
-| Ponto de Extremidade                        | Versões compatíveis                                     | última versão |
+| Ponto de extremidade                        | Versões compatíveis                                     | última versão |
 |---------------------------------|--------------------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
 | `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
-| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
+| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
@@ -43,9 +43,10 @@ Você pode encontrar detalhes sobre as atualizações para esses modelos no [que
 
 O [análise de texto para o contêiner de integridade](../how-tos/text-analytics-for-health.md) usa o controle de versão de modelo separado do que os pontos de extremidade de API acima.  Observe que apenas uma versão de modelo está disponível por imagem de contêiner.
 
-| Ponto de Extremidade                        | Marca de imagem de contêiner                     | Versão do modelo |
+| Ponto de extremidade                        | Marca de imagem de contêiner                     | Versão do modelo |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `1.1.013530001-amd64-preview` ou mais recente          | `2020-09-03`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64` ou mais recente          | `2021-03-01`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |

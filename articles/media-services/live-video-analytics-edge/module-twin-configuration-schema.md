@@ -4,10 +4,10 @@ description: Este tópico descreve o esquema JSON do módulo para análise de v�
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87053067"
 ---
 # <a name="module-twin-json-schema"></a>Esquema JSON de módulo de entrelaçamento
@@ -29,15 +29,15 @@ A análise de vídeo ao vivo em IoT Edge expõe as propriedades de mymódulo a s
 |azureMediaServicesArmId |Sim |Não |Identificador exclusivo de gerenciamento de recursos do Azure para a conta dos serviços de mídia.|
 |aadTenantId |Sim |Não |ID do locatário do Azure AD do cliente.|
 |aadServicePrincipalAppId |Sim |Sim |O cliente criou a AppId do Azure AD.|
-|aadServicePrincipalCertificate |Ok<sup>*</sup>  |Sim |O cliente criou o certificado AppId do Azure AD.|
-|aadServicePrincipalPassword |Ok<sup>*</sup>  |Sim |O cliente criou a senha do Azure AD AppId.|
+|aadServicePrincipalCertificate |Sim<sup>*</sup>  |Sim |O cliente criou o certificado AppId do Azure AD.|
+|aadServicePrincipalPassword |Sim<sup>*</sup>  |Sim |O cliente criou a senha do Azure AD AppId.|
 |aadEndpoint |Não |Não |Ponto de extremidade do Azure AD específico da nuvem. <br/>Padrão: `https://login.microsoftonline.com` |
 |aadResourceId |Não |Não |ID de recurso/audiência do Azure AD específico da nuvem <br/>Padrão: `https://management.core.windows.net/` |
 |armEndpoint |Não |Não |Ponto de extremidade de gerenciamento de recursos do Azure específico da nuvem. <br/>Padrão: `https://management.azure.com/` |
-|diagnosticsLevel |Não |Sim |Detalhes do evento: <br/>Informações & # x02758; Aviso & # x02758; Erro & # x02758; & crítico # x02758; None |
+|diagnosticsLevel |Não |Sim |Detalhes do evento: <br/>&#x02758 de informações; Aviso &#x02758; Erro &#x02758; &#x02758 crítico; None |
 |diagnosticsEventsOutputName |Não |Sim |Saída de Hub para eventos de diagnóstico. <br/>(Vazio significa que o diagnóstico não está publicado)|
 |operationalEventsOutputName|Não|Sim|Saída de Hub para eventos operacionais.<br/>(Vazio significa que os eventos operacionais não são publicados)
-|logLevel|Não|Sim|Um dos seguintes: <br/>& # x000B7; Extensa<br/>& # x000B7; Informações (padrão)<br/>& # x000B7; Alerta<br/>& # x000B7; Ao<br/>& # x000B7; None|
+|logLevel|Não|Sim|Um dos seguintes: <br/>&#x000B7; Extensa<br/>&#x000B7; Informações (padrão)<br/>&#x000B7; Alerta<br/>&#x000B7; Ao<br/>&#x000B7; None|
 |logCategories|Não|Sim|Uma lista separada por vírgulas dos seguintes: Application, MediaPipeline, Events <br/>Padrão: aplicativo, eventos|
 |debugLogsDirectory|Não|Sim|Diretório para logs de depuração. Se houver logs presentes, os logs de depuração serão desabilitados se não estiverem presentes.
 

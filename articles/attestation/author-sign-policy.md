@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: aaf05b293fa5a13c5fe6e341f7de987c6002a5cf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341800"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607959"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>Como criar uma política de atestado
 
@@ -24,19 +24,19 @@ A política contém regras que determinam os critérios de autorização, as pro
 version=1.0;
 authorizationrules
 {
-   c:[type="secureBootEnables", issuer=="AttestationService"]=> permit()
+   c:[type="secureBootEnabled", issuer=="AttestationService"]=> permit()
 };
 
 issuancerules
 {
-  c:[type="secureBootEnables", issuer=="AttestationService"]=> issue(claim=c)
+  c:[type="secureBootEnabled", issuer=="AttestationService"]=> issue(claim=c)
   c:[type="notSafeMode", issuer=="AttestationService"]=> issue(claim=c)
 };
 ```
  
 Um arquivo de política tem três segmentos, conforme visto acima:
 
-- **version** :  a versão é o número de versão da gramática seguida. 
+- **version**:  a versão é o número de versão da gramática seguida. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Um arquivo de política tem três segmentos, conforme visto acima:
 
     Atualmente, a única versão compatível é 1.0.
 
-- **authorizationrules** : uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules**. As regras de declaração se aplicam na ordem em que são definidas.
+- **authorizationrules**: uma coleção de regras de declaração que será verificada primeiro para determinar se o Atestado do Azure deve prosseguir para **issuancerules**. As regras de declaração se aplicam na ordem em que são definidas.
 
-- **issuancerules** : uma coleção de regras de declaração que será avaliada para adicionar outras informações ao resultado do atestado, conforme definido na política. As regras de declaração se aplicam na ordem em que são definidas e também são opcionais.
+- **issuancerules**: uma coleção de regras de declaração que será avaliada para adicionar outras informações ao resultado do atestado, conforme definido na política. As regras de declaração se aplicam na ordem em que são definidas e também são opcionais.
 
 Confira [Declaração e regras de declaração](claim-rule-grammar.md) para obter mais informações.
    
@@ -128,8 +128,8 @@ Depois de criar um arquivo de política, para carregar uma política no formato 
      ```
 
 2. (opcional) assine a política. O Atestado do Azure dá suporte aos seguintes algoritmos:
-     - **Nenhum** : não assine o conteúdo da política.
-     - **RS256** : algoritmo com suporte para assinar o conteúdo da política
+     - **Nenhum**: não assine o conteúdo da política.
+     - **RS256**: algoritmo com suporte para assinar o conteúdo da política
 
 3. Carregue o JWS e valide a política.
      - Se o arquivo de política estiver livre de erros de sintaxe, o arquivo de política será aceito pelo serviço.

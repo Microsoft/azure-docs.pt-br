@@ -2,14 +2,15 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 11/29/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: f5c8d8065149a1e380224b2016a45916e72d388e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.custom: references_regions
+ms.openlocfilehash: 6161c98fc7a8b9cf9216b46e4ba45690fc5244af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947666"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103488272"
 ---
 > [!IMPORTANT]
-> No momento, a disponibilidade do número de telefone é restrita às assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos. Para obter mais informações, acesse a documentação de [planejamento de soluções de telefonia e SMS](../concepts/telephony-sms/plan-solution.md).
+> No momento, a disponibilidade do número de telefone é restrita às assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos. Para obter mais informações, visite a documentação [Tipos de número de telefone](../concepts/telephony-sms/plan-solution.md).

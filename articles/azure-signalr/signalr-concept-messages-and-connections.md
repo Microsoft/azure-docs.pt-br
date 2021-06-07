@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: d71462bd30dbd4b377353c792a3c579e02949680
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151100"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491938"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e conexões no Serviço do Azure SignalR
 
@@ -48,9 +48,16 @@ Se você tiver três clientes e um servidor de aplicativos. Um cliente envia uma
 
 Há conexões de servidor e conexões de cliente com o serviço de Signaler do Azure. Por padrão, cada servidor de aplicativos começa com cinco conexões iniciais por Hub e cada cliente tem uma conexão de cliente.
 
-A contagem de conexões mostrada no portal do Azure inclui conexões de servidor e de cliente.
-
 Por exemplo, suponha que você tenha dois servidores de aplicativos e que defina cinco hubs no código. A contagem de conexões do servidor será 50:2 servidores de aplicativos * 5 hubs * 5 conexões por Hub.
+
+A contagem de conexões mostrada no portal do Azure inclui conexões de servidor, conexões de cliente, conexões de diagnóstico e conexões de rastreamento ao vivo. Os tipos de conexão são definidos na lista a seguir:
+
+- **Conexão do servidor**: conecta o serviço de Signaler do Azure e o servidor de aplicativos.
+- **Conexão de cliente**: conecta o serviço de Signalr do Azure e o aplicativo cliente.
+- **Conexão de diagnóstico**: um tipo especial de conexão de cliente que pode produzir um log mais detalhado, o que pode afetar o desempenho. Esse tipo de cliente foi projetado para solução de problemas.
+- **Conexão de rastreamento ao** vivo: conecta-se ao ponto de extremidade de rastreamento ao vivo e recebe rastreamentos ao vivo do serviço de signaler do Azure. 
+ 
+Observe que uma conexão de rastreamento ao vivo não é contada como uma conexão de cliente ou como uma conexão de servidor. 
 
 O ASP.NET SignalR calcula conexões de servidor de maneira diferente. Ele inclui um hub padrão, além dos hubs que você definir. Por padrão, cada servidor de aplicativos precisa de mais cinco conexões de servidor iniciais. A contagem de conexões inicial para o Hub padrão permanece consistente com outros hubs.
 
@@ -62,7 +69,7 @@ A mensagem enviada para o serviço é uma mensagem de entrada. Mensagem enviada 
 
 ## <a name="related-resources"></a>Recursos relacionados
 
-- [Tipos de agregação no Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr )
+- [Tipos de agregação no Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
 - [Configuração do ASP.NET Core SignalR](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

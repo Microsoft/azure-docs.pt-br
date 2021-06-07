@@ -8,16 +8,21 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b23324a7226d4b3de4908bd78a8f19c799e59f06
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 67cc470b4f7f119b7f5b86bcb82ea284ab662dfe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932176"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103463231"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Uma solução de ponta a ponta que usa o Azure Machine Learning e o IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Com frequência, os aplicativos IoT desejam aproveitar a nuvem e a borda inteligentes. Neste tutorial, explicaremos como treinar um modelo de machine learning usando dados coletados de dispositivos de IoT na nuvem, implantando esse modelo no IoT Edge e mantendo e refinando o modelo periodicamente.
+
+>[!NOTE]
+>Os conceitos neste conjunto de tutoriais se aplicam a todas as versões do IoT Edge, mas o dispositivo de exemplo que você cria para experimentar o cenário é executado no IoT Edge versão 1.1.
 
 O objetivo principal deste tutorial é apresentar o processamento de dados de IoT com o aprendizado de máquina, especificamente na borda. Embora abordemos muitos aspectos de um fluxo de trabalho de aprendizado de máquina geral, este tutorial não pretende ser uma introdução aprofundada ao aprendizado de máquina. A título de exemplo, não tentamos criar um modelo altamente otimizado para o caso de uso – fazemos o suficiente para ilustrar o processo de criação e de uso de um modelo viável para o processamento de dados de IoT.
 
@@ -69,9 +74,9 @@ Os dados usados neste tutorial foram extraídos do [Conjunto de dados de simula�
 
 Do arquivo leiame:
 
-***Cenário Experimental** _
+***Cenário experimental***
 
-_Conjuntos de dados consistem em várias séries temporais multivariadas. Cada conjunto de dados é dividido em subconjuntos de treinamento e de teste. Cada série temporal provém de um motor diferente – por ex., os dados podem ser processados para serem provenientes de uma frota de motores do mesmo tipo. Cada motor começa com diferentes graus de desgaste inicial e variação de fabricação desconhecidos para o usuário. Esse desgaste e a variação são considerados normais, por ex., não é considerada uma condição de falha. Há três configurações operacionais que têm um efeito significativo no desempenho do motor. Essas configurações também estão incluídas nos dados. Os dados são contaminados com o ruído do sensor.*
+*Os conjuntos de dados são compostos por várias séries temporais multivariadas. Cada conjunto de dados é dividido em subconjuntos de treinamento e de teste. Cada série temporal provém de um motor diferente – por ex., os dados podem ser processados para serem provenientes de uma frota de motores do mesmo tipo. Cada motor começa com diferentes graus de desgaste inicial e variação de fabricação desconhecidos para o usuário. Esse desgaste e a variação são considerados normais, por ex., não é considerada uma condição de falha. Há três configurações operacionais que têm um efeito significativo no desempenho do motor. Essas configurações também estão incluídas nos dados. Os dados são contaminados com o ruído do sensor.*
 
 *O motor está operando normalmente no início de cada série temporal e desenvolve uma falha em algum momento durante a série. No conjunto de treinamento, a falha aumenta em magnitude até a falha do sistema. No conjunto de teste, a série temporal termina algum tempo antes da falha do sistema. O objetivo da competição é prever o número de ciclos operacionais restantes antes da falha no conjunto de teste, por ex., o número de ciclos operacionais após o último ciclo que o motor continuará operando. Também foi fornecido um vetor de valores RUL (Vida Útil Restante) verdadeiros para os dados de teste.*
 

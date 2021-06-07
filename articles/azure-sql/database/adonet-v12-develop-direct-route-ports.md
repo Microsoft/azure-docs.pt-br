@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 06/11/2020
 ms.openlocfilehash: 0d009522ea0d0986233983f8725549b618ffb537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91444880"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
@@ -63,7 +63,7 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * O ADO.NET 4.0 dá suporte ao protocolo TDS 7.3, mas não ao 7.4.
 * O ADO.NET 4.5 e posterior dá suporte ao protocolo TDS 7.4.
 
-### <a name="odbc"></a>ODBCODBC
+### <a name="odbc"></a>ODBC
 
 * Microsoft SQL Server ODBC 11 ou posterior
 

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specs, hardware, DK, funcionalidades, profundidade, cor, RGB, IMU, matriz, profundidade, várias, sincronização
-ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: eabf77896777f39efcfd61adb3040bca8642716e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592272"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102039947"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos do Azure Kinect DK
 
@@ -36,6 +36,9 @@ Há vários motivos para usar vários dispositivos do Azure Kinect DK, incluindo
 ## <a name="plan-your-multi-device-configuration"></a>Planejar a configuração de vários dispositivos
 
 Antes de começar, verifique se você revisar as [especificações de hardware do Azure Kinect DK](hardware-specification.md) e a [câmera de profundidade do Azure Kinect DK](depth-camera.md).
+
+> [!NOTE]  
+> Remova a tampa de plástico externa para expor a sincronização no e sincronizar os conectores.
 
 ### <a name="select-a-device-configuration"></a>Selecionar uma configuração de dispositivo
 
@@ -63,6 +66,9 @@ A origem do gatilho deve entregar o sinal à sincronização do dispositivo mest
 ![Configurações de cabo para um sinal de gatilho externo](./media/resources/camera-trigger-signal.jpg)
 
 Para obter mais informações sobre como trabalhar com equipamentos externos, consulte [usar o gravador de Kinect do Azure com dispositivos sincronizados externos](record-external-synchronized-units.md)
+
+> [!NOTE]  
+> Sincronizar é o VSync para a câmera RGB. Os carimbos de data/hora de todos os dispositivos são definidos como zero e contam. A Microsoft não caracteriza a largura mínima e máxima do pulso de sincronização e recomenda a imitando do pulso gerado pela sincronização de um Kinect do Azure DK.
 
 ### <a name="plan-your-camera-settings-and-software-configuration"></a>Planejar as configurações da câmera e a configuração do software
 

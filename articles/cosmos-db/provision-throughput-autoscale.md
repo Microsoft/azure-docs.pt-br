@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.custom: seo-nov-2020
 ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368657"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático

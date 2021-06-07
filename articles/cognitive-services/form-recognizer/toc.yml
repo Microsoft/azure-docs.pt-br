@@ -5,37 +5,34 @@
   items:
     - name: O que é o Reconhecimento de Formulários?
       href: overview.md
+    - name: Suporte ao idioma
+      href: language-support.md
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Novidades
       href: whats-new.md
-- name: Introdução ao Reconhecimento de Formulários
-  expaned: true
+- name: Inícios rápidos
   items:
-    - name: Como usar a biblioteca de clientes ou a API REST
+    - name: Introdução à biblioteca de clientes ou à API REST
       href: quickstarts/client-library.md
-    - name: Como usar a ferramenta de rotulagem de exemplo
+    - name: Usar a ferramenta de rotulagem de exemplo
       href: quickstarts/label-tool.md
-- name: Tutoriais
+- name: Exemplos
   items:
-    - name: Usar o Reconhecimento de Formulários com o Cognitive Search
-      href: ../../search/cognitive-search-custom-skill-form.md
-    - name: Usar o Reconhecimento de Formulários com o AI Builder
-      href: tutorial-ai-builder.md
-    - name: Extrair dados de formulário em massa
-      href: tutorial-bulk-processing.md
-- name: Conceitos
-  items:
-    - name: Extração de layout
-      href: concept-layout.md
-    - name: Recebimentos
-      href: concept-receipts.md
-    - name: Cartões de visita
-      href: concept-business-cards.md
-    - name: Faturas
-      href: concept-invoices.md
+    - name: 'C#/.NET: SDK da biblioteca de clientes do Reconhecimento de Formulários'
+      href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    - name: 'Java: SDK da biblioteca de clientes do Reconhecimento de Formulários'
+      href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    - name: 'Python: SDK da biblioteca de clientes do Reconhecimento de Formulários'
+      href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: SDK da biblioteca de clientes do Reconhecimento de Formulários JavaScript
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento
       href: build-training-data-set.md
+    - name: Usar marcas de tabela para treinar seu modelo personalizado
+      href: supervised-table-tags.md
     - name: Implantar a ferramenta de rotulagem de exemplos
       href: deploy-label-tool.md
     - name: Usar contêineres
@@ -53,37 +50,68 @@
           href: ../containers/index.yml
     - name: Fazer backup de modelos e recuperá-los
       href: disaster-recovery.md
+    - name: Preparação corporativa
+      items:
+        - name: Configuração de redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Usar chaves gerenciadas pelo cliente
+          href: encrypt-data-at-rest.md
+        - name: Usar a autenticação do Azure AD
+          href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
+- name: Conceitos
+  items:
+    - name: API de layout
+      expanded: true
+      items:
+        - name: Extrair dados de formulário
+          href: concept-layout.md
+    - name: Modelos personalizados
+      href: concept-custom.md
+    - name: Recebimentos
+      href: concept-receipts.md
+    - name: Cartões de visita
+      href: concept-business-cards.md
+    - name: Faturas
+      href: concept-invoices.md
+    - name: Documentos de identidade
+      href: concept-identification-cards.md
+- name: Tutoriais
+  items:
+    - name: Extrair dados de formulário em massa
+      href: tutorial-bulk-processing.md
+    - name: Usar o Reconhecimento de Formulários com o Cognitive Search
+      href: ../../search/cognitive-search-custom-skill-form.md
+    - name: Usar o Reconhecimento de Formulários com o AI Builder
+      href: tutorial-ai-builder.md
+    - name: Usar o Reconhecimento de Formulários com o Azure Functions
+      href: tutorial-azure-function.md
 - name: Referência
   items:
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/formrecognizer/'
+    - name: API de Reconhecimento de Formulários v2.1 versão prévia 3
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'
+    - name: API de Reconhecimento de Formulários v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs
       items:
         - name: .NET
           href: /dotnet/api/overview/azure/ai.formrecognizer-readme
         - name: Python
-          href: /python/api/azure-ai-formrecognizer/?view=azure-python
+          href: /python/api/azure-ai-formrecognizer/
         - name: Java
           href: /java/api/overview/azure/ai-formrecognizer-readme
         - name: JavaScript
           href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Recursos
   items:
+    - name: Preparação corporativa
+      items:
+        - name: Suporte de regiões
+          href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Preços e limites
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
-    - name: UserVoice
-      href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/form-recognizer'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilidade regional
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Suporte ao idioma
-      href: language-support.md
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: form-recognizer-encryption-of-data-at-rest.md
+    - name: Privacidade e cookies
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

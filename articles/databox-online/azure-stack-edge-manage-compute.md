@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: alkohli
 ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97967747"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gerenciar a computação em seu Azure Stack Edge pro

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/08/2020
 ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007595"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
@@ -27,9 +27,9 @@ Para habilitar o aprendizado ativo, você deve registrar as consultas de usuári
 Use o portal do LUIS para construir a consulta de ponto de extremidade correta.
 
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
-1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Abra seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 1. Vá para a seção **gerenciar** e, em seguida, selecione **recursos do Azure**.
-1. Para o recurso de previsão atribuído, selecione **alterar parâmetros de consulta**.
+1. Para o recurso de previsão atribuído, selecione **Alterar parâmetros de consulta**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela mostra o link alterar parâmetros de consulta.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)

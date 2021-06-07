@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73903690"
 ---
 Mas, se você quiser compartilhar imagens fora do seu locatário do Azure, em escala, você deve criar um registro de aplicativo para facilitar o compartilhamento.  O uso de um registro de aplicativo pode permitir cenários de compartilhamento mais complexos, como: 
@@ -30,7 +30,7 @@ Crie um registro de aplicativo que será usado por ambos os locatários para com
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Em **URI de redirecionamento**, digite *https://www.microsoft.com* e, em seguida, selecione **registrar**. Depois que o registro do aplicativo tiver sido criado, a página Visão geral será aberta.
 1. Na página Visão geral, copie a **ID do aplicativo (cliente)** e salve-a para uso posterior.   
-1. Selecione **certificados & segredos**e, em seguida, selecione **novo segredo do cliente**.
+1. Selecione **certificados & segredos** e, em seguida, selecione **novo segredo do cliente**.
 1. Em **Descrição**, digite *segredo do aplicativo entre locatário da Galeria de imagens compartilhadas*.
 1. Em **expira**, deixe o padrão de **em 1 ano** e, em seguida, selecione **Adicionar**.
 1. Copie o valor do segredo e salve-o em um local seguro. Você não pode recuperá-lo depois de sair da página.

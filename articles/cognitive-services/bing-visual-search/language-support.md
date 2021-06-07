@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 6d93b6d024fc966f3b260602f4798a2d77669a35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501151"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Idiomas e regiões compatíveis com a API da Pesquisa Visual do Bing
@@ -83,7 +83,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Linguagem|Código de mercado|
+|País/Região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -91,8 +91,8 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canada|Inglês|en-CA|
-|Canada|Francês|fr-CA|
+|Canadá|Inglês|en-CA|
+|Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|

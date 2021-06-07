@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359894"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando a Análise de Texto e o Power Automate 
@@ -23,7 +23,7 @@ Neste tutorial, você criará um fluxo de automatização de energia para extrai
 
 Esse fluxo usará uma planilha de problemas relatados sobre um apartamento complexo e os classificará em duas categorias: encanamento e outros. Ele também extrairá os nomes e números de telefone dos locatários que os enviaram. Por fim, o fluxo acrescentará essas informações à planilha do Excel. 
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Usar a automatização de energia para criar um fluxo
@@ -78,10 +78,10 @@ Adicione as informações a seguir às variáveis que você criou. Elas represen
 
 | Ação |Nome   | Type | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | String | Person |
+| Inicializar variável | var_person | String | Pessoa |
 | Inicializar variável 2 | var_phone | String | Phone_Number |
 | Inicializar variável 3 | var_plumbing | String | detalhes técnicos |
-| Inicializar a variável 4 | var_other | String | other | 
+| Inicializar a variável 4 | var_other | String | outros | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informações contidas nas variáveis de fluxo":::
@@ -114,7 +114,7 @@ Se ainda não tiver feito isso, você precisará criar um [recurso de análise d
 
 ### <a name="create-a-text-analytics-connection"></a>Criar uma conexão Análise de Texto
 
-Em **aplicar a cada** , clique em **Adicionar uma ação**. Vá para a página de Análise de Texto do recurso **e o ponto de extremidade** no portal do Azure e obtenha a chave e o ponto de extremidade para o recurso de análise de texto.
+Em **aplicar a cada**, clique em **Adicionar uma ação**. Vá para a página de Análise de Texto do recurso **e o ponto de extremidade** no portal do Azure e obtenha a chave e o ponto de extremidade para o recurso de análise de texto.
 
 Em seu fluxo, insira as informações a seguir para criar uma nova conexão de Análise de Texto.
 
@@ -145,7 +145,7 @@ Clique no campo de **texto** e selecione **Descrição** nas janelas de conteúd
 
 ## <a name="extract-the-person-name"></a>Extrair o nome da pessoa
 
-Em seguida, localizaremos o tipo de entidade Person na saída Análise de Texto. Em **aplicar a cada** , clique em **Adicionar uma ação** e crie outra **se aplicar a cada** ação. Clique dentro da caixa de texto e selecione **entidades** na janela de conteúdo dinâmico que aparece.
+Em seguida, localizaremos o tipo de entidade Person na saída Análise de Texto. Em **aplicar a cada**, clique em **Adicionar uma ação** e crie outra **se aplicar a cada** ação. Clique dentro da caixa de texto e selecione **entidades** na janela de conteúdo dinâmico que aparece.
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo. 2":::
@@ -170,7 +170,7 @@ Na condição **se sim** , digite Excel e, em seguida, selecione **atualizar uma
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo. 152":::
 
-Insira as informações do Excel e atualize a **coluna de chave** , o **valor de chave** e os campos **PersonName** . Isso acrescentará o nome detectado pela API à planilha do Excel. 
+Insira as informações do Excel e atualize a **coluna de chave**, o **valor de chave** e os campos **PersonName** . Isso acrescentará o nome detectado pela API à planilha do Excel. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo. 7":::
@@ -182,7 +182,7 @@ Minimize a ação **aplicar a cada 2** clicando no nome. Em seguida, adicione ou
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo. 8":::
 
-Em **aplicar a cada 3** , adicione um controle de **condição** . Ela será nomeada **condição 2**. Na primeira caixa de texto, pesquise e adicione o **tipo de entidades** na janela de conteúdo dinâmico. Verifique se a caixa central está definida como **igual a**. Em seguida, na caixa de texto à direita, digite `var_phone` . 
+Em **aplicar a cada 3**, adicione um controle de **condição** . Ela será nomeada **condição 2**. Na primeira caixa de texto, pesquise e adicione o **tipo de entidades** na janela de conteúdo dinâmico. Verifique se a caixa central está definida como **igual a**. Em seguida, na caixa de texto à direita, digite `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Adicione Análise de Texto credenciais ao seu fluxo. 99":::
@@ -218,7 +218,7 @@ Na condição **se não** , clique em **Adicionar uma ação** e selecione **atu
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
-No canto superior direito da tela, clique em **salvar** e **teste**. Selecione  **eu executarei a ação do gatilho**. Clique em **salvar & teste** , **executar fluxo** e, em seguida, **concluído**.
+No canto superior direito da tela, clique em **salvar** e **teste**. Selecione  **eu executarei a ação do gatilho**. Clique em **salvar & teste**, **executar fluxo** e, em seguida, **concluído**.
 
 O arquivo do Excel será atualizado em sua conta do OneDrive. Ele será semelhante ao mostrado abaixo.
 

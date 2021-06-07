@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898481"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
@@ -154,7 +154,7 @@ Use esta opção quando você tiver dividido um conjunto de informações em vá
 
 1. Se você estiver trabalhando com várias partições, deverá adicionar mais instâncias da **partição e** do módulo de exemplo para lidar com cada partição.
 
-   Por exemplo, a **partição e** o módulo de exemplo na segunda linha são definidos para **atribuir a dobras**e o módulo na terceira linha é definido para **selecionar dobra**.   
+   Por exemplo, a **partição e** o módulo de exemplo na segunda linha são definidos para **atribuir a dobras** e o módulo na terceira linha é definido para **selecionar dobra**.   
 
    ![Partição e exemplo](./media/module/partition-and-sample.png)
 

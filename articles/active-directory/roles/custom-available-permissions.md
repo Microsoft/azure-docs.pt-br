@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1af2c1b912afbcf44cefbfb021c592836dbde5b8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740186"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466279"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registro de aplicativo para funções personalizadas no Azure Active Directory
 
@@ -170,4 +170,4 @@ Concede as mesmas permissões que Microsoft. Directory/Applications/Permissions/
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar funções personalizadas usando [o portal do Azure, o PowerShell do Azure AD e o API do Graph](custom-create.md)
-- [Exibir as atribuições de uma função personalizada](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

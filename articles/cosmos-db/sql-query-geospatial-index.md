@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: tisande
 ms.openlocfilehash: 47eedf1ddbb155180d364c42ec179b3e01279e44
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336207"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexar dados geoespaciais com Azure Cosmos DB
@@ -19,7 +19,7 @@ ms.locfileid: "93336207"
 
 Projetamos Azure Cosmos DB mecanismo de banco de dados para ser verdadeiramente independente de esquema e fornecer suporte de primeira classe para JSON. O mecanismo de banco de dados otimizado para gravação de Azure Cosmos DB entende nativamente os dados espaciais representados no padrão geojson.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um plano 2D e então dividida progressivamente em células usando um **quadtree**. Essas células são mapeadas para 1D com base na localização da célula em uma **curva de preenchimento de espaço de Hilbert** , que preserva a localidade de pontos. Além disso, quando os dados de localização são indexados, eles passam por um processo conhecido como **mosaico** , ou seja, todas as células que interseccionam uma localização são identificadas e armazenadas como chaves no índice do Azure Cosmos DB. No momento da consulta, argumentos como pontos e Polígonos também são incluídos no mosaico para extrair os intervalos de IDs de célula relevantes e usados para recuperar dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um plano 2D e então dividida progressivamente em células usando um **quadtree**. Essas células são mapeadas para 1D com base na localização da célula em uma **curva de preenchimento de espaço de Hilbert**, que preserva a localidade de pontos. Além disso, quando os dados de localização são indexados, eles passam por um processo conhecido como **mosaico**, ou seja, todas as células que interseccionam uma localização são identificadas e armazenadas como chaves no índice do Azure Cosmos DB. No momento da consulta, argumentos como pontos e Polígonos também são incluídos no mosaico para extrair os intervalos de IDs de célula relevantes e usados para recuperar dados do índice.
 
 Se você especificar uma política de indexação que inclua um índice espacial para `/*` (todos os caminhos), todos os dados encontrados no contêiner serão indexados para consultas espaciais eficientes.
 
@@ -36,11 +36,11 @@ Veja como definir a **configuração geoespacial** no **Data Explorer** no porta
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Definindo configuração geoespacial":::
 
-Você também pode modificar o `geospatialConfig` no SDK do .net para ajustar a **configuração geoespacial** :
+Você também pode modificar o `geospatialConfig` no SDK do .net para ajustar a **configuração geoespacial**:
 
 Se não for especificado, o `geospatialConfig` padrão será o tipo de dados geography. Quando você modifica o `geospatialConfig` , todos os dados geoespaciais existentes no contêiner serão reindexados.
 
-Aqui está um exemplo para modificar o tipo de dados geoespaciais para `geometry` definindo a `geospatialConfig` propriedade e adicionando um **boundingBox** :
+Aqui está um exemplo para modificar o tipo de dados geoespaciais para `geometry` definindo a `geospatialConfig` propriedade e adicionando um **boundingBox**:
 
 ```csharp
     //Retrieve the container's details
@@ -111,10 +111,10 @@ Com o tipo de dados **Geometry** , semelhante ao tipo de dados geography, você 
 
 A caixa delimitadora consiste nas seguintes propriedades:
 
-- **xmin** : a coordenada x indexada mínima
-- **ymin** : a coordenada y indexada mínima
-- **xmax** : a coordenada de x indexada máxima
-- **ymax** : a coordenada y indexada máxima
+- **xmin**: a coordenada x indexada mínima
+- **ymin**: a coordenada y indexada mínima
+- **xmax**: a coordenada de x indexada máxima
+- **ymax**: a coordenada y indexada máxima
 
 Uma caixa delimitadora é necessária porque os dados geométricos ocupam um plano que pode ser infinito. No entanto, os índices espaciais exigem um espaço finito. Para o tipo de dados **geography** , a terra é o limite e você não precisa definir uma caixa delimitadora.
 

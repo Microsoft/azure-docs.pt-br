@@ -17,12 +17,12 @@ ms.date: 01/12/2021
 ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c97da77619a395a8e2839ea672fe7a78f0501c47
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221027"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575829"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Xamarin.Android usando os Hubs de Notificação
 
@@ -156,7 +156,7 @@ Seu hub de notificação está configurado para funcionar com o FCM e você tem 
 6. Adicione o seguinte usando as instruções para `MainActivity.cs`:
 
     ```csharp
-    using Azure.Messaging.NotificationHubs;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
 7. Adicione as seguintes propriedades à classe MainActivity:

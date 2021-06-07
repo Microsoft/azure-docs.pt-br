@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f874803e0ae361255754477ca68184255f35b91f
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 14854f839d6dfe3c8a08a4a1453fd78e389fe8d3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107371"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568725"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportar para um arquivo BACPAC – banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -103,6 +103,13 @@ while ($exportStatus.Status -eq "InProgress")
 }
 [Console]::WriteLine("")
 $exportStatus
+```
+## <a name="cancel-the-export-request"></a>Cancelar a solicitação de exportação
+
+Use a [API de Cancelamento – Operações de Banco de Dados](/rest/api/sql/databaseoperations/cancel) ou o [comando Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) do PowerShell, no caso um exemplo de comando do PowerShell.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
-title: Desempenho do banco de dados Oracle em Azure NetApp Files único volume | Microsoft Docs
-description: Descreve os resultados do teste de desempenho de um Azure NetApp Files único volume no banco de dados Oracle.
+title: Desempenho do Oracle Database em volumes únicos do Azure NetApp Files | Microsoft Docs
+description: Descreve os resultados do teste de desempenho de um Azure NetApp Files em volume único no Oracle Database.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,43 +15,43 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91571269"
 ---
 # <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Desempenho do Oracle Database em volumes únicos do Azure NetApp Files
 
-Este artigo aborda os seguintes tópicos sobre Oracle na nuvem. Esses tópicos podem ser de interesse particular para um administrador de banco de dados, arquiteto de nuvem ou arquiteto de armazenamento:   
+Este artigo aborda os tópicos a seguir sobre Oracle na nuvem. Esses tópicos podem ser de interesse particular para um administrador de banco de dados, arquiteto de nuvem ou de armazenamento:   
 
-* Quando você orienta uma carga de trabalho OLTP (processamento de transações online) (principalmente, e/s aleatória) ou uma carga de trabalho de processamento analítico online (OLAP) (principalmente, e/s sequencial), o desempenho se parece?   
-* Qual é a diferença no desempenho entre o cliente normal do kNFS (Linux kernel NFS) e o próprio cliente NFS direto da Oracle?
-* No que diz respeito à largura de banda, o desempenho de um único volume Azure NetApp Files é suficiente?
+* Quando você gera uma carga de trabalho OLTP (processamento de transações online, principalmente, de E/S aleatória) ou uma carga de trabalho de OLAP (processamento analítico online, principalmente, de E/S sequencial), como fica o desempenho?   
+* Qual é a diferença no desempenho entre o cliente regular kNFS (kernel NFS) do Linux e o cliente NFS direto próprio da Oracle?
+* No que diz respeito à largura de banda, o desempenho de um volume único do Azure NetApp Files é o suficiente?
 
 ## <a name="testing-environment-and-components"></a>Ambiente e componentes de teste
 
-O diagrama a seguir ilustra o ambiente usado para teste. Para fins de consistência e simplicidade, os guias estratégicos de Ansible foram usados para implantar todos os elementos da base de testes.
+O diagrama a seguir ilustra o ambiente usado para teste. Para consistência e simplicidade, os guias estratégicos de Ansible foram usados para implantar todos os elementos da base de testes.
 
-![Ambiente de teste Oracle](../media/azure-netapp-files/performance-oracle-test-environment.png)  
+![Ambiente de teste do Oracle](../media/azure-netapp-files/performance-oracle-test-environment.png)  
 
 ### <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
 
 Os testes usaram a seguinte configuração para a máquina virtual:
 * Sistema operacional:   
-    RedHat Enterprise Linux 7,8 (wle-ora01)
+    RedHat Enterprise Linux 7.8 (wle-ora01)
 * Tipos de instância:   
-    Dois modelos foram usados em testes – D32s_v3 e D64s_v3
+    Dois modelos foram usados nos testes – D32s_v3 e D64s_v3
 * Contagem de interface de rede:   
     Um (1) colocado na sub-rede 3  
-* Discos   
-    OS binários e o sistema operacional Oracle foram colocados em um único disco Premium
+* Discos:   
+    O SO e os binários do Oracle foram colocados em um único disco Premium
 
-### <a name="azure-netapp-files-configuration"></a><a name="anf_config"></a>Configuração de Azure NetApp Files
-Os testes usaram a seguinte configuração de Azure NetApp Files:   
+### <a name="azure-netapp-files-configuration"></a><a name="anf_config"></a>Configuração do Azure NetApp Files
+Os testes usaram a seguinte configuração do Azure NetApp Files:   
 
 * Tamanho do pool de capacidade:  
-    Vários tamanhos do pool foram configurados: 4 TiB, 8 TiB, 16 TiB, 32 TiB 
+    Foram configurados vários tamanhos de pool: 4 TiB, 8 TiB, 16 TiB, 32 TiB 
 * Nível de serviço:  
     Ultra (128 MiB/s de largura de banda por 1 TiB de capacidade de volume alocado)
 * Volumes:  
@@ -59,13 +59,13 @@ Os testes usaram a seguinte configuração de Azure NetApp Files:
 
 ### <a name="workload-generator"></a>Gerador de carga de trabalho 
 
-A carga de trabalho usada para testes gerou SLOB 2.5.4.2. SLOB (um pequeno benchmark da Oracle) é um gerador de carga de trabalho conhecido no espaço Oracle projetado para enfatizar e testar o subsistema de e/s com uma carga de trabalho de e/s física de SGA buffers.  
+Os testes usaram um SLOB 2.5.4.2. gerador de cargas de trabalho. O SLOB (pequeno parâmetro de comparação da Oracle) é um gerador de carga de trabalho conhecido no espaço Oracle desenvolvido para enfatizar e testar o subsistema de E/S com uma carga de trabalho de E/S física de buffers da SGA.  
 
-SLOB 2.5.4.2 não dá suporte ao PDB (banco de dados conectável). Como tal, uma alteração foi adicionada aos `setup.sh` scripts e `runit.sh` para adicionar suporte a PDB a ele.  
+O SLOB 2.5.4.2 não dá suporte ao PDB (banco de dados conectável). Por isso, uma alteração foi adicionada aos `setup.sh` scripts e `runit.sh` para adicionar a ele suporte ao PDB.  
 
 As variáveis SLOB usadas nos testes são descritas nas seções a seguir.
 
-#### <a name="workload-80-select-20-update--random-io--slobconf-variables"></a>Carga de trabalho 80% SELECT, 20% UPDATE | E/s aleatória – `slob.conf` variáveis   
+#### <a name="workload-80-select-20-update--random-io--slobconf-variables"></a>Carga de trabalho 80% SELECT, 20% UPDATE | E/S Aleatória – `slob.conf` variáveis   
 
 `UPDATE_PCT=20`   
 `SCAN_PCT=0`   
@@ -77,7 +77,7 @@ As variáveis SLOB usadas nos testes são descritas nas seções a seguir.
 `REDO_STRESS=LITE`   
 `LOAD_PARALLEL_DEGREE=12`   
 
-#### <a name="workload-100-select--sequential-io--slobconf-variables"></a>Carga de trabalho 100% SELECT | E/s sequencial – `slob.conf` variáveis
+#### <a name="workload-100-select--sequential-io--slobconf-variables"></a>Carga de trabalho 100% SELECT | E/S Sequencial – `slob.conf` variáveis
 
 `UPDATE_PCT=0`   
 `SCAN_PCT=100`   
@@ -91,86 +91,86 @@ As variáveis SLOB usadas nos testes são descritas nas seções a seguir.
 
 ### <a name="database"></a>Banco de dados
 
-A versão do Oracle usada para os testes é Oracle Database Enterprise Edition 19.3.0.0.
+A versão do Oracle usada para os testes é o Oracle Database Enterprise Edition 19.3.0.0.
 
 Os parâmetros do Oracle são os seguintes:  
-* `sga_max_size`: 4096m
+* `sga_max_size`: 4096M
 * `sga_target`: 4096
 * `db_writer_processes`: 12
 * `awr_pdb_autoflush_enabled`: true
 * `filesystemio_options`: SETALL
 * `log_buffer`: 134217728
 
-Um PDB foi criado para o banco de dados SLOB.
+Um PDB foi criado para o banco de dados do SLOB.
 
-O diagrama a seguir mostra o espaço de tabela chamado PERFIO com 600 GB de tamanho (20 arquivos de dados, 30 GB cada) criado para hospedar quatro esquemas de usuário SLOB. Cada esquema de usuário tinha 125 GB de tamanho.
+O diagrama a seguir mostra o espaço de tabela chamado PERFIO com o tamanho de 600 GB (20 arquivos de dados, 30 GB cada) criado para hospedar quatro esquemas de usuário SLOB. Cada esquema de usuário tinha o tamanho de 125 GB.
 
 ![Oracle Database](../media/azure-netapp-files/performance-oracle-tablespace.png)  
 
 ## <a name="performance-metrics"></a>Métricas de desempenho
 
-O objetivo era relatar o desempenho de e/s como foi experimentado pelo aplicativo. Portanto, todos os diagramas neste artigo usam métricas relatadas pelo banco de dados Oracle por meio de seus relatórios de AWR (repositório automático de carga de trabalho). As métricas usadas nos diagramas são as seguintes:   
+O objetivo era relatar o desempenho de E/S como foi experimentado pelo aplicativo. Portanto, todos os diagramas neste artigo usam métricas relatadas pelo banco de dados do Oracle por meio de seus relatórios de AWR (repositório automático de carga de trabalho). As métricas usadas nos diagramas são essas:   
 
-* **Média de solicitações de e/s**   
-    Corresponde à soma de média de solicitações de e/s de leitura/seg e média de solicitações de e/s de gravação por segundo da seção de perfil de carregamento
-* **Média de MB de e/s**   
-    Corresponde à soma de média de leitura MB de e/s e média de e/s de gravação por segundo da seção de perfil de carregamento
-* **Latência média de leitura**   
-    Corresponde à latência média do evento de espera do Oracle "leitura sequencial do arquivo de BD" em microssegundos
-* **Número de threads/esquema**   
-    Corresponde ao número de threads SLOB por esquema de usuário
+* **Média de Solicitações de E/S**   
+    Corresponde à soma da média de Solicitações de E/S de Leitura por segundo e a média de Solicitações de E/S de Gravação por segundo da seção de perfil de carregamento
+* **Média de MB de E/S por segundo**   
+    Corresponde à soma da média de MB de E/S de Leitura por segundo e a média de MB de E/S de Gravação por segundo da seção de perfil de carregamento
+* **Latência Média de leitura**   
+    Corresponde à latência média do Evento de Espera do Oracle "leitura sequencial do arquivo de BD" em microssegundos
+* **Número de conversas/esquemas**   
+    Corresponde ao número de conversas SLOB por esquema de usuário
 
 ## <a name="performance-measurement-results"></a>Resultados de medição de desempenho  
 
 Esta seção descreve os resultados da medição de desempenho.
 
-### <a name="linux-knfs-client-vs-oracle-direct-nfs"></a>Cliente Linux kNFS vs. NFS direto da Oracle
+### <a name="linux-knfs-client-vs-oracle-direct-nfs"></a>Cliente kNFS do Linux vs. Oracle Direct NFS
 
-Esse cenário estava em execução em uma VM do Azure Standard_D32s_v3 (Intel E5-2673 v4 @ 2,30 GHz). A carga de trabalho é de 75% SELECT e 25% UPDATE, principalmente a e/s aleatória e com uma queda de buffer de banco de dados de ~ 7,5%. 
+Esse cenário estava em execução em uma VM do Azure Standard_D32s_v3 (Intel E5-2673 v4 @ 2.30 GHz). A carga de trabalho é de 75% SELECT e 25% UPDATE, principalmente a E/S Aleatória e com uma ocorrência de buffer de banco de dados de ~ 7,5%. 
 
-Conforme mostrado no diagrama a seguir, o cliente Oracle DNFS forneceu até 2,8 x mais taxa de transferência do que o cliente kNFS do Linux regular:  
+Conforme mostrado no diagrama a seguir, o cliente Oracle DNFS forneceu até 2.8x mais taxa de transferência do que um cliente regular kNFS do Linux:  
 
-![Cliente Linux kNFS comparado com NFS direto da Oracle](../media/azure-netapp-files/performance-oracle-kfns-compared-dnfs.png)  
+![Cliente kNFS do Linux comparado ao Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-kfns-compared-dnfs.png)  
 
 O diagrama a seguir mostra a curva de latência para as operações de leitura. Nesse contexto, o afunilamento do cliente kNFS é a conexão de soquete TCP de NFS única estabelecida entre o cliente e o servidor NFS (o volume Azure NetApp Files).  
 
-![Cliente Linux kNFS comparado com a curva de latência NFS do Oracle Direct](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
+![Cliente kNFS do Linux comparado a curva de latência do Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
 
-O cliente DNFS foi capaz de enviar mais solicitações de e/s por push devido à sua capacidade de criar centenas de conexões de soquete TCP, aproveitando assim o paralelismo. Conforme descrito em [configuração de Azure NetApp files](#anf_config), cada Tib adicional de capacidade alocada permite um 128MiB/s adicional de largura de banda. DNFS com 1 GiB/s de taxa de transferência, que é o limite imposto pela seleção de capacidade de 8 TiB. Dada mais capacidade, mais taxa de transferência teria sido orientada.
+O cliente DNFS foi capaz de enviar mais solicitações de E/S por segundo devido à sua capacidade de criar centenas de conexões de soquete TCP, aproveitando assim o paralelismo. Conforme descrito em [configuração de Azure NetApp Files](#anf_config), cada TiB adicional de capacidade alocada permite um 128MiB/s adicional de largura de banda. O DNFS com 1 GiB/s de taxa de transferência, que é o limite imposto pela seleção de capacidade de 8 TiB. Com mais capacidade, a taxa de transferência teria sido maior.
 
-A taxa de transferência é apenas uma das considerações. Outra consideração é a latência, que tem o impacto principal na experiência do usuário. Como mostra o diagrama a seguir, as aumentos de latência podem ser muito mais rapidamente com kNFS do que com DNFS. 
+A taxa de transferência é apenas uma das considerações. Outra consideração é a latência, que tem o impacto principal na experiência do usuário. Como mostra o diagrama a seguir, podem ocorrer aumentos de latência mais rapidamente em kNFS do que em DNFS. 
 
-![Cliente Linux kNFS comparado com a latência de leitura do NFS direto do Oracle](../media/azure-netapp-files/performance-oracle-read-latency.png)  
+![Cliente kNFS do Linux comparado a curva de leitura do Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-read-latency.png)  
 
-Os histogramas fornecem excelente insight sobre latências de banco de dados. O diagrama a seguir fornece uma visão completa da perspectiva da "leitura sequencial do arquivo de banco de dados", ao usar DNFS no ponto de data de simultaneidade mais alto (32 threads/esquema). Conforme mostrado no diagrama a seguir, 47% de todas as operações de leitura foram respeitadas entre 512 microssegundos e 1000 microssegundos, enquanto 90% de todas as operações de leitura foram atendidas em uma latência abaixo de 2 ms.
+Os histogramas fornecem um ótimo insight sobre as latências de banco de dados. O diagrama a seguir fornece uma visão completa da perspectiva da "leitura sequencial do arquivo de banco de dados", ao usar DNFS no ponto de dados de simultaneidade mais alto (32 conversas/esquema). Conforme mostrado no diagrama a seguir, 47% de todas as operações de leitura foram respeitadas entre 512 microssegundos e 1000 microssegundos, enquanto 90% de todas as operações de leitura foram atendidas em uma latência abaixo de 2 ms.
 
-![Cliente Linux kNFS comparado com os histogramas NFS do Oracle Direct](../media/azure-netapp-files/performance-oracle-histogram-read-latency.png)  
+![Cliente kNFS do Linux comparado aos histogramas do Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-histogram-read-latency.png)  
 
-Concluindo, fica claro que o DNFS é necessário quando se trata de melhorar o desempenho de uma instância de banco de dados Oracle em NFS.
+Enfim, fica claro que o DNFS é necessário quando se trata de melhorar o desempenho de uma instância de banco de dados do Oracle em NFS.
 
 ### <a name="single-volume-performance-limits"></a>Limites de desempenho de volume único
 
-Esta seção descreve os limites de desempenho de um único volume com e/s aleatória e e/s sequencial. 
+Esta seção descreve os limites de desempenho de um único volume com E/S Aleatória e Sequencial. 
 
-#### <a name="random-io"></a>E/s aleatória
+#### <a name="random-io"></a>E/S Aleatória
 
-O DNFS é capaz de consumir muito mais largura de banda do que o fornecido por uma cota de desempenho de Azure NetApp Files de 8 TB. Ao aumentar a capacidade do volume de Azure NetApp Files para 16 TiB, que é uma alteração instantânea, a quantidade de largura de banda do volume aumentou de 1024 MiB/s por 2X para 2048 MiB/s. 
+O DNFS é capaz de consumir muito mais largura de banda do que o fornecido por uma cota de desempenho do Azure NetApp Files de 8 TB. Ao aumentar a capacidade do volume de Azure NetApp Files para 16 TiB, que é uma alteração instantânea, a quantidade de largura de banda do volume aumentou de 1024 MiB/s por 2X para 2048 MiB/s. 
 
-O diagrama a seguir mostra uma configuração de uma carga de trabalho de atualização de 80% Select e 20% e com uma taxa de acertos de buffer de banco de dados de 8%. O SLOB conseguiu gerar um único volume para solicitações de e/s de NFS de 200.000 por segundo. Considerando que cada operação tem o tamanho de 8 KiB, o sistema em teste foi capaz de entregar ~ 200.000 solicitações de e/s ou 1600 MiB/s.
+O diagrama a seguir mostra uma configuração de uma carga de trabalho de atualização de 80% selecionada e 20% e com uma taxa de acertos de buffer de banco de dados de 8%. O SLOB conseguiu impulsionar um volume único para solicitações de E/S de NFS de 200.000 por segundo. Considerando que cada operação tem o tamanho de 8 KiB, o sistema em teste foi capaz de entregar ~ 200.000 solicitações de E/S ou 1600 MiB por segundo.
  
-![Produtividade do Oracle DNFS](../media/azure-netapp-files/performance-oracle-dnfs-throughput.png)  
+![Taxa de transferência do Oracle DNFS](../media/azure-netapp-files/performance-oracle-dnfs-throughput.png)  
 
-O diagrama de curva de latência de leitura a seguir mostra que, à medida que a taxa de transferência de leitura aumenta, a latência aumenta suavemente abaixo da linha de 1 ms e atinge a joelho da curva em ~ 165.000 solicitações de e/s médias de leitura por segundo na latência média de leitura de ~ 1,3 ms.  Esse valor é um valor de latência incrível para uma taxa de e/s não atingível com quase qualquer outra tecnologia na nuvem do Azure. 
+O diagrama de curva de latência de leitura a seguir mostra que conforme a taxa de transferência de leitura aumenta, a latência aumenta suavemente abaixo da linha de 1 ms e atinge a joelho da curva em ~165.000 média de solicitações de E/S de leitura por segundo na latência média de leitura de ~1.3 ms.  Esse valor é um valor de latência incrível para uma taxa de E/S inatingível em quase todas as tecnologias na nuvem do Azure. 
 
 ![Curva de latência do Oracle DNFS](../media/azure-netapp-files/performance-oracle-dnfs-latency-curve.png)  
 
-#### <a name="sequential-io"></a>E/s sequencial  
+#### <a name="sequential-io"></a>E/S Sequencial  
 
-Conforme mostrado no diagrama a seguir, nem toda e/s é aleatória por natureza, considerando um backup do RMAN ou uma verificação de tabela completa, por exemplo, como cargas de trabalho que exigem tanta largura de banda quanto podem ser obtidas.  Usando a mesma configuração descrita anteriormente, mas com o volume redimensionado para 32 TiB, o diagrama a seguir mostra que uma única instância de Oracle DB pode impulsionar até 3.900 MB/s de taxa de transferência, muito perto da cota de desempenho do volume Azure NetApp Files de 32 TB (128 MB/s * 32 = 4096 MB/s).
+Conforme mostrado no diagrama a seguir, nem toda E/S é aleatória por natureza, considerando um backup do RMAN ou uma verificação de tabela completa, por exemplo, como cargas de trabalho que exigem tanta largura de banda quanto podem obter.  Usando a mesma configuração descrita anteriormente, mas com o volume redimensionado para 32 TiB, o diagrama a seguir mostra que uma única instância de Oracle DB pode impulsionar até 3.900 MB/s de taxa de transferência, muito perto da cota de desempenho do volume do Azure NetApp Files de 32 TB (128 MB/s * 32 = 4096 MB/s).
 
-![Oracle DNFS e/s](../media/azure-netapp-files/performance-oracle-dnfs-io.png)  
+![E/S do Oracle DNFS](../media/azure-netapp-files/performance-oracle-dnfs-io.png)  
 
-Em resumo, Azure NetApp Files ajuda você a levar seus bancos de dados Oracle para a nuvem. Ele oferece desempenho quando o banco de dados exige isso. Você pode redimensionar de forma dinâmica e sem interrupções sua cota de volume a qualquer momento.
+Resumindo, o Azure NetApp Files ajuda você a levar os seus bancos de dados Oracle para a nuvem. Ele oferece desempenho sempre que você precisar. Você pode redimensionar de forma dinâmica e sem interrupções sua cota de volume a qualquer momento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

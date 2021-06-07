@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: adfe6282d4a7d2cc35b4f5c71ecb67e6cda641a8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3640a03f8ac814fec2823a761e651ab386438c5c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090684"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327443"
 ---
 <a name="HOLTop"></a>
 
@@ -26,12 +26,8 @@ ms.locfileid: "99090684"
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[Documentação de referência da v3](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Pacote da v3 (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[Documentação de referência da v3](/javascript/api/overview/azure/ai-text-analytics-readme) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [Pacote da v3 (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-[Documentação de referência da v2](/javascript/api/@azure/cognitiveservices-textanalytics) | [Código-fonte da biblioteca v2](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacote da v2 (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [Amostras da v2](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
@@ -39,7 +35,7 @@ ms.locfileid: "99090684"
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do [Node.js](https://nodejs.org/).
-* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto </a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 * Para usar o recurso Analisar, você precisará de um recurso de Análise de Texto com o tipo de preço S (Standard).
@@ -68,7 +64,7 @@ npm init
 Instale os pacotes NPM `@azure/ai-text-analytics`:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.3
+npm install --save @azure/ai-text-analytics@5.1.0-beta.5
 ```
 
 > [!TIP]
@@ -85,17 +81,6 @@ npm install --save @azure/ai-text-analytics@5.0.0
 
 > [!TIP]
 > Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), que contém os exemplos de código neste início rápido. 
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Instale os pacotes NPM `@azure/cognitiveservices-textanalytics`:
-
-```console
-npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
-```
-
-> [!TIP]
-> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), que contém os exemplos de código neste início rápido. 
 
 ---
 
@@ -118,15 +103,6 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-```javascript
-"use strict";
-
-const os = require("os");
-const CognitiveServicesCredentials = require("@azure/ms-rest-js");
-const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
-```
 ---
 
 Crie variáveis para a chave e o ponto de extremidade do Azure do recurso.
@@ -174,12 +150,6 @@ Crie um objeto `TextAnalyticsClient` com sua chave e seu ponto de extremidade co
 ```javascript
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Crie um novo objeto [TextAnalyticsClient](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) com `credentials` e `endpoint` como um parâmetro.
-
-[!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
 ---
 
@@ -238,39 +208,42 @@ Para fazer uma análise de sentimento com a mineração de opiniões, crie uma m
 ```javascript
 async function sentimentAnalysisWithOpinionMining(client){
 
-    const sentimentInput = [
-        {
-            text: "The food and service were unacceptable, but the concierge were nice",
-            id: "0",
-            language: "en"
-        }
-    ];
-    const sentimentResult = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
+  const sentimentInput = [
+    {
+      text: "The food and service were unacceptable, but the concierge were nice",
+      id: "0",
+      language: "en"
+    }
+  ];
+  const results = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
 
-    sentimentResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Sentiment: ${document.sentiment}`);
-        console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
-        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-        document.sentences.forEach(sentence => {
-            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
-            console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-            console.log("\tMined opinions");
-            for (const { aspect, opinions } of sentence.minedOpinions) {
-                console.log(`\t\tAspect text: ${aspect.text}`);
-                console.log(`\t\tAspect sentiment: ${aspect.sentiment}`);
-                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)}`);
-                console.log("\t\tAspect opinions:");
-                for (const { text, sentiment, confidenceScores } of opinions) {
-                    console.log(`\t\tOpinion text: ${text}`);
-                    console.log(`\t\tOpinion sentiment: ${sentiment}`);
-                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)}`);
-                }
-            }
-        });
-    });
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
+    console.log(`- Document ${result.id}`);
+    if (!result.error) {
+      console.log(`\tDocument text: ${sentimentInput[i].text}`);
+      console.log(`\tOverall Sentiment: ${result.sentiment}`);
+      console.log("\tSentiment confidence scores:", result.confidenceScores);
+      console.log("\tSentences");
+      for (const { sentiment, confidenceScores, opinions } of result.sentences) {
+        console.log(`\t- Sentence sentiment: ${sentiment}`);
+        console.log("\t  Confidence scores:", confidenceScores);
+        console.log("\t  Mined opinions");
+        for (const { target, assessments } of opinions) {
+          console.log(`\t\t- Target text: ${target.text}`);
+          console.log(`\t\t  Target sentiment: ${target.sentiment}`);
+          console.log("\t\t  Target confidence scores:", target.confidenceScores);
+          console.log("\t\t  Target assessments");
+          for (const { text, sentiment } of assessments) {
+            console.log(`\t\t\t- Text: ${text}`);
+            console.log(`\t\t\t  Sentiment: ${sentiment}`);
+          }
+        }
+      }
+    } else {
+      console.error(`\tError: ${result.error}`);
+    }
+  }
 }
 sentimentAnalysisWithOpinionMining(textAnalyticsClient)
 ```
@@ -280,36 +253,32 @@ Execute seu código com `node index.js` na janela do console.
 ### <a name="output"></a>Saída
 
 ```console
-ID: 0
-        Document Sentiment: positive
-        Document Scores:
-                Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        Sentences Sentiment(1):
-                Sentence sentiment: positive
-                Sentences Scores:
-                Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        Mined opinions
-                Aspect text: food
-                Aspect sentiment: negative
-                Aspect Positive: 0.01   Negative: 0.99
-                Aspect opinions:
-                Opinion text: unacceptable
-                Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99
-                Aspect text: service
-                Aspect sentiment: negative
-                Aspect Positive: 0.01   Negative: 0.99
-                Aspect opinions:
-                Opinion text: unacceptable
-                Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99
-                Aspect text: concierge
-                Aspect sentiment: positive
-                Aspect Positive: 1.00   Negative: 0.00
-                Aspect opinions:
-                Opinion text: nice
-                Opinion sentiment: positive
-                Opinion Positive: 1.00  Negative: 0.00
+- Document 0
+        Document text: The food and service were unacceptable, but the concierge were nice
+        Overall Sentiment: positive
+        Sentiment confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
+        Sentences
+        - Sentence sentiment: positive
+          Confidence scores: { positive: 0.84, neutral: 0, negative: 0.16 }
+          Mined opinions
+                - Target text: food
+                  Target sentiment: negative
+                  Target confidence scores: { positive: 0.01, negative: 0.99 }
+                  Target assessments
+                        - Text: unacceptable
+                          Sentiment: negative
+                - Target text: service
+                  Target sentiment: negative
+                  Target confidence scores: { positive: 0.01, negative: 0.99 }
+                  Target assessments
+                        - Text: unacceptable
+                          Sentiment: negative
+                - Target text: concierge
+                  Target sentiment: positive
+                  Target confidence scores: { positive: 1, negative: 0 }
+                  Target assessments
+                        - Text: nice
+                          Sentiment: positive
 ```
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
@@ -356,23 +325,6 @@ ID: 0
                 Sentence sentiment: neutral
                 Sentences Scores:
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
-```
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Crie uma lista de objetos de dicionário, contendo os documentos que deseja analisar. Chame o método [sentiment()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) do cliente e obtenha o [SentimentBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult) retornado. Itere na lista de resultados e imprima a ID de cada documento e a pontuação de sentimento. Uma pontuação mais perto de 0 indica um sentimento negativo, enquanto uma pontuação mais perto de 1 indica um sentimento positivo.
-
-[!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
-
-Execute seu código com `node index.js` na janela do console.
-
-### <a name="output"></a>Saída
-
-```console
-[ { id: '1', score: 0.87 } ]
-[ { id: '2', score: 0.11 } ]
-[ { id: '3', score: 0.44 } ]
-[ { id: '4', score: 1.00 } ]
 ```
 
 ---
@@ -435,22 +387,6 @@ Execute seu código com `node index.js` na janela do console.
 ```console
 ID: 0
         Primary Language French
-```
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Crie uma lista de objetos de dicionários contendo os documentos. Chame o método [detectLanguage()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) do cliente e obtenha o [LanguageBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult) retornado. Em seguida, itere nos resultados e imprima a ID de cada documento e o idioma.
-
-[!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
-
-Execute seu código com `node index.js` na janela do console.
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ---
@@ -704,46 +640,6 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-> [!NOTE]
-> Na versão 2.1, a vinculação de entidade está incluída na resposta do NER.
-
-Crie uma lista de objetos contendo seus documentos. Chame o método [entities()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) do cliente e obtenha o objeto [EntitiesBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult). Itere na lista de resultados e imprima a ID de cada documento. Para cada entidade detectada, imprimi o nome da Wikipédia dela, o tipo e os subtipos (se existir), bem como os locais no texto original.
-
-[!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
-
-Execute seu código com `node index.js` na janela do console.
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 0, Length: 9,   Score: 1.0
-    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-    Offset: 25, Length: 10, Score: 0.999847412109375
-    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-    Offset: 40, Length: 10, Score: 0.9988409876823425
-    Name: April 4,  Type: Other,    Sub-Type: N/A
-    Offset: 54, Length: 7,  Score: 0.8
-    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-    Offset: 54, Length: 13, Score: 0.8
-    Name: BASIC,    Type: Other,    Sub-Type: N/A
-    Offset: 89, Length: 5,  Score: 0.8
-    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-    Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 21, Length: 9,  Score: 0.999755859375
-    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-    Offset: 60, Length: 7,  Score: 0.9911284446716309
-    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-    Offset: 71, Length: 13, Score: 0.8
-    Name: Seattle,  Type: Location, Sub-Type: N/A
-    Offset: 88, Length: 7,  Score: 0.9998779296875
-```
 
 ---
 
@@ -807,24 +703,6 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Crie uma lista de objetos contendo seus documentos. Chame o método [keyPhrases()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) do cliente e obtenha o objeto [KeyPhraseBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) retornado. Itere nos resultados e imprima a ID de cada documento e as frases-chave detectadas.
-
-[!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
-
-Execute seu código com `node index.js` na janela do console.
-
-### <a name="output"></a>Saída
-
-```console
-[
-    { id: '1', keyPhrases: [ '幸せ' ] }
-    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
-    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
-    { id: '3', keyPhrases: [ 'fútbol' ] }
-]
-```
 
 ---
 
@@ -838,30 +716,38 @@ Execute seu código com `node index.js` na janela do console.
 Crie uma função chamada `analyze_example()`, que chama a função `beginAnalyze()`. O resultado será uma operação de execução prolongada que será sondada em busca de resultados.
 
 ```javascript
-const documents = [
-  "Microsoft was founded by Bill Gates and Paul Allen.",
-];
-
 async function analyze_example(client) {
-  console.log("== Analyze Sample ==");
+  const documents = [
+    "Microsoft was founded by Bill Gates and Paul Allen.",
+  ];
 
-  const tasks = {
-    entityRecognitionTasks: [{ modelVersion: "latest" }]
+  const actions = {
+    recognizeEntitiesActions: [{ modelVersion: "latest" }],
   };
-  const poller = await client.beginAnalyze(documents, tasks);
-  const resultPages = await poller.pollUntilDone();
+  const poller = await client.beginAnalyzeBatchActions(documents, actions, "en");
 
+  console.log(
+    `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
+  );
+  console.log(
+    `The analyze batch actions operation results will expire on ${
+      poller.getOperationState().expiresOn
+    }`
+  );
+  const resultPages = await poller.pollUntilDone();
   for await (const page of resultPages) {
-    const entitiesResults = page.entitiesRecognitionResults![0];
-    for (const doc of entitiesResults) {
-      console.log(`- Document ${doc.id}`);
-      if (!doc.error) {
-        console.log("\tEntities:");
-        for (const entity of doc.entities) {
-          console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+    const entitiesAction = page.recognizeEntitiesResults[0];
+    if (!entitiesAction.error) {
+      for (const doc of entitiesAction.results) {
+        console.log(`- Document ${doc.id}`);
+        if (!doc.error) {
+          console.log("\tEntities:");
+          for (const entity of doc.entities) {
+            console.log(`\t- Entity ${entity.text} of type ${entity.category}`);
+          }
+        } else {
+          console.error("\tError:", doc.error);
         }
-      } else {
-        console.error("  Error:", doc.error);
       }
     }
   }
@@ -873,7 +759,8 @@ analyze_example(textAnalyticsClient);
 ### <a name="output"></a>Saída
 
 ```console
-== Analyze Sample ==
+The analyze batch actions operation was created on Fri Mar 12 2021 09:53:49 GMT-0800 (Pacific Standard Time)
+The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53:49 GMT-0800 (Pacific Standard Time)
 - Document 0
         Entities:
         - Entity Microsoft of type Organization
@@ -881,15 +768,11 @@ analyze_example(textAnalyticsClient);
         - Entity Paul Allen of type Person
 ```
 
-Você também pode usar a operação Analisar para detectar PII e a extração de frases chave. Consulte os exemplos do Analisar para [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) no GitHub.
+Você também pode usar a operação Analisar para detectar PII, reconhecer entidades vinculadas e extrair frases chave. Consulte os exemplos do Analisar para [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) e [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) no GitHub.
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Este recurso não está disponível na versão 3.0.
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Este recurso não está disponível na versão 2.1.
 
 ---
 

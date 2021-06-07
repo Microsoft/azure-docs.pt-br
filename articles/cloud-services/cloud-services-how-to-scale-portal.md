@@ -1,29 +1,30 @@
 ---
 title: Dimensionar automaticamente um serviço de nuvem (clássico) no portal | Microsoft Docs
-description: Saiba como usar o portal para configurar regras de dimensionamento automático para funções de serviço de nuvem (clássicas) no Azure.
+description: Saiba como usar o portal para configurar regras de dimensionamento automático para funções do serviço de nuvem (clássico) no Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: autoscale
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
-ms.translationtype: MT
+ms.openlocfilehash: ddf0f97e78ebc6f1eb8eade0d1842c912d167155
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980823"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935935"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço de nuvem (clássico) no portal
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar o dimensionamento automático em um Serviço de Nuvem (clássico) no portal
 
 > [!IMPORTANT]
-> Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
+> O [Serviços de Nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) é um modelo novo de implantação baseado no Azure Resource Manager para o produto de Serviços de Nuvem do Azure.Com essa alteração, os Serviços de Nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como Serviços de Nuvem (clássico) e todas as implantações novas devem usar o [Serviços de Nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
 As condições podem ser definidas para uma função de trabalho de serviço de nuvem que dispara uma operação para reduzir ou escalar horizontalmente. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou a métrica de algum outro recurso do Azure associado à sua assinatura.
 
 > [!NOTE]
-> Este artigo se concentra no serviço de nuvem (clássico). Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligá-los ou desligá-los manualmente.
+> Este artigo se concentra no Serviço de Nuvem (clássico). Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligá-los ou desligá-los manualmente.
 
 ## <a name="considerations"></a>Considerações
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
@@ -47,17 +48,17 @@ Após selecionar o serviço de nuvem, a folha de serviço de nuvem deverá estar
 1. Na folha de serviço de nuvem, no bloco **Funções e Instâncias** , selecione o nome do serviço de nuvem.   
    **IMPORTANTE**: certifique-se de clicar na função de serviço de nuvem, não na instância de função que está abaixo da função.
 
-    ![Captura de tela do bloco funções e instâncias com a função de trabalho com a opção S B fila 1 descrita em vermelho.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Captura de tela do bloco Funções e instâncias com a Função de trabalho com a opção S B Fila 1 destacada em vermelho.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o bloco **escala** .
 
-    ![Captura de tela da página operações com o bloco de venda descrito em vermelho.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Captura de tela da página Operações com o bloco Venda destacado em vermelho.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Escala automática
 Você pode definir as configurações de escala para uma função com o modo **manual** ou **automático**. O modo manual é a forma como você esperaria, você define a contagem absoluta de instâncias. No entanto, o modo automático permite que você defina regras que determinem como e quanto você deverá dimensionar.
 
 Defina a opção **Dimensionar por** para as **regras de planejamento e desempenho**.
 
-![configurações de escala dos serviços de nuvem de imagens com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Imagem Configurações do dimensionamento dos Serviços de nuvem com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Um perfil existente.
 2. Adicione uma regra para o perfil pai.
@@ -93,7 +94,7 @@ As regras são adicionadas a um perfil e representam uma condição que dispara 
 
 O gatilho de regra se baseia em uma métrica do serviço de nuvem (utilização da CPU, atividade de disco ou atividade de rede) para a qual você pode adicionar um valor condicional. Além disso, o gatilho pode se basear em uma fila de mensagens ou na métrica de algum outro recurso do Azure associada à sua assinatura.
 
-![Captura de tela da caixa de diálogo regra com a opção nome da métrica descrita em vermelho.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Captura de tela da caixa de diálogo Regra com a opção Nome da métrica destacada em vermelho.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 Depois de configurar a regra, selecione o botão **OK** na parte inferior da folha de regra.
 

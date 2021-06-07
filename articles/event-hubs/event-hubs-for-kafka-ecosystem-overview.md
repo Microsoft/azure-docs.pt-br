@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre a compatibilidade do Apache
 ms.topic: article
 ms.date: 09/25/2020
 ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97861344"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
@@ -104,7 +104,7 @@ O objetivo dos hubs de eventos para o Apache Kafka é fornecer acesso aos recurs
 
 Conforme explicado [acima](#is-apache-kafka-the-right-solution-for-your-workload), a frota de mensagens do Azure fornece cobertura avançada e robusta para uma infinidade de cenários de mensagens e, embora os recursos a seguir não tenham suporte no momento por meio do suporte de hubs de eventos para a API Apache Kafka, indicamos onde e como o recurso desejado está disponível.
 
-### <a name="transactions"></a>Transações
+### <a name="transactions"></a>Transactions
 
 O [barramento de serviço do Azure](../service-bus-messaging/service-bus-transactions.md) tem suporte de transação robusto que permite receber e liquidar mensagens e sessões ao enviar mensagens de saída resultantes do processamento de mensagens para várias entidades de destino sob a proteção de consistência de uma transação. O conjunto de recursos não só permite o processamento exatamente uma vez de cada mensagem em uma sequência, mas também evita o risco de outro consumidor reprocessar inadvertidamente as mesmas mensagens como seria o caso com Apache Kafka. O barramento de serviço é o serviço recomendado para cargas de trabalho de mensagens transacionais.
 

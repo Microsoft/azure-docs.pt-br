@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498737"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101715030"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -51,7 +51,7 @@ Saiba mais sobre o [Microsoft antimalware para Azure](antimalware.md) e os princ
 Saiba mais sobre o software antimalware para ajudar a proteger suas máquinas virtuais:
 
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Soluções de segurança no Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -116,7 +116,7 @@ Recuperação de Site:
 
 Saiba mais:
 
-* [O que é Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [O que é o Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
 * [Como funciona Azure Site Recovery?](../../site-recovery/azure-to-azure-architecture.md)
 * [Quais cargas de trabalho são protegidas por Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 

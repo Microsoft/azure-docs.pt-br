@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100593047"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -189,6 +189,6 @@ Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem preci
 
 Visite [Usar Pilha Elástica](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usar Grafana](network-watcher-nsg-grafana.md), e [Usar Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre outras maneiras de exibir logs de fluxo NSG. Uma abordagem de função do Azure de software livre para o consumo direto dos BLOBs e a emissão de vários consumidores do log Analytics podem ser encontradas aqui: [conector de logs de fluxo NSG do observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Você pode usar o [Azure análise de tráfego](./traffic-analytics.md) para obter informações sobre seus fluxos de tráfego. Análise de Tráfego usa [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para tornar seu fluxo de tráfego passível de consulta.
+Você pode usar o [Azure análise de tráfego](./traffic-analytics.md) para obter informações sobre seus fluxos de tráfego. Análise de Tráfego usa [log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) para tornar seu fluxo de tráfego passível de consulta.
 
 Para saber mais sobre blobs de armazenamento, acesse: [Associações de armazenamento de Blobs do Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

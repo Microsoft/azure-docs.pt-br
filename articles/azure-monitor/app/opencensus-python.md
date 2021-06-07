@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323258"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047415"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
 
@@ -19,7 +19,7 @@ O Azure Monitor permite o rastreamento distribuído, a coleta de métricas e o l
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Instalação do Python. Este artigo usa o [Python 3.7.0](https://www.python.org/downloads/release/python-370/), embora outras versões provavelmente funcionem com pequenas alterações. O SDK só dá suporte a Python v 2.7 e v 3.4-v 3.7.
+- Instalação do Python. Este artigo usa o [Python 3.7.0](https://www.python.org/downloads/release/python-370/), embora outras versões provavelmente funcionem com pequenas alterações. O SDK só dá suporte a versões do Python 2,7 e 3.6 +.
 - Crie um [recurso](./create-new-resource.md) Application Insights. Você receberá sua própria chave de instrumentação (iKey) para seu recurso.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumento com SDK de Python OpenCensus para o Azure Monitor
@@ -33,7 +33,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > O comando `python -m pip install opencensus-ext-azure` pressupõe que você tenha uma variável de ambiente `PATH` definida para sua instalação do Python. Se você não tiver configurado essa variável, precisará fornecer o caminho completo do diretório para o local em que o executável do Python está localizado. Execute um comando como este: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telemetria para Azure Monitor. Eles são rastreamento, métricas e logs. Para obter mais informações sobre esses tipos de telemetria, consulte [Visão geral da plataforma de dados](../platform/data-platform.md). Use as instruções a seguir para enviar esses tipos de telemetria por meio dos três exportadores.
+O SDK usa três Azure Monitor exportadores para enviar tipos diferentes de telemetria para Azure Monitor. Eles são rastreamento, métricas e logs. Para obter mais informações sobre esses tipos de telemetria, consulte [Visão geral da plataforma de dados](../data-platform.md). Use as instruções a seguir para enviar esses tipos de telemetria por meio dos três exportadores.
 
 ## <a name="telemetry-type-mappings"></a>Mapeamentos do tipo de telemetria
 
@@ -221,6 +221,15 @@ Para obter detalhes sobre como modificar a telemetria acompanhada antes de ser e
 
 ### <a name="metrics"></a>Métricas
 
+OpenCensus. stats dá suporte a quatro métodos de agregação, mas fornece suporte parcial para Azure Monitor:
+
+- **Contagem:** A contagem do número de pontos de medida. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. 
+- **Soma:** Uma soma dos pontos de medida. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. 
+- **Últimovalue:** Mantém o último valor gravado, descarta todo o resto.
+- **Distribuição:** Distribuição de histograma dos pontos de medida. Esse método **não é suportado pelo exportador do Azure**.
+
+### <a name="count-aggregation-example"></a>Exemplo de agregação de contagem
+
 1. Primeiro vamos gerar alguns dados métricos locais. Criaremos uma métrica simples para acompanhar o número de vezes que o usuário seleciona a tecla **Enter** .
 
     ```python
@@ -320,7 +329,7 @@ Para obter detalhes sobre como modificar a telemetria acompanhada antes de ser e
         main()
     ```
 
-1. O exportador envia dados de métrica para Azure Monitor em um intervalo fixo. O padrão é a cada 15 segundos. Estamos acompanhando uma única métrica, portanto, esses dados de métrica, com qualquer valor e carimbo de data/hora que ele contém, são enviados a cada intervalo. Você pode encontrar os dados em `customMetrics`.
+1. O exportador envia dados de métrica para Azure Monitor em um intervalo fixo. O padrão é a cada 15 segundos. Estamos acompanhando uma única métrica, portanto, esses dados de métrica, com qualquer valor e carimbo de data/hora que ele contém, são enviados a cada intervalo. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. Você pode encontrar os dados em `customMetrics` , mas `customMetrics` as propriedades ValueCount, valueal, ValueMin, ValueMax e valueStdDev não são usadas com eficiência.
 
 #### <a name="performance-counters"></a>Contadores de desempenho
 
@@ -438,7 +447,7 @@ Como mostrado, há três exportadores de Azure Monitor diferentes que dão supor
 Cada exportador aceita os mesmos argumentos para configuração, passados pelos construtores. Você pode ver detalhes sobre cada um aqui:
 
 - `connection_string`: A cadeia de conexão usada para se conectar ao recurso de Azure Monitor. Tem prioridade `instrumentation_key` .
-- `enable_standard_metrics`: Usado para `AzureMetricsExporter` . Sinaliza o exportador para enviar as métricas do [contador de desempenho](../platform/app-insights-metrics.md#performance-counters) automaticamente para Azure monitor. Assume o padrão de `True`.
+- `enable_standard_metrics`: Usado para `AzureMetricsExporter` . Sinaliza o exportador para enviar as métricas do [contador de desempenho](../essentials/app-insights-metrics.md#performance-counters) automaticamente para Azure monitor. Assume o padrão de `True`.
 - `export_interval`: Usado para especificar a frequência em segundos de exportação.
 - `instrumentation_key`: A chave de instrumentação usada para se conectar ao recurso de Azure Monitor.
 - `logging_sampling_rate`: Usado para `AzureLogHandler` . Fornece uma taxa de amostragem [0, 1,0] para exportar logs. O padrão é 1,0.
@@ -458,7 +467,7 @@ Na lista em **Ativo**:
 - Para a telemetria enviada com o exportador de métricas do Azure Monitor, as métricas enviadas aparecem em `customMetrics`.
 - Para a telemetria enviada com o exportador de logs do Azure Monitor, os logs aparecem em `traces`. As exceções aparecem em `exceptions`.
 
-Para obter informações mais detalhadas sobre como usar consultas e logs, consulte [Logs no Azure Monitor](../platform/data-platform-logs.md).
+Para obter informações mais detalhadas sobre como usar consultas e logs, consulte [Logs no Azure Monitor](../logs/data-platform-logs.md).
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Saiba mais sobre o OpenCensus para Python
 
@@ -473,11 +482,11 @@ Para obter informações mais detalhadas sobre como usar consultas e logs, consu
 * [Acompanhamento de solicitações de entrada](./opencensus-python-dependency.md)
 * [Acompanhamento de solicitações em andamento](./opencensus-python-request.md)
 * [Mapa do aplicativo](./app-map.md)
-* [Monitoramento de desempenho de ponta a ponta](../learn/tutorial-performance.md)
+* [Monitoramento de desempenho de ponta a ponta](../app/tutorial-performance.md)
 
 ### <a name="alerts"></a>Alertas
 
 * [Testes de disponibilidade](./monitor-web-app-availability.md): Crie testes para garantir que o site esteja visível na Web.
 * [Diagnóstico inteligente](./proactive-diagnostics.md): Esses testes são executados automaticamente, portanto, nenhuma configuração adicional será necessária. Eles informam se o aplicativo tem uma taxa incomum de solicitações com falha.
-* [Alertas de métrica](../platform/alerts-log.md): Definir alertas para avisar se uma métrica ultrapassar um limite. Você pode defini-los em métricas personalizadas que você codifica em seu aplicativo.
+* [Alertas de métrica](../alerts/alerts-log.md): Definir alertas para avisar se uma métrica ultrapassar um limite. Você pode defini-los em métricas personalizadas que você codifica em seu aplicativo.
 

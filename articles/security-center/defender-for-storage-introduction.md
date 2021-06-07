@@ -7,12 +7,12 @@ ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 42aa07ccf8d886dc7eb7109bc405c730331b2c3b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558544"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102095622"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
 
@@ -25,7 +25,7 @@ Os alertas de segurança são acionados quando ocorrem anomalias na atividade. E
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (Disponibilidade Geral)|
-|Preço:|O **Azure Defender para Armazenamento** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Preço:|O **Azure Defender para Armazenamento** é cobrado conforme mostrado em [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||

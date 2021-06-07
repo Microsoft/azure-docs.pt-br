@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 12e9bec0c560f1b068b07a1b6afe218a112e439f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553195"
 ---
 Após criar um certificado raiz autoassinado, exporte o arquivo .cer de chave pública do certificado raiz (não a chave privada). Posteriormente, será feito upload desse arquivo para o Azure. As etapas a seguir ajudarão você a exportar o arquivo .cer para seu certificado raiz autoassinado:
@@ -26,10 +26,10 @@ Após criar um certificado raiz autoassinado, exporte o arquivo .cer de chave p�
 3. Selecione **Não exportar a chave privada** e clique em **Avançar**.
 
    ![Não exportar a chave privada](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
-4. Na página **Exportar Formato de Arquivo** , selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
+4. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** e clique em **Avançar**.
 
    ![Codificado em Base 64](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
-5. Para o **Arquivo a ser Exportado** , use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo** , dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
+5. Para o **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Avançar**.
 
    ![Captura de tela mostra o assistente para exportação de certificados com uma caixa de texto nome de arquivo e uma opção de procura.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Clique em **Concluir** para exportar o certificado.

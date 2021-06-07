@@ -1,30 +1,31 @@
 ---
-title: Solucionar problemas do serviço Construtor de imagens do Azure
-description: Solucionar problemas e erros comuns ao usar o serviço do construtor de imagem de VM do Azure
+title: Solucionar problemas do Serviço de Construtor de Imagens do Azure
+description: Solucione problemas e erros comuns que ocorrem ao usar o Serviço do Construtor de Imagens de VM do Azure
 author: cynthn
 ms.author: danis
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: 52801d0d7b02bb3637b5edb03072bde04a023de9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: f76c3e6c739ae4dd13355d350a01b878e4d4f360
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881781"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101666212"
 ---
-# <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do serviço Construtor de imagens do Azure
+# <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do Serviço de Construtor de Imagens do Azure
 
-Este artigo ajuda você a solucionar problemas e resolver problemas comuns que você pode encontrar ao usar o serviço do construtor de imagem do Azure.
+Este artigo ajuda você a solucionar problemas e resolver erros comuns que pode encontrar ao usar o Serviço do Construtor de Imagens do Azure.
 
-Falhas de AIB podem ocorrer em duas áreas:
-- Envio de modelo de imagem
-- Compilação de imagem
+Podem ocorrer falhas do AIB em duas áreas:
+- Envio do modelo de imagem
+- Build da imagem
 
-## <a name="troubleshoot-image-template-submission-errors"></a>Solucionar erros de envio de modelo de imagem
+## <a name="troubleshoot-image-template-submission-errors"></a>Solucionar problemas no envio do modelo de imagem
 
-Os erros de envio do modelo de imagem são retornados somente no envio. Não há um log de erros para erros de envio de modelo de imagem. Se houve um erro durante o envio, você pode retornar o erro verificando o status do modelo, examinando especificamente o `ProvisioningState` e o `ProvisioningErrorMessage` / `provisioningError` .
+Erros de envio do modelo de imagem são retornados somente no momento do envio. Não há um log de erros com os erros de envio do modelo de imagem. Se tiver ocorrido um erro durante o envio, retorne-o verificando o status do modelo, especificamente examinando o `ProvisioningState` e `ProvisioningErrorMessage`/`provisioningError`.
 
 ```azurecli
 az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
@@ -34,11 +35,11 @@ az image builder show --name $imageTemplateName  --resource-group $imageResource
 Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object ProvisioningState, ProvisioningErrorMessage
 ```
 > [!NOTE]
-> Para o PowerShell, você precisará instalar os [módulos do PowerShell do Azure Image Builder](../windows/image-builder-powershell.md#prerequisites).
+> Para o PowerShell, você precisará instalar os [Módulos do PowerShell do Construtor de Imagens do Azure](../windows/image-builder-powershell.md#prerequisites).
 
-As seções a seguir incluem diretrizes de resolução de problemas para erros de envio de modelo de imagem comuns.
+As seções a seguir incluem diretrizes de resolução de problemas para erros comuns que ocorrem no envio do modelo de imagem.
 
-### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>Não há suporte para atualização/atualização de modelos de imagem no momento
+### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>No momento, não há suporte para atualização de modelos de imagem
 
 #### <a name="error"></a>Erro
 
@@ -52,9 +53,9 @@ O modelo já existe.
 
 #### <a name="solution"></a>Solução
 
-Se você enviar um modelo de configuração de imagem e o envio falhar, um artefato de modelo com falha ainda existirá. Exclua o modelo com falha.
+Se você envia um modelo de configuração de imagem e o envio falha, um artefato de modelo com falha ainda existe. Exclua o modelo com falha.
 
-### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>A operação de recurso foi concluída com o estado de provisionamento de terminal ' Failed '
+### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>A operação do recurso foi concluída com o estado de provisionamento de terminal 'Failed'
 
 #### <a name="error"></a>Erro
 
@@ -71,16 +72,16 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 ```
 #### <a name="cause"></a>Causa
 
-Na maioria dos casos, o erro de falha na implantação do recurso ocorre devido a falta de permissões.
+Na maioria dos casos, o erro de falha na implantação do recurso ocorre devido à falta de permissões.
 
 #### <a name="solution"></a>Solução
 
-Dependendo do seu cenário, o construtor de imagem do Azure pode precisar de permissões para:
-- Imagem de origem ou grupo de recursos da Galeria de imagens compartilhadas
-- Imagem de distribuição ou recurso da Galeria de imagens compartilhadas
-- A conta de armazenamento, o contêiner ou o blob que o personalizador de arquivo está acessando. 
+Dependendo do cenário, o Construtor de Imagens do Azure pode precisar de permissões para:
+- Grupo de recursos da Galeria de Imagens Compartilhadas ou imagem de origem
+- Recurso da Galeria de Imagens Compartilhadas ou imagem de distribuição
+- A conta de armazenamento, o contêiner ou o blob que o personalizador de arquivos está acessando. 
 
-Para obter mais informações sobre como configurar permissões, consulte [configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure](image-builder-permissions-cli.md) ou [configurar permissões de serviço do construtor de imagem do Azure usando o PowerShell](image-builder-permissions-powershell.md)
+Para obter mais informações sobre como configurar permissões, confira [Configurar permissões de serviço do Construtor de Imagens do Azure usando a CLI do Azure](image-builder-permissions-cli.md) ou [Configurar permissões de serviço do Construtor de Imagens do Azure usando o PowerShell](image-builder-permissions-powershell.md)
 
 ### <a name="error-getting-managed-image"></a>Erro ao obter imagem gerenciada
 
@@ -93,18 +94,18 @@ Status=403 Code="AuthorizationFailed" Message="The client '......' with object i
 ```
 #### <a name="cause"></a>Causa
 
-Permissões ausentes.
+Falta de permissões.
 
 #### <a name="solution"></a>Solução
 
-Dependendo do seu cenário, o construtor de imagem do Azure pode precisar de permissões para:
-* Imagem de origem ou grupo de recursos da Galeria de imagens compartilhadas
-* Imagem de distribuição ou recurso da Galeria de imagens compartilhadas
-* A conta de armazenamento, o contêiner ou o blob que o personalizador de arquivo está acessando. 
+Dependendo do cenário, o Construtor de Imagens do Azure pode precisar de permissões para:
+* Grupo de recursos da Galeria de Imagens Compartilhadas ou imagem de origem
+* Recurso da Galeria de Imagens Compartilhadas ou imagem de distribuição
+* A conta de armazenamento, o contêiner ou o blob que o personalizador de arquivos está acessando. 
 
-Para obter mais informações sobre como configurar permissões, consulte [configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure](image-builder-permissions-cli.md) ou [configurar permissões de serviço do construtor de imagem do Azure usando o PowerShell](image-builder-permissions-powershell.md)
+Para obter mais informações sobre como configurar permissões, confira [Configurar permissões de serviço do Construtor de Imagens do Azure usando a CLI do Azure](image-builder-permissions-cli.md) ou [Configurar permissões de serviço do Construtor de Imagens do Azure usando o PowerShell](image-builder-permissions-powershell.md)
 
-### <a name="build--step-failed-for-image-version"></a>Falha na etapa de compilação da versão da imagem
+### <a name="build--step-failed-for-image-version"></a>Falha na etapa de build da versão da imagem
 
 #### <a name="error"></a>Erro
 ```text
@@ -113,13 +114,13 @@ Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/gall
 ```
 #### <a name="cause"></a>Causa
 
-O construtor de imagens do Azure não pode localizar a imagem de origem.
+O Construtor de Imagens do Azure não pode localizar a imagem de origem.
 
 #### <a name="solution"></a>Solução
 
-Verifique se a imagem de origem está correta e se existe no local do serviço do construtor de imagens do Azure.
+Verifique se a imagem de origem está correta e existe na localização do Serviço do Construtor de Imagens do Azure.
 
-### <a name="downloading-external-file-to-local-file"></a>Baixando o arquivo externo para o arquivo local
+### <a name="downloading-external-file-to-local-file"></a>Baixar arquivo externo para arquivo local
 
 #### <a name="error"></a>Erro
 
@@ -129,15 +130,15 @@ Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [atte
 
 #### <a name="cause"></a>Causa
 
-O nome ou o local do arquivo está incorreto ou o local não está acessível.
+O nome ou a localização do arquivo está incorreto ou a localização não é acessível.
 
 #### <a name="solution"></a>Solução
 
-Verifique se o arquivo está acessível. Verifique se o nome e o local estão corretos.
+Verifique se o arquivo está acessível. Verifique se o nome e a localização estão corretos.
 
-## <a name="troubleshoot-build-failures"></a>Solucionar problemas de falhas de compilação
+## <a name="troubleshoot-build-failures"></a>Solucionar problemas de build
 
-Para falhas de compilação de imagem, você pode obter o erro no `lastrunstatus` e, em seguida, examinar os detalhes em customization. log.
+Para falhas de build da imagem, você pode obter o erro no `lastrunstatus` e examinar os detalhes em customizaton.log.
 
 
 ```azurecli
@@ -150,22 +151,22 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="customization-log"></a>Log de personalização
 
-Quando a compilação da imagem está em execução, os logs são criados e armazenados em uma conta de armazenamento. O construtor de imagens do Azure cria a conta de armazenamento no grupo de recursos temporários quando você cria um artefato de modelo de imagem.
+Quando o build da imagem está em execução, logs são criados e armazenados em uma conta de armazenamento. O Construtor de Imagens do Azure cria a conta de armazenamento no grupo de recursos temporário quando você cria um artefato de modelo de imagem.
 
-O nome da conta de armazenamento usa o seguinte padrão: **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
+O nome da conta de armazenamento usa o seguinte padrão: **IT_\<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
 
 Por exemplo, *IT_aibmdi_helloImageTemplateLinux01*.
 
-Você pode exibir a personalização. log na conta de armazenamento no grupo de recursos, selecionando  >  **BLOBs** da conta de armazenamento  >  `packerlogs` .  Em seguida, selecione **diretório > personalização. log**.
+Para ver o customization.log na conta de armazenamento no grupo de recursos, selecione **Conta de Armazenamento** > **Blobs** > `packerlogs`.  Depois, selecione **diretório > customization.log**.
 
 
 ### <a name="understanding-the-customization-log"></a>Noções básicas sobre o log de personalização
 
-O log é detalhado. Ele aborda a compilação da imagem, incluindo quaisquer problemas com a distribuição da imagem, como a replicação da Galeria de imagens compartilhadas. Esses erros são exibidos na mensagem de erro do status do modelo de imagem.
+O log é detalhado. Ele aborda o build da imagem, incluindo problemas com a distribuição da imagem, como a replicação da Galeria de Imagens Compartilhadas. Esses erros aparecem na mensagem de erro do status do modelo de imagem.
 
-O customization. log inclui os seguintes estágios:
+O customization.log inclui as seguintes fases:
 
-1. Implante a VM de compilação e as dependências usando modelos ARM no estágio de grupo de recursos de preparo IT_. Este estágio inclui várias postagens no provedor de recursos do construtor de imagens do Azure:
+1. Implantar a VM de build e as dependências usando modelos do ARM na fase de preparo do grupo de recursos IT_. Essa fase inclui vários POSTs para o provedor de recursos do Construtor de Imagens do Azure:
     ```text
     Azure request method="POST" request="https://management.azure.com/subscriptions/<subID>/resourceGroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-cccc-cccc-ccccccc/providers/Microsoft.Storage/storageAccounts
     ..
@@ -173,28 +174,28 @@ O customization. log inclui os seguintes estágios:
     ..
     ```
 
-2. Status do estágio de implantações. Este estágio inclui o status de cada implantação de recurso:
+2. Fase de status das implantações. Esta fase inclui o status da implantação de cada recurso:
     ```text
     PACKER ERR 2020/04/30 23:28:50 packer: 2020/04/30 23:28:50 Azure request method="GET" request="https://management.azure.com/subscriptions/<subID>/resourcegroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-4505-ae28-6661e43fac48/providers/Microsoft.Resources/deployments/pkrdp51lc0339jg/operationStatuses/08586133176207523519?[REDACTED]" body=""
     ```
 
-3. Conecte-se ao estágio Build VM.
+3. Fase de conexão à VM de build.
 
-    Se o Windows, o serviço do construtor de imagem do Azure se conecta usando o WinRM:
+    No Windows, o Serviço do Construtor de Imagens do Azure se conecta usando o WinRM:
     ```text
     PACKER ERR 2020/04/30 23:30:50 packer: 2020/04/30 23:30:50 Waiting for WinRM, up to timeout: 10m0s
     ..
     PACKER OUT     azure-arm: WinRM connected.
     ```
 
-    Se o Linux, o serviço do construtor de imagens do Azure se conectará usando SSH:
+    No Linux, o Serviço do Construtor de Imagens do Azure se conecta usando SSH:
     ```text
     PACKER OUT ==> azure-arm: Waiting for SSH to become available...
     PACKER ERR 2019/12/10 17:20:51 packer: 2020/04/10 17:20:51 [INFO] Waiting for SSH, up to timeout: 20m0s
     PACKER OUT ==> azure-arm: Connected to SSH!
     ```
 
-4. Executar o estágio de personalizações. Quando as personalizações são executadas, você pode identificá-las examinando o customization. log. Procure *(telemetria)*.
+4. Fase de execução das personalizações. Quando as personalizações são executadas, você pode identificá-las examinando customization.log. Pesquise por *(telemetria)* .
     ```text
     (telemetry) Starting provisioner windows-update
     (telemetry) ending windows-update
@@ -207,7 +208,7 @@ O customization. log inclui os seguintes estágios:
     
     (telemetry) Finalizing. - This means the build hasfinished
     ```
-5. Estágio de desprovisionamento. O construtor de imagens do Azure adiciona um personalizador oculto. Essa etapa de desprovisionamento é responsável por preparar a VM para desprovisionamento. Ele executa o Windows Sysprep (usando c:\DeprovisioningScript.ps1) ou o desprovisionamento do Linux waagent (usando/tmp/DeprovisioningScript.sh). 
+5. Fase de desprovisionamento. O Construtor de Imagens do Azure adiciona um personalizador oculto. Essa etapa de desprovisionamento é responsável por preparar a VM para o desprovisionamento. Ela executa o Sysprep do Windows (usando c:\DeprovisioningScript.ps1) ou o desprovisionamento de waagent do Linux (usando /tmp/DeprovisioningScript.sh). 
 
     Por exemplo:
     ```text
@@ -215,18 +216,18 @@ O customization. log inclui os seguintes estágios:
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
     ```
 
-6. Limpar estágio. Depois que a compilação for concluída, os recursos do Azure Image Builder serão excluídos.
+6. Fase de limpeza. Após a conclusão do build, os recursos do Construtor de Imagens do Azure são excluídos.
     ```text
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
     ```
-## <a name="tips-for-troubleshooting-scriptinline-customization"></a>Dicas para solução de problemas de personalização de script/embutido
-- Testar o código antes de fornecê-lo ao construtor de imagens
-- Certifique-se de que os firewalls e Azure Policy permitem a conectividade com recursos remotos.
-- Comentários de saída para o console do, como `Write-Host` usar `echo` o ou o, permitirá que você pesquise o customization. log.
+## <a name="tips-for-troubleshooting-scriptinline-customization"></a>Dicas para solução de problemas de personalização de script/embutida
+- Testar o código antes de fornecê-lo ao Construtor de Imagens
+- Verificar se os Firewalls e o Azure Policy permitem a conectividade com recursos remotos.
+- Gerar comentários para o console, por exemplo, usar `Write-Host` ou `echo`, o que permitirá pesquisar o customization.log.
 
-## <a name="troubleshoot-common-build-errors"></a>Solucionar erros comuns de compilação
+## <a name="troubleshoot-common-build-errors"></a>Solução de problemas comuns de build
 
-### <a name="packer-build-command-failure"></a>Falha no comando de Build do packr
+### <a name="packer-build-command-failure"></a>Falha no comando de build do Packer
 
 #### <a name="error"></a>Erro
 
@@ -245,7 +246,7 @@ Falha na personalização.
 
 #### <a name="solution"></a>Solução
 
-Examine o log para localizar as falhas dos personalizadores. Procure *(telemetria)*. 
+Examine o log para localizar falhas nos personalizadores. Pesquise por *(telemetria)* . 
 
 Por exemplo:
 ```text
@@ -261,7 +262,7 @@ Por exemplo:
 (telemetry) Finalizing. - This means the build has finished
 ```
 
-### <a name="timeout-exceeded"></a>Tempo limite excedido
+### <a name="timeout-exceeded"></a>Tempo limite ultrapassado
 
 #### <a name="error"></a>Erro
 
@@ -271,23 +272,23 @@ Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in bui
 
 #### <a name="cause"></a>Causa
 
-A compilação excedeu o tempo limite da compilação. Esse erro é visto no ' LastRunStatus '.
+O build ultrapassou o tempo limite. Esse erro é visto no 'lastrunstatus'.
 
 #### <a name="solution"></a>Solução
 
-1. Examine o customization. log. Identifique o último personalizador a ser executado. Pesquise `(telemetry)` iniciando na parte inferior do log. 
+1. Examine o customization.log. Identifique o último personalizador executado. Pesquise por `(telemetry)` começando pelo final do log. 
 
-2. Verifique as personalizações de script. As personalizações podem não estar suprimindo a interação do usuário para comandos, como `quiet` opções. Por exemplo, `apt-get install -y` resulta na execução do script aguardando a interação do usuário.
+2. Verifique as personalizações do script. Elas podem não estar suprimindo a interação do usuário para comandos, como as opções `quiet`. Por exemplo, `apt-get install -y` faz com que a execução do script aguarde a interação do usuário.
 
-3. Se você estiver usando o `File` personalizador para baixar artefatos maiores que 20 MB, consulte a seção soluções alternativas.
+3. Se estiver usando o personalizador `File` para baixar artefatos com mais de 20 MB, confira a seção de soluções alternativas.
 
-4. Examine os erros e as dependências no script que podem fazer com que o script aguarde.
+4. Examine os erros e as dependências no script que podem fazê-lo aguardar.
 
-5. Se você espera que as personalizações precisem de mais tempo, aumente [buildTimeoutInMinutes](image-builder-json.md). O padrão é quatro horas.
+5. Se acreditar que as personalizações precisam de mais tempo, aumente [buildTimeoutInMinutes](image-builder-json.md). O padrão é de quatro horas.
 
-6. Se você tiver ações com uso intensivo de recursos, como baixar gigabytes de arquivos, considere o tamanho da VM de compilação subjacente. O serviço usa uma VM Standard_D1_v2. A VM tem, 1 vCPU e 3,5 GB de memória. Se você estiver baixando 50 GB, isso provavelmente esgotará os recursos da VM e causará falhas de comunicação entre o serviço do construtor de imagem do Azure e a VM de compilação. Repita a compilação com uma VM de memória maior, definindo o [VM_Size](image-builder-json.md#vmprofile).
+6. Se tiver ações com uso intensivo de recursos, como baixar gigabytes de arquivos, considere o tamanho da VM de build subjacente. O serviço usa uma VM Standard_D1_v2. Ela tem 1 vCPU e 3,5 GB de memória. Se você estiver baixando 50 GB, isso provavelmente esgotará os recursos da VM e causará falhas de comunicação entre o Serviço do Construtor de Imagens do Azure e a VM de build. Repita o build com uma VM com mais memória definindo o [VM_Size](image-builder-json.md#vmprofile).
 
-### <a name="long-file-download-time"></a>Tempo de download de arquivo longo
+### <a name="long-file-download-time"></a>Muito tempo para o download de um arquivo
 
 #### <a name="error"></a>Erro
 ```text
@@ -304,13 +305,13 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 ```
 #### <a name="cause"></a>Causa 
 
-O personalizador de arquivo está baixando um arquivo grande.
+O personalizador de arquivos está baixando um arquivo grande.
 
 #### <a name="solution"></a>Solução
 
-O personalizador de arquivo é adequado apenas para downloads de arquivos pequenos com menos de 20 MB. Para downloads de arquivos maiores, use um script ou comando embutido. Por exemplo, no Linux, você pode usar `wget` ou `curl` . No Windows, você pode usar o `Invoke-WebRequest` .
+O personalizador de arquivos é adequado apenas para downloads de arquivos pequenos, com menos de 20 MB. Para downloads de arquivos maiores, use um script ou um comando embutido. Por exemplo, no Linux, você pode usar o `wget` ou o `curl`. No Windows, você pode usar `Invoke-WebRequest`.
 
-### <a name="error-waiting-on-shared-image-gallery"></a>Erro ao aguardar na Galeria de imagens compartilhadas
+### <a name="error-waiting-on-shared-image-gallery"></a>Erro ao aguardar a Galeria de Imagens Compartilhadas
 
 #### <a name="error"></a>Erro
 
@@ -320,7 +321,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### <a name="cause"></a>Causa
 
-O Image Builder atingiu o tempo limite aguardando a imagem ser adicionada e replicada para a Galeria de imagens compartilhada (SIG). Se a imagem estiver sendo injetada no SIG, ela poderá ser considerada que a compilação da imagem foi bem-sucedida. No entanto, o processo geral falhou, pois o construtor de imagem estava esperando na Galeria de imagens compartilhadas para concluir a replicação. Embora a compilação tenha falhado, a replicação continua. Você pode obter as propriedades da versão da imagem verificando o *runOutput* de distribuição.
+O Construtor de Imagens atingiu o tempo limite aguardando a imagem ser adicionada e replicada para a SIG (Galeria de Imagens Compartilhadas). Se a imagem está sendo injetada na SIG, podemos presumir que o build da imagem foi bem-sucedido. No entanto, o processo geral falhou, pois o Construtor de Imagens estava aguardando a Galeria de Imagens Compartilhadas para concluir a replicação. Embora o build tenha falhado, a replicação continua. Você pode obter as propriedades da versão da imagem verificando o *runOutput* de distribuição.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -333,7 +334,7 @@ az resource show \
 
 Aumente o **buildTimeoutInMinutes**.
  
-### <a name="low-windows-resource-information-events"></a>Poucos eventos de informações de recursos do Windows
+### <a name="low-windows-resource-information-events"></a>Eventos de informação de poucos recursos do Windows
 
 #### <a name="error"></a>Erro
 
@@ -382,13 +383,13 @@ Aumente o **buildTimeoutInMinutes**.
 ```
 #### <a name="cause"></a>Causa
 
-Esgotamento de recursos. Esse problema é normalmente visto com Windows Update em execução usando o tamanho de VM de compilação padrão D1_V2.
+Esgotamento de recursos. Normalmente, esse problema é visto quando o Windows Update é executado usando o tamanho de VM de build padrão D1_V2.
 
 #### <a name="solution"></a>Solução
 
-Aumente o tamanho da VM de compilação.
+Aumente o tamanho da VM de build.
 
-### <a name="builds-finished-but-no-artifacts-were-created"></a>Compilações concluídas, mas nenhum artefato foi criado
+### <a name="builds-finished-but-no-artifacts-were-created"></a>Builds concluídos, mas nenhum artefato criado
 
 #### <a name="error"></a>Erro
 
@@ -409,11 +410,11 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 ```
 #### <a name="cause"></a>Causa
 
-Tempo limite causado pela espera dos recursos do Azure necessários para serem criados.
+Tempo limite atingido pela espera pela criação dos recursos do Azure necessários.
 
 #### <a name="solution"></a>Solução
 
-Execute novamente a compilação para tentar novamente.
+Execute o build mais uma vez para tentar novamente.
 
 ### <a name="resource-not-found"></a>Recurso não encontrado
 
@@ -430,13 +431,13 @@ Execute novamente a compilação para tentar novamente.
 ```
 #### <a name="cause"></a>Causa
 
-Permissões ausentes.
+Falta de permissões.
 
 #### <a name="solution"></a>Solução
 
-Verifique novamente se o construtor de imagem do Azure tem todas as permissões necessárias. 
+Verifique novamente se o Construtor de Imagens do Azure tem todas as permissões necessárias. 
 
-Para obter mais informações sobre como configurar permissões, consulte [configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure](image-builder-permissions-cli.md) ou [configurar permissões de serviço do construtor de imagem do Azure usando o PowerShell](image-builder-permissions-powershell.md)
+Para obter mais informações sobre como configurar permissões, confira [Configurar permissões de serviço do Construtor de Imagens do Azure usando a CLI do Azure](image-builder-permissions-cli.md) ou [Configurar permissões de serviço do Construtor de Imagens do Azure usando o PowerShell](image-builder-permissions-powershell.md)
 
 ### <a name="sysprep-timing"></a>Tempo de Sysprep
 
@@ -496,13 +497,13 @@ Para obter mais informações sobre como configurar permissões, consulte [confi
 ```
 #### <a name="cause"></a>Causa
 
-A causa pode ser um problema de tempo devido ao tamanho da VM D1_V2. Se as personalizações forem limitadas e executadas em menos de três segundos, os comandos do Sysprep serão executados pelo construtor de imagens do Azure para desprovisionar. Quando o construtor de imagem do Azure desprovisiona, o comando Sysprep verifica o *WindowsAzureGuestAgent*, que pode não estar totalmente instalado, causando o problema de tempo. 
+A causa pode ser um problema relacionado ao tempo devido ao tamanho da VM D1_V2. Se as personalizações forem limitadas e forem executadas em menos de três segundos, serão executados comandos de sysprep pelo Construtor de Imagens do Azure para desprovisionar. Quando o Construtor de Imagens do Azure desprovisiona, o comando de sysprep verifica o *WindowsAzureGuestAgent*, que pode não estar totalmente instalado, causando o problema com o tempo. 
 
 #### <a name="solution"></a>Solução
 
-Aumente o tamanho da VM. Ou então, você pode adicionar uma personalização de suspensão do PowerShell de 60 segundos para evitar o problema de tempo.
+Aumente o tamanho da VM. Você também pode adicionar uma personalização de suspensão do PowerShell de 60 segundos para evitar o problema com o tempo.
 
-### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Cancelando o Construtor após o contexto de cancelamento do contexto
+### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Cancelamento do construtor após o cancelamento do contexto
 
 #### <a name="error"></a>Erro
 ```text
@@ -519,17 +520,17 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 23002
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
 ```
 #### <a name="cause"></a>Causa
-O serviço do construtor de imagem usa a porta 22 (Linux) ou 5986 (Windows) para se conectar à VM de compilação, isso ocorre quando o serviço está desconectado da VM de compilação durante uma compilação de imagem. Os motivos para a desconexão podem variar, mas habilitar ou configurar firewalls no script pode bloquear as portas acima.
+O serviço do Construtor de Imagens usa a porta 22 (Linux) ou 5986 (Windows) para se conectar à VM de build. Isso ocorre quando o serviço é desconectado da VM de build durante um build de imagem. Os motivos da desconexão podem variar, mas habilitar ou configurar firewalls no script pode bloquear as portas acima.
 
 #### <a name="solution"></a>Solução
-Examine os scripts de alterações/habilitação do firewall ou alterações no SSH ou no WinRM e verifique se as alterações permitem a conectividade constante entre o serviço e a VM de compilação nas portas acima. Para obter mais informações sobre a rede do Image Builder, consulte os [requisitos](./image-builder-networking.md).
+Examine nos scripts se há alterações/habilitação do firewall ou alterações no SSH ou no WinRM e verifique se as alterações permitem a conectividade constante entre o serviço e a VM de build nas portas acima. Para obter mais informações sobre a rede do Construtor de Imagens, confira os [requisitos](./image-builder-networking.md).
 
 ## <a name="devops-task"></a>Tarefa do DevOps 
 
-### <a name="troubleshooting-the-task"></a>Solucionando problemas da tarefa
-A tarefa só falhará se ocorrer um erro durante a personalização, quando isso acontecer, a tarefa relatará falha e deixará o grupo de recursos de preparo, com os logs, para que você possa identificar o problema. 
+### <a name="troubleshooting-the-task"></a>Solucionar problemas da tarefa
+A tarefa falhará apenas se ocorrer um erro durante a personalização. Quando isso acontecer, a tarefa relatará a falha e deixará o grupo de recursos de preparo, com os logs, para que você possa identificar o problema. 
 
-Para localizar o log, você precisa saber o nome do modelo, entrar no pipeline > compilação com falha > analisar a tarefa AIB DevOps, em seguida, verá o log e um nome de modelo:
+Para localizar o log, você precisa conhecer o nome do modelo, entrar no pipeline > build com falha > analisar a tarefa de DevOps do AIB. Você verá o log e um nome de modelo:
 ```text
 start reading task parameters...
 found build at:  /home/vsts/work/r1/a/_ImageBuilding/webapp
@@ -542,14 +543,14 @@ template name:  t_1556938436xxx
 ``` 
 
 Vá para o portal, procure o nome do modelo no grupo de recursos e procure o grupo de recursos com IT_ *.
-Acesse a conta de armazenamento > BLOBs > contêineres > logs.
+Acesse a conta de armazenamento > blobs > contêineres > logs.
 
-### <a name="troubleshooting-successful-builds"></a>Solução de problemas de builds bem-sucedidos
-Talvez haja alguns casos em que você precise investigar compilações bem-sucedidas e desejar examinar o log. Conforme mencionado, se a compilação da imagem for bem-sucedida, o grupo de recursos de preparo que contém os logs será excluído como parte da limpeza. No entanto, o que você pode fazer é introduzir uma suspensão após o comando embutido e, em seguida, obter os logs à medida que a compilação é pausada. Para fazer isso, siga estas etapas:
+### <a name="troubleshooting-successful-builds"></a>Solução de problemas em builds bem-sucedidos
+Pode haver alguns casos em que você precise investigar builds bem-sucedidos e queira examinar o log. Conforme mencionado, se o build de imagem for bem-sucedido, o grupo de recursos de preparo que contém os logs será excluído como parte da limpeza. No entanto, você pode introduzir uma suspensão após o comando embutido e obter os logs enquanto o build estiver em pausa. Para isso, siga estas etapas:
  
-1. Atualize o comando embutido e adicione: Write-Host/Echo "Sleep" – isso permitirá que você pesquise no log
-2. Adicione uma suspensão para pelo menos 10mins, você pode usar o comando [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep)ou `Sleep` Linux.
-3. Use o método acima para identificar o local do log e, em seguida, continue baixando/verificando o log até que ele chegue ao estado de suspensão.
+1. Atualize o comando embutido e adicione: Write-Host / Echo “Sleep” – isso permitirá pesquisar no log
+2. Adicione uma suspensão de pelo menos dez minutos. Você pode usar o comando [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) ou `Sleep` no Linux.
+3. Use o método acima para identificar a localização do log e continue baixando/verificando o log até que ele chegue à suspensão.
 
 
 ### <a name="operation-was-canceled"></a>A operação foi cancelada
@@ -584,38 +585,38 @@ Talvez haja alguns casos em que você precise investigar compilações bem-suced
 ```
 #### <a name="cause"></a>Causa
 
-Se a compilação não foi cancelada por um usuário, ela foi cancelada pelo agente do usuário DevOps do Azure. Provavelmente, o tempo limite de uma hora ocorreu devido a recursos de DevOps do Azure. Se você estiver usando um projeto e um agente privados, obterá 60 minutos de tempo de compilação. Se a compilação exceder o tempo limite, o DevOps cancelará a tarefa em execução.
+Se o build não foi cancelado por um usuário, ele foi cancelado pelo Agente do Usuário do Azure DevOps. Provavelmente, o tempo limite de uma hora foi atingido devido aos recursos do Azure DevOps. Se estiver usando um projeto e um agente privados, você terá 60 minutos de tempo de build. Se o build ultrapassar o tempo limite, o DevOps cancelará a tarefa em execução.
 
-Para obter mais informações sobre as limitações e recursos de DevOps do Azure, consulte [agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
+Para obter mais informações sobre as limitações e os recursos do Azure DevOps, confira [agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### <a name="solution"></a>Solução
 
-Você pode hospedar seus próprios agentes do DevOps ou procurar reduzir o tempo de sua compilação. Por exemplo, se você estiver distribuindo para a Galeria de imagens compartilhadas, replique para uma região. Se você quiser replicar de forma assíncrona. 
+Você pode hospedar seus agentes do DevOps ou procurar reduzir o tempo do build. Por exemplo, se estiver distribuindo para a Galeria de Imagens Compartilhadas, replique para uma região. Se quiser, replique de maneira assíncrona. 
 
-### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Logon lento do Windows: ' aguarde o instalador dos módulos do Windows '
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Logon do Windows lento: 'Aguarde o Instalador de Módulos do Windows'
 
 #### <a name="error"></a>Erro
-Depois de criar uma imagem do Windows 10 com o Image Builder, crie uma VM a partir da imagem, você o RDP e tenha que aguardar minutos no primeiro logon visualizando uma tela azul com a mensagem:
+Depois de criar uma imagem do Windows 10 com o Construtor de Imagens e criar uma VM baseada na imagem, você usa o RDP e precisa aguardar minutos no primeiro logon, vendo uma tela azul com a mensagem:
 ```text
 Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>Solução
-No início da compilação de imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização e se toda a instalação do software foi concluída. Por fim, adicione a opção [/Mode: VM](/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao Sysprep padrão que o AIB usa, veja abaixo, ' VMs criadas de AIB images não criam com êxito ' > ' substituindo os comandos '  
+Primeiro, no build da imagem, verifique se não há reinicializações pendentes necessárias adicionando um personalizador de reinicialização do Windows como a última personalização. Depois, verifique se toda a instalação do software foi concluída. Por fim, adicione a opção [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) ao sysprep padrão usado pelo AIB. Confira abaixo, 'VMs criadas com base em imagens do AIB não são criadas com êxito' > 'Substituindo os comandos'  
 
  
-## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>As VMs criadas a partir de imagens AIB não são criadas com êxito
+## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>VMs criadas com base em imagens do AIB não são criadas com êxito
 
-Por padrão, o construtor de imagens do Azure executa o código *de desprovisionamento* no final de cada fase de personalização de imagem para *generalizar* a imagem. Generalizar é um processo em que a imagem é configurada para ser reutilizada para criar várias VMs e você pode passar configurações de VM, como nome de host, nome de usuário, etc. Para o Windows, o construtor de imagem do Azure executa o *Sysprep* e para execuções do construtor de imagem do Azure do Linux `waagent -deprovision` . 
+Por padrão, o Construtor de Imagens do Azure executa o código de *desprovisionamento* no final de cada fase de personalização da imagem para *generalizar* a imagem. A generalização é um processo em que a imagem é configurada para ser reutilizada para criar várias VMs, e você pode passar configurações da VM, como o nome de host, o nome de usuário etc. Para o Windows, o Construtor de Imagens do Azure executa o *Sysprep* e, para Linux, ele executa `waagent -deprovision`. 
 
-Para o Windows, o construtor de imagem do Azure usa um comando Sysprep genérico. No entanto, isso pode não ser adequado para todas as generalizações do Windows bem-sucedidas. O construtor de imagens do Azure permite que você personalize o comando Sysprep. Observe que o construtor de imagem do Azure é uma ferramenta de automação de imagem. É responsável pela execução bem-sucedida do comando Sysprep. Mas você pode precisar de comandos diferentes do Sysprep para tornar sua imagem reutilizável. Para o Linux, o construtor de imagem do Azure usa um `waagent -deprovision+user` comando genérico. Para obter mais informações, consulte [Microsoft Azure documentação do agente do Linux](https://github.com/Azure/WALinuxAgent#command-line-options).
+Para o Windows, o Construtor de Imagens do Azure usa um comando Sysprep genérico. No entanto, isso pode não ser adequado para todas as generalizações bem-sucedidas do Windows. O Construtor de Imagens do Azure permite que você personalize o comando Sysprep. Observe que o Construtor de Imagens do Azure é uma ferramenta de automação de imagem. Ele é responsável pela execução bem-sucedida do comando Sysprep. No entanto, você pode precisar de comandos Sysprep diferentes para tornar sua imagem reutilizável. Para o Linux, o Construtor de Imagens do Azure usa um comando `waagent -deprovision+user` genérico. Para obter mais informações, confira [Documentação do Agente de Linux do Microsoft Azure](https://github.com/Azure/WALinuxAgent#command-line-options).
 
-Se você estiver migrando uma personalização existente e estiver usando diferentes comandos Sysprep/waagent, poderá experimentar os comandos genéricos do Image Builder. Se a criação da VM falhar, use os comandos Sysprep/waagent anteriores.
+Se você está migrando uma personalização existente e está usando comandos Sysprep/waagent diferentes, pode experimentar os comandos genéricos do Construtor de Imagens. Se a criação da VM falhar, use os comandos Sysprep/waagent anteriores.
 
 > [!NOTE]
-> Se AIB criar uma imagem personalizada do Windows com êxito e você criar uma VM a partir dela, então, localize a VM não será criada com êxito (por exemplo, o comando de criação de VM não é concluído/tempo limite), você precisará examinar a documentação do Sysprep do Windows Server. Ou, você pode gerar uma solicitação de suporte com a equipe de suporte do Windows Server Sysprep Customer Services, que pode solucionar problemas e avisar sobre o comando Sysprep correto.
+> Se o AIB criar uma imagem personalizada do Windows com êxito e você criar uma VM baseada dela e a VM não for criada com êxito (por exemplo, se o comando de criação da VM não for concluído o atingir o tempo limite), você precisará examinar a documentação do Sysprep do Windows Server. Você também pode gerar uma solicitação de suporte para a equipe de suporte do atendimento ao cliente do Sysprep do Windows Server, que pode solucionar problemas e orientar quanto ao comando Sysprep correto.
 
-### <a name="command-locations-and-filenames"></a>Locais de comando e nomes de FileName
+### <a name="command-locations-and-filenames"></a>Nomes de arquivo e locais dos comandos
 
 Windows:
 
@@ -659,10 +660,10 @@ Write-Output '>>> Sysprep complete ...'
 
 ### <a name="overriding-the-commands"></a>Como substituir os comandos
 
-Para substituir os comandos, use os provisionadores do script PowerShell ou Shell para criar os arquivos de comando com o nome exato do arquivo e coloque-os nos diretórios listados anteriormente. O construtor de imagens do Azure lê esses comandos e a saída é gravada no *customization. log*.
+Para substituir os comandos, use os provisionadores de script de shell ou o PowerShell para criar os arquivos de comando com o nome exato do arquivo e coloque-os nos diretórios listados anteriormente. O Construtor de Imagens do Azure lê esses comandos e a saída é gravada no *customization.log*.
 
 ## <a name="getting-support"></a>Como Obter Suporte
-Se você tiver mencionado as diretrizes e ainda não conseguir solucionar o problema, poderá abrir um caso de suporte. Ao fazer isso, selecione o tópico de suporte e produto correto, fazendo isso envolverá a equipe de suporte do construtor de imagem de VM do Azure.
+Se você consultou as diretrizes e ainda não consegue solucionar seu problema, abra caso de suporte. Ao fazer isso, selecione o tópico de suporte e o produto corretos. Fazer isso envolverá a equipe de suporte do Construtor de Imagens de VM do Azure.
 
 Selecionando o produto do caso:
 ```bash
@@ -674,4 +675,4 @@ Support Subtopic: Azure Image Builder
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).
+Para obter mais informações, confira a [Visão geral do Construtor de Imagens do Azure](../image-builder-overview.md).

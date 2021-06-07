@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015189"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077458"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
@@ -79,7 +79,6 @@ Depois de definir as propriedades do contrato, você pode configurar como este c
 |----------|-------------|
 | **TA1 esperado** | Retorna uma confirmação técnica (TA1) ao emissor de intercâmbio. |
 | **FA esperado** | Retorna uma confirmação funcional (FA) ao emissor de intercâmbio. <p>Para a propriedade **Versão de FA**, com base na versão do esquema, selecione as confirmações 997 ou 999. <p>Para habilitar a geração de loops AK2 em confirmações funcionais para conjuntos de transações aceitas, selecione **Incluir Loop AK2/IK2**. |
-||||
 
 <a name="inbound-schemas"></a>
 

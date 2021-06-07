@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678265"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714984"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando os Azure Mapas
 
@@ -95,7 +95,7 @@ A figura a seguir mostra a área de cerca geográfica realçada em azul. A rota 
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Para armazenar dados de acompanhamento de violação de carros, crie uma [conta de armazenamento para uso geral v2](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) em seu grupo de recursos. Se você não tiver criado um grupo de recursos, siga as instruções em [Criar um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Neste tutorial, você nomeará seu grupo de recursos como *AluguelContoso*.
+Para armazenar dados de acompanhamento de violação de carros, crie uma [conta de armazenamento para uso geral v2](../storage/common/storage-account-overview.md) em seu grupo de recursos. Se você não tiver criado um grupo de recursos, siga as instruções em [Criar um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Neste tutorial, você nomeará seu grupo de recursos como *AluguelContoso*.
 
 Para criar uma conta de armazenamento, siga as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal). Neste tutorial, você nomeará a conta de armazenamento como *ArmazenamentoAluguelContoso*, mas você pode nomeá-la como quiser.
 
@@ -282,7 +282,7 @@ Para obter uma lista completa das APIs REST do Azure Mapas, confira:
 
 Para obter uma lista de dispositivos certificados pelo Azure para IoT, visite:
 
-* [Dispositivos certificados pelo Azure](https://catalog.azureiotsolutions.com/)
+* [Dispositivos certificados pelo Azure](https://devicecatalog.azure.com/)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

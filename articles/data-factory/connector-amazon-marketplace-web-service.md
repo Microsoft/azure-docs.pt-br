@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: c25bdac0b52af425557464f17350fb8a46244f2f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100364334"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar dados do Amazon Marketplace Web Service usando o Azure Data Factory
@@ -51,8 +51,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon Market
 | accessKeyId | A ID da chave de acesso usada para acessar os dados.  | Sim |
 | SecretKey | A chave secreta usada para acessar os dados. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
-| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é true.  | Não |
-| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é true.  | Não |
+| useHostVerification | Especifica se o nome do host no certificado do servidor precisa ser igual ao nome do host do servidor nas conexões por TLS. O valor padrão é true.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor nas conexões por meio de TLS. O valor padrão é true.  | Não |
 
 **Exemplo:**
 
@@ -87,7 +87,7 @@ Para copiar dados do Amazon Marketplace Web Service, defina a propriedade type d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **AmazonMWSObject** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **AmazonMWSObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**

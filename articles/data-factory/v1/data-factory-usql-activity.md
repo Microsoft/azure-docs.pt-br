@@ -9,10 +9,10 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 5931cb28721e8658a771ceea1cd94624a0c09f7c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392911"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
@@ -85,7 +85,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Como alternativa, você pode usar a autenticação de credenciais do usuário do Data Lake Analytics especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **nesse** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
 | **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |

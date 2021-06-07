@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303600"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
@@ -39,7 +39,7 @@ A seguinte imagem mostra o fluxo de arquitetura das chamadas de Classificação 
     * O personalizador decide se você deve explorar o modelo atual ou explorar novas opções para o modelo.
     * O resultado de classificação é enviado ao EventHub.
 1. A classificação superior é retornada ao seu sistema como _ID de ação de recompensa_.
-    Seu sistema apresenta esse conteúdo e determina uma pontuação de recompensa com base em suas próprias regras de negócio.
+    O sistema apresenta esse conteúdo e determina uma pontuação de recompensa com base nas suas regras de negócio.
 1. Seu sistema retorna a pontuação de recompensa para o loop de aprendizado.
     * Quando Personalizador receber a recompensa, a recompensa será enviada ao EventHub.
     * A classificação e a recompensa são correlacionadas.

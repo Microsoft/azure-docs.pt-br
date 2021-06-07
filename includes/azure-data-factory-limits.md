@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680756"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125872"
 ---
 O Azure Data Factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para garantir que as assinaturas dos clientes permaneçam protegidas das cargas de trabalho umas das outras. Para aumentar os limites até o máximo para sua assinatura, entre em contato com o suporte.
 
@@ -49,6 +49,7 @@ O Azure Data Factory é um serviço multilocatário que tem os seguintes limites
 | Número simultâneo de fluxos de dados por runtime de integração | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número simultâneo de sessões de depuração do fluxo de dados por usuário por alocador | 3 | 3 |
 | Limite de TTL do Azure IR no Fluxo de Dados | 4 horas |  4 horas |
+| Limite de tamanho da entidade de dados de metadados em uma fábrica | 2 GB | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> A DIU (unidade de integração de dados) é usada em uma operação de cópia de nuvem para nuvem, saiba mais em [Unidades de integração de dados (versão 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Para obter informações sobre a cobrança, confira [Preços do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
@@ -57,8 +58,8 @@ O Azure Data Factory é um serviço multilocatário que tem os seguintes limites
 | Grupo de regiões | Regiões |
 | -------- | ------ |
 | Grupo de regiões 1 | EUA Central, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Oeste da Europa, Oeste dos EUA, Oeste dos EUA 2 |
-| Grupo de regiões 2 | Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Índia Central, Leste do Japão, Centro-Norte dos EUA, Centro-Sul dos EUA, Sudeste Asiático, Centro-oeste dos EUA |
-| Grupo de regiões 3 | Canadá Central, Leste da Ásia, França Central, Coreia Central, Sul do Reino Unido |
+| Grupo de regiões 2 | Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Índia Central, Leste do Japão, Centro-Norte dos EUA, Centro-Sul dos EUA, Sudeste Asiático, Centro-Oeste dos EUA |
+| Grupo de regiões 3 | Outras regiões |
 
 <sup>3</sup> Objetos de pipeline, conjunto de dados e serviço vinculado representam um agrupamento lógico de sua carga de trabalho. Os limites desses objetos não estão relacionados à quantidade de dados que você pode mover e processar com o Azure Data Factory. O Data Factory foi desenvolvido para ser dimensionado de modo a lidar com petabytes de dados.
 

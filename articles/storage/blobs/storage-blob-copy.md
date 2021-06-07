@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 28b23555f97e58dde038c5e3e12a4b741b81776d
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059034"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copiar um blob com bibliotecas de cliente de armazenamento do Azure
@@ -123,7 +123,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
 Para copiar um blob, chame o método [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) . O `start_copy_from_url` método retorna um dicionário que contém informações sobre a operação de cópia.
 
@@ -167,7 +167,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 }
 ```
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
 Verifique a entrada "status" no dicionário [CopyProperties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.copyproperties) retornado pelo método [get_blob_properties](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#get-blob-properties---kwargs-) para obter o status da operação de cópia. O blob final será confirmado quando a cópia for concluída.
 

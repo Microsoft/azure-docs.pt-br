@@ -1,22 +1,22 @@
 ---
 title: 'Padrão: Operadores lógicos em uma definição de política'
 description: Esse padrão de Política do Azure fornece exemplos de como usar os operadores lógicos em uma definição de política.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545583"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093343"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão do Azure Policy: operadores lógicos
 
-Uma definição de política pode conter várias instruções condicionais. Talvez você precise que cada instrução seja verdadeira ou que apenas algumas delas sejam verdadeiras. Para dar suporte a essas necessidades, a linguagem tem [operadores lógicos](../concepts/definition-structure.md#logical-operators) para **not**, **allOf**e **anyOf**. Eles são opcionais e podem ser aninhados para criar cenários complexos.
+Uma definição de política pode conter várias instruções condicionais. Talvez você precise que cada instrução seja verdadeira ou que apenas algumas delas sejam verdadeiras. Para dar suporte a essas necessidades, a linguagem tem [operadores lógicos](../concepts/definition-structure.md#logical-operators) para **not**, **allOf** e **anyOf**. Eles são opcionais e podem ser aninhados para criar cenários complexos.
 
 ## <a name="sample-1-one-logical-operator"></a>Exemplo 1: Um operador lógico
 
-Essa definição de política avalia as contas do CosmosDB para verificar se failovers automáticos e vários locais de gravação estão configurados. Quando não estão, a [auditoria](../concepts/effects.md#audit) é acionada e cria uma entrada de log quando o recurso não compatível é criado ou atualizado.
+Essa definição de política avalia as contas do [Azure Cosmos DB](../../../cosmos-db/introduction.md) para verificar se failovers automáticos e vários locais de gravação estão configurados. Quando não estão, a [auditoria](../concepts/effects.md#audit) é acionada e cria uma entrada de log quando o recurso não compatível é criado ou atualizado.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Esse bloco **policyRule.if** também inclui um único **allOf**, mas cada condi�
 
 ## <a name="sample-3-combining-logical-operators"></a>Exemplo 3: combinar operadores lógicos
 
-Essa definição de política avalia as contas Java Spring para ver se o rastreamento não está habilitado ou se ele não está em um estado bem-sucedido.
+Essa definição de política avalia as contas [Spring no Azure](/azure/developer/java/spring-framework) para ver se o rastreamento não está habilitado ou se ele não está em um estado bem-sucedido.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

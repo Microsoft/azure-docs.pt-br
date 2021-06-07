@@ -2,15 +2,17 @@
 title: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 description: Neste início rápido, você aprenderá a criar um namespace do Barramento de Serviço e uma fila no namespace usando o portal do Azure.
 author: spelluru
-ms.topic: quickstart
-ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 79dd751c43443790aafc494d89ad45e3b6705a64
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 08/12/2020
+ms.topic: quickstart
+ms.custom:
+- mode-portal
+ms.openlocfilehash: e38d32c93453737060f654add58f09902b05ee45
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95799221"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537194"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Usar o portal do Azure para criar um namespace e uma fila do Barramento de Serviço
 Este guia de início rápido mostra como criar um namespace e uma fila do Barramento de Serviço usando o [portal do Azure][Azure portal]. Ele também mostra como obter credenciais de autorização que um aplicativo cliente pode usar para enviar/receber mensagens de/para a fila. 

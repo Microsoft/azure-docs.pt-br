@@ -4,10 +4,10 @@ description: Saiba mais sobre as Contas do Lote do Azure e como elas são usadas
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896741"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Contas do Lote e contas do Armazenamento do Microsoft Azure

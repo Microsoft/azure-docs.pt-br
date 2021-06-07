@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362392"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100577761"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
 
@@ -47,23 +47,23 @@ Com o monitoramento do AD do Azure, você pode rotear logs para:
 * um hub de eventos do Azure em que você pode se integrar com suas ferramentas SIEM existentes, como Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Recentemente, começamos a usar o termo Azure Monitor logs em vez de Log Analytics. Os dados de log ainda são armazenados em um espaço de trabalho do Log Analytics e ainda são coletados e analisados pelo mesmo serviço do Log Analytics. Estamos atualizando a terminologia para refletir melhor a função dos [logs no Azure Monitor](../../azure-monitor/platform/data-platform.md). Confira as [alterações de terminologia do Azure Monitor](../../azure-monitor/terminology.md) para obter detalhes.
+Recentemente, começamos a usar o termo Azure Monitor logs em vez de Log Analytics. Os dados de log ainda são armazenados em um espaço de trabalho do Log Analytics e ainda são coletados e analisados pelo mesmo serviço do Log Analytics. Estamos atualizando a terminologia para refletir melhor a função dos [logs no Azure Monitor](../../azure-monitor/data-platform.md). Confira as [alterações de terminologia do Azure Monitor](../../azure-monitor/terminology.md) para obter detalhes.
 
 [Saiba mais sobre as políticas de retenção de relatório](./reference-reports-data-retention.md).
 
 ### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licenciamento e pré-requisitos para relatórios e monitoramento do Azure AD
 
-Você precisará de uma licença do Azure AD Premium para acessar os logs de logon do Azure AD.
+Você precisará de uma licença Premium do Azure AD para acessar os logs de entrada do Azure AD.
 
-Para obter informações detalhadas sobre recursos e licenciamento no [Guia de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Para obter informações detalhadas sobre os recursos e o licenciamento, confira o [Guia de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Para implantar o monitoramento e o relatório do Azure AD, você precisará de um usuário que seja um administrador global ou administrador de segurança para o locatário do Azure AD.
+Para implantar o monitoramento e o relatório do Azure AD, você precisará de um usuário que seja um Administrador global ou um administrador de segurança do locatário do Azure AD.
 
-Dependendo do destino final dos seus dados de log, você precisará de um dos seguintes:
+Dependendo do destino final dos dados de log, você precisará de um dos seguintes:
 
 * Uma conta de armazenamento do Azure para a qual você tem permissões ListKeys. Recomendamos que você use uma conta de armazenamento geral e não uma conta do Armazenamento de blobs. Para saber mais sobre preços do armazenamento, confira a [Calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage).
 
-* Um namespace de hubs de eventos do Azure para integração com soluções SIEM de terceiros.
+* Um namespace dos Hubs de Eventos do Azure para integração a soluções SIEM de terceiros.
 
 * Um espaço de trabalho do Log Analytics do Azure para enviar logs aos logs do Azure Monitor.
 
@@ -121,7 +121,7 @@ Saiba como [encaminhar os dados para sua conta de armazenamento](./quickstart-az
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Enviar logs para os logs do Azure Monitor
 
-[Os logs de Azure monitor](../../azure-monitor/log-query/log-query-overview.md) consolidam dados de monitoramento de fontes diferentes. Ele também fornece uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e o uso de recursos. Ao enviar logs de atividade do Azure AD para Azure Monitor logs, você pode recuperar, monitorar e alertar rapidamente os dados coletados. Use esse método quando você não tiver uma solução SIEM existente para a qual deseja enviar seus dados diretamente, mas quiser consultas e análises. Depois que os dados estiverem em logs de Azure Monitor, você poderá enviá-los para o Hub de eventos e daí para um SIEM, se desejar.
+[Os logs de Azure monitor](../../azure-monitor/logs/log-query-overview.md) consolidam dados de monitoramento de fontes diferentes. Ele também fornece uma linguagem de consulta e um mecanismo de análise que fornece informações sobre a operação de seus aplicativos e o uso de recursos. Ao enviar logs de atividade do Azure AD para Azure Monitor logs, você pode recuperar, monitorar e alertar rapidamente os dados coletados. Use esse método quando você não tiver uma solução SIEM existente para a qual deseja enviar seus dados diretamente, mas quiser consultas e análises. Depois que os dados estiverem em logs de Azure Monitor, você poderá enviá-los para o Hub de eventos e daí para um SIEM, se desejar.
 
 Saiba como [enviar dados para os logs do Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 

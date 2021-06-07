@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 490fa46deabc822e416705fe9bf9c5cdb58f8cd6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936747"
 ---
 # <a name="azure-functions-hosting-options"></a>Opções de Hospedagem de Azure Functions
@@ -30,7 +30,7 @@ Veja a seguir um resumo dos benefícios dos três principais planos de hospedage
 
 | | |
 | --- | --- |  
-|**[Plano de Consumo](consumption-plan.md)**| Dimensione automaticamente e pague apenas pelos recursos de computação quando suas funções estiverem em execução.<br/><br/>No plano de consumo, as instâncias do host do Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada.<br/><br/> ✔ Plano de hospedagem padrão.<br/>✔ Pague somente quando suas funções estiverem em execução.<br/>✔ É dimensionado automaticamente, mesmo durante períodos de alta carga.|  
+|**[Plano de consumo](consumption-plan.md)**| Dimensione automaticamente e pague apenas pelos recursos de computação quando suas funções estiverem em execução.<br/><br/>No plano de consumo, as instâncias do host do Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada.<br/><br/> ✔ Plano de hospedagem padrão.<br/>✔ Pague somente quando suas funções estiverem em execução.<br/>✔ É dimensionado automaticamente, mesmo durante períodos de alta carga.|  
 |**[Plano Premium](functions-premium-plan.md)**|Dimensiona automaticamente com base na demanda usando trabalhos pré-configurados que executam aplicativos sem atraso após estarem ociosos, é executado em instâncias mais poderosas e se conecta a redes virtuais. <br/><br/>Considere o plano Azure Functions Premium nas seguintes situações: <br/><br/>✔ Seus aplicativos de funções são executados continuamente ou quase continuamente.<br/>✔ Você tem um número alto de execuções pequenas e uma fatura de execução alta, mas com poucos GB de segundos no plano de consumo.<br/>✔ Você precisa de mais opções de CPU ou memória do que o fornecido pelo plano de consumo.<br/>✔ Seu código precisa ser executado por mais tempo do que o máximo permitido no plano de consumo.<br/>✔ Você precisa de recursos que não estão disponíveis no plano de consumo, como a conectividade de rede virtual.|  
 |**[Plano dedicado](dedicated-plan.md)** |Execute suas funções em um plano do serviço de aplicativo em taxas regulares do [plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Melhor para cenários de execução longa em que [Durable Functions](durable/durable-functions-overview.md) não pode ser usado. Considere um plano do serviço de aplicativo nas seguintes situações:<br/><br/>✔ Você tem VMs subutilizadas existentes que já estão executando outras instâncias do serviço de aplicativo.<br/>✔ Você deseja fornecer uma imagem personalizada na qual executar suas funções. <br/>✔ O dimensionamento e os custos de previsão são necessários.|  
 
@@ -49,7 +49,7 @@ A tabela a seguir mostra o suporte ao sistema operacional e ao tempo de execuç�
 
 | | Linux<sup>1</sup><br/>Somente código | Windows<sup>2</sup><br/>Somente código | Linux<sup>1, 3</sup><br/>Contêiner do Docker |
 | --- | --- | --- | --- |
-| **[Plano de Consumo](consumption-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | Sem suporte  |
+| **[Plano de consumo](consumption-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | Sem suporte  |
 | **[Plano Premium](functions-premium-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Plano dedicado](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
 | **[ASE](dedicated-plan.md)** | .NET Core<br/>Node.js<br/>Java<br/>Python |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core  |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python | 
@@ -67,7 +67,7 @@ A tabela a seguir compara os comportamentos de dimensionamento dos vários plano
 
 | | Escalar horizontalmente | N º máximo de instâncias |
 | --- | --- | --- |
-| **[Plano de Consumo](consumption-plan.md)** | [Controlado por evento](event-driven-scaling.md). Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos de gatilho de entrada. | 200 |
+| **[Plano de consumo](consumption-plan.md)** | [Controlado por evento](event-driven-scaling.md). Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos de gatilho de entrada. | 200 |
 | **[Plano Premium](functions-premium-plan.md)** | [Controlado por evento](event-driven-scaling.md). Escale horizontalmente de forma automática, mesmo durante períodos de carga alta. A infraestrutura de Azure Functions dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host do functions, com base no número de eventos em que suas funções são disparadas. |100|
 | **[Plano dedicado](dedicated-plan.md)**<sup>1</sup> | Manual/dimensionamento automático |10-20|
 | **[Ase](dedicated-plan.md)**<sup>1</sup> | Manual/dimensionamento automático |100 |
@@ -97,7 +97,7 @@ A tabela a seguir compara os comportamentos de dimensionamento dos vários plano
 
 | | | 
 | --- | --- |
-| **[Plano de Consumo](consumption-plan.md)** | Pague apenas pelo tempo em que suas funções são executadas. A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. |
+| **[Plano de consumo](consumption-plan.md)** | Pague apenas pelo tempo em que suas funções são executadas. A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. |
 | **[Plano Premium](functions-premium-plan.md)** | O plano Premium é baseado no número de segundos de núcleo e na memória usada nas instâncias necessárias e pré-configuradas. Pelo menos uma instância por plano deve ser mantida quase sempre. Esse plano fornece os preços mais previsíveis. |
 | **[Plano dedicado](dedicated-plan.md)* | Você paga o mesmo para aplicativos de funções em um plano do serviço de aplicativo como faria para outros recursos do serviço de aplicativo, como aplicativos Web.|
 | **[ASE (Ambiente do Serviço de Aplicativo)](dedicated-plan.md)** | Há uma taxa mensal simples para um ASE que paga pela infraestrutura e não muda com o tamanho do ASE. Também há um custo por vCPU do plano do serviço de aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. |

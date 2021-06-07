@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462421"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurar um laboratório para ensinar o gerenciamento de bancos de dados relacionais
@@ -20,7 +20,7 @@ Neste artigo, mostraremos como configurar um modelo de máquina virtual em um la
 
 ## <a name="lab-configuration"></a>Configuração do laboratório
 
-Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
+Para configurar este laboratório, você precisa de uma assinatura do Azure e uma conta de laboratório para começar. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de laboratório no Azure Lab Services. Para obter mais informações sobre como criar uma nova conta de laboratório, consulte [tutorial para configurar uma conta de laboratório](tutorial-setup-lab-account.md).  Você também pode usar uma conta de laboratório existente.
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
@@ -36,7 +36,7 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 
 | Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
-|Tamanho da Máquina Virtual| Médio. Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise.|
+|Tamanho da Máquina Virtual| Média: Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise.|
 |Imagem de máquina virtual| SQL Server 2019 Standard no Windows Server 2019|
 
 ## <a name="template-machine-configuration"></a>Configuração da máquina de modelo

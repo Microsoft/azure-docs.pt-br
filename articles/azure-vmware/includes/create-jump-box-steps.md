@@ -2,13 +2,13 @@
 title: Criar o jumpbox da Solução VMware no Azure
 description: Etapas para criar a caixa de salto da Solução VMware no Azure.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 5d5a5d82cf6e70e7ad55bcfa10c7f85372131c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/13/2021
+ms.openlocfilehash: f746e11763e1df1686f3134960dea167bf1c9908
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578403"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462230"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
 
@@ -33,9 +33,8 @@ ms.locfileid: "91578403"
    | **Nome de usuário** | Insira o nome de usuário para fazer logon na VM. |
    | **Senha** | Insira a senha para fazer logon na VM. |
    | **Confirmar senha** | Insira a senha para fazer logon na VM. |
-   | **Portas de entrada públicas** | Selecione **Nenhum**. Se você selecionar Nenhum, poderá usar o [acesso JIT](../../security-center/security-center-just-in-time.md#jit-configure) para controlar o acesso à VM somente quando quiser acessá-la.  |
+   | **Portas de entrada públicas** | Selecione **Nenhum**. Se você selecionar Nenhum, poderá usar o [acesso JIT](../../security-center/security-center-just-in-time.md#jit-configure) para controlar o acesso à VM somente quando quiser acessá-la. Como alternativa, você poderá usar um [Azure Bastion](../../bastion/tutorial-create-host-portal.md) se quiser acessar o servidor da caixa de salto com segurança da Internet sem expor nenhuma porta de rede.  |
 
 
 1. Após a aprovação da validação, selecione **Criar** para iniciar o processo de criação da máquina virtual.
 
-   :::image type="content" source="../media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Adicionar uma nova VM do Windows 10 para uma caixa de salto." border="true":::

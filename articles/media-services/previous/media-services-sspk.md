@@ -3,7 +3,7 @@ title: Licenciamento do Microsoft &reg; Smooth streaming client Porting kit
 description: Saiba mais sobre como licenciar o Microsoft &reg; Smooth streaming client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 8e2217c04f5c39ad93185273d537324f4b56e456
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099533"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870459"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licenciamento do Microsoft &reg; Smooth streaming client Porting kit
 
@@ -46,7 +46,7 @@ O SSPK é licenciado em termos que oferecem excelente valor comercial. A licenç
   * interfaces de programação para interação com decodificadores A/V de hardware (decodificação, renderização)
 * Interface de Gerenciamento de Direitos Digitais (DRM) 
   * interfaces de programação para tratamento de DRM por meio da Camada de Abstração de DRM (DAL)
-  * O Kit de Portabilidade do Microsoft PlayReady é fornecido separadamente, mas se integra por meio dessa interface. Para saber mais sobre o licenciamento do Dispositivo Microsoft PlayReady, clique [aqui](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * O Kit de Portabilidade do Microsoft PlayReady é fornecido separadamente, mas se integra por meio dessa interface. [Veja mais detalhes sobre o licenciamento de dispositivo do Microsoft PlayReady](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Amostras de implementação 
   * implementação de amostra de PAL para Linux
   * implementação de amostra de HAL para GStreamer
@@ -135,7 +135,6 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 * Co-se eletrônicos de mega Fame. limitado
 * MIRC eletrônica limitado
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics co., Ltd.
@@ -148,7 +147,7 @@ As licenças de SSPK provisórias e finais podem enviar perguntas técnicas para
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
-* Sky Deutschland Fernsehen GmbH & Co. KG
+* O céu CP Ltd
 * SAS GLOBAL SMARDTV
 * SoftAtHome
 * Sony Corporation

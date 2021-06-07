@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100104171"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como configurar um domínio do Publicador de um aplicativo
@@ -49,7 +49,7 @@ Se seu aplicativo foi registrado antes de 21 de maio de 2019, o prompt de consen
 Para definir o domínio do Publicador do aplicativo, siga estas etapas.
 
 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
-1. Se você tiver acesso a vários locatários, use o filtro **diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual o aplicativo está registrado.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual deseja registrar o aplicativo.
 1. Navegue até [Azure Active Directory > registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para localizar e selecionar o aplicativo que você deseja configurar.
 
    Depois de selecionar o aplicativo, você verá a página **visão geral** do aplicativo.

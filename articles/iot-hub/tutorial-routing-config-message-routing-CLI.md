@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 25c3ff7582ed408776c0ae6904e4bacddd89e40b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cf994dfe3d53232ab1e2374fda620dc768127097
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624164"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788881"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutorial: Usar a CLI do Azure para configurar o roteamento de mensagens do Hub IoT
 
@@ -147,7 +147,7 @@ Agora que os recursos básicos foram configurados, você pode configurar o rotea
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Para criar um ponto de extremidade de roteamento, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create&preserve-view=true). Para criar a rota de mensagem para o ponto de extremidade, use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create&preserve-view=true).
+Para criar um ponto de extremidade de roteamento, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create). Para criar a rota de mensagem para o ponto de extremidade, use [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create).
 
 ### <a name="route-to-a-storage-account"></a>Rotear para uma conta de armazenamento
 

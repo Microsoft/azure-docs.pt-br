@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 90bc57af3aaf0d11cd354bfe7163014f836a72e8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460013"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do Azure Synapse Analytics

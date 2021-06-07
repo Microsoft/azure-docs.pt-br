@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013338"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612670"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +59,8 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no arma
 2. Na barra de ferramentas da página de *\<Account name>*  - **Contêineres**, selecione **Contêiner**.
 3. Na caixa de diálogo **Novo contêiner**, insira **adftutorial** como o nome e selecione **OK**. A página de *\<Account name>*  - **Contêineres** está atualizada para incluir o **adftutorial** na lista de contêineres.
 
-   ![Lista de contêineres](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="Lista de contêineres":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Adicionar uma pasta de entrada e um arquivo ao contêiner de blob
 
@@ -82,7 +83,8 @@ Salve o arquivo na pasta **C:\ADFv2QuickStartPSH**. (Se a pasta ainda não exist
 3. Na página **Carregar blob**, selecione a caixa **Arquivos** e, em seguida, navegue até o arquivo **emp.txt** e selecione-o.
 4. Expanda o título **Avançado**. A página agora será exibida como mostrado:
 
-   ![Selecione o link Avançado](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Selecione o link Avançado":::
+
 5. Na caixa **Carregar para a pasta**, insira **entrada**.
 6. Selecione o botão **Carregar**. O arquivo **emp.txt** e o status do carregamento devem estar na lista.
 7. Selecione o ícone **Fechar** (um **X**) para fechar a página **Carregar blob**.

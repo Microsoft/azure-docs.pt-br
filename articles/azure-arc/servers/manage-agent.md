@@ -3,12 +3,12 @@ title: Gerenciando o agente de servidores habilitados para Arc do Azure
 description: Este artigo descreve as diferentes tarefas de gerenciamento que você normalmente executará durante o ciclo de vida do agente de computador conectado de servidores habilitados para Arc do Azure.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: cc42830fc73612e744942bdd8b353832e0ccbf2a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368448"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100587634"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciando e mantendo o agente do Connected Machine
 
@@ -312,7 +312,7 @@ Se você estiver planejando parar de gerenciar o computador com serviços de sup
 Para configurar o agente a fim de se comunicar com o serviço por meio de um servidor proxy ou remover essa configuração após a implantação, use um dos métodos a seguir para concluir a tarefa.
 
 > [!NOTE]
-> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) como proxy para o agente de computador conectado.
+> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/agents/gateway.md) como proxy para o agente de computador conectado.
 >
 
 ### <a name="windows"></a>Windows
@@ -355,6 +355,6 @@ sudo azcmagent_proxy remove
 
 * Informações de solução de problemas podem ser encontradas no [guia solucionar problemas do agente do computador conectado](troubleshoot-agent-onboard.md).
 
-* Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-policy.md) e muito mais.
+* Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/vm/vminsights-enable-policy.md) e muito mais.
 
-* Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja coletar dados de monitoramento do sistema operacional e da carga de trabalho, gerenciá-los usando runbooks de automação ou recursos como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-introduction.md).
+* Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja coletar dados de monitoramento do sistema operacional e da carga de trabalho, gerenciá-los usando runbooks de automação ou recursos como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-introduction.md).

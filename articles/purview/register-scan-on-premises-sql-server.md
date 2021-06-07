@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99574950"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrar e verificar um SQL Server local

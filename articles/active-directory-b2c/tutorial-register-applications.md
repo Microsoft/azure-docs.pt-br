@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918205"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579630"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutorial: Registrar um aplicativo Web no Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Para registrar um aplicativo Web no locatário do Azure AD B2C, você pode usar 
 
 ## <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
-Para um aplicativo Web, é necessário criar um segredo de aplicativo. Esse segredo será usado pelo seu aplicativo para trocar um código de autorização para um token de acesso.
+Para um aplicativo Web, é necessário criar um segredo de aplicativo. O segredo do cliente também é conhecido como *senha do aplicativo*. O segredo será usado pelo seu aplicativo para trocar um código de autorização para um token de acesso.
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ Para um aplicativo Web, é necessário criar um segredo de aplicativo. Esse segr
 1. Selecione **Novo segredo do cliente**.
 1. Insira uma descrição para o segredo do cliente na caixa **Descrição**. Por exemplo, *clientsecret1*.
 1. Em **Expirar**, selecione um período durante o qual o segredo será válido e clique em **Adicionar**.
-1. Registre o **Valor** do segredo. Use este valor como o segredo do aplicativo no código do aplicativo.
+1. Registre o **Valor** do segredo para uso no código do aplicativo cliente. Esse valor secreto nunca será exibido novamente depois que você sair dessa página. Use este valor como o segredo do aplicativo no código do aplicativo.
 
 #### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
 
@@ -98,6 +98,9 @@ Para um aplicativo Web, é necessário criar um segredo de aplicativo. Esse segr
 1. Selecione **salvar** para exibir a chave. Anote o valor da **Chave do Aplicativo**. Use este valor como o segredo do aplicativo no código do aplicativo.
 
 * * *
+
+> [!NOTE]
+> Para fins de segurança, você pode substituir o segredo do aplicativo periodicamente ou, em caso de emergência, imediatamente. Um aplicativo que se integra ao Azure AD B2C deve estar preparado para lidar com um evento de substituição de segredo, independentemente da frequência em que pode ocorrer. Você pode definir dois segredos do aplicativo, permitindo que seu aplicativo continue usando o segredo antigo durante um evento de rotação de segredo do aplicativo. Para adicionar outro segredo do cliente, repita as etapas nesta seção. 
 
 ## <a name="enable-id-token-implicit-grant"></a>Habilitar concessão implícita de token de ID
 

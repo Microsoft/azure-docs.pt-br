@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: 88a76a16de43853a001f5db895d6ad418940de0f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895485"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Tradutor 3,0: pesquisa de dicionário
 
 Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](./v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 

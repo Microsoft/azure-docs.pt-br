@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383884"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101677927"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Fontes de dados e tipos de arquivo com suporte no Azure alcance
 
@@ -43,9 +43,12 @@ O Azure alcance dá suporte às seguintes fontes:
 
 Os seguintes tipos de arquivo têm suporte para verificação, para extração de esquema e classificação, quando aplicável:
 
-- Formatos de arquivo estruturados com suporte pela extensão: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Formatos de arquivo estruturados com suporte pela extensão: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Formatos de arquivo de documento com suporte pela extensão: DOC, DOCM, DOCX, ponto, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - O alcance também dá suporte a extensões de arquivo personalizadas e analisadores personalizados.
+ 
+> [!Note]
+> Todo arquivo gzip deve ser mapeado para um único arquivo CSV no. Os arquivos gzip estão sujeitos às regras de classificação personalizada e do sistema. No momento, não há suporte para a verificação de um arquivo gzip mapeado para vários arquivos no ou qualquer tipo de arquivo diferente de CSV. 
 
 ## <a name="sampling-within-a-file"></a>Amostragem dentro de um arquivo
 
@@ -94,7 +97,7 @@ A seguir está uma lista de todas as regiões da fonte de dados do Azure (data c
 - SouthAfricaNorth
 - FranceCentral
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 
 Todas as regras de classificação do sistema 105 se aplicam a formatos de arquivo estruturados. Somente as regras de classificação do MCE se aplicam aos tipos de arquivo de documento (não os padrões de Regex nativos de verificação de dados, a detecção baseada em filtro de flor). Para obter mais informações sobre as classificações com suporte, consulte [classificações com suporte no Azure alcance](supported-classifications.md).
 

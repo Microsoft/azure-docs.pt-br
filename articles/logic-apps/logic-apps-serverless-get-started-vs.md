@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96749140"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Crie seu primeiro aplicativo sem servidor usando os aplicativos lógicos do Azure e o Azure Functions no Visual Studio
@@ -64,7 +64,7 @@ Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource
 
    ![Criar um novo projeto no Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, **Cloud** selecione  >  **grupo de recursos do Azure** na nuvem.
+1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Em seguida, selecione  >  **grupo de recursos do Azure** na nuvem.
 
    > [!NOTE]
    > Se a categoria de **nuvem** ou o projeto de **grupo de recursos do Azure** não existir, verifique se você instalou o SDK do Azure para Visual Studio.

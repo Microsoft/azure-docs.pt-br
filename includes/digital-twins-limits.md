@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370080"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
@@ -19,7 +19,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 > [!TIP]
 > Para que as recomendações de modelagem operem dentro desses limites funcionais, consulte [práticas recomendadas para a criação de modelos](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
 
-| Área | Funcionalidade | Limite padrão | Ajustá? |
+| Área | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | Recursos do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
 | Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Sim |
@@ -43,7 +43,7 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos.
 
 A tabela a seguir reflete os limites de taxa de APIs diferentes.
 
-| API | Funcionalidade | Limite padrão | Ajustá? |
+| API | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
 | API gêmeos digital | Número de solicitações por segundo | 2\.000 | Sim |

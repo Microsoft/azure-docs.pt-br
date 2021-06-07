@@ -5,18 +5,22 @@ author: davidmrdavid
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 9083821fa03c09949daaf3166367489248a4d7d2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 62b3c9bb1c6fd53d9f11227a9d7e774d56859d04
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029157"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102434756"
 ---
 # <a name="monitor-scenario-in-durable-functions---github-issue-monitoring-sample"></a>Cenário de monitor no Durable Functions-exemplo de monitoramento de problemas do GitHub
 
 O padrão de monitoramento refere-se a um processo recorrente flexível em um fluxo de trabalho - por exemplo, sondagem até que determinadas condições sejam atendidas. Este artigo explica um exemplo que usa as Funções Duráveis para implementar o monitoramento.
 
-[! INCLUIR funções duráveis-pré-requisitos]
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Concluir o artigo de início rápido](quickstart-python-vscode.md)
+* [Clonar ou baixar o projeto de exemplos do GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
+
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -45,7 +49,6 @@ Este artigo explica as seguintes funções no aplicativo de exemplo:
 
 ### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor função de orquestrador
 
-# <a name="python"></a>[Python](#tab/python)
 
 A função **E3_Monitor** usa *function.json* padrão para funções de orquestrador.
 
@@ -55,7 +58,6 @@ Este é o código que implementa a função:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
 
----
 
 Essa função de orquestrador executa as ações a seguir:
 
@@ -73,7 +75,6 @@ Várias instâncias de orquestrador podem ser executadas simultaneamente chamand
 
 Como com outros exemplo, as funções de atividade auxiliares são funções regulares que usam a associação de gatilho `activityTrigger`. A função **E3_TooManyOpenIssues** Obtém uma lista de problemas abertos no momento no repositório e determina se há "muitos" deles: mais de 3 de acordo com nosso exemplo.
 
-# <a name="python"></a>[Python](#tab/python)
 
 O *function.json* é definido da seguinte maneira:
 
@@ -83,13 +84,11 @@ E aqui está a implementação.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
----
 
 ### <a name="e3_sendalert-activity-function"></a>Função de atividade de E3_SendAlert
 
 A função **E3_SendAlert** usa a associação twilio para enviar uma mensagem SMS notificando o usuário final de que há pelo menos três problemas abertos aguardando uma resolução.
 
-# <a name="python"></a>[Python](#tab/python)
 
 O *function.json* é simples:
 
@@ -99,7 +98,6 @@ E aqui está o código que envia a mensagem SMS:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
 
----
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 

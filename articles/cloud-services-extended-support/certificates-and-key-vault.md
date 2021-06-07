@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744162"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865682"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Usar certificados com os serviços de nuvem do Azure (suporte estendido)
 
-Key Vault é usado para armazenar certificados associados aos serviços de nuvem (suporte estendido). Os cofres de chaves podem ser criados por meio do [portal do Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) e do [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar Key Vault para as permissões apropriadas para que o recurso de serviços de nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos de Key Vault.  
+O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Os cofres de chaves podem ser criados por meio do [portal do Azure](../key-vault/general/quick-create-portal.md) e do [PowerShell](../key-vault/general/quick-create-powershell.md). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Carregar um certificado para Key Vault 
 
@@ -27,9 +27,8 @@ Key Vault é usado para armazenar certificados associados aos serviços de nuvem
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Imagem mostra a seleção de políticas de acesso na folha do cofre de chaves.":::
 
-3. Verifique se as políticas de acesso incluem as seguintes propriedades:
+3. Verifique se as políticas de acesso incluem a seguinte propriedade:
     - **Habilitar o acesso às máquinas virtuais do Azure para implantação**
-    - **Habilitar o acesso ao Azure Resource Manager para implantação de modelo** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Imagem mostra a janela políticas de acesso na portal do Azure.":::
  
@@ -41,7 +40,7 @@ Key Vault é usado para armazenar certificados associados aos serviços de nuvem
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Imagem mostra a seleção da opção gerar/importar":::
 
-4.  Conclua as informações necessárias para concluir o carregamento do certificado. 
+4.  Conclua as informações necessárias para concluir o carregamento do certificado. O certificado precisa estar no **. Formato PFX** .
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Imagem mostra a janela de importação no portal do Azure.":::
 
@@ -50,8 +49,11 @@ Key Vault é usado para armazenar certificados associados aos serviços de nuvem
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Para implantação por meio do modelo ARM, o certificateUrl pode ser encontrado navegando até o certificado no cofre de chaves rotulado como identificador secreto
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Imagem mostra o campo identificador secreto no cofre de chaves.":::
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: c32e0da05b3d076cbb18c2f4d475f45bfb0ecd15
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92458737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Azure Active Directory ao LCVista
@@ -61,7 +61,7 @@ Para configurar a integração do LCVista ao Azure AD, você precisa adicionar o
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **LCVista** , selecione **LCVista** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **LCVista**, selecione **LCVista** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![LCVista na lista de resultados](common/search-new-app.png)
 
@@ -85,34 +85,34 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o LCVista, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LCVista** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **LCVista**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do LCVista](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com/rainier/login`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com/rainier/login`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente LCVista](https://lcvista.com/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar LCVista** , copie a URL apropriada, de acordo com suas necessidades.
+6. Na seção **Configurar LCVista**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,23 +126,23 @@ Para configurar o logon único do Azure AD com o LCVista, execute as seguintes e
 
 1. Entre no seu aplicativo LCVista como um administrador.
 
-2. Na seção **Configuração de SAML** , marque **Habilitar logon de SAML** e digite os detalhes como mencionado na imagem abaixo. 
+2. Na seção **Configuração de SAML**, marque **Habilitar logon de SAML** e digite os detalhes como mencionado na imagem abaixo. 
 
     ![Configurar o logon único](./media/lcvista-tutorial/tutorial_lcvista_config.png)
 
-    a. Na caixa de texto **ID da Entidade** , cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
+    a. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
-    b. Na caixa de texto **URL** , cole o valor **URL de Logon** , que você copiou do portal do Azure.
+    b. Na caixa de texto **URL**, cole o valor **URL de Logon**, que você copiou do portal do Azure.
 
     c. Abra o arquivo XML de Metadados que você baixou do portal do Azure no Bloco de Notas, copie o valor **X509Certificate** e cole-o na seção **Certificado X509**.
 
-    d. Na caixa de texto **Atributo de nome** , cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Na caixa de texto **Atributo de nome**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Na caixa de texto **Atributo de sobrenome** , cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Na caixa de texto **Atributo de sobrenome**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Na caixa de texto **Atributo de email** , cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Na caixa de texto **Atributo de email**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Na caixa de texto **Atributo de nome de usuário** , cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. Na caixa de texto **Atributo de nome de usuário**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Clique em **Salvar** para salvar as configurações.
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o LCVista, execute as seguintes e
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -162,9 +162,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@dominiodaempresa.extensao**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -175,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao LCVista.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **LCVista**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **LCVista**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -191,11 +191,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-lcvista-test-user"></a>Criar usuário de teste do LCVista
 

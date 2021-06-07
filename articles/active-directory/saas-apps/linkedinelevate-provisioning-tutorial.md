@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: 5e972475530ad36a188f73990bb9eca35748c36c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94358942"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Elevate para provisionamento automático de usuário

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025235"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Atualizar entidade composta para entidade de aprendizado de máquina

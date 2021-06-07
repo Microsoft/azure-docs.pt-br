@@ -6,10 +6,10 @@ documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97882204"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
@@ -68,7 +68,7 @@ Além de certificados de cliente, o Azure Active Directory também pode ser conf
 
 Para saber mais, leia [Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+### <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 O Azure RBAC (controle de acesso baseado em função) do Azure permite que você atribua controles de acesso refinados nos recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras RBAC do Azure são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupo de usuários em seu AAD com as regras de RBAC do Azure para que usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](../role-based-access-control/overview.md).
 
 O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: função de Administrador e função de Usuário.  
@@ -91,7 +91,7 @@ Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, ma
 
 Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 É possível criar clusters em máquinas virtuais que executem estes sistemas operacionais:
 
 | Sistema operacional | Versão de Service Fabric mais antiga com suporte | Última versão de Service Fabric com suporte |

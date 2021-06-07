@@ -5,42 +5,24 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 12/20/2019
+ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: be9ef05f18b43e9dc48b68797c18ba3b69cd1fcc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cc44780bd9b42e00ecfb3d140486fec87c767a76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997881"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765708"
 ---
-No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+[!INCLUDE [resource group intro text](resource-group.md)]
 
-<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
-
-O exemplo a seguir cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` no tipo de preço **Gratuito** (`--sku F1`) e em um contêiner do Linux (`--is-linux`).
+No Cloud Shell, crie um grupo de recursos com o comando [`az group create`](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *Europa Ocidental*. Para ver todos os locais com suporte para o Serviço de Aplicativo no Linux no nível **Básico**, execute o comando [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
+az group create --name myResourceGroup --location "West Europe"
 ```
 
-Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Em geral, você cria seu grupo de recursos e os recursos em uma região próxima a você. 
 
-```json
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "linux",
-  "location": "West Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  <JSON data removed for brevity.>
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
-} 
-```
+Quando o comando for concluído, uma saída JSON mostra as propriedades do grupo de recursos.

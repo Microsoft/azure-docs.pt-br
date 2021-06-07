@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server ao banco de dados SQL: guia de migração'
+title: 'SQL Server ao banco de dados SQL do Azure: guia de migração'
 description: Siga este guia para migrar seus bancos de dados SQL Server para o banco de dados SQL do Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -9,15 +9,15 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.date: 03/19/2021
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99260021"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564918"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL do Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Este guia ajuda você a migrar sua instância de SQL Server para o banco de dados SQL do Azure. 
@@ -30,7 +30,7 @@ Você pode migrar SQL Server em execução no local ou em:
 - Mecanismo de computação (Google Cloud Platform-GCP)  
 - SQL de nuvem para SQL Server (Google Cloud Platform – GCP) 
 
-Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-sql-database-overview.md). Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/).
+Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-sql-database-overview.md). Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Fluxo do processo de migração":::
 
@@ -38,9 +38,11 @@ Para obter mais informações de migração, consulte [visão geral da migraçã
 
 Para migrar seu SQL Server para o banco de dados SQL do Azure, verifique se você tem os seguintes pré-requisitos: 
 
-- Um [método de migração](sql-server-to-sql-database-overview.md#compare-migration-options) escolhido e as ferramentas correspondentes 
-- [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado em um computador que pode se conectar ao seu SQL Server de origem
-- Um [banco de dados SQL do Azure](../../database/single-database-create-quickstart.md) de destino
+- Um [método de migração](sql-server-to-sql-database-overview.md#compare-migration-options) escolhido e as ferramentas correspondentes.
+- [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado em um computador que pode se conectar ao seu SQL Server de origem.
+- Um [banco de dados SQL do Azure](../../database/single-database-create-quickstart.md)de destino. 
+- Conectividade e as permissões adequadas para acessar a origem e o destino. 
+
 
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -58,6 +60,8 @@ Como alternativa, use o [Kit de ferramentas de avaliação e planejamento da M
 Para obter mais informações sobre as ferramentas disponíveis para uso na fase de descoberta, consulte [serviços e ferramentas disponíveis para cenários de migração de dados](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Avaliar 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Depois que as fontes de dados tiverem sido descobertas, avalie qualquer banco de SQL Server local que possa ser migrado para o banco de dados SQL do Azure para identificar os bloqueios de migração ou os problemas de compatibilidade. 
 
@@ -100,7 +104,7 @@ Se você tiver vários servidores e bancos de dados que precisam ser avaliados e
 > [!IMPORTANT]
 > A execução de avaliações em escala para vários bancos de dados, especialmente grandes, também pode ser automatizada usando o [Utilitário de linha de comando DMA](/sql/dma/dma-commandline) e carregada para [migrações para Azure](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) para análise adicional e preparação de destino.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 
@@ -148,7 +152,7 @@ Ao usar opções de migração que replicam/sincronizam alterações de dados de
 Depois de verificar se os dados são iguais tanto na origem quanto no destino, você pode fazer a transferência da origem para o ambiente de destino. É importante planejar o processo de transferência com equipes de negócios/aplicativos para garantir que a interrupção mínima durante a transferência não afete a continuidade dos negócios. 
 
 > [!IMPORTANT]
-> Para obter detalhes sobre as etapas específicas associadas à execução de uma transferência como parte das migrações usando DMS, consulte [executando a transferência de migração](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Para obter detalhes sobre as etapas específicas associadas à execução de uma transferência como parte das migrações usando DMS, consulte [executando a transferência de migração](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Recomendações de migração
 
@@ -157,17 +161,17 @@ Para acelerar a migração para o banco de dados SQL do Azure, você deve consid
 |  | Contenção de recursos | Recomendação |
 |--|--|--|
 | **Fonte (normalmente no local)** |O afunilamento principal durante a migração na origem é a e/s de dados e a latência no arquivo de dados que precisa ser monitorado com cuidado.  |Com base em e/s de dados e latência de arquivo de dados e, dependendo de ser uma máquina virtual ou um servidor físico, você precisará envolver o administrador de armazenamento e explorar as opções para mitigar o afunilamento. |
-|**Destino (banco de dados SQL do Azure)**|O maior fator de limitação é a taxa de geração de log e a latência no arquivo de log. Com o banco de dados SQL do Azure, você pode obter um máximo de 96 MB/s taxa de geração de log. | Para acelerar a migração, escale verticalmente o banco de BD SQL de destino para Comercialmente Crítico Gen5 8 VCORE para obter a taxa de geração de log máxima de 96 MB/s e também obter baixa latência para o arquivo de log. A camada de serviço de [hiperescala](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) fornece a taxa de log de 100 MB/s, independentemente do nível de serviço escolhido |
-|**Rede** |A largura de banda de rede necessária é igual à taxa máxima de ingestão de logs 96 MB/s (768 MB/s) |Dependendo da conectividade de rede do seu data center local para o Azure, verifique a largura de banda da rede (normalmente [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)) para acomodar a taxa máxima de ingestão de logs. |
+|**Destino (banco de dados SQL do Azure)**|O maior fator de limitação é a taxa de geração de log e a latência no arquivo de log. Com o banco de dados SQL do Azure, você pode obter um máximo de 96 MB/s taxa de geração de log. | Para acelerar a migração, escale verticalmente o banco de BD SQL de destino para Comercialmente Crítico Gen5 8 vCore para obter a taxa de geração de log máxima de 96 MB/s e também obter baixa latência para o arquivo de log. A camada de serviço de [hiperescala](../../database/service-tier-hyperscale.md) fornece a taxa de logs de 100 MB/s, independentemente do nível de serviço escolhido |
+|**Rede** |A largura de banda de rede necessária é igual à taxa máxima de ingestão de logs 96 MB/s (768 MB/s) |Dependendo da conectividade de rede do seu data center local para o Azure, verifique a largura de banda da rede (normalmente [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md#bandwidth-options)) para acomodar a taxa máxima de ingestão de logs. |
 |**Máquina virtual usada para Assistente de Migração de Dados (DMA)** |CPU é o afunilamento principal para a máquina virtual que executa o DMA |Itens a serem considerados para acelerar a migração de dados usando o </br>-VMs com computação intensiva do Azure </br>-Usar pelo menos F8s_v2 (8 VCORE) VM para executar DMA </br>-Verifique se a VM está em execução na mesma região do Azure que o destino |
-|**DMS (Serviço de Migração de Banco de Dados do Azure)** |Consideração da contenção de recursos de computação e objetos de banco de dados para DMS |Use o vCore Premium 4. O DMS cuida automaticamente de objetos de banco de dados como chaves estrangeiras, gatilhos, restrições e índices não clusterizados e não precisa de nenhuma intervenção manual.  |
+|**DMS (Serviço de Migração de Banco de Dados do Azure)** |Consideração da contenção de recursos de computação e objetos de banco de dados para DMS |Use o vCore Premium 4. O DMS cuida automaticamente de objetos de banco de dados como chaves estrangeiras, gatilhos, restrições e índices não clusterizados e não precisa de intervenção manual.  |
 
 
 ## <a name="post-migration"></a>Pós-migração
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho. 
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho. 
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos 
 
@@ -181,9 +185,6 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 

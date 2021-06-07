@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 4bc9ed87a243a1efb45d7db660ccdd86a19d9801
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099788"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628230"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -77,7 +77,7 @@ As ferramentas e os ambientes a seguir já estão instalados na instância de co
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-access-terminal.md) e execute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-access-terminal.md) e execute <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes do PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizado profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -152,7 +152,7 @@ Os núcleos dedicados por região por cota da família de VMs e a cota regional 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões de RBAC do Azure: 
@@ -178,6 +178,9 @@ Uma instância de computação:
 * Dá suporte a trabalhos de treinamento distribuído de várias GPU de nó único
 
 Você pode usar a instância de computação como um destino de implantação de inferência local para cenários de teste/depuração.
+
+> [!TIP]
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, [use o terminal](how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de [parar ou reiniciar](how-to-create-manage-compute-instance.md#manage) a instância de computação.
 
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>O que aconteceu com a VM do Notebook?

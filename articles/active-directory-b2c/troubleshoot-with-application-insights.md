@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/16/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745994"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611820"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Coletar logs de Azure Active Directory B2C com Application Insights
 
-Este artigo fornece etapas para coletar logs de Active Directory B2C (Azure AD B2C) para que você possa diagnosticar problemas com suas políticas personalizadas. O Application Insights fornece uma maneira de diagnosticar exceções e visualizar os problemas de desempenho do aplicativo. Azure AD B2C inclui um recurso para enviar dados para Application Insights.
+Este artigo fornece etapas para coletar logs de Active Directory B2C (Azure AD B2C) para que você possa diagnosticar problemas com suas políticas personalizadas. O Application Insights fornece uma maneira de diagnosticar exceções e visualizar os problemas de desempenho do aplicativo. O Azure AD B2C inclui um recurso para envio de dados ao Application Insights.
 
 Os logs de atividade detalhados descritos aqui devem ser habilitados **somente** durante o desenvolvimento de suas políticas personalizadas.
 
@@ -51,7 +51,7 @@ Se você ainda não tiver uma, crie uma instância do Application Insights em su
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Se ele ainda não existir, adicione um `<UserJourneyBehaviors>` nó filho ao `<RelyingParty>` nó. Ele deve estar localizado imediatamente após `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. Se ele ainda não existir, adicione um `<UserJourneyBehaviors>` nó filho ao `<RelyingParty>` nó. Ele deve estar localizado após `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
 1. Adicione o seguinte nó como um filho do elemento `<UserJourneyBehaviors>`. Certifique-se de substituir `{Your Application Insights Key}` pela **chave de instrumentação** de Application insights que você registrou anteriormente.
 
     ```xml
@@ -101,7 +101,7 @@ Aqui está uma lista de consultas que você pode usar para ver os logs:
 
 As entradas podem ser longas. Exporte para CSV para uma análise mais detalhada.
 
-Para obter mais informações sobre como consultar, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
+Para obter mais informações sobre como consultar, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-application-insights-in-production"></a>Configurar Application Insights em produção
 

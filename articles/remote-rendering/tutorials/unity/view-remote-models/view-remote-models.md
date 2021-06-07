@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592034"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605001"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Exibir um modelo renderizado remotamente
 
@@ -33,10 +33,7 @@ Para este tutorial, é necessário:
 * SDK do Windows 10.0.18362.0 [(baixar)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A versão mais recente do Visual Studio 2019 [(baixar)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(baixar)](https://git-scm.com/downloads)
-* Unity, a versão mais recente de 2019.3; recomendamos usar o Hub do Unity para este [(download)](https://unity3d.com/get-unity/download)
-  * Instale estes módulos no Unity:
-    * **UWP** – Suporte ao Build da Plataforma Universal do Windows
-    * **IL2CPP** – Suporte ao Build do Windows (IL2CPP)
+* Unity (confira [requisitos do sistema](../../../overview/system-requirements.md#unity) para obter as versões compatíveis)
 * Conhecimento intermediário de Unity e da linguagem C# (por exemplo: criação de scripts e objetos, uso de prefabs, configuração de eventos do Unity etc.)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Provisionar uma instância do ARR (Azure Remote Rendering)
@@ -55,43 +52,9 @@ Neste exemplo, presumiremos que o projeto está sendo criado em uma pasta chamad
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Incluir o pacote do Azure Remote Rendering
 
-Você precisa modificar o arquivo `Packages/manifest.json` que está localizado na pasta do projeto do Unity. Abra o arquivo em um editor de texto e adicione as seguintes linhas à parte superior do manifesto:
+[Siga as instruções](../../../how-tos/unity/install-remote-rendering-unity-package.md) sobre como adicionar o pacote do Azure Remote Rendering a um projeto do Unity.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-Depois que você modificar e salvar o manifesto, o Unity será atualizado automaticamente. Confirme se os pacotes foram carregados na janela *Projeto*:
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacote":::
-
-Se os pacotes não estiverem sendo carregados, verifique se há erros no console do Unity. Se não houver erros e você ainda não vir nenhum pacote na pasta **Packages**, marque o botão de alternância de visibilidade do pacote.\
-![Captura de tela com uma seta apontando para o botão de alternância de visibilidade do pacote.](./media/unity-package-visibility.png)
-
-## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Verificar se tem a versão mais recente do pacote
-
-As etapas a seguir garantem que seu projeto esteja usando a versão mais recente do pacote de renderização remota.
-
-1. No menu superior do Editor do Unity, abra *Janela -> Gerenciador de Pacotes*.
-1. Selecione o pacote **Microsoft Azure Remote Rendering**.
-1. Na página do gerenciador de pacotes de **Microsoft Azure Remote Rendering**, veja se o botão **Atualizar** está disponível. Se estiver, clique nele para atualizar o pacote para a versão mais recente disponível:\
-![O pacote do ARR no Gerenciador de Pacotes](./media/package-manager.png)
-1. A atualização do pacote pode ocasionalmente levar a erros de console. Se isso ocorrer, tente fechar e reabrir o projeto.
-1. Quando o pacote estiver atualizado, o Gerenciador de Pacotes mostrará **Atualizado** em vez de um botão de Atualizar.\
-![Pacote atualizado](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configurar a câmera
 
 1. Selecione o nó **Câmera principal**.
@@ -462,8 +425,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     private async Task<bool> IsSessionAvailable(string sessionID)
     {
-        var allSessions = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
-        return allSessions.SessionProperties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+        bool sessionAvailable = false;
+        try
+        {
+            RenderingSessionPropertiesArrayResult result = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
+            if (result.ErrorCode == Result.Success)
+            {
+                RenderingSessionProperties[] properties = result.SessionProperties;
+                if (properties != null)
+                {
+                    sessionAvailable = properties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+                }
+            }
+            else
+            {
+                Debug.LogError($"Failed to get current rendering sessions. Error: {result.Context.ErrorMessage}");
+            }
+        }
+        catch (RRException ex)
+        {
+            Debug.LogError($"Failed to get current rendering sessions. Error: {ex.Message}");
+        }
+        return sessionAvailable;
     }
 
     /// <summary>
@@ -640,7 +623,7 @@ public async void JoinRemoteSession()
     else
     {
         CurrentCoordinatorState = RemoteRenderingState.ConnectingToNewRemoteSession;
-        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, maxLeaseHours, maxLeaseMinutes));
+        joinResult = await ARRSessionService.StartSession(new RenderingSessionCreationOptions(renderingSessionVmSize, (int)maxLeaseHours, (int)maxLeaseMinutes));
     }
 
     if (joinResult.Status == RenderingSessionStatus.Ready || joinResult.Status == RenderingSessionStatus.Starting)
@@ -778,7 +761,7 @@ O método **LoadModel** foi projetado para aceitar um caminho de modelo, um mani
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelFromSasParams(modelPath, modelEntity);
+        var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -790,7 +773,7 @@ O código acima está executando as seguintes etapas:
 1. Criar uma [Entidade Remota](../../../concepts/entities.md).
 1. Criar um GameObject local para representar a entidade remota.
 1. Configurar o GameObject local para sincronizar o estado (ou seja, Transformar) com cada quadro da entidade remota.
-1. Definir um nome e adicionar um [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) para auxiliar na estabilização.
+1. Definir um nome e adicionar um [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html) para auxiliar na estabilização.
 1. Carregar dados de modelo do Armazenamento de Blobs na entidade remota.
 1. Retornar a entidade pai, para referência posterior.
 

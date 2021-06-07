@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 95ef52acedc9171ba86110a665d08ea97c59bfbb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050324"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100575822"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -27,7 +27,7 @@ O modelo não automatiza a habilitação de Gerenciamento de Atualizações em u
 Se você já tiver um workspace do Log Analytics e uma conta da Automação implantada em uma região com suporte em sua assinatura, eles não serão vinculados. O uso desse modelo cria com êxito o link e implanta Gerenciamento de Atualizações.
 
 >[!NOTE]
->Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [criar conta Executar como](../create-run-as-account.md).
+>Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, confira [Criar uma conta Executar como](../create-run-as-account.md).
 
 Depois de concluir essas etapas, você precisará [definir configurações de diagnóstico](../automation-manage-send-joblogs-log-analytics.md) para sua conta de automação para enviar fluxos de trabalho e status do trabalho de runbook para o workspace do Log Analytics vinculado.
 
@@ -64,11 +64,11 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
 
 Se você for novo na automação do Azure e Azure Monitor, é importante entender os detalhes de configuração a seguir. Eles podem ajudá-lo a evitar erros ao tentar criar, configurar e usar um workspace do Log Analytics vinculado à sua nova conta de automação.
 
-* Examine [detalhes adicionais](../../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
+* Examine [detalhes adicionais](../../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
 
 * Examine [mapeamentos de workspace](../how-to/region-mappings.md) para especificar as regiões com suporte embutidas ou em um arquivo de parâmetro. Ao habilitar soluções, somente determinadas regiões têm suporte para vincular um workspace do Log Analytics e uma Conta de Automação na sua assinatura.
 
-* Se você for novo nos logs do Azure Monitor e ainda não tiver implantado um espaço de trabalho, leia as [diretrizes de design do workspace](../../azure-monitor/platform/design-logs-deployment.md). Elas ajudarão você a aprender sobre o controle de acesso e compreender as estratégias de implementação de design que recomendamos para sua organização.
+* Se você for novo nos logs do Azure Monitor e ainda não tiver implantado um espaço de trabalho, leia as [diretrizes de design do workspace](../../azure-monitor/logs/design-logs-deployment.md). Elas ajudarão você a aprender sobre o controle de acesso e compreender as estratégias de implementação de design que recomendamos para sua organização.
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -339,7 +339,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
 
     ![Exibição de avaliação de recurso Gerenciamento de Atualizações](./media/enable-from-template/update-management-assessment-view.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais deles, exclua a solução **atualizações** no espaço de trabalho log Analytics, desvincule a conta de automação do espaço de trabalho e, em seguida, exclua a conta de automação e o espaço de trabalho.
 

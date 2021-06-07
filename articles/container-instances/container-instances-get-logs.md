@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746962"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs e eventos de contêiner nas Instâncias de Contêiner do Azure

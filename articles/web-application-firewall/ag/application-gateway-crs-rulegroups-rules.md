@@ -9,13 +9,13 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746502"
 ---
-# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall do aplicativo Web
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do Firewall de Aplicativo Web
 
 O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base nos conjuntos de regras do OWASP Core 3,1, 3,0 ou 2.2.9. Essas regras podem ser desabilitadas com base em regra por regra. Este artigo contém as regras atuais e os conjuntos de regras oferecidos.
 
@@ -47,7 +47,7 @@ O CRS 3,1 inclui 13 grupos de regras, conforme mostrado na tabela a seguir. Cada
 |---|---|
 |**[Geral](#general-31)**|Grupo geral|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Métodos de bloqueio (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Proteger contra scanners de porta e de ambiente|
+|**[SOLICITAÇÃO-913-DETECÇÃO DE SCANNER](#crs913-31)**|Proteger contra scanners de porta e de ambiente|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-31)**|Proteger contra problemas de protocolo e codificação|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-31)**|Proteger contra injeção de cabeçalho, indesejada de solicitação e divisão de resposta|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-31)**|Proteger contra ataques de arquivo e caminho|
@@ -57,7 +57,7 @@ O CRS 3,1 inclui 13 grupos de regras, conforme mostrado na tabela a seguir. Cada
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-31)**|Proteger contra ataques de script entre sites|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-31)**|Proteger contra ataques de injeção de SQL|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Proteger contra ataques de fixação da de sessão|
-|**[SOLICITAÇÃO-944-APLICATIVO-ATAQUE-SESSÃO-JAVA](#crs944-31)**|Proteger contra ataques JAVA|
+|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-31)**|Proteger contra ataques JAVA|
 
 ### <a name="owasp-crs-30"></a>OWASP CRS 3,0
 
@@ -67,7 +67,7 @@ O CRS 3,0 inclui 12 grupos de regras, conforme mostrado na tabela a seguir. Cada
 |---|---|
 |**[Geral](#general-30)**|Grupo geral|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Métodos de bloqueio (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Proteger contra scanners de porta e de ambiente|
+|**[SOLICITAÇÃO-913-DETECÇÃO DE SCANNER](#crs913-30)**|Proteger contra scanners de porta e de ambiente|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-30)**|Proteger contra problemas de protocolo e codificação|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-30)**|Proteger contra injeção de cabeçalho, indesejada de solicitação e divisão de resposta|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-30)**|Proteger contra ataques de arquivo e caminho|
@@ -337,7 +337,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o Firewall 
 |943110|Possível ataque de fixação da sessão = nome do parâmetro de SessionID com referenciador fora do domínio|
 |943120|Possível ataque de fixação da sessão = nome do parâmetro de SessionID sem referenciador|
 
-### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">SOLICITAÇÃO-944-APLICATIVO-ATAQUE-SESSÃO-JAVA</p>
+### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA</p>
 
 |RuleId|Descrição|
 |---|---|

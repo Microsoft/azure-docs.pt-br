@@ -1,5 +1,5 @@
 ---
-title: Desabilitar backups geográficos
+title: Desabilitar os backups geográficos
 description: Guia de instruções para desabilitar backups geográficos para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 services: synapse-analytics
 author: joannapea
@@ -12,10 +12,10 @@ ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 395d5f0697138155b0bb0c629461aada9e9c18c6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98739079"
 ---
 # <a name="disable-geo-backups-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Desabilitar backups geográficos para um pool de SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119077"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usar propriedades em uma solução de IoT Central do Azure
@@ -40,7 +40,7 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | Tipo semântico   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado.                                               |
 | Gravável       | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Em seguida, o Azure IoT Central pode enviar atualizações de propriedade para o dispositivo. |
-| Severidade        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
+| Severity        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
 | Valores de estado    | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor.                                                                                   |
 | Unidade            | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de exibição para uso em dashboards e formulários.                                                                                                                                                                                    |
@@ -210,7 +210,7 @@ A mensagem de resposta deve incluir `ac` os `av` campos e. O campo `ad` é opcio
 * `av` é o número de versão enviado ao dispositivo.
 * `ad` é uma descrição de cadeia de caracteres de opção.
 
-| Valor | Rotular | Descrição |
+| Valor | Rótulo | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento. |

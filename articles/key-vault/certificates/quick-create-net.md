@@ -9,10 +9,10 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4dd216f4018feca8c3461104a5beb220d90fd743
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97932836"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Início rápido: Biblioteca de clientes de certificados do Azure Key Vault para .NET (SDK v4)

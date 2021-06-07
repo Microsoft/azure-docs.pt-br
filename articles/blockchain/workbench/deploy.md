@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87077027"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implantar a visualização do Azure Blockchain Workbench
@@ -132,7 +132,7 @@ Concluída a implantação do Blockchain Workbench, um novo grupo de recursos co
 
     ![Lista de Serviços de Aplicativo](media/deploy/resource-group-list.png)
 
-1. Na **visão geral**do serviço de aplicativo, copie o valor da **URL** , que representa a URL da Web para o Blockchain Workbench implantado.
+1. Na **visão geral** do serviço de aplicativo, copie o valor da **URL** , que representa a URL da Web para o Blockchain Workbench implantado.
 
     ![Conceitos básicos do Serviço de Aplicativo](media/deploy/app-service.png)
 
@@ -182,7 +182,7 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 1. Selecione sua conta no canto superior direito e alterne para o locatário desejado do Azure AD. O locatário deve ser o locatário do administrador da assinatura em que o Azure Blockchain Workbench está implantado e você tem permissões suficientes para registrar aplicativos.
 1. No painel de navegação esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registros de aplicativo**  >  **novo registro**.
 
-    ![Registro do aplicativo](media/deploy/app-registration.png)
+    ![Registro de aplicativo](media/deploy/app-registration.png)
 
 1. Forneça um **nome** de exibição e escolha **contas neste diretório organizacional somente**.
 
@@ -237,7 +237,7 @@ O aplicativo de API precisa solicitar a permissão do usuário para acessar o di
 
     ![Configuração de registro de aplicativo do Azure AD mostrando a adição do Microsoft Graph usuário. ReadBasic. todas as permissões delegadas](media/deploy/add-graph-user-permission.png)
 
-    Escolha **Adicionar permissões**.
+    Selecione **Adicionar Permissões**.
 
 1. Em *permissões configuradas*, selecione **conceder consentimento do administrador** para o domínio e, em seguida, selecione **Sim** para o prompt de verificação.
 

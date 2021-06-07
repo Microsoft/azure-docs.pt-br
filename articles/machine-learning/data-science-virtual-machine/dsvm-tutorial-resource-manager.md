@@ -5,17 +5,18 @@ description: Neste guia de início rápido, você usa um modelo de Azure Resourc
 services: machine-learning
 author: lobrien
 ms.author: laobri
-ms.custom: subject-armqs
 ms.date: 06/10/2020
-ms.service: machine-learning
-ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.service: data-science-vm
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 0683634223a63281ce2b42ebb02f87f9211a589e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90883149"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530659"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do Ubuntu usando um modelo do Resource Manager
 

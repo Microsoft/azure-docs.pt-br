@@ -4,10 +4,10 @@ description: Use Servidor de Backup do Azure para fazer backup do estado do sist
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021615"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Fazer backup do estado do sistema e restaurar para bare-metal usando Servidor de Backup do Azure
@@ -26,20 +26,20 @@ A tabela a seguir resume o que você pode fazer backup e recuperar. Para obter i
 |Backup|Problema|Recuperar de backup do Servidor de Backup do Azure|Recuperar do backup de estado do sistema|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Dados de arquivos**<br /><br />Backup de dados regular<br /><br />BMR/backup de estado do sistema|Dados de arquivos perdidos|S|N|N|
-|**Dados de arquivos**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|S|S|
+|**Dados de arquivos**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|Y|S|
 |**Dados de arquivos**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (volumes de dados intactos)|N|N|S|
-|**Dados de arquivos**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (volumes de dados perdidos)|S|N|S<br /><br />BMR, seguida de recuperação regular de dados de arquivos de backup|
-|**Dados do SharePoint**<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Site perdido, listas, itens de lista, documentos|S|N|N|
-|**Dados do SharePoint**<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|S|S|
+|**Dados de arquivos**<br /><br />Backup de arquivos de dados do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (volumes de dados perdidos)|S|N|Y<br /><br />BMR, seguida de recuperação regular de dados de arquivos de backup|
+|**Dados do SharePoint**<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Site perdido, listas, itens de lista, documentos|Y|N|N|
+|**Dados do SharePoint**<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|Y|Y|
 |**Dados do SharePoint**<br /><br />Backup de dados do farm do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Recuperação de desastres|N|N|N|
 |Windows Server 2012 R2 Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|VM perdida|S|N|N|
-|Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|Sistema operacional perdido ou danificado|N|S|S|
+|Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|Sistema operacional perdido ou danificado|N|Y|S|
 |Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|Host Hyper-V perdido (VMs intactas)|N|N|S|
-|Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|Host Hyper-V perdido (VMs perdidas)|N|N|S<br /><br />BMR, seguida de recuperação regular do Servidor de Backup do Azure|
+|Hyper-V<br /><br />Backup do Servidor de Backup do Azure do host do Hyper-V ou convidado<br /><br />BMR/backup de estado do sistema do host|Host Hyper-V perdido (VMs perdidas)|N|N|Y<br /><br />BMR, seguida de recuperação regular do Servidor de Backup do Azure|
 |SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Dados de aplicativos perdidos|S|N|N|
-|SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|S|S|
+|SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Sistema operacional perdido ou danificado|N|Y|S|
 |SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (banco de dados/logs de transação intactos)|N|N|S|
-|SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (banco de dados/logs de transação perdidos)|N|N|S<br /><br />Recuperação de BMR, seguida de recuperação regular do Servidor de Backup do Azure|
+|SQL Server/Exchange<br /><br />Backup de aplicativo do Servidor de Backup do Azure<br /><br />BMR/backup de estado do sistema|Servidor perdido (banco de dados/logs de transação perdidos)|N|N|Y<br /><br />Recuperação de BMR, seguida de recuperação regular do Servidor de Backup do Azure|
 
 ## <a name="how-system-state-backup-works"></a>Como funciona o backup de estado do sistema
 
@@ -109,7 +109,7 @@ Quando o backup for concluído, o arquivo será transferido para o computador do
 
 Para fazer backup do estado do sistema e bare-metal:
 
-1. Para abrir o assistente para criar novo grupo de proteção criar, na console do administrador servidor de backup, selecione ações de **proteção**  >  **Actions**  >  **Criar grupo de proteção**.
+1. Para abrir o assistente para criar novo grupo de proteção criar, na console do administrador servidor de backup, selecione ações de **proteção**  >    >  **Criar grupo de proteção**.
 
 1. Na página **Selecionar Tipo de Grupo de Proteção**, selecione **Servidores** e, depois, selecione **Avançar**.
 

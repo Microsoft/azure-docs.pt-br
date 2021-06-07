@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725664"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471703"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -42,10 +42,10 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello para Empresas     | Alto     | Alto      | Alto         |
 | Aplicativo Microsoft Authenticator    | Alto     | Alto      | Alto         |
-| Chave de segurança do FIDO2 (versão prévia)   | Alto     | Alto      | Alto         |
+| Chave de segurança do FIDO2             | Alto     | Alto      | Alto         |
 | Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alto         |
 | Tokens de software OATH           | Médio   | Médio    | Alto         |
-| SMS                            | Médio   | Alto      | Médio       |
+| sms                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
 | Senha                       | Baixo      | Alto      | Alto         |
 
@@ -66,11 +66,11 @@ A tabela a seguir descreve quando um método de autenticação pode ser usado du
 | Método                         | Autenticação primária | Autenticação secundária  |
 |--------------------------------|:----------------------:|:-------------------------:|
 | Windows Hello para Empresas     | Sim                    | MFA                       |
-| Aplicativo Microsoft Authenticator    | Sim (versão prévia)          | MFA e o SSPR              |
-| Chave de segurança do FIDO2 (versão prévia)   | Sim                    | MFA                       |
+| Aplicativo Microsoft Authenticator    | Sim                    | MFA e o SSPR              |
+| Chave de segurança do FIDO2             | Sim                    | MFA                       |
 | Tokens de hardware OATH (versão prévia) | Não                     | MFA                       |
 | Tokens de software OATH           | Não                     | MFA                       |
-| SMS                            | Sim                    | MFA e o SSPR              |
+| sms                            | Sim                    | MFA e o SSPR              |
 | Chamada de voz                     | Não                     | MFA e o SSPR              |
 | Senha                       | Sim                    |                           |
 
@@ -78,9 +78,9 @@ Todos esses métodos de autenticação podem ser configurados no portal do Azure
 
 Para saber mais sobre como funciona cada método de autenticação, consulte os seguintes artigos conceituais separados:
 
-* [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicativo Microsoft Authenticator](concept-authentication-authenticator-app.md)
-* [Chave de segurança do FIDO2 (versão prévia)](concept-authentication-passwordless.md#fido2-security-keys)
+* [Chave de segurança do FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokens de hardware OATH (versão prévia)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Tokens de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * Entrada e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) [do SMS](howto-authentication-sms-signin.md)

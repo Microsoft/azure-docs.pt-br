@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 6f7b24c711d99b1127ee77a920b305acb114d20e
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833806"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505120"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -23,16 +23,16 @@ A interface do usuário da Web permite que você monitore as condições do disp
 
 Este artigo descreve os seguintes tópicos do Azure IoT Central:
 
-- As personas típicas associadas a um projeto.
+- As funções de usuário típicas associadas a um projeto.
 - Como criar seu aplicativo.
 - Como conectar seus dispositivos ao seu aplicativo
 - Como gerenciar seu aplicativo.
 - Funcionalidades do Azure IoT Edge no IoT Central.
 - Como conectar seus dispositivos capacitados com o runtime do Azure IoT Edge ao seu aplicativo.
 
-## <a name="personas"></a>Personas
+## <a name="user-roles"></a>Funções de usuário
 
-A documentação do Azure IoT Central faz referência a quatro personas que interagem com um aplicativo do Azure IoT Central:
+A documentação do IoT Central faz refere-se a quatro funções de usuário que interagem com um aplicativo do IoT Central:
 
 - Um _criador de soluções_ é responsável por [criar um aplicativo](quick-deploy-iot-central.md), [configurar regras e ações](quick-configure-rules.md), [definir integrações a outros serviços](howto-export-data.md) e personalizar ainda mais o aplicativo para operadores e desenvolvedores de dispositivos.
 - Um _operador_ [gerencia os dispositivos](howto-manage-devices.md) conectados ao aplicativo.

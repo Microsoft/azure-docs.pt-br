@@ -3,15 +3,15 @@ title: Adicionar e gerenciar certificados TLS/SSL
 description: Crie um certificado gratuito, importe um certificado do Serviço de Aplicativo, importe um certificado do Key Vault ou compre um certificado do Serviço de Aplicativo no Serviço de Aplicativo do Azure.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653105"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577777"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
@@ -26,7 +26,7 @@ A tabela a seguir lista as opções disponíveis para adição de certificados n
 
 |Opção|Descrição|
 |-|-|
-| Criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo (versão prévia) | Um certificado privado fácil de usar se você só precisa proteger seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) `www` ou qualquer domínio não raiz no Serviço de Aplicativo. |
+| Criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo (versão prévia) | Um certificado privado sem custo e fácil de usar se você precisar proteger seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) no Serviço de Aplicativo. |
 | Comprar um certificado do Serviço de Aplicativo | Um certificado privado gerenciado pelo Azure. Ele combina a simplicidade do gerenciamento automatizado de certificado e a flexibilidade das opções de renovação e exportação. |
 | Importar um certificado do Key Vault | Útil se você usar o [Azure Key Vault](../key-vault/index.yml) para gerenciar seus [certificados PKCS12](https://wikipedia.org/wiki/PKCS_12). Consulte [Requisitos do certificado privado](#private-certificate-requirements). |
 | Carregar um certificado privado | Se você já tiver um certificado privado de um provedor de terceiros, poderá carregá-lo. Consulte [Requisitos do certificado privado](#private-certificate-requirements). |
@@ -34,19 +34,17 @@ A tabela a seguir lista as opções disponíveis para adição de certificados n
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este guia de instruções, é necessário ter:
-
 - [Crie um aplicativo do Serviço de Aplicativo](./index.yml).
-- Somente para certificado gratuito: mapeie um subdomínio (por exemplo, `www.contoso.com`) para o Serviço de Aplicativo com um [registro CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- Para um certificado privado, verifique se ele atende a todos os [requisitos do Serviço de Aplicativo](#private-certificate-requirements).
+- **Apenas certificado gratuito**:
+    - Mapeie o domínio para o qual você deseja um certificado para o Serviço de Aplicativo. Para obter informações, confira [Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
+    - Para um domínio raiz (como contoso.com), verifique se seu aplicativo não tem nenhuma [restrição de IP](app-service-ip-restrictions.md) configurada. A criação de certificado e a renovação periódica dele para um domínio raiz dependem da capacidade de seu aplicativo ser acessado pela Internet.
 
 ## <a name="private-certificate-requirements"></a>Requisitos do certificado privado
 
-> [!NOTE]
-> Os Aplicativos Web do Azure **não** dão suporte a AES256. Todos os arquivos .pfx devem ser criptografados com TripleDES.
+O [Certificado gratuito gerenciado pelo Serviço de Aplicativo](#create-a-free-managed-certificate-preview) e o [certificado do Serviço de Aplicativo](#import-an-app-service-certificate) já atende aos requisitos do Serviço de Aplicativo. Se você optar por carregar ou importar um certificado privado no Serviço de Aplicativo, o certificado deverá atender aos seguintes requisitos:
 
-O [Certificado gratuito gerenciado pelo Serviço de Aplicativo](#create-a-free-certificate-preview) ou o [certificado do Serviço de Aplicativo](#import-an-app-service-certificate) já atende aos requisitos do Serviço de Aplicativo. Se você optar por carregar ou importar um certificado privado no Serviço de Aplicativo, o certificado deverá atender aos seguintes requisitos:
-
-* Deverá ser exportado como um [arquivo PFX protegido por senha](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+* Exportado como um [arquivo PFX protegido por senha](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), criptografado usando DES triplo.
 * Conter chave privada com pelo menos 2.048 bits de extensão
 * Conter todos os certificados intermediários na cadeia de certificados
 
@@ -60,21 +58,21 @@ Para proteger um domínio personalizado em uma associação TLS, o certificado t
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-certificate-preview"></a>Criar um certificado gratuito (versão prévia)
+## <a name="create-a-free-managed-certificate-preview"></a>Criar um certificado gerenciado gratuito (versão prévia)
+
+> [!NOTE]
+> Antes de criar um certificado gerenciado gratuito, verifique se [você atendeu aos pré-requisitos](#prerequisites) para seu aplicativo.
 
 O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução imediata para proteção de seu nome DNS personalizado no Serviço de Aplicativo. É um certificado TLS/SSL totalmente funcional gerenciado pelo Serviço de Aplicativo e renovado automaticamente. O certificado gratuito apresenta as seguintes limitações:
 
 - Não oferece suporte a certificados curinga.
-- Não oferece suporte a domínios raiz.
 - Não pode ser exportado.
-- Não tem suporte no ASE (Ambiente do Serviço de Aplicativo)
-- Não oferece suporte a registros A. Por exemplo, a renovação automática não funciona com registros A.
+- Não tem suporte no ASE (Ambiente do Serviço de Aplicativo).
+- Não tem suporte com domínios raiz integrados ao Gerenciador de Tráfego.
 
 > [!NOTE]
 > O certificado gratuito é emitido pela DigiCert. Para alguns domínios de nível superior, é necessário permitir explicitamente a DigiCert como um emissor do certificado criando um [registro de domínio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) com o valor `0 issue digicert.com`.
 > 
-
-Para criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo:
 
 No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
@@ -82,7 +80,7 @@ No painel de navegação à esquerda em seu aplicativo, selecione **Configuraç�
 
 ![Criar certificado gratuito no Serviço de Aplicativo](./media/configure-ssl-certificate/create-free-cert.png)
 
-Qualquer domínio não raiz que esteja adequadamente mapeado para seu aplicativo com um registro CNAME estará listado na caixa de diálogo. Selecione o domínio personalizado para criar um certificado gratuito e selecione **Criar**. Só é possível criar apenas um certificado para cada domínio personalizado compatível.
+Selecione o domínio personalizado para criar um certificado gratuito e selecione **Criar**. Só é possível criar apenas um certificado para cada domínio personalizado compatível.
 
 Quando a operação for concluída, você verá o certificado na lista **Certificados de Chave Privada**.
 
@@ -333,7 +331,7 @@ Após a conclusão da operação de rechaveamento, clique em **Sincronizar**. A 
 
 Para ativar a renovação automática do seu certificado a qualquer momento, selecione o certificado na página [Certificados do Serviço de Aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **Configurações de Renovação Automática** no painel de navegação à esquerda. Por padrão, os certificados do Serviço de Aplicativo têm um período de validade de um ano.
 
-Selecione **Ativado** e clique em **Salvar**. Os certificados poderão iniciar automaticamente renovação 60 dias antes do término se você tiver ativado a renovação automática.
+Selecione **Ativado** e clique em **Salvar**. A renovação dos certificados poderá iniciar automaticamente 30 dias antes da expiração deles se você tiver ativado a renovação automática.
 
 ![Renovar automaticamente o certificado do Serviço de Aplicativo](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

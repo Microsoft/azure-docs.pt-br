@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7d97958c5fd1274495da88c064b63e59e354f691
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606956"
 ---
 # <a name="azure-time-series-insights-gen2-use-cases"></a>Casos de uso do Azure Time Series Insights Gen2

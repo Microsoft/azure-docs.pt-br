@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ebac108388071ed3dc0eb2b7bfc0494f2f7bb481
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386536"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181356"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -201,7 +201,7 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato JSON nos se
 
 A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
 | Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
@@ -218,7 +218,7 @@ A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pod
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
-O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** .  
+O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** . Para configuração de **formulário de documento** , você pode selecionar um documento **único**, **documento por linha**  e **matriz de tipos de documentos** .
 
 ![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
 
@@ -249,6 +249,52 @@ File3.json
 {
     "json": "record 3"
 }
+```
+Se o **documento por linha** estiver selecionado, o mapeamento de fluxos de dados lerá um documento JSON de cada linha em um arquivo. 
+
+``` json
+File1.json
+{"json": "record 1 }
+
+File2.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+
+File3.json
+ {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+ {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+ {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
+```
+Se a **matriz de documentos** for selecionada, o mapeamento de fluxos de dados lerá uma matriz de documento de um arquivo. 
+
+``` json
+File.json
+[
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        },
+        {
+            "time": "2015-04-29T07:13:21.0220000Z",
+            "callingimsi": "466922202613463",
+            "callingnum1": "123436380",
+            "callingnum2": "789037573",
+            "switch1": "US",
+            "switch2": "UK"
+        },
+        {
+            "time": "2015-04-29T07:13:21.4370000Z",
+            "callingimsi": "466923101048691",
+            "callingnum1": "678901578",
+            "callingnum2": "345626404",
+            "switch1": "Germany",
+            "switch2": "UK"
+        }
+    ]
 ```
 > [!NOTE]
 > Se os fluxos de dados lançarem um erro informando "corrupt_record" ao visualizar os dados JSON, é provável que os dados contidos contenham um único documento em seu arquivo JSON. A configuração de "documento único" deve limpar esse erro.
@@ -297,7 +343,7 @@ Selecione **barra invertida** se as barras invertidas forem usadas para escapar 
 
 A tabela abaixo lista as propriedades com suporte por um coletor JSON. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
 | Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

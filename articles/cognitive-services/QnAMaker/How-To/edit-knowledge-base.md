@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99557691"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
@@ -86,7 +86,7 @@ A edição de texto completo do seu texto de resposta oferece uma redução do e
     |Imagem – adicione uma imagem disponível de uma URL pública.|CTRL+G|
     |Adicionar link à URL disponível publicamente.|CTRL+K|
     |Emoticon – adicionar de uma seleção de emoticons.|CTRL+E|
-    |Menu avançado – desfazer|CTRL+Z|
+    |Menu avançado – desfazer|Ctrl+Z|
     |Menu avançado – refazer|CTRL+Y|
 
 1. Adicione uma imagem à resposta usando o ícone de imagem na barra de ferramentas de Rich Text. O editor in-loco precisa da URL da imagem publicamente acessível e do texto alternativo para a imagem.

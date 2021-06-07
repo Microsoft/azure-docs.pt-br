@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82108ae0b2cabaab6dfa47c8bb5e893a44df38af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506359"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182053"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas nas Funções Duráveis (Azure Functions)
 
@@ -66,7 +66,7 @@ module.exports = df.orchestrator(function*(context) {
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
     yield context.df.createTimer(nextCleanup.toDate());
 
-    context.df.continueAsNew(undefined);
+    yield context.df.continueAsNew(undefined);
 });
 ```
 

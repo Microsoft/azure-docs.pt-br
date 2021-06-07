@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao webMethods Integration Suite | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao webMethods Integration Suite | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o webMethods Integration Suite.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 52ad0d0356f4d309db89db6527d7fd2d7dec253d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636809"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integração do Azure Active Directory ao webMethods Integration Suite
+# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao webMethods Integration Suite
 
 Neste tutorial, você aprenderá a integrar o webMethods Integration Suite ao Azure AD (Azure Active Directory).
 A integração do webMethods Integration Suite ao Azure AD oferece os seguintes benefícios:
@@ -51,11 +51,11 @@ Para configurar a integração do webMethods Integration Suite ao Azure AD, voc�
 
 **Para adicionar o webMethods Integration Suite por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -63,13 +63,13 @@ Para configurar a integração do webMethods Integration Suite ao Azure AD, voc�
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **webMethods Integration Suite** , selecione **webMethods Integration Suite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **webMethods Integration Suite**, selecione **webMethods Integration Suite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![webMethods Integration Suite na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o webMethods Integration Suite, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o webMethods Integration Suite, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do webMethods Integration Suite.
 
 Para configurar e testar o logon único do Azure AD com o webMethods Integration Suite, você precisará concluir os seguintes blocos de construção:
@@ -87,29 +87,29 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o webMethods Integration Suite, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **webMethods Integration Suite** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **webMethods Integration Suite**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Para configurar o **webMethods Integration Cloud** , na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IdP** execute as seguintes etapas:
+4. Para configurar o **webMethods Integration Cloud**, na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IdP** execute as seguintes etapas:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     - `<SUBDOMAIN>.webmethodscloud.com`
     - `<SUBDOMAIN>.webmethodscloud.eu`
     - `<SUBDOMAIN>.webmethodscloud.de`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
 
     - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    d. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:
+    d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
     - `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`
     - `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`
@@ -129,17 +129,17 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do webMethods Integration Suite](https://empower.softwareag.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Para configurar a **Nuvem da API do webMethods** , na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IdP** , execute as seguintes etapas:
+5. Para configurar a **Nuvem da API do webMethods**, na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IdP**, execute as seguintes etapas:
 
     ![Captura de tela que mostra a Configuração Básica de SAML, em que você pode inserir o Identificador e a URL de Resposta e selecionar Salvar.](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     - `<SUBDOMAIN>.webmethodscloud.com`
     - `<SUBDOMAIN>.webmethodscloud.eu`
     - `<SUBDOMAIN>.webmethodscloud.de`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
     - `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`
     - `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
     ![Captura de tela que mostra Definir URLs adicionais, em que você pode inserir uma URL de Logon.](common/metadata-upload-additional-signon.png)
 
-    d. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:
+    d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
     - `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`
     - `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`
@@ -158,11 +158,11 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do webMethods Integration Suite](https://empower.softwareag.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Na seção **Configurar o webMethods Integration Suite** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o webMethods Integration Suite**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -174,13 +174,13 @@ Para configurar o logon único do Azure AD com o webMethods Integration Suite, e
 
 ### <a name="configure-webmethods-integration-suite-single-sign-on"></a>Configurar o logon único do webMethods Integration Suite
 
-Para configurar o logon único no lado do **webMethods Integration Suite** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do webMethods Integration Suite](https://empower.softwareag.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **webMethods Integration Suite**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do webMethods Integration Suite](https://empower.softwareag.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -192,40 +192,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela o acesso ao webMethods Integration Suite.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **webMethods Integration Suite** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **webMethods Integration Suite**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **webMethods Integration Suite** .
+2. Na lista de aplicativos, selecione **webMethods Integration Suite**.
 
     ![O link do webMethods Integration Suite na lista Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-webmethods-integration-suite-test-user"></a>Criar um usuário de teste do webMethods Integration Suite
 
@@ -243,4 +243,4 @@ Ao clicar no bloco do webMethods Integration Suite no Painel de Acesso, você de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

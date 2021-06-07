@@ -4,7 +4,7 @@ description: Este tópico mostra como configurar sua conta dos Serviços de Míd
 services: media-services
 keywords: DASH, DRM, Modo Offline do Widevine, ExoPlayer, Android
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: dc21523d158330d70adfbc33734abe3d49535804
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b13feeda162f9babe1958402a694b728312ea4e5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696288"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103015396"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming offline do Widevine para Android
 

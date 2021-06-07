@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148054"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101687542"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Escalar e reduzir verticalmente um grupo de servidores de hiperescala do banco de dados do Azure para PostgreSQL usando a CLI (azdata ou kubectl)
 
@@ -180,6 +180,21 @@ Ele mostrará a nova definição do grupo de servidores:
 ## <a name="scale-down-the-server-group"></a>Reduzir verticalmente o grupo de servidores
 
 Para reduzir verticalmente o grupo de servidores, execute o mesmo comando, mas defina valores menores para as configurações que você deseja reduzir verticalmente. Para remover as solicitações e/ou os limites, especifique seu valor como cadeia de caracteres vazia.
+
+## <a name="reset-to-default-values"></a>Redefinir para valores padrão
+Para redefinir os parâmetros de limites/solicitações de núcleo/memória para seus valores padrão, edite-os e passe uma cadeia de caracteres vazia em vez de um valor real. Por exemplo, se você quiser redefinir o parâmetro de limite de núcleo (CL), execute os seguintes comandos:
+- em um cliente Linux:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- em um cliente do Windows: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

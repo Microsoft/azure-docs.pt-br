@@ -1,5 +1,5 @@
 ---
-title: Planejar e gerenciar custos para o armazenamento de BLOBs do Azure
+title: Planejar e gerenciar custos para o armazenamento de blobs do Azure
 description: Saiba como planejar e gerenciar os custos do armazenamento de BLOBs do Azure usando a análise de custo no portal do Azure.
 services: storage
 author: normesta
@@ -10,13 +10,13 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98601307"
 ---
-# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planejar e gerenciar custos para o armazenamento de BLOBs do Azure
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planejar e gerenciar custos para o armazenamento de blobs do Azure
 
 Este artigo ajuda você a planejar e gerenciar os custos do armazenamento de BLOBs do Azure. Primeiro, estimar os custos usando a calculadora de preços do Azure. Depois de criar sua conta de armazenamento, otimize a conta para que você pague apenas pelo que precisa. Use os recursos de gerenciamento de custos para definir orçamentos e monitorar custos. Você também pode examinar os custos previstos e monitorar as tendências de gastos para identificar as áreas em que talvez queira agir.
 
@@ -88,7 +88,7 @@ Ao usar a análise de custo, você pode exibir os custos de armazenamento do Azu
 
 Para exibir os custos de armazenamento do Azure na análise de custo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
 2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo**. Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
 

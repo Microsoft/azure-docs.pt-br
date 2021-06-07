@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: 694f501efc565ed498c1c8d8e2e38326277e8605
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96621409"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Planejar um aplicativo gerenciado do Azure para uma oferta de aplicativo do Azure

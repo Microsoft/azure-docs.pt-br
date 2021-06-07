@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257263"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609899"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protegendo Microsoft 365 de ataques locais
 
@@ -69,7 +69,7 @@ Para abordar os vetores de ameaça descritos anteriormente, recomendamos que voc
 
     Essas contas de administrador são contas de uso restrito. *Nenhuma conta local deve ter privilégios administrativos em Microsoft 365.* 
 
-    Para obter mais informações, consulte a [visão geral de Microsoft 365 funções de administrador](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide). Consulte também [funções para Microsoft 365 no Azure ad](../roles/m365-workload-docs.md).
+    Para obter mais informações, consulte a [visão geral de Microsoft 365 funções de administrador](/microsoft-365/admin/add-users/about-admin-roles). Consulte também [funções para Microsoft 365 no Azure ad](../roles/m365-workload-docs.md).
 
 1. **Gerenciar dispositivos de Microsoft 365.** Use o Azure AD Join e o MDM (gerenciamento de dispositivo móvel) baseado em nuvem para eliminar dependências em sua infraestrutura de gerenciamento de dispositivo local. Essas dependências podem comprometer o dispositivo e os controles de segurança.
 
@@ -141,7 +141,7 @@ Recomendamos os seguintes métodos de provisionamento:
 
     *   Bloquear o acesso ao portal do Azure. Você pode fazer exceções raras necessárias.  Crie uma política de acesso condicional que inclua todos os convidados e usuários externos. Em seguida, [implemente uma política para bloquear o acesso](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Florestas desconectadas**: Use o [provisionamento de nuvem do Azure ad](../cloud-provisioning/what-is-cloud-provisioning.md). Esse método permite que você se conecte a florestas desconectadas, eliminando a necessidade de estabelecer confiança ou conectividade entre florestas, o que pode ampliar o efeito de uma violação local. 
+* **Florestas desconectadas**: Use o [provisionamento de nuvem do Azure ad](../cloud-sync/what-is-cloud-sync.md). Esse método permite que você se conecte a florestas desconectadas, eliminando a necessidade de estabelecer confiança ou conectividade entre florestas, o que pode ampliar o efeito de uma violação local. 
  
 ### <a name="limitations-and-tradeoffs"></a>Limitações e compensações
 
@@ -151,7 +151,7 @@ Quando usado para provisionar contas híbridas, o sistema Azure-AD-from-Cloud-HR
 
 Os grupos de nuvem permitem dissociar sua colaboração e acesso de sua infraestrutura local.
 
-* **Colaboração**: Use grupos de Microsoft 365 e Microsoft Teams para colaboração moderna. Descomissionar listas de distribuição locais e [atualizar listas de distribuição para Microsoft 365 grupos no Outlook](/office365/admin/manage/upgrade-distribution-lists?view=o365-worldwide).
+* **Colaboração**: Use grupos de Microsoft 365 e Microsoft Teams para colaboração moderna. Descomissionar listas de distribuição locais e [atualizar listas de distribuição para Microsoft 365 grupos no Outlook](/office365/admin/manage/upgrade-distribution-lists).
 
 * **Acesso**: Use grupos de segurança do Azure ad ou grupos de Microsoft 365 para autorizar o acesso a aplicativos no Azure AD.
 * **Licenciamento do office 365**: Use o licenciamento baseado em grupo para provisionar o Office 365 usando grupos somente de nuvem. Esse método separa o controle de associação de grupo da infraestrutura local.
@@ -203,9 +203,9 @@ Use o acesso condicional do Azure AD para interpretar sinais e usá-los para tom
 
 * Use o acesso condicional para [Bloquear protocolos de autenticação herdados](../conditional-access/howto-conditional-access-policy-block-legacy.md) sempre que possível. Além disso, desabilite os protocolos de autenticação herdados no nível do aplicativo usando uma configuração específica do aplicativo.
 
-   Para obter mais informações, consulte [protocolos de autenticação herdados](../fundamentals/auth-sync-overview.md). Ou consulte detalhes específicos para o [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e o [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   Para obter mais informações, consulte [protocolos de autenticação herdados](../fundamentals/auth-sync-overview.md). Ou consulte detalhes específicos para o [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) e o [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
-* Implemente as configurações recomendadas de [acesso de dispositivo e identidade](/microsoft-365/security/office-365-security/identity-access-policies?view=o365-worldwide).
+* Implemente as configurações recomendadas de [acesso de dispositivo e identidade](/microsoft-365/security/office-365-security/identity-access-policies).
 
 * Se você estiver usando uma versão do Azure AD que não inclui acesso condicional, verifique se você está usando os [padrões de segurança do Azure ad](../fundamentals/concept-fundamentals-security-defaults.md).
 

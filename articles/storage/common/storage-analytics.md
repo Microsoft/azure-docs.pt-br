@@ -9,18 +9,18 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a5ccaa95c8f29395770395076f75f36019a4355c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790518"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101737674"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
 A análise de armazenamento do Azure executa registro em log e fornece dados de métrica para uma conta de armazenamento. Você pode usar esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento.
 
-Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Definir propriedades do serviço Blob](/rest/api/storageservices/set-blob-service-properties), [Definir propriedades do serviço Fila](/rest/api/storageservices/set-queue-service-properties), [Definir propriedades do serviço Tabela](/rest/api/storageservices/set-table-service-properties) e [Definir propriedades do serviço Arquivo](/rest/api/storageservices/Get-File-Service-Properties) para habilitar a Análise de Armazenamento para cada serviço.
+Para usar a análise de armazenamento, você deve habilitá-la separadamente para cada serviço que você deseja monitorar. Você pode habilitá-la no [portal do Azure](https://portal.azure.com). Para obter detalhes, consulte [Monitorar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md). Você também pode habilitar a análise de armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use as operações [Definir propriedades do serviço Blob](/rest/api/storageservices/set-blob-service-properties), [Definir propriedades do serviço Fila](/rest/api/storageservices/set-queue-service-properties), [Definir propriedades do serviço Tabela](/rest/api/storageservices/set-table-service-properties) e [Definir propriedades do serviço Arquivo](/rest/api/storageservices/Get-File-Service-Properties) para habilitar a Análise de Armazenamento para cada serviço.
 
 Os dados agregados são armazenados em um blob conhecido (para registro em log) e em tabelas conhecidas (para métricas), que podem ser acessados usando os serviços de Blob e APIs do serviço de tabela
 
@@ -46,6 +46,6 @@ Todas as solicitações feitas ao serviço de armazenamento da conta são fatur�
 Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no tópico [Mensagens de operações e status registradas da análise de armazenamento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar quais solicitações são faturáveis. Em seguida, você pode comparar seus logs e dados de métricas para as mensagens de status para ver se houve cobrança por uma determinada solicitação. Você também pode usar as tabelas no tópico anterior para investigar a disponibilidade de um serviço de armazenamento ou operação de API individual.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
+* [Monitorar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md)
 * [Métricas da Análise de Armazenamento](storage-analytics-metrics.md)
 * [Registro em log da Análise de Armazenamento](storage-analytics-logging.md)

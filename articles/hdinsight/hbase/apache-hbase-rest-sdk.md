@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: d1979e43adc76f4125097fc809ef137baee05f53
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 70c1dcc133f01cf72392f444192d977440c55cf4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939573"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866617"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
@@ -113,7 +113,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 O HBase implementa o [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante à imagem a seguir:
 
-![Saída de dados de exemplo do Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+:::image type="content" source="./media/apache-hbase-rest-sdk/hdinsight-table-roles.png" alt-text="Saída de dados de exemplo do Apache HBase" border="true":::
 
 ## <a name="select-data"></a>Selecionar dados
 

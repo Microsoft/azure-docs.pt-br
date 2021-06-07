@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
 ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324221"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Camada Premium para Azure Data Lake Storage
@@ -97,12 +97,12 @@ A camada Premium para Azure Data Lake Storage está disponível nas regiões a s
 |Índia Central|LRS|
 |Oeste da Índia|LRS|
 |Norte dos EAU|LRS|
-|Leste do Japão|LRS|
+|Japan East|LRS|
 |Oeste do Japão|LRS|
 |Sudeste da Ásia|LRS, ZRS|
 |Leste da Austrália|LRS, ZRS|
 |Sudeste da Austrália|LRS|
-|Sul do Brasil|LRS|
+|Brazil South|LRS|
 
 ## <a name="next-steps"></a>Próximas etapas
 

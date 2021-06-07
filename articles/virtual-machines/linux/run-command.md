@@ -3,17 +3,18 @@ title: Executar scripts de shell em uma VM Linux no Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual Linux do Azure usando o recurso Executar Comando
 services: automation
 ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
-ms.translationtype: MT
+ms.openlocfilehash: 73dd15a5eed3e27d9b72bc0357e35901c04ba7a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737856"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102552925"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de shell em sua VM Linux usando o recurso Executar Comando
 
@@ -21,7 +22,7 @@ O recurso Executar Comando usa o agente da máquina virtual (VM) para executar s
 
 ## <a name="benefits"></a>Benefícios
 
-Acesse as máquinas virtuais de várias maneiras. O recurso Executar Comando pode executar scripts nas máquinas virtuais remotamente usando o agente de VM. Use o comando Executar por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [CLI do Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) para VMs do Linux.
+Acesse as máquinas virtuais de várias maneiras. O recurso Executar Comando pode executar scripts em suas máquinas virtuais remotamente usando o agente de VM. Use o comando Executar por meio do portal do Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) ou [CLI do Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) para VMs do Linux.
 
 Esse recurso é útil em todos os cenários em que você deseja executar um script em uma máquina virtual. É uma das únicas maneiras de solucionar problemas e corrigir uma máquina virtual que não tem a porta RDP ou SSH aberta devido à configuração imprópria da rede ou do usuário administrativo.
 
@@ -43,7 +44,7 @@ As seguintes restrições se aplicam ao usar o recurso Executar Comando:
 
 ## <a name="available-commands"></a>Comandos disponíveis
 
-Esta tabela mostra a lista de comandos disponíveis para VMs Linux. Use o comando **RunShellScript** para executar qualquer script personalizado que desejar. Quando você estiver usando a CLI do Azure ou o PowerShell para executar um comando, o valor fornecido para o parâmetro `--command-id` ou `-CommandId` deve ser um dos seguintes valores listados. Quando especifica um valor que não é um comando disponível, recebe este erro:
+Esta tabela mostra a lista de comandos disponíveis para VMs Linux. Use o comando **RunShellScript** para executar qualquer script personalizado que desejar. Quando você estiver usando a CLI do Azure ou o PowerShell para executar um comando, o valor fornecido para o parâmetro `--command-id` ou `-CommandId` deverá ser um dos seguintes valores listados. Quando especifica um valor que não é um comando disponível, recebe este erro:
 
 ```error
 The entity was not found in this Azure location

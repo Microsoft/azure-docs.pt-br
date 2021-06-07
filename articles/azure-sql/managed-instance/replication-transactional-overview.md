@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225336"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com o Azure SQL Instância Gerenciada (versão prévia)
@@ -43,7 +43,7 @@ Os principais componentes na replicação transacional são o **Publicador**, o 
 
 ![replicação com um Banco de Dados SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Função | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
+| Função | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim |
 | **Distribuidor** | Não | Sim|
@@ -72,7 +72,7 @@ O Azure SQL Instância Gerenciada pode dar suporte a um assinante das seguintes 
 
 Existem diferentes [tipos de replicação](/sql/relational-databases/replication/types-of-replication):
 
-| Replicação | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
+| Replicação | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
 | :----| :------------- | :--------------- |
 | [**Transacional padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim |
 | [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
@@ -199,7 +199,7 @@ Para obter mais informações sobre como configurar a replicação transacional,
 - [Crie uma publicação](/sql/relational-databases/replication/publish/create-a-publication).
 - [Crie uma assinatura push](/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor como o assinante (por exemplo `N'azuresqldbdns.database.windows.net` , e o banco de dados no nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Veja também  
 
 - [Replicação com um Instância Gerenciada SQL e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para um Banco de Dados SQL](../database/replication-to-sql-database.md)

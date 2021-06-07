@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
-ms.openlocfilehash: 55c19ee9b23d43b0f9988363405d76fa16949ec9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2160cfcd1f12f5effe7bb182eb665f85fec863af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946035"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863387"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
 
@@ -27,7 +27,7 @@ A cobrança do cluster HDInsight começa quando um cluster é criado e para quan
 
 3. No modo de exibição padrão, selecione o ícone **excluir** . Siga o prompt para excluir o cluster.
 
-    ![Botão excluir cluster do HDInsight](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
+    :::image type="content" source="./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png" alt-text="Botão excluir cluster do HDInsight":::
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

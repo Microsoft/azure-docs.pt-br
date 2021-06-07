@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92018688"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
@@ -130,7 +130,7 @@ Nesta tarefa, você usa o comando [Criar](/analysis-services/tmsl/create-command
 ## <a name="verify-your-changes"></a>Verifique as alterações
 
 1. Em **Pesquisador de Objetos**, clique no nome do servidor e clique em **Atualizar** ou pressione **F5**.
-2. Expanda**Bancos de Dados** > **adventureworks** > **Funções**. Verifique a conta de usuário e as novas alterações de função adicionadas nas tarefas anteriores serão exibidas.   
+2. Expanda **Bancos de Dados** > **adventureworks** > **Funções**. Verifique a conta de usuário e as novas alterações de função adicionadas nas tarefas anteriores serão exibidas.   
 
     ![Verificar no Pesquisador de Objetos](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 

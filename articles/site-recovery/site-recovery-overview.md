@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
 ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92281873"
 ---
 # <a name="about-site-recovery"></a>Sobre o Azure Site Recovery
@@ -19,8 +19,8 @@ Como uma organização, você precisa adotar uma estratégia de BCDR (continuida
 
 Os Serviços de Recuperação do Azure contribuem para sua estratégia BCDR:
 
-- **Serviço do Site Recovery**: O Site Recovery ajuda a garantir a continuidade dos negócios mantendo os aplicativos de negócios e as cargas de trabalho em execução durante interrupções. O Site Recovery replica as cargas de trabalho em execução em máquinas físicas e virtuais (VMs) de um site primário para um local secundário. Quando uma interrupção ocorre no seu site primário, você faz failover para o local secundário e acessa os aplicativos a partir daí. Depois que a localização primária estiver novamente em execução, você poderá fazer failback a ela.
-- **Serviço de Backup**: O serviço [Backup do Azure](../backup/index.yml) mantém seus dados seguros e recuperáveis.
+- **Serviço do Site Recovery**: o Site Recovery ajuda a garantir a continuidade dos negócios por manter os aplicativos de negócios e cargas de trabalho funcionado durante interrupções. O Site Recovery replica as cargas de trabalho em execução em máquinas físicas e virtuais (VMs) de um site primário para um local secundário. Quando uma interrupção ocorre no seu site primário, você faz failover para o local secundário e acessa os aplicativos a partir daí. Depois que a localização primária estiver novamente em execução, você poderá fazer failback a ela.
+- **Serviço de backup**: o serviço de [Backup do Azure](../backup/index.yml) mantém seus dados seguros e recuperáveis.
 
 O Site Recovery pode gerenciar a replicação para:
 

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019492"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio Code
@@ -44,7 +44,7 @@ Abra o arquivo de script *\. asaql* e selecione **executar localmente**. Em segu
    > [!div class="mx-imgBorder"]
    > ![Resultado da visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-### <a name="view-metrics"></a>Métricas de exibição
+### <a name="view-metrics"></a>Exibir métricas
 
 Nesta seção, você explora as métricas disponíveis para cada parte do diagrama.
 

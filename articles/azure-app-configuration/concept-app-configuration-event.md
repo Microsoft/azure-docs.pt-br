@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99550735"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
@@ -29,7 +29,7 @@ Dê uma olhada em [usar a grade de eventos para obter notificações de alteraç
 ## <a name="available-azure-app-configuration-events"></a>Azure App eventos de configuração disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Azure App as assinaturas de evento de configuração podem incluir dois tipos de eventos:  
 
-> |Nome do evento|Description|
+> |Nome do evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Acionado quando um valor de chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando um valor de chave é excluído|
@@ -37,7 +37,7 @@ A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-s
 ## <a name="event-schema"></a>Esquema do evento
 Azure App eventos de configuração contêm todas as informações de que você precisa para responder às alterações em seus dados. Você pode identificar um evento de configuração de aplicativo porque a propriedade eventType começa com "Microsoft. AppConfiguration". Encontre informações adicionais sobre o uso de propriedades de evento da Grade de Eventos em [Esquema de eventos da Grade de Eventos](../event-grid/event-schema.md).  
 
-> |Propriedade|Tipo|Descrição|
+> |Propriedade|Type|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
 > |subject|string|O URI do valor de chave que é o assunto do evento.|

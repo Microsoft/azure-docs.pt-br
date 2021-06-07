@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025694"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Erros de depuração ao criar um aplicativo de comandos personalizados
@@ -53,8 +53,8 @@ LUIS tem intenções internas Sim/não. Ter frases de amostra com apenas "Sim", 
 
 | Palavra-chave | Variações | 
 | ------- | --------- | 
-| Yes | Certo, OK |
-| No | Verão, não | 
+| Sim | Certo, OK |
+| Não | Verão, não | 
 
 ### <a name="common-sample-sentences"></a>Sentenças de exemplo comuns
 Os comandos personalizados não permitem frases de exemplo comuns compartilhadas entre comandos diferentes. O treinamento de um aplicativo poderá falhar se algumas frases de exemplo em um comando já estiverem definidas em outro comando. 

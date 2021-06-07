@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: dcfe12b30e336863c8e112d9ad675a2f57fe48f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734167"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102179129"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor para Data Explorer do Azure (versão prévia)
 
@@ -103,10 +103,10 @@ A guia **métricas-chave** mostra uma exibição unificada de algumas das métri
 
 A guia **uso** permite aos usuários aprofundar-se no desempenho dos comandos e consultas do cluster. Nesta página, você pode:
  
- - Veja quais usuários e aplicativos estão enviando a maioria das consultas ou consumindo a maior parte da CPU e da memória (para que você possa entender quais usuários estão enviando as consultas mais pesadas para o cluster processar).
- - Identifique os principais usuários e aplicativos por consultas com falha.
- - Identifique alterações recentes no número de consultas, em comparação com a média diária histórica (nos últimos 16 dias), por usuário e aplicativo.
- - Identifique tendências e picos no número de consultas, memória e consumo de CPU por usuário, aplicativo e tipo de comando.
+ - Veja quais grupos de carga de trabalho, usuários e aplicativos estão enviando a maioria das consultas ou consumindo a maior parte da CPU e memória (para que você possa entender quais cargas de trabalho estão enviando as consultas mais pesadas para o cluster processar).
+ - Identifique os principais grupos de carga de trabalho, usuários e aplicativos por consultas com falha.
+ - Identifique alterações recentes no número de consultas, em comparação com a média diária histórica (nos últimos 16 dias), por grupo de carga de trabalho, usuário e aplicativo.
+ - Identifique tendências e picos no número de consultas, memória e consumo de CPU por grupo de carga de trabalho, usuário, aplicativo e tipo de comando.
 
 [![Captura de tela do modo de exibição de operações com gráficos de rosca do aplicativo principal por contagem de comando e consulta, principais principais por contagem de comando e consulta e comandos principais por tipos de comando](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 
@@ -162,4 +162,4 @@ Atualmente, os logs de diagnóstico não funcionam retroativamente, portanto, os
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md).
+Conheça os cenários aos quais as pastas de trabalho foram projetadas para dar suporte, como criar relatórios, personalizar relatórios existentes e muito mais, examinando [Criar relatórios interativos com pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md).

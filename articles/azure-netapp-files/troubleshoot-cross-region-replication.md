@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95239543"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590918"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Solucionar problemas de replicação entre regiões
 
@@ -71,6 +71,12 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Valide se você desrompeu a replicação do volume se quiser excluir esse instantâneo.    |
 |     `Cannot delete   volume replication generated snapshot`    |     A exclusão de instantâneos de linha de base de replicação não é permitida.    |
 
+## <a name="errors-resizing-volumes"></a>Erros de redimensionamento de volumes
+
+|     Mensagem de erro    |     Resolução    |
+|-|-|
+|   Falha na tentativa de redimensionar um volume de origem com o erro `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Verifique se você tem espaço suficiente nos pools de capacidade para os volumes de origem e de destino da replicação entre regiões. Quando você redimensiona o volume de origem, o volume de destino é redimensionado automaticamente. Mas se o pool de capacidade que hospeda o volume de destino não tiver espaço suficiente, o redimensionamento dos volumes de origem e de destino falhará. Consulte [redimensionar um volume de destino de replicação entre regiões](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) para obter detalhes.   |
+
 ## <a name="next-steps"></a>Próximas etapas  
 
 * [Replicação entre regiões](cross-region-replication-introduction.md)
@@ -78,4 +84,5 @@ Este artigo descreve as mensagens de erro e as resoluções que podem ajudá-lo 
 * [Criar replicação de volume](cross-region-replication-create-peering.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
+* [Redimensionar um volume de destino de replicação entre regiões](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)

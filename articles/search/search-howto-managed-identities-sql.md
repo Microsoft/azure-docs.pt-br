@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358415"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma conexão de indexador para o banco de dados SQL do Azure usando uma identidade gerenciada
@@ -33,7 +33,7 @@ Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure 
 
 ![Habilitar a identidade gerenciada atribuída ao sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Habilitar a identidade gerenciada atribuída ao sistema")
 
-Depois de selecionar **Salvar** , você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
+Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída ao serviço de pesquisa.
 
 ![ID do objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de objeto")
 
@@ -103,7 +103,7 @@ Ao criar uma fonte de dados usando a [API REST](/rest/api/searchservice/create-d
 * **credentials**
     * Ao usar uma identidade gerenciada para autenticar, o formato **credentials** é diferente de quando não usa uma identidade gerenciada. Aqui, você fornecerá nome de Catálogo ou Banco de dados Inicial e um ResourceId sem chave de conta ou senha. O ResourceId deve incluir a ID da assinatura do banco de dados SQL do Azure, o grupo de recursos do banco de dados SQL e o nome do banco de dados SQL. 
     * Formato da cadeia de conexão de identidade gerenciada:
-        * *Initial Catalog|Database= **nome do banco de dados** ;ResourceId=/subscriptions/ **sua ID de assinatura** /resourceGroups/ **nome do seu grupo de recursos** /providers/Microsoft.Sql/servers/ **nome do seu SQL Server** /;Connection Timeout= **duração do tempo limite de conexão** ;*
+        * *Initial Catalog|Database=**nome do banco de dados**;ResourceId=/subscriptions/**sua ID de assinatura**/resourceGroups/**nome do seu grupo de recursos**/providers/Microsoft.Sql/servers/**nome do seu SQL Server**/;Connection Timeout=**duração do tempo limite de conexão**;*
 * **container** especifica o nome da tabela ou exibição que você deseja indexar.
 
 Exemplo de como criar um objeto de fonte de dados do SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source):

@@ -1,18 +1,19 @@
 ---
 title: Guia de Início Rápido – Usar a API do Python para executar um trabalho do Lote do Azure
 description: Neste guia de início rápido, você executará um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de clientes Python do Lote. Conheça os principais conceitos do serviço de Lote.
-ms.topic: quickstart
 ms.date: 08/17/2020
+ms.topic: quickstart
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+- mode-api
+ms.openlocfilehash: 75f83e0ea4823796ace348084bab0915babc8979
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511007"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535564"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
 
@@ -28,7 +29,7 @@ Depois de concluir este guia de início rápido, você entenderá os principais 
 
 - Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) versão 2.7 ou 3.3 ou posterior, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) versão 2.7 ou 3.6, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

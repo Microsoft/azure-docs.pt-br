@@ -3,14 +3,14 @@ title: Continuidade dos negócios-banco de dados do Azure para MariaDB
 description: Saiba mais sobre continuidade de negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para serviço MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 6439a63b74b6f627b62741c145f763dc3d9552d3
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: e164930736f7b93e56d9bd4187e72a9c8eb76202
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659845"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Entender a continuidade dos negócios no banco de dados do Azure para MariaDB

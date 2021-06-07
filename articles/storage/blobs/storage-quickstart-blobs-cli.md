@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021751"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "104613100"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Início Rápido: Criar, baixar e listar blobs com a CLI do Azure
 
@@ -145,7 +145,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>Transferência de dados com AzCopy
 
-O utilitário de linha de comando AzCopy oferece transferência de dados de alto desempenho e programável para o Armazenamento do Azure. Use o AzCopy para transferir dados bidirecionalmente no Armazenamento de Blobs e nos Arquivos do Azure. Para obter mais informações sobre o AzCopy v10, a última versão do AzCopy, confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md). Para saber mais sobre como usar o AzCopy v10 com o Armazenamento de Blobs, confira [Transferir dados com o AzCopy e o Armazenamento de Blobs](../common/storage-use-azcopy-blobs.md).
+O utilitário de linha de comando AzCopy oferece transferência de dados de alto desempenho e programável para o Armazenamento do Azure. Use o AzCopy para transferir dados bidirecionalmente no Armazenamento de Blobs e nos Arquivos do Azure. Para obter mais informações sobre o AzCopy v10, a última versão do AzCopy, confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md). Para saber mais sobre como usar o AzCopy v10 com o Armazenamento de Blobs, confira [Transferir dados com o AzCopy e o Armazenamento de Blobs](../common/storage-use-azcopy-v10.md#transfer-data).
 
 O exemplo a seguir usa o AzCopy para carregar um arquivo local em um blob. Lembre-se de substituir os valores de exemplo pelos próprios valores:
 

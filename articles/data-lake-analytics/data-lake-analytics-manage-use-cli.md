@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
 ms.openlocfilehash: 19b471d85a52fe38b72ad55847d022fb56b3c4f0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220917"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar o Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
@@ -81,7 +81,7 @@ Listar contas da Análise Data Lake em um grupo de recursos específico
    az dla account delete --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
    ```
 
-## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar fontes de dados
 
 No momento, o Data Lake Analytics dá suporte às duas fontes de dados a seguir:
 

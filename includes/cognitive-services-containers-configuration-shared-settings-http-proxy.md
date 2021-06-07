@@ -4,19 +4,19 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: ce4cc68826b39b5707549afc799d2d214e8876c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7f51b7fe95445cbd3a8aff530f89ce55b5abfb1e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001129"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629959"
 ---
 Se você precisar configurar um proxy HTTP para fazer solicitações de saída, use estes dois argumentos:
 
-| Name | Tipo de dados | Descrição |
+| Nome | Tipo de dados | Descrição |
 |--|--|--|
-|HTTPS_PROXY|string|O proxy a ser usado, por exemplo, `https://proxy:8888`<br>`<proxy-url>`|
-|HTTPS_PROXY_CREDS|string|Quaisquer credenciais necessárias para autenticação no proxy, por exemplo, nomedeusuario:senha.|
+|HTTP_PROXY|string|O proxy a ser usado, por exemplo, `http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|string|Todas as credenciais necessárias para a autenticação no proxy, por exemplo, `username:password` . Esse valor **deve estar em letras** minúsculas. |
 |`<proxy-user>`|string|O usuário para o proxy.|
 |`<proxy-password>`|string|A senha associada ao `<proxy-user>` para o proxy.|
 ||||
@@ -30,6 +30,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<endpoint> \
 ApiKey=<api-key> \
-HTTPS_PROXY=<proxy-url> \
-HTTPS_PROXY_CREDS=<proxy-user>:<proxy-password> \
+HTTP_PROXY=<proxy-url> \
+HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```

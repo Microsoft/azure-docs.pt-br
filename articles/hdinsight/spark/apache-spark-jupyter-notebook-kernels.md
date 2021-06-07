@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ef2bc5e00779200e5447c8829a437824657a2227
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930398"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865971"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook em clusters Apache Spark no Azure HDInsight
 
@@ -32,7 +32,7 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o art
 
 2. No modo de exibição **visão geral** , na caixa **painéis do Cluster** , selecione **Jupyter Notebook**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
-    ![Jupyter Notebook em Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook no Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Jupyter Notebook em Apache Spark" border="true":::
   
    > [!NOTE]  
    > Você também pode acessar o Jupyter Notebook no cluster Spark abrindo a seguinte URL em seu navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
@@ -41,7 +41,7 @@ Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o art
 
 3. Selecione **novo** e, em seguida, selecione **Pyspark**, **PySpark3** ou **Spark** para criar um bloco de anotações. Use o kernel Spark para aplicativos em Scala, o kernel PySpark para aplicativos em Python2 e o kernel PySpark3 para aplicativos em Python3.
 
-    ![Kernels para Jupyter Notebook no Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels para Jupyter Notebook no Spark")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Kernels para Jupyter Notebook no Spark" border="true":::
 
 4. Um notebook é aberto com o kernel selecionado.
 

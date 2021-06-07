@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 7933273d02d3c1332d0d012ab6c22a59ed880640
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 093542a5cc977d30e2c33b320d5d7833a47232f5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742655"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482425"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use a CLI para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
 

@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566513"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rotear o tráfego da Web baseado na URL usando a CLI do Azure
@@ -36,7 +36,7 @@ Se preferir, você pode concluir este procedimento usando o [Azure PowerShell](t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer a versão 2.0.4 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+ - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando `az network vnet create`. Em seguida, adicione uma sub-rede denominada *myBackendSubnet* , requerida pelos servidores de back-end, usando `az network vnet subnet create`. Crie o endereço IP público denominado *myAGPublicIPAddress* usando `az network public-ip create`.
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando `az network vnet create`. Em seguida, adicione uma sub-rede denominada *myBackendSubnet*, requerida pelos servidores de back-end, usando `az network vnet subnet create`. Crie o endereço IP público denominado *myAGPublicIPAddress* usando `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-a-backend-listener"></a>Adicionar um ouvinte de back-end
 
-Adicione o ouvinte de back-end denominado *backendListener* , que é necessário para rotear o tráfego usando `az network application-gateway http-listener create`.
+Adicione o ouvinte de back-end denominado *backendListener*, que é necessário para rotear o tráfego usando `az network application-gateway http-listener create`.
 
 
 ```azurecli-interactive
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste artigo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1* , *myvmss2* , e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
+Neste artigo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual nas quais você instala o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -255,7 +255,7 @@ Altere a URL para http:// &lt; IP-address &gt; : 8080/vídeo/test.html, substitu
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

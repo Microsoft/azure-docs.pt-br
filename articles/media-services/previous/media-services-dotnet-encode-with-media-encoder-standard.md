@@ -3,7 +3,7 @@ title: Codificar um ativo com o Media Encoder Standard usando o .NET | Microsoft
 description: Este artigo mostra como usar o .NET para codificar um ativo usando o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f49b951473db4b331bc42de3fb72829270822d5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: MT
+ms.openlocfilehash: b94ec0b50182381d2a4e1bca09f4c8bc482d13ee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014368"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103014087"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET
 
@@ -64,7 +64,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 * Crie um trabalho de codificação.
 * Obtenha uma referência para o Codificador de Mídia Padrão.
-* Especifique para usar a predefinição de [streaming adaptável](media-services-autogen-bitrate-ladder-with-mes.md) . 
+* Especifique para usar a predefinição [Transmissão Adaptável](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Adicione uma única tarefa de codificação para o trabalho. 
 * Especifique o ativo de entrada a ser codificado.
 * Crie um ativo de saída contendo o ativo codificado.
@@ -73,7 +73,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo 
 
@@ -213,5 +213,5 @@ namespace MediaEncoderStandardSample
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-[Como gerar miniaturas usando o Media Encoder Standard com o .net](media-services-dotnet-generate-thumbnail-with-mes.md) 
- [Visão geral da codificação dos serviços de mídia](media-services-encode-asset.md)
+[Como gerar miniatura usando o Media Encoder Standard com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)

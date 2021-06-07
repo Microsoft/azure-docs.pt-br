@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
 ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93126831"
 ---
 # <a name="virtual-machine-sas-failure-messages"></a>Mensagens de falha SAS da máquina virtual

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372001"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101699021"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de preços e cobrança para aplicativos lógicos do Azure
 
@@ -94,7 +94,9 @@ Para obter informações sobre limites, consulte [limites do ISE em aplicativos 
 
 ## <a name="integration-accounts"></a>Contas de integração
 
-Uma [conta de integração](../logic-apps/logic-apps-pricing.md#integration-accounts) é um recurso separado que você cria e vincula a aplicativos lógicos para que você possa explorar, compilar e testar soluções de integração B2B que usam recursos de processamento [EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) . O aplicativo lógico do Azure oferece esses níveis de conta de integração ou camadas:
+Uma [conta de integração](../logic-apps/logic-apps-pricing.md#integration-accounts) é um recurso separado que você cria e vincula a aplicativos lógicos para que você possa explorar, compilar e testar soluções de integração B2B que usam recursos de processamento [EDI](logic-apps-enterprise-integration-b2b.md) e [XML](logic-apps-enterprise-integration-xml.md) .
+
+O aplicativo lógico do Azure oferece esses níveis de conta de integração ou camadas que [variam de](https://azure.microsoft.com/pricing/details/logic-apps/) acordo com o preço e o [modelo de cobrança](logic-apps-pricing.md#integration-accounts), dependendo de seus aplicativos lógicos serem baseados em consumo ou ISE:
 
 | Camada | Descrição |
 |------|-------------|

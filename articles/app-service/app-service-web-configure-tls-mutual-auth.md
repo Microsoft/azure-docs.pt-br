@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347704"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar a autenticação mútua TLS para o serviço Azure App
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurar autenticação mútua TLS para Serviço de Aplicativo do Azure
 
 Você pode restringir o acesso ao Serviço de Aplicativo do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é solicitar um certificado de cliente quando a solicitação do cliente é por TLS/SSL e validar o certificado. Esse mecanismo é chamado de autenticação mútua de TLS ou autenticação de certificado do cliente. Este artigo mostra como configurar seu aplicativo para usar a autenticação de certificado do cliente.
 
 > [!NOTE]
-> se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Portanto, se seu aplicativo exigir certificados de cliente, você não deve permitir solicitações para seu aplicativo por HTTP.
+> se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se o aplicativo exigir certificados de cliente, você não deverá permitir solicitações ao seu aplicativo via HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]

@@ -2,13 +2,13 @@
 title: Monitoramento com testes na Web de várias etapas – Azure Application Insights
 description: Configuração de testes na Web de várias etapas para monitorar aplicativos Web com o Azure Application Insights
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
-ms.translationtype: MT
+ms.date: 02/14/2021
+ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934863"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101719841"
 ---
 # <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 
@@ -65,7 +65,6 @@ Para obter orientação sobre como criar testes na Web do Visual Studio, consult
 |Configuração| Explicação
 |----|----|----|
 |**Quase em tempo real (Versão prévia)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
-|**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limite de locais de alerta**|é recomendável um mínimo de 3/5 locais. A relação ideal entre o limite de alertas locais e o número de locais de teste é o **limite de alertas locais** = **número de locais de teste - 2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="configuration"></a>Configuração

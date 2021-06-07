@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79475817"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regras personalizadas para o Firewall do aplicativo Web com a porta frontal do Azure
@@ -42,7 +42,7 @@ Você pode controlar o acesso com uma regra WAf personalizada que define um núm
     - Cookies
   - **Operador**
     - Any: é geralmente usado para definir a ação padrão se nenhuma regra for correspondida. Any é um operador match ALL.
-    - Igual a
+    - Igual
     - Contém
     - LessThan: restrição de tamanho
     - GreaterThan: restrição de tamanho
@@ -67,8 +67,8 @@ Você pode controlar o acesso com uma regra WAf personalizada que define um núm
   - **Negar [opcional]:** Você pode definir a condição de *negação* como true se o resultado de uma condição deve ser negado.
       
   - **Transform [opcional]:** Uma lista de cadeias de caracteres com nomes de transformações a serem realizadas antes da tentativa de correspondência. Elas podem ser as seguintes transformações:
-     - Letras Maiúsculas 
-     - Letras minúsculas
+     - Maiúsculas 
+     - Minúsculas
      - Trim
      - RemoveNulls
      - UrlDecode

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936440"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
@@ -105,7 +105,7 @@ dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a 
 | Consideração | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operacionais cliente**| | |  |
-| Dispositivos com Windows 10| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+| Dispositivos Windows 10| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 |**Opções de entrada**| | |  |
 | Credenciais locais do usuário final| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| |  |
@@ -118,8 +118,8 @@ dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a 
 |**Principais funcionalidades**| | |  |
 | SSO para recursos de nuvem| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Recursos de SSO a locais| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
-| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
-Acesso Condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)
+| Acesso condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)|![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
+Acesso condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)
 | Tela de logon de autoatendimento de redefinição de senha do Windows| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Redefinição de PIN do Windows Hello| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |
 | Roaming de estado empresarial entre dispositivos| | ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png)| ![Marca de seleção para esses valores.](./media/plan-device-deployment/check.png) |

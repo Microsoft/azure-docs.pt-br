@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
 ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927525"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions em Kubernetes com KEDA
@@ -18,7 +18,7 @@ O tempo de execução do Azure Functions fornece flexibilidade na hospedagem ond
 
 ## <a name="how-kubernetes-based-functions-work"></a>Como trabalham as funções baseadas em Kubernetes
 
-O serviço do Azure Functions é composto por dois componentes principais: um tempo de execução e um controlador de escala.  O tempo de execução do Functions é executado e executa seu código.  O tempo de execução inclui a lógica sobre como disparar, registrar e gerenciar execuções de função.  O tempo de execução do Azure Functions pode ser executado *em qualquer lugar* .  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona de forma proativa o número de instâncias que executam seu aplicativo.  Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md).
+O serviço do Azure Functions é composto por dois componentes principais: um tempo de execução e um controlador de escala.  O tempo de execução do Functions é executado e executa seu código.  O tempo de execução inclui a lógica sobre como disparar, registrar e gerenciar execuções de função.  O tempo de execução do Azure Functions pode ser executado *em qualquer lugar*.  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona de forma proativa o número de instâncias que executam seu aplicativo.  Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md).
 
 As funções baseadas em Kubernetes fornecem o tempo de execução do Functions em um [contêiner do Docker](functions-create-function-linux-custom-image.md) com dimensionamento controlado por eventos por meio de KEDA.  KEDA pode ser dimensionado para 0 instâncias (quando nenhum evento está ocorrendo) e para *n* instâncias. Ele faz isso expondo métricas personalizadas para o dimensionador automático do Kubernetes (Dimensionador automático de pod horizontal).  O uso de contêineres do Functions com KEDA permite replicar recursos de função sem servidor em qualquer cluster de Kubernetes.  Essas funções também podem ser implantadas usando o recurso [nós virtuais do AKS (Serviços de Kubernetes do Azure)](../aks/virtual-nodes-cli.md) para a infraestrutura sem servidor.
 

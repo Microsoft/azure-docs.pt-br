@@ -7,15 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.custom: b2c-support
+ms.openlocfilehash: 3a5afcd8c0ef0c31353cd2369ead332675c9877f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108613"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102453114"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -41,7 +42,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Habilitada | Não | Valores possíveis: `true` ou `false`. |
+| habilitado | Não | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -73,7 +74,7 @@ O elemento **LocalizedResources** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -146,7 +147,7 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Valores possíveis: [claimproperties](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicado](#predicate), [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
+| ElementType | Sim | Valores possíveis: [claimproperties](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [FormatLocalizedStringTransformationClaimType](#formatlocalizedstringtransformationclaimtype), [predicado](#predicate), [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
 | ElementId | Sim | Se **ElementType** for definido como `ClaimType` , `Predicate` ou `InputValidation` , esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
 | StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
 
@@ -231,6 +232,31 @@ O exemplo a seguir mostra como localizar a mensagem de erro UserMessageIfClaimsP
 
 ```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="formatlocalizedstringtransformationclaimtype"></a>FormatLocalizedStringTransformationClaimType
+
+O valor de FormatLocalizedStringTransformationClaimType é usado para formatar declarações em uma cadeia de caracteres localizada. Para obter mais informações, consulte [FormatLocalizedString Claims Transformation](string-transformations.md#formatlocalizedstring)
+
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+O exemplo a seguir mostra como localizar o formato de cadeia de caracteres da transformação declarações FormatLocalizedStringTransformationClaimType.
+
+```xml
+<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
 ```
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
@@ -335,7 +361,7 @@ O valor UxElement é usado para localizar um dos elementos da interface do usuá
 
 ### <a name="displaycontrol"></a>DisplayControl
 
-O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . O exemplo a seguir mostra como localizar os botões enviar e verificar. 
+O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . Quando habilitado, o controle de exibição localizedStrings usa a *** precedência** _ sobre algumas das _ *UxElement** StringIDs como **ver_but_send**, **ver_but_edit**, **ver_but_resend** e **ver_but_verify**. O exemplo a seguir mostra como localizar os botões enviar e verificar. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

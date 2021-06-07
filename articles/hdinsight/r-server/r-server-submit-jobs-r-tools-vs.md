@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943937"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864679"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Enviar trabalhos a partir das Ferramentas do R para Visual Studio
 
@@ -18,11 +18,11 @@ ms.locfileid: "98943937"
 
 RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela de R Interativo](/visualstudio/rtvs/interactive-repl) (REPL), intellisense (conclusão de código), [plotar visualização](/visualstudio/rtvs/visualizing-data) por meio de bibliotecas de R como ggplot2 e ggviz, [depuração de código de R](/visualstudio/rtvs/debugging)e muito mais.
 
-## <a name="set-up-your-environment"></a>Configurar seu ambiente
+## <a name="set-up-your-environment"></a>Configure seu ambiente
 
 1. Instalar [Ferramentas do R para Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
-    ![Instalando o RTVS no Visual Studio de 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png" alt-text="Instalando o RTVS no Visual Studio de 2017" border="true":::
 
 2. Selecione a carga de trabalho *ciência de dados e aplicativos analíticos*, selecione as opções **suporte a idioma R**, **suporte de runtime para o desenvolvimento de R**, e **Microsoft R Client**.
 
@@ -38,7 +38,7 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 
    2. Vá para o item de menu **Ferramentas R**, selecione **Configurações da Ciência de Dados...**.
 
-       ![Configurações da Ciência de Dados do Visual Studio](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png" alt-text="Configurações da Ciência de Dados do Visual Studio" border="true":::
 
       > [!NOTE]  
       > Usando a abordagem na etapa 1, você pode também salvar e restaurar o layout de cientista de dados personalizado, em vez de repetir o comando **Configurações da Ciência de Dados**.
@@ -53,11 +53,11 @@ RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela 
 6. Iniciando na parte superior do arquivo, pressione Ctrl + Enter para enviar cada linha, uma de cada vez, à janela de R Interativo. Algumas linhas podem levar algum tempo já que instalam pacotes.
     * Como alternativa, você pode selecionar todas as linhas no arquivo de R (Ctrl + A), em seguida, execute todos os (Ctrl + Enter) ou selecione o ícone Executar em interativo na barra de ferramentas.
 
-        ![Execução interativa do Visual Studio](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png" alt-text="Execução interativa do Visual Studio" border="true":::
 
 7. Depois de executar todas as linhas no script, você verá uma saída semelhante a este:
 
-    ![Ferramentas de R do espaço de trabalho do Visual Studio](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png" alt-text="Ferramentas de R do espaço de trabalho do Visual Studio" border="true":::
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Enviar trabalhos para um cluster ML Services do HDInsight
 
@@ -93,7 +93,7 @@ Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows eq
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![Apache Spark Configurando o contexto](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="Apache Spark Configurando o contexto" border="true":::
 
 1. Execute os comandos a seguir na janela de R Interativo:
 
@@ -105,22 +105,23 @@ Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows eq
 
     Você deverá ver um resultado semelhante ao seguinte:
 
-    ![Execução bem-sucedida do comando RX ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) a
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png" alt-text="Execução bem-sucedida do comando de rx" border="true":::
+um
 1. Verifique se o arquivo `rxHadoopCopy` foi copiados com êxito `people.json` da pasta de dados de exemplo para a `/user/RevoShare/newUser` pasta recém-criada:
 
     1. No painel do cluster ML Services do HDInsight no Azure, selecione **contas de armazenamento** no menu à esquerda.
 
-        ![Contas de armazenamento do Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Contas de armazenamento do Azure HDInsight" border="true":::
 
     2. Selecione a conta de armazenamento padrão para o cluster, anotando o nome do contêiner/diretório.
 
     3. Selecione **Contêineres** no menu à esquerda no painel de conta de armazenamento.
 
-        ![Contêineres de armazenamento do Azure HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Contêineres de armazenamento do Azure HDInsight" border="true":::
 
     4. Selecione nome do contêiner do cluster, navegue até a pasta **Usuário** (você talvez precise clicar *Carregar mais* na parte inferior da lista), em seguida, selecione *RevoShare*, em seguida, **newUser**. O `people.json` arquivo deve ser exibido no `newUser` pasta.
 
-        ![Local da pasta de arquivos copiados do HDInsight](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png" alt-text="Local da pasta de arquivos copiados do HDInsight" border="true":::
 
 1. Depois que você terminar de usar o contexto atual do Apache Spark, deverá pará-lo. Você não pode executar simultaneamente vários contextos.
 

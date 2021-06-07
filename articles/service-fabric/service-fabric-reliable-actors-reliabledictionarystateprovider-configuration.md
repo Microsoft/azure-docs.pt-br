@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609733"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurando Reliable Actors--ReliableDictionaryActorStateProvider
@@ -30,7 +30,7 @@ A configuração global é especificada no manifesto do cluster para o cluster n
 O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unit | Valor padrão | Comentários |
+| Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
@@ -75,7 +75,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unit | Valor padrão | Comentários |
+| Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Veja [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto de extremidade no manifesto do serviço. |
@@ -84,7 +84,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |200 |Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação. |
 | MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
-| OptimizeLogForLowerDiskUsage |Booliano |true |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
 | SharedLogId |guid |"" |Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 

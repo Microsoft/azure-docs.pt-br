@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98679459"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo
@@ -185,7 +185,7 @@ No arquivo applicationinsights.config, adicione AuthenticationApiKey a QuickPuls
 
 Para [ASP.NET Core](./asp-net-core.md) aplicativos, siga as instruções abaixo.
 
-Modifique `ConfigureServices` o arquivo Startup.cs da seguinte maneira:
+Modifique `ConfigureServices` o arquivo Startup. cs da seguinte maneira:
 
 Adicione o namespace a seguir.
 
@@ -239,7 +239,7 @@ No entanto, caso reconheça e confie em todos os servidores conectados, você po
 
 ## <a name="supported-features-table"></a>Tabela de recursos com suporte
 
-| Language                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
+| Idioma                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET Framework                   | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +)  |
 | .NET Core (Target =. NET Framework)| Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +)  |

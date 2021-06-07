@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 39990a557315c3fcc79f2b9dab59f25f758ab2bd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061793"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102443107"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerenciar o acesso, a energia e o modo de conectividade para sua GPU pro do Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para seu Azure Stack Edge pro com o dispositivo de GPU. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
@@ -83,7 +85,7 @@ Siga estas etapas para girar as chaves de criptografia em repouso.
 
     ![Usar a chave de criptografia em repouso gerada pelo sistema](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-3.png)
 
-1. Selecione **Aplicar**. Os protetores de chave são girados.
+1. Escolha **Aplicar**. Os protetores de chave são girados.
 
     ![Aplicar a nova chave de criptografia em repouso](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/rotate-encryption-keys-4.png)
 

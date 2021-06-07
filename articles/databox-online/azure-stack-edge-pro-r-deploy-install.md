@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/18/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro R in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b67da2607d206424f69f53645eda148495ea58ec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c751c1d9caa06973171d35d5e6bd1f945f9d7a77
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463407"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059897"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-r"></a>Tutorial: Instalar o Azure Stack Edge Pro R
 

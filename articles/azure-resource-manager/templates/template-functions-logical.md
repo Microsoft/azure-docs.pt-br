@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920481"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
@@ -36,9 +36,9 @@ Verifica se todos os valores de parâmetros são verdadeiros. `and`Não há supo
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
-| argumentos adicionais |Não |booleano |Argumentos adicionais para verificar se são verdadeiros. |
+| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se todos os valores forem verdadeiros; caso contrário, **False**.
 
@@ -100,7 +100,7 @@ Converte o parâmetro em um booliano.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um booliano do valor convertido.
 
@@ -169,7 +169,7 @@ Retorna false. A `false` função não está disponível em bicep.  `false`Em ve
 
 A função false não aceita nenhum parâmetro.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um booliano que é sempre false.
 
@@ -221,7 +221,7 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa. `if`Não 
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
 | falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso contrário, retorna o terceiro parâmetro.
 
@@ -273,7 +273,7 @@ O resultado do exemplo anterior é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | yesOutput | String | sim |
-| noOutput | String | no |
+| noOutput | String | não |
 | objectOutput | Objeto | { "test": "value1" } |
 
 O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar essa função com expressões que são apenas condicionalmente válidas.
@@ -345,7 +345,7 @@ Converte o valor booliano em seu valor oposto. `not`Não há suporte para a fun�
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O valor a ser convertido. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** quando o parâmetro é **False**. Retorna **False** quando o parâmetro é **True**.
 
@@ -440,9 +440,9 @@ Verifica se qualquer valor do parâmetro é verdadeiro. `or`Não há suporte par
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
-| argumentos adicionais |Não |booleano |Argumentos adicionais para verificar se são verdadeiros. |
+| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiros. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se qualquer valor for verdadeiro; caso contrário, **False**.
 
@@ -502,7 +502,7 @@ Retorna verdadeiro. A `true` função não está disponível em bicep.  `true`Em
 
 A função true não aceita nenhum parâmetro. A `true` função não está disponível em bicep.  `true`Em vez disso, use a palavra-chave.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um booliano que é sempre verdadeiro.
 

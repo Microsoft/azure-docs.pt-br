@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fc2916cbccc21262467533b0b497b14f4f4b941c
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630320"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034870"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -351,7 +351,7 @@ Há duas versões da API de gerenciamento para o recurso de autenticação/autor
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
            "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
-           "clientSecret": null,
+           "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,
            "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
@@ -648,7 +648,7 @@ Você pode exibir a versão atual do middleware de autenticação de plataforma 
 
 ##### <a name="from-the-azure-cli"></a>Na CLI do Azure
 
-Usando o CLI do Azure, exiba a versão de middleware atual com o comando [AZ webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show) .
+Usando o CLI do Azure, exiba a versão de middleware atual com o comando [AZ webapp auth show](/cli/azure/webapp/auth#az-webapp-auth-show) .
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -679,7 +679,7 @@ Você também pode clicar em ponto de extremidade/.auth/Version em um aplicativo
 
 #### <a name="update-the-current-runtime-version"></a>Atualizar a versão de tempo de execução atual
 
-Usando o CLI do Azure, você pode atualizar a `runtimeVersion` configuração no aplicativo com o comando [AZ webapp auth Update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update) .
+Usando o CLI do Azure, você pode atualizar a `runtimeVersion` configuração no aplicativo com o comando [AZ webapp auth Update](/cli/azure/webapp/auth#az-webapp-auth-update) .
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

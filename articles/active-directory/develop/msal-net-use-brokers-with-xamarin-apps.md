@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6958302a429fd88d4e26087b860b7f473bf4a1f9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103984"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199571"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -65,7 +65,7 @@ Para obter mais informações, consulte [habilitar o acesso](msal-net-xamarin-io
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: atualizar AppDelegate para manipular o retorno de chamada
 
-Quando MSAL.NET chama o agente, o agente chama de volta para o seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o arquivo *AppDelegate.cs* para substituir o método a seguir.
+Quando MSAL.NET chama o agente, o agente chama de volta para o seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o arquivo *AppDelegate. cs* para substituir o método a seguir.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 
 ### <a name="step-4-set-uiviewcontroller"></a>Etapa 4: definir UIViewController ()
 
-Ainda no arquivo *AppDelegate.cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
+Ainda no arquivo *AppDelegate. cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
 
 Para configurar a janela de objeto:
 
-1. No arquivo *AppDelegate.cs* , defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
+1. No arquivo *AppDelegate. cs* , defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` e, em seguida, passe a referência para a janela de objeto que você usará.
 
-    Em *app.cs*:
+    Em *app. cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    Em *AppDelegate.cs*:
+    Em *AppDelegate. cs*:
 
     ```csharp
        LoadApplication(new App());
@@ -171,7 +171,7 @@ Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O
 $"msauth.{BundleId}://auth"
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
@@ -326,6 +326,8 @@ Por exemplo, se você tiver um URI de redirecionamento de `msauth://com.microsof
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
+Para obter mais informações sobre como configurar seu aplicativo para o navegador do sistema e o suporte do Android 11, consulte [atualizar o manifesto do Android para o suporte ao navegador do sistema](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support).
+
 Como alternativa, você pode configurar o MSAL para fazer fallback para o navegador incorporado, que não depende de um URI de redirecionamento:
 
 ```csharp
@@ -344,22 +346,22 @@ Aqui estão algumas dicas sobre como evitar problemas ao implementar a autentica
 
     Exemplo: se você instalar primeiro Microsoft Authenticator e, em seguida, instalar o Portal da Empresa do Intune, a autenticação orientada ocorrerá *somente* no Microsoft Authenticator.
 - **Logs** – se você encontrar um problema com a autenticação orientada, a exibição dos logs do agente poderá ajudá-lo a diagnosticar a causa.
-  - Exibir logs de Microsoft Authenticator:
+  - Obter logs de Microsoft Authenticator:
 
     1. Selecione o botão de menu no canto superior direito do aplicativo.
-    1. Selecione **ajudar**  >  **enviar logs**  >  **Exibir logs**.
-    1. Selecione **copiar tudo** para copiar os logs do agente para a área de transferência do dispositivo.
+    1. Selecione **enviar comentários**  >  **com problemas?**.
+    1. Em **o que você está tentando fazer?**, selecione uma opção e adicione uma descrição.
+    1. Para enviar os logs, selecione a seta no canto superior direito do aplicativo.
 
-    A melhor maneira de depurar com esses logs é enviá-los por email para você mesmo e exibi-los em seu computador de desenvolvimento. Talvez você ache mais fácil analisar os logs em seu computador em vez de no próprio dispositivo. Você também pode usar um editor de teste no Android para salvar os logs como um arquivo de texto e, em seguida, usar um cabo USB para copiar o arquivo em um computador.
+    Depois que você enviar os logs, uma caixa de diálogo exibirá a ID do incidente. Registre a ID do incidente e inclua-a quando solicitar assistência.
 
-  - Exibir logs de Portal da Empresa do Intune:
+  - Obter logs de Portal da Empresa do Intune:
 
-    1. Selecione o botão de menu no canto superior esquerdo do aplicativo
-    1. Selecione **configurações**  >  **dados de diagnóstico**
-    1. Selecione **copiar logs** para copiar os logs do agente para o cartão SD do dispositivo.
-    1. Conecte o dispositivo a um computador usando um cabo USB para exibir os logs em seu computador de desenvolvimento.
+    1. Selecione o botão de menu no canto superior esquerdo do aplicativo.
+    1. Selecione **ajuda**  >  **email suporte**.
+    1. Para enviar os logs, selecione **carregar somente logs**.
 
-    Depois de ter os logs, você pode pesquisá-los para suas tentativas de autenticação por meio da ID de correlação. A ID de correlação é anexada a cada solicitação de autenticação. Para localizar erros retornados pelo ponto de extremidade de autenticação da plataforma de identidade da Microsoft, procure `AADSTS` .
+    Depois que você enviar os logs, uma caixa de diálogo exibirá a ID do incidente. Registre a ID do incidente e inclua-a quando solicitar assistência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

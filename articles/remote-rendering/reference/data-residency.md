@@ -6,10 +6,10 @@ ms.author: rapete
 ms.date: 02/04/2021
 ms.topic: reference
 ms.openlocfilehash: f20b3bb3de877ac627f5f6909c98cb9e1553f2a9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576863"
 ---
 # <a name="azure-remote-rendering-data-residency"></a>Residência de dados de renderização remota do Azure 

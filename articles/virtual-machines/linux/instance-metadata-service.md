@@ -8,14 +8,16 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/11/2021
+ms.date: 02/21/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: f099373ee9dd54877967ca4c6523526dbc93f76e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a5aada5914f400732529294ede43c811002b7ea4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374925"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102183498"
 ---
+# <a name="azure-instance-metadata-service-linux"></a>Serviço de metadados de instância do Azure (Linux)
+
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

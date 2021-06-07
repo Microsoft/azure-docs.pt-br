@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
 ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92165138"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências do assistente de design para Windows 10

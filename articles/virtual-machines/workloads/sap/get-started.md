@@ -1,7 +1,8 @@
 ---
 title: Introdução às VMs SAP no Azure | Microsoft Docs
 description: Aprenda mais sobre soluções SAP que são executadas em VMs (máquinas virtuais) no Microsoft Azure
-services: virtual-machines-linux
+services: virtual-machines-sap
+ms.service: virtual-machines-sap
 documentationcenter: ''
 author: msjuergent
 manager: bburns
@@ -9,20 +10,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
-ms.service: virtual-machines-linux
-ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.date: 03/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25d9d53b9bc597b5eb51586c594dd631609f476e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362141"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599877"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -83,7 +82,9 @@ Nesta seção, você encontrará documentos sobre a integração do Microsoft Po
 
 
 ## <a name="change-log"></a>Log de Alterações
-
+- 03/17/2021: alteração na [ha para SAP Hana em VMs do Azure no SLES](./sap-hana-high-availability.md), [ha para SAP Hana em VMs do Azure em RHEL](./sap-hana-high-availability-rhel.md) e [ha para SAP Hana escalar verticalmente com o seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) para adicionar instruções para a replicação de sistema do Hana ativo/leitura habilitado no cluster pacemaker
+- 03/15/2021: alterar [a instância do SAP ASCS/SCS com o WSFC e o compartilhamento de arquivos](./sap-high-availability-guide-wsfc-file-share.md), instale a instância do[SAP ASCS/SCS com o WSFC e o compartilhamento de arquivos](./sap-high-availability-installation-wsfc-file-share.md) e o [SAP ASCS/SCS multi-Sid com o WSFC e o compartilhamento de arquivos](./sap-ascs-ha-multi-sid-wsfc-file-share.md) para esclarecer que as instâncias do SAP ASCS/SCS e o compartilhamento de SOFS devem ser implantados em clusters separados
+- 03/03/2021: alteração no [Guia de ha para SAP ASCS/SCS com WSFC e Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) para adicionar uma instrução preventiva que privilégios elevados são necessários para o usuário que está executando o SWPM, durante a instalação do sistema SAP
 - 02/11/2021: alterações na [alta disponibilidade do IBM DB2 LUW em VMs do Azure no Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) para corrigir comandos de cluster pacemaker para RHEL 8. x
 - 02/03/2021: alteração na [configuração de pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para atualizar pcmk_host_map no comando stonith Create
 - 02/03/2021: alteração na [configuração de pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) para adicionar pcmk_host_map no comando stonith Create 

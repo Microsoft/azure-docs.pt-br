@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 12/17/2020
 ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678433"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Visão geral de segurança para o Azure Data Share

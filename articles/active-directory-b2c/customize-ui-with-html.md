@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050536"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675818"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário com modelos HTML no Azure Active Directory B2C
 
@@ -201,11 +201,11 @@ Para criar um contêiner público no armazenamento de BLOBs, execute as seguinte
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 carregar seus arquivos de conteúdo de página personalizada
 
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 1. Selecione o ícone de pasta ao lado de **selecionar um arquivo**.
 1. Navegue até e selecione **customize-ui.html**, que você criou anteriormente na seção personalização da interface do usuário da página.
 1. Se você quiser carregar para uma subpasta, expanda **avançado** e insira um nome de pasta em **carregar para a pasta**.
-1. Selecione **Carregar**.
+1. Escolha **Carregar**.
 1. Selecione o blob **customize-ui.html** que você carregou.
 1. À direita da caixa de texto **URL** , selecione o ícone **copiar para área de transferência** para copiar a URL para a área de transferência.
 1. No navegador da Web, navegue até a URL que você copiou para verificar se o blob que você carregou está acessível. Se ele estiver inacessível, por exemplo, se você encontrar um `ResourceNotFound` erro, verifique se o tipo de acesso do contêiner está definido como **blob**.
@@ -220,7 +220,7 @@ Configure o armazenamento de BLOB para compartilhamento de recursos entre origen
 1. Para **cabeçalhos permitidos**, digite um asterisco (*).
 1. Para **cabeçalhos expostos**, digite um asterisco (*).
 1. Para **Idade máxima de**, insira 200.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 #### <a name="31-test-cors"></a>CORS de teste 3,1
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 Encontre modelos de exemplo para personalização da interface do usuário aqui:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 Este projeto contém os seguintes modelos:
-- [Azul-marinho](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Cinza-acinzentado](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Azul-marinho](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Cinza-acinzentado](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Clássico](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Recursos de modelo](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Para usar o exemplo:
 
-1. Clone o repositório em seu computador local. Escolha uma pasta de modelo `/ocean_blue` ou `/slate_gray` .
-1. Carregue todos os arquivos na pasta modelo e na `/assets` pasta, no armazenamento de BLOBs, conforme descrito nas seções anteriores.
-1. Em seguida, abra cada `\*.html` arquivo na raiz de `/ocean_blue` ou `/slate_gray` , substitua todas as instâncias de URLs relativas pelas URLs do CSS, imagens e arquivos de fontes que você carregou na etapa 2. Por exemplo:
+1. Clone o repositório em seu computador local. Escolha uma pasta de modelo `/AzureBlue` , `/MSA` ou `/classic` .
+1. Carregue todos os arquivos na pasta modelo e na `/src` pasta, no armazenamento de BLOBs, conforme descrito nas seções anteriores.
+1. Em seguida, abra cada `\*.html` arquivo na pasta modelo. Em seguida, substitua todas as instâncias de `https://login.microsoftonline.com` URLs, pela URL que você carregou na etapa 2. Por exemplo:
+    
+    De:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    Para
+    Para:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Salve os `\*.html` arquivos e carregue-os no armazenamento de BLOBs.
 1. Agora, modifique a política, apontando para o arquivo HTML, conforme mencionado anteriormente.
 1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \* arquivos. html.

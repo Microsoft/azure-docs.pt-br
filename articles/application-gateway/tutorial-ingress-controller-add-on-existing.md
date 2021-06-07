@@ -5,18 +5,18 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: d491b714c7d553fbd89d72315f46e6927d437717
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 2fe615da256099c3135f607a7b6f8095bb93b442
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593800"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772809"
 ---
-# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Habilitar o complemento Controlador de Entrada do Gateway de Aplicativo para um cluster do AKS existente com um Gateway de Aplicativo existente por meio da CLI do Azure (versão prévia)
+# <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>Tutorial: habilitar o complemento Controlador de Entrada do Gateway de Aplicativo para um cluster do AKS existente usando um Gateway de Aplicativo existente
 
-Você pode usar a CLI do Azure para habilitar o complemento [AGIC (Controlador de Entrada do Gateway de Aplicativo)](ingress-controller-overview.md), que está atualmente em versão prévia, para o cluster do [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/). Neste tutorial, você aprenderá a usar o complemento AGIC para expor seu aplicativo Kubernetes em um cluster do AKS existente por meio de um Gateway de Aplicativo existente implantado em redes virtuais separadas. Você começará criando um cluster do AKS em uma rede virtual e um Gateway de Aplicativo em uma rede virtual separada para simular os recursos existentes. Em seguida, você habilitará o complemento AGIC, emparelhará as duas redes virtuais e implantará um aplicativo de exemplo que será exposto por meio do Gateway de Aplicativo usando o complemento AGIC. Se você estiver habilitando o complemento AGIC para um Gateway de Aplicativo existente e um cluster do AKS existente na mesma rede virtual, então poderá ignorar a etapa de emparelhamento abaixo. O complemento fornece uma forma muito mais rápida de implantar o AGIC no cluster do AKS do que [a maneira anterior por meio do Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e também oferece uma experiência totalmente gerenciada.  
+É possível usar o portal ou a CLI do Azure a fim de habilitar o complemento [AGIC (Controlador de Entrada do Gateway de Aplicativo)](ingress-controller-overview.md) para um cluster do [AKS (Serviço de Kubernetes do Azure) existente](https://azure.microsoft.com/services/kubernetes-service/). Neste tutorial, você aprenderá a usar o complemento AGIC para expor seu aplicativo Kubernetes em um cluster do AKS existente por meio de um Gateway de Aplicativo existente implantado em redes virtuais separadas. Você começará criando um cluster do AKS em uma rede virtual e um Gateway de Aplicativo em uma rede virtual separada para simular os recursos existentes. Será necessário habilitar o complemento AGIC, emparelhar as duas redes virtuais e implantar um aplicativo de exemplo que será exposto por meio do Gateway de Aplicativo usando o complemento AGIC. Se você estiver habilitando o complemento AGIC para um Gateway de Aplicativo existente e um cluster do AKS existente na mesma rede virtual, então poderá ignorar a etapa de emparelhamento abaixo. O complemento fornece uma forma muito mais rápida de implantar o AGIC no cluster do AKS do que [a maneira anterior por meio do Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) e também oferece uma experiência totalmente gerenciada.  
 
 Neste tutorial, você aprenderá como:
 
@@ -24,7 +24,8 @@ Neste tutorial, você aprenderá como:
 > * Criar um grupo de recursos 
 > * Criar um cluster do AKS 
 > * Criar um Gateway de Aplicativo 
-> * Habilitar o complemento AGIC no cluster do AKS existente usando o Gateway de Aplicativo existente 
+> * Habilitar o complemento AGIC em um cluster do AKS existente por meio da CLI do Azure 
+> * Habilitar o complemento AGIC em um cluster do AKS existente por meio do portal do Azure 
 > * Emparelhar a rede virtual do Gateway de Aplicativo com a rede virtual do cluster do AKS
 > * Implantar um aplicativo de exemplo usando o AGIC para entrada no cluster do AKS
 > * Verificar se o aplicativo pode ser acessado por meio do Gateway de Aplicativo
@@ -33,25 +34,9 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - Este tutorial requer a versão 2.0.4 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
-
- - Registre o sinalizador de recurso *AKS-IngressApplicationGatewayAddon* usando o comando [az feature register](/cli/azure/feature#az-feature-register), conforme mostrado no exemplo a seguir. Você só precisará fazer isso uma vez para cada assinatura enquanto o complemento ainda está em versão prévia:
-     ```azurecli-interactive
-     az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
-     ```
-    pode demorar alguns minutos para o status exibir Registrado. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature#az-feature-register):
-     ```azurecli-interactive
-     az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-     ```
-
- - Quando estiver pronto, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando [az provider register](/cli/azure/provider#az-provider-register):
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral*. 
+No Azure, você pode alocar recursos relacionados a um grupo de recursos. Crie um grupo de recursos usando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* no local (região) *canadacentral*. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -61,13 +46,13 @@ az group create --name myResourceGroup --location canadacentral
 
 Agora você implantará um novo cluster do AKS, para simular ter um cluster do AKS existente para o qual deseja habilitar o complemento AGIC.  
 
-No exemplo a seguir, você implantará um novo cluster do AKS denominado *myCluster* usando a [CNI do Azure](../aks/concepts-network.md#azure-cni-advanced-networking) e as [Identidades Gerenciadas](../aks/use-managed-identity.md) no grupo de recursos que você criou, *myResourceGroup*.    
+No exemplo a seguir, você implantará um novo cluster do AKS denominado *myCluster* usando a [CNI do Azure](../aks/concepts-network.md#azure-cni-advanced-networking) e as [Identidades Gerenciadas](../aks/use-managed-identity.md) no grupo de recursos que você criou, *myResourceGroup*.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Para configurar parâmetros adicionais para o comando `az aks create`, visite as referências [aqui](/cli/azure/aks#az-aks-create). 
+Para configurar parâmetros adicionais para o comando `az aks create`, visite as referências [aqui](/cli/azure/aks#az_aks_create). 
 
 ## <a name="deploy-a-new-application-gateway"></a>Implantar um novo Gateway de Aplicativo 
 
@@ -84,21 +69,27 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 > [!NOTE]
 > O complemento AGIC (Controlador de Entrada do Gateway de Aplicativo) **só** é compatível com SKUs do Gateway de Aplicativo v2 (Standard e WAF) e **não** com SKUs do Gateway de Aplicativo v1. 
 
-## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Habilitar o complemento AGIC no cluster do AKS existente usando o Gateway de Aplicativo existente 
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-azure-cli"></a>Habilitar o complemento AGIC em um cluster do AKS existente por meio da CLI do Azure 
 
-Agora, você habilitará o complemento AGIC no cluster do AKS que você criou (*myCluster*) e especificará o complemento AGIC para usar o Gateway de Aplicativo existente que você criou (*myApplicationGateway*). Verifique se você adicionou/atualizou a extensão da versão prévia do AKS no início deste tutorial. 
+Caso queira continuar usando a CLI do Azure, será possível prosseguir habilitando o complemento AGIC no cluster do AKS criado anteriormente: *myCluster*. Além disso, será necessário especificar o complemento AGIC para usar o Gateway de Aplicativo existente criado anteriormente: *myApplicationGateway*.
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
 
-## <a name="peer-the-two-virtual-networks-together"></a>Emparelhar as duas redes virtuais
+## <a name="enable-the-agic-add-on-in-existing-aks-cluster-through-portal"></a>Habilitar o complemento AGIC em um cluster do AKS existente por meio do portal do Azure 
 
-Como implantamos o cluster do AKS na própria rede virtual dele e o Gateway de Aplicativo em outra rede virtual, você precisará emparelhar as duas redes virtuais para que o tráfego flua do Gateway de Aplicativo para os pods do cluster. O emparelhamento das duas redes virtuais requer a execução do comando da CLI do Azure duas vezes, separadamente, para garantir que a conexão seja bidirecional. O primeiro comando criará uma conexão de emparelhamento da rede virtual do Gateway de Aplicativo para a rede virtual do AKS. O segundo comando criará uma conexão de emparelhamento na direção oposta. 
+Caso queira usar o portal do Azure para habilitar o complemento AGIC, acesse [(https://aka.ms/azure/portal/aks/agic)](https://aka.ms/azure/portal/aks/agic) e navegue até o cluster do AKS por meio do link do portal. Nessa opção, acesse a guia Rede no cluster do AKS. Você verá uma seção do controlador de entrada do Gateway de Aplicativo. Ele permite habilitar/desabilitar o complemento controlador de entrada usando a interface do usuário do portal do Azure. Marque a caixa ao lado da opção "Habilitar controlador de entrada". No menu suspenso, selecione o Gateway de Aplicativo criado anteriormente: *myApplicationGateway*. 
+
+![Portal do Controlador de Entrada do Gateway de Aplicativo](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
+
+## <a name="peer-the-two-virtual-networks-together&quot;></a>Emparelhar as duas redes virtuais
+
+Como implantamos o cluster do AKS na própria rede virtual dele e o Gateway de Aplicativo em outra rede virtual, você precisará emparelhar as duas redes virtuais para que o tráfego flua do Gateway de Aplicativo para os pods do cluster. O emparelhamento das duas redes virtuais requer a execução do comando da CLI do Azure duas vezes, separadamente, para garantir que a conexão seja bidirecional. O primeiro comando criará uma conexão de emparelhamento da rede virtual do Gateway de Aplicativo para a rede virtual do AKS. O segundo comando criará uma conexão de emparelhamento na direção oposta.
 
 ```azurecli-interactive
-nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
+nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query &quot;nodeResourceGroup")
 aksVnetName=$(az network vnet list -g $nodeResourceGroup -o tsv --query "[0].name")
 
 aksVnetId=$(az network vnet show -n $aksVnetName -g $nodeResourceGroup -o tsv --query "id")
@@ -107,6 +98,7 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
 ## <a name="deploy-a-sample-application-using-agic"></a>Implantar um aplicativo de exemplo usando o AGIC 
 
 Agora, você implantará um aplicativo de exemplo no cluster do AKS que você criou, que usará o complemento AGIC para entrada e conectará o Gateway de Aplicativo ao cluster do AKS. Primeiro, você receberá credenciais para o cluster do AKS implantado executando o comando `az aks get-credentials`. 

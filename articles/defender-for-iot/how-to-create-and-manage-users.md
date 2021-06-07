@@ -1,18 +1,14 @@
 ---
 title: Criar e gerenciar usuários
 description: Crie e gerencie usuários de sensores e o console de gerenciamento local. Os usuários podem receber a função de administrador, analista de segurança ou usuário somente leitura.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522335"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779011"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre os usuários do console do defender para IoT
 
@@ -162,7 +158,7 @@ Há suporte para dois tipos de autenticação baseada em LDAP:
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Permissões do Active Directory e do defender para IoT
 
-Você pode associar grupos de Active Directory definidos aqui com níveis de permissão específicos. Por exemplo, configure um grupo de Active Directory específico e atribua permissões de RO a todos os usuários no grupo. Consulte [criar e gerenciar usuários](how-to-create-and-manage-users.md) para obter detalhes.
+Você pode associar grupos de Active Directory definidos aqui com níveis de permissão específicos. Por exemplo, configure um grupo de Active Directory específico e atribua permissões somente leitura a todos os usuários no grupo.
 
 Para configurar Active Directory:
 
@@ -170,11 +166,11 @@ Para configurar Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Exiba as configurações do sistema Active Directory.":::
 
-1. No painel **configurações do sistema** , selecione **Active Directory**.
+2. No painel **configurações do sistema** , selecione **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edite suas configurações de Active Directory.":::
 
-1. Na caixa de diálogo **Editar configuração de Active Directory** , selecione **Active Directory a integração habilitada**  >  . A caixa de diálogo **Editar configuração de Active Directory** expande e agora você pode inserir os parâmetros para configurar Active Directory.
+3. Na caixa de diálogo **Editar configuração de Active Directory** , selecione **Active Directory a integração habilitada**  >  . A caixa de diálogo **Editar configuração de Active Directory** expande e agora você pode inserir os parâmetros para configurar Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Insira os parâmetros a serem configurados Active Directory.":::
 
@@ -183,7 +179,7 @@ Para configurar Active Directory:
     > - Para todos os parâmetros de Active Directory, use somente minúsculas. Use minúsculas mesmo quando as configurações em Active Directory usarem maiúsculas.
     > - Você não pode configurar LDAP e LDAPs para o mesmo domínio. No entanto, você pode usar ambos para domínios diferentes ao mesmo tempo.
 
-1. Defina os parâmetros do servidor Active Directory, da seguinte maneira:
+4. Defina os parâmetros do servidor Active Directory, da seguinte maneira:
 
    | Parâmetro de servidor | Descrição |
    |--|--|
@@ -193,11 +189,15 @@ Para configurar Active Directory:
    | Grupos do Active Directory | Insira os nomes de grupo que são definidos em sua configuração de Active Directory no servidor LDAP. |
    | Domínios confiáveis | Para adicionar um domínio confiável, adicione o nome de domínio e o tipo de conexão de um domínio confiável. <br />Você pode configurar domínios confiáveis somente para usuários que foram definidos em usuários. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Grupos do ActiveDirectory para o console de gerenciamento local
+
+Se você estiver criando grupos de Active Directory para usuários do console de gerenciamento local, deverá criar uma regra de grupo de acesso para cada grupo de Active Directory. O console de gerenciamento local Active Directory credenciais não funcionarão se uma regra de grupo de acesso não existir para o grupo de usuários Active Directory. Consulte [definir o controle de acesso global](how-to-define-global-user-access-control.md).
+
 1. Selecione **Salvar**.
 
-1. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
+2. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Redefinindo a senha de um usuário para o sensor ou o console de gerenciamento local
+## <a name="resetting-passwords"></a>Redefinindo senhas
 
 ### <a name="cyberx-or-support-user"></a>CyberX ou usuário de suporte
 
@@ -265,7 +265,7 @@ Para redefinir a senha de um usuário no console de gerenciamento local:
 
 1. Selecione **Atualizar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ativar e configurar seu console](how-to-activate-and-set-up-your-on-premises-management-console.md) 

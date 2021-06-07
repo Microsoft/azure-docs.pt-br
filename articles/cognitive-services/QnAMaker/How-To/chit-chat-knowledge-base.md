@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94376632"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
@@ -64,7 +64,7 @@ Selecione sua KB e, em seguida, navegue para a página **Configurações**. Há 
 
 ![Adicionar bate-papo a uma KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-# <a name="qna-maker-managed-preview-release"></a>[Gerenciado QnA Maker (versão de visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 ![Adicionar Chit-Chat à versão de visualização da KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 
@@ -92,6 +92,6 @@ Selecione sua KB e, em seguida, navegue para a página **Configurações**. Sua 
 > [!div class="nextstepaction"]
 > [Importar uma base de dados de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Visão geral do QnA Maker](../Overview/overview.md)

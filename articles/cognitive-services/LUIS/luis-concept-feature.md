@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371976"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100546050"
 ---
 # <a name="machine-learning-features"></a>Recursos de aprendizado de máquina
 
@@ -160,11 +160,9 @@ Endereço de envio (entidade aprendida pelo computador)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades predefinidas
 
-A cidade, o estado e o país/região geralmente são um conjunto fechado de listas, o que significa que elas não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. Isso significa que o endereço de envio inteiro não será retornado se as entidades que têm os recursos necessários não forem encontradas.
+As entidades predefinidas, como cidade, estado e país/região, geralmente são um conjunto fechado de listas, o que significa que elas não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. No entanto, o `isRequired` sinalizador só está relacionado à entidade à qual ele está atribuído e não afeta a hierarquia. Se o recurso de subentidade predefinida não for encontrado, isso não afetará a detecção e o retorno da entidade pai.
 
-E se a cidade, o estado ou o país/região estiverem no expressão, mas estiverem em um local ou se gíriasrem que o LUIS não espera? Se você quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de baixa confiança do LUIS, não marque o recurso conforme necessário.
-
-Outro exemplo de um recurso necessário para o endereço de envio é tornar o número da rua um número necessário, [predefinido](luis-reference-prebuilt-entities.md) . Isso permite que um usuário insira "1 Microsoft Way" ou "One Microsoft Way". Ambos resolvem o numeral "1" para a subentidade de número de rua.
+Como exemplo de um recurso necessário, considere que você deseja detectar os endereços. Você pode considerar fazer um número de rua um requisito. Isso permitiria que um usuário entrasse "1 Microsoft Way" ou "One Microsoft Way", e ambos seriam resolvidos para o numeral "1" para a subentidade número da rua. Confira o artigo sobre a [entidade predefinida ](luis-reference-prebuilt-entities.md) para obter mais informações.
 
 ### <a name="required-feature-using-list-entities"></a>Recurso necessário usando entidades de lista
 
@@ -201,7 +199,7 @@ Você pode usar mais de um recurso para descrever uma característica ou um conc
 
 ### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Exemplo: recursos de entidade de escrituração de tíquete para um aplicativo de viagem  
 
-Como um exemplo básico, considere um aplicativo para reservar um vôo com uma _tentativa_ de reserva de voo e uma _entidade_de escrituração de tíquetes. A entidade de escrituração de tíquetes captura as informações para registrar um bilhete de avião em um sistema de reserva. 
+Como um exemplo básico, considere um aplicativo para reservar um vôo com uma _tentativa_ de reserva de voo e uma _entidade_ de escrituração de tíquetes. A entidade de escrituração de tíquetes captura as informações para registrar um bilhete de avião em um sistema de reserva. 
 
 A entidade de aprendizado de máquina para o catálogo de tíquetes tem duas subentidades para capturar a origem e o destino. Os recursos precisam ser adicionados a cada subentidade, não à entidade de nível superior.
 
@@ -226,7 +224,7 @@ Depois de criar a entidade de aprendizado de máquina, você precisará adiciona
 
 Para o exemplo de reserva de tíquetes, Rotule o exemplo declarações na intenção com a `TicketBooking` entidade e todas as subentidades no texto.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de entidade Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Rotular enunciados de exemplo":::
 
 ### <a name="example-pizza-ordering-app"></a>Exemplo: aplicativo de pedido de pizza
 
@@ -234,20 +232,20 @@ Para um segundo exemplo, considere um aplicativo para um restaurante de pizza, q
 
 A entidade de aprendizado de máquina neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades predefinidas e entidades personalizadas.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de ordem de pizza":::
 
 Este exemplo usa recursos no nível de subentidade e o filho do nível de subentidade. O nível que obtém o tipo de lista de frases ou modelo como um recurso é uma parte importante do design de sua entidade.
 
 Embora as subentidades possam ter muitas listas de frases como recursos que ajudam a detectar a entidade, cada uma delas tem apenas um modelo como um recurso. Neste [aplicativo de pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), esses modelos são listados principalmente.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de entidade Ticketbooking":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Intenção de ordem de pizza com o exemplo rotulado declarações":::
 
 O exemplo rotulado corretamente declarações é exibido de forma a mostrar como as entidades são aninhadas. 
 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-Conheça as [práticas recomendadas](luis-concept-best-practices.md).
+Conheça [as práticas recomendadas](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

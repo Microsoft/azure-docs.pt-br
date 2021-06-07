@@ -6,10 +6,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.openlocfilehash: 53198c663d318a2eb47bcb3207939bbcb1fdd59c
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98763322"
 ---
 Os aplicativos da MSAL (biblioteca de autenticação da Microsoft) geram mensagens de log que podem ajudar a diagnosticar problemas. Um aplicativo pode configurar o registro em log com algumas linhas de código, ter um controle personalizado sobre o nível de detalhes e determinar se dados pessoais e organizacionais serão registrados. Recomendamos que você crie um retorno de chamada de log MSAL e forneça uma maneira para os usuários enviarem logs quando tiverem problemas de autenticação.

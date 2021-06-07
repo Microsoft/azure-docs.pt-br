@@ -4,14 +4,14 @@ description: Altere para os destinatários de notificação padrão da detecçã
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324124"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101734495"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração de notificações por email de detecção inteligente
 
@@ -27,13 +27,13 @@ Essa alteração afetará todas as regras de detecção inteligente, exceto as s
 
 * Regras de detecção inteligente marcadas como versão prévia. Essas regras de detecção inteligente não dão suporte a notificações por email no momento.
 
-* Regra de anomalias de falha. Essa regra passará a focar nas novas funções padrão depois da migração de um alerta clássico para a plataforma unificada de alertas (mais informações estão disponíveis [aqui](../platform/monitoring-classic-retirement.md)).
+* Regra de anomalias de falha.
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para essa alteração?
 
 Para garantir que as notificações por email da detecção inteligente sejam enviadas aos usuários relevantes, esses usuários devem ser atribuídos ao [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader) ou às funções de colaborador de [monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) da assinatura.
 
-Para atribuir aos usuários as funções de leitor de monitoramento ou colaborador de monitoramento pelo portal do Azure, siga as etapas descritas no artigo [Adicionar uma atribuição de função](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Certifique-se de selecionar _leitor de monitoramento_ ou _colaborador de monitoramento_ como a função atribuída aos usuários.
+Para atribuir usuários ao leitor de monitoramento ou às funções de colaborador de monitoramento por meio do portal do Azure, siga as etapas descritas no artigo [atribuir funções do Azure](../../role-based-access-control/role-assignments-portal.md) . Certifique-se de selecionar _leitor de monitoramento_ ou _colaborador de monitoramento_ como a função atribuída aos usuários.
 
 > [!NOTE]
 > Destinatários específicos das notificações de detecção inteligente, configurados usando a opção _Destinatários de email adicionais_ nas configurações de regra, não serão afetados por essa alteração. Esses destinatários continuarão recebendo as notificações por email.

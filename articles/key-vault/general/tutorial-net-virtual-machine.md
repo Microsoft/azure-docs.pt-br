@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a56c08e5bf6054d24af3ade571ec625969286a77
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289385"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102455637"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no .NET
 
@@ -42,7 +42,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
   * O [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * [CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-resources-and-assign-permissions"></a>Criar recursos e atribuir permissões
 
@@ -74,7 +74,7 @@ Crie uma máquina virtual do Windows ou Linux usando um dos seguintes métodos:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade à VM
-Crie uma identidade atribuída pelo sistema para a máquina virtual com o comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
+Crie uma identidade atribuída pelo sistema para a máquina virtual com o comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign):
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -90,7 +90,7 @@ Observe a identidade atribuída pelo sistema que é exibida no código a seguir.
 ```
 
 ## <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade da VM
-Atribua as permissões de identidade criadas anteriormente ao cofre de chaves, com o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy):
+Atribua as permissões de identidade criadas anteriormente ao cofre de chaves, com o comando [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy):
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -140,11 +140,12 @@ Abra o arquivo *Program.cs* e adicione esses pacotes:
 
 ```csharp
 using System;
+using Azure.Core;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Adicione essas linhas, atualizando o URI para refletir o `vaultUri` do cofre de chaves. O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) para autenticação no cofre de chaves, que está usando o token da identidade gerenciada do aplicativo para autenticar. Ele também está usando retirada exponencial para novas tentativas, caso o cofre de chaves esteja sendo limitado.
+Adicione essas linhas, atualizando o URI para refletir o `vaultUri` do cofre de chaves. O código abaixo está usando ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) para autenticação no cofre de chaves, que está usando o token da identidade gerenciada do aplicativo para autenticar. Ele também está usando retirada exponencial para novas tentativas, caso o cofre de chaves esteja sendo limitado.
 
 ```csharp
   class Program

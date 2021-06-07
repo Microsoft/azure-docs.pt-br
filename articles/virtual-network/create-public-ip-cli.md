@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
 ms.openlocfilehash: 2c469324db11d2e65f8eb958e68f77fd77020865
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491037"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Início rápido: criar um endereço IP público usando CLI do Azure

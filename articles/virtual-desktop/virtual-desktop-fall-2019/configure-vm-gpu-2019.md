@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
 ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95023047"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows (clássico)

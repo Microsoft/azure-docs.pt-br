@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 03/05/2021
+ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539087"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102433787"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Criando índices de pesquisa no Azure Pesquisa Cognitiva
 
@@ -61,7 +61,7 @@ Outros elementos são recolhidos para fins de brevidade, mas os links a seguir p
 
 ## <a name="choose-a-client"></a>Escolher um cliente
 
-Há várias metodologias para criar um índice de pesquisa. Recomendamos as APIs portal do Azure ou REST para desenvolvimento antecipado e teste de prova de conceito.
+Há várias maneiras de criar um índice de pesquisa. Recomendamos o portal do Azure ou SDKs para desenvolvimento antecipado e teste de prova de conceito.
 
 Durante o desenvolvimento, planeje recompilações frequentes. Como as estruturas físicas são criadas no serviço, é necessário [descartar e recriar índices](search-howto-reindex.md) para a maioria das modificações em uma definição de campo existente. Considere trabalhar com um subconjunto de seus dados para acelerar as recompilações.
 
@@ -110,7 +110,7 @@ Por Pesquisa Cognitiva, os SDKs do Azure implementam recursos geralmente dispon�
 
 Um documento de pesquisa é definido pela `fields` coleção. Você precisará de campos para consultas e chaves. Você provavelmente também precisará de campos para dar suporte a filtros, facetas e classificações. Você também pode precisar de campos para dados que um usuário nunca vê, por exemplo, você pode desejar campos para margens de lucro ou promoções de marketing que você pode usar para modificar a classificação de pesquisa.
 
-Um campo do tipo EDM. String deve ser designado como a chave do documento. Ele é usado para identificar exclusivamente cada documento de pesquisa. Você pode recuperar um documento por sua chave para preencher uma página de detalhes.  
+Um campo do tipo EDM. String deve ser designado como a chave do documento. Ele é usado para identificar exclusivamente cada documento de pesquisa e diferencia maiúsculas de minúsculas. Você pode recuperar um documento por sua chave para preencher uma página de detalhes.
 
 Se os dados de entrada forem hierárquicos por natureza, atribua o tipo de dados de [tipo complexo](search-howto-complex-data-types.md) para representar as estruturas aninhadas. O conjunto de dados de exemplo interno, hotéis, ilustra os tipos complexos usando um endereço (contém vários subcampos) que têm uma relação um-para-um com cada hotel e uma coleção complexa de salas, em que várias salas são associadas a cada hotel. 
 

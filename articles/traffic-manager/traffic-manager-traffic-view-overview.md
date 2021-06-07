@@ -13,10 +13,10 @@ ms.date: 01/22/2021
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 66376655c61903761d93ea228c6d72fa05734353
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743042"
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
@@ -79,7 +79,7 @@ Também baixe os dados da Exibição de Tráfego como um arquivo CSV que pode se
 
 Ao usar Exibição de Tráfego, você será cobrado com base no número de pontos de dados usados para criar as informações apresentadas. Atualmente, o único tipo de ponto de dados usado são as consultas recebidas em seu perfil do Gerenciador de Tráfego. Para obter mais detalhes sobre os preços, visite o [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
 * [O que faz a Exibição do Tráfego faz?](./traffic-manager-faqs.md#what-does-traffic-view-do)
 
@@ -101,7 +101,7 @@ Ao usar Exibição de Tráfego, você será cobrado com base no número de ponto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
+- Saiba [como funciona o Gerenciador de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
 - Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)
 

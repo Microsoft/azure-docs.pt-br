@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "76020929"
 ---
 1. Entre no [portal do Azure][Azure portal].
@@ -27,7 +27,7 @@ ms.locfileid: "76020929"
 1. Selecione **Todos os recursos** e, então, escolha o nome do namespace recém-criado.
 1. Selecione **Políticas de acesso compartilhado**.  
 1. Em **Políticas de acesso compartilhado**, selecione **RootManageSharedAccessKey**.
-1. Em **Política de SAS: RootManageSharedAccessKey**, selecione o botão **Copiar** ao lado de **Cadeia de Conexão Primária**. Isso copiará a cadeia de conexão para a área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+1. Em **Política de SAS: RootManageSharedAccessKey**, clique no botão **Copiar** ao lado da opção **Cadeia de Conexão Primária**. Isso copiará a cadeia de conexão para a área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
 1. Repita a etapa anterior para copiar e colar o valor de **Chave primária** para um local temporário para uso posterior.  
 
     ![connection-string][connection-string]

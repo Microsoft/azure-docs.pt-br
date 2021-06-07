@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002486"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management
@@ -34,7 +34,7 @@ Para ver as ações que um usuário específico realizou em vários recursos, vo
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **recursos do Azure**.
+1. Selecione **Recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir a atividade e as ativações.
 
@@ -56,7 +56,7 @@ Talvez você tenha um requisito de conformidade no qual precisa fornecer uma lis
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **recursos do Azure**.
+1. Selecione **Recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exportar atribuições de função, como uma assinatura.
 
@@ -76,7 +76,7 @@ A auditoria de recursos fornece uma exibição de todas as atividades de funçã
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **recursos do Azure**.
+1. Selecione **Recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
 
@@ -100,7 +100,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **recursos do Azure**.
+1. Selecione **Recursos do Azure**.
 
 1. Selecione o recurso para o qual você deseja exibir o histórico de auditoria.
 

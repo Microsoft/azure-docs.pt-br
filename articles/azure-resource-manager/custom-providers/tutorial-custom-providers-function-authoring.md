@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200202"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Criar um ponto de extremidade RESTful para provedores personalizados
@@ -23,11 +23,11 @@ Um provedor personalizado é um contrato entre o Azure e um ponto de extremidade
 
 Neste tutorial, você atualizará o aplicativo de funções, de modo que ele funcione como um ponto de extremidade RESTful para o provedor personalizado. Os recursos e as ações do Azure são modelados conforme a seguinte especificação RESTful básica:
 
-- **PUT**: Criar um novo recurso
-- **GET (instância)** : Recuperar um recurso existente
-- **DELETE**: Remover um recurso existente
-- **POST**: Disparar uma ação
-- **GET (coleção)** : Listar todos os recursos existentes
+- **PUT**: criar um recurso
+- **GET (instância)** : recuperar um recurso existente
+- **DELETE**: remover um recurso existente
+- **POST**: disparar uma ação
+- **GET (coleção)** : listar todos os recursos existentes
 
  Neste tutorial, você usará o Armazenamento de Tabelas do Azure. Mas qualquer serviço de armazenamento ou banco de dados pode funcionar.
 

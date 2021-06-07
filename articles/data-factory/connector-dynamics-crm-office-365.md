@@ -1,20 +1,20 @@
 ---
 title: Copiar dados no Dynamics (Common Data Service)
-description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para Dynamics CRM ou Dynamics 365 usando uma atividade de cópia em um pipeline de data factory.
+description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service/Microsoft dataverso) para armazenamentos de dados de coletor com suporte ou de armazenamentos de dados de origem com suporte para o Dynamics CRM ou o Dynamics 365 usando uma atividade de cópia em um pipeline de data factory.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: d238a232d719c75244e6f9b825272957d2a4a4bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380994"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565972"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
+# <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service/Microsoft dataverso) ou o Dynamics CRM usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,7 +27,7 @@ Este conector tem suporte para as seguintes atividades:
 - [Atividade de cópia](copy-activity-overview.md) com a [origem com suporte e a matriz de coletor](copy-activity-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Dynamics 365 (Common Data Service) ou Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 (Common Data Service) ou Dynamics CRM. Para obter uma lista de armazenamentos de dados com suporte de uma atividade de cópia como fontes e coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados do Dynamics 365 (Common Data Service/Microsoft dataverso) ou do Dynamics CRM para qualquer armazenamento de dados de coletor com suporte. Você também pode copiar dados de qualquer repositório de dados de fonte com suporte para Dynamics 365 (Common Data Service) ou Dynamics CRM. Para obter uma lista de armazenamentos de dados com suporte de uma atividade de cópia como fontes e coletores, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Este conector do Dynamics dá suporte ao Dynamics das versões 7 a 9 para online e local. Mais especificamente:
 
@@ -75,8 +75,8 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como "Dynamics", "DynamicsCrm" ou "CommonDataServiceForApps". | Sim |
-| deploymentType | O tipo de implantação da instância do Dynamics. O valor deve ser "online" para o Dynamics online. | Sim |
+| type | A propriedade Type deve ser definida como "Dynamics", "DynamicsCrm" ou "CommonDataServiceForApps". | Yes |
+| deploymentType | O tipo de implantação da instância do Dynamics. O valor deve ser "online" para o Dynamics online. | Yes |
 | serviceUri | A URL de serviço da instância do Dynamics, a mesma que você acessa no navegador. Um exemplo é "https:// \<organization-name> . CRM [x]. Dynamics. com". | Sim |
 | authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
 | servicePrincipalId | A ID do cliente do aplicativo do Azure AD. | Sim quando a autenticação for "AADServicePrincipal" |
@@ -84,7 +84,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 | servicePrincipalCredential | A credencial de entidade de serviço. <br/><br/>Quando você usa "ServicePrincipalKey" como o tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres que Azure data Factory criptografa na implantação do serviço vinculado. Ou pode ser uma referência a um segredo no Azure Key Vault. <br/><br/>Quando você usa "ServicePrincipalCert" como a credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Azure Key Vault. | Sim quando a autenticação for "AADServicePrincipal" |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim quando a autenticação for "Office365" |
 | password | A senha da conta de usuário que você especificou como o nome de usuários. Marque este campo com "SecureString" para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim quando a autenticação for "Office365" |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | No |
 
 >[!NOTE]
 >O conector do Dynamics usou anteriormente a propriedade **OrganizationName** opcional para identificar sua instância do Dynamics CRM ou do Dynamics 365 online. Embora essa propriedade ainda funcione, sugerimos que você especifique a nova propriedade **ServiceUri** em vez disso, para obter um melhor desempenho para a descoberta de instância.
@@ -180,7 +180,7 @@ Propriedades adicionais que se comparam ao Dynamics online são **hostname** e *
 | authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique "Ifd" para o Dynamics local com IFD. | Sim. |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim. |
 | password | A senha para a conta de usuário especificada para o nome do usuário. Você pode marcar esse campo com "SecureString" para armazená-lo com segurança em Data Factory. Ou você pode armazenar uma senha em Key Vault e deixar a atividade de cópia efetuar pull a partir daí quando ela faz a cópia de dados. Saiba mais sobre [Armazenar credenciais no Cofre de Chaves](store-credentials-in-key-vault.md). | Sim. |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | No |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dynamics local com IFD usando a autenticação de IFD
 
@@ -218,7 +218,7 @@ Para copiar dados de e para o Dynamics, há suporte para as seguintes propriedad
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como "DynamicsEntity", "DynamicsCrmEntity" ou "CommonDataServiceForAppsEntity". |Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como "DynamicsEntity", "DynamicsCrmEntity" ou "CommonDataServiceForAppsEntity". |Yes |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para origem se a origem da atividade for especificada como "consulta" e sim para o coletor |
 
 #### <a name="example"></a>Exemplo
@@ -319,10 +319,11 @@ Para copiar dados para o Dynamics, a seção de **coletor** de atividade de cóp
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink" ou "CommonDataServiceForAppsSink". | Sim. |
-| writeBehavior | O comportamento da operação de gravação. O valor deve ser "Upsert". | Sim |
+| writeBehavior | O comportamento da operação de gravação. O valor deve ser "Upsert". | Yes |
 | alternateKeyName | O nome da chave alternativa definido em sua entidade para fazer um Upsert. | Não. |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não. O valor padrão é 10. |
 | ignoreNullValues | Se é para ignorar valores nulos de dados de entrada que não sejam campos de chave durante uma operação de gravação.<br/><br/>Os valores válidos são **true** e **false**:<ul><li>**True**: deixa os dados no objeto de destino inalterados quando você faz uma operação de Upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.</li><li>**False**: atualizar os dados no objeto de destino para um valor nulo quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção.</li></ul> | Não. O valor padrão é **false**. |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| No |
 
 >[!NOTE]
 >O valor padrão para o coletor **writeBatchSize** e a atividade de cópia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** para o coletor do Dynamics é 10. Portanto, os registros 100 são enviados simultaneamente por padrão ao Dynamics.
@@ -363,6 +364,32 @@ A combinação ideal de **writeBatchSize** e **parallelCopies** depende do esque
         }
     }
 ]
+```
+
+## <a name="retrieving-data-from-views"></a>Recuperando dados de exibições
+
+Para recuperar dados de exibições do Dynamics, você precisa obter a consulta salva da exibição e usar a consulta para obter os dados.
+
+Há duas entidades que armazenam diferentes tipos de exibição: "consulta salva" armazena a exibição do sistema e a "consulta do usuário" armazena a exibição do usuário. Para obter as informações dos modos de exibição, consulte a seguinte consulta FetchXML e substitua "TARGETENTITY" por `savedquery` ou `userquery` . Cada tipo de entidade tem mais atributos disponíveis que você pode adicionar à consulta com base em sua necessidade. Saiba mais sobre entidade [savedquery](/dynamics365/customer-engagement/web-api/savedquery) e [entidade userquery](/dynamics365/customer-engagement/web-api/userquery).
+
+```xml
+<fetch top="5000" >
+  <entity name="<TARGETENTITY>">
+    <attribute name="name" />
+    <attribute name="fetchxml" />
+    <attribute name="returnedtypecode" />
+    <attribute name="querytype" />
+  </entity>
+</fetch>
+```
+
+Você também pode adicionar filtros para filtrar as exibições. Por exemplo, adicione o filtro a seguir para obter uma exibição denominada "minhas contas ativas" na entidade de conta.
+
+```xml
+<filter type="and" >
+    <condition attribute="returnedtypecode" operator="eq" value="1" />
+    <condition attribute="name" operator="eq" value="My Active Accounts" />
+</filter>
 ```
 
 ## <a name="data-type-mapping-for-dynamics"></a>Mapeamento de tipo de dados para Dynamics

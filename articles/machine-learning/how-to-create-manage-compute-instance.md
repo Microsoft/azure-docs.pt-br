@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097187"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628944"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -38,7 +38,7 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create"></a>Criar
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
-* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -93,9 +93,9 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Para obter mais informações, consulte a referência do [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
 
-# <a name="studio"></a>[Estúdio](#tab/azure-studio)
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Em seu espaço de trabalho no Azure Machine Learning Studio, crie uma nova instância de computação na seção **computação** ou na seção **blocos de anotações** quando estiver pronto para executar um dos seus blocos de anotações.
 
@@ -108,7 +108,7 @@ Você também pode criar uma instância de computação com um [modelo de Azure 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões do [Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) : 
@@ -127,6 +127,9 @@ O cientista de dados pode iniciar, parar e reiniciar a instância de computaçã
 
 Iniciar, parar, reiniciar e excluir uma instância de computação. Uma instância de computação não reduz verticalmente automaticamente, portanto, certifique-se de interromper o recurso para evitar encargos contínuos.
 
+> [!TIP]
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, [use o terminal](how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de parar ou reiniciar a instância de computação.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Nos exemplos abaixo, o nome da instância de computação é **instância**
@@ -138,7 +141,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     instance.get_status()
     ```
 
-* Parar
+* Stop
 
     ```python
     # stop() is used to stop the ComputeInstance
@@ -172,13 +175,13 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
 
 Nos exemplos abaixo, o nome da instância de computação é **instância**
 
-* Parar
+* Stop
 
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Para obter mais informações, consulte [AZ ml computetarget Stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 * Iniciar 
 
@@ -186,7 +189,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Para obter mais informações, consulte [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 * Reiniciar 
 
@@ -194,7 +197,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Para obter mais informações, consulte [AZ ml computetarget Restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
 * Excluir
 
@@ -202,9 +205,9 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     az ml computetarget delete -n instance -v
     ```
 
-    Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
 
-# <a name="studio"></a>[Estúdio](#tab/azure-studio)
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Em seu workspace no Azure Machine Learning Studio, selecione **Computação** e, em seguida, selecione **Instância de Computação** na parte superior.
 
@@ -225,6 +228,7 @@ Para cada instância de computação em seu espaço de trabalho que você criou 
 * Obtenha detalhes sobre uma instância de computação específica, como endereço IP e região.
 
 ---
+
 
 O [RBAC do Azure](../role-based-access-control/overview.md) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá entrada de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
 

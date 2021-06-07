@@ -1,24 +1,18 @@
 ---
 title: Configurar notificações por email para alertas da Central de Segurança do Azure
 description: Saiba como ajustar os tipos de emails enviados pela Central de Segurança do Azure para alertas de segurança.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 342904a3ae996fe8c2eeddf2edfbc4283a3d03eb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988565"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102439435"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -61,7 +55,7 @@ Você pode enviar notificações por email a indivíduos ou a todos os usuários
 1. Para aplicar as informações de contato de segurança à sua assinatura, selecione **Salvar**.
 
 ## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personalizar as notificações por email de alertas usando a API
-Você também pode gerenciar suas notificações por email usando a API REST fornecida. Para obter detalhes completos, confira a [documentação da API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
+Você também pode gerenciar suas notificações por email usando a API REST fornecida. Para obter detalhes completos, confira a [documentação da API SecurityContacts](/rest/api/securitycenter/securitycontacts).
 
 Este é um exemplo de corpo da solicitação para a solicitação PUT ao criar uma configuração de contato de segurança:
 

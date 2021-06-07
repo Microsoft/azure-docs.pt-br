@@ -11,10 +11,10 @@ ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
 ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91332841"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Usar o Azure SQL Instância Gerenciada com segurança com pontos de extremidade públicos

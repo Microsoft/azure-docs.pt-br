@@ -4,10 +4,10 @@ description: Monitore o aplicativo com informações de Aplicativo Azure e detec
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 1ed304e903bb50591e61e294b6701f8268f9d8e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87081620"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de detecção de segurança do aplicativo (visualização)

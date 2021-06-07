@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
 ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895434"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3,0: traduzir
 
 Traduz texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -367,7 +367,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
   <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Este é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
+    <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Tradução de exemplo (inglês)</strong>: Ele é um idiota.
     </td>

@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575306"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505409"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -36,9 +36,41 @@ Confira estes artigos para saber mais sobre as atualizações para nossos client
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
+## <a name="windows-virtual-desktop-agent-updates"></a>Atualizações do Agente da Área de Trabalho Virtual do Windows
+
+O agente da Área de Trabalho Virtual do Windows é atualizado pelo menos uma vez por mês.
+
+Veja as alterações no agente da Área de Trabalho Virtual do Windows:
+
+- Versão 1.0.2866.1500: esta atualização foi lançada em 26 de março de 2021 e corrigiu um problema com a verificação de integridade da pilha.
+- Versão 1.0.2800.2802: esta atualização foi lançada em 10 de março de 2021 e trouxe aprimoramentos gerais e correções de bugs.
+- Versão 1.0.2800.2800: esta atualização foi lançada em 2 de março de 2021 e corrigiu um problema de conexão reversa.
+- Versão 1.0.2800.2700: esta atualização foi lançada em 10 de fevereiro de 2021 e trouxe aprimoramentos gerais e correções de bugs.
+- Versão 1.0.2800.2700: esta atualização foi lançada em 4 de fevereiro de 2021 e corrigiu um problema de orquestração de acesso negado.
+
 ## <a name="fslogix-updates"></a>Atualizações do FSLogix
 
 Curioso sobre as últimas atualizações do FSLogix? Confira [Novidades do FSLogix](/fslogix/whats-new).
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+Veja as alterações de fevereiro de 2021.
+
+### <a name="portal-experience"></a>Experiência do Portal
+
+Aprimoramos a experiência do portal do Azure do seguinte modo:
+
+- Na guia de grade do host da sessão, incluímos nos hosts o modo esvaziar em massa. 
+- O anexo do aplicativo MSIX já está disponível para versão prévia pública.
+- Correção das informações de visão geral do pool de host para o modo escuro.
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>O armazenamento de metadados da EU já está em versão prévia pública
+
+Agora estamos hospedando uma versão prévia pública da localização Europa (EU) como uma opção de armazenamento para metadados de serviço na Área de Trabalho Virtual do Windows. Os clientes podem escolher entre a opção Oeste ou Norte da Europa durante a criação de objetos de serviço. Os objetos de serviço e os metadados dos pools de hosts serão armazenados na localização do Azure associada a cada região. Para saber mais, leia [nossa postagem no blog anunciando a versão prévia pública](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Atualizações de plug-in do Teams na Área de Trabalho Virtual do Windows
+
+Aprimoramos a qualidade da chamada de vídeo no plug-in da Área de Trabalho Virtual do Windows, abordando problemas frequentemente relatados, como uma tela que fica escura de modo repentino ou um vídeo/áudio fora de sincronia. Esses aprimoramentos deverão aumentar o desempenho da exibição de vídeo usando uma alternância de alto-falantes ativos. Também corrigimos um problema em que dispositivos de hardware com caracteres especiais não estavam disponíveis no Teams.
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -228,7 +260,7 @@ Estas foram as alterações de agosto de 2020:
 
 - O Assistente do Azure agora faz parte da Área de Trabalho Virtual do Windows. Ao acessar a Área de Trabalho Virtual do Windows por meio do portal do Azure, você poderá ver recomendações para otimizar o ambiente da Área de Trabalho Virtual do Windows. Saiba mais em [Assistente do Azure](azure-advisor.md).
 
-- A CLI do Azure agora dá suporte à Área de Trabalho Virtual do Windows (`az desktopvirtualization`) para ajudar você a automatizar suas implantações da Área de Trabalho Virtual do Windows. Confira [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) para obter uma lista de comandos de extensão.
+- A CLI do Azure agora dá suporte à Área de Trabalho Virtual do Windows (`az desktopvirtualization`) para ajudar você a automatizar suas implantações da Área de Trabalho Virtual do Windows. Confira [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) para obter uma lista de comandos de extensão.
 
 - Atualizamos nossos modelos de implantação para torná-los totalmente compatíveis com as interfaces do Azure Resource Manager na Área de Trabalho Virtual do Windows. Encontre os modelos no [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -299,7 +331,7 @@ Adicionamos novos cmdlets AzWvd ao módulo AZ do Azure PowerShell com essa atual
 
 Para instalar o módulo, siga as instruções em [Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows](powershell-module.md).
 
-Você também pode ver uma lista de comandos disponíveis na [referência do PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
+Você também pode ver uma lista de comandos disponíveis na [referência do PowerShell AzWvd](/powershell/module/az.desktopvirtualization/#desktopvirtualization).
 
 Para obter mais informações sobre os novos recursos, confira [nossa postagem no blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 

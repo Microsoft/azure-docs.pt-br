@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 02/13/2020
 ms.openlocfilehash: 95b5a7650e0990f13149daeed87da8e261ec37e4
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241116"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Solucionar problemas de criptografia de dados no Azure Database para MySQL
@@ -19,7 +19,7 @@ Este artigo descreve como identificar e resolver problemas comuns que podem ocor
 
 ## <a name="introduction"></a>Introdução
 
-Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, os servidores exigem acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para * **inacessível** _ no portal do Azure.
+Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, os servidores exigem acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para ***inacessível*** no portal do Azure.
 
 Se você não precisar mais de um servidor de banco de dados do Azure para MySQL inacessível, poderá excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre de chaves tenha sido restaurado e o servidor esteja disponível. Também não é possível alterar a opção de criptografia de dados de `Yes` (gerenciada pelo cliente) para `No` (gerenciada pelo serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você precisará revalidar a chave manualmente para que o servidor possa ser acessado novamente. Essa ação é necessária para proteger os dados contra o acesso não autorizado enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
 
@@ -44,12 +44,12 @@ As seguintes configurações incorretas causam a maioria dos problemas com a cri
 #### <a name="disabled-key-vault"></a>Cofre de chaves desabilitado
 
 - `AzureKeyVaultKeyDisabledMessage`
-- _ * Explicação * *: a operação não pôde ser concluída no servidor porque a chave de Azure Key Vault está desabilitada.
+- **Explicação**: a operação não pôde ser concluída no servidor porque a chave de Azure Key Vault está desabilitada.
 
 #### <a name="missing-key-vault-permissions"></a>Permissões do Key Vault ausentes
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explicação** : o servidor não tem as permissões obter, encapsular e desencapsular necessárias para Azure Key Vault. Conceda quaisquer permissões ausentes à entidade de serviço com ID.
+- **Explicação**: o servidor não tem as permissões obter, encapsular e desencapsular necessárias para Azure Key Vault. Conceda quaisquer permissões ausentes à entidade de serviço com ID.
 
 ### <a name="mitigation"></a>Atenuação
 

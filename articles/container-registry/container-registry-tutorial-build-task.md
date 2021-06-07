@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registr
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 139acf60ba20fd613b2dd2b190881d6bd574c21f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b4806ed30319ff058df6dfae0340a73ad4cb6132
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919488"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780741"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar builds de imagem de contêiner na nuvem ao confirmar o código-fonte
 
@@ -89,7 +89,7 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "type": "Docker"
+    "type&quot;: &quot;Docker"
   },
   "tags": null,
   "timeout": 3600,
@@ -97,7 +97,7 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
     "baseImageTrigger": {
       "baseImageTriggerType": "Runtime",
       "name": "defaultBaseimageTriggerName",
-      "status": "Enabled"
+      "status&quot;: &quot;Enabled"
     },
     "sourceTriggers": [
       {
@@ -106,16 +106,16 @@ A saída de um comando [az acr task create][az-acr-task-create] bem-sucedido é 
           "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node#main",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "GitHub"
+          "sourceControlType&quot;: &quot;GitHub"
         },
         "sourceTriggerEvents": [
           "commit"
         ],
-        "status": "Enabled"
+        "status&quot;: &quot;Enabled"
       }
     ]
   },
-  "type": "Microsoft.ContainerRegistry/registries/tasks"
+  "type&quot;: &quot;Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
@@ -252,10 +252,7 @@ Neste tutorial, você aprenderá como usar uma tarefa para disparar builds de im
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-login]: /cli/azure/reference-index#az-login
-
-
-
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-login]: /cli/azure/reference-index#az_login

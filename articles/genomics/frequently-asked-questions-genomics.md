@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018317"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608605"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas frequentes
 
@@ -59,6 +59,10 @@ São necessárias duas chaves de acesso no caso de você desejar atualizá-las (
 ## <a name="do-you-save-my-storage-account-keys"></a>Você salva minhas chaves de conta de armazenamento?
 Sua chave de conta de armazenamento é usada para criar tokens de acesso de curto prazo para o serviço Microsoft Genomics ler os arquivos de entrada e gravar os arquivos de saída. A vida útil padrão do token é de 48 horas. A duração do token pode ser alterada com a `-sas/--sas-duration` opção do comando Enviar; o valor é em horas.
 
+## <a name="does-microsoft-genomics-store-customer-data"></a>Microsoft Genomics armazenar dados do cliente?
+
+Não. Microsoft Genomics não armazena nenhum dado do cliente.
+
 ## <a name="what-genome-references-can-i-use"></a>Quais referências de genoma posso usar?
 
 Há suporte para essas referências:
@@ -88,5 +92,5 @@ msgen compreende os arquivos de configuração no seguinte formato:
 
 Use os seguintes recursos para começar com o Microsoft Genomics:
 - Comece executando o seu primeiro fluxo de trabalho pelo serviço do Microsoft Genomics. [Executar um fluxo de trabalho por meio do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
-- Envie seus próprios dados para processamento pelo serviço de Microsoft Genomics: [FASTQ do Bam emparelhado](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [vários FASTQ ou Bam](quickstart-input-multiple.md) 
+- Envie seus próprios dados para processamento pelo serviço do Microsoft Genomics: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [FASTQ múltiplos ou BAM](quickstart-input-multiple.md) 
 

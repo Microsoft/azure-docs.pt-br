@@ -2,19 +2,19 @@
 title: incluir arquivo
 description: incluir arquivo
 services: backup
-author: dcurwin
+author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.topic: include
 ms.date: 10/18/2018
-ms.author: dacurwin
+ms.author: v-amallick
 ms.custom: include file
-ms.openlocfilehash: 69259023484457249acd4c7b4a65c4cbe3e660ca
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c126c349897016a00753b402b696c60fdd7b1b2e
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184732"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106294124"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 

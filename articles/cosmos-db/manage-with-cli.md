@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94563827"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gerenciar recursos da API do Azure Cosmos Core (SQL) usando o CLI do Azure
@@ -21,7 +21,7 @@ O guia a seguir descreve os comandos comuns para automatizar o gerenciamento de 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Este artigo requer a versão 2.12.1 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+- Este artigo exige a versão 2.12.1 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Para obter exemplos da CLI do Azure para outras APIs, confira [Exemplos de CLI para o Cassandra](cli-samples-cassandra.md), [Exemplos de CLI para a API do MongoDB](cli-samples-mongodb.md), [Exemplos de CLI para o Gremlin](cli-samples-gremlin.md), [Exemplos de CLI para a Tabela](cli-samples-table.md)
 

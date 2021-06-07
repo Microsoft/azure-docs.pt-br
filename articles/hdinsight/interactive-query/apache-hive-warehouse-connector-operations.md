@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: 20567a1e38686b5d452a5353bc459e7e1125f499
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
-ms.translationtype: MT
+ms.openlocfilehash: 1799aff8bff96d404ddcbefbf58a5f5014cdba6a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941300"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104871581"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Operações de Apache Spark compatíveis com o Hive Warehouse Connector no Azure HDInsight
 
@@ -86,7 +86,7 @@ O Spark não dá suporte nativo à gravação em tabelas ACID gerenciadas do Hiv
     hive.table("sampletable_colorado").show()
     ```
     
-    ![hive warehouse connector show hive table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png" alt-text="hive warehouse connector show hive table" border="true":::
 
 
 ## <a name="structured-streaming-writes"></a>Gravações de streaming estruturado

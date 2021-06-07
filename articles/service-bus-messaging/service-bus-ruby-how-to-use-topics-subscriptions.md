@@ -1,19 +1,19 @@
 ---
-title: 'Início Rápido: Como usar tópicos do Barramento de Serviço (Ruby)'
-description: 'Início Rápido: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Ruby.'
+title: 'Guia de início rápido: como usar tópicos do Barramento de Serviço (Ruby)'
+description: 'Guia de início rápido: saiba como usar tópicos e assinaturas do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88067555"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço com Ruby
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Guia de início rápido: como usar tópicos e assinaturas do Barramento de Serviço com o Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 

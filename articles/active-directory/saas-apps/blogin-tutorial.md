@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
 ms.openlocfilehash: a47a3ae27fd1a18b7e9acd7d8b25748f6274c3e9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92456986"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BlogIn
@@ -51,7 +51,7 @@ Para configurar a integração do BlogIn ao Azure AD, é preciso adicioná-lo po
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **BlogIn** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **BlogIn** na caixa de pesquisa.
 1. Selecione **BlogIn** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -72,24 +72,24 @@ Para configurar e testar o SSO do Azure AD com o BlogIn, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **BlogIn** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **BlogIn**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, insira os valores para os seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.blogin.co/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.blogin.co/sso/saml/callback`
 
-1. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP** :
+1. Clique em **Definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado por **SP**:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.blogin.co/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.blogin.co/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Você pode obter os valores exatos para esses campos na página **Configurações** em BlogIn (na guia **Autenticação do Usuário** > **Configurar SSO e Provisionamento de Usuário** ). Como alternativa, você pode entrar em contato com a [equipe de suporte ao Cliente do BlogIn](mailto:support@blogin.co) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Você pode obter os valores exatos para esses campos na página **Configurações** em BlogIn (na guia **Autenticação do Usuário** > **Configurar SSO e Provisionamento de Usuário**). Como alternativa, você pode entrar em contato com a [equipe de suporte ao Cliente do BlogIn](mailto:support@blogin.co) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. O aplicativo BlogIn espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -102,7 +102,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | título |user.jobtitle |
     
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -110,11 +110,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -132,9 +132,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-blogin-sso"></a>Configurar o SSO do BlogIn
 
@@ -143,7 +143,7 @@ Para configurar o logon único no lado do **BlogIn** faça logon na sua conta do
 1. Acesse **Configurações** > **Autenticação de Usuário** > **Configurar SSO e Provisionamento de usuário**.
 2. Na próxima tela, altere o status de Logon Único para **Ativado** e escolha um nome personalizado para o botão de logon SSO que será exibido na tela de logon.
 
-3. Se você tiver salvado a **URL de Metadados de Federação do Aplicativo** na última etapa da seção anterior, escolha o método de configuração **URL de Metadados** e cole a **URL de Metadados de Federação do Aplicativo** no campo URL de Metadados. Caso contrário, altere o método de Configuração para **manual** , preencha manualmente a **URL de SSO do Provedor de Identidade (URL de Logon)** e o **Emissor do Provedor de Identidade (ID da entidade)** e carregue o **Certificado (base64)** obtido do Azure AD.
+3. Se você tiver salvado a **URL de Metadados de Federação do Aplicativo** na última etapa da seção anterior, escolha o método de configuração **URL de Metadados** e cole a **URL de Metadados de Federação do Aplicativo** no campo URL de Metadados. Caso contrário, altere o método de Configuração para **manual**, preencha manualmente a **URL de SSO do Provedor de Identidade (URL de Logon)** e o **Emissor do Provedor de Identidade (ID da entidade)** e carregue o **Certificado (base64)** obtido do Azure AD.
 
 4. Escolha a função de usuário padrão para novos usuários que ingressam no BlogIn usando o SSO.
 

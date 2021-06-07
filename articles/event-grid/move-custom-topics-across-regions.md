@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89145325"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Mover tópicos personalizados da grade de eventos do Azure para outra região
@@ -33,43 +33,55 @@ Aqui estão as etapas de alto nível abordadas neste artigo:
 Para começar, exporte um modelo do Resource Manager para o tópico personalizado. 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na barra de pesquisa, digite **Tópicos da grade de eventos**e selecione **Tópicos da grade de eventos** na lista de resultados. 
+2. Na barra de pesquisa, digite **Tópicos da grade de eventos** e selecione **Tópicos da grade de eventos** na lista de resultados. 
 
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
 3. Selecione o **tópico** que você deseja exportar para um modelo do Resource Manager. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Selecione o tópico personalizado":::   
 4. Na página **tópico da grade de eventos** , selecione **Exportar modelo** em **configurações** no menu à esquerda e, em seguida, selecione **baixar** na barra de ferramentas. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Exportar modelo-download de >":::   
+
+    > [!IMPORTANT]
+    > Somente o tópico é exportado para o modelo. As assinaturas do tópico não são exportadas. Portanto, você precisa criar assinaturas para o tópico depois de mover o tópico para a região de destino. 
+5. Localize o arquivo **. zip** que você baixou do portal e descompacte esse arquivo em uma pasta de sua escolha. Esse arquivo zip contém arquivos JSON de modelo e parâmetros. 
+1. Abra o **template.jsem** um editor de sua escolha. 
+8. Atualize `location` o recurso de **tópico** para a região ou local de destino. Para obter códigos de localização, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região sem espaços, por exemplo, `West US` é igual a `westus` .
+
+    ```json
+    "type": "Microsoft.EventGrid/topics",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('topics_mytopic0130_name')]",
+    "location": "westus"
     ```
 1. **Salve** o modelo. 
 
 ## <a name="recreate"></a>Recriar 
 Implante o modelo para criar um tópico personalizado na região de destino. 
 
-1. Na portal do Azure, selecione **criar um recurso**.
-2. Em **Pesquisar no Marketplace**, digite **implantação de modelo**e pressione **Enter**.
+1. No portal do Azure, selecione **Criar um recurso**.
+2. Em **Pesquisar no Marketplace**, digite **implantação de modelo** e pressione **Enter**.
 3. Selecione **implantação de modelo**.
 4. Selecione **Criar**.
 5. Selecione **Criar seu próprio modelo no editor**.
-6. Selecione **carregar arquivo**e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
+6. Selecione **carregar arquivo** e siga as instruções para carregar o **template.jsno** arquivo que você baixou na última seção.
 7. Selecione **salvar** para salvar o modelo. 
 8. Na página **implantação personalizada** , siga estas etapas: 
-    1. Selecione uma **assinatura**do Azure. 
+    1. Selecione uma **assinatura** do Azure. 
     1. Selecione um **grupo de recursos** existente na região de destino ou crie um. 
     1. Para **região**, selecione a região de destino. Se você selecionou um grupo de recursos existente, essa configuração será somente leitura. 
     1. Para o **nome do tópico**, insira um novo nome para o tópico. 
     1. Selecione **Revisar + criar** na parte inferior da página. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Implantação personalizada":::
     1. Na página **revisar + criar** , examine as configurações e selecione **criar**. 
 
 ## <a name="verify"></a>Verificar
 
 1. Depois que a implantação for realizada com sucesso, selecione **ir para o recurso**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Pesquisar e selecionar tópicos de grade de eventos":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Acessar recurso":::
 1. Confirme que você vê a página de **tópico da grade de eventos** para o tópico personalizado.   
 1. Siga as etapas em [rotear eventos personalizados para um ponto de extremidade da Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) para enviar eventos para o tópico. Verifique se o manipulador de eventos de webhook é invocado. 
 
@@ -80,13 +92,13 @@ Se você quiser recomeçar, exclua o tópico na região de destino e repita as e
 
 Para excluir um tópico personalizado usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **Tópicos da grade de eventos**e selecione **Tópicos da grade de eventos** nos resultados da pesquisa. 
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **Tópicos da grade de eventos** e selecione **Tópicos da grade de eventos** nos resultados da pesquisa. 
 2. Selecione o tópico a ser excluído e selecione **excluir** na barra de ferramentas. 
 3. Na página confirmação, insira o nome do grupo de recursos e selecione **excluir**.  
 
 Para excluir o grupo de recursos que contém o tópico personalizado usando o portal do Azure:
 
-1. Na janela de pesquisa na parte superior de portal do Azure, digite **grupos de recursos**e selecione **grupos de recursos** nos resultados da pesquisa. 
+1. Na janela de pesquisa na parte superior de portal do Azure, digite **grupos de recursos** e selecione **grupos de recursos** nos resultados da pesquisa. 
 2. Selecione o grupo de recursos a ser excluído e selecione **excluir** na barra de ferramentas. 
 3. Na página confirmação, insira o nome do grupo de recursos e selecione **excluir**.  
 

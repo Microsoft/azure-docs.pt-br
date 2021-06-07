@@ -3,16 +3,17 @@ title: Controle de manutenção para máquinas virtuais do Azure usando o PowerS
 description: Saiba como controlar quando a manutenção é aplicada às suas VMs do Azure usando o controle de manutenção e o PowerShell.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2868d559f0d848095fa7fec174e09e1b9376c4ae
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026141"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552449"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controlar atualizações com controle de manutenção e Azure PowerShell
 
@@ -85,7 +86,7 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > A **duração** da manutenção deve ser de *2 horas* ou mais. A **recorrência** de manutenção deve ser definida para pelo menos ocorrer uma vez em 35 dias.
 
-A **recorrência** da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos são:
+A **recorrência** da manutenção pode ser expressa como diária, semanal ou mensal. Alguns exemplos incluem:
  - **Daily**-RecurEvery "Day" **ou** "3Days" 
  - **Weekly**-RecurEvery "3Weeks" **ou** "Week sábado, domingo" 
  - **mensal**-RecurEvery "mês day23, day24" **ou** "mês, último domingo" **ou** "mês quarta-feira"  

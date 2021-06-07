@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.reviewer: arvinh
 ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256636"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
-Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
+Problemas conhecidos aos quais você deve estar atento quando trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
 
 > [!NOTE]
 > Essa não é uma lista abrangente de problemas conhecidos. Se você souber de um problema que não está listado, forneça comentários na parte inferior da página.

@@ -3,15 +3,15 @@ title: Solucionar problemas do Azure Red Hat OpenShift
 description: Solucionar problemas comuns com o Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 55360ef295ff80b700b059d053203458f9f384db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af66abff3507279dd1954fd83627900578229866
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469075"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100632944"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Solução de problemas do Azure Red Hat OpenShift
 

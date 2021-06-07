@@ -4,13 +4,13 @@ description: Este artigo descreve como gerar mapas no Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-ummehabiba
+ms.openlocfilehash: d0176fd337abd37f97a6dbe5cf7c68ccf94114d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709055"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102173857"
 ---
 # <a name="generate-maps"></a>Gerar mapas
 
@@ -54,7 +54,7 @@ Esta seção detalha os procedimentos para criar mapas de posicionamento de sens
 Siga estas etapas.
 
 1. Na home page, vá para **mapas** no menu de navegação à esquerda.
-2. Selecione **criar mapas**e selecione o **posicionamento do sensor** no menu suspenso.
+2. Selecione **criar mapas** e selecione o **posicionamento do sensor** no menu suspenso.
 
     ![Selecionar o posicionamento do sensor](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
@@ -86,11 +86,11 @@ Siga estas etapas.
 
     ![Janela de filtro](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
+3. Selecione os valores de **tipo**, **Data** e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
   A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
 4. Percorra a lista de mapas disponíveis usando as barras de navegação no final da página.
 5. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
-6. Selecione **baixar**e baixe o arquivo geojson de coordenadas do sensor.
+6. Selecione **baixar** e baixe o arquivo geojson de coordenadas do sensor.
 
     ![Visualização do mapa de posicionamento do sensor](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
@@ -113,7 +113,7 @@ O FarmBeats fornece a capacidade de gerar NDVI, índice de vegetação aprimorad
 Siga estas etapas.
 
 1. Na home page, vá para **mapas** no menu de navegação à esquerda.
-2. Selecione **criar mapas**e selecione **índices satélites** no menu suspenso.
+2. Selecione **criar mapas** e selecione **índices satélites** no menu suspenso.
 
     ![Selecione os índices satélite no menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
@@ -146,11 +146,11 @@ Siga estas etapas.
 
     ![Janela de filtro exibe critérios de pesquisa](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
+3. Selecione os valores de **tipo**, **Data** e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir.
   A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
 
 4. Percorra a lista de mapas disponíveis usando as barras de navegação no final da página.
-5. Para cada combinação de **nome** e **Data**do farm, os três mapas a seguir estão disponíveis:
+5. Para cada combinação de **nome** e **Data** do farm, os três mapas a seguir estão disponíveis:
     - NDVI
     - EVI
     - NDWI
@@ -178,7 +178,7 @@ Atenda aos seguintes pré-requisitos antes de tentar gerar um calor de umidade d
 Siga estas etapas.
 
 1. Na home page, vá para **mapas** no menu de navegação à esquerda para exibir a página **mapas** .
-2. Selecione **criar mapas**e selecione **umidade de solo** no menu suspenso.
+2. Selecione **criar mapas** e selecione **umidade de solo** no menu suspenso.
 
     ![Selecione umidade de solo no menu suspenso](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
@@ -189,7 +189,7 @@ Siga estas etapas.
 4. Selecione um farm no menu suspenso **farm** .
    Para pesquisar e selecionar seu farm, você pode rolar a partir da lista suspensa ou inserir o nome do farm no menu suspenso **selecionar Farm** .
 5. No menu suspenso **selecionar medida do sensor de umidade de solo** , selecione a medida do sensor de umidade de solo (profundidade) para a qual você deseja gerar o mapa.
-Para localizar a medida do sensor, vá para **sensores**e selecione qualquer sensor de umidade do solo. Em seguida, na seção **Propriedades do sensor** , use o valor em nome da **medida**.
+Para localizar a medida do sensor, vá para **sensores** e selecione qualquer sensor de umidade do solo. Em seguida, na seção **Propriedades do sensor** , use o valor em nome da **medida**.
 6. Para gerar um mapa para **hoje** ou **esta semana**, selecione uma das opções.
 7. Para gerar um mapa para um intervalo de datas personalizado, selecione a opção **selecionar intervalo de datas**. Insira a data de início e de término para a qual você deseja gerar o calor de umidade de solo.
 8. Selecione **gerar mapas**.
@@ -213,8 +213,8 @@ Siga estas etapas.
 
     ![Selecionar filtro na navegação à esquerda](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3.  Selecione os valores de **tipo**, **Data**e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir. A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
-4. Selecione o ícone de **classificação** ao lado dos cabeçalhos de tabela para classificar de acordo com o **farm**, **Data**, **criado em**, **ID do trabalho**e **tipo de trabalho**.
+3.  Selecione os valores de **tipo**, **Data** e **nome** nos menus suspensos. Em seguida, selecione **aplicar** para pesquisar o mapa que você deseja exibir. A data em que o trabalho foi criado é mostrada no formato type_farmname_YYYY-MM-DD.
+4. Selecione o ícone de **classificação** ao lado dos cabeçalhos de tabela para classificar de acordo com o **farm**, **Data**, **criado em**, **ID do trabalho** e **tipo de trabalho**.
 5. Percorra a lista de mapas disponíveis usando os botões de navegação no final da página.
 6. Selecione o mapa que você deseja exibir. Uma janela pop-up exibe a visualização do mapa selecionado.
 7. Selecione **baixar** no menu suspenso para selecionar o formato de download. O mapa é baixado e armazenado na pasta especificada.

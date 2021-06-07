@@ -5,35 +5,36 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365524"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552743"
 ---
-# <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
+# <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único por email
 
-Este artigo descreve como habilitar a autenticação de senha de uso único de email para usuários de convidado B2B. O recurso de senha de email único autentica os usuários convidados B2B quando eles não podem ser autenticados por outros meios como o Azure AD, um conta Microsoft (MSA) ou Google Federation. Com a autenticação por senha avulsa, não é necessário criar uma conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada.
+Este artigo descreve como habilitar a Autenticação de senha de uso único por email para usuários B2B convidados. O recurso de senha de uso único por email autentica usuários B2B convidados quando eles não podem ser autenticados por outros meios, tais como o Azure AD, uma MSA (conta Microsoft) ou uma federação do Google. Com a autenticação por senha avulsa, não é necessário criar uma conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada.
 
-![Diagrama de visão geral de senha de email de uso único](media/one-time-passcode/email-otp.png)
+![Diagrama de visão geral de senha de uso único por email](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> A **partir de outubro de 2021**, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Consulte [Desabilitar senha de uso único de email](#disable-email-one-time-passcode) abaixo.
+> - **A partir de outubro de 2021**, o recurso de senha de uso único por email será ativado para todos os locatários atuais e habilitado por padrão para os novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Confira [Desabilitar senha de uso único por email](#disable-email-one-time-passcode), abaixo.
+> - As configurações de senha de uso único por email foram movidas no portal do Azure de **Configurações de colaboração externa** para **Todos os provedores de identidade**.
 
 > [!NOTE]
-> Os usuários de senha descartável devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, usando `https://myapps.microsoft.com` , `https://portal.azure.com` resultará em um erro.
+> Os usuários de senha descartável devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, usar `https://myapps.microsoft.com` ou `https://portal.azure.com` resultará em um erro.
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do usuário para usuários convidados com senha avulsa
 
-Quando o recurso de senha de uso único de email estiver habilitado, os usuários convidados [que atenderem a determinadas condições](#when-does-a-guest-user-get-a-one-time-passcode) usarão a autenticação de senha única. Os usuários convidados que resgataram um convite antes de enviar uma senha de uso único por email continuarão a usar o mesmo método de autenticação.
+Quando o recurso de senha de uso único por email estiver habilitado, os usuários convidados [que atenderem a determinadas condições](#when-does-a-guest-user-get-a-one-time-passcode) usarão a autenticação por senha de uso único. Os usuários convidados que resgataram um convite antes da habilitação da senha de uso único por email continuarão a usar o mesmo método de autenticação.
 
 Com a autenticação por senha avulsa, o usuário convidado pode resgatar seu convite clicando em um link direto ou usando o email de convite. Em ambos os casos, uma mensagem no navegador indica que um código será enviado ao endereço de email do usuário convidado. O usuário convidado seleciona **Enviar código**:
 
@@ -58,52 +59,75 @@ Quando um usuário convidado resgata um convite ou usa um link para um recurso q
 
 No momento do convite, não há nenhuma indicação de que o usuário que você está convidando usará a autenticação de senha avulsa. Mas quando o usuário convidado entrar, a autenticação de senha avulsa será o método de fallback se nenhum outro método de autenticação puder ser usado.
 
-Você pode ver se um usuário convidado é autenticado usando senhas de uso único, exibindo a propriedade **Source** nos detalhes do usuário. Na portal do Azure, acesse **Azure Active Directory**  >  **usuários** e, em seguida, selecione o usuário para abrir a página de detalhes.
+Você pode identificar se um usuário convidado é autenticado usando senhas de uso único visualizando a propriedade **Fonte** nos detalhes do usuário. No portal do Azure, acesse **Azure Active Directory** > **Usuários** e selecione o usuário cuja página de detalhes deseja abrir.
 
 ![Captura de tela mostrando um usuário de senha avulsa com o valor Origem OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Quando um usuário resgatar uma senha avulsa e, posteriormente, obtém uma MSA, conta do Azure AD ou outra conta federada, ele continuará a ser autenticado usando uma senha avulsa. Se quiser atualizar o método de autenticação do usuário, você poderá excluir a conta de usuário convidado dele e convidá-lo novamente.
+> Quando um usuário resgatar uma senha avulsa e, posteriormente, obtém uma MSA, conta do Azure AD ou outra conta federada, ele continuará a ser autenticado usando uma senha avulsa. Se quiser atualizar o método de autenticação do usuário, você poderá [redefinir seu status de resgate](reset-redemption-status.md).
 
-### <a name="example"></a>Exemplo
+### <a name="example&quot;></a>Exemplo
 
-O usuário convidado teri@gmail.com é convidado para a Fabrikam, que não tem a federação do Google configurada. Teri não tem um conta Microsoft. Receberemos uma senha avulsa para autenticação.
+O usuário convidado teri@gmail.com é convidado para a Fabrikam, que não tem a federação do Google configurada. Teri não tem uma conta Microsoft. Receberemos uma senha avulsa para autenticação.
 
-## <a name="disable-email-one-time-passcode"></a>Desabilitar senha de uso único de email
+## <a name=&quot;disable-email-one-time-passcode&quot;></a>Desabilitar a senha de uso único por email
 
-A partir de outubro de 2021, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Nesse momento, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados ("viral" ou "Just-in-time") do Azure AD para cenários de colaboração B2B. Estamos habilitando o recurso de senha de uso único de email porque ele fornece um método de autenticação de fallback contínuo para seus usuários convidados. No entanto, você tem a opção de desabilitar esse recurso se optar por não usá-lo.
+A partir de outubro de 2021, o recurso de senha de uso único por email será ativado para todos os locatários atuais e habilitado por padrão para os novos locatários. Neste período, a Microsoft não dará mais suporte para o resgate de convites criando contas e locatários do Azure AD não gerenciados (&quot;virais&quot; ou &quot;just-in-time") para cenários de colaboração B2B. Estamos habilitando o recurso de senha de uso único por email por ser um método de autenticação de reserva contínuo para os usuários convidados. No entanto, você tem a opção de desabilitar o recurso caso não deseje usá-lo.
 
 > [!NOTE]
 >
-> Se o recurso de senha de uso único de email tiver sido habilitado em seu locatário e você desligá-lo, todos os usuários convidados que tiverem resgatado uma senha de uso único não poderão entrar. Você pode excluir o usuário convidado e convidá-los novamente para que eles possam entrar novamente usando outro método de autenticação.
+> Se o recurso de senha de uso único por email tiver sido habilitado em seu locatário e você desabilitá-lo, todos os usuários convidados que tiverem resgatado uma senha de uso único não poderão entrar. Você pode [redefinir o status de resgate deles](reset-redemption-status.md) para que eles possam entrar novamente usando outro método de autenticação.
 
-### <a name="to-disable-the-email-one-time-passcode-feature"></a>Para desabilitar o recurso de senha de uso único de email
+### <a name="to-disable-the-email-one-time-passcode-feature"></a>Para desabilitar o recurso de senha de uso único por email
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 
 2. No painel de navegação, selecione **Azure Active Directory**.
 
-3. Selecione **Identidades Externas** > **Configurações de colaboração externa**.
+3. Confira **Identidades Externas** > **Todos os provedores de identidade**.
 
-4. Em **senha de uso único de email para convidados**, selecione **desabilitar a senha de uso único de email para convidados**.
+4. Selecione **Senha de uso único por email** e, em seguida, escolha **Desabilitar senha de uso único por email para convidados**.
 
    > [!NOTE]
-   > Se você vir a seguinte alternância em vez das opções de senha de uso único de email, isso significa que você já habilitou, desabilitou ou aceitou a versão prévia do recurso. Selecione **não** para desabilitar o recurso.
+   > As configurações de senha de uso único por email foram movidas no portal do Azure de **Configurações de colaboração externa** para **Todos os provedores de identidade**.
+   > Caso você veja uma alternância em vez das opções de senha de uso único por email, isso significa que você habilitou, desabilitou ou aceitou anteriormente a versão prévia do recurso. Selecione **Não** para desabilitar o recurso.
    >
-   >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Alternância de senha de uso único por email desabilitada](media/one-time-passcode/enable-email-otp-disabled.png)
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
-## <a name="note-for-public-preview-customers"></a>Observação para clientes de visualização pública
+## <a name="note-for-public-preview-customers"></a>Observação para clientes de versão prévia pública
 
-Se você tiver optado anteriormente pela visualização pública de senha de uso único de email, a data de outubro de 2021 para a habilitação automática de recursos não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, na portal do Azure, sob a **senha de uso único de email para as propriedades de convidados** , você não verá a opção de **habilitar automaticamente o email de senha de uso único para convidados em outubro de 2021**. Em vez disso, você verá a seguinte opção **Sim** ou **não** alternar:
+Se você tiver optado anteriormente pela versão prévia pública da senha de uso único por email, a data de outubro de 2021 para a habilitação automática desse recurso não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, no portal do Azure, nas propriedades **senha de uso único por email para convidados**, você não verá a opção de **Habilitar automaticamente a senha de uso único por email para convidados a partir de outubro de 2021**. Em vez disso, você verá a seguinte opção de alternância **Sim** ou **não**:
 
-![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Aceitar senha de uso único por email](media/one-time-passcode/enable-email-otp-opted-in.png)
 
-No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em outubro de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
+No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em outubro de 2021, você poderá reverter para as configurações padrão usando o [tipo de recurso para configuração do método de autenticação por email](/graph/api/resources/emailauthenticationmethodconfiguration) da API do Microsoft Graph. Depois de reverter para as configurações padrão, as seguintes opções estarão disponíveis em **Senha de uso único por email para convidados**:
 
-- **Habilite automaticamente a senha de um único email para convidados em outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado em outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+![Habilitar o recurso de senha de uso único por email aceito](media/one-time-passcode/email-otp-options.png)
 
-- **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
+- **Habilitar automaticamente a senha de uso único por email para convidados a partir de outubro de 2021**. (Padrão) Se o recurso de senha de uso único por email ainda não estiver habilitado para o seu locatário, ele será automaticamente ativado em outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso nesse momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não ficará disponível.
 
-- **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em outubro de 2021.
+- **Habilitar a senha de uso único por email para convidados imediatamente**. Ativa o recurso de senha de uso único de email para seu locatário.
+
+- **Desabilitar a senha de uso único por email para convidados**. Desativa o recurso de senha de uso único por email para o seu locatário e impede que o recurso seja ativado em outubro de 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Observação para os clientes Azure do governo dos EUA
+
+O recurso de senha de uso único por email é desabilitado por padrão na nuvem do Azure para o governo dos EUA.  
+
+ ![Recurso de senha de uso único por email desabilitado](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Para habilitar o recurso de senha de uso único por email na nuvem do Azure para o governo dos EUA:
+
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global do Azure AD.
+2. No painel de navegação, selecione **Azure Active Directory**.
+3. Selecione **Relações organizacionais** > **Configurações**.
+
+   > [!NOTE]
+   > - Se você não vir **Relações Organizacionais**, procure "Identidades Externas" na barra de pesquisa da parte superior.
+
+4. Selecione **senha de uso único por email** e escolha **Sim**.
+5. Clique em **Salvar**.
+
+Para obter mais informações sobre as limitações atuais, confira [nuvens do Azure para o governo dos EUA](current-limitations.md#azure-us-government-clouds).

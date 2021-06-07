@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570778"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -38,7 +38,7 @@ Para obter os limites relacionados aos artefatos e às contas de integração co
 
     | Item | Descrição |
     |------|-------------|
-    | [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para o assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-account-create.md). |
+    | [Conta de Armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para o assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-account-create.md). |
     | Contêiner de blob | Nesse contêiner, você pode carregar seu assembly. Você também precisa da localização desse contêiner ao adicionar o assembly à sua conta de integração. Saiba como [criar um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Essa ferramenta ajuda a gerenciar de maneira mais fácil as contas de armazenamento e contêineres de blob. Para usar o Gerenciador de Armazenamento, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal do Azure, encontre e selecione a conta de armazenamento. No menu da sua conta de armazenamento, selecione **Gerenciador de Armazenamento**. |
     |||
@@ -111,11 +111,11 @@ Para adicionar assemblies maiores, você pode carregar seu assembly em um contê
 
 1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access-assemblies)
+   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar** e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access-assemblies)
 
      ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#no-public-access-assemblies)
+   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar** e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#no-public-access-assemblies)
 
      ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -198,7 +198,7 @@ Depois de carregar todos os assemblies referenciados no mapa, você poderá carr
 
 1. Em **Adicionar mapa**, insira um nome para o mapa. 
 
-1. Em **tipo de mapa**, selecione o tipo, por exemplo **: Liquid**, **XSLT**, **XSLT 2,0**ou **XSLT 3,0**.
+1. Em **tipo de mapa**, selecione o tipo, por exemplo **: Liquid**, **XSLT**, **XSLT 2,0** ou **XSLT 3,0**.
 
 1. Mantenha **Arquivo pequeno** marcado. Ao lado da caixa **Mapa**, escolha o ícone de pasta. Localize e selecione o mapa que você está carregando, por exemplo:
 
@@ -321,7 +321,7 @@ Para atualizar um mapa existente, você precisa carregar um novo arquivo de mapa
 1. Na página **Visão geral** da conta de integração, em **Componentes**, selecione o bloco **Mapas**.
 
 1. Após a página **Mapas** abrir, selecione o mapa. 
-   Para baixar e editar o mapa primeiro, escolha **Baixar**e salve o mapa.
+   Para baixar e editar o mapa primeiro, escolha **Baixar** e salve o mapa.
 
 1. Quando estiver pronto para carregar o mapa atualizado, na página **Mapas**, selecione o mapa que deseja atualizar e, em seguida, escolha **Atualizar**.
 

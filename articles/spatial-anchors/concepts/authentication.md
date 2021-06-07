@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97722956"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure

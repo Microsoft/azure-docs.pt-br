@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: 6da860cf9f116d859657be8b81682088b47474eb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d7b6f1d7ed01009af5e21006240a21442492cb07
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259144"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101673635"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server 
 
@@ -84,7 +83,7 @@ Antes de começar, consulte as seguintes notas e documentos do SAP:
 * [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide]: contém todas as informações necessárias para configurar a alta disponibilidade do NetWeaver e SAP Hana a replicação do sistema local (para ser usada como uma linha de base geral; elas fornecem informações muito mais detalhadas)
 * [Notas sobre a versão do SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 * [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files][anf-sap-applications-azure]
-* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Visão geral
 
@@ -253,7 +252,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
  
     f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **hanadb2** e **hanadb3**).
  
-    (por exemplo, Deixe as máquinas virtuais no estado parado por enquanto. Em seguida, Habilitaremos a [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para todas as interfaces de rede recentemente anexadas.  
+    g. Deixe as máquinas virtuais no estado parado por enquanto. Em seguida, Habilitaremos a [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para todas as interfaces de rede recentemente anexadas.  
 
 6. Habilite a rede acelerada para as interfaces de rede adicionais para as `storage` sub-redes e seguindo estas `hana` etapas:  
 
@@ -863,5 +862,5 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 * [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
 * [Implantação do DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
-* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 * Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha].

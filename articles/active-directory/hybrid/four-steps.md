@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94412367"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com Azure Active Directory
@@ -83,7 +83,7 @@ Nas empresas modernas, os departamentos de TI geralmente não estão cientes de 
 
 O [Microsoft Cloud app Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) pode ajudá-lo a identificar aplicativos úteis que são populares com usuários que podem ser aprovados e adicionados à galeria de aplicativos empresariais para que os usuários se beneficiem de recursos como o SSO e o acesso condicional.
 
-<em>" **Cloud app Security** nos ajuda a garantir que nossas pessoas estejam usando adequadamente nossos aplicativos de nuvem e SaaS, de maneiras que dão suporte às políticas de segurança fundamentais que ajudam a proteger a Accenture".</em> --- [John Blasi, diretor de gerenciamento, segurança de informações, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud app Security** nos ajuda a garantir que nossas pessoas estejam usando adequadamente nossos aplicativos de nuvem e SaaS, de maneiras que dão suporte às políticas de segurança fundamentais que ajudam a proteger a Accenture".</em> --- [John Blasi, diretor de gerenciamento, segurança de informações, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Além de detectar a ti sombra, o MCAS também pode determinar o nível de risco dos aplicativos, impedir o acesso não autorizado a dados corporativos, possível perda de dados e outros riscos de segurança inerentes aos aplicativos.
 

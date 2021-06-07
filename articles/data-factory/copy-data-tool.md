@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
 ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100372987"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta Copiar Dados no Azure Data Factory
@@ -64,7 +64,7 @@ O esquema de fonte de dados não pode ser igual ao esquema de destino de dados e
 A ferramenta Copiar Dados monitora e aprende o comportamento quando você está mapeando colunas entre repositórios de origem e destino. Depois de escolher uma ou algumas colunas do repositório de dados de origem e mapeá-los para o esquema de destino, a ferramenta Copiar Dados é iniciada para analisar o padrão para os pares de coluna selecionadas em ambos os lados. Em seguida, ele aplica o mesmo padrão ao restante das colunas. Portanto, você vê que todas as colunas foram mapeadas para o destino da forma desejada com apenas alguns cliques.  Se você não estiver satisfeito com a opção de mapeamento de coluna fornecido pela ferramenta Copiar Dados, ignore-o e continue com o mapeamento manual das colunas. Enquanto isso, a ferramenta Copiar dados aprende e atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja atingir. 
 
 > [!NOTE]
-> Ao copiar dados do SQL Server ou do banco de dados SQL do Azure para o Azure Synapse Analytics, se a tabela não existir no repositório de destino, Copiar Dados ferramenta dará suporte à criação da tabela automaticamente usando o esquema de origem. 
+> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server no Azure Synapse Analytics, caso a tabela não exista no repositório de destino, a ferramenta Copiar Dados dá suporte para a criação da tabela automaticamente usando o esquema da origem. 
 
 ## <a name="filter-data"></a>Filtrar dados
 É possível filtrar os dados de origem para selecionar apenas os dados que precisam ser copiados no repositório de dados do coletor. A filtragem reduz o volume de dados a ser copiado para o repositório de dados do coletor e, portanto, melhora a produtividade da operação de cópia. A ferramenta Copiar Dados fornece uma maneira flexível de filtrar dados em um banco de dados relacional usando a linguagem de consulta SQL ou arquivos em uma pasta de blobs do Azure. 

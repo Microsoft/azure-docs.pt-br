@@ -6,20 +6,19 @@ documentationcenter: ''
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f72342a318e3436fb80fb06b2312f664c9d04969
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 16608facab27fc18924cf3a5c6da7e35db048f76
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967611"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101675604"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -49,7 +48,7 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
    > O sistema operacional fornecido pela Microsoft não é registrado na Red Hat. Ele não é conectado a uma instância do Gerenciador de Assinaturas do Red Hat.
 
 - Gerenciador de Assinaturas do Red Hat implantado no Azure em uma VM. O Gerenciador de Assinaturas do Red Hat permite que o SAP HANA do Azure (Instâncias Grandes) seja registrado e atualizado pelo Red Hat. (Não há acesso direto à Internet de dentro do locatário implantado no carimbo da Instância Grande do Azure.)
-- A SAP também exige que você tenha um contrato de suporte com seu provedor do Linux. Esse requisito não é removido pela solução do HANA em Instâncias Grandes ou por executar o Linux no Azure. Ao contrário de algumas das imagens da galeria do Linux Azure, a taxa de serviço *não* é incluída na oferta de solução do SAP HANA em Instâncias Grandes. É sua responsabilidade cumprir os requisitos do SAP em relação aos contratos de suporte com o distribuidor do Linux. 
+- A SAP também exige que você tenha um contrato de suporte com seu provedor do Linux. Esse requisito não é removido pela solução do HANA em Instâncias Grandes ou por executar o Linux no Azure. Ao contrário de algumas das imagens da galeria do Linux Azure, a taxa de serviço *não* é incluída na oferta da solução do SAP Hana em instâncias grandes. É sua responsabilidade cumprir os requisitos do SAP em relação aos contratos de suporte com o distribuidor do Linux. 
    - Para o SUSE Linux, procure os requisitos do contrato de suporte em [Nota SAP nº 1984787 – SUSE Linux Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) e [Nota SAP n. 1056161 – Suporte de prioridade do SUSE para aplicativos do SAP](https://launchpad.support.sap.com/#/notes/1056161).
    - Para o Red Hat Linux, é necessário ter os níveis de assinatura corretos que incluem atualizações de suporte e serviço para os sistemas operacionais do SAP HANA em Instâncias Grandes. A Red Hat recomenda o Red Hat Enterprise Linux para a assinatura para a solução SAP. Veja https://access.redhat.com/solutions/3082481. 
 
@@ -62,7 +61,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 > Para unidades do tipo II, somente a versão SLES 12 SP2 do sistema operacional tem suporte atualmente. 
 
 
-**Banco de dados**
+**Backup de banco de dados**
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 

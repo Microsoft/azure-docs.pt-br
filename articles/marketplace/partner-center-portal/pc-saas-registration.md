@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130010"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048333"
 ---
 # <a name="register-a-saas-application"></a>Registrar um aplicativo SaaS
 
@@ -28,27 +28,27 @@ Para que você possa usar os recursos do AD do Azure em qualquer aplicativo dese
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Se sua conta fornecer acesso a mais de um, clique em sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
-3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory** , clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo** .
+3. No painel de navegação esquerdo, clique no serviço **Azure Active Directory**, clique em **Registros do aplicativo** e clique em **Novo registro de aplicativo**.
 
     ![Registros de Aplicativo do AD SaaS](./media/saas-offer-app-registration-v1.png)
 
 4. Na página Criar, insira as informações de registro do aplicativo:
-    -   **Nome** : insira um nome significativo de aplicativo
-    -   **Tipo de aplicativo** :  
+    -   **Nome**: insira um nome significativo de aplicativo
+    -   **Tipo de aplicativo**:  
         
         Selecione **aplicativo Web/API** para [aplicativos cliente](../../active-directory/develop/developer-glossary.md#client-application)) e [aplicativos de recurso/API](../../active-directory/develop/developer-glossary.md#resource-server)que estão instalados em um servidor seguro. Essa configuração é usada para [clientes Web](../../active-directory/develop/developer-glossary.md#web-client)confidenciais OAuth) e [clientes baseados em agente de usuário](../../active-directory/develop/developer-glossary.md#user-agent-based-client)público).
         O mesmo aplicativo também pode expor um cliente e o recurso/API.
 
         Para obter exemplos específicos de aplicativos Web, Confira as configurações guiadas de início rápido que estão disponíveis [na seção Introdução](../../active-directory/develop/quickstart-create-new-tenant.md) do [Guia de desenvolvedores do Azure ad](../../active-directory/develop/index.yml).
 
-5. Quando terminar, clique em **registrar** .  O Azure AD atribui uma ID de *aplicativo* exclusiva ao novo aplicativo. É recomendável registrar um aplicativo que acesse a API somente e como um único locatário.
+5. Quando terminar, clique em **registrar**.  O Azure AD atribui uma ID de *aplicativo* exclusiva ao novo aplicativo. É recomendável registrar um aplicativo que acesse a API somente e como um único locatário.
 
-6. Para criar o segredo do cliente, navegue até **certificados & página segredos** e clique em **+ novo segredo do cliente** .  Certifique-se de copiar o valor secreto para usá-lo em seu código.
+6. Para criar o segredo do cliente, navegue até **certificados & página segredos** e clique em **+ novo segredo do cliente**.  Certifique-se de copiar o valor secreto para usá-lo em seu código.
 
 A **ID do aplicativo do Azure ad** está associada à sua ID do editor, portanto, certifique-se de que a mesma *ID do aplicativo* seja usada em todas as suas ofertas.
 
 >[!Note]
->Se um Publicador tiver duas contas diferentes no Partner Center, duas IDs de aplicativo do Azure AD diferentes deverão ser usadas.  Cada conta de parceiro no Partner Center deve usar uma ID de aplicativo do Azure AD exclusiva para todas as ofertas de SaaS que são publicadas por meio dessa conta.
+>Se o Publicador tiver duas ou mais contas diferentes no Partner Center, os detalhes de registro do aplicativo do Azure AD poderão ser usados somente em uma conta. Não há suporte para o uso da mesma ID de locatário, par de ID de aplicativo para uma oferta em uma conta de Publicador diferente.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Como obter o token de autorização do editor
 
@@ -89,7 +89,7 @@ Postar<br>
 
 ##### <a name="response"></a>*Resposta*
 
-|  Nome     |  Tipo         |  Descrição |
+|  Nome     |  Type         |  Descrição |
 |  ------   |  ---------------  | ------------ |
 |  200 OK   |  TokenResponse    |  Solicitação bem-sucedida. |
 

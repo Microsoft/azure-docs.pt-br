@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: zeyadr
 ms.openlocfilehash: d40e55f177bda9edb40383b6e2c61c32633cd005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85211333"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Gerenciar membros do Consortium no serviço Blockchain do Azure usando o PowerShell
@@ -66,7 +66,7 @@ Localize os outros valores no portal do Azure:
 
     Substitua *\<Member account\>* e *\<RootContract address\>* pelos valores do Portal.
 
-1. Para o endereço do ponto de extremidade, selecione **nós de transação**e, em seguida, selecione o **nó de transação padrão**. O nó padrão tem o mesmo nome que o membro blockchain.
+1. Para o endereço do ponto de extremidade, selecione **nós de transação** e, em seguida, selecione o **nó de transação padrão**. O nó padrão tem o mesmo nome que o membro blockchain.
 1. Selecione **Cadeias de conexão**.
 
     ![Cadeias de conexão](./media/manage-consortium-powershell/connection-strings.png)

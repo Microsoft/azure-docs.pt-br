@@ -4,12 +4,12 @@ description: Saiba como exibir e consultar Azure Functions dados de telemetria c
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549551"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101729361"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar Azure Functions telemetria no Application Insights 
 
@@ -64,12 +64,12 @@ As seguintes áreas do Application Insights podem ser úteis ao avaliar o compor
 | ---- | ----------- |
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e de exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Para analisar problemas de desempenho, veja a utilização de recursos e a taxa de transferência por **instâncias de função de nuvem**. Esses dados de desempenho podem ser úteis para cenários de depuração em que as funções estão sobrecarregarndo seus recursos subjacentes. |
-| **[Métrica](../azure-monitor/platform/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e taxas de sucesso. |
+| **[Métrica](../azure-monitor/essentials/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e taxas de sucesso. |
 | **[Métricas ao vivo](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
 
-A [Análise do Application Insights](../azure-monitor/log-query/log-query-overview.md) oferece acesso a todos os dados de telemetria em forma de tabelas em um banco de dados. A Análise fornece uma linguagem de consulta para extrair, manipular e visualizar os dados. 
+A [Análise do Application Insights](../azure-monitor/logs/log-query-overview.md) oferece acesso a todos os dados de telemetria em forma de tabelas em um banco de dados. A Análise fornece uma linguagem de consulta para extrair, manipular e visualizar os dados. 
 
 Escolha **Logs** para explorar ou consultar eventos registrados.
 
@@ -142,14 +142,14 @@ As consultas de telemetria a seguir são específicas para métricas que afetam 
 
 ## <a name="azure-monitor-metrics"></a>Métricas do Azure Monitor
 
-Além dos dados de telemetria coletados pelo Application Insights, você também pode obter dados sobre como o aplicativo de funções está sendo executado de [métricas de Azure monitor](../azure-monitor/platform/data-platform-metrics.md). Juntamente com as [métricas usuais disponíveis para aplicativos do serviço de aplicativo](../app-service/web-sites-monitor.md#understand-metrics), há duas métricas específicas para funções que são de interesse:
+Além dos dados de telemetria coletados pelo Application Insights, você também pode obter dados sobre como o aplicativo de funções está sendo executado de [métricas de Azure monitor](../azure-monitor/essentials/data-platform-metrics.md). Juntamente com as [métricas usuais disponíveis para aplicativos do serviço de aplicativo](../app-service/web-sites-monitor.md#understand-metrics), há duas métricas específicas para funções que são de interesse:
 
 | Métrica | Descrição |
 | ---- | ---- |
 | **FunctionExecutionCount** | A contagem de execução de função indica o número de vezes que seu aplicativo de funções foi executado. Isso se correlaciona com o número de vezes que uma função é executada em seu aplicativo. Atualmente, essa métrica não tem suporte para planos Premium e dedicado (serviço de aplicativo) em execução no Linux. |
 | **FunctionExecutionUnits** | As unidades de execução de função são uma combinação de tempo de execução e seu uso de memória.  Os dados de memória não são uma métrica atualmente disponível por meio de Azure Monitor. No entanto, se você quiser otimizar o uso de memória do seu aplicativo, o poderá usar os dados do contador de desempenho coletados pelo Application Insights. Atualmente, essa métrica não tem suporte para planos Premium e dedicado (serviço de aplicativo) em execução no Linux.|
 
-Para saber mais sobre como calcular os custos de um plano de consumo usando dados Application Insights, consulte [Estimando os custos do plano de consumo](functions-consumption-costs.md). Para saber mais sobre como usar o Gerenciador de monitor para exibir as métricas, confira [introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
+Para saber mais sobre como calcular os custos de um plano de consumo usando dados Application Insights, consulte [Estimando os custos do plano de consumo](functions-consumption-costs.md). Para saber mais sobre como usar o Gerenciador de monitor para exibir as métricas, confira [introdução ao Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -158,4 +158,3 @@ Saiba mais sobre monitoramento Azure Functions:
 
 + [Monitorar Azure Functions](functions-monitoring.md)
 + [Como configurar o monitoramento para Azure Functions](configure-monitoring.md)
-

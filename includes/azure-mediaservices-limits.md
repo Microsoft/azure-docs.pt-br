@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329645"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106072927"
 ---
 >[!NOTE]
 >Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie contas adicionais dos Serviços de Mídia do Azure em uma tentativa de obter limites mais altos.
@@ -41,7 +41,7 @@ A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com
 
 <sup>3</sup>Ao fazer uma solicitação para listar as entidades de trabalho, serão retornados no máximo mil trabalhos por solicitação. Para manter o controle de todos os trabalhos enviados, use as consultas superior ou ignorar conforme descrito em [Opções de consulta do sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup>Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de DRM (gerenciamento de direitos digitais). Para obter mais informações, confira [Proteger seu conteúdo com os Serviços de Mídia do Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Os localizadores não foram desenvolvidos para gerenciar o controle de acesso por usuário. Para conceder direitos de acesso diferentes para usuários individuais, use as soluções de DRM (gerenciamento de direitos digitais). Para obter mais informações, confira [Proteger seu conteúdo com os Serviços de Mídia do Azure](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup>As contas de armazenamento precisam ser da mesma assinatura do Azure.
 

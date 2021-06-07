@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99832599"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
@@ -195,7 +195,7 @@ Pause o processamento da Análise Dinâmica de Vídeo no aplicativo:
     * Clique no recurso **Ponto de Extremidade de Streaming**.
     * Na página **Detalhes do ponto de extremidade de streaming**, selecione **Parar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

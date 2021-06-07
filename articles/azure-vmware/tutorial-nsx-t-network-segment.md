@@ -2,13 +2,13 @@
 title: 'Tutorial: adicionar um segmento de rede do NSX-T na Solução VMware no Azure'
 description: Saiba como criar um segmento de rede do NSX-T para usar VMs (máquinas virtuais) no vCenter.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 8ecb37a42e2986bd1c6261b8fe6c23382323b31d
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 03/13/2021
+ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335036"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462109"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>Tutorial: adicionar um segmento de rede na Solução VMware no Azure 
 

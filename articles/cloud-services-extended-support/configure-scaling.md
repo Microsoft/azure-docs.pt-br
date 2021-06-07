@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744170"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101728154"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configurar opções de dimensionamento com os serviços de nuvem do Azure (suporte estendido) 
 
 As condições podem ser configuradas para habilitar implantações de serviços de nuvem (suporte estendido) para reduzir e reduzir horizontalmente. Essas condições podem ser baseadas no uso da CPU, carga de disco e carga de rede. 
 
 Considere as seguintes informações ao configurar o dimensionamento de suas implantações de serviço de nuvem:
-- A colocação em escala afeta o uso principal. As instâncias de função maiores consomem mais núcleos e você só pode dimensionar dentro do limite de núcleos de sua assinatura. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- Há suporte para o dimensionamento com base no limite de mensagens da fila. Para obter mais informações, consulte [Introdução ao Armazenamento de Filas do Azure](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- A colocação em escala afeta o uso principal. As instâncias de função maiores consomem mais núcleos e você só pode dimensionar dentro do limite de núcleos de sua assinatura. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Há suporte para o dimensionamento com base no limite de mensagens da fila. Para obter mais informações, consulte [Introdução ao Armazenamento de Filas do Azure](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - Para garantir a alta disponibilidade de seus aplicativos de serviço de nuvem (suporte estendido), certifique-se de implantar com duas ou mais instâncias de função.
 - O dimensionamento automático personalizado só pode ocorrer quando todas as funções estiverem em um estado **pronto** .
 
@@ -63,5 +63,5 @@ Considere as seguintes informações ao configurar o dimensionamento de suas imp
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
-- Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
-- Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
+- Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
+- Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).

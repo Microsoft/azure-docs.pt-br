@@ -4,12 +4,12 @@ description: Este artigo fornece um passo a passo de como criar um aplicativo Ja
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: b9bbd5d4290261ec96755f02a6179a7cde267d82
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607976"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309400"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Usar o Java para enviar eventos ou receber eventos dos Hubs de Eventos do Azure (azure-eventhubs)
 
@@ -421,4 +421,4 @@ Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Recursos e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
-- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+- [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.yml)

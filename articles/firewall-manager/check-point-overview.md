@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3c61dc689d19e1a7d6f9b6dbefae846e9458d750
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146851"
 ---
-# <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Proteger os hubs virtuais usando o Check Point Cloudguard Connect
+# <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Proteger hubs virtuais usando o Check Point Cloudguard Connect
 
 O Check Point CloudGuard Connect é um parceiro de segurança confiável no Gerenciador de firewall do Azure. Ele protege as conexões da B2I (rede virtual para a Internet) ou de redes virtuais para a Internet (V2I) distribuídas globalmente com a prevenção avançada de ameaças. 
 

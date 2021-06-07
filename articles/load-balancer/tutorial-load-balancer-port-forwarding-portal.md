@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 27851a44dbe3085610fadc8b9bdaf400b4d2876c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043646"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056055"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal
 
@@ -119,7 +118,7 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
    1. Em **BALANCEAMENTO DE CARGA** > **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?** , selecione **Sim**. 
    1. Para **Opções de balanceamento de carga**, abra a lista suspensa e selecione **Azure Load Balancer**. 
    1. Para **Selecionar um balanceador de carga**, abra a lista suspensa e selecione **MyLoadBalancer**. 
-   1. Em **Selecionar um pool de back-end**, selecione **Criar novo**, em seguida digite *MyBackendPool*e selecione **Criar**. 
+   1. Em **Selecionar um pool de back-end**, selecione **Criar novo**, em seguida digite *MyBackendPool* e selecione **Criar**. 
    
    ![Criar uma rede virtual](./media/tutorial-load-balancer-port-forwarding-portal/create-vm-networking.png)
    

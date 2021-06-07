@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: da698a1a8d91273321d4633abd683a06cb4cf403
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 222505b03aac5bfc4e8d00b8c8977bece34dee85
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451634"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567499"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conectar-se ao Synapse SQL com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Você pode usar o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-s
 
 ### <a name="supported-tools-for-serverless-sql-pool"></a>Ferramentas compatíveis com o pool de SQL sem servidor
 
-O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade com a versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
+O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade da versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
 
 > [!NOTE]
 > Se o logon do AAD tiver uma conexão aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que depender do AAD falhará. Isso inclui consultar o armazenamento usando a passagem do AAD e instruções que interagem com o AAD (como CREATE EXTERNAL PROVIDER). Isso afeta todas as ferramentas que mantêm a conexão aberta, como no editor de consultas no SSMS e no ADS. As ferramentas que abrem novas conexões para executar consultas, como o Synapse Studio, não são afetadas.

@@ -3,15 +3,16 @@ title: Visão geral das opções de backup para VMs
 description: Visão geral opções de backup para máquinas virtuais do Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: recovery
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 5a093de0a27c8379cb6eff9c2bc3867dfdc20db5
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c4116ef8d02bd47d6375371be9381553f8c22eda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787800"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102565437"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de backup e restauração para máquinas virtuais no Azure
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602639"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir os custos com a reserva de discos do Azure
@@ -70,7 +70,7 @@ Siga estas etapas para comprar a capacidade reservada:
    |Elemento  |Descrição  |
    |---------|---------|
    |**Escopo**   |  Quantas assinaturas podem usar o benefício de cobrança associado à reserva. Esse valor também especifica como a reserva é aplicada a assinaturas específicas. <br/><br/> Se você selecionar **compartilhado**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure em cada assinatura no contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes pagos conforme o uso, o escopo compartilhado inclui todas as assinaturas individuais com tarifas pagas conforme o uso criadas pelo administrador da conta.  <br/><br/>  Se você selecionar **assinatura única**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada. <br/><br/> Se você selecionar **um único grupo de recursos**, o desconto de reserva será aplicado à capacidade de armazenamento do Azure na assinatura selecionada e no grupo de recursos selecionado da assinatura. <br/><br/> Você pode alterar o escopo de reserva depois de comprar a reserva.  |
-   |**Assinatura**  | A assinatura que você usa para pagar pela reserva de armazenamento do Azure. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos:<br/><ul><li> Enterprise Agreement (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes.</li><br/><li>Assinatura individual com tarifas pagas conforme o uso (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.</li></ul>    |
+   |**Assinatura**  | A assinatura que você usa para pagar pela reserva de armazenamento do Azure. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos:<br/><ul><li> Contrato Enterprise (números de oferta MS-AZR-0017P e MS-AZR-0148P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes.</li><br/><li>Assinatura individual com tarifas pagas conforme o uso (números de oferta MS-AZR-0003P e MS-AZR-0023P). Para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.</li></ul>    |
    | **Discos** | A SKU que você deseja criar. |
    | **Região** | A região em que a reserva está em vigor. |
    | **Frequência de cobrança** | Com que frequência a conta é cobrada pela reserva. As opções incluem **mensalmente** e **antecipadamente**. |

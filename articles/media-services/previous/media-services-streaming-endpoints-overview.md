@@ -3,7 +3,7 @@ title: Visão Geral do ponto de extremidade de streaming dos Serviços de Mídia
 description: Este artigo fornece uma visão geral dos pontos de extremidade de streaming dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0961b52ebc7271fabf4cc05ed99eea23d911a2d4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98694564"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103009077"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
@@ -52,7 +52,7 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.m
 A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
 
-|Digite|Descrição|
+|Type|Descrição|
 |--------|--------|  
 |**Standard**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
 |**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os pontos de extremidade de streaming dedicados residem em um ambiente isolado e não conpetem por recursos.|
@@ -77,7 +77,7 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 ### <a name="versions"></a>Versões
 
-|Digite|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Clássico|1.0|0|NA|Gratuita|
 |Ponto de extremidade de streaming padrão (visualização)|2,0|0|Sim|Pago|
@@ -88,7 +88,7 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 Recurso|Standard|Premium
 ---|---|---
-Taxa de transferência |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
+Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diariamente|Diariamente
 Criptografia dinâmica|Sim|Sim

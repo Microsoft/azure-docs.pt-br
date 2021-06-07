@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5353cf841663d70f2fce6662964358b7828610d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: d0692996c27f969ffc90078db2ddcc849ee15ab1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020888"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103012710"
 ---
 # <a name="media-reserved-units"></a>Unidades reservadas para mídia
 

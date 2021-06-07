@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 5b59b395084e3f2c4e7ccb7f1e6db0e46de256b1
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 807fdbb1844eb6f89f71e639537a65baf8c76ad5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763011"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761755"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Início Rápido: Usar o GitHub Actions para conectar-se ao MySQL do Azure
 
@@ -42,7 +42,7 @@ O arquivo tem duas seções:
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 Substitua os espaços reservados `server-name` pelo nome do seu servidor MySQL hospedado no Azure. Substitua o `subscription-id` e `resource-group` pela ID da assinatura e o grupo de recursos conectados ao servidor MySQL.  
 
@@ -93,8 +93,8 @@ Você usará a cadeia de conexão como um segredo do GitHub.
 
     ```yaml
     - uses: azure/login@v1
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
 1. Selecione **Novo segredo** novamente. 
@@ -126,19 +126,19 @@ Você usará a cadeia de conexão como um segredo do GitHub.
     name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+        push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
     jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
 1. Use a ação Implantar do MySQL do Azure para se conectar à sua instância do MySQL. Substitua `MYSQL_SERVER_NAME` pelo nome do seu servidor. Você deve ter um arquivo de dados do MySQL chamado `data.sql` no nível raiz do seu repositório. 
@@ -154,34 +154,34 @@ Você usará a cadeia de conexão como um segredo do GitHub.
 1. Conclua o fluxo de trabalho adicionando uma ação para fazer logoff do Azure. Este é o fluxo de trabalho concluído. O arquivo será exibido na pasta `.github/workflows` do seu repositório.
 
     ```yaml
-   name: MySQL for GitHub Actions
+    name: MySQL for GitHub Actions
 
     on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+         push:
+            branches: [ master ]
+        pull_request:
+            branches: [ master ]
 
 
-    jobs:
-    build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-        with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     jobs:
+        build:
+            runs-on: windows-latest
+            steps:
+            - uses: actions/checkout@v1
+            - uses: azure/login@v1
+                with:
+                    creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - uses: azure/mysql@v1
-      with:
-        server-name: MYSQL_SERVER_NAME
-        connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+            - uses: azure/mysql@v1
+                with:
+                    server-name: MYSQL_SERVER_NAME
+                    connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
+                    sql-file: './data.sql'
 
-        # Azure logout 
-    - name: logout
-      run: |
-         az logout
+            # Azure logout 
+            - name: logout
+                run: |
+                    az logout
     ```
 
 ## <a name="review-your-deployment"></a>Examinar sua implantação

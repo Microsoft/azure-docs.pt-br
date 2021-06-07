@@ -11,17 +11,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202952"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsTransformations** contém uma lista de funções de transformação de declarações que podem ser usadas nos percursos do usuário como parte de uma [política personalizada](custom-policy-overview.md). Uma transformação de declarações converte uma determinada declaração em outra. Na transformação de declarações, especifique o método de transformação, por exemplo, adicionando um item a uma coleção de cadeia de caracteres ou alterando o uso de maiúsculas e minúsculas em uma cadeia de caracteres.
+O elemento **ClaimsTransformations** contém uma lista de funções de transformação de declarações que podem ser usadas em percursos do usuário como parte de uma [política personalizada](custom-policy-overview.md). Uma transformação de declarações converte uma determinada declaração em outra. Na transformação de declarações, especifique o método de transformação, por exemplo, adicionando um item a uma coleção de cadeia de caracteres ou alterando o uso de maiúsculas e minúsculas em uma cadeia de caracteres.
 
 Para incluir a lista de funções de transformação de declarações que podem ser usadas nos percursos do usuário, um elemento XML ClaimsTransformations precisa ser declarado na seção BuildingBlocks da política.
 
@@ -159,11 +159,11 @@ Por exemplo, você pode armazenar a última versão dos termos de serviços que 
 
 Para obter exemplos de transformações de declarações, confira as seguintes páginas de referência:
 
-- [Booliano](boolean-transformations.md)
+- [Boolean](boolean-transformations.md)
 - [Data](date-transformations.md)
 - [Inteiro](integer-transformations.md)
 - [JSON](json-transformations.md)
-- [Número de telefone](phone-number-claims-transformations.md)
+- [Número do telefone](phone-number-claims-transformations.md)
 - [Geral](general-transformations.md)
 - [Conta social](social-transformations.md)
 - [Cadeia de caracteres](string-transformations.md)

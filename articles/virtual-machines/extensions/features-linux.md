@@ -1,26 +1,19 @@
 ---
 title: Recursos e extensões de VM do Azure para Linux
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure no Linux, agrupadas pelo que elas fornecem ou aperfeiçoadas.
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 03/30/2018
-ms.author: akjosh
-ms.openlocfilehash: 129897d3288a900803efbfba8abf86c276077fa8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966064"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046871"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -33,7 +26,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Linux. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, confira [Como monitorar uma VM Linux](../linux/tutorial-monitor.md).
+- Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, confira [Como monitorar uma VM Linux](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
 - Configure o monitoramento da infraestrutura do Azure com a extensão Chef ou Datadog. Para obter mais informações, consulte os [documentos do Chef](https://docs.chef.io/azure_portal.html) ou o [Blog do Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](custom-script-linux.md).
@@ -252,7 +245,7 @@ A saída deverá ser semelhante ao seguinte exemplo:
 
 ```bash
 WALinuxAgent-2.2.17 running on ubuntu 16.04
-Python: 3.5.2
+Python: 3.6.0
 Goal state agent: 2.2.18
 ```
 

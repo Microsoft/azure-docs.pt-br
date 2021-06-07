@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Alternar para o pool de SQL dedicado (antigo SQL DW)
+- name: Alternar para o pool de SQL dedicado (antigo SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Visão geral
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Inícios rápidos
       items:
-        - name: Criar um workspace usando o portal do Azure
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Criar um workspace usando a CLI do Azure
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Criar um workspace usando o Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Implantar com um modelo
-          href: quickstart-deployment-template-workspaces.md
+        - name: Criar um workspace
+          items:
+            - name: Portal do Azure
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: CLI do Azure
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Modelo de ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Vincular um workspace do Power BI
           href: quickstart-power-bi.md
@@ -113,6 +115,8 @@
                   href: ./security/workspace-data-exfiltration-protection.md
                 - name: Workspace do Synapse com hubs de link privado
                   href: ./security/synapse-private-link-hubs.md
+                - name: Conectar-se a uma conta de armazenamento protegida
+                  href: ./security/connect-to-a-secure-storage-account.md
             - name: Autenticação e passagem
               items:
                 - name: Azure Active Directory
@@ -336,15 +340,12 @@
                 - name: Procedimentos armazenados
                   href: sql/develop-stored-procedures.md
                 - name: Transactions
-                  href: sql/develop-transactions.md
-                - name: Transactions
                   items:
-                    - name: Pool de SQL sem servidor
+                    - name: Transações do pool de SQL dedicado
+                      href: sql/develop-transactions.md
+                    - name: Transações de melhores práticas do pool de SQL dedicado
                       displayname: 'Transaction, best, practices'
                       href: sql/develop-transaction-best-practices.md
-                    - name: Pool de SQL dedicado
-                      displayname: 'Transactions, best, practices'
-                      href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Esquemas definidos pelo usuário
                   href: sql/develop-user-defined-schemas.md
                 - name: Atribuição de variável
@@ -417,7 +418,7 @@
           items:
             - name: Criar pontos de restauração
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Restaurar um pool de SQL do Synapse
+            - name: Restaurar um pool de SQL dedicado
               href: ./backuprestore/restore-sql-pool.md
         - name: Gerenciar e monitorar
           items:
@@ -550,6 +551,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Enviar definições de trabalho do Spark
           href: ./spark/apache-spark-job-definitions.md
+        - name: Conectar e monitorar as métricas no nível do aplicativo Spark do Azure Synapse
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Monitorar métricas no nível do aplicativo Apache Spark com Prometheus e Grafana
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Conceitos
       items:
         - name: Apache Spark
@@ -564,14 +569,24 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Notebooks
           href: ./spark/apache-spark-notebook-concept.md
+        - name: Gerenciamento de pacotes
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Ferramentas de monitoramento
           href: monitoring/how-to-monitor-spark-applications.md
     - name: Guias de instruções
       items:
         - name: Trabalhar com o Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Gerenciar bibliotecas
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
+        - name: Gerenciar pacotes
+          items:
+            - name: Gerenciar pacotes do Python
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Gerenciar pacotes Scala
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Solucionar problemas com erros de instalação do pacote Python
+              href: ./spark/apache-spark-troubleshoot-library-errors.md
+            - name: Criar um canal privado do Conda
+              href: ./spark/apache-spark-custom-conda-channel.md
         - name: Usar notebooks e ferramentas de IDE
           items:
             - name: Gerenciar notebooks
@@ -1133,7 +1148,7 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/ext/synapse/?view=azure-cli-latest
+      href: /cli/azure/ext/synapse/
     - name: Tipos de ordenação do banco de dados
       href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Go

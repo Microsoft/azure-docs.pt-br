@@ -1,21 +1,17 @@
 ---
 title: Criar um data factory do Azure usando a interface do usuário do Azure Data Factory
 description: Crie um data factory com um pipeline que copia dados de uma localização no Armazenamento de Blobs do Azure para outro local.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 0f22d4695a6324b0f0cde466e252b1a3a504f433
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632742"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654984"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: Criar um data factory usando a interface do usuário do Azure Data Factory 
 
@@ -36,14 +32,15 @@ Este guia de início rápido descreve como usar a interface do usuário do Azure
 Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factory: 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
 1. No menu do portal do Azure, selecione **Criar um recurso**.
 1. Selecione **Integração** e escolha **Data Factory**. 
    
-   ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Seleção do Data Factory no painel Novo.":::
+
 1. Na página **Criar Data Factory**, na guia **Informações Básicas**, selecione sua **Assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
@@ -59,8 +56,8 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
  
 1. Em **Nome**, insira **ADFTutorialDataFactory**.
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).
-  
-   ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
+
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 
 1. Para **Versão**, selecione **V2**.
 
@@ -70,7 +67,7 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 
 1. Selecione o bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário do Azure Data Factory em uma guia separada do navegador.
    
-   ![Página inicial do Data Factory, com o bloco “Criar e Monitorar"](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
    
    > [!NOTE]
    > Se você vir que o navegador da Web está preso em "Autorizando", desmarque a caixa de seleção **Bloquear cookies de terceiros e dados do site**. Ou a mantenha selecionada, crie uma exceção para **login.microsoftonline.com** e tente abrir o aplicativo novamente.
@@ -83,7 +80,7 @@ Neste procedimento, você criará um serviço vinculado para vincular sua Conta 
 
 1. Na página Serviços vinculados, selecione **+Novo** para criar um serviço vinculado.
 
-   ![Novo serviço vinculado](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Novo serviço vinculado.":::
    
 1. Na página **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**. 
 
@@ -97,7 +94,7 @@ Neste procedimento, você criará um serviço vinculado para vincular sua Conta 
 
    d. Selecione **Criar** para salvar o serviço vinculado. 
 
-      ![Serviço vinculado](./media/quickstart-create-data-factory-portal/linked-service.png)
+      :::image type="content" source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="Serviço vinculado.":::
 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
@@ -113,13 +110,13 @@ Nas configurações de serviço vinculado, você especificou a conta de Armazena
 
 1. Selecione o botão **+** (mais) adição e, em seguida, selecione **Conjunto de Dados**.
 
-   ![Menu para criar um conjunto de dados](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-dataset-menu.png" alt-text="Menu para criação um conjunto de dados.":::
 
 1. Na página **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Concluir**. 
 
 1. Na página **Selecionar Formato**, escolha o tipo de formato dos dados e, em seguida, selecione **Continuar**. Nesse caso, selecione **Binário** ao copiar arquivos no estado em que se encontram sem analisar o conteúdo.
 
-   ![Selecione formatar](./media/quickstart-create-data-factory-portal/select-format.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/select-format.png" alt-text="Selecionar o formato.":::   
    
 1. Na página **Definir Propriedades**, conclua as seguintes etapas:
 
@@ -133,7 +130,8 @@ Nas configurações de serviço vinculado, você especificou a conta de Armazena
     
     e. Selecione **OK**.   
 
-    ![Definir propriedades para InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png" alt-text="Definir as propriedades de InputDataset.":::
+
 1. Repita as etapas para criar o conjunto de dados de saída:  
 
     a. Selecione o botão **+** (mais) adição e, em seguida, selecione **Conjunto de Dados**.
@@ -148,7 +146,7 @@ Nas configurações de serviço vinculado, você especificou a conta de Armazena
 
     f. Selecione **OK**.   
 
-    ![Definir propriedades para OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png" alt-text="Definir as propriedades de OutputDataset.":::    
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline 
 Neste procedimento, você criará e validará um pipeline com uma atividade Copiar que usa o conjunto de dados de entrada e saída. A Atividade de cópia copia os dados do arquivo especificado por você nas configurações do conjunto de dados de entrada para o arquivo especificado por você nas configurações do conjunto de dados de saída. Se o conjunto de dados de entrada especifica apenas uma pasta (não o nome de arquivo), a Atividade de cópia copia todos os arquivos da pasta de origem para o destino. 
@@ -159,7 +157,7 @@ Neste procedimento, você criará e validará um pipeline com uma atividade Copi
 
 1. Na caixa de ferramentas **Atividades**, expanda **Mover e transformar**. Arraste a atividade **Copiar Dados** da caixa de ferramentas **Atividades** para a superfície do Designer de Pipeline. Você também pode pesquisar atividades na caixa de ferramentas **Atividades**. Especifique **CopyFromBlobToBlob** para o **Nome**.
 
-   ![Criar uma atividade de cópia de dados](./media/quickstart-create-data-factory-portal/copy-activity.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-activity.png" alt-text="Criação de uma atividade de cópia de dados.":::   
 
 1. Alterne para a guia **Fonte** nas configurações da atividade de cópia e selecione **InputDataset** para o **Conjunto de dados de origem**.
 
@@ -167,7 +165,7 @@ Neste procedimento, você criará e validará um pipeline com uma atividade Copi
 
 1. Clique em **Validar** na barra de ferramentas do pipeline sobre a tela para validar as configurações de pipeline. Confirme se esse pipeline foi validado com êxito. Para fechar a saída de validação, selecione o botão Validação no canto superior direito. 
 
-   ![Validar um pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"   alt-text="Validar um pipeline.":::
 
 ## <a name="debug-the-pipeline"></a>Depurar o pipeline
 Nesta etapa, você depura o pipeline antes de implantá-lo no Data Factory. 
@@ -176,7 +174,7 @@ Nesta etapa, você depura o pipeline antes de implantá-lo no Data Factory.
     
 1. Confirme se você vê o status da execução do pipeline na guia **Saída** das configurações do pipeline na parte inferior. 
  
-    ![Saída da execução do pipeline](./media/quickstart-create-data-factory-portal/pipeline-output.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-output.png" alt-text="Saída da execução do pipeline":::
 
 1. Confirme que você vê um arquivo de saída na pasta **saída** do contêiner **adftutorial**. O serviço Data Factory cria a pasta de saída automaticamente caso ela não exista. 
 
@@ -185,7 +183,7 @@ Nesta procedimento, você implanta entidades (serviços vinculados, conjuntos de
 
 1. Antes de disparar um pipeline, você deve publicar as entidades no Data Factory. Para publicar, selecione **Publicar tudo** na parte superior. 
 
-    ![Publicar tudo](./media/quickstart-create-data-factory-portal/publish-all.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/publish-all.png" alt-text="Publicar tudo.":::    
 
 1. Para disparar o pipeline manualmente, selecione **Adicionar Gatilho** na barra de ferramentas do pipeline e, em seguida, selecione **Disparar Agora**. Na página **Execução de pipeline**, selecione **OK**.
 
@@ -193,12 +191,12 @@ Nesta procedimento, você implanta entidades (serviços vinculados, conjuntos de
 
 1. Alterne para a guia **Monitorar** à esquerda. Use o botão **Atualizar** para atualizar a lista.
 
-   ![Guia para monitoramento de execuções de pipeline](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png" alt-text="Guia para monitoramento de execuções de pipeline"::: 
 1. Selecione o link **CopyPipeline**; você verá o status de execução da atividade de cópia nesta página. 
 
 1. Para exibir detalhes sobre a operação de cópia, selecione o link **Detalhes** (imagem de óculos). Para obter detalhes sobre as propriedades, confira [Visão geral da atividade de cópia](copy-activity-overview.md). 
 
-   ![Obter detalhes da operação](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-operation-details.png" alt-text="Detalhes da operação de cópia.":::
 1. Confirme que você vê um arquivo novo na pasta de **saída**. 
 1. Alterne novamente para a exibição **Execuções de pipeline** do modo de exibição **Execuções de atividade** selecionando o link **Todas as execuções de pipeline**. 
 
@@ -217,7 +215,7 @@ Este procedimento é opcional neste tutorial. Você pode criar um *agendador de 
 
 1. Na página **Novo Gatilho**, marque a caixa de seleção **Ativado** e, em seguida, selecione **OK**. 
 
-   ![Nova configuração de gatilho](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/trigger-settings-next.png" alt-text="Nova configuração de gatilho.":::   
 1. Examine a mensagem de aviso e selecione **OK**.
 
 1. Selecione **Publicar tudo** para publicar as alterações no Data Factory. 

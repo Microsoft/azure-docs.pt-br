@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92544521"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provedor de Estado de Sessão ASP.NET para o Cache do Azure para Redis
@@ -22,7 +22,7 @@ Geralmente, não é prático em uma aplicativo em nuvem real evitar o armazename
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Armazenar o estado da sessão ASP.NET no cache
 
-Para configurar um aplicativo cliente no Visual Studio usando o pacote NuGet de Estado de Sessão do Cache do Azure para Redis, clique em **Gerenciador de Pacotes NuGet** e **Console do Gerenciador de Pacotes** no menu **Ferramentas** .
+Para configurar um aplicativo cliente no Visual Studio usando o pacote NuGet de Estado de Sessão do Cache do Azure para Redis, clique em **Gerenciador de Pacotes NuGet** e **Console do Gerenciador de Pacotes** no menu **Ferramentas**.
 
 Execute o comando a seguir na janela `Package Manager Console`.
     

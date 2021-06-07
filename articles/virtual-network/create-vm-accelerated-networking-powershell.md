@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
 ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919962"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando Azure PowerShell
@@ -49,13 +49,13 @@ Os benefícios da rede acelerada só se aplicam à VM em que ela está habilitad
 
 - **Redução da utilização da CPU**: ignorar o comutador virtual no host leva a menos utilização de CPU para processar o tráfego de rede.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
 - **Windows Server 2019 Datacenter**
 - **Datacenter do Windows Server 2016** 
-- **Windows Server 2012 R2 Datacenter**
+- **Datacenter do Windows Server 2012 R2**
 
 ## <a name="limitations-and-constraints"></a>Limitações e restrições
 

@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087281"
 ---
 # <a name="azure-media-player-localization"></a>Localização de Player de Mídia do Azure #
@@ -26,7 +26,7 @@ O suporte a vários idiomas permite que os usuários de localidades não inglesa
 
 O Player de Mídia do Azure atualmente dá suporte aos seguintes idiomas com seus códigos de idioma correspondentes:
 
-| Linguagem            | Código | Linguagem                | Código   | Linguagem                | Código         |
+| Idioma            | Código | Idioma                | Código   | Idioma                | Código         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
 | Inglês {padrão}   | en   | Croata                | hr     | Romeno                | ro           |
 | Árabe              | ar   | Húngaro               | hu     | Eslovaco                  | sk           |

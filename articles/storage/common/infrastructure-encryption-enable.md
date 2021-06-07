@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746579"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Criar uma conta de armazenamento com criptografia de infraestrutura habilitada para criptografia dupla de dados
@@ -30,7 +30,7 @@ Para criptografar os dados duplicados, você deve primeiro criar uma conta de ar
 
 Para criar uma conta de armazenamento com criptografia de infraestrutura habilitada, primeiro você deve se registrar para usar esse recurso com o Azure usando o PowerShell ou CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -90,13 +90,13 @@ Você deve configurar uma conta de armazenamento para usar a criptografia de inf
 
 A criptografia de infraestrutura não pode ser habilitada ou desabilitada após a criação da conta.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para usar o PowerShell para criar uma conta de armazenamento com a criptografia de infraestrutura habilitada, siga estas etapas:
 
 1. Na portal do Azure, navegue até a página **contas de armazenamento** .
 1. Escolha o botão **Adicionar** para adicionar uma nova conta de armazenamento v2 de uso geral.
-1. Na guia **avançado** , localize criptografia de **infraestrutura** e selecione **habilitado** .
+1. Na guia **avançado** , localize criptografia de **infraestrutura** e selecione **habilitado**.
 1. Selecione **examinar + criar** para concluir a criação da conta de armazenamento.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Captura de tela mostrando como habilitar a criptografia de infraestrutura ao criar a conta":::
@@ -174,14 +174,14 @@ O exemplo JSON a seguir cria uma conta de armazenamento v2 de uso geral configur
 
 ## <a name="verify-that-infrastructure-encryption-is-enabled"></a>Verificar se a criptografia de infraestrutura está habilitada
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para verificar se a criptografia de infraestrutura está habilitada para uma conta de armazenamento com o portal do Azure, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento no portal do Azure.
-1. Em **configurações** , escolha **criptografia** .
+1. Em **configurações**, escolha **criptografia**.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Captura de tela mostrando como habilitar a criptografia de infraestrutura ao criar a conta":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Captura de tela mostrando como verificar se a criptografia de infraestrutura está habilitada para a conta":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

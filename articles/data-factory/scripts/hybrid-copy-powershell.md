@@ -8,10 +8,10 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373378"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Usar o PowerShell para criar um pipeline de data factory para copiar dados do SQL Server para o Azure

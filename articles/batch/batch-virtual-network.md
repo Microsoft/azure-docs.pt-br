@@ -2,14 +2,14 @@
 title: Provisionar um pool em uma rede virtual
 description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: bedb0cbd826e2891560320ed11c0ba28e07f8e88
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165749"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629301"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -56,6 +56,8 @@ Para garantir que os nós em seu pool funcionem em uma VNet com túnel forçado 
 - O serviço de lote precisa se comunicar com nós para tarefas de agendamento. Para habilitar essa comunicação, adicione uma UDR a cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço locais](../virtual-network/service-tags-overview.md).
 
 - Verifique se o tráfego de saída para o armazenamento do Azure (especificamente, as URLs do formulário `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net` ) não está bloqueado pela sua rede local.
+
+- Se você usar montagens de arquivo virtual, examine os [requisitos de rede](virtual-file-mount.md#networking-requirements) e certifique-se de que nenhum tráfego necessário esteja bloqueado.
 
 Quando você adicionar uma UDR, defina a rota para cada prefixo de endereço IP de lote relacionado e defina **Próximo tipo de salto** como **Internet**.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2078ba177d68cfaa0a91b79611d92e5c68e4e245
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942728"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104868406"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -377,7 +377,7 @@ Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela interne
 
 O diagrama a seguir mostra como a comunicação flui entre o Storm e o Kafka:
 
-![Diagrama de clusters Storm e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagrama de clusters Storm e Kafka em uma rede virtual do Azure":::
 
 > [!NOTE]  
 > Outros serviços no cluster, como SSH e [Apache Ambari](https://ambari.apache.org/), podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -415,7 +415,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters Kafka e St
       | Nome de usuário do SSH | O usuário do SSH para criar os clusters. |
       | Senha SSH | A senha para o usuário do SSH. |
    
-      ![Imagem dos parâmetros de modelo](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Imagem dos parâmetros de modelo":::
 
 3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 

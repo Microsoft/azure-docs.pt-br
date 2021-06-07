@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8bc8846d546faec194617ccb753cdbd105e16bf9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85513620"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a senha de administrador do dispositivo StorSimple Virtual Array por meio do Gerenciador de Dispositivos do StorSimple
@@ -46,9 +46,9 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 4. Na folha **Configurações de segurança**, faça o seguinte:
    
-   1. Role para baixo até a seção **senha de administrador do dispositivo** . Forneça uma senha do administrador que contenha de 8 a 15 caracteres.
+   1. Role para baixo até a seção **Senha de Administrador do Dispositivo** . Forneça uma senha do administrador que contenha de 8 a 15 caracteres.
    2. Confirme a senha.
-   3. Clique em **salvar** na parte superior da folha.
+   3. Clique em **Salvar** na parte superior da folha.
 
 A senha de administrador do dispositivo agora está atualizada. Você pode usar essa senha modificada para acessar o dispositivo localmente.
 
@@ -60,7 +60,7 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Para alterar a senha do administrador do dispositivo por meio da interface do usuário da web local
 
-1. Na interface do usuário da Web local, clique em **manutenção**  >  **alteração de senha** para seu dispositivo.
+1. Na interface do usuário da Web local, clique em **Manutenção** > **Alteração de senha** para seu dispositivo.
    
     ![alterar password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Insira a **Senha atual**.

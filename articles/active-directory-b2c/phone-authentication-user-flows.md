@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525188"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100557233"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurar a inscrição e a entrada do telefone para fluxos de usuário (visualização)
 
@@ -55,7 +55,7 @@ A inscrição de email é habilitada por padrão nas configurações do provedor
 
    ![Selecionar os tipos de identidade permitidos](media/phone-authentication-user-flows/configure-local-idp.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="add-phone-sign-up-to-a-user-flow"></a>Adicionar inscrição do telefone a um fluxo de usuário
 
@@ -123,7 +123,7 @@ Você pode habilitar o prompt de email de recuperação nas propriedades do flux
 
     ![Propriedades de fluxos de usuário com habilitar email de recuperação habilitado](./media/phone-authentication-user-flows/recovery-email-settings.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ### <a name="to-test-the-recovery-email-prompt"></a>Para testar o prompt do email de recuperação
 
@@ -142,5 +142,5 @@ Depois de habilitar a inscrição e a entrada do telefone e o prompt de email de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar provedores de identidade externos](tutorial-add-identity-providers.md)
+- [Adicionar provedores de identidade externos](add-identity-provider.md)
 - [Criar um fluxo de usuário](tutorial-create-user-flows.md)

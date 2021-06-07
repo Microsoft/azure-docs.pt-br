@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f6030e209b06dc7ae9acd8a13e6dcdf22b58f8c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: integração do Microsoft Azure Active Directory com o Allbound SSO
@@ -189,7 +189,7 @@ Nesta seção, você permite que o Brenda Fernandes use o logon único do Azure,
 Nesta seção, um usuário chamado Brenda Fernandes será criado no Allbound SSO. O Allbound SSO dá suporte ao provisionamento de usuário just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Allbound SSO, um novo será criado após a autenticação.
 
 > [!Note]
-> Se você precisar criar um usuário manualmente, contate a  [equipe de suporte do Allbound - SSO](mailto:engineering@allbound.com).
+> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Allbound SSO](mailto:engineering@allbound.com).
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -3,17 +3,18 @@ title: Criar e criptografar uma VM do Linux com a CLI do Azure
 description: Neste guia de início rápido, aprenda a usar a CLI do Azure para criar e criptografar uma máquina virtual do Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5b98fde5e15a3c57b56ecc8aea60023ffb8c22a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737008"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774297"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Início Rápido: criar e criptografar uma VM do Linux com a CLI do Azure
 
@@ -25,7 +26,7 @@ Se você optar por instalar e usar a CLI do Azure localmente, este início rápi
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -78,7 +79,7 @@ Criptografe sua VM com [az vm encryption](/cli/azure/vm/encryption), fornecendo 
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-Após alguns instantes, o processo retorna a mensagem "A solicitação de criptografia foi aceita. Use o comando 'show' para monitorar o progresso.". O comando "show" é [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
+Após alguns instantes, o processo retorna a mensagem "A solicitação de criptografia foi aceita. Use o comando 'show' para monitorar o progresso.". O comando "show" é [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show).
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"

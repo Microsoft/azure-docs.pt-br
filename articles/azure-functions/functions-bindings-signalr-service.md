@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763482"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
 Este conjunto de artigos explica como autenticar e enviar mensagens em tempo real para clientes conectados ao [serviço de signaler do Azure](https://azure.microsoft.com/services/signalr-service/) usando associações de serviço de sinalização no Azure functions. O Azure Functions dá suporte a associações de entrada e saída para o Serviço SignalR.
 
-| Ação | Tipo |
+| Ação | Type |
 |---------|---------|
 | Tratar mensagens do serviço Signalr | [Disparar Associação](./functions-bindings-signalr-service-trigger.md) |
 | Retornar a URL do ponto de extremidade de serviço e o token de acesso | [Associação de entrada](./functions-bindings-signalr-service-input.md) |
@@ -28,7 +28,7 @@ Este conjunto de artigos explica como autenticar e enviar mensagens em tempo rea
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Linguagem                                        | Adicionar por...                                   | Comentários 
+| Idioma                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |

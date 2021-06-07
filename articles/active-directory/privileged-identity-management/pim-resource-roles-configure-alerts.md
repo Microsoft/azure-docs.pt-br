@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bfca096eb49ee9f1807935de1dac49151cc8ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84743755"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management
@@ -36,13 +36,13 @@ Selecione um alerta para ver um relatório que lista os usuários ou funções q
 
 ## <a name="alerts"></a>Alertas
 
-| Alerta | Severity | Gatilho | Recomendação |
+| Alerta | Severidade | Gatilho | Recomendação |
 | --- | --- | --- | --- |
 | **Muitos proprietários atribuídos a um recurso** |Médio |Muitos usuários têm a função de proprietário. |Examine os usuários na lista e reatribua alguns a funções menos privilegiadas. |
 | **Muitos proprietários permanentes atribuídos a um recurso** |Médio |Muitos usuários são permanentemente atribuídos a uma função. |Revise os usuários na lista e reatribua alguns para exigir ativação para o uso da função. |
 | **Duplicar função criada** |Médio |Várias funções têm os mesmos critérios. |Use apenas uma dessas funções. |
 
-### <a name="severity"></a>Severity
+### <a name="severity"></a>Severidade
 
 - **Alta**: exige ação imediata devido a uma violação da política. 
 - **Média**: não exige ação imediata, mas sinaliza uma possível violação da política.

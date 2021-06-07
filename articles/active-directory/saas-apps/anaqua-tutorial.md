@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ANAQUA | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ANAQUA | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ANAQUA.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.openlocfilehash: cf6f146265562e287df2cb3c4574742335d62efe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318651"
 ---
 # <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Tutorial: Integrar o ANAQUA ao Azure Active Directory
@@ -142,4 +142,4 @@ Ao selecionar o bloco do ANAQUA no Painel de Acesso, você deverá entrar automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

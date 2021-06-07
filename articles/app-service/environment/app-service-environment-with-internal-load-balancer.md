@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021513"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Como usar um Balanceador de Carga Interno com um Ambiente do Serviço do Aplicativo
@@ -58,12 +58,12 @@ A criação de um ILB do ASE não é muito diferente da criação normal de um A
 
 No painel Rede Virtual, há uma opção de Configuração VNet que permite selecionar entre um VIP externo ou VIP interno. O padrão é Externo. Se você configurou para Externo, o ASE usará um VIP acessível pela internet. Se você selecionar Interno, o ASE será configurado com um ILB em um endereço IP na sua VNet. 
 
-Após selecionar Interno, a capacidade de adicionar mais endereços IP ao ASE é removida e, em vez disso, será necessário fornecer o subdomínio do ASE. Em um ASE com um VIP Externo, o nome do ASE é usado no subdomínio para aplicativos criados nesse ASE. Se seu ASE for chamado de **_ContosoTest_* _ e seu aplicativo nesse ase for chamado de _*_myTest_*_, o subdomínio será do formato _*_ContosoTest.p.azurewebsites.net_*_ e a URL desse aplicativo será _*_myTest.ContosoTest.p.azurewebsites.net_*_. Se você definir o Tipo VIP como Interno, o nome de seu ASE não será usado no subdomínio do ASE. Especifique o subdomínio explicitamente. Se o subdomínio for _*_contoso.Corp.net_*_ e você tiver feito um aplicativo nesse ase chamado _*_Reporting_*_, a URL desse aplicativo será _*_timereporting.contoso.Corp.net_*_.
+Após selecionar Interno, a capacidade de adicionar mais endereços IP ao ASE é removida e, em vez disso, será necessário fornecer o subdomínio do ASE. Em um ASE com um VIP Externo, o nome do ASE é usado no subdomínio para aplicativos criados nesse ASE. Se seu ase for chamado de ***ContosoTest** _ e seu aplicativo nesse ase for chamado de _*_myTest_*_, o subdomínio será do formato _*_ContosoTest.p.azurewebsites.net_*_ e a URL desse aplicativo será _* _myTest.ContosoTest.p.azurewebsites.net_* *. Se você definir o tipo de VIP como interno, o nome do ASE não será usado no subdomínio para o ASE. Você especifica o subdomínio explicitamente. Se o subdomínio for ***contoso.Corp.net**_ e você tiver feito um aplicativo nesse ase chamado _*_Reporting_*_, a URL para esse aplicativo será _ *_timereporting.contoso.Corp.net_* *.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplicativos em um ILB do ASE
 A criação de um aplicativo em um ILB do ASE é igual à criação normal de um aplicativo em um ASE. 
 
-1. Na portal do Azure, selecione _ *criar um recurso-> Web + celular-> Web** ou **móvel** ou **aplicativo de API**.
+1. No Portal do Azure, selecione **Criar um recurso -> Web + Celular -> Web** ou **Celular** ou **Aplicativo de API**.
 2. Digite o nome do aplicativo.
 3. Selecione sua assinatura.
 4. Selecione ou crie um grupo de recursos.

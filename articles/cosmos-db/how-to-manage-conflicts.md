@@ -9,10 +9,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 8f98c2201159350f5774f4d2b05102384f31f3af
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339335"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
@@ -136,10 +136,10 @@ Estes exemplos mostram como configurar um contêiner com uma política de resolu
 
 Procedimentos de armazenados de resolução de conflitos personalizados devem ser implementados usando a assinatura de função mostrada abaixo. O nome da função não precisa corresponder ao nome usado ao registrar o procedimento armazenado com o contêiner, mas simplifica a nomenclatura. Aqui está uma descrição dos parâmetros que devem ser implementados para esse procedimento armazenado.
 
-- **incomingItem** : o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
-- **existingItem** : o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
-- **isTombstone** isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
-- **conflictingItems** : matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
+- **incomingItem**: o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
+- **existingItem**: o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
+- isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
+- **conflictingItems**: matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
 
 > [!IMPORTANT]
 > Assim como com qualquer procedimento armazenado, um procedimento de resolução de conflitos personalizado pode acessar todos os dados com a mesma chave de partição e executar qualquer operação de inserir, atualizar ou excluir para resolver conflitos.

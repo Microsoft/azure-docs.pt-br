@@ -8,10 +8,10 @@ ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99573476"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor

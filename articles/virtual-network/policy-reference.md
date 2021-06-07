@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para a Rede Virtual do Microsoft Azure
 description: Lista as definições de políticas internas do Azure Policy para a Rede Virtual do Microsoft Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 71bf7e931264cf4ecc76ba11fb8fc9a15fd26bb0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.openlocfilehash: 18a09f824cd182887bca30c61709f9f253e51af3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092396"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500593"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Definições internas do Azure Policy para a Rede Virtual do Microsoft Azure
 

@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
 ms.openlocfilehash: 7a702fbf405011a9df3e7e77936a9a37f0fdfad7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730631"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure

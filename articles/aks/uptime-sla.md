@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9f8f697da7499d370c96b77e7e543dec9fbafa3e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664088"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952908"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -37,9 +37,6 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 * Instalar o [CLI do Azure](/cli/azure/install-azure-cli) versão 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
-
-> [!NOTE]
-> Atualmente, se você habilitar o SLA de tempo de atividade, não será possível removê-lo de um cluster.
 
 Para criar um novo cluster com o SLA de tempo de atividade, use a CLI do Azure.
 
@@ -76,7 +73,7 @@ Se você criou um cluster AKS com as etapas anteriores, exclua o grupo de recurs
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-Criar um novo grupo de recursos:
+Criar um grupo de recursos:
 
 ```azurecli-interactive
 # Create a resource group
@@ -107,7 +104,16 @@ Use o [`az aks update`][az-aks-update] comando para atualizar o cluster existent
   },
   ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="opt-out-of-uptime-sla"></a>Recusar SLA de tempo de atividade
+
+Você pode atualizar o cluster para mudar para a camada gratuita e recusar o SLA de tempo de atividade.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
+
+## <a name="clean-up"></a>Limpeza
 
 Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 
@@ -135,6 +141,6 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

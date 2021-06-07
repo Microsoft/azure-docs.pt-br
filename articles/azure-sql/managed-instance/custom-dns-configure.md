@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
 ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831494"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurar um DNS personalizado para Instância Gerenciada de SQL do Azure
@@ -30,7 +30,7 @@ Como o SQL Instância Gerenciada usa o mesmo DNS para seus trabalhos internos, c
 > Sempre use um FQDN (nome de domínio totalmente qualificado) para o servidor de email, para a instância do SQL Server e para outros serviços, mesmo que eles estejam dentro de sua zona DNS privada. Por exemplo, use `smtp.contoso.com` para seu servidor de email porque o `smtp` não resolverá corretamente. Criar um servidor vinculado ou replicação que referencie SQL Server VMs dentro da mesma rede virtual também exige um FQDN e um sufixo DNS padrão. Por exemplo, `SQLVM.internal.cloudapp.net`. Para obter mais informações, consulte [resolução de nomes que usa seu próprio servidor DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> A atualização de servidores DNS da rede virtual não afetará o SQL Instância Gerenciada imediatamente. Consulte [como sincronizar a configuração de servidores DNS de rede virtual no cluster virtual do SQL instância gerenciada](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) para obter mais detalhes.
+> A atualização de servidores DNS da rede virtual não afetará o SQL Instância Gerenciada imediatamente. Confira [Como sincronizar a configuração de servidores DNS da rede virtual no cluster virtual da Instância Gerenciada de SQL](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

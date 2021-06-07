@@ -4,10 +4,10 @@ description: Execute contêineres de inicialização em instâncias de contêine
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85954274"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Executar um contêiner de inicialização para tarefas de instalação em um grupo de contêineres
@@ -38,8 +38,8 @@ Comece copiando o JSON a seguir em um novo arquivo chamado `azuredeploy.json`. O
 
 * O contêiner *init1* executa a imagem [busybox](https://hub.docker.com/_/busybox) do Hub do Docker. Ele é suspenso por 60 segundos e grava uma cadeia de caracteres de linha de comando em um arquivo em um [volume emptyDir](container-instances-volume-emptydir.md).
 * Ambos os contêineres de aplicativo executam a imagem de contêiner da Microsoft `aci-wordcount` :
-    * O contêiner *Hamlet* executa o aplicativo WordCount em sua configuração padrão, contando frequências de palavras no *Hamlet*de execução de Shakespeare.
-    * O contêiner do aplicativo *Julieta* lê a cadeia de caracteres de linha de comando do volume emptDir para executar o aplicativo WordCount em vez de *Romeu e Julieta*de Shakespeare.
+    * O contêiner *Hamlet* executa o aplicativo WordCount em sua configuração padrão, contando frequências de palavras no *Hamlet* de execução de Shakespeare.
+    * O contêiner do aplicativo *Julieta* lê a cadeia de caracteres de linha de comando do volume emptDir para executar o aplicativo WordCount em vez de *Romeu e Julieta* de Shakespeare.
 
 Para obter mais informações e exemplos usando a `aci-wordcount` imagem, consulte [definir variáveis de ambiente em instâncias de contêiner](container-instances-environment-variables.md).
 

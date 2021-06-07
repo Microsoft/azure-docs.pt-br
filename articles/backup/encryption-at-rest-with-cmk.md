@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369451"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101716730"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -196,7 +196,7 @@ Depois que as versões acima tiverem sido verificadas, Continue selecionando a c
 
         ![Selecionar chave do Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. **Acompanhamento do progresso e do status da atualização da chave de criptografia**: você pode acompanhar o progresso e o status da atribuição de chave de criptografia usando a exibição **trabalhos de backup** na barra de navegação à esquerda. O status deve ser alterado em breve para **concluído**. Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > Esse processo permanece o mesmo quando você deseja atualizar ou alterar a chave de criptografia. Se você quiser atualizar e usar uma chave de outra Key Vault (diferente da que está sendo usada no momento), verifique se:
 >
-> - O Key Vault está localizado na mesma região que o cofre dos serviços de recuperação
+> - O cofre de chaves está localizado na mesma região que o cofre dos serviços de recuperação
 >
 > - O cofre de chaves tem a proteção de exclusão e limpeza reversível habilitada
 >
-> - O cofre dos serviços de recuperação tem as permissões necessárias para acessar o Key Vault.
+> - O cofre dos serviços de recuperação tem as permissões necessárias para acessar o cofre de chaves.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>Fazendo backup em um cofre criptografado com chaves gerenciadas pelo cliente
 

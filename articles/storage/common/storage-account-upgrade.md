@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/09/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 50a0894898dcdc817ee253ad326b88a9bb61b9d6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357357"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554999"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -24,6 +24,15 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
 > [!IMPORTANT]
 > A atualização de uma conta de armazenamento de blob v1 ou de uso geral para uso geral V2 é permanente e não pode ser desfeita.
+
+> [!NOTE]
+> Embora a Microsoft recomende contas de uso geral v2 para a maioria dos cenários, a Microsoft continuará a dar suporte a contas v1 de uso geral para clientes novos e existentes. Você pode criar contas de armazenamento de uso geral v1 em novas regiões sempre que o armazenamento do Azure estiver disponível nessas regiões. Atualmente, a Microsoft não tem um plano para substituir o suporte a contas v1 de uso geral e fornecerá pelo menos um ano de aviso prévio antes de substituir qualquer recurso de armazenamento do Azure. A Microsoft continuará a fornecer atualizações de segurança para contas v1 de uso geral, mas nenhum novo desenvolvimento de recurso é esperado para esse tipo de conta.
+>
+> A partir de 1º de outubro de 2020, os preços para contas v1 de uso geral em novas regiões de armazenamento do Azure são equivalentes a preços para contas v2 de uso geral nessas regiões. Os preços nas regiões de armazenamento do Azure existentes não foram alterados. Para obter detalhes de preços para contas v1 de uso geral em uma região específica, consulte a página de preços do armazenamento do Azure. Escolha sua região e, em seguida, ao lado de **ofertas de preços**, selecione **outros**.
+
+## <a name="upgrade-an-account"></a>Atualizar uma conta
+
+Para atualizar uma conta de armazenamento de blob v1 ou de uso geral para uma conta v2 de uso geral, use portal do Azure, PowerShell ou CLI do Azure.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -47,6 +56,7 @@ Em seguida, chame o seguinte comando para atualizar a conta, substituindo o nome
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para atualizar uma conta de uso geral v1 para uma conta de uso geral v2 usando a CLI do Azure, primeiro instale a versão mais recente da CLI do Azure. Para obter informações sobre como instalar a CLI 2.0 do Azure, veja [Como instalar a CLI do Azure](/cli/azure/install-azure-cli).

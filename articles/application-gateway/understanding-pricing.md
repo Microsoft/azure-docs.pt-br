@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 89ba6b7a69c95951a083628f23be68d811c7768c
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96601604"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Noções básicas sobre preços para o gateway de Aplicativo Azure e o Firewall do aplicativo Web
@@ -56,7 +56,7 @@ A tabela a seguir mostra os preços de exemplo com base em um instantâneo do pr
 
 |              Tipo de gateway de aplicativo             |  Custos ($/HR)  |
 | ------------------------------------------------- | ---------------|
-|                     Pequeno                         |    $0.25      |
+|                     Small                         |    $0.25      |
 |                     Médio                        |    $0.07       |
 |                     Grande                         |    $0.32       |
 
@@ -82,7 +82,7 @@ A tabela a seguir mostra os preços de exemplo com base em um instantâneo do pr
 
 |              Tipo de gateway de aplicativo             |  Custos ($/HR)  |
 | ------------------------------------------------- | ---------------|
-|                     Pequeno                         |       NA       |
+|                     Small                         |       NA       |
 |                     Médio                        |     $0.126     |
 |                     Grande                         |     $0.448     |
 

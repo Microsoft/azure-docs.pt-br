@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: eec11ce53177ce7ecd10d1ce06cc60217293cb8e
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98574304"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>Escalabilidade e metas de desempenho para discos de VM
@@ -31,6 +31,6 @@ Tamanhos demarcados com um asterisco estão atualmente em visualização. Consul
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md)

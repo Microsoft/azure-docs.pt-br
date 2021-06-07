@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.openlocfilehash: 2a5204be638f108b40e431b148c9cb97788c4a52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91400750"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para o Google Connectors em aplicativos lógicos do Azure
@@ -100,7 +100,7 @@ Para usar a ID do cliente e o segredo do cliente do seu aplicativo cliente do Go
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Tipo de autenticação** | **Traga seu próprio aplicativo** | Especifica que você usará seu próprio aplicativo cliente para autenticação. |
+   | **Tipo de Autenticação** | **Traga seu próprio aplicativo** | Especifica que você usará seu próprio aplicativo cliente para autenticação. |
    | **ID do Cliente** | <*client-ID*> | A ID do cliente do seu aplicativo cliente do Google |
    | **Segredo do Cliente** | <*segredo do cliente*> | O segredo do cliente do seu aplicativo cliente do Google |
    ||||

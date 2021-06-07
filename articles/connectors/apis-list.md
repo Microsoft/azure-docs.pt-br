@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 02/12/2021
 ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382881"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rótulo | Exemplo | Descrição |
+| Label | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector principal de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |

@@ -1,5 +1,5 @@
 ---
-title: Como as verificações detectam ativos excluídos
+title: Como os exames detectam os ativos excluídos
 description: Este artigo explica como uma conta do Azure alcance detecta ativos excluídos durante as verificações.
 author: yaronyg
 ms.author: yarong
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: 9b1515ef00355c831e161c01227678197792cc20
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551854"
 ---
-# <a name="how-scans-detect-deleted-assets"></a>Como as verificações detectam ativos excluídos
+# <a name="how-scans-detect-deleted-assets"></a>Como os exames detectam os ativos excluídos
 
 Este artigo descreve como o Azure alcance usa os resultados da verificação para detectar ativos excluídos.
 

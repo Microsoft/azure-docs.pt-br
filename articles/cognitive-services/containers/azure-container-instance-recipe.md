@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: aahi
 ms.openlocfilehash: 003b4411ac791898f4a7467b9b03f29aadba2fc7
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704819"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implantar e executar em Instância de Contêiner do Azure
@@ -56,7 +56,7 @@ Todas as variáveis entre colchetes angulares, `<>` precisam ser substituídas p
 
 ## <a name="use-the-container-instance"></a>Usar a instância de contêiner
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Selecione a **visão geral** e copie o endereço IP. Será um endereço IP numérico, como `55.55.55.55` .
 1. Abra uma nova guia do navegador e use o endereço IP, por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Você verá o home page do contêiner, informando que o contêiner está em execução.

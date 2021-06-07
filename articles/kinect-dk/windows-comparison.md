@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Kinect do Azure, comparação, SDK, diferenças, hardware, software
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87031565"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparação entre o Azure Kinect e o Kinect Windows v2
@@ -24,7 +24,7 @@ As diferenças de alto nível entre o kit de desenvolvimento do Azure Kinect e o
 
 | Recurso | Type | Azure Kinect DK | Kinect para Windows v2 |
 | ------- | ---- | --------------- | --------------------- |
-| **Áudio** | Detalhes  | matriz circular de 7-MIC | matriz de fase linear de 4-MIC |
+| **Sonoro** | Detalhes  | matriz circular de 7-MIC | matriz de fase linear de 4-MIC |
 | **Sensor de movimento** | Detalhes | acelerômetro de 3 eixos de giro de 3 eixos | acelerômetro de 3 eixos |
 | **Câmera RGB**    | Detalhes | 3840 x 2160 PX @30 fps | 1920 x 1080 PX @30 fps |
 | **Câmera de profundidade**  | Método   | Tempo de vôo | Tempo de vôo |
@@ -49,7 +49,7 @@ A tabela a seguir fornece comparação de recursos de acesso de sensor de dispos
 | **Profundidade** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
 | **Cor** | ✔️ | ✔️ | O formato de cor dá suporte a diferenças, o Azure Kinect DK dá suporte a esses controles de câmera: exposição, equilíbrio de branco, brilho, contraste, saturação, nitidez e controle de conquista |
-| **Áudio** | ✔️ | ✔️ | O Azure Kinect DK mics é acessado por meio do SDK de fala ou da API nativa do Windows |
+| **Sonoro** | ✔️ | ✔️ | O Azure Kinect DK mics é acessado por meio do SDK de fala ou da API nativa do Windows |
 | **IMU** | ✔️ |  | O Azure Kinect DK tem um IMU completo de 6 eixos e Kinect para Windows fornece apenas um eixo |
 | **Dados de calibragem** | ✔️ | ✔️ | Calibragem do modelo de câmera compatível com OpenCV |
 | **Profundidade – sincronização interna RGB** | ✔️ | ✔️ |  |

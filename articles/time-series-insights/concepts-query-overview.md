@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
 ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374126"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultando dados de Azure Time Series Insights Gen2

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98107354"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
@@ -69,7 +69,7 @@ Administradores do dispositivo são atribuídos a todos os dispositivos ingressa
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gerenciar privilégios de administrador usando grupos do Azure AD (versão prévia)
 
 >[!NOTE]
-> Esse recurso atualmente está em versão prévia.
+> Esse recurso está atualmente na visualização.
 
 
 A partir da atualização do Windows 10 2004, você pode usar os grupos do Azure AD para gerenciar privilégios de administrador em dispositivos ingressados no Azure AD com a política de MDM de [Grupos restritos](/windows/client-management/mdm/policy-csp-restrictedgroups) . Essa política permite que você atribua usuários individuais ou grupos do Azure AD ao grupo de administradores locais em um dispositivo ingressado no Azure AD, fornecendo a granularidade para configurar administradores distintos para diferentes grupos de dispositivos. 

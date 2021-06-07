@@ -1,22 +1,23 @@
 ---
-title: Solucionar problemas de conexões-banco de dados do Azure para PostgreSQL-servidor único
-description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único.
+title: Solucionar problemas de conexões – Banco de Dados do Azure para PostgreSQL – Servidor único
+description: Saiba como solucionar problemas de conexão ao Banco de Dados do Azure para PostgreSQL – Servidor único.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014611"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504236"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solucionar problemas de conexões no Banco de Dados do Azure para PostgreSQL – Servidor único
 
-Os problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
+Os problemas de conexão podem ser causados por diversas coisas, incluindo:
 
 * Configurações de firewall
 * Tempo limite da conexão
@@ -46,16 +47,16 @@ Quando a manutenção é executada, o sistema encontra um erro com o hardware ou
 
 Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azure para PostgreSQL, ele normalmente indicará um problema com um dos seguintes:
 
-* Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para PostgreSQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
-* Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo *\@ ServerName* ausente no nome de usuário.
-* Se você vir que o _servidor de erro não está configurado para permitir conexões IPv6_, observe que a camada básica não dá suporte a pontos de extremidade de serviço de VNet. Você precisa remover o ponto de extremidade Microsoft. SQL da sub-rede que está tentando se conectar ao servidor básico.
-* Se você vir o erro de conexão _sslmode valor "* * *" inválido quando o suporte a SSL não for compilado em_ erro, significa que o cliente PostgreSQL não oferece suporte a SSL. Provavelmente, a libpq do lado do cliente não foi compilada com o sinalizador "--com-OpenSSL". Tente se conectar com um cliente PostgreSQL que tenha suporte a SSL. 
+* Configuração do firewall do servidor: configure o firewall do Banco de Dados do Azure para PostgreSQL para permitir conexões de seu cliente, incluindo servidores proxy e gateways.
+* Configuração do firewall do cliente: o firewall do cliente deve permitir conexões com o servidor de banco de dados. É necessário permitir endereços IP e portas do servidor nas quais você não pode se conectar, além dos nomes de aplicativo, como PostgreSQL, em alguns firewalls.
+* Erro do usuário: talvez você tenha digitado incorretamente parâmetros de conexão, como o nome do servidor na cadeia de conexão, ou tenha esquecido o sufixo *\@servername* no nome de usuário.
+* Se você vir o erro _O servidor não está configurado para permitir conexões IPv6_, observe que a camada Básico não permite pontos de extremidade de serviço de VNet. É preciso remover o ponto de extremidade Microsoft.Sql da sub-rede que está tentando se conectar ao servidor Básico.
+* Quando aparece o erro de conexão _Valor de sslmode "***" inválido quando o suporte a SSL não está integrado_, isso significa que o cliente PostgreSQL não oferece suporte para SSL. Provavelmente, a libpq do lado do cliente não foi compilada com o sinalizador "--with-openssl". Tente se conectar a um cliente PostgreSQL que dê suporte para SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 
-1. Configure [as regras de firewall](howto-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Para fins de testes temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver seu problema de conectividade, remova essa regra e crie uma regra de firewall para um intervalo de endereçamento ou um endereço IP adequadamente limitado.
-2. Em todos os firewalls entre o cliente e a Internet, verifique se a porta 5432 está aberta para conexões de saída.
+1. Configure as [regras de firewall](howto-manage-firewall-using-portal.md) para permitir o endereço IP do cliente. Para fins de testes temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver seu problema de conectividade, remova essa regra e crie uma regra de firewall para um intervalo de endereçamento ou um endereço IP adequadamente limitado.
+2. Em todos os firewalls entre o cliente e a Internet, abra a porta 5432 para conexões de saída.
 3. Verifique a cadeia de conexão e outras configurações de conexão.
 4. Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, consulte [Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL](concepts-business-continuity.md) para obter as etapas para recuperar para uma nova região.
 

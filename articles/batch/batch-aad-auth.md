@@ -4,12 +4,12 @@ description: O Lote dá suporte ao Azure AD para autenticação por meio do serv
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2ceefa538c44208750da8986fcf3d161f0c0865f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95252633"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102180013"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -41,7 +41,7 @@ Para autenticar no Azure AD, use esse ponto de extremidade junto com a ID do loc
 >
 > O ponto de extremidade específico ao locatário é opcional, mas recomendado, quando você realiza uma autenticação usando a autenticação integrada. No entanto, você também pode usar o ponto de extremidade comum do Azure AD. O ponto de extremidade comum fornece uma interface genérica de coleta de credenciais quando um locatário específico não é fornecido. O ponto de extremidade comum é `https://login.microsoftonline.com/common`.
 
-Para obter mais informações sobre pontos de extremidade do Azure AD, consulte [autenticação vs. autorização](). /active-directory/develop/authentication-vs-authorization.md).
+Para obter mais informações sobre pontos de extremidade do Azure AD, consulte [autenticação vs. autorização](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Ponto de extremidade de recursos do Lote
 

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
 ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256214"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como Azure Active Directory provisionamento se integra ao SAP SuccessFactors 
@@ -294,8 +294,8 @@ Esta seção aborda diferentes cenários de write-back. Ele recomenda abordagens
 |--|--|--|--|--|--|--|
 | 1 | * Definir somente email comercial como primário. <br> * Não defina números de telefone. | true | true | false | \[Não definido\] | \[Não definido\] | 
 | 2 | * No SuccessFactors, o email comercial e o telefone comercial são os principais <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular. | true | true | false | telephoneNumber | Serviço Móvel | 
-| 3 | * No SuccessFactors, o email comercial e o telefone celular são primários <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular | true | false | verdadeiro |  telephoneNumber | Serviço Móvel | 
-| 4 | * No email comercial do SuccessFactors é o principal <br> * No Azure AD, verifique se o número de telefone de trabalho está presente, se presente, verifique se o número de celular também está presente, marque número de telefone comercial como primário somente se o número de celular não estiver presente. | verdadeiro | Usar mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Usar mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | Serviço Móvel | 
+| 3 | * No SuccessFactors, o email comercial e o telefone celular são primários <br> * Sempre flua o número de telefone do Azure AD para telefone comercial e móvel para telefone celular | true | false | true |  telephoneNumber | Serviço Móvel | 
+| 4 | * No email comercial do SuccessFactors é o principal <br> * No Azure AD, verifique se o número de telefone de trabalho está presente, se presente, verifique se o número de celular também está presente, marque número de telefone comercial como primário somente se o número de celular não estiver presente. | true | Usar mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Usar mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | Serviço Móvel | 
 | 5 | * No SuccessFactors Business email e o telefone comercial é o principal. <br> * No Azure AD, se o Mobile estiver disponível, defina-o como o telefone comercial, caso contrário, use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Não definido\] | 
 
 * Se não houver mapeamento para o número de telefone no mapeamento de atributo write-back, somente o email será incluído no write-back.

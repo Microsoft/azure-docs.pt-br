@@ -1,18 +1,18 @@
 ---
 title: 'Padrão: Efeitos de uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como usar os diferentes efeitos de uma definição de política.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9fa95fdc793e7762c39525a83f38ae952f532a60
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073029"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092833"
 ---
 # <a name="azure-policy-pattern-effects"></a>Padrão do Azure Policy: efeitos
 
-O Azure Policy tem vários [efeitos](../concepts/effects.md) que determinam como o serviço reage a recursos não compatíveis. Alguns efeitos são simples e não requerem propriedades adicionais na definição de política, enquanto outros exigem várias propriedades.
+O Azure Policy tem vários [efeitos](../concepts/effects.md) que determinam como o serviço reage a recursos que não estão em conformidade. Alguns efeitos são simples e não requerem propriedades adicionais na definição de política, enquanto outros exigem várias propriedades.
 
 ## <a name="sample-1-simple-effect"></a>Exemplo 1: Efeito simples
 

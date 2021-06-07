@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915701"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632077"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Acesso condicional: exigir MFA para administradores
 
@@ -56,7 +56,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **Atribuições**, selecione **Usuários e grupos**.
-   1. Em **incluir**, selecione **funções de diretório (versão prévia)** e escolha as seguintes funções no mínimo:
+   1. Em **incluir**, selecione **funções de diretório** e escolha funções internas como:
       * Administrador de Autenticação
       * Administrador de cobrança
       * Administrador de acesso condicional
@@ -69,12 +69,11 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
       * Administrador de usuários
    
       > [!WARNING]
-      > As políticas de acesso condicional não dão suporte a usuários atribuídos a uma função de diretório [com escopo para uma unidade administrativa](../roles/admin-units-assign-roles.md) ou funções de diretório com escopo definido diretamente para um objeto, como por meio de [funções personalizadas](../roles/custom-create.md).
+      > As políticas de acesso condicional dão suporte a funções internas. As políticas de acesso condicional não são impostas para outros tipos de função, incluindo funções [de escopo de unidade administrativa](../roles/admin-units-assign-roles.md) ou [personalizadas](../roles/custom-create.md).
 
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
 1. Em **Aplicativos ou ações de nuvem** > **Incluir**, selecione **Todos os aplicativos de nuvem** e selecione **Concluído**.
-1. Em **condições**  >  **aplicativos cliente**, mude **Configurar** para **Sim** e, em **Selecione os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.

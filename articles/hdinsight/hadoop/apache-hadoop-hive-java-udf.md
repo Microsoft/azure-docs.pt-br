@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
 ms.openlocfilehash: bf9c2ea544c6b510a0507b6b020f0eae0b101dc7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946556"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um Java UDF com Apache Hive no HDInsight

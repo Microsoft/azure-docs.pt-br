@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94694986"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuração do balanceador de carga somente de saída
@@ -74,7 +74,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Grupo de recursos   | Selecione **Criar novo**. </br> Insira **myResourceGroupLB**. </br> Selecione **OK**. |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **leste dos EUA 2** |
+    | Região           | Selecione **Leste dos EUA 2** |
 
 3. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
@@ -123,7 +123,7 @@ Crie uma máquina virtual na nova rede virtual.
     | Grupo de recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM** |
-    | Região | Selecione **leste dos EUA 2** |
+    | Região | Selecione **Leste dos EUA 2** |
     | Opções de disponibilidade | Selecione **Nenhuma redundância infraestrutura necessária** |
     | Imagem | Selecione **Windows Server 2019 Datacenter** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -260,7 +260,7 @@ Crie o pool de endereços de back-end **myPublicBackendPool**:
 
 6. Abra o Internet Explorer.
 
-7. Insira **https://whatsmyip.org** na barra de endereços.
+7. Digite **https://whatsmyip.org** na barra de endereços.
 
 8. A conexão deve falhar. Por padrão, o Load Balancer público padrão [não permite o tráfego de saída sem uma regra de saída definida](load-balancer-overview.md#securebydefault).
  
@@ -295,7 +295,7 @@ Crie o pool de endereços de back-end **myPublicBackendPool**:
 
 6. Abra o Internet Explorer.
 
-7. Insira **https://whatsmyip.org** na barra de endereços.
+7. Digite **https://whatsmyip.org** na barra de endereços.
 
 8. A conexão deve ter sucesso.
 

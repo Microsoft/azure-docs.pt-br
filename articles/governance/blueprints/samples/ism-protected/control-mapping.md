@@ -1,14 +1,14 @@
 ---
 title: Controles do exemplo de blueprint ISM PROTECTED do governo australiano
 description: Mapeamento de controle de exemplo do blueprint ISM PROTECTED do governo australiano. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 01/21/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: df143a871db3d871fe6354eab23b7ca6dc012b78
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ecb6a912d0b1f319022f6b7deff68e1495dccbca
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679990"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386442"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint ISM PROTECTED do governo australiano
 

@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915975"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gerenciar atualizações e patches para suas VMs
@@ -44,7 +44,7 @@ Os resultados de conformidade são apresentados em Gerenciamento de Atualizaçõ
 
 Examine [as atualizações de software do monitor](view-update-assessments.md) para saber como exibir os resultados de conformidade.
 
-## <a name="deploy-updates"></a>Implantar atualizações
+## <a name="deploy-updates"></a>Implantar atualizações e testar
 
 Depois de examinar os resultados de conformidade, a fase de implantação de atualização de software é o processo de implantação de atualizações de software. Para instalar atualizações, agende uma implantação que alinhe-se com a agenda de liberação e período de serviço. Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 

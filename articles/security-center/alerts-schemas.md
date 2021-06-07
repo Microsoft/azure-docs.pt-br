@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789209"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102557991"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alertas de segurança
 
@@ -24,8 +24,8 @@ Se sua assinatura tiver o Azure defender habilitado, você receberá alertas de 
 
 Você pode exibir esses alertas de segurança nas páginas de **proteção contra ameaças** da central de segurança do Azure ou por meio de ferramentas externas, como:
 
-- [Azure Sentinel](../sentinel/index.yml) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
-- SIEMs de terceiros – enviam dados para os [hubs de eventos do Azure](../event-hubs/index.yml). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros. Saiba mais em [transmitir alertas para uma solução Siem, disparar ou de gerenciamento de serviços de ti](export-to-siem.md).
+- [Azure Sentinel](../sentinel/index.yml) – Siem nativo de nuvem da Microsoft. O conector do Sentinel Obtém alertas da central de segurança do Azure e os envia para o [espaço de trabalho log Analytics](../azure-monitor/logs/quick-create-workspace.md) para o Azure Sentinel.
+- SIEMs de terceiros – enviam dados para os [hubs de eventos do Azure](../event-hubs/index.yml). Em seguida, integre os dados do hub de eventos a um SIEM de terceiros. Saiba mais em [Transmitir alertas para uma solução SIEM, SOAR ou Gerenciamento de Serviços de TI](export-to-siem.md).
 - [A API REST](/rest/api/securitycenter/) -se você estiver usando a API REST para acessar alertas, consulte a [documentação da API de alertas online](/rest/api/securitycenter/alerts).
 
 Se você estiver usando qualquer método programático para consumir os alertas, precisará do esquema correto para localizar os campos que são relevantes para você. Além disso, se você estiver exportando para um hub de eventos ou tentar disparar a automação de fluxo de trabalho com conectores HTTP genéricos, use os esquemas para analisar corretamente os objetos JSON.
@@ -173,7 +173,7 @@ Você pode exibir os eventos de alertas de segurança no log de atividades pesqu
 
 Microsoft Graph é o gateway para dados e inteligência em Microsoft 365. Ele fornece um modelo de programação unificado que você pode usar para acessar a enorme quantidade de dados em Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados em Microsoft Graph para criar aplicativos para organizações e consumidores que interagem com milhões de usuários.
 
-O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados ao MS Graph estão disponíveis na [documentação do Microsoft Graph](/graph/api/resources/alert).
 
 ---
 
@@ -186,5 +186,5 @@ Para obter mais informações sobre as maneiras de acessar alertas de segurança
 
 - [Azure Sentinel](../sentinel/index.yml) -Siem nativo de nuvem da Microsoft
 - [Hubs de eventos do Azure](../event-hubs/index.yml) -serviço de ingestão de dados em tempo real, totalmente gerenciado pela Microsoft
-- [Exportar continuamente os dados da central de segurança](continuous-export.md)
-- [Espaços de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração
+- [Exportar continuamente dados da Central de Segurança](continuous-export.md)
+- [Espaços de trabalho do log Analytics](../azure-monitor/logs/quick-create-workspace.md) -Azure monitor armazena dados de log em um espaço de trabalho log Analytics, um contêiner que inclui informações de dados e configuração

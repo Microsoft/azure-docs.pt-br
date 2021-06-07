@@ -4,10 +4,10 @@ description: Carregar o arquivo VHD na conta de armazenamento do laboratório us
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91282520"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
@@ -26,7 +26,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
     1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+    1. Selecione **todos os serviços** e, em seguida, selecione **DevTest Labs** na lista.
     
     1. Na lista de laboratórios, selecione o laboratório desejado.  
     
@@ -54,13 +54,13 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
     > 
     > O Explorer do Armazenamento dá suporte a várias opções de conexão. Esta seção ilustra como se conectar a uma conta de armazenamento associada à sua assinatura do Azure. Para ver as outras opções de conexão compatíveis com o Explorer do Armazenamento, veja o artigo [Introdução ao Explorer do Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md).
  
-    1. Abra o Explorer do Armazenamento.
+    1. Abra o Gerenciador de Armazenamento.
     
     1. No Explorer do Armazenamento, selecione **Configurações de Conta do Azure**. 
     
         ![Configurações de conta do Azure][1]
     
-    1. O painel esquerdo exibe as contas da Microsoft em que você fez logon. Para se conectar a outra conta, selecione **Adicionar uma conta**e siga os diálogos para entrar com uma conta da Microsoft associada a pelo menos uma assinatura ativa do Azure.
+    1. O painel esquerdo exibe as contas da Microsoft em que você fez logon. Para se conectar a outra conta, selecione **Adicionar uma conta** e siga os diálogos para entrar com uma conta da Microsoft associada a pelo menos uma assinatura ativa do Azure.
     
         ![Adicionar uma conta][2]
     

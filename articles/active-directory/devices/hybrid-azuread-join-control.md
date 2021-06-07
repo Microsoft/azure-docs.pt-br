@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860925"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de ingresso no Azure AD híbrido
@@ -63,7 +63,7 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nome do valor: **tenantid**
       1. Tipo de valor: **REG_SZ**
-      1. Dados de valor: o GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado na ID de diretório de propriedades de Azure Active Directory de **portal do Azure**  >  **Azure Active Directory**  >  **Properties**  >  **Directory ID**)
+      1. Dados de valor: o GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado na ID de diretório de propriedades de Azure Active Directory de **portal do Azure**  >    >    >  )
    1. Clique em **OK**
 1. Clique com o botão direito do mouse no registro e selecione **novo**  >  **item do registro**
    1. Na guia **geral** , configure o seguinte

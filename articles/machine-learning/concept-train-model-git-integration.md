@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099465"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102547842"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [DevOps do Azure](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs&preserve-view=true)  Comece na **etapa 2**.
++ [DevOps do Azure](/azure/devops/repos/git/use-ssh-keys-to-authenticate#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece na **etapa 2**.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Comece na **etapa 4**.
 
@@ -178,7 +178,7 @@ As informações registradas em log contêm texto semelhante ao JSON a seguir:
 
 ### <a name="python-sdk"></a>SDK do Python
 
-Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
+Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ O `az ml run` comando da CLI pode ser usado para recuperar as propriedades de um
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) .
+Para obter mais informações, consulte a documentação de referência de [execução do AZ ml](/cli/azure/ext/azure-cli-ml/ml/run) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

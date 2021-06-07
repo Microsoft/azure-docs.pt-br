@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.openlocfilehash: a0bd7a4cd8afafc16f05b4a37cd5723304ad931e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551583"
 ---
 # <a name="register-and-scan-azure-files"></a>Registrar e verificar arquivos do Azure
@@ -35,17 +35,17 @@ Para registrar uma nova conta dos arquivos do Azure em seu catálogo de dados, f
 1. Selecione **+ Novo**.
 1. Em **registrar fontes**, selecione **arquivos do Azure**. Selecione **Continuar**.
 
-:::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="registrar nova fonte de dados" border="true":::
+:::image type="content" source="media/register-scan-azure-files/register-new-data-source.png" alt-text="registrar uma nova fonte de dados" border="true":::
 
 Na tela **registrar fontes (arquivos do Azure)** , faça o seguinte:
 
-1. Insira um **nome** no qual a fonte de dados será listada no catálogo.
-1. Escolha como você deseja apontar para a conta de armazenamento desejada:
+1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
+1. Escolha como deseja apontá-la para a conta de armazenamento desejada:
    1. Selecione **da assinatura do Azure**, selecione a assinatura apropriada na caixa suspensa **assinatura do Azure** e a conta de armazenamento apropriada na caixa suspensa nome da **conta de armazenamento** .
    1. Ou, você pode selecionar **inserir manualmente** e inserir um ponto de extremidade de serviço (URL).
-1. **Concluir** para registrar a fonte de dados.
+1. **Conclua** a etapa para registrar a fonte de dados.
 
-:::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="opções de registrar fontes" border="true":::
+:::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="opções de registro de fontes" border="true":::
 
 ## <a name="set-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
@@ -61,5 +61,5 @@ Para configurar a autenticação para o armazenamento de arquivos do Azure usand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

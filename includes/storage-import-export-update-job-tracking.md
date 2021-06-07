@@ -9,10 +9,10 @@ ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 8ed57cd39580474925e781f3ec8fb05a2299a937
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98701629"
 ---
 Após o envio dos discos, retorne para a página **importação/exportação** no portal do Microsoft Azure. 

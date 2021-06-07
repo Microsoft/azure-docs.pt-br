@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040233"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecionar transformação no fluxo de dados de mapeamento
@@ -44,7 +44,7 @@ Mapeamentos fixos podem ser usados para mapear uma subcoluna de uma coluna hier�
 
 Se você quiser mapear várias colunas de uma vez ou passar as colunas desfeitas, use o mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Corresponder com base nas `name` `type` colunas,, `stream` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
-Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra** .
+Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
 
 ![Captura de tela mostra o mapeamento baseado em regras selecionado em Adicionar mapeamento.](media/data-flow/rule2.png "mapeamento baseado em regras")
 

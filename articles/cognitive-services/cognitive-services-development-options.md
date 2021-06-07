@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98873562"
 ---
 # <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos
@@ -103,7 +103,7 @@ O [ia Builder](/ai-builder/overview) é um recurso da plataforma de energia da M
 * **Ferramentas de interface do usuário**: Sim – somente interface do usuário
 * **Assinatura (s)**: Construtor de ia
 
-### <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
+### <a name="continuous-integration-and-deployment"></a>Integração contínua e implantação
 
 Você pode usar as ações do Azure DevOps e do GitHub para gerenciar suas implantações. Na [seção abaixo](#continuous-integration-and-delivery-with-devops-and-github-actions) abordada, temos dois exemplos de integrações de CI/CD para treinar e implantar modelos personalizados de fala e o serviço de reconhecimento vocal (Luis). 
 

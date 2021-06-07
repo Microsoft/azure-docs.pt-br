@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370216"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Executar comandos do PowerShell com as credenciais do Azure AD para acessar os dados da fila

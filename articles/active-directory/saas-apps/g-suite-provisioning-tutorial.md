@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/06/2020
+ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: 5243e9490c9de0d6df1520edb970da93fabef85a
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746114"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583744"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
 
@@ -273,6 +273,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * 17/10/2020 – Adição de suporte a outros atributos de usuário e grupo do G Suite.
 * 17/10/2020 – Atualização dos nomes de atributos de destino do G Suite para que correspondam ao que está definido [aqui](https://developers.google.com/admin-sdk/directory).
 * 17/10/2020 – Atualização dos mapeamentos de atributo padrão.
+* 18/03/2021 – O email do gerente agora está sincronizado em vez da ID para todos os novos usuários. Para todos os usuários existentes que foram provisionados com um gerente como uma ID, você pode fazer uma reinicialização por meio do [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) com o escopo "completo" para garantir que o email seja provisionado. Essa alteração afeta apenas o trabalho de provisionamento GSuite e não o trabalho de provisionamento mais antigo começando com Goov2OutDelta. Observe que o email do gerente é provisionado quando o usuário é criado pela primeira vez ou quando o gerente é alterado. O email do gerente não será provisionado se o gerente alterar o próprio endereço de email. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

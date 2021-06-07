@@ -1,27 +1,32 @@
 ---
 title: Criar políticas de segurança personalizadas na Central de Segurança do Azure | Microsoft Docs
 description: Definições de política personalizada do Azure monitoradas na Central de Segurança do Azure.
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 02/25/2021
 ms.author: memildin
-ms.openlocfilehash: 8d2b43ab57ea7a3b1dc1d13bcdea9932ccecb9dc
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+zone_pivot_groups: manage-asc-initiatives
+ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559024"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102441050"
 ---
-# <a name="using-custom-security-policies"></a>Como usar políticas de segurança personalizadas
+# <a name="create-custom-security-initiatives-and-policies"></a>Criar iniciativas e políticas de segurança personalizadas
 
 Para ajudar a proteger seus sistemas e ambientes, a Central de Segurança do Azure gera recomendações de segurança. Essas recomendações são baseadas nas melhores práticas do setor, que são incorporadas à política de segurança padrão genérica fornecida para todos os clientes. Elas também podem vir do conhecimento da Central de Segurança de padrões do setor e regulatórios.
 
 Com esse recurso, você pode adicionar suas *iniciativas* personalizadas. Em seguida, você receberá recomendações se o seu ambiente não seguir as políticas que você criar. As iniciativas personalizadas que você criar aparecerão junto com as iniciativas internas do painel de conformidade regulatória, conforme descrito no tutorial [Aprimorar a conformidade regulatória](security-center-compliance-dashboard.md).
 
 Conforme discutido na [documentação do Azure Policy](../governance/policy/concepts/definition-structure.md#definition-location), quando você especifica uma localização para sua iniciativa personalizada, ele deve ser um grupo de gerenciamento ou uma assinatura. 
+
+> [!TIP]
+> Para obter uma visão geral dos principais conceitos desta página, consulte [o que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md).
+
+::: zone pivot="azure-portal"
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Para adicionar uma iniciativa personalizada à sua assinatura 
 
@@ -68,6 +73,113 @@ Conforme discutido na [documentação do Azure Policy](../governance/policy/conc
 1. Para ver as recomendações resultantes para sua política, clique em **Recomendações** na barra lateral para abrir a página de recomendações. As recomendações serão exibidas com um rótulo "Personalizado" e estarão disponíveis em aproximadamente uma hora.
 
     [![Recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurar uma política de segurança no Azure Policy usando a API REST
+
+Como parte da integração nativa com o Azure Policy, a Central de Segurança do Azure permite que você use a API REST do Azure Policy para criar atribuições de política. As instruções a seguir orientam você a criar as atribuições da política e personalizar atribuições existentes. 
+
+Conceitos importantes no Azure Policy: 
+
+- Uma **definição de política** é uma regra 
+
+- Uma **iniciativa** é uma coleção de definições de política (regras) 
+
+- Uma **atribuição** é um aplicativo de uma iniciativa ou uma política para um escopo específico (grupo de gerenciamento, assinatura, etc.) 
+
+A central de segurança tem uma iniciativa interna, o benchmark de segurança do Azure, que inclui todas as suas políticas de segurança. Para avaliar as políticas da central de segurança em seus recursos do Azure, você deve criar uma atribuição no grupo de gerenciamento ou assinatura que deseja avaliar.
+
+A iniciativa interna tem todas as políticas da Central de Segurança habilitadas por padrão. Você pode optar por desabilitar determinadas políticas da iniciativa interna. Por exemplo, para aplicar todas as políticas da central de segurança, exceto o **Firewall do aplicativo Web**, altere o valor do parâmetro de efeito da política para **desabilitado**.
+
+## <a name="api-examples"></a>Exemplos de API
+
+Nos exemplos a seguir, substitua essas variáveis:
+
+- **{Scope}** Insira o nome do grupo de gerenciamento ou da assinatura à qual você está aplicando a política
+- **{policyAssignmentName}** Insira o nome da atribuição de política relevante
+- **{Name}** insira seu nome ou o nome do administrador que aprovou a alteração da política
+
+Este exemplo mostra como atribuir a iniciativa interna da Central de Segurança a uma assinatura ou um grupo de gerenciamento
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+Este exemplo mostra como atribuir a iniciativa interna da Central de Segurança a uma assinatura, com as seguintes políticas desabilitadas: 
+
+- Atualizações do sistema (“systemUpdatesMonitoringEffect”) 
+
+- Configurações de segurança ("systemConfigurationsMonitoringEffect") 
+
+- Proteção do ponto de extremidade ("endpointProtectionMonitoringEffect") 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+Este exemplo mostra como remover uma atribuição:
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
 
 ## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Aprimore suas recomendações personalizadas com informações detalhadas
 

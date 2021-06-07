@@ -4,10 +4,10 @@ description: Saiba como comprar uma instância reservada para a solução do Azu
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99550968"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a solução Azure VMware
@@ -50,12 +50,12 @@ Esses requisitos se aplicam à compra de uma instância de host dedicada reserva
 
 4. Insira os campos obrigatórios. Os atributos selecionados que correspondem à execução dos hosts da solução Azure VMware são qualificados para o desconto de reserva.  Os atributos incluem o SKU, as regiões (quando aplicável) e o escopo. O escopo de uma reserva seleciona o local a que a economia da reserva se aplica.
 
-   Se você tiver um contrato EA, poderá usar a **opção Adicionar mais** para adicionar instâncias rapidamente. A opção não está disponível para outros tipos de assinatura.
+   Se você tiver um contrato EA, poderá usar a **opção Adicionar mais** para adicionar instâncias rapidamente. A opção não está disponível para outros tipos de assinaturas.
 
    | Campo        |  Descrição |
    | ------------ | ------------ |
    | Subscription | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P), contrato de cliente da Microsoft ou uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os preços são deduzidos do saldo do Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível, ou cobrados como excedente. Para uma assinatura com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito da assinatura ou em um método de pagamento de fatura. |
-   | Escopo        | O escopo da reserva pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
+   | Escopo        | O escopo da reserva pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
    | Região       | A região do Azure que é coberta pela reserva.   |
    | Tamanho do host    | AV36    |
    | Termo         | Um ano ou três anos.  |
@@ -84,7 +84,7 @@ Os CSPs que desejam comprar instâncias reservadas para seus clientes devem usar
    | Campo        |  Descrição |
    | ------------ | ------------ |
    | Subscription | A assinatura usada para pagar pela reserva. Os custos da reserva são cobrados segundo a forma de pagamento da assinatura. O tipo de assinatura deve ser um qualificado, que neste caso é uma assinatura do CSP|
-   | Escopo        | O escopo da reserva pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
+   | Escopo        | O escopo da reserva pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar:<br><ul><li><b>Escopo do grupo de recursos único</b> – aplica o desconto de reserva aos recursos correspondentes somente no grupo de recursos selecionado.</li><li><b>Escopo de assinatura única</b> – aplica o desconto de reserva aos recursos de correspondência na assinatura selecionada.</li><li><b>Escopo compartilhado</b> – aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul>       |
    | Região       | A região do Azure que é coberta pela reserva.   |
    | Tamanho do host    | AV36    |
    | Termo         | Um ano ou três anos.  |

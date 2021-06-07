@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91319870"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
@@ -35,7 +35,7 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | --- | --- |
 | Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
 | Propriedades |Usado para filtragem de domínio e de UO. |
-| [Delete (excluir)](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
 | Parar |Interrompe um Conector que, atualmente, executa um perfil. |
@@ -84,7 +84,7 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. Acesse a guia **Conectores**.
 3. Selecione o Conector do AD que está configurado para usar a conta do AD DS.
-4. Em Ações, selecione **Propriedades**.
+4. Em ações, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione Conectar-se à Floresta do Active Directory:
 6. O nome da floresta indica o AD local correspondente.
 7. O Nome de usuário indica a conta do AD DS usada para sincronização.

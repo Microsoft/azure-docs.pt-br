@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91439517"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure
@@ -46,10 +46,10 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **Detalhes do projeto**            |                                                                                                       |
     | Subscription                   | Selecionar sua assinatura do Azure                                                                        |
-    | Grupo de recursos                 | Selecione criar novo, insira **MyResource**Group, selecione OK ou selecione um grupo de recursos existente. |
+    | Grupo de recursos                 | Selecione criar novo, insira **MyResource** Group, selecione OK ou selecione um grupo de recursos existente. |
     | **Detalhes do conjunto de dimensionamento**          |                                                                                                       |
     | Nome do conjunto de dimensionamento de máquinas virtuais | Insira **myVMSS**                                                                                      |
-    | Região                         | Selecione **leste dos EUA 2**                                                                                    |
+    | Região                         | Selecione **Leste dos EUA 2**                                                                                    |
     | Zona de disponibilidade              | Selecione **Nenhum**                                                                                       |
     | **Detalhes da instância**           |                                                                                                       |
     | Imagem                          | Selecione **Ubuntu Server 18, 4 LTS**                                                                    |
@@ -70,7 +70,7 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
 
      Configuração                           | Valor                                                    |
     |-----------------------------------|----------------------------------------------------------|
-    | **Configuração de rede virtual** |                                                          |
+    | **Configuração da rede virtual** |                                                          |
     | Rede virtual                   | Selecione **myVNet** ou sua rede virtual existente.      |
     | **Balanceamento de carga**                |                                                          |
     | Usar um balanceador de carga               | Selecione **Sim**                                           |
@@ -79,7 +79,7 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
     | Selecionar um balanceador de carga            | Selecione **myLoadBalancer** ou seu balanceador de carga existente |
     | Selecionar um pool de back-end             | Selecione **myBackendPool** ou seu pool de back-end existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de tela mostra a guia criar noções básicas do conjunto de dimensionamento de máquinas virtuais." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de tela mostra a guia criar rede do conjunto de dimensionamento de máquinas virtuais." border="true":::
 
 6. Selecione a guia **Gerenciamento** .
 

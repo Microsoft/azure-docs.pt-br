@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485368"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -44,7 +44,7 @@ No banco de dados do Azure para PostgreSQL, a restauração de um cluster de hip
 ### <a name="point-in-time-restore-pitr"></a>Restauração pontual (PITR)
 
 Você pode restaurar um cluster para qualquer ponto no tempo nos últimos 35 dias.
-A Restauração pontual é útil em vários cenários. Por exemplo, quando um usuário exclui acidentalmente dados, descarta uma tabela ou um banco de dado importante, ou se um aplicativo substitui acidentalmente dados bons por dados inválidos.
+A Restauração pontual é útil em vários cenários. Por exemplo, quando um usuário exclui dados, remove uma tabela ou um banco de dados importante por engano ou se um aplicativo substitui, acidentalmente, dados válidos por dados inválidos.
 
 O processo de restauração cria um novo cluster na mesma região, assinatura e grupo de recursos do Azure que o original. O cluster tem a configuração original: o mesmo número de nós, o número de vCores, o tamanho do armazenamento, as funções de usuário, a versão PostgreSQL e a versão da extensão Citus.
 

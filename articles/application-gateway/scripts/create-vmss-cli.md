@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2e766bcdee2afa3ff4ed75476c619326c4c0e0c2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 17cac91ae62f5faa80fa130364bf67f81ad20a81
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591641"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789403"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Gerenciar o tráfego da web usando a CLI do Azure
 
@@ -47,7 +47,7 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 |---|---|
 | [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](/cli/azure/network/vnet) | Cria uma rede virtual. |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Cria uma rede virtual e uma sub-rede. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma rede virtual e uma sub-rede. |
 | [az network public-ip create](/cli/azure/network/public-ip) | Cria o endereço IP público para o gateway do aplicativo. |
 | [az network application-gateway create](/cli/azure/network/application-gateway) | Criar um gateway de aplicativo. |
 | [az vmss create](/cli/azure/vmss) | Criar um conjunto de dimensionamento de máquinas virtuais. |

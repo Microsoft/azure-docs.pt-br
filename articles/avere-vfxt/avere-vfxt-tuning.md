@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88272375"
 ---
 # <a name="cluster-tuning"></a>Ajuste do cluster

@@ -1,16 +1,16 @@
 ---
-title: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
-description: Neste artigo, saiba como fazer backup de bancos de dados do SQL Server em máquinas virtuais do Azure com o Backup do Azure.
+title: Fazer backup de várias VMs do SQL Server por meio do cofre
+description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server em máquinas virtuais do Azure com o backup do Azure do cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538915"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "105567197"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
+# <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Fazer backup de várias VMs SQL Server do cofre dos serviços de recuperação
 
 Os bancos de dados do SQL Server são cargas de trabalho críticas que exigem um baixo RPO (objetivo de ponto de recuperação) e retenção de longo prazo. Você pode fazer backup de bancos de dados do SQL Server em execução em VMs (máquinas virtuais) do Azure usando o [Backup do Azure](backup-overview.md).
 
@@ -35,8 +35,9 @@ Antes de fazer backup de um banco de dados do SQL Server, verifique os seguintes
 1. Identifique ou crie um [cofre dos Serviços de Recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e assinatura da VM que hospeda a Instância do SQL Server.
 1. Verifique se a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Verifique se os bancos de dados do SQL Server seguem as [diretrizes de nomenclatura de banco de dados do Backup do Azure](#database-naming-guidelines-for-azure-backup).
-1. Certifique-se de que o comprimento combinado do nome da VM SQL Server e o nome do grupo de recursos não exceda 84 caracteres para VMs de Azure Resource Manager (ARM) (ou 77 caracteres para VMs clássicas). Essa limitação é porque alguns caracteres são reservados pelo serviço.
+1. Certifique-se de que o comprimento combinado do nome da VM SQL Server e o nome do grupo de recursos não exceda 84 caracteres para Azure Resource Manager VMs (ou 77 caracteres para VMs clássicas). Essa limitação é porque alguns caracteres são reservados pelo serviço.
 1. Verifique que não haja nenhuma outra solução de backup habilitada para o banco de dados. Desabilite todos os outros backups do SQL Server antes de você fazer backup do banco de dados.
+1. Ao usar SQL Server 2008 R2 ou SQL Server 2012, você pode encontrar o problema de fuso horário para o backup, conforme descrito [aqui](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Verifique se você está nas atualizações cumulativas mais recentes para evitar o problema relacionado ao fuso horário descrito acima. Se a aplicação das atualizações na instância de SQL Server na VM do Azure não for viável, desabilite o horário de verão para o fuso horário na máquina virtual.
 
 > [!NOTE]
 > Você pode habilitar o Backup do Azure para uma VM do Azure e também para um banco de dados do SQL Server em execução na VM sem nenhum conflito.
@@ -63,7 +64,7 @@ Os pontos de extremidade privados permitem que você se conecte com segurança d
 
 #### <a name="nsg-tags"></a>Marcas do NSG
 
-Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da tag do Backup do Azure, também será necessário permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/security-overview.md#service-tags) semelhantes para o *Azure AD* e o *Armazenamento do Azure*.  As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
+Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da marca do Backup do Azure, você também precisará permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/network-security-groups-overview.md#service-tags) semelhantes para o Azure AD (*AzureActiveDirectory*) e o Armazenamento do Azure (*Armazenamento*).  As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
 
 1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
 
@@ -71,7 +72,7 @@ Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureB
 
 1. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como *Tag de Serviço* e se **Marca de serviço de destino** está definida como *AzureBackup*.
 
-1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
+1. Selecione **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
 De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD.
 
@@ -87,11 +88,11 @@ Se você optar por permitir o acesso a IPs de serviço, confira os intervalos de
 
 Também é possível usar os seguintes FQDNs para permitir o acesso aos serviços necessários de seus servidores:
 
-| Serviço    | Nomes de domínio a serem acessados                             |
-| -------------- | ------------------------------------------------------------ |
-| Backup do Azure  | `*.backup.windowsazure.com`                             |
-| Armazenamento do Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Permitir acesso a FQDNs nas seções 56 e 59 de acordo com [este artigo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Serviço    | Nomes de domínio a serem acessados                             | Portas
+| -------------- | ------------------------------------------------------------ | ---
+| Backup do Azure  | `*.backup.windowsazure.com`                             | 443
+| Armazenamento do Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure AD      | Permitir acesso a FQDNs nas seções 56 e 59 de acordo com [este artigo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | Conforme aplicável
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usar um servidor proxy HTTP para rotear o tráfego
 
@@ -110,7 +111,7 @@ Evite usar os seguintes elementos em nomes de banco de dados:
 O antialiasing está disponível para caracteres não compatíveis com a tabela do Azure, mas recomendamos evitá-los. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
->A operação **Configurar Proteção** não é compatível com bancos de dados cujo nome contém caracteres especiais como "+" ou "&". Você pode alterar o nome do banco de dados ou habilitar a **Proteção Automática**, que deverá proteger com êxito esses bancos de dados.
+>A operação de **configuração de proteção** para bancos de dados com caracteres especiais como "+" ou "&" em seu nome não é suportada. Você pode alterar o nome do banco de dados ou habilitar a **Proteção Automática**, que deverá proteger com êxito esses bancos de dados.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -161,7 +162,7 @@ Como descobrir os bancos de dados em execução em uma VM:
 
    ![Selecione Configurar Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-1. Clique em **Adicionar recursos** para ver todos os grupos de disponibilidade registrados e instâncias de SQL Server autônomas.
+1. Selecione **Adicionar recursos** para ver todos os grupos de disponibilidade registrados e instâncias de SQL Server autônomas.
 
     ![Selecione Adicionar recursos](./media/backup-azure-sql-database/add-resources.png)
 
@@ -189,7 +190,7 @@ Como descobrir os bancos de dados em execução em uma VM:
 
      ![Selecionar a Política de backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-1. Clique em **habilitar backup** para enviar a operação **Configurar proteção** e acompanhar o progresso da configuração na área **notificações** do Portal.
+1. Selecione **habilitar backup** para enviar a operação **Configurar proteção** e acompanhar o progresso da configuração na área **notificações** do Portal.
 
    ![Acompanhar o progresso da configuração](./media/backup-azure-sql-database/track-configuration-progress.png)
 
@@ -214,7 +215,7 @@ Para criar uma política de backup:
 
     ![Inserir o nome da política](./media/backup-azure-sql-database/policy-name.png)
 
-1. Clique no link **Editar** correspondente, para **backup completo**, para modificar as configurações padrão.
+1. Selecione o link **Editar** correspondente, para **backup completo**, para modificar as configurações padrão.
 
    * Selecione uma **frequência de backup**. Escolha uma opção entre **Diária** ou **Semanal**.
    * Para **Diária**, selecione a hora e fuso horário quando o trabalho de backup começar. Você não pode criar backups diferenciais para backups diários completos.
@@ -231,7 +232,7 @@ Para criar uma política de backup:
        ![Configuração de intervalo do período de retenção](./media/backup-azure-sql-database/retention-range-interval.png)
 
 1. Selecione **OK** para aceitar a configuração de backups completos.
-1. Clique no link **Editar** correspondente ao **backup diferencial**para modificar as configurações padrão.
+1. Selecione o link **Editar** correspondente ao **backup diferencial** para modificar as configurações padrão.
 
     * Em **Política de Backup Diferencial**, selecione **Habilitar** para abrir os controles de retenção e frequência.
     * Você pode acionar apenas um backup diferencial por dia. Um backup diferencial não pode ser disparado no mesmo dia que um backup completo.
@@ -240,11 +241,11 @@ Para criar uma política de backup:
 
       ![Política de backup diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-1. Clique no link **Editar** correspondente ao **backup de log**para modificar as configurações padrão
+1. Selecione o link **Editar** correspondente ao **backup de log** para modificar as configurações padrão
 
     * Em **Backup de Log**, selecione **Habilitar** e, em seguida, defina os controles de retenção e frequência.
     * Os Backups de log podem ocorrer a cada 15 minutos e podem ser mantidos por 35 dias.
-    * Se o banco de dados estiver no [modelo de recuperação simples](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), o agendamento de backup de log para esse banco de dados será pausado e, portanto, nenhum backup de log será disparado.
+    * Se o banco de dados estiver no [modelo de recuperação simples](/sql/relational-databases/backup-restore/recovery-models-sql-server), o agendamento de backup de log para esse banco de dados será pausado e, portanto, nenhum backup de log será disparado.
     * Se o modelo de recuperação do banco de dados for alterado de **completo** para **simples**, os backups de log serão pausados dentro de 24 horas da alteração no modelo de recuperação. Da mesma forma, se o modelo de recuperação for alterado de **simples**, implicando backups de log que agora podem ser suportados para o banco de dados, os agendamentos de backups de log serão habilitados dentro de 24 horas da alteração no modelo de recuperação.
 
       ![Política de backup de log](./media/backup-azure-sql-database/log-backup-policy.png)
@@ -254,7 +255,7 @@ Para criar uma política de backup:
 1. Depois de concluir as edições à política de backup, selecione **OK**.
 
 > [!NOTE]
-> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e logs de duas horas. Todos eles são retidos por 30 dias. No entanto, o completo semanal poderá ser realmente limpo/excluído somente depois que o próximo backup completo estiver disponível, ou seja, após 30 + 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
+> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que você tenha um backup completo semanal, logs diferenciais diários e 2 horas. Todos eles são retidos por 30 dias. Porém, a semana completa pode ser realmente limpa/excluída somente depois que o próximo backup completo estiver disponível, ou seja, após 30 a 7 dias. Por exemplo, um backup completo semanal ocorre em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse completo ocorre antes do próximo completo agendado, em 22 de novembro. Até que esse log esteja disponível até 22 de dezembro, o completo de 16 de novembro não poderá ser excluído. Portanto, o completo de 16 de novembro é mantido até 22 de dezembro.
 
 ## <a name="enable-auto-protection"></a>Habilitar a proteção automática  
 

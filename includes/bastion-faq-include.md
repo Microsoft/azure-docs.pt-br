@@ -9,10 +9,10 @@ ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9ba0e7173c41e26a698596fa18bf1fc1453f3fb3
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99628893"
 ---
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Preciso de um IP público em minha máquina virtual para me conectar via Azure Bastion?

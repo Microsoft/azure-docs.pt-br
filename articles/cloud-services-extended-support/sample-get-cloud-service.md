@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: fc16c9e0d47cfe015f7ec5ceb766053635840abb
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99475329"
 ---
 # <a name="retrieve-information-about-your-azure-cloud-service-extended-support-deployments"></a>Recuperar informações sobre suas implantações do Serviço de Nuvem do Azure (suporte estendido)

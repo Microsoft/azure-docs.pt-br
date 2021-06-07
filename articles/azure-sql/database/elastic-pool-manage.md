@@ -11,10 +11,10 @@ ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
 ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96455992"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerenciar Pools elásticos no banco de dados SQL do Azure
@@ -80,7 +80,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azur
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um pool elástico.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Excluir o pool elástico.|
 
-## <a name="transact-sql-t-sql"></a>Transact-SQL (T-SQL)
+## <a name="transact-sql-t-sql"></a>T-SQL (Transact-SQL)
 
 Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)ou qualquer outro programa que possa se conectar a um servidor e passar comandos Transact-SQL. Para criar e gerenciar regras de firewall usando o T-SQL, consulte [Gerenciar regras de firewall usando o Transact-SQL](firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules).
 

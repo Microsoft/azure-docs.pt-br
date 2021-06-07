@@ -2,17 +2,19 @@
 title: Criar uma VM do Windows de um VHD especializado no portal do Azure
 description: Crie uma nova VM do Windows em um VHD no portal do Azure.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 31677482660a48e2bb4c71b81b04681eba725fcd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a93ab207960133ecbf5a68927c5d16a6daf94fd4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455123"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102562207"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
 

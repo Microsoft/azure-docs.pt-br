@@ -4,15 +4,15 @@ description: Saiba como executar scripts do Python como parte de um pipeline por
 author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 241a47ccf9021c6065fea907b4d9914744a64972
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106267"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103461684"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Uma distribuição instalada do [Python](https://www.python.org/downloads/) para teste local.
 * O pacote [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) `pip`.
-* O [conjunto de dados iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
+* O [conjunto de dados iris.csv](https://github.com/Azure-Samples/batch-adf-pipeline-tutorial/blob/master/iris.csv)
 * Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Confira [Criar uma conta do Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas de Lote a contas de armazenamento.
 * Uma conta do Azure Data Factory. Confira [Criar um data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para obter mais informações sobre como criar um data factory por meio do portal do Azure.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -67,7 +67,7 @@ Aqui você vai criar contêineres de blob que armazenarão arquivos de entrada e
 1. Entre no Gerenciador de Armazenamento usando suas credenciais do Azure.
 1. Usando a conta de armazenamento vinculada à sua conta do Lote, crie dois contêineres de blob (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [Criar um contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Neste exemplo, chamaremos nosso contêiner de entrada `input` e nosso contêiner de saída `output`.
-1. Carregue [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) no contêiner de entrada `input` usando o Gerenciador de Armazenamento, seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Carregue [`iris.csv`](https://github.com/Azure-Samples/batch-adf-pipeline-tutorial/blob/master/iris.csv) no contêiner de entrada `input` usando o Gerenciador de Armazenamento, seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um script em Python
 
@@ -75,32 +75,28 @@ O script do Python a seguir carrega o conjunto de dados `iris.csv` do seu contê
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlobServiceClient
+from azure.storage.blob import BlobClient
 import pandas as pd
 
 # Define parameters
-storageAccountURL = "<storage-account-url>"
-storageKey         = "<storage-account-key>"
-containerName      = "output"
+connectionString = "<storage-account-connection-string>"
+containerName = "output"
+outputBlobName  = "iris_setosa.csv"
 
 # Establish connection with the blob storage account
-blob_service_client = BlockBlobService(account_url=storageAccountURL,
-                               credential=storageKey
-                               )
+blob = BlobClient.from_connection_string(conn_str=connectionString, container_name=containerName, blob_name=outputBlobName)
 
 # Load iris dataset from the task node
 df = pd.read_csv("iris.csv")
 
-# Subset records
+# Take a subset of the records
 df = df[df['Species'] == "setosa"]
 
 # Save the subset of the iris dataframe locally in task node
-df.to_csv("iris_setosa.csv", index = False)
+df.to_csv(outputBlobName, index = False)
 
-# Upload iris dataset
-container_client = blob_service_client.get_container_client(containerName)
-with open("iris_setosa.csv", "rb") as data:
-    blob_client = container_client.upload_blob(name="iris_setosa.csv", data=data)
+with open(outputBlobName, "rb") as data:
+    blob.upload_blob(data)
 ```
 
 Salve o script como `main.py` e carregue-o para o contêiner **Armazenamento do Azure** `input`. Teste e valide a funcionalidade localmente antes de carregá-la para seu contêiner de blob:
@@ -119,19 +115,17 @@ Nesta seção, você criará e validará um pipeline usando o script do Python.
 
     ![Na guia Geral, defina o nome do pipeline como "Executar Python"](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
-1. Na caixa **Atividades**, expanda **Serviço em Lote**. Arraste a atividade personalizada da caixa de ferramentas **Atividades** para a superfície do designer do pipeline.
-1. Na guia **Geral**, especifique **testPipeline** para Nome
-
-    ![Na guia Geral, especifique testPipeline para Nome](./media/run-python-batch-azure-data-factory/create-custom-task.png)
-1. Na guia **Lote do Azure**, adicione a **Conta do Lote** criada nas etapas anteriores e **Teste a conexão** para garantir que ele seja bem-sucedida
-
+1. Na caixa **Atividades**, expanda **Serviço em Lote**. Arraste a atividade personalizada da caixa de ferramentas **Atividades** para a superfície do designer do pipeline. Preencha as seguintes guias para a atividade personalizada:
+    1. Na guia **Geral**, especifique **testPipeline** como Nome ![Na guia Geral, especifique testPipeline como Nome](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    1. Na guia **Lote do Azure**, adicione a **Conta do Lote** criada nas etapas anteriores e **Teste a conexão** para garantir que ela seja bem-sucedida.
     ![Na guia Lote do Azure, adicione a Conta do Lote criada nas etapas anteriores, depois teste a conexão](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    1. Na guia **Configurações**:
+        1. Defina o **Comando** como `python main.py`.
+        1. Para o **Serviço Vinculado de Recurso**, adicione a conta de armazenamento que foi criada nas etapas anteriores. Teste a conexão para garantir que ela seja bem-sucedida.
+        1. No **Caminho da Pasta**, selecione o nome do contêiner **Armazenamento de Blobs do Azure** que contém o script Python e as entradas associadas. Isso baixará os arquivos selecionados do contêiner para as instâncias de nó de pool antes da execução do script Python.
 
-1. Na guia **Configurações**, insira o comando `python main.py`.
-1. Para o **Serviço Vinculado de Recurso**, adicione a conta de armazenamento que foi criada nas etapas anteriores. Teste a conexão para garantir que ela seja bem-sucedida.
-1. No **Caminho da Pasta**, selecione o nome do contêiner **Armazenamento de Blobs do Azure** que contém o script Python e as entradas associadas. Isso baixará os arquivos selecionados do contêiner para as instâncias de nó de pool antes da execução do script Python.
+        ![No Caminho da Pasta, selecione o nome do contêiner de Armazenamento de Blobs do Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 
-    ![No Caminho da Pasta, selecione o nome do contêiner de Armazenamento de Blobs do Azure](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Clique em **Validar** na barra de ferramentas do pipeline sobre a tela para validar as configurações de pipeline. Confirme se esse pipeline foi validado com êxito. Para fechar a saída de validação, selecione o botão &gt;&gt; (seta para a direita).
 1. Clique em **Depurar** para testar o pipeline e garantir que ele funcione com precisão.
 1. Clique em **Publicar** para publicar o pipeline.

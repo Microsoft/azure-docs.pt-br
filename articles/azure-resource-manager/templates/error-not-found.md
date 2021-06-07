@@ -2,13 +2,13 @@
 title: Erros de recurso não encontrado
 description: Descreve como resolver erros quando um recurso não pode ser encontrado. O erro pode ocorrer ao implantar um modelo de Azure Resource Manager ou ao tomar ações de gerenciamento.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
-ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 03/23/2021
+ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526239"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950868"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Resolver erros de recurso não encontrado
 
@@ -133,3 +133,9 @@ Ao implantar um modelo, procure expressões que usam as funções [Reference](te
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## <a name="solution-6---after-deleting-resource"></a>Solução 6-após a exclusão do recurso
+
+Quando você exclui um recurso, pode haver um curto período de tempo em que o recurso ainda aparece no portal, mas que não está realmente disponível. Se você selecionar o recurso, receberá um erro informando que o recurso não foi encontrado. Atualize o portal para obter a exibição mais recente.
+
+Se o problema continuar após uma breve espera, [contate o suporte](https://azure.microsoft.com/support/options/).

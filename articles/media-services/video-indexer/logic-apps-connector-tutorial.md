@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880904"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600668"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: usar o Video Indexer com o Aplicativo Lógico e o Power Automate
 
-A [API REST do Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) dos Serviços de Mídia do Azure dá suporte à comunicação de servidor para servidor e de cliente para servidor, além de permitir que os usuários do Video Indexer integrem insights de áudio e vídeo facilmente à lógica do aplicativo, proporcionando novas experiências e oportunidades de monetização.
+A [API REST do Video Indexer v2](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) dos Serviços de Mídia do Azure dá suporte à comunicação de servidor para servidor e de cliente para servidor, além de permitir que os usuários do Video Indexer integrem insights de áudio e vídeo facilmente à lógica do aplicativo, proporcionando novas experiências e oportunidades de monetização.
 
 Para facilitar ainda mais a integração, temos suporte para os conectores dos  [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) e do [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) , que são compatíveis com nossa API. Você pode usar os conectores para configurar fluxos de trabalho personalizados a fim de indexar e extrair insights de uma grande quantidade de arquivos de vídeo e áudio, sem escrever uma só linha de código. Além disso, o uso dos conectores para sua integração proporciona melhor visibilidade da integridade do fluxo de trabalho e uma forma fácil de depurá-lo.  
 

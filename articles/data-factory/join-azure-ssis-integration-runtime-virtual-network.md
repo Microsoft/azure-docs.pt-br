@@ -7,10 +7,10 @@ ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 9a82b305adec1385bf659987ea39df6bb953cd70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100370964"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o runtime de integração do Azure-SSIS a uma rede virtual

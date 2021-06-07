@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461457"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102442954"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Cenário: rota para serviços compartilhados VNets
 
@@ -30,9 +30,9 @@ Podemos usar uma matriz de conectividade para resumir os requisitos deste cenár
 
 | De             | Para:   |*VNets isolado*|*VNet compartilhada*|*Branches*|
 |---|---|---|---|---|
-|**VNets isolado**|&#8594;|        | Direto | Direto |
-|**VNets compartilhado**  |&#8594;| Direto | Direto | Direto |
-|**Branches**      |&#8594;| Direto | Direto | Direto |
+|**VNets isolado**| ->|        | Direto | Direto |
+|**VNets compartilhado**  |->| Direto | Direto | Direto |
+|**Branches**      |->| Direto | Direto | Direto |
 
 Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) se comunica com um destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico). Nesse cenário, não há firewalls nem soluções de virtualização de rede, portanto, os fluxos de comunicação diretamente pela WAN virtual (portanto, a palavra "direta" na tabela).
 
@@ -73,9 +73,9 @@ Para configurar o cenário, considere as seguintes etapas:
 
 Isso fará com que a configuração de roteamento mostrada na figura a seguir:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="VNet de serviços compartilhados" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagrama da VNet de serviços compartilhados." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre a WAN Virtual, veja as [Perguntas frequentes](virtual-wan-faq.md).
+* Para configurar usando um modelo ARM, consulte [início rápido: rotear para serviços compartilhados VNets usando um modelo ARM](quickstart-route-shared-services-vnet-template.md).
 * Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).

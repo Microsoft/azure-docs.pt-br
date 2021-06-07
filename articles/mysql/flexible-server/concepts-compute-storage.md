@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 7165cdc072ffaa5b0d862e1fe17f94e35c35aeec
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581441"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034530"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -46,33 +46,33 @@ Os recursos de computação podem ser selecionados com base na camada e no taman
 
 As especificações detalhadas dos tipos de servidor disponíveis são as seguintes:
 
-| Tamanho da computação         | vCores | Tamanho da memória (GiB) | 
-|----------------------|--------|-------------------|
+| Tamanho da computação         | vCores | Tamanho da memória (GiB) | IOPS máximo com suporte | Largura de banda de e/s com suporte máx (MBps)|
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|
 | **Expansíveis**        |        |                   | 
-| Standard_B1s         | 1      | 1                 |  
-| Standard_B1ms        | 1      | 2                 | 
-| Standard_B2s         | 2      | 4                 |  
-| **Uso Geral**  |        |                   | 
-| Standard_D2ds_v4     | 2      | 8                 |  
-| Standard_D4ds_v4     | 4      | 16                | 
-| Standard_D8ds_v4     | 8      | 32                | 
-| Standard_D16ds_v4    | 16     | 64                | 
-| Standard_D32ds_v4    | 32     | 128               |  
-| Standard_D48ds_v4    | 48     | 192               |  
-| Standard_D64ds_v4    | 64     | 256               | 
-| **Otimizado para memória** |        |                   |
-| Standard_E2ds_v4     | 2      | 16                |
-| Standard_E4ds_v4     | 4      | 32                |
-| Standard_E8ds_v4     | 8      | 64                |
-| Standard_E16ds_v4    | 16     | 128               |
-| Standard_E32ds_v4    | 32     | 256               |
-| Standard_E48ds_v4    | 48     | 384               |
-| Standard_E64ds_v4    | 64     | 504               |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
+| Standard_B2s         | 2      | 4                 | 1280               | 15                                |
+| **Uso Geral**  |        |                   |                    |                                   |
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
+| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                |
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              |
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| **Otimizado para memória** |        |                   |                    |                                   |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
+| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                |
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              |
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
 
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Armazenamento
 

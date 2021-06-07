@@ -63,8 +63,16 @@
           href: storage-sync-files-planning.md
         - name: Considerações de rede para acesso híbrido
           href: storage-sync-files-networking-overview.md
-        - name: Sobre a camada de nuvem
-          href: storage-sync-cloud-tiering.md
+        - name: Disposição em camadas de nuvem
+          items:
+            - name: Visão geral da camada de nuvem
+              href: storage-sync-cloud-tiering-overview.md
+            - name: Visão geral das políticas da camada de nuvem
+              href: storage-sync-cloud-tiering-policy.md
+            - name: Escolher suas políticas de camada de nuvem
+              href: storage-sync-choose-cloud-tiering-policies.md
+            - name: Monitorar camada de nuvem
+              href: storage-sync-monitor-cloud-tiering.md
     - name: Desempenho e escala
       items:
         - name: Desempenho do SMB Multichannel
@@ -155,6 +163,8 @@
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Iniciar um failover da conta
           href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Como gerenciar arquivos em camadas
+          href: storage-sync-how-to-manage-tiered-files.md
     - name: Proteção de dados
       items:
         - name: Habilitar exclusão reversível
@@ -221,6 +231,8 @@
               href: storage-files-migration-linux-hybrid.md
             - name: Migrar de um NAS local para um servidor de arquivos híbrido com a Sincronização de Arquivos do Azure
               href: storage-files-migration-nas-hybrid.md
+            - name: Migrar de um NAS para um servidor de arquivos híbrido com o DataBox
+              href: storage-files-migration-nas-hybrid-databox.md
         - name: Do StorSimple
           items:
             - name: Guia de migração do StorSimple 8100 e 8600

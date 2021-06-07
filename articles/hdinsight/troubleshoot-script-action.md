@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944675"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871428"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Solucionar problemas de ações de script no Azure HDInsight
 
@@ -26,11 +26,11 @@ Você pode usar a interface do usuário da Web do Apache Ambari para exibir info
 
 1. Na barra na parte superior da página, selecione a entrada **ops**. Uma lista exibe as operações atuais e anteriores realizadas no cluster por meio do Ambari.
 
-    ![Barra de interface do usuário da Web do Ambari com o item "ops" selecionado](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="Barra de interface do usuário da Web do Ambari com o item &quot;ops&quot; selecionado" border="true":::
 
 1. Localize as entradas com **run\_customscriptaction** na coluna **Operações**. Essas entradas são criadas quando as ações de script são executadas.
 
-    ![Operações de ação de script do Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Operações de ação de script do Apache Ambari" border="true":::
 
     Para exibir as saídas **STDOUT** e **STDERR**, selecione a entrada **run\customscriptaction** e faça drill down pelos links. Essa saída é gerada ao executar o script e pode conter informações úteis.
 
@@ -40,7 +40,7 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
 * Os logs de armazenamento estão disponíveis em `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Logs de ação de script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="Logs de ação de script" border="true":::
 
     Nesse diretório, os logs são organizados separadamente em **nó de cabeçalho**, **nó de trabalho** e **nó do zookeeper**. Veja os exemplos a seguir:
 

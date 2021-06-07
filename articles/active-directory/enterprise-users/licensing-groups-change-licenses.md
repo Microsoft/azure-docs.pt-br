@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 050ae95c79e7ecb98f8508c2fdb41b90fc1b1da0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546532"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Alterar as atribuições de licença para um usuário ou grupo no Azure Active Directory
@@ -54,14 +54,14 @@ Na página **Atualizar atribuições de licença** , se você vir que algumas ca
 
     ![página de atribuições de licença para um usuário mostrando o Office 365 E1 limpo e o Office 365 E3 selecionado](./media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 O Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para fornecer continuidade de serviço.
 
 ## <a name="change-group-license-assignments"></a>Alterar atribuições de licença de grupo
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador de licenças na sua organização do Azure AD.
-1. Selecione **Azure Active Directory**  >  **grupos** de Azure Active Directory e, em seguida, abra a página **visão geral** de um grupo.
+1. Selecione   >  **grupos** de Azure Active Directory e, em seguida, abra a página **visão geral** de um grupo.
 1. Selecione **Licenças**.
 1. Selecione o comando **atribuições** para editar a atribuição de licença para o usuário ou grupo.
 1. Marque a caixa de seleção do Office 365 E3. Para manter a continuidade do serviço, certifique-se de selecionar todos os serviços E1 que já estão atribuídos ao usuário.
@@ -69,7 +69,7 @@ O Azure AD aplica as novas licenças e remove as licenças antigas simultaneamen
 
     ![Selecione o comando atribuições em uma página licenças de usuário ou grupo](./media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Para fornecer continuidade de serviço, o Azure AD aplica as novas licenças e remove as licenças antigas simultaneamente para todos os usuários no grupo.
 

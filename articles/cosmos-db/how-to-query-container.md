@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335884"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contêiner do Azure Cosmos
@@ -59,9 +59,9 @@ Os SDKs do Azure Cosmos DB 1.9.0 e versões superiores dão suporte a opções d
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxConcurrency** : define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1` , o SDK gerenciará o grau de paralelismo. Se  `MaxConcurrency` definido como `0` , há uma única conexão de rede para as partições do contêiner.
+- **MaxConcurrency**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como `-1` , o SDK gerenciará o grau de paralelismo. Se  `MaxConcurrency` definido como `0` , há uma única conexão de rede para as partições do contêiner.
 
-- **MaxBufferedItemCount** : negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
+- **MaxBufferedItemCount**: negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o SDK gerenciará o número de itens no buffer durante a execução de consultas paralelas.
 
 Devido à capacidade do Azure Cosmos DB de paralelizar consultas entre partições, a latência da consulta geralmente será bem dimensionada à medida que o sistema adiciona [partições físicas](partitioning-overview.md#physical-partitions). No entanto, a carga de RU aumentará significativamente, pois o número total de partições físicas aumenta.
 

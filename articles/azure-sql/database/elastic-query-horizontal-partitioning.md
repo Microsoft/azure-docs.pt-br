@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792099"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
@@ -159,11 +159,11 @@ As cláusulas SCHEMA\_NAME e OBJECT\_NAME mapeiam a definição da tabela extern
 
 A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula DISTRIBUTION para criar planos de consulta mais eficientes.
 
-1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>** .
+1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>**.
 2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
 3. **Redondo \_ ROBIN** significa que a tabela é particionada horizontalmente usando um método de distribuição dependente de aplicativo.
 
-**Referência de camada de dados** : a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece a tabela externa com as informações necessárias para localizar todos os bancos de dados em sua camada.
+**Referência de camada de dados**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece a tabela externa com as informações necessárias para localizar todos os bancos de dados em sua camada.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 

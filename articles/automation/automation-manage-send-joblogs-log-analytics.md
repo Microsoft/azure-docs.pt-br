@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182862"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100581205"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Encaminhar os dados de trabalho da Automação do Azure para os logs do Azure Monitor
 
@@ -72,7 +72,7 @@ As configurações de diagnóstico de automação oferecem suporte ao encaminham
 * DSCNodeStatus
 * Métricas-total de trabalhos, execuções de máquina de implantação de atualização total, total de execuções de implantação de atualização
 
-Para começar a enviar seus logs de automação para Azure Monitor logs, examine [criar configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) para entender o recurso e os métodos disponíveis para definir as configurações de diagnóstico para enviar logs da plataforma.
+Para começar a enviar seus logs de automação para Azure Monitor logs, examine [criar configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para entender o recurso e os métodos disponíveis para definir as configurações de diagnóstico para enviar logs da plataforma.
 
 ## <a name="azure-monitor-log-records"></a>Registros de log do Azure Monitor
 
@@ -140,7 +140,7 @@ Para criar uma regra de alerta, comece criando uma pesquisa de logs para os regi
 
    Se você configurou logs de mais de uma Conta de automação ou assinatura para o workspace, também poderá agrupar os alertas por assinatura e por Conta de automação. O nome da conta de Automação pode ser encontrado no campo `Resource` na pesquisa de `JobLogs`.
 
-3. Para abrir a tela **Criar regra**, clique em **Nova Regra de Alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [ Logar alertas no Azure ](../azure-monitor/platform/alerts-unified-log.md).
+3. Para abrir a tela **Criar regra**, clique em **Nova Regra de Alerta** na parte superior da página. Para obter mais informações sobre as opções para configurar o alerta, consulte [ Logar alertas no Azure ](../azure-monitor/alerts/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todos os trabalhos que foram concluídos com erros
 
@@ -192,8 +192,8 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber como construir consultas de pesquisa e examinar os logs de trabalho de Automação com os logs do Azure Monitor, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+* Para saber como construir consultas de pesquisa e examinar os logs de trabalho de Automação com os logs do Azure Monitor, confira [Pesquisas de logs em logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 * Para entender como criar e recuperar mensagens de erro e de saída de runbooks, confira [Monitorar a saída do runbook](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Execução de runbook na Automação do Azure](automation-runbook-execution.md).
-* Para saber mais sobre os logs do Azure Monitor e as fontes de coleta de dados, confira a [Visão geral sobre a coleta de dados do armazenamento do Azure nos logs do Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
-* Para obter ajuda na solução de problemas do Log Analytics, confira [Solucionar problemas se o Log Analytics não está mais coletando dados](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
+* Para saber mais sobre os logs do Azure Monitor e as fontes de coleta de dados, confira a [Visão geral sobre a coleta de dados do armazenamento do Azure nos logs do Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+* Para obter ajuda na solução de problemas do Log Analytics, confira [Solucionar problemas se o Log Analytics não está mais coletando dados](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

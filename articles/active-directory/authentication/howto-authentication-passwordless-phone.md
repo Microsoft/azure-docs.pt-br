@@ -1,6 +1,6 @@
 ---
 title: Entrada sem senha com o Microsoft Authenticator app-Azure Active Directory
-description: Habilitar a entrada sem senha no Azure AD usando o aplicativo Microsoft Authenticator (versão prévia)
+description: Habilitar a entrada sem senha no Azure AD usando o aplicativo Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 51e6cd7efcd0e851c15975aba5ff9b99c615eb7d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626148"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101653466"
 ---
-# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
+# <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator 
 
 O aplicativo Microsoft Authenticator pode ser usado para entrar em qualquer conta do Azure AD sem usar uma senha. O Microsoft Authenticator usa a autenticação baseada em chave para habilitar uma credencial de usuário vinculada a um dispositivo, em que o dispositivo usa um PIN ou biométrica. O [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification) usa uma tecnologia semelhante.
 
@@ -40,7 +40,7 @@ Para usar a entrada por telefone sem senha com o aplicativo Microsoft Authentica
 - Versão mais recente do Microsoft Authenticator instalada em dispositivos que executam o iOS 8.0 ou superior ou o Android 6.0 ou superior.
 
 > [!NOTE]
-> Se você habilitou Microsoft Authenticator visualização de entrada sem senha usando o PowerShell do Azure AD, ela foi habilitada para todo o diretório. Se você habilitar o uso desse novo método, ele substituirá a política do PowerShell. Recomendamos que você habilite para todos os usuários em seu locatário por meio do menu novos *métodos de autenticação* ; caso contrário, os usuários que não estiverem na nova política não poderão mais entrar sem uma senha.
+> Se você tiver habilitado Microsoft Authenticator entrada sem senha usando o PowerShell do Azure AD, ele foi habilitado para todo o diretório. Se você habilitar o uso desse novo método, ele substituirá a política do PowerShell. Recomendamos que você habilite para todos os usuários em seu locatário por meio do menu novos *métodos de autenticação* ; caso contrário, os usuários que não estiverem na nova política não poderão mais entrar sem uma senha.
 
 ## <a name="enable-passwordless-authentication-methods"></a>Habilitar métodos de autenticação com senha
 
@@ -58,7 +58,7 @@ Para habilitar o método de autenticação para entrada no telefone sem senha, c
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de *administrador global* .
 1. Procure e selecione *Azure Active Directory* e, em seguida, navegue até **segurança**  >  **métodos de autenticação**  >  **políticas**.
-1. Em **Microsoft Authenticator (versão prévia)**, escolha as seguintes opções:
+1. Em **Microsoft Authenticator**, escolha as seguintes opções:
    1. **Habilitar** -Sim ou não
    1. **Destino** -todos os usuários ou Selecionar usuários
 1. Cada grupo ou usuário adicionado é habilitado por padrão para usar Microsoft Authenticator nos modos de notificação por senha e por push ("qualquer"). Para alterar isso, para cada linha:
@@ -70,7 +70,7 @@ Para habilitar o método de autenticação para entrada no telefone sem senha, c
 
 Os usuários se registram para o método de autenticação com senha do Azure AD usando as seguintes etapas:
 
-1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
+1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) .
 1. Entre e adicione o aplicativo autenticador selecionando **Adicionar método > aplicativo autenticador** e, em seguida, **Adicionar**.
 1. Siga as instruções para instalar e configurar o aplicativo Microsoft Authenticator em seu dispositivo.
 1. Selecione **concluído** para concluir a configuração do autenticador.
@@ -104,7 +104,7 @@ Depois que o usuário utilizar o logon no telefone sem senha, o aplicativo conti
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Os seguintes problemas conhecidos existem na experiência de visualização atual.
+Os seguintes problemas conhecidos existem.
 
 ### <a name="not-seeing-option-for-passwordless-phone-sign-in"></a>Não está vendo a opção para entrar no telefone sem senha
 

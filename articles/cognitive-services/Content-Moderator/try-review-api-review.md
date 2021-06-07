@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905122"
 ---
 # <a name="create-human-reviews-api-console"></a>Criar análises humanas (console de API)
@@ -135,7 +135,7 @@ Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da 
 
 ### <a name="examine-the-new-review"></a>Examinar a nova revisão
 
-Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione vídeo de texto da imagem de **revisão**  >  **Image** / **Text** / **Video** (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
+Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione vídeo de texto da imagem de **revisão**  >   /  /  (dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
 
 ![Imagem da ferramenta de análise de uma bola de futebol](images/test-drive-review-5.PNG)
 

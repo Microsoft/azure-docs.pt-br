@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b051a4ffe4d24e1ef0e69ab7c18a8ed3388b57e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f3fdeadcf90d94203a972946ccceefca74cd5c3d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078275"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012472"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Início Rápido: Carregar, baixar e listar blobs com o PowerShell
 
@@ -26,6 +26,8 @@ Use o módulo do Azure PowerShell para criar e gerenciar recursos do Azure. Cria
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para acessar o Armazenamento do Azure, você precisará de uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Você também precisará da função de Colaborador de Dados do Blob de Armazenamento para ler, gravar e excluir contêineres e blobs de Armazenamento do Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -63,21 +65,21 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
 Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Hot
 
 # upload another file to the Cool access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
-  -Context $ctx
+  -Context $ctx `
   -StandardBlobTier Cool
 
 # upload a file to a folder to the Archive access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
   -Container $containerName `
   -Blob "Foldername/Image003.jpg" `
-  -Context $ctx 
+  -Context $ctx `
   -StandardBlobTier Archive
 ```
 
@@ -113,7 +115,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transferência de dados com AzCopy
 
-O utilitário de linha de comando AzCopy oferece transferência de dados de alto desempenho e programável para o Armazenamento do Azure. Use o AzCopy para transferir dados bidirecionalmente no Armazenamento de Blobs e nos Arquivos do Azure. Para obter mais informações sobre o AzCopy v10, a última versão do AzCopy, confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md). Para saber mais sobre como usar o AzCopy v10 com o Armazenamento de Blobs, confira [Transferir dados com o AzCopy e o Armazenamento de Blobs](../common/storage-use-azcopy-blobs.md).
+O utilitário de linha de comando AzCopy oferece transferência de dados de alto desempenho e programável para o Armazenamento do Azure. Use o AzCopy para transferir dados bidirecionalmente no Armazenamento de Blobs e nos Arquivos do Azure. Para obter mais informações sobre o AzCopy v10, a última versão do AzCopy, confira [Introdução ao AzCopy](../common/storage-use-azcopy-v10.md). Para saber mais sobre como usar o AzCopy v10 com o Armazenamento de Blobs, confira [Transferir dados com o AzCopy e o Armazenamento de Blobs](../common/storage-use-azcopy-v10.md#transfer-data).
 
 O exemplo a seguir usa o AzCopy para carregar um arquivo local em um blob. Lembre-se de substituir os valores de exemplo pelos próprios valores:
 

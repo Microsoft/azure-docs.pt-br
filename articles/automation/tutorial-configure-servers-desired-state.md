@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99053560"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurar computadores para um estado desejado
@@ -162,7 +162,7 @@ Para cancelar o registro de um nó do serviço State Configuration da Automaçã
 
 - Para começar, veja [Introdução ao serviço State Configuration da Automação do Azure](automation-dsc-getting-started.md).
 - Para saber como habilitar os nós, veja [Habilitar o serviço State Configuration da Automação do Azure](automation-dsc-onboarding.md).
-- Para saber como compilar configurações da plataforma DSC para que elas possam ser atribuídas aos nós de destino, veja [Compilação de configurações de DSC no serviço State Configuration da Automação do Azure](automation-dsc-compile.md).
-- Para ver um exemplo de uso do serviço State Configuration da Automação do Azure em um pipeline de implantação contínua, veja [Configuração de implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).
-- Para obter informações sobre preços, veja [Preços do serviço State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
+- Para saber como compilar configurações DSC para que possam ser atribuídas a nós de destino, confira [Compilar configurações DSC no State Configuration da Automação do Azure](automation-dsc-compile.md).
+- Para ver um exemplo de uso do State Configuration da Automação do Azure em um pipeline de implantação contínua, confira [Configurar a implantação contínua com o Chocolatey](automation-dsc-cd-chocolatey.md).
+- Para saber mais sobre preços, confira [Preços do State Configuration da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation).

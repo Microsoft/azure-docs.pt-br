@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348722"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
@@ -333,7 +333,7 @@ Uma conta de armazenamento de cache é uma conta de armazenamento padrão na mes
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Para máquinas virtuais que **não usam discos gerenciados** , a conta de armazenamento de destino é a conta de armazenamento na região de recuperação na qual os discos da máquina virtual são replicados. A conta de armazenamento de destino pode ser uma conta de armazenamento padrão ou uma conta de armazenamento premium. Selecione o tipo de conta de armazenamento necessário com base na taxa de alteração de dados (taxa de gravação de e/s) para os discos e o Azure Site Recovery limites de rotatividade com suporte para o tipo de armazenamento.
+Para máquinas virtuais que **não usam discos gerenciados**, a conta de armazenamento de destino é a conta de armazenamento na região de recuperação na qual os discos da máquina virtual são replicados. A conta de armazenamento de destino pode ser uma conta de armazenamento padrão ou uma conta de armazenamento premium. Selecione o tipo de conta de armazenamento necessário com base na taxa de alteração de dados (taxa de gravação de e/s) para os discos e o Azure Site Recovery limites de rotatividade com suporte para o tipo de armazenamento.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

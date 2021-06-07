@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 715b0d16e33412003820044ffa99fee9e2431a7b
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 791591f3d98f9e6902e89a880c464e6a609e3a1f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599011"
 ---
 <a name="HOLTop"></a>
 
@@ -22,17 +22,13 @@ ms.locfileid: "99090686"
 
 [Documentação de referência da v3](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Pacote da v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-[Documentação de referência da v2](/python/api/overview/azure/cognitiveservices/textanalytics) | [Código-fonte da biblioteca v2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Pacote da v2 (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [Amostras da v2](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
 ---
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
-* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto </a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 * Para usar o recurso Analisar, você precisará de um recurso de Análise de Texto com o tipo de preço S (Standard).
@@ -61,15 +57,6 @@ pip install --upgrade azure-ai-textanalytics
 > [!TIP]
 > Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), que contém os exemplos de código neste início rápido. 
 
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-```console
-pip install --upgrade azure-cognitiveservices-language-textanalytics
-```
-
-> [!TIP]
-> Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), que contém os exemplos de código neste início rápido. 
 
 ---
 
@@ -103,12 +90,6 @@ Durante o processamento em lotes, o texto é enviado para a API como uma lista d
 
 O objeto de resposta é uma lista que contém as informações analisadas de cada documento. 
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-O cliente Análise de Texto é um objeto [TextAnalyticsClient](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) que se autentica no Azure usando sua chave. O cliente fornece vários métodos para analisar o texto, como uma única cadeia de caracteres ou um lote. 
-
-O texto é enviado para a API como uma lista de `documents`, que são objetos `dictionary` que contêm uma combinação de atributos `id`, `text` e `language`, dependendo do método usado. O atributo `text` armazena o texto a ser analisado na origem `language` e o `id` pode ser qualquer valor. 
-
 ---
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -128,15 +109,6 @@ Estes snippets de código mostram como realizar as seguintes tarefas com a bibli
 
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
-
-* [Autenticar o cliente](#authenticate-the-client)
-* [Análise de Sentimento](#sentiment-analysis)
-* [Detecção de idioma](#language-detection)
-* [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
-* [Vinculação de entidade](#entity-linking)
-* [Extração de frases-chave](#key-phrase-extraction)
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimento](#sentiment-analysis)
@@ -203,14 +175,6 @@ def authenticate_client():
    
 client = authenticate_client()
 ```
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
-
-Crie uma função para criar uma instância do objeto `TextAnalyticsClient` com a `key` E o `endpoint` criados acima. Em seguida, crie um cliente. 
-
-[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
 
 --- 
 
@@ -303,17 +267,17 @@ def sentiment_analysis_with_opinion_mining_example(client):
                 sentence.confidence_scores.negative,
             ))
             for mined_opinion in sentence.mined_opinions:
-                aspect = mined_opinion.aspect
-                print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
-                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                    aspect.confidence_scores.positive,
-                    aspect.confidence_scores.negative,
+                target = mined_opinion.target
+                print("......'{}' target '{}'".format(target.sentiment, target.text))
+                print("......Target score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    target.confidence_scores.positive,
+                    target.confidence_scores.negative,
                 ))
-                for opinion in mined_opinion.opinions:
-                    print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
-                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                        opinion.confidence_scores.positive,
-                        opinion.confidence_scores.negative,
+                for assessment in mined_opinion.assessments:
+                    print("......'{}' assessment '{}'".format(assessment.sentiment, assessment.text))
+                    print("......Assessment score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        assessment.confidence_scores.positive,
+                        assessment.confidence_scores.negative,
                     ))
             print("\n")
         print("\n")
@@ -334,33 +298,33 @@ Positive=0.84
 Neutral=0.00
 Negative=0.16
 
-......'negative' aspect 'food'
-......Aspect score:
+......'negative' target 'food'
+......Target score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' opinion 'unacceptable'
-......Opinion score:
+......'negative' assessment 'unacceptable'
+......Assessment score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' aspect 'service'
-......Aspect score:
+......'negative' target 'service'
+......Target score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' opinion 'unacceptable'
-......Opinion score:
+......'negative' assessment 'unacceptable'
+......Assessment score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'positive' aspect 'concierge'
-......Aspect score:
+......'positive' target 'concierge'
+......Target score:
 ......Positive=1.00
 ......Negative=0.00
 
-......'positive' opinion 'nice'
-......Opinion score:
+......'positive' assessment 'nice'
+......Assessment score:
 ......Positive=1.00
 ......Negative=0.00
 
@@ -421,21 +385,6 @@ Neutral=0.77
 Negative=0.02
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Autentique um objeto de cliente e chame a função [sentiment()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-). Itere nos resultados e imprima a ID de cada documento e a pontuação de sentimento. Uma pontuação mais perto de 0 indica um sentimento negativo, enquanto uma pontuação mais perto de 1 indica um sentimento positivo.
-
-[!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
-```
-
 ---
 
 ## <a name="language-detection"></a>Detecção de idioma
@@ -492,20 +441,6 @@ language_detection_example(client)
 Language:  French
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Usando o cliente criado anteriormente, chame [detect_language()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere os resultados e imprima a ID de cada documento e o primeiro idioma retornado.
-
-[!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
-
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
-```
 
 ---
 
@@ -789,54 +724,6 @@ Linked Entities:
                 Confidence Score: 0.33
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-> [!NOTE]
-> Na versão 2.1, a vinculação de entidade está incluída na resposta do NER.
-
-Usando o cliente criado anteriormente, chame a função [entities()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere os resultados e imprima a ID de cada documento e as entidades contidas nela.
-
-[!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 0, Length: 9,   Score: 1.0
-
-        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-        Offset: 25, Length: 10, Score: 0.999847412109375
-
-        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-        Offset: 40, Length: 10, Score: 0.9988409876823425
-
-        Name: April 4,  Type: Other,    Sub-Type: N/A
-        Offset: 54, Length: 7,  Score: 0.8
-
-        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-        Offset: 54, Length: 13, Score: 0.8
-
-        Name: BASIC,    Type: Other,    Sub-Type: N/A
-        Offset: 89, Length: 5,  Score: 0.8
-
-        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-        Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 21, Length: 9,  Score: 0.999755859375
-
-        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-        Offset: 60, Length: 7,  Score: 0.9911284446716309
-
-        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-        Offset: 71, Length: 13, Score: 0.8
-
-        Name: Seattle,  Type: Location, Sub-Type: N/A
-        Offset: 88, Length: 7,  Score: 0.9998779296875
-```
-
 ---
 
 ### <a name="key-phrase-extraction"></a>Extração de frases-chave
@@ -909,71 +796,44 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Usando o cliente criado anteriormente, chame a função [key_phrases()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, itere os resultados e imprima a ID de cada documento e as frases-chave contidas nela.
-
-[!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
-
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
-```
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Usar a API de modo assíncrono com a operação Analisar
+## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>Usar a API de modo assíncrono com a operação de análise de lote
 
 # <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Crie uma função chamada `analyze_example()` que usa o cliente como argumento e, em seguida, chama a função `begin_analyze()`. O resultado será uma operação de execução prolongada que será sondada em busca de resultados.
+Crie uma função chamada `analyze_batch_actions_example()` que usa o cliente como argumento e, em seguida, chama a função `begin_analyze_batch_actions()`. O resultado será uma operação de execução prolongada que será sondada em busca de resultados.
 
 ```python
-    def analyze_example(client):
+    def analyze_batch_actions_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze(
+        poller = text_analytics_client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
             entities_recognition_tasks=[EntitiesRecognitionTask()]
         )
 
         result = poller.result()
+        action_results = [action_result for action_result in list(result) if not action_result.is_error]
 
-        for page in result:
-            for task in page.entities_recognition_results:
-                print("Results of Entities Recognition task:")
-                
-                docs = [doc for doc in task.results if not doc.is_error]
-                for idx, doc in enumerate(docs):
-                    print("\nDocument text: {}".format(documents[idx]))
-                    for entity in doc.entities:
-                        print("Entity: {}".format(entity.text))
-                        print("...Category: {}".format(entity.category))
-                        print("...Confidence Score: {}".format(entity.confidence_score))
-                        print("...Offset: {}".format(entity.offset))
-                    print("------------------------------------------")
+        entities_recognition_task_result = action_results[0]
+        print("Results of Entities Recognition action:")
+        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("\nDocument text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: {}".format(entity.text))
+                print("...Category: {}".format(entity.category))
+                print("...Confidence Score: {}".format(entity.confidence_score))
+                print("...Offset: {}".format(entity.offset))
+            print("------------------------------------------")
 
 analyze_example(client)
 ```
@@ -998,14 +858,10 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-Você também pode usar a operação Analisar para detectar PII e a extração de frases chave. Confira o [Exemplo do Analisar](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py) no GitHub.
+Você também pode usar a operação de análise de lote para detectar PII e executar a extração de frases chave. Confira o [exemplo de análise de lote](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) no GitHub.
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Este recurso não está disponível na versão 3.0.
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Este recurso não está disponível na versão 2.1.
 
 ---

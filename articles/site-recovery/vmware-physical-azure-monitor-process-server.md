@@ -1,18 +1,15 @@
 ---
 title: Monitorar o servidor de processo do Azure Site Recovery
 description: Este artigo descreve como monitorar o servidor de processo do Azure Site Recovery usado para recuperação de desastres de servidor físico/VM da VMware.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 0dcee641a2de73238557a6a29173f71ee1c4312a
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86134735"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580559"
 ---
 # <a name="monitor-the-process-server"></a>Monitorar o servidor de processo
 

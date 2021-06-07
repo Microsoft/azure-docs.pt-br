@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
-ms.openlocfilehash: d62d568b4924a2bfa67740b3e5f0cc1377519d47
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bef1e9bdafd91a51290fe84af074c8cece7cc371
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91335034"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102486719"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall de nível de servidor usando o portal do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall de IP no nível do servidor
 
- O Banco de Dados SQL cria um firewall no nível do servidor para bancos de dados individuais e em pool. Esse firewall impede os aplicativos cliente de se conectarem ao servidor ou a um dos respectivos bancos de dados, a menos que você crie uma regra de firewall de IP para abrir o firewall. Para uma conexão em um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou um intervalo de endereços ao qual deseja se conectar. Para obter mais informações sobre as regras de firewall de IP no nível do servidor e do banco de dados, confira [Regras de firewall de IP no nível do servidor e do banco de dados](firewall-configure.md).
+ O Banco de Dados SQL cria um firewall no nível do servidor para bancos de dados individuais e em pool. Esse firewall impede os aplicativos cliente de se conectarem ao servidor ou a um dos respectivos bancos de dados, a menos que você crie uma regra de firewall de IP para abrir o firewall. Para conexão de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou para um intervalo de endereços dos quais você deseja poder se conectar. Para obter mais informações sobre as regras de firewall de IP no nível do servidor e do banco de dados, confira [Regras de firewall de IP no nível do servidor e do banco de dados](firewall-configure.md).
 
 > [!NOTE]
 > O Banco de Dados SQL do Azure se comunica pela porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Se isso acontecer, você não conseguirá se conectar ao servidor, a menos que o departamento de TI abra a porta 1433.

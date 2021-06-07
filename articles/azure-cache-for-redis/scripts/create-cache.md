@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 77a03ac7ca47e3ba40242adfbd5d57d9dbd21f30
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96184137"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Criar um Cache do Azure para Redis

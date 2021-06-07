@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: dea88bf93000422ce1d832be4a0f60474ff27938
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94629777"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: criar e gerenciar compartilhamentos de arquivos do Gerenciador de Armazenamento do Azure
@@ -21,7 +21,7 @@ O Gerenciador de Armazenamento do Azure é uma ferramenta popular de cliente dis
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido requer que o Gerenciador de Armazenamento esteja instalado. Para baixá-lo e instalá-lo, vá até [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -40,7 +40,7 @@ Para os fins deste início rápido, entre com sua conta do Azure. Selecione **Ad
 
 ![Uma captura de tela da janela Gerenciador de Armazenamento do Microsoft Azure – Conectar](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
-### <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
+### <a name="create-a-file-share"></a>Criar um compartilhamento de arquivo
 Para criar seu primeiro compartilhamento de arquivos do Azure na conta de armazenamento `storageacct<random number>`:
 
 1. Expanda a conta de armazenamento que você criou.
@@ -66,7 +66,7 @@ A adição de um diretório fornece uma estrutura hierárquica para gerenciar o 
 
 O diretório *myDirectory* será listado na guia para o compartilhamento de arquivos *myshare*.
 
-### <a name="upload-a-file"></a>Carregar um arquivo 
+### <a name="upload-a-file"></a>Fazer upload de um arquivo 
 Você pode carregar um arquivo do computador local para o novo diretório em seu compartilhamento de arquivos. Você pode carregar uma pasta inteira ou um único arquivo.
 
 1. No menu superior, selecione **Carregar**. Essa operação dá a opção de carregar um arquivo ou uma pasta.
@@ -76,11 +76,11 @@ Você pode carregar um arquivo do computador local para o novo diretório em seu
 Quando terminar, o arquivo é exibido em uma lista no painel *myDirectory*.
 
 ### <a name="download-a-file"></a>Baixar um arquivo
-Para baixar uma cópia de um arquivo do seu compartilhamento de arquios, clique com o botão direito no arquivo e, em seguida, selecione **Baixar**. Escolha onde deseja colocar o arquivo em seu computador local e selecione **Salvar**.
+Para baixar uma cópia de um arquivo no compartilhamento de arquivo, clique com o botão direito do mouse no arquivo e, em seguida, selecione **Baixar**. Escolha onde deseja colocar o arquivo em seu computador local e selecione **Salvar**.
 
 O andamento do download é exibido no painel **Atividades** na parte inferior da janela.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Você não pode usar o Gerenciador de Armazenamento para remover recursos. Para limpar com este guia de início rápido, você pode usar o [portal do Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]

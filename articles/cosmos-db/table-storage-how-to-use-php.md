@@ -9,10 +9,10 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
 ms.openlocfilehash: 9d059c899e4a64d4d2c1b880b2a1d0f89258f33b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93079624"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como usar o serviço de Tabela de Armazenamento do Azure ou a API da tabela do Azure Cosmos DB do PHP
@@ -76,7 +76,7 @@ Nos exemplos abaixo, a instrução `require_once` é mostrada sempre, mas soment
 
 ## <a name="add-your-connection-string"></a>Adicionar sua cadeia de conexão
 
-Você pode se conectar à conta do Armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
+Você pode se conectar à conta de armazenamento do Azure ou à conta da API de Tabela do Azure Cosmos DB. Obtenha a cadeia de conexão com base no tipo de conta que você está usando.
 
 ### <a name="add-a-storage-table-service-connection"></a>Adicionar uma conexão de serviço de Tabela de Armazenamento
 
@@ -259,7 +259,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperar todas as entidades em uma partição
 
-As consultas de entidade são construídas com filtros (para obter mais informações, confira [Consultando tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição* ". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
+As consultas de entidade são construídas com filtros (para obter mais informações, confira [Consultando tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
 
 ```php
 require_once 'vendor/autoload.php';
@@ -327,7 +327,7 @@ foreach($entities as $entity){
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Recuperar um subconjunto de propriedades da entidade
 
-Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa técnica, chamada *projeção* , reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Para especificar uma propriedade a ser recuperada, passe o nome da propriedade para o método **Consulta->addSelectField**. Você pode chamar esse método várias vezes para adicionar mais propriedades. Depois da execução de **TableRestProxy->queryEntities** , as entidades retornadas somente terão as propriedades selecionadas. (Se você desejar retornar um subconjunto de entidades de tabela, use um filtro conforme as consultas acima.)
+Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa técnica, chamada *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Para especificar uma propriedade a ser recuperada, passe o nome da propriedade para o método **Consulta->addSelectField**. Você pode chamar esse método várias vezes para adicionar mais propriedades. Depois da execução de **TableRestProxy->queryEntities**, as entidades retornadas somente terão as propriedades selecionadas. (Se você desejar retornar um subconjunto de entidades de tabela, use um filtro conforme as consultas acima.)
 
 ```php
 require_once 'vendor/autoload.php';

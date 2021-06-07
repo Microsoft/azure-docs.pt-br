@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: d7e931a55ec0a9d46a8b92d4353bd2de8edd8818
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250630"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777825"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implantar um cluster do AKS (Serviço de Kubernetes do Azure)
 
@@ -35,7 +35,7 @@ Os clusters do AKS podem usar o RBAC (controle de acesso baseado em função) do
 
 Crie um cluster AKS usando [az aks create][]. O exemplo abaixo cria um cluster chamado *myAKSCluster* no grupo de recursos chamado *myResourceGroup*. Esse grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *eastus*. O exemplo a seguir não especifica uma região para que o cluster do AKS também seja criado na região *eastus*. Confira [Cotas, restrições de tamanho da máquina virtual e disponibilidade de região no AKS (Serviço de Kubernetes do Azure)][quotas-skus-regions] para obter mais informações sobre limites de recurso e disponibilidade de região do AKS.
 
-Para permitir a interação de um cluster AKS com outros recursos do Azure, uma entidade de serviço do Azure Active Directory é criada automaticamente, já que você não especificou uma. Aqui, a essa entidade de serviço é [concedido o direito de efetuar pull de imagens][container-registry-integration] da instância do ACR (Registro de Contêiner do Azure) que você criou no tutorial anterior. Para executar o comando com êxito, você precisará ter uma função **Proprietário** ou **Administrador da conta do Azure** na assinatura do Azure.
+Para permitir a interação de um cluster do AKS com outros recursos do Azure, uma identidade do cluster será criada de modo automático, já que nenhuma foi especificada. Aqui, será [concedido o direito de efetuar pull de imagens][container-registry-integration] a essa identidade do cluster da instância do ACR (Registro de Contêiner do Azure) criado no tutorial anterior. Para executar o comando com êxito, você precisará ter uma função **Proprietário** ou **Administrador da conta do Azure** na assinatura do Azure.
 
 ```azurecli
 az aks create \
@@ -103,12 +103,12 @@ Siga para o próximo tutorial para saber como implantar um aplicativo ao cluster
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az acr show]: /cli/azure/acr#az-acr-show
-[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
-[az aks create]: /cli/azure/aks#az-aks-create
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az ad sp create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az acr show]: /cli/azure/acr#az_acr_show
+[az role assignment create]: /cli/azure/role/assignment#az_role_assignment_create
+[az aks create]: /cli/azure/aks#az_aks_create
+[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
+[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
 [quotas-skus-regions]: quotas-skus-regions.md

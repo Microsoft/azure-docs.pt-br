@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: 2a075c5c99f457681cd49e75014487bf9cca263c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87095728"
 ---
 # <a name="createuidefinition-collection-functions"></a>Funções de coleção CreateUiDefinition
 
 Essas funções podem ser usadas com coleções, como cadeias de caracteres JSON, matrizes e objetos.
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>contém
 
 Retorna `true` se uma cadeia de caracteres contém a subcadeia de caracteres especificada, uma matriz contém o valor especificado ou um objeto contém a chave especificada.
 
@@ -219,7 +219,7 @@ O exemplo a seguir retorna `2`:
 "[length(steps('demoStep').element1)]"
 ```
 
-## <a name="map"></a>map
+## <a name="map"></a>mapa
 
 Retorna uma nova matriz depois de chamar uma função lambda em uma matriz fornecida. O primeiro parâmetro é a matriz a ser usada para a função lambda. O segundo parâmetro é a função lambda.
 

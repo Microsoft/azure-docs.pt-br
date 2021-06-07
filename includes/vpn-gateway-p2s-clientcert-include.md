@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34986ac80a309bcfd495e5782496ba560f84c5f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93041585"
 ---
 Cada computador cliente que você conectar a uma VNet com uma conexão Ponto a Site deve ter um certificado de cliente instalado. Você pode gerá-lo do certificado raiz e instalá-lo em cada computador cliente. Se você não instalar um certificado de cliente válido, a autenticação falhará quando o cliente tenta se conectar à VNet.

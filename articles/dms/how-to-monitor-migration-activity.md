@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297463"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
@@ -46,7 +46,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>A atividade de migração está em execução.</td>
     </tr>
     <tr>
-      <td>Êxito</td>
+      <td>Com sucesso</td>
       <td>A atividade de migração foi bem-sucedida sem problemas.</td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>Migração concluída.</td>
     </tr>
     <tr>
-      <td>Failed (Falha)</td>
+      <td>Com falha</td>
       <td>Falha na migração. Clique nos detalhes da migração para ver os erros de migração.</td>
     </tr>
     <tr>
@@ -133,8 +133,8 @@ A tabela a seguir descreve os campos mostrados no andamento da migração em ní
 | ------------- | ------------- |
 | **Status – sincronizando**      | A sincronização contínua está em execução. |
 | **Inserção**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
-| **Atualização** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
-| **Delete (excluir)**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
+| **Atualizar** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
+| **Excluir**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões da CDA nas linhas aplicadas ao destino. |
 | **Erros de dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
 

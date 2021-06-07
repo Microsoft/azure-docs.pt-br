@@ -4,10 +4,10 @@ description: Referência para excluir um pool de lote evento inicial. Esse event
 ms.topic: reference
 ms.date: 12/28/2020
 ms.openlocfilehash: 86f6eb8e7b269cb45f692398e9e60390375ca073
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97803741"
 ---
 # <a name="pool-delete-start-event"></a>Evento inicial de exclusão de pool

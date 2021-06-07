@@ -2,17 +2,17 @@
 title: Obter informações sobre a versão do aplicativo de IoT Central do Azure | Microsoft Docs
 description: Como obter informações sobre o aplicativo IoT Central que você está usando
 services: iot-central
-author: dominicbetts
-ms.author: dobett
-ms.date: 06/26/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/26/2021
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5118fa22a198ee6871a4cfb455e88d345d6a44e0
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 80a35ab41b05609642667da9e8561921ecc20852
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760852"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102051694"
 ---
 # <a name="about-your-application"></a>Sobre o seu aplicativo
 
@@ -25,7 +25,7 @@ Este artigo mostra como obter informações sobre seu aplicativo IoT Central. Ta
 
 ## <a name="get-information-about-your-application"></a>Obter informações sobre seu aplicativo
 
-Para obter informações sobre seu aplicativo IoT Central:
+Para obter informações sobre seu aplicativo IoT Central: 
 
 1. Selecione o link **ajuda** no menu superior.
 
@@ -33,7 +33,7 @@ Para obter informações sobre seu aplicativo IoT Central:
 
 1. A página **sobre seu aplicativo** mostra informações sobre seu aplicativo:  
 
-    :::image type="content" source="media/howto-get-app-info/about-your-app.png" alt-text="Sobre a captura de tela do aplicativo":::
+    :::image type="content" source="media/howto-get-app-info/about-your-app2.png" alt-text="Sobre a captura de tela do aplicativo":::
 
     Use o botão **copiar informações** para copiar as informações para a área de transferência.
 

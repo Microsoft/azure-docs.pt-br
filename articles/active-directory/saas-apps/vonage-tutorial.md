@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/24/2020
 ms.author: jeedes
 ms.openlocfilehash: e42dc6036d7ad44f1bbb15fc3af28c487ee67640
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vonage"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao vonage

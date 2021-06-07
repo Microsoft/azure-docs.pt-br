@@ -4,12 +4,12 @@ description: Neste artigo, saiba como gerenciar operações de restauração do 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: da6b4cd6134f0cd1fd3d6e04e814bbf8aec9b07d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174017"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102452145"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -31,7 +31,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -144,7 +144,7 @@ O disparo de qualquer operação de restauração é uma [operação assíncrona
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
@@ -216,7 +216,7 @@ Se houver a necessidade de personalizar a criação de uma VM a partir dos dados
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -278,7 +278,7 @@ Enquanto os discos de restauração criam discos do ponto de recuperação, o Re
 
 Para disparar uma substituição de disco de um backup de VM do Azure, estes são os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -317,17 +317,7 @@ Conforme explicado [acima](#restore-operations), o corpo da solicitação a segu
 
 ```json
 {
-  "parameters": {
-        "subscriptionId": "00000000-0000-0000-0000-000000000000",
-        "resourceGroupName": "testVaultRG",
-        "vaultName": "testVault",
-        "fabricName": "Azure",
-        "containerName": "IaasVMContainer;iaasvmcontainerv2;testRG;testVM",
-        "protectedItemName": "VM;iaasvmcontainerv2;testRG;testVM",
-        "recoveryPointId": "348916168024334",
-        "api-version": "2019-05-13",
-      "parameters": {
-        "properties": {
+  "properties": {
           "objectType":  "IaasVMRestoreRequest",
           "recoveryPointId": "348916168024334",
           "recoveryType": "AlternateLocation",
@@ -342,11 +332,8 @@ Conforme explicado [acima](#restore-operations), o corpo da solicitação a segu
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
-          }
-        }
-      }
-    }
-}
+     }
+ }
 ```
 
 A resposta deve ser tratada da mesma forma como [explicado acima para restaurar discos](#responses).

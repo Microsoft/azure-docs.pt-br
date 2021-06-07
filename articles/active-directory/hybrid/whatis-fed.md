@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb1c3bc9f89db3f4b694803a63293a5537d4b98b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89278745"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>O que é a federação com o Azure AD?
@@ -37,8 +37,8 @@ Você pode estabelecer a federação em seu ambiente local com o Azure AD e usar
 
 - [O que é identidade híbrida?](./whatis-hybrid-identity.md)
 - [O que é o Azure AD Connect e o Connect Health?](whatis-azure-ad-connect.md)
-- [O que é a sincronização de hash da senha?](whatis-phs.md)
+- [O que é sincronização de hash da senha?](whatis-phs.md)
 - [O que é federação?](whatis-fed.md)
 - [O que é logon único?](how-to-connect-sso.md)
-- [Como a federação funciona](how-to-connect-fed-whatis.md)
+- [Como funciona a federação](how-to-connect-fed-whatis.md)
 - [Federação com PingFederate](how-to-connect-install-custom.md#configuring-federation-with-pingfederate)

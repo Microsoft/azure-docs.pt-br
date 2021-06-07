@@ -3,15 +3,15 @@ title: Servidores-Banco de dados do Azure para MariaDB
 description: Este tópico fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9a5cd55576d505114c15028cf637114f3baf7668
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664122"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627975"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor no banco de dados do Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
@@ -37,8 +37,8 @@ Em um banco de dados do Azure para servidor MariaDB, você pode criar um ou vár
 
 Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 
-|||
-| :--| :--|
+| Conceito de segurança | Descrição |
+| :-- | :-- |
 | **Autenticação e autorização** | Banco de dados do Azure para MariaDB dá suporte à autenticação de MySQL nativa. É possível se conectar e autenticar em um servidor com o logon de administrador do servidor. |
 | **Protocolo** | O serviço oferece suporte a um protocolo baseado em mensagem usado pelo MySQL. |
 | **TCP/IP** | O protocolo tem suporte em TCP/IP e em soquetes de domínio do Unix. |

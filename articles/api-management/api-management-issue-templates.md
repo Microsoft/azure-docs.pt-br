@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85846857"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de problemas no Gerenciamento de API do Azure
@@ -98,12 +98,12 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Issues`|Coleção de entidades de [problemas](api-management-template-data-model-reference.md#Issue).|Os problemas visíveis para o usuário atual.|  
 |`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
-|`IsAuthenticated`|booleano|Se o usuário atual está conectado ao portal do desenvolvedor.|  
-|`CanReportIssues`|booleano|Se o usuário atual tem permissões para arquivar um problema.|  
+|`IsAuthenticated`|boolean|Se o usuário atual está conectado ao portal do desenvolvedor.|  
+|`CanReportIssues`|boolean|Se o usuário atual tem permissões para arquivar um problema.|  
 |`Search`|string|Essa propriedade foi preterida e não deve ser usada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  

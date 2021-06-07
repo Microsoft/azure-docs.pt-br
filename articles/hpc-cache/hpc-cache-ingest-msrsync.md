@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 323ecd6a2dd001c3c8df1b2ec15f0ae8402ec70c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87092398"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingestão de dados do cache HPC do Azure – método msrsync

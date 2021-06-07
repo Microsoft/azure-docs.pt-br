@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: ad6d89fec9f2c94129e19c09ee3e1e76d5bb6e44
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353265"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Enviando solicitações de pesquisa para a API de Pesquisa de Entidade do Bing
@@ -40,14 +40,14 @@ As solicitações precisam usar o protocolo HTTPS.
 
 ## <a name="specifying-query-parameters-and-headers"></a>Especificar cabeçalhos e parâmetros de consulta
 
-A solicitação precisa especificar o parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), que contém o termo de pesquisa do usuário. A solicitação também deve especificar o parâmetro de consulta [mkt](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para obter uma lista de parâmetros de consulta opcionais, consulte [parâmetros de consulta](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). A URL codifica todos os parâmetros de consulta.  
+A solicitação precisa especificar o parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query), que contém o termo de pesquisa do usuário. A solicitação também deve especificar o parâmetro de consulta [mkt](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de Consulta](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). A URL codifica todos os parâmetros de consulta.  
   
 A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
   
 -   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientid)  
 -   [X-MSEdge-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#clientip)  
--   [Localização de pesquisa X](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
+-   [X-Search-Location](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#location)  
 
 Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
 

@@ -1,7 +1,7 @@
 ---
 title: Esquema Media Encoder Standard | Microsoft Docs
 description: Este artigo descreve alguns dos elementos e tipos do esquema XML nos quais as predefinições do Media Encoder Standard se baseiam.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: f82e0c3f76dba05c3404b11e07c7130119ce0b9d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261505"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103015651"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema do Media Encoder Standard
 
@@ -100,7 +100,7 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |A taxa de bits máxima usada para esta camada de vídeo, especificada em kbps. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |Comprimento do buffer de vídeo. |
 | **Largura**<br/><br/> minOccurs="0" |**xs: int** |Largura do quadro de vídeo de saída, em pixels.<br/><br/> No momento, você deve especificar ambos Width e Height. Width e Height devem ser números pares. |
-| **Tamanho**<br/><br/> minOccurs="0" |**xs:int** |Altura do quadro de vídeo de saída, em pixels.<br/><br/> No momento, você deve especificar ambos Width e Height. Width e Height devem ser números pares.|
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** |Altura do quadro de vídeo de saída, em pixels.<br/><br/> No momento, você deve especificar ambos Width e Height. Width e Height devem ser números pares.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Número de quadros B entre quadros de referência. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Número de quadros de referência em um GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs: string** |Poderia ser um dos seguintes valores: **Cabac** e **Cavlc**. |
@@ -218,7 +218,7 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Tamanho**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
@@ -232,7 +232,7 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Tamanho**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
@@ -246,7 +246,7 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Tamanho**<br/><br/> minOccurs="0" |**xs:int** | |
+| **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Qualidade**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos: 1 (pior) – 100 (melhor) |
 
 ### <a name="attributes"></a>Atributos

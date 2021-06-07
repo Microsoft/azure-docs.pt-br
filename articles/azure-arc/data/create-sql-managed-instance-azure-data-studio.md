@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93280472"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Criar instância gerenciada do SQL-Arc do Azure usando Azure Data Studio

@@ -9,12 +9,12 @@ ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 4de89892d27bb811be6670c1a14ca85859342ecc
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218903"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Criar assinaturas do Contrato Enterprise do Azure de modo programático com as APIs mais recentes
 
@@ -101,11 +101,65 @@ we're still working on enabling PowerShell SDK for billing APIs. Check back soon
 -->
 
 
-<!--
-### [Azure CLI](#tab/azure-cli-getEnrollments)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-getEnrollments)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+Solicitação para listar todas as contas de registro às quais você tem acesso:
+
+```azurecli-interactive
+> az billing account list
+```
+
+A resposta lista todas as contas de registro às quais você tem acesso
+
+```json
+[
+  {
+    "accountStatus": "Unknown",
+    "accountType": "Enterprise",
+    "agreementType": "EnterpriseAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": [
+      {
+        "accountName": "Contoso",
+        "accountOwner": "",
+        "costCenter": "Test",
+        "department": null,
+        "endDate": null,
+        "id": "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/7654321",
+        "name": "7654321",
+        "startDate": null,
+        "status": null,
+        "type": "Microsoft.Billing/enrollmentAccounts"
+      }
+    ],
+    "enrollmentDetails": null,
+    "hasReadAccess": false,
+    "id": "/providers/Microsoft.Billing/billingAccounts/1234567",
+    "name": "1234567",
+    "soldTo": {
+      "addressLine1": null,
+      "addressLine2": null,
+      "addressLine3": null,
+      "city": null,
+      "companyName": "Contoso",
+      "country": "US ",
+      "district": null,
+      "email": null,
+      "firstName": null,
+      "lastName": null,
+      "phoneNumber": null,
+      "postalCode": null,
+      "region": null
+    },
+    "type": "Microsoft.Billing/billingAccounts"
+  },
+```
+O valor de um escopo do orçamento e de `id` são a mesma coisa. O `id` de sua conta de registro é o escopo do orçamento com o qual a solicitação de assinatura é iniciada. É importante conhecer a ID porque ela é um parâmetro necessário que você usa posteriormente no artigo para criar uma assinatura.
 
 ---
 
@@ -201,7 +255,7 @@ Você obterá subscriptionId como parte da resposta do comando.
 
 Primeiro, instale a extensão executando `az extension add --name account` e `az extension add --name alias`.
 
-Execute o comando [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true), além de fornecer `billing-scope` e `id` de um dos seus `enrollmentAccounts`. 
+Execute o comando [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create), além de fornecer `billing-scope` e `id` de um dos seus `enrollmentAccounts`. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/654321" --display-name "Dev Team Subscription" --workload "Production"

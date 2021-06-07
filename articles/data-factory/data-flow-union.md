@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: e61c53cabc8f784ba9f0a3e78b5de01be134b0cd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367836"
 ---
 # <a name="union-transformation-in-mapping-data-flow"></a>Transformação Union no fluxo de dados de mapeamento

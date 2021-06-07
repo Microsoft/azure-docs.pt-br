@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397528"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Regras de roteamento de solicitação do gateway de aplicativo
 
-Ao criar um gateway de aplicativo usando o portal do Azure, você cria uma regra padrão ( *rule1* ). Essa regra associa o ouvinte padrão ( *appGatewayHttpListener* ) ao pool de back-ends padrão ( *appGatewayBackendPool* ) e as configurações de http de back-end padrão ( *appgatewaybackendhttp* ). Depois de criar o gateway, você pode editar as configurações da regra padrão ou criar novas regras.
+Ao criar um gateway de aplicativo usando o portal do Azure, você cria uma regra padrão (*rule1*). Essa regra associa o ouvinte padrão (*appGatewayHttpListener*) ao pool de back-ends padrão (*appGatewayBackendPool*) e as configurações de http de back-end padrão (*appgatewaybackendhttp*). Depois de criar o gateway, você pode editar as configurações da regra padrão ou criar novas regras.
 
 ## <a name="rule-type"></a>Tipo de regra
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre redirecionamentos, consulte [visão geral do
 
 ### <a name="redirection-type"></a>Tipo de redirecionamento
 
-Escolha o tipo de redirecionamento necessário: *permanente (301)* , *temporário (307)* , *encontrado (302)* ou *Consulte outro (303)*.
+Escolha o tipo de redirecionamento necessário: *permanente (301)*, *temporário (307)*, *encontrado (302)* ou *Consulte outro (303)*.
 
 ### <a name="redirection-target"></a>Destino de redirecionamento
 

@@ -3,12 +3,12 @@ title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos.
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 6a63fd7e41c03b542f4a43b483243702c5be5f14
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034927"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563106"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -80,7 +80,6 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* Labs/virtualMachines-por padrão, limitado a 800 instâncias. 
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: d790b466f669ed067863b6643c8f59662eb628a7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: dab4ac22a8b0da927f05376755463885ce32c343
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226431"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100102998"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -265,7 +265,7 @@ Agora você tem um servidor simples para atender ao seu SPA. A estrutura de past
 
 Antes de continuar com a autenticação, registre seu aplicativo no **Azure Active Directory**.
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -407,13 +407,13 @@ Crie um arquivo .js chamado `authPopup.js`, que conterá sua lógica de aquisiç
 
 ### <a name="more-information"></a>Mais informações
 
-Depois que um usuário selecione o botão **Entrar** pela primeira vez, o método `signIn` chama `loginPopup` para conectar o usuário. Esse método abre uma janela pop-up com o *ponto de extremidade da plataforma de identidade da Microsoft* para solicitar e validar as credenciais do usuário. Após entrar com êxito, o usuário é redirecionado de volta para a página *index.html* original. Um token é recebido, processado por `msal.js` e as informações contidas no token são armazenadas em cache. Esse token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se você planeja usar os dados fornecidos por esse token para qualquer finalidade, é necessário certificar-se de que esse token seja validado pelo servidor de back-end para ter certeza de que o token foi emitido para um usuário válido para o seu aplicativo.
+Depois que um usuário selecione o botão **Entrar** pela primeira vez, o método `signIn` chama `loginPopup` para conectar o usuário. Esse método abre uma janela pop-up com o *ponto de extremidade da plataforma de identidade da Microsoft* para solicitar e validar as credenciais do usuário. Após entrar com êxito, o usuário é redirecionado de volta para a página *index.html* original. Um token é recebido, processado por `msal.js` e as informações contidas no token são armazenadas em cache. Esse token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se você planeja usar os dados fornecidos por esse token para qualquer finalidade, verifique se esse token foi validado pelo servidor de back-end para garantir que o token foi emitido para um usuário válido do seu aplicativo.
 
 O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` para adquirir um *token de acesso* usado para consultar a API do Microsoft Graph para obter informações de perfil do usuário. Se você precisar de um exemplo que valide o token da ID, examine [este](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Exemplo do GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2") aplicativo de exemplo no GitHub. Esta amostra usa um ASP.NET Web API para validação de token.
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que é necessário forçar os usuários a interagir com a plataforma de identidade da Microsoft. Os exemplos incluem:
+Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que você força os usuários a interagir com a plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os usuários precisam reinserir suas credenciais, pois a senha expirou.
 - Seu aplicativo está solicitando acesso a um recurso e você precisa do consentimento do usuário.

@@ -3,12 +3,12 @@ title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Micr
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390667"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602631"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -44,11 +44,7 @@ Os seguintes termos são usados neste artigo:
 -  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias.
-
-    > [!IMPORTANT]
-    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários. 
 -  *Metadados*: entidades, como hubs de eventos e os grupos de consumidores; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. Mensagens e eventos não são replicados. 
-
 -  *Failover*: o processo de ativação do namespace secundário.
 
 ## <a name="supported-namespace-pairs"></a>Pares de namespace com suporte
@@ -75,13 +71,13 @@ A seção a seguir é uma visão geral do processo de failover e explica como co
 Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
 
 1. Crie o namespace primário.
-1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal, mas em uma região diferente. Essa etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. Crie o namespace secundário em uma região diferente. Essa etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
 1. No portal do Azure, navegue até o namespace primário.
 1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
 1. Na página **Iniciar emparelhamento** , siga estas etapas:
-    1. Selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace primário. Neste exemplo, um namespace existente é selecionado.  
+    1. Selecione um namespace secundário existente ou crie um em uma região diferente. Neste exemplo, um namespace existente é selecionado.  
     1. Para **alias**, insira um alias para o emparelhamento de Dr geográfica. 
     1. Em seguida, selecione **Criar**. 
 
@@ -208,7 +204,7 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 * [Aplicativos de exemplo que usam Hub de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

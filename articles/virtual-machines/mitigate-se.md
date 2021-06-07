@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cynthn
 ms.openlocfilehash: 2c08797a0e019934c1aff1759fd32e244c8764ff
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93364937"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Diretrizes para mitigar vulnerabilidades de canal lateral de execução especulativa

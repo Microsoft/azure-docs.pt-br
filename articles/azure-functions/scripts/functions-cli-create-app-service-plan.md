@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ea368714ded56d77a10e24b853144bdf1dd42dfe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934434"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786307"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Criar um Aplicativo de funções em um Plano do Serviço de Aplicativo
 
@@ -36,10 +36,10 @@ Cada comando da tabela é vinculado à documentação específica do comando. Es
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento do Azure. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Cria um plano Premium. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Implante um aplicativo de funções no plano do Serviço de Aplicativo. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento do Azure. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | Cria um plano Premium. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Implante um aplicativo de funções no plano do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

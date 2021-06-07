@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953930"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055103"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Início Rápido: Introdução ao Azure Stack Edge Pro com GPU 
 
@@ -64,7 +63,7 @@ Antes de implantar, verifique se os seguintes pré-requisitos foram cumpridos:
 10. **Configurar certificados**: se você alterou o nome do dispositivo e/ou o domínio DNS, então precisa gerar certificados ou adicionar certificados para ativar o dispositivo. 
 
     - Para testar cargas de trabalho que não são de produção, use a opção [Gerar certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates). 
-    - Se você usa seus certificados, inclusive as cadeias de assinaturas, então [Adicione certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) no formato apropriado. Certifique-se de carregar primeiro a cadeia de assinaturas. Confira [Criar certificados](azure-stack-edge-j-series-create-certificates-tool.md) e [Carregar certificados por meio da IU local](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+    - Se você usa seus certificados, inclusive as cadeias de assinaturas, então [Adicione certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) no formato apropriado. Certifique-se de carregar primeiro a cadeia de assinaturas. Confira [Criar certificados](azure-stack-edge-gpu-create-certificates-tool.md) e [Carregar certificados por meio da IU local](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
 11. **Ativar**: obter a chave de ativação 
 
@@ -73,7 +72,7 @@ Antes de implantar, verifique se os seguintes pré-requisitos foram cumpridos:
 
 12. **Configurar computação**: no portal do Azure, vá para **Visão geral > Dispositivo**. Verifique se o dispositivo está **Online**. No painel esquerdo, vá para **Computação de borda > Introdução > Configurar a computação de borda > Computação**. Forneça um serviço de Hub IoT novo ou existente e aguarde cerca de 20 minutos para que a computação seja configurada. Confira mais informações em [Tutorial: configurar a computação no dispositivo de GPU do Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-Você está pronto para implantar cargas de trabalho de computação no dispositivo [por meio do IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [por meio do `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [por meio do Kubernetes habilitado para Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Se você tiver problemas durante a instalação, vá para [Solucionar problemas do dispositivo](), [problemas de pedido](azure-stack-edge-gpu-troubleshoot.md), [problemas de certificado](azure-stack-edge-j-series-certificate-troubleshooting.md) ou problemas do Kubernetes. 
+Você está pronto para implantar cargas de trabalho de computação no dispositivo [por meio do IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [por meio do `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [por meio do Kubernetes habilitado para Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Se você tiver problemas durante a instalação, vá para [Solucionar problemas do dispositivo](), [problemas de pedido](azure-stack-edge-gpu-troubleshoot.md), [problemas de certificado](azure-stack-edge-gpu-certificate-troubleshooting.md) ou problemas do Kubernetes. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

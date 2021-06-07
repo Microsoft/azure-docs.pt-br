@@ -13,10 +13,10 @@ ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
 ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98740101"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de consentimento do aplicativo para funções personalizadas no Azure Active Directory

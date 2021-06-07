@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677486"
 ---
 # <a name="query-ingested-telemetry-data"></a>Consultar dados telemétricos ingeridos
@@ -24,7 +24,7 @@ Antes de prosseguir com este artigo, verifique se você instalou os dados de tel
 
 Para ingerir dados de telemetria do sensor, visite [dados de telemetria históricos de ingestão](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Antes de continuar, você também precisa garantir que esteja familiarizado com as APIs REST do FarmBeats, pois você consultará a telemetria ingerida usando as APIs. Para obter mais informações sobre APIs do FarmBeats, consulte [APIs REST do FarmBeats](rest-api-in-azure-farmbeats.md). **Certifique-se de que você possa fazer solicitações de API para o ponto de extremidade FarmBeats Datahub** .
+Antes de continuar, você também precisa garantir que esteja familiarizado com as APIs REST do FarmBeats, pois você consultará a telemetria ingerida usando as APIs. Para obter mais informações sobre APIs do FarmBeats, consulte [APIs REST do FarmBeats](rest-api-in-azure-farmbeats.md). **Certifique-se de que você possa fazer solicitações de API para o ponto de extremidade FarmBeats Datahub**.
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Consultar dados de telemetria do sensor ingerido
 
@@ -115,8 +115,8 @@ Os dados de telemetria são recebidos em um EventHub e, em seguida, processados 
 
 Siga as etapas para visualizar os dados em TSI:
 
-1. Vá para o **portal do Azure**  >  **FarmBeats DataHub grupo de recursos** > selecione ambiente de **Time Series insights** (TSI-XXXX) > políticas de **acesso a dados** . Adicionar usuário com acesso de leitor ou colaborador.
-2. Vá para a página **visão geral** do ambiente de **Time Series insights** (TSI-XXXX) e selecione a **URL do time Series insights Explorer** . Agora você poderá visualizar a telemetria ingerida.
+1. Vá para o **portal do Azure**  >  **FarmBeats DataHub grupo de recursos** > selecione ambiente de **Time Series insights** (TSI-XXXX) > políticas de **acesso a dados**. Adicionar usuário com acesso de leitor ou colaborador.
+2. Vá para a página **visão geral** do ambiente de **Time Series insights** (TSI-XXXX) e selecione a **URL do time Series insights Explorer**. Agora você poderá visualizar a telemetria ingerida.
 
 Além de armazenar, consultar e visualizar a telemetria, o TSI também permite a integração a um painel de Power BI. Para obter mais informações, consulte [aqui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 

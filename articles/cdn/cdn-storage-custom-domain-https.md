@@ -1,26 +1,20 @@
 ---
-title: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS
+title: 'Tutorial: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS'
 description: Saiba como adicionar um domínio personalizado da CDN do Azure e habilitar o HTTPS nesse domínio para seu ponto de extremidade de armazenamento de blobs personalizado.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 296a51edf024551a03330f4843690e97c6abd47d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777836"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102564876"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS
 
@@ -28,7 +22,7 @@ Depois de integrar sua conta de armazenamento do Azure à CDN (Rede de Distribui
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir as etapas deste tutorial, primeiro você precisará integrar sua conta de armazenamento do Azure à CDN do Azure. Para saber mais, confira [Início Rápido: Integrar uma conta de armazenamento do Azure à CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
+Antes de concluir as etapas deste tutorial, primeiro você precisará integrar sua conta de armazenamento do Azure à CDN do Azure. Para obter mais informações, confira [Início Rápido: Integrar uma conta de armazenamento do Azure à CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Adicionar um domínio personalizado
 Quando que você criar um ponto de extremidade da CDN em seu perfil, o nome do ponto de extremidade, que é um subdomínio de azureedge.net, será incluído na URL que distribui o conteúdo da CDN por padrão. Você também tem a opção de associar um domínio personalizado a um ponto de extremidade da CDN. Com essa opção, você distribui o conteúdo com um domínio personalizado na URL em vez de em um nome de ponto de extremidade. Para adicionar um domínio personalizado ao ponto de extremidade, siga as instruções deste tutorial: [Adicionar um domínio personalizado ao ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md).
@@ -36,7 +30,7 @@ Quando que você criar um ponto de extremidade da CDN em seu perfil, o nome do p
 ## <a name="configure-https"></a>Configurar o HTTPS
 Usando o protocolo HTTPS no domínio personalizado, você garante que seus dados sejam entregues com segurança na Internet por meio da criptografia TLS/SSL. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Para configurar o HTTPS no domínio personalizado, siga as instruções deste tutorial: [Configurar o HTTPS em um domínio personalizado da CDN do Azure](cdn-custom-ssl.md).
 
-## <a name="shared-access-signatures"></a>As Assinaturas de Acesso Compartilhado
+## <a name="shared-access-signatures"></a>Assinaturas de Acesso Compartilhado
 Se o ponto de extremidade do Armazenamento de Blobs estiver configurado para não permitir o acesso anônimo de leitura, você deverá fornecer um token [SAS (Assinatura de Acesso Compartilhado)](cdn-sas-storage-support.md) em cada solicitação que fizer ao domínio personalizado. Por padrão, os pontos de extremidade de Armazenamento de Blobs não permitem acesso de leitura anônimo. Para obter mais informações sobre o SAS, confira [Gerenciando o acesso anônimo de leitura a contêineres e blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 A CDN do Azure ignora as restrições adicionadas ao token SAS. Por exemplo, todos os tokens SAS têm um tempo de expiração, o que significa que o conteúdo ainda pode ser acessado com uma SAS expirada até que o conteúdo seja limpo dos servidores POP (ponto de presença) da CDN. Você pode controlar por quanto tempo os dados são armazenados em cache na CDN do Azure definindo o cabeçalho de resposta do cache. Para obter mais informações, confira [Gerenciando a expiração dos blobs do Armazenamento do Azure na CDN do Azure](cdn-manage-expiration-of-blob-content.md).

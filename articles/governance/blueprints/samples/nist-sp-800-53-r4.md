@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint NIST SP 800-53 R4
 description: Visão geral da amostra de blueprint NIST SP 800-53 R4. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do NIST SP 800-53 R4.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: b773013c61a8bed3c5c5f4e8b24878f10889f954
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9fc387fc444acf5c2ead4cc8983013a50d42907f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918121"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386077"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de blueprint de NIST SP 800-53 R4
 
@@ -102,7 +102,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Versão Prévia\]: Auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|ID do workspace do Log Analytics para a qual as VMs devem ser configuradas|Esta é a ID (GUID) do workspace do Log Analytics para a qual as VMs devem ser configuradas.|
-|\[Versão Prévia\]: Auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Versão Prévia\]: Auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recurso que devem ter os logs de diagnóstico habilitados|Lista de tipos de recurso a serem auditados se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Esquemas de logs de diagnóstico do Azure Monitor](../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Versão Prévia\]: Auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser excluídos do grupo de administradores de VM do Windows|Uma lista separada por ponto e vírgula de membros que devem ser excluídos do grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|
 |\[Versão Prévia\]: Auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows|Uma lista separada por ponto e vírgula de membros que devem ser incluídos no grupo local de Administradores. Por exemplo: Administrador; myUser1; myUser2|
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|

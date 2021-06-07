@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/16/2020
 ms.openlocfilehash: 56024fd0aac2f9fbefb7fe919eef2481550e573f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367819"
 ---
 # <a name="window-transformation-in-mapping-data-flow"></a>Transformação de janela no fluxo de dados de mapeamento
@@ -29,7 +29,7 @@ Defina o particionamento dos dados da coluna para sua transformação de janela.
 
 ![Captura de tela mostra as configurações de janela com a guia acima selecionada.](media/data-flow/windows4.png "Windows 4")
 
-## <a name="sort"></a>Classificar
+## <a name="sort"></a>Sort
 Outra parte da cláusula Over é a configuração de ```Order By```. Isso definirá a ordem de classificação dos dados. Também é possível criar uma expressão para um valor de cálculo nesse campo de coluna para classificação.
 
 ![A captura de tela mostra as configurações de janelas com a guia Classificar selecionada.](media/data-flow/windows5.png "Windows 5")

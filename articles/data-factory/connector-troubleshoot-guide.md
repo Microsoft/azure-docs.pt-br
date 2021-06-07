@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 02/08/2021
 ms.author: jingwang
 ms.custom: has-adal-ref
-ms.openlocfilehash: 63a690ffaaefc506de296d43e7de13020fbd584a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d8f940e3900c00b1c6f6623dfeff2d92ca85aa3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366918"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102042421"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores Azure Data Factory
 
@@ -28,7 +28,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: um problema com a operação de armazenamento de BLOBs.
 
-- **Recomendação**: para verificar os detalhes do erro, consulte [códigos de erro do armazenamento de BLOBs](https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes). Para obter mais ajuda, entre em contato com a equipe de armazenamento de BLOBs.
+- **Recomendação**: para verificar os detalhes do erro, consulte [códigos de erro do armazenamento de BLOBs](/rest/api/storageservices/blob-service-error-codes). Para obter mais ajuda, entre em contato com a equipe de armazenamento de BLOBs.
 
 
 ### <a name="invalid-property-during-copy-activity"></a>Propriedade inválida durante a atividade de cópia
@@ -164,7 +164,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
   | Análise de causa                                               | Recomendação                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | Se Azure Data Lake Storage Gen2 gera um erro indicando que uma operação falhou.| Verifique a mensagem de erro detalhada lançada por Azure Data Lake Storage Gen2. Se o erro for uma falha transitória, repita a operação. Para obter mais ajuda, entre em contato com o suporte do armazenamento do Azure e forneça a ID da solicitação na mensagem de erro. |
-  | Se a mensagem de erro contiver a cadeia de caracteres "proibido", a entidade de serviço ou a identidade gerenciada que você usar poderá não ter permissão suficiente para acessar Azure Data Lake Storage Gen2. | Para solucionar esse erro, consulte [copiar e transformar dados em Azure data Lake Storage Gen2 usando Azure data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication). |
+  | Se a mensagem de erro contiver a cadeia de caracteres "proibido", a entidade de serviço ou a identidade gerenciada que você usar poderá não ter permissão suficiente para acessar Azure Data Lake Storage Gen2. | Para solucionar esse erro, consulte [copiar e transformar dados em Azure data Lake Storage Gen2 usando Azure data Factory](./connector-azure-data-lake-storage.md#service-principal-authentication). |
   | Se a mensagem de erro contiver a cadeia de caracteres "InternalServerError", o erro será retornado por Azure Data Lake Storage Gen2. | O erro pode ser causado por uma falha transitória. Nesse caso, repita a operação. Se o problema persistir, entre em contato com o suporte do armazenamento do Azure e forneça a ID da solicitação da mensagem de erro. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>A solicitação para Azure Data Lake Storage Gen2 conta causou um erro de tempo limite
@@ -204,7 +204,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: um problema com a operação de armazenamento de arquivos do Azure.
 
-- **Recomendação**: para verificar os detalhes do erro, consulte a [ajuda dos arquivos do Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes). Para obter mais ajuda, contate a equipe de arquivos do Azure.
+- **Recomendação**: para verificar os detalhes do erro, consulte a [ajuda dos arquivos do Azure](/rest/api/storageservices/file-service-error-codes). Para obter mais ajuda, contate a equipe de arquivos do Azure.
 
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure Synapse Analytics, banco de dados SQL do Azure e SQL Server
@@ -216,12 +216,12 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
     | Análise de causa                                               | Recomendação                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | Para o SQL do Azure, se a mensagem de erro contiver a cadeia de caracteres "SqlErrorNumber = 47073", significa que o acesso à rede pública é negado na configuração de conectividade. | No firewall do SQL do Azure, defina a opção **negar acesso à rede pública** como *não*. Para obter mais informações, consulte [configurações de conectividade do SQL do Azure](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
-    | Para o SQL do Azure, se a mensagem de erro contiver um código de erro SQL como "SqlErrorNumber = [ErrorCode]", consulte o guia de solução de problemas do SQL do Azure. | Para obter uma recomendação, consulte [solucionar problemas de conectividade e outros erros com o banco de dados SQL do Azure e o Azure sql instância gerenciada](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues). |
-    | Verifique se a porta 1433 está na lista de permissões do firewall. | Para obter mais informações, consulte [portas usadas pelo SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
-    | Se a mensagem de erro contiver a cadeia de caracteres "SqlException", o banco de dados SQL indicará que uma operação específica falhou. | Para obter mais informações, pesquise por código de erro do SQL em [erros do mecanismo de banco de dados](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para obter mais ajuda, entre em contato com o suporte do SQL do Azure. |
-    | Se esse for um problema transitório (por exemplo, uma conexão de rede inestável), adicione nova tentativa na política de atividade para mitigar. | Para saber mais, confira [Pipelines e atividades no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy). |
-    | Se a mensagem de erro contiver a cadeia de caracteres "cliente com endereço IP"... " Não tem permissão para acessar o servidor ", e você está tentando se conectar ao banco de dados SQL do Azure, o erro geralmente é causado por um problema de firewall do banco de dados SQL do Azure. | Na configuração do firewall do SQL Server do Azure, habilite a opção **permitir que os serviços e recursos do Azure acessem este servidor** . Para obter mais informações, consulte [Azure SQL Database e regras de firewall de IP do Azure Synapse](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure). |
+    | Para o SQL do Azure, se a mensagem de erro contiver a cadeia de caracteres "SqlErrorNumber = 47073", significa que o acesso à rede pública é negado na configuração de conectividade. | No firewall do SQL do Azure, defina a opção **negar acesso à rede pública** como *não*. Para obter mais informações, consulte [configurações de conectividade do SQL do Azure](../azure-sql/database/connectivity-settings.md#deny-public-network-access). |
+    | Para o SQL do Azure, se a mensagem de erro contiver um código de erro SQL como "SqlErrorNumber = [ErrorCode]", consulte o guia de solução de problemas do SQL do Azure. | Para obter uma recomendação, consulte [solucionar problemas de conectividade e outros erros com o banco de dados SQL do Azure e o Azure sql instância gerenciada](../azure-sql/database/troubleshoot-common-errors-issues.md). |
+    | Verifique se a porta 1433 está na lista de permissões do firewall. | Para obter mais informações, consulte [portas usadas pelo SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | Se a mensagem de erro contiver a cadeia de caracteres "SqlException", o banco de dados SQL indicará que uma operação específica falhou. | Para obter mais informações, pesquise por código de erro do SQL em [erros do mecanismo de banco de dados](/sql/relational-databases/errors-events/database-engine-events-and-errors). Para obter mais ajuda, entre em contato com o suporte do SQL do Azure. |
+    | Se esse for um problema transitório (por exemplo, uma conexão de rede inestável), adicione nova tentativa na política de atividade para mitigar. | Para saber mais, confira [Pipelines e atividades no Azure Data Factory](./concepts-pipelines-activities.md#activity-policy). |
+    | Se a mensagem de erro contiver a cadeia de caracteres "cliente com endereço IP"... " Não tem permissão para acessar o servidor ", e você está tentando se conectar ao banco de dados SQL do Azure, o erro geralmente é causado por um problema de firewall do banco de dados SQL do Azure. | Na configuração do firewall do SQL Server do Azure, habilite a opção **permitir que os serviços e recursos do Azure acessem este servidor** . Para obter mais informações, consulte [Azure SQL Database e regras de firewall de IP do Azure Synapse](../azure-sql/database/firewall-configure.md). |
     
 ### <a name="error-code-sqloperationfailed"></a>Código de erro: SqlOperationFailed
 
@@ -231,9 +231,9 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
     | Análise de causa                                               | Recomendação                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | Se a mensagem de erro contiver a cadeia de caracteres "SqlException", o banco de dados SQL gera um erro indicando que uma operação específica falhou. | Se o erro de SQL não estiver claro, tente alterar o banco de dados para o nível de compatibilidade mais recente ' 150 '. Ele pode gerar os erros de versão mais recentes do SQL. Para obter mais informações, confira a [documentação](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Para obter mais informações sobre como solucionar problemas de SQL, pesquise por código de erro do SQL em [erros do mecanismo de banco de dados](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para obter mais ajuda, entre em contato com o suporte do SQL do Azure. |
+    | Se a mensagem de erro contiver a cadeia de caracteres "SqlException", o banco de dados SQL gera um erro indicando que uma operação específica falhou. | Se o erro de SQL não estiver claro, tente alterar o banco de dados para o nível de compatibilidade mais recente ' 150 '. Ele pode gerar os erros de versão mais recentes do SQL. Para obter mais informações, confira a [documentação](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Para obter mais informações sobre como solucionar problemas de SQL, pesquise por código de erro do SQL em [erros do mecanismo de banco de dados](/sql/relational-databases/errors-events/database-engine-events-and-errors). Para obter mais ajuda, entre em contato com o suporte do SQL do Azure. |
     | Se a mensagem de erro contiver a cadeia de caracteres "PdwManagedToNativeInteropException", ela será geralmente causada por uma incompatibilidade entre os tamanhos de coluna de origem e de coletor. | Verifique o tamanho das colunas de origem e do coletor. Para obter mais ajuda, entre em contato com o suporte do SQL do Azure. |
-    | Se a mensagem de erro contiver a cadeia de caracteres "InvalidOperationException", ela será geralmente causada por dados de entrada inválidos. | Para identificar qual linha encontrou o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [tolerância a falhas da atividade de cópia no Azure data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance). |
+    | Se a mensagem de erro contiver a cadeia de caracteres "InvalidOperationException", ela será geralmente causada por dados de entrada inválidos. | Para identificar qual linha encontrou o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [tolerância a falhas da atividade de cópia no Azure data Factory](./copy-activity-fault-tolerance.md). |
 
 
 ### <a name="error-code-sqlunauthorizedaccess"></a>Código de erro: SqlUnauthorizedAccess
@@ -331,7 +331,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: falha na cópia em massa do SQL porque ela recebeu um comprimento de coluna inválido do cliente bcp (utilitário de cópia em massa).
 
-- **Recomendação**: para identificar qual linha encontrou o problema, habilite o recurso de tolerância a falhas na atividade de cópia. Isso pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [tolerância a falhas da atividade de cópia no Azure data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
+- **Recomendação**: para identificar qual linha encontrou o problema, habilite o recurso de tolerância a falhas na atividade de cópia. Isso pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [tolerância a falhas da atividade de cópia no Azure data Factory](./copy-activity-fault-tolerance.md).
 
 
 ### <a name="error-code-sqlconnectionisclosed"></a>Código de erro: SqlConnectionIsClosed
@@ -470,7 +470,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Mensagem**: `Error thrown from driver. Sql code: '%code;'`
 
-- **Causa**: se a mensagem de erro contiver a cadeia de caracteres "SQLSTATE = 51002 SQLCODE =-805", siga a "dica" em [copiar dados do DB2 usando Azure data Factory](https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties).
+- **Causa**: se a mensagem de erro contiver a cadeia de caracteres "SQLSTATE = 51002 SQLCODE =-805", siga a "dica" em [copiar dados do DB2 usando Azure data Factory](./connector-db2.md#linked-service-properties).
 
 - **Recomendação**: tente definir "nullid" na `packageCollection`  propriedade.
 
@@ -647,7 +647,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: o formato parquet não tem suporte no Azure data Factory.
 
-- **Recomendação**: Verifique novamente os dados de origem acessando os [formatos de arquivo com suporte e os codecs de compactação por atividade de cópia no Azure data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
+- **Recomendação**: Verifique novamente os dados de origem acessando os [formatos de arquivo com suporte e os codecs de compactação por atividade de cópia no Azure data Factory](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetmisseddecimalprecisionscale"></a>Código de erro: ParquetMissedDecimalPrecisionScale
@@ -683,7 +683,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: os dados não podem ser convertidos no tipo especificado em mapeamentos. origem.
 
-- **Recomendação**: Verifique os dados de origem ou especifique o tipo de dados correto para essa coluna no mapeamento de coluna da atividade de cópia. Para obter mais informações, consulte [formatos de arquivo com suporte e codecs de compactação por atividade de cópia no Azure data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
+- **Recomendação**: Verifique os dados de origem ou especifique o tipo de dados correto para essa coluna no mapeamento de coluna da atividade de cópia. Para obter mais informações, consulte [formatos de arquivo com suporte e codecs de compactação por atividade de cópia no Azure data Factory](./supported-file-formats-and-compression-codecs.md).
 
 
 ### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>Código de erro: ParquetDataCountNotMatchColumnCount
@@ -831,7 +831,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
     Se o conteúdo da chave privada for do cofre de chaves, o arquivo de chave original poderá funcionar se você carregá-lo diretamente no serviço vinculado do SFTP.
 
-    Para obter mais informações, consulte [copiar dados de e para o servidor SFTP usando Azure data Factory](https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication). O conteúdo da chave privada é o conteúdo da chave privada SSH codificada em base64.
+    Para obter mais informações, consulte [copiar dados de e para o servidor SFTP usando Azure data Factory](./connector-sftp.md#use-ssh-public-key-authentication). O conteúdo da chave privada é o conteúdo da chave privada SSH codificada em base64.
 
     Codifique *todo* o arquivo de chave privada original com codificação Base64 e armazene a cadeia de caracteres codificada em seu cofre de chaves. O arquivo de chave privada original é aquele que pode funcionar no serviço vinculado do SFTP se você selecionar **carregar** do arquivo.
 
@@ -902,7 +902,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
     Se você quiser promover a baixa taxa de transferência, entre em contato com o administrador do SFTP para aumentar o limite de contagem de conexões simultâneas ou faça um dos seguintes:
 
     * Se você estiver usando o IR auto-hospedado, adicione o IP da máquina IR via hospedagem interna à lista de permissões.
-    * Se você estiver usando Azure IR, adicione [Azure Integration Runtime endereços IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses). Se você não quiser adicionar um intervalo de IPs à lista de permissões do servidor SFTP, use o IR via hospedagem interna em vez disso.
+    * Se você estiver usando Azure IR, adicione [Azure Integration Runtime endereços IP](./azure-integration-runtime-ip-addresses.md). Se você não quiser adicionar um intervalo de IPs à lista de permissões do servidor SFTP, use o IR via hospedagem interna em vez disso.
 
 ## <a name="sharepoint-online-list"></a>Lista do SharePoint Online
 
@@ -961,7 +961,7 @@ Este artigo explora maneiras comuns de solucionar problemas com conectores de Az
 
 - **Causa**: o ir auto-hospedado não pode localizar o tempo de execução Java. O tempo de execução do Java é necessário para ler fontes específicas.
 
-- **Recomendação**: Verifique seu ambiente de tempo de execução de integração, confira [usar Integration Runtime de hospedagem interna](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime).
+- **Recomendação**: Verifique seu ambiente de tempo de execução de integração, confira [usar Integration Runtime de hospedagem interna](./format-parquet.md#using-self-hosted-integration-runtime).
 
 
 ### <a name="error-code-wildcardpathsinknotsupported"></a>Código de erro: WildcardPathSinkNotSupported

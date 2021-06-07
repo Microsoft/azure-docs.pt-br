@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88030921"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
@@ -105,7 +105,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Estado Plurinacional da Bolívia | ✓ | ✓ |
 | Bonaire, Santo Eustáquio e Saba | ✓ | ✓ |
 | Brasil                    | ✓ | ✓ |
-| Canada                    | ✓ | ✓ |
+| Canadá                    | ✓ | ✓ |
 | Ilhas Cayman            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
 | Colômbia                  | ✓ | ✓ |
@@ -295,7 +295,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Suíça               | ✓ | ✓ |
 | Turquia                    | ✓ | ✓ |
 | Ucrânia                   | ✓ | ✓ |
-| United Kingdom            | ✓ | ✓ |
+| Reino Unido            | ✓ | ✓ |
 | Cidade do Vaticano              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Próximas etapas

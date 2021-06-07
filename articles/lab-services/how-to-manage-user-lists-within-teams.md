@@ -4,10 +4,10 @@ description: Saiba como gerenciar Azure Lab Services listas de usuários de equi
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: fa8f96a84be5c4c91e0153216e15963ec0e3d6f8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91946585"
 ---
 # <a name="manage-lab-services-user-lists-from-teams"></a>Gerenciar listas de usuários do Lab Services de equipes
@@ -39,7 +39,7 @@ Para gerenciar pools de VMs, consulte [gerenciar um pool de VMs em Lab Services 
 
 ### <a name="also-review"></a>Examine também
 
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 - [Visão geral do uso de Azure Lab Services nas equipes](lab-services-within-teams-overview.md)
 - [Comece e crie um laboratório de serviços de laboratório das equipes](how-to-get-started-create-lab-within-teams.md)

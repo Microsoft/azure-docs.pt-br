@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135783"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
@@ -129,7 +129,7 @@ Nos cenários a seguir, será necessário atualizar as configurações de cripto
   - Você habilitou Site Recovery replicação na VM. Posteriormente, você habilitou a criptografia de disco na VM de origem.
   - Você habilitou Site Recovery replicação na VM. Posteriormente, você alterou a chave de criptografia de disco ou a chave de criptografia de chave na VM de origem.
 
-Você pode usar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de criptografia para a região de destino e, em seguida, atualizar as configurações de criptografia de destino no **cofre dos serviços de recuperação**  >  Propriedades do*Item*de  >  **Properties**  >  **computação e rede**.
+Você pode usar [um script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-powershell-script) para copiar as chaves de criptografia para a região de destino e, em seguida, atualizar as configurações de criptografia de destino no **cofre dos serviços de recuperação**  >  Propriedades do *Item* de  >    >  **computação e rede**.
 
 ![Janela da caixa de diálogo atualizar configurações de ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

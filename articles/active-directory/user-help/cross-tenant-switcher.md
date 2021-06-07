@@ -13,10 +13,10 @@ ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913238"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Alternando organizações em um portal
@@ -30,7 +30,7 @@ O alternador de organização está disponível nos seguintes portais:
 - [**Meu acesso**](https://myaccess.microsoft.com)
 - [**Minha equipe**](https://mystaff.microsoft.com)
 
-A alternância de organizações não está disponível para **minhas entradas** , **informações de segurança** ou **meus grupos** .
+A alternância de organizações não está disponível para **minhas entradas**, **informações de segurança** ou **meus grupos**.
 
 ## <a name="switch-organizations"></a>Alternar organizações
 
@@ -39,7 +39,7 @@ Veja como alternar para outra organização. Este exemplo usa o portal **minha c
 1. Entre em sua conta corporativa ou de estudante e, em seguida, abra a página [minha conta](https://myaccount.microsoft.com) .
 1. Selecione o alternador de organização :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="o ícone para o alternador de organização"::: na parte superior da página, ao lado de sua foto de conta.
 
-    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="o ícone para o alternador de organização":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="O menu de organizações para o qual você pode alternar":::
 
 1. Selecione a organização para a qual você deseja alternar. Você será automaticamente alternado para a organização que selecionou.
 

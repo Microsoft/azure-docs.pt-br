@@ -3,17 +3,18 @@ title: Visão geral das VMs do Windows no Azure
 description: Visão geral das máquinas virtuais do Windows no Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 07562641ef866074dcf14cb01afd4d7ce071e467
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203364"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310998"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
 
@@ -49,12 +50,8 @@ Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíve
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
-| API REST |Use a operação [Listar locais](/rest/api/resources/subscriptions). |
+| API REST |Use a operação [Listar locais](/rest/api/resources/subscriptions/listlocations). |
 | CLI do Azure |Use a operação [az account list-locations](/cli/azure/account). |
-
-### <a name="singapore-data-residency"></a>Residência de dados em Singapura
-
-No Azure, o recurso para habilitar o armazenamento de dados do cliente em uma só região está disponível apenas na região Sudeste da Ásia (Singapura) da área geográfica do Pacífico Asiático. Para todas as outras regiões, os dados do cliente são armazenados na Área geográfica. Para obter mais informações, confira [Central de Confiabilidade](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="availability"></a>Disponibilidade
 O Azure anunciou um Contrato de Nível de Serviço de máquina virtual de única instância de 99,9%, o melhor que há no mercado, desde que você implante a VM com armazenamento premium para todos os discos.  Para sua implantação se qualificar para o Contrato de Nível de Serviço de 99,95% padrão de VM, você ainda precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Um conjunto de disponibilidade garante que suas VMs sejam distribuídas entre vários domínios de falha nos datacenters do Azure, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
@@ -108,7 +105,7 @@ Os recursos nesta tabela são usados por VM e precisam existir ou ser criados qu
 
 ## <a name="data-residency"></a>Residência de dadosResidência de dados
 
-No Azure, o recurso para habilitar o armazenamento de dados do cliente em apenas uma região está disponível atualmente apenas na região do Sudeste da Ásia (Singapura), na área geográfica do Pacífico Asiático, e na região Sul do Brasil (Estado de São Paulo), na área geográfica do Brasil. Para todas as outras regiões, os dados do cliente são armazenados na Área geográfica. Para obter mais informações, confira [Central de Confiabilidade](https://azuredatacentermap.azurewebsites.net/).
+No Azure, o recurso para habilitar o armazenamento de dados do cliente em apenas uma região está disponível atualmente apenas na região do Sudeste da Ásia (Singapura), na área geográfica do Pacífico Asiático, e na região Sul do Brasil (Estado de São Paulo), na área geográfica do Brasil. Para todas as outras regiões, os dados do cliente são armazenados na Área geográfica. Para obter mais informações, confira [Central de Confiabilidade](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

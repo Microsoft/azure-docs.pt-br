@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: b5a893ee1923ba4b2bec53b20fb164337bd65902
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558106"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Conceitos do Skills no Azure Pesquisa Cognitiva

@@ -3,12 +3,12 @@ title: 'Início Rápido: Criar um blueprint com a API REST'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915617"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558968"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
@@ -329,7 +329,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
 - `{YourMG}` – substitua isso pela ID do grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
-1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ela usa a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça à entidade de serviço do Azure Blueprint a função **Proprietário** na assinatura de destino. A AppId é estática (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas a ID da entidade de serviço varia por locatário. Os detalhes podem ser solicitados para seu locatário usando a API REST a seguir. Ela usa a [API do Graph do Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) que tem uma autorização diferente.
 
    - URI da API REST
 
@@ -337,7 +337,7 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Execute a implantação do blueprint atribuindo-o uma assinatura. Como os parâmetros **contributors** e **owners** exigem que uma matriz de objectIds das entidades de segurança seja concedida à atribuição de função, use a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para coletar as objectIds a serem usadas no **Corpo da Solicitação** de seus usuários, grupos ou entidades de serviço.
+1. Execute a implantação do blueprint atribuindo-o uma assinatura. Como os parâmetros **contributors** e **owners** exigem que uma matriz de objectIds das entidades de segurança seja concedida à atribuição de função, use a [API do Graph do Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para coletar as objectIds a serem usadas no **Corpo da Solicitação** de seus usuários, grupos ou entidades de serviço.
 
    - URI da API REST
 

@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742362"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure (clássico)

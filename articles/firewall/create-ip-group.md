@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c53b35351108717c7b597e052a66e9902be5ec6c
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394519"
 ---
 # <a name="create-ip-groups"></a>Criar grupos de IPs

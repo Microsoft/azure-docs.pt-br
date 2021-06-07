@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
 ms.openlocfilehash: a7a03ff1a58f50f16ebefce48b9e2772a16a011a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386332"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Manipular linhas de erro de truncamento do SQL no mapeamento de Data Factory fluxos de dados

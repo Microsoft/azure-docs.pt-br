@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91929449"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Perguntas frequentes sobre o desempenho do SMB para Azure NetApp Files

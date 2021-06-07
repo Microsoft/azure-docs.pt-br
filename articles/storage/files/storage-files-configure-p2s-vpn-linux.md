@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629267"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurar uma VPN P2S (Ponto a Site) no Linux para usar com os Arquivos do Azure
@@ -24,9 +24,9 @@ O artigo detalha as etapas de configuração de uma VPN Ponto a Site no Linux pa
 ## <a name="prerequisites"></a>Pré-requisitos
 - A versão mais recente da CLI do Azure. Para obter mais informações sobre como instalar a CLI do Azure, confira [Instalar a CLI do Azure PowerShell](/cli/azure/install-azure-cli) e escolha seu sistema operacional. Se preferir, você poderá usar o módulo do Azure PowerShell no Linux. No entanto, as instruções a seguir são apresentadas para a CLI do Azure.
 
-- Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Os compartilhamentos de arquivo do Azure são implantados em contas de armazenamento, que são constructos de gerenciamento que representam um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivo bem como outros recursos de armazenamento, como filas ou contêineres de blobs. Você pode aprender mais sobre como implantar compartilhamentos de arquivo do Azure e contas de armazenamento em [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
+- Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Os compartilhamentos de arquivos do Azure são implantados em contas de armazenamento, que são construções de gerenciamento que representam um pool compartilhado de armazenamento no qual é possível implantar vários compartilhamentos de arquivos, bem como outros recursos de armazenamento, como contêineres ou filas de BLOB. Você pode aprender mais sobre como implantar compartilhamentos de arquivos do Azure e contas de armazenamento em [criar um compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md).
 
-- Um ponto de extremidade privado para a conta de armazenamento contendo o compartilhamento de arquivo do Azure que você deseja montar localmente. Para saber mais sobre como criar um ponto de extremidade privado, consulte [Configuração de pontos de extremidades de rede do serviço Arquivos do Azure](storage-files-networking-endpoints.md?tabs=azure-cli). 
+- Um ponto de extremidade privado para a conta de armazenamento que contém o compartilhamento de arquivos do Azure que você deseja montar no local. Para saber mais sobre como criar um ponto de extremidade privado, confira [Configurando os pontos de extremidades de rede dos arquivos do Azure](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## <a name="install-required-software"></a>Instalar o software necessário
 O gateway de rede virtual do Azure pode fornecer conexões VPN usando vários protocolos VPN, incluindo IPsec e OpenVPN. Este guia mostra como usar o IPsec e usa o pacote strongSwan para dar suporte no Linux. 
@@ -210,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 - [Visão geral da rede dos Arquivos do Azure](storage-files-networking-overview.md)
 - [Configurar uma VPN P2S (ponto a site) no Windows para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-windows.md)
 - [Configurar uma VPN S2S (Site a Site) para uso com os Arquivos do Azure](storage-files-configure-s2s-vpn.md)

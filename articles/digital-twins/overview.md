@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071674"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481660"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -94,10 +94,14 @@ O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contex
 
 ## <a name="service-limits"></a>Limites de serviço
 
-Para obter uma lista de limites dos Gêmeos Digitais do Azure, confira [*Limites do serviço dos Gêmeos Digitais do Azure*](reference-service-limits.md).
+Você pode ler sobre os **limites de serviço** dos Gêmeos Digitais do Azure aqui: [limites do serviço dos Gêmeos Digitais do Azure](reference-service-limits.md). Isso pode ser útil ao trabalhar com o serviço para entender as limitações funcionais e de taxa do serviço, bem como quais limites podem ser ajustados, se necessário.
+
+## <a name="terminology"></a>Terminologia
+
+Você pode exibir uma lista de **termos comuns de IoT** e seus usos nos serviços de IoT do Azure, incluindo os Gêmeos Digitais do Azure, aqui: [Glossário de IoT do Azure](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Essa pode ser uma referência útil enquanto você começa a usar os Gêmeos Digitais do Azure e cria uma solução de IoT.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-adt-explorer.md).
+* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-azure-digital-twins-explorer.md).
 
 * Alternativamente, comece a ler sobre conceitos dos Gêmeos Digitais do Azure com [*Conceitos: modelos personalizados*](concepts-models.md).

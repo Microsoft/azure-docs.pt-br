@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
 ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384785"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do Square utilizando Azure Data Factory (versão prévia)

@@ -14,13 +14,13 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22faba20cb12ae755f19fe43c295d98f9b364cbe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100416920"
 ---
-# <a name="securing-computer-accounts"></a>Protegendo contas de computador
+# <a name="securing-computer-accounts"></a>Como proteger contas de computador
 
 A conta de computador, ou a conta LocalSystem, é uma conta interna e altamente privilegiada com acesso a praticamente todos os recursos no computador local. Essa conta não está associada a nenhuma conta de usuário conectada. Os serviços em execução como LocalSystem acessam recursos de rede apresentando as credenciais do computador a servidores remotos. Ele apresenta credenciais no formato <domain_name>\<computer_name> $. O nome predefinido de uma conta de computador é NT NT\Sistema. Ele pode ser usado para iniciar um serviço e fornecer contexto de segurança para esse serviço.
 
@@ -86,7 +86,7 @@ Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "c
 
 Consulte os artigos a seguir sobre como proteger contas de serviço
 
-* [Introdução às contas de serviço locais](service-accounts-on-premises.md)
+* [Introdução a contas de serviço locais](service-accounts-on-premises.md)
 
 * [Contas de serviço gerenciado de grupo seguro](service-accounts-group-managed.md)
 
@@ -96,7 +96,7 @@ Consulte os artigos a seguir sobre como proteger contas de serviço
 
 * [Proteger contas de usuário](service-accounts-user-on-premises.md)
 
-* [Controlar contas de serviço locais](service-accounts-govern-on-premises.md)
+* [Administrar contas de serviço locais](service-accounts-govern-on-premises.md)
 
  
 

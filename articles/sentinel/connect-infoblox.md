@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567448"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Conectar seu Infoblox NIOS ao Azure Sentinel
@@ -38,7 +38,7 @@ Configure o Infoblox para encaminhar mensagens de syslog para seu espaço de tra
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione conector do **Infoblox NIOS** .
 
-1. Selecione a **página abrir conector**.
+1. Clique em **Abrir página do conector**.
 
 1. Siga as instruções na página **INFOBLOX nios** .
 

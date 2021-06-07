@@ -4,7 +4,7 @@ description: Saiba mais sobre a extensão de análise de código de segurança d
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,18 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3bff42b9b82104909c79b75c7b1de51c9ddb6e0d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879908"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801308"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+> [!Note]
+> A partir de 1º de março de 2022, a extensão MSCA (análise de código de segurança da Microsoft) será desativada. Os clientes MSCA existentes manterão seu acesso ao MSCA até 1º de março de 2022. Consulte as ferramentas de [análise de código-fonte OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) para obter opções alternativas no Azure DevOps. Para os clientes que planejam migrar para o GitHub, você pode conferir a [segurança avançada do GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
+
 Tem dúvidas? Confira as perguntas frequentes a seguir para obter mais informações.
 
 ## <a name="general-faq"></a>Perguntas frequentes gerais
@@ -192,11 +196,11 @@ Um pesquisador de conteúdo é definido da seguinte maneira:
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quais são os erros comuns ao usar a tarefa analisadores de Roslyn?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão incorreta do Microsoft. NetCore. app
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão incorreta do Microsoft.NETCore.App
 
 A mensagem de erro completa:
 
-"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para as operações seguintes, como build ou publicação. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier é definida durante o build ou a publicação, mas não durante a restauração."
+"Erro: o projeto foi restaurado usando a versão Microsoft.NETCore.App x. x *. x*, mas com as configurações atuais, a versão *y* . y seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para as operações seguintes, como build ou publicação. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier é definida durante o build ou a publicação, mas não durante a restauração."
 
 Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
 

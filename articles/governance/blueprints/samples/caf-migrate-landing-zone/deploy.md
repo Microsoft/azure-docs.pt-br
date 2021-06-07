@@ -1,14 +1,14 @@
 ---
 title: Implantar a amostra de blueprint da zona de destino de Migração do CAF
 description: Etapas de implantação do modelo de blueprint da zona de aterrissagem de Migração do CAF, incluindo detalhes do parâmetro de artefato de blueprint.
-ms.date: 05/06/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: 109c9a2c4c5670d6f5a676498ae1010a4ab0e418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82871172"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103470108"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar o Microsoft Cloud Adoption Framework para a amostra de blueprint da zona de aterrissagem das Migrações para Azure
 

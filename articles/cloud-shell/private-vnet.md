@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
 ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222795"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implantar Cloud Shell em uma rede virtual do Azure

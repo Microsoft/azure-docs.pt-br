@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: O operador count em uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como usar o operador count em uma definição de política.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005411"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093445"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Padrão do Azure Policy: o operador count
 

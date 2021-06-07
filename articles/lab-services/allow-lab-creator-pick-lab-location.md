@@ -4,10 +4,10 @@ description: Este artigo descreve como um administrador de conta de laboratório
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85444192"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador de laboratório escolha o local do laboratório em Azure Lab Services
@@ -16,7 +16,7 @@ No Azure Lab Services, um proprietário de conta de laboratório pode permitir q
 Você, como proprietário da conta do laboratório, pode selecionar a opção **permitir que o criador** do laboratório escolha o local do laboratório ao criar uma conta de laboratório e depois de criar a conta de laboratório (ou uma conta de laboratório existente). 
 
 ## <a name="at-the-time-of-lab-account-creation"></a>No momento da criação da conta do laboratório
-Ao criar uma conta de laboratório, você verá essa opção na primeira tela (guia**noções básicas** ). 
+Ao criar uma conta de laboratório, você verá essa opção na primeira tela (guia **noções básicas** ). 
 
 ![Habilitar a opção no momento da criação do laboratório](./media/allow-lab-creator-pick-lab-location/create-lab-account.png)
 
@@ -47,7 +47,7 @@ Em seguida, os criadores de laboratório (educadores) não veem uma opção para
 Nesse cenário, a opção **permitir que o criador do laboratório escolha o local do laboratório** está desabilitada porque você selecionou uma rede virtual par para a conta do laboratório. Em seguida, os criadores de laboratório verão a mesma tela que a opção anterior. Como todas as VMs precisam estar na mesma região do Azure que a rede virtual, o laboratório será criado na mesma região do Azure em que a rede virtual está. Se essa região específica for restrita para um tamanho, o tamanho será exibido como indisponível. 
 
 ## <a name="location-selection-is-enabled"></a>A seleção de local está habilitada
-Quando você seleciona **permitir que o criador**do laboratório escolha o local do laboratório, os professores (educadores de laboratório) veem uma opção para selecionar um local ao criar um laboratório. 
+Quando você seleciona **permitir que o criador** do laboratório escolha o local do laboratório, os professores (educadores de laboratório) veem uma opção para selecionar um local ao criar um laboratório. 
 
 ![Escolha um local de laboratório](./media/allow-lab-creator-pick-lab-location/location-selection.png)
 

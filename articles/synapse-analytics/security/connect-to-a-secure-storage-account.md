@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 02/10/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 599cf17e1ab2b85aac77893e8b2d520d412e1cea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d43d6f56b48a34fa34baf727508ad8f1c151aa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416999"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101674312"
 ---
 # <a name="connect-to-a-secure-azure-storage-account-from-your-synapse-workspace"></a>Conectar-se a uma conta de armazenamento do Azure segura do seu espaço de trabalho Synapse
 
@@ -21,7 +21,7 @@ Este artigo ensinará como se conectar a uma conta de armazenamento do Azure seg
 
 
 ## <a name="secured-azure-storage-accounts"></a>Contas de armazenamento do Azure protegidas
-O armazenamento do Azure fornece um modelo de segurança em camadas que permite que você proteja e controle o acesso às suas contas de armazenamento. Você pode configurar regras de firewall IP para conceder ao tráfego de intervalos de endereços IP públicos selecionados acesso à sua conta de armazenamento. Você também pode configurar regras de rede para conceder ao tráfego de redes virtuais selecionadas acesso à sua conta de armazenamento. Você pode combinar regras de firewall IP que permitem o acesso de intervalos de endereços IP e regras de rede selecionados que concedem acesso de redes virtuais selecionadas na mesma conta de armazenamento. Essas regras se aplicam ao ponto de extremidade público de uma conta de armazenamento. Você não precisa de nenhuma regra de acesso para permitir o tráfego de pontos de extremidade privados gerenciados criados em seu espaço de trabalho para uma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas a contas de armazenamento existentes ou a novas contas de armazenamento ao criá-las. Você pode saber mais sobre como proteger sua conta de armazenamento [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+O armazenamento do Azure fornece um modelo de segurança em camadas que permite que você proteja e controle o acesso às suas contas de armazenamento. Você pode configurar regras de firewall IP para conceder ao tráfego de intervalos de endereços IP públicos selecionados acesso à sua conta de armazenamento. Você também pode configurar regras de rede para conceder ao tráfego de redes virtuais selecionadas acesso à sua conta de armazenamento. Você pode combinar regras de firewall IP que permitem o acesso de intervalos de endereços IP e regras de rede selecionados que concedem acesso de redes virtuais selecionadas na mesma conta de armazenamento. Essas regras se aplicam ao ponto de extremidade público de uma conta de armazenamento. Você não precisa de nenhuma regra de acesso para permitir o tráfego de pontos de extremidade privados gerenciados criados em seu espaço de trabalho para uma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas a contas de armazenamento existentes ou a novas contas de armazenamento ao criá-las. Você pode saber mais sobre como proteger sua conta de armazenamento [aqui](../../storage/common/storage-network-security.md).
 
 ## <a name="synapse-workspaces-and-virtual-networks"></a>Espaços de trabalho Synapse e redes virtuais
 Ao criar um espaço de trabalho do Synapse, você pode optar por habilitar uma rede virtual gerenciada a ser associada a ela. Se você não habilitar a rede virtual gerenciada para seu espaço de trabalho ao criá-la, seu espaço de trabalho estará em uma rede virtual compartilhada junto com outros espaços de trabalho do Synapse que não têm uma rede virtual gerenciada associada a ela. Se você tiver habilitado a rede virtual gerenciada quando criou o espaço de trabalho, o espaço de trabalho será associado a uma rede virtual dedicada gerenciada pelo Azure Synapse. Essas redes virtuais não são criadas na sua assinatura de cliente. Portanto, você não poderá conceder ao tráfego dessas redes virtuais acesso à sua conta de armazenamento protegido usando as regras de rede descritas acima.  
@@ -38,7 +38,7 @@ Você pode seguir [estas etapas](./synapse-workspace-managed-vnet.md) para criar
 ### <a name="grant-your-azure-synapse-workspace-access-to-your-secure-storage-account-as-a-trusted-azure-service"></a>Conceda ao seu espaço de trabalho Synapse do Azure acesso à sua conta de armazenamento seguro como um serviço do Azure confiável
 Recursos analíticos como pool de SQL dedicado e pool SQL sem servidor usam a infraestrutura multilocatário que não é implantada na rede virtual gerenciada. Para o tráfego desses recursos para acessar a conta de armazenamento protegido, você deve configurar o acesso à sua conta de armazenamento com base na identidade gerenciada atribuída pelo sistema do espaço de trabalho seguindo as etapas abaixo.
 
-Em portal do Azure, navegue até sua conta de armazenamento protegido. Selecione **rede** no painel de navegação à esquerda. Na seção **instâncias de recurso** , selecione *Microsoft. Synapse/Workspaces* como o **tipo de recurso** e insira o nome do espaço de trabalho para o **nome da instância**. Selecione **Salvar**.
+Em portal do Azure, navegue até sua conta de armazenamento protegido. Selecione **rede** no painel de navegação à esquerda. Na seção **instâncias de recurso** , selecione *Microsoft. Synapse/Workspaces* como o **tipo de recurso** e insira o nome do espaço de trabalho para o **nome da instância**. Clique em **Salvar**.
 
 ![Configuração de rede da conta de armazenamento.](./media/connect-to-a-secure-storage-account/secured-storage-access.png)
 

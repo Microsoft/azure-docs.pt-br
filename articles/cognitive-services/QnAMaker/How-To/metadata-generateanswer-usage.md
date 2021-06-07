@@ -9,28 +9,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584731"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232198"
 ---
-# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
+# <a name="get-an-answer-with-the-generateanswer-api"></a>Obter uma resposta com a API do GenerateAnswer
 
 Para obter a resposta prevista para a pergunta de um usuário, use a API GenerateAnswer. Ao publicar uma base de dados de conhecimento, você pode ver informações sobre como usar essa API na página **publicar** . Você também pode configurar a API para filtrar as respostas com base nas marcas de metadados e testar a base de dados de conhecimento do ponto de extremidade com o parâmetro de cadeia de caracteres de consulta de teste.
-
-QnA Maker permite adicionar metadados, na forma de pares de chave e valor, aos seus pares de perguntas e respostas. Você pode usar essas informações para filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento. Para mais informações, consulte a [Base de dados de conhecimento](../index.yml).
-
-<a name="qna-entity"></a>
-
-## <a name="store-questions-and-answers-with-a-qna-entity"></a>Armazenar perguntas e respostas com uma entidade QnA
-
-É importante entender como QnA Maker armazena os dados de pergunta e resposta. A ilustração a seguir mostra uma entidade QnA:
-
-![Ilustração de uma entidade QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
-
-Cada entidade QnA tem uma ID exclusiva e persistente. Você pode usar a ID para fazer atualizações em uma entidade QnA específica.
 
 <a name="generateanswer-api"></a>
 
@@ -134,6 +122,21 @@ A [resposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#
 
 O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%.
 
+## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
+
+Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
+
+Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste usando `isTest=true` .
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
+
+```
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot em C #
 
 A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -171,113 +174,55 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite.
 
-<a name="metadata-example"></a>
+## <a name="get-precise-answers-with-generateanswer-api"></a>Obtenha respostas precisas com a API do GenerateAnswer
 
-## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usar metadados para filtrar respostas por marcas de metadados personalizadas
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-A adição de metadados permite filtrar as respostas por essas marcas de metadados. Adicione a coluna de metadados do menu de **Opções de exibição** . Adicione metadados à sua base de dados de conhecimento selecionando o ícone de metadados **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
+Oferecemos um recurso de resposta preciso somente com a QnA Maker versão gerenciada.
 
-![Captura de tela da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
-<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
-
-## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar resultados com strictFilters para marcas de metadados
-
-Considere a pergunta do usuário "quando este hotel é fechado?", em que a intenção é implícita para o restaurante "Paradise".
-
-Como os resultados são necessários apenas para o restaurante "Paradise", você pode definir um filtro na chamada GenerateAnswer nos metadados "nome do restaurante". O exemplo a seguir mostra isso:
+O usuário pode habilitar [respostas precisas](../reference-precise-answering.md) ao usar o QnA Maker recurso gerenciado. O parâmetro answerSpanRequest deve ser atualizado para o mesmo.
 
 ```json
 {
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
 }
 ```
 
-### <a name="logical-and-by-default"></a>AND lógico por padrão
-
-Para combinar vários filtros de metadados na consulta, adicione os filtros de metadados adicionais à matriz da `strictFilters` propriedade. Por padrão, os valores são logicamente combinados (e). Uma combinação lógica requer que todos os filtros correspondam aos pares de QnA para que o par seja retornado na resposta.
-
-Isso é equivalente a usar a `strictFiltersCompoundOperationType` propriedade com o valor de `AND` .
-
-### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>OR lógico usando a propriedade strictFiltersCompoundOperationType
-
-Ao combinar vários filtros de metadados, se você estiver preocupado apenas com um ou alguns dos filtros correspondentes, use a `strictFiltersCompoundOperationType` propriedade com o valor de `OR` .
-
-Isso permite que sua base de dados de conhecimento retorne respostas quando qualquer filtro corresponder, mas não retornará respostas que não têm metadados.
+Da mesma forma, os usuários podem optar por desabilitar respostas precisas não definindo o parâmetro answerSpanRequest.
 
 ```json
 {
-    "question": "When do facilities in this hotel close?",
-    "top": 1,
-    "strictFilters": [
-      { "name": "type","value": "restaurant"},
-      { "name": "type", "value": "bar"},
-      { "name": "type", "value": "poolbar"}
-    ],
-    "strictFiltersCompoundOperationType": "OR"
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
 }
 ```
+### <a name="bot-settings"></a>Configurações de bot
 
-### <a name="metadata-examples-in-quickstarts"></a>Exemplos de metadados em guias de início rápido
+Se você quiser definir configurações de resposta precisas para o serviço de bot, navegue até o recurso do serviço de aplicativo para o bot. Em seguida, você precisa atualizar as configurações adicionando a configuração a seguir.
 
-Saiba mais sobre metadados no início rápido do portal QnA Maker para obter os metadados:
-* [Criação – adicionar metadados ao par de pergunta e resposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Previsão de consulta – filtrar respostas por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
 
-<a name="keep-context"></a>
+|Configuração de vídeo|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Somente respostas precisas|true|true|
+|Somente respostas longas|false|false|
+|Respostas longas e precisas|true|false|
 
-## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Usar resultados de perguntas e respostas para manter o contexto da conversa
-
-A resposta para o GenerateAnswer contém as informações de metadados correspondentes do par de perguntas e respostas correspondentes. Você pode usar essas informações em seu aplicativo cliente para armazenar o contexto da conversa anterior para uso em conversas posteriores.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
-
-Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
-
-Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste usando `isTest=true` .
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
-}
-```
+---
 
 ## <a name="common-http-errors"></a>Erros comuns de HTTP
 
 |Código|Explicação|
 |:--|--|
-|2xx|Sucesso|
+|2xx|Êxito|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|

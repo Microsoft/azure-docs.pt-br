@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Criar/gerenciar a topologia do Apache Storm – Azure HDInsight'
+title: 'Guia de início rápido: criar/gerenciar a topologia do Apache Storm – Azure HDInsight'
 description: No início rápido, saiba como criar e monitorar uma topologia do Apache Storm no Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
 ms.custom: mvc
-ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 73b0434065b06f25320a0666937fd7969c863b33
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928856"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104870204"
 ---
-# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Início Rápido: Criar e monitorar uma topologia do Apache Storm no Azure HDInsight
+# <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Guia de início rápido: criar e monitorar uma topologia do Apache Storm no Azure HDInsight
 
 O Apache Storm é um sistema de computação escalável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Azure HDInsight, você pode criar um cluster Storm baseado em nuvem que execute análise de big data em tempo real.
 
@@ -48,7 +48,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
 2. Em **Resumo da Topologia**, selecione a entrada **wordcount** na coluna **Nome**. São exibidas informações sobre a topologia.
 
-    ![Painel do Storm com informações da topologia do storm-starter WordCount.](./media/apache-storm-quickstart/hdi-topology-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-topology-summary.png" alt-text="Painel do Storm com informações da topologia do storm-starter WordCount." border="true":::
 
     A página nova fornece as seguintes informações:
 
@@ -65,7 +65,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
 3. Nessa página, selecione uma entrada da seção **Spouts** ou **Bolts**. São exibidas informações sobre o componente selecionado.
 
-    ![Painel do Storm com informações sobre os componentes selecionados.](./media/apache-storm-quickstart/hdi-component-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-component-summary.png" alt-text="Painel do Storm com informações sobre os componentes selecionados." border="true":::
 
     A página nova exibe as seguintes informações:
 

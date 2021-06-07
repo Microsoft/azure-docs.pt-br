@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 1/14/2020
-ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 3/02/2021
+ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093301"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102034890"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Entender e resolver problemas de bloqueio do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ O artigo descreve o bloqueio em bancos de dados SQL do Azure e demonstra como so
 Neste artigo, o termo conexão refere-se a uma única sessão conectada do banco de dados. Cada conexão aparece como uma ID de sessão (SPID) ou session_id em muitos DMVs. Cada um desses SPIDs é geralmente conhecido como um processo, embora não seja um contexto de processo separado no sentido normal. Em vez disso, cada SPID consiste nos recursos do servidor e nas estruturas de dados necessárias para atender às solicitações de uma única conexão de um determinado cliente. Um único aplicativo cliente pode ter uma ou mais conexões. Da perspectiva do banco de dados SQL do Azure, não há nenhuma diferença entre várias conexões de um único aplicativo cliente em um único computador cliente e várias conexões de vários aplicativos cliente ou vários computadores cliente; Eles são atômicos. Uma conexão pode bloquear outra conexão, independentemente do cliente de origem.
 
 > [!NOTE]
-> **Esse conteúdo é específico do banco de dados SQL do Azure.** O banco de dados SQL do Azure é baseado na versão estável mais recente do mecanismo de banco de dados Microsoft SQL Server, portanto, grande parte do conteúdo é semelhante, embora as opções e as ferramentas de solução de problemas possam ser diferentes. Para obter mais informações sobre o bloqueio no SQL Server, consulte [entender e resolver problemas de bloqueio de SQL Server](/troubleshoot/sql/performance/understand-resolve-blocking).
+> **Este conteúdo está concentrado no banco de dados SQL do Azure.** O banco de dados SQL do Azure é baseado na versão estável mais recente do mecanismo de banco de dados Microsoft SQL Server, portanto, grande parte do conteúdo é semelhante, embora as opções e as ferramentas de solução de problemas possam ser diferentes. Para obter mais informações sobre o bloqueio no SQL Server, consulte [entender e resolver problemas de bloqueio de SQL Server](/troubleshoot/sql/performance/understand-resolve-blocking).
 
 ## <a name="understand-blocking"></a>Entender o bloqueio 
  
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_exec_input_buffer (66,0);
 
 * Consulte a sys.dm_exec_requests e referencie a coluna blocking_session_id. Quando blocking_session_id = 0, uma sessão não está sendo bloqueada. Embora sys.dm_exec_requests liste somente as solicitações em execução no momento, qualquer conexão (ativa ou não) será listada em sys.dm_exec_sessions. Crie nessa junção comum entre sys.dm_exec_requests e sys.dm_exec_sessions na próxima consulta.
 
-* Execute esta consulta de exemplo para localizar as consultas em execução ativamente e o texto do lote SQL atual ou o texto do buffer de entrada, usando as DMVs [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) . Se os dados retornados pelo `text` campo de sys.dm_exec_sql_text forem nulos, a consulta não estará em execução no momento. Nesse caso, o `event_info` campo de sys.dm_exec_input_buffer conterá a última cadeia de caracteres de comando passada para o mecanismo do SQL. 
+* Execute esta consulta de exemplo para localizar as consultas em execução ativamente e o texto do lote SQL atual ou o texto do buffer de entrada, usando as DMVs [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) . Se os dados retornados pelo `text` campo de sys.dm_exec_sql_text forem nulos, a consulta não estará em execução no momento. Nesse caso, o `event_info` campo de sys.dm_exec_input_buffer conterá a última cadeia de caracteres de comando passada para o mecanismo do SQL. Essa consulta também pode ser usada para identificar sessões que bloqueiam outras sessões, incluindo uma lista de session_ids bloqueadas por session_id. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -125,6 +125,49 @@ OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) t
 OUTER APPLY sys.dm_exec_input_buffer(s.session_id, NULL) AS ib
 WHERE blocking_these is not null or r.blocking_session_id > 0
 ORDER BY len(bl.blocking_these) desc, r.blocking_session_id desc, r.session_id;
+```
+
+* Execute esta consulta de exemplo elaborada, fornecida pelo Suporte da Microsoft, para identificar o cabeçalho de uma cadeia de bloqueio de sessão múltipla, incluindo o texto de consulta das sessões envolvidas em uma cadeia de bloqueio.
+
+```sql
+WITH cteHead ( session_id,request_id,wait_type,wait_resource,last_wait_type,is_user_process,request_cpu_time
+,request_logical_reads,request_reads,request_writes,wait_time,blocking_session_id,memory_usage
+,session_cpu_time,session_reads,session_writes,session_logical_reads
+,percent_complete,est_completion_time,request_start_time,request_status,command
+,plan_handle,sql_handle,statement_start_offset,statement_end_offset,most_recent_sql_handle
+,session_status,group_id,query_hash,query_plan_hash) 
+AS ( SELECT sess.session_id, req.request_id, LEFT (ISNULL (req.wait_type, ''), 50) AS 'wait_type'
+    , LEFT (ISNULL (req.wait_resource, ''), 40) AS 'wait_resource', LEFT (req.last_wait_type, 50) AS 'last_wait_type'
+    , sess.is_user_process, req.cpu_time AS 'request_cpu_time', req.logical_reads AS 'request_logical_reads'
+    , req.reads AS 'request_reads', req.writes AS 'request_writes', req.wait_time, req.blocking_session_id,sess.memory_usage
+    , sess.cpu_time AS 'session_cpu_time', sess.reads AS 'session_reads', sess.writes AS 'session_writes', sess.logical_reads AS 'session_logical_reads'
+    , CONVERT (decimal(5,2), req.percent_complete) AS 'percent_complete', req.estimated_completion_time AS 'est_completion_time'
+    , req.start_time AS 'request_start_time', LEFT (req.status, 15) AS 'request_status', req.command
+    , req.plan_handle, req.[sql_handle], req.statement_start_offset, req.statement_end_offset, conn.most_recent_sql_handle
+    , LEFT (sess.status, 15) AS 'session_status', sess.group_id, req.query_hash, req.query_plan_hash
+    FROM sys.dm_exec_sessions AS sess
+    LEFT OUTER JOIN sys.dm_exec_requests AS req ON sess.session_id = req.session_id
+    LEFT OUTER JOIN sys.dm_exec_connections AS conn on conn.session_id = sess.session_id 
+    )
+, cteBlockingHierarchy (head_blocker_session_id, session_id, blocking_session_id, wait_type, wait_duration_ms,
+wait_resource, statement_start_offset, statement_end_offset, plan_handle, sql_handle, most_recent_sql_handle, [Level])
+AS ( SELECT head.session_id AS head_blocker_session_id, head.session_id AS session_id, head.blocking_session_id
+    , head.wait_type, head.wait_time, head.wait_resource, head.statement_start_offset, head.statement_end_offset
+    , head.plan_handle, head.sql_handle, head.most_recent_sql_handle, 0 AS [Level]
+    FROM cteHead AS head
+    WHERE (head.blocking_session_id IS NULL OR head.blocking_session_id = 0)
+    AND head.session_id IN (SELECT DISTINCT blocking_session_id FROM cteHead WHERE blocking_session_id != 0)
+    UNION ALL
+    SELECT h.head_blocker_session_id, blocked.session_id, blocked.blocking_session_id, blocked.wait_type,
+    blocked.wait_time, blocked.wait_resource, h.statement_start_offset, h.statement_end_offset,
+    h.plan_handle, h.sql_handle, h.most_recent_sql_handle, [Level] + 1
+    FROM cteHead AS blocked
+    INNER JOIN cteBlockingHierarchy AS h ON h.session_id = blocked.blocking_session_id and h.session_id!=blocked.session_id --avoid infinite recursion for latch type of blocking
+    WHERE h.wait_type COLLATE Latin1_General_BIN NOT IN ('EXCHANGE', 'CXPACKET') or h.wait_type is null
+    )
+SELECT bh.*, txt.text AS blocker_query_or_most_recent_query 
+FROM cteBlockingHierarchy AS bh 
+OUTER APPLY sys.dm_exec_sql_text (ISNULL ([sql_handle], most_recent_sql_handle)) AS txt;
 ```
 
 * Para capturar transações de execução longa ou não confirmadas, use outro conjunto de DMVs para exibir as transações abertas atuais, incluindo [Sys.dm_tran_database_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql), [Sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql), [Sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql)e sys.dm_exec_sql_text. Há vários DMVs associados a transações de rastreamento, consulte mais [DMVs em transações](/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql) aqui. 
@@ -165,7 +208,7 @@ AND object_name(p.object_id) = '<table_name>';
 
 ## <a name="gather-information-from-extended-events"></a>Coletar informações de eventos estendidos
 
-Além das informações acima, geralmente é necessário capturar um rastreamento das atividades no servidor para investigar minuciosamente um problema de bloqueio no banco de dados SQL do Azure. Por exemplo, se uma sessão executar várias instruções em uma transação, somente a última instrução que foi enviada será representada. No entanto, uma das instruções anteriores pode ser o motivo pelo qual os bloqueios ainda estão sendo mantidos. Um rastreamento permitirá que você veja todos os comandos executados por uma sessão dentro da transação atual.
+Além das informações anteriores, geralmente é necessário capturar um rastreamento das atividades no servidor para investigar minuciosamente um problema de bloqueio no banco de dados SQL do Azure. Por exemplo, se uma sessão executar várias instruções em uma transação, somente a última instrução que foi enviada será representada. No entanto, uma das instruções anteriores pode ser o motivo pelo qual os bloqueios ainda estão sendo mantidos. Um rastreamento permitirá que você veja todos os comandos executados por uma sessão dentro da transação atual.
 
 Há duas maneiras de capturar rastreamentos no SQL Server; Eventos estendidos (XEvents) e rastreamentos do criador de perfil. No entanto, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) é uma tecnologia de rastreamento preterida sem suporte para o banco de dados SQL do Azure. Os [eventos estendidos](/sql/relational-databases/extended-events/extended-events) são a tecnologia de rastreamento mais recente que permite mais versatilidade e menos impacto no sistema observado, e sua interface é integrada ao SSMS (SQL Server Management Studio). 
 
@@ -195,7 +238,7 @@ Consulte o documento que explica como usar o assistente para [nova sessão de ev
 
 ## <a name="identify-and-resolve-common-blocking-scenarios"></a>Identificar e resolver cenários de bloqueio comuns
 
-Ao examinar as informações acima, você pode determinar a causa da maioria dos problemas de bloqueio. O restante deste artigo é uma discussão de como usar essas informações para identificar e resolver alguns cenários comuns de bloqueio. Esta discussão pressupõe que você usou os scripts de bloqueio (referenciados anteriormente) para capturar informações sobre os SPIDs de bloqueio e ter capturado a atividade do aplicativo usando uma sessão XEvent.
+Ao examinar as informações anteriores, você pode determinar a causa da maioria dos problemas de bloqueio. O restante deste artigo é uma discussão de como usar essas informações para identificar e resolver alguns cenários comuns de bloqueio. Esta discussão pressupõe que você usou os scripts de bloqueio (referenciados anteriormente) para capturar informações sobre os SPIDs de bloqueio e ter capturado a atividade do aplicativo usando uma sessão XEvent.
 
 ## <a name="analyze-blocking-data"></a>Analisar dados de bloqueio 
 
@@ -291,7 +334,7 @@ As `wait_type` `open_transaction_count` colunas, e `status` referem-se às infor
 | 5 | NULO | \>0 | reversão | Sim. | Um sinal de atenção pode ser visto na sessão de eventos estendidos para esse SPID, indicando que o tempo limite da consulta ou cancelamento ocorreu ou simplesmente uma instrução ROLLBACK foi emitida. |  
 | 6 | NULO | \>0 | dormindo | Eventualmente. Quando o Windows NT determina que a sessão não está mais ativa, a conexão do banco de dados SQL do Azure será interrompida. | O `last_request_start_time` valor em sys.dm_exec_sessions é muito anterior à hora atual. |
 
-Os cenários a seguir se expandirão nesses cenários. 
+## <a name="detailed-blocking-scenarios"></a>Cenários de bloqueio detalhados
 
 1.  Bloqueio causado por uma consulta normalmente em execução com um tempo de execução longo
 
@@ -323,7 +366,7 @@ Os cenários a seguir se expandirão nesses cenários.
 
     A saída da segunda consulta indica que o nível de aninhamento de transação é um. Todos os bloqueios adquiridos na transação ainda serão mantidos até que a transação seja confirmada ou revertida. Se os aplicativos abrirem e confirmarem explicitamente as transações, uma comunicação ou outro erro poderá deixar a sessão e sua transação em um estado aberto. 
 
-    Use o script acima com base em sys.dm_tran_active_transactions para identificar as transações não confirmadas no momento.
+    Use o script anteriormente neste artigo com base em sys.dm_tran_active_transactions para identificar transações não confirmadas no momento em toda a instância.
 
     **Resoluções**:
 
@@ -334,6 +377,7 @@ Os cenários a seguir se expandirão nesses cenários.
             *    No manipulador de erros do aplicativo cliente, execute `IF @@TRANCOUNT > 0 ROLLBACK TRAN` após qualquer erro, mesmo que o aplicativo cliente não acredite que uma transação está aberta. A verificação de transações abertas é necessária, pois um procedimento armazenado chamado durante o lote pode ter iniciado uma transação sem o conhecimento do aplicativo cliente. Determinadas condições, como cancelar a consulta, impedem que o procedimento seja executado após a instrução atual, portanto, mesmo que o procedimento tenha lógica para verificar `IF @@ERROR <> 0` e anular a transação, esse código de reversão não será executado nesses casos.  
             *    Se o pool de conexões estiver sendo usado em um aplicativo que abre a conexão e executa um pequeno número de consultas antes de liberar a conexão de volta ao pool, como um aplicativo baseado na Web, desabilitar temporariamente o pool de conexões pode ajudar a aliviar o problema até que o aplicativo cliente seja modificado para manipular os erros adequadamente. Ao desabilitar o pool de conexões, a liberação da conexão causará uma desconexão física da conexão do banco de dados SQL do Azure, fazendo com que o servidor reverta todas as transações abertas.  
             *    Use `SET XACT_ABORT ON` para a conexão ou em quaisquer procedimentos armazenados que iniciem transações e não estão limpando após um erro. No caso de um erro de tempo de execução, essa configuração anulará todas as transações abertas e retornará o controle para o cliente. Para obter mais informações, consulte [SET XACT_ABORT (Transact-SQL)](/sql/t-sql/statements/set-xact-abort-transact-sql).
+
     > [!NOTE]
     > A conexão não é redefinida até que seja reutilizada do pool de conexões, portanto, é possível que um usuário possa abrir uma transação e, em seguida, liberar a conexão para o pool de conexões, mas ela pode não ser reutilizada por vários segundos, durante o qual a transação permaneceria aberta. Se a conexão não for reutilizada, a transação será anulada quando a conexão atingir o tempo limite e for removida do pool de conexões. Portanto, é ideal que o aplicativo cliente anule as transações em seu manipulador de erros ou use `SET XACT_ABORT ON` para evitar esse atraso potencial.
 
@@ -342,14 +386,14 @@ Os cenários a seguir se expandirão nesses cenários.
 
 1.  Bloqueio causado por um SPID cujo aplicativo cliente correspondente não buscou todas as linhas de resultado para conclusão
 
-    Depois de enviar uma consulta para o servidor, todos os aplicativos devem buscar imediatamente todas as linhas de resultado para conclusão. Se um aplicativo não buscar todas as linhas de resultado, os bloqueios poderão ser deixados nas tabelas, bloqueando outros usuários. Se você estiver usando um aplicativo que envia de forma transparente instruções SQL para o servidor, o aplicativo deve buscar todas as linhas de resultado. Se não for (e se não puder ser configurado para fazer isso), talvez você não consiga resolver o problema de bloqueio. Para evitar o problema, você pode restringir aplicativos com mau desempenho para um relatório ou um banco de dados de suporte a decisões.
+    Depois de enviar uma consulta para o servidor, todos os aplicativos devem buscar imediatamente todas as linhas de resultado para conclusão. Se um aplicativo não buscar todas as linhas de resultado, os bloqueios poderão ser deixados nas tabelas, bloqueando outros usuários. Se você estiver usando um aplicativo que envia de forma transparente instruções SQL para o servidor, o aplicativo deve buscar todas as linhas de resultado. Se não for (e se não puder ser configurado para fazer isso), talvez você não consiga resolver o problema de bloqueio. Para evitar o problema, você pode restringir o mau desempenho de aplicativos a um relatório ou a um banco de dados de suporte a decisões, separado do banco de dados OLTP principal.
     
     > [!NOTE]
     > Consulte as [diretrizes para lógica de repetição](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) para aplicativos que se conectam ao banco de dados SQL do Azure. 
     
     **Resolução**: o aplicativo deve ser reescrito para buscar todas as linhas do resultado para conclusão. Isso não regra o uso de [offset e FETCH na cláusula order by](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) de uma consulta para executar a paginação do servidor.
 
-1.  Bloqueio causado por um SPID que está no estado de reversão
+1.  Bloqueio causado por uma sessão em um estado de reversão
 
     Uma consulta de modificação de dados que é encerrada ou cancelada fora de uma transação definida pelo usuário será revertida. Isso também pode ocorrer como um efeito colateral da desconexão da sessão de rede do cliente ou quando uma solicitação é selecionada como a vítima do deadlock. Geralmente, isso pode ser identificado observando a saída de sys.dm_exec_requests, que pode indicar o **comando** Rollback, e a **coluna percent_complete** pode mostrar o progresso. 
 
@@ -369,9 +413,9 @@ Os cenários a seguir se expandirão nesses cenários.
     KILL 99
     ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
-* [Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure](/azure/azure-sql/database/monitor-tune-overview)
+* [Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure](./monitor-tune-overview.md)
 * [Monitorando o desempenho usando o Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Guia de Controle de Versão de Linha e Bloqueio de Transações](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

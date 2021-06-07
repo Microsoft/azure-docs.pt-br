@@ -3,19 +3,14 @@ title: Visão geral do Backup de Disco do Azure
 description: Saiba mais sobre a solução de backup em disco do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915501"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107288"
 ---
-# <a name="overview-of-azure-disk-backup-in-preview"></a>Visão geral do backup em disco do Azure (em versão prévia)
-
->[!IMPORTANT]
->O backup em disco do Azure está em versão prévia sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
+# <a name="overview-of-azure-disk-backup"></a>Visão geral do Backup de Disco do Azure
 
 O backup em disco do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados em discos gerenciados. É uma solução simples, segura e econômica que permite configurar a proteção de discos gerenciados em algumas etapas. Garante que você possa recuperar seus dados em um cenário de desastre.
 

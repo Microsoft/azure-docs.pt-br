@@ -4,10 +4,10 @@ description: Aprenda a atualizar a configuração que executa um cluster autôno
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 3cb1d40f5b32415588d3fd5a108967cfb4c0e534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842607"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
@@ -19,7 +19,7 @@ Os clusters autônomos são configurados por meio do *ClusterConfig.jsno* arquiv
 
 Você pode adicionar, atualizar ou remover as configurações na `fabricSettings` seção na seção [Propriedades do Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.jsem*. 
 
-Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico * em `fabricSettings`:
+Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico* em `fabricSettings`:
 
 ```json
       {

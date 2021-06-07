@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786632"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563582"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é o Azure Data Box Gateway?
 
@@ -87,7 +87,7 @@ A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispo
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O dispositivo físico Data Box Gateway, o recurso do Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar todos na mesma região.
+O dispositivo Data Box Gateway, o recurso do Azure e a conta de armazenamento de destino para a qual os dados serão transferidos não precisam estar todos na mesma região.
 
 - **Disponibilidade de recursos** – para obter uma lista de todas as regiões em que o recurso Azure Data Box Gateway está disponível, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](../azure-government/documentation-government-welcome.md).
 

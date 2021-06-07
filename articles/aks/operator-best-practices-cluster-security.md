@@ -5,12 +5,12 @@ description: Aprender as práticas recomendadas do operador de cluster sobre com
 services: container-service
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: ad1f14fc92433e8d9cb31de165645e4a5731f01a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: a56cf35fe3780aa53b12581358bd91fe44e8c8a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019459"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585053"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -94,7 +94,7 @@ metadata:
 spec:
   containers:
   - name: hello
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
@@ -104,13 +104,14 @@ Implante o pod de exemplo usando o comando [kubectl apply][kubectl-apply]:
 kubectl apply -f aks-apparmor.yaml
 ```
 
-Com o pod implantado, use o comando [kubectl exec][kubectl-exec] para gravar em um arquivo. O comando não pode ser executado, conforme mostrado na saída de exemplo a seguir:
+Com o Pod implantado, use verificar se o Pod *Hello-AppArmor* é mostrado como *bloqueado*:
 
 ```
-$ kubectl exec hello-apparmor touch /tmp/test
+$ kubectl get pods
 
-touch: /tmp/test: Permission denied
-command terminated with exit code 1
+NAME             READY   STATUS    RESTARTS   AGE
+aks-ssh          1/1     Running   0          4m2s
+hello-apparmor   0/1     Blocked   0          50s
 ```
 
 Para obter mais informações sobre AppArmor, confira [Perfis do AppArmor no Kubernetes][k8s-apparmor].
@@ -145,7 +146,7 @@ metadata:
 spec:
   containers:
   - name: chmod
-    image: busybox
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
     command:
       - "chmod"
     args:

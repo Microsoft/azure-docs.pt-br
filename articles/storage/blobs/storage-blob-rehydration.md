@@ -1,20 +1,20 @@
 ---
 title: Reidratar dados de blob da camada de arquivos
-description: Reidratar seus BLOBs do armazenamento de arquivo para que você possa acessar os dados de BLOB. Copiar um blob arquivado para uma camada online.
+description: Reidrate os blobs do Armazenamento de Arquivos para acessar os dados de blob. Copie um blob arquivado em uma camada online.
 services: storage
-author: mhopkins-msft
-ms.author: mhopkins
-ms.date: 01/08/2021
+author: twooley
+ms.author: twooley
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
-ms.translationtype: MT
+ms.openlocfilehash: aaea21dca5304a7a75b24bd7f974712db38d1815
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165664"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276766"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados de blob da camada de arquivos
 
@@ -29,20 +29,24 @@ Enquanto um blob estiver na camada de acesso aos arquivos, ele será considerado
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
-## <a name="monitor-rehydration-progress"></a>Monitorar o progresso do reidratação
+### <a name="lifecycle-management"></a>Gerenciamento do ciclo de vida
 
-Durante a reidratação, use a operação obter propriedades de BLOB para verificar o atributo **status do arquivo** e confirmar quando a alteração da camada foi concluída. O status exibe "reidratação pendentes para camada quente" ou "reidratação pendente para camada fria" dependendo da camada de destino. Após a conclusão, a propriedade status do arquivo é removida e a propriedade BLOB da **camada de acesso** reflete a nova camada quente ou fria.
+Reidratar um blob não muda o horário `Last-Modified` dele. Usar o recurso de [gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md) pode criar um cenário em que um blob está reidratado e uma política de gerenciamento do ciclo de vida retorna o blob para os arquivos, pois o horário `Last-Modified` está além do limite definido para a política. Para evitar esse cenário, use o método *[Copiar um blob arquivado para uma camada online](#copy-an-archived-blob-to-an-online-tier)* . O método de cópia cria uma instância do blob com um horário `Last-Modified` atualizado e não dispara a política de gerenciamento do ciclo de vida.
+
+## <a name="monitor-rehydration-progress"></a>Monitorar o progresso da reidratação
+
+Durante a reidratação, use a operação de obtenção de propriedades do blob para verificar o atributo **Status dos Arquivos** e confirmar quando a alteração de camada estiver concluída. O status exibe "reidratação pendentes para camada quente" ou "reidratação pendente para camada fria" dependendo da camada de destino. Após a conclusão, a propriedade status do arquivo é removida, e a propriedade de blob de **Nível de Acesso** reflete a nova camada frequente ou esporádica.
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado em uma camada online
 
-Caso não deseje reidratar o blob de arquivos, você pode optar por realizar uma operação [Copy Blob](/rest/api/storageservices/copy-blob). O blob original permanecerá inalterado em arquivos enquanto um blob for criado na camada online quente ou fria para você trabalhar. Na operação **copiar blob** , você também pode definir a propriedade *x-MS-reidratar-Priority* opcional como Standard ou High para especificar a prioridade na qual você deseja que a cópia de blob seja criada.
+Caso não deseje reidratar o blob de arquivos, você pode optar por realizar uma operação [Copy Blob](/rest/api/storageservices/copy-blob). O blob original permanecerá inalterado em arquivos enquanto um blob for criado na camada online quente ou fria para você trabalhar. Na operação **Copy Blob**, também é possível definir a propriedade opcional *x-ms-rehydrate-priority* como Padrão ou Alta para especificar a prioridade sob a qual você deseja que a cópia de blob seja criada.
 
 A cópia de um blob de arquivos pode levar horas para ser concluída, dependendo da prioridade de reidratação selecionada. Nos bastidores, a operação **Copy Blob** lê o blob de arquivos de origem para criar um blob online na camada de destino selecionada. É possível que o novo blob fique visível ao você listar os blobs. No entanto, os dados estão indisponíveis até que a leitura do blob de arquivos de origem seja concluída e que os dados sejam gravados no novo blob de destino online. O novo blob é uma cópia independente. Nenhuma modificação nem exclusão feita a ele afeta o blob de arquivos de origem.
 
 > [!IMPORTANT]
 > Não exclua o blob de origem até que a cópia seja concluída com êxito no destino. Caso o blob de origem seja excluído, é possível que o blob de destino não conclua a cópia e fique vazio. Você pode verificar o *x-ms-copy-status* para determinar o estado da operação de cópia.
 
-Só é possível copiar os blobs de arquivos nas camadas de destino online dentro da mesma conta de armazenamento. Não há suporte para a cópia de um blob de arquivos em outro blob de arquivos. A tabela a seguir indica os recursos do CopyBlob.
+Só é possível copiar os blobs de arquivos nas camadas de destino online dentro da mesma conta de armazenamento. Não há suporte para a cópia de um blob de arquivos em outro blob de arquivos. A tabela a seguir mostra as funcionalidades de uma operação **Copy Blob**.
 
 |                                           | **Origem da camada quente**   | **Origem da camada fria** | **Origem da camada de arquivos**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

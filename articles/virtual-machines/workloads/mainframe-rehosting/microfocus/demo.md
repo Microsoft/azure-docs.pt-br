@@ -5,13 +5,14 @@ author: sread
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 9ef9dd27183b6c23762dcdc2d5a844123d35559a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733142"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045953"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o micro Focus CICS BankDemo para o micro Focus Enterprise Developer 4,0 no Azure
 
@@ -124,7 +125,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Clique com o botão direito do mouse no banco de dados **BANKDEMO** e selecione **Atualizar**.
 
-2. Expanda o **banco de dados** e selecione **tabelas**. Você deverá ver algo semelhante ao seguinte.
+2. Expanda o **banco de dados** e selecione **tabelas**. Você deverá ver algo semelhante ao que é exibido a seguir.
 
      ![Tabela BANKDEMO expandida no Pesquisador de objetos](media/04-demo-explorer.png)
 
@@ -275,5 +276,5 @@ Parabéns! Agora você está executando um aplicativo CICS no Azure usando o mic
 - [Executar o servidor corporativo em contêineres do Docker no Azure](run-enterprise-server-container.md)
 - [Migração de mainframe-Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
 - [Máquinas virtuais](../../../linux/overview.md)
-- [Solução de problemas](../../../troubleshooting/index.yml)
+- [Solução de problemas](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

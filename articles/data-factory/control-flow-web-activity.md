@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361512"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
@@ -23,7 +23,7 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 > A atividade da Web também pode invocar URLs que são hospedadas em uma rede virtual privada aproveitando o runtime de integração auto-hospedada. O runtime de integração deve ter uma linha de visão para o ponto de extremidade da URL. 
 
 > [!NOTE]
-> O tamanho máximo de carga de resposta de saída com suporte é 4 MB.  
+> O tamanho máximo do conteúdo de resposta de saída com suporte é de 4 MB.  
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -76,10 +76,10 @@ method | Método da API REST para o ponto de extremidade de destino. | Cadeia de
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
 headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
 body | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Necessário para os métodos PUT/POST.
-autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [autenticação](#authentication) . Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
+autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate." Para obter mais informações, consulte a seção [Autenticação](#authentication). Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
 conjuntos de dados | Lista de conjuntos de dados passados para o ponto de extremidade. | Matriz de referências do conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços vinculados passado ao ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
-connectVia | O [runtime de integração](./concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. | A referência do Integration Runtime. | Não 
+connectVia | O [runtime de integração](./concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Use o runtime de integração do Azure ou o runtime de integração auto-hospedada (se o seu armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o runtime de integração do Azure padrão. | A referência de runtime de integração. | Não 
 
 > [!NOTE]
 > Os pontos de extremidade REST que invoca a atividade da Web invoca devem retornar para uma resposta do JSON de tipo. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade.
@@ -96,13 +96,13 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 
 ## <a name="authentication"></a>Autenticação
 
-Abaixo estão os tipos de autenticação com suporte na atividade da Web.
+Veja abaixo os tipos de autenticação compatíveis com a atividade da Web.
 
 ### <a name="none"></a>Nenhum
 
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 
 Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 
@@ -138,7 +138,7 @@ Especifique o URI do recurso para o qual o token de acesso será solicitado usan
 ```
 
 > [!NOTE]
-> Se sua data factory estiver configurada com um repositório git, você deverá armazenar suas credenciais no Azure Key Vault para usar a autenticação básica ou de certificado do cliente. Azure Data Factory não armazena senhas no git.
+> Se o seu data factory estiver configurado com um repositório Git, você precisará armazenar suas credenciais no Azure Key Vault para usar a autenticação básica ou de certificado do cliente. O Azure Data Factory não armazena senhas no Git.
 
 ## <a name="request-payload-schema"></a>Solicitar esquema de carga
 Quando você usa o método PUT/POST, a propriedade body representa a carga que é enviada para o ponto de extremidade. Você pode passar serviços vinculados e conjuntos de dados como parte da carga. Aqui está o esquema para a carga:
@@ -164,7 +164,7 @@ Quando você usa o método PUT/POST, a propriedade body representa a carga que �
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão SQL do Azure para se conectar ao SQL Server lógico e retorna o nome da instância do SQL Server.
+Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de dados SQL do Azure para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão do SQL do Azure para se conectar ao servidor SQL lógico e retorna o nome da instância do servidor SQL.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 

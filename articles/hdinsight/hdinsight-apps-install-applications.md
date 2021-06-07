@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: cfbbc1f11a24379561df26e2fb8d9da20b249317
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
-ms.translationtype: MT
+ms.openlocfilehash: 46a22b78ade3d137f25b14e5cbdaff3264208228
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942735"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104868385"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos Apache Hadoop de terceiros no Azure HDInsight
 
@@ -53,10 +53,10 @@ O procedimento a seguir mostra como instalar aplicativos do HDInsight em um clus
 3. Selecione um cluster HDInsight na lista.  Se não tiver um, você deverá criá-lo primeiro.  Confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Na categoria **Configurações**, selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
    
-    ![Menu do portal de aplicativos do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="Menu do portal de aplicativos do HDInsight":::
 5. Selecione **+Adicionar** no menu. Você pode ver uma lista de aplicativos disponíveis.  Se **+Adicionar** estiver esmaecido, isso significa que não há nenhum aplicativo para esta versão do cluster HDInsight.
    
-    ![Aplicativos disponíveis de aplicativos HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="Aplicativos disponíveis de aplicativos HDInsight":::
 6. Selecione em um dos aplicativos disponíveis e, em seguida, siga as instruções para aceitar os termos legais.
 
 Você pode ver o status de instalação nas notificações do portal (selecione o ícone de sino na parte superior do portal). Depois que o aplicativo é instalado, ele é exibido na folha Aplicativos Instalados.
@@ -65,7 +65,7 @@ Você pode ver o status de instalação nas notificações do portal (selecione 
 
 Você tem a opção de instalar aplicativos do HDInsight ao criar um cluster. Durante o processo, os aplicativos do HDInsight são instalados depois que o cluster é criado e está no estado de execução. Para instalar aplicativos durante a criação do cluster usando o portal do Azure, na guia **Configuração + preços**, selecione **+Adicionar aplicativo**.
 
-![Aplicativos de configuração do cluster do portal do Azure](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Aplicativos de configuração do cluster do portal do Azure":::
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Listar os aplicativos do HDInsight instalados e as propriedades
 O portal mostra uma lista dos aplicativos do HDInsight instalados para um cluster e as propriedades de cada aplicativo instalado.
@@ -77,7 +77,7 @@ O portal mostra uma lista dos aplicativos do HDInsight instalados para um cluste
 3. Selecione um cluster HDInsight na lista.
 4. Na categoria **Configurações**, selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
    
-    ![Aplicativos instalados de aplicativos do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="Aplicativos instalados de aplicativos do HDInsight":::
 5. Selecione um dos aplicativos instalados para mostrar a propriedade. A propriedades lista:
 
     |Propriedade | Descrição |

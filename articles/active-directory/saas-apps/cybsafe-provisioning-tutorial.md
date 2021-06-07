@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
 ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100527115"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: configurar o CybSafe para o provisionamento automático de usuário
@@ -56,7 +56,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-3-add-cybsafe-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o CybSafe da Galeria de aplicativos do Azure AD
 
-Adicione o CybSafe da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no CybSafe. Se você tiver configurado anteriormente o CybSafe para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione o CybSafe da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento no CybSafe. Se você tiver configurado anteriormente o CybSafe para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 

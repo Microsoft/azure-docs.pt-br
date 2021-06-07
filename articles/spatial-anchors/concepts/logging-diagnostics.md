@@ -1,5 +1,5 @@
 ---
-title: Log e diagnóstico
+title: Logon e diagnósticos
 description: Explicação detalhada de como gerar e recuperar logs e diagnósticos em âncoras espaciais do Azure.
 author: msftradford
 manager: MehranAzimi-msft
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: da8ffd7ff0b8473ce558943bb420b36f26c3fc32
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95494634"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro em log e diagnósticos nas âncoras espaciais do Azure

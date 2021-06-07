@@ -1,17 +1,17 @@
 ---
 title: Autenticação do Active Directory - Banco de Dados do Azure para MySQL
 description: Saiba mais sobre os conceitos do Azure Active Directory para a autenticação com o Banco de Dados do Azure para MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 942789d5541e796247af2dbdf9371cce4701105e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3afa7e7129c34aae8487affe979bd7704580a1e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171893"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612442"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Usar o Azure Active Directory para autenticação com o MySQL
 

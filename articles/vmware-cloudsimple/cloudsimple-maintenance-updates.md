@@ -4,17 +4,17 @@ titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve o processo do serviço CloudSimple para manutenção e atualizações agendadas
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 08/20/2019
+ms.date: 03/09/2021
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbd708f6c1f5159655099d5d72900ab0c608147
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025020"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102522301"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Manutenção e atualizações do CloudSimple
 
@@ -100,9 +100,9 @@ As atualizações de software incluem:
 * **Atualizações**. Alteração de versão secundária de um componente de pilha do VMware.
 * **Atualizações**. Alteração de versão principal de um componente do VMware Stack.
 
-O CloudSimple testa um patch de segurança crítico assim que ele se torna disponível no VMware. Por SLA, o CloudSimple distribui o patch de segurança para ambientes de nuvem privada dentro de uma semana.
+O CloudSimple testa um patch de segurança crítico assim que ele se torna disponível no VMware. 
 
-O CloudSimple fornece atualizações de manutenção trimestral para componentes de software VMware. Quando uma nova versão principal do software VMware estiver disponível, o CloudSimple funcionará com os clientes para coordenar uma janela de manutenção adequada para atualização.
+Soluções alternativas do VMware documentadas serão implementadas no lugar da instalação de um patch correspondente até que as próximas atualizações agendadas sejam implantadas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
-ms.translationtype: MT
+ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593935"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "100530239"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -24,26 +24,26 @@ As seguintes limitações se aplicam à API de front-end (C++ e C#):
 
 ## <a name="objects"></a>Objetos
 
-* Total de objetos permitidos de um único tipo ([entidade](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md), etc.): 16.777.215.
+* Total de objetos permitidos de um só tipo ([Entity](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md) etc.): 16.777.215.
 * Total de planos de corte ativos permitidos: 8.
 
 ## <a name="geometry"></a>Geometria
 
-* **Animação:** As animações são limitadas à animação de transformações individuais de [objetos de jogos](../concepts/entities.md). Não há suporte para animações de esqueleto com animações de aparência ou de vértice. As faixas de animação do arquivo de ativo de origem não são preservadas. Em vez disso, as animações de transformação de objeto precisam ser orientadas pelo código do cliente.
-* **Sombreadores personalizados:** Não há suporte para a criação de sombreadores personalizados. Somente [materiais de cores](../overview/features/color-materials.md) internos ou [materiais PBR](../overview/features/pbr-materials.md) podem ser usados.
-* **Número máximo de materiais distintos** em um ativo: 65.535. Para obter mais informações sobre a redução automática de contagem de material, consulte o capítulo eliminação [de duplicação de material](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* **Dimensão máxima de uma única textura**: 16.384 x 16.384. Texturas de origem maiores serão reduzidas em tamanho pelo processo de conversão.
+* **Animação:** as animações estão limitadas a transformações individuais animadas de [objetos de jogo](../concepts/entities.md). Não há suporte para animações esqueléticas com skin ou animações de vértice. As faixas de animação do arquivo de ativo de origem não são preservadas. Em vez disso, as animações de transformação de objeto precisam ser orientadas pelo código do cliente.
+* **Sombreadores personalizados:** não há suporte para a criação de sombreadores personalizados. Somente [materiais de cores](../overview/features/color-materials.md) ou [materiais PBR](../overview/features/pbr-materials.md) internos podem ser usados.
+* **Número máximo de materiais distintos** em um ativo: 65.535. Para obter mais informações sobre a redução automática de contagem de material, confira o capítulo sobre [eliminação de duplicação de material](../how-tos/conversion/configure-model-conversion.md#material-de-duplication).
+* **Dimensão máxima de uma textura**: 16.384 x 16.384. Texturas de origem maiores terão o tamanho reduzido pelo processo de conversão.
 
 ### <a name="overall-number-of-polygons"></a>Número total de polígonos
 
-O número permitido de polígonos para todos os modelos carregados depende do tamanho da VM, conforme passado para [a API REST de gerenciamento de sessão](../how-tos/session-rest-api.md#create-a-session):
+O número permitido de polígonos para todos os modelos carregados depende do tamanho da VM, conforme passado para [a API REST de gerenciamento de sessão](../how-tos/session-rest-api.md):
 
 | Tamanho do servidor | Número máximo de polígonos |
 |:--------|:------------------|
 |padrão| 20 milhões |
 |premium| nenhum limite |
 
-Para obter informações detalhadas sobre essa limitação, consulte o capítulo [tamanho do servidor](../reference/vm-sizes.md) .
+Para obter informações detalhadas sobre essa limitação, confira o capítulo sobre o [tamanho do servidor](../reference/vm-sizes.md).
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
 ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370433"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure

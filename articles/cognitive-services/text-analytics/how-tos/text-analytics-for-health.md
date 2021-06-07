@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537789"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599418"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -44,7 +44,7 @@ O reconhecimento de entidade nomeada detecta palavras e frases mencionadas em te
 
 ### <a name="relation-extraction"></a>[Extração de relações](#tab/relation-extraction)
 
-A extração de relações identifica conexões significativas entre os conceitos mencionados no texto. Por exemplo, uma relação "hora da condição" é encontrada pela Associação de um nome de condição com um horário. 
+A extração de relações identifica conexões significativas entre os conceitos mencionados no texto. Por exemplo, uma relação "hora da condição" é encontrada pela Associação de um nome de condição com uma hora ou entre uma abreviação e a descrição completa.  
 
 > [!div class="mx-imgBorder"]
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
@@ -52,19 +52,23 @@ A extração de relações identifica conexões significativas entre os conceito
 
 ### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
 
-A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
+A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos, incluindo o UMLS (sistema de idiomas médicos unificados). Os conceitos médicos também são atribuídos à nomenclatura preferida, como uma forma adicional de normalização.
 
 > [!div class="mx-imgBorder"]
 > ![Integridade EL](../media/ta-for-health/health-entity-linking.png)
 
 O Análise de Texto para integridade dá suporte à vinculação com os vocabulários de integridade e biomédica encontrados na fonte de conhecimento do metadicionário de[UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)(Unified Medical Language System).
 
-### <a name="negation-detection"></a>[Detecção de negação](#tab/negation-detection) 
+### <a name="assertion-detection"></a>[Detecção de asserção](#tab/assertion-detection) 
 
-O significado do conteúdo médico é altamente afetado por modificadores como negação, o que pode ter implicação crítica se for diagnosticado. O Análise de Texto para integridade dá suporte à detecção de negação para as diferentes entidades mencionadas no texto. 
+O significado do conteúdo médico é altamente afetado por modificadores, como asserções negativas ou condicionais, que podem ter implicações críticas se forem representadas incorretamente. O Análise de Texto para integridade dá suporte a três categorias de detecção de asserção para entidades no texto: 
+
+* favorece
+* condicional
+* associação
 
 > [!div class="mx-imgBorder"]
-> ![NEG de integridade](../media/ta-for-health/health-negation.png)
+> ![NEG de integridade](../media/ta-for-health/assertions.png)
 
 ---
 
@@ -137,20 +141,20 @@ example.json
 
 Como essa solicitação POST é usada para enviar um trabalho para a operação assíncrona, não há nenhum texto no objeto de resposta.  No entanto, você precisa do valor da chave de local de operação nos cabeçalhos de resposta para fazer uma solicitação GET para verificar o status do trabalho e a saída.  Abaixo está um exemplo do valor da chave de local de operação no cabeçalho de resposta da solicitação POST:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/health/jobs/<jobID>`
 
 Para verificar o status do trabalho, faça uma solicitação GET para a URL no valor do cabeçalho da chave da operação de localização da resposta POST.  Os seguintes Estados são usados para refletir o status de um trabalho:,,,,, `NotStarted` `running` `succeeded` `failed` `rejected` `cancelling` e `cancelled` .  
 
 Você pode cancelar um trabalho com um `NotStarted` `running` status ou com uma chamada http Delete para a mesma URL que a solicitação get.  Mais informações sobre a chamada de exclusão estão disponíveis no [análise de texto para referência de API hospedada de integridade](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
 
-Veja a seguir um exemplo da resposta de uma solicitação GET.  Observe que a saída está disponível para recuperação até que o `expirationDateTime` (24 horas a partir do momento em que o trabalho foi criado) tenha passado após o qual a saída é limpa.
+Veja a seguir um exemplo da resposta de uma solicitação GET.  A saída estará disponível para recuperação até que o `expirationDateTime` (24 horas a partir do momento em que o trabalho foi criado) tenha passado após o qual a saída é limpa.
 
 ```json
 {
-    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
-    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
-    "createdDateTime": "2020-11-18T01:44:55Z",
-    "expirationDateTime": "2020-11-19T01:44:55Z",
+    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
+    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
+    "createdDateTime": "2021-03-11T05:42:32Z",
+    "expirationDateTime": "2021-03-12T05:42:32Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -163,8 +167,7 @@ Veja a seguir um exemplo da resposta de uma solicitação GET.  Observe que a sa
                         "length": 5,
                         "text": "100mg",
                         "category": "Dosage",
-                        "confidenceScore": 1.0,
-                        "isNegated": false
+                        "confidenceScore": 1.0
                     },
                     {
                         "offset": 31,
@@ -172,15 +175,35 @@ Veja a seguir um exemplo da resposta de uma solicitação GET.  Observe que a sa
                         "text": "remdesivir",
                         "category": "MedicationName",
                         "confidenceScore": 1.0,
-                        "isNegated": false,
+                        "name": "remdesivir",
                         "links": [
                             {
                                 "dataSource": "UMLS",
                                 "id": "C4726677"
                             },
                             {
+                                "dataSource": "DRUGBANK",
+                                "id": "DB14761"
+                            },
+                            {
+                                "dataSource": "GS",
+                                "id": "6192"
+                            },
+                            {
+                                "dataSource": "MEDCIN",
+                                "id": "398132"
+                            },
+                            {
+                                "dataSource": "MMSL",
+                                "id": "d09540"
+                            },
+                            {
                                 "dataSource": "MSH",
                                 "id": "C000606551"
+                            },
+                            {
+                                "dataSource": "MTHSPL",
+                                "id": "3QKI37EEHE"
                             },
                             {
                                 "dataSource": "NCI",
@@ -189,6 +212,22 @@ Veja a seguir um exemplo da resposta de uma solicitação GET.  Observe que a sa
                             {
                                 "dataSource": "NCI_FDA",
                                 "id": "3QKI37EEHE"
+                            },
+                            {
+                                "dataSource": "NDDF",
+                                "id": "018308"
+                            },
+                            {
+                                "dataSource": "RXNORM",
+                                "id": "2284718"
+                            },
+                            {
+                                "dataSource": "SNOMEDCT_US",
+                                "id": "870592005"
+                            },
+                            {
+                                "dataSource": "VANDF",
+                                "id": "4039395"
                             }
                         ]
                     },
@@ -197,57 +236,62 @@ Veja a seguir um exemplo da resposta de uma solicitação GET.  Observe que a sa
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0,
-                        "isNegated": false
-                    },
-                    {
-                        "offset": 56,
-                        "length": 4,
-                        "text": "over",
-                        "category": "Time",
-                        "confidenceScore": 0.87,
-                        "isNegated": false
+                        "confidenceScore": 1.0
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.99,
-                        "isNegated": false
+                        "confidenceScore": 0.94
                     }
                 ],
                 "relations": [
                     {
                         "relationType": "DosageOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/0",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/0",
+                                "role": "Dosage"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            }
+                        ]
                     },
                     {
                         "relationType": "RouteOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/2",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/2",
+                                "role": "Route"
+                            }
+                        ]
                     },
                     {
                         "relationType": "TimeOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/3",
-                        "target": "#/results/documents/0/entities/1"
-                    },
-                    {
-                        "relationType": "TimeOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/4",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/3",
+                                "role": "Time"
+                            }
+                        ]
                     }
                 ],
                 "warnings": []
             }
         ],
         "errors": [],
-        "modelVersion": "2020-09-03"
+        "modelVersion": "2021-03-01"
     }
 }
 ```
@@ -294,30 +338,47 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo de resposta da A
             "id": "1",
             "entities": [
                 {
-                    "id": "0",
                     "offset": 25,
                     "length": 5,
                     "text": "100mg",
                     "category": "Dosage",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "1",
                     "offset": 31,
                     "length": 10,
                     "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
-                    "isNegated": false,
+                    "name": "remdesivir",
                     "links": [
                         {
                             "dataSource": "UMLS",
                             "id": "C4726677"
                         },
                         {
+                            "dataSource": "DRUGBANK",
+                            "id": "DB14761"
+                        },
+                        {
+                            "dataSource": "GS",
+                            "id": "6192"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "398132"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "d09540"
+                        },
+                        {
                             "dataSource": "MSH",
                             "id": "C000606551"
+                        },
+                        {
+                            "dataSource": "MTHSPL",
+                            "id": "3QKI37EEHE"
                         },
                         {
                             "dataSource": "NCI",
@@ -326,115 +387,215 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo de resposta da A
                         {
                             "dataSource": "NCI_FDA",
                             "id": "3QKI37EEHE"
+                        },
+                        {
+                            "dataSource": "NDDF",
+                            "id": "018308"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "2284718"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "870592005"
+                        },
+                        {
+                            "dataSource": "VANDF",
+                            "id": "4039395"
                         }
                     ]
                 },
                 {
-                    "id": "2",
                     "offset": 42,
                     "length": 13,
                     "text": "intravenously",
                     "category": "MedicationRoute",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "3",
-                    "offset": 56,
-                    "length": 4,
-                    "text": "over",
-                    "category": "Time",
-                    "confidenceScore": 0.87,
-                    "isNegated": false
-                },
-                {
-                    "id": "4",
                     "offset": 73,
                     "length": 7,
                     "text": "120 min",
                     "category": "Time",
-                    "confidenceScore": 0.99,
-                    "isNegated": false
+                    "confidenceScore": 0.94
                 }
             ],
             "relations": [
                 {
                     "relationType": "DosageOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/0",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/0",
+                            "role": "Dosage"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        }
+                    ]
                 },
                 {
                     "relationType": "RouteOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/2",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/2",
+                            "role": "Route"
+                        }
+                    ]
                 },
                 {
                     "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/3",
-                    "target": "#/documents/0/entities/1"
-                },
-                {
-                    "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/4",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/3",
+                            "role": "Time"
+                        }
+                    ]
                 }
-            ]
+            ],
+            "warnings": []
         }
     ],
     "errors": [],
-    "modelVersion": "2020-09-03"
+    "modelVersion": "2021-03-01"
 }
 ```
 
-### <a name="negation-detection-output"></a>Saída de detecção de negação
+### <a name="assertion-output"></a>Saída de asserção
 
-Ao usar a detecção de negação, em alguns casos um único termo de negação pode abordar vários termos ao mesmo tempo. A negação de uma entidade reconhecida é representada na saída JSON pelo valor booliano do `isNegated` sinalizador, por exemplo:
+Análise de Texto para integridade retorna modificadores de asserção, que são atributos informativos atribuídos a conceitos médicos que fornecem uma compreensão mais profunda do contexto dos conceitos no texto. Esses modificadores são divididos em três categorias, cada um concentrando-se em um aspecto diferente e contém um conjunto de valores mutuamente exclusivos. Somente um valor por categoria é atribuído a cada entidade. O valor mais comum para cada categoria é o valor padrão. A resposta de saída do serviço contém somente modificadores de asserção que são diferentes do valor padrão.
+
+**Certeza**  – fornece informações sobre a presença (presente vs. ausente) do conceito e como o texto refere-se à sua presença (definitiva versus possível).
+*   **Positivo** [padrão]: o conceito existe ou aconteceu.
+* **Negativo**: o conceito não existe agora ou nunca aconteceu.
+* **Positive_Possible**: o conceito provavelmente existe, mas há algumas incertezas.
+* **Negative_Possible**: a existência do conceito é improvável, mas há algumas incertezas.
+* **Neutral_Possible**: o conceito pode ou não existir sem uma tendência em ambos os lados.
+
+**Condicionalidade** – fornece informações sobre se a existência de um conceito depende de determinadas condições. 
+*   **Nenhum** [padrão]: o conceito é um fato e não é hipotético e não depende de determinadas condições.
+*   **Hipotético**: o conceito pode ser desenvolvido ou realizado no futuro.
+*   **Condicional**: o conceito existe ou ocorre somente em determinadas condições.
+
+**Associação** – descreve se o conceito está associado ao assunto do texto ou a outra pessoa.
+*   **Subject** [padrão]: o conceito está associado ao assunto do texto, geralmente o paciente.
+*   **Someone_Else**: o conceito está associado a alguém que não é o assunto do texto.
+
+
+A detecção de asserção representa entidades negadas como um valor negativo para a categoria de certeza, por exemplo:
 
 ```json
 {
-  "id": "2",
-  "offset": 90,
-  "length": 10,
-  "text": "chest pain",
-  "category": "SymptomOrSign",
-  "score": 0.9972,
-  "isNegated": true,
-  "links": [
-    {
-      "dataSource": "UMLS",
-      "id": "C0008031"
-    },
-    {
-      "dataSource": "CHV",
-      "id": "0000023593"
-    },
+                        "offset": 381,
+                        "length": 3,
+                        "text": "SOB",
+                        "category": "SymptomOrSign",
+                        "confidenceScore": 0.98,
+                        "assertion": {
+                            "certainty": "negative"
+                        },
+                        "name": "Dyspnea",
+                        "links": [
+                            {
+                                "dataSource": "UMLS",
+                                "id": "C0013404"
+                            },
+                            {
+                                "dataSource": "AOD",
+                                "id": "0000005442"
+                            },
     ...
 ```
 
 ### <a name="relation-extraction-output"></a>Saída de extração de relação
 
-A saída de extração de relação contém referências de URI para a *origem* da relação e seu *destino*. As entidades com a função de relação de `ENTITY` são atribuídas ao `target` campo. As entidades com a função de relação de `ATTRIBUTE` são atribuídas ao `source` campo. As relações de abreviação contêm bidirecional `source` e `target` campos e `bidirectional` serão definidas como `true` . 
+Análise de Texto para integridade reconhece relações entre diferentes conceitos, incluindo relações entre atributo e entidade (por exemplo, direção de estrutura de corpo, dosage de medicamentos) e entre entidades (por exemplo, detecção de abreviação).
+
+**ABREVIAÇÃO**
+
+**DIRECTION_OF_BODY_STRUCTURE**
+
+**DIRECTION_OF_CONDITION**
+
+**DIRECTION_OF_EXAMINATION**
+
+**DIRECTION_OF_TREATMENT**
+
+**DOSAGE_OF_MEDICATION**
+
+**FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_MEDICATION**
+
+**FREQUENCY_OF_TREATMENT**
+
+**QUALIFIER_OF_CONDITION**
+
+**RELATION_OF_EXAMINATION**
+
+**ROUTE_OF_MEDICATION** 
+
+**TIME_OF_CONDITION**
+
+**TIME_OF_EVENT**
+
+**TIME_OF_EXAMINATION**
+
+**TIME_OF_MEDICATION**
+
+**TIME_OF_TREATMENT**
+
+**UNIT_OF_CONDITION**
+
+**UNIT_OF_EXAMINATION**
+
+**VALUE_OF_CONDITION**  
+
+**VALUE_OF_EXAMINATION**
+
+> [!NOTE]
+> * As relações que se referem à condição podem se referir ao tipo de entidade diagnóstico ou ao tipo de entidade SYMPTOM_OR_SIGN.
+> * As relações que fazem referência a medicamentos podem se referir ao tipo de entidade MEDICATION_NAME ou MEDICATION_CLASS tipo de entidade.
+> * As relações que se referem ao tempo podem se referir ao tipo de entidade TIME ou data.
+
+A saída de extração de relação contém referências de URI e funções atribuídas das entidades do tipo de relação. Por exemplo:
 
 ```json
-"relations": [
-                {
-                    "relationType": "DosageOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
-                },
-                {
-                    "relationType": "FrequencyOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
-                }
-            ]
-  },
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/0",
+                                "role": "Dosage"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            }
+                        ]
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/2",
+                                "role": "Route"
+                            }
+                        ]
 ...
 ]
 ```

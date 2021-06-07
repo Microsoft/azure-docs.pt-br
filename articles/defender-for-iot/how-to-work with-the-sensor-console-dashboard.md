@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com o painel do console do sensor
 description: O painel permite exibir rapidamente o status de segurança da rede. Ele fornece uma visão geral de alto nível das ameaças ao seu sistema inteiro em uma linha do tempo, juntamente com informações sobre dispositivos relacionados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: e9bc650e9c306d12ef63994852816c96e1bdf40a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523627"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781527"
 ---
 # <a name="the-dashboard"></a>O painel
 
@@ -100,6 +96,6 @@ Selecione a seta para baixo **V** na parte inferior de uma caixa de alerta para 
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Conectividade de Internet não autorizada detectada":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Trabalhar com alertas em seu sensor](how-to-work-with-alerts-on-your-sensor.md)

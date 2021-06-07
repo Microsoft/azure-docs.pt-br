@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d63cafb32dc1db0a901ed3e6004446b450db10c7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537619"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102451516"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrar para o Cache do Azure para Redis
 Este artigo descreve várias abordagens para migrar um cache Redis existente em execução local ou em outro serviço de nuvem para o cache do Azure para Redis.
@@ -64,12 +64,12 @@ As etapas gerais para implementar essa opção são:
 2. Salve um instantâneo do cache Redis existente. Você pode [Configurar o Redis para salvar os instantâneos](https://redis.io/topics/persistence) periodicamente ou executar o processo manualmente usando os comandos [Save](https://redis.io/commands/save) ou [BGSAVE](https://redis.io/commands/bgsave) . O arquivo RDB é denominado "dump. RDB" por padrão e estará localizado no caminho especificado no arquivo de configuração *Redis. conf* .
 
     > [!NOTE]
-    > Se você estiver migrando dados no cache do Azure para Redis, consulte [estas instruções sobre como exportar um arquivo RDB](cache-how-to-import-export-data.md) ou use o [cmdlet de exportação do PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) em vez disso.
+    > Se você estiver migrando dados no cache do Azure para Redis, consulte [estas instruções sobre como exportar um arquivo RDB](cache-how-to-import-export-data.md) ou use o [cmdlet de exportação do PowerShell](/powershell/module/azurerm.rediscache/export-azurermrediscache) em vez disso.
     >
 
 3. Copie o arquivo RDB para uma conta de armazenamento do Azure na região em que o novo cache está localizado. Você pode usar o AzCopy para esta tarefa.
 
-4. Importe o arquivo RDB para o novo cache usando essas [instruções de importação](cache-how-to-import-export-data.md) ou o [cmdlet de importação do PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Importe o arquivo RDB para o novo cache usando essas [instruções de importação](cache-how-to-import-export-data.md) ou o [cmdlet de importação do PowerShell](/powershell/module/azurerm.rediscache/import-azurermrediscache).
 
 5. Atualize seu aplicativo para usar a nova instância de cache.
 

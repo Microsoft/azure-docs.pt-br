@@ -1,19 +1,24 @@
 ---
 title: Guia de início rápido – Adicionar uma chamada VOIP a um aplicativo Android usando os Serviços de Comunicação do Azure
-description: Neste tutorial, você aprenderá a usar a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android
-author: matthewrobertson
-ms.author: marobert
-ms.date: 08/11/2020
+description: Neste tutorial, você aprenderá a usar o SDK de Chamada dos Serviços de Comunicação do Azure para Android
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073000"
 ---
-Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
+Neste guia de início rápido, você aprenderá a iniciar uma chamada usando o SDK de Chamada dos Serviços de Comunicação do Azure para Android.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+> [!NOTE]
+> Este documento usa a versão 1.0.0-beta.8 do SDK de Chamada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,17 +33,15 @@ Neste guia de início rápido, você aprenderá a iniciar uma chamada usando a b
 
 No Android Studio, selecione Iniciar um novo projeto do Android Studio.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.":::
 
-Selecione o modelo de projeto &quot;Atividade Vazia" em "Telefone e Tablet".
+Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto.":::
 
-Selecione o modelo de projeto &quot;Atividade Vazia" ou superior.
+Selecione o SDK Mínimo de "API 26: Android 8.0 (Oreo)" ou superior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
-
-Selecione o modelo de projeto &quot;Atividade Vazia":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de tela que mostra a opção 'Atividade Vazia' selecionada na Tela do Modelo do Projeto 2.":::
 
 
 ### <a name="install-the-package"></a>Instalar o pacote
@@ -80,7 +83,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -109,8 +112,8 @@ Para solicitar as permissões necessárias para fazer uma chamada, elas precisam
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -182,11 +185,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
@@ -259,13 +262,14 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure:
+As seguintes classes e interfaces cuidam de alguns dos principais recursos do SDK de Chamada da Interface do Usuário dos Serviços de Comunicação do Azure:
 
-| Name                                  | Descrição                                                  |
+| Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
+| CallClient| O CallClient é o ponto de entrada principal para o SDK de Chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
 | CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para criar uma instância do CallAgent.|
+| CommunicationIdentifier | O CommunicationIdentifier é usado como um tipo diferente de participante que poderia fazer parte de uma chamada.|
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Criar um agente do token de acesso do usuário
 
@@ -280,7 +284,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -303,9 +307,9 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```
@@ -315,9 +319,7 @@ private void startCall() {
 
 Agora, o aplicativo pode ser iniciado usando o botão "Executar Aplicativo" na barra de ferramentas (Shift+F10). Chame `8:echo123` para verificar se você pode fazer chamadas. Uma mensagem previamente gravada será reproduzida e, em seguida, repetirá a sua mensagem de volta para você.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o botão 'Iniciar um novo Projeto do Android Studio' selecionado no Android Studio.&quot;:::
-
-Selecione o modelo de projeto &quot;Atividade Vazia":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de tela que mostra o aplicativo concluído.":::
 
 ## <a name="sample-code"></a>Exemplo de código
 

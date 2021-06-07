@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 1c3e5a44e01f3fa43b82644103066f5a03684ad2
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94591573"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL
@@ -43,7 +43,7 @@ Configure o MySQL Workbench para se conectar com segurança por SSL.
 
 1. Atualize o campo **usar SSL** para "exigir".
 
-1. No campo **Arquivo de AC SSL** :, insira o local do arquivo de **BaltimoreCyberTrustRoot.crt.pem**.
+1. No campo **Arquivo de AC SSL**:, insira o local do arquivo de **BaltimoreCyberTrustRoot.crt.pem**.
 
    :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Salvar configuração SSL":::
 

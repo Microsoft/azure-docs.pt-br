@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
 ms.openlocfilehash: fd3ce846abbd2ce310b12634391453ef78ce0094
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521631"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutorial: Integrar o Whatfix com o Azure Active Directory
@@ -47,7 +47,7 @@ Para configurar a integração do Whatfix ao Azure AD, você precisa adicionar o
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **Whatfix** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **Whatfix** na caixa de pesquisa.
 1. Selecione **Whatfix** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
@@ -68,41 +68,41 @@ Para configurar e testar o SSO do Azure AD com o Whatfix, conclua os seguintes b
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Whatfix** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Whatfix**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores do seguinte campo:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores do seguinte campo:
 
     1. Clique em **Definir URLs adicionais**.
-    1. Na caixa de texto **Estado de Retransmissão** , digite a URL de estado de retransmissão especificada pelo cliente.
+    1. Na caixa de texto **Estado de Retransmissão**, digite a URL de estado de retransmissão especificada pelo cliente.
     
     > [!NOTE]
     > Entre em contato com a [equipe de suporte ao cliente do Whatfix](https://support.whatfix.com) para obter o valor de URL do estado de retransmissão.
 
-1. Clique em **Definir URLs adicionais** e execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **SP** :
+1. Clique em **Definir URLs adicionais** e execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **SP**:
 
-    Na caixa de texto **URL de Logon** , digite a URL: `https://whatfix.com`
+    Na caixa de texto **URL de Logon**, digite a URL: `https://whatfix.com`
 
-1. Na página **Configurar o Logon Único com o SAML** , na seção **Certificado de Autenticação SAML** , clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo**.
+1. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo**.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-whatfix-sso"></a>Configurar o SSO do Whatfix
 
-Para configurar o logon único no lado do **Whatfix** , é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Whatfix](https://support.whatfix.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Whatfix**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Whatfix](https://support.whatfix.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do Azure.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `Britta Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `Britta Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -120,9 +120,9 @@ Nesta seção, você habilitará Brenda Fernandes para usar o logon único do Az
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-whatfix-test-user"></a>Criar usuário de teste do Whatfix
 
@@ -138,4 +138,4 @@ Ao selecionar o bloco do Whatfix no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

@@ -1,17 +1,17 @@
 ---
 title: Criar uma função Java no Azure Functions usando IntelliJ
 description: Saiba como usar o IntelliJ para criar uma função Java simples disparada por HTTP, que você publica para executar em um ambiente sem servidor no Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: ed8948ddeddf25272355cd1dc06d4e95c52f7f62
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035250"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543628"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Criar sua primeira função Java no Azure usando IntelliJ
 
@@ -56,7 +56,7 @@ Para criar e publicar funções Java no Azure usando o IntelliJ, instale o segui
 
    ![O navegador de logon do dispositivo][intellij-azure-link-ms-account]
 
-6. Na caixa de diálogo **Selecionar Assinaturas**, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+6. Na caixa de diálogo **selecionar assinaturas** , selecione as assinaturas que você deseja usar e clique em **selecionar**.
 
    ![A caixa de diálogo Selecionar Assinaturas][intellij-azure-login-select-subs]
    
@@ -104,17 +104,9 @@ Nesta seção, você usará o Azure Toolkit for IntelliJ para criar um projeto l
 
     ![Implantar projeto no Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Se você ainda não tiver nenhum aplicativo de funções, clique em *Nenhuma função disponível, clique para criar uma*.
+1. Se você ainda não tiver qualquer Aplicativo de funções, clique *+* na linha de *função* . Digite o nome do aplicativo de funções e escolha plataforma adequada, aqui podemos simplesmente aceitar o padrão. Clique em *OK* e o novo aplicativo de funções que você acabou de criar será selecionado automaticamente. Clique em *Executar* para implantar as funções.
 
     ![Criar aplicativo de funções no Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Digite o nome do aplicativo de funções e escolha o plano adequado de assinatura/plataforma/grupo de recursos/serviço de aplicativo. você também pode criar um grupo de recursos/plano do serviço de aplicativo aqui. Em seguida, mantenha as configurações do aplicativo inalteradas, clique em *OK* e aguarde alguns minutos para que o novo aplicativo de funções seja criado. Após a mensagem *Criando Aplicativo de Funções...* , a barra de progresso desaparece.
-
-    ![Implantar o aplicativo de funções no assistente de criação de aplicativo do Azure](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Selecione o aplicativo de funções para o qual você deseja implantar (o novo aplicativo de funções que você acabou de criar será selecionado automaticamente). Clique em *Executar* para implantar as funções.
-
-    ![Captura de tela mostra a caixa de diálogo implantar Azure Functions.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Implantar o aplicativo de funções no log do Azure](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

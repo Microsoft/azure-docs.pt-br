@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995277"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642125"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal
 
@@ -32,7 +32,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >    >  **virtuais**.
 2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -41,7 +41,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *mysubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -118,7 +118,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para Postgre
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure em que você deseja que o servidor PostgreSQL resida. |
     |Versão  | Selecione a versão do banco de dados do servidor PostgreSQL necessária.|
-    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
  
 7. Selecione **OK**. 
@@ -142,7 +142,7 @@ Nesta seção, você criará um servidor PostgreSQL e adicionará um ponto de ex
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | **Detalhes da instância** |  |
+    | **Detalhes da Instância** |  |
     | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **Europa Ocidental**.|
     |||
@@ -222,7 +222,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) para realizar a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](/sql/azure-data-studio/download) para realizar a operação.
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 

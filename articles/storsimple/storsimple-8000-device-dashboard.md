@@ -1,5 +1,5 @@
 ---
-title: Usar o resumo do dispositivo no serviço StorSimple Device Manager
+title: Usar o resumo do dispositivo no serviço StorSimple Gerenciador de Dispositivos
 description: Descreve o resumo de dispositivo do serviço do Gerenciador de Dispositivos do StorSimple e como usá-lo para exibir métricas de armazenamento e iniciadores conectados, bem como localizar o número de série e o IQN.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017144"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usar o resumo de dispositivo do serviço do Gerenciador de Dispositivos do StorSimple
@@ -38,7 +38,7 @@ Na folha do dispositivo StorSimple, veja as opções para gerenciar seu disposit
 
 ![Barra de comandos de gerenciamento](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
-## <a name="essentials"></a>Conceitos básicos
+## <a name="essentials"></a>Essentials
 
 A área de conceitos básicos captura algumas das propriedades importantes, como status, modelo, IQN de destino e a versão de software. 
 

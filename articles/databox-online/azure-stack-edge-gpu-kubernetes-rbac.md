@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 9a9625dcf40ae7d11e1154fc89b7f04652c8ca16
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 1b38a9807e05385a378fa6103710fb6b393c7b1f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635833"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102443141"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Controle de acesso baseado em função do kubernetes no seu dispositivo de GPU pro do Azure Stack Edge
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 No dispositivo Azure Stack Edge pro, quando você configura a função de computação, um cluster kubernetes é criado. Você pode usar o controle de acesso baseado em função do kubernetes (kubernetes RBAC) para limitar o acesso aos recursos de cluster em seu dispositivo.
 
@@ -39,13 +40,13 @@ O dispositivo pro Edge Azure Stack tem os seguintes namespaces:
 - **Namespace do sistema** – esse namespace é onde os principais recursos existem, como recursos de rede, como DNS e proxy, ou o painel do kubernetes. Normalmente, você não implantar seus próprios aplicativos para esse namespace. Use esse namespace para depurar qualquer problema de cluster kubernetes. 
 
     Há vários namespaces de sistema em seu dispositivo e os nomes correspondentes a esses namespaces de sistema são reservados. Aqui está uma lista dos namespaces de sistema reservados: 
-    - Kube-sistema
+    - kube-system
     - metallb-sistema
     - DBE-namespace
-    - default
+    - padrão
     - kubernetes-painel
     - Kube-concessão de nó
-    - Kube – público
+    - kube-public
 
 
     Certifique-se de não usar nenhum nome reservado para namespaces de usuário que você criar. 
@@ -61,15 +62,15 @@ O dispositivo pro Edge Azure Stack tem os seguintes namespaces:
 
 No mundo real, é importante dividir o cluster em vários namespaces. 
 
-- **Vários usuários** : se você tiver vários usuários, vários namespaces permitirão que esses usuários implantem seus aplicativos e serviços em seus namespaces específicos isoladamente uns dos outros. 
-- **Usuário único** : mesmo que haja um único usuário, vários namespaces permitirão que o usuário executasse várias versões dos aplicativos no mesmo cluster kubernetes.
+- **Vários usuários**: se você tiver vários usuários, vários namespaces permitirão que esses usuários implantem seus aplicativos e serviços em seus namespaces específicos isoladamente uns dos outros. 
+- **Usuário único**: mesmo que haja um único usuário, vários namespaces permitirão que o usuário executasse várias versões dos aplicativos no mesmo cluster kubernetes.
 
 ### <a name="roles-and-rolebindings"></a>Funções e RoleBindings
 
 Kubernetes tem o conceito de função e Associação de função que permite conceder permissões a usuários ou recursos em um nível de namespace e em um nível de cluster. 
 
-- **Funções** : você pode definir permissões para usuários como uma **função** e, em seguida, usar **funções** para conceder permissões em um namespace. 
-- **RoleBindings** : depois de definir as funções, você pode usar **RoleBindings** para atribuir funções para um namespace específico. 
+- **Funções**: você pode definir permissões para usuários como uma **função** e, em seguida, usar **funções** para conceder permissões em um namespace. 
+- **RoleBindings**: depois de definir as funções, você pode usar **RoleBindings** para atribuir funções para um namespace específico. 
 
 Essa abordagem permite separar logicamente um único cluster kubernetes, com os usuários capazes de acessar somente os recursos do aplicativo em seu namespace atribuído. 
 

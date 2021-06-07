@@ -3,12 +3,12 @@ title: Operações de plano de controle e de plano de dados
 description: Descreve a diferença entre as operações plano de controle e plano de dados. As operações do plano de controle são manipuladas pelo Azure Resource Manager. As operações do plano de dados são manipuladas por um serviço.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371262"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544087"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plano de controle e plano de dados do Azure
 
@@ -52,7 +52,7 @@ O plano de controle inclui dois cenários de tratamento de solicitações-"campo
 
 ## <a name="data-plane"></a>Plano de dados
 
-As solicitações de operações do plano de dados são enviadas para um ponto de extremidade específico da sua instância. Por exemplo, a [operação detectar idioma](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) nos serviços cognitivas é uma operação de plano de dados porque a URL da solicitação é:
+As solicitações de operações do plano de dados são enviadas para um ponto de extremidade específico da sua instância. Por exemplo, a [operação detectar idioma](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) nos serviços cognitivas é uma operação de plano de dados porque a URL da solicitação é:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

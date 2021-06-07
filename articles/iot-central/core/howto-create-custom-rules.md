@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 7e3292a9070e6676faad15e73d357e7f6875b5f4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 824308b66803d2dfa05383ff06ce97c48626619d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371644"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102179333"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender o Azure IoT Central com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
-| Setting | Valor |
+| Configuração | Valor |
 | ------- | ----- |
 | Plano de preços | Standard |
 | Modelo de aplicativo | Análise na loja – monitoramento de condição |
@@ -52,7 +52,7 @@ Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . 
 
 Este modelo de aplicativo inclui dois dispositivos termostato simulados que enviam telemetria.
 
-### <a name="resource-group"></a>Grupo de recursos
+### <a name="resource-group"></a>Resource group
 
 Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **DetectStoppedDevices** para conter os outros recursos que você criar. Crie seus recursos do Azure no mesmo local que o aplicativo IoT Central.
 
@@ -60,10 +60,10 @@ Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com
 
 Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
 
-| Setting | Valor |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
-| Tipo de preço | Básico |
+| Tipo de preço | Basic |
 | Subscription | Sua assinatura |
 | Resource group | DetectStoppedDevices |
 | Localização | Leste dos EUA |
@@ -73,7 +73,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  com as seguintes configurações:
 
-| Setting | Valor |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do seu trabalho |
 | Subscription | Sua assinatura |
@@ -86,7 +86,7 @@ Use o [portal do Azure para criar um trabalho de Stream Analytics](https://porta
 
 Use o [portal do Azure para criar um aplicativo de funções](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes configurações:
 
-| Setting | Valor |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome do aplicativo    | Escolha o nome do aplicativo de funções |
 | Subscription | Sua assinatura |
@@ -95,7 +95,7 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Plano de Hospedagem | Plano de consumo |
 | Localização | Leste dos EUA |
 | Pilha de runtime | .NET |
-| Armazenamento | Criar Novo |
+| Armazenamento | Criar |
 
 ### <a name="sendgrid-account-and-api-keys"></a>Conta do SendGrid e chaves de API
 
@@ -110,7 +110,7 @@ Se você não tiver uma conta do Sendgrid, crie uma [conta gratuita](https://app
 
 Posteriormente, você receberá uma chave de API. Salve essa cadeia de caracteres para uso posterior.
 
-## <a name="create-an-event-hub"></a>Criar um hub de eventos
+## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
 Você pode configurar um aplicativo de IoT Central para exportar continuamente a telemetria para um hub de eventos. Nesta seção, você cria um hub de eventos para receber telemetria do seu aplicativo IoT Central. O Hub de eventos fornece a telemetria para seu trabalho de Stream Analytics para processamento.
 
@@ -119,26 +119,26 @@ Você pode configurar um aplicativo de IoT Central para exportar continuamente a
 
 O namespace dos hubs de eventos é semelhante à captura de tela a seguir: 
 
-    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
-## <a name="define-the-function"></a>Definir a função
+## Define the function
 
-Essa solução usa um aplicativo Azure Functions para enviar uma notificação por email quando o trabalho de Stream Analytics detecta um dispositivo interrompido. Para criar seu aplicativo de funções:
+This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
-1. Na portal do Azure, navegue até a instância do **serviço de aplicativo** no grupo de recursos **DetectStoppedDevices** .
-1. Selecione **+** para criar uma nova função.
-1. Selecione **gatilho http**.
-1. Selecione **Adicionar**.
+1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
+1. Select **+** to create a new function.
+1. Select **HTTP Trigger**.
+1. Select **Add**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Imagem da função de gatilho HTTP padrão"::: 
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
-## <a name="edit-code-for-http-trigger"></a>Editar código para gatilho HTTP
+## Edit code for HTTP Trigger
 
-O portal cria uma função padrão chamada **HttpTrigger1**:
+The portal creates a default function called **HttpTrigger1**:
 
-    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-1. Substitua o código C# pelo código a seguir:
+1. Replace the C# code with the following code:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -177,50 +177,50 @@ O portal cria uma função padrão chamada **HttpTrigger1**:
     }
     ```
 
-    Você poderá ver uma mensagem de erro até salvar o novo código.
-1. Selecione **salvar** para salvar a função.
+    You may see an error message until you save the new code.
+1. Select **Save** to save the function.
 
-## <a name="add-sendgrid-key"></a>Adicionar chave SendGrid
+## Add SendGrid Key
 
-Para adicionar sua chave de API do SendGrid, você precisa adicioná-la às suas **chaves de função** da seguinte maneira:
+To add your SendGrid API Key, you need to add it to your **Function Keys** as follows:
 
-1. Selecione **as teclas de função**.
-1. Escolha **+ nova chave de função**.
-1. Insira o *nome* e o *valor* da chave de API que você criou anteriormente.
-1. Clique em **OK.**
+1. Select **Function Keys**.
+1. Choose **+ New Function Key**.
+1. Enter the *Name* and *Value* of the API Key you created before.
+1. Click **OK.**
 
-    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Captura de tela de adicionar chave Sangrid.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
 
 
-## <a name="configure-httptrigger-function-to-use-sendgrid"></a>Configurar a função HttpTrigger para usar SendGrid
+## Configure HttpTrigger function to use SendGrid
 
-Para enviar emails com o SendGrid, você precisa configurar as associações para a função da seguinte maneira:
+To send emails with SendGrid, you need to configure the bindings for your function as follows:
 
-1. Selecione **Integrar**.
-1. Escolha **adicionar saída** em **http ($Return)**.
-1. Selecione **excluir.**
-1. Escolha **+ nova saída**.
-1. Para tipo de associação, escolha **SendGrid**.
-1. Para tipo de configuração de chave de API SendGrid, clique em novo.
-1. Insira o *nome* e o *valor* da sua chave de API do SendGrid.
-1. Adicione as seguintes informações:
+1. Select **Integrate**.
+1. Choose **Add Output** under **HTTP ($return)**.
+1. Select **Delete.**
+1. Choose **+ New Output**.
+1. For Binding Type, then choose **SendGrid**.
+1. For SendGrid API Key Setting Type, click New.
+1. Enter the *Name* and *Value* of your SendGrid API key.
+1. Add the following information:
 
-| Setting | Valor |
+| Setting | Value |
 | ------- | ----- |
-| Nome do parâmetro de mensagem | Escolha seu nome |
-| Para resolver | Escolha o nome do seu endereço para |
-| Do endereço | Escolha o nome do seu endereço |
-| Assunto da mensagem | Insira o cabeçalho do assunto |
-| Texto da mensagem | Insira a mensagem da sua integração |
+| Message parameter name | Choose your name |
+| To address | Choose the name of your To Address |
+| From address | Choose the name of your From Address |
+| Message subject | Enter your subject header |
+| Message text | Enter the message from your integration |
 
-1. Selecione **OK**.
+1. Select **OK**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Captura de tela de adicionar saída de SandGrid.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
 
 
-### <a name="test-the-function-works"></a>Testar a função Works
+### Test the function works
 
-Para testar a função no portal, primeiro escolha **logs** na parte inferior do editor de código. Em seguida, escolha **teste** à direita do editor de códigos. Use o JSON a seguir como o **corpo da solicitação**:
+To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -228,9 +228,9 @@ Para testar a função no portal, primeiro escolha **logs** na parte inferior do
 
 As mensagens de log de função aparecem no painel de **logs** :
 
-    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
-Após alguns minutos, o endereço de email **para** recebe um email com o seguinte conteúdo:
+After a few minutes, the **To** email address receives an email with the following content:
 
 ```txt
 The following device(s) have stopped sending telemetry:
@@ -248,7 +248,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Na portal do Azure, navegue até o trabalho de Stream Analytics, em **topologia de trabalhos** selecione **entradas**, escolha **+ Adicionar entrada de fluxo** e, em seguida, escolha Hub de **eventos**.
 1. Use as informações na tabela a seguir para configurar a entrada usando o Hub de eventos que você criou anteriormente e, em seguida, escolha **salvar**:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Alias de entrada | centraltelemetry |
     | Subscription | Sua assinatura |
@@ -258,7 +258,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar** e, em seguida, escolha **Azure function**.
 1. Use as informações na tabela a seguir para configurar a saída e, em seguida, escolha **salvar**:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Alias de saída | emailnotification |
     | Subscription | Sua assinatura |
@@ -306,29 +306,29 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
         RightSide.deviceid2 is NULL
     ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora** e **Iniciar**:
 
     :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Captura de tela de Stream Analytics.":::
 
-## <a name="configure-export-in-iot-central"></a>Configurar a exportação no IoT Central
+## <a name="configure-export-in-iot-central"></a>Configurar a exportação no IoT Central 
 
-No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
+No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou.
+
+Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
 
 1. Navegue até a página **exportação de dados** , selecione **+ novo** e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**: 
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome de Exibição | Exportar para hubs de eventos |
     | habilitado | Ativado |
-    | Namespace do Hubs de Eventos | Nome do namespace de seus hubs de eventos |
-    | Hub de Eventos | centralexport |
-    | Medidas | Ativado |
-    | Dispositivos | Desativado |
-    | Modelos de Dispositivo | Desativado |
+    | Tipo de dados a serem exportados | Telemetria |
+    | Aprimoramentos | Insira a chave/valor desejado de como você deseja que os dados exportados sejam organizados | 
+    | Destino | Criar novas e inserir informações para o local em que os dados serão exportados |
 
-    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Captura de tela da configuração de exportação de dados contínuas.":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Captura de tela da exportação de dados.":::
 
 Aguarde até que o status de exportação seja **executado** antes de continuar.
 

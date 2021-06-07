@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: 23ae69f49d37a210dd9fa1bfeedeca6c1b461e20
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 721fe31f514cb948c93dc2a779a92ef3b2775ef9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888854"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779229"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Início Rápido: Criar um provedor personalizado e implantar recursos personalizados
 
@@ -27,7 +27,7 @@ Prepare seu ambiente para a CLI do Azure.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Exemplos da CLI do Azure usam `az rest` para solicitações de `REST`. Para obter mais informações, confira [az rest](/cli/azure/reference-index#az-rest).
+Exemplos da CLI do Azure usam `az rest` para solicitações de `REST`. Para obter mais informações, confira [az rest](/cli/azure/reference-index#az_rest).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -52,7 +52,7 @@ Para implantar o provedor personalizado, use a CLI do Azure, o PowerShell ou o p
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Este exemplo solicita que você insira um grupo de recursos, uma localização e um nome de aplicativo de funções do provedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. Os comandos [az group create](/cli/azure/group#az-group-create) e [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) implantam os recursos.
+Este exemplo solicita que você insira um grupo de recursos, uma localização e um nome de aplicativo de funções do provedor. Os nomes são armazenados em variáveis que são usadas em outros comandos. Os comandos [az group create](/cli/azure/group#az_group_create) e [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) implantam os recursos.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&

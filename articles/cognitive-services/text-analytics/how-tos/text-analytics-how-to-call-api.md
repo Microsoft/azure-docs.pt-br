@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599197"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -37,7 +37,7 @@ Antes de usar o API de Análise de Texto, você precisará criar um recurso do A
 
 ## <a name="change-your-pricing-tier"></a>Alterar o tipo de preço 
 
-Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, poderá atualizá-lo para usar o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, deverá atualizá-lo para usar o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S). Os tipos de preço S0 a S4 serão desativados. Para atualizar o preço do recurso:
 
 1. Navegue até o recurso de Análise de Texto no [portal do Azure](https://portal.azure.com/).
 2. Selecione **tipo de preço** no menu de navegação à esquerda. Ele estará abaixo do **Gerenciamento de recursos**. 
@@ -66,6 +66,7 @@ Consulte a tabela abaixo para ver quais recursos podem ser usados de forma assí
 | Mineração de opinião | ✔ |  |
 | Extração de frases-chave | ✔ | ✔* |
 | Reconhecimento de entidade nomeada (incluindo PII e PHI) | ✔ | ✔* |
+| Vinculação de entidade | ✔ | ✔* |
 | Análise de Texto para integridade (contêiner) | ✔ |  |
 | Análise de Texto para integridade (API) |  | ✔  |
 
@@ -118,8 +119,9 @@ Veja a seguir um exemplo de uma solicitação de API para os pontos de extremida
 
 O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de análise de texto com suporte você deseja usar em uma única chamada à API. Atualmente, esse ponto de extremidade dá suporte a:
 
-* como extração de frases-chave 
+* Extração de Frases-Chave 
 * Reconhecimento de entidade nomeada (incluindo PII e PHI)
+* Vinculação de Identidade
 
 | Elemento | Valores válidos | Necessário? | Uso |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
 |`documents` | Inclui os `id` `text` campos e abaixo | Obrigatório | Contém informações para cada documento que está sendo enviado e o texto bruto do documento. |
 |`id` | String | Obrigatório | As IDs que você fornece são usadas para estruturar a saída. |
 |`text` | Texto bruto não estruturado, até 125.000 caracteres. | Obrigatório | Deve estar no idioma inglês, que é o único idioma com suporte no momento. |
-|`tasks` | Inclui os seguintes recursos de Análise de Texto `entityRecognitionTasks` : `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Obrigatório | Um ou mais dos Análise de Texto recursos que você deseja usar. Observe que `entityRecognitionPiiTasks` tem um `domain` parâmetro opcional que pode ser definido como `pii` ou `phi` . Se não for especificado, o sistema padrão será `pii` . |
+|`tasks` | Inclui os seguintes recursos de análise de texto `entityRecognitionTasks` : `entityLinkingTasks` , `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Obrigatório | Um ou mais dos Análise de Texto recursos que você deseja usar. Observe que `entityRecognitionPiiTasks` tem um `domain` parâmetro opcional que pode ser definido como `pii` ou `phi` e o `pii-categories` para detecção de tipos de entidade selecionados. Se o `domain` parâmetro não for especificado, o sistema padrão será `pii` . |
 |`parameters` | Inclui os `model-version` `stringIndexType` campos e abaixo | Obrigatório | Esse campo está incluído nas tarefas de recurso acima que você escolher. Eles contêm informações sobre a versão do modelo que você deseja usar e o tipo de índice. |
 |`model-version` | String | Obrigatório | Especifique qual versão do modelo está sendo chamada que você deseja usar.  |
 |`stringIndexType` | String | Obrigatório | Especifique o decodificador de texto que corresponde ao seu ambiente de programação.  Tipos com suporte são `textElement_v8` (padrão), `unicodeCodePoint` , `utf16CodeUnit` . Consulte o [artigo deslocamentos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
@@ -158,6 +160,14 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -231,16 +244,16 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 
 | Recurso | Tipo de solicitação | Pontos de extremidade do recurso |
 |--|--|--|
-| Enviar trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| Obter resultados e status da análise | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| Enviar trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Obter resultados e status da análise | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Pontos de extremidade para envio de solicitações assíncronas para o `/health` Endpoint
 
 | Recurso | Tipo de solicitação | Pontos de extremidade do recurso |
 |--|--|--|
-| Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -278,7 +291,7 @@ Se você fez a chamada para os pontos assíncronos `/analyze` ou de `/health` ex
 1. Na resposta da API, localize o `Operation-Location` no cabeçalho, que identifica o trabalho que você enviou para a API. 
 2. Crie uma solicitação GET para o ponto de extremidade usado. consulte a [tabela acima](#set-up-a-request) para o formato do ponto de extremidade e examine a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Por exemplo:
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. Adicione o `Operation-Location` à solicitação.
 

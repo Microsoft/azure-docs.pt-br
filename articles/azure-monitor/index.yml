@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 3fe4dd31fa6132401b09ac80d0c2cbf62b8b83e1
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: faa8dbd319896cc57f3b04f7ec48000ec2426f0e
+  ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905614"
+  ms.lasthandoff: 03/08/2021
+  ms.locfileid: "102452706"
 landingContent:
 - title: Sobre o Azure Monitor
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     - text: O que é o Azure Monitor?
       url: overview.md
     - text: O que são os logs e o Log Analytics do Azure Monitor?
-      url: platform/data-platform-logs.md
+      url: ./logs/data-platform-logs.md
     - text: O que é o Application Insights?
       url: app/app-insights-overview.md
     - text: Página do hub de conteúdo do Application Insights
@@ -32,25 +32,25 @@ landingContent:
   - linkListType: concept
     links:
     - text: Visão geral das fontes de dados
-      url: platform/data-sources.md
+      url: agents/data-sources.md
     - text: Visão geral da plataforma de dados
-      url: platform/data-platform.md
+      url: ./data-platform.md
 - title: Inícios rápidos de 10 minutos
   linkLists:
   - linkListType: quickstart
     links:
     - text: Monitorar e alertar métricas
-      url: platform/alerts-metric.md
+      url: alerts/alerts-metric.md
     - text: Analisar logs
-      url: ./log-query/log-analytics-tutorial.md
+      url: ./logs/log-analytics-tutorial.md
     - text: VMs do Azure no Log Analytics
-      url: learn/quick-collect-azurevm.md
+      url: ./vm/quick-collect-azurevm.md
     - text: VMs do Linux no Log Analytics
-      url: learn/quick-collect-linux-computer.md
+      url: ./vm/quick-collect-linux-computer.md
     - text: VMs do Windows no Log Analytics
-      url: learn/quick-collect-windows-computer.md
+      url: ./vm/quick-collect-windows-computer.md
     - text: Alerta de eventos de assinatura
-      url: platform/alerts-activity-log.md
+      url: ./alerts/alerts-activity-log.md
 - title: Monitorar aplicativos
   linkLists:
   - linkListType: get-started
@@ -60,9 +60,9 @@ landingContent:
     - text: .NET Core
       url: app/asp-net-core.md
     - text: Node.js
-      url: learn/nodejs-quick-start.md
+      url: ./app/nodejs-quick-start.md
     - text: Móvel
-      url: learn/mobile-center-quickstart.md
+      url: ./app/mobile-center-quickstart.md
     - text: Site
       url: app/website-monitoring.md
 - title: Treinamento
@@ -86,11 +86,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: Métricas, dimensionamento automático, configurações de diagnóstico, alertas
-      url: /powershell/module/az.monitor/?view=azps-2.6.0
+      url: /powershell/module/az.monitor
     - text: Log Analytics
       url: /powershell/module/az.operationalinsights
     - text: Application Insights
-      url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+      url: /powershell/module/az.applicationinsights/new-azapplicationinsights
 - title: Referência – API REST
   linkLists:
   - linkListType: reference

@@ -6,12 +6,12 @@ ms.author: brjones
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: b532dca6ceba44a32132bf64b322e1b4764fd5fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416979"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101736229"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Habilitar logs de diagnóstico para hubs de notificação
 
@@ -134,15 +134,14 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs, fa�
 
     ![O painel "configurações de diagnóstico"](./media/notification-hubs-diagnostic-logs/image-3.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como definir as configurações de diagnóstico, consulte:
-* [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+* [Visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 Para saber mais sobre os hubs de notificação do Azure, consulte:
 * [O que são Hubs de Notificação do Azure?](notification-hubs-push-notification-overview.md)
-

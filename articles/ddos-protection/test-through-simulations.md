@@ -11,23 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806232"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101719229"
 ---
 # <a name="test-through-simulations"></a>Fazer testes por meio de simulações
 
 É uma prática recomendada testar suas suposições sobre como os serviços responderão a um ataque ao conduzir simulações periódicas. Durante o teste, valide se os serviços ou aplicativos continuam funcionando conforme esperado e se não há interrupções na experiência do usuário. Identifique lacunas do ponto de vista de tecnologia e de processo, e incorpore-as à estratégia de resposta de DDoS. Recomendamos que realize esses testes em ambientes de preparo ou fora do horário de pico para minimizar o impacto no ambiente de produção.
 
-Fizemos uma parceria com o [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), um gerador de tráfego de autoatendimento, para criar uma interface em que os clientes do Azure possam gerar tráfego em relação aos pontos de extremidade públicos habilitados para proteção contra DDoS para simulações. Você pode usar a simulação para:
+Firmamos parceria com o [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) para criar uma interface na qual os clientes do Azure podem gerar tráfego contra os pontos de extremidade públicos com Proteção contra DDoS habilitada para fins de simulação. Você pode usar a simulação para:
 
 - Validar como a Proteção contra DDoS do Azure ajuda a proteger seus recursos do Azure contra ataques de DDoS.
 - Otimize o processo de resposta a incidentes durante ataques de DDoS.
 - Documente a conformidade de DDoS.
 - Treine suas equipes de segurança de rede.
+
+> [!NOTE]
+> O BreakingPoint Cloud só está disponível para a nuvem pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

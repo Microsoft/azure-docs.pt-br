@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: adca35567499452cf35b9541d3a7caac27b45a0a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
-ms.translationtype: MT
+ms.openlocfilehash: eecca39b3d7eabadcd03ab27babab05a39de12ec
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545478"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104577233"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,15 +44,15 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 > Esse *não* é o SDK de Java mais recente para Azure Cosmos DB! Considere usar o [SDK do Java v4 do Azure Cosmos DB](sql-api-sdk-java-v4.md) em seu projeto. Para atualizar, siga as instruções no guia [Migrar para SDK do Java v4 do Azure Cosmos DB](migrate-java-v4-sdk.md) e o guia [Reator vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md). 
 >
 
-| |  |
+| | Links |
 |---|---|
 | **Baixe o SDK** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**Documentação da API** |[Documentação de referência de API Java](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?preserve-view=true&view=azure-java-stable) | 
+|**Documentação da API** |[Documentação de referência de API Java](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) | 
 |**Contribuir para o SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**Introdução** | [Introdução ao SDK Java Assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**Exemplo de código** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
 | **Dicas de desempenho**| [Leiame do GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)| 
-| **runtime mínimo com suporte**|[JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) | 
+| **runtime mínimo com suporte**|[JDK 8](/java/azure/jdk/) | 
 
 [!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## <a name="faq"></a>Perguntas frequentes

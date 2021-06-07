@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dee9a845df305b06153d99c2bafe6d74524a139
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75563353"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102449196"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 A estratégia padrão do Gerenciador de Recursos do Service Fabric para gerenciar métricas de carga no cluster é distribuir a carga. Garantir que os nós sejam utilizados de maneira uniforme evita pontos altos e baixos que levam à contenção e ao desperdício de recursos. A distribuição das cargas de trabalho no cluster também é a opção mais segura em termos de sobrevivência a falhas, uma vez que garante que uma falha não destruirá um grande percentual de uma determinada carga de trabalho. 
@@ -89,7 +89,7 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre como [descrever um cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre como [descrever um cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Este artigo](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

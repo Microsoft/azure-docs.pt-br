@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890132"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Adicionar conexões S2S adicionais a uma VNet: portal do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 
@@ -48,7 +48,7 @@ Verifique os itens a seguir:
 1. Isso abre a página **Adicionar conexão** .
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Página Adicionar conexão":::
-1. Na página **Adicionar conexão** , preencha os seguintes campos:
+1. Na página **Adicionar conexão**, preencha os seguintes campos:
 
    * **Nome:** o nome que deseja dar ao site para o qual você está criando a conexão.
    * **Tipo de conexão:** Selecione **site a site (IPSec)**.
@@ -59,7 +59,7 @@ Verifique os itens a seguir:
 1. Selecione **+ criar novo** para abrir a página **criar gateway de rede local** .
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Página Criar gateway de rede local":::
-1. Na página **Criar gateway de rede local** , preencha os seguintes campos:
+1. Na página **Criar gateway de rede local**, preencha os seguintes campos:
 
    * **Nome:** o nome que você deseja atribuir ao seu recursos de gateway de rede local.
    * **Ponto de extremidade:** O endereço IP público do dispositivo VPN no site ao qual você deseja se conectar ou o FQDN do ponto de extremidade.
@@ -69,7 +69,7 @@ Verifique os itens a seguir:
 ## <a name="add-the-shared-key"></a><a name="part3"></a>Adicionar a chave compartilhada
 
 1. Depois de criar o gateway de rede local, retorne à página **Adicionar conexão** .
-1. Preencha os campos restantes. Para a **chave compartilhada (PSK)** , você pode obter a chave compartilhada do seu dispositivo VPN ou criar uma aqui e, em seguida, configurar o dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves sejam exatamente as mesmas.
+1. Preencha os campos restantes. Para a **chave compartilhada (PSK)**, você pode obter a chave compartilhada do seu dispositivo VPN ou criar uma aqui e, em seguida, configurar o dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves sejam exatamente as mesmas.
 
 ## <a name="create-the-connection"></a><a name="create"></a>Criar a conexão
 

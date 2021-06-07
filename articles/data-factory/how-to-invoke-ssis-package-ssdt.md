@@ -8,10 +8,10 @@ author: swinarko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
 ms.openlocfilehash: f11a3845e8644f3f60425538b2ef32cff668d88d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384921"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes do SSIS no Azure do SSDT

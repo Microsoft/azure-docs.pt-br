@@ -4,15 +4,15 @@ description: Visão geral sobre o Ambiente do Serviço de Aplicativo
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fbc498fcd654d16936c2548528e2600be68a2ad9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663444"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101735090"
 ---
 # <a name="app-service-environment-overview"></a>Visão geral de Ambiente do Serviço de Aplicativo 
 
@@ -53,7 +53,7 @@ O Ambiente do Serviço de Aplicativo tem muitos casos de uso, incluindo:
 Há vários recursos de rede que permitem que aplicativos no serviço de aplicativo multilocatário alcancem recursos isolados da rede ou se tornem isolados da rede. Esses recursos são habilitados no nível do aplicativo.  Com um ASE, não há nenhuma configuração adicional nos aplicativos para que eles estejam na VNet. Os aplicativos são implantados em um ambiente isolado de rede que já está em uma VNet. Na parte superior do ASE que hospeda aplicativos isolados de rede, ele também é um sistema de locatário único. Não há outros clientes usando o ASE. Se você realmente precisar de uma história de isolamento completa, também poderá fazer com que seu ASE seja implantado no hardware dedicado. Entre Hospedagem de aplicativo isolada de rede, locação única e a capacidade 
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado
-Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 200 instâncias do plano do serviço de aplicativo. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
+Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 200 instâncias do plano do serviço de aplicativo total em vários planos do serviço de aplicativo. A palavra "instance" refere-se ao dimensionamento horizontal do plano do serviço de aplicativo. Cada instância é equivalente a uma função de trabalho. Embora um ASE possa ter 200 instâncias totais, um único plano do serviço de aplicativo v2 isolado pode conter 100 instâncias. O ASE pode conter dois planos de serviço de aplicativo com 100 instâncias em cada um, 200 planos do serviço de aplicativo de instância única ou tudo no que se encontram.
 
 Um ASE é composto de funções de trabalho e front-ends. Os front-ends são responsáveis pela terminação HTTP/HTTPS, bem como pelo balanceamento de cargas automático de solicitações do aplicativo em um ASE. Os front-ends são automaticamente adicionados já que os planos de Serviço de Aplicativo no ASE são escalados horizontalmente.
 
@@ -77,7 +77,7 @@ Aplicativos frequentemente precisam acessar recursos corporativos, como bancos d
 ## <a name="preview"></a>Versão Prévia
 O Ambiente do Serviço de Aplicativo v3 está em visualização pública.  Alguns recursos estão sendo adicionados durante a progressão da visualização. As limitações atuais do ASEv3 incluem:
 
-- Incapacidade de dimensionar um plano do serviço de aplicativo para além de cinco instâncias
+- Incapacidade de dimensionar um plano do serviço de aplicativo além de 50 instâncias
 - Incapacidade de obter um contêiner de um registro privado
 - Incapacidade de recursos do serviço de aplicativo sem suporte atualmente para passar pela VNet do cliente
 - Nenhum modelo de implantação externo com um ponto de extremidade acessível pela Internet

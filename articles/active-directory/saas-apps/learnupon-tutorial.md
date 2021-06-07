@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 297395fbd0a7fd3fc8959eed5c0aeabd7b8e5751
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92458669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Active Directory do Azure com o LearnUpon
@@ -53,11 +53,11 @@ Para configurar a integração do LearnUpon ao AD do Azure, você precisará adi
 
 **Para adicionar o LearnUpon da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -65,13 +65,13 @@ Para configurar a integração do LearnUpon ao AD do Azure, você precisará adi
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **LearnUpon** , selecione **LearnUpon** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **LearnUpon**, selecione **LearnUpon** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![LearnUpon na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o LearnUpon, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você configurará e testará o logon único do Azure AD com o LearnUpon, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do LearnUpon.
 
 Para configurar e testar o logon único do AD do Azure com o LearnUpon, você precisa concluir os seguintes blocos de construção:
@@ -89,32 +89,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o LearnUpon, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **LearnUpon** , selecione **Logon Único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **LearnUpon**, selecione **Logon Único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do LearnUpon](common/idp-reply.png)
 
-    Na caixa de texto **URL de Resposta** , digite uma URL usando o seguinte padrão: `https://<companyname>.learnupon.com/saml/consumer`
+    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Resposta real. Contate a [equipe de suporte ao Cliente LearnUpon](https://www.learnupon.com/features/support/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , localize a **IMPRESSÃO DIGITAL** : isso será adicionado às suas configurações SAML do LearnUpon.
+5. Na página **Configurar logon único com SAML**, localize a **IMPRESSÃO DIGITAL**: isso será adicionado às suas configurações SAML do LearnUpon.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
-6. Na seção **Configurar o LearnUpon** , copie a URL apropriada de acordo com seus requisitos.
+6. Na seção **Configurar o LearnUpon**, copie a URL apropriada de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -140,19 +140,19 @@ Para configurar o logon único do Azure AD com o LearnUpon, execute as seguintes
    
     ![A captura de tela mostra a seção Configurações Gerais em que você pode inserir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
-    a. Selecione **Habilitado** .
+    a. Selecione **Habilitado**.
 
-    b. Selecione **versão** como **2.0** .
+    b. Selecione **versão** como **2.0**.
 
-    c. Selecione **Ignorar condições** como **Não** .
+    c. Selecione **Ignorar condições** como **Não**.
 
-    d. Na caixa de texto **Nome do parâmetro Post de Token SAML** , digite o nome do parâmetro da solicitação post para a URL de consumidor SAML indicada acima, que contém a declaração SAML a ser verificada e autenticada. Por exemplo, **SAMLResponse** .
+    d. Na caixa de texto **Nome do parâmetro Post de Token SAML**, digite o nome do parâmetro da solicitação post para a URL de consumidor SAML indicada acima, que contém a declaração SAML a ser verificada e autenticada. Por exemplo, **SAMLResponse**.
 
-    e. Na caixa de texto **Formato de Nome de Identificador** , digite o valor que indica onde em sua Declaração SAML o identificador de usuários (endereço de Email) reside. Por exemplo: `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    e. Na caixa de texto **Formato de Nome de Identificador**, digite o valor que indica onde em sua Declaração SAML o identificador de usuários (endereço de Email) reside. Por exemplo: `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
   
-    f. Na caixa de texto **Identificar o Local do Provedor** , digite o valor que indica para onde os usuários são enviados ao clicarem em seu ícone carregado na tela de logon do portal do Azure.
+    f. Na caixa de texto **Identificar o Local do Provedor**, digite o valor que indica para onde os usuários são enviados ao clicarem em seu ícone carregado na tela de logon do portal do Azure.
   
-    g. Na caixa de texto **URL de Saída** , cole o valor da **URL de Logoff** copiada do portal do Azure.
+    g. Na caixa de texto **URL de Saída**, cole o valor da **URL de Logoff** copiada do portal do Azure.
 
     h. Clique em **Gerenciar impressões digitais** e carregue a impressão digital do certificado baixado.
 
@@ -160,15 +160,15 @@ Para configurar o logon único do Azure AD com o LearnUpon, execute as seguintes
 
      ![A captura de tela mostra a seção Configurações de Usuário em que você pode inserir os valores descritos.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. Na caixa de texto **Formato do Identificador de Nome** , digite o valor que indica onde na instrução de sua declaração do SAML reside o nome dos usuários. Por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. Na caixa de texto **Formato do Identificador de Nome**, digite o valor que indica onde na instrução de sua declaração do SAML reside o nome dos usuários. Por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. Na caixa de texto **Formato do Identificador de Sobrenome** , digite o valor que indica onde na instrução de sua declaração do SAML reside o sobrenome dos usuários. Por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. Na caixa de texto **Formato do Identificador de Sobrenome**, digite o valor que indica onde na instrução de sua declaração do SAML reside o sobrenome dos usuários. Por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -180,39 +180,39 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao LearnUpon.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **LearnUpon** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **LearnUpon**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **LearnUpon** .
+2. Na lista de aplicativos, selecione **LearnUpon**.
 
     ![O link do LearnUpon na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-learnupon-test-user"></a>Criar um usuário de teste do LearnUpon
 

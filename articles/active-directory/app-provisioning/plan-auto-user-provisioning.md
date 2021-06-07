@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255756"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101645081"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -42,7 +42,7 @@ Os principais benefícios de habilitar o provisionamento automático de usuário
 
 * **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -322,7 +322,7 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 
 * [Mantenha-se atualizado sobre as novidades do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Microsoft Q&um fórum do Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q&um fórum do Azure AD](/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar o provisionamento automático de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

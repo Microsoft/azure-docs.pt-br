@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 94a691badf056c8e93f47ae8d052fc1388b34e4c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3eecb584f468bc170f0325da8d734a1890691483
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601764"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use o CLI do Azure para habilitar a criptografia de ponta a ponta usando a criptografia no host
 
@@ -23,10 +23,6 @@ Quando você habilita a criptografia no host, os dados armazenados no host da VM
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Regiões com suporte
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
-
 ### <a name="supported-vm-sizes"></a>Tamanhos de VM com suporte
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
@@ -35,7 +31,20 @@ Você também pode encontrar os tamanhos de VM programaticamente. Para saber com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
+Você deve habilitar o recurso para sua assinatura antes de usar a propriedade EncryptionAtHost para sua VM/VMSS. Siga as etapas abaixo para habilitar o recurso para sua assinatura:
+
+1.  Execute o comando a seguir para registrar o recurso para sua assinatura
+
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+ 
+2.  Verifique se o estado do registro está registrado (leva alguns minutos) usando o comando a seguir antes de experimentar o recurso.
+
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um Azure Key Vault e DiskEncryptionSet
 

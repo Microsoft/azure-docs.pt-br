@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4af29df27a109a9e1e26a720c190ab9d119fc4d1
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033788"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102452995"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Associações de saída do armazenamento de tabelas do Azure para Azure Functions
 
@@ -418,7 +418,7 @@ Como alternativa, você pode usar um `CloudTable` parâmetro de método para gra
 
 # <a name="java"></a>[Java](#tab/java)
 
-Há duas opções para a saída de uma linha de armazenamento de tabela de uma função usando a anotação [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) :
+Há duas opções para a saída de uma linha de armazenamento de tabela de uma função usando a anotação [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput) :
 
 - **Valor de retorno**: ao aplicar a anotação à própria função, o valor de retorno da função é persistido como uma linha de armazenamento de tabela.
 
@@ -438,7 +438,7 @@ Há duas opções para a saída de uma mensagem de linha de armazenamento de tab
 
 - **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor de retorno da função é persistido como uma linha de armazenamento de tabela.
 
-- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
 
 ---
 

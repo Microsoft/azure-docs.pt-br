@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364572"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952806"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
 
-Uma política de acesso condicional deve incluir uma atribuição de usuário como um dos sinais no processo de decisão. Os usuários podem ser incluídos ou excluídos das políticas de acesso condicional. Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder acesso ao usuário.
+Uma política de acesso condicional deve incluir uma atribuição de usuário como um dos sinais no processo de decisão. Os usuários podem ser incluídos ou excluídos das políticas de acesso condicional. Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder acesso ao usuário. 
 
-![Usuário como um sinal nas decisões tomadas pelo acesso condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## <a name="include-users"></a>Incluir usuários
 
@@ -38,7 +38,7 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
    - Todos os usuários convidados e externos
       - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com o `user type` atributo definido como `guest` . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
    - Funções de diretório
-      - Permite que os administradores selecionem funções de diretório específicas do Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída.
+      - Permite que os administradores selecionem funções de diretório internas específicas do Azure AD usadas para determinar a atribuição de política. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída. Não há suporte para outros tipos de função, incluindo funções administrativas com escopo de unidade e funções personalizadas.
    - Usuários e grupos
       - Permite direcionar conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contém todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo de nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos. A política será aplicada a usuários e grupos aninhados.
 
@@ -77,7 +77,7 @@ Por padrão, a política fornecerá uma opção para excluir o usuário atual da
 
 ![Aviso, não bloqueie-se!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[O que fazer se você estiver bloqueado no portal do Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+Se você estiver se perguntando[o que fazer se tiver bloqueado o portal do Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Próximas etapas
 

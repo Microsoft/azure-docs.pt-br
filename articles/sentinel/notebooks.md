@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
 ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97092179"
 ---
-# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Use Jupyter Notebook para procurar ameaças à segurança
+# <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Usar o Jupyter Notebook para procurar ameaças à segurança
 
 A base do Azure Sentinel é o armazenamento de dados; Ele combina consultas de alto desempenho, esquema dinâmico e escalas para grandes volumes de dados. O portal do Azure e todas as ferramentas do Azure Sentinel usam uma API comum para acessar esse armazenamento de dados. A mesma API também está disponível para ferramentas externas, como notebooks [Jupyter](https://jupyter.org/) e Python. Embora muitas tarefas comuns possam ser executadas no portal, o Jupyter estende o escopo do que você pode fazer com esses dados. Ele combina programação completa com uma enorme coleção de bibliotecas para aprendizado de máquina, visualização e análise de dados. Esses atributos fazem do Jupyter uma ferramenta interessante para investigação de segurança e busca.
 
@@ -64,7 +64,7 @@ Para usar os blocos de anotações, você deve primeiro criar um espaço de trab
     |Campo|Descrição|
     |--|--|
     |Subscription|Selecione a assinatura do Azure que você deseja usar.|
-    |Grupo de recursos|Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Neste exemplo, usamos **AzureMLRG**.|
+    |Resource group|Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Neste exemplo, usamos **AzureMLRG**.|
     |Nome do workspace|Insira um nome único que identifique seu workspace. Neste exemplo, usamos **testworkspace1**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas.|
     |Região|Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.|
     |Edição do Workspace|Selecione **básico** como o tipo de espaço de trabalho neste exemplo. O tipo de espaço de trabalho (básico & Enterprise) determina os recursos aos quais você terá acesso e preços.|

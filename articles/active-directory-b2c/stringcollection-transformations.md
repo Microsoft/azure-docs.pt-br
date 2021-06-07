@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ad9cc3d6d07c8d744ec667e2fffb035848121b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9104fb4598eb62ed96d0b21734053fa118b5237
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203241"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102120275"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
@@ -31,7 +31,7 @@ Adiciona uma declaração de cadeia de caracteres a uma nova declaração de Str
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
-| InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
+| InputClaim | collection | stringCollection | A coleção de cadeia de caracteres a ser adicionada à declaração de saída. Se a coleção contiver itens, a transformação declarações copiará os itens e adicionará o item ao final da declaração de coleta de saída. |
 | OutputClaim | collection | stringCollection | O ClaimType que é produzido após essa transformação de declarações foi invocado, com o valor especificado na declaração de entrada. |
 
 Use essa transformação de declaração para adicionar uma cadeia de caracteres a uma stringCollection nova ou existente. Ele é normalmente usado em um perfil técnico do **AAD-UserWriteUsingAlternativeSecurityId**. Antes que uma nova conta social seja criada, a transformação da declaração **CreateOtherMailsFromEmail** lê o ClaimType e adiciona o valor ao ClaimType **otherMails**.
@@ -64,7 +64,7 @@ Adiciona um parâmetro de cadeia de caracteres a uma nova declaração StringCol
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
+| InputClaim | collection | stringCollection | A coleção de cadeia de caracteres a ser adicionada à declaração de saída. Se a coleção contiver itens, a transformação declarações copiará os itens e adicionará o item ao final da declaração de coleta de saída. |
 | InputParameter | item | string | O valor a ser adicionado à declaração de saída. |
 | OutputClaim | collection | stringCollection | O ClaimType que é produzido depois de invocar esta transformação de declaração, com o valor especificado no parâmetro de entrada. |
 
@@ -125,7 +125,7 @@ O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item p
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Verifica se um tipo de declaração StringCollection contém um elemento
+Verifica se um tipo de declaração StringCollection contém um elemento.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |

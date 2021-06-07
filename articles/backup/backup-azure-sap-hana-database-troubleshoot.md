@@ -3,12 +3,12 @@ title: Solucionar erros de backup de bancos de dados SAP HANA
 description: Descreve como solucionar erros comuns que podem ocorrer ao usar o Backup do Microsoft Azure nos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411318"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101713330"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup dos bancos de dados SAP HANA no Azure
 
@@ -46,13 +46,6 @@ Veja as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites)
 | Mensagem de erro      | <span style="font-weight:normal">Não há suporte para a operação do SAP HANA especificada</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Possíveis causas:**    | O backup do Azure para SAP HANA não dá suporte a backup incremental e ações executadas em clientes SAP HANA nativos (ferramenta cockpit de Studio/cockpit/DBA) |
-| **Ação recomendada** | Para obter mais informações, confira [aqui](./sap-hana-backup-support-matrix.md#scenario-support). |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
-
-| Mensagem de erro      | <span style="font-weight:normal">Esse banco de dados SAP HANA não dá suporte ao tipo de backup solicitado</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O backup do Azure não dá suporte a backup incremental e backup usando instantâneos |
 | **Ação recomendada** | Para obter mais informações, confira [aqui](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure

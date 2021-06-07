@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Criar um aplicativo ASP.NET Core por meio do ACR'
+title: 'CLI: criar o aplicativo ASP.NET Core por meio do ACR'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como criar um aplicativo ASP.NET Core do Linux por meio do ACR.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: b4c96b14a24cdc4b953d072dd51f4cb0ca5d67c8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 037d66b4cc94fba5a0dee2a44b6a9e316dd36f96
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006048"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787732"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Criar um aplicativo ASP.NET Core em um contêiner do Docker no Serviço de Aplicativo por meio do Registro de Contêiner do Azure
 
@@ -37,10 +37,10 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config container set`](/cli/azure/webapp/config/container#az_webapp_config_container_set) | Define o contêiner do Docker para o aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

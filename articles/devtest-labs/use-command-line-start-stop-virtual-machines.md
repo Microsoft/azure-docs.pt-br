@@ -3,12 +3,12 @@ title: Use ferramentas de linha de comando para iniciar e parar VMs Azure DevTes
 description: Saiba como usar as ferramentas de linha de comando para iniciar e parar máquinas virtuais no Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5a42658f2b83f101271f158c9af70833601b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc1620cf86fa203b2f0e31359f9fd262df8916
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476409"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102499536"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usar ferramentas de linha de comando para iniciar e parar Azure DevTest Labs máquinas virtuais
 Este artigo mostra como usar Azure PowerShell ou CLI do Azure para iniciar ou parar máquinas virtuais em um laboratório no Azure DevTest Labs. Você pode criar scripts do PowerShell/CLI para automatizar essas operações. 
@@ -29,7 +29,7 @@ No entanto, em alguns cenários, talvez você queira automatizar a inicializaç�
 > [!NOTE]
 > O script a seguir usa o módulo Azure PowerShell AZ. 
 
-O script do PowerShell a seguir inicia uma VM em um laboratório. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o foco principal para esse script. O parâmetro **ResourceId** é a ID de recurso totalmente qualificada para a VM no laboratório. O parâmetro **Action** é onde as opções **Start** ou **Stop** são definidas dependendo do que é necessário.
+O script do PowerShell a seguir inicia uma VM em um laboratório. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) é o foco principal para esse script. O parâmetro **ResourceId** é a ID de recurso totalmente qualificada para a VM no laboratório. O parâmetro **Action** é onde as opções **Start** ou **Stop** são definidas dependendo do que é necessário.
 
 ```powershell
 # The id of the subscription
@@ -66,7 +66,7 @@ else {
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-A [CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) é outra maneira de automatizar o início e a interrupção das VMs do DevTest Labs. CLI do Azure pode ser [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) em diferentes sistemas operacionais. O script a seguir fornece comandos para iniciar e parar uma VM em um laboratório. 
+A [CLI do Azure](/cli/azure/get-started-with-azure-cli) é outra maneira de automatizar o início e a interrupção das VMs do DevTest Labs. CLI do Azure pode ser [instalado](/cli/azure/install-azure-cli) em diferentes sistemas operacionais. O script a seguir fornece comandos para iniciar e parar uma VM em um laboratório. 
 
 ```azurecli
 # Sign in to Azure

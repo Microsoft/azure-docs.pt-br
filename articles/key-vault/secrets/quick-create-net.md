@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf34512c6825c2c6ee6aea631c3361f159392f62
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a82c2cdf7084b31eb6ba861e48ecffb81e6d1363
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933635"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102453692"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Início Rápido: Biblioteca de clientes do segredo do Azure Key Vault para .NET (SDK v4)
 
@@ -21,7 +21,7 @@ Introdução à biblioteca de clientes do segredo do Azure Key Vault para .NET. 
 
 Recursos da biblioteca de clientes do Key Vault:
 
-[Documentação de referência da API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet&preserve-view=true) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[Documentação de referência da API](/dotnet/api/azure.security.keyvault.secrets) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 Para obter mais informações sobre o Key Vault e os segredos, confira:
 - [Visão Geral do Key Vault](../general/overview.md)
@@ -206,7 +206,7 @@ Modifique o aplicativo de console .NET Core para interagir com o Key Vault concl
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
                 var secret = await client.GetSecretAsync(secretName);
-                Console.WriteLine($"Your secret is '{secret.Value}'.");
+                Console.WriteLine($"Your secret is '{secret.Value.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);

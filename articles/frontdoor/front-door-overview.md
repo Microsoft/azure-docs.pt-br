@@ -2,24 +2,23 @@
 title: Azure Front Door | Microsoft Docs
 description: Este artigo fornece uma visão geral do Azure Front Door.
 services: frontdoor
-documentationcenter: ''
 author: duongau
-editor: ''
 ms.service: frontdoor
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2020
+ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0ba34b298fad21656a63c813057ed0c69db6c7f1
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282270"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064878"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
+
+> [!IMPORTANT]
+> Esta documentação é para o Azure Front Door. Procurando informações sobre o Azure Front Door Standard/Premium (versão prévia)? Veja [aqui](standard-premium/overview.md).
 
 O Azure Front Door é um ponto de entrada global e escalonável que usa a rede de borda global da Microsoft para criar aplicativos Web rápidos, seguros e amplamente escalonáveis. Com o Front Door, é possível transformar os seus aplicativos consumidores e empresariais globais em modernos aplicativos robustos altamente personalizados e com alto desempenho, com conteúdo que alcança um público global por meio do Azure.
 
@@ -32,7 +31,7 @@ O Front Door funciona na Camada 7 (Camada HTTP/HTTPS) e usa o protocolo anycast 
 >[!NOTE]
 > O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. 
 > * Se você quiser realizar um roteamento global baseado em DNS e **não** tiver os requisitos para encerramento de protocolo TLS ("descarregamento de SSL") ou para processamento de camada de aplicativo por solicitação HTTP/HTTPS, examine [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). 
-> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine [Gateway de Aplicativo](../application-gateway/overview.md)
+> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine o [Gateway de Aplicativo](../application-gateway/overview.md).
 > * Para fazer o balanceamento de carga de camada de rede, examine [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Os cenários de ponta a ponta podem se beneficiar da combinação dessas soluções, conforme necessário.

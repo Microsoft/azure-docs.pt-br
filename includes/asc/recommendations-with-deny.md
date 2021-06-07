@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/21/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: b5d33a962078ab7bd49c58fe16f271cdd1c8eea4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379176"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803231"
 ---
 - O acesso às contas de armazenamento com configurações de firewall e de rede virtual deve ser restrito
 - As variáveis da conta de automação devem ser criptografadas

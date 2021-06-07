@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911759"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
@@ -64,7 +64,7 @@ Qual é a aparência de um domínio desequilibrado? O diagrama a seguir mostra d
 
 No Azure, a escolha de qual domínio de falha contém um nó é gerenciado para você. Mas, dependendo do número de nós que você provisiona, ainda é possível acabar com os domínios de falha que têm mais nós em relação aos outros.
 
-Por exemplo, digamos que você tenha cinco domínios de falha no cluster, mas provisione sete nós para um tipo de nó ( **NodeType** ). Nesse caso, os dois primeiros domínios de falha terminam com mais nós. Se você continuar implantando mais instâncias de **NodeType** com apenas algumas instâncias, o problema ficará pior. Por esse motivo, recomendamos que o número de nós em cada tipo de nó seja um múltiplo do número de domínios de falha.
+Por exemplo, digamos que você tenha cinco domínios de falha no cluster, mas provisione sete nós para um tipo de nó (**NodeType**). Nesse caso, os dois primeiros domínios de falha terminam com mais nós. Se você continuar implantando mais instâncias de **NodeType** com apenas algumas instâncias, o problema ficará pior. Por esse motivo, recomendamos que o número de nós em cada tipo de nó seja um múltiplo do número de domínios de falha.
 
 ## <a name="upgrade-domains"></a>Domínios de atualização
 
@@ -119,7 +119,7 @@ Por exemplo, digamos que temos um cluster com seis nós, configurado com cinco d
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Agora, digamos que criemos um serviço com um valor de **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount** ) de cinco. As réplicas recaem sobre N1 a N5. Na verdade, N6 nunca será usado, independentemente de quantos serviços como este você criar. Mas por quê? Vamos observar a diferença entre o layout atual e o que aconteceria se N6 fosse escolhido.
+Agora, digamos que criemos um serviço com um valor de **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount**) de cinco. As réplicas recaem sobre N1 a N5. Na verdade, N6 nunca será usado, independentemente de quantos serviços como este você criar. Mas por quê? Vamos observar a diferença entre o layout atual e o que aconteceria se N6 fosse escolhido.
 
 Aqui está o layout que obtemos e o número total de réplicas por domínio de falha e de atualização:
 
@@ -179,7 +179,7 @@ O Gerenciador de recursos de cluster dá suporte a outra versão da restrição 
 > [!NOTE]
 > Para um serviço com estado, definimos *perda de quorum* em uma situação em que a maioria das réplicas de partição estão inativas ao mesmo tempo. Por exemplo, se **TargetReplicaSetSize** for cinco, um conjunto de três réplicas representará quorum. Da mesma forma, se **TargetReplicaSetSize** for seis, quatro réplicas serão necessárias para o quorum. Em ambos os casos, no máximo duas réplicas podem ficar inativas ao mesmo tempo se a partição quiser continuar funcionando normalmente.
 >
-> Para um serviço sem estado, não há nenhuma coisa como *perda de quorum* . Os serviços sem estado continuam a funcionar normalmente mesmo que a maioria das instâncias fique inativa ao mesmo tempo. Então, nos concentraremos nos serviços com estado no restante deste artigo.
+> Para um serviço sem estado, não há nenhuma coisa como *perda de quorum*. Os serviços sem estado continuam a funcionar normalmente mesmo que a maioria das instâncias fique inativa ao mesmo tempo. Então, nos concentraremos nos serviços com estado no restante deste artigo.
 >
 
 Voltar para o exemplo anterior. Com a versão "segurança de quorum" da restrição, todos os três layouts seriam válidos. Mesmo se FD0 falhou no segundo layout ou UD1 falhou no terceiro layout, a partição ainda teria quorum. (A maioria das réplicas ainda estaria ativa.) Com essa versão da restrição, o N6 quase sempre pode ser utilizado.
@@ -349,13 +349,13 @@ Service Fabric espera que, em alguns casos, cargas de trabalho específicas talv
 * Uma carga de trabalho deve ser executada em hardware específico para fins de desempenho, escala ou isolamento de segurança.
 * Uma carga de trabalho deve ser isolada de outras cargas de trabalho por motivos de política ou consumo de recursos.
 
-Para dar suporte a esses tipos de configuração, Service Fabric inclui marcas que você pode aplicar a nós. Essas marcas são chamadas de *propriedades de nó* . As *restrições de posicionamento* são as instruções anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Restrições de posicionamento definem onde os serviços devem ser executados. O conjunto de restrições é extensível. Qualquer par chave/valor pode funcionar.
+Para dar suporte a esses tipos de configuração, Service Fabric inclui marcas que você pode aplicar a nós. Essas marcas são chamadas de *propriedades de nó*. As *restrições de posicionamento* são as instruções anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Restrições de posicionamento definem onde os serviços devem ser executados. O conjunto de restrições é extensível. Qualquer par chave/valor pode funcionar.
 
 ![Cargas de trabalho diferentes para um layout de cluster][Image5]
 
 ### <a name="built-in-node-properties"></a>Propriedades de nó interno
 
-Service Fabric define algumas propriedades de nó padrão que podem ser usadas automaticamente para que você não precise defini-las. As propriedades padrão definidas em cada nó são **NodeType** e **NodeName** .
+Service Fabric define algumas propriedades de nó padrão que podem ser usadas automaticamente para que você não precise defini-las. As propriedades padrão definidas em cada nó são **NodeType** e **NodeName**.
 
 Por exemplo, você pode escrever uma restrição de posicionamento como `"(NodeType == NodeType03)"` . **NodeType** é uma propriedade comumente usada. Ele é útil porque corresponde a 1:1 com um tipo de computador. Cada tipo de computador corresponde a um tipo de carga de trabalho em um aplicativo de n camadas tradicional.
 
@@ -367,7 +367,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | Instrução | Syntax |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -378,7 +378,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | Instrução | Syntax |
+  | Instrução | Sintaxe |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |
@@ -465,7 +465,7 @@ Primeiro, é necessário garantir que os computadores não sejam sobrecarregados
 
 Em segundo lugar, há balanceamento e otimização, que são essenciais para a execução eficiente de serviços. Ofertas de serviço econômicas ou sensíveis a desempenho não podem permitir que alguns nós fiquem quentes enquanto outros estão frios. Os nós ativos levam à contenção de recursos e ao baixo desempenho. Os nós frios representam recursos desperdiçados e aumentam os custos.
 
-Service Fabric representa recursos como *métricas* . As métricas são qualquer recurso lógico ou físico que você queira descrever para o Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb". Para obter informações sobre os recursos físicos que Service Fabric podem controlar em nós, consulte [governança de recursos](service-fabric-resource-governance.md). Para obter informações sobre as métricas padrão usadas pelo Gerenciador de recursos de cluster e como configurar métricas personalizadas, consulte [Este artigo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representa recursos como *métricas*. As métricas são qualquer recurso lógico ou físico que você queira descrever para o Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb". Para obter informações sobre os recursos físicos que Service Fabric podem controlar em nós, consulte [governança de recursos](service-fabric-resource-governance.md). Para obter informações sobre as métricas padrão usadas pelo Gerenciador de recursos de cluster e como configurar métricas personalizadas, consulte [Este artigo](service-fabric-cluster-resource-manager-metrics.md).
 
 As métricas são diferentes das restrições de posicionamento e das propriedades de nó. Propriedades do nó são descritores estáticos dos nós propriamente ditos. As métricas descrevem os recursos que os nós têm e que os serviços consomem quando são executados em um nó. Uma propriedade de nó pode ser **HasSSD** e pode ser definida como true ou false. A quantidade de espaço disponível no SSD e o quanto é consumido pelos serviços seria uma métrica como "DriveSpaceInMb".
 
@@ -566,7 +566,7 @@ A capacidade de superregistro também pode ser especificada para ser infinita. N
 
 Uma métrica não pode ter o buffer de nó e a capacidade de superregistro especificada para ele ao mesmo tempo.
 
-Veja um exemplo de como especificar o buffer de nó ou as capacidades de superpasta no *ClusterManifest.xml* :
+Veja um exemplo de como especificar o buffer de nó ou as capacidades de superpasta no *ClusterManifest.xml*:
 
 ```xml
 <Section Name="NodeBufferPercentage">

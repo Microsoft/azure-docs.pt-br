@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
 ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99807726"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Conectar logs de auditoria e diagnóstico do banco de dados SQL do Azure

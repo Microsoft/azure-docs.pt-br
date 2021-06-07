@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: a217ee82ee2394fbb18eef42b853fbf72aceb7df
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: eb9a73719c55cac800cf3b7ea88e8da8fdf85790
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834112"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061002"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub"></a>Tutorial: Conectar ao Hub IoT um aplicativo de dispositivo de vários componentes do IoT Plug and Play em execução no Linux ou no Windows
 

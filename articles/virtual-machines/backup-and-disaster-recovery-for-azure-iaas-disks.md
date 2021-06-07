@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e5ae08c23748e55a8c3b75eb8fb9c112684f022e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969697"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102507899"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
@@ -48,7 +48,7 @@ Devido a essa arquitetura, o Azure proporcionou durabilidade de nível empresari
 
 Falhas de hardware localizadas no host de computação ou na plataforma de Armazenamento podem, às vezes, resultar na indisponibilidade temporária para a VM que é coberta pelo [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) em relação à disponibilidade da VM. O Azure também fornece um SLA líder do setor para instâncias de VM individuais que usam SSDs premium do Azure.
 
-Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade devido à indisponibilidade temporária de um disco ou de uma VM, os clientes podem usar [conjuntos de disponibilidade](./manage-availability.md). Duas ou mais máquinas virtuais em um conjunto de disponibilidade fornecem redundância para o aplicativo. Em seguida, o Azure cria essas VMs e esses discos em domínios de falha separados com diferentes componentes de energia, rede e servidor.
+Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade devido à indisponibilidade temporária de um disco ou de uma VM, os clientes podem usar [conjuntos de disponibilidade](./availability.md). Duas ou mais máquinas virtuais em um conjunto de disponibilidade fornecem redundância para o aplicativo. Em seguida, o Azure cria essas VMs e esses discos em domínios de falha separados com diferentes componentes de energia, rede e servidor.
 
 Devido a esses domínios de falha separados, as falhas de hardware localizadas geralmente não afetam várias VMs no conjunto ao mesmo tempo. Ter domínios de falha separados fornece alta disponibilidade para o aplicativo. É considerada uma melhor prática usar conjuntos de disponibilidade quando a alta disponibilidade é necessária. A próxima seção aborda o aspecto de recuperação de desastre.
 

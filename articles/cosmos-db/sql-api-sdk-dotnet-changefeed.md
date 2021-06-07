@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: ff861b5a58de4f108e49e52e6f09c71d7dd678ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: MT
+ms.openlocfilehash: b1f2efa887fb56d555f354c6d0a3262a7f178e29
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097185"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104577131"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do Processador do Feed de Alterações do .NET: Downloads e notas sobre a versão
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,10 +38,10 @@ ms.locfileid: "93097185"
 > * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-|   |   |
+|   | Links  |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**Documentação da API**|[Alterar a documentação de referência de API da biblioteca do Processador de Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
+|**Documentação da API**|[Alterar a documentação de referência de API da biblioteca do Processador de Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
 |**Introdução**|[Introdução ao SDK .NET do processador do feed de alterações](change-feed.md)|
 |**Framework atualmente com suporte**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 

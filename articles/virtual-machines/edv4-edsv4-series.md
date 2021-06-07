@@ -6,15 +6,15 @@ ms.author: brbell
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: fc410ef903ac7eca2457516df2c71260a4b19b89
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6edee1f349b37c274f71c9db7abac35f9c88c4a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097482"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102557107"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 e Edsv4
 
@@ -30,7 +30,7 @@ Os tamanhos da série Edv4 são executados nos processadores Intel&reg; Xeon&reg
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
@@ -58,7 +58,7 @@ Os tamanhos da série Edsv4 são executados nos processadores Intel&reg; Xeon&re
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 

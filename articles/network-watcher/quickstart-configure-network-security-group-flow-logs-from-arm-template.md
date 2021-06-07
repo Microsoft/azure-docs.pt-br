@@ -3,18 +3,19 @@ title: 'Início Rápido: Configurar os logs de fluxo do grupo de segurança de r
 description: Saiba como habilitar programaticamente os logs de fluxo do NSG (grupo de segurança de rede) usando um modelo do ARM (Azure Resource Manager) e o Azure PowerShell.
 services: network-watcher
 author: damendo
-Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
-ms.service: network-watcher
-ms.topic: quickstart
-ms.date: 01/07/2021
 ms.author: damendo
-ms.custom: subject-armqs
-ms.openlocfilehash: ded7b24461fdcdbc3d020a487cafc20620633097
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 01/07/2021
+ms.topic: quickstart
+ms.service: network-watcher
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: df0ccb5bf5ecd60d80526085983e35abf58e9966
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019713"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532434"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Início Rápido: configurar os logs de fluxo do grupo de segurança de rede usando um modelo do ARM
 
@@ -82,7 +83,7 @@ Para obter uma visão geral completa das propriedades do objeto dos logs de flux
 
 Se você estiver usando modelos do ARM pela primeira vez, confira os seguintes artigos para saber mais sobre os modelos do ARM:
 
-- [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+- [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 - [Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 O exemplo a seguir é um modelo completo. Também é a versão mais simples do modelo. O exemplo contém os parâmetros mínimos que são passados para configurar os logs de fluxo do NSG. Para obter mais exemplos, confira o artigo de visão geral [Configurar os logs de fluxo do NSG pro meio de um modelo do Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md).
@@ -145,7 +146,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 Você tem duas opções para ver se a implantação foi bem-sucedida:
 
 - O console do PowerShell mostra `ProvisioningState` como `Succeeded`.
-- Vá para a [página do portal dos logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as alterações. 
+- Vá para a [página do portal dos logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) para confirmar as alterações.
 
 Se houver problemas com a implantação, confira [Solucionar problemas comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

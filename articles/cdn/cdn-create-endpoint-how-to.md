@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539704"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure

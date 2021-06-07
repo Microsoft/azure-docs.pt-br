@@ -7,22 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463266"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101719076"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente
 
-
-
 Este tutorial mostra como iniciar a implantação de um modelo de aplicativo de **gerenciamento de estoque inteligente** do IoT Central. Veja como implantar o modelo, o conteúdo incluído pronto para uso e o que você poderá fazer em seguida.
 
-Neste tutorial, você aprenderá a: 
-* Criar um aplicativo de gerenciamento de estoque inteligente 
-* Explorar o aplicativo 
+Neste tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+> * Criar um aplicativo de gerenciamento de estoque inteligente 
+> * Explorar o aplicativo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,8 +110,8 @@ Caso não pretenda usar esse aplicativo, acesse **Administração** > **Configur
 > ![Captura de tela mostrando como excluir o aplicativo quando você terminar](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o gerenciamento de estoque inteligente 
+
+Saiba mais sobre o gerenciamento de estoque inteligente:
+
 > [!div class="nextstepaction"]
 > [Conceito de gerenciamento de estoque inteligente](./architecture-smart-inventory-management.md)
-* Saiba mais sobre outros [modelos comerciais do IoT Central](./overview-iot-central-retail.md)
-* Para saber mais sobre o IoT Central, confira [Visão geral do IoT Central](../core/overview-iot-central.md)

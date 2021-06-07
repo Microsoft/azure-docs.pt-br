@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386298"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739327"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 
@@ -48,7 +48,7 @@ O Data Factory fornece liberdade para modelar qualquer estilo de fluxo que seja 
     - Contêineres de loop:
         * A atividade ForEach será iterada em uma coleção especificada de atividades em um loop. 
 - Fluxos baseados em gatilho:
-    - Os pipelines podem ser acionados sob demanda ou por hora.
+    - Os pipelines podem ser disparados sob demanda, por hora do relógio de parede ou em resposta aos tópicos orientados por grade de eventos
 - Fluxos delta:
     - Os parâmetros podem ser usados para definir sua marca de água alta para cópia Delta ao mover tabelas de dimensão ou referência de um relational store, localmente ou na nuvem, para carregar os dados no Lake.
 
@@ -291,7 +291,7 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * inteiro
 * INT
 * bit
-* booleano
+* boolean
 * SMALLINT
 * TINYINT
 * BIGINT
@@ -301,7 +301,7 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * DATETIME
 * datetime2
 * smalldatetime
-* timestamp
+*  timestamp
 * UNIQUEIDENTIFIER
 * Xml
 

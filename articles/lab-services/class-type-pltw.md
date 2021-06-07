@@ -4,10 +4,10 @@ description: Saiba como configurar os laboratórios para ensinar ao projeto lide
 ms.topic: article
 ms.date: 10/28/2020
 ms.openlocfilehash: ca4fdae2372895c17c4a98dd3959935108846744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024612"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configurar laboratórios para o líder de projetos como classes
@@ -130,7 +130,7 @@ Os alunos podem se conectar às VMs de laboratório de computadores Windows, Mac
 - [Conectar do Mac](./connect-virtual-machine-mac-remote-desktop.md)
 - [Conectar do Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Vamos abordar um exemplo de estimativa de custo para as classes PLTW.  Essa estimativa não inclui o custo de executar um servidor de licença ou usar uma galeria de imagens compartilhada. Suponha que você tenha uma classe de 25 alunos, cada um dos quais tem 20 horas de tempo de classe agendada.  Cada aluno também tem 10 horas de cota adicionais para a casa ou atribuições fora da hora da classe agendada.  Aqui estão os custos estimados:
 
 - **VM grande**

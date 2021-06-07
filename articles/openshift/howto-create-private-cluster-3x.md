@@ -3,16 +3,16 @@ title: Criar um cluster privado com o Red Hat OpenShift no Azure 3.11 | Microsof
 description: Criar um cluster privado com o Red Hat OpenShift no Azure 3.11
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/02/2020
 keywords: aro, openshift, private cluster, red hat
-ms.openlocfilehash: 37e9dc996fddf2b592ea6bf7fff1e1f4825f3ca8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 28a21635da770a990a21e0da2a8034c754f4f7aa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220621"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100633233"
 ---
 # <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Criar um cluster privado com o Red Hat OpenShift no Azure 3.11
 

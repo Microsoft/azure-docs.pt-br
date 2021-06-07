@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 711b516d1ba1154e574b0d8bbd8d86a02d7df018
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 179b1b64656d3f97778e183d57797e4b3660fece
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497810"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775431"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obter recursos em um grupo de recursos gerenciado e redimensionar VMs com a CLI do Azure
 
@@ -34,9 +34,9 @@ Este script usa os comandos a seguir para implantar o aplicativo gerenciado. Cad
 
 | Comando | Observações |
 |---|---|
-| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Liste os aplicativos gerenciados. Forneça os valores da consulta para destacar os resultados. |
-| [az resource list](/cli/azure/resource#az-resource-list) | Liste os recursos. Forneça um grupo de recursos e os valores da consulta para destacar os resultados. |
-| [az vm resize](/cli/azure/vm#az-vm-resize) | Atualize o tamanho de uma máquina virtual. |
+| [az managedapp list](/cli/azure/managedapp#az_managedapp_list) | Liste os aplicativos gerenciados. Forneça os valores da consulta para destacar os resultados. |
+| [az resource list](/cli/azure/resource#az_resource_list) | Liste os recursos. Forneça um grupo de recursos e os valores da consulta para destacar os resultados. |
+| [az vm resize](/cli/azure/vm#az_vm_resize) | Atualize o tamanho de uma máquina virtual. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

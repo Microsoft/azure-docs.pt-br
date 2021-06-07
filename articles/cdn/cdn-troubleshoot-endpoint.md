@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192483"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solucionando problemas dos pontos de extremidade do Azure CDN que retornam o código de status 404
@@ -51,7 +51,7 @@ Há várias causas possíveis, incluindo:
 ### <a name="check-the-origin-file"></a>Verificar o arquivo de origem
 Primeiro, verifique se o arquivo para cache está disponível no servidor de origem e está acessível publicamente na internet. A maneira mais rápida de fazer isso é abrir um navegador em uma sessão privada ou anônima e navegar diretamente até o arquivo. Digite ou cole a URL na caixa de endereço e verifique se isso resulta no arquivo esperado. Por exemplo, suponha que você tem um arquivo em uma conta de Armazenamento do Azure, acessível em https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Se você consegue carregar com êxito o conteúdo desse arquivo, ele está aprovado no teste.
 
-![Sucesso!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Êxito!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Embora essa seja a maneira mais rápida e fácil de verificar se o arquivo está disponível publicamente, algumas configurações de rede em sua organização poderiam dar a impressão de que um arquivo está publicamente disponível quando, na verdade, só está visível para os usuários de sua rede (mesmo que ele esteja hospedado no Azure). Para garantir que este não seja o caso, teste o arquivo com um navegador externo, como um dispositivo móvel que não está conectado à rede de sua organização ou uma máquina virtual no Azure.

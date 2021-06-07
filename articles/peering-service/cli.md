@@ -11,17 +11,17 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540579"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Registrar uma conexão de serviço de emparelhamento usando o CLI do Azure
 
 O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Microsoft 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Neste artigo, você aprenderá a registrar uma conexão de serviço de emparelhamento usando o CLI do Azure.
 
-- Este artigo requer a versão 2.0.28 ou posterior do CLI do Azure. Execute [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index#az_upgrade).
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Execute [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes que estão instaladas. Para fazer a atualização para a versão mais recente, execute [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -39,7 +39,7 @@ Verifique se os provedores de conectividade são parceiros da Microsoft.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- Este artigo requer a versão 2.0.28 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+- Este artigo exige a versão 2.0.28 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ### <a name="1-select-your-subscription"></a>1. Selecione sua assinatura
 

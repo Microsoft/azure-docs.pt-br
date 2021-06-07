@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379583"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos do SQL Server Agent para o ADF com o SSMS
@@ -26,7 +26,7 @@ Em geral, para trabalhos selecionados do SQL Agent com tipos de etapa de trabalh
     > Só há suporte para o local do pacote do sistema de arquivos.
 - Migre trabalhos aplicáveis com etapas de trabalho aplicáveis para os recursos do ADF correspondentes, como mostrado abaixo:
 
-|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Anotações|
+|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Observações|
 |---------|---------|---------|
 |Trabalho do SQL Agent|pipeline     |O nome do pipeline será *gerado para \<job name>*. <br> <br> Os trabalhos internos do agente não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |Etapa de trabalho do SSIS|Atividade executar pacote SSIS|<li> O nome da atividade será \<step name> . <li> A conta proxy usada na etapa de trabalho será migrada como autenticação do Windows desta atividade. <li> *As opções de execução* , exceto *usar tempo de execução de 32 bits* definidos na etapa de trabalho, serão ignoradas na migração. <li> A *verificação* definida na etapa de trabalho será ignorada na migração.|

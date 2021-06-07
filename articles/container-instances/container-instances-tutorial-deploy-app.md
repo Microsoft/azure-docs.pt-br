@@ -4,12 +4,12 @@ description: Tutorial das Instâncias de Contêiner do Azure, parte 3 de 3 – I
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d12b0bc91cf844001b770c8a7e534ad6b1b9b2d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500565"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763875"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 
@@ -89,13 +89,13 @@ Saída de exemplo:
 
 ```output
 listening on port 80
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1&quot; 200 1663 &quot;-&quot; &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais de nenhum dos recursos criados nessa série de tutoriais, pode executar o comando [az group delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
+Se não precisar mais de nenhum dos recursos criados nessa série de tutoriais, você poderá executar o comando [az group delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -127,8 +127,8 @@ Agora que você tem as noções básicas, siga em frente para saber mais sobre I
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

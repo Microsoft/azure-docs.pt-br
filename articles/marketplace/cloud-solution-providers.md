@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131166"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa do provedor de soluções de nuvem
@@ -64,11 +64,11 @@ Para autorizar parceiros, selecione **selecionar parceiros do CSP** e um menu ap
 
 ![Selecione o menu CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Você pode aplicar filtros de pesquisa como **País** , **Competência** ou **Habilidade** .
+Você pode aplicar filtros de pesquisa como **País**, **Competência** ou **Habilidade**.
 
 ![Filtros de país/região, competência e habilidade para pesquisa de parceiros](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-Depois de escolher a lista de parceiros, selecione **Adicionar** .
+Depois de escolher a lista de parceiros, selecione **Adicionar**.
 
 ![Exemplo de lista dos parceiros autorizados no programa CSP](media/marketplace-publishers-guide/csp-add-resellers-details.png)
 
@@ -83,9 +83,9 @@ Se essa oferta não for publicada, será necessário publicar sua oferta para di
 >[!NOTE]
 >Se você autorizar um parceiro no programa CSP em determinada região, ele poderá vender a oferta para qualquer cliente que pertença a essa região específica. Para obter mais informações sobre como as ofertas do CSP são classificadas em regiões, consulte [nuvem, mercados regionais e moeda](/partner-center/regional-authorization-overview).
 
-Se você estiver atualizando a lista de CSP de uma oferta já publicada, adicione os parceiros adicionais e selecione **Sincronizar audiência do CSP** .
+Se você estiver atualizando a lista de CSP de uma oferta já publicada, adicione os parceiros adicionais e selecione **Sincronizar audiência do CSP**.
 
-Se você tiver uma oferta que já tenha uma lista de parceiros autorizados e quiser usar a mesma lista para outra oferta, use **Importação/Exportação** . Navegue até a oferta que tem a lista de CSP e selecione **Exportar CSPs** . A função desenvolve um arquivo .csv que pode ser importado para outra oferta.
+Se você tiver uma oferta que já tenha uma lista de parceiros autorizados e quiser usar a mesma lista para outra oferta, use **Importação/Exportação**. Navegue até a oferta que tem a lista de CSP e selecione **Exportar CSPs**. A função desenvolve um arquivo .csv que pode ser importado para outra oferta.
 
 #### <a name="option-3-no-partners-in-the-csp-program"></a>Opção 3: nenhum parceiro no programa CSP
 
@@ -104,9 +104,9 @@ Se um parceiro no programa CSP não tiver vendido seu produto aos clientes e voc
    > [!NOTE]
    > Não altere as seleções dos menus suspensos preenchidas previamente.
 
-2. Para **Selecione a versão do produto** , escolha **Gerenciamento de ofertas em tempo real** .
-3. Para **Selecionar uma categoria que melhor descreva o problema** , escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreva a questão** , escolha **Atualizar oferta existente** .
+2. Para **Selecione a versão do produto**, escolha **Gerenciamento de ofertas em tempo real**.
+3. Para **Selecionar uma categoria que melhor descreva o problema**, escolha a categoria que se refere à sua oferta.
+4. Para **Selecionar um problema que melhor descreva a questão**, escolha **Atualizar oferta existente**.
 5. Selecione **Próximo** para ser direcionado para a **página de detalhes do problema** para inserir mais detalhes sobre o problema.
 6. Use **Desautorizar CSP** como o título do problema e preencha o restante das seções obrigatórias.
 
@@ -123,9 +123,9 @@ Se, no momento, sua oferta está na **Opção 1: Qualquer parceiro no programa C
    > [!NOTE]
    > Não altere as seleções dos menus suspensos preenchidas previamente.
 
-2. Para **Selecione a versão do produto** , escolha **Gerenciamento de ofertas em tempo real** .
-3. Para **Selecionar uma categoria que melhor descreva o problema** , escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreva a questão** , escolha **Atualizar oferta existente** .
+2. Para **Selecione a versão do produto**, escolha **Gerenciamento de ofertas em tempo real**.
+3. Para **Selecionar uma categoria que melhor descreva o problema**, escolha a categoria que se refere à sua oferta.
+4. Para **Selecionar um problema que melhor descreva a questão**, escolha **Atualizar oferta existente**.
 5. Selecione **Próximo** para ser direcionado para a **página de detalhes do problema** para inserir mais detalhes sobre o problema.
 6. Use **Desautorizar CSP** como o título do problema e preencha o restante das seções obrigatórias.
 
@@ -134,35 +134,35 @@ Se, no momento, sua oferta está na **Opção 1: Qualquer parceiro no programa C
 
 ### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Navegar na Opção dois: Parceiros específicos no programa CSP que eu selecionei
 
-Se, no momento, sua oferta está na **Opção 2: Parceiros específicos no programa CSP que eu selecionei** e você gostaria de navegar para a **Opção um: Qualquer parceiro no programa CSP** , use as instruções a seguir para criar uma solicitação:
+Se, no momento, sua oferta está na **Opção 2: Parceiros específicos no programa CSP que eu selecionei** e você gostaria de navegar para a **Opção um: Qualquer parceiro no programa CSP**, use as instruções a seguir para criar uma solicitação:
 
 1. Acesse a [página de solicitação de suporte](https://aka.ms/marketplacepublishersupport). Os primeiros menus suspensos são preenchidos automaticamente.
 
    > [!NOTE]
    > Não altere as seleções dos menus suspensos preenchidas previamente.
 
-2. Para **Selecione a versão do produto** , escolha **Gerenciamento de ofertas em tempo real** .
-3. Para **Selecionar uma categoria que melhor descreva o problema** , escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreva a questão** , escolha **Atualizar oferta existente** .
+2. Para **Selecione a versão do produto**, escolha **Gerenciamento de ofertas em tempo real**.
+3. Para **Selecionar uma categoria que melhor descreva o problema**, escolha a categoria que se refere à sua oferta.
+4. Para **Selecionar um problema que melhor descreva a questão**, escolha **Atualizar oferta existente**.
 5. Selecione **Próximo** para ser direcionado para a **página de detalhes do problema** para inserir mais detalhes sobre o problema.
 6. Use **Desautorizar CSP** como o título do problema e preencha o restante das seções obrigatórias.
 
- Se, no momento, sua oferta está na **Opção 2: Parceiros específicos no programa CSP que eu selecionei** e você gostaria de navegar para a **Opção 3: Nenhum parceiro no programa CSP** , você só pode navegar para essa opção se os parceiros no programa CSP que você autorizou anteriormente não revenderam sua oferta aos clientes finais. Use as instruções a seguir para criar uma solicitação:
+ Se, no momento, sua oferta está na **Opção 2: Parceiros específicos no programa CSP que eu selecionei** e você gostaria de navegar para a **Opção 3: Nenhum parceiro no programa CSP**, você só pode navegar para essa opção se os parceiros no programa CSP que você autorizou anteriormente não revenderam sua oferta aos clientes finais. Use as instruções a seguir para criar uma solicitação:
 
 1. Acesse a [página de solicitação de suporte](https://aka.ms/marketplacepublishersupport). Os primeiros menus suspensos são preenchidos automaticamente.
 
    > [!NOTE]
    > Não altere as seleções dos menus suspensos preenchidas previamente.
 
-2. Para **Selecione a versão do produto** , escolha **Gerenciamento de ofertas em tempo real** .
-3. Para **Selecionar uma categoria que melhor descreva o problema** , escolha a categoria que se refere à sua oferta.
-4. Para **Selecionar um problema que melhor descreva a questão** , escolha **Atualizar oferta existente** .
+2. Para **Selecione a versão do produto**, escolha **Gerenciamento de ofertas em tempo real**.
+3. Para **Selecionar uma categoria que melhor descreva o problema**, escolha a categoria que se refere à sua oferta.
+4. Para **Selecionar um problema que melhor descreva a questão**, escolha **Atualizar oferta existente**.
 5. Selecione **Próximo** para ser direcionado para a **página de detalhes do problema** para inserir mais detalhes sobre o problema.
 6. Use **Desautorizar CSP** como o título do problema e preencha o restante das seções obrigatórias.
 
 ### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Navegar na Opção 3: Nenhum parceiro no programa CSP
 
-Se, no momento, sua oferta está na **Opção 3: Nenhum parceiro no programa CSP** , você pode navegar para uma das outras duas opções a qualquer momento.
+Se, no momento, sua oferta está na **Opção 3: Nenhum parceiro no programa CSP**, você pode navegar para uma das outras duas opções a qualquer momento.
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Compartilhamento de materiais de vendas e suporte com parceiros no programa CSP
 

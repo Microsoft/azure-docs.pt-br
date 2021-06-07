@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74157675"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guia de desempenho para Serviço do Azure SignalR
@@ -43,7 +43,7 @@ O serviço de Signaler do Azure define sete camadas padrão para diferentes capa
 
 -   Que tipo de servidor de aplicativos (tamanho da VM) é adequado para mim? Quantos deles devo implantar?
 
-Para responder a essas perguntas, este guia primeiro fornece uma explicação de alto nível dos fatores que afetam o desempenho. Em seguida, ele ilustra o máximo de mensagens de entrada e saída para cada camada para casos de uso típicos: **Echo**, **Broadcast**, **Send to Group**e **Send to Connection** (chat ponto a ponto).
+Para responder a essas perguntas, este guia primeiro fornece uma explicação de alto nível dos fatores que afetam o desempenho. Em seguida, ele ilustra o máximo de mensagens de entrada e saída para cada camada para casos de uso típicos: **Echo**, **Broadcast**, **Send to Group** e **Send to Connection** (chat ponto a ponto).
 
 Este guia não pode abranger todos os cenários (e casos de uso diferentes, tamanhos de mensagem, padrões de envio de mensagens e assim por diante). Mas ele fornece alguns métodos para ajudá-lo a:
 
@@ -58,7 +58,7 @@ Esta seção descreve as metodologias de avaliação de desempenho e lista todos
 
 A *taxa de transferência* e a *latência* são dois aspectos típicos da verificação de desempenho. Para o serviço de Signaler do Azure, cada camada de SKU tem sua própria política de limitação de taxa de transferência. A política define *a taxa de transferência máxima permitida (largura de banda de entrada e saída)* como a taxa de transferência máxima obtida quando 99 por cento das mensagens têm latência inferior a 1 segundo.
 
-Latência é o período de tempo da conexão que envia a mensagem para receber a mensagem de resposta do serviço de Signaler do Azure. Vamos fazer um **eco** como exemplo. Cada conexão de cliente adiciona um carimbo de data/hora na mensagem. O Hub do servidor de aplicativos envia a mensagem original de volta para o cliente. Portanto, o atraso de propagação é facilmente calculado por cada conexão de cliente. O carimbo de data/hora é anexado a cada mensagem em **difusão**, **Enviar para o grupo**e **Enviar para a conexão**.
+Latência é o período de tempo da conexão que envia a mensagem para receber a mensagem de resposta do serviço de Signaler do Azure. Vamos fazer um **eco** como exemplo. Cada conexão de cliente adiciona um carimbo de data/hora na mensagem. O Hub do servidor de aplicativos envia a mensagem original de volta para o cliente. Portanto, o atraso de propagação é facilmente calculado por cada conexão de cliente. O carimbo de data/hora é anexado a cada mensagem em **difusão**, **Enviar para o grupo** e **Enviar para a conexão**.
 
 Para simular milhares de conexões de cliente simultâneas, várias VMs são criadas em uma rede virtual privada no Azure. Todas essas VMs se conectam à mesma instância do serviço Signaler do Azure.
 
@@ -74,7 +74,7 @@ WebSocket é um protocolo de comunicação bidirecional e Full-duplex em uma ún
 
 O custo de roteamento de mensagens também limita o desempenho. O serviço de sinalizador do Azure desempenha uma função como um roteador de mensagem, que roteia a mensagem de um conjunto de clientes ou servidores para outros clientes ou servidores. Um cenário ou API diferente requer uma política de roteamento diferente. 
 
-Para **Echo**, o cliente envia uma mensagem para si mesmo e o destino de roteamento também é o próprio. Esse padrão tem o menor custo de roteamento. Mas, para **difusão**, **envio para grupo**e **envio para conexão**, o serviço de signaler do Azure precisa procurar as conexões de destino por meio da estrutura de dados distribuída interna. Esse processamento extra usa mais CPU, memória e largura de banda de rede. Como resultado, o desempenho é mais lento.
+Para **Echo**, o cliente envia uma mensagem para si mesmo e o destino de roteamento também é o próprio. Esse padrão tem o menor custo de roteamento. Mas, para **difusão**, **envio para grupo** e **envio para conexão**, o serviço de signaler do Azure precisa procurar as conexões de destino por meio da estrutura de dados distribuída interna. Esse processamento extra usa mais CPU, memória e largura de banda de rede. Como resultado, o desempenho é mais lento.
 
 No modo padrão, o servidor de aplicativos também pode se tornar um afunilamento para determinados cenários. O SDK do Signaler do Azure precisa invocar o Hub, enquanto mantém uma conexão dinâmica com cada cliente por meio de sinais de pulsação.
 
@@ -172,7 +172,7 @@ Para Unit100, a largura de banda de saída máxima é de 400 MB da tabela anteri
 
 ##### <a name="mixed-use-cases"></a>Casos de uso misto
 
-O caso de uso real normalmente combina os quatro casos de uso básicos juntos: **eco**, **difusão**, **envio para grupo**e **envio para conexão**. A metodologia que você usa para avaliar a capacidade é:
+O caso de uso real normalmente combina os quatro casos de uso básicos juntos: **eco**, **difusão**, **envio para grupo** e **envio para conexão**. A metodologia que você usa para avaliar a capacidade é:
 
 1. Divida os casos de uso misto em quatro casos de uso básicos.
 1. Calcule a largura de banda máxima da mensagem de entrada e de saída usando as fórmulas anteriores separadamente.
@@ -187,7 +187,7 @@ Para o caso de uso do envio de uma mensagem aos clientes, verifique se o servido
 
 ## <a name="case-study"></a>Estudo de caso
 
-As seções a seguir passam por quatro casos de uso típicos para o transporte WebSocket: **Echo**, **Transmit**, **Send to Group**e **Send to Connection**. Para cada cenário, a seção lista a capacidade atual de entrada e de saída para o serviço de Signaler do Azure. Ele também explica os principais fatores que afetam o desempenho.
+As seções a seguir passam por quatro casos de uso típicos para o transporte WebSocket: **Echo**, **Transmit**, **Send to Group** e **Send to Connection**. Para cada cenário, a seção lista a capacidade atual de entrada e de saída para o serviço de Signaler do Azure. Ele também explica os principais fatores que afetam o desempenho.
 
 No modo padrão, o servidor de aplicativos cria cinco conexões de servidor com o serviço de Signaler do Azure. O servidor de aplicativos usa o SDK do serviço de Signaler do Azure por padrão. Nos resultados do teste de desempenho a seguir, as conexões do servidor são aumentadas para 15 (ou mais para difusão e envio de uma mensagem para um grande grupo).
 
@@ -365,21 +365,21 @@ O serviço de Signaler do Azure fornece a mesma capacidade de desempenho para o 
 
 O teste de desempenho usa aplicativos Web do Azure do [plano de serviço padrão S3](https://azure.microsoft.com/pricing/details/app-service/windows/) para o signalr ASP.net.
 
-A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **eco**do signalr ASP.net.
+A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **eco** do signalr ASP.net.
 
 |   Echo           | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | conexões      | 1,000 | 2\.000 | 5\.000 | 10.000 | 20,000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **difusão**do signalr ASP.net.
+A tabela a seguir fornece a contagem de aplicativos Web sugeridos para **difusão** do signalr ASP.net.
 
 |  Transmissão       | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | conexões      | 1,000 | 2\.000 | 5\.000 | 10.000 | 20,000 | 50.000 | 100.000 |
 | Contagem do servidor de aplicativos | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
-A tabela a seguir fornece a contagem do aplicativo Web sugerido para **Enviar para o grupo pequeno**do signalr ASP.net.
+A tabela a seguir fornece a contagem do aplicativo Web sugerido para **Enviar para o grupo pequeno** do signalr ASP.net.
 
 |  Enviar para grupo pequeno     | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|

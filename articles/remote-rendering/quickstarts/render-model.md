@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593986"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031538"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -37,10 +37,7 @@ O seguinte software deve ser instalado:
   * **Desenvolvimento para desktop com C++**
   * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * GIT [(baixar)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(baixar)](https://unity3d.com/get-unity/download)
-  * Instale estes módulos no Unity:
-    * **UWP** – Suporte ao Build da Plataforma Universal do Windows
-    * **IL2CPP** – Suporte ao Build do Windows (IL2CPP)
+* Unity (confira [requisitos do sistema](../overview/system-requirements.md#unity) para obter as versões compatíveis)
 
 ## <a name="clone-the-sample-app"></a>Clonar o aplicativo de exemplo
 
@@ -52,6 +49,7 @@ Execute os seguintes comandos:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
+powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 O último comando cria um subdiretório no diretório do ARR que contém os vários projetos de exemplo para o Azure Remote Rendering.

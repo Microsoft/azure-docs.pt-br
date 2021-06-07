@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com AMMS | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AMMS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AMMS.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4fdfe26104e4b69212b7bf6870582ef4cbb4de2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318754"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutorial: Integração do Azure Active Directory com AMMS
+# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AMMS
 
 Neste tutorial, você aprenderá como integrar o AMMS com o Azure AD (Azure Active Directory).
 A integração do AMMS ao Azure AD oferece os seguintes benefícios:
@@ -47,7 +47,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do AMMS ao Azure AD, você precisa adicionar o AMMS da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o AMMS por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o AMMS da galeria, execute as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -168,7 +168,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-amms-test-user"></a>Criar usuário de teste do AMMS
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no AMMS. Trabalhe com a  [equipe de suporte do AMMS](mailto:techsupport@microwestsoftware.com) para adicionar os usuários na plataforma do AMMS. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no AMMS. Trabalhe com a [equipe de suporte do AMMS](mailto:techsupport@microwestsoftware.com) para adicionar os usuários na plataforma do AMMS. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -182,4 +182,4 @@ Ao clicar no bloco do AMMS no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

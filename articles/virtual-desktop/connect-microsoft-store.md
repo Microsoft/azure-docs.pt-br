@@ -7,10 +7,10 @@ ms.date: 10/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9bab2a11ff9e7907621087e5027929e3e42eaf29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744726"
 ---
 # <a name="connect-with-the-microsoft-store-client"></a>Conectar-se com o cliente Microsoft Store
@@ -33,7 +33,7 @@ Assine o espaço de trabalho fornecido pelo administrador para obter a lista de 
 
 Para assinar um espaço de trabalho:
 
-1. Na tela do centro de conexão, toque em **+ Adicionar**e, em seguida, toque em **espaços de trabalho**.
+1. Na tela do centro de conexão, toque em **+ Adicionar** e, em seguida, toque em **espaços de trabalho**.
 2. Insira a URL do espaço de trabalho no campo URL do espaço de trabalho fornecido pelo administrador. A URL do espaço de trabalho pode ser uma URL ou um endereço de email.
    
    - Se você estiver usando uma URL de espaço de trabalho, use a URL que o administrador lhe forneceu.

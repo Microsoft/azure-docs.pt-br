@@ -4,17 +4,20 @@ titleSuffix: Azure Application Gateway
 description: Neste guia de início rápido, você aprenderá a usar um modelo do Resource Manager para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
-ms.service: application-gateway
-ms.topic: quickstart
-ms.date: 01/20/2021
 ms.author: victorh
-ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.date: 01/20/2021
+ms.topic: quickstart
+ms.service: application-gateway
+ms.custom:
+- mvc
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: dd100361ba5d4ff175e340ced782999e52c720c4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660048"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538446"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – Modelo do ARM
 

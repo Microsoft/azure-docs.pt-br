@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
 ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88263105"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar arquivos do Azure para um Windows Server

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784041"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
@@ -74,7 +74,7 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 - [Leia uma visão geral do AzCopy](./storage-use-azcopy-v10.md).
 - [Início Rápido: Carregar, baixar e listar blobs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
-- Saiba mais sobre:
+- Saiba mais:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](../../databox/index.yml).
     - [Gateway do Azure data box e Azure Stack Edge para transferências online](../../databox-online/index.yml).

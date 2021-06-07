@@ -3,16 +3,16 @@ title: Implantar instância de Prometheus no cluster do Azure Red Hat OpenShift
 description: Crie uma instância do Prometheus em um cluster do Azure Red Hat OpenShift para monitorar as métricas do seu aplicativo.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: Prometheus, aro, openshift, métricas, Red Hat
-ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 974096e515401ab5e292dbad4c9beba7f1611a8a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996841"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100633437"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implantar uma instância Prometheus autônoma em um cluster do Azure Red Hat OpenShift
 
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 Os novos aplicativos devem aparecer como destinos válidos na página de descoberta de serviço dentro de 30 segundos após a implantação.
 
-Para obter mais detalhes, selecione destinos de **status**  >  **Targets**.
+Para obter mais detalhes, selecione destinos de **status**  >  .
 
 > [!NOTE]
 > Para cada destino resumido com êxito, o Prometheus adiciona um ponto de dados na métrica acima. Selecione **Prometheus** no canto superior esquerdo **, insira como** a expressão e, em seguida, selecione **executar**.

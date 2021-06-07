@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: expressroute
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 446a3b786686d96f68d2d0a09d00a75e176a7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "86218128"
 ---
 Você pode usar o Azure Cloud Shell para executar a maioria dos cmdlets do PowerShell e dos comandos da CLI, em vez de instalar o Azure PowerShell ou a CLI localmente. O Azure Cloud Shell é um shell interativo gratuito que tem ferramentas comuns do Azure pré-instaladas e configuradas para uso com a conta.

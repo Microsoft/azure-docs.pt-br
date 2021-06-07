@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
 ms.openlocfilehash: 70b5732e1293e35127a19fbe736d8562056a870b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499672"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Trabalhando remotamente: considerações sobre NVA (solução de virtualização de rede) para trabalho remoto

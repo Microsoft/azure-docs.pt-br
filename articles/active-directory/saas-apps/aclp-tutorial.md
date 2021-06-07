@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao ACLP | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ACLP | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ACLP.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313555"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutorial: Integração do Azure Active Directory ao ACLP
+# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ACLP
 
 Neste tutorial, você aprenderá a integrar o ACLP ao Azure AD (Azure Active Directory).
 A integração do ACLP ao Azure AD oferece os seguintes benefícios:
@@ -166,7 +166,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-aclp-test-user"></a>Criar um usuário de teste do ACLP
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no ACLP. Trabalhe com a [equipe de suporte do ACLP](mailto:mrichards@sans.org) para adicionar os usuários à plataforma ACLP. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no ACLP. Trabalhe com a [equipe de suporte do ACLP](mailto:mrichards@sans.org) para adicionar os usuários à plataforma ACLP. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -180,4 +180,4 @@ Ao clicar no bloco do ACLP no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

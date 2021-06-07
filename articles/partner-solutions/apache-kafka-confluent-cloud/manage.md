@@ -7,10 +7,10 @@ ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99989119"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Gerenciar o recurso da Confluent Cloud
@@ -19,7 +19,7 @@ Este artigo descreve como gerenciar sua instância do Apache Kafka para nuvem co
 
 ## <a name="single-sign-on"></a>Logon único
 
-Para implementar o SSO para sua organização, o administrador de locatários pode importar o aplicativo da galeria. Essa etapa é opcional. Para obter informações sobre como importar um aplicativo, consulte [início rápido: adicionar um aplicativo ao seu locatário do Azure Active Directory (Azure AD)](../../active-directory/manage-apps/add-application-portal.md). Quando o administrador de locatários importa o aplicativo, os usuários não precisam consentir explicitamente para permitir o acesso ao portal de nuvem confluente.
+Para implementar o SSO para sua organização, o administrador de locatários pode importar o aplicativo da galeria. Esta etapa é opcional. Para obter informações sobre como importar um aplicativo, consulte [início rápido: adicionar um aplicativo ao seu locatário do Azure Active Directory (Azure AD)](../../active-directory/manage-apps/add-application-portal.md). Quando o administrador de locatários importa o aplicativo, os usuários não precisam consentir explicitamente para permitir o acesso ao portal de nuvem confluente.
 
 Para habilitar o SSO, siga estas etapas:
 
@@ -59,7 +59,7 @@ O cluster e todos os dados no cluster são excluídos permanentemente. Se seu co
 
 Você é cobrado pelo uso rateado até o momento da exclusão do cluster. Depois que o cluster é excluído permanentemente, o de forma fluente envia uma confirmação por email.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Para enviar uma solicitação de suporte para o de forma fluente, entre em contato com o [suporte do Fluent](https://support.confluent.io) ou envie uma solicitação por meio do portal, conforme mostrado abaixo.
 

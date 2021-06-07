@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460816"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461755"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101730364"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
@@ -75,7 +75,7 @@ Você pode usar qualquer nome válido para seus parâmetros; test drive reconhec
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | string          | URI base do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | URI base do seu pacote de implantação| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | Novo nome de usuário aleatório.| admin68876      |
 | **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
 | **ID da sessão**   | string          | ID de sessão de test drive exclusiva (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -300,7 +300,7 @@ A seção final a ser concluída é poder implantar as unidades de teste automat
 
    ![Assinaturas do Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenha uma **ID de locatário do Azure ad**. Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >  **Properties**  >  **ID do diretório** de propriedades:
+2. Obtenha uma **ID de locatário do Azure ad**. Se você já tiver uma ID de locatário disponível, poderá encontrá-la em **Azure Active Directory**  >    >  **ID do diretório** de propriedades:
 
    ![Propriedades do Azure Active Directory](media/test-drive/azure-active-directory-properties.png)
 

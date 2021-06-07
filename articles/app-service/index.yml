@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 2344c7a1507feb6ca3938fe0c53cf618b015f0f4
-  ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+  ms.openlocfilehash: 60e96d9d7f930a733f107f4fee2d1d7ca0348223
+  ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/06/2021
-  ms.locfileid: "99627310"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "102122231"
 landingContent:
 - title: Sobre o Serviço de Aplicativo
   linkLists:
@@ -82,8 +82,6 @@ landingContent:
       url: deploy-ci-cd-custom-container.md
     - text: Conectar um contêiner aos Arquivos do Armazenamento
       url: configure-connect-to-azure-storage.md
-    - text: Implantar com ações do GitHub
-      url: deploy-container-github-action.md
 - title: Aplicativo CRUD com um banco de dados
   linkLists:
   - linkListType: tutorial

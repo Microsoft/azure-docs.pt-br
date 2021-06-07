@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827549"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100593841"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Logs de consulta de Iniciar/Parar VMs fora do horário comercial
 
-A Automação cria dois tipos de registros no workspace do Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Este artigo revisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure Monitor.
+A Automação cria dois tipos de registros no workspace do Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Este artigo revisa os dados disponíveis para [consulta](../azure-monitor/logs/log-query-overview.md) no Azure Monitor.
 
 ## <a name="job-logs"></a>Logs de trabalho
 
@@ -72,5 +72,5 @@ A tabela a seguir fornece pesquisas de logs de exemplo para os registros de trab
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para configurar o recurso, veja [Configurar Iniciar/Parar VMs fora do horário comercial](automation-solution-vm-management-config.md).
-* Para obter informações sobre alertas de log durante a implantação de recursos, veja [Criar alertas de log com o Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Para obter informações sobre alertas de log durante a implantação de recursos, veja [Criar alertas de log com o Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 * Para resolver erros de recurso, veja [Solucionar problemas de Iniciar/Parar VMs fora do horário comercial](troubleshoot/start-stop-vm.md).

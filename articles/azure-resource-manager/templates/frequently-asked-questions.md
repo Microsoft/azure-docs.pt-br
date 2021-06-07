@@ -2,15 +2,15 @@
 title: Perguntas frequentes sobre o modelo ARM
 description: Perguntas frequentes sobre modelos de Azure Resource Manager (modelos ARM).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561895"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419397"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
@@ -88,7 +88,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Ouvi dizer que você está trabalhando em uma nova linguagem de modelo. Onde posso saber mais sobre isso?**
 
-  Para visualizar a nova linguagem, consulte [Project bicep Repository](https://github.com/Azure/bicep). Para se manter informado sobre a nova linguagem, [Inscreva-se para receber notificações](https://aka.ms/armLangUpdates).
+  Para saber mais sobre a nova linguagem, consulte [o que é bicep (versão prévia)?](bicep-overview.md).
 
 * **Há um plano para dar suporte à criação de modelos no YAML?**
 
@@ -100,7 +100,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Você oferecerá uma ferramenta para converter meus modelos JSON para o novo idioma do modelo?**
 
-  Sim.
+  Sim. Consulte [convertendo modelos de ARM entre JSON e bicep](bicep-decompile.md).
 
 ## <a name="template-specs"></a>Especificações de Modelo
 

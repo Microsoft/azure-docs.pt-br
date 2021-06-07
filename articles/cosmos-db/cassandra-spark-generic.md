@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090504"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
@@ -41,7 +41,7 @@ Este artigo está entre uma série de artigos sobre a integração da API do Cas
 
 A tabela a seguir lista os parâmetros de configuração de taxa de transferência específicos da API do Cassandra do Azure Cosmos DB fornecidos pelo conector. Para obter uma lista detalhada de todos os parâmetros de configuração, veja a página [referência de configuração](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) do repositório GitHub do Conector do Cassandra do Spark.
 
-| **Nome da propriedade** | **Valor padrão** | **Descrição** |
+| **Nome da Propriedade** | **Valor padrão** | **Descrição** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Número de linhas por lote único. Defina esse parâmetro como 1. Esse parâmetro é usado para atingir uma taxa de transferência maior para cargas de trabalho pesadas. |
 | spark.cassandra.connection.connections_per_executor_max  | Nenhum | Número máximo de conexões por nó por executor. 10*n é equivalente a 10 conexões por nó em um cluster do Cassandra de n nós. Assim, se você precisar de cinco conexões por nó por executor para um cluster do Cassandra de cinco nós, deverá definir essa configuração como 25. Modifique esse valor com base no grau de paralelismo ou no número de executores para os quais seus trabalhos do Spark estão configurados.   |

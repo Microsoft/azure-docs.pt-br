@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o repositório de segredos centrais 
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88869748"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Repositório de segredos centrais no Azure Service Fabric 
@@ -102,7 +102,7 @@ Siga estas etapas para usar o segredo em seu aplicativo Service Fabric.
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
 1. Monte os segredos em um contêiner. A única alteração necessária para tornar os segredos disponíveis dentro do contêiner é para `specify` um ponto de montagem no `<ConfigPackage>` .
-O trecho a seguir é o **ApplicationManifest.xml**modificado.  
+O trecho a seguir é o **ApplicationManifest.xml** modificado.  
 
    ```xml
    <ServiceManifestImport>

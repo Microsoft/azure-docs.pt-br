@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c035a7fbafe9b3a42fbd16e3f8377014010ddd49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88003554"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Criar um pool de hosts na área de trabalho virtual do Windows (clássico) com o PowerShell
@@ -82,7 +82,7 @@ Para ingressar no domínio com êxito, execute as seguintes ações em cada máq
 
 1. [Conecte-se à máquina virtual](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
 2. Na máquina virtual, inicie **Painel de Controle** e selecione **Sistema**.
-3. Selecione **Nome do computador**, **Alterar configurações** e selecione **Alterar...**
+3. Selecione **Nome do computador**, **Alterar configurações** e selecione **Alterar…**
 4. Selecione **Domínio** e insira o domínio do Active Directory na rede virtual.
 5. Autentique com uma conta de domínio que tenha privilégios para computadores de ingresso no domínio.
 
@@ -96,7 +96,7 @@ Registrar as máquinas virtuais em um pool de host da Área de Trabalho Virtual 
 Para registrar os agentes de Área de Trabalho Virtual do Windows, faça o seguinte em cada máquina virtual:
 
 1. [Conecte-se à máquina virtual](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) com as credenciais fornecidas ao criar a máquina virtual.
-2. Baixe e instale o Agente de Área de Trabalho Virtual do Windows.
+2. Baixe e instale o agente de Área de Trabalho Virtual do Windows.
    - Baixe o [Agente de Área de Trabalho Virtual do Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Clique com o botão direito do mouse no instalador baixado, selecione **Propriedades**, selecione **Desbloquear** e, em seguida, selecione **OK**. Isso permite que o sistema confie no instalador.
    - Execute o instalador. Quando o instalador solicitar o token de registro, insira o valor obtido no cmdlet **Export-RdsRegistrationInfo**.
@@ -110,7 +110,7 @@ Para registrar os agentes de Área de Trabalho Virtual do Windows, faça o segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você já criou seu pool de host, pode preenchê-lo com o RemoteApp. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
+Agora que já criou seu pool de host, você pode preenchê-lo com RemoteApps. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
 
 > [!div class="nextstepaction"]
 > [Tutorial Gerenciar grupos de aplicativos](../manage-app-groups.md)

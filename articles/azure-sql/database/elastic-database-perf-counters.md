@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781253"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Criar contadores de desempenho para acompanhar o desempenho do Gerenciador de mapa de fragmentos
@@ -31,7 +31,7 @@ Você pode capturar o desempenho de um [Gerenciador de mapa do fragmento](elasti
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Para criar a categoria de desempenho e contadores, o usuário deve ser uma parte do grupo **Administradores** local no computador que hospeda o aplicativo.  
-* Para criar uma instância do contador de desempenho e atualizar os contadores, o usuário deve ser um membro do grupo **Administradores** ou **Usuários do Monitor de Desempenho** .
+* Para criar uma instância do contador de desempenho e atualizar os contadores, o usuário deve ser um membro do grupo **Administradores** ou **Usuários do Monitor de Desempenho**.
 
 ## <a name="create-performance-category-and-counters"></a>Criar categoria e contadores de desempenho
 
@@ -42,12 +42,12 @@ Para criar os contadores, chame o método CreatePerformanceCategoryAndCounters d
 Você também pode usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script do PowerShell para executar o método.
 O método cria os seguintes contadores de desempenho:  
 
-* **Mapeamentos em cache** : número de mapeamentos armazenados em cache para o mapa de fragmentos.
-* **Operações de DDR/s** : a taxa de operações de roteamento dependentes de dados para o mapa de fragmentos. Esse contador é atualizado quando uma chamada para [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulta em uma conexão bem-sucedida com o fragmento de destino.
-* **Mapeamento de acertos de pesquisa do cache/s** : taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
-* **Mapeamento de erros de pesquisa de cache/s** : taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
-* **Mapeamentos adicionados ou atualizados no cache/s** : taxa à qual os mapeamentos estão sendo adicionados ou atualizados no cache para o mapa de fragmentos.
-* **Mapeamentos removidos do cache/s** : taxa à qual os mapeamentos estão sendo removidos do cache para o mapa de fragmentos.
+* **Mapeamentos em cache**: número de mapeamentos armazenados em cache para o mapa de fragmentos.
+* **Operações de DDR/s**: a taxa de operações de roteamento dependentes de dados para o mapa de fragmentos. Esse contador é atualizado quando uma chamada para [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) resulta em uma conexão bem-sucedida com o fragmento de destino.
+* **Mapeamento de acertos de pesquisa do cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
+* **Mapeamento de erros de pesquisa de cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
+* **Mapeamentos adicionados ou atualizados no cache/s**: taxa à qual os mapeamentos estão sendo adicionados ou atualizados no cache para o mapa de fragmentos.
+* **Mapeamentos removidos do cache/s**: taxa à qual os mapeamentos estão sendo removidos do cache para o mapa de fragmentos.
 
 Contadores de desempenho são criados para cada mapa de fragmentos em cache por processo.  
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 4a4eccf90756b9b34e024a0ece8e71b1c191c233
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96180720"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucid-all-products"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o Lucid (todos os produtos)

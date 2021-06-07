@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 25e39d3fc9c56a282714bafb630fee65421fb5ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361134"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606660"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar arquivos novos e alterados incrementalmente com base em LastModifiedDate usando a ferramenta de Copiar Dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você usará o portal do Azure para criar um data factory. Em seguida, você usará a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente somente arquivos novos e alterados, do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure. Ele usa `LastModifiedDate` para determinar quais arquivos copiar.
 
@@ -55,7 +55,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 
    O nome do seu data factory deve ser globalmente exclusivo. Você pode receber essa mensagem de erro:
 
-   ![Mensagem de erro nome não disponível](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nova data factory mensagem de erro para o nome duplicado.":::
 
    Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_**ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
 3. Em **assinatura**, selecione a assinatura do Azure na qual você criará o novo data Factory.
@@ -73,7 +73,7 @@ Prepare o armazenamento de BLOBs para o tutorial ao concluir estas etapas:
 9. Depois que o data factory for criado, a data factory home page será exibida.
 10. Para abrir a interface do usuário do Azure Data Factory (IU) em uma guia separada, selecione o bloco **criar & monitor** :
 
-    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home Page do Azure Data Factory, com o bloco do & do monitor do autor.":::
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Usar a ferramenta Copy Data para criar um pipeline
 

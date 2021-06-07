@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "67172336"
 ---
 O trabalho produz um arquivo de saída JSON que contém metadados sobre as faces detectadas e controladas. Os metadados incluem coordenadas que indicam o local das faces, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
@@ -30,7 +30,7 @@ O JSON de saída contém os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| start |A hora de início do primeiro evento em "tiques". |
+| iniciar |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
 | índice | (Aplicável somente ao Azure Media Redactor) define o índice do quadro do evento atual. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |

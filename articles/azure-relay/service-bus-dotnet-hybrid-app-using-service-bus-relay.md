@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90983884"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure
@@ -91,7 +91,7 @@ Primeiro, você criará um sistema de catálogo de produtos local simulado.  Est
    Os assemblies do cliente necessários foram referenciados.
 
 1. Adicione uma nova classe para seu contrato de produto. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **servidordeprodutos** e selecione **Adicionar**  >  **classe**.
-1. Em **nome**, insira o nome *ProductsContract.cs* e selecione **Adicionar**.
+1. Em **nome**, insira o nome *ProductsContract. cs* e selecione **Adicionar**.
 
 Faça as seguintes alterações de código em sua solução:
 
@@ -132,7 +132,7 @@ Faça as seguintes alterações de código em sua solução:
     }
     ```
 
-1. No *Program.cs*, substitua a definição de namespace pelo código a seguir, que adiciona o serviço de perfil e o host para ele.
+1. Em *Program. cs*, substitua a definição de namespace pelo código a seguir, que adiciona o serviço de perfil e o host para ele.
 
     ```csharp
     namespace ProductsServer
@@ -247,13 +247,13 @@ Nesta seção, você criará um aplicativo ASP.NET simples que exibe os dados re
 1. De volta ao **criar um novo aplicativo Web ASP.net**, selecione **criar** para criar o aplicativo MVC.
 1. Configurar recursos do Azure para um novo aplicativo Web. Siga as etapas em [publicar seu aplicativo Web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Em seguida, retorne a este tutorial e continue para a próxima etapa.
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **modelos** e selecione **Adicionar**  >  **classe**.
-1. Nomeie a classe *Product.cs*e selecione **Adicionar**.
+1. Nomeie a classe *Product. cs* e, em seguida, selecione **Adicionar**.
 
     ![Criar modelo de produto][17]
 
 ### <a name="modify-the-web-application"></a>Modificar o aplicativo web
 
-1. No arquivo *Product.cs* no Visual Studio, substitua a definição de namespace existente pelo código a seguir:
+1. No arquivo *Product. cs* no Visual Studio, substitua a definição de namespace existente pelo código a seguir:
 
    ```csharp
     // Declare properties for the products inventory.
@@ -268,7 +268,7 @@ Nesta seção, você criará um aplicativo ASP.NET simples que exibe os dados re
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda **controladores**e clique duas vezes em **HomeController.cs** para abrir o arquivo no Visual Studio.
+1. Em **Gerenciador de soluções**, expanda **controladores** e clique duas vezes em **HomeController. cs** para abrir o arquivo no Visual Studio.
 1. Em *HomeController.cs*, substitua a definição do namespace existente pelo código a seguir:
 
     ```csharp
@@ -291,13 +291,13 @@ Nesta seção, você criará um aplicativo ASP.NET simples que exibe os dados re
     }
     ```
 
-1. Em **Gerenciador de soluções**, expanda **modos de exibição**  >  **compartilhados**e clique duas vezes em **_Layout. cshtml** para abrir o arquivo no editor do Visual Studio.
+1. Em **Gerenciador de soluções**, expanda **modos de exibição**  >  **compartilhados** e clique duas vezes em **_Layout. cshtml** para abrir o arquivo no editor do Visual Studio.
 1. Altere todas as ocorrências de `My ASP.NET Application` para *produtos da Northwind Traders*.
 1. Remova os `Home` `About` links, e `Contact` . No exemplo a seguir, exclua o código destacado.
 
     ![Excluir os itens da lista gerada][41]
 
-1. Em **Gerenciador de soluções**, expanda **exibições**  >  **página inicial**e clique duas vezes em **index. cshtml** para abrir o arquivo no editor do Visual Studio. Substitua todo o conteúdo do arquivo pelo código a seguir:
+1. Em **Gerenciador de soluções**, expanda **exibições**  >  **página inicial** e clique duas vezes em **index. cshtml** para abrir o arquivo no editor do Visual Studio. Substitua todo o conteúdo do arquivo pelo código a seguir:
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -354,7 +354,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 1. Semelhante à etapa na seção [criar um servidor local](#create-an-on-premises-server) , adicione o pacote NuGet às referências do projeto. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **Portaldeprodutos** e selecione **gerenciar pacotes NuGet**.
 1. Procure *WindowsAzure.ServiceBus* e selecione o item **WindowsAzure.ServiceBus**. Em seguida, conclua a instalação e feche essa caixa de diálogo.
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **portaldeprodutos** e selecione **Adicionar**  >  **Item existente**.
-1. Navegue até o arquivo *ProductsContract.cs* do projeto de console **ServidorDeProdutos**. Realce *ProductsContract.cs*. Selecione a seta para baixo ao lado de **Adicionar**e, em seguida, escolha **Adicionar como link**.
+1. Navegue até o arquivo *ProductsContract.cs* do projeto de console **ServidorDeProdutos**. Realce *ProductsContract. cs*. Selecione a seta para baixo ao lado de **Adicionar** e, em seguida, escolha **Adicionar como link**.
 
    ![Adicionar como um link][24]
 
@@ -403,7 +403,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse na solução **portaldeprodutos** . Certifique-se de clicar com o botão direito do mouse na solução, não no projeto. Selecione **Adicionar**  >  **projeto existente**.
 1. Navegue até o projeto **ServidorDeProdutos** e clique duas vezes no arquivo de solução *ServidorDeProdutos.csproj* para adicioná-lo.
 1. **Servidordeprodutos** deve estar em execução para exibir os dados em **portaldeprodutos**. No **Gerenciador de soluções**, clique com o botão direito do mouse na solução **Portaldeprodutos** e selecione Propriedades para exibir **as** **páginas de propriedades**.
-1. Selecione **Common Properties**o  >  **projeto de inicialização** Propriedades comuns e escolha **vários projetos de inicialização**. Certifique-se de que **servidordeprodutos** e **portaldeprodutos** apareçam, nessa ordem, e que a **ação** para ambos seja **iniciada**.
+1. Selecione o  >  **projeto de inicialização** Propriedades comuns e escolha **vários projetos de inicialização**. Certifique-se de que **servidordeprodutos** e **portaldeprodutos** apareçam, nessa ordem, e que a **ação** para ambos seja **iniciada**.
 
       ![Vários projetos de inicialização][25]
 

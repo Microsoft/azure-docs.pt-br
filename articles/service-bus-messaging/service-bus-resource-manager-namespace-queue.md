@@ -3,17 +3,19 @@ title: Criar fila e namespace do Barramento de Serviço do Azure usando o modelo
 description: 'Início Rápido: Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager'
 documentationcenter: .net
 author: spelluru
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 06/23/2020
+ms.topic: quickstart
+ms.tgt_pltfrm: dotnet
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 6577abf1900a166087ff63c331d7c0390fab1342
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660624"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535017"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Início Rápido: Criar um namespace e fila de Barramento de Serviço usando um modelo do ARM
 

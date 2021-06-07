@@ -7,10 +7,10 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934842"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure

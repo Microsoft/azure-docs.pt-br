@@ -1,17 +1,17 @@
 ---
 title: Opções de computação e armazenamento-banco de dados do Azure para PostgreSQL – servidor flexível
 description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para PostgreSQL – servidor flexível.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519381"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608163"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -119,6 +119,9 @@ Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos d
 |E64s_v3             |IOPS DE 18.000                               |120|240|500 |1100|2300 |5.000 |7500 |7500 |16000 |18000 |
 
 Quando marcado com um \* , o IOPS é limitado pelo tipo de VM selecionado. Caso contrário, o IOPS será limitado pelo tamanho de armazenamento selecionado.
+
+>[!NOTE]
+> Você pode ver um IOPS maior nas métricas devido à intermitência no nível do disco. Consulte a [documentação](../../virtual-machines/disk-bursting.md#disk-level-bursting) para obter mais detalhes. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Largura de banda de e/s máxima (MiB/s) para sua configuração
 

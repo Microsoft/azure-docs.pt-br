@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+manager: femila
+ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730778"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445984"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
@@ -124,7 +124,7 @@ Para saber mais sobre as URLs que você precisa desbloquear para usar os cliente
 A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens do sistema operacional x64:
 
 * Windows 10 Enterprise de várias sessões, versão 1809 ou posterior
-* Windows 10 Enterprise, versão 1809 ou posterior
+* Windows 10 Enterprise versão 1809 ou posterior (somente o Canal Semestral)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016

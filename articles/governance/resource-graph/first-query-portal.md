@@ -3,12 +3,14 @@ title: 'Início Rápido: Sua primeira consulta do portal'
 description: Neste início rápido, você segue etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 07e336121c6338b27c018acb5b2332653663e1b4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920087"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533078"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 

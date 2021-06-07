@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95908771"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Referência da linguagem SQL de aceleração de consulta
@@ -55,7 +55,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 ## <a name="data-types"></a>Tipos de dados
 
-|Tipo de dados|Descrição|
+|Tipo de Dados|Descrição|
 |---------|-------------------------------------------|
 |INT      |Inteiro com sinal de 64 bits.                     |
 |FLOAT    |ponto flutuante de 64 bits ("precisão dupla").|
@@ -94,7 +94,7 @@ Há suporte para os seguintes operadores SQL padrão:
 |[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Executa uma operação lógica AND bit a bit entre dois valores inteiros.|
 |[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Executa uma operação OR lógica em bits entre dois valores inteiros especificados como convertido em expressões binárias dentro de instruções Transact-SQL.|
 |[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Nega uma entrada booliana.|
-|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte uma expressão de um tipo de dados em outro.|
+|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte uma expressão de um tipo de dados para outro.|
 |[BETWEEN](/sql/t-sql/language-elements/between-transact-sql)    |Especifica um intervalo a ser testado.|
 |[IN](/sql/t-sql/language-elements/in-transact-sql)    |Determina se um valor especificado corresponde a qualquer valor em uma subconsulta ou uma lista.|
 |[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Retorna um valor nulo se as duas expressões especificadas forem iguais.|
@@ -122,8 +122,8 @@ A linguagem SQL de aceleração de consulta dá suporte às seguintes funções 
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Retorna uma expressão de caractere com dados de caractere em minúsculas convertidos em maiúsculas.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Retorna parte de uma expressão de caractere, binária, texto ou imagem no SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Remove o caractere de espaço (32) ou outros caracteres especificados do início e do fim de uma cadeia de caracteres.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|LEADING    |Descrição|
+|TRAILING    |Descrição|
 
 Aqui estão alguns exemplos:
 
@@ -186,8 +186,8 @@ Esta tabela descreve as cadeias de caracteres que você pode usar para especific
 
 |Cadeia de formato    |Saída                               |
 |-----------------|-------------------------------------|
-|aa               |Ano no formato de 2 dígitos – 1999 como ' 99 '|
-|s                |Ano no formato de 4 dígitos               |
+|yy               |Ano no formato de 2 dígitos – 1999 como ' 99 '|
+|a                |Ano no formato de 4 dígitos               |
 |yyyy             |Ano no formato de 4 dígitos               |
 |M                |Mês do ano – 1                    |
 |MM               |Zero preenchido por mês – 01               |
@@ -201,7 +201,7 @@ Esta tabela descreve as cadeias de caracteres que você pode usar para especific
 |H                |Hora do dia (0-23)                   |
 |HH               |Zero hora do dia preenchida (00-23)      |
 |m                |Minuto de hora (0-59)                |
-|mm               |Zero de hora preenchida (00-59)           |
+|MM               |Zero de hora preenchida (00-59)           |
 |s                |Segundo de minutos (0-59)             |
 |ss               |Nenhum segundos preenchido (00-59)          |
 |S                |Fração de segundos (0,1-0,9)        |

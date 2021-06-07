@@ -13,14 +13,28 @@
   items:
     - name: Codificar um aplicativo cliente
       href: tutorial-code.md
-    - name: Explorar as noções básicas com um aplicativo cliente de exemplo
-      href: tutorial-command-line-app.md
+    - name: Criar um grafo
+      items:
+        - name: Usar um aplicativo cliente de exemplo
+          href: tutorial-command-line-app.md
+        - name: Usar os comandos da CLI do Azure
+          href: tutorial-command-line-cli.md
     - name: Conectar uma solução de ponta a ponta
       href: tutorial-end-to-end.md
 - name: Conceitos
   items:
-    - name: Modelos personalizados
+    - name: Modelos de DTDL
       href: concepts-models.md
+    - name: Ontologias
+      items:
+        - name: O que é uma ontologia?
+          href: concepts-ontologies.md
+        - name: Adoção de ontologias padrão do setor
+          href: concepts-ontologies-adopt.md
+        - name: Conversão de ontologias
+          href: concepts-ontologies-convert.md
+        - name: Extensão de ontologias
+          href: concepts-ontologies-extend.md
     - name: Gêmeos digitais e o grafo de gêmeos
       href: concepts-twins-graph.md
     - name: Idioma de consulta
@@ -65,10 +79,8 @@
           href: how-to-move-regions.md
     - name: Modelos de design
       items:
-        - name: Gerenciar modelos personalizados
+        - name: Gerenciar modelos de DTDL
           href: how-to-manage-model.md
-        - name: Integrar modelos padrão do setor
-          href: how-to-integrate-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar marcas
@@ -89,10 +101,10 @@
       items:
         - name: Usar as APIs e os SDKs
           href: how-to-use-apis-sdks.md
+        - name: Criar SDKs de linguagem personalizada com o AutoRest
+          href: how-to-create-custom-sdks.md
         - name: Fazer solicitações com o Postman
           href: how-to-use-postman.md
-        - name: Criar SDKs personalizados com o AutoRest
-          href: how-to-create-custom-sdks.md
         - name: Integração com o Serviço do Azure SignalR
           href: how-to-integrate-azure-signalr.md
     - name: Conectar entrada
@@ -146,21 +158,23 @@
         - name: Painel de controle
           items:
             - name: SDK do .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/management
             - name: Java SDK
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement
         - name: Plano de dados
           items:
             - name: SDK do .NET (C#)
-              href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet
+              href: /dotnet/api/overview/azure/digitaltwins/client
             - name: Java SDK
-              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable
+              href: /java/api/overview/azure/digitaltwins/client
             - name: SDK do JavaScript
-              href: /javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest
+              href: /javascript/api/@azure/digital-twins-core/
             - name: SDK do Python
-              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+              href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
     - name: CLI dos Gêmeos Digitais
-      href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
+      href: /cli/azure/ext/azure-iot/dt
+    - name: Especificação da DTDL v2
+      href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
 - name: Recursos
   items:
     - name: Limites de serviço dos Gêmeos Digitais
@@ -200,9 +214,9 @@
             - name: SDK do Python – Código-fonte
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: SDK do Go – GoDoc
-              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt'
             - name: Go – Código-fonte
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt'
         - name: Plano de dados
           items:
             - name: Swagger do plano de dados
@@ -241,24 +255,30 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Ferramentas e projetos de exemplo
       items:
-        - name: Serviço do simulador de dispositivo
-          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Coleção Postman dos Gêmeos Digitais do Azure
+          href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Exemplos de ponta a ponta dos Gêmeos Digitais do Azure
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Gerenciador de Gêmeos Digitais do Azure (exemplo)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validador DTDL (exemplo)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Carregador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Visualizador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Conversor OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Exemplo de integração do SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
         - name: Swaggers personalizados para o conector de Aplicativos Lógicos
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+        - name: Serviço do simulador de dispositivo
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
     - name: DTDL
       items:
-        - name: Especificação da DTDL v2
-          href: 'https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md'
         - name: Extensão da DTDL para VS Code
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Biblioteca do analisador DTDL – NuGet
@@ -282,4 +302,6 @@
         - name: Portal do Azure
           href: 'https://portal.azure.com'
     - name: Opções de Ajuda e suporte
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    - name: Glossário de IoT
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

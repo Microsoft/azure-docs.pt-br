@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747743"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificação de encerramento para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -28,12 +28,12 @@ Há várias maneiras de habilitar notificações de encerramento em suas instân
 
 As etapas a seguir habilitam a notificação de término ao criar um novo conjunto de dimensionamento. 
 
-1. Vá para **conjuntos de dimensionamento de máquinas virtuais** .
+1. Vá para **conjuntos de dimensionamento de máquinas virtuais**.
 1. Selecione **+ Adicionar** para criar um novo conjunto de dimensionamento.
 1. Vá para a guia **Gerenciamento** . 
 1. Localize a seção **término da instância** .
-1. Para **notificação de encerramento de instância** , selecione **ativado** .
-1. Para o **atraso de encerramento (minutos)** , defina o tempo limite padrão desejado.
+1. Para **notificação de encerramento de instância**, selecione **ativado**.
+1. Para o **atraso de encerramento (minutos)**, defina o tempo limite padrão desejado.
 1. Quando terminar de criar o novo conjunto de dimensionamento, selecione o botão **revisar + criar** . 
 
 > [!NOTE]
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-O bloco acima Especifica um atraso de tempo limite de 5 minutos (conforme indicado por *PT5M* ) para qualquer operação de término em todas as instâncias em seu conjunto de dimensionamento. O campo *notBeforeTimeout* pode usar qualquer valor entre 5 e 15 minutos no formato ISO 8601. Você pode alterar o tempo limite padrão para a operação de término modificando a propriedade *notBeforeTimeout* em *terminateNotificationProfile* descrito acima.
+O bloco acima Especifica um atraso de tempo limite de 5 minutos (conforme indicado por *PT5M*) para qualquer operação de término em todas as instâncias em seu conjunto de dimensionamento. O campo *notBeforeTimeout* pode usar qualquer valor entre 5 e 15 minutos no formato ISO 8601. Você pode alterar o tempo limite padrão para a operação de término modificando a propriedade *notBeforeTimeout* em *terminateNotificationProfile* descrito acima.
 
-Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout* , atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
+Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
 > [!NOTE]
 >As notificações de término em instâncias do conjunto de dimensionamento só podem ser habilitadas com a versão de API 2019-03-01 e superior
@@ -180,7 +180,7 @@ Verifique se cada VM no conjunto de dimensionamento está apenas aprovando o Eve
 
 Você também pode consultar scripts de exemplos para consultar e responder a eventos [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
-## <a name="tips-and-best-practices"></a>Dicas e melhores práticas
+## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
 -   Encerrar notificações somente em operações ' excluir ' – todas as operações de exclusão (exclusão manual ou redução iniciada pelo dimensionamento automático) gerarão eventos de término se o conjunto de dimensionamento tiver *scheduledEventsProfile* habilitado. Outras operações, como reinicializar, refazer imagem, reimplantar e parar/desalocar, não geram eventos Terminate. As notificações de término não podem ser habilitadas para VMs de baixa prioridade.
 -   Nenhuma espera obrigatória para tempo limite – você pode iniciar a operação de término a qualquer momento depois que o evento tiver sido recebido e antes de o tempo de falta *antes* do evento ser expirado.
 -   Exclusão obrigatória no tempo limite – não há nenhum recurso de estender o valor de tempo limite após a geração de um evento. Quando o tempo limite expirar, o evento de encerramento pendente será processado e a VM será excluída.
@@ -197,7 +197,7 @@ Se você não estiver obtendo eventos de **término** por meio de eventos agenda
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obtendo evento de encerramento com hora incorreta  
-Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout* , atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
+Depois de habilitar o *scheduledEventsProfile* no modelo do conjunto de dimensionamento e definir o *notBeforeTimeout*, atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: d820be66c70ae336361de7209722c4018ffd5077
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5b49e62330c789d6d5cbe2af2edb28a2c3e1238f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392163"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583081"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
 
@@ -241,6 +241,7 @@ Para copiar dados do Salesforce, defina o tipo de coletor na atividade de cópia
 | externalIdFieldName | O nome do campo de ID externo para a operação upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5.000) |
 | ignoreNullValues | Indica se deve ignorar valores NULL de dados de entrada durante a operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: Deixa os dados no objeto de destino inalterados quando você faz uma operação upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert ou atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo: coletor Salesforce em uma atividade de cópia**
 
@@ -291,14 +292,14 @@ Para consultar os registros excluídos de maneira reversível da lixeira do Sale
 
 Ao copiar dados do Salesforce, é possível usar a consulta SOQL ou a consulta SQL. Note que as duas têm suporte diferente de sintaxe e funcionalidade, não combine-as. É recomendável usar a consulta SOQL, que tem suporte nativo do Salesforce. A tabela a seguir lista as principais diferenças:
 
-| Syntax | Modo SOQL | Modo SQL |
+| Sintaxe | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
 | Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
-| Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relationship | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
+| Renomeação de coluna | Sem suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
+| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Sem suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
@@ -319,9 +320,9 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 |:--- |:--- |
 | Numeração automática |String |
 | Caixa de seleção |Boolean |
-| Currency |Decimal |
+| Moeda |Decimal |
 | Data |Datetime |
-| Data/Hora |Datetime |
+| Data/Hora |DateTime |
 | Email |String |
 | ID |String |
 | Relação de pesquisa |String |

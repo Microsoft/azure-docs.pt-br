@@ -12,13 +12,13 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730649"
 ---
-# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implantar a VM do BIG-IP Virtual Edition na IaaS do Azure para acesso híbrido seguro
+# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implantar a VM do F5 BIG-IP Virtual Edition na IaaS do Azure para acesso híbrido seguro
 
 Este tutorial orienta você pelo processo de ponta a ponta de implantação de vitural (edição BIG-IP) no Azure IaaS. Ao final deste tutorial, você deve ter:
 
@@ -79,8 +79,8 @@ Conclua as tarefas a seguir para implantar o BIG-IP VE do [Azure Marketplace](ht
 
  |  Detalhes do projeto     |  Valor     |
  |:-------|:--------|
- |Assinatura|Assinatura de destino para a implantação de VM BIG-IP|
- |Grupo de recursos | Grupo de recursos do Azure existente a VM BIG-IP será implantada ou criará uma. Deve ser o mesmo grupo de recursos do seu DC e VMs do IIS|
+ |Subscription|Assinatura de destino para a implantação de VM BIG-IP|
+ |Resource group | Grupo de recursos do Azure existente a VM BIG-IP será implantada ou criará uma. Deve ser o mesmo grupo de recursos do seu DC e VMs do IIS|
  | **Detalhes da instância**|  |
  |Nome da VM| Exemplo de BIG-IP-VM |
  |Região | Direcionar a região geográfica do Azure para BIG-IP-VM |
@@ -214,7 +214,7 @@ As etapas a seguir pressupõem que a zona DNS do domínio público usado para se
 
  | Campo | Valor |
  |:-------|:-----------|
- |Assinatura| Mesma assinatura que o BIG-IP-VM|
+ |Subscription| Mesma assinatura que o BIG-IP-VM|
  |Zona DNS| Zona DNS que é autoritativa para o sufixo de domínio verificado que seus sites publicados usarão, por exemplo, www.contoso.com |
  |Nome | O nome de host que você especificar será resolvido para o IP público que está associado ao IP secundário selecionado. Certifique-se de definir o DNS correto para mapeamentos de IP. Consulte a última imagem na seção Configurações de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |

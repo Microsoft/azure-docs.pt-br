@@ -12,12 +12,12 @@ metadata:
   author: v-dalc
   ms.author: alkohli
   ms.date: 01/08/201
-  ms.openlocfilehash: fe86eab66b0f03cb23072a7a34c4be161ca4fb38
-  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.openlocfilehash: f30a85c3e38917357f162b1ad24899fba36a12c5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98725730"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101712616"
 landingContent:
 - title: Sobre a Importação/Exportação do Azure
   linkLists:
@@ -28,9 +28,9 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Escolher as opções de transferência de dados
-      url: /azure/storage/common/storage-choose-data-transfer-solution
+      url: ../storage/common/storage-choose-data-transfer-solution.md
     - text: Usar transferência pela rede ou offline
-      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+      url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
 - title: Requisitos
   linkLists:
   - linkListType: concept

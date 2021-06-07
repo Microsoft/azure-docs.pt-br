@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855066"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100589544"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -34,7 +34,7 @@ A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tip
 |-|-|-|-|
 | ASP.NET | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | ASP.NET Core | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Verificação de | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
+| Azure Functions | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | Node.JS | Não | [Sim](./nodejs.md#sampling) | Somente se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Somente se nenhuma outra amostragem estiver em vigor |
@@ -478,7 +478,7 @@ Se as condições para usar outras formas de amostragem não se aplicarem, é re
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Saber se a amostragem está em operação
 
-Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](../log-query/log-query-overview.md) como esta:
+Para descobrir a taxa de amostragem real, independentemente de onde ela tiver sido aplicada, use uma [consulta do Analytics](../logs/log-query-overview.md) como esta:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

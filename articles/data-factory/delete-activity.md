@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.openlocfilehash: 3021d29f472dbbf43ae53981287b1f4676e8f932
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392707"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade Excluir no Azure Data Factory
@@ -78,7 +78,7 @@ Veja a seguir algumas recomendações para usar a atividade Excluir:
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | dataset | Fornece a referência de conjunto de dados para determinar quais arquivos ou pasta serão excluídos | Sim |
 | recursiva | Indica se os arquivos são excluídos recursivamente das subpastas ou somente da pasta especificada.  | Não. O padrão é `false`. |

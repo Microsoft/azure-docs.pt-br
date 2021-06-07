@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89079125"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Início Rápido: Criar um Firewall do Azure e Grupos de IP – Modelo do ARM
@@ -76,7 +76,7 @@ No portal do Azure, examine os recursos implantados, principalmente as regras de
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="Grupos de IP.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Grupos de IP.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Regras de rede.":::
 
 Para saber mais sobre a sintaxe e as propriedades de JSON para um firewall em um modelo, confira [referência de modelo Microsoft.Network/azureFirewalls](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 

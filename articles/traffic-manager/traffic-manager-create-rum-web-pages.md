@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98184551"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure usando páginas da Web
@@ -66,6 +66,6 @@ Depois de obter a chave de RUM, a próxima etapa será inserir esse JavaScript c
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [Medidas Reais de Usuário](traffic-manager-rum-overview.md)
-- Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
+- Saiba [como funciona o Gerenciador de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
 - Saiba como [criar um perfil do Gerenciador de tráfego](./quickstart-create-traffic-manager-profile.md)

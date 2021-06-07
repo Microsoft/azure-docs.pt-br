@@ -3,12 +3,12 @@ title: Implantar a amostra de blueprint de carga de trabalho do ASE/SQL do ISO 2
 description: Etapas de implantação da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627476"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669637"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantação da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001
 
@@ -133,7 +133,7 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |Grupo de recursos do Banco de Dados SQL do Azure|Resource group|Nome|**Bloqueado** – concatena o **Nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do Banco de Dados SQL do Azure|Resource group|Location|**Bloqueado** – usa o parâmetro de blueprint.|
 |Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|Nome de usuário de administrador do SQL Server do Azure|Nome de usuário para o SQL Server do Azure. Precisa corresponder ao mesmo valor da propriedade no **Modelo do Key Vault**. O valor padrão é _sql-admin-user_.|
-|Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|Senha do administrador do SQL Server do Azure (ID de Recurso do Key Vault)|A ID do Recurso do Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pela sua ID de Assinatura e `{orgName}` pelo parâmetro de blueprint do **Nome da organização**.|
+|Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|Senha do administrador do SQL Server do Azure (ID de Recurso do Key Vault)|A ID do Recurso do Key Vault. Use "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pela sua ID de Assinatura e `{orgName}` pelo parâmetro de blueprint do **Nome da organização**.|
 |Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|Senha do administrador do SQL Server do Azure (Nome do Segredo do Key Vault)|Nome de usuário do administrador do SQL Server. Deve corresponder ao valor no **modelo de Key Vault**, propriedade **nome de usuário de administrador do SQL Server do Azure**.|
 |Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|Retenção de log em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo de Banco de Dados SQL do Azure|Modelo do Resource Manager|ID de objeto de administrador do AAD|ID de objeto do AAD do usuário que será atribuído como um administrador do Active Directory. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, pesquise e selecione "Usuários" em _Serviços_. Use a caixa _Nome_ para filtrar o nome da conta e selecione essa conta. Na página _Perfil do usuário_, selecione o ícone "Clique para copiar" ao lado da _ID de Objeto_.|

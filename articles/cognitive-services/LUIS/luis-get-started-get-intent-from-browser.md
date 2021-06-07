@@ -3,14 +3,14 @@ title: Como consultar previsões usando um navegador – LUIS
 description: Neste artigo, use um aplicativo LUIS público disponível para determinar a intenção do usuário com base em textos de conversa em um navegador.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 11/30/2020
-ms.openlocfilehash: 6aa681c8ea60cb57ac3e6d143c60cc46bc057719
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.topic: quickstart
+ms.date: 03/26/2021
+ms.openlocfilehash: 4542f85ab562e65777fb8570873305523c76aee6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436905"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276817"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>Como consultar o runtime de previsão com o texto do usuário
 
@@ -176,4 +176,4 @@ Saiba mais sobre:
 * [Subdomínios personalizados](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo no portal do LUIS](get-started-portal-build-app.md)
+> [Usar as bibliotecas de cliente ou a API REST](client-libraries-rest-api.md)

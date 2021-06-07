@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 90da16789344754c02d46022160db71ee261a056
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754055"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
@@ -35,7 +35,7 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Espaço livre em disco (disco de retenção)** |  600 GB |
 
 
-## <a name="hyper-v-vms"></a>VMs do Hyper-V
+## <a name="hyper-v-vms"></a>VMs Hyper-V
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |
@@ -54,8 +54,8 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **NFS**                        | Volumes NFS montados como volumes nas VMs não serão replicados.|
 | **ISCSI**                      | As VMs com destinos iSCSI não têm suporte para migração.
 | **Disco de destino**                | Você pode migrar para VMs do Azure somente com o Managed disks. |
-| **IPv6** | Não há suporte.|
-| **Agrupamento NIC** | Não há suporte.|
+| **IPv6** | Sem suporte.|
+| **Agrupamento NIC** | Sem suporte.|
 | **Azure Site Recovery** | Não é possível replicar usando a migração de servidor de migrações para Azure se a VM estiver habilitada para replicação com Azure Site Recovery.|
 | **Portas** | Conexões de saída na porta HTTPS 443 para enviar dados de replicação da VM.|
 
@@ -89,16 +89,16 @@ time.nist.gov | Verifica a sincronização de hora entre o sistema e o horário 
 
 Todas as VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte.
 Contagem do disco do sistema operacional | 1 | A verificação falha se não tiver suporte.
 Contagem de disco de dados | 16 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
-Disco FC | Não há suporte. | A verificação falha se não tiver suporte.
-BitLocker | Não há suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
+VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
+Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
+BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
 Nome da VM | De 1 a 63 caracteres.<br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/><br/> -Antes da migração, habilite o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/><br/> -Para acesso VPN site a site, habilite o RDP e permita que RDP no **Firewall do Windows**  ->  **aplicativos e recursos permitidos** para redes de **domínio e privadas** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/><br/> -Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/><br/> -Após a migração, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  

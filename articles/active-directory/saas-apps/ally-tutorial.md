@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/11/2020
 ms.author: jeedes
 ms.openlocfilehash: 15a9a2becea9751903e99f6ef1d55bc6f7b65ca8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95998610"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allyio"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Ally.io

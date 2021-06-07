@@ -9,10 +9,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
 ms.openlocfilehash: f824cf6e30ed795ef0fe4468542ae16c801bd61b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100516117"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
@@ -23,7 +23,7 @@ Este tópico explica como Visualizar e interpretar os resultados de previsão em
 
 Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning Studio (clássico):
 
-* Classificação
+* classificação
 * Clustering
 * Regressão
 * Sistemas de recomendação
@@ -40,7 +40,7 @@ Para saber como avaliar seus modelos, consulte [como avaliar o desempenho do mod
 
 Se você for novo no ML Studio (clássico), [saiba como criar um experimento simples](create-experiment.md).
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 Há duas subcategorias de problemas de classificação:
 
 * Problemas com apenas duas classes (classificação de duas classes ou binária)

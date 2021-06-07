@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: Kinect, Azure, configurar, profundidade, cor, RGB, câmera, sensor, SDK, IMU, sensor de movimento, movimento, giroscópio, giro, acelerômetro, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276343"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Recuperar exemplos do IMU do Azure Kinect

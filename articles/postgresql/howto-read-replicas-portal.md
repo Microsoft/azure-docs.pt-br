@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.openlocfilehash: 9fdef187e9bdf77b29c548f767a4b4edfeb62f44
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422171"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
@@ -39,9 +39,9 @@ Para configurar o nível certo de registro em log, use o parâmetro de suporte d
 
 1. Na portal do Azure, selecione um banco de dados do Azure para o servidor PostgreSQL a ser usado como mestre.
 
-2. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica** , você poderá criar réplicas de leitura. 
+2. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
 
-3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica** , defina-o. Selecione **Salvar**.
+3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Clique em **Salvar**.
 
    :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação – definir réplica e salvar":::
 
@@ -61,7 +61,7 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 1. Selecione um servidor de banco de dados do Azure para PostgreSQL existente para usar como servidor primário. 
 
-2. Na barra lateral do servidor, em **configurações** , selecione **replicação**.
+2. Na barra lateral do servidor, em **configurações**, selecione **replicação**.
 
 3. Selecione **para adicionar réplica**.
 
@@ -73,14 +73,14 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 5. Selecione um local para a réplica. O local padrão é o mesmo que o do servidor primário.
 
-    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Selecione um local":::
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Selecionar um local":::
 
    > [!NOTE]
    > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md). 
 
 6. Selecione **OK** para confirmar a criação da réplica.
 
-Depois que a réplica de leitura é criada, ela pode ser exibida na janela **Replicação** :
+Depois que a réplica de leitura é criada, ela pode ser exibida na janela **Replicação**:
 
 :::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Exibir a nova réplica na janela Replicação":::
  
@@ -100,7 +100,7 @@ Para interromper a replicação entre um servidor primário e uma réplica de le
 
 1. No portal do Azure, selecione o servidor principal do banco de dados do Azure para PostgreSQL.
 
-2. No menu de servidor, em **CONFIGURAÇÕES** , selecione **Replicação**.
+2. No menu de servidor, em **CONFIGURAÇÕES**, selecione **Replicação**.
 
 3. Selecione o servidor de réplica para o qual interromper a replicação.
 
@@ -145,7 +145,7 @@ Você também pode excluir a réplica de leitura usando a janela **Replicação*
 
 1. No portal do Azure, selecione o servidor principal do banco de dados do Azure para PostgreSQL.
 
-2. No menu de servidor, em **CONFIGURAÇÕES** , selecione **Replicação**.
+2. No menu de servidor, em **CONFIGURAÇÕES**, selecione **Replicação**.
 
 3. Selecione a réplica de leitura a excluir.
 
@@ -172,7 +172,7 @@ A métrica de **atraso máximo entre réplicas** mostra o retardo em bytes entre
 
     :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Monitorar o retardo máximo entre réplicas":::
  
-3.  Para sua **Agregação** , selecione **Máx**.
+3.  Para sua **Agregação**, selecione **Máx**.
 
 
 ### <a name="replica-lag-metric"></a>Métrica de retardo de réplica
@@ -184,7 +184,7 @@ A métrica **Retardo da Réplica** mostra o tempo decorrido desde a última tran
 
    :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Monitorar o retardo da réplica":::
  
-3. Para sua **Agregação** , selecione **Máx**. 
+3. Para sua **Agregação**, selecione **Máx**. 
  
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [réplicas de leitura no Banco de Dados do Azure para PostgreSQL](concepts-read-replicas.md).

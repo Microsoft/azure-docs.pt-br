@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019728"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Rotular entidade Machine-Learning em um exemplo de expressão
@@ -25,7 +25,7 @@ Como não é possível rotular expressão regular, lista ou entidades predefinid
 Para rotular exemplos de entidades dentro do expressão, selecione a intenção do expressão.
 
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
-1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Abra seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 1. Selecione a intenção que tem o exemplo declarações que você deseja rotular para extração com uma entidade.
 1. Selecione o texto que você deseja rotular e, em seguida, selecione a entidade.
 

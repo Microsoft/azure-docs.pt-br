@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
 ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363707"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contêineres do Detector de Anomalias
@@ -97,8 +97,8 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](anomaly-detector-container-howto.md#stop-the-container).
 
-* **Caractere de continuação de linha** : os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha para um shell bash. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. Por exemplo, o caractere de continuação de linha para o Windows é um acento circunflexo, `^`. Substitua a barra invertida pelo acento circunflexo. 
-* **Ordem do argumento** : não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha para um shell bash. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. Por exemplo, o caractere de continuação de linha para o Windows é um acento circunflexo, `^`. Substitua a barra invertida pelo acento circunflexo. 
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 
 Substitua o valor entre colchetes, `{}` , com seus próprios valores:
 

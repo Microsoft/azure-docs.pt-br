@@ -12,10 +12,10 @@ ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4fd328dad3544697ba1f4896f7383be857b097a5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96530656"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível por humanos
@@ -60,7 +60,7 @@ A resposta JSON a seguir ilustra o que o Computer Vision retorna ao descrever a 
 
 O recurso de descrição da imagem faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Description` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o conteúdo da `"description"` seção.
 
-* [Início rápido: Pesquisa Visual Computacional bibliotecas de cliente ou API REST](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Início Rápido: Bibliotecas de clientes ou API REST da Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Próximas etapas
 

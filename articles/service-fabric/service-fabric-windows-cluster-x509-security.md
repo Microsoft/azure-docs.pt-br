@@ -4,10 +4,10 @@ description: Proteja a comunicação em um Azure Service Fabric autônomo ou em 
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791030"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autônomo no Windows usando os certificados X.509

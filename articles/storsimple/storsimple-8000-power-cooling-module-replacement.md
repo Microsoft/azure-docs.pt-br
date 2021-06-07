@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 045cec85174a88d1d608a4adc679461008852768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85514587"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
@@ -50,7 +50,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
 > Antes de remover o PCM, verifique se você tem uma peça de reposição correta (764 W para o compartimento primário ou 580 W para o compartimento EBOD).
 
 #### <a name="to-remove-a-pcm"></a>Para remover um PCM
-1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes do PCM em **componentes compartilhados** para identificar qual PCM falhou:
+1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes do PCM em **Componentes compartilhados** para identificar qual PCM falhou:
    
    * Se uma fonte de alimentação no PCM 0 tiver falhado, o status da **Fonte de Alimentação no PCM 0** ficará vermelho.
    * Se uma fonte de alimentação no PCM 1 tiver falhado, o status da **Fonte de Alimentação no PCM 1** ficará vermelho.

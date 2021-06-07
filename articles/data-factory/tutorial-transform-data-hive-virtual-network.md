@@ -1,21 +1,18 @@
 ---
 title: Transformar dados usando o Hive na Rede Virtual do Azure
 description: Use o Azure PowerShell para criar um pipeline do Data Factory que transforma dados usando a Atividade Hive em um cluster do HDInsight que está em uma VNet (Rede Virtual) do Azure.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 57915e0b636124265adc8d5f3088cacd20d63746
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 85f51fd52ce3224b37c27cea6c49a8a386fbea2c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634004"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100377764"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 
@@ -38,14 +35,14 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Conta de Armazenamento do Azure** . Você cria um script Hive e carrega-o no Armazenamento do Azure. A saída do script Hive é armazenada nessa conta de armazenamento. Nessa amostra, o cluster HDInsight usa essa conta de Armazenamento do Azure como o armazenamento primário. 
+- **Conta de Armazenamento do Azure**. Você cria um script Hive e carrega-o no Armazenamento do Azure. A saída do script Hive é armazenada nessa conta de armazenamento. Nessa amostra, o cluster HDInsight usa essa conta de Armazenamento do Azure como o armazenamento primário. 
 - **Rede Virtual do Azure.** Se você não tem uma Rede Virtual do Azure, crie-a seguindo [estas instruções](../virtual-network/quick-create-portal.md). Nessa amostra, o HDInsight está em uma Rede Virtual do Azure. Aqui está uma amostra de configuração de Rede Virtual do Azure. 
 
     ![Criar rede virtual](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
 - **Cluster HDInsight.** Crie um cluster HDInsight e ingresse-o na rede virtual criada na etapa anterior seguindo este artigo: [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Aqui está uma amostra de configuração do HDInsight em uma Rede Virtual do Azure. 
 
     ![HDInsight em uma rede virtual](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell** . Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Carregar o script Hive em sua conta de Armazenamento de Blobs
 
@@ -66,8 +63,8 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
    FROM hivesampletable
    ```
 2. No seu Armazenamento de Blobs do Azure, crie um contêiner denominado **adftutorial** se ele não existir.
-3. Crie uma pasta chamada **hivescripts** .
-4. Carregar o arquivo **hivescript.hql** na subpasta **hivescripts** .
+3. Crie uma pasta chamada **hivescripts**.
+4. Carregar o arquivo **hivescript.hql** na subpasta **hivescripts**.
 
   
 
@@ -93,7 +90,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Inicie o **PowerShell** . Mantenha o Azure PowerShell aberto até o fim deste guia de início rápido. Se você fechar e reabrir, precisará executar os comandos novamente. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+2. Inicie o **PowerShell**. Mantenha o Azure PowerShell aberto até o fim deste guia de início rápido. Se você fechar e reabrir, precisará executar os comandos novamente. Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
         
@@ -168,7 +165,7 @@ Você cria e implanta dois serviços vinculados nesta seção:
 
 ### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
 
-Crie um arquivo JSON usando seu editor preferido, copie a seguinte definição de JSON de um serviço vinculado do Armazenamento do Azure e, em seguida, salve o arquivo como **MyStorageLinkedService.json** .
+Crie um arquivo JSON usando seu editor preferido, copie a seguinte definição de JSON de um serviço vinculado do Armazenamento do Azure e, em seguida, salve o arquivo como **MyStorageLinkedService.json**.
 
 ```json
 {
@@ -190,7 +187,7 @@ Substitua **&lt;accountname&gt; e &lt;accountkey&gt;** pelo nome e pela chave da
 
 ### <a name="hdinsight-linked-service"></a>Serviço vinculado ao HDInsight
 
-Crie um arquivo JSON usando seu editor preferido, copie a seguinte definição de JSON de um serviço vinculado do Azure HDInsight e, em seguida, salve o arquivo como **MyHDInsightLinkedService.json** .
+Crie um arquivo JSON usando seu editor preferido, copie a seguinte definição de JSON de um serviço vinculado do Azure HDInsight e, em seguida, salve o arquivo como **MyHDInsightLinkedService.json**.
 
 ```
 {
@@ -219,9 +216,9 @@ Crie um arquivo JSON usando seu editor preferido, copie a seguinte definição d
 
 Atualize os valores para as propriedades a seguir na definição de serviço vinculado:
 
-- **userName** . Nome usuário de logon do cluster especificado ao criar o cluster. 
-- **password** . A senha do usuário.
-- **clusterUri** . Especifique a URL de seu cluster do HDInsight no seguinte formato: `https://<clustername>.azurehdinsight.net`.  Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em `https://clustername.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs (Grupos de Segurança de Rede) ou UDRs (rotas definidas pelo usuário) para restringir o acesso da Internet. Para que o Data Factory envie trabalhos para clusters HDInsight na Rede Virtual do Azure, esta precisa ser configurada de modo que a URL possa ser resolvida para o endereço IP do gateway usado pelo HDInsight.
+- **userName**. Nome usuário de logon do cluster especificado ao criar o cluster. 
+- **password**. A senha do usuário.
+- **clusterUri**. Especifique a URL de seu cluster do HDInsight no seguinte formato: `https://<clustername>.azurehdinsight.net`.  Este artigo pressupõe que você tenha acesso ao cluster via Internet. Por exemplo, você pode se conectar ao cluster em `https://clustername.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs (Grupos de Segurança de Rede) ou UDRs (rotas definidas pelo usuário) para restringir o acesso da Internet. Para que o Data Factory envie trabalhos para clusters HDInsight na Rede Virtual do Azure, esta precisa ser configurada de modo que a URL possa ser resolvida para o endereço IP do gateway usado pelo HDInsight.
 
   1. No Portal do Azure, abra a Rede Virtual que contém o HDInsight. Abra o adaptador de rede cujo nome começa com `nic-gateway-0`. Anote o endereço IP privado dela. Por exemplo, 10.6.0.15. 
   2. Se sua Rede Virtual do Azure tem um servidor DNS, atualize o registro DNS de modo que a URL do cluster do HDInsight `https://<clustername>.azurehdinsight.net` possa ser resolvida para `10.6.0.15`. Essa é a abordagem recomendada. Se você não tiver um servidor DNS em sua Rede Virtual do Azure, você poderá usar uma solução alternativa temporária para isso editando o arquivo de hosts (C:\Windows\System32\drivers\etc.) de todas as VMs registradas como nós de Integration Runtime auto-hospedado, adicionando uma entrada como esta: 
@@ -244,7 +241,7 @@ No PowerShell, mude para a pasta em que você criou arquivos JSON e execute o se
     ```
 
 ## <a name="author-a-pipeline"></a>Criar um pipeline
-Nesta etapa, você cria um pipeline com uma atividade Hive. A atividade executa o script do Hive para retornar dados de uma tabela de exemplo e salvá-los em um caminho que você definiu. Crie um arquivo JSON em seu editor preferido, copie a definição de JSON a seguir de uma definição de pipeline e salve-a como **MyHivePipeline.json** .
+Nesta etapa, você cria um pipeline com uma atividade Hive. A atividade executa o script do Hive para retornar dados de uma tabela de exemplo e salvá-los em um caminho que você definiu. Crie um arquivo JSON em seu editor preferido, copie a definição de JSON a seguir de uma definição de pipeline e salve-a como **MyHivePipeline.json**.
 
 
 ```json

@@ -3,12 +3,12 @@ title: Atualizar sua versão do cluster de Service Fabric do Azure
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549061"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010194"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualizar sua versão do cluster de Service Fabric do Azure
 
@@ -42,7 +42,7 @@ Atualize para uma versão Service Fabric com suporte para evitar tempo de inativ
 > [!Note]
 > **Todas as versões lançadas do 7,2 incluem as alterações necessárias**.
   
-  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
+  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
   | --- | --- |--- |
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
@@ -63,9 +63,9 @@ Os clusters Service Fabric do Azure que são executados em versões inalteradas 
   
   - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá ativo.
 
- - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+ - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](./service-fabric-networking-modes.md#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
  
- -   **Para clusters que executam [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
+ -   **Para clusters que executam [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
     - **Impacto**: o cluster deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
     
 #### <a name="required-action"></a>Ação necessária
@@ -83,7 +83,7 @@ As versões do Service Fabric na tabela contêm as alterações necessárias par
 > [!Note]
 > **Todas as versões de lançamento do 7,2 incluem as alterações necessárias**.
 
- | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
+ | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
   | --- | --- |--- |
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
@@ -117,21 +117,23 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 7.0.470.* | 7.0.466.* |Menor ou igual à versão 4,0 |31 de janeiro de 2021  |
 | 7.0.472.* | 7.0.466.* |Menor ou igual à versão 4,0 |31 de janeiro de 2021  |
 | 7.0.478.* | 7.0.466.* |Menor ou igual à versão 4,0 |31 de janeiro de 2021  |
-| 7.1.409.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.417.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.428.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.456.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.458.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.459.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.503.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
-| 7.1.510.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
+| 7.1.409.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.417.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.428.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.456.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.458.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.459.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.503.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
+| 7.1.510.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de julho de 2021 |
 | 7.2.413.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.432.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.433.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.445.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.452.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
+| 7.2.457.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
+| 7.2.477.* | 7.0.478.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 A tabela a seguir lista os sistemas operacionais com suporte para as versões de Service Fabric com suporte.
 
@@ -209,6 +211,8 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 7,1 CU10 | 7.1.510.9590 | NA |
 | RTO DE 7,2 | 7.2.413.9590 | NA |
 | 7,2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7,2 CU3 | 7.2.433.9590 | Não aplicável|
+| 7,2 CU3 | 7.2.433.9590 | NA |
 | 7,2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7,2 CU5 | 7.2.452.9590 | 7.2.454.1 |
+| 7,2 CU6 | 7.2.457.9590 | 7.2.456.1 |
+| 7,2 CU7 | 7.2.477.9590 | 7.2.476.1 |

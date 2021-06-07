@@ -3,15 +3,15 @@ title: Ler réplicas-banco de dados do Azure para MariaDB
 description: 'Saiba mais sobre réplicas de leitura no banco de dados do Azure para MariaDB: escolhendo regiões, criando réplicas, conectando a réplicas, monitorando a replicação e parando a replicação.'
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 375db7e5c113c2a48642365624207ce3acbde8a2
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664207"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Banco de Dados do Azure para MariaDB

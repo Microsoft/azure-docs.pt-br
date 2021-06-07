@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85514315"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar a Atualização 4 em seu dispositivo StorSimple
@@ -74,7 +74,7 @@ O método de hotfix envolve as três etapas a seguir:
 
 Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas sugeridas:
 
-| Order | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
+| Ordem | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Atualização de software |Regular <br></br>Não interruptiva |Aproxim. 25 minutos |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Atualizações de firmware e driver LSI <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não interruptiva |Aproxim. 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
@@ -83,7 +83,7 @@ Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas
 
 Você também precisa instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion` . Se estiver executando as versões de firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, você não precisará instalar essas atualizações.
 
-| Order | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
+| Ordem | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Firmware de disco |Manutenção <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
 

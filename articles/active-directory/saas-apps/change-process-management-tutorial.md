@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 03c78f05566876356e4f486368dc2a5b3a29de43
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92456246"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Change Process Management
@@ -48,10 +48,10 @@ Depois de configurar o Change Process Management, você poderá impor um control
 Para configurar a integração do Torii ao Azure AD, você precisará adicionar o Torii da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta corporativa ou de estudante ou com uma conta Microsoft pessoal.
-1. No painel esquerdo, selecione **Azure Active Directory** .
-1. Acesse **Aplicativos empresariais** e, em seguida, selecione **Todos os Aplicativos** .
-1. Para adicionar um aplicativo, selecione **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , insira **Change Process Management** na caixa de pesquisa.
+1. No painel esquerdo, selecione **Azure Active Directory**.
+1. Acesse **Aplicativos empresariais** e, em seguida, selecione **Todos os Aplicativos**.
+1. Para adicionar um aplicativo, selecione **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, insira **Change Process Management** na caixa de pesquisa.
 1. Selecione **Change Process Management** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso-for-change-process-management"></a>Configurar e testar o SSO do Azure AD para o Change Process Management
@@ -71,26 +71,26 @@ Para configurar e testar o SSO do Azure AD com o Change Process Management, voc�
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Change Process Management** , na seção **Gerenciar** , selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , selecione o botão de lápis da **Configuração Básica de SAML** para editar as configurações:
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Change Process Management**, na seção **Gerenciar**, selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, selecione o botão de lápis da **Configuração Básica de SAML** para editar as configurações:
 
    ![Botão de lápis para configuração Básica de SAML](common/edit-urls.png)
 
-1. Na página **Configurar Logon Único com o SAML** , siga estas etapas:
+1. Na página **Configurar Logon Único com o SAML**, siga estas etapas:
 
-    a. Na caixa **Identificador** , insira uma URL com o seguinte padrão: `https://<hostname>:8443/`
+    a. Na caixa **Identificador**, insira uma URL com o seguinte padrão: `https://<hostname>:8443/`
 
-    b. Na caixa **URL de Resposta** , insira uma URL com o seguinte padrão: `https://<hostname>:8443/changepilot/saml/sso`
+    b. Na caixa **URL de Resposta**, insira uma URL com o seguinte padrão: `https://<hostname>:8443/changepilot/saml/sso`
 
     > [!NOTE]
     > Os valores anteriores de **Identificador** e **URL de Resposta** não são os valores reais que você deve usar. Contate a [Equipe de suporte do Change Process Management](mailto:support@realtech-us.com) para obter os valores reais. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , selecione o link **Download** para **Certificado (Base64)** para baixar o certificado e salvá-lo no computador:
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, selecione o link **Download** para **Certificado (Base64)** para baixar o certificado e salvá-lo no computador:
 
     ![Link de download do certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar Change Process Management** , copie as URLs apropriadas de acordo com suas necessidades:
+1. Na seção **Configurar Change Process Management**, copie as URLs apropriadas de acordo com suas necessidades:
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -98,31 +98,31 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará uma usuária de teste no portal do Azure chamada B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory** . Selecione **Usuários** e, em seguida, selecione **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory**. Selecione **Usuários** e, em seguida, selecione **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , conclua estas etapas:
-   1. Na caixa **Nome** , insira **B.Fernandes** .  
-   1. Na caixa **Nome de usuário** , insira \<username>@\<companydomain>.\<extension>. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Selecione **Criar** .
+1. Nas propriedades do **Usuário**, conclua estas etapas:
+   1. Na caixa **Nome**, insira **B.Fernandes**.  
+   1. Na caixa **Nome de usuário**, insira \<username>@\<companydomain>.\<extension>. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Selecione **Criar**.
 
 ### <a name="grant-access-to-the-test-user"></a>Permitir acesso ao usuário de teste
 
 Nesta seção, você permitirá que B. Fernandes use o logon único do Azure concedendo a tal usuário acesso ao Change Process Management.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **Change Process Management** .
-1. Na página de visão geral do aplicativo, na seção **Gerenciar** , selecione **Usuários e grupos** :
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Change Process Management**.
+1. Na página de visão geral do aplicativo, na seção **Gerenciar**, selecione **Usuários e grupos**:
 
    ![Selecionar Usuários e grupos](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![Selecione Adicionar usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista de **Usuários** e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar Atribuição** , selecione **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista de **Usuários** e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
 
 ## <a name="configure-change-process-management-sso"></a>Configurar SSO do Change Process Management
 

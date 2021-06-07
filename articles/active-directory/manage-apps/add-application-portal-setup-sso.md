@@ -2,20 +2,20 @@
 title: 'Início Rápido: Configurar o SSO (logon único) baseado em SAML para um aplicativo no locatário do Azure AD (Azure Active Directory)'
 description: Este início rápido orienta você no processo de configuração do SSO (logon único) baseado em SAML para um aplicativo em seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
-ms.author: kenwith
-ms.openlocfilehash: 3278c9956dd5017572f063059250c97727656923
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: 802cc744063ba2bf1110915ae9b22c9c00e09cfa
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252365"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378900"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar o SSO (logon único) baseado em SAML para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
@@ -39,7 +39,7 @@ Para configurar o SSO para um aplicativo que você adicionou ao seu locatário d
 
 ## <a name="enable-single-sign-on-for-an-app"></a>Habilitar logon único para um aplicativo
 
-Depois de concluir a adição de um aplicativo ao locatário do Azure AD, a página de visão geral é exibida. Se você estiver configurando um aplicativo que já tenha sido adicionado, confira o primeiro início rápido. Ele orienta você na exibição dos aplicativos adicionados ao seu locatário. 
+Depois de concluir a adição de um aplicativo ao locatário do Azure AD, a página de visão geral é exibida. Se você estiver configurando um aplicativo que já tenha sido adicionado, confira o primeiro início rápido. Ele orienta você na exibição dos aplicativos adicionados ao seu locatário.
 
 Para configurar o logon único para um aplicativo:
 

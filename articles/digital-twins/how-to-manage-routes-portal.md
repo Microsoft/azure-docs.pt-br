@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070761"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779929"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -29,7 +29,7 @@ Como alternativa, você também pode gerenciar pontos de extremidade e rotas com
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Grupo de recursos
+    - Resource group
 
 Você pode encontrar esses detalhes no [portal do Azure](https://portal.azure.com) depois de configurar sua instância. Faça logon no portal e procure o nome da sua instância na barra de pesquisa do Portal.
  
@@ -76,7 +76,7 @@ Depois de criar os recursos do ponto de extremidade, você poderá usá-los para
 1. Conclua a criação do ponto de extremidade selecionando _salvar_.
 
 >[!IMPORTANT]
-> Para usar a autenticação baseada em identidade para o ponto de extremidade com êxito, você precisará criar uma identidade gerenciada para a instância seguindo as etapas em [*como: habilitar uma identidade gerenciada para eventos de roteamento (versão prévia)*](how-to-enable-managed-identities.md).
+> Para usar a autenticação baseada em identidade para o ponto de extremidade com êxito, você precisará criar uma identidade gerenciada para a instância seguindo as etapas em [*como: habilitar uma identidade gerenciada para eventos de roteamento (versão prévia)*](./how-to-enable-managed-identities-portal.md).
 
 Depois de criar seu ponto de extremidade, você pode verificar se o ponto de extremidade foi criado com êxito verificando o ícone de notificação na barra de portal do Azure superior: 
 
@@ -151,6 +151,9 @@ Você pode restringir os tipos de eventos que estão sendo enviados definindo um
 Para adicionar um filtro de eventos durante a criação de uma rota de eventos, use a seção _Adicionar um filtro de rota de eventos_ da página *criar uma rota de eventos* . 
 
 Você pode selecionar entre algumas opções básicas de filtro comum ou usar as opções de filtro avançado para escrever seus próprios filtros personalizados.
+
+>[!NOTE]
+> Os filtros diferenciam **maiúsculas de minúsculas** e precisam corresponder ao caso de carga (que pode não corresponder necessariamente ao caso do modelo).
 
 #### <a name="use-the-basic-filters"></a>Usar os filtros básicos
 

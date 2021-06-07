@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790894"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101706768"
 ---
 # <a name="sign-in-to-luis-portal"></a>Entrar no portal do LUIS
 
@@ -48,7 +48,7 @@ Use este artigo para começar a usar o portal do LUIS e criar um recurso de cria
     * **Nome do grupo de recursos do Azure** -um nome de grupo de recursos personalizado que você escolhe em sua assinatura. Os grupos de recursos permitem agrupar os recursos do Azure para acesso e gerenciamento. Se você não tiver um grupo de recursos em sua assinatura, não será permitido criar um no portal do LUIS. Acesse [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para criar um, em seguida, vá para Luis para continuar o processo de entrada.
     * **Nome do recurso do Azure** -um nome personalizado que você escolhe, usado como parte da URL para suas transações de criação. O nome do recurso pode incluir apenas caracteres alfanuméricos, `-` e não pode iniciar ou terminar com `-` . Se quaisquer outros símbolos forem incluídos no nome, a criação de um recurso falhará.
     * **Local** -escolha para criar seus aplicativos em um dos [três locais de criação](./luis-reference-regions.md) com suporte no momento por Luis, incluindo: oeste dos EUA, Europa Ocidental e leste da Austrália
-    * **Tipo de preço** – por padrão, o tipo de preço de criação F0 é selecionado como é o recomendado. Crie uma [chave gerenciada pelo cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) do portal do Azure se você estiver procurando uma camada extra de segurança.
+    * **Tipo de preço** – por padrão, o tipo de preço de criação F0 é selecionado como é o recomendado. Crie uma [chave gerenciada pelo cliente](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) do portal do Azure se você estiver procurando uma camada extra de segurança.
 8. Agora você entrou com êxito no LUIS. Agora você pode começar a criar aplicativos.
 
 ## <a name="troubleshooting"></a>Solução de problemas

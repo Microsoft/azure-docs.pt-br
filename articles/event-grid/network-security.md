@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94917521"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
@@ -57,7 +57,7 @@ Quando você cria um ponto de extremidade privado, o registro DNS CNAME do recur
 
 Quando você resolve o tópico ou a URL do ponto de extremidade do domínio de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço. Os registros de recurso DNS para ' Topica ', quando resolvidos de **fora da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -66,10 +66,10 @@ Você pode negar ou controlar o acesso de um cliente fora da VNet por meio do po
 
 Quando resolvido da VNet que hospeda o ponto de extremidade privado, o tópico ou a URL do ponto de extremidade do domínio é resolvido para o endereço IP do ponto de extremidade privado. Os registros de recurso DNS para o tópico ' Topica ', quando resolvidos de **dentro da VNet** que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                          | Tipo      | Valor                                         |
+| Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Um         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
 
 Essa abordagem permite o acesso ao tópico ou ao domínio usando a mesma cadeia de conexão para clientes na VNet que hospeda os pontos de extremidade privados e clientes fora da VNet.
 
@@ -83,10 +83,10 @@ A tabela a seguir descreve os vários Estados da conexão de ponto de extremidad
 
 | Estado da Conexão   |  Publicação com êxito (Sim/não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Yes                            |
-| Rejeitado           | No                             |
-| Pendente            | No                             |
-| Desconectado       | No                             |
+| Aprovado           | Sim                            |
+| Rejeitado           | Não                             |
+| Pendente            | Não                             |
+| Desconectado       | Não                             |
 
 Para que a publicação seja bem-sucedida, o estado de conexão do ponto de extremidade privado deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal do Azure. A única possibilidade é excluir a conexão e criar uma nova, em vez disso.
 

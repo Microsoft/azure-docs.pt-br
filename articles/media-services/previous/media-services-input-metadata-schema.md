@@ -1,7 +1,7 @@
 ---
 title: Esquema de metadados de entrada dos Serviços de Mídia do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral do esquema de metadados de entrada dos serviços de mídia do Azure.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: eebe1c77c9af6791be94c16f0f792a9e7deb9a6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267829"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103017402"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 
@@ -131,7 +131,7 @@ Veja um exemplo de XML no final deste artigo: [Exemplo de XML](media-services-in
 | **Level** |**xs: string** |Nível da faixa de vídeo. |
 | **PixelFormat** |**xs: string** |Formato de pixel da faixa de vídeo. |
 | **Largura**<br /><br /> Obrigatório |**xs:int** |Largura do vídeo codificado em pixels. |
-| **Tamanho**<br /><br /> Obrigatório |**xs:int** |Altura do vídeo codificado em pixels. |
+| **Altura**<br /><br /> Obrigatório |**xs:int** |Altura do vídeo codificado em pixels. |
 | **DisplayAspectRatioNumerator**<br /><br /> Obrigatório |**xs: double** |Numerador de taxa de proporção de exibição do vídeo. |
 | **DisplayAspectRatioDenominator**<br /><br /> Obrigatório |**xs:double** |Denominador de taxa de proporção de exibição do vídeo. |
 | **DisplayAspectRatioDenominator**<br /><br /> Obrigatório |**xs: double** |Numerador de proporção de amostra de vídeo. |
@@ -150,8 +150,8 @@ Veja um exemplo de XML no final deste artigo: [Exemplo de XML](media-services-in
 ### <a name="attributes"></a>Atributos
 | Nome | Type | Descrição |
 | --- | --- | --- |
-| **chave**<br /><br /> Obrigatório |**xs:string** |A chave no par chave/valor. |
-| **value**<br /><br /> Obrigatório |**xs:string** |O valor do par chave/valor. |
+| **chave**<br /><br /> Obrigatório |**xs:string** |A chave do par chave/valor. |
+| **value**<br /><br /> Obrigatório |**xs:string** |O valor no par chave/valor. |
 
 ## <a name="programtype"></a><a name="ProgramType"></a> Programtype
 **ProgramType** é um tipo global complexo que descreve um programa.  

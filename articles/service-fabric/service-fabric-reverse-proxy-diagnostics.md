@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645456"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso
@@ -77,7 +77,7 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
     
     Eis um evento de exemplo em que o proxy reverso retorna 404, já que não conseguiu localizar o ponto de extremidade de serviço correspondente.
     As entradas de carga de interesse aqui são:
-   * **processRequestPhase**: indica a fase durante o processamento da solicitação em que a falha ocorreu, ***TryGetEndpoint***, ou seja, durante a tentativa de buscar o ponto de extremidade de serviço para encaminhamento. 
+   * **processRequestPhase**: indica a fase durante o processamento da solicitação quando a falha ocorreu, **_TryGetEndpoint_** ou seja durante a tentativa de buscar o ponto de extremidade de serviço para encaminhamento. 
    * **errorDetails**: lista os critérios de pesquisa de ponto de extremidade. Aqui você pode ver que o listenerName especificado = **FrontEndListener**, enquanto a lista de ponto de extremidade de réplica contém somente um ouvinte com o nome **OldListener**.
     
      ```

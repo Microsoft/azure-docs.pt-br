@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2021
 ms.author: duau
 ms.openlocfilehash: 455eeb83ef5a9608c077de24b8d3d4722d26a822
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742702"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
@@ -88,10 +88,10 @@ O status do monitor de perfil é uma combinação dos valores do status do perfi
 | Status do perfil (conforme configurado) | Status do monitor de ponto de extremidade | Status do monitor de perfil | Observações |
 | --- | --- | --- | --- |
 | Desabilitado |&lt;qualquer&gt; ou um perfil sem pontos de extremidade definidos. |Desabilitado |O perfil foi desabilitado. |
-| Habilitada |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
-| Habilitada |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação do usuário é necessária. |
-| Habilitada |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
-| Habilitada |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
+| habilitado |O status de pelo menos um ponto de extremidade é Degradado. |Degradado |Revise os valores de status do ponto de extremidade individual para determinar quais pontos de extremidade exigem mais atenção. |
+| habilitado |O status de pelo menos um ponto de extremidade é Online. Nenhum ponto de extremidade tem o status Degradado. |Online |O serviço está aceitando tráfego. Nenhuma ação do usuário é necessária. |
+| habilitado |O status de pelo menos um ponto de extremidade é CheckingEndpoint. Nenhum ponto de extremidade tem status Online ou Degradado. |Verificando pontos de extremidade |Esse estado de transição ocorre quando um perfil é criado ou habilitado. A integridade do ponto de extremidade está sendo verificada pela primeira vez. |
+| habilitado |O status de todos os pontos de extremidade no perfil é Desabilitado ou Parado, ou o perfil não tem nenhum ponto de extremidade definido. |Inativo |Nenhum ponto de extremidade está ativo, mas o perfil ainda está habilitado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e recuperação do ponto de extremidade
 
@@ -159,7 +159,7 @@ Para obter mais informações, consulte [Métodos de roteamento de tráfego do G
 
 Para obter mais informações sobre como solucionar problemas de verificações de integridade com falha, consulte [Solução de problemas de status Degradado no Gerenciador de Tráfego do Azure](traffic-manager-troubleshooting-degraded.md).
 
-## <a name="faqs"></a>Perguntas Frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
 * [O Gerenciador de Tráfego é resistente a falhas de região do Azure?](./traffic-manager-faqs.md#is-traffic-manager-resilient-to-azure-region-failures)
 
@@ -201,7 +201,7 @@ Para obter mais informações sobre como solucionar problemas de verificações 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-how-it-works.md)
+Saiba [como funciona o Gerenciador de tráfego](traffic-manager-how-it-works.md)
 
 Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
 

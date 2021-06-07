@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 445155ed48334c9680dfa0be7b5402d057c98cef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91329713"
 ---
 # <a name="azure-media-services-v3-community"></a>Comunidade dos Serviços de Mídia do Azure v3

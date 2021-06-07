@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
 ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625240"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Como funcionam os instantâneos do Azure NetApp Files

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/20/2020
-ms.openlocfilehash: 1448bb3ebf541af047759bc886b2c174d89c1c50
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5674d656385d356f596f96cd7851d2cc05839761
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383765"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597391"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiar dados para e do Armazenamento de Tabelas do Azure usando o Azure Data Factory
 
@@ -267,6 +267,7 @@ Para copiar dados da Tabela do Azure, defina o tipo de coletor na atividade de c
 | azureTableInsertType |O modo para inserir dados na Tabela do Azure. Essa propriedade controla se linhas existentes na tabela de saída com a partição correspondente e as chaves de linha terão seus valores substituídos ou mesclados. <br/><br/>Os valores permitidos são **merge** (padrão) e **replace**. <br/><br> Essa configuração se aplica no nível de linha, não no nível de tabela. Nenhuma opção exclui linhas na tabela de saída que não existe na entrada. Para saber mais sobre como as configurações de mesclagem e substituição funcionam, consulte [Inserir ou mesclar entidade](/rest/api/storageservices/Insert-Or-Merge-Entity) e [Inserir ou substituir entidade](/rest/api/storageservices/Insert-Or-Replace-Entity). |Não |
 | writeBatchSize |Insere dados na Tabela do Azure quando writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
 | writeBatchTimeout |Insere dados na Tabela do Azure quando writeBatchSize ou writeBatchTimeout for atingido.<br/>Os valores permitidos são timespan. Um exemplo é "00:20:00" (20 minutos). |Não (o padrão é 90 segundos, tempo limite padrão do cliente de armazenamento) |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo:**
 

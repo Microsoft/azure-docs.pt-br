@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 00ab5c85a477c9c4080acf252cbbde9d4ce816a9
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 15dba02d3db45d663b8ba0aa7eb93bbc3f388532
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620232"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101645867"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de entidade de serviço no Azure Active Directory Domain Services
 

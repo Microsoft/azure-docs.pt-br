@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92325961"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrar para o novo portal do desenvolvedor
@@ -25,7 +25,7 @@ ms.locfileid: "92325961"
 Este artigo descreve as etapas que você precisa seguir para migrar do portal herdado preterido para o novo portal do desenvolvedor no gerenciamento de API.
 
 > [!IMPORTANT]
-> O portal do desenvolvedor herdado foi preterido e receberá apenas atualizações de segurança. Você pode continuar a usá-lo, como de costume, até sua aposentadoria em outubro de 2023, quando ele será removido de todos os serviços de gerenciamento de API.
+> O portal do desenvolvedor herdado foi preterido e receberá apenas atualizações de segurança. Você pode continuar usando-o, como de costume, até a desativação dele em outubro de 2023, quando ele será removido de todos os serviços de Gerenciamento de API.
 
 ![Portal do desenvolvedor do Gerenciamento da API](media/api-management-howto-developer-portal/cover.png)
 
@@ -57,7 +57,7 @@ Ao migrar do portal preterido, tenha em mente as seguintes alterações:
 - Se você alterou os modelos de notificação por email padrão para incluir uma URL do portal preterida explicitamente definida, altere-as para usar o parâmetro URL do portal ou aponte para a nova URL do Portal. Se os modelos usarem o parâmetro de URL interno do portal, nenhuma alteração será necessária.
 - Não há suporte para *problemas* e *aplicativos* no novo portal do desenvolvedor.
 - A integração direta com o Facebook, Microsoft, Twitter e Google como provedores de identidade não tem suporte no novo portal do desenvolvedor. Você pode integrar com esses provedores por meio de Azure AD B2C.
-- Se você usar a delegação, altere a URL de retorno em seus aplicativos e use o [ponto de extremidade obter API de *token de acesso compartilhado* ](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) em vez do ponto de extremidade *gerar URL de SSO* .
+- Se você usar a delegação, altere a URL de retorno em seus aplicativos e use o [ponto de extremidade obter API de *token de acesso compartilhado*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) em vez do ponto de extremidade *gerar URL de SSO* .
 - Se você usar o Azure AD como um provedor de identidade:
 
     - Altere a URL de retorno em seu aplicativo para apontar para o novo domínio do portal do desenvolvedor.
@@ -67,7 +67,7 @@ Ao migrar do portal preterido, tenha em mente as seguintes alterações:
 
     - Altere a URL de retorno em seu aplicativo para apontar para o novo domínio do portal do desenvolvedor.
     - Modifique o sufixo da URL de retorno em seu aplicativo de `/signin-aad` para `/signin` .
-    - Inclua o *nome*, o *sobrenome*e a *ID de objeto do usuário* nas declarações do aplicativo.
+    - Inclua o *nome*, o *sobrenome* e a *ID de objeto do usuário* nas declarações do aplicativo.
 
 - Se você usar o OAuth 2,0 no console de teste interativo, altere a URL de retorno em seu aplicativo para apontar para o novo domínio do portal do desenvolvedor e modificar o sufixo:
 

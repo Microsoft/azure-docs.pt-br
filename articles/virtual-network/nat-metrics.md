@@ -8,19 +8,18 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
-Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: e3c47a60a6cda074eba7b5c3292577c29f50c2ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: b22d7823ac961de53914325d7ebf2b5d53b7c5af
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424044"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055817"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métricas da NAT da Rede Virtual do Azure
 
@@ -38,11 +37,11 @@ Os recursos do Gateway da NAT fornecem as seguintes métricas multidimensionais 
 
 | Métrica | Descrição | Agregação recomendada | Dimensões |
 |---|---|---|---|
-| Bytes | Bytes processados de entrada e de saída | SUM | Direção (entrada; saída), protocolo (6 TCP; 17 UDP) |
-| Pacotes | Pacotes processados de entrada e de saída | SUM | Direção (entrada; saída), protocolo (6 TCP; 17 UDP) |
-| Pacotes removidos | Pacotes removidos pelo Gateway da NAT | SUM | / |
-| Contagem de Conexões SNAT | Transições de estado por intervalo | SUM | Estado da conexão, protocolo (6 TCP; 17 UDP) |
-| Contagem total de conexões SNAT | Conexões SNAT ativas atuais (~ portas SNAT em uso) | SUM | Protocolo (6 TCP; 17 UDP) |
+| Bytes | Bytes processados de entrada e de saída | Somar | Direção (entrada; saída), protocolo (6 TCP; 17 UDP) |
+| Pacotes | Pacotes processados de entrada e de saída | Somar | Direção (entrada; saída), protocolo (6 TCP; 17 UDP) |
+| Pacotes removidos | Pacotes removidos pelo Gateway da NAT | Somar | / |
+| Contagem de Conexões SNAT | Transições de estado por intervalo | Somar | Estado da conexão, protocolo (6 TCP; 17 UDP) |
+| Contagem total de conexões SNAT | Conexões SNAT ativas atuais (~ portas SNAT em uso) | Somar | Protocolo (6 TCP; 17 UDP) |
 
 
 ## <a name="alerts"></a>Alertas

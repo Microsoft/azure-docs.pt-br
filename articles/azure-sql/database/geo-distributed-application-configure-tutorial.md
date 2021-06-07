@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101659283"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente (banco de dados SQL do Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [PowerShell do Azure](/powershell/azure/)
+- [Azure PowerShell](/powershell/azure/)
 - Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [O portal do Azure](single-database-create-quickstart.md)
   - [A CLI do Azure](az-cli-script-samples-content-guide.md)
@@ -227,10 +227,10 @@ As configurações de replicação geográfica também podem ser alteradas no po
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {

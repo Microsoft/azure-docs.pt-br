@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: ab261d4ca04fed04c8a3e1046c0a4c563767ad4c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96181995"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configurar o Mixpanel para provisionamento automático de usuário

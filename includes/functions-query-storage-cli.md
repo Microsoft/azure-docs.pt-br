@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 642989df8dca9d4ae121d80e30a9fb6d8dd06286
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77474211"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107799837"
 ---
 ### <a name="query-the-storage-queue"></a>Consultar a Fila de armazenamento
 
-É possível usar o comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) para exibir as Filas de armazenamento em sua conta, como no exemplo a seguir:
+É possível usar o comando [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) para exibir as Filas de armazenamento em sua conta, como no exemplo a seguir:
 
 ```azurecli-interactive
 az storage queue list --output tsv
@@ -21,7 +21,7 @@ az storage queue list --output tsv
 
 A saída desse comando inclui uma fila denominada `outqueue`, que é a fila que foi criada quando a função foi executada.
 
-Em seguida, use o comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) para exibir as mensagens nessa fila, como no exemplo a seguir:
+Em seguida, use o comando [`az storage message peek`](/cli/azure/storage/message#az_storage_message_peek) para exibir as mensagens nessa fila, como no exemplo a seguir:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

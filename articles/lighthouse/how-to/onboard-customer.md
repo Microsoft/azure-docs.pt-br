@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372137"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100556099"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -205,7 +205,7 @@ A última autorização no exemplo acima adiciona **principalId** com a função
 Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo de Azure Resource Manager dentro de seu locatário. Uma implantação separada é necessária para cada assinatura que você deseja integrar (ou para cada assinatura que contém os grupos de recursos que você deseja carregar).
 
 > [!IMPORTANT]
-> Essa implantação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> Essa implantação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem uma função com a `Microsoft.Authorization/roleAssignments/write` permissão, como [proprietário](../../role-based-access-control/built-in-roles.md#owner), para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para localizar os usuários que podem delegar a assinatura, um usuário no locatário do cliente pode selecionar a assinatura no portal do Azure, o **iam (Open Access Control)** e [Exibir todos os usuários com a função proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Se a assinatura foi criada por meio do programa [CSP (provedor de soluções na nuvem)](../concepts/cloud-solution-provider.md), qualquer usuário que tenha a função de [Agente de administração](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no locatário do provedor de serviços pode executar a implantação.
 

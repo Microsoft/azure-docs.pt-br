@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259212"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104603991"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 
@@ -63,7 +63,7 @@ Primeiro, crie e salve o novo certificado com uma data de expiração diferente:
 1. Selecione **novo certificado**. Uma nova linha é exibida abaixo da lista de certificados, em que a data de expiração padrão é exatamente três anos após a data atual. (Suas alterações ainda não foram salvas, portanto, você ainda pode modificar a data de validade.)
 1. Na nova linha de certificado, passe o mouse sobre a coluna data de expiração e selecione o ícone **selecionar data** (um calendário). Um controle de calendário é exibido, exibindo os dias de um mês da data de validade atual da nova linha.
 1. Use o controle Calendar para definir uma nova data. Você pode definir qualquer data entre a data atual e três anos após a data atual.
-1. Clique em **Salvar**. O novo certificado agora aparece com um status **inativo**, a data de validade que você escolheu e uma impressão digital.
+1. Selecione **Salvar**. O novo certificado agora aparece com um status **inativo**, a data de validade que você escolheu e uma impressão digital.
 1. Selecione o **X** para retornar à página **Configurar Sign-On única com SAML-Preview** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Carregar e ativar um certificado
@@ -88,7 +88,9 @@ O Azure AD enviará uma notificação por email 60, 30 e 7 dias antes que o cert
 1. Abaixo do endereço de email final, digite o endereço de email que deve receber o aviso de expiração do certificado e pressione Enter.
 1. Repita a etapa anterior para cada endereço de email que você deseja adicionar.
 1. Para cada endereço de email que você deseja excluir, selecione o ícone **excluir** (um lixo pode) ao lado do endereço de email.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
+
+Você pode adicionar até 5 endereços de email à lista de notificação (incluindo o endereço de email do administrador que adicionou o aplicativo). Se precisar de mais pessoas para ser notificado, use os emails da lista de distribuição.
 
 Você receberá o email de notificação de aadnotification@microsoft.com. Para evitar que o email vá para seu local de spam, adicione este email aos seus contatos.
 

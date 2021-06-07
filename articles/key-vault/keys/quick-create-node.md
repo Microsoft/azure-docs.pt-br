@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: db6bb5c204bfe79b9d7470f651081aa4f4dcf2ed
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c0066409732f4492186ea0bf604261e1ab59ca9f
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932700"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750294"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Início rápido: Biblioteca de clientes de chave do Azure Key Vault para JavaScript (versão 4)
 
@@ -272,6 +272,6 @@ Neste guia de início rápido, você criou um cofre de chaves, armazenou uma cha
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Leia uma [Visão geral das chaves do Azure Key Vault](about-keys.md)
-- Como [Proteger o acesso a um cofre de chaves](../general/secure-your-key-vault.md)
+- Como [Proteger o acesso a um cofre de chaves](../general/security-overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

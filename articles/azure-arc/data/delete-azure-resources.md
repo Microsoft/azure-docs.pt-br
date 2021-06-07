@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4c76b2c0109637ce34681d2fa5c8b29e1ff800a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 60c5ddcc67db6e4a0649458cfbd5c2949aa9a32a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364364"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102202035"
 ---
 # <a name="delete-resources-from-azure"></a>Excluir recursos do Azure
 
@@ -64,10 +64,10 @@ Você pode excluir recursos específicos de serviços de dados habilitados para 
 Para excluir recursos de instância gerenciada do SQL do Azure usando o CLI do Azure substitua os valores de espaço reservado no comando abaixo e execute-o.
 
 ```azurecli
-az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
+az resource delete --name <sql instance name> --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name sql1 --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group rg1
+#az resource delete --name sql1 --resource-type Microsoft.AzureArcData/sqlManagedInstances --resource-group rg1
 ```
 
 ### <a name="delete-postgresql-hyperscale-server-group-resources-using-the-azure-cli"></a>Excluir recursos do grupo de servidores de hiperescala PostgreSQL usando o CLI do Azure
@@ -75,10 +75,10 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 Para excluir um recurso de grupo de servidores de hiperescala PostgreSQL do Azure usando o CLI do Azure substitua os valores de espaço reservado no comando abaixo e execute-o.
 
 ```azurecli
-az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
+az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureArcData/postgresInstances --resource-group <resource group name>
 
 #Example
-#az resource delete --name pg1 --resource-type Microsoft.AzureData/postgresInstances --resource-group rg1
+#az resource delete --name pg1 --resource-type Microsoft.AzureArcData/postgresInstances --resource-group rg1
 ```
 
 ### <a name="delete-azure-arc-data-controller-resources-using-the-azure-cli"></a>Excluir recursos do controlador de dados de arco do Azure usando o CLI do Azure
@@ -89,10 +89,10 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 Para excluir um controlador de dados de arco do Azure do Azure usando o CLI do Azure substitua os valores de espaço reservado no comando abaixo e execute-o.
 
 ```azurecli
-az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
+az resource delete --name <data controller name> --resource-type Microsoft.AzureArcData/dataControllers --resource-group <resource group name>
 
 #Example
-#az resource delete --name dc1 --resource-type Microsoft.AzureData/dataControllers --resource-group rg1
+#az resource delete --name dc1 --resource-type Microsoft.AzureArcData/dataControllers --resource-group rg1
 ```
 
 ### <a name="delete-a-resource-group-using-the-azure-cli"></a>Excluir um grupo de recursos usando o CLI do Azure

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 011bbbda07806f1493ae27fbeef8509f0d12c44b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92518442"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integrar o RunMyProcess ao Azure Active Directory
@@ -46,15 +46,15 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do RunMyProcess ao Azure AD, você precisa adicionar o RunMyProcess por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar por meio da galeria** , digite **RunMyProcess** na caixa de pesquisa.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **RunMyProcess** na caixa de pesquisa.
 1. Selecione **RunMyProcess** no painel de resultados e, depois, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Configure e teste o SSO do Azure AD com o RunMyProcess usando um usuário de teste chamado **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do RunMyProcess.
+Configure e teste o SSO do Azure AD com o RunMyProcess usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do RunMyProcess.
 
 Para configurar e testar o SSO do Azure AD com o RunMyProcess, conclua os seguintes blocos de construção:
 
@@ -69,24 +69,24 @@ Para configurar e testar o SSO do Azure AD com o RunMyProcess, conclua os seguin
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **RunMyProcess** , localize a seção **Gerenciar** e escolha **Logon único** .
-1. Na página **Escolher um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **RunMyProcess**, localize a seção **Gerenciar** e escolha **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://live.runmyprocess.com/live/<tenant id>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do RunMyProcess](mailto:support@runmyprocess.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-1. Na seção **Configurar o RunMyProcess** , copie as URLs apropriadas com base em suas necessidades.
+1. Na seção **Configurar o RunMyProcess**, copie as URLs apropriadas com base em suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -94,7 +94,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Em uma janela diferente do navegador da Web, faça logon em seu locatário do RunMyProcess como um administrador.
 
-1. No painel de navegação esquerdo, clique em **Conta** e selecione **Configuração** .
+1. No painel de navegação esquerdo, clique em **Conta** e selecione **Configuração**.
 
     ![Captura de tela que mostra a opção Configuração selecionada em Conta.](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
@@ -102,47 +102,47 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Captura de tela que mostra a guia Método de autenticação, na qual você pode inserir os valores descritos.](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    a. Em **Método** , selecione **SSO com Samlv2** .
+    a. Em **Método**, selecione **SSO com Samlv2**.
 
-    b. Na caixa de texto **Redirecionamento de SSO** , cole o valor da **URL de Logon** copiado do portal do Azure.
+    b. Na caixa de texto **Redirecionamento de SSO**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    c. Na caixa de texto **Redirecionamento de logoff** , cole o valor da **URL de Logoff** copiado do portal do Azure.
+    c. Na caixa de texto **Redirecionamento de logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
-    d. Na caixa de texto **Formato da ID de Nome** , digite o valor do **Formato do Identificador de Nome** como **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** .
+    d. Na caixa de texto **Formato da ID de Nome**, digite o valor do **Formato do Identificador de Nome** como **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
-    e. Abra o arquivo de certificado baixado do portal do Azure no Bloco de notas, copie o conteúdo do arquivo de certificado e cole-o na caixa de texto **Certificado** .
+    e. Abra o arquivo de certificado baixado do portal do Azure no Bloco de notas, copie o conteúdo do arquivo de certificado e cole-o na caixa de texto **Certificado**.
 
-    f. Clique no ícone **Salvar** .
+    f. Clique no ícone **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao RunMyProcess.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, escolha **RunMyProcess** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, escolha **RunMyProcess**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-runmyprocess-test-user"></a>Criar usuário de teste no RunMyProcess
 
@@ -152,7 +152,7 @@ Para permitir que os usuários do Azure AD entrem no RunMyProcess, eles devem se
 
 1. Entre em seu site de empresa do RunMyProcess como administrador.
 
-1. Clique em **Conta** e selecione **Usuários** no painel de navegação esquerdo, clique em **Novo Usuário** .
+1. Clique em **Conta** e selecione **Usuários** no painel de navegação esquerdo, clique em **Novo Usuário**.
 
     ![Novo usuário](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "Novo Usuário")
 
@@ -162,9 +162,9 @@ Para permitir que os usuários do Azure AD entrem no RunMyProcess, eles devem se
   
     a. Digite o **Nome** e o **Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 
-    b. Selecione uma **Linguagem IDE** , um **Idioma** e um **Perfil** .
+    b. Selecione uma **Linguagem IDE**, um **Idioma** e um **Perfil**.
 
-    c. Selecione **Enviar email de criação da conta para mim** .
+    c. Selecione **Enviar email de criação da conta para mim**.
 
     d. Clique em **Save** (Salvar).
 

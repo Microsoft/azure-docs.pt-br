@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: fd30c7ec15eadd3d7945349a8aae4ac824bfdc7f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954079"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
@@ -32,12 +32,12 @@ Este artigo dá informações sobre hardware suplementar que funciona com o seu 
 A Microsoft testou os seguintes transceptores de fator forma pequeno conectáveis (SFP), cabos e comutadores, para garantir que funcionem de maneira ideal com dispositivos. As tabelas a seguir serão atualizadas enquanto o novo hardware é testado.
 
 ### <a name="sfp-transceivers"></a>Transceptores SFP +
-| Faça | Modelar |
+| Faça | Modelo |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cabos
-| S. Não. | Faça | Modelar |
+| S. Não. | Faça | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -45,7 +45,7 @@ A Microsoft testou os seguintes transceptores de fator forma pequeno conectávei
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Comutadores
-| S. Não. | Faça | Modelar |
+| S. Não. | Faça | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -73,7 +73,7 @@ A Mellanox testou os seguintes transceptores de fator forma pequeno conectável 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cabos e módulos compatíveis com Mellanox
 A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
 
-| S. Não. | Velocidade | Modelar | Descrição | Faça |
+| S. Não. | Velocidade | Modelo | Descrição | Faça |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |cabo de cobre passivo SFP+ 10 Gb/s 1m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |cabo de cobre passivo SFP+ 10 Gb/s 2m |Arista |
@@ -114,7 +114,7 @@ A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não fora
 ### <a name="switches-supported-by-mellanox"></a>Opções compatíveis com o Mellanox
 A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
 
-| S. Não. | Velocidade | Modelar | Descrição | Faça |
+| S. Não. | Velocidade | Modelo | Descrição | Faça |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |516733-B21 |Blade Switch de Ethernet de 10 GbE HP ProCurve 6120XG |HP |
 | 2. |10 GbE |538113-B21 |Módulo de passagem de 10 GbE HP (PTM) |HP |

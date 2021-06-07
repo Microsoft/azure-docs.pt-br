@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7f602f82063e2a8092eecf533a75449231c1e900
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879790"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660977"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço de automóvel com o designer
 
@@ -176,7 +176,7 @@ Seu conjunto de dados ainda tem valores ausentes após a remoção da coluna **n
 
     Agora, seu pipeline deve ser semelhante ao seguinte:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Select-column":::
 
 ## <a name="train-a-machine-learning-model"></a>Treinar um modelo de machine learning
 
@@ -224,7 +224,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
     > [!IMPORTANT]
     > Verifique se as portas de saída esquerdas de **Dividir Dados** se conectam a **Treinar Modelo**. A porta esquerda contém o conjunto de treinamento. A porta direita contém o conjunto de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo.":::
 
 1. Selecione o módulo **Treinar Modelo**.
 
@@ -239,7 +239,7 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 
     Seu pipeline deve ter esta aparência:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Captura de tela mostrando a configuração correta do pipeline após a adição do módulo Treinar Modelo.":::
 
 ### <a name="add-the-score-model-module"></a>Módulo Adicionar o Modelo de Pontuação
 
@@ -259,7 +259,7 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
     O pipeline final deve ser semelhante ao seguinte:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Captura de tela mostrando a configuração correta do pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Captura de tela mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -288,7 +288,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Captura de tela da visualização de saída realçando a coluna Rótulo Pontuado":::
 
 ### <a name="evaluate-models"></a>Avaliar os modelos
 

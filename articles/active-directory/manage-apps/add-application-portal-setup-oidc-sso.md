@@ -2,20 +2,20 @@
 title: 'Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)'
 description: Este início rápido orienta você ao longo do processo de configuração do SSO (logon único) baseado em OIDC para um aplicativo em seu locatário do Azure AD (Azure Active Directory).
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
-ms.author: kenwith
-ms.openlocfilehash: e5695d5ded92e9bb41d39a082790cfbb456dbc38
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: iangithinji
+ms.openlocfilehash: 2e0b49a73422a2f71af37e103e9d4fd6a18a1f61
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258347"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378934"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a2f57fd6a369fba4a78799f768eb3fd2f3d27050
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6f4e43efeb1882f52bd335d83a3660a94040ab8a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071469"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101729208"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Gatilho de Azure Cosmos DB para Azure Functions 2. x e superior
 
@@ -163,7 +163,7 @@ No arquivo _run.ps1_ , você tem acesso ao documento que dispara a função por 
 ```powershell
 param($Documents, $TriggerMetadata) 
 
-Write-Host "First document Id modified : $($Documents[0].id)" 
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # <a name="python"></a>[Python](#tab/python)

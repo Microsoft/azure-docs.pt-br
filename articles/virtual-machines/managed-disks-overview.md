@@ -1,6 +1,6 @@
 ---
 title: Visão geral de Armazenamento em Disco do Azure
-description: Visão geral do Azure Managed Disks, que cuida das contas de armazenamento para você ao usar VMs.
+description: Visão geral dos Azure Managed disks, que lidam com as contas de armazenamento para você ao usar VMs.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: eea5c800d7aa9c8d1e6c0c507136b86ab8bf21f3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604025"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -35,7 +35,7 @@ Usando discos gerenciados, é possível criar até 50 mil **discos** de VM de um
 
 ### <a name="integration-with-availability-sets"></a>Integração com conjuntos de disponibilidade
 
-Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
+Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](./availability-set-overview.md) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
 ### <a name="integration-with-availability-zones"></a>Integração com as Zonas de Disponibilidade
 
@@ -100,7 +100,7 @@ Esse disco tem uma capacidade máxima de 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./manage-availability.md#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
+A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./understand-vm-reboots.md) ou durante a [reimplantação de uma VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 

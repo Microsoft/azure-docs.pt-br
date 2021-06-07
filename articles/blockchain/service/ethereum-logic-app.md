@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
 ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96763784"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usar o conector do Ethereum Blockchain com os Aplicativos Lógicos do Azure
@@ -182,7 +182,7 @@ O endereço do ponto de extremidade RPC do Azure Blockchain Service é necessár
 
     ![Página Nós de transação com a seleção (nó padrão)](./media/ethereum-logic-app/transaction-nodes.png)
 
-1. Selecione chaves de acesso de **cadeias de conexão**  >  **Access keys**.
+1. Selecione chaves de acesso de **cadeias de conexão**  >  .
 1. Copie o endereço do ponto de extremidade de **HTTPS (Chave de acesso 1)** ou **HTTPS (Chave de acesso 2)**.
 
     ![Portal do Azure com as chaves de acesso da cadeia de conexão](./media/ethereum-logic-app/connection-string.png)

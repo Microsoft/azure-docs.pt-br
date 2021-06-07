@@ -1,24 +1,18 @@
 ---
 title: Plataformas compatíveis com a Central de Segurança do Azure | Microsoft Docs
 description: Este documento fornece uma lista de plataformas compatíveis com a Central de Segurança do Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852635"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103465439"
 ---
 # <a name="supported-platforms"></a>Plataformas compatíveis 
 
@@ -37,10 +31,10 @@ Para um ambiente do Azure ativado em uma assinatura do Azure, a Central de Segur
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-A Central de Segurança depende do [Agente do Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Verifique se os computadores estão sendo executados um dos sistemas operacionais compatíveis com esse agente, conforme descrito nas seguintes páginas:
+A Central de Segurança depende do [agente do Log Analytics](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Verifique se os computadores estão sendo executados um dos sistemas operacionais compatíveis com esse agente, conforme descrito nas seguintes páginas:
 
-* [Agente do Log Analytics para sistemas operacionais compatíveis com o Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Agente do Log Analytics para sistemas operacionais compatíveis com o Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Agente do Log Analytics para sistemas operacionais compatíveis com o Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Verifique também se o Agente do Log Analytics está [corretamente configurado para enviar dados à Central de Segurança](security-center-enable-data-collection.md#manual-agent)
 
@@ -57,7 +51,7 @@ As máquinas virtuais também são criadas em uma assinatura de cliente como par
 
 Máquinas virtuais que são executadas em um serviço de nuvem também são compatíveis. Apenas funções Web e de trabalho de serviços de nuvem que são executadas em slots de produção são monitorados. Para saber mais sobre os serviços de nuvem, confira [Visão geral dos Serviços de Nuvem do Azure](../cloud-services/cloud-services-choose-me.md).
 
-Também é compatível a proteção para VMs que residem no Azure Stack. Para obter mais informações sobre a integração da Central de Segurança com o Azure Stack, confira [Integrar suas máquinas virtuais do Azure Stack à Central de Segurança](quickstart-onboard-machines.md). 
+Também é compatível a proteção para VMs que residem no Azure Stack Hub. Para obter mais informações sobre a integração da Central de Segurança com o Azure Stack hub, confira [Integrar suas máquinas virtuais do Azure Stack Hub à Central de Segurança](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

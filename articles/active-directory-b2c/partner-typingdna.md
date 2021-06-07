@@ -11,10 +11,10 @@ ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 68617d86fda940c5d3752f2389088a8c729aebec
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108341"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TypingDNA com o Azure Active Directory B2C

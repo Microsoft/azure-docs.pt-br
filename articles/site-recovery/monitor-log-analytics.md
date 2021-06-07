@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100571678"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com os logs do Azure Monitor
 
-Este artigo descreve como monitorar máquinas replicadas pelo Azure [site Recovery](site-recovery-overview.md), usando [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md)e [log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Este artigo descreve como monitorar máquinas replicadas pelo Azure [site Recovery](site-recovery-overview.md), usando [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md)e [log Analytics](../azure-monitor/logs/log-query-overview.md).
 
 Os logs de Azure Monitor fornecem uma plataforma de dados de log que coleta logs de atividade e de recursos, juntamente com outros dados de monitoramento. Nos logs de Azure Monitor, você usa Log Analytics para gravar e testar consultas de log e para analisar interativamente os dados de log. Você pode visualizar e consultar os resultados do log e configurar alertas para executar ações com base em dados monitorados.
 
@@ -35,8 +35,8 @@ O uso de logs de Azure Monitor com Site Recovery tem suporte para a replicação
 Você precisa do seguinte:
 
 - Pelo menos um computador protegido em um cofre dos serviços de recuperação.
-- Um espaço de trabalho Log Analytics para armazenar Site Recovery logs. [Saiba mais sobre como](../azure-monitor/learn/quick-create-workspace.md) configurar um espaço de trabalho.
-- Um entendimento básico de como escrever, executar e analisar consultas de log no Log Analytics. [Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md).
+- Um espaço de trabalho Log Analytics para armazenar Site Recovery logs. [Saiba mais sobre como](../azure-monitor/logs/quick-create-workspace.md) configurar um espaço de trabalho.
+- Um entendimento básico de como escrever, executar e analisar consultas de log no Log Analytics. [Saiba mais](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Recomendamos que você revise as [perguntas comuns de monitoramento](monitoring-common-questions.md) antes de começar.
 
@@ -62,9 +62,9 @@ Você pode capturar as informações de taxa de variação de dados e informaç�
 1. Vá para o espaço de trabalho Log Analytics e clique em **Configurações avançadas**.
 2. Clique na página **fontes conectadas** e selecione outros **servidores Windows**.
 3. Baixe o agente do Windows (64 bits) no servidor de processo. 
-4. [Obter a ID e a chave do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
-5. [Configurar o agente para usar o TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Conclua a instalação do agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) fornecendo a ID e a chave do espaço de trabalho obtidas.
+4. [Obter a ID e a chave do espaço de trabalho](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+5. [Configurar o agente para usar o TLS 1,2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Conclua a instalação do agente](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) fornecendo a ID e a chave do espaço de trabalho obtidas.
 7. Quando a instalação for concluída, vá para Log Analytics espaço de trabalho e clique em **Configurações avançadas**. Vá para a página de **dados** e clique mais em **contadores de desempenho do Windows**. 
 8. Clique em **' + '** para adicionar os dois contadores a seguir com o intervalo de amostragem de 300 segundos:
 
@@ -76,7 +76,7 @@ Os dados da taxa de rotatividade e upload começarão a alimentar no espaço de 
 
 ## <a name="query-the-logs---examples"></a>Consultar os logs-exemplos
 
-Você recupera dados de logs usando consultas de log escritas com a [linguagem de consulta Kusto](../azure-monitor/log-query/get-started-queries.md). Esta seção fornece alguns exemplos de consultas comuns que você pode usar para Site Recovery monitoramento.
+Você recupera dados de logs usando consultas de log escritas com a [linguagem de consulta Kusto](../azure-monitor/logs/get-started-queries.md). Esta seção fornece alguns exemplos de consultas comuns que você pode usar para Site Recovery monitoramento.
 
 > [!NOTE]
 > Alguns dos exemplos usam **replicationProviderName_s** definido como **A2A**. Isso recupera as VMs do Azure que são replicadas para uma região do Azure secundária usando Site Recovery. Nesses exemplos, você pode substituir **A2A** por **InMageAzureV2**, se desejar recuperar VMs VMware locais ou servidores físicos que são replicados para o Azure usando site Recovery.
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurar alertas-exemplos
 
-Você pode configurar alertas de Site Recovery com base em dados de Azure Monitor. [Saiba mais](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre como configurar alertas de log. 
+Você pode configurar alertas de Site Recovery com base em dados de Azure Monitor. [Saiba mais](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre como configurar alertas de log. 
 
 > [!NOTE]
 > Alguns dos exemplos usam **replicationProviderName_s** definido como **A2A**. Isso define alertas para VMs do Azure que são replicadas para uma região secundária do Azure. Nesses exemplos, você pode substituir **A2A** por **InMageAzureV2** se quiser definir alertas para VMs VMware locais ou servidores físicos replicados para o Azure.

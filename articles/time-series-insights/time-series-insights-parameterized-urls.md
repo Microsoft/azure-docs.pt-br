@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91665320"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
@@ -110,7 +110,7 @@ Use as definições de série temporal de exemplo para:
 
 * A ID do ambiente
 * Os últimos 60 minutos de dados
-* Os termos (**F1PressureID**, **F2TempStation**e **F3VibrationPL**) que compõem os parâmetros opcionais
+* Os termos (**F1PressureID**, **F2TempStation** e **F3VibrationPL**) que compõem os parâmetros opcionais
 
 Você pode construir a seguinte URL com parâmetros para uma exibição:
 

@@ -4,13 +4,13 @@ description: Este artigo descreve como obter dados de sensor de parceiros.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
-ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.author: v-ummehabiba
+ms.openlocfilehash: 474b6f8356724546105d902a15427f483f656317
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168521"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102182767"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -80,7 +80,7 @@ Siga as etapas abaixo para gerar as informações acima:
 
     ```
 
-8. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
+8. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na   >  página de **visão geral** Azure Active Directory.
 
     ```azurepowershell-interactive
 
@@ -92,7 +92,7 @@ Siga as etapas abaixo para gerar as informações acima:
 > 1. O nome do ponto de extremidade da API do Datahub deve estar em letras minúsculas.
 > 2. Se você estiver copiando a URL do nome do site farmbeats para o ponto de extremidade da API do Datahub, verifique se não há nenhuma barra à direita (/).
 
-9. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
+9. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente** e cadeia de **conexão do EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrar dados do dispositivo usando as credenciais geradas
 

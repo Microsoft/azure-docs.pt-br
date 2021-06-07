@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536752"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o Cache do Azure para Redis com o Azure PowerShell
@@ -364,10 +364,10 @@ O comando a seguir atualiza a maxmemory-policy do Cache do Azure para Redis cham
 > Dimensionar um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes de dimensionar um cache no portal do Azure. Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 > 
 > * Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
-> * Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico** .
-> * Você não pode dimensionar de um cache **Standard** para um cache **Básico** .
-> * É possível dimensionar de um cache **Básico** para um cache **Standard** , mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
-> * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium** . Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
+> * Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
+> * Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
+> * É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+> * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
 > * Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** .
 > 
 > Para saber mais, consulte [Como dimensionar o Cache Redis do Azure](cache-how-to-scale.md).

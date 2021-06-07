@@ -102,7 +102,7 @@
   items:
     - name: Planos do Serviço de Aplicativo
       href: overview-hosting-plans.md
-    - name: Gerenciamento de custos
+    - name: Gerenciamento de custo
       href: overview-manage-costs.md
     - name: Funcionalidade de SO
       href: operating-system-functionality.md
@@ -187,8 +187,6 @@
               href: deploy-ci-cd-custom-container.md
             - name: Implantar a partir do Git local
               href: deploy-local-git.md
-            - name: Ação do GitHub
-              href: deploy-github-actions.md
             - name: Ação do GitHub para contêineres
               href: deploy-container-github-action.md
             - name: Implantar com modelo
@@ -248,7 +246,7 @@
         - name: Configurar a camada PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Escalar horizontalmente em várias instâncias
-          href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
         - name: Hospedagem de alta densidade
           href: manage-scale-per-app.md
     - name: Monitorar aplicativo

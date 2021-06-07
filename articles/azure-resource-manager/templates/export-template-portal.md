@@ -4,10 +4,10 @@ description: Use portal do Azure para exportar um modelo de Azure Resource Manag
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185684"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
@@ -22,9 +22,9 @@ Este artigo mostra como exportar modelos por meio do Portal. Você também pode 
 
 Há duas maneiras de exportar um modelo:
 
-* **Exportar do recurso ou grupo de recursos**. Essa opção gera um novo modelo a partir de recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Você pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
+* **Exportação do grupo de recursos ou do recurso**. Essa opção gera um novo modelo com base nos recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Você pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
 
-* **Exportar antes da implantação ou do histórico**. Essa opção recupera uma cópia exata de um modelo usado para implantação.
+* **Exportação antes da implantação ou do histórico**. Essa opção recupera uma cópia exata de um modelo usado para implantação.
 
 Dependendo da opção escolhida, os modelos exportados têm qualidades diferentes.
 

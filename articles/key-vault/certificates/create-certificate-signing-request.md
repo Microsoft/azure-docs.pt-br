@@ -3,19 +3,18 @@ title: Como criar e mesclar uma CSR no Azure Key Vault
 description: Saiba como criar e mesclar uma CSR no Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a4d079855e5aa05adb84b62d686d9f386608f7bb
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789020"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752130"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Criar e mesclar uma CSR no Key Vault
 

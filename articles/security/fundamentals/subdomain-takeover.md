@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
 ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389443"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Digite                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Type                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |

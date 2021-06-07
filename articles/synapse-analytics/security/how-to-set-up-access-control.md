@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368992"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103472264"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controle de acesso para seu espaço de trabalho Synapse 
 
@@ -43,7 +43,7 @@ Para proteger um espaço de trabalho do Synapse, você seguirá um padrão de co
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os por nomes de sua escolha.
 
-|Setting | Nome padrão | Descrição |
+|Configuração | Nome padrão | Descrição |
 | :------ | :-------------- | :---------- |
 | **Workspace do Synapse** | `workspace1` |  O nome que o workspace do Synapse terá. |
 | **Conta do ADLSGEN2** | `storage1` | A conta do ADLS a ser usada com seu workspace. |
@@ -124,7 +124,7 @@ Para executar pipelines e executar tarefas do sistema, o Synapse requer que a MS
 
 ## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>ETAPA 5: conceder aos administradores do Synapse a função de colaborador do Azure no espaço de trabalho 
 
-Para criar pools de SQL, pools de Apache Spark e tempos de execução de integração, os usuários devem ter pelo menos acesso de colaborador do Azure ao espaço de trabalho. A função colaborador também permite que esses usuários gerenciem os recursos, incluindo pausa e dimensionamento.
+Para criar pools de SQL, pools de Apache Spark e tempos de execução de integração, os usuários devem ter pelo menos a função colaborador do Azure no espaço de trabalho. A função colaborador também permite que esses usuários gerenciem os recursos, incluindo pausa e dimensionamento. Se você estiver usando portal do Azure ou Synapse Studio para criar pools de SQL, pools de Apache Spark e tempos de execução de integração, você precisará da função de colaborador do Azure no nível do grupo de recursos. 
 
 - Abrir o portal do Azure
 - Localize o espaço de trabalho, `workspace1`

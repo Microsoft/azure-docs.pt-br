@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
 ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350776"
 ---
 # <a name="ddos-protection-on-front-door"></a>Proteção contra DDoS na porta frontal

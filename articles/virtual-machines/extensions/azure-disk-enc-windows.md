@@ -1,25 +1,19 @@
 ---
 title: Azure Disk Encryption para o Windows
 description: Implante o Azure Disk Encryption na máquina virtual do Windows usando uma extensão da máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: ejarvi
-manager: gwallace
-editor: ''
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/19/2020
+ms.service: virtual-machines
+ms.subservice: disks
+author: ejarvi
 ms.author: ejarvi
-ms.openlocfilehash: e7c7385f6a9b0afb5791299a1244011e6164a0a7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.collection: windows
+ms.date: 03/19/2020
+ms.openlocfilehash: 10268f8041f21f74e8ebcfaee41d207a53618260
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805260"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102566236"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 

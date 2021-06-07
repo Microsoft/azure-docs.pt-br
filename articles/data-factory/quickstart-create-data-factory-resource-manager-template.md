@@ -1,22 +1,20 @@
 ---
 title: Criar um Azure Data Factory usando um modelo do ARM (Azure Resource Manager)
 description: Crie um exemplo de pipeline do Azure Data Factory usando um modelo do ARM (Azure Resource Manager).
-services: data-factory
 ms.service: data-factory
 tags: azure-resource-manager
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan, jingwang
+ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/16/2020
-ms.openlocfilehash: 0a9c4f6d9e98e721370f54dfbe261025cf186b6c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c579b6d723533e751e08a80a578195c03e945607
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497479"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783329"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>Início Rápido: criar um Azure Data Factory usando modelo do ARM
 

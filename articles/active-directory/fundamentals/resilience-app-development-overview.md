@@ -12,10 +12,10 @@ ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
 ms.openlocfilehash: d06e851390537bf94b59e656f84bf58fe7216410
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96317345"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Aumente a resiliência dos aplicativos de autenticação e autorização que você desenvolve

@@ -2,17 +2,18 @@
 title: Introdução ao FreeBSD no Azure
 description: Saiba como usar máquinas virtuais FreeBSD no Azure
 author: thomas1206
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: ced29c3222b7f4f5d7cf5f9e472c420c47341786
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
-ms.translationtype: MT
+ms.openlocfilehash: da51fabaaa3c02137770f0b2d9a851b1f6702980
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493236"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044042"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introdução ao FreeBSD no Azure
 Este artigo fornece uma visão geral da execução de uma máquina virtual FreeBSD no Azure.
@@ -46,10 +47,10 @@ sudo pkg install bash
 Se o Python não estiver instalado no seu computador FreeBSD, execute o comando a seguir antes da instalação. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 Durante a instalação, `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` será solicitado. Se responder `y` e inserir `/etc/rc.conf` como `a path to an rc file to update`, você poderá encontrar o problema `ERROR: [Errno 13] Permission denied`. Para resolvê-lo, você deve conceder o direito de gravação ao usuário atual sobre o arquivo `etc/rc.conf`.

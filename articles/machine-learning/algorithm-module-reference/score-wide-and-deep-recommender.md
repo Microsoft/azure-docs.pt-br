@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
 ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905162"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Pontuar o sistema de recomendação grande e profundo
@@ -60,7 +60,7 @@ Quando você prevê as classificações, o modelo calcula como um determinado us
 
     O conjunto de os recursos do usuário deve conter o identificador de usuário na primeira coluna. As colunas restantes devem conter valores que caracterizam os usuários, como o gênero, as preferências, o local etc.
   
-    Os recursos de usuários que têm itens classificados no conjunto de recursos de treinamento são ignorados por **Pontuação de largura e profunda**, pois já foram aprendidos durante o treinamento. Portanto, filtre seu conjunto de seus com antecedência para incluir somente *usuários de inicialização a frio*ou usuários que não tenham classificado nenhum item.
+    Os recursos de usuários que têm itens classificados no conjunto de recursos de treinamento são ignorados por **Pontuação de largura e profunda**, pois já foram aprendidos durante o treinamento. Portanto, filtre seu conjunto de seus com antecedência para incluir somente *usuários de inicialização a frio* ou usuários que não tenham classificado nenhum item.
 
     > [!WARNING]
     > Se o modelo foi treinado sem usar recursos de usuário, você não pode introduzir recursos de usuário durante a pontuação.
@@ -69,7 +69,7 @@ Quando você prevê as classificações, o modelo calcula como um determinado us
 
     O conjunto de itens de recursos de item deve conter um identificador de item na primeira coluna. As colunas restantes devem conter valores que caracterizam os itens.
 
-    Os recursos de itens classificados no conjunto de recursos de treinamento são ignorados por **Pontuação de largura e de fundo profundo** , pois eles já foram aprendidos durante o treinamento. Portanto, restrinja o conjunto de seus conjuntos de pontos de Pontuação para *itens de início frio*ou itens que não tenham sido classificados por nenhum usuário.
+    Os recursos de itens classificados no conjunto de recursos de treinamento são ignorados por **Pontuação de largura e de fundo profundo** , pois eles já foram aprendidos durante o treinamento. Portanto, restrinja o conjunto de seus conjuntos de pontos de Pontuação para *itens de início frio* ou itens que não tenham sido classificados por nenhum usuário.
 
     > [!WARNING]
     > Se o modelo foi treinado sem usar recursos de item, você não pode introduzir recursos de item durante a pontuação.
@@ -95,8 +95,8 @@ Para recomendar itens para os usuários, você fornece uma lista de usuários e 
 
 3. **Seleção de item recomendada**: indique se você está usando o módulo de pontuação em produção ou para avaliação de modelo, escolhendo um destes valores:
 
-    - **De itens classificados (para avaliação de modelo)**: Selecione esta opção se você estiver desenvolvendo ou testando um modelo. Essa opção habilita o **modo de avaliação**e o módulo faz recomendações apenas dos itens no conjunto de dados de entrada que foram classificados.
-    - **De todos os itens**: Selecione esta opção se você estiver configurando um experimento para usar em um serviço Web ou produção.  Essa opção habilita o **modo de produção**e o módulo faz recomendações de todos os itens vistos durante o treinamento.
+    - **De itens classificados (para avaliação de modelo)**: Selecione esta opção se você estiver desenvolvendo ou testando um modelo. Essa opção habilita o **modo de avaliação** e o módulo faz recomendações apenas dos itens no conjunto de dados de entrada que foram classificados.
+    - **De todos os itens**: Selecione esta opção se você estiver configurando um experimento para usar em um serviço Web ou produção.  Essa opção habilita o **modo de produção** e o módulo faz recomendações de todos os itens vistos durante o treinamento.
     - **De itens sem classificação (para sugerir novos itens para os usuários)**: Selecione esta opção se desejar que o módulo faça recomendações apenas desses itens no conjunto de módulos de treinamento que não foram classificados. 
 4. Adicione o conjunto de um para o qual você deseja fazer previsões e conecte-o ao **conjunto de pontos para Pontuação**.
 
@@ -116,7 +116,7 @@ Para recomendar itens para os usuários, você fornece uma lista de usuários e 
 
     A primeira coluna no conjunto de recursos User Features deve conter o identificador de usuário. As colunas restantes devem conter valores que caracterizam o usuário, como sexo, preferências, local etc.
 
-    Recursos de usuários que têm itens classificados são ignorados por **Pontuação de largura e de fundo profundo**, pois esses recursos já foram aprendidos durante o treinamento. Portanto, você pode filtrar seu conjunto de seus com antecedência para incluir somente *usuários de inicialização a frio*ou usuários que não tenham classificado nenhum item.
+    Recursos de usuários que têm itens classificados são ignorados por **Pontuação de largura e de fundo profundo**, pois esses recursos já foram aprendidos durante o treinamento. Portanto, você pode filtrar seu conjunto de seus com antecedência para incluir somente *usuários de inicialização a frio* ou usuários que não tenham classificado nenhum item.
 
     > [!WARNING]
     >  Se o modelo foi treinado sem usar recursos do usuário, você não pode usar aplicar recursos durante a pontuação.
@@ -125,7 +125,7 @@ Para recomendar itens para os usuários, você fornece uma lista de usuários e 
 
     A primeira coluna no conjunto de recursos do item Features deve conter o identificador de item. As colunas restantes devem conter valores que caracterizam os itens.
 
-    Os recursos de itens classificados são ignorados por **Pontuação de largura e de fundo profundo**, pois esses recursos já foram aprendidos durante o treinamento. Portanto, você pode restringir o conjunto de seus conjuntos de acordo com os *itens de início frio*ou os itens que não foram classificados por nenhum usuário.
+    Os recursos de itens classificados são ignorados por **Pontuação de largura e de fundo profundo**, pois esses recursos já foram aprendidos durante o treinamento. Portanto, você pode restringir o conjunto de seus conjuntos de acordo com os *itens de início frio* ou os itens que não foram classificados por nenhum usuário.
 
     > [!WARNING]
     >  Se o modelo foi treinado sem usar recursos de item, não use recursos de item ao Pontuação.  

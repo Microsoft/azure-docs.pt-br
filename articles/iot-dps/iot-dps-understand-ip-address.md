@@ -8,10 +8,10 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: f6afd5c4cc5aa0215f943979ae91389b39d449f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79284922"
 ---
 # <a name="iot-hub-dps-ip-addresses"></a>Endereços IP do DPS do Hub IoT
@@ -37,7 +37,7 @@ Os prefixos de endereço IP para os pontos de extremidade públicos de um servi�
 * A configuração de regras de firewall para uma instância de DPS pode bloquear a conectividade necessária para executar CLI do Azure e comandos do PowerShell em relação a ela. Para evitar esses problemas de conectividade, você pode adicionar regras de permissão para os prefixos de endereço IP de seus clientes para reabilitar os clientes da CLI ou do PowerShell para se comunicarem com sua instância do DPS.  
 
 
-## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
+## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
 
 * O recurso de filtro IP do DPS tem um limite de 100 regras. Esse limite pode ser aumentado via solicitações pelo atendimento ao cliente do Azure. 
 

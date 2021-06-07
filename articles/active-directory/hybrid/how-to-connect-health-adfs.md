@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306269"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
@@ -110,7 +110,7 @@ Esse relatório fornece as seguintes informações:
 
 | Item do relatório | Descrição |
 | --- | --- |
-| Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
+| ID do Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
 | Última falha |Mostra o carimbo de data/hora quando a última falha ocorreu. |
 | IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. Se houver mais de um endereço IP nesse valor, ele pode incluir o encaminhamento de IP do cliente junto com a última tentativa de solicitação de IP do usuário.  |

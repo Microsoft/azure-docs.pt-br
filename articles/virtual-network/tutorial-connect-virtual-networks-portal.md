@@ -4,7 +4,6 @@ description: Neste tutorial, você aprende a conectar redes virtuais com o empar
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017909"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059319"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: conectar redes virtuais ao emparelhamento de rede virtual usando o Portal do Azure
 
@@ -32,7 +31,9 @@ Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. E
 
 Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-connect-virtual-networks-cli.md) ou o [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar, você precisa ter uma conta do Azure com uma assinatura ativa. Caso não tenha uma, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -77,7 +78,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |---|---|
     |Nome do emparelhamento de myVirtualNetwork1 para a rede virtual remota|myVirtualNetwork1-myVirtualNetwork2 – quando a página for carregada pela primeira vez, você verá a frase "rede virtual remota" aqui. Depois que você escolher a rede virtual remota, a frase "rede virtual remota" será substituída pelo nome da rede virtual remota.|
     |Subscription| Selecione sua assinatura.|
-    |Rede virtual|myVirtualNetwork2 – Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2 (myResourceGroup)** . Você pode selecione uma rede virtual na mesma região ou em uma região diferente.|
+    |Rede virtual|myVirtualNetwork2 – Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual** e, em seguida, selecione **myVirtualNetwork2 (myResourceGroup)**. Você pode selecione uma rede virtual na mesma região ou em uma região diferente.|
     |Nome do emparelhamento de myVirtualNetwork2 para myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
     ![Configurações de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
@@ -171,6 +172,7 @@ Quando não for mais necessário, exclua o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a conectar duas redes na mesma região do Azure com o emparelhamento de rede virtual. Você também pode emparelhar redes virtuais em diferentes [regiões com suporte](virtual-network-manage-peering.md#cross-region), em [diferentes assinaturas do Azure](create-peering-different-subscriptions.md#portal) e também criar [designs de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) com emparelhamento. Para saber mais sobre o emparelhamento de rede virtual, consulte [Visão geral de emparelhamento de rede virtual](virtual-network-peering-overview.md) e [Gerenciamento de emparelhamentos de rede virtual](virtual-network-manage-peering.md).
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o emparelhamento de rede virtual](virtual-network-peering-overview.md)
 
-Para conectar seu próprio computador a uma rede virtual por meio de um VPN e intereja com os recursos de uma rede virtual ou de redes virtuais emparelhadas, consulte [Conectar seu computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+

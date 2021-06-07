@@ -4,15 +4,15 @@ description: Solucionar problemas comuns relacionados ao teste e à certificaç�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600976"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558701"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -32,7 +32,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -163,7 +163,7 @@ A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas ex
 |3|Cluster de failover|Ainda não há suporte para o recurso Windows Server failover clustering. O aplicativo não deve depender desse recurso.|
 |4|IPV6|O IPv6 ainda não tem suporte no ambiente do Azure. O aplicativo não deve depender desse recurso.|
 |5|DHCP|A função de servidor do protocolo de configuração de host dinâmico ainda não tem suporte. O aplicativo não deve depender desse recurso.|
-|6|Hyper-V|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
+|6|Hyper-v|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |7|Acesso remoto|A função de servidor acesso remoto (acesso direto) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |8|Rights Management Services|Serviços Rights Managements. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |9|Windows Deployment Services|Serviços de implantação do Windows. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
@@ -199,7 +199,7 @@ Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o ta
 
 |Tamanho do VHD|Tamanho real de ocupado|Solução|
 |---|---|---|
-|>500 tebibytes (TiB)|n/a|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|>500 tebibytes (TiB)|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |
 
@@ -252,7 +252,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -594,6 +594,34 @@ Em seguida, Republique a oferta.
 
 Para concluir o processo de publicação, consulte [revisar e publicar ofertas](review-publish-offer.md).
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Imagens de VM com acesso limitado ou que exigem modelos personalizados
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Oferta bloqueada (ou) SSH desabilitada
+
+  Imagens que são publicadas com SSH desabilitado (para Linux) ou RDP desabilitadas (para Windows) são tratadas como VMs bloqueadas. Há cenários de negócios especiais devido a quais Publicadores só permitem acesso restrito a um ou alguns usuários. Durante as verificações de validação, as VMs bloqueadas podem não permitir a execução de determinados comandos de certificação.
+
+
+#### <a name="custom-templates"></a>Modelos personalizados
+
+   Em geral, todas as imagens publicadas em ofertas de VM única seguirão o modelo ARM padrão para implantação. No entanto, há cenários em que o Publisher pode exigir personalização durante a implantação de VMs (por exemplo, várias NICs a serem configuradas).
+    
+   Dependendo dos cenários abaixo (não exaustivos), os editores usarão modelos personalizados para implantar a VM:
+
+   * A VM requer sub-redes de rede adicionais.
+   * Metadados adicionais a serem inseridos no modelo ARM.
+   * Comandos que são pré-requisitos para a execução do modelo ARM.
+
+### <a name="vm-extensions"></a>Extensões de VM   
+
+   As extensões da máquina virtual (VM) do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou executar um script dentro dela, uma extensão de VM poderá ser usada. 
+
+   As validações de extensão de VM do Linux exigem que o seguinte seja parte da imagem:
+* Agente Linux do Azure maior 2.2.41
+* Versão do Python acima de 2,8 
+
+
+Para obter mais informações, visite [extensão de VM](../virtual-machines/extensions/diagnostics-linux.md).
+     
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar propriedades da oferta de VM](azure-vm-create-properties.md)

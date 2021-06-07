@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 160c7514b095a330a52dd1607dca6f2eb87215d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98727320"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-talent-solutions"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao LinkedIn Talent Solutions

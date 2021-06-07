@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094317"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101735719"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Melhores práticas para segurança de rede do Azure
 Este artigo descreve uma coleção de melhores práticas do Azure para aprimorar a segurança de rede. Essas práticas recomendadas derivam da nossa experiência de rede do Azure e da experiência de clientes como você.
@@ -206,7 +206,7 @@ O link privado do Azure fornece os seguintes benefícios:
 - **Alcance Global**: Conecte-se de maneira privada aos serviços executados em outras regiões. A rede virtual do consumidor pode estar na região A e pode se conectar aos serviços na região B.
 - **Simples de configurar e gerenciar**: você não precisa mais de endereços IP públicos reservados em suas redes virtuais para proteger os recursos do Azure por meio de um firewall de IP. Não há dispositivos NAT ou de gateway necessários para configurar os pontos de extremidade privados. Pontos de extremidade privados são configurados por meio de um fluxo de trabalho simples. No lado do serviço, você também pode gerenciar as solicitações de conexão em seu recurso de serviço do Azure com facilidade. O link privado do Azure funciona para consumidores e serviços que pertencem a locatários Azure Active Directory diferentes também. 
     
-Para saber mais sobre pontos de extremidade privados e os serviços e regiões do Azure que os pontos de extremidade privados estão disponíveis para o, consulte o [link privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-overview).
+Para saber mais sobre pontos de extremidade privados e os serviços e regiões do Azure que os pontos de extremidade privados estão disponíveis para o, consulte o [link privado do Azure](../../private-link/private-link-overview.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

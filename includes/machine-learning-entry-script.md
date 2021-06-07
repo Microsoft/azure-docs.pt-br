@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
 ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93325273"
 ---
 O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Em seguida, ele envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.

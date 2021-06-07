@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742141"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101703500"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Habilitando Diagnóstico do Azure nos serviços de nuvem do Azure (clássico)
 
 > [!IMPORTANT]
 > Os [serviços de nuvem do Azure (suporte estendido)](../cloud-services-extended-support/overview.md) são um novo modelo de implantação baseado em Azure Resource Manager para o produto de serviços de nuvem do Azure.Com essa alteração, os serviços de nuvem do Azure em execução no modelo de implantação baseado no Azure Service Manager foram renomeados como serviços de nuvem (clássicos) e todas as novas implantações devem usar os [serviços de nuvem (suporte estendido)](../cloud-services-extended-support/overview.md).
 
-Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
+Confira [Visão geral do Diagnóstico do Azure](../azure-monitor/agents/diagnostics-extension-overview.md) para obter informações preliminares sobre o Diagnóstico do Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como habilitar o Diagnostics em uma Função do Trabalho
 Este passo a passo descreve como implementar uma função de trabalho do Azure que emite dados de telemetria usando o .NET EventSource Class. O Diagnóstico do Azure é usado para coletar os dados de telemetria e armazená-los em uma conta de armazenamento do Azure. Ao criar uma função de trabalho, o Visual Studio permite automaticamente O Diagnóstico 1.0 como parte da solução em SDKs do Azure para .NET 2.4 e versões anteriores. As instruções a seguir descrevem o processo de criação da função de trabalho, desabilitando o Diagnóstico 1.0 por meio da solução e implantando o Diagnóstico 1.2 ou 1.3 para sua função de trabalho.
@@ -189,13 +189,13 @@ No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armaz
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Esquema de arquivos de configuração
-O arquivo de configuração do Diagnóstico define valores que são usados para inicializar as definições de configurações do diagnóstico quando o agente de diagnóstico é iniciado. Veja a [referência de esquema mais recente](../azure-monitor/platform/diagnostics-extension-versions.md) para obter valores válidos e exemplos.
+O arquivo de configuração do Diagnóstico define valores que são usados para inicializar as definições de configurações do diagnóstico quando o agente de diagnóstico é iniciado. Veja a [referência de esquema mais recente](../azure-monitor/agents/diagnostics-extension-versions.md) para obter valores válidos e exemplos.
 
 ## <a name="troubleshooting"></a>Solução de problemas
-Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obter ajuda com problemas comuns.
+Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../azure-monitor/agents/diagnostics-extension-troubleshooting.md) para obter ajuda com problemas comuns.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Veja uma lista de artigos sobre diagnóstico de máquina virtual do Azure](../azure-monitor/platform/diagnostics-extension-overview.md) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
+[Veja uma lista de artigos sobre diagnóstico de máquina virtual do Azure](../azure-monitor/agents/diagnostics-extension-overview.md) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
 
 [EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 

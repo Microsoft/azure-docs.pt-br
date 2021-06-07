@@ -6,43 +6,38 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 5547e49cd7ea7f6c0cc97b5559564b64e0deda7c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760805"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168834"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-<!----
-> [!WARNING]
-> links to our Hero Sample repo need to be updated when the sample is publicly available.
----->
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
-> [Este exemplo está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+> [Este exemplo está disponível **no GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 
-O **Exemplo de Destaque de Chat em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de chat dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
+O **Exemplo de Destaque de Chat em Grupo** dos Serviços de Comunicação do Azure demonstra como o SDK da Web de chat dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
 
 ## <a name="overview"></a>Visão geral
 
-O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure. 
+O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure.
 
 Aqui está um exemplo:
 
 :::image type="content" source="./media/chat/landing-page.png" alt-text="Captura de tela mostrando a página de aterrissagem do aplicativo de exemplo.":::
 
-Quando você pressiona o botão "Iniciar um Chat", o aplicativo Web busca um token de acesso do usuário do aplicativo do lado do servidor. Esse token é usado para conectar o aplicativo cliente aos Serviços de Comunicação do Azure. Depois que o token é recuperado, você é solicitado a especificar seu nome e emoji que vão representá-lo no chat. 
+Quando você pressiona o botão "Iniciar um Chat", o aplicativo Web busca um token de acesso do usuário do aplicativo do lado do servidor. Esse token é usado para conectar o aplicativo cliente aos Serviços de Comunicação do Azure. Depois que o token é recuperado, você é solicitado a especificar seu nome e emoji que vão representá-lo no chat.
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de tela mostrando o chat do aplicativo.":::
 
@@ -54,7 +49,7 @@ Componentes da tela principal de chat:
 
 - **Área de Chat Principal**: essa é a principal experiência de chat em que os usuários podem enviar e receber mensagens. Para enviar mensagens, você pode usar a área de entrada e pressionar Enter (ou usar o botão Enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e o emoji corretos. Você verá dois tipos de notificações na área de chat: 1) notificações de digitando quando um usuário está digitando e 2) notificações de enviado e lido para mensagens.
 - **Cabeçalho**: Ali, o usuário verá o título da conversa de chat e os controles para alternar o participante e as barras laterais de configurações, além de um botão Sair para sair da sessão de chat.
-- **Barra lateral**: é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat. 
+- **Barra lateral**: é aí que os participantes e as informações de configuração são mostrados quando alternados usando os controles no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral de configurações permite que você configure o título da conversa de chat.
 
 Abaixo, você encontrará mais informações sobre os pré-requisitos e as etapas para configurar o exemplo.
 
@@ -104,18 +99,18 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 ## <a name="next-steps"></a>Próximas etapas
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Para obter mais informações, consulte os seguintes artigos:
 
 - Saiba mais sobre os [conceitos de chat](../concepts/chat/concepts.md)
-- Familiarize-se com a [biblioteca de clientes de chat](../concepts/chat/sdk-features.md)
+- Familiarize-se com nosso [SDK de Chat](../concepts/chat/sdk-features.md)
 - Examinar o exemplo [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Leituras adicionais
 
-- [GitHub de Comunicação do Azure](https://github.com/Azure/communication) – Encontre mais exemplos e informações na página oficial do GitHub
+- [Amostras](./overview.md) – encontre mais amostras e exemplos em nossa página de visão geral de amostras.
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário

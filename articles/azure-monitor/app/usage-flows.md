@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a31ab24b96fa44787d08801a0680f94ff98bb5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87309262"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
@@ -37,7 +37,7 @@ A ferramenta Fluxos de Usuário inicia de uma exibição de página inicial, eve
 
 Para começar a responder perguntas com a ferramenta Fluxos de Usuário, escolha uma exibição de página ou um evento personalizado inicial para servir como o ponto de partida para a visualização:
 
-1. Clique no link no título **O que os usuários fazem depois de...?**, ou clique no botão**Editar**.
+1. Clique no link no título **O que os usuários fazem depois de...?**, ou clique no botão **Editar**.
 2. Selecione uma exibição de página, evento personalizado ou exceção do menu suspenso **Evento inicial**.
 3. Clique em **criar grafo**.
 

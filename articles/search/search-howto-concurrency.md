@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 52260facc1a458a3ef18b067e6d52e189f5d329c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881747"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Como gerenciar a simultaneidade no Azure Pesquisa Cognitiva
@@ -216,7 +216,7 @@ Tente modificar outros exemplos para exercitar os objetos ETags ou AccessConditi
 
 + [Azure-Search-dotnet-Samples no GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples) contém exemplos C# adicionais.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Cabeçalhos de resposta e solicitação HTTP comuns](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [Códigos de status HTTP](/rest/api/searchservice/http-status-codes)

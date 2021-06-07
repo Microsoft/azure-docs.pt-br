@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900749"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100652319"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -88,7 +88,7 @@ Você precisa de um repositório no GitHub para conectar os Aplicativos Web Est�
 1. Envie por push seu repositório local para o GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Implantar o aplicativo Web
@@ -98,8 +98,8 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 ### <a name="create-the-application"></a>Criar o aplicativo
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
-1. Pesquise **Aplicativos Web Estáticos**
+1. Clique em **Criar um Recurso**
+1. Pesquise por **Aplicativos Web Estáticos**
 1. Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 1. Clique em **Criar**
 
@@ -123,7 +123,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 
 1. Selecione **hugo-static-app** como o _Repositório_.
 
-1. Para _Branch_, selecione **master**.
+1. Para _Branch_, selecione **main**.
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informações do GitHub concluídas":::
 

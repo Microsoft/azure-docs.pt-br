@@ -7,16 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123330"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629063"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise seus dados do Azure IoT Central em um painel do Power BI
 
 *Este tópico se aplica a administradores e desenvolvedores de soluções.*
+
+> [!Note] 
+> Esta solução usa [recursos de exportação de dados herdados](./howto-export-data-legacy.md). Fique atento a diretrizes atualizadas sobre como se conectar a Power BI usando a exportação de dados mais recente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline de solução do Power BI":::
 
@@ -27,7 +30,7 @@ Use a solução Power BI para o Azure IoT Central V3 para criar um painel de Pow
 - Filtrar para dados enviados por dispositivos específicos
 - Exibir os dados de telemetria mais recentes em uma tabela
 
-Esta solução configura um pipeline que lê dados de sua conta de armazenamento de BLOBs do Azure de [exportação de dados contínuos](./howto-export-data.md) . O pipeline usa Azure Functions, o Azure Data Factory e o banco de dados SQL do Azure para processar e transformar os dados. Você pode visualizar e analisar os dados em um Power BI relatório que você baixa como um arquivo PBIX. Todos os recursos são criados em sua assinatura do Azure, para que você possa personalizar cada componente para atender às suas necessidades.
+Esta solução configura um pipeline que lê dados de sua conta de armazenamento de BLOBs do Azure de [exportação de dados herdados](./howto-export-data-legacy.md) . O pipeline usa Azure Functions, o Azure Data Factory e o banco de dados SQL do Azure para processar e transformar os dados. Você pode visualizar e analisar os dados em um Power BI relatório que você baixa como um arquivo PBIX. Todos os recursos são criados em sua assinatura do Azure, para que você possa personalizar cada componente para atender às suas necessidades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +39,7 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 A configuração da solução requer os seguintes recursos:
 
 - Um aplicativo IoT Central versão 3. Para saber como verificar a versão do aplicativo, consulte [sobre seu aplicativo](./howto-get-app-info.md). Para saber como criar um aplicativo IoT Central, consulte [criar um aplicativo de IOT central do Azure](./quick-deploy-iot-central.md).
-- Exportação de dados contínuas configurada para exportar a telemetria, dispositivos e modelos de dispositivo para o armazenamento de BLOBs do Azure. Para saber mais, consulte [como exportar dados de IOT para destinos no Azure](howto-export-data.md).
+- Exportação de dados contínua herdada que é configurada para exportar telemetria, dispositivos e modelos de dispositivo para o armazenamento de BLOBs do Azure. Para saber mais, consulte [documentação de exportação de dados herdados](howto-export-data-legacy.md).
   - Certifique-se de que apenas seu aplicativo IoT Central está exportando dados para o contêiner de BLOB.
   - Seus [dispositivos devem enviar mensagens codificadas em JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Os dispositivos devem especificar `contentType:application/JSON` e `contentEncoding:utf-8` ou `contentEncoding:utf-16` ou `contentEncoding:utf-32` nas propriedades do sistema de mensagens.
 - Power BI Desktop (versão mais recente). Consulte [Power bi downloads](https://powerbi.microsoft.com/downloads/).
@@ -47,7 +50,7 @@ A configuração da solução requer os seguintes recursos:
 
 ## <a name="install"></a>Instalar
 
-Para configurar o pipeline, navegue até a página [Power bi Solution para o Azure IOT central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site do **Microsoft AppSource** . Selecione **obter agora**e siga as instruções.
+Para configurar o pipeline, navegue até a página [Power bi Solution para o Azure IOT central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site do **Microsoft AppSource** . Selecione **obter agora** e siga as instruções.
 
 Ao abrir o arquivo PBIX, certifique-se de ler e siga as instruções na página de rosto. Estas instruções descrevem como conectar seu relatório ao banco de dados SQL.
 
@@ -55,13 +58,13 @@ Ao abrir o arquivo PBIX, certifique-se de ler e siga as instruções na página 
 
 O arquivo PBIX contém o relatório de **dispositivos e telemetria** mostra uma exibição histórica da telemetria que foi enviada por dispositivos. Ele fornece uma análise dos diferentes tipos de telemetria e também mostra a telemetria mais recente enviada pelos dispositivos.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Pipeline de solução do Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI relatório de dispositivos e telemetria":::
 
 ## <a name="pipeline-resources"></a>Recursos de pipeline
 
 Você pode acessar todos os recursos do Azure que compõem o pipeline no portal do Azure. Todos os recursos estão no grupo de recursos que você criou quando configurou o pipeline.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Pipeline de solução do Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="portal do Azure exibição do grupo de recursos":::
 
 A lista a seguir descreve a função de cada recurso no pipeline:
 

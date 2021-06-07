@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
 ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93313630"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionar automaticamente pools do Apache Spark do Azure Synapse Analytics
@@ -53,7 +53,7 @@ Para reduzir verticalmente, com base no número de executores, mestres de aplica
 
 Para habilitar o recurso Dimensionamento automático, execute as seguintes etapas como parte do processo normal de criação de pool:
 
-1. Na guia **Noções básicas** , marque a caixa de seleção **Habilitar dimensionamento automático**.
+1. Na guia **Noções básicas**, marque a caixa de seleção **Habilitar dimensionamento automático**.
 1. Insira os valores desejados para as seguintes propriedades:  
 
     * Número **mínimo** de nós.

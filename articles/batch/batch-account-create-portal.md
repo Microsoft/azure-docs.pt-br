@@ -2,14 +2,14 @@
 title: Criar uma conta no portal do Azure
 description: Aprenda a criar uma conta do Lote do Azure no portal do Azure para executar cargas de trabalho paralelas em larga escala na nuvem.
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368499"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101703657"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -101,7 +101,7 @@ No modo de assinatura do usuário, é necessário um [Azure Key Vault](../key-va
 
 Ao criar a conta do lote no modo de assinatura do usuário, especifique a **assinatura do usuário** como o modo de alocação do pool, selecione o Key Vault que você criou e marque a caixa para conceder acesso ao lote do Azure para o Key Vault.
 
-Se você preferir conceder acesso ao Key Vault manualmente, vá para a seção **políticas de acesso** do Key Vault e selecione **Adicionar política de acesso**. Selecione o link ao lado de **selecionar entidade de segurança** e procure **lote do Microsoft Azure** (ID do aplicativo **ddbf3205-c6bd-46ae-8127-60eb93363864**). Selecione essa entidade de segurança e configure as **permissões secretas** usando o menu suspenso. O Lote do Azure deve ter no mínimo permissões de **Obter**, **Lista**, **Definir** e **Excluir**.
+Se você preferir conceder acesso ao Key Vault manualmente, vá para a seção **políticas de acesso** do Key Vault e selecione **Adicionar política de acesso**. Selecione o link ao lado de **selecionar entidade de segurança** e procure **lote do Microsoft Azure** (ID do aplicativo **ddbf3205-c6bd-46ae-8127-60eb93363864**). Selecione essa entidade de segurança e configure as **permissões secretas** usando o menu suspenso. O Lote do Azure deve ter no mínimo permissões de **Obter**, **Lista**, **Definir** e **Excluir**. Para [cofres de chaves com exclusão reversível habilitada](../key-vault/general/soft-delete-overview.md), o lote do Azure também deve receber permissão de **recuperação** .
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Captura de tela das seleções de permissões secretas para o lote do Azure":::
 

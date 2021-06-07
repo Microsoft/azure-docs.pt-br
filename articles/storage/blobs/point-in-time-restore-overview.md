@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980500"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802260"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauração pontual para BLOBs de blocos
 
 A restauração pontual fornece proteção contra exclusão acidental ou corrupção, permitindo que você restaure dados de blob de blocos para um estado anterior. A restauração pontual é útil em cenários em que um usuário ou aplicativo exclui acidentalmente dados ou onde um erro de aplicativo corrompe os dados. A restauração pontual também permite cenários de teste que exigem a reversão de um conjunto de dados para um estado conhecido antes da execução de outros testes.
 
-A restauração pontual tem suporte apenas para contas de armazenamento v2 de uso geral. Somente os dados nas camadas de acesso quentes e frias podem ser restaurados com a restauração pontual.
+A restauração pontual tem suporte para contas de armazenamento de uso geral v2 somente no nível de desempenho padrão. Somente os dados nas camadas de acesso quentes e frias podem ser restaurados com a restauração pontual.
 
 Para saber como habilitar a restauração pontual para uma conta de armazenamento, consulte [executar uma restauração pontual em dados de blob de blocos](point-in-time-restore-manage.md).
 
@@ -47,15 +47,17 @@ A operação **restaurar intervalos de blob** retorna uma ID de restauração qu
 > As operações de leitura do local secundário podem continuar durante a operação de restauração se a conta de armazenamento for replicada geograficamente.
 
 > [!CAUTION]
-> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner inteiro, exclua BLOBs individuais se você quiser restaurá-los mais tarde.
+> A restauração pontual dá suporte à restauração em relação a operações que atuavam somente em blobs de blocos. Não é possível restaurar as operações que foram acionadas em contêineres. Por exemplo, se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração pontual. Em vez de excluir um contêiner inteiro, exclua BLOBs individuais se você quiser restaurá-los mais tarde.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Pré-requisitos para restauração pontual
 
 A restauração pontual requer que os seguintes recursos de armazenamento do Azure sejam habilitados antes de habilitar a restauração pontual:
 
-- [Exclusão reversível](./soft-delete-blob-overview.md)
-- [Feed de alteração](storage-blob-change-feed.md)
+- [Exclusão reversível](soft-delete-blob-overview.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)
+
+Habilitar esses recursos pode resultar em encargos adicionais. Certifique-se de entender as implicações de cobrança antes de habilitar a restauração pontual e os recursos de pré-requisito.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauração pontual
 
@@ -88,6 +90,8 @@ A restauração pontual para BLOBs de blocos tem as seguintes limitações e pro
 > Se você restaurar blobs de blocos para um ponto anterior a 22 de setembro de 2020, as limitações de visualização para a restauração pontual entrarão em vigor. A Microsoft recomenda que você escolha um ponto de restauração que seja igual ou posterior a 22 de setembro de 2020 para aproveitar o recurso de restauração pontual disponível.
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
+
+Não há nenhum encargo para habilitar a restauração pontual. No entanto, a habilitação da restauração pontual também permite o controle de versão de BLOB, exclusão reversível e feed de alteração, cada um dos quais pode resultar em encargos adicionais.
 
 A cobrança pela restauração pontual depende da quantidade de dados processados para executar a operação de restauração. A quantidade de dados processados é baseada no número de alterações ocorridas entre o ponto de restauração e o momento atual. Por exemplo, supondo uma taxa relativamente constante de alteração para bloquear dados de BLOB em uma conta de armazenamento, uma operação de restauração que volta no tempo 1 dia custaria 1/10 de uma restauração que volta no tempo de 10 dias.
 

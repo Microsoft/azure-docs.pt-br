@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/14/2021
-ms.openlocfilehash: 2680c930bfa8451eec7dd518d3c535e0d04046cc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 03b0cd852f34e115cc5bbc60448e45fcbb680474
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601206"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -191,7 +191,7 @@ As propriedades a seguir têm suporte para o Amazon S3 em `storeSettings` config
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                                          |
 | enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/>-Quando você usa o prefixo, o caminho raiz da partição é subcaminho antes do último "/". <br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
-| maxConcurrentConnections | O número de conexões simultâneas com o armazenamento de dados. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não                                                          |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não                                                          |
 
 **Exemplo:**
 
@@ -362,7 +362,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 |:--- |:--- |:--- |
 | type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **FileSystemName**. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando **recursivo** é definido como **true** e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não será copiada ou criada no coletor.<br/>Os valores permitidos são **true** (padrão) e **false**. | Não |
-| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo:**
 

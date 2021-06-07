@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Internet das coisas
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-fundamentals/index
+      items:
+        - name: Gêmeos Digitais do Azure
+          tocHref: /azure/digital-twins/
+          topicHref: /azure/digital-twins/index/
+        - name: Gêmeos Digitais do Azure
+          tocHref: /azure/iot-fundamentals/
+          topicHref: /azure/digital-twins/index

@@ -7,10 +7,10 @@ author: dcstwh
 ms.author: weetok
 ms.date: 09/08/2020
 ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371474"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory

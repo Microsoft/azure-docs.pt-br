@@ -11,10 +11,10 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99981401"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Fazer upload de arquivos do seu dispositivo na nuvem com o Hub IoT (.NET)

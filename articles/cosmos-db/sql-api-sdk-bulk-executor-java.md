@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6f5993826c7d8c39f4e062c0a84ffd95eaf9cf2d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5ef75719686f9299fee56cad247ca49167171813
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098596"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577152"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca do executor em massa Java: Fazer o download das informações
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,14 +38,14 @@ ms.locfileid: "93098596"
 > * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Link/anotações |
 |---|---|
 |**Descrição**|A biblioteca bulk executor permite que aplicativos cliente executem operações em massa em contas do Azure Cosmos DB. a biblioteca bulk executor fornece os namespaces BulkImport e BulkUpdate. O módulo BulkImport pode importar em massa documentos de forma otimizada, de modo que a taxa de transferência provisionada para uma coleção seja consumida até seu limite máximo. O módulo BulkUpdate pode atualizar em massa dados existentes nos contêineres do Azure Cosmos como patches.|
 |**Baixe o SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Biblioteca do executor em massa no GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **Documentação da API**| [Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Introdução**|[Introdução ao SDK Java da biblioteca bulk executor](bulk-executor-java.md)|
-|**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/)|
 
 ## <a name="release-notes"></a>Notas de versão
 

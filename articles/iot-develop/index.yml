@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentação de Desenvolvimento de dispositivo IoT
+summary: Explore a documentação do Azure IoT para desenvolver dispositivos e aplicativos de dispositivo inseridos e conectados à nuvem.
+metadata:
+  title: Desenvolvimento de dispositivo IoT
+  description: Saiba como usar o Azure IoT para desenvolver dispositivos e aplicativos de dispositivo inseridos e conectados à nuvem.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: bb3bd1766e20fd16fa996eb66008140009f6bd5d
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101721439"
+landingContent:
+- title: Sobre o desenvolvimento de dispositivo IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o desenvolvimento de dispositivo Azure IoT?
+      url: about-iot-develop.md
+    - text: Qual SDK devo usar?
+      url: about-iot-sdks.md
+- title: Introdução ao desenvolvimento de aplicativo do dispositivo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Enviar telemetria do dispositivo ao IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Enviar telemetria do dispositivo ao Hub IoT
+      url: quickstart-send-telemetry-cli-python.md
+- title: Introdução ao desenvolvimento de dispositivo inserido
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Introdução ao desenvolvimento de dispositivo inserido
+      url: quickstart-device-development.md

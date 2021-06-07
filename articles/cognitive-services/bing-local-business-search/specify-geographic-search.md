@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 2e72abd777ac4834385fd916b730d438b8540203
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96490254"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Use limites geográficos para filtrar resultados da API de pesquisa do Bing Local Business
@@ -55,7 +55,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido do Java da pesquisa de negócios local](quickstarts/local-search-java-quickstart.md)
-- [Início rápido do C# de pesquisa de negócios local](quickstarts/local-quickstart.md)
-- [Início rápido do nó de pesquisa comercial local](quickstarts/local-search-node-quickstart.md)
+- [Início Rápido do Java pesquisa de local de negócios](quickstarts/local-search-java-quickstart.md)
+- [Início Rápido do C# de Pesquisa de negócios local](quickstarts/local-quickstart.md)
+- [Início Rápido de nó de pesquisa local de negócios](quickstarts/local-search-node-quickstart.md)
 - [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

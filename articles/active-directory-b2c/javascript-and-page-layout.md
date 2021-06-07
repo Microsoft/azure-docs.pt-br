@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/22/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6bb478038d398226db38dc20e49ed7a14e5d5d0a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d234e57f7c11b0d9f2cd212bde93a8b8e478ef41
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592799"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781357"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript e versões de layout de página no Azure Active Directory B2C
 
@@ -155,7 +155,7 @@ Siga estas diretrizes ao personalizar a interface do seu aplicativo usando JavaS
     - Não use o JavaScript diretamente para chamar pontos de extremidade do Azure AD B2C.
 - É possível incorporar o JavaScript ou vincular a arquivos JavaScript externos. Ao usar um arquivo JavaScript externo, certifique-se de usar a URL absoluta e não uma URL relativa.
 - Estruturas do JavaScript:
-    - O Azure AD B2C usa uma versão específica do jQuery. Não inclua outra versão do jQuery. Usar mais de uma versão na mesma página causa problemas.
+    - Azure AD B2C usa uma [versão específica do jQuery](page-layout.md#jquery-version). Não inclua outra versão do jQuery. Usar mais de uma versão na mesma página causa problemas.
     - Não há suporte para uso de RequireJS.
     - O Azure AD B2C não dá suporte para a maioria das estruturas do JavaScript.
 - As configurações do Azure AD B2C podem ser lidas chamando objetos `window.SETTINGS`, `window.CONTENT`, como o idioma da interface do usuário atual. Não altere o valor desses objetos.

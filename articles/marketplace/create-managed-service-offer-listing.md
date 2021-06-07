@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
 ms.openlocfilehash: 5ab831ae6ab761804fc7a4665000a13ab61acadc
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97918081"
 ---
 # <a name="how-to-configure-your-managed-service-offer-listing-details"></a>Como configurar os detalhes de listagem da oferta de serviço gerenciado

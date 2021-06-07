@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90933631"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Conceitos para distribuição de dados com o grupo de servidores de hiperescala PostgreSQL habilitado para Arc
@@ -46,7 +46,7 @@ Veja mais informações em [nós e tabelas no banco de dados do Azure para Postg
 ## <a name="determine-the-application-type"></a>Determinar o tipo de aplicativo
 Identificar claramente o tipo de aplicativo que você está compilando é importante. Por quê? Como a execução de consultas eficientes em um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc requer que as tabelas sejam distribuídas corretamente entre servidores. A distribuição recomendada varia de acordo com o tipo de aplicativo e seus padrões de consulta. Há, em geral, dois tipos de aplicativos que funcionam bem na hiperescala postgres habilitada para o Azure Arc:
 - Aplicativos multilocatários
-- Real-Time aplicativos
+- Aplicativos em tempo real
 
 A primeira etapa na modelagem de dados é identificar quais deles se assemelham mais bem ao seu aplicativo.
 

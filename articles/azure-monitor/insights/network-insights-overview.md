@@ -1,21 +1,20 @@
 ---
 title: Azure Monitor para Redes
 description: Uma visão geral de Azure Monitor para redes, que fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração.
-ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: db94a376112b3d715da9095acb05c0b4fd4ea02f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734133"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605793"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
-O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-overview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
+O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../essentials/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-overview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
 
 Azure Monitor para redes é estruturada com base nesses principais componentes do monitoramento:
 - [Métricas e integridade da rede](#networkhealth)
@@ -109,10 +108,12 @@ O Diagnostic Toolkit fornece acesso a todos os recursos de diagnóstico disponí
 
 ![Captura de tela que mostra a guia kit de ferramentas de diagnóstico.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="onboarded-resources"></a>Recursos integrados 
+
+Os recursos integrados têm pastas de trabalho internas e exibições de dependência. Os recursos atualmente integrados são WAN virtual, gateway de aplicativo, Load Balancer e ExpressRoute.
+
 ## <a name="troubleshooting"></a>Solução de problemas 
-
 Para obter diretrizes gerais de solução de problemas, consulte o artigo de solução de [problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
-
 Esta seção o ajudará a diagnosticar e solucionar alguns problemas comuns que você pode encontrar ao usar o Azure Monitor para redes. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Como fazer resolver problemas ou falhas de desempenho?
@@ -149,4 +150,4 @@ Você pode editar a pasta de trabalho exibida em qualquer exibição de métrica
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o monitoramento de rede: [o que é o observador de rede do Azure?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Conheça os cenários em que as pastas de trabalho foram projetadas para dar suporte, como criar relatórios e personalizar relatórios existentes e muito mais: [criar relatórios interativos com pastas de trabalho do Azure monitor](../platform/workbooks-overview.md)
+- Conheça os cenários em que as pastas de trabalho foram projetadas para dar suporte, como criar relatórios e personalizar relatórios existentes e muito mais: [criar relatórios interativos com pastas de trabalho do Azure monitor](../visualize/workbooks-overview.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420522"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: quando você tem um locatário existente
@@ -34,7 +34,7 @@ Você pode gerenciar alguns usuários locais e outros na nuvem. Um cenário comu
 Se você começar a gerenciar usuários no Azure AD que também estão no AD local e, mais tarde, desejar usar o Connect, existem outros problemas que devem ser considerados.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronia com usuários existentes no Azure AD
-Quando você instala o Azure AD Connect e inicia a sincronização, o serviço de sincronização do AD do Azure (no Azure AD) faz uma verificação em cada novo objeto e tenta encontrar um objeto existente para fazer a correspondência. Existem três atributos usados para esse processo: **userPrincipalName** , **proxyAddresses** e **sourceAnchor**/**immutableID**. Uma correspondência entre **userPrincipalName** e **proxyAddresses** é conhecida como uma **correspondência flexível**. Uma correspondência com **sourceAnchor** é conhecida como **correspondência rígida**. Para o atributo **proxyAddresses** , apenas o valor com **SMTP:** , que é o email principal, é usado para a avaliação.
+Quando você instala o Azure AD Connect e inicia a sincronização, o serviço de sincronização do AD do Azure (no Azure AD) faz uma verificação em cada novo objeto e tenta encontrar um objeto existente para fazer a correspondência. Existem três atributos usados para esse processo: **userPrincipalName**, **proxyAddresses** e **sourceAnchor**/**immutableID**. Uma correspondência entre **userPrincipalName** e **proxyAddresses** é conhecida como uma **correspondência flexível**. Uma correspondência com **sourceAnchor** é conhecida como **correspondência rígida**. Para o atributo **proxyAddresses**, apenas o valor com **SMTP:**, que é o email principal, é usado para a avaliação.
 
 A correspondência é avaliada apenas para objetos novos provenientes do Connect. Se você alterar um objeto existente para que ele corresponda a um desses atributos, ocorrerá um erro.
 

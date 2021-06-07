@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985749"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100634276"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ A replicação geográfica ativa é um recurso de banco de dados SQL do Azure qu
 
 > [!NOTE]
 > Não há suporte para a replicação geográfica ativa no Azure SQL Instância Gerenciada. Para o failover geográfico de instâncias do SQL Instância Gerenciada, use [grupos de failover automático](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Para migrar bancos de dados SQL do Azure Alemanha usando a replicação geográfica ativa, confira [migrar o SQL Database usando a replicação geográfica ativa](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 A replicação geográfica ativa foi projetada como uma solução de continuidade de negócios que permite que o aplicativo execute a recuperação de desastres rápida de bancos de dados individuais no caso de um desastre regional ou de uma interrupção em grande escala. Se a replicação geográfica estiver habilitada, o aplicativo poderá iniciar o failover para um banco de dados secundário em uma região do Azure diferente. Há suporte para até quatro secundários na mesma região ou em regiões diferentes, e os secundários também podem ser usados para consultas de acesso somente leitura. O failover deve ser iniciado manualmente pelo aplicativo ou pelo usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente.
 
@@ -292,6 +295,9 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 | [Links de Replicação - Listar pelo Banco de Dados](/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado banco de dados em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
 | [Excluir links de replicação](/rest/api/sql/replicationlinks/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
 |  | |
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

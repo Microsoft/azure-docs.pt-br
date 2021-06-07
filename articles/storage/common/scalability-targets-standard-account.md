@@ -10,10 +10,10 @@ ms.date: 07/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 1662f3d72c51b1fea766891e7681206f5e271601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86145925"
 ---
 # <a name="scalability-and-performance-targets-for-standard-storage-accounts"></a>Metas de escalabilidade e desempenho das contas de Armazenamento Standard

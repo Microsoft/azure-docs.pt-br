@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db4a938d2f773ed24d4c7a48d747dd5cc22c0bd2
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: e28b66844eaa0b73c2654175dea2e31d3cd75f5d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900273"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102172089"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerenciar Azure Resource Manager grupos de recursos usando CLI do Azure
 
@@ -26,7 +26,7 @@ Outros artigos sobre como gerenciar grupos de recursos:
 
 Um grupo de recursos é um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Em geral, adicione recursos que compartilham o mesmo ciclo de vida no mesmo grupo de recursos, para que você possa implantar, atualizar e excluí-los como um grupo facilmente.
 
-O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, você precisa fazer com que os dados sejam armazenados em determinada região.
+O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você especifica um local para o grupo de recursos, especifica onde os metadados são armazenados. Por motivos de conformidade, talvez você precise garantir que os dados sejam armazenados em determinada região.
 
 O grupo de recursos armazena metadados sobre os recursos. Quando você especifica uma localização para o grupo de recursos, você especifica onde os metadados são armazenados.
 
@@ -125,7 +125,7 @@ Depois de configurar o grupo de recursos com êxito, talvez você queira exibir 
 - Automatize implantações futuras da solução porque o modelo contém toda a infraestrutura completa.
 - Aprenda a sintaxe do modelo examinando o JavaScript Object Notation (JSON) que representa sua solução.
 
-Para exportar todos os recursos em um grupo de recursos, use [AZ Group Export](/cli/azure/group?view=azure-cli-latest#az_group_export&preserve-view=true) e forneça o nome do grupo de recursos.
+Para exportar todos os recursos em um grupo de recursos, use [AZ Group Export](/cli/azure/group#az_group_export) e forneça o nome do grupo de recursos.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6dda65be98934ce90e985b241078ae8019afb7e0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 292a244a4804f97e8622d6841c33b153af373290
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361257"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103489161"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar AD FS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ ms.locfileid: "100361257"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para uma conta de usuário AD FS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Você habilita a credencial adicionando um [perfil técnico de provedor de identidade do SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
+Este artigo mostra como habilitar a entrada para uma conta de usuário AD FS usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C). Você habilita a entrada adicionando um provedor de [identidade SAML](identity-provider-generic-saml.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +62,7 @@ Você precisa armazenar o certificado em seu locatário do Azure AD B2C.
 
 Se desejar que os usuários entrem usando uma conta de AD FS, você precisará definir a conta como um provedor de declarações com o qual Azure AD B2C possa se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-Você pode definir uma conta de AD FS como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, confira [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
+Você pode definir uma conta de AD FS como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, consulte [definir um provedor de identidade SAML](identity-provider-generic-saml.md).
 
 1. Abra *TrustFrameworkExtensions.xml*.
 1. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
@@ -71,10 +71,10 @@ Você pode definir uma conta de AD FS como um provedor de declarações adiciona
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -156,9 +156,16 @@ Para usar AD FS como um provedor de identidade no Azure AD B2C, você precisa cr
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+Ao usar um [domínio personalizado](custom-domain.md), use o seguinte formato:
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Substitua os seguintes valores:
 
-- **seu locatário** com o nome do locatário, como Your-Tenant.onmicrosoft.com.
+- **seu-Tenant-Name** com o nome do locatário, como Your-Tenant.onmicrosoft.com.
+- **seu nome de domínio** com seu nome de domínio personalizado, como login.contoso.com.
 - **your-policy** pelo nome da política. Por exemplo, B2C_1A_signup_signin_adfs.
 - **seu perfil técnico** com o nome do seu perfil técnico do provedor de identidade SAML. Por exemplo, Contoso-SAML2.
 
@@ -199,8 +206,10 @@ Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e
 1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
 1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](tutorial-register-applications.md). A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **contoso AD FS** para entrar com o provedor de identidade AD FS contoso.
 
 Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
+
 ## <a name="troubleshooting-ad-fs-service"></a>Solucionando problemas de serviço AD FS  
 
 AD FS está configurado para usar o log de aplicativos do Windows. Se você enfrentar desafios Configurando AD FS como um provedor de identidade SAML usando políticas personalizadas no Azure AD B2C, convém verificar o log de eventos do AD FS:
@@ -217,7 +226,7 @@ Esse erro indica que a solicitação SAML enviada pelo Azure AD B2C não está a
 
 #### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>Opção 1: definir o algoritmo de assinatura no Azure AD B2C  
 
-Você pode configurar como assinar a solicitação SAML no Azure AD B2C. Os metadados [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) controlam o valor do `SigAlg` parâmetro (cadeia de caracteres de consulta ou parâmetro post) na solicitação SAML. O exemplo a seguir configura Azure AD B2C para usar o `rsa-sha256` algoritmo de assinatura.
+Você pode configurar como assinar a solicitação SAML no Azure AD B2C. Os metadados [XmlSignatureAlgorithm](identity-provider-generic-saml.md) controlam o valor do `SigAlg` parâmetro (cadeia de caracteres de consulta ou parâmetro post) na solicitação SAML. O exemplo a seguir configura Azure AD B2C para usar o `rsa-sha256` algoritmo de assinatura.
 
 ```xml
 <Metadata>

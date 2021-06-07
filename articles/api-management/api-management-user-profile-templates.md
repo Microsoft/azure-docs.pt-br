@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249505"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
@@ -105,7 +105,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -116,8 +116,8 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
 |`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
 |`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
+|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -287,7 +287,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
                 <a href="#" class="btn-link" id="regenerateSecondary_{{subscription.id}}" data-bind="click: regenerateKey, text: regenerateKeyLabel">{% localized "SubscriptionListStrings|WebDevelopersRegenerateLink" %}</a>  
               </div>  
             </div>  
-            <div class="clearfix"> </div>  
+            <div class="clearfix"> </div>  
           </div>  
           <!-- /ko -->  
           {% endif %}  
@@ -326,7 +326,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -337,8 +337,8 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
 |`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
 |`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
+|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -489,7 +489,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|Descrição|  
+|Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -500,8 +500,8 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
 |`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
 |`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
-|`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|`canChangePassword`|boolean|Se o usuário atual pode alterar sua senha.|  
+|`isSystemUser`|boolean|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

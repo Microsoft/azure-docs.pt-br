@@ -6,10 +6,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 12/18/2020
 ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97695875"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
@@ -160,7 +160,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | em partes | String | Indica que o conteúdo é carregado em partes |
    | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
@@ -168,7 +168,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessária | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
    | **Localidade** | String | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
@@ -180,7 +180,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Descrição |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Type | Descrição |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
@@ -189,7 +189,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 4. Depois de cada solicitação PATCH, o ponto de extremidade confirma o recebimento para cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Necessária | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | Descrição |
    |--------------------------------|------|----------|-------------|
    | **Range** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes=0-1023" |   
    | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706176"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564561"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de um trabalho de importação
 O serviço de Importação/Exportação do Microsoft Azure pode não copiar alguns arquivos ou partes de um arquivo para o serviço Blob do Windows Azure. Alguns motivos para as falhas incluem:  
@@ -30,7 +30,7 @@ Você pode executar a ferramenta de Importação/Exportação do Microsoft Azure
 
 Os seguintes parâmetros podem ser especificados com **RepairImport**: 
   
-|||  
+| Parâmetro | Descrição |  
 |-|-|  
 |**/r:**<repairfile\>|**Necessário.** Caminho até o arquivo de reparo, que controla o progresso do reparo e permite que você retome um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Ao iniciar um reparo para uma determinada unidade, passe o caminho para um arquivo de reparo, que ainda não existe. Para retomar um reparo interrompido, você deve passar no nome de um arquivo de reparo existente. Sempre especifique o arquivo de reparo correspondente à unidade de destino.|  
 |**/logdir:**<LogDirectory\>|**Opcional.** O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  

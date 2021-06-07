@@ -4,10 +4,10 @@ description: Com o backup do Azure, você pode enviar dados da rede usando o ser
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98701806"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (MABS)

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e2fa09ac8609310d4579590214bc25e5d7ee309f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841619"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641566"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Conectar-se ao banco de dados SQL do Azure com a autenticação multifator do Azure AD
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,9 +39,9 @@ A partir do .NET Framework versão 4.7.2, a enumeração [`SqlAuthenticationMeth
 
 * Uma caixa de diálogo que solicita um código de verificação de autenticação multifator, que o sistema enviou para um telefone celular.
 
-Para obter informações sobre como configurar o Azure AD para exigir a autenticação multifator, consulte [introdução à autenticação multifator do Azure ad na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
+Para obter informações sobre de que modo configurar o Azure AD para exigir uma Autenticação Multifator, confira o artigo [Introdução à Autenticação Multifator do Azure AD na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
 
-Para capturas de tela dessas caixas de diálogo, consulte [configurar autenticação multifator para SQL Server Management Studio e Azure ad](authentication-mfa-ssms-configure.md).
+Para obter capturas de tela dessas caixas de diálogo, confira como [Configurar uma autenticação multifator para o SQL Server Management Studio e o Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!TIP]
 > Você pode pesquisar .NET Framework APIs com a [página de ferramentas do navegador de API do .net](/dotnet/api/).
@@ -62,7 +62,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
 1. Na portal do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**.
 
-    ![Registro do aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registro de aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Depois que o registro do aplicativo é criado, o valor da **ID do aplicativo** é gerado e exibido.
 
@@ -113,7 +113,7 @@ O exemplo de C# depende do [`System.Data.SqlClient`](/dotnet/api/system.data.sql
   Use esse valor para a autenticação que requer um nome de usuário e uma senha do Azure AD. O Banco de Dados SQL do Azure faz a autenticação. Esse método não dá suporte à autenticação multifator.
 
 > [!NOTE]
-> Se você estiver usando o .NET Core, será necessário usar o namespace [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) . Para obter mais informações, consulte o [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)a seguir.
+> Se você estiver usando o .NET Core, será necessário usar o namespace [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient) . Para obter mais informações, consulte o [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)a seguir.
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Defina os valores de parâmetro de C# do portal do Azure
 
@@ -148,7 +148,7 @@ Para obter mais informações, consulte [Configurar a autenticação multifator 
 ## <a name="c-code-example"></a>Exemplo de código C#
 
 > [!NOTE]
-> Se você estiver usando o .NET Core, será necessário usar o namespace [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) . Para obter mais informações, consulte o [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)a seguir.
+> Se você estiver usando o .NET Core, será necessário usar o namespace [Microsoft. Data. SqlClient](/dotnet/api/microsoft.data.sqlclient) . Para obter mais informações, consulte o [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)a seguir.
 
 O programa C# de exemplo depende do assembly DLL [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 

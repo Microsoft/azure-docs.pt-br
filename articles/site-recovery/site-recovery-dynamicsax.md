@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86133818"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
@@ -137,7 +137,7 @@ Para obter mais informações específicas ao SQL Server durante o failover de t
 
 2. Selecione no plano de recuperação criado para o Dynamics AX.
 
-3. Selecione **Failover de Teste**.
+3. Selecione **failover de teste**.
 
 4. Selecione a rede virtual para iniciar o processo de failover de teste.
 

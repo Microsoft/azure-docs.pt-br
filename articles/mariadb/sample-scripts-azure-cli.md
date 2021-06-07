@@ -3,16 +3,16 @@ title: Exemplos da CLI do Azure – Banco de Dados do Azure para MariaDB
 description: Este artigo lista os exemplos de código da CLI do Azure disponíveis para interagir com o Banco de Dados do Azure para MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: 5218d087a622c1f651785afd1ab7cb418732b093
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: aa9efba1c49063d40b4df0444fb3bc63b124a0a0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664592"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Exemplos da CLI do Azure para o Banco de Dados do Azure para MariaDB 

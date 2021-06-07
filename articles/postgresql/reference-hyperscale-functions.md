@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026226"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na API do SQL de hiperescala (Citus)
@@ -421,7 +421,7 @@ Após uma operação de movimentação bem-sucedida, os fragmentos no nó de ori
 
 **modo de transferência de fragmento \_ \_ :** (opcional) especifique o método de replicação, se deseja usar a replicação lógica PostgreSQL ou um comando de cópia entre operadores. Os valores possíveis são:
 
-> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Este é o valor padrão.
+> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Esse é o valor padrão.
 > -   `force_logical`: Use a replicação lógica, mesmo se a tabela não tiver uma identidade de réplica. Quaisquer instruções de atualização/exclusão simultâneas à tabela falharão durante a replicação.
 > -   `block_writes`: Use cópia (bloqueio de gravações) para tabelas que não têm a chave primária ou a identidade da réplica.
 
@@ -466,7 +466,7 @@ Especificamente, o rebalanceador de fragmentos tentará convergir a utilização
 
 **modo de transferência de fragmento \_ \_ :** (opcional) especifique o método de replicação, se deseja usar a replicação lógica PostgreSQL ou um comando de cópia entre operadores. Os valores possíveis são:
 
-> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Este é o valor padrão.
+> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Esse é o valor padrão.
 > -   `force_logical`: Use a replicação lógica, mesmo se a tabela não tiver uma identidade de réplica. Quaisquer instruções de atualização/exclusão simultâneas à tabela falharão durante a replicação.
 > -   `block_writes`: Use cópia (bloqueio de gravações) para tabelas que não têm a chave primária ou a identidade da réplica.
 
@@ -628,7 +628,7 @@ A \_ função de \_ nó () de dreno mestre move fragmentos para fora do nó desi
 
 **modo de transferência de fragmento \_ \_ :** (opcional) especifique o método de replicação, se deseja usar a replicação lógica PostgreSQL ou um comando de cópia entre operadores. Os valores possíveis são:
 
-> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Este é o valor padrão.
+> -   `auto`: Exigir identidade de réplica se a replicação lógica for possível; caso contrário, use o comportamento herdado (por exemplo, para reparo de fragmentos, PostgreSQL 9,6). Esse é o valor padrão.
 > -   `force_logical`: Use a replicação lógica, mesmo se a tabela não tiver uma identidade de réplica. Quaisquer instruções de atualização/exclusão simultâneas à tabela falharão durante a replicação.
 > -   `block_writes`: Use cópia (bloqueio de gravações) para tabelas que não têm a chave primária ou a identidade da réplica.
 

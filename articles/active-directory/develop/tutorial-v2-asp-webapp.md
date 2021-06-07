@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103117"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102174675"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -141,8 +141,8 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
                     Scope = OpenIdConnectScope.OpenIdProfile,
-                    // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseType.IdToken,
+                    // ResponseType is set to request the code id_token - which contains basic information about the signed-in user
+                    ResponseType = OpenIdConnectResponseType.CodeIdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter

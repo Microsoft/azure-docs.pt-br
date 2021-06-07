@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 43a8004b6cdfe2e074304569b83360101784a87e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519483"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567994"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -27,7 +27,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Versão (ões) com suporte | |
 | Edições DSVM com suporte      | Ubuntu 16.04    |
 | Como é configurado/instalado no DSVM?  | O Caffe é instalado em `/opt/caffe`.   Os exemplos estão em `/opt/caffe/examples` .|
-| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
+| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,6, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -115,9 +115,9 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 
 | Categoria | Valor |
 | ------------- | ------------- |
-| Versão (ões) com suporte | 1.2.0 (Ubuntu 16, 4), 1.4.0 (Ubuntu 18, 4, Windows 2019) |
+| Versão (ões) com suporte | 1.2.0 (Ubuntu 16, 4), 1.7.1 (Ubuntu 18, 4, Windows 2019) |
 | Edições DSVM com suporte      | Windows Server 2019<br>Ubuntu 18.04<br> Ubuntu 16.04 |
-| Como é configurado/instalado no DSVM?  | Instalado no [Python 3,5](dsvm-tools-languages.md#python-linux-edition). Os notebooks Jupyter de exemplo estão incluídos e os exemplos estão em/dsvm/Samples/pytorch. |
+| Como é configurado/instalado no DSVM?  | Instalado no [Python 3,7](dsvm-tools-languages.md#python-linux-edition) no ambiente do py37_pytorch Conda. Os notebooks Jupyter de exemplo estão incluídos e os exemplos estão em/dsvm/Samples/pytorch. |
 | Como executá-lo      | Terminal: Ative o ambiente correto e execute Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Conecte-se e, em seguida, abra o diretório PyTorch para obter exemplos.  |
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
@@ -129,14 +129,14 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Como é configurado/instalado no DSVM?  | Instalado no Python 3,5 no [Linux](dsvm-tools-languages.md#python-linux-edition) e Python 3,6 no [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Como executá-lo      | Terminal: Ative o ambiente correto e execute Python. <br/> * Jupyter: Conecte-se ao [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório TensorFlow para obter exemplos.   |
 
-## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | Categoria | Valor |
 | ------------- | ------------- |
 | Versão (ões) com suporte | 1.12 |
 | Edições DSVM com suporte      | Ubuntu 16.04 |
 | Como é configurado/instalado no DSVM?  | tensorflow_model_server está disponível no terminal. |
-| Como executá-lo      |  Exemplos estão disponíveis [online](https://www.tensorflow.org/serving/).   |
+| Como executá-lo      |  Exemplos estão disponíveis [online](https://www.tensorflow.org/tfx/guide/serving).   |
 
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)

@@ -1,18 +1,14 @@
 ---
 title: Encaminhar informações de alertas
 description: Você pode enviar informações de alerta para sistemas de parceiros trabalhando com regras de encaminhamento.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bc405f7d4837bf81d9cfcd859d562b7152cfc54b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522726"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778790"
 ---
 # <a name="forward-alert-information"></a>Encaminhar informações de alertas
 
@@ -203,6 +199,6 @@ O administrador pode ter definido regras de exclusão de alertas. Essas regras a
 
 Isso significa que as regras de encaminhamento que você definir poderão ser ignoradas com base nas regras de exclusão que o administrador criou. As regras de exclusão são definidas no console de gerenciamento local.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)

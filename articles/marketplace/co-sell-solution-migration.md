@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/07/2020
-ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.reviewer: stmummer
+ms.date: 3/04/2021
+ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880348"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593400"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de venda conjuntas de OCP GTM para o mercado comercial
 
@@ -136,7 +137,7 @@ Para obter instruções detalhadas sobre as informações que você precisa forn
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="As guias da instalação visão geral da oferta no Partner Center.":::
 
-3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Conclua as informações necessárias restantes na guia **co-venda com a Microsoft** para tornar sua oferta ainda mais fácil de vender. Ao concluir, selecione **revisar e publicar**. Para obter mais informações, consulte [como enviar materiais de vendas em conjunto no Partner Center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
+3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Conclua as informações necessárias restantes na guia **co-venda com a Microsoft** para tornar sua oferta ainda mais fácil de vender. Ao concluir, selecione **revisar e publicar**. Para obter mais informações, consulte [Configurar a televenda para uma oferta de Marketplace comercial](commercial-marketplace-co-sell.md).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="A guia oferta de co-venda no Partner Center.":::
 
@@ -154,5 +155,5 @@ Para obter instruções detalhadas sobre as informações que você precisa forn
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Revenda por meio de Parceiros do CSP](cloud-solution-providers.md)
-- [Como enviar materiais de vendas em conjunto no Partner Center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
+- [Configurar a televenda para uma oferta de Marketplace comercial](commercial-marketplace-co-sell.md)
 - Exibir essas [perguntas frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)

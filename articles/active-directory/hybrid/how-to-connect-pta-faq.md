@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368470"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
@@ -140,7 +140,7 @@ Para a maioria dos clientes, um total de dois ou três agentes de autenticação
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 
-É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../fundamentals/add-users-azure-active-directory.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
+É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../fundamentals/add-users-azure-active-directory.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desabilitar a Autenticação de Passagem?
 

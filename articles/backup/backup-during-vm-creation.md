@@ -4,10 +4,10 @@ description: Descreve como habilitar o backup ao criar uma VM do Azure com o bac
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89377328"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar o backup ao criar uma VM do Azure
@@ -26,9 +26,9 @@ Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https
 
 ## <a name="create-a-vm-with-backup-configured"></a>Criar uma VM com backup configurado
 
-1. Na portal do Azure, selecione **criar um recurso**.
+1. No portal do Azure, selecione **Criar um recurso**.
 
-2. No Azure Marketplace, selecione **computação**e, em seguida, selecione uma imagem de VM.
+2. No Azure Marketplace, selecione **computação** e, em seguida, selecione uma imagem de VM.
 
 3. Configure a VM de acordo com as instruções do [Windows](../virtual-machines/windows/quick-create-portal.md) ou do [Linux](../virtual-machines/linux/quick-create-portal.md) .
 

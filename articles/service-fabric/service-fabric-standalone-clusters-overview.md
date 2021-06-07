@@ -4,10 +4,10 @@ description: Os clusters do Service Fabric são executados no Windows Server e L
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94683991"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral de clusters independentes do Service Fabric
@@ -48,7 +48,7 @@ O Service Fabric também dá suporte ao controle de acesso para limitar o acesso
 
 Para obter mais informações, leia [Service Fabric controle de acesso baseado em função](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 As demandas de aplicativos alteram ao longo do tempo. Talvez seja necessário aumentar os recursos de cluster para atender ao aumento do tráfego ou de carga de trabalho do aplicativo ou diminuir os recursos de cluster quando houver queda de demanda. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós). É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster. Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
@@ -60,7 +60,7 @@ Um cluster autônomo é um recurso que é totalmente seu. Você é responsável 
 
 Para obter mais informações, leia [Atualização de clusters independentes](service-fabric-cluster-upgrade-standalone.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 É possível criar clusters em VMs ou em computadores que executem estes sistemas operacionais (ainda não há suporte para o Linux):
 

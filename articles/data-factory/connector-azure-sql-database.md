@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 07fbc7b1137d7eaf8a73a806c6a3714fab274df0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 01f43ceab36b519f3aafbbdc711df15c80481398
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393097"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597429"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 
@@ -78,7 +78,7 @@ Para diferentes tipos de autenticação, consulte as seções a seguir sobre pr�
 >[!TIP]
 >Se você encontrar um erro com o código de erro "UserErrorFailedToConnectToSqlServer" e uma mensagem como "o limite de sessão para o banco de dados é XXX e foi atingido", adicione `Pooling=false` à sua cadeia de conexão e tente novamente.
 
-### <a name="sql-authentication"></a>Autenticação SQL
+### <a name="sql-authentication"></a>Autenticação do SQL
 
 **Exemplo: usando a autenticação do SQL**
 
@@ -384,6 +384,7 @@ Para copiar os dados para o Azure SQL Database, há suporte para as seguintes pr
 | writeBatchSize | Número de linhas a serem inseridas na tabela SQL *por lote*.<br/> O valor permitido é **inteiro** (número de linhas). Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não |
 | writeBatchTimeout | O tempo de espera para o lote inserir operação seja concluída antes de expirar.<br/> O valor permitido é **timespan**. Um exemplo é "00:30:00" (30 minutos). | Não |
 | disableMetricsCollection | O Data Factory coleta métricas como DTUs do banco de dados SQL do Azure para otimização e recomendações de desempenho de cópia, o que introduz acesso de BD mestre adicional. Se você estiver preocupado com esse comportamento, especifique `true` para desativá-lo. | Não (o padrão é `false`) |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo 1: acrescentar dados**
 
@@ -643,7 +644,12 @@ As configurações específicas para o banco de dados SQL do Azure estão dispon
 
 **Consulta**: se você selecionar Consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de dados. Cláusulas **Order By** não são compatíveis aqui, mas você pode definir uma instrução SELECT FROM completa. Também pode usar funções de tabela definidas pelo usuário. **select * from udfGetData()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados. O uso de consultas também é uma ótima maneira de reduzir linhas para testes ou pesquisas.
 
+**Procedimento armazenado**: escolha esta opção se desejar gerar uma projeção e dados de origem de um procedimento armazenado que é executado do seu banco de dado de origem. Você pode digitar o esquema, o nome do procedimento e os parâmetros, ou clicar em atualizar para solicitar que o ADF Descubra os esquemas e os nomes dos procedimentos. Em seguida, você pode clicar em importar para importar todos os parâmetros de procedimento usando o formulário ``@paraName`` .
+
+![Procedimento armazenado](media/data-flow/stored-procedure-2.png "Procedimento armazenado")
+
 - Exemplo do SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Exemplo de SQL com parâmetros: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Tamanho do lote**: insira um tamanho de lote para dividir dados grandes em leituras.
 
@@ -736,7 +742,7 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 | sql_variant |Objeto |
 | texto |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
@@ -772,7 +778,7 @@ Mais especificamente:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Para usar **Data Factory autenticação de identidade gerenciada**: 
+    - Se você executar Integration Runtime auto-hospedados na máquina virtual do Azure, poderá usar a **autenticação de identidade gerenciada** com a identidade da VM do Azure:
 
         1. Siga os mesmos [pré-requisitos](#managed-identity) para criar um usuário de banco de dados para a identidade gerenciada e conceder a função apropriada em seu banco de dados.
         2. Em serviço vinculado, especifique a cadeia de conexão ODBC, conforme mostrado abaixo, e selecione Autenticação **anônima** como a própria cadeia de conexão indica `Authentication=ActiveDirectoryMsi` .

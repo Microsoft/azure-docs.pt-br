@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566462"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros da WAN Virtual
@@ -81,12 +81,12 @@ O arquivo de configuração do dispositivo contém as configurações a serem us
 * **vpnSiteConfiguration -** Essa seção indica os detalhes do dispositivo configurados como um site que se conecta à WAN Virtual. Inclui o nome e o endereço IP público do dispositivo de branch.
 * **vpnSiteConnections -** Essa seção fornece informações sobre o seguinte:
 
-    * **Espaço de endereço** da VNet de hubs virtuais.<br>Exemplo:
+    * **Espaço de endereço** do(s) hub(s) virtual(is) da VNet.<br>Exemplo:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espaço de endereço** do VNets que estão conectados ao Hub.<br>Exemplo:
+    * **Espaço de endereço** das VNets conectadas ao hub.<br>Exemplo:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]

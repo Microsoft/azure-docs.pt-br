@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078893"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
@@ -36,13 +36,13 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
 ### <a name="to-connect-with-ssms"></a>Para conectar-se com o SSMS
  Ao usar o SSMS, antes de se conectar ao servidor na primeira vez, verifique se que seu nome de usuário está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [Administradores de servidor e usuários de banco de dados](#server-administrators-and-database-users) posteriormente neste artigo.
 
-1. Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor** , copie o nome do servidor.
+1. Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, copie o nome do servidor.
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSMS > **Pesquisador de Objetos** , clique em **Conectar** > **Analysis Services** .
-3. Na caixa de diálogo **Conectar ao Servidor** , cole o nome do servidor e, em **Autenticação** , escolha um dos seguintes tipos de autenticação:   
+2. No SSMS > **Pesquisador de Objetos**, clique em **Conectar** > **Analysis Services**.
+3. Na caixa de diálogo **Conectar ao Servidor**, cole o nome do servidor e, em **Autenticação**, escolha um dos seguintes tipos de autenticação:   
     > [!NOTE]
-    > O tipo de autenticação, **Active Directory - Universal com suporte MFA** , é recomendado.
+    > O tipo de autenticação, **Active Directory - Universal com suporte MFA**, é recomendado.
 
     > [!NOTE]
     > Se você entrar com uma conta da Microsoft, Live ID, Yahoo, Gmail e etc., deixe o campo de senha em branco. Depois de clicar em Conectar, uma senha será solicitada.

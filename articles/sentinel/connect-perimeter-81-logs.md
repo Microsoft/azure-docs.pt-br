@@ -1,6 +1,6 @@
 ---
-title: Conectar dados do perímetro 81 ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados do perímetro 81 ao Azure Sentinel.
+title: Conectar dados do Perimeter 81 ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados do Perimeter 81 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: e70bfd12b018e785e7b3b91e098c99fea1101c04
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100093090"
 ---
-# <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Conectar seus logs de atividade do perímetro 81 ao Azure Sentinel
+# <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Conectar os logs de atividades do Perimeter 81 ao Azure Sentinel
 
 > [!IMPORTANT]
-> O conector de dados do perímetro 81 no Azure Sentinel está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Atualmente, o conector de dados do Perimeter 81 no Azure Sentinel está em versão prévia pública.
+> Esse recurso é fornecido sem um Contrato de Nível de Serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Este artigo explica como conectar seu dispositivo de [logs de atividades do perímetro 81](https://www.perimeter81.com/) ao Azure Sentinel. O conector de logs de atividade do perímetro 81 permite que você traga facilmente seus dados do perímetro 81 para o Azure Sentinel, para que você possa exibi-los em pastas de trabalho, usá-los para criar alertas personalizados e incorporá-los para melhorar a investigação.
+Este artigo explica como conectar seu dispositivo de [logs de atividades do Perimeter 81](https://www.perimeter81.com/) ao Azure Sentinel. O conector de logs de atividades do Perimeter 81 permite que você traga com facilidade seus dados do Perimeter 81 para o Azure Sentinel, de modo que possa vê-los em pastas de trabalho, usá-los para criar alertas personalizados e incorporá-los para aprimorar a investigação.
 
 > [!NOTE]
-> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
+> Os dados serão armazenados na localização geográfica do workspace no qual você está executando o Azure Sentinel.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter permissões de leitura e gravação no espaço de trabalho do Azure Sentinel.
+- Você precisa ter permissões de leitura e gravação no workspace do Azure Sentinel.
 
-- Você deve ter permissões de leitura para chaves compartilhadas para o espaço de trabalho.
+- Você precisa ter permissões de leitura nas chaves compartilhadas do workspace.
 
-## <a name="configure-and-connect-perimeter-81-activity-logs"></a>Configurar e conectar logs de atividade do perímetro 81
+## <a name="configure-and-connect-perimeter-81-activity-logs"></a>Configurar e conectar logs de atividades do Perimeter 81
 
-Os logs de atividade do perímetro 81 podem integrar e exportar logs diretamente para o Azure Sentinel.
+Os logs de atividades do Perimeter 81 podem integrar os logs diretamente ao Azure Sentinel, além de exportá-los.
 
-1. No portal do Azure Sentinel, clique em **conectores de dados** no menu de navegação.
+1. No portal do Azure Sentinel, clique em **Conectores de dados** no menu de navegação.
 
-1. Selecione os **logs de atividade do perímetro 81** da galeria e clique no botão **abrir página do conector** .
+1. Selecione os **Logs de atividades do Perimeter 81** na galeria e clique no botão **Abrir página do conector**.
 
-1. Na página conector de logs de atividades do perímetro 81, copie a **ID do espaço de trabalho** e a **chave primária** e cole-as no perímetro 81, [conforme instruído aqui](https://support.perimeter81.com/hc/en-us/articles/360012680780).
+1. Na página do conector dos logs de atividades do Perimeter 81, copie a **ID do Workspace** e a **Chave Primária** e cole-as no Perimeter 81, [conforme instruído aqui](https://support.perimeter81.com/hc/en-us/articles/360012680780).
 
-1. Depois de concluir as instruções, você verá os tipos de dados conectados na página conector do Azure Sentinel.
+1. Depois de concluir as instruções, você verá os tipos de dados conectados na página do conector do Azure Sentinel.
 
-## <a name="find-your-data"></a>Encontre seus dados
+## <a name="find-your-data"></a>Encontrar seus dados
 
-Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **logs** em **CustomLogs**  -  **Perimeter81_CL**.
+Depois que uma conexão bem-sucedida for estabelecida, os dados serão exibidos nos **Logs** em **CustomLogs** - **Perimeter81_CL**.
 
-Pode levar até 20 minutos até que os logs comecem a aparecer.
+Pode levar até 20 minutos até que os logs comecem a ser exibidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a conectar os logs de atividade do perímetro 81 ao Azure Sentinel. Para aproveitar ao máximo os recursos integrados a esse conector de dados, clique na guia **próximas etapas** na página conector de dados. Lá, você encontrará uma pasta de trabalho pronta e algumas consultas de exemplo para que possa começar a localizar informações úteis.
+Neste documento, você aprendeu a conectar o Perimeter 81 ao Azure Sentinel. Para aproveitar ao máximo as funcionalidades integradas a esse conector de dados, clique na guia **Próximas etapas** na página do conector de dados. Nela, você encontrará uma pasta de trabalho predefinida e algumas consultas de exemplo para começar a encontrar informações úteis.
 
 Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

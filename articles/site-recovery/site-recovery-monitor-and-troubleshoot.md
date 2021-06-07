@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023560"
 ---
 # <a name="monitor-site-recovery"></a>Monitorar Site Recovery
@@ -109,12 +109,12 @@ No **modo de exibição de infraestrutura**, monitore os componentes de infraest
 
     **Cenário** | **State**  | **Exibição disponível?**
     --- |--- | ---
-    **Replicação entre sites locais** | Todos os estados | No 
-    **Replicação da VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | Yes
-    **Replicação da VM do Azure entre regiões do Azure** | Com failover/failback | No   
-    **Replicação do VMware para Azure** | Replicação habilitada/replicação inicial em andamento | Yes     
-    **Replicação do VMware para Azure** | Com failover/failback | No      
-    **Replicação do Hyper-V para Azure** | Com failover/failback | No
+    **Replicação entre sites locais** | Todos os estados | Não 
+    **Replicação da VM do Azure entre regiões do Azure**  | Replicação habilitada/replicação inicial em andamento | Sim
+    **Replicação da VM do Azure entre regiões do Azure** | Com failover/failback | Não   
+    **Replicação do VMware para Azure** | Replicação habilitada/replicação inicial em andamento | Sim     
+    **Replicação do VMware para Azure** | Com failover/failback | Não      
+    **Replicação do Hyper-V para Azure** | Com failover/failback | Não
 
 - Para ver a exibição de infraestrutura de um único computador de replicação, no menu do cofre, clique em **Itens replicados** e selecione um servidor.  
 

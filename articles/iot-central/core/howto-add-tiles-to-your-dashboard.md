@@ -7,10 +7,10 @@ ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797002"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel de aplicativo
@@ -57,9 +57,9 @@ A tabela a seguir descreve os diferentes tipos de bloco que você pode adicionar
 | ---------------- | ----------- |
 | Markdown         | Blocos de redução são blocos clicáveis que exibem um texto de título e descrição formatado usando a redução. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
 | Imagem            | Os blocos de imagem exibem uma imagem personalizada e podem ser clicáveis. A URL pode ser um link relativo para outra página no aplicativo ou um link absoluto para um site externo.|
-| Rotular            | Os blocos de rótulo exibem um texto personalizado em um painel. Você pode escolher o tamanho do texto. Use um bloco de rótulo para adicionar informações relevantes ao painel, como descrições, detalhes de contato ou ajuda.|
+| Label            | Os blocos de rótulo exibem um texto personalizado em um painel. Você pode escolher o tamanho do texto. Use um bloco de rótulo para adicionar informações relevantes ao painel, como descrições, detalhes de contato ou ajuda.|
 | Contagem            | Os blocos de contagem exibem o número de dispositivos em um grupo de dispositivos.|
-| Mapeamento              | Os blocos de mapa exibem o local de um ou mais dispositivos em um mapa. Você também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, você pode exibir uma rota de amostra de onde um dispositivo esteve na última semana.|
+| Map              | Os blocos de mapa exibem o local de um ou mais dispositivos em um mapa. Você também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, você pode exibir uma rota de amostra de onde um dispositivo esteve na última semana.|
 | KPI              |  Os blocos de KPI exibem valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, você pode usá-lo para mostrar a temperatura máxima e a pressão atingida para um ou mais dispositivos durante a última hora.|
 | Gráfico de Linhas       | Os blocos de gráfico de linhas plotam um ou mais valores de telemetria agregados para um ou mais dispositivos por um período de tempo. Por exemplo, você pode exibir um gráfico de linhas para plotar a temperatura média e a pressão de um ou mais dispositivos na última hora.|
 | Gráfico de barras        | Os blocos de gráfico de barras plotam um ou mais valores de telemetria agregados para um ou mais dispositivos por um período de tempo. Por exemplo, você pode exibir um gráfico de barras para mostrar a temperatura média e a pressão de um ou mais dispositivos na última hora.|

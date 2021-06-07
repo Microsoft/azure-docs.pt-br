@@ -1,5 +1,5 @@
 ---
-title: arquivo de inclusão
+title: incluir arquivo
 description: arquivo de inclusão
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93376120"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -39,11 +39,11 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
 
 ### <a name="are-there-instructions-for-certificate-settings-and-parameters"></a><a name="certsettings"></a>Há instruções para configurações e parâmetros de certificado?
 
-* **Solução PKI interna/Enterprise PKI** : ver as etapas para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solução PKI interna/Enterprise PKI**: ver as etapas para [Gerar certificados](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
 * **Azure PowerShell:** consulte o artigo [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) para ver as etapas.
 
-* **MakeCert** : consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para ver as etapas.
+* **MakeCert**: consulte o artigo [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) para ver as etapas.
 
 * **OpenSSL:** 
 
@@ -52,4 +52,4 @@ Você pode usar sua solução de Enterprise PKI (sua PKI interna), Azure PowerSh
     * Para o certificado do cliente:
 
       * Ao criar a chave privada, especifique o período como 4096.
-      * Ao criar o certificado, para o parâmetro *-extensions* , especifique *usr_cert*.
+      * Ao criar o certificado, para o parâmetro *-extensions*, especifique *usr_cert*.

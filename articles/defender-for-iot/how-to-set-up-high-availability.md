@@ -1,18 +1,14 @@
 ---
 title: Configurar a alta disponibilidade
 description: Aumente a resiliência de sua implantação do defender para IoT instalando um dispositivo de alta disponibilidade do console de gerenciamento local. Implantações de alta disponibilidade garantem que os sensores gerenciados reportem continuamente para um console de gerenciamento local ativo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 8b647d5e97439db4805a7346a02db3f845dc9e37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523882"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781646"
 ---
 # <a name="about-high-availability"></a>Sobre alta disponibilidade
 
@@ -149,6 +145,6 @@ Para atualizar com alta disponibilidade:
 
 3. Atualize os sensores.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu console de gerenciamento local](how-to-activate-and-set-up-your-on-premises-management-console.md)

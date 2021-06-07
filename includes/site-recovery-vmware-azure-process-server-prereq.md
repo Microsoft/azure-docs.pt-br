@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/28/2019
 ms.author: raynew
 ms.openlocfilehash: de15e3028cf22cdd03ce29385278fc5e2babaa9b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008457"
 ---
 Este artigo supõe que

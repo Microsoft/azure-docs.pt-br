@@ -1,26 +1,27 @@
 ---
 title: Problemas ao usar extensões de VM em sistemas de máquinas virtuais Linux do Azure habilitadas para Python 3
 description: Saiba mais sobre como usar extensões de VM em sistemas Linux habilitados para Python 3
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: v-miegge
 ms.author: jparrel
 manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: c5593257fa17944eebce6346a1eb9e88e7af2c06
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d38b41bc47c01b01fcbb1b05238396dca6d8eb4e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965945"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102558637"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problemas ao usar extensões de VM em sistemas de máquinas virtuais Linux do Azure habilitadas para Python 3
 

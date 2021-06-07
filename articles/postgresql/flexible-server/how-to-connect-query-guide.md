@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 12/08/2020
 ms.openlocfilehash: ee3b1f7db8bdafb1233b32579e032e8c864c37a9
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364549"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--flexible-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para PostgreSQL – servidor flexível

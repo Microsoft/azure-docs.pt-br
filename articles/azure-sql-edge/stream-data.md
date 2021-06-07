@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392105"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Streaming de dados no Azure SQL Edge
@@ -35,15 +35,15 @@ O streaming T-SQL funciona exatamente da mesma maneira que [Azure Stream Analyti
 
 Um trabalho do Stream Analytics consiste em:
 
-- **Entrada de fluxo** : define as conexões com uma fonte de dados da qual ler o fluxo de dados. No momento, o SQL do Azure no Edge suporta os seguintes tipos de entrada de fluxo:
+- **Entrada de fluxo**: define as conexões com uma fonte de dados da qual ler o fluxo de dados. No momento, o SQL do Azure no Edge suporta os seguintes tipos de entrada de fluxo:
     - Hub do Edge
     - Kafka (o suporte para entradas de Kafka está disponível atualmente apenas nas versões Intel/AMD64 do Azure SQL Edge.)
 
-- **Saída de fluxo** : define as conexões com uma fonte de dados na qual gravar o fluxo de dados. No momento, o SQL do Azure no Edge suporta os seguintes tipos de saída de fluxo:
+- **Saída de fluxo**: define as conexões com uma fonte de dados na qual gravar o fluxo de dados. No momento, o SQL do Azure no Edge suporta os seguintes tipos de saída de fluxo:
     - Hub do Edge
     - SQL (a saída SQL pode ser um banco de dados local dentro da instância do Azure SQL Edge ou um SQL Server remoto ou um banco de dados SQL do Azure.) 
 
-- **Consulta de fluxo** : define a transformação, as agregações, o filtro, a classificação e as junções a serem aplicadas ao fluxo de entrada, antes de serem gravadas na saída do fluxo. A consulta de fluxo baseia-se na mesma linguagem de consulta usada pelo Stream Analytics. Para obter mais informações, consulte [Stream Analytics linguagem de consulta](/stream-analytics-query/stream-analytics-query-language-reference).
+- **Consulta de fluxo**: define a transformação, as agregações, o filtro, a classificação e as junções a serem aplicadas ao fluxo de entrada, antes de serem gravadas na saída do fluxo. A consulta de fluxo baseia-se na mesma linguagem de consulta usada pelo Stream Analytics. Para obter mais informações, consulte [Stream Analytics linguagem de consulta](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
 > O streaming T-SQL, diferente do Stream Analytics, atualmente não dá suporte ao [uso de dados de referência para pesquisas](../stream-analytics/stream-analytics-use-reference-data.md) ou ao [uso de UDF e UDA em um trabalho de fluxo](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).

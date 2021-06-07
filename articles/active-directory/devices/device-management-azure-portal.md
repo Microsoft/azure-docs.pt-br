@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683803"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023428"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -33,6 +33,7 @@ A página **todos os dispositivos** permite que você:
 - Defina as configurações de identidade do dispositivo.
 - Habilitar ou desabilitar Enterprise State Roaming.
 - Examinar os logs de auditoria relacionados ao dispositivo
+- Baixar dispositivos (visualização)
 
 [![Exibição de todos os dispositivos na portal do Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -118,7 +119,7 @@ Você pode exibir e copiar as chaves do BitLocker para permitir que os usuários
 Para exibir ou copiar as chaves do BitLocker, você precisa ser o proprietário do dispositivo ou um usuário que tenha pelo menos uma das seguintes funções atribuídas:
 
 - Administrador de Dispositivo de Nuvem
-- Administrador global
+- Administrador Global
 - Administrador de assistência técnica
 - Administrador de serviços do Intune
 - Administrador de Segurança
@@ -145,6 +146,14 @@ Para habilitar a funcionalidade de filtragem de visualização na exibição **t
 
 Agora você terá a capacidade de **adicionar filtros** à sua exibição **todos os dispositivos** .
 
+### <a name="download-devices-preview"></a>Baixar dispositivos (visualização)
+
+Administradores de dispositivo de nuvem, administradores do Intune e administradores globais podem usar a opção **baixar dispositivos (versão prévia)** para exportar um arquivo CSV de dispositivos com base em qualquer filtro aplicado. Se nenhum filtro for aplicado à lista, todos os dispositivos serão exportados. Uma exportação pode ser executada por um período de até uma hora, dependendo do 
+
+A lista exportada inclui os seguintes atributos de identidade do dispositivo:
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
+
 ## <a name="configure-device-settings"></a>Definir configurações de dispositivo
 
 Para gerenciar identidades de dispositivo usando o portal do AD do Azure, esses dispositivos precisam ser [registrados ou ingressados](overview.md) no Azure AD. Como administrador, você pode controlar o processo de registro e junção de dispositivos definindo as seguintes configurações de dispositivo.
@@ -161,7 +170,7 @@ Você deve receber uma das seguintes funções para exibir ou gerenciar as confi
 - **Os usuários podem ingressar dispositivos no Azure ad** – essa configuração permite que você selecione os usuários que podem registrar seus dispositivos como dispositivos ingressados no Azure AD. O padrão é **All**.
 
 > [!NOTE]
-> **Os usuários podem ingressar dispositivos na configuração do Azure ad** é aplicável somente ao ingresso no Azure AD no Windows 10.
+> **Os usuários podem ingressar dispositivos na configuração do Azure ad** é aplicável somente ao ingresso no Azure AD no Windows 10. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido, [VMs Unidas do Azure AD no Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying) , pois esses métodos funcionam em um contexto sem usuário.
 
 - **Outros administradores locais nos dispositivos associados ao Azure AD** – você pode selecionar os usuários que têm direitos de administrador local em um dispositivo. Esses usuários são adicionados à função *Administradores de dispositivos* no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo recebem direitos de administrador local por padrão. Essa opção é uma funcionalidade Premium Edition disponível por meio de produtos como o Azure AD Premium ou o EMS (Enterprise Mobility Suite).
 - **Os usuários podem registrar seus dispositivos com o Azure ad** -você precisa definir essa configuração para permitir que dispositivos Windows 10 Personal, Ios, Android e MacOS sejam registrados com o Azure AD. Se você selecionar **nenhum**, os dispositivos não terão permissão para se registrar no Azure AD. O registro com Microsoft Intune ou MDM (gerenciamento de dispositivo móvel) para Microsoft 365 requer o registro. Se você tiver configurado qualquer um desses serviços, a opção **TODOS** estará selecionada e **NENHUM** não estará disponível.
@@ -170,7 +179,11 @@ Você deve receber uma das seguintes funções para exibir ou gerenciar as confi
 > [!NOTE]
 > Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem a configuração de autenticação multifator** se aplicam a dispositivos que são associados ao Azure AD (com algumas exceções) ou ao AD do Azure registrado. Essa configuração não se aplica a dispositivos adicionados ao Azure AD híbrido, [VMs Unidas do Azure AD no Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying).
 
-- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**.
+> [!IMPORTANT]
+> - É recomendável usar a [ação do usuário "registrar ou unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) no acesso condicional para impor a autenticação multifator para ingressar ou registrar um dispositivo. 
+> - Você deve definir essa configuração como **não** se estiver usando a política de acesso condicional para exigir autenticação multifator. 
+
+- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**. Você pode aumentar o valor de até 100 e, se inserir um valor acima de 100, o Azure AD o definirá como 100. Você também pode usar um valor ilimitado para impor nenhum limite diferente dos limites de cota existentes.
 
 > [!NOTE]
 > A configuração **de número máximo de dispositivos** se aplica a dispositivos que estão ingressados no Azure ad ou no Azure ad registrados. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido.
@@ -196,7 +209,7 @@ O log de auditoria tem uma exibição de lista padrão que mostra:
 
 :::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Captura de tela de uma tabela na seção atividade da página dispositivos que lista a data, o destino, o ator e a atividade para quatro logs de auditoria." border="false":::
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 :::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Captura de tela mostrando a barra de ferramentas da página dispositivos. O item colunas está realçado." border="false":::
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05dfb7d09e68373f52831a9e5233316df95ee552
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571327"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauração dos Reliable Actors

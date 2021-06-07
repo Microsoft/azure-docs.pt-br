@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: zhchia
 ms.openlocfilehash: c9d19624d90b1228b2a44caeff7d103af3172ed9
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516345"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>Tutorial: configurar o conteúdo para o provisionamento automático de usuário
@@ -85,8 +85,8 @@ Se você optar pelo escopo que será provisionado ao seu aplicativo com base na 
 
 Se você optar pelo escopo que será provisionado com base apenas em atributos do usuário ou grupo, use um filtro de escopo para [definir regras condicionais para o provisionamento de contas de usuário](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários e grupos ao conteúdo, você deve selecionar uma função diferente de **acesso padrão**. Os usuários que têm a função de acesso padrão são excluídos do provisionamento e são indicados nos logs de provisionamento como não tendo sido efetivamente qualificados. Se a única função disponível no aplicativo for a função de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções. 
-* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, você pode controlar o escopo atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido como todos os usuários e grupos, você pode especificar um [filtro de escopo baseado em atributo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Ao atribuir usuários e grupos ao conteúdo, você deve selecionar uma função diferente de **acesso padrão**. Os usuários que têm a função de acesso padrão são excluídos do provisionamento e são indicados nos logs de provisionamento como não tendo sido efetivamente qualificados. Se a única função disponível no aplicativo for a de Acesso Padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar mais funções. 
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de implementar para todos. Quando o escopo de provisionamento é definido para usuários e grupos atribuídos, você pode controlar o escopo atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 ## <a name="configure-automatic-user-provisioning-to-contentful"></a>Configurar o provisionamento automático de usuário para o conteúdo 
 

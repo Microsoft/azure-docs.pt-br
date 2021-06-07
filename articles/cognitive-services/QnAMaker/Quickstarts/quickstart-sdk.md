@@ -7,16 +7,20 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: qnamaker-quickstart
-ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: bed89a3e37507da5b65af3eb26413ba35a79022d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701272"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583136"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Início Rápido: Biblioteca de clientes do QnA Maker
 
 Introdução à biblioteca de clientes do QnA Maker. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
@@ -42,9 +46,6 @@ Introdução à biblioteca de clientes do QnA Maker. Siga essas etapas para inst
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
-::: zone pivot="rest"
-[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
-::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -56,7 +57,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](../index.yml)
+>[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [O que é a API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)

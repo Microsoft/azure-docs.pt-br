@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754242"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100595142"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Excluir um projeto das Migrações para Azure
 
@@ -27,7 +27,7 @@ Antes de excluir um projeto:
     - O espaço de trabalho não é excluído automaticamente. Exclua-o manualmente.
     - Verifique o que um espaço de trabalho é usado para antes de excluí-lo. O mesmo espaço de trabalho Log Analytics pode ser usado para vários cenários.
     - Antes de excluir o projeto, você pode encontrar um link para o espaço de trabalho em **migrações do Azure-servidores**  >  **migra-Server migração do Azure**, em **espaço de trabalho do OMS**.
-    - Para excluir um espaço de trabalho após excluir um projeto, localize o espaço de trabalho no grupo de recursos relevante e siga [estas instruções](../azure-monitor/platform/delete-workspace.md).
+    - Para excluir um espaço de trabalho após excluir um projeto, localize o espaço de trabalho no grupo de recursos relevante e siga [estas instruções](../azure-monitor/logs/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Excluir um projeto

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: cddbc4b6a5c7a2c787c8305fdf703e34543746f8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6be70f448cec7cf6db2b8152565ad8102d3a3294
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929962"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868742"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -73,13 +73,13 @@ Para usar o Microsoft Cognitive Toolkit com o cluster Azure HDInsight Spark, voc
 
 1. No Jupyter Notebook, selecione **carregar** no canto superior direito e, em seguida, navegue até o download e selecione arquivo `CNTK_model_scoring_on_Spark_walkthrough.ipynb` .
 
-    ![Carregar Jupyter Notebook para Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carregar Jupyter Notebook para Azure HDInsight Spark cluster")
+    :::image type="content" source="./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png " alt-text="Carregar Jupyter Notebook para Azure HDInsight Spark cluster" border="true":::
 
 1. Selecione **carregar** novamente.
 
 1. Depois que o bloco de anotações for carregado, clique no nome do bloco de anotações e siga as instruções no próprio bloco de anotações sobre como carregar o conjunto de dados e executar o artigo.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

@@ -3,7 +3,7 @@ title: Operações de Sondagem de Longa Execução | Microsoft Docs
 description: Os serviços de mídia do Azure oferecem APIs que enviam solicitações aos serviços de mídia para iniciar operações (por exemplo, criar, iniciar, parar ou excluir um canal), essas operações são de execução longa. Este tópico mostra como sondar as operações de longa execução.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 44cecbd8d2cdc95e342d7aaf2b33f6cc0192e182
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7926f7aaa427d49d13cab5e13f5153bcd22e5898
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262015"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103013805"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Fornecendo mídia sob demanda com os Serviços de Mídia do Azure
 
@@ -33,7 +33,7 @@ Os Serviços de Mídia do Microsoft Azure oferecem APIs que enviam solicitaçõe
 O SDK .NET de Serviços de Mídia fornece APIs que enviam a solicitação e aguardam a conclusão da operação (internamente, as APIs realizam a sondagem do andamento da operação em intervalos). Por exemplo, quando você chama o channel.Start(), o método retorna depois que o canal é iniciado. Você também pode usar a versão assíncrona: await channel.StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefa, consulte [TAP](./media-services-mes-schema.md)). "Métodos de sondagem" é como são chamadas as APIs que enviam uma solicitação de operação e então sondam o status até que a operação seja concluída. Esses métodos (especialmente a versão assíncrona) são recomendados para aplicativos cliente sofisticados e/ou serviços com monitoração de estado.
 
 Existem cenários em que um aplicativo não pode esperar uma solicitação http de execução longa e desejar sondar o andamento da operação manualmente. Um exemplo típico seria um navegador interagindo com um serviço Web sem monitoração de estado: quando o navegador solicita a criação de um canal, o serviço Web inicia uma operação de execução longa e retorna a ID da operação para o navegador. O navegador pode pedir ao serviço Web para obter o status da operação com base na ID. O SDK .NET dos Serviços de Mídia fornece APIs úteis para esse cenário. Essas APIs são chamadas de "métodos sem sondagem".
-Os "métodos sem sondagem" têm o padrão de nomenclatura a seguir: Send*OperationName*Operation (por exemplo, SendCreateOperation). Os métodos Send*OperationName*Operation retornam o objeto **IOperation** ; o objeto retornado contém informações que podem ser usadas para controlar a operação. Os métodos Send*OperationName*OperationAsync retornam **Task\<IOperation>**.
+Os "métodos sem sondagem" têm o padrão de nomenclatura a seguir: Send *OperationName* Operation (por exemplo, SendCreateOperation). Os métodos Send *OperationName* Operation retornam o objeto **IOperation** ; o objeto retornado contém informações que podem ser usadas para controlar a operação. Os métodos Send *OperationName* OperationAsync retornam **Task\<IOperation>**.
 
 Atualmente, as classes a seguir dão suporte a métodos sem sondagem: **Channel**, **StreamingEndpoint** e **Program**.
 

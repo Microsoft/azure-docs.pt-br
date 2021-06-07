@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85360088"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerenciar a confiança do AD FS com o Azure AD usando o Azure AD Connect
@@ -110,7 +110,7 @@ O Azure AD Connect versão 1.1.873.0 ou posterior faz um backup das configuraç�
 Você pode restaurar as regras de transformação de emissão usando as etapas sugeridas abaixo
 
 1. Abra a interface de usuário de gerenciamento do AD FS no Gerenciador de Servidores
-2. Abra as propriedades de confiança do Azure AD indo até Trusts de Terceiros de Confiança do ** AD FS &gt; Plataforma de Identidade do &gt; Microsoft Office 365 &gt;Editando a Diretiva de Emissão de Reivindicações**
+2. Abra as propriedades de confiança do Azure AD indo até Trusts de Terceiros de Confiança do **AD FS &gt; Plataforma de Identidade do &gt; Microsoft Office 365 &gt;Editando a Diretiva de Emissão de Reivindicações**
 3. Clique em **Adicionar regra**
 4. No modelo de regra de declaração, selecione Enviar declarações usando uma regra personalizada e clique em **Próximo**
 5. Copie o nome da regra de declaração do arquivo de backup e cole-o no campo **Nome da regra de reivindicação**

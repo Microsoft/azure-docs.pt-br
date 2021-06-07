@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 29384457f946eff5708c319e14161d670adf6ca8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5fe539521213a6c25804c5c0db1e6b18646cceea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729866"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563830"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Clever
 
@@ -118,7 +118,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-clever-sso"></a>Configurar o SSO do Clever
 
-Siga as instruções fornecidas no [link](https://support.clever.com/hc/articles/205889768-Single-Sign-On-SSO-Log-in-with-Office-365-Azure-) para configurar o logon único no lado do Clever.
+Siga as instruções fornecidas no [link](https://support.clever.com/hc/s/articles/205889768) para configurar o logon único no lado do Clever.
 
 ### <a name="create-clever-test-user"></a>Criar usuário de teste do Clever
 

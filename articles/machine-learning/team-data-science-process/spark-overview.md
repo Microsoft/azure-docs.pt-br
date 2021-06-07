@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314735"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência de dados usando Spark no Azure HDInsight
@@ -156,13 +156,13 @@ Pegamos uma amostra de 0,1% desses arquivos CVS trip\_data and trip\_fare e os u
 
 ![Painéis de cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Você também pode navegar até * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ para acessar os notebooks Jupyter. Substitua a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks.
+Você também pode navegar até ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** para acessar os notebooks Jupyter. Substitua a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks.
 
 ![Procurar Notebooks Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selecione PySpark para ver um diretório que contém alguns exemplos de blocos de anotações predefinidos que usam a API PySpark. Os notebooks que contêm os exemplos de código para este conjunto de tópicos do Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Você pode carregar os blocos de anotações diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor do Jupyter notebook em seu cluster Spark. Na home page de seu Jupyter, clique no botão _ *carregar* * na parte direita da tela. Ele abre o explorador de arquivos. Aqui você pode colar a URL do GitHub (conteúdo bruto) do bloco de anotações e clicar em **abrir**.
+Você pode carregar os blocos de anotações diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor do Jupyter notebook em seu cluster Spark. Na home page do seu Jupyter, clique no botão **Carregar** na parte direita da tela. Ele abre o explorador de arquivos. Aqui você pode colar a URL do GitHub (conteúdo bruto) do bloco de anotações e clicar em **abrir**.
 
 Você vê o nome do arquivo em sua lista de arquivos do Jupyter, com um botão **Carregar** novamente. Clique nesse botão **Carregar** . Agora, você importou o notebook. Repita estas etapas deste passo a passo para carregar outros notebooks.
 
@@ -175,7 +175,7 @@ Agora você pode:
 
 * Consulte o código clicando no notebook.
 * Executar cada célula pressionando **SHIFT-ENTER**.
-* Execute o bloco de anotações inteiro clicando em execução de **célula**  ->  **Run**.
+* Execute o bloco de anotações inteiro clicando em execução de **célula**  ->  .
 * Usar a visualização automática de consultas.
 
 > [!TIP]
@@ -185,11 +185,11 @@ Agora você pode:
 
 ![Curva ROC de regressão logística de abordagem genérica](./media/spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="whats-next"></a>E agora?
+## <a name="whats-next"></a>O que vem a seguir?
 Agora que configurou um cluster HDInsight Spark e carregou os notebooks Jupyter, você está pronto para usar os tópicos que correspondem aos três notebooks PySpark. Eles mostram como explorar os dados e como criar e consumir modelos. Onotebook de exploração e modelagem de dados avançadas mostra como incluir validação cruzada, limpeza de hiperparâmetro e avaliação de modelo.
 
 **Exploração de Dados e modelagem com o Spark:** explore o conjunto de dados, crie, pontue e avalie os modelos de aprendizado de máquina usando o tópico [Create binary classification and regression models for data with the Spark MLlib toolkit](spark-data-exploration-modeling.md) (Criar modelos de regressão e classificação binária para dados com o kit de ferramentas MLlib do Spark).
 
 **Consumo de modelo:** para saber como pontuar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](spark-model-consumption.md).
 
-**Validação cruzada e limpeza de hiperparâmetro** : Confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
+**Validação cruzada e limpeza de hiperparâmetro**: Confira [Modelagem e exploração de dados avançados com o Spark](spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro

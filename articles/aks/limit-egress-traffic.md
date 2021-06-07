@@ -4,20 +4,20 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685747"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573822"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
 Este artigo fornece os detalhes necessários que permitem proteger o tráfego de saída do seu AKS (serviço kubernetes do Azure). Ele contém os requisitos de cluster para uma implantação de AKS de base e requisitos adicionais para Complementos e recursos opcionais. [Um exemplo será fornecido no final de como configurar esses requisitos com o Firewall do Azure](#restrict-egress-traffic-using-azure-firewall). No entanto, você pode aplicar essas informações a qualquer método ou dispositivo de restrição de saída.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 Os clusters AKS são implantados em uma rede virtual. Essa rede pode ser gerenciada (criada por AKS) ou personalizada (previamente configurada pelo usuário com antecedência). Em ambos os casos, o cluster tem dependências de **saída** em serviços fora dessa rede virtual (o serviço não tem dependências de entrada).
 
@@ -28,13 +28,13 @@ As dependências de saída do AKS são quase totalmente definidas com FQDNs, que
 Por padrão, os clusters do AKS têm acesso irrestrito de internet de saída. Esse nível de acesso à rede permite que os nós e os serviços que você executa acessem recursos externos, conforme necessário. Se quiser restringir o tráfego de saída, um número limitado de portas e endereços precisar estar acessível para manter a integridade das tarefas de manutenção de cluster. A solução mais simples para proteger endereços de saída está em uso de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Firewall do Azure, por exemplo, pode restringir o tráfego HTTP e HTTPS de saída com base no FQDN do destino. Você também pode configurar o firewall e as regras de segurança preferenciais para permitir essas portas e endereços necessários.
 
 > [!IMPORTANT]
-> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [ * *_diretivas de rede_* _][network-policy].
+> Este documento aborda apenas como bloquear o tráfego de saída da sub-rede do AKS. O AKS não tem requisitos de entrada por padrão.  Não há suporte para o bloqueio de **tráfego de sub-rede interna** usando NSGs (grupos de segurança de rede) e firewalls. Para controlar e bloquear o tráfego no cluster, use [**_as políticas de rede_**][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regras de rede de saída necessárias e FQDNs para clusters AKS
 
 As regras de rede e FQDN/aplicativo a seguir são necessárias para um cluster AKS, você poderá usá-las se desejar configurar uma solução diferente do firewall do Azure.
 
-_ As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP)
+* As dependências de Endereço IP são para o tráfego não HTTP/S (tráfego TCP e UDP)
 * Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
 * Os pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com o cluster AKS com base em vários qualificadores.
 * O AKS usa um controlador de admissão para injetar o FQDN como uma variável de ambiente para todas as implantações em Kube-System e gatekeeper-System, que garante que toda a comunicação do sistema entre nós e o servidor de API use o FQDN do servidor de API e não o IP do servidor de API. 
@@ -180,7 +180,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado para enviar dados de métricas para Azure Monitor. |
 
-### <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
+### <a name="azure-dev-spaces"></a>Azure Dev Spaces
 
 Atualize o firewall ou a configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces][dev-spaces-service-tags]a seguir.
 
@@ -214,6 +214,24 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente.  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento do Azure Policy que envia dados telemétricos para pontos de extremidade de insights de aplicativo. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias do Azure China 21Vianet 
+
+As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS que têm o Azure Policy habilitado.
+
+| FQDN                                          | Porta      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas kubernetes e relatar o status de conformidade do cluster ao serviço de política. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | Esse endereço é usado para extrair os artefatos do gatekeeper de políticas internas. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias do governo dos EUA do Azure
+
+As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS que têm o Azure Policy habilitado.
+
+| FQDN                                          | Porta      | Use      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas kubernetes e relatar o status de conformidade do cluster ao serviço de política. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | Esse endereço é usado para extrair os artefatos do gatekeeper de políticas internas. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restringir o tráfego de saída usando o Firewall do Azure
 
@@ -407,7 +425,7 @@ Agora um cluster AKS pode ser implantado na rede virtual existente. Também usar
 
 ### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Criar uma entidade de serviço com acesso para provisionar dentro da rede virtual existente
 
-Uma entidade de serviço é usada pelo AKS para criar recursos do cluster. A entidade de serviço que é passada no momento da criação é usada para criar recursos de AKS subjacentes, como recursos de armazenamento, IPs e balanceadores de carga usados pelo AKS (você também pode usar uma [identidade gerenciada](use-managed-identity.md) em vez disso). Se não tiver concedido as permissões apropriadas abaixo, você não poderá provisionar o cluster AKS.
+Uma identidade de cluster (identidade gerenciada ou entidade de serviço) é usada pelo AKS para criar recursos de cluster. Uma entidade de serviço que é passada no momento da criação é usada para criar recursos de AKS subjacentes, como recursos de armazenamento, IPs e balanceadores de carga usados pelo AKS (você também pode usar uma [identidade gerenciada](use-managed-identity.md) em vez disso). Se não tiver concedido as permissões apropriadas abaixo, você não poderá provisionar o cluster AKS.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network
@@ -763,7 +781,7 @@ Você deve ver o aplicativo de votação AKS. Neste exemplo, o IP público do fi
 ![Captura de tela mostra o aplicativo de votação K S com botões para gatos, cachorros, redefinição e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos do Azure, exclua o grupo de recursos do AKS.
 

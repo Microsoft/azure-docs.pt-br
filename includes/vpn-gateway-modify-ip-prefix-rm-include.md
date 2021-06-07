@@ -9,10 +9,10 @@ ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 7dd255e9767309c7b273dccfa0ee5675eed18568
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100380467"
 ---
 Para adicionar prefixos de endereço adicional:

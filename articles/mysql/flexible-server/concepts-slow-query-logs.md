@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543010"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100579189"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Logs de consulta lentos no banco de dados do Azure para MySQL servidor flexível (versão prévia)
 
@@ -27,10 +27,10 @@ Por padrão, o log de consultas lentas está desabilitado. Para habilitar os log
 
 Outros parâmetros que você pode ajustar para controlar o comportamento de log de consulta lento incluem:
 
-- **long_query_time** : Registre uma consulta se demorar mais do que `long_query_time` (em segundos) para ser concluída. O padrão é 10 segundos.
-- **log_slow_admin_statements** : determina se instruções administrativas (ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) são registrados.
-- **log_queries_not_using_indexes** : determina se as consultas que não usam índices são registradas.
-- **log_throttle_queries_not_using_indexes** : limita o número de consultas não indexadas que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando `log_queries_not_using_indexes` é definido como *on*
+- **long_query_time**: Registre uma consulta se demorar mais do que `long_query_time` (em segundos) para ser concluída. O padrão é 10 segundos.
+- **log_slow_admin_statements**: determina se instruções administrativas (ex. `ALTER_TABLE`, `ANALYZE_TABLE` ) são registrados.
+- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são registradas.
+- **log_throttle_queries_not_using_indexes**: limita o número de consultas não indexadas que podem ser gravadas no log de consultas lentas. Esse parâmetro entra em vigor quando `log_queries_not_using_indexes` é definido como *on*
 
 > [!IMPORTANT]
 > Se as tabelas não estiverem indexadas, definir `log_queries_not_using_indexes` os `log_throttle_queries_not_using_indexes` parâmetros e como **on** pode afetar o desempenho do MySQL, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.
@@ -39,7 +39,7 @@ Consulte a [documentação de log de consulta lenta](https://dev.mysql.com/doc/r
 
 ## <a name="access-slow-query-logs"></a>Acessar logs de consulta lentos
 
-Logs de consulta lentos são integrados com Azure Monitor configurações de diagnóstico. Depois de habilitar os logs de consulta lentos no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de consultas lentas](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Logs de consulta lentos são integrados com Azure Monitor configurações de diagnóstico. Depois de habilitar os logs de consulta lentos no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de consultas lentas](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 A tabela a seguir descreve a saída do log de consultas lentas. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

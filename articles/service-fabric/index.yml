@@ -7,12 +7,12 @@ metadata:
   author: erikadoyle
   ms.author: edoyle
   ms.date: 07/31/2020
-  ms.openlocfilehash: 2f9b7264fe8199cb25772b0598354e474196ca93
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+  ms.openlocfilehash: e850855a4f794e5e90abe9c86d6ddedd0af26a6b
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96499791"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100634831"
 landingContent:
 - title: Experimentar clusters do Service Fabric (versão prévia)
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
       url: quickstart-managed-cluster-template.md
   - linkListType: tutorial
     links:
-    - text: Criar um cluster gerenciado (versão prévia)
-      url: tutorial-managed-cluster-deploy.md
     - text: Escalar horizontalmente um tipo de nó de cluster gerenciado (versão prévia)
       url: tutorial-managed-cluster-scale.md
     - text: Adicionar e remover tipos de nó de cluster gerenciado (versão prévia)
@@ -34,6 +32,8 @@ landingContent:
       url: tutorial-managed-cluster-deploy-app.md
     - text: Adicionar uma extensão de conjunto de dimensionamento de VM a um tipo de nó de cluster gerenciado (versão prévia)
       url: how-to-managed-cluster-vmss-extension.md
+    - text: Habilitar a criptografia de disco para nós de cluster gerenciados
+      url: how-to-enable-managed-cluster-disk-encryption.md
   - linkListType: whats-new
     links:
     - text: Perguntas frequentes sobre clusters gerenciados do Service Fabric

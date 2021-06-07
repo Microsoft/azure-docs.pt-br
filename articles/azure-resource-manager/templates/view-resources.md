@@ -4,10 +4,10 @@ description: Descreve como procurar Propriedades de recurso.
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327741"
 ---
 # <a name="discover-resource-properties"></a>Descobrir Propriedades de recurso
@@ -41,7 +41,7 @@ A extensão também fornece uma lista de opções para as propriedades de config
 A referência de modelo de Azure Resource Manager é o recurso mais abrangente para o esquema de modelo. Você pode encontrar versões de API, formato de modelo e informações de propriedade.
 
 1. Navegue até [Azure Resource Manager referência de modelo](/azure/templates/).
-1. No painel de navegação esquerdo, selecione **armazenamento**e, em seguida, selecione **todos os recursos**. A página todos os recursos resume os tipos de recursos e as versões.
+1. No painel de navegação esquerdo, selecione **armazenamento** e, em seguida, selecione **todos os recursos**. A página todos os recursos resume os tipos de recursos e as versões.
 
     ![versões de recurso de referência de modelo](./media/view-resources/resource-manager-template-reference-resource-versions.png)
 
@@ -72,16 +72,16 @@ O Gerenciador de recursos é inserido no portal do Azure. Antes de usar esse mé
 [![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Na caixa de pesquisa, insira **Gerenciador de recursos**e selecione **Gerenciador de recursos**.
+1. Na caixa de pesquisa, insira **Gerenciador de recursos** e selecione **Gerenciador de recursos**.
 
     ![A captura de tela mostra a pesquisa do Gerenciador de recursos no portal do Azure.](./media/view-resources/azure-portal-resource-explorer.png)
 
-1. Da esquerda, expanda **assinaturas**e, em seguida, expanda sua assinatura do Azure. Você pode encontrar a conta de armazenamento em ambos os **provedores** ou **ResourceGroups**.
+1. Da esquerda, expanda **assinaturas** e, em seguida, expanda sua assinatura do Azure. Você pode encontrar a conta de armazenamento em ambos os **provedores** ou **ResourceGroups**.
 
     ![portal do Azure Gerenciador de recursos](./media/view-resources/azure-portal-resource-explorer-home.png)
 
-    - **Provedores**: expanda **provedores**  ->  **Microsoft. Storage**  ->  **storageAccounts**e selecione sua conta de armazenamento.
-    - **ResourceGroups**: selecione o grupo de recursos, que contém a conta de armazenamento, selecione **recursos**e, em seguida, selecione a conta de armazenamento.
+    - **Provedores**: expanda **provedores**  ->  **Microsoft. Storage**  ->  **storageAccounts** e selecione sua conta de armazenamento.
+    - **ResourceGroups**: selecione o grupo de recursos, que contém a conta de armazenamento, selecione **recursos** e, em seguida, selecione a conta de armazenamento.
 
     À direita, você verá a configuração de SKU para a conta de armazenamento existente semelhante a:
 
@@ -105,9 +105,9 @@ Para demonstrar como recuperar informações de esquema usando essa ferramenta, 
     ![mapeamento de API do resource.azure.com](./media/view-resources/resources-azure-com-api-mapping.png)
 
     O nó à esquerda corresponde à chamada à API à direita. Você pode fazer a chamada à API selecionando o botão **obter** .
-1. Da esquerda, expanda **assinaturas**e, em seguida, expanda sua assinatura do Azure. Você pode encontrar a conta de armazenamento em ambos os **provedores** ou **ResourceGroups**.
+1. Da esquerda, expanda **assinaturas** e, em seguida, expanda sua assinatura do Azure. Você pode encontrar a conta de armazenamento em ambos os **provedores** ou **ResourceGroups**.
 
-    - **Provedores**: expanda **provedores**  ->  **Microsoft. Storage**  ->  **storageAccounts**e navegue até a conta de armazenamento.
+    - **Provedores**: expanda **provedores**  ->  **Microsoft. Storage**  ->  **storageAccounts** e navegue até a conta de armazenamento.
     - **ResourceGroups**: selecione o grupo de recursos, que contém a conta de armazenamento e, em seguida, selecione **recursos**.
 
     À direita, você verá a configuração de SKU para a conta de armazenamento existente semelhante a:

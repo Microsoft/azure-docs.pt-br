@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9a5be358c40c3411115d8c2ee3f9471c68771b8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576203"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552947"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Um usuário que fez logon em um pool de SQL sem servidor precisará estar autori
 A **Identidade do Usuário**, também conhecida como "passagem do Azure AD", é um tipo de autorização em que a identidade do usuário do Azure AD que fez logon no pool de SQL sem servidor é usada para autorizar o acesso a dados. Antes de acessar os dados, o administrador do Armazenamento do Azure deve conceder permissões ao usuário do Azure AD. Conforme indicado na tabela a seguir, não é compatível para o tipo de usuário do SQL.
 
 > [!IMPORTANT]
-> Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados.
-> Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
->
-> Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
+> O token de autenticação do AAD pode ser armazenado em cache pelos aplicativos clientes. Por exemplo, o PowerBI armazena em cache o token do AAD e reutiliza o mesmo token por uma hora. As consultas de longa execução poderão falhar se o token expirar no meio da execução da consulta. Se você estiver enfrentando falhas de consulta causadas pela expiração do token de acesso do AAD no meio da consulta, considere a possibilidade de alternar para a assinatura de [Identidade Gerenciada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou de [Acesso Compartilhado](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Você precisa ter uma função de Proprietário/Colaborador/Leitor de dados do blob de armazenamento para usar sua identidade para acessar os dados. Como alternativa, você pode especificar regras de ACL refinadas para acessar arquivos e pastas. Mesmo se você for um Proprietário de uma Conta de Armazenamento, ainda precisará se adicionar a uma das funções de dados do blob de armazenamento.
+Para saber mais sobre o controle de acesso no Azure Data Lake Storage Gen2, examine o artigo [Controle de acesso no Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Você pode obter um token SAS navegando até o **Portal do Azure -> Conta de Arm
 > Token SAS: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Para permitir acesso usando um token SAS, você precisa criar uma credencial no escopo do banco de dados ou no escopo do servidor 
+
+
+> [!IMPORTANT]
+> Você não pode acessar contas de armazenamento privado com o token SAS. Considere a possibilidade de alternar para a autenticação por [Identidade Gerenciada](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou via [passagem do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) a fim de acessar armazenamentos protegidos.
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
@@ -84,7 +88,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 | Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Com suporte\*      | Não compatível   | Com suporte\*     |
-| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Suportado        | Suportado     |
+| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
 | [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
 \* O token SAS e a Identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido pelo firewall.
@@ -100,18 +104,27 @@ Ao acessar o armazenamento protegido pelo firewall, é possível usar a **Identi
 #### <a name="user-identity"></a>Identidade do Usuário
 
 Para acessar o armazenamento protegido com o firewall por meio da identidade do usuário, você pode usar o módulo Az.Storage do PowerShell.
+#### <a name="configuration-via-azure-portal"></a>Configuração por meio do portal do Azure
+
+1. Pesquise pela sua conta de armazenamento no portal do Azure.
+1. Acesse Rede na seção Configurações.
+1. Na seção "Instâncias de recurso", adicione uma exceção para o workspace do Azure Synapse.
+1. Selecione Microsoft.Synapse/workspaces como tipo de recurso.
+1. Selecione o nome do seu workspace como o nome da instância.
+1. Clique em Salvar.
+
 #### <a name="configuration-via-powershell"></a>Configuração por meio do PowerShell
 
 Siga estas etapas para configurar o firewall da conta de armazenamento e adicionar uma exceção para o workspace do Synapse.
 
-1. Abra o PowerShell ou [instale o PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Instale o módulo Az.Storage 3.0.1 e Az.Synapse 0.7.0: 
+1. Abra o PowerShell ou [instale o PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
+2. Instale os módulos Az.Storage 3.4.0 e Az.Synapse 0.7.0: 
     ```powershell
-    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Storage -RequiredVersion 3.4.0
     Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Use a **versão 3.0.1**. Você pode verificar sua versão do Az.Storage executando este comando:  
+    > Lembre-se de usar a **versão 3.4.0**. Você pode verificar sua versão do Az.Storage executando este comando:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -122,7 +135,7 @@ Siga estas etapas para configurar o firewall da conta de armazenamento e adicion
     Connect-AzAccount
     ```
 4. Defina as variáveis no PowerShell: 
-    - Nome do grupo de recursos: você pode encontrar essa informação no portal do Azure, na visão geral do workspace do Synapse.
+    - Nome do grupo de recursos: você pode encontrar a informação no portal do Azure, na visão geral da conta de armazenamento.
     - Nome da conta: nome da conta de armazenamento que é protegida por regras de firewall.
     - ID do locatário: você pode encontrá-la nas informações de locatário do Azure Active Directory no portal do Azure.
     - Nome do workspace: o nome do workspace do Azure Synapse.
@@ -192,16 +205,14 @@ Para usar a credencial, um usuário deve ter a permissão `REFERENCES` em uma cr
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Para garantir uma experiência de passagem do Azure AD suave, todos os usuários, por padrão, terão um direito de usar a credencial `UserIdentity`.
-
 ## <a name="server-scoped-credential"></a>Credencial no escopo do servidor
 
-As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial no escopo do servidor **precisa** corresponder à URL do Armazenamento do Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Você precisará fornecer um argumento CREDENTIAL NAME. Ele deve corresponder a parte ou a todo o caminho para os dados no Armazenamento (veja abaixo).
+As credenciais no escopo do servidor são usadas quando o logon do SQL chama a função `OPENROWSET` sem `DATA_SOURCE` para ler arquivos em alguma conta de armazenamento. O nome da credencial com escopo de servidor **precisa** corresponder à URL de base do armazenamento do Azure (opcionalmente seguido do nome do contêiner). Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Você precisará fornecer um argumento CREDENTIAL NAME.
 
 > [!NOTE]
 > Não há suporte para o argumento `FOR CRYPTOGRAPHIC PROVIDER`.
 
-O nome do argumento CREDENTIAL no nível do servidor deve corresponder ao caminho completo da conta de armazenamento (e, opcionalmente, do contêiner), no seguinte formato: `<prefix>://<storage_account_path>/<storage_path>`. Os caminhos de contas de armazenamento são descritos na tabela a seguir:
+O nome do argumento CREDENTIAL no nível do servidor deve corresponder ao caminho completo da conta de armazenamento (e, opcionalmente, do contêiner), no seguinte formato: `<prefix>://<storage_account_path>[/<container_name>]`. Os caminhos de contas de armazenamento são descritos na tabela a seguir:
 
 | Fonte de dados externa       | Prefixo | Caminho da conta de armazenamento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -224,11 +235,13 @@ O script a seguir cria uma credencial no nível do servidor que pode ser usada p
 Substitua <*mystorageaccountname*> pelo nome real da conta de armazenamento e <*mystorageaccountcontainername*> pelo nome real do contêiner:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Opcionalmente, você pode usar somente a URL base da conta de armazenamento, sem o nome do contêiner.
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
@@ -238,6 +251,8 @@ O script a seguir cria uma credencial no nível do servidor que pode ser usada p
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Opcionalmente, você pode usar somente a URL base da conta de armazenamento, sem o nome do contêiner.
 
 ### <a name="public-access"></a>[Acesso público](#tab/public-access)
 

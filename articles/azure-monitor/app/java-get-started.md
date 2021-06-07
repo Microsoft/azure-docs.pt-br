@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131773"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100593728"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guia de Início Rápido: Introdução ao Application Insights em um projeto Web Java
 
@@ -168,7 +168,7 @@ Clique em um tipo de solicitação específica para ver instâncias individuais.
 ![Analisar uma exibição de exemplo específica](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análise: linguagem de consulta poderosa
-À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](../log-query/log-query-overview.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
+À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](../logs/log-query-overview.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/java-get-started/0025.png)
 
@@ -292,7 +292,7 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 * [Monitorar os contadores de desempenho do Unix](java-collectd.md)
 * Adicionar [monitoramento a suas páginas da Web](javascript.md) para monitorar tempos de carregamento de página, chamadas AJAX e exceções do navegador.
 * Gravar [telemetria personalizada](./api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
-* Use a  [análise](../log-query/log-query-overview.md) para consultas poderosas sobre a telemetria do seu aplicativo
+* Use a  [análise](../logs/log-query-overview.md) para consultas poderosas sobre a telemetria do seu aplicativo
 * Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).
 
 <!--Link references-->
@@ -302,5 +302,5 @@ O Application Insights pode testar seu site em intervalos regulares para verific
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

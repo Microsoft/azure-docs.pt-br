@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87078145"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência de esquema para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
@@ -78,7 +78,7 @@ Esta é a estrutura geral de uma definição de parâmetro:
 |-----------|----------|------|-------------|
 | <*nome do parâmetro*> | Sim | String | O nome do parâmetro que você deseja definir |
 | <*tipo de parâmetro*> | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os `securestring` `secureobject` tipos ou porque a `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo do parâmetro |
-| <*valor de parâmetro-padrão*> | Sim | O mesmo que `type` | O valor de parâmetro padrão a ser usado se nenhum valor for especificado quando o fluxo de trabalho for instanciado. O `defaultValue` atributo é necessário para que o designer do aplicativo lógico possa mostrar corretamente o parâmetro, mas você pode especificar um valor vazio. |
+| <*valor de parâmetro-padrão*> | Sim | Mesmo que `type` | O valor de parâmetro padrão a ser usado se nenhum valor for especificado quando o fluxo de trabalho for instanciado. O `defaultValue` atributo é necessário para que o designer do aplicativo lógico possa mostrar corretamente o parâmetro, mas você pode especificar um valor vazio. |
 | <*matriz com-valores-de-parâmetro-permitido*> | Não | Array | Uma matriz com valores que o parâmetro pode aceitar |
 | <*parâmetro-Descrição*> | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, como uma descrição para o parâmetro |
 ||||
@@ -220,7 +220,7 @@ Para esses exemplos, suponha que você defina "myBirthMonth" como "January" e "m
 
 Estes exemplos mostram como as expressões a seguir são avaliadas:
 
-| Expressão JSON | Result |
+| Expressão JSON | Resultado |
 |-----------------|--------|
 | "\@parameters('myBirthMonth')" | Retornar esta cadeia de caracteres: "January" |
 | "\@{parameters('myBirthMonth')}" | Retornar esta cadeia de caracteres: "January" |
@@ -257,7 +257,7 @@ Quando você terminar, a expressão será exibida para a propriedade corresponde
 
 <a name="outputs"></a>
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 Na seção `outputs`, defina os dados que o fluxo de trabalho pode retornar quando terminar sua execução. Por exemplo, para rastrear um valor ou status específico em cada execução, especifique que a saída do fluxo de trabalho retorne esses dados.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99575764"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
@@ -51,7 +51,7 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **Office 365**.
+1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365**.
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
@@ -102,7 +102,7 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **Office 365**.
+1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365**.
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.

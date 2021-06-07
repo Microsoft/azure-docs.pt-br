@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522658"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101716186"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Exibir e configurar a telemetria da Proteção contra DDoS
 
 O padrão de Proteção contra DDoS do Azure fornece informações detalhadas de ataque e visualização com Análise de Ataque de DDoS. Os clientes que protegem suas redes virtuais contra ataques de DDoS têm visibilidade detalhada sobre o tráfego de ataque e as ações tomadas para reduzir o ataque por meio de relatórios de mitigação de ataque e logs de fluxo de mitigação. A telemetria avançada é exposta por meio de Azure Monitor incluindo métricas detalhadas durante a duração de um ataque de DDoS. Alertas podem ser configurados para qualquer métrica do Azure Monitor exposta pela Proteção contra DDoS. O registro em log pode ser integrado com o [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (hubs de eventos do Azure), OMS log Analytics e armazenamento do Azure para análise avançada por meio da interface de diagnóstico de Azure monitor.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Exibir telemetria de proteção contra DDoS
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 > [!NOTE]
 > Enquanto várias opções de **agregação** são exibidas em portal do Azure, somente os tipos de agregação listados na tabela abaixo têm suporte para cada métrica. Pedimos desculpas por essa confusão e estamos trabalhando para resolvê-la.
 
-As [métricas](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) a seguir estão disponíveis para a proteção contra DDoS do Azure Standard. Essas métricas também são exportáveis por meio de configurações de diagnóstico (consulte [Exibir e configurar o log de diagnóstico de DDoS](diagnostic-logging.md)).
+As [métricas](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) a seguir estão disponíveis para a proteção contra DDoS do Azure Standard. Essas métricas também são exportáveis por meio de configurações de diagnóstico (consulte [Exibir e configurar o log de diagnóstico de DDoS](diagnostic-logging.md)).
 
 
 | Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação | Descrição |

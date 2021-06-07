@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac620909996b03a97a311e5f06c31d6dab8f1a60
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218639"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670351"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Excluir um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
@@ -37,6 +37,11 @@ O formato geral do comando de exclusão é:
 ```console
 azdata arc postgres server delete -n <server group name>
 ```
+Ao executar esse comando, você será solicitado a confirmar a exclusão do grupo de servidores. Se você estiver usando scripts para automatizar exclusões, precisará usar o parâmetro--Force para ignorar a solicitação de confirmação. Por exemplo, você executaria um comando como: 
+```console
+azdata arc postgres server delete -n <server group name> --force
+```
+
 Para obter mais detalhes sobre o comando de exclusão, execute:
 ```console
 azdata arc postgres server delete --help

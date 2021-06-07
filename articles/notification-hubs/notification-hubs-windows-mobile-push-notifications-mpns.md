@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998332"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos do Windows Phone usando os Hubs de Notificação
@@ -79,7 +79,7 @@ Nesta seção, você deve criar um aplicativo do Windows Phone que se registra c
 
     ![Visual Studio - Novo Projeto - Aplicativo em branco - Windows Phone Silverlight][11]
 2. No Visual Studio, clique com o botão direito do mouse na solução e clique em **Gerenciar Pacotes NuGet**.
-3. Procure `WindowsAzure.Messaging.Managed` , clique em **Instalar**e aceite os termos de uso.
+3. Procure `WindowsAzure.Messaging.Managed` , clique em **Instalar** e aceite os termos de uso.
 
     ![Visual Studio - Gerenciador de Pacotes do NuGet][20]
 4. Abra o arquivo App.xaml.cs e adicione as seguintes instruções de `using` :

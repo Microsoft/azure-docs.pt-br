@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: cd0d85be5447aad0f2a3c37041e7d5d5d047a468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91777285"
 ---
 # <a name="personalizer-terminology"></a>Terminologia do personalizador
@@ -80,7 +80,7 @@ O personalizador é configurado no [portal do Azure](https://portal.azure.com).
 
 * **Avaliação**: uma avaliação offline determina a melhor política de aprendizado para seu loop com base nos dados do seu aplicativo.
 
-* **Política de aprendizagem**: como o personalizador treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizado de máquina. Um novo loop de aprendizado começa com uma **política de aprendizado**padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador cria novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação. A política de aprendizado é denominada _configurações de aprendizado_ nas **configurações de modelo e aprendizado** para o recurso personalizado no portal do Azure.
+* **Política de aprendizagem**: como o personalizador treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizado de máquina. Um novo loop de aprendizado começa com uma **política de aprendizado** padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador cria novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação. A política de aprendizado é denominada _configurações de aprendizado_ nas **configurações de modelo e aprendizado** para o recurso personalizado no portal do Azure.
 
 ### <a name="apprentice-mode-evaluations"></a>Avaliações do modo aprendiz
 

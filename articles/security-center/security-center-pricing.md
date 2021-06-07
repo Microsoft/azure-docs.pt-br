@@ -1,30 +1,25 @@
 ---
-title: Preços da Central de Segurança do Azure
-description: 'A Central de Segurança do Azure é oferecida em dois modos: com e sem o Azure Defender.'
-services: security-center
-documentationcenter: na
+title: Central de Segurança do Azure gratuita versus Azure Defender habilitado
+description: Saiba mais sobre os benefícios de habilitar o Azure Defender para proteção de carga de trabalho de nuvem na Central de Segurança do Azure
 author: memildin
-manager: rkarlin
-ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
-ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+manager: rkarlin
+ms.service: security-center
+ms.topic: overview
+ms.date: 03/23/2021
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805362"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600475"
 ---
-# <a name="pricing-of-azure-security-center"></a>Preços da Central de Segurança do Azure
-A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudar você a acompanhar o ritmo veloz da evolução dos riscos cibernéticos.
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Central de Segurança do Azure gratuita versus Azure Defender habilitado
+O Azure Defender é gratuito nos primeiros 30 dias. Ao final dos 30 dias, se você optar por continuar usando o serviço, a cobrança pelo uso será iniciada automaticamente.
 
+Você pode atualizar da página **Preço e configurações**, conforme descrito em [Início Rápido: habilitar Azure Defender](enable-azure-defender.md). Para obter detalhes de preço na sua moeda preferencial e de acordo com a sua região, confira [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="free-option-vs-azure-defender-enabled"></a>Opção gratuita vs Azure Defender habilitado
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quais são os benefícios de habilitar o Azure Defender?
 
 A Central de Segurança é oferecida em dois modos:
 
@@ -41,34 +36,9 @@ A Central de Segurança é oferecida em dois modos:
     - **Proteção contra ameaças com abrangência para recursos conectados ao ambiente do Azure**: o Azure Defender inclui a proteção contra ameaças com abrangência nativa do Azure para os serviços do Azure comuns a todos os seus recursos: Azure Resource Manager, DNS do Azure, camada de rede do Azure e Azure Key Vault. O Azure Defender tem visibilidade exclusiva da camada de gerenciamento do Azure e da camada do DNS do Azure e, portanto, pode proteger os recursos de nuvem conectados a essas camadas.
 
 
-## <a name="try-azure-defender-free-for-30-days"></a>Experimente o Azure Defender gratuitamente por 30 dias
-O Azure Defender é gratuito nos primeiros 30 dias. Ao final dos 30 dias, se você optar por continuar usando o serviço, a cobrança pelo uso será iniciada automaticamente.
-
-## <a name="enable-azure-defender"></a>Habilitar o Azure Defender
-Você pode proteger uma assinatura inteira do Azure com o Azure Defender e as proteções serão herdadas por todos os recursos na assinatura.
-
-Para habilitar o Azure Defender:
-
-1. No menu principal da Central de Segurança, selecione **Preços e configurações**.
-1. Selecione a assinatura que deseja atualizar.
-1. Escolha **Azure Defender ativado** para fazer a atualização.
-1. Selecione **Salvar**.
-
-Veja abaixo a página de preços para obter um exemplo de assinatura. Você observará que cada plano do Azure Defender é cobrado separadamente e pode ser definido de maneira individual como ativado ou desativado.
-
-:::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Página de preços da Central de Segurança no portal":::
-
-> [!NOTE]
-> Para habilitar todos os recursos da Central de Segurança, incluindo as funcionalidades de proteção contra ameaças, habilite o Azure Defender na assinatura que contém as cargas de trabalho aplicáveis. A habilitação dele no nível do workspace não habilita o acesso just-in-time à VM, os controles de aplicativo adaptáveis nem as detecções de rede para os recursos do Azure. Além disso, os únicos planos do Azure Defender disponíveis no nível do workspace são para servidores e para SQL Server em máquinas.
->
-> Habilite o **Azure Defender para contas de armazenamento** no nível da assinatura ou do recurso.
-> Habilite o **Azure Defender para SQL** no nível da assinatura ou do recurso.
-> Você pode habilitar a proteção contra ameaças para o **Banco de Dados do Azure para MariaDB/MySQL/PostgreSQL** apenas no nível do recurso.
-
-
 ## <a name="faq---pricing-and-billing"></a>Perguntas frequentes – Preços e cobrança 
 
-- [Como posso rastrear quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança do Azure?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Como posso rastrear quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
 - [Quais são os planos oferecidos pela Central de Segurança?](#what-are-the-plans-offered-by-security-center)
 - [Como fazer para habilitar o Azure Defender para minha assinatura?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [Posso habilitar o Azure Defender para servidores em um subconjunto de servidores em minha assinatura?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
@@ -78,6 +48,8 @@ Veja abaixo a página de preços para obter um exemplo de assinatura. Você obse
 - [Se um agente do Log Analytics for subordinado a vários workspaces, serei cobrado duas vezes?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Se um agente do Log Analytics for subordinado a vários workspaces, a ingestão de dados gratuita de 500 MB estará disponível em todos eles?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [A ingestão de dados gratuita de 500 MB é calculada para um workspace inteiro ou estritamente por computador?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Quais tipos de dados estão incluídos na provisão diária de dados de 500 MB?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Como posso rastrear quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança?
 As assinaturas do Azure podem ter vários administradores com permissões para alterar as configurações de preço. Para descobrir qual usuário fez uma alteração, use o log de atividades do Azure.
@@ -98,14 +70,14 @@ A Central de Segurança tem duas ofertas:
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>Como fazer para habilitar o Azure Defender para minha assinatura? 
 Use uma das seguintes maneiras para habilitar o Azure Defender na sua assinatura: 
 
-|Método  |Instruções  |
-|---------|---------|
-|Páginas da Central de Segurança do Azure do portal do Azure|[Habilitar o Azure Defender](#enable-azure-defender)|
-|API REST|[API de Preços](/rest/api/securitycenter/pricings)|
-|CLI do Azure|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Preços de pacotes](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Método                                          | Instruções                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Páginas da Central de Segurança do Azure do portal do Azure | [Habilitar o Azure Defender](enable-azure-defender.md)                                                                                                  |
+| API REST                                        | [API de Preços](/rest/api/securitycenter/pricings)                                                                                                  |
+| CLI do Azure                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [Preços de pacotes](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>Posso habilitar o Azure Defender para servidores em um subconjunto de servidores em minha assinatura?
 Não. Quando você habilita o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, todos os servidores na assinatura são protegidos pelo Azure Defender. 
@@ -118,10 +90,18 @@ Se você já tem uma licença para o Microsoft Defender para ponto de extremidad
 Para confirmar o desconto, entre em contato com a equipe de suporte da Central de Segurança e forneça a ID, a região e as informações de licença relevantes do workspace para cada licença relevante.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Minha assinatura tem o Azure Defender para servidores habilitado. Os servidores que não estão em execução são cobrados? 
-Não. Quando você habilita o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, você é cobrado por hora somente pelos servidores em execução. Você não será cobrado por nenhum servidor desativado durante o tempo em que ele permanecer desativado. 
+Não. Ao habilitar o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, você não será cobrado por nenhum computador que esteja no estado de energia desalocado enquanto ele estiver nesse estado. Os computadores são cobrados de acordo com o estado de energia, conforme mostrado na seguinte tabela:
 
-> [!TIP]
-> Isso também se aplica aos outros tipos de recursos protegidos pela Central de Segurança. 
+| Estado        | Descrição                                                                                                                                      | Uso de instância cobrado |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Iniciando     | A VM está iniciando.                                                                                                                               | Não é cobrado            |
+| Executando      | Estado de funcionamento normal para uma VM                                                                                                                    | Cobrado                |
+| Parando     | Esse é um estado de transição. Quando concluído, ele será exibido como Parado.                                                                           | Cobrado                |
+| Parado      | A VM foi desligada de dentro do sistema operacional convidado ou usando as APIs PowerOff. O hardware ainda estará alocado para a VM e permanecerá no host. | Cobrado                |
+| Desalocando | Estado de transição. Quando concluído, a VM será mostrada como Desalocada.                                                                             | Não é cobrado            |
+| Desalocada  | A VM foi parada com êxito e removida do host.                                                                                  | Não é cobrado            |
+
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Máquinas virtuais do Azure mostrando um computador desalocado":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Serei cobrado pelos computadores sem o agente do Log Analytics instalado?
 Sim. Quando você habilita o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, os computadores dessa assinatura obtêm uma gama de proteções, mesmo que você não tenha instalado o agente do Log Analytics.
@@ -136,6 +116,24 @@ Sim. Se você tiver configurado o agente do Log Analytics para enviar dados para
 Você receberá a ingestão de dados gratuita de 500 MB por dia para cada computador conectado ao workspace. Especificamente para tipos de dados de segurança coletados diretamente pela Central de Segurança do Azure.
 
 Esses dados são uma taxa diária média em todos os nós. Sendo assim, mesmo que alguns computadores enviem 100 MB e outros enviem 800 MB, se o total não ultrapassar o limite gratuito de **[número de computadores] x 500 MB**, você não precisará pagar nenhum valor extra.
+
+### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quais tipos de dados estão incluídos na provisão diária de dados de 500 MB?
+
+A cobrança da Central de Segurança está intimamente ligada à cobrança do Log Analytics. A Central de Segurança fornece uma alocação de 500 MB/nó/dia para o seguinte subconjunto de [tipos de dados de segurança](/azure/azure-monitor/reference/tables/tables-category#security):
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Os tipos de dados Update e UpdateSummary quando a solução de Gerenciamento de Atualizações não está em execução no workspace ou quando o direcionamento de solução está habilitado
+
+Se o workspace estiver no tipo de preço herdado Por Nó, as alocações da Central de Segurança e do Log Analytics serão combinadas e aplicadas em conjunto a todos os dados ingeridos passíveis de cobrança.
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo explicou as opções de preços da Central de Segurança. Para obter materiais relacionados, confira:

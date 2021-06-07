@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 88c0d88a1d3119ef2fa00eb49da447749fde3221
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629350"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543832"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral de blobs de páginas do Azure
 
@@ -55,13 +55,13 @@ O diagrama a seguir descreve as relações gerais entre a conta, os contêineres
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Criando um blob de páginas vazio de um tamanho específico
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Primeiro, obtenha uma referência a um contêiner. Para criar um blob de páginas, chame o método GetPageBlobClient e, em seguida, chame o método [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Passe o tamanho máximo para o blob a ser criado. Esse tamanho deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para criar um blob de páginas, primeiro criamos um objeto **CloudBlobClient** , com o URI base para acessar o armazenamento de BLOBs da sua conta de armazenamento (*pbaccount* na Figura 1) junto com o objeto **StorageCredentialsAccountAndKey** , conforme mostrado no exemplo a seguir. Em seguida, o exemplo mostra a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do contêiner (*testvhds*), caso ele ainda não exista. Em seguida, usando o objeto **CloudBlobContainer**, crie uma referência para um objeto **CloudPageBlob** especificando o nome do blob de páginas (os4.vhd) para acessar. Para criar o blob de páginas, chame [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passando o tamanho máximo do blob a ser criado. O *blobSize* deve ser um múltiplo de 512 bytes.
 
@@ -92,13 +92,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Redimensionando um blob de páginas
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para redimensionar um blob de páginas após a criação, use o método [redimensionar](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) . O tamanho solicitado deve ser um múltiplo de 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para redimensionar um blob de páginas após a criação, use o método [redimensionar](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . O tamanho solicitado deve ser um múltiplo de 512 bytes.
 
@@ -110,13 +110,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>Gravando páginas em um blob de páginas
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para gravar páginas, use o método [PageBlobClient. UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) .  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para gravar páginas, use o método [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages).  
 
@@ -139,13 +139,13 @@ O diagrama abaixo mostra duas operações de gravação separadas:
 
 #### <a name="reading-pages-from-a-page-blob"></a>Lendo páginas de um blob de páginas
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Para ler páginas, use o método [PageBlobClient. download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) para ler um intervalo de bytes do blob de páginas. 
+Para ler páginas, use o método [PageBlobClient. download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) para ler um intervalo de bytes do blob de páginas. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para ler páginas, use o método [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) para ler um intervalo de bytes do blob de páginas. 
 
@@ -164,13 +164,13 @@ A figura a seguir mostra uma operação de leitura com um deslocamento de 256 e 
 
 Se você tiver um blob populado de modo disperso, baixe apenas as regiões de página válidas para evitar pagar pela saída de zero bytes e reduzir a latência de download.  
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para determinar quais páginas são apoiadas pelos dados, use [PageBlobClient. GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). Em seguida, você pode enumerar os intervalos retornados e baixar os dados em cada intervalo. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para determinar quais páginas têm suporte de dados, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Em seguida, você pode enumerar os intervalos retornados e baixar os dados em cada intervalo. 
 

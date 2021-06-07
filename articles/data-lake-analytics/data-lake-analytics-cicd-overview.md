@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015257"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
@@ -93,7 +93,7 @@ Além da linha de comando, você também poderá usar o Build do Visual Studio o
 
 ![Tarefa do MSBuild para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. Adicione uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+1. Adicione uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina   >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
 
    ![Tarefa de restauração do NuGet para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -332,7 +332,7 @@ Além da linha de comando, você poderá usar o Build do Visual Studio ou uma ta
 
    ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. Inclua uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução, que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina **Advanced**  >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+1. Inclua uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução, que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Defina   >  o **diretório de destino** avançado como `$(Build.SourcesDirectory)/packages` se desejar usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
 
    ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -464,7 +464,7 @@ Execute as etapas a seguir para configurar uma tarefa de implantação de banco 
 |---------|-----------|-------------|--------|
 |Pacote|O caminho do pacote de implantação do banco de dados U-SQL a ser implantado.|null|true|
 |Banco de dados|O nome do banco de dados a ser implantado ou criado.|master|false|
-|LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|null|false|
+|LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|nulo|false|
 |LogLevel|Nível de registro: Verbose, Normal, Aviso ou Erro.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parâmetro para implantação local
@@ -483,10 +483,10 @@ Execute as etapas a seguir para configurar uma tarefa de implantação de banco 
 |Locatário|O nome do inquilino é o nome de domínio do Azure AD (Azure Active Directory). Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|null|true|
 |AzureSDKPath|Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|null|true|
 |Interativo|Se deve ou não usar o modo interativo para autenticação.|false|false|
-|ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|null|Obrigatório para autenticação não interativa.|
-|Secrete|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|null|Necessário para autenticação não interativa; caso contrário, use o SecreteFile.|
-|SecreteFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|null|Necessário para autenticação não interativa ou use o segredo.|
-|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|null|false|
+|ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|nulo|Obrigatório para autenticação não interativa.|
+|Secrete|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|nulo|Necessário para autenticação não interativa; caso contrário, use o SecreteFile.|
+|SecreteFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|nulo|Necessário para autenticação não interativa ou use o segredo.|
+|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|nulo|false|
 | JobPrefix | O prefixo para a implementação do banco de dados de um trabalho DDL do U-SQL. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Próximas etapas

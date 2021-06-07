@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576209"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados do Stream do Blob de armazenamento do Azure em Gen1 de armazenamento do Azure Data Lake usando o Azure Stream Analytics
@@ -63,7 +63,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída Gen1 de armazenamento do Data Lake para o trabalho
 
-1. Abra a página do trabalho do Stream Analytics, clique o **saídas** , clique em **Add**e selecione **Gen1 de armazenamento do Data Lake**.
+1. Abra a página do trabalho do Stream Analytics, clique o **saídas** , clique em **Add** e selecione **Gen1 de armazenamento do Data Lake**.
 
     ![Captura de tela da folha de trabalho Stream Analytics com a opção Outputs, Add Option e Data Lake Storage opção Gen 1 chamada out.](./media/data-lake-store-stream-analytics/create.output.1.png "Adicionar uma saída ao seu trabalho")
 
@@ -72,7 +72,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     ![Captura de tela da folha Data Lake Storage Gen 1 – nova saída com a opção autorizar chamada out.](./media/data-lake-store-stream-analytics/create.output.2.png "Adicionar uma saída ao seu trabalho")
 
     * Para **Alias de saída**, insira um nome exclusivo para essa saída de trabalho. Isso é um nome amigável utilizado em consultas para direcionar a saída de consulta para essa conta do Data Lake armazenamento Gen1.
-    * Você será solicitado a autorizar o acesso à conta do Data Lake armazenamento Gen1. Clique em **Autorizar**.
+    * Você será solicitado a autorizar o acesso à conta do Data Lake armazenamento Gen1. Clique em **autorizar**.
 
 3. Na folha **Nova saída**, forneça os valores a seguir.
 

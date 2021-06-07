@@ -4,10 +4,10 @@ description: Este artigo descreve como usar o Azure DevTest Labs para criar labo
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f9eb3d44d470a978e676f6268cd693b283dd2703
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433569"
 ---
 # <a name="use-labs-for-trainings"></a>Use os laboratórios para treinamentos
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure Lab Services,
 ## <a name="create-the-lab-account-as-a-lab-account-administrator"></a>Criar a conta de laboratório como um administrador da conta de laboratório
 A primeira etapa no uso do Azure Lab Services é criar uma conta de laboratório no portal do Azure. Depois de criar a conta de laboratório, o administrador da conta de laboratório adiciona os usuários que desejam criar laboratórios à função **Criador de laboratório**. Os educadores criam laboratórios com máquinas virtuais para que os alunos façam exercícios do curso que estão ministrando. Para obter detalhes, confira [Criar e gerenciar conta de laboratório](how-to-manage-lab-accounts.md).
 
-## <a name="create-and-manage-labs"></a>Criar e gerenciar laboratórios
+## <a name="create-and-manage-labs"></a>Criar e gerenciar os laboratórios
 Um educador, que é membro da função de criador de laboratório em uma conta de laboratório, pode criar um ou mais laboratórios nessa conta. Você cria e configura um modelo de VM (máquina virtual) com todo o software necessário para fazer exercícios no seu curso. Você escolhe uma imagem pronta entre as imagens disponíveis para criar um laboratório de sala de aula e, em seguida, o personaliza instalando o software necessário para o laboratório. Para obter detalhes, consulte [criar e gerenciar laboratórios](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso

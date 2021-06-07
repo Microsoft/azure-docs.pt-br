@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.openlocfilehash: 86a90cbcbb3381e853dcea766364642a89dafd7b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98015514"
 ---
 # <a name="achieve-geo-redundancy-for-azure-stream-analytics-jobs"></a>Obtenha redundância geográfica para trabalhos de Azure Stream Analytics

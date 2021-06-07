@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015905"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurar um endereço IP privado para uma VM usando o portal do Azure
@@ -46,7 +46,7 @@ Para criar uma VM denominada *DNS01* na sub-rede *frontend* de uma rede virtual 
 1. No menu do [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
 
     ![Criar um recurso, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. Selecione **Compute**  >  **máquina virtual** de computação.
+2. Selecione   >  **máquina virtual** de computação.
 
     ![Criar VM, portal do Azure](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
 3. Em **noções básicas**, especifique valores para itens, conforme descrito na tabela a seguir. Em seguida, selecione **Avançar &nbsp; : &nbsp; discos** e **próximo &nbsp; : &nbsp; rede**.

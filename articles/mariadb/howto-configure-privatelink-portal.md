@@ -3,14 +3,14 @@ title: Link privado-portal do Azure-banco de dados do Azure para MariaDB
 description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do portal do Azure
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659617"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando o portal
@@ -142,7 +142,7 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | **Detalhes da instância** |  |
+    | **Detalhes da Instância** |  |
     | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **Europa Ocidental**.|
     |||

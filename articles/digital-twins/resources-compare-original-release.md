@@ -8,10 +8,10 @@ ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 8010581667354f2e8484bc7341227ec41713d10f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99072546"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-original-version-2018"></a>O que são os novos Gêmeos Digitais do Azure? Qual é a diferença entre a versão original (2018)?
@@ -38,7 +38,7 @@ O gráfico a seguir fornece uma exibição lado a lado dos conceitos que foram a
 
 ## <a name="service-limits"></a>Limites de serviço
 
-Para obter uma lista de limites de gêmeos digitais do Azure, consulte [*limites do serviço gêmeos do Azure digital*](reference-service-limits.md).
+Para obter uma lista de limites dos Gêmeos Digitais do Azure, confira [*Limites do serviço dos Gêmeos Digitais do Azure*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

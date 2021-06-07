@@ -3,19 +3,14 @@ title: Fazer backup do Azure Managed Disks
 description: Saiba como fazer backup do Azure Managed Disks do portal do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738145"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110620"
 ---
-# <a name="back-up-azure-managed-disks-in-preview"></a>Fazer backup do Azure Managed Disks (em versão prévia)
-
->[!IMPORTANT]
->O backup em disco do Azure está em versão prévia sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
+# <a name="back-up-azure-managed-disks"></a>Fazer backup do Azure Managed Disks
 
 Este artigo explica como fazer backup do [disco gerenciado do Azure](../virtual-machines/managed-disks-overview.md) no portal do Azure.
 

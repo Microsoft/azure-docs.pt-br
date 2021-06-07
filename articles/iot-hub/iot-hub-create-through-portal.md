@@ -10,10 +10,10 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536038"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
@@ -36,19 +36,19 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 
 Aqui estão algumas das propriedades que você pode definir para um hub IoT:
 
-**Preço e escala** : você pode usar essa propriedade para migrar para uma camada diferente ou definir o número de unidades do Hub IoT. 
+**Preço e escala**: você pode usar essa propriedade para migrar para uma camada diferente ou definir o número de unidades do Hub IoT. 
 
-**Monitoramento de operações** : ative ou desative as diferentes categorias de monitoramento, como registro em log para eventos relacionados a mensagens de dispositivo para nuvem ou mensagens de nuvem para dispositivo.
+**Monitoramento de operações**: ative ou desative as diferentes categorias de monitoramento, como registro em log para eventos relacionados a mensagens de dispositivo para nuvem ou mensagens de nuvem para dispositivo.
 
-**Filtro de IP** : especifique um intervalo de endereços IP que serão aceitos ou rejeitados pelo Hub IoT.
+**Filtro de IP**: especifique um intervalo de endereços IP que serão aceitos ou rejeitados pelo Hub IoT.
 
-**Propriedades** : fornece a lista de propriedades que você pode copiar e usar em outros lugares, como ID de recurso, grupo de recursos, local e assim por diante.
+**Propriedades**: fornece a lista de propriedades que você pode copiar e usar em outros lugares, como ID de recurso, grupo de recursos, local e assim por diante.
 
 ### <a name="shared-access-policies"></a>Políticas de acesso compartilhado
 
-Você também pode exibir ou modificar a lista de políticas de acesso compartilhado clicando em **Políticas de acesso compartilhado** na seção **Configurações** . Essas políticas definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. 
+Você também pode exibir ou modificar a lista de políticas de acesso compartilhado clicando em **Políticas de acesso compartilhado** na seção **Configurações**. Essas políticas definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. 
 
-Clique em **Adicionar** para abrir a folha **Adicionar uma política de acesso compartilhado** .  Você poderá inserir o nome da nova política e as permissões que quer associar a essa política, como mostrado na seguinte figura:
+Clique em **Adicionar** para abrir a folha **Adicionar uma política de acesso compartilhado**.  Você poderá inserir o nome da nova política e as permissões que quer associar a essa política, como mostrado na seguinte figura:
 
 ![Captura de tela mostrando a adição de uma política de acesso compartilhado](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
@@ -74,19 +74,19 @@ Clique em **Roteamento de Mensagens** em **Mensagens** para ver o painel de Rote
 
 ### <a name="routes"></a>Rotas
 
-Rotas é a primeira guia no painel Roteamento de Mensagens. Para adicionar uma nova rota, clique em + **Adicionar** . Você verá a tela a seguir. 
+Rotas é a primeira guia no painel Roteamento de Mensagens. Para adicionar uma nova rota, clique em +**Adicionar**. Você verá a tela a seguir. 
 
 ![Captura de tela mostrando a adição de uma nova rota](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
 Nomeie a rota. O nome da rota deve ser exclusivo na lista de rotas para esse Hub. 
 
-Para **Ponto de Extremidade** , você pode selecionar um na lista suspensa ou adicionar um novo. Neste exemplo, uma conta de armazenamento e o contêiner já estão disponíveis. Para adicioná-los como um ponto de extremidade, clique em + **Adicionar** ao lado da lista suspensa Ponto de Extremidade e selecione **Armazenamento de Blobs** . A tela a seguir mostra o local em que a conta de armazenamento e o contêiner são especificados.
+Para **Ponto de Extremidade**, você pode selecionar um na lista suspensa ou adicionar um novo. Neste exemplo, uma conta de armazenamento e o contêiner já estão disponíveis. Para adicioná-los como um ponto de extremidade, clique em +**Adicionar** ao lado da lista suspensa Ponto de Extremidade e selecione **Armazenamento de Blobs**. A tela a seguir mostra o local em que a conta de armazenamento e o contêiner são especificados.
 
 ![Captura de tela mostrando a adição de um ponto de extremidade de armazenamento para a regra de roteamento](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
 Clique em **Escolher um contêiner** para selecionar a conta de armazenamento e o contêiner. Quando você tiver selecionado esses campos, ele retornará para o painel do Ponto de Extremidade. Use os padrões para o restante dos campos e **Criar** para criar o ponto de extremidade da conta de armazenamento e adicioná-lo às regras de roteamento.
 
-Para **Fonte de dados** , selecione Mensagens de Telemetria do Dispositivo. 
+Para **Fonte de dados**, selecione Mensagens de Telemetria do Dispositivo. 
 
 Em seguida, adicione uma consulta de roteamento. Neste exemplo, as mensagens que têm uma propriedade de aplicativo chamada `level` com um valor igual a `critical` são roteadas para a conta de armazenamento.
 
@@ -114,7 +114,7 @@ Aqui estão duas maneiras de localizar um hub IoT específico em sua assinatura:
 
 1. Se você souber a qual grupo de recursos o hub IoT pertence, clique em **Grupos de recursos** e selecione o grupo de recursos na lista. A tela de grupo de recursos mostra todos os recursos nesse grupo, incluindo os hubs IoT. Clique no hub que você está procurando.
 
-2. Clique em **Todos os recursos** . No painel **Todos os recursos** , há uma lista suspensa que assume `All types` como padrão. Clique na lista suspensa e desmarque a opção `Select all`. Localize `IoT Hub` e verifique-o. Clique na caixa de listagem suspensa para fechá-la, e as entradas serão filtradas, mostrando apenas seus hubs IoT.
+2. Clique em **Todos os recursos**. No painel **Todos os recursos**, há uma lista suspensa que assume `All types` como padrão. Clique na lista suspensa e desmarque a opção `Select all`. Localize `IoT Hub` e verifique-o. Clique na caixa de listagem suspensa para fechá-la, e as entradas serão filtradas, mostrando apenas seus hubs IoT.
 
 ## <a name="delete-the-iot-hub"></a>Excluir o Hub IoT
 

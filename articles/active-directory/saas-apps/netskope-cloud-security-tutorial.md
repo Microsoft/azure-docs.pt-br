@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 8435cab1855e9df871d17ff7fa393b6ab2cf0cb1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5f07e9dbd574d8a27e6048154c72b9afc24b6ba4
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736332"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286077"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Netskope Administrator Console
 
@@ -37,13 +37,12 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Netskope Administrator Console dá suporte ao SSO iniciado por **SP e IDP**
+* O Netskope Administrator Console dá suporte ao SSO iniciado por **SP e IdP**.
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
 
-
-## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Adicionar o Netskope Administrator Console da galeria
+## <a name="add-netskope-administrator-console-from-the-gallery"></a>Adicionar o Netskope Administrator Console por meio da galeria
 
 Para configurar a integração do Netskope Administrator Console ao Azure AD, você precisa adicionar o Netskope Administrator Console da galeria à sua lista de aplicativos SaaS gerenciados.
 
@@ -142,19 +141,19 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Clique na guia **Configurações** do painel de navegação esquerdo.
 
-    ![A captura de tela mostra a opção Configuração selecionada no painel de navegação.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![A captura de tela mostra a opção Configuração selecionada no painel de navegação.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Clique na guia **Administração**.
 
-    ![A captura de tela mostra a opção Administração selecionada em Configurações.](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![A captura de tela mostra a opção Administração selecionada em Configurações.](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Clique na guia **SSO**.
 
-    ![A captura de tela mostra a opção SSO selecionada em Administração.](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![A captura de tela mostra a opção SSO selecionada em Administração.](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. Na seção **Configurações de Rede**, execute as seguintes etapas:
     
-    ![A captura de tela mostra a opção Configurações de Rede em que você pode inserir os valores descritos.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![A captura de tela mostra a opção Configurações de Rede em que você pode inserir os valores descritos.](./media/netskope-cloud-security-tutorial/network.png)
 
     a. Copie o valor da **URL do Serviço do Consumidor de Declaração** e cole-o na caixa de texto **URL de Resposta** da seção **Configuração Básica de SAML** do portal do Azure.
 
@@ -162,7 +161,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Clique em **EDITAR CONFIGURAÇÕES** na seção **Configurações de SSO/SLO**.
 
-    ![A captura de tela mostra as Configurações de SSO/SLO em que você pode selecionar EDITAR CONFIGURAÇÕES.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![A captura de tela mostra as Configurações de SSO/SLO em que você pode selecionar EDITAR CONFIGURAÇÕES.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. Na janela pop-up **Configurações**, execute as seguintes etapas;
 
@@ -188,11 +187,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Clique na guia **Configurações** do painel de navegação esquerdo.
 
-    ![A captura de tela mostra a opção Configurações selecionada.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![A captura de tela mostra a opção Configurações selecionada.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Clique em guia **Plataforma Ativa**.
 
-    ![A captura de tela mostra a Plataforma Ativa selecionada em Configurações.](./media/netskope-cloud-security-tutorial/user1.png)
+    ![A captura de tela mostra a Plataforma Ativa selecionada em Configurações.](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Clique na guia **Usuários**.
 

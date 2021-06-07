@@ -3,17 +3,17 @@ title: Fortanix confidencial Computing Manager em um aplicativo gerenciado do Az
 description: Saiba como implantar o CCM (Fortanix confidencial Computing Manager) em um aplicativo gerenciado no portal do Azure.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 6132b864e94c5c2af691183e198ca882c361d5ec
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551195"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563414"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Fortanix confidencial Computing Manager em um aplicativo gerenciado do Azure
 
@@ -31,7 +31,7 @@ O Fortanix é um fornecedor de software de terceiros com produtos e serviços cr
 
 ## <a name="deploy-a-confidential-computing-manager-through-an-azure-managed-application"></a>Implantar um Gerenciador de computação confidencial por meio de um aplicativo gerenciado do Azure
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
     :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="portal do Azure.":::
 

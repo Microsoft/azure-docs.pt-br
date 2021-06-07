@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358751"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Carregar arquivos no armazenamento de BLOBs do Azure usando AzCopy v10
@@ -45,7 +45,7 @@ Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar u
 
 Para obter documentos de referência detalhados, consulte [Make azcopy](storage-ref-azcopy-make.md).
 
-## <a name="upload-a-file"></a>Carregar um arquivo
+## <a name="upload-a-file"></a>Fazer upload de um arquivo
 
 Carregue um arquivo usando o comando [azcopy Copy](storage-ref-azcopy-copy.md) .
 

@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8e88fb2f6f2fc9ad50911bfda2245cd95ae33236
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938337"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058741"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Tutorial: Ativar o Azure Stack Edge Pro com GPU
 
@@ -105,4 +104,4 @@ Neste tutorial, você aprendeu a:
 Para saber como transferir dados com o seu dispositivo Azure Stack Edge Pro, confira:
 
 > [!div class="nextstepaction"]
-> [Transferir dados com o Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Transferir dados com o Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-shares.md)

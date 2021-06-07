@@ -11,17 +11,17 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545388"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gerenciamento automático de dispositivos e módulos IoT usando o portal do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_ , que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
+O gerenciamento automático de dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos. Com o gerenciamento automático de dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_, que permite resumir a conclusão e a conformidade, tratar a mesclagem e os conflitos e implementar configurações em uma abordagem em fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ O gerenciamento automático de dispositivo trabalha atualizando um conjunto de d
 
 * O **conteúdo de destino** define as propriedades desejadas para serem adicionadas ou atualizadas nos dispositivos gêmeos ou módulos gêmeos de destino. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
 
-* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito** , **em andamento** , e **erro** . Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
+* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportadas do gêmeo.  As métricas do sistema são métricas padrão que medem o status de atualização do gêmeo, como o número de gêmeos definidos como destino e o número de gêmeos que foram atualizados com êxito.
 
 As configurações automáticas são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
@@ -58,9 +58,9 @@ Antes de criar uma configuração, especifique quais dispositivos ou módulos vo
 
 1. No [portal do Azure](https://portal.azure.com), vá para o hub IoT. 
 
-2. Selecione **Configuração do dispositivo IoT** .
+2. Selecione **Configuração do dispositivo IoT**.
 
-3. Selecione **Adicionar configuração de dispositivo** ou **Adicionar configuração de módulo** .
+3. Selecione **Adicionar configuração de dispositivo** ou **Adicionar configuração de módulo**.
 
    ![Adicionar configuração de dispositivo ou configuração de módulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
@@ -96,7 +96,7 @@ Se duas ou mais configurações direcionarem o mesmo caminho gêmeo, o conteúdo
 
 Se você desejar remover uma propriedade existente, especifique o valor da propriedade como `null`.
 
-É possível adicionar mais configurações selecionando **Adicionar Configuração do Dispositivo Gêmeo** ou **Adicionar Configuração do Módulo Gêmeo** .
+É possível adicionar mais configurações selecionando **Adicionar Configuração do Dispositivo Gêmeo** ou **Adicionar Configuração do Módulo Gêmeo**.
 
 ### <a name="specify-metrics-optional"></a>Especificar as métricas (opcionais)
 
@@ -104,9 +104,9 @@ As métricas fornecem contagens de resumo dos vários estados que um dispositivo
 
 Cada configuração pode ter até cinco métricas personalizadas. 
 
-1. Insira um nome para **nome da métrica** .
+1. Insira um nome para **nome da métrica**.
 
-2. Insira uma consulta para **Critérios da métrica** .  A consulta é baseada nas propriedades reportadas de dispositivo gêmeo.  A métrica representa o número de linhas retornadas pela consulta.
+2. Insira uma consulta para **Critérios da métrica**.  A consulta é baseada nas propriedades reportadas de dispositivo gêmeo.  A métrica representa o número de linhas retornadas pela consulta.
 
 Por exemplo:
 
@@ -150,7 +150,7 @@ Como várias configurações podem direcionar o mesmo dispositivo ou módulo, ca
 
 ### <a name="review-configuration"></a>Configuração de revisão
 
-Revise as informações da configuração e, em seguida, selecione **Enviar** .
+Revise as informações da configuração e, em seguida, selecione **Enviar**.
 
 ## <a name="monitor-a-configuration"></a>Monitorar uma configuração
 
@@ -158,7 +158,7 @@ Para exibir os detalhes de uma configuração e monitorar os dispositivos que a 
 
 1. No [portal do Azure](https://portal.azure.com), vá para o hub IoT. 
 
-2. Selecione **Configuração do dispositivo IoT** .
+2. Selecione **Configuração do dispositivo IoT**.
 
 3. Inspecione a lista de configuração. Para cada configuração, você pode exibir os seguintes detalhes:
 
@@ -180,7 +180,7 @@ Para exibir os detalhes de uma configuração e monitorar os dispositivos que a 
 
    * **Condição de Destino** – os dispositivos ou módulos que correspondem à condição de destino. 
 
-   * **Métricas** - uma lista de métricas do sistema e métricas personalizadas.  É possível exibir uma lista de dispositivos ou módulos que são contadas para cada métrica selecionando a métrica na lista suspensa e, em seguida, selecionando **Exibir Dispositivos** ou **Exibir Módulos** .
+   * **Métricas** - uma lista de métricas do sistema e métricas personalizadas.  É possível exibir uma lista de dispositivos ou módulos que são contadas para cada métrica selecionando a métrica na lista suspensa e, em seguida, selecionando **Exibir Dispositivos** ou **Exibir Módulos**.
 
    * **Configurações do Dispositivo Gêmeo** ou **Configurações do Módulo Gêmeo** – as configurações do gêmeo definidas pela configuração. 
 
@@ -202,7 +202,7 @@ Para modificar uma configuração, use as seguintes etapas:
 
 1. No [portal do Azure](https://portal.azure.com), vá para o hub IoT. 
 
-2. Selecione **Configuração do dispositivo IoT** . 
+2. Selecione **Configuração do dispositivo IoT**. 
 
 3. Selecione a configuração que deseja modificar. 
 
@@ -213,7 +213,7 @@ Para modificar uma configuração, use as seguintes etapas:
    * Prioridade 
    * Métricas
 
-4. Clique em **Salvar** .
+4. Clique em **Salvar**.
 
 5. Siga as etapas em [Monitorar uma configuração](#monitor-a-configuration) para observar as mudanças. 
 
@@ -223,11 +223,11 @@ Quando você exclui uma configuração, qualquer dispositivo gêmeo assume sua p
 
 1. No [portal do Azure](https://portal.azure.com), vá para o hub IoT. 
 
-2. Selecione **Configuração do dispositivo IoT** . 
+2. Selecione **Configuração do dispositivo IoT**. 
 
 3. Use a caixa de seleção para selecionar a configuração que deseja excluir. 
 
-4. Selecione **Excluir** .
+4. Selecione **Excluir**.
 
 5. Uma mensagem solicitará que você confirme.
 

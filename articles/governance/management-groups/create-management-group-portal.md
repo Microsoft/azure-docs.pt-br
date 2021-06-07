@@ -3,12 +3,14 @@ title: Criar um grupo de gerenciamento com o portal
 description: Neste guia de início rápido, você usará o portal do Azure para criar um grupo de gerenciamento para organizar seus recursos em uma hierarquia de recursos.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 1b0f7b0d98b2cde1343325d5e4a2979e3e663b68
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592425"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535912"
 ---
 # <a name="quickstart-create-a-management-group"></a>Início Rápido: Crie um grupo de gerenciamento
 
@@ -16,9 +18,9 @@ Grupos de gerenciamento são contêineres que o ajudarão a gerenciar o acesso, 
 
 O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minutos para ser concluído. Há processos que são executados pela primeira vez para configurar o serviço de grupos de gerenciamento no Azure para seu diretório. Você recebe uma notificação quando o processo é concluído. Para obter mais informações, confira [Configuração inicial dos grupos de gerenciamento](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Pré-requisitos:
+## <a name="prerequisites"></a>Pré-requisitos
 
-- caso você não tenha uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 - Qualquer usuário do Azure AD no locatário poderá criar um grupo de gerenciamento sem ter recebido a permissão de gravação do grupo de gerenciamento se a [proteção de hierarquia](./how-to/protect-resource-hierarchy.md#setting---require-authorization) não estiver habilitada. Esse novo grupo de gerenciamento passa a ser um filho do grupo de gerenciamento raiz ou o [grupo de gerenciamento padrão](./how-to/protect-resource-hierarchy.md#setting---default-management-group), e o criador recebe uma atribuição de função "Proprietário". O serviço de grupo de gerenciamento permite essa capacidade para que as atribuições de função não sejam necessárias no nível raiz. Nenhum usuário tem acesso ao grupo de gerenciamento raiz quando ele é criado. Para evitar problemas de localização dos administradores globais do Azure AD para começar a usar os grupos de gerenciamento, permitimos a criação dos grupos de gerenciamento iniciais no nível raiz.
 
@@ -32,7 +34,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 
 1. Escolha **+ Adicionar grupo de gerenciamento**.
 
-   :::image type="content" source="./media/main.png" alt-text="Captura de tela da página Grupos de gerenciamento mostrando assinaturas e grupos de gerenciamento filho." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Captura de tela da página Grupos de gerenciamento mostrando assinaturas e grupos de gerenciamento filho.":::
 
 1. Mantenha a opção **Criar** selecionada e preencha o campo da ID do grupo de gerenciamento.
 
@@ -61,4 +63,4 @@ Neste guia de início rápido, você criou um grupo de gerenciamento para organi
 Para saber mais sobre grupos de gerenciamento e como gerenciar sua hierarquia de recursos, prossiga para:
 
 > [!div class="nextstepaction"]
-> Gerenciar seus recursos com grupos de gerenciamento
+> [Gerenciar seus recursos com grupos de gerenciamento](./manage.md)

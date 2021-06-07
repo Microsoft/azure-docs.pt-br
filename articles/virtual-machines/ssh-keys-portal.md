@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: cynthn
 ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88929424"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Gerar e armazenar chaves SSH no portal do Azure
@@ -26,7 +26,7 @@ Para obter informações mais detalhadas sobre como criar e usar chaves SSH com 
 
 ## <a name="generate-new-keys"></a>Gerar novas chaves
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 
 1. Na parte superior da página, digite *SSH* para pesquisar. Em **Marketplace**, selecione **chaves SSH**.
 
@@ -48,7 +48,7 @@ Para obter informações mais detalhadas sobre como criar e usar chaves SSH com 
 
 1. Em seguida, você receberá uma janela pop-up para, selecione **baixar chave privada e criar recurso**. Isso baixará a chave SSH como um arquivo. PEM.
 
-   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Criar um novo grupo de recursos e gerar um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Baixar a chave privada como um arquivo. pem":::
 
 1. Depois que o arquivo. pem for baixado, talvez você queira movê-lo em algum lugar no computador em que é fácil apontar para o cliente SSH.
 
@@ -68,13 +68,13 @@ Por exemplo, digite: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 Você também pode carregar uma chave SSH pública para armazenar no Azure. Para obter informações sobre como criar um par de chaves SSH, consulte [usar chaves SSH para se conectar a VMs Linux](./linux/ssh-from-windows.md).
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 
 1. Na parte superior da página, digite *SSH* para pesquisar. Em **Marketplace*, selecione **chaves SSH**.
 
 1. Na página **chave SSH** , selecione **criar**.
 
-   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Criar um novo grupo de recursos e gerar um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Carregar uma chave pública SSH a ser armazenada no Azure":::
 
 1. Em **grupo de recursos** , selecione **criar novo** para criar um novo grupo de recursos para armazenar suas chaves. Digite um nome para seu grupo de recursos e selecione **OK**.
 
@@ -98,7 +98,7 @@ As chaves SSH criadas no portal são armazenadas como recursos, de modo que voc�
 1. Nos filtros, selecione **tipo**, desmarque a opção **selecionar tudo** para limpar a lista.
 1. Digite **SSH** no filtro e selecione **chave SSH**.
 
-   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Criar um novo grupo de recursos e gerar um par de chaves SSH":::
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Captura de tela de como filtrar a lista para ver todas as suas chaves SSH.":::
 
 ## <a name="get-the-public-key"></a>Obter a chave pública
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: e7585880b98f62f819ff344c82846c2cfb1fd620
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019815"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
@@ -40,7 +40,7 @@ O observador de rede fornece três conjuntos principais de recursos
   * A [solução de problemas de conexão](./network-watcher-connectivity-portal.md) permite uma verificação única de conectividade e latência entre uma VM e outro recurso de rede.
   * A [captura de pacotes](./network-watcher-packet-capture-overview.md) permite capturar todo o tráfego em uma VM em sua rede virtual.
   * A [solução de problemas de VPN](./network-watcher-troubleshoot-overview.md) executa várias verificações de diagnóstico em seus gateways de VPN e conexões para ajudar a depurar problemas.
-* Registrando em log
+* Registro em log
   * Os [logs de fluxo do NSG](./network-watcher-nsg-flow-logging-overview.md) permitem registrar todo o tráfego em seus [NSGs (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
   * O [análise de tráfego](./traffic-analytics.md) processa seus dados de log de fluxo do NSG, permitindo que você visualize, consulte, analise e entenda o tráfego de rede.
 
@@ -87,7 +87,7 @@ O recurso do observador de rede representa o serviço de back-end para o observa
 Sim. Por padrão, o serviço observador de rede é resiliente por zona. 
 
 ### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Como fazer configurar o serviço do observador de rede para ser resistente a zona? 
-Nenhuma configuração de cliente é necessária para habilitar a resiliência de zona. A resiliência de zona para recursos do observador de rede está disponível por padrão e gerenciada pelo próprio serviço. 
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona para recursos do observador de rede está disponível por padrão e gerenciada pelo próprio serviço. 
 
 ## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 

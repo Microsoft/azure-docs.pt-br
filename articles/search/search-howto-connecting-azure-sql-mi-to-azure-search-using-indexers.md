@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89294247"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para o SQL Instância Gerenciada
@@ -25,7 +25,7 @@ Crie um Instância Gerenciada SQL com a opção **habilitar ponto de extremidade
    ![Habilitar o ponto de extremidade público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Habilitar o ponto de extremidade público")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Habilitar o ponto de extremidade público do Azure SQL Instância Gerenciada
-Você também pode habilitar o ponto de extremidade público em um instância gerenciada **Security**SQL existente no  >  ponto de extremidade público da**rede virtual**de segurança  >  **Public endpoint**  >  **habilitar**.
+Você também pode habilitar o ponto de extremidade público em um instância gerenciada SQL existente no  >  ponto de extremidade público da **rede virtual** de segurança  >    >  **habilitar**.
 
    ![Habilitar ponto de extremidade público usando VNET de instância gerenciada](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Habilitar o ponto de extremidade público")
 

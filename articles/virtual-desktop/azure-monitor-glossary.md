@@ -1,30 +1,27 @@
 ---
-title: Glossário do monitor de visualização da área de trabalho virtual do Windows – Azure
+title: Glossário do monitor da área de trabalho virtual do Windows – Azure
 description: Um glossário de termos e conceitos relacionados a Azure Monitor para área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f13909d3835bdbd2931277a88244abfae3f80759
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466134"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709524"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Azure Monitor para o Glossário da área de trabalho virtual do Windows (versão prévia)
-
->[!IMPORTANT]
->O Azure Monitor para área de trabalho virtual do Windows está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Glossário do Azure Monitor para área de trabalho virtual do Windows
 
 Este artigo lista e descreve brevemente os principais termos e conceitos relacionados ao Azure Monitor para área de trabalho virtual do Windows (versão prévia).
 
 ## <a name="alerts"></a>Alertas
 
-Todos os alertas do Active Azure Monitor que você configurou na assinatura e classificados como [severidade 1](#severity-1-alerts) aparecerão na página Visão geral. Para saber como configurar alertas, consulte [responder a eventos com Azure monitor alertas](../azure-monitor/learn/tutorial-response.md).
+Todos os alertas do Active Azure Monitor que você configurou na assinatura e classificados como [severidade 0](#severity-0-alerts) serão exibidos na página Visão geral. Para saber como configurar alertas, consulte [responder a eventos com Azure monitor alertas](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Sessões disponíveis
 
@@ -40,7 +37,7 @@ O número total de usuários que iniciaram uma sessão nas últimas 24 horas.
 
 ## <a name="daily-alerts"></a>Alertas diários
 
-O número total de [alertas de severidade 1](#severity-1-alerts) disparados nas últimas 24 horas.
+O número total de alertas disparados a cada dia.
 
 ## <a name="daily-connections-and-reconnections"></a>Conexões e reconexões diárias
 
@@ -78,7 +75,7 @@ Cada problema ou erro de diagnóstico inclui uma mensagem que explica o que deu 
 
 ## <a name="input-delay"></a>Atraso de entrada
 
-"Atraso de entrada" em Azure Monitor para área de trabalho virtual do Windows significa o atraso de entrada por contador de desempenho de processo para cada sessão. Na página desempenho do host em <aka.ms/azmonwvdi>, esse contador de desempenho é configurado para enviar um relatório ao serviço uma vez a cada 30 segundos. Esses intervalos de 30 segundos são chamados de "amostras" e o pior caso nessa janela. Os valores medianos e P95 refletem a mediana e a 95 º percentil em todas as amostras.
+"Atraso de entrada" em Azure Monitor para área de trabalho virtual do Windows significa o atraso de entrada por contador de desempenho de processo para cada sessão. Na página desempenho do host em [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), esse contador de desempenho é configurado para enviar um relatório ao serviço uma vez a cada 30 segundos. Esses intervalos de 30 segundos são chamados de "amostras" e o pior caso nessa janela. Os valores medianos e P95 refletem a mediana e a 95 º percentil em todas as amostras.
 
 Em **atraso de entrada por host**, você pode selecionar uma linha de host de sessão para filtrar todos os outros visuais na página para esse host. Você também pode selecionar um nome de processo para filtrar o atraso de entrada mediana no gráfico de tempo.
 
@@ -114,21 +111,16 @@ A tabela a seguir lista os contadores de desempenho recomendados e os intervalos
 |PhysicalDisk ( \* ) \\ média de disco s/leitura|30 segundos|
 |PhysicalDisk ( \* ) \\ média de disco s/transferência|30 segundos|
 |PhysicalDisk ( \* ) \\ média de disco s/gravação|30 segundos|
-|Processo ( \* ) \\ % tempo do processador|20 segundos|
-|Processar ( \* ) \\ % tempo do usuário|30 segundos|
-|Processar ( \* ) \\ contagem de threads|30 segundos|
-|Operações de gravação de e/s de processo ( \* ) \\ /seg|30 segundos|
-|Operações Process ( \* ) de leitura de \\ e/s|30 segundos|
 |Informações do processador (_Total) \\ % tempo do processador|30 segundos|
 |\*Sessões ativas dos serviços de terminal () \\|60 segundos|
 |\*Sessões inativas dos serviços de terminal () \\|60 segundos|
 |Total de sessões dos serviços de terminal ( \* ) \\|60 segundos|
-|\*Atraso de entrada do usuário por processo ( \* ) \\ dela de entrada máxima|30 segundos|
+|\*Atraso de entrada do usuário por processo ( \* ) \\ atraso máximo de entrada|30 segundos|
 |\*Atraso de entrada do usuário por sessão ( \* ) \\ atraso máximo de entrada|30 segundos|
 |\* \\ RTT de TCP atual () de rede do RemoteFX|30 segundos|
 |Rede do RemoteFX ( \* ) \\ largura de banda UDP atual|30 segundos|
 
-Para saber mais sobre como ler contadores de desempenho, confira [Configurando contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md).
+Para saber mais sobre como ler contadores de desempenho, confira [Configurando contadores de desempenho](../azure-monitor/agents/data-sources-performance-counters.md).
 
 Para saber mais sobre contadores de desempenho de atraso de entrada, confira [contadores de desempenho de atraso de entrada do usuário](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -149,13 +141,13 @@ Você também pode selecionar entradas para exibir informações adicionais. Voc
 
 ## <a name="round-trip-time-rtt"></a>RTT (tempo de ida e volta)
 
-RTT (tempo de ida e volta) é uma estimativa do tempo de ida e volta da conexão entre o local do usuário final e a região do Azure da VM. Para ver quais locais têm a melhor latência, procure o local desejado na [ferramenta estimador de experiência de área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+O RTT (tempo de ida e volta) é uma estimativa do tempo de ida e volta da conexão entre o local do usuário final e a região do Azure do host da sessão. Para ver quais locais têm a melhor latência, procure o local desejado na [ferramenta estimador de experiência de área de trabalho virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## <a name="session-history"></a>Histórico de sessão
 
 O item **sessões** mostra o status de todas as sessões, conectadas e desconectadas. As **sessões ociosas** mostram apenas as sessões desconectadas.
 
-## <a name="severity-1-alerts"></a>Alertas de severidade 1
+## <a name="severity-0-alerts"></a>Alertas de severidade 0
 
 Os itens mais urgentes dos quais você precisa se encarregar imediatamente. Se você não resolver esses problemas, eles podem fazer com que sua implantação de área de trabalho virtual do Windows pare de funcionar.
 
@@ -171,11 +163,11 @@ A página relatório do usuário permite exibir informações de diagnóstico e 
 
 Este é o número de usuários em cada núcleo de máquina virtual. Acompanhar o número máximo de usuários por núcleo ao longo do tempo pode ajudá-lo a identificar se o ambiente é executado consistentemente em um número alto, baixo ou flutuante de usuários por núcleo. Saber quantos usuários estão ativos ajudará você a criar recursos e dimensionar o ambiente com eficiência.
 
-## <a name="windows-events"></a>Eventos do Windows
+## <a name="windows-event-logs"></a>Logs de Eventos do Windows
 
 Os logs de eventos do Windows são fontes de dados coletadas por agentes de Log Analytics em máquinas virtuais do Windows. Você pode coletar eventos de logs padrão, como sistema e aplicativo, bem como logs personalizados criados por aplicativos que você precisa monitorar.
 
-A tabela a seguir lista os eventos do Windows necessários para Azure Monitor para a área de trabalho virtual do Windows:
+A tabela a seguir lista os logs de eventos do Windows necessários para Azure Monitor para a área de trabalho virtual do Windows:
 
 |Nome do evento|Tipo de evento|
 |---|---|
@@ -186,7 +178,7 @@ A tabela a seguir lista os eventos do Windows necessários para Azure Monitor pa
 | Microsoft-FSLogix-apps/operacional|Erro, aviso e informações|
 |Microsoft-FSLogix-apps/admin|Erro, aviso e informações|
 
-Para saber mais sobre eventos do Windows, consulte [Propriedades de registros de eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md).
+Para saber mais sobre os logs de eventos do Windows, consulte [Propriedades de registros de eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -203,4 +195,4 @@ Se precisar de ajuda ou tiver dúvidas, Confira nossos recursos da Comunidade:
    
 - Para saber como deixar comentários, consulte [visão geral da solução de problemas, comentários e suporte para área de trabalho virtual do Windows](troubleshoot-set-up-overview.md#report-issues).
 
-- Você também pode deixar comentários para a área de trabalho virtual do Windows no [Hub de comentários da área de trabalho virtual do Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) ou no [nosso fórum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- Você também pode deixar comentários para a área de trabalho virtual do Windows no [Hub de comentários da área de trabalho virtual do Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: diviso
 ms.custom: include file
 ms.openlocfilehash: 016ad0e11f3378dba887e0a235f235fa91e3aa03
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98109297"
 ---
 ### <a name="property-limits"></a>Limites de propriedade

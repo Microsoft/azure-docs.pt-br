@@ -12,12 +12,12 @@ metadata:
   author: v-dalc
   ms.author: alkohli
   ms.date: 10/29/2020
-  ms.openlocfilehash: d0a02f92957d133afc107a1a82a9ad05bb0c0332
-  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+  ms.openlocfilehash: 5c2d66f93a7dc0cc3cf0535147bacd8d581bd294
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98786496"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101710032"
 landingContent:
 - title: Sobre o Data Box Gateway
   linkLists:
@@ -33,8 +33,8 @@ landingContent:
       url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
   - linkListType: whats-new
     links:
-    - text: Notas sobre a versão de 2007 – Atual
-      url: data-box-gateway-2007-release-notes.md
+    - text: Notas sobre a versão de 2101 – Atual
+      url: data-box-gateway-2101-release-notes.md
 - title: Requisitos e limites
   linkLists:
   - linkListType: concept

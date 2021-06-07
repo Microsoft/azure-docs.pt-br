@@ -4,10 +4,10 @@ description: Saiba como usar o portal do Azure para adicionar uma máquina virtu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88270971"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
@@ -44,7 +44,7 @@ Você adiciona uma VM declarável a um laboratório de maneira semelhante a como
    A página do laboratório exibirá o status da criação da VM - primeiro como **Criando** e, em seguida, como **Em execução**, depois que a VM for iniciada.
 
 > [!NOTE]
-> Se você implantar VMs de laboratório por meio dos  [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs exigíveis definindo a propriedade **allowClaim** como true na seção de propriedades.
+> Se você implantar VMs de laboratório por meio de [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs declaráveis definindo a propriedade **allowClaim** como verdadeiro na seção de propriedades.
 
 
 ## <a name="using-a-claimable-vm"></a>Usando uma VM declarável

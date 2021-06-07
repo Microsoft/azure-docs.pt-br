@@ -2,18 +2,18 @@
 title: Descobrir, conectar e explorar dados no Synapse usando o Azure alcance
 description: Guia sobre como descobrir dados, conectá-los e explorá-los no Synapse
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/16/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 79090bfbf08cde3f18b1ca734b8af22d16e7e0ea
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872648"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628655"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Descobrir, conectar e explorar dados no Synapse usando o Azure alcance 
 

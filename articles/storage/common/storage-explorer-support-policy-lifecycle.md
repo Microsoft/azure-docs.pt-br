@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
 ms.openlocfilehash: dc89631208c6a72c4b48d49260f584149d6c4260
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97679939"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida e política de suporte do Gerenciador de Armazenamento do Azure

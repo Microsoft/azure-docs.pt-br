@@ -3,12 +3,12 @@ title: Sintaxe da ação SQL da regra de assinatura do barramento de serviço do
 description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742668"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100652829"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxe da ação SQL da regra de assinatura
 
@@ -199,7 +199,8 @@ A `newid()` função retorna um `System.Guid` gerado pelo `System.Guid.NewGuid()
   
 A função `property(name)` retorna o valor da propriedade referenciada por `name`. O valor `name` pode ser qualquer expressão válida que retorna um valor de cadeia de caracteres.  
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemplos
+Para obter exemplos, consulte [exemplos de filtro do barramento de serviço](service-bus-filter-examples.md).
   
 ## <a name="considerations"></a>Considerações
 

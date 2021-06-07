@@ -12,10 +12,10 @@ ms.reviewer: fryu
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2437c5b3272163b3931d7417c84e761c591aec85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90088809"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Acesse contêineres públicos e blobs anonimamente com o .NET

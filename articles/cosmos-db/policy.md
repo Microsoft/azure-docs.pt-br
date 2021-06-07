@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93080644"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
@@ -127,7 +127,7 @@ A captura de tela mostra os seguintes resultados de avaliação de conformidade 
 - Zero de duas contas são compatíveis com uma política que exige que a conta seja configurada para vários locais de gravação
 - Zero de duas contas são compatíveis com uma política que os recursos foram implantados para regiões do Azure permitidas.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Pesquisar definições de políticas internas para o Azure Cosmos DB":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Resultados de conformidade para atribuições de Azure Policy listadas":::
 
 Para corrigir os recursos sem conformidade, consulte [como corrigir recursos com o Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

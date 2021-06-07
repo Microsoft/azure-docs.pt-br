@@ -6,13 +6,13 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
-ms.openlocfilehash: c49fee169b7bd01ee7cf8a6d539c2125cf6568b3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 03/15/2021
+ms.openlocfilehash: d47a7b9e2229ffbd747b1ff7b9491ce99e9b190f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545308"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103492227"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ No Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este 
 
 Você pode especificar o número máximo de itens retornados por uma consulta definindo o `MaxItemCount` . O `MaxItemCount` é especificado por solicitação e informa ao mecanismo de consulta que retornará esse número de itens ou menos. Você pode definir `MaxItemCount` como `-1` se não quiser inserir um limite no número de resultados por execução de consulta.
 
-Além disso, há outros motivos pelos quais o mecanismo de consulta pode precisar dividir os resultados da consulta em várias páginas. Estão incluídos:
+Além disso, há outros motivos pelos quais o mecanismo de consulta pode precisar dividir os resultados da consulta em várias páginas. Elas incluem:
 
 - O contêiner foi limitado e não havia RUs disponível para retornar mais resultados da consulta
 - A resposta da execução da consulta era muito grande
@@ -59,7 +59,7 @@ Se a consulta retornar um token de continuação, haverá resultados de consulta
 
 Na API REST do Azure Cosmos DB, você pode gerenciar tokens de continuação com o `x-ms-continuation` cabeçalho. Assim como acontece com a consulta com o SDK do .NET ou do Java, se o `x-ms-continuation` cabeçalho de resposta não estiver vazio, isso significará que a consulta tem resultados adicionais.
 
-Contanto que você esteja usando a mesma versão do SDK, os tokens de continuação nunca expiram. Opcionalmente, você pode [restringir o tamanho de um token de continuação](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independentemente da quantidade de dados ou do número de partições físicas em seu contêiner, as consultas retornam um único token de continuação.
+Contanto que você esteja usando a mesma versão do SDK, os tokens de continuação nunca expiram. Opcionalmente, você pode [restringir o tamanho de um token de continuação](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Independentemente da quantidade de dados ou do número de partições físicas em seu contêiner, as consultas retornam um único token de continuação.
 
 Você não pode usar tokens de continuação para consultas com [Group by](sql-query-group-by.md) ou [DISTINCT](sql-query-keywords.md#distinct) porque essas consultas exigirão o armazenamento de um estado significativo. Para consultas com `DISTINCT` o, você pode usar tokens de continuação se adicionar `ORDER BY` à consulta.
 

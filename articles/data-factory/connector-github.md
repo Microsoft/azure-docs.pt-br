@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: daperlov
 ms.openlocfilehash: 5d555d7bc4d3aae9c016cacbe17b68c30859d99a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100372273"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>Usar o GitHub para ler referências de entidade de modelo de dados comuns

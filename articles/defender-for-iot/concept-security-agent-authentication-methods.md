@@ -1,45 +1,34 @@
 ---
 title: Métodos de autenticação do agente de segurança
 description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao usar o serviço defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: c72fa87201fb0d7fdd526f0e6f4eeb2c35192fc2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521638"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784604"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança
 
 Este artigo explica os diferentes métodos de autenticação que você pode usar com o agente AzureIoTSecurity para autenticar com o Hub IoT.
 
-Para cada dispositivo integrado ao defender para IoT no Hub IoT, é necessário um módulo de segurança. Para autenticar o dispositivo, o defender para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente.
+Para cada dispositivo integrado ao defender para IoT no Hub IoT, é necessário um defender-IoT-micro-Agent. Para autenticar o dispositivo, o defender para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente.
 
-> [!div class="checklist"]
-> * Opção SecurityModule
-> * Opção de dispositivo
+- Opção SecurityModule
+- Opção de dispositivo
 
 ## <a name="authentication-methods"></a>Métodos de autenticação
 
 Os dois métodos para o agente do defender for IoT AzureIoTSecurity para realizar a autenticação:
 
-- Modo de autenticação **SecurityModule**<br>
-O agente é autenticado usando a identidade do módulo de segurança independentemente da identidade do dispositivo.
-Use esse tipo de autenticação se desejar que o agente de segurança Use um método de autenticação dedicado por meio do módulo de segurança (somente chave simétrica).
+- Modo de autenticação do **defender-IOT-micro-Agent**<br>
+O agente é autenticado usando a identidade do defender-IoT-micro-Agent independentemente da identidade do dispositivo.
+Use esse tipo de autenticação se desejar que o agente de segurança Use um método de autenticação dedicado por meio do defender-IoT-micro-Agent (somente chave simétrica).
 
 - Modo de autenticação do **dispositivo**<br>
-Nesse método, o agente de segurança primeiro é autenticado com a identidade do dispositivo. Após a autenticação inicial, o agente do defender para IoT executa uma chamada **REST** para o Hub IOT usando a API REST com os dados de autenticação do dispositivo. Em seguida, o agente do defender para IoT solicita o método de autenticação e os dados do módulo de segurança do Hub IoT. Na etapa final, o agente do defender para IoT executa uma autenticação no módulo defender para IoT.
+Nesse método, o agente de segurança primeiro é autenticado com a identidade do dispositivo. Após a autenticação inicial, o agente do defender para IoT executa uma chamada **REST** para o Hub IOT usando a API REST com os dados de autenticação do dispositivo. Em seguida, o agente do defender para IoT solicita o método de autenticação do defender-IoT-micro-Agent e os dados do Hub IoT. Na etapa final, o agente do defender para IoT executa uma autenticação no módulo defender para IoT.
 
 Use esse tipo de autenticação se desejar que o agente de segurança reutilize um método de autenticação de dispositivo existente (certificado autoassinado ou chave simétrica).
 
@@ -101,7 +90,8 @@ Edite _LocalConfiguration.js_ com os seguintes parâmetros:
     "HostName" : ""
 }
 ```
-## <a name="next-steps"></a>Próximas etapas
+
+## <a name="see-also"></a>Veja também
 
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar agente de segurança](how-to-deploy-agent.md)

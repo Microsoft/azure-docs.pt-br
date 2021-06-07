@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 1c25543b16c3486a8f6a445427346382faaaa09a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77586115"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Associações do Hub IoT do Azure para Azure Functions
@@ -19,7 +19,7 @@ Este conjunto de artigos explica como trabalhar com associações de Azure Funct
 > [!IMPORTANT]
 > Embora os exemplos de código a seguir usem a API do hub de eventos, a sintaxe fornecida é aplicável a funções do Hub IoT.
 
-| Ação | Type |
+| Ação | Tipo |
 |--------|------|
 | Responder a eventos enviados a um fluxo de eventos do Hub IoT. | [Gatilho](./functions-bindings-event-iot-trigger.md) |
 | Gravar eventos em um fluxo de eventos de IoT | [Associação de saída](./functions-bindings-event-iot-output.md) |

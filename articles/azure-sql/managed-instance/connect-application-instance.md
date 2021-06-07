@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732604"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101692820"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,7 +105,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
    ![Números de entrada/saída](./media/connect-application-instance/ingress-egress-numbers.png)
 
-- Verifique se o computador cliente (que está executando o cliente VPN) tem entradas de rota para todas as redes virtuais que você precisa acessar. As rotas são armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+- Verifique se o computador cliente (que está executando o cliente VPN) tem entradas de rota para todas as redes virtuais que você precisa acessar. As rotas são armazenadas em `%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 

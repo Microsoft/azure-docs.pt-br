@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594020"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530579"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Início Rápido: Implantar exemplo nativo do C++ no HoloLens
 
@@ -81,7 +81,7 @@ Como as credenciais da conta são codificadas no código-fonte do tutorial, alte
 Especificamente, altere os seguintes valores:
 * `init.AccountId`, `init.AccountKey` e `init.AccountDomain` para usar os dados de sua conta. Veja o parágrafo sobre como [recuperar informações da conta](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Especifique onde criar a sessão de renderização remota modificando a parte da região da cadeia de caracteres `init.RemoteRenderingDomain` para outras regiões diferentes de `westus2`, por exemplo, `"westeurope.mixedreality.azure.com"`.
-* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou a [API REST da sessão](../../../how-tos/session-rest-api.md#create-a-session) diretamente.
+* Além disso, `m_sessionOverride` pode ser alterada para uma ID de sessão existente. As sessões podem ser criadas fora deste exemplo, por exemplo, usando [o script do PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou a [API REST da sessão](../../../how-tos/session-rest-api.md) diretamente.
 A criação de uma sessão fora do exemplo é recomendada quando o exemplo deve ser executado várias vezes. Se nenhuma sessão for passada, o exemplo criará uma nova sessão após cada inicialização, o que pode levar vários minutos.
 
 Agora o aplicativo pode ser compilado.

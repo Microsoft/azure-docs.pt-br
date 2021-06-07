@@ -1,17 +1,15 @@
 ---
 title: Monitorar um cluster do Service Fabric no Azure
 description: Neste tutorial, você aprenderá como monitorar um cluster exibindo eventos do Service Fabric, consultando as APIs de EventStore, contadores de desempenho de monitoramento e exibindo relatórios de integridade.
-author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3e9c8011647567b6f07423e113f98493d80d8402
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791771"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628774"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
 

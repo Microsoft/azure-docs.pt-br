@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 91cb446da31f353162f90778d855056a9697d455
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2196c9463569dc43092b38de58e0103104efed0c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726558"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102443464"
 ---
 # <a name="replace-your-azure-stack-edge-pro-device"></a>Substitua seu dispositivo pro Edge Azure Stack
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como substituir seu dispositivo pro Edge Azure Stack. Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. 
 

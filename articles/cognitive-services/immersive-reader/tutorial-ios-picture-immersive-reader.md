@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368195"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284627"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Criar um aplicativo iOS que inicia a Leitura Avançada com o conteúdo de uma foto (Swift)
 
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-A [API de Leitura de Serviços Cognitivos de Pesquisa Visual Computacional](../computer-vision/concept-recognizing-text.md) detecta o conteúdo de texto em uma imagem usando os modelos de reconhecimento mais recentes da Microsoft e converte o texto identificado em um fluxo de caracteres legível por computador.
+A [API de Leitura de Serviços Cognitivos de Pesquisa Visual Computacional](../computer-vision/overview-ocr.md) detecta o conteúdo de texto em uma imagem usando os modelos de reconhecimento mais recentes da Microsoft e converte o texto identificado em um fluxo de caracteres legível por computador.
 
 Neste tutorial, você criará um aplicativo iOS do zero e integrará a API de Leitura e a Leitura Avançada usando o SDK de Leitura Avançada. Um exemplo de funcionamento completo deste tutorial está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 

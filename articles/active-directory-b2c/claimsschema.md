@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654023"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -44,7 +44,7 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Yes | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
+| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
@@ -66,7 +66,7 @@ PredicateValidationReference| 0:1 | Uma referência a um elemento **PredicateVal
 
 O elemento **DataType** dá suporte aos seguintes valores:
 
-| Tipo | Descrição |
+| Type | Descrição |
 | ------- | ----------- |
 |booleano|Representa um valor booliano (`true` ou `false`).|
 |date| Representa um instante no tempo, normalmente expresso como uma data de um dia. O valor da data segue a Convenção ISO 8601.|
@@ -92,8 +92,8 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Yes | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | Yes | O nome do tipo de declaração a ser usado. |
+| Nome | Sim | O nome de um protocolo válido com suporte do Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Sim | O nome do tipo de declaração a ser usado. |
 
 No exemplo a seguir, quando o Identity Experience Framework interage com um provedor de identidade SAML2 ou com o aplicativo de terceira parte confiável, a declaração **surname** é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a declaração é mapeada para `family_name`.
 
@@ -128,7 +128,7 @@ O elemento **Mask** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
-| `Regex` | No | Se **`Type`** for definido como `Regex` , especifique a expressão regular a ser usada.
+| `Regex` | Não | Se **`Type`** for definido como `Regex` , especifique a expressão regular a ser usada.
 
 O exemplo a seguir configura uma declaração **PhoneNumber** com a máscara `Simple`:
 
@@ -167,7 +167,7 @@ O elemento **Restriction** pode conter o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| MergeBehavior | No | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` é uma coleção de dados que deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` é uma coleção de dados especificados na política pai que deve ser ignorada. |
+| MergeBehavior | Não | O método usado para mesclar valores de enumeração com um ClaimType em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` é uma coleção de dados que deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` é uma coleção de dados que deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` é uma coleção de dados especificados na política pai que deve ser ignorada. |
 
 O elemento **Restriction** contém os seguintes elementos:
 
@@ -184,9 +184,9 @@ O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Yes | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
-|Valor | Yes | O valor da declaração associada à seleção dessa opção. |
-| SelectByDefault | No | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Os valores possíveis: True ou False. |
+| Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
+|Valor | Sim | O valor da declaração associada à seleção dessa opção. |
+| SelectByDefault | Não | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Os valores possíveis: True ou False. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
 
@@ -213,8 +213,8 @@ O elemento **Pattern** pode conter os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| RegularExpression | Yes | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
-| HelpText | No | Uma mensagem de erro para os usuários se a verificação de expressão regular falhar. |
+| RegularExpression | Sim | A expressão regular a que declarações desse tipo devem corresponder para que sejam válidas. |
+| HelpText | Não | Uma mensagem de erro para os usuários se a verificação de expressão regular falhar. |
 
 O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a validação de entrada de expressão regular:
 

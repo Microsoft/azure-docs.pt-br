@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: RStudio Server e Serviços de ML Services para R – Azure HDInsight'
+title: 'Guia de início rápido: usar o RStudio Server e os Serviços de ML para a linguagem R – Azure HDInsight'
 description: No início rápido, você executa um script R em um cluster de serviços de ML no Azure HDInsight usando o RStudio Server.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935714"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104862826"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Início Rápido: Executar um script R em um cluster de serviços de ML no Azure HDInsight usando o RStudio Server
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Guia de início rápido: executar um script R em um cluster dos Serviços de ML no Azure HDInsight do usando o RStudio Server
 
 O ML Services no Azure HDInsight permite que os scripts R usem Apache Spark e Apache Hadoop MapReduce para executar cálculos distribuídos. O ML Services controla como as chamadas são executadas, definindo o contexto de computação. O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do RevoScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los nos nós do cluster usando os contextos de cálculo Hadoop Map Reduce ou Apache Spark do RevoScaleR.
 
@@ -34,7 +34,7 @@ Na primeira vez em que você fizer logon, precisará autenticar duas vezes. No p
 
 Quando você estiver conectado, sua tela deve ser semelhante à captura de tela a seguir:
 
-![Visões gerais do console Web do R Studio](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="Visões gerais do console Web do R Studio" border="true":::
 
 ## <a name="use-a-compute-context"></a>Use um contexto de computação
 
@@ -141,7 +141,7 @@ Quando você estiver conectado, sua tela deve ser semelhante à captura de tela 
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

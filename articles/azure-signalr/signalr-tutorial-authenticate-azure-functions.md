@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92150914"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação do Serviço Azure SignalR com o Azure Functions
@@ -463,7 +463,7 @@ O aplicativo Web será hospedado usando o recurso de sites estáticos do Armazen
 
     | Nome | Valor |
     |---|---|
-    | Assinatura | Selecionar sua assinatura |
+    | Subscription | Selecionar sua assinatura |
     | Conta de armazenamento | Selecione a conta de armazenamento criada anteriormente |
     | Pasta para implantar | Selecione **Navegar** e selecione a pasta do *conteúdo* |
 

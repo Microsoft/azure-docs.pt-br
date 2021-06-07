@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90885844"
 ---
-# <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel do seu espaço de trabalho
+# <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel do workspace
 
 Se você não quiser mais usar o Azure Sentinel, este artigo explicará como removê-lo do seu espaço de trabalho.
 
@@ -29,7 +29,7 @@ Se você não quiser mais usar o Azure Sentinel, este artigo explicará como rem
 
 Siga este processo para remover o Azure Sentinel do seu espaço de trabalho:
 
-1. Vá para **Azure Sentinel**, seguido por **configurações**e selecione a guia **remover Azure Sentinel**.
+1. Vá para **Azure Sentinel**, seguido por **configurações** e selecione a guia **remover Azure Sentinel**.
 
 1. Antes de remover o Azure Sentinel, use as caixas de seleção para nos informar por que você o está removendo.
 
@@ -66,12 +66,12 @@ Nas primeiras 48 horas, as regras de dados e analíticas (incluindo a configura�
 
 -   Indicadores
 
-Seus guias estratégicos, pastas de trabalho salvas, consultas de busca salvas e notebooks não são removidos. **Alguns podem ser interrompidos devido aos dados removidos. Você pode removê-los manualmente.**
+Os guias estratégicos, as pastas de trabalho salvas, as consultas de busca salvas e os notebooks não são removidos. **Alguns podem ser interrompidos devido aos dados removidos. Você pode removê-los manualmente.**
 
 Depois de remover o serviço, há um período de carência de 30 dias durante o qual você pode reabilitar a solução e seus dados e regras analíticas serão restaurados, mas os conectores configurados que foram desconectados devem ser reconectados.
 
 > [!NOTE]
-> Se você remover a solução, sua assinatura continuará a ser registrada com o provedor de recursos do Azure Sentinel. **Você pode removê-lo manualmente.**
+> Se você remover a solução, a assinatura continuará a ser registrada com o provedor de recursos do Azure Sentinel. **Você pode removê-la manualmente.**
 
 
 

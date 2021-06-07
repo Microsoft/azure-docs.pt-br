@@ -4,10 +4,10 @@ description: Saiba como usar a área de trabalho remota para máquinas virtuais 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d13868477ff2e3378d87d7785789a7498ed17e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85443410"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Conectar-se às máquinas virtuais do Linux em um laboratório de sala de aula do Azure Lab Services

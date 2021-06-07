@@ -14,10 +14,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af74967e2de47afeb357e2ac31b1a0ee849ef36
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547093"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
@@ -71,7 +71,7 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização Microsoft 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário \@ fourthcoffee. xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização Microsoft 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *user \@ fourthcoffeexyz.onmicrosoft.com* em vez de *user \@ fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Assumir como administrador externo
 

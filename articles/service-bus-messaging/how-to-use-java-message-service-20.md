@@ -4,26 +4,37 @@ description: Como usar o Java Message Service (JMS) com o barramento de serviço
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87801342"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101698392"
 ---
-# <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Usar a API 2,0 do serviço de mensagens Java com o barramento de serviço Premium do Azure (visualização)
+# <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Usar a API 2,0 do serviço de mensagens Java com o barramento de serviço Premium do Azure
 
 Este artigo explica como usar a popular API do **Java Message Service (JMS) 2,0** para interagir com o barramento de serviço do Azure por meio do protocolo AMQP 1,0 (protocolo de enfileiramento de mensagens avançado).
 
 > [!NOTE]
-> O suporte para a API JMS (Java Message Service) 2,0 só está disponível na **camada Premium do barramento de serviço do Azure** e está em **Visualização**no momento.
+> O suporte para a API JMS (Java Message Service) 2,0 só está disponível na **camada Premium do barramento de serviço do Azure**.
 >
 
-## <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
+## <a name="pre-requisites"></a>Pré-requisitos
+
+### <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
 
 Este guia pressupõe que você já tenha um namespace do barramento de serviço. Se não tiver, você poderá [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [portal do Azure](https://portal.azure.com). 
 
 Para obter mais informações sobre como criar filas e namespaces do barramento de serviço, consulte Introdução [às filas do barramento de serviço por meio do portal do Azure](service-bus-quickstart-portal.md).
+
+### <a name="set-up-a-java-development-environment"></a>Configurar um ambiente de desenvolvimento Java
+
+Para desenvolver aplicativos Java, você precisa configurar o ambiente de desenvolvimento apropriado- 
+   * O JDK (Java Development Kit) ou o JRE (Java Runtime Environment) está instalado.
+   * O JDK ou o JRE é adicionado ao caminho de compilação e às variáveis de sistema apropriadas.
+   * Um Java IDE é instalado para utilizar o JDK ou o JRE. Por exemplo, Eclipse ou IntelliJ.
+
+Para saber mais sobre como preparar seu ambiente de desenvolvedor para Java no Azure, utilize [este guia](/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Quais recursos JMS têm suporte?
 
@@ -72,11 +83,19 @@ Para se conectar com o barramento de serviço do Azure usando clientes JMS, voc�
     JMSContext jmsContext = factory.createContext();
     ```
 
+    >[!IMPORTANT]
+    > Embora nomeado de forma semelhante, uma "sessão" JMS e um "Session" do barramento de serviço são completamente independentes entre si.
+    >
+    > No JMS 1,1, Session é um bloco de construção essencial da API que permite a criação de MessageProducer, MessageConsumer e a própria mensagem. Para obter mais detalhes, examine o [modelo de programação da API JMS](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+    >
+    > No barramento de serviço, as [sessões](message-sessions.md) são a construção do lado do cliente e do serviço para habilitar o processamento de FIFO em filas e assinaturas.
+    >
+
 ### <a name="write-the-jms-application"></a>Escrever o aplicativo JMS
 
 Depois que o `Session` ou `JMSContext` tiver sido instanciado, seu aplicativo poderá usar as APIs JMS familiares para executar operações de gerenciamento e de dados.
 
-Consulte a lista de [recursos JMS com suporte](how-to-use-java-message-service-20.md#what-jms-features-are-supported) para ver quais APIs têm suporte como parte desta visualização.
+Consulte a lista de [recursos JMS com suporte](how-to-use-java-message-service-20.md#what-jms-features-are-supported) para ver quais APIs têm suporte.
 
 Veja abaixo alguns trechos de código de exemplo para começar a usar JMS-
 
@@ -134,7 +153,7 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 
 Para obter mais informações sobre o barramento de serviço do Azure e detalhes sobre as entidades de Java Message Service (JMS), confira os links abaixo- 
 * [Barramento de serviço-filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
-* [Barramento de serviço-entidades de serviço de mensagem Java](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities-preview)
+* [Barramento de serviço-entidades de serviço de mensagem Java](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
 * [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)

@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5ace6017ce66bbaa8be71e23196823c1c1318902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.collection: windows
+ms.openlocfilehash: 1bc69d56fc4cfb900dc45e01b298feb3e4c7a616
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81869487"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102554353"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

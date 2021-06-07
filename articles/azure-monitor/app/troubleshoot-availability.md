@@ -4,14 +4,14 @@ description: Solucionar problemas de testes na Web no Aplicativo Azure insights.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546736"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101728919"
 ---
 # <a name="troubleshooting"></a>Solução de problemas
 
@@ -58,11 +58,11 @@ O relatório de solução de problemas permite que você diagnostique facilmente
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Eu não recebi um email quando o alerta disparou ou foi resolvido ou ambos?
 
-Verifique a configuração de alertas clássicos para confirmar que seu e-mail está listado diretamente, ou você está usando uma lista de distribuição está configurada para receber notificações. Se for, em seguida, verifique a configuração da lista de distribuição para confirmar que ela possa receber e-mails externos. Também verifique se o administrador do sistema pode ter quaisquer políticas configuradas que podem causar esse problema.
+Verifique a configuração do grupo de ações dos alertas para confirmar se seu email está listado diretamente ou se uma lista de distribuição em que você está está configurada para receber notificações. Se for, em seguida, verifique a configuração da lista de distribuição para confirmar que ela possa receber e-mails externos. Também verifique se o administrador do sistema pode ter quaisquer políticas configuradas que podem causar esse problema.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação de webhook?
 
-Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](../platform/alerts-log-webhook.md) para obter mais informações.
+Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](../alerts/alerts-log-webhook.md) para obter mais informações.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Estou recebendo erros de 403 proibidos, o que isso significa?
 
@@ -110,21 +110,6 @@ Há um limite de 100 solicitações por teste. Além disso, o teste será interr
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Como executar um teste com certificados de cliente
 
 Não há suporte para esse recurso no momento.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
-
-Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, confira o [artigo sobre visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
-
-* Recomendamos o uso de destinatários específicos para notificações de alertas clássicos.
-
-* Para alertas de falhas de X entre Y locais, a opção de caixa de seleção **em massa/em grupo**, se habilitada, envia para os usuários com funções de administrador/coadministrador.  Basicamente _todos_ os administradores da _assinatura_ receberão notificações.
-
-* Para alertas sobre as métricas de disponibilidade, a opção de caixa de seleção **em massa/grupo** , se habilitada, enviará aos usuários com funções de leitor, colaborador ou proprietário na assinatura. Na verdade, _todos_ os usuários com acesso à assinatura do recurso do Application Insights fazem parte do escopo e receberão notificações. 
-
-> [!NOTE]
-> Se você estiver usando a opção de caixa de seleção **em massa/grupo** e desabilitá-la, não poderá reverter a alteração.
-
-Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
 
 ## <a name="next-steps"></a>Próximas etapas
 

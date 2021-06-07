@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar o Kafka Connect c
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935148"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Integrar o suporte ao Apache Kafka Connect nos Hubs de Eventos do Azure
@@ -30,7 +30,7 @@ Este tutorial orienta você pela integração do Kafka Connect a um hub de event
 Neste tutorial, você deve executar as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar um namespace de Hubs de Eventos
+> * Criar um namespace dos hubs de eventos
 > * Clonar o projeto de exemplo
 > * Configurar o Kafka Connect para os Hubs de Eventos
 > * Executar o Kafka Connect
@@ -45,7 +45,7 @@ Para concluir este passo a passo, é necessário atender aos seguintes pré-requ
 - Kafka (versão 1.1.1, versão do Scala 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Leia o artigo introdutório [Hubs de Eventos para o Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo

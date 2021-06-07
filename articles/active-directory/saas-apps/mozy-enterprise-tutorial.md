@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520924"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Mozy Enterprise, realize as seg
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Mozy Enterprise](https://support.mozy.com/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Mozy Enterprise](https://www.safenames.net/about-us/contact-us) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -120,13 +120,13 @@ Para configurar o logon único do Azure AD com o Mozy Enterprise, realize as seg
 
     c. URL de logoff
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Configurar o logon único do Mozy Enterprise
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Configurar o logon único do Mozy Enterprise
 
 1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Mozy Enterprise como administrador.
 
 2. Na seção **Configuração**, clique em **Política de Autenticação**.
    
-    ![A captura de tela mostra a Política de Autenticação selecionada em Configuração.](./media/mozy-enterprise-tutorial/ic777314.png "Política de Autenticação")
+    ![A captura de tela mostra a Política de Autenticação selecionada em Configuração.](./media/mozy-enterprise-tutorial/ic777314.png &quot;Política de Autenticação")
 
 3. Na seção **Política de Autenticação** , realize as seguintes etapas:
    
@@ -199,7 +199,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao Mozy Enterprise par
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Criar um usuário de teste do Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user&quot;></a>Criar um usuário de teste do Mozy Enterprise
 
 Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, eles devem ser provisionados no Mozy Enterprise. No caso do Mozy Enterprise, o provisionamento é uma tarefa manual.
 
@@ -212,7 +212,7 @@ Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, e
 
 2. Clique em **Usuários** e em **Adicionar Novo Usuário**.
    
-    ![Usuários](./media/mozy-enterprise-tutorial/ic777317.png "Usuários")
+    ![Usuários](./media/mozy-enterprise-tutorial/ic777317.png &quot;Usuários")
    
     >[!NOTE]
     >A opção **Adicionar Novo Usuário** será exibida apenas se **Mozy** estiver selecionado como o provedor em **Política de autenticação**. Se a autenticação SAML for configurada, os usuários serão adicionados automaticamente em seu primeiro logon por meio do Logon único.

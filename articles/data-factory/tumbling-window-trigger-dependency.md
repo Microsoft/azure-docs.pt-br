@@ -1,5 +1,5 @@
 ---
-title: Criar dependências de gatilho de janela em cascata
+title: Criar dependências de gatilho periódico
 description: Saiba como criar dependência em um gatilho de janela em cascata no Azure Data Factory.
 ms.author: chez
 author: chez-charlie
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
 ms.openlocfilehash: f969c06a3419a8017cfc5ebc0de19caa67c8dc68
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361461"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de gatilho de janela em cascata
@@ -21,7 +21,7 @@ Este artigo fornece etapas para criar uma dependência em um gatilho de janela e
 
 Para criar uma cadeia de dependência e certificar-se de que um gatilho executará somente após a execução com êxito de outro gatilho no data factory, use esse recurso avançado para criar uma dependência de janela em cascata.
 
-Para ver uma demonstração sobre como criar pipelines dependentes em seu Azure Data Factory usando o gatilho de janela em cascata, Assista ao vídeo a seguir:
+Para obter uma demonstração sobre como criar pipelines dependentes no Azure Data Factory usando o gatilho periódico, assista ao seguinte vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
@@ -33,7 +33,7 @@ Para criar dependência em um gatilho, selecione **Gatilho > Avançado > Novo** 
 
 ## <a name="tumbling-window-dependency-properties"></a>Propriedades de dependência de janela em cascata
 
-Um gatilho de janela em cascata com uma dependência tem as seguintes propriedades:
+Um gatilho periódico com uma dependência tem as seguintes propriedades:
 
 ```json
 {
@@ -75,21 +75,21 @@ Um gatilho de janela em cascata com uma dependência tem as seguintes propriedad
 
 A tabela a seguir fornece a lista de atributos necessários para definir uma dependência de Janela em Cascata.
 
-| **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessário** |
+| **Nome da Propriedade** | **Descrição**  | **Tipo** | **Necessário** |
 |---|---|---|---|
 | type  | Todos os gatilhos da janela em cascata existentes são exibidos neste menu suspenso. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
-| deslocamento | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência deverá sempre ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh:mm:ss) | Dependência automática: Sim<br/>Outro: não |
-| tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
+| deslocamento | Deslocamento do gatilho de dependência. Forneça um valor no formato de período, bem como deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência deverá sempre ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh:mm:ss) | Autodependência: Sim<br/>Outros: Não |
+| tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de período positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
 > [!NOTE]
-> Um gatilho de janela em cascata pode depender de um máximo de cinco outros gatilhos.
+> Um gatilho periódico pode depender de, no máximo, cinco outros gatilhos.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de autodependência de janela em cascata
 
-Em cenários em que o gatilho não deve prosseguir para a próxima janela até que a janela anterior seja concluída com êxito, crie uma autodependência. Um gatilho de dependência automática dependente do sucesso das execuções anteriores de si mesmo dentro da hora anterior terá as propriedades indicadas no código a seguir.
+Nos cenários em que o gatilho não deverá prosseguir para a próxima janela até que a janela anterior seja concluída com êxito, crie uma autodependência. Um gatilho de autodependência que seja dependente do sucesso das execuções anteriores de si mesmo no período que abrange a hora anterior terá as propriedades indicadas no código a seguir.
 
 > [!NOTE]
-> Se o pipeline disparado depender da saída de pipelines em janelas disparadas anteriormente, é recomendável usar apenas a janela em cascata disparará a autodependência. Para limitar as execuções de gatilho paralelo, defina a simultaneidade do gatilho maximimum.
+> Se o pipeline disparado depende da saída de pipelines em janelas disparadas anteriormente, recomendamos usar apenas a autodependência do gatilho periódico. Para limitar as execuções de gatilho paralelas, defina a simultaneidade máxima do gatilho.
 
 ```json
 {
@@ -125,7 +125,7 @@ Em cenários em que o gatilho não deve prosseguir para a próxima janela até q
 ```
 ## <a name="usage-scenarios-and-examples"></a>Cenários e exemplos de uso
 
-Veja abaixo as ilustrações de cenários e o uso de propriedades de dependência de janela em cascata.
+Veja abaixo as ilustrações dos cenários e do uso de propriedades de dependência da janela em cascata.
 
 ### <a name="dependency-offset"></a>Deslocamento de dependência
 
@@ -137,11 +137,11 @@ Veja abaixo as ilustrações de cenários e o uso de propriedades de dependênci
 
 ### <a name="self-dependency"></a>Autodependência
 
-![Dependência automática](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Autodependência")
+![Autodependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Autodependência")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dependência de outro gatilho de janela em cascata
 
-Um trabalho de processamento diário de telemetria dependendo de outro trabalho diário agregando a saída dos últimos sete dias e gera fluxos de janela sem interrupção de sete dias:
+Um trabalho de processamento diário de telemetria que depende de outro trabalho diário agregando a saída dos últimos sete dias e que gera fluxos de janela sem interrupção de sete dias:
 
 ![Exemplo de dependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Exemplo de dependência")
 
@@ -149,34 +149,34 @@ Um trabalho de processamento diário de telemetria dependendo de outro trabalho 
 
 Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
-![Exemplo de dependência automática](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Exemplo de dependência automática")
+![Exemplo de autodependência](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Exemplo de autodependência")
 
 ## <a name="monitor-dependencies"></a>Monitorar dependências
 
-Você pode monitorar a cadeia de dependência e as janelas correspondentes na página monitoramento de execução de gatilho. Navegue até  **Monitoramento > Execuções de Gatilho**. Se um gatilho de janela em cascata tiver dependências, o nome do gatilho terá um hiperlink para a exibição de monitoramento de dependência.  
+É possível monitorar a cadeia de dependência e as janelas correspondentes na página de monitoramento da execução de gatilho. Navegue até  **Monitoramento > Execuções de Gatilho**. Se um gatilho periódico tiver dependências, o nome do gatilho terá um hiperlink para a exibição de monitoramento de dependência.  
 
-![Monitorar execuções de gatilho](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Monitorar execuções de gatilho-inteiro para exibição de dependência de janela em cascata")
+![Monitorar execuções de gatilho](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Monitorar execuções de gatilho – completo para exibição de dependência da janela em cascata")
 
-Clique no nome do gatilho para exibir as dependências do gatilho. O painel à direita mostra informações detalhadas de execução do gatilho, como RunID, hora da janela, status e assim por diante.
+Clique no nome do gatilho para ver as dependências dele. O painel à direita mostra informações detalhadas da execução de gatilho, como RunID, horário da janela, status etc.
 
-![Exibição da lista de dependências do monitor](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Exibição da lista de dependências do monitor")
+![Monitorar a exibição da lista de dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Monitorar a exibição da lista de dependências")
 
-Você pode ver o status das dependências e do Windows para cada gatilho dependente. Se um dos disparadores de dependências falhar, você deverá executá-lo com êxito para que o gatilho dependente seja executado.
+Você pode ver o status das dependências e as janelas de cada gatilho dependente. Se um dos gatilhos de dependências falhar, você precisará executá-lo com êxito novamente para que o gatilho dependente seja executado.
 
-Um gatilho de janela em cascata aguardará as dependências por _sete dias_ antes de atingir o tempo limite. Após sete dias, a execução do gatilho falhará.
+Um gatilho periódico aguardará as dependências por _sete dias_ antes de atingir o tempo limite. Após sete dias, a execução de gatilho falhará.
 
-Para obter mais visual para exibir a agenda de dependência do gatilho, selecione o modo de exibição de Gantt.
+Para obter uma forma mais visual para ver a agenda de dependência do gatilho, selecione a exibição de Gantt.
 
-![Gráfico de Gantt de dependências do monitor](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Exibição do gráfico de Gantt de dependências do monitor")
+![Monitorar o gráfico de Gantt de dependências](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Monitorar a exibição do gráfico de Gantt de dependências")
 
-As caixas transparentes mostram as janelas de dependências para cada gatilho dependente de fluxo para baixo, enquanto as caixas de cores sólidas acima mostram execuções de janela individuais. Aqui estão algumas dicas para interpretar a exibição do gráfico de Gantt:
+As caixas transparentes mostram as janelas de dependências para cada gatilho dependente downstream, enquanto as caixas de cores sólidas acima mostram as execuções de janela individuais. Estas são algumas dicas para interpretar a exibição do gráfico de Gantt:
 
-* A caixa transparente renderiza azul quando as janelas dependentes estão no estado pendente ou em execução
+* A caixa transparente é renderizada em azul quando as janelas dependentes estão no estado pendente ou de execução
 * Depois que todas as janelas forem executadas com sucesso para um gatilho dependente, a caixa transparente ficará verde
-* A caixa transparente renderiza vermelho quando alguma janela dependente falha. Procure uma caixa vermelha sólida para identificar a execução da janela de falha
+* A caixa transparente é renderizada em vermelho quando uma janela dependente falha. Procure uma caixa vermelha sólida para identificar a execução da janela com falha
 
-Para executar novamente uma janela na exibição de gráfico de Gantt, selecione a caixa de cor sólida para a janela e um painel de ação será exibido com detalhes e execute novamente as opções
+Para executar novamente uma janela na exibição de gráfico de Gantt, selecione a caixa de cor sólida da janela e um painel de ação será exibido com detalhes e opções de nova execução
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examine [como criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)
+* Examine [Como criar um gatilho periódico](how-to-create-tumbling-window-trigger.md)

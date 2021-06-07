@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang
 ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381759"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados do Teradata privilegiando usando Azure Data Factory
@@ -322,36 +322,36 @@ Quando você copia dados do Teradata, os mapeamentos a seguir se aplicam. Para s
 | Data |Datetime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |Não há suporte. Aplicar conversão explícita na consulta de origem. |
+| Graphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Integer |Int32 |
-| Interval Day |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Intervalo - dia para hora |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Intervalo - dia para minuto |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Day To Second |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Hour |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Intervalo - hora para minuto |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Hour To Second |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Minute |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Minute To Second |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Month |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Second |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Year |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Interval Year To Month |Não há suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Day |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Intervalo - dia para hora |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Intervalo - dia para minuto |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Day To Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Hour |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Intervalo - hora para minuto |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Hour To Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Minute |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Minute To Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Month |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Second |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Year |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Interval Year To Month |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | Número |Double |
-| Período (Data) |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Período (hora) |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Período (hora com fuso horário) |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Period (Timestamp) |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Período (carimbo de data/hora com fuso horário) |Não há suporte. Aplicar conversão explícita na consulta de origem. |
+| Período (Data) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Período (hora) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Período (hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Period (Timestamp) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Período (carimbo de data/hora com fuso horário) |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 | SmallInt |Int16 |
 | Hora |TimeSpan |
 | Hora com fuso horário |TimeSpan |
 | Timestamp |Datetime |
-| Timestamp With Time Zone |Datetime |
+| Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
 | VarChar |String |
-| VarGraphic |Não há suporte. Aplicar conversão explícita na consulta de origem. |
-| Xml |Não há suporte. Aplicar conversão explícita na consulta de origem. |
+| VarGraphic |Sem suporte. Aplicar conversão explícita na consulta de origem. |
+| Xml |Sem suporte. Aplicar conversão explícita na consulta de origem. |
 
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade

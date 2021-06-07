@@ -5,10 +5,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 6737f64773f91ede1631d42cd7f28c7d961c0454
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368614"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Execute um failover do local para o Azure
@@ -30,9 +30,9 @@ Para garantir que você possa se conectar às VMs do Azure criadas após o failo
 
 Se você quiser se conectar a VMs do Azure usando o RDP/SSH após o failover, há várias coisas que você precisa fazer no local antes do failover.
 
-**Depois do failover** | **Local** | **Ações**
+**Depois do failover** | **Localidade** | **Ações**
 --- | --- | ---
-**VM do Azure executando o Windows** | Computador local antes do failover | Para acessar a VM do Azure pela Internet, habilite o RDP e fazer com que as regras de TCP e UDP sejam adicionadas para o **Público** e que o RDP foi permitido para todos os perfis no **Firewall do Windows** > **Aplicativos Permitidos**.<br/><br/> Para acessar a VM do Azure em uma conexão site a site, habilite o RDP no computador e verifique se o RDP é permitido no **Firewall do Windows**  ->  **aplicativos e recursos permitidos**para redes **privadas** e de domínio.<br/><br/> <br/><br/> Remova todas as rotas persistentes estáticas e o proxy WinHTTP. Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Verifique se não existem Windows atualizações pendentes na VM virtual quando disparar um failover. A atualização do Windows poderá iniciar quando o failover for feito, e você não poderá fazer logon na VM até que a atualização seja concluída.
+**VM do Azure executando o Windows** | Computador local antes do failover | Para acessar a VM do Azure pela Internet, habilite o RDP e fazer com que as regras de TCP e UDP sejam adicionadas para o **Público** e que o RDP foi permitido para todos os perfis no **Firewall do Windows** > **Aplicativos Permitidos**.<br/><br/> Para acessar a VM do Azure em uma conexão site a site, habilite o RDP no computador e verifique se o RDP é permitido no **Firewall do Windows**  ->  **aplicativos e recursos permitidos** para redes **privadas** e de domínio.<br/><br/> <br/><br/> Remova todas as rotas persistentes estáticas e o proxy WinHTTP. Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Verifique se não existem Windows atualizações pendentes na VM virtual quando disparar um failover. A atualização do Windows poderá iniciar quando o failover for feito, e você não poderá fazer logon na VM até que a atualização seja concluída.
 **VM do Azure executando Linux** | Computador local antes do failover | Verifique se o serviço Secure Shell na VM está definido para iniciar automaticamente na inicialização do sistema.<br/><br/> Verifique se as regras de firewall permitem uma conexão SSH com ele.
 
 
@@ -48,15 +48,15 @@ Execute o failover do plano de recuperação da seguinte maneira:
 
     ![Captura de tela de Azure Site Recovery mostrando o painel ADRP com failover selecionado no menu mais.](./media/site-recovery-failover/Failover.png)
 
-3. Em **Failover**  >  **direção de failover**de failover, deixe o padrão se você estiver replicando para o Azure.
+3. Em   >  **direção de failover** de failover, deixe o padrão se você estiver replicando para o Azure.
 4. Em **failover**, selecione um **ponto de recuperação** para o qual fazer failover.
 
     - **Mais recente**: Use o ponto mais recente. Isso processa todos os dados que foram enviados para Site Recovery serviço e cria um ponto de recuperação para cada computador. Essa opção fornece o RPO mais baixo (objetivo de ponto de recuperação) porque a VM criada após o failover tem todos os dados que foram replicados para Site Recovery quando o failover foi disparado.
     Observe que, quando a região de origem fica inativa, não há mais processamento de log possível. Portanto, você terá de fazer failover para o último ponto de recuperação processado. Veja o próximo ponto para entender mais.
-   - **Mais recente processado**: Use essa opção para fazer failover de VMs para o ponto de recuperação mais recente já processado pelo site Recovery. Você pode ver o ponto de recuperação processado mais recentemente nos **pontos de recuperação mais recentes**da VM. Essa opção fornece um RTO baixo, uma vez que nenhum tempo é gasto para processar os dados não processados
+   - **Mais recente processado**: Use essa opção para fazer failover de VMs para o ponto de recuperação mais recente já processado pelo site Recovery. Você pode ver o ponto de recuperação processado mais recentemente nos **pontos de recuperação mais recentes** da VM. Essa opção fornece um RTO baixo, uma vez que nenhum tempo é gasto para processar os dados não processados
    - **Consistente com o aplicativo mais recente**: Use essa opção para fazer failover de VMs para o ponto de recuperação consistente do aplicativo mais recente que foi processado pelo site Recovery.
    - **Várias VMs processadas mais recentemente**: com essa opção, as VMs que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comum mais recente. Outras máquinas virtuais fazem failover para o último ponto de recuperação processado. Essa opção é apenas para planos de recuperação que têm pelo menos uma VM com consistência de várias VMs habilitada.
-   - **Várias VMs mais recentes consistentes**com o aplicativo: com essa opção, as VMs que fazem parte de um grupo de replicação fazem failover para o ponto de recuperação consistente mais recente do aplicativo de várias VMs comum. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo. Somente para planos de recuperação que têm pelo menos uma VM com consistência de várias VMs habilitada.
+   - **Várias VMs mais recentes consistentes** com o aplicativo: com essa opção, as VMs que fazem parte de um grupo de replicação fazem failover para o ponto de recuperação consistente mais recente do aplicativo de várias VMs comum. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação consistentes com aplicativo. Somente para planos de recuperação que têm pelo menos uma VM com consistência de várias VMs habilitada.
    - **Personalizado**: não disponível para planos de recuperação. Essa opção é apenas para failover de VMs individuais.
 
 5. Selecione **desligar computador antes de iniciar o failover** se desejar site Recovery desligar as VMs de origem antes de iniciar o failover. O failover continuará mesmo o desligamento falhar.  
@@ -125,7 +125,7 @@ Site Recovery lida com a retenção de letras de unidade. Se você estiver exclu
 
 Se você quiser se conectar às VMs do Azure que são criadas após o failover usando RDP ou SSH, siga os requisitos resumidos na tabela.
 
-**Failover** | **Local** | **Ações**
+**Failover** | **Localidade** | **Ações**
 --- | --- | ---
 **VM do Azure executando o Windows** | VM do Azure após o failover |  [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> As regras de grupo de segurança de rede na VM com failover e a sub-rede do Azure à qual ela está conectada precisam permitir conexões de entrada para a porta RDP.<br/><br/> Verifique o **Diagnóstico de inicialização** para examinar uma captura de tela da VM.<br/><br/> Se você não conseguir se conectar, verifique se a VM está em execução e examine essas [dicas de solução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **VM do Azure executando Linux** | VM do Azure após o failover | As regras de grupo de segurança de rede na VM com failover (e a sub-rede do Azure à qual ela está conectada) precisam permitir conexões de entrada para a porta SSH.<br/><br/> [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> Verifique os **Diagnósticos de inicialização** para obter uma captura de tela da VM.<br/><br/>

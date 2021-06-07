@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: dfde9bbbeb7f6b349ecbdc4c2da605d39a0708da
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94357871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: integração do Azure Active Directory com o Printix

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89231054"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
@@ -54,8 +54,8 @@ Se você já tiver dados de atividades com sua licença gratuita, poderá vê-lo
 
 Há dois tipos de relatórios de segurança:
 
-- [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
-- [Usuários sinalizados para riscos](../identity-protection/overview-identity-protection.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
+- [Entradas arriscadas](../identity-protection/overview-identity-protection.md) -uma entrada arriscada é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário. 
+- [Usuários sinalizados para risco](../identity-protection/overview-identity-protection.md) – um usuário arriscado é um indicador para uma conta de usuário que pode ter sido comprometida. 
 
 A tabela a seguir lista as informações de latência para relatórios de segurança.
 

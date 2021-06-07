@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88140863"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
@@ -53,7 +53,7 @@ Regras adicionais podem ser necessárias para o fluxo de tráfego na direção i
 
 As regras padrão a seguir são criadas em cada tabela de firewall.
 
-|Prioridade|Nome|Rastreamento de estado|Direction|Tipo de Tráfego|Protocolo|Fonte|Porta de origem|Destino|Porta de destino|Ação|
+|Prioridade|Nome|Rastreamento de estado|Direção|Tipo de Tráfego|Protocolo|Fonte|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|permitir-tudo para a Internet|Com estado|Saída|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
 |65001|negar-tudo-da-Internet|Com estado|Entrada|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|

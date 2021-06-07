@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87088012"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
@@ -89,7 +89,7 @@ let Run(input: string, item: byref<Item>) =
     item <- result
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 Para registrar a saída em seus [logs de streaming](../app-service/troubleshoot-diagnostic-logs.md) em F#, sua função deve usar um argumento do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
 
 ```fsharp

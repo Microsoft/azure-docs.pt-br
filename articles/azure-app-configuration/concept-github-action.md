@@ -7,10 +7,10 @@ ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 1c290032f7a33079b560d3c4cc1fcb9526e70331
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762147"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizar o repositório GitHub com a configuração do aplicativo

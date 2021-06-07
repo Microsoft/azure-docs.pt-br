@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: justinha
 ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693912"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de configuração de rede no Azure Active Directory Domain Services

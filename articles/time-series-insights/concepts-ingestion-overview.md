@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2b76490ab23cb14755f6f90a27ec8b176bb30a11
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96780018"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Visão geral da ingestão de dados do Azure Time Series Insights Gen2

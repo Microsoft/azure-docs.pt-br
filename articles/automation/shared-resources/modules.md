@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 57dfc388dcba926706a695c93d2afa1956432be8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548757"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953928"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na Automação do Azure
 
@@ -142,9 +142,10 @@ Importar um módulo Az para sua conta de Automação não importa automaticament
 
 * Quando um runbook invoca um cmdlet de um módulo.
 * Quando um runbook importa o módulo explicitamente com o cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
+* Quando um runbook importa o módulo explicitamente com a instrução de [módulo using](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . A instrução using tem suporte a partir do Windows PowerShell 5,0 e dá suporte a classes e a importação de tipo enum.
 * Quando um runbook importa outro módulo dependente.
 
-Você pode importar os módulos Az no portal do Azure. Lembre-se de importar apenas os módulos Az necessários, não todo o módulo Az.Automation. Como [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az, importe esse módulo antes de qualquer outro.
+Você pode importar os módulos AZ para a conta de automação do portal do Azure. Lembre-se de importar apenas os módulos AZ que você precisa, nem todo módulo AZ disponível. Como [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) é uma dependência para os outros módulos Az, importe esse módulo antes de qualquer outro.
 
 1. Na sua conta de Automação, em **Recursos Compartilhados**, selecione **Módulos**.
 2. Selecione **Procurar na Galeria**.  

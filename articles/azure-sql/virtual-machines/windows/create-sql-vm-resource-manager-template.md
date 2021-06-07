@@ -9,10 +9,10 @@ ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.openlocfilehash: a20cb27ac91a0b01ed9cc3a5ac4c5c57f90ceda1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359635"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Início Rápido: Criar VM do SQL Server usando um modelo do ARM

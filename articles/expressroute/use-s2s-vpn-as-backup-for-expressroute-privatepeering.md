@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: duau
 ms.openlocfilehash: 752edea8078cf55fc3965bdc7aa9e1b4269dee34
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207913"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como um backup para o emparelhamento privado do ExpressRoute
@@ -56,7 +56,7 @@ A tabela a seguir lista os prefixos IP de chave da topologia:
 
 A tabela a seguir lista o ASNs da topologia:
 
-| **Sistema autônomo** | **CERTIFICAÇÃO** |
+| **Sistema autônomo** | **ASN** |
 | --- | --- |
 | Local | 65020 |
 | Microsoft Enterprise Edge | 12076 |

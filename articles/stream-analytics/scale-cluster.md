@@ -8,10 +8,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: e469e9bfd13bf8d89084b66e954cb51b27c2ebc2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98020019"
 ---
 # <a name="resize-an-azure-stream-analytics-cluster"></a>Redimensionar um cluster do Azure Stream Analytics

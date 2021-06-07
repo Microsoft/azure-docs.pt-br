@@ -12,12 +12,12 @@ metadata:
   ms.author: sstein
   ms.reviewer: 
   ms.date: 05/27/2020
-  ms.openlocfilehash: a647b65725b15b04d30ae7789d6d4429fe949377
-  ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+  ms.openlocfilehash: 7d1b6f9f79226cac4e0956d551943e40ac178387
+  ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/13/2020
-  ms.locfileid: "94593902"
+  ms.lasthandoff: 03/02/2021
+  ms.locfileid: "101655863"
 landingContent:
 - title: Instância Gerenciada do Azure SQL
   linkLists:
@@ -135,3 +135,19 @@ landingContent:
       url: instance-pools-overview.md
     - text: Configurar
       url: instance-pools-configure.md
+- title: Manutenção planejada
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planejar eventos de manutenção do Azure
+      url: ../database/planned-maintenance.md
+    - text: Janela de manutenção
+      url: ../database/maintenance-window.md
+    - text: Integridade de recursos
+      url: ../database/resource-health-to-troubleshoot-connectivity.md
+  - linkListType: how-to-guide
+    links:
+    - text: Janela de manutenção
+      url: ../database/maintenance-window-configure.md
+    - text: Notificações da janela de manutenção
+      url: ../database/advance-notifications.md

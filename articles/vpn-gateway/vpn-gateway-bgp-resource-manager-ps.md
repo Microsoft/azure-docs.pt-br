@@ -9,10 +9,10 @@ ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8573d9e55299382392927b532966a6e6fdd8c439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659753"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways de VPN do Azure usando o PowerShell

@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e5bd9a539b484c8ea011e62db6a25716fd73fd50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86536894"
 ---
 # <a name="azure-firewall-powershell-samples"></a>Exemplos do PowerShell do Firewall do Azure

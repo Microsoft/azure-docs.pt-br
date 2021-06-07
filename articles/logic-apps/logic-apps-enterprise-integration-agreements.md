@@ -9,16 +9,16 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992932"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar contratos de parceiros comerciais em Aplicativos Lógicos do Azure
 
 Um acordo entre [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md)  
- *agreement* ajuda as organizações e as empresas a se comunicarem diretamente entre si, definindo o protocolo específico do setor padrão a ser usado na troca de mensagens B2B (entre empresas). Os contratos fornecem benefícios comuns, por exemplo:
+  ajuda as organizações e as empresas a se comunicarem diretamente entre si, definindo o protocolo específico do setor padrão a ser usado na troca de mensagens B2B (entre empresas). Os contratos fornecem benefícios comuns, por exemplo:
 
 * Permita que as organizações troquem informações usando um formato bem conhecido.
 * Melhore a eficiência ao conduzir transações B2B.
@@ -60,11 +60,11 @@ No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesqui
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome** | Sim | <*nome do contrato*> | O nome do seu contrato |
-   | **Tipo de contrato** | Yes | **AS2**, **X12** ou **EDIFACT** | O tipo de protocolo para seu contrato. Quando você cria o arquivo de contrato, o conteúdo desse arquivo deve corresponder ao tipo de contrato. | |  
-   | **Parceiro de Host** | Yes | <*nome do parceiro do host*> | O parceiro host representa a organização que especifica o contrato |
-   | **Identidade do Host** | Yes | <*identificador de parceiro de host*> | O identificador do parceiro do host |
-   | **Parceiro Convidado** | Yes | <*convidado-nome do parceiro*> | O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
-   | **Identidade do Convidado** | Yes | <*convidado – identificador de parceiro*> | O identificador do parceiro convidado |
+   | **Tipo de contrato** | Sim | **AS2**, **X12** ou **EDIFACT** | O tipo de protocolo para seu contrato. Quando você cria o arquivo de contrato, o conteúdo desse arquivo deve corresponder ao tipo de contrato. | |  
+   | **Parceiro de Host** | Sim | <*nome do parceiro do host*> | O parceiro host representa a organização que especifica o contrato |
+   | **Identidade do Host** | Sim | <*identificador de parceiro de host*> | O identificador do parceiro do host |
+   | **Parceiro Convidado** | Sim | <*convidado-nome do parceiro*> | O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
+   | **Identidade do Convidado** | Sim | <*convidado – identificador de parceiro*> | O identificador do parceiro convidado |
    | **Configurações de Recebimento** | Varia | Varia | Essas propriedades especificam como o parceiro host recebe todas as mensagens de entrada do parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    | **Configurações de Envio** | Varia | Varia | Essas propriedades especificam como o parceiro host envia todas as mensagens de saída para o parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    |||||

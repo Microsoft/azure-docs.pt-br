@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d029f033a3c452587dbeeadf69c46cc99f604031
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 58cd69ebe97d9d0965d7e648b0ded012ac71cd0d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053800"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101646108"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar o BlueJeans para o provisionamento automático de usuário
 
@@ -27,7 +27,7 @@ Este tutorial descreve as etapas que você precisa executar no BlueJeans e no Az
 > * Criar usuários no BlueJeans
 > * Remover usuários no BlueJeans quando eles não precisarem mais de acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o BlueJeans
-> * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/bluejeans-tutorial) para o BlueJeans (recomendado)
+> * [Logon único](./bluejeans-tutorial.md) para o BlueJeans (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,7 +141,7 @@ Essa operação inicia a sincronização inicial de todos os usuários definidos
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 1. Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+2. Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitações do conector

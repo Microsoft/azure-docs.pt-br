@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503d5c5c8d605e56ca510f12cd9c6f5a1f21c0bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416916"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642387"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Administrando contas de serviço locais
 
@@ -60,11 +60,11 @@ Use os critérios a seguir ao criar uma nova conta de serviço.
 
 Use as seguintes configurações com contas de usuário usadas como contas de serviço:
 
-* [**Expiração da conta**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): defina a conta de serviço para expirar automaticamente um determinado tempo após o período de revisão, a menos que seja determinado que ele deve continuar
+* [**Expiração da conta**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): defina a conta de serviço para expirar automaticamente um determinado tempo após o período de revisão, a menos que seja determinado que ele deve continuar
 
 *  **LogonWorkstations**: restrinja as permissões para o local em que a conta de serviço pode entrar. Se ele for executado localmente em um computador e acessar apenas os recursos nesse computador, restrinja-o de fazer logon em qualquer outro lugar.
 
-* [**Não é possível alterar a senha**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): impeça que a conta de serviço altere sua própria senha definindo o parâmetro como false.
+* [**Não é possível alterar a senha**](/powershell/module/addsadministration/set-aduser): impeça que a conta de serviço altere sua própria senha definindo o parâmetro como false.
 
  
 ## <a name="build-a-lifecycle-management-process"></a>Criar um processo de gerenciamento do ciclo de vida
@@ -149,17 +149,17 @@ A avaliação de risco, uma vez realizada e documentada, pode ter impacto sobre:
 
 Crie uma conta de serviço somente depois que as informações relevantes estiverem documentadas em seu CMDB e você realizar uma avaliação de risco. As restrições de conta devem ser alinhadas à avaliação de risco. Considere as seguintes restrições quando for relevante para a avaliação.:
 
-* [Expiração da conta](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiração da conta](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
-   * Para todas as contas de usuário usadas como contas de serviço, defina uma data de término realista e definitiva para uso. Defina isso usando o sinalizador "conta expira". Para obter mais detalhes, consulte[ set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * Para todas as contas de usuário usadas como contas de serviço, defina uma data de término realista e definitiva para uso. Defina isso usando o sinalizador "conta expira". Para obter mais detalhes, consulte[ set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Fazer logon no ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Fazer logon no ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
-* Requisitos de [política de senha](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)
+* Requisitos de [política de senha](../../active-directory-domain-services/password-policy.md)
 
-* Criação em uma [localização de UO](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garante o gerenciamento somente para usuários com privilégios
+* Criação em uma [localização de UO](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) que garante o gerenciamento somente para usuários com privilégios
 
-* Configure e colete a auditoria [que detecta alterações](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) na conta de serviço – e o [uso da conta de serviço](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Configure e colete a auditoria [que detecta alterações](/windows/security/threat-protection/auditing/audit-directory-service-changes) na conta de serviço – e o [uso da conta de serviço](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 Quando estiver pronto para colocar em produção, conceda acesso à conta de serviço com segurança. 
 
@@ -193,14 +193,14 @@ Depois de remover todas as permissões, use esse processo para remover a conta.
 
 3. Exclua a conta de serviço depois que a política permanecer desabilitada for atendida. 
 
-   * Para o MSAs, você pode [desinstalá-lo](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) usando o PowerShell ou excluí-lo manualmente do contêiner da conta de serviço gerenciado.
+   * Para o MSAs, você pode [desinstalá-lo](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) usando o PowerShell ou excluí-lo manualmente do contêiner da conta de serviço gerenciado.
 
    * Para contas de computador ou usuário, você pode excluir manualmente a conta do no Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir sobre como proteger contas de serviço
 
-* [Introdução às contas de serviço locais](service-accounts-on-premises.md)
+* [Introdução a contas de serviço locais](service-accounts-on-premises.md)
 
 * [Contas de serviço gerenciado de grupo seguro](service-accounts-group-managed.md)
 
@@ -210,4 +210,4 @@ Consulte os artigos a seguir sobre como proteger contas de serviço
 
 * [Proteger contas de usuário](service-accounts-user-on-premises.md)
 
-* [Controlar contas de serviço locais](service-accounts-govern-on-premises.md)
+* [Administrar contas de serviço locais](service-accounts-govern-on-premises.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905189"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Análises, fluxos de trabalho e trabalhos de moderação de conteúdo
@@ -44,13 +44,13 @@ Use a barra de ferramentas de **pesquisa** para classificar as revisões por uma
 
 Consulte o [Guia de ferramentas de revisão](./review-tool-user-guide/review-moderated-images.md) para começar a criar revisões ou consulte o [Guia do console de API](./try-review-api-review.md) para saber como fazer isso programaticamente.
 
-## <a name="workflows"></a>Fluxos de Trabalho
+## <a name="workflows"></a>Fluxos de trabalho
 
 Um fluxo de trabalho é um filtro personalizado baseado em nuvem para conteúdo. Os fluxos de trabalho podem se conectar a uma variedade de serviços para filtrar conteúdo de maneiras diferentes e, em seguida, executar a ação apropriada. Com o conector de Content Moderator, um fluxo de trabalho pode aplicar automaticamente marcas de moderação e criar revisões com conteúdo enviado.
 
 ### <a name="view-workflows"></a>Exibir fluxos de trabalho
 
-Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione fluxos de trabalho de **Administração**  >  **Workflows**.
+Para exibir os fluxos de trabalho existentes, vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) e selecione fluxos de trabalho de **Administração**  >  .
 
 > [!div class="mx-imgBorder"]
 > ![Fluxo de trabalho padrão](images/default-workflow-list.png)

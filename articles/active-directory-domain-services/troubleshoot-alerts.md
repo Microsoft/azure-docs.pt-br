@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618613"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101092884"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -162,7 +162,7 @@ Esse erro é irrecuperável. Para resolver o alerta, [exclua o domínio gerencia
 
 Algumas entidades de serviço geradas automaticamente são usadas para gerenciar e criar recursos para um domínio gerenciado. Se as permissões de acesso para uma dessas entidades de serviço forem alteradas, o domínio não poderá gerenciar corretamente os recursos. As etapas a seguir mostram como entender e conceder permissões de acesso a uma entidade de serviço:
 
-1. Leia sobre [o controle de acesso baseado em função e como conceder acesso a aplicativos no portal do Azure](../role-based-access-control/role-assignments-portal.md).
+1. Leia sobre [o controle de acesso baseado em função do Azure e como conceder acesso a aplicativos no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 2. Examine o acesso que a entidade de serviço com a ID *abba844e-bc0e-44b0-947a-dc74e5d09022* tem e conceda o acesso que foi negado em uma data anterior.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes disponíveis no domínio gerenciado

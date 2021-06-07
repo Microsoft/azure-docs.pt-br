@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87004266"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft.Common.FileUpload
@@ -86,7 +86,7 @@ Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) trunc
 - Um arquivo carregado é protegido. A URL de saída inclui um [token SAS](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) para acessar o arquivo durante a implantação.
 - O valor de `options.openMode` determina como o arquivo é lido. Se o arquivo deve ser texto sem formatação, especifique **text**; caso contrário, especifique **binary**. O valor padrão é **text**.
 - Se `options.uploadMode` é definido como **file** e `options.openMode` é definido como **binary**, a saída é codificada em base64.
-- `options.encoding`Especifica a codificação a ser usada para ler o arquivo. O valor padrão é **UTF-8**e é usado apenas quando `options.openMode` é definido como **text**.
+- `options.encoding`Especifica a codificação a ser usada para ler o arquivo. O valor padrão é **UTF-8** e é usado apenas quando `options.openMode` é definido como **text**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

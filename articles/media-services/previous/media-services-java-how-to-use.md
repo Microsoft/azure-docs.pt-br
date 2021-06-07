@@ -3,7 +3,7 @@ title: Iniciar o uso do SDK de Java para Serviços de Mídia do Azure | Microsof
 description: Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando Java.
 services: media-services
 documentationcenter: java
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: johndeu
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-java
-ms.openlocfilehash: f05b78c777fdfa633e07bc03266c862f9e85ee0c
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 5fa9f1eb4c9468c5cabaab6ee0430f165f339ed6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695714"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103014903"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure
 

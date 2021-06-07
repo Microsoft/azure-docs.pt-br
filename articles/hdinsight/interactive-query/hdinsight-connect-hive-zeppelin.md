@@ -1,18 +1,18 @@
 ---
-title: 'Início Rápido: Apache Hive no Azure HDInsight com o Apache Zeppelin'
+title: 'Guia de início rápido: executar o Apache Hive no Azure HDInsight usando o Apache Zeppelin'
 description: Neste início rápido, você aprenderá a usar o Apache Zeppelin para executar consultas do Apache Hive.
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941061"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104869762"
 ---
-# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Início Rápido: Executar consultas do Apache Hive no Azure HDInsight com o Apache Zeppelin
+# <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Guia de início rápido: executar consultas do Apache Hive no Azure HDInsight usando o Apache Zeppelin
 
 Neste início rápido, você aprenderá a usar o Apache Zeppelin para executar consultas do [Apache Hive](https://hive.apache.org/) no Azure HDInsight. Os clusters de Consulta Interativa do HDInsight incluem blocos de anotações do [Apache Zeppelin](https://zeppelin.apache.org/) que você pode usar para executar consultas interativas do Hive.
 
@@ -28,13 +28,13 @@ Um cluster Consulta interativa do HDInsight. Confira [Criar cluster](../hadoop/a
 
 2. Insira o nome de usuário e a senha de logon do cluster. Na página do Zeppelin, você pode criar uma nova anotação ou abrir anotações existentes. O **HiveSample** contém alguns exemplos de consultas de Hive.  
 
-    ![HDInsight Consulta Interativa Zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Consulta Interativa Zeppelin" border="true":::
 
 3. Selecione **Criar anotação**.
 
 4. Na caixa de diálogo **Criar anotação**, digite ou selecione os seguintes valores:
 
-    - Nome da anotação: insira um nome para a anotação.
+    - Nome da anotação: digite o nome da anotação.
     - Interpretador padrão: selecione **jdbc** na lista suspensa.
 
 5. Selecione **Criar anotação**.
@@ -46,7 +46,7 @@ Um cluster Consulta interativa do HDInsight. Confira [Criar cluster](../hadoop/a
     show tables
     ```
 
-    ![HDInsight Consulta Interativa Zeppelin executa a consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Consulta Interativa Zeppelin executa a consulta" border="true":::
 
     A instrução **%jdbc(hive)** na primeira linha informa o bloco de anotações para usar o interpretador JDBC do Hive.
 

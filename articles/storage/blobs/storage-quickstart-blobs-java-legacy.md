@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes do Armazenamento de blobs do Azure v8 para Java'
 description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure v8 para o Java para carregar um blob no Armazenamento do Azure, fazer o download de um blob e listar os blobs em um contêiner.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b3bb8736eb7a8e24f47812fc4feecbf96628dfb6
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 49c55a2b565100e370ce561537c96a96b896f355
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599817"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280591"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Java v8
 

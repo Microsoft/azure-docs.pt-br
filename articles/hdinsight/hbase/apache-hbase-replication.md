@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946412"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
@@ -75,7 +75,7 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet1gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Básico |
+| SKU de gateway | Basic |
 | IP do gateway | vnet1gwip |
 
 **VNet 2**
@@ -92,7 +92,7 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet2gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Básico |
+| SKU de gateway | Basic |
 | IP do gateway | vnet1gwip |
 
 ## <a name="setup-dns"></a>Instalação do DNS
@@ -101,7 +101,7 @@ Na seção anterior, o modelo cria uma máquina virtual de Ubuntu em cada uma da
 
 Para instalar ao Bind, você precisa localizar o endereço IP público das duas máquinas virtuais DNS.
 
-1. Abra o [portal do Azure](https://portal.azure.com).
+1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Abra a máquina virtual DNS selecionando **Grupos de recursos > [nome do grupo de recursos] > [vnet1DNS]**.  O nome do grupo de recursos é o que você criar no último procedimento. Os nomes de máquina virtual DNS padrão são *vnet1DNS* e *vnet2NDS*.
 3. Selecione **Propriedades** para abrir a página de propriedades da rede virtual.
 4. Anote o **endereço IP público** e também verifique a **endereço IP privado**.  O endereço IP privado será **10.1.0.4** para vnet1DNS e **10.2.0.4** para vnet2DNS.  

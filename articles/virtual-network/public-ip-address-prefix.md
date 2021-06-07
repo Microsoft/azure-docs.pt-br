@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8bfc76afc1ef799be0fb29654bd341f53d1b0a8c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222421"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048452"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -63,7 +63,7 @@ Quando você atribui endereços a seus recursos de um prefixo de endereço IP p�
 |Máquinas virtuais| A associação de IPs públicos de um prefixo às suas máquinas virtuais no Azure reduz a sobrecarga de gerenciamento ao adicionar endereços IP a uma lista de permissões no firewall. Você pode adicionar um prefixo inteiro com uma única regra de firewall. Ao dimensionar com máquinas virtuais no Azure, você pode associar IPs do mesmo prefixo economizando custos, tempo e sobrecarga de gerenciamento.| Para associar os IPs de um prefixo à sua máquina virtual: </br> 1. [crie um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. [associe o IP à interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Você também pode [associar os IPs a um conjunto de dimensionamento de máquinas virtuais](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Balanceadores de carga padrão | Associar IPs públicos de um prefixo à sua configuração de IP de front-end ou regra de saída de um balanceador de carga garante a simplificação do espaço de endereço IP público do Azure. Simplifique seu cenário ao realizar o grooming de conexões de saída de um intervalo de endereços IP contíguos. | Para associar IPs de um prefixo ao balanceador de carga: </br> 1. [crie um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. ao criar o balanceador de carga, selecione ou atualize o IP criado na etapa 2 acima como o IP de front-end do balanceador de carga. |
 | Firewall do Azure | Você pode usar um IP público de um prefixo do SNAT de saída. Todo o tráfego de rede virtual de saída é convertido no IP público do [Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . | Para associar um IP de um prefixo ao seu firewall: </br> 1. [crie um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. ao [implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), certifique-se de selecionar o IP que você atribuiu anteriormente do prefixo.|
-| Gateway de Aplicativo v2 | Você pode usar um IP público de um prefixo para o seu dimensionamento automático e o gateway de aplicativo com redundância de zona v2. | Para associar um IP de um prefixo ao seu gateway: </br> 1. [crie um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. ao [implantar o gateway de aplicativo](../application-gateway/quick-create-portal.md#create-an-application-gateway), certifique-se de selecionar o IP que você atribuiu anteriormente do prefixo.|
+| Gateway de VPN (AZ SKU) ou gateway de aplicativo v2 | Você pode usar um IP público de um prefixo para a VPN com redundância de zona ou o gateway de aplicativo v2. | Para associar um IP de um prefixo ao seu gateway: </br> 1. [crie um prefixo.](manage-public-ip-address-prefix.md) </br> 2. [crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) </br> 3. ao implantar o [Gateway de VPN](../vpn-gateway/tutorial-create-gateway-portal.md) ou o [Gateway de aplicativo](../application-gateway/quick-create-portal.md#create-an-application-gateway), certifique-se de selecionar o IP que você atribuiu anteriormente do prefixo.|
 
 ## <a name="constraints"></a>Restrições
 

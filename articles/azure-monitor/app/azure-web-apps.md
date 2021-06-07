@@ -4,16 +4,16 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365218"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101734716"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
-Habilitar o monitoramento em seus ASP.NET e ASP.NET Core aplicativos Web com base em execução em [serviços de Azure app](../../app-service/index.yml) agora está mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
+Habilitar o monitoramento em seus ASP.NET, ASP.NET Core e Node.js aplicativos Web com base em execução em [serviços de Azure app](../../app-service/index.yml) agora é mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
 
 > [!NOTE]
 > A adição manual de uma extensão de site Application insights por meio de extensões de **ferramentas de desenvolvimento**  >   foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é  [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
@@ -76,7 +76,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, 3,1 e 5,0. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
+> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1 e 3,1. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
 
 O direcionamento para a estrutura completa de ASP.NET Core, implantação independente e aplicativos baseados em Linux **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 
@@ -97,7 +97,7 @@ O direcionamento para a estrutura completa de ASP.NET Core, implantação indepe
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Em seu aplicativo Web do serviço de aplicativo em **configurações**,  >  **selecione Application insights**  >  **habilitar**. O monitoramento baseado em agente Node.js está atualmente em versão prévia.
+Não há suporte para o monitoramento baseado em agente do Windows, para habilitar com o Linux visite a [ documentação do serviço de aplicativoNode.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Para habilitar a coleta de telemetria com Application Insights, somente as confi
 |XDT_MicrosoftApplicationInsights_Mode |  Somente no modo padrão, os recursos essenciais são habilitados para garantir o desempenho ideal. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o mecanismo de regravação binária `InstrumentationEngine` será ativado. Essa configuração tem implicações de desempenho e afeta o tempo de início/inicialização frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla se o SQL & texto da tabela do Azure será capturado junto com as chamadas de dependência. Aviso de desempenho: o tempo de inicialização a frio do aplicativo será afetado. Essa configuração requer o `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Somente para aplicativos ASP.NET Core. Habilita a interoperabilidade (interoperação) com o SDK Application Insights. Carrega a extensão lado a lado com o SDK e a usa para enviar telemetria (desabilita o SDK do Application Insights). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configurações de aplicativo do serviço de aplicativo com Azure Resource Manager
 
@@ -394,7 +395,7 @@ A tabela a seguir fornece uma explicação mais detalhada do que esses valores s
 |Valor do problema|Explicação|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada. Pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource` ,  `Microsoft.AspNet.TelemetryCorrelation` ou `Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão de determinados modelos do Visual Studio, e as versões mais antigas do Visual Studio podem adicionar referências ao `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando ASP.NET Core 2,1 ou 2,2, esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso. Além disso, ative "interoperabilidade com o SDK do Application Insights" no portal (consulte as instruções acima).|
+|`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando ASP.NET Core 2,1 ou 2,2, esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada | Os clientes do .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-package do Microsoft.AspNetCore.app em vez disso. Além disso, ative "interoperabilidade com o SDK do Application Insights" no portal (consulte as instruções acima).|
 |`AppAlreadyInstrumented:true` | Esse valor também pode ser causado pela presença das DLLs acima na pasta do aplicativo de uma implantação anterior. | Limpe a pasta do aplicativo para garantir que essas DLLs sejam removidas. Verifique o diretório bin do seu aplicativo local e o diretório wwwroot no serviço de aplicativo. (Para verificar o diretório wwwroot do seu aplicativo Web do serviço de aplicativo: ferramentas avançadas (kudu) > console de depuração > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Esse valor indica que a extensão detectou referências a `Microsoft.AspNet.TelemetryCorrelation` no aplicativo e será retirada. | Remova a referência.
 |`AppContainsDiagnosticSourceAssembly**:true`|Esse valor indica que a extensão detectou referências a `System.Diagnostics.DiagnosticSource` no aplicativo e será retirada.| Para ASP.NET, remova a referência. 
@@ -434,8 +435,8 @@ Para obter as atualizações mais recentes e as correções de bugs, [consulte a
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – monitorar o Azure Functions com o Application Insights
-* [Permita que o diagnóstico do Azure](../platform/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
-* [Monitore as métricas de integridade do serviço](../platform/data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
-* [Receba notificações de alerta](../platform/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Permita que o diagnóstico do Azure](../agents/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
+* [Monitore as métricas de integridade do serviço](../data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
+* [Receba notificações de alerta](../alerts/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](monitor-web-app-availability.md) para ser alertado se o seu site for desativado.

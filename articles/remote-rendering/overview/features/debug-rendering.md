@@ -7,10 +7,10 @@ ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f6d79f41843069fe6cafe1fa1358ac6c1aab12e6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99591728"
 ---
 # <a name="debug-rendering"></a>Depurar renderização

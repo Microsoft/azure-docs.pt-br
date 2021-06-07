@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7df3934862efa9798735d0c163f7fb1bac98423
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a3759bbe92a2de8515c7d812637acd88070f8d46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951036"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103490901"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -215,9 +214,11 @@ Você precisa dos seguintes executáveis e DLLs do SAP:
 * Kernel SAP 7,49 ou posterior
 
 > [!IMPORTANT]
-> Clustering de instâncias SAP ASCS/SCS com compartilhamento de arquivos tem suporte para produtos SAP NetWeaver 7.40 (e superior) com SAP Kernel 7.49 (e superior).
+> Clustering de instâncias SAP ASCS/SCS com compartilhamento de arquivos tem suporte para produtos SAP NetWeaver 7.40 (e superior) com SAP Kernel 7.49 (e superior).  
+>   
+> [!IMPORTANT]
+> A instalação deve atender ao seguinte requisito: as instâncias do SAP ASCS/SCS e o compartilhamento SOFS devem ser implantados em clusters separados.    
 >
-
 
 Não descrevemos a configuração do DBMS (Gerenciador de banco de dados) porque as configurações variam dependendo do DBMS que você usa. No entanto, supomos que as preocupações de alta disponibilidade com o DBMS são dissipadas com o suporte às funcionalidades que os diversos fornecedores de DBMS dão para o Azure. Essas funcionalidades incluem o Always On ou o Espelhamento de Banco de Dados para SQL Server e Oracle Data Guard para bancos de dados Oracle. No cenário que usamos neste artigo, não adicionamos outra proteção ao DBMS.
 
@@ -310,7 +311,7 @@ Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, us
 
 Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > instância de cluster adicional do ASCS/SCS do **sistema de alta disponibilidade**  >  **ASCS/SCS instance**  >  **Additional cluster node**.
+**\<Product>** > **\<DBMS>** > **Instalação**  >  do **Servidor de aplicativos ABAP** (ou **Java**) > instância de cluster adicional do ASCS/SCS do **sistema de alta disponibilidade**  >    >  .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS

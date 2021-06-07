@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.author: alkohli
 ms.openlocfilehash: a35a7e5e5c7eccf006f18badad88656e8bc73453
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367683"
 ---
 # <a name="configure-business-continuity-and-disaster-recovery-for-azure-stack-edge-vpn"></a>Configurar a continuidade dos negócios e a recuperação de desastre para VPN Azure Stack Edge

@@ -10,23 +10,26 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934978"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639422"
 ---
-# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Início Rápido: Criar um Azure Key Vault e uma chave usando o modelo do ARM (versão prévia)
+# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Início rápido: criar um cofre de chaves e uma chave do Azure usando o modelo do ARM 
 
 [O Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece um armazenamento seguro de segredos, como chaves, senhas e certificados, entre outros. Este guia de início rápido tem como foco o processo de implantação de um modelo do ARM (Azure Resource Manager) para a criação de um cofre de chaves e uma chave.
+
+> [!NOTE]
+> Esse recurso não está disponível para o Azure Government.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, será preciso:
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- O usuário precisaria ter uma função interna do RBAC atribuída, por ex. colaborador. [Saiba mais aqui](../../role-based-access-control/role-assignments-portal.md)
+- O usuário precisaria ter uma função interna do Azure atribuída, por ex. colaborador. [Saiba mais aqui](../../role-based-access-control/role-assignments-portal.md)
 - Sua ID de objeto de usuário do Azure AD é necessária para o modelo configurar permissões. O procedimento a seguir obtém a ID do objeto (GUID).
 
     1. Execute o comando do Azure PowerShell ou CLI do Azure a seguir selecionando **Experimentar** e colando o script no painel do shell. Para colar o script, clique com o botão direito do mouse no shell e, em seguida, selecione **Colar**.
@@ -163,6 +166,9 @@ Dois recursos estão definidos no modelo:
 - Microsoft.KeyVault/vaults/keys
 
 Encontre mais amostras de modelo do Azure Key Vault nos [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
+
+## <a name="deploy-the-template"></a>Implantar o modelo
+Ou você pode usar o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), o Azure PowerShell, a CLI do Azure ou a API REST. Para saber mais sobre métodos de implantação, confira [Implantar modelos](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## <a name="review-deployed-resources"></a>Examinar os recursos implantados
 

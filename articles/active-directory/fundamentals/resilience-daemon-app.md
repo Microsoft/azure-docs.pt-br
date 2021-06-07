@@ -12,10 +12,10 @@ ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
 ms.openlocfilehash: a7b8f893026bb96c8d768d2e6d07d0240ecb81fa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724834"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-daemon-applications-you-develop"></a>Aumentar a resiliência de autenticação e autorização em aplicativos daemon que você desenvolve

@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: biblioteca do Armazenamento de Blobs do Azure v12 – JavaScript em um navegador'
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para JavaScript em um navegador. Você cria um contêiner e um objeto no Armazenamento de Blobs. Em seguida, aprenda a listar todos os blobs em um contêiner. Por fim, você aprende a excluir blobs e excluir um contêiner.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 998d49e91d38a1f2fdc2503165ee99635e153027
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bc02f9c526ec9b0826bbe640efc4b474794f30ae
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001891"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278483"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

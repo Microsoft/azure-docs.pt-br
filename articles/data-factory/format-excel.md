@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
 ms.openlocfilehash: bef29bc958253be0498442f842dda67105ce799b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386519"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato do Excel no Azure Data Factory
@@ -106,7 +106,7 @@ No mapeamento de fluxos de dados, você pode ler o formato do Excel nos seguinte
 
 A tabela abaixo lista as propriedades com suporte por uma origem do Excel. Você pode editar essas propriedades na guia **Opções de origem** . Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores.
 
-| Nome                      | Descrição                                                  | Necessária | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
+| Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não       | String[]                                                  | wildcardPaths                     |
 | Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não       | String                                                    | partitionRootPath                 |

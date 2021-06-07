@@ -1,19 +1,20 @@
 ---
 title: Controles de conformidade regulatória do Azure Policy para o Construtor de Imagens do Azure
 description: Lista os controles de conformidade regulatória do Azure Policy disponíveis para o Construtor de Imagens do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 04/14/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: bc918e6a63ebfdc2ce271c62a6641735e0fffd00
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 76db40d506e84c5b4621c6fe53991d9748b47e4e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098904"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502209"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Controles de conformidade regulatória do Azure Policy para o Construtor de Imagens do Azure
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1d7cd07ee8ae8b35d51fbdd25b34602c2e799c75
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787257"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641375"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linha de base de segurança do Azure para Azure Stack Edge
 
@@ -36,9 +36,9 @@ O tráfego interno é mais protegido por:
 
 - Somente um dispositivo autorizado Azure Stack Edge Pro tem permissão para ingressar no serviço do Azure Stack Edge que o cliente cria em sua assinatura do Azure.
 
-Informações adicionais estão disponíveis nos links referenciados.
+Há informações adicionais disponíveis nos links referenciados.
  
-- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Início rápido-Introdução ao Azure Stack Edge pro com GPU](azure-stack-edge-gpu-quickstart.md)
 
@@ -54,7 +54,7 @@ Os clientes podem configurar uma rede virtual privada em seu dispositivo de bord
 
 - [Configurar a VPN do Azure via script Azure PowerShell para o Azure Stack Edge pro R e Azure Stack mini R do Edge](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configurar certificados para o Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -68,7 +68,7 @@ Os clientes podem configurar uma rede virtual privada em seu dispositivo de bord
 
 - [Configurar a VPN do Azure via script Azure PowerShell para o Azure Stack Edge pro R e Azure Stack mini R do Edge](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [Tutorial: Configurar certificados para o Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -298,7 +298,7 @@ Observe que podem ser necessárias permissões adicionais para obter visibilidad
 
 **Diretrizes**: somente usuários autorizados, por exemplo, o ' EdgeArmUser ', podem acessar as APIs de dispositivo do Azure Stack Edge por meio do Azure Resource Manager local. As senhas de conta de usuário só podem ser gerenciadas no portal do Azure. 
 
-- [Configurar a senha do Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Configurar a senha do Azure Resource Manager](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -308,7 +308,7 @@ Observe que podem ser necessárias permissões adicionais para obter visibilidad
 
 **Orientação**: você pode colocar seus próprios aplicativos para executar em qualquer máquina virtual criada localmente. Use scripts do PowerShell para criar máquinas virtuais de computação local em seu dispositivo de borda de pilha. É altamente recomendável que você coloque somente aplicativos confiáveis para executar nas máquinas virtuais locais. 
 
-- [Como controlar a execução de script do PowerShell no ambiente do Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&amp;viewFallbackFrom=powershell-6&view=powershell-7.1)
+- [Como controlar a execução de script do PowerShell no ambiente do Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -545,7 +545,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 **Responsabilidade**: Compartilhado
 
-## <a name="endpoint-security"></a>Segurança do ponto de extremidade
+## <a name="endpoint-security"></a>Segurança de ponto de extremidade
 
 *Para obter mais informações, consulte o [benchmark de segurança do Azure: segurança do ponto de extremidade](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
@@ -577,7 +577,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 Soluções de proteção de dados de terceiros, como Cohesity, CommVault e Veritas, também podem fornecer uma solução de backup para os dados nos compartilhamentos SMB locais ou NFS,. 
 
-Informações adicionais estão disponíveis nos links referenciados.
+Há informações adicionais disponíveis nos links referenciados.
 
 - [Preparar para uma falha do dispositivo](azure-stack-edge-gpu-prepare-device-failure.md)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743234"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Protegendo recursos de nuvem com a autenticação multifator do Azure AD e o AD FS
@@ -81,7 +81,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
-15. Clique em **Ok**.
+15. Clique em **OK**.
 16. Feche o gerenciamento do AD FS.
 
 ### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da autenticação multifator do Azure AD com usuários federados
@@ -89,7 +89,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  **Security**  >  **acesso condicional** de segurança  >  **locais nomeados**.
+2. Selecione **Azure Active Directory**  >    >  **acesso condicional** de segurança  >  **locais nomeados**.
 3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
 
    ![Locais nomeados de acesso condicional do Azure AD configurar IPs confiáveis de MFA](./media/howto-mfa-adfs/trustedip6.png)
@@ -97,4 +97,4 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 4. Na página Configurações de Serviço, em **IPs confiáveis**, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet**.  
 5. Clique em **salvar**.
 
-Pronto! Neste ponto, os usuários federados Microsoft 365 devem apenas usar a MFA quando uma declaração se originar de fora da intranet corporativa.
+É isso! Neste ponto, os usuários federados Microsoft 365 devem apenas usar a MFA quando uma declaração se originar de fora da intranet corporativa.

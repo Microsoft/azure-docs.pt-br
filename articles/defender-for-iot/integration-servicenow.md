@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do ServiceNow
-titleSuffix: Azure Defender for IoT
 description: O aplicativo de gerenciamento de ICS do defender para IoT para ServiceNow fornece analistas do SOC com visibilidade multidimensional nos protocolos e dispositivos IoT especializados implantados em ambientes industriais, juntamente com a análise comportamental com reconhecimento de ICS para detectar rapidamente comportamento suspeito ou anormal.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557291"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785998"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O aplicativo de gerenciamento de ICS do defender para IoT para ServiceNow
 
@@ -143,7 +138,7 @@ Para definir a regra:
   | Parâmetro | Descrição |
   |--|--|
   | Domínio | Insira o endereço IP do servidor ServiceNow. |
-  | Nome de Usuário | Insira o nome de usuário do servidor ServiceNow. |
+  | Nome de usuário | Insira o nome de usuário do servidor ServiceNow. |
   | Senha | Insira a senha do servidor ServiceNow. |
   | ID do Cliente | Insira a ID do cliente que você recebeu para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
   | Segredo do cliente | Insira a cadeia de caracteres secreta do cliente que você criou para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
@@ -153,7 +148,7 @@ Para definir a regra:
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Enviar os atributos do dispositivo defender para IoT
 
-Este artigo descreve como configurar o defender para IoT para enviar por push um amplo intervalo de atributos de dispositivo para as tabelas do ServiceNow. Consulte **_Inventory Information_* _ para obter detalhes sobre o tipo de informações enviadas por push para o ServiceNow.
+Este artigo descreve como configurar o defender para IoT para enviar por push um amplo intervalo de atributos de dispositivo para as tabelas do ServiceNow. Consulte ***informações de inventário*** para obter detalhes sobre o tipo de informações enviadas por push ao ServiceNow.
 
 Para enviar atributos para o ServiceNow, você deve mapear seu console de gerenciamento local para uma instância do ServiceNow. Isso garante que a plataforma defender para IoT possa se comunicar e autenticar com a instância do.
 
@@ -161,7 +156,7 @@ Para adicionar uma instância do ServiceNow:
 
 1. Entre em seu console de gerenciamento local do defender para IoT.
 
-1. Selecione _ *configurações do sistema** e, em seguida, **ServiceNow** na seção integração do console de gerenciamento local.
+1. Selecione **configurações do sistema** e **ServiceNow** na seção integração do console de gerenciamento local.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Selecione o botão ServiceNow.":::
 
@@ -176,7 +171,7 @@ Para adicionar uma instância do ServiceNow:
     | Instância do ServiceNow | Insira a URL da instância do ServiceNow. |
     | ID do Cliente | Insira a ID do cliente que você recebeu para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
     | Segredo do cliente | Insira a cadeia de caracteres secreta do cliente que você criou para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
-    | Nome de Usuário | Insira o nome de usuário para esta instância. |
+    | Nome de usuário | Insira o nome de usuário para esta instância. |
     | Senha | Insira a senha para esta instância. |
 
 1. Selecione **SALVAR**.
@@ -270,13 +265,13 @@ Este artigo descreve os atributos de dispositivo enviados por push para o Servic
 | ID | A ID do dispositivo atribuída pelo defender para IoT. |
 | Nome | O nome do dispositivo. |
 | Endereço IP | Endereço ou endereços IP do dispositivo. |
-| Tipo | O tipo de dispositivo, por exemplo, um switch, PLC, Historian ou controlador de domínio. |
+| Type | O tipo de dispositivo, por exemplo, um switch, PLC, Historian ou controlador de domínio. |
 | Endereço MAC | O endereço ou endereços MAC do dispositivo. |
-| Sistema operacional | O sistema operacional do dispositivo. |
+| Sistema Operacional | O sistema operacional do dispositivo. |
 | Fornecedor | O fornecedor do dispositivo. |
 | Protocolos | Os protocolos detectados no tráfego gerado pelo dispositivo. |
 | Proprietário | Insira o nome do proprietário do dispositivo. |
-| Localização | Insira o local físico do dispositivo. |
+| Location | Insira o local físico do dispositivo. |
 
 Exibir dispositivos conectados a um dispositivo nesta exibição.
 
@@ -331,7 +326,7 @@ Este artigo descreve as informações de alerta do dispositivo enviadas por push
 | Título | O título do alerta. |
 | Descrição | A descrição do alerta. |
 | Protocolo | O protocolo detectado no tráfego. |
-| Severity | A severidade do alerta definida pelo defender para IoT. |
+| Severidade | A severidade do alerta definida pelo defender para IoT. |
 | Dispositivo | O nome do sensor que detectou o tráfego. |
 | Nome de origem | O nome da origem. |
 | Endereço IP de origem| O endereço IP de origem. |

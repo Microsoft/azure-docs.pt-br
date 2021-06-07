@@ -3,7 +3,7 @@ title: Conceitos dos Serviços de Mídia do Azure | Microsoft Docs
 description: Este artigo fornece uma breve visão geral de Serviços de Mídia do Microsoft Azure conceitos e links para outros artigos para obter detalhes.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-ms.openlocfilehash: 180965942285e99300c8aa054e638f2f0a2c0580
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: fbe387b3f86dfd10cbc4e80a02ee2528e43c4b67
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695940"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103016875"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
 

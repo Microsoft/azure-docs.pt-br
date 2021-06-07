@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99428176"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN Virtual
 
 As empresas modernas exigem conectividade onipresente entre aplicativos, dados e usuários do Hyper-Distributed na nuvem e no local. A arquitetura de rede de trânsito global está sendo adotada pelas empresas para consolidar, conectar e controlar a superfície de ti global moderna, centrada em nuvem.
 

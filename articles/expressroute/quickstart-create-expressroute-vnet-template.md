@@ -3,18 +3,20 @@ title: 'Início Rápido: Criar um circuito do ExpressRoute usando um modelo do A
 description: Este guia de início rápido mostra como criar um circuito do ExpressRoute usando um modelo do ARM (Azure Resource Manager).
 services: expressroute
 author: duongau
-mnager: kumud
-ms.service: expressroute
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+manager: kumud
+ms.date: 10/12/2020
+ms.topic: quickstart
+ms.service: expressroute
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 3dc1d5f5ec3dfb004468deb2bec80927c7ec189d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789719"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529890"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Início Rápido: Criar um circuito do ExpressRoute com o emparelhamento privado usando um modelo do ARM
 
@@ -22,7 +24,7 @@ Este guia de início rápido descreve como usar um modelo do ARM (Azure Resource
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure** . O modelo será aberto no portal do Azure.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-Neste guia de início rápido, você criará um circuito do ExpressRoute com o *Equinix* como o provedor de serviços. O circuito usará um *SKU Premium* , com uma largura de banda igual a *50 Mbps* e a localização de emparelhamento *Washington DC* . O emparelhamento privado será habilitado com as sub-redes primária e secundária *192.168.10.16/30* e *192.168.10.20/30* , respectivamente. Uma rede virtual também será criada junto com um *gateway de HighPerformance do ExpressRoute* .
+Neste guia de início rápido, você criará um circuito do ExpressRoute com o *Equinix* como o provedor de serviços. O circuito usará um *SKU Premium*, com uma largura de banda igual a *50 Mbps* e a localização de emparelhamento *Washington DC*. O emparelhamento privado será habilitado com as sub-redes primária e secundária *192.168.10.16/30* e *192.168.10.20/30*, respectivamente. Uma rede virtual também será criada junto com um *gateway de HighPerformance do ExpressRoute*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
@@ -70,11 +72,11 @@ Para encontrar mais modelos relacionados ao ExpressRoute, confira [Modelos de in
 
 1. Selecione **Copiar** no bloco de códigos anterior para copiar o script do PowerShell.
 
-1. Clique com o botão direito do mouse no painel do console do shell e selecione **Colar** .
+1. Clique com o botão direito do mouse no painel do console do shell e selecione **Colar**.
 
 1. Insira os valores.
 
-    O nome do grupo de recursos é o nome do projeto com o acréscimo de **rg** .
+    O nome do grupo de recursos é o nome do projeto com o acréscimo de **rg**.
 
     A implantação do modelo leva cerca de 20 minutos. Quando tiver concluído, a saída deverá ser semelhante a:
 
@@ -88,15 +90,15 @@ O Azure PowerShell é usado para implantar o modelo. Além do Azure PowerShell, 
 
 1. Escolha **Grupos de recursos** no painel esquerdo.
 
-1. Selecione o grupo de recursos criado na seção anterior. O nome do grupo de recursos padrão é o nome do projeto com o acréscimo de **rg** .
+1. Selecione o grupo de recursos criado na seção anterior. O nome do grupo de recursos padrão é o nome do projeto com o acréscimo de **rg**.
 
 1. O grupo de recursos deve conter os seguintes recursos vistos aqui:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Saída de implantação do PowerShell do modelo do Resource Manager no ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Grupo de recursos de implantação do ExpressRoute":::
 
-1. Selecione o circuito **er-ck01** do ExpressRoute para confirmar se o status do circuito é **Habilitado** , o status do provedor é **Não provisionado** e o emparelhamento privado tem o status **Provisionado** .
+1. Selecione o circuito **er-ck01** do ExpressRoute para confirmar se o status do circuito é **Habilitado**, o status do provedor é **Não provisionado** e o emparelhamento privado tem o status **Provisionado**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Saída de implantação do PowerShell do modelo do Resource Manager no ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuito de implantação do ExpressRoute":::
 
 > [!NOTE]
 > Você precisará chamar o provedor para concluir o processo de provisionamento para vincular a rede virtual ao circuito.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b3d7c47ff0a2c533bf12a67958a913b22915f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87908002"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Exemplo: Federação direta com Serviços de Federação do Active Directory (AD FS) (AD FS) (visualização)
@@ -58,7 +58,7 @@ Um servidor de AD FS já deve estar configurado e funcionando antes de você ini
 ### <a name="add-the-claim-description"></a>Adicionar a descrição da declaração
 
 1. Em seu servidor de AD FS, selecione **ferramentas**  >  **AD FS gerenciamento**.
-2. No painel de navegação, selecione **Service**  >  **descrições de declaração**de serviço.
+2. No painel de navegação, selecione   >  **descrições de declaração** de serviço.
 3. Em **ações**, selecione **Adicionar Descrição da declaração**.
 4. Na janela **Adicionar uma descrição de declaração** , especifique os seguintes valores:
 

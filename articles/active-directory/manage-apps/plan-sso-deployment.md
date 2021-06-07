@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258092"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601705"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
 
@@ -32,7 +32,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço), como
 
 O Azure Marketplace tem mais de 3000 aplicativos com conexões de SSO previamente integradas, facilitando sua integração em seu locatário.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licenças
 
 - **Licenciamento do Azure ad** -o SSO para aplicativos SaaS previamente integrados é gratuito. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de aplicativos** – você precisará das licenças apropriadas para seus aplicativos SaaS atenderem às suas necessidades de negócios. Trabalhe com o proprietário do aplicativo para determinar se os usuários atribuídos ao aplicativo têm as licenças apropriadas para suas funções no aplicativo. Se o Azure AD gerenciar o provisionamento automático com base em funções, as funções atribuídas no Azure AD deverão ser alinhadas com o número de licenças de Propriedade do aplicativo. O número inadequado de licenças pertencentes ao aplicativo pode levar a erros durante o provisionamento/atualização de um usuário.
@@ -291,17 +291,12 @@ Os links a seguir apresentam cenários de solução de problemas. Talvez você q
 
 - [Problema ao entrar em um aplicativo da Microsoft](./application-sign-in-problem-first-party-microsoft.md)
 
-#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Problemas de SSO para aplicativos listados na Galeria de Aplicativo Azure
+#### <a name="sso-issues-for-applications"></a>Problemas de SSO para aplicativos
 
-- [Problema com o SSO de senha para aplicativos listados na Galeria de Aplicativo Azure](./troubleshoot-password-based-sso.md) 
+- [Problema com o SSO de senha para aplicativos](./troubleshoot-password-based-sso.md) 
 
-- [Problema com o SSO Federado para aplicativos listados na Galeria de Aplicativo Azure](./application-sign-in-problem-federated-sso-gallery.md)   
+- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Problemas de SSO para aplicativos não listados na Galeria de Aplicativo Azure
-
-- [Problema com o SSO de senha para aplicativos não listados na Galeria de Aplicativo Azure](./troubleshoot-password-based-sso.md) 
-
-- [Problema com SSO Federado para aplicativos não listados na Galeria de Aplicativo Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

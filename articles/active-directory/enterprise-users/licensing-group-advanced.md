@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72a28aebe71809f3e47f9cc6936366cd027a32bb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546668"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory
@@ -28,7 +28,7 @@ Use as informações e exemplos a seguir para obter uma compreensão mais avanç
 
 ## <a name="usage-location"></a>Local de uso
 
-Alguns serviços da Microsoft não estão disponíveis em todos os locais. Antes que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade **local de uso** no usuário. No [portal do Azure](https://portal.azure.com), você pode especificar o local de uso **User** nas configurações de &gt; **perfil** do usuário &gt; **Settings**.
+Alguns serviços da Microsoft não estão disponíveis em todos os locais. Antes que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade **local de uso** no usuário. No [portal do Azure](https://portal.azure.com), você pode especificar o local de uso  nas configurações de &gt; **perfil** do usuário &gt; .
 
 Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em vários locais, certifique-se de refletir isso corretamente em seus recursos de usuário antes de adicionar usuários a grupos com licenças.
 

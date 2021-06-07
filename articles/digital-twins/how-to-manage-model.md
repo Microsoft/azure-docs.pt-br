@@ -1,5 +1,5 @@
 ---
-title: Gerenciar modelos personalizados
+title: Gerenciar modelos de DTDL
 titleSuffix: Azure Digital Twins
 description: Veja como criar, editar e excluir um modelo no Azure digital gêmeos.
 author: baanders
@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737771"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953690"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
-Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
+Você pode gerenciar os [modelos](concepts-models.md) que sua instância do gêmeos digital do Azure conhece usando as [**APIs do DIGITALTWINMODELS**](/rest/api/digital-twins/dataplane/models), o SDK do [.net (C#)](/dotnet/api/overview/azure/digitaltwins/client)ou a [CLI do Azure digital gêmeos](how-to-use-cli.md). 
 
 As operações de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos. 
 
@@ -142,7 +142,7 @@ O status de descomissionamento de um modelo é incluído nos `ModelData` registr
 
 Você pode excluir todos os modelos em sua instância de uma só vez ou pode fazê-lo em uma base individual.
 
-Para obter um exemplo de como excluir todos os modelos, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllModels` função.
+Para obter um exemplo de como excluir todos os modelos, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop. cs* faz isso em uma `CommandDeleteAllModels` função.
 
 O restante desta seção divide a exclusão do modelo em detalhes mais detalhadamente e mostra como fazê-lo para um modelo individual.
 
@@ -179,7 +179,7 @@ Coisas que você **pode** fazer:
 * Ler propriedades
 * Ler relações de saída
 * Adicionar e excluir relações de entrada (como em, outros gêmeos ainda podem formar relações *com* este "or")
-  - O `target` na definição de relação ainda pode refletir o DTMI do modelo excluído. Uma relação sem um destino definido também pode funcionar aqui.
+  - O `target` na definição de relação ainda pode refletir o DTMI do modelo excluído. Uma relação sem um destino definido também pode funcionar aqui.      
 * Excluir relações
 * Excluir o
 

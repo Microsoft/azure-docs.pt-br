@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 3af2e849aa6658e539b0b5bdbda4428cc28e5ce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84887235"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real na CDN do Microsoft Azure
@@ -92,5 +92,5 @@ Esse grafo indica quantas conexões foram estabelecidas para seus servidores de 
 ## <a name="next-steps"></a>Próximas etapas
 * Receba uma notificação com [Alertas em tempo real no Azure CDN](cdn-real-time-alerts.md)
 * Saiba mais com os [relatórios HTTP avançados](cdn-advanced-http-reports.md)
-* Analisar [padrões de uso](cdn-analyze-usage-patterns.md)
+* Analisar os [padrões de uso](cdn-analyze-usage-patterns.md)
 

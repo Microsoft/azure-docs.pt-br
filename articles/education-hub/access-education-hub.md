@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 995956e23e211d2182159f6e61abbbf184983ab0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87100651"
 ---
 # <a name="accessing-the-azure-education-hub"></a>Como acessar o Hub de Educação do Azure
@@ -32,7 +32,7 @@ Para acessar o Hub de Educação do Azure, você já deverá ter recebido uma no
    > [!IMPORTANT]
    > Confirme se você está entrando com uma conta organizacional/corporativa (como a @domain.edu da sua instituição). Nesse caso, selecione essa opção no lado esquerdo da janela primeiro. Isso levará você para outra tela de logon.
 
-    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Abra uma janela do navegador particular." border="false":::
+    :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Caixa de diálogo de entrada da organização." border="false":::
 
 1. Depois de conectado, você será direcionado para o portal do Azure. Para localizar o Hub de Educação, acesse o menu **Todos os Serviços** e procure **Educação**.
    Na primeira vez que você fizer logon, a página Introdução será exibida.

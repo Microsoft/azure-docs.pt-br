@@ -4,15 +4,15 @@ description: Saiba mais sobre vários dos requisitos de integração do Microsof
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606811"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044117"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -40,7 +40,10 @@ Ao assinar a oferta de SaaS, o usuário concordou em pagar pelo consumo do servi
 
 Depois de assinar uma oferta, o usuário do Azure pode descobrir e gerenciar todas as suas ofertas no Azure. Por padrão, o estado de uma oferta de SaaS recém assinada é mostrado como **provisionamento, preenchimento pendente**. Nesse estado, o usuário do Azure receberá uma ação para **Configurar a conta**, a fim de navegar até sua experiência de gerenciamento de assinatura de SaaS no portal do Azure.
 
-Quando o usuário seleciona **configurar conta**, ele é redirecionado para o site do serviço SaaS. O Publicador configurou a URL no momento da publicação da oferta. Essa página é chamada de página de aterrissagem do editor. Os usuários do Azure entram na página de aterrissagem de SaaS com base em suas credenciais do AAD existentes no Azure.
+Quando o usuário seleciona **configurar conta**, ele é redirecionado para o site do serviço SaaS. O Publicador configurou a URL no momento da publicação da oferta. Essa página é chamada de página de aterrissagem do editor. Os usuários do Azure entram na página de aterrissagem de SaaS com base em suas credenciais existentes do Azure Active Directory (AD do Azure) no Azure.
+
+> [!IMPORTANT]
+> Você deve entrar no usuário de compra usando Azure Active Directory, logon único (SSO do Azure AD) conforme indicado pela [política](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). A `mail` propriedade no recurso de usuário recuperado da API Microsoft Graph fornece as informações de contato para o caso do Azure AD e `userPrincipalName` do MSA. É possível que o campo "email" esteja vazio para o Azure AD e talvez o usuário não tenha um email registrado. Se esse for o caso, recomendamos que você detecte e solicite um email de contato. Essa é sua única chance de obter um email de contato para alcançar um cliente durante ou após o processo de integração do cliente.
 
 Quando o usuário do Azure é redirecionado para a página de aterrissagem, um token é adicionado à URL de consulta. Esse token é de curta duração e válido por um tempo de duração de 24 horas. Em seguida, você pode detectar a presença desse token e chamar a API da Microsoft para obter mais contexto associado ao token.
 

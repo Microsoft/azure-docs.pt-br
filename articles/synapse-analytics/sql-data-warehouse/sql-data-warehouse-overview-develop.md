@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 6b34c70b453c26fe27a51e1aa802564864640cb9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453687"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics 

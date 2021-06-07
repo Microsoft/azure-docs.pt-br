@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Cloud Service PICCO | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cloud Service PICCO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cloud Service PICCO.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 1df8c6fa0877c20518be072674447d28d7f1ca0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97670083"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutorial: Integração do Azure Active Directory ao Cloud Service PICCO
+# <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cloud Service PICCO
 
 Neste tutorial, você aprenderá a integrar o Cloud Service PICCO ao Azure AD (Azure Active Directory).
 A integração do Cloud Service PICCO com o Azure AD oferece os seguintes benefícios:
@@ -186,4 +186,4 @@ Ao clicar no bloco do Cloud Service PICCO no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

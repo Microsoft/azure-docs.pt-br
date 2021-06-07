@@ -2,13 +2,13 @@
 title: Configurar o acesso ao Registro público
 description: Configure as regras de IP para habilitar o acesso a um registro de contêiner do Azure de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/08/2021
+ms.openlocfilehash: 727aa1dc028b5f52a022e54c2cd252ae372e78fe
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488755"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773055"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras de rede IP pública
 
@@ -17,6 +17,8 @@ Por padrão, um registro de contêiner do Azure aceita conexões pela Internet d
 As regras de rede IP são configuradas no ponto de extremidade do registro público. As regras de rede IP não se aplicam a pontos de extremidade privados configurados com [Link Privado](container-registry-private-link.md)
 
 A configuração das regras de acesso IP está disponível na camada de serviço **Premium** do registro de contêiner. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
+
+Cada registro oferece suporte ao máximo de 100 regras de acesso à rede.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 

@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109146"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108937"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
 
@@ -48,7 +48,7 @@ Os dois modos para gerenciar a chave de criptografia mestra são da seguinte man
 *   Chaves gerenciadas de serviço
 *   Chaves gerenciadas do cliente
 
-Em ambos os modos, a chave de criptografia mestra é protegida, armazenando-a no Azure Key Vault. O Key Vault é um serviço altamente seguro, totalmente gerenciado no Azure que pode ser usado para proteger chaves criptográficas. Para obter mais informações, consulte [Key Vault](https://azure.microsoft.com/services/key-vault).
+Em ambos os modos, a chave de criptografia mestra é protegida, armazenando-a no Azure Key Vault. O Key Vault é um serviço altamente seguro, totalmente gerenciado no Azure que pode ser usado para proteger chaves criptográficas. Para saber mais, confira [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Aqui está uma breve comparação dos recursos fornecidos por dois modos de gerenciar as MEKs.
 
@@ -135,4 +135,4 @@ Observe que, se você usar as opções padrão para criptografia, seus dados ser
 Esta operação deve levar menos de dois minutos e não há nenhum tempo de inatividade esperado devido à alteração de chaves. Após a operação ser concluída, a nova versão da chave estará em uso.
 
 > [!IMPORTANT]
-> Após a conclusão da operação de rotação de chaves, a versão antiga da chave não é mais ativamente é usada para criptografar os dados.  No entanto, em casos raros de falha inesperada, em que até mesmo as cópias redundantes de seus dados são afetadas, os dados poderão ser restaurados de um backup que ainda está usando a chave antiga. Para garantir a acessibilidade de seus dados nessas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de criptografia. Consulte [Diretrizes para recuperação de desastre para dados no Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter melhores práticas do planejamento de recuperação de desastre.
+> Depois que a operação de rotação de chave for concluída, a versão antiga da chave não será mais usada ativamente para criptografar novos dados. No entanto, pode haver casos em que o acesso a dados mais antigos pode precisar da chave antiga. Para permitir a leitura desses dados mais antigos, não exclua a chave antiga

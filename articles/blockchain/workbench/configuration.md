@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073084"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
@@ -61,14 +61,14 @@ Uma lógica de negócios de um aplicativo pode ser modelada como uma máquina de
 
 Para obter um exemplo, consulte [exemplo de arquivo de configuração](#configuration-file-example).
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Tipos de dados com suporte.
 
-| Type | Descrição |
+| Tipo | Descrição |
 |-------|-------------|
 | address  | Tipo de endereço Blockchain, como *contratos* ou *usuários*. |
-| matriz    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
+| array    | Matriz de nível único de tipo inteiro, bool, money ou time. As matrizes podem ser estáticas ou dinâmicas. Use **ElementType** para especificar o tipo de dados dos elementos dentro da matriz. Confira o [exemplo de configuração](#example-configuration-of-type-array). |
 | bool     | Tipo de dados Boolean. |
 | contrato | Endereço do contrato de tipo. |
 | enum     | Conjunto enumerado de valores nomeados. Ao usar o tipo de enumeração, você também especifica uma lista de EnumValues. Cada valor é limitado a 255 caracteres. Os caracteres de valor válidos incluem letras maiúsculas e minúsculas (A-Z, a-z) e números (0-9). Confira o [exemplo de configuração e uso em Solidity](#example-configuration-of-type-enum). |
@@ -391,7 +391,7 @@ Identificadores representam uma coleção de informações usadas para descrever
 | Nome | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente deve usar o mesmo **Nome** para a propriedade ou parâmetro aplicável. | Sim | 50 |
 | DisplayName | Nome para exibição amigável para a propriedade ou parâmetro. | Sim | 255 |
 | Descrição | Descrição da propriedade ou do parâmetro. | Não | 255 |
-| Type | [Tipo de dados](#type)de propriedade. | Sim |
+| Tipo | [Tipo de dados](#type)de propriedade. | Sim |
 
 ### <a name="identifiers-example"></a>Exemplo de identificadores
 
@@ -418,7 +418,7 @@ Identificadores representam uma coleção de informações usadas para descrever
 
 ## <a name="configuration-file-example"></a>Exemplo de arquivo de configuração
 
-Transferência de ativo é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar seus ativos instanciando um contrato inteligente de transferência do ativo. Compradores podem fazer ofertas ao executar uma ação no contrato de smart e outras partes podem executar ações para inspecionar ou avaliar o ativo. Depois que o ativo é marcado como inspecionado e avaliado, o comprador e vendedor confirmarão a venda novamente antes de o contrato ser definido para ser concluído. Em cada ponto no processo, todos os participantes têm visibilidade para o estado do contrato conforme é atualizado. 
+Transferência de ativo é um cenário de contrato inteligente para comprar e vender ativos de alto valor, que requerem um inspetor e avaliador. Os vendedores podem listar seus ativos instanciando um contrato inteligente de transferência do ativo. Compradores podem fazer ofertas ao executar uma ação no contrato de smart e outras partes podem executar ações para inspecionar ou avaliar o ativo. Depois que o ativo é marcado como inspecionado e avaliado, o comprador e vendedor confirmarão a venda novamente antes de o contrato ser definido para ser concluído. Em cada ponto no processo, todos os participantes têm visibilidade para o estado do contrato conforme é atualizado. 
 
 Para mais informações, inclusive os arquivos de código, consulte [exemplo de transferência de ativo para oWorbench do Azure Blockchain](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

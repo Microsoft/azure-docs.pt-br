@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094873"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101710576"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Emparelhamento VNet e bastiões do Azure (visualização)
 
@@ -40,9 +40,15 @@ Esta figura mostra a arquitetura de uma implantação de bastiões do Azure em u
 **Tarefas**
 
 1. Conecte-se ao portal do Azure usando qualquer navegador HTML5.
-1. Selecione a máquina virtual à qual se conectar.
-1. A bastiões do Azure é detectada diretamente na VNet emparelhada.
-1. Com um único clique, a sessão RDP/SSH é aberta no navegador. Para limites de sessão simultânea de RDP e SSH, consulte [sessões de RDP e SSH](bastion-faq.md#limits).
+2. Verifique se você tem acesso de **leitura** à VM de destino e à VNet emparelhada. Além disso, verifique em IAM que você tem acesso de leitura aos seguintes recursos:
+   * A função de leitor na máquina virtual.
+   * A função de leitor na placa de interface de rede com endereço IP privado da máquina virtual.
+   * Função de leitor no recurso do Azure Bastion.
+   * Função de leitor na rede virtual (não é necessária se não houver uma rede virtual emparelhada).
+3. Para ver a bastiões no menu suspenso **conectar** , você deve selecionar as sub-rotinas às quais você tem acesso na **assinatura > assinatura global**.
+4. Selecione a máquina virtual à qual se conectar.
+5. A bastiões do Azure é detectada diretamente na VNet emparelhada.
+6. Com um único clique, a sessão RDP/SSH é aberta no navegador. Para limites de sessão simultânea de RDP e SSH, consulte [sessões de RDP e SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
 

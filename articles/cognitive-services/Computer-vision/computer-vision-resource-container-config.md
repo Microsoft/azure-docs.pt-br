@@ -1,52 +1,54 @@
 ---
-title: Configurar contêineres de OCR de leitura-Pesquisa Visual Computacional
+title: Configurar contêineres de OCR de Leitura – Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra como definir as configurações obrigatórias e opcionais para ler contêineres de OCR no Pesquisa Visual Computacional.
+description: Este artigo mostrará de que modo definir configurações obrigatórias e opcionais para executar contêineres de OCR de Leitura na Pesquisa Visual Computacional.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 04/09/2021
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
-ms.translationtype: MT
+ms.openlocfilehash: 3e6c4b73e8aeb26c6ac4025ef3c07fb4f8d48eaf
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006858"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308635"
 ---
-# <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de Docker de OCR de leitura
+# <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de OCR de Leitura do Docker
 
-Você configura o ambiente de tempo de execução do contêiner de OCR de Pesquisa Visual Computacional leitura usando os `docker run` argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+Configure o ambiente de runtime do contêiner de OCR de Leitura da Pesquisa Visual Computacional usando argumentos do comando `docker run`. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) configurações,, e [`Eula`](#eula-setting) são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md).
+> As configurações [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-setting) são usadas juntas e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md).
 
-O contêiner também tem as seguintes definições de configuração específicas de contêiner:
+O contêiner também tem as seguintes definições de configuração específica:
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
-|No|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
-|No|Fila: RabbitMQ|somente contêineres v 2.0. Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
-|No|Fila: Azure: QueueVisibilityTimeoutInMilliseconds | somente contêineres v3. x. A hora de uma mensagem ser invisível quando outro trabalhador a estiver processando. |
-|No|Armazenamento::D ocumentStore:: MongoDB|somente contêineres v 2.0. Habilita o MongoDB para armazenamento de resultado permanente. |
-|No|Armazenamento: ObjectStore: AzureBlob: ConnectionString| somente contêineres v3. x. Cadeia de conexão do armazenamento de BLOBs do Azure. |
+|Não|ReadEngineConfig:ResultExpirationPeriod| Somente contêineres v2.0. Período de término do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deverá limpar os resultados de reconhecimento. Por exemplo, no caso `resultExpirationPeriod=1`, o sistema limpará o resultado do reconhecimento uma hora após o processo. No caso de `resultExpirationPeriod=0`, o sistema limpará o resultado do reconhecimento após a recuperação do resultado.|
+|Não|Cache: Redis| Somente contêineres v2.0. Habilita o armazenamento do Redis para armazenar resultados. Um cache será *necessário* caso vários contêineres de OCR de leitura sejam inseridos atrás de um balanceador de carga.|
+|Não|Queue:RabbitMQ|Somente contêineres v2.0. Habilita o RabbitMQ para despachar tarefas. A configuração será útil quando vários contêineres de OCR de leitura forem inseridos atrás de um balanceador de carga.|
+|Não|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | Somente contêineres v3.x. O tempo que uma mensagem levará para ficar invisível quando outro trabalhador estiver executando o processamento dela. |
+|Não|Storage::DocumentStore::MongoDB|Somente contêineres v2.0. Habilita o MongoDB para executar um armazenamento permanente de resultados. |
+|Não|Storage:ObjectStore:AzureBlob:ConnectionString| Somente contêineres v3.x. A cadeia de conexão do Armazenamento de Blobs do Azure. |
+|Não|Storage:TimeToLiveInDays| Somente contêineres v3.x. Período de término do resultado em dias. A configuração especifica quando o sistema deverá limpar os resultados de reconhecimento. O padrão é a cada dois dias (48 horas). Isso significa que nenhum resultado ativo por mais tempo do que esse período terá garantia de ser recuperado com êxito. |
+|Não|Task:MaxRunningTimeSpanInMinutes| Somente contêineres v3.x. Tempo máximo de execução de uma solicitação. O padrão é de 60 minutos. |
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A `ApiKey` configuração especifica a chave de recurso do Azure `Cognitive Services` usada para rastrear informações de cobrança para o contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado para a [`Billing`](#billing-configuration-setting) definição de configuração.
+A configuração `ApiKey` especifica a chave de recurso de `Cognitive Services` do Azure usada para rastrear informações de cobrança do contêiner. Será necessário especificar um valor para ApiKey. Além disso, o valor deverá ser uma chave válida para o recurso dos _Serviços Cognitivos_ especificado para a definição da configuração [`Billing`](#billing-configuration-setting).
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: gerenciamento de recursos de **Serviços cognitivas** , em **chaves**
+* Portal do Azure: gerenciamento de recursos dos **Serviços Cognitivos** na opção **Chaves**
 
 ## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
@@ -54,17 +56,17 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+A configuração `Billing` especifica o URI do ponto de extremidade de um recurso dos _Serviços Cognitivos_ no Azure usado para medir informações de cobrança para o contêiner. Será preciso especificar um valor para essa definição de configuração. Além disso, o valor deverá ser um URI do ponto de extremidade válido para um recurso dos _Serviços Cognitivos_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: visão geral **dos serviços cognitivas** , rotulados `Endpoint`
+* Portal do Azure: visão geral dos **Serviços Cognitivos** rotulados como `Endpoint`
 
-Lembre-se de adicionar o `vision/v1.0` Roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
+Lembre-se de adicionar o roteamento `vision/<version>` ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Obrigatório| Name | Tipo de dados | Descrição |
+|Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v3.2` |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -90,7 +92,7 @@ Os contêineres de Pesquisa Visual Computacional não usam montagens de entrada 
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, a localização de montagem do [computador host](computer-vision-how-to-install-containers.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões da localização de montagem do host. 
 
-|Opcional| Name | Tipo de dados | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os contêineres de Pesquisa Visual Computacional não usam isso.|
 |Opcional| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -99,52 +101,52 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra invertida, `\` , como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
-* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
+* **Caractere de continuação de linha**: os comandos do Docker das seções a seguir usam a barra invertida (`\`) como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com os contêineres do Docker.
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Espaço reservado | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A chave do ponto de extremidade do `Computer Vision` recurso na `Computer Vision` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na `Computer Vision` página Visão geral do Azure.| Consulte [coletando parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
+| **{API_KEY}** | A chave de ponto de extremidade do recurso da `Computer Vision` na página de Chaves da `Computer Vision` do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está disponível na página de Visão Geral da `Computer Vision` do Azure.| Confira [como coletar parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
-> O valor de ApiKey é a **chave** da página de chaves de recurso do Azure `Cognitive Services` .
+> O valor de ApiKey é a **Chave** da página de chaves do Recurso da `Cognitive Services` do Azure.
 
-## <a name="container-docker-examples"></a>Exemplos de Docker de contêiner
+## <a name="container-docker-examples"></a>Exemplos de contêineres do Docker
 
-Os exemplos do Docker a seguir são para o contêiner de leitura.
+Os exemplos abaixo do Docker são específicos para o contêiner de OCR de Leitura.
 
 
-# <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
+# <a name="version-32"></a>[Versão 3.2](#tab/version-3-2)
 
 ### <a name="basic-example"></a>Exemplo básico
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 
 ```
 
-### <a name="logging-example"></a>Exemplo de log 
+### <a name="logging-example"></a>Exemplo de registro em log 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-20-preview"></a>[Versão 2,0-visualização](#tab/version-2)
+# <a name="version-20-preview"></a>[Versão 2.0 – versão prévia](#tab/version-2)
 
 ### <a name="basic-example"></a>Exemplo básico
 
@@ -157,7 +159,7 @@ ApiKey={API_KEY}
 
 ```
 
-### <a name="logging-example"></a>Exemplo de log 
+### <a name="logging-example"></a>Exemplo de registro em log 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
@@ -172,4 +174,4 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examine [como instalar e executar contêineres](computer-vision-how-to-install-containers.md).
+* Examine [Como instalar e executar contêineres](computer-vision-how-to-install-containers.md).

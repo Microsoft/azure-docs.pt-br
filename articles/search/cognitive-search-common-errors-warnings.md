@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895931"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102553231"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -236,6 +236,8 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Aviso: a entrada de habilidade ' languageCode ' tem os seguintes códigos de idioma ' X, Y, Z ', pelo menos um dos quais é inválido.
 Não há suporte para um ou mais valores passados para a `languageCode` entrada opcional de uma habilidade de downstream. Isso pode ocorrer se você estiver passando a saída do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) para as habilidades subsequentes e a saída consistir em mais idiomas do que o suportado nessas habilidades de downstream.
+
+Observação Você também poderá receber um aviso semelhante a este se uma entrada inválida for `countryHint` passada para o LanguageDetectionSkill. Se isso acontecer, valide se o campo que você está usando da fonte de dados para essa entrada contém códigos de país de letra ISO 3166-1 alfa-2 2 válidos. Se alguns forem válidos e outros forem inválidos, continue com as diretrizes a seguir, mas substitua `languageCode` por `countryHint` e `defaultLanguageCode` por `defaultCountryHint` para corresponder ao seu caso de uso.
 
 Se você souber que o conjunto de dados está todos em um idioma, deverá remover o [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e a `languageCode` entrada de habilidade e usar o `defaultLanguageCode` parâmetro de habilidade para essa habilidade, supondo que a linguagem tenha suporte para essa habilidade.
 

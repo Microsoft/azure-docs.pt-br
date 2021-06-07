@@ -2,20 +2,18 @@
 title: Visão geral e arquitetura do Azure Monitor para soluções SAP | Microsoft Docs
 description: Este artigo fornece respostas para as perguntas frequentes sobre o Azure monitor para soluções SAP
 author: rdeltcheva
-ms.service: virtual-machines
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.reviewer: cynthn
-ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a88ad3930e114bdf9f3c3c340f92f164215d59c1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693817"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101671989"
 ---
-# <a name="azure-monitor-for-sap-solutions-preview"></a>Azure monitor para soluções SAP (versão prévia)
+# <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor para Soluções SAP (versão prévia)
 
 ## <a name="overview"></a>Visão geral
 
@@ -35,33 +33,33 @@ Bancos de dados com suporte:
 - Banco de dados do SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor para soluções SAP usa o poder de recursos de [Azure monitor](../../../azure-monitor/overview.md) existentes, como log Analytics e [pastas de trabalho](../../../azure-monitor/platform/workbooks-overview.md) , para fornecer mais recursos de monitoramento. Os clientes podem criar [visualizações personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) editando as pastas de trabalho padrão fornecidas pelo Azure monitor para soluções SAP, escrever [consultas personalizadas](../../../azure-monitor/log-query/log-analytics-tutorial.md) e criar [alertas personalizados](../../../azure-monitor/learn/tutorial-response.md) usando o espaço de trabalho log Analytics do Azure, aproveitar o período de [retenção flexível](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e conectar dados de monitoramento com seu sistema de tíquetes.
+Azure Monitor para soluções SAP usa o poder de recursos de [Azure monitor](../../../azure-monitor/overview.md) existentes, como log Analytics e [pastas de trabalho](../../../azure-monitor/visualize/workbooks-overview.md) , para fornecer mais recursos de monitoramento. Os clientes podem criar [visualizações personalizadas](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) editando as pastas de trabalho padrão fornecidas pelo Azure monitor para soluções SAP, escrever [consultas personalizadas](../../../azure-monitor/logs/log-analytics-tutorial.md) e criar [alertas personalizados](../../../azure-monitor/alerts/tutorial-response.md) usando o espaço de trabalho log Analytics do Azure, aproveitar o período de [retenção flexível](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) e conectar dados de monitoramento com seu sistema de tíquetes.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quais dados Azure Monitor para soluções SAP coletam?
 
-A coleta de dados no Azure Monitor para soluções SAP depende dos provedores configurados pelos clientes. Durante a visualização pública, os dados a seguir estão sendo coletados.
+A coleta de dados no Azure Monitor para soluções SAP depende dos provedores configurados pelos clientes. Durante a Visualização Pública, os dados a seguir estão sendo coletados.
 
 Teledisponibilidade de cluster do pacemaker de alto nível:
-- Status do dispositivo de nó, recurso e SBD
-- Restrições de local pacemaker
+- Status do nó, do recurso e do dispositivo SBD
+- Restrições de localização do Pacemaker
 - Votos de quorum e status de anel
 - [Others](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md)
 
 Telemetria de SAP HANA:
 - Utilização de CPU, memória, disco e rede
-- Replicação de sistema do HANA (HSR)
+- HSR (Replicação do Sistema HANA)
 - Backup do HANA
-- Status do host HANA
-- Servidor de índice e funções de servidor de nome
+- Status de host do HANA
+- Funções do servidor de índice e de nome
 
 Telemetria do Microsoft SQL Server:
-- CPU, memória, utilização de disco
-- Hostname, nome da instância SQL, ID do sistema SAP
-- Solicitações em lote, compilações e expectativa de vida da página ao longo do tempo
-- 10 principais instruções SQL mais caras ao longo do tempo
+- Utilização de CPU, memória e disco
+- Nome do host, nome da instância SQL, ID do sistema SAP
+- Solicitações em lote, compilações e duração prevista da página ao longo do tempo
+- 10 instruções SQL mais caras ao longo do tempo
 - Mais 12 maiores tabelas no sistema SAP
 - Problemas registrados no log de erros do SQL Server
-- Processos de bloqueio e estatísticas de espera do SQL ao longo do tempo
+- Processos com bloqueio e estatísticas de espera do SQL ao longo do tempo
 
 Telemetria do sistema operacional (Linux) 
 - Utilização da CPU, contagem de bifurcação, processos em execução e bloqueados. 
@@ -74,7 +72,7 @@ Telemetria do sistema operacional (Linux)
 
 ## <a name="data-sharing-with-microsoft"></a>Compartilhamento de dados com a Microsoft
 
-A Azure Monitor para soluções SAP coleta metadados do sistema para fornecer suporte aprimorado ao nosso SAP em clientes do Azure. Nenhuma PII/EUII é coletada.
+o Azure Monitor para Soluções SAP coleta metadados do sistema para dar suporte aprimorado a nossos clientes do SAP no Azure. Não são coletadas informações do tipo PII/EUII.
 Os clientes podem habilitar o compartilhamento de dados com a Microsoft no momento da criação de Azure Monitor para recursos de soluções SAP escolhendo *compartilhar* na lista suspensa.
 É altamente recomendável que os clientes habilitem o compartilhamento de dados, pois ele fornece ao suporte da Microsoft e às equipes de engenharia mais informações sobre o ambiente do cliente e fornece suporte aprimorado ao nosso SAP de missão crítica em clientes do Azure.
 
@@ -91,9 +89,9 @@ Os principais componentes da arquitetura são:
    - Máquina virtual do Azure: também conhecida como *VM do coletor*. Esta é uma VM Standard_B2ms. A principal finalidade dessa VM é hospedar a carga de *monitoramento*. A carga de monitoramento refere-se à lógica de coleta de telemetria dos sistemas de origem e da transferência dos dados coletados para a estrutura de monitoramento. No diagrama acima, a carga de monitoramento contém a lógica para se conectar ao banco de dados SAP HANA pela porta do SQL.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md): esse recurso é implantado para conter com segurança SAP Hana credenciais de banco de dados e para armazenar informações sobre [provedores](./azure-monitor-providers.md).
    - Espaço de trabalho Log Analytics: o destino onde residem os dados de telemetria.
-      - A visualização é criada sobre a telemetria no Log Analytics usando [pastas de trabalho do Azure](../../../azure-monitor/platform/workbooks-overview.md). Os clientes podem personalizar a visualização. Os clientes também podem fixar suas pastas de trabalho ou visualização específica dentro de pastas de trabalho no painel do Azure para o recurso de atualização manual com menor granularidade de 30 minutos.
+      - A visualização é criada sobre a telemetria no Log Analytics usando [Pastas de Trabalho do Azure](../../../azure-monitor/visualize/workbooks-overview.md). Os clientes podem personalizar a visualização. Os clientes também podem fixar suas pastas de trabalho ou visualização específica dentro de pastas de trabalho no painel do Azure para o recurso de atualização manual com menor granularidade de 30 minutos.
       - Os clientes podem usar seu espaço de trabalho existente na mesma assinatura que o recurso de monitoramento do SAP escolhendo essa opção no momento da implantação.
-      - Os clientes podem usar a linguagem de consulta Kusto (KQL) para executar [consultas](../../../azure-monitor/log-query/log-query-overview.md) em tabelas brutas dentro do espaço de trabalho log Analytics. Examine *os logs personalizados*.
+      - Os clientes podem usar a linguagem de consulta Kusto (KQL) para executar [consultas](../../../azure-monitor/logs/log-query-overview.md) em tabelas brutas dentro do espaço de trabalho log Analytics. Examine *os logs personalizados*.
 
 > [!Note]
 > Os clientes são responsáveis por aplicar patches e manter a VM, implantada no grupo de recursos gerenciado.

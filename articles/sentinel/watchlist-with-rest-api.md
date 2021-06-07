@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798362"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Gerenciar watchlists no Azure Sentinel usando a API REST
@@ -33,15 +33,15 @@ O Azure Sentinel, que está sendo criado em parte no Azure Monitor Log Analytics
 
 Estes são os parâmetros de URI comuns para todos os comandos da API Watchlist:
 
-| Nome | Em | Obrigatório | Type | Descrição |
+| Nome | No | Obrigatório | Type | Descrição |
 |-|-|-|-|-|
-| **SubscriptionId** | path | yes | GUID | a ID da assinatura do Azure |
-| **ResourceGroupName** | path | yes | string | o nome do grupo de recursos na assinatura |
-| **WorkspaceName** | path | yes | string | o nome do espaço de trabalho Log Analytics |
-| **{watchlistAlias}** | path | sim* | string | o nome de uma determinada forma de inspeção<br>\* Não é necessário ao recuperar todos os watchlists |
-| **{watchlistItemId}** | path | Sim * * | GUID | a ID do item para criar, adicionar ou excluir da Watchlist<br>\*\* Necessário somente para comandos de item de Watchlist |
-| **{API-Version}** | Consulta | yes | string | a versão do protocolo usado para fazer esta solicitação. A partir de 29 de outubro de 2020, a versão da API Watchlist é *2019-01-01-Preview* |
-| **{bearerToken}** | autorização | yes | token | o token de autorização de portador |
+| **SubscriptionId** | caminho | sim | GUID | a ID da assinatura do Azure |
+| **ResourceGroupName** | caminho | sim | string | o nome do grupo de recursos na assinatura |
+| **WorkspaceName** | caminho | sim | string | o nome do espaço de trabalho Log Analytics |
+| **{watchlistAlias}** | caminho | sim* | string | o nome de uma determinada forma de inspeção<br>\* Não é necessário ao recuperar todos os watchlists |
+| **{watchlistItemId}** | caminho | Sim * * | GUID | a ID do item para criar, adicionar ou excluir da Watchlist<br>\*\* Necessário somente para comandos de item de Watchlist |
+| **{API-Version}** | Consulta | sim | string | a versão do protocolo usado para fazer esta solicitação. A partir de 29 de outubro de 2020, a versão da API Watchlist é *2019-01-01-Preview* |
+| **{bearerToken}** | autorização | sim | token | o token de autorização de portador |
 |  
 
 ## <a name="retrieve-all-watchlists"></a>Recuperar todos os watchlists

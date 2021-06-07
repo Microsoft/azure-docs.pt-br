@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: af8ec9e0aac38240c7da92edd614892ff65712e2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551449"
 ---
 # <a name="understand-search-features-in-azure-purview"></a>Entender os recursos de pesquisa no Azure alcance
 
 Este artigo fornece uma visão geral da experiência de pesquisa no Azure alcance. A pesquisa é uma funcionalidade de plataforma principal do alcance, que capacita a descoberta de dados e as experiências de governança de uso de dados em uma organização.
 
-## <a name="search"></a>Pesquisar
+## <a name="search"></a>Search
 
 A experiência de pesquisa do alcance é alimentada por um índice de pesquisa gerenciado. Depois que uma fonte de dados é registrada com alcance, seus metadados são indexados pelo serviço de pesquisa para permitir a descoberta fácil. O índice fornece recursos de relevância de pesquisa e conclui solicitações de pesquisa consultando milhões de ativos de metadados. A pesquisa ajuda você a descobrir, compreender e usar os dados para obter o máximo de valor.
 
@@ -48,7 +48,7 @@ As palavras-chave correspondentes na página de resultados da pesquisa são real
 
 Talvez não seja óbvio por que um ativo de dados está incluído na pesquisa, mesmo com o realce de clique habilitado. Todas as propriedades são pesquisadas por padrão. Portanto, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade em nível de coluna. E como vários usuários podem anotar os ativos de dados com suas próprias classificações e descrições, nem todos os metadados são exibidos na lista de resultados da pesquisa.
 
-## <a name="sort"></a>Classificar
+## <a name="sort"></a>Sort
 
 Os usuários têm duas opções para classificar os resultados da pesquisa. Eles podem classificar pelo nome do ativo ou por relevância de pesquisa padrão.
 
@@ -58,6 +58,6 @@ Relevância é a ordem de classificação padrão na página de resultados da pe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início rápido: criar uma conta do Azure alcance no portal do Azure](create-catalog-portal.md)
-* [Início rápido: criar uma conta do Azure alcance usando Azure PowerShell/CLI do Azure](create-catalog-powershell.md)
+* [Início Rápido: Criar uma conta do Azure Purview no portal do Azure](create-catalog-portal.md)
+* [Início Rápido: Criar uma conta do Azure Purview usando o Azure PowerShell/a CLI do Azure](create-catalog-powershell.md)
 * [Início rápido: usar o alcance Studio](use-purview-studio.md)

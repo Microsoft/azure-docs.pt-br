@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/04/2021
 ms.author: alkohli
 ms.openlocfilehash: 7fbb5ca43d2877e2e14914b71df7cc1bcdf27f88
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898157"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro-fpga"></a>Usar o portal do Azure para gerenciar compartilhamentos no Azure Stack Edge pro FPGA 

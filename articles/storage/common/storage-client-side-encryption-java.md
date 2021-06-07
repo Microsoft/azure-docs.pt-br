@@ -6,17 +6,17 @@ author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78baaa3f794bed870b40fb3975f6b80ff37e90f0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817511"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102043721"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Azure Key Vault com Java para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **upload*** ou o método **openOutputStream** . Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.  
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **upload** _ ou o método _ *openOutputStream**. Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.  
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -57,9 +57,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência de **Download**do / **openInputStream** . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência de **Download** do / **openInputStream** . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-O download de um intervalo arbitrário (métodos**métodos downloadrange** ) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.  
+O download de um intervalo arbitrário (métodos **métodos downloadrange** ) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.  
 
 Todos os tipos de blob (blobs de blocos, blobs de páginas e blobs de anexo) podem ser criptografados/descriptografados usando este esquema.
 
@@ -154,6 +154,12 @@ Por exemplo, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncrypti
 ### <a name="blob-service-encryption"></a>Criptografia do serviço Blob
 Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions**). Todo o resto será tratado pela biblioteca de cliente internamente.
 
+# <a name="java-v12"></a>[Java V12](#tab/java)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
+
 ```java
 // Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
@@ -172,9 +178,16 @@ blob.upload(stream, size, null, options, null);
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 blob.download(outputStream, null, options, null);
 ```
+---
 
 ### <a name="queue-service-encryption"></a>Criptografia do serviço Fila
 Crie um objeto **QueueEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions**). Todo o resto será tratado pela biblioteca de cliente internamente.
+
+# <a name="java-v12"></a>[Java V12](#tab/java)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -192,11 +205,18 @@ queue.addMessage(message, 0, 0, options, null);
 // Retrieve message
 CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
+---
 
 ### <a name="table-service-encryption"></a>Criptografia do serviço Tabela
-Além de criar uma política de criptografia e defini-la nas opções de solicitação, você deve especificar um **EncryptionResolver** em **TableRequestOptions**ou definir o atributo [Encrypt] no getter e no setter da entidade.
+Além de criar uma política de criptografia e defini-la nas opções de solicitação, você deve especificar um **EncryptionResolver** em **TableRequestOptions** ou definir o atributo [Encrypt] no getter e no setter da entidade.
 
 ### <a name="using-the-resolver"></a>Usando o resolvedor
+
+# <a name="java-v12"></a>[Java V12](#tab/java)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 // Create the IKey used for encryption.
@@ -228,9 +248,16 @@ retrieveOptions.setEncryptionPolicy(policy);
 TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
 TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
+---
 
 ### <a name="using-attributes"></a>Usando atributos
 Como mencionado acima, se a entidade implementar TableEntity, as propriedades getter e setter poderão ser decoradas com o atributo [Encrypt] em vez de especificar o **EncryptionResolver**.
+
+# <a name="java-v12"></a>[Java V12](#tab/java)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v8"></a>[V8 Java](#tab/java8)
 
 ```java
 private string encryptedProperty1;
@@ -245,6 +272,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
     this.encryptedProperty1 = encryptedProperty1;
 }
 ```
+---
 
 ## <a name="encryption-and-performance"></a>Criptografia e desempenho
 

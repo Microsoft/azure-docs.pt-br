@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223254"
 ---
 # <a name="private-ip-addresses"></a>Endereços IP privados
@@ -38,7 +38,7 @@ Os IPs privados permitem a comunicação com esses recursos sem o uso de um ende
 
 O Azure atribui endereços IP privados a recursos do intervalo de endereços da sub-rede da rede virtual em que o recurso está.
 
-O Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede. Os endereços não podem ser atribuídos aos recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, os endereços 10.0.0.0-10.0.0.3 e 10.0.255.255 não estarão disponíveis. Endereços IP no intervalo de endereços da sub-rede só podem ser atribuídos a um recurso por vez. 
+O Azure reserva os quatro primeiros endereços de cada intervalo de endereços da sub-rede. Os endereços não podem ser atribuídos aos recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, os endereços 10.0.0.0-10.0.0.3 e 10.0.255.255 não estarão disponíveis. Endereços IP no intervalo de endereços da sub-rede só podem ser atribuídos a um recurso por vez. 
 
 Há dois métodos em que um endereço IP privado é fornecido:
 

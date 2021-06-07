@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99071589"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault

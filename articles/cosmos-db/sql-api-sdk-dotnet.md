@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a98cf39fed312f29fbfacdff27508ae568b4f157
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: e603175aa40077009bb208846cba62d5280e57c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "93098564"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577047"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SDK do .NET v2 para a API do SQL: download e notas de versão
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,9 +25,9 @@ ms.locfileid: "93098564"
 > * [SDK v2 do .NET Core](sql-api-sdk-dotnet-core.md)
 > * [SDK do Feed de Alterações do .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [SDK do Java v4](sql-api-sdk-java-v4.md)
+> * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
+> * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
@@ -38,10 +38,10 @@ ms.locfileid: "93098564"
 > * [Executor em massa – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Links |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**Documentação da API**|[Documentação de referência de API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
+|**Documentação da API**|[Documentação de referência de API .NET](/dotnet/api/overview/azure/cosmosdb)|
 |**Amostras**|[Exemplos de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Introdução**|[Introdução ao SDK do .NET do Azure Cosmos DB](sql-api-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-dotnet-application.md)|

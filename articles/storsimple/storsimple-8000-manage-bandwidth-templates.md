@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005887"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar modelos de largura de banda do StorSimple
@@ -64,7 +64,7 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
     1. Especifique um nome exclusivo para o modelo de largura de banda.
     2. Defina uma agenda de largura de banda. Para criar uma agenda:
    
-        1. Na lista suspensa, escolha os **dias** da semana em que a agenda está configurada. É possível selecionar vários dias.        
+        1. Na lista suspensa, escolha os **Dias** da semana para os quais a agenda será configurada. É possível selecionar vários dias.        
         
         2. Insira uma **Hora Inicial** no formato _hh:mm_. Essa é a hora em que a agenda será iniciada.
 

@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259229"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory
@@ -33,8 +33,8 @@ ms.locfileid: "99259229"
 1. Selecione **todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 1. No painel **Azure Active Directory**  -   **_DirectoryName_*_ (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione _* aplicativos empresariais**.
 1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
-1. No painel **_AppName_*_ (ou seja, o painel com o nome do aplicativo selecionado no título), selecione _* Propriedades**.
-1. No painel **Propriedades de _AppName_*_-_*** , selecione **não** para **habilitado para os usuários entrarem?**.
+1. No painel ***AppName** _ (ou seja, o painel com o nome do aplicativo selecionado no título), selecione _ * Propriedades * *.
+1. No painel ***AppName** _-_ *Properties**, selecione **não** para **habilitado para os usuários entrarem?**.
 1. Escolha o comando **Salvar** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usar o PowerShell do Azure AD para desabilitar um aplicativo não listado

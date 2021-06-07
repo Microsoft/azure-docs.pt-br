@@ -10,16 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: Zhchia
-ms.openlocfilehash: f1600dfc5705ca97f16e8966a796b54fc556d216
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9d9699c564476e116654f700c32dd47b7f6d5b81
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359255"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504559"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no GitHub e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o GitHub.
+
+> [!NOTE]
+> A integração de provisionamento do Azure AD depende da [API do SCIM no GitHub](https://developer.github.com/v3/scim/), que está disponível para os clientes do [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de cobrança GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +36,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 * Só há suporte ao provisionamento do SCIM para uma organização individual quando o SSO está habilitado no nível da organização
 
 > [!NOTE]
-> A integração de provisionamento do Azure AD depende da [API do SCIM no GitHub](https://developer.github.com/v3/scim/), que está disponível para os clientes do [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de cobrança GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="assigning-users-to-github"></a>Atribuindo usuários ao GitHub
 

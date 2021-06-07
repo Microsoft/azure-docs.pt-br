@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: femila
+ms.openlocfilehash: 66279c2ea798a7edb21795f368011b00bdf6297e
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563238"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447804"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
 

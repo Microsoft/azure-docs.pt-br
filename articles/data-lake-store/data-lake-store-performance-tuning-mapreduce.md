@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: twooley
 ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97723721"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o MapReduce no HDInsight e no Armazenamento de Data Lake do Azure Gen1
@@ -42,7 +42,7 @@ Ajuste esse número com base na quantidade de memória necessária para o mapa e
 
 Isso determina o número máximo de Mapeadores ou redutores a serem criados. O número de divisões determina quantos Mapeadores são criados para o trabalho MapReduce. Portanto, você pode obter menos Mapeadores do que o solicitado se houver menos divisões do que o número de Mapeadores solicitados.
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 ### <a name="step-1-determine-number-of-jobs-running"></a>Etapa 1: determinar o número de trabalhos em execução
 

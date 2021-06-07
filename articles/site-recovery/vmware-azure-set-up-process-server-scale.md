@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019117"
 ---
 # <a name="scale-with-additional-process-servers"></a>Dimensionar com servidores de processo adicionais
@@ -52,7 +52,7 @@ Os pré-requisitos para o servidor de processo adicional são resumidos na tabel
 Baixe o arquivo de instalação para o servidor de processo da seguinte maneira:
 
 1. Entre no portal do Azure e navegue até o cofre dos serviços de recuperação.
-2. Abra a **infraestrutura de site Recovery**  >  servidores de configuração **VMware e computadores físicos**  >  **Configuration Servers** (em para VMware & computadores físicos).
+2. Abra a **infraestrutura de site Recovery**  >  servidores de configuração **VMware e computadores físicos**  >   (em para VMware & computadores físicos).
 3. Selecione o servidor de configuração para fazer drill down nos detalhes do servidor. Clique em **+ Servidor de processo**.
 4. Em **Adicionar servidor de processo**  >   **escolha onde você deseja implantar o servidor de processo**, selecione **implantar um servidor de processo de expansão local**.
 

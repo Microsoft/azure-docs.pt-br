@@ -4,10 +4,10 @@ description: Descreve a definição de isenção de política usada pelo Azure P
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950169"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy estrutura de isenção
@@ -88,7 +88,7 @@ Use **DisplayName** e **Description** para identificar a isenção de política 
 
 ## <a name="metadata"></a>Metadados
 
-A propriedade **Metadata** permite criar qualquer propriedade filho necessária para armazenar informações relevantes. No exemplo acima, as propriedades **requestedBy**, **approvedBy**, **approvedn**e **ticketRef** contêm valores de cliente para fornecer informações sobre quem solicitou a isenção, quem o aprovou e quando e um tíquete de acompanhamento interno para a solicitação. Essas propriedades de **metadados** são exemplos, mas não são necessárias e os **metadados** não são limitados a essas propriedades filho.
+A propriedade **Metadata** permite criar qualquer propriedade filho necessária para armazenar informações relevantes. No exemplo acima, as propriedades **requestedBy**, **approvedBy**, **approvedn** e **ticketRef** contêm valores de cliente para fornecer informações sobre quem solicitou a isenção, quem o aprovou e quando e um tíquete de acompanhamento interno para a solicitação. Essas propriedades de **metadados** são exemplos, mas não são necessárias e os **metadados** não são limitados a essas propriedades filho.
 
 ## <a name="policy-assignment-id"></a>ID de atribuição de política
 

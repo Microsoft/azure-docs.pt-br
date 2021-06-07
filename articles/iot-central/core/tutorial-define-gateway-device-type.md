@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cdace22072e4122150c878d43b99765cd6fd59e1
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832378"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490770"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial – definir um novo tipo de dispositivo de gateway de IoT no aplicativo do Azure IoT Central
 
@@ -29,7 +29,7 @@ Neste tutorial, você criará um modelo de dispositivo de gateway de **Compilaç
 Além de permitir que dispositivos downstream se comuniquem com seu aplicativo IoT Central, um dispositivo de gateway também pode:
 
 * Enviar sua telemetria, como a temperatura.
-* Responder a atualizações de propriedade graváveis feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
+* Responder a atualizações de propriedade gravável feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
 * Responder a comandos, como reinicialização do dispositivo.
 
 > [!div class="checklist"]

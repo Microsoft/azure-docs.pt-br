@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92636146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Azure Active Directory com o Work.com
@@ -61,7 +61,7 @@ Para configurar a integração do Work.com ao Azure AD, você precisará adicion
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Work.com** , selecione **Work.com** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Work.com**, selecione **Work.com** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Work.com na lista de resultados](common/search-new-app.png)
 
@@ -88,32 +88,32 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Work.com, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Work.com** , selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Work.com**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Work.com](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `http://<companyname>.my.salesforce.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Work.com](https://help.salesforce.com/articleView?id=000159855&type=3) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Work.com** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Work.com**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -131,11 +131,11 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
    
     ![A captura de tela mostra a opção Configuração selecionada no menu do usuário.](./media/work-com-tutorial/ic794108.png "Instalação")
 
-3. No painel de navegação à esquerda, na seção **Administrador** , clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
+3. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
     ![A captura de tela mostra a opção Meu Domínio selecionada em Gerenciamento de Domínio no painel Administrar.](./media/work-com-tutorial/ic767825.png "Meu domínio")
 
-4. Para confirmar se o domínio foi configurado corretamente, verifique se ele está em “ **Etapa 4 Implantado nos Usuários** ” e examine “ **Minhas Configurações de Domínio** ”.
+4. Para confirmar se o domínio foi configurado corretamente, verifique se ele está em “**Etapa 4 Implantado nos Usuários**” e examine “**Minhas Configurações de Domínio**”.
    
     ![Domínio implantado para o usuário](./media/work-com-tutorial/ic784377.png "Domínio implantado para o usuário")
 
@@ -166,21 +166,21 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
     > [!NOTE]
     > Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
     
-    b. Na caixa de texto **Emissor** , cole o valor de **Identificador do Azure AD** , copiado do portal do Azure.
+    b. Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
     
     c. Para carregar o certificado baixado do Portal do Azure, clique em **Procurar**.
     
-    d. Na caixa de texto **ID da Entidade** , digite `https://salesforce-work.com`.
+    d. Na caixa de texto **ID da Entidade**, digite `https://salesforce-work.com`.
     
-    e. Para o **Tipo de Identidade SAML** , selecione **A declaração contém a ID de Federação do objeto de Usuário**.
+    e. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
     
-    f. Para **Local de Identidade do SAML** , selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
+    f. Para **Local de Identidade do SAML**, selecione **A identidade está contida no elemento NameIdentifier da instrução Subject**.
     
-    g. Na caixa de texto **URL de Logon do Provedor de Identidade** , cole o valor de **URL de Logon** que você copiou do portal do Azure.
+    g. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
 
-    h. Na caixa de texto **URL de Logoff do Provedor de Identidade** , cole o valor de **URL de Logoff** que você copiou do portal do Azure.
+    h. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor de **URL de Logoff** que você copiou do portal do Azure.
     
-    i. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços** , selecione **HTTP Post**.
+    i. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**.
     
     j. Clique em **Save** (Salvar).
 
@@ -188,11 +188,11 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
     
     ![A captura de tela mostra a opção Meu Domínio selecionada em Gerenciamento de Domínio.](./media/work-com-tutorial/ic794115.png "Meu domínio")
 
-11. Na página **Meu Domínio** , na seção **Identidade Visual da Página de Logon** , clique em **Editar**.
+11. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
     
     ![A captura de tela mostra a seção Identidade Visual da Página de Logon, em que você pode selecionar Editar.](./media/work-com-tutorial/ic767826.png "Identidade visual da página de logon")
 
-12. Na página **Identidade Visual da Página de Logon** , na seção **Serviço de Autenticação** , o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
+12. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
     ![Captura de tela mostra a Identidade Visual da Página de Logon, na qual você pode selecionar o nome da sua configuração, que é PPE.](./media/work-com-tutorial/ic784366.png "Identidade visual da página de logon")
 
@@ -200,7 +200,7 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários**.
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -212,9 +212,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -224,7 +224,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Work.com.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Work.com**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Work.com**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -240,11 +240,11 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-workcom-test-user"></a>Criar usuário de teste do Work.com
 
@@ -270,19 +270,19 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
    
     ![Edição de usuário](./media/work-com-tutorial/ic794118.png "Editar usuário")
    
-    a. Na caixa de texto **Nome** , digite o **nome** do usuário, **Brenda**.
+    a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
     
-    b. Na caixa de texto **Sobrenome** , digite o **sobrenome** do usuário, **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite o **sobrenome** do usuário, **Fernandes**.
     
-    c. Na caixa de texto **Alias** , digite o **nome** do usuário, **BrendaF**.
+    c. Na caixa de texto **Alias**, digite o **nome** do usuário, **BrendaF**.
     
-    d. Na caixa de texto **Email** , digite o **endereço de email** do usuário, Brittasimon@contoso.com.
+    d. Na caixa de texto **Email**, digite o **endereço de email** do usuário, Brittasimon@contoso.com.
     
-    e. Na caixa de texto **Nome de Usuário** , digite um nome de usuário do usuário, como Brittasimon@contoso.com.
+    e. Na caixa de texto **Nome de Usuário**, digite um nome de usuário do usuário, como Brittasimon@contoso.com.
     
-    f. Na caixa de texto **Apelido** , digite um **apelido** para o usuário, assim como **Fernandes**.
+    f. Na caixa de texto **Apelido**, digite um **apelido** para o usuário, assim como **Fernandes**.
     
-    g. Selecione **Função** , **Licença de Usuário** e **Perfil**.
+    g. Selecione **Função**, **Licença de Usuário** e **Perfil**.
     
     h. Clique em **Save** (Salvar).  
       

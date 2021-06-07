@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a890185fcd69967fd2a035c27e1cf92798f04
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: f4817e53cb36bc96add19d855750a73a151b4891
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548147"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772290"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -121,7 +121,7 @@ Esse código define uma classe de entidade que usa o nome do cliente como a chav
 
 ## <a name="insert-or-merge-an-entity"></a>Inserir ou mesclar uma entidade
 
-O exemplo de código a seguir cria um objeto de entidade e o adiciona à tabela. O método InsertOrMerge dentro da classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é usado para inserir ou mesclar uma entidade. O método [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) é chamado para executar a operação. 
+O exemplo de código a seguir cria um objeto de entidade e o adiciona à tabela. O método InsertOrMerge dentro da classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é usado para inserir ou mesclar uma entidade. O método [CloudTable.ExecuteAsync](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync) é chamado para executar a operação. 
 
 Clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe nomeada **SamplesUtils.cs**. Essa classe armazena todo o código necessário para executar operações CRUD nas entidades. 
 

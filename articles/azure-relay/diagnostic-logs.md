@@ -3,20 +3,20 @@ title: Logs de diagnóstico para Conexões Híbridas
 description: Este artigo fornece uma visão geral de todos os logs de atividade e de diagnóstico que estão disponíveis para a Retransmissão do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87532995"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079090"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar logs de diagnóstico para conexões híbridas de Retransmissão do Azure
 Ao começar a usar as conexões híbridas de Retransmissão do Azure, convém monitorar como e quando seus ouvintes e remetentes são abertos e fechados e como suas conexões híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos logs de atividade e de diagnóstico fornecidos pelo serviço de Retransmissão do Azure. 
 
 É possível exibir dois tipos de logs para a Retransmissão do Azure:
 
-- [Logs de atividades](../azure-monitor/platform/platform-logs-overview.md): Esses logs têm informações sobre as operações executadas em relação ao namespace no portal do Azure ou por meio do modelo de Azure Resource Manager. Esses logs estão sempre habilitados. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar a conexão híbrida". 
-- [Logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md): Você pode configurar os logs de diagnóstico para uma exibição mais rica de tudo o que acontece com operações e ações que são realizadas em seu namespace usando a API ou o SDK de linguagem.
+- [Logs de atividades](../azure-monitor/essentials/platform-logs-overview.md): Esses logs têm informações sobre as operações executadas em relação ao namespace no portal do Azure ou por meio do modelo de Azure Resource Manager. Esses logs estão sempre habilitados. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar a conexão híbrida". 
+- [Logs de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md): Você pode configurar os logs de diagnóstico para uma exibição mais rica de tudo o que acontece com operações e ações que são realizadas em seu namespace usando a API ou o SDK de linguagem.
 
 ## <a name="view-activity-logs"></a>Exibir logs de atividade
 Para exibir os logs de atividade para o namespace de Retransmissão do Azure, alterne para a página do **log de atividades** no portal do Azure.
@@ -46,7 +46,7 @@ Para habilitar logs de diagnóstico, realize as seguintes etapas:
         ![Configurações de diagnóstico de exemplo](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Selecione **Salvar** na barra de ferramentas para salvar as configurações.
 
-As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**. Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**. Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Esquema para eventos de conexões híbridas
@@ -54,12 +54,12 @@ As cadeias de caracteres JSON do log de evento de conexões híbridas incluem os
 
 | Nome | Descrição |
 | ------- | ------- |
-| ResourceId | ID de recurso do Azure Resource Manager |
-| ActivityId | ID interna, usada para identificar a operação especificada. Também pode ser conhecida como "TrackingId" |
-| Ponto de extremidade | O endereço do recurso de Retransmissão |
-| OperationName | O tipo da operação de conexões híbridas que está sendo registrada |
-| EventTimeString | O carimbo de data/hora, em UTC, do registro de log |
-| Mensagem | A mensagem detalhada do evento |
+| ResourceId | ID de recurso do Azure Resource Manager |
+| ActivityId | ID interna, usada para identificar a operação especificada. Também pode ser conhecida como "TrackingId" |
+| Ponto de extremidade | O endereço do recurso de Retransmissão |
+| OperationName | O tipo da operação de conexões híbridas que está sendo registrada |
+| EventTimeString | O carimbo de data/hora, em UTC, do registro de log |
+| Mensagem | A mensagem detalhada do evento |
 | Categoria | Categoria do evento. Atualmente há apenas `HybridConnectionsEvents`. 
 
 
@@ -80,29 +80,29 @@ Veja um exemplo de evento de conexões híbridas no formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos e operações capturados nos logs de diagnóstico
 
-| Operação | Descrição | 
-| --------- | ----------- | 
-| AuthorizationFailed | Falha na autorização.|
-| InvalidSasToken | Token SAS inválido. | 
-| ListenerAcceptingConnection | O ouvinte está aceitando a conexão. |
-| ListenerAcceptingConnectionTimeout | O tempo limite para aceitação da conexão pelo ouvinte foi atingido. |
-| ListenerAcceptingHttpRequestFailed | Falha na aceitação de solicitação HTTP pelo ouvinte devido a uma exceção. |
-| ListenerAcceptingRequestTimeout | O tempo limite para aceitação da solicitação pelo ouvinte foi atingido. |  
-| ListenerClosingFromExpiredToken | O ouvinte está fechando porque o token de segurança expirou. | 
-| ListenerRejectedConnection | O ouvinte rejeitou a conexão. |
-| ListenerReturningHttpResponse | O ouvinte está retornando uma resposta HTTP. |  
-| ListenerReturningHttpResponseFailed | O ouvinte está retornando uma resposta HTTP com um código de falha. | 
- ListenerSentHttpResponse | O serviço de Retransmissão recebeu uma resposta HTTP do ouvinte. | 
-| ListenerUnregistered | O registro do ouvinte foi cancelado. | 
-| ListenerUnresponsive | O ouvinte não está respondendo ao retornar uma resposta. | 
-| MessageSendingToListener | A mensagem está sendo enviada para o ouvinte. |
-| MessageSentToListener | A mensagem foi enviada ao ouvinte. | 
-| NewListenerRegistered | Novo ouvinte registrado. |
-| NewSenderRegistering | O novo remetente está se registrando. | 
-| ProcessingRequestFailed | Falha no processamento de uma operação de conexão híbrida. | 
-| SenderConnectionClosed | A conexão do remetente está fechada. |
-| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a conexão com êxito. |
-| SenderSentHttpRequest | O remetente enviou uma solicitação HTTP. | 
+| Operação                           | Descrição                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Falha na autorização.                                           |
+| InvalidSasToken                     | Token SAS inválido.                                              |
+| ListenerAcceptingConnection         | O ouvinte está aceitando a conexão.                           |
+| ListenerAcceptingConnectionTimeout  | O tempo limite para aceitação da conexão pelo ouvinte foi atingido.                |
+| ListenerAcceptingHttpRequestFailed  | Falha na aceitação de solicitação HTTP pelo ouvinte devido a uma exceção. |
+| ListenerAcceptingRequestTimeout     | O tempo limite para aceitação da solicitação pelo ouvinte foi atingido.                   |
+| ListenerClosingFromExpiredToken     | O ouvinte está fechando porque o token de segurança expirou. |
+| ListenerRejectedConnection          | O ouvinte rejeitou a conexão.                       |
+| ListenerReturningHttpResponse       | O ouvinte está retornando uma resposta HTTP.                     |
+| ListenerReturningHttpResponseFailed | O ouvinte está retornando uma resposta HTTP com um código de falha. |
+| ListenerSentHttpResponse            | O serviço de Retransmissão recebeu uma resposta HTTP do ouvinte.  |
+| ListenerUnregistered                | O registro do ouvinte foi cancelado.                                   |
+| ListenerUnresponsive                | O ouvinte não está respondendo ao retornar uma resposta.         |
+| MessageSendingToListener            | A mensagem está sendo enviada para o ouvinte.                              |
+| MessageSentToListener               | A mensagem foi enviada ao ouvinte.                                    |
+| NewListenerRegistered               | Novo ouvinte registrado.                                        |
+| NewSenderRegistering                | O novo remetente está se registrando.                                      |
+| ProcessingRequestFailed             | Falha no processamento de uma operação de conexão híbrida.     |
+| SenderConnectionClosed              | A conexão do remetente está fechada.                                |
+| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a conexão com êxito.    |
+| SenderSentHttpRequest               | O remetente enviou uma solicitação HTTP.                                |
 
 
 ## <a name="next-steps"></a>Próximas etapas

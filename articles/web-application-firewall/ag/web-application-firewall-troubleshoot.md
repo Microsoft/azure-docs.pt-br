@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92131829"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Solucionar problemas do WAF (firewall do aplicativo Web) para Aplicativo Azure gateway
@@ -297,11 +297,11 @@ A segunda (regra 942130) é a interessante. Você pode ver nos detalhes que ele 
 
 ## <a name="finding-request-header-names"></a>Localizando nomes de cabeçalho de solicitação
 
-O Fiddler é uma ferramenta útil mais uma vez para localizar nomes de cabeçalho de solicitação. Na captura de tela a seguir, você pode ver os cabeçalhos dessa solicitação GET, que incluem *Content-Type*, *User-Agent*e assim por diante.
+O Fiddler é uma ferramenta útil mais uma vez para localizar nomes de cabeçalho de solicitação. Na captura de tela a seguir, você pode ver os cabeçalhos dessa solicitação GET, que incluem *Content-Type*, *User-Agent* e assim por diante.
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Captura de tela do progresso do depurador Web Telerik Fiddler. A guia bruto lista detalhes do cabeçalho da solicitação, como a conexão, o tipo de conteúdo e o agente do usuário." border="false":::
 
-Outra maneira de exibir cabeçalhos de solicitação e resposta é procurar nas ferramentas de desenvolvedor do Chrome. Você pode pressionar F12 ou clicar com o botão direito do mouse > **inspecionar**  ->  **ferramentas para desenvolvedores**e selecionar a guia **rede** . Carregue uma página da Web e clique na solicitação que você deseja inspecionar.
+Outra maneira de exibir cabeçalhos de solicitação e resposta é procurar nas ferramentas de desenvolvedor do Chrome. Você pode pressionar F12 ou clicar com o botão direito do mouse > **inspecionar**  ->  **ferramentas para desenvolvedores** e selecionar a guia **rede** . Carregue uma página da Web e clique na solicitação que você deseja inspecionar.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

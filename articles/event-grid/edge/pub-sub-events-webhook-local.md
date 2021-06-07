@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171441"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
@@ -55,7 +55,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
 
    * **Nome**: eventgridmodule
    * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Opções de Criação de Contêiner**:
+   * **Opções de criação de contêiner**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
 

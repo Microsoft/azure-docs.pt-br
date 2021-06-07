@@ -1,22 +1,21 @@
 ---
 title: Perguntas frequentes sobre preços para o Monitor de Desempenho de Rede do Azure | Microsoft Docs
 description: Perguntas frequentes - Monitor de Desempenho de Rede do Azure
-ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 56163d3267a69099cbf6a18266168e9198ea04c6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832871"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101717427"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no observador de rede do Azure antes de 29 de fevereiro de 2024.
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você pode continuar a usar os testes criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede para o novo monitor de conexão](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 Ouvimos seus comentários e introduzimos recentemente uma [nova experiência de preços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para vários serviços de monitoramento no Azure. Este artigo captura as alterações de preços relacionadas ao [Monitor de Desempenho de Rede](../../networking/network-monitoring-overview.md) (NPM) do Azure em qualquer formato de pergunta e resposta fácil de ler.
 

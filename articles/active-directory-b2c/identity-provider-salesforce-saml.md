@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953811"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488713"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurar a entrada com um provedor de SAML do Salesforce usando o protocolo SAML no Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ ms.locfileid: "98953811"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma organização da Salesforce usando [políticas personalizadas](custom-policy-overview.md) no Azure AD B2C (Azure Active Directory B2C). Você habilita a credencial adicionando um [perfil técnico de provedor de identidade do SAML](saml-identity-provider-technical-profile.md) a uma política personalizada.
+Este artigo mostra como habilitar a entrada para usuários de uma organização da Salesforce usando [políticas personalizadas](custom-policy-overview.md) no Azure AD B2C (Azure Active Directory B2C). Você habilita a entrada adicionando um provedor de [identidade SAML](identity-provider-generic-saml.md) a uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,11 +60,24 @@ Este artigo mostra como habilitar a entrada para usuários de uma organização 
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
+      Ao usar um [domínio personalizado](custom-domain.md), use o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      ```
+
 6. No campo **URL ACS**, digite a URL a seguir. Substitua o valor de `your-tenant` pelo nome do seu locatário do Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
+
+      Ao usar um [domínio personalizado](custom-domain.md), use o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      ```
+
 7. Role até a parte inferior da lista e, em seguida, clique em **Salvar**.
 
 ### <a name="get-the-metadata-url"></a>Obter a URL de metadados
@@ -77,7 +90,7 @@ Este artigo mostra como habilitar a entrada para usuários de uma organização 
 1. Na página **Gerenciar** do aplicativo conectado, clique em **Gerenciar Perfis**.
 2. Selecione os perfis (ou grupos de usuários) que você deseja federar com o Azure AD B2C. Como administrador do sistema, marque a caixa de seleção **Administrador do Sistema** para que você possa estabelecer a federação usando sua conta do Salesforce.
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
@@ -100,7 +113,7 @@ Você precisa armazenar o certificado que criou no locatário do Azure AD B2C.
 
 Se você quiser que os usuários entrem usando uma conta da Salesforce, defina a conta como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
-Você pode definir uma conta da Salesforce como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, confira [definir um perfil técnico do provedor de identidade SAML](saml-identity-provider-technical-profile.md).
+Você pode definir uma conta da Salesforce como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política. Para obter mais informações, consulte [definir um provedor de identidade SAML](identity-provider-generic-saml.md).
 
 1. Abra *TrustFrameworkExtensions.xml*.
 1. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
@@ -186,6 +199,13 @@ Você pode definir uma conta da Salesforce como um provedor de declarações adi
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
+1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **Salesforce** para entrar com a conta do Salesforce.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end

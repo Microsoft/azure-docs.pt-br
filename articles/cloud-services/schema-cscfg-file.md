@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743467"
 ---
 # <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Esquema de configuração dos serviços de nuvem do Azure (clássico) (arquivo. cscfg)
@@ -48,7 +48,7 @@ O formato básico do arquivo de configuração de serviço é o seguinte.
 ## <a name="schema-definitions"></a>Definições do esquema
 Os tópicos a seguir descrevem o esquema para o elemento `ServiceConfiguration`:
 
-- [Esquema de Função](schema-cscfg-role.md)
+- [Esquema de função](schema-cscfg-role.md)
 - [Esquema NetworkConfiguration](schema-cscfg-networkconfiguration.md)
 
 ## <a name="service-configuration-namespace"></a>Namespace de configuração de serviço

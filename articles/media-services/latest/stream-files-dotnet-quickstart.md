@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898182"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962032"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – .NET
 
@@ -36,7 +36,7 @@ Ao final do tutorial, você poderá transmitir um vídeo por streaming.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
+- [Crie uma conta de Serviços de Mídia](./account-create-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
 - Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](./access-api-howto.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 
 ## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo

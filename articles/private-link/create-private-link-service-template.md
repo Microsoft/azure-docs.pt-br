@@ -1,19 +1,19 @@
 ---
-title: Criar um serviço de link privado no Link Privado do Azure
+title: 'Guia de início rápido: criar um serviço de link privado no Link Privado do Azure'
 description: Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um serviço de link privado.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: dce80d70af7cd711cf852a60b98ad65b6d21117f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705241"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102555050"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Início Rápido: Criar um serviço de link privado usando um modelo do ARM
 
@@ -112,4 +112,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [Link Privado do Azure](private-link-overview.md).
+
+Para obter mais informações sobre os serviços que dão suporte a um ponto de extremidade privado, confira:
+> [!div class="nextstepaction"]
+> [Disponibilidade de Link Privado](private-link-overview.md#availability)

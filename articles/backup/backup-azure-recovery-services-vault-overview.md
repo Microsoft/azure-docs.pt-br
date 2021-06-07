@@ -4,10 +4,10 @@ description: Uma visão geral dos cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98755115"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação

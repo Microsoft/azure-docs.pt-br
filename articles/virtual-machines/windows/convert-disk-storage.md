@@ -2,17 +2,17 @@
 title: Converter o armazenamento de discos gerenciados entre diferentes tipos de disco usando Azure PowerShell
 description: Como converter o Azure Managed disks entre os diferentes tipos de discos usando Azure PowerShell.
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
-ms.subservice: disks
-ms.openlocfilehash: 1d1c191c746d6853f922302d74c6eefcba547f80
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 658dfbb654920c0dd90c4b4caaac7a5ca5962c81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519738"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607289"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
@@ -38,7 +38,7 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between Standard_LRS, StandardSDD_LRS and Premium_LRS based on your scenario
+# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 
 # Premium capable size

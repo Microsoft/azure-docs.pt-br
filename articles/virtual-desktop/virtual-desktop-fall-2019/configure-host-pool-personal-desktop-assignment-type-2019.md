@@ -7,10 +7,10 @@ ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 669010d2de90498c98fc685fe931b084a11cd104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008501"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Configurar o tipo de atribuição do pool de hosts de área de trabalho pessoal para o Windows Virtual Desktop (clássico)

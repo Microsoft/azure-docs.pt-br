@@ -4,12 +4,12 @@ description: Esse script cria uma conta do Lote do Azure em modo de Serviço em 
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2349b6b373f271a5aa0f169e5a9ebc9f58f6f608
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3d978cf56e92abf9824c116e51f94d53bbe14bbb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076803"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768315"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Exemplo da CLI: criar uma conta do Lote em modo de Serviço em lotes
 
@@ -37,14 +37,14 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Lote. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma conta de armazenamento. |
-| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Atualiza as propriedades da conta do Lote.  |
-| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Recupera os detalhes da conta do Lote especificada.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Recupera as chaves de acesso da conta do Lote especificada.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Cria uma conta de armazenamento. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Atualiza as propriedades da conta do Lote.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Recupera os detalhes da conta do Lote especificada.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera as chaves de acesso da conta do Lote especificada.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

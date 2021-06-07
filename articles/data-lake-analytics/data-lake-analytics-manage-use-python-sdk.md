@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: fda09047d138e404eeca87ed3eba9bb72ff62d56
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92220220"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerenciar o Azure Data Lake Analytics usando o Python
@@ -29,9 +29,9 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 
 Instale os seguintes módulos:
 
-* O módulo **Azure-MGMT-Resource** inclui outros módulos do azure para Active Directory, etc.
-* O módulo **Azure-datalake-Store** inclui as operações de sistema de arquivos Azure data Lake Store. 
-* O módulo **Azure-MGMT-datalake-Store** inclui as operações de gerenciamento de conta Azure data Lake Store.
+* O módulo **azure-mgmt-resource** inclui outros módulos do Azure para o Active Directory, etc.
+* O módulo **azure-datalake-store** inclui as operações de sistema de arquivos do Azure Data Lake Store. 
+* O módulo **azure-mgmt-datalake-store** inclui as operações de gerenciamento de contas do Azure Data Lake Store.
 * O módulo **azure-mgmt-datalake-analytics** inclui as operações do Azure Data Lake Analytics. 
 
 Primeiro, verifique se você tem a versão mais recente do `pip`, executando o seguinte comando:

@@ -7,10 +7,10 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b3348e5a999b507aa0d286528970beb0e03f26cd
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594365"
 ---
 # <a name="cut-planes"></a>Recortar planos

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
 ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96183695"
 ---
 # <a name="repair-an-automanage-account"></a>Reparar uma conta de autogerenciamento
@@ -72,7 +72,7 @@ Se você estiver usando um modelo ARM ou o CLI do Azure, precisará da ID da ent
 1. Vá para **controle de acesso (iam)**.
 1. Selecione **Adicionar atribuições de função**.
 1. Selecione a função **colaborador** e insira o nome da sua conta de autogerenciamento.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Repita as etapas de 3 a 5, desta vez com a função **colaborador de política de recurso** .
 
 ### <a name="arm-template"></a>Modelo de ARM

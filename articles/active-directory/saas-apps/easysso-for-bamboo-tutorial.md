@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735956"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EasySSO for Bamboo
@@ -183,7 +183,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
     ![Aparência](./media/easysso-for-bamboo-tutorial/bamboo-admin-5.png)
 
     > [!NOTE]
-    > Se tiver problemas, entre em contato com a [equipe de suporte do EasySSO](mailto:support@techtime.co.nz).
+    > Se tiver problemas, entre em contato com a [Equipe de suporte do EasySSO](mailto:support@techtime.co.nz).
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Criar um usuário de teste do EasySSO for Bamboo
 

@@ -108,10 +108,10 @@
     - name: Documentação da função do Microsoft 365
       href: m365-workload-docs.md
     - name: API do Graph
-      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole
     - name: CLI do Azure AD
       href: /cli/azure/ad
     - name: PowerShell do Azure AD para Graph
-      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+      href: /powershell/azure/active-directory/install-adv2
     - name: Limites de serviço do Azure AD
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

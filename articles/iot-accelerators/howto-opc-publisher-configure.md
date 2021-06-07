@@ -10,11 +10,11 @@ services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366948"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105646006"
 ---
 # <a name="configure-opc-publisher"></a>Configurar o OPC Publisher
 

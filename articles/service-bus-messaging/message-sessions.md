@@ -4,10 +4,10 @@ description: Este artigo explica como usar as sessões para habilitar a manipula
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680746"
 ---
 # <a name="message-sessions"></a>Sessões de mensagem
@@ -34,9 +34,9 @@ No portal, defina o sinalizador com a caixa de seleção a seguir:
 ![Captura de tela da caixa de diálogo Criar fila com a opção habilitar sessões selecionada e descrita em vermelho.][2]
 
 > [!NOTE]
-> Quando as sessões são habilitadas em uma fila ou em uma assinatura, os aplicativos cliente **não podem mais** enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo a ID de sessão) e recebidas por meio do recebimento da sessão.
+> Quando as sessões são habilitadas em uma fila ou em uma assinatura, os aplicativos cliente podem ***deixar de*** enviar/receber mensagens comuns. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo a ID de sessão) e recebidas por meio do recebimento da sessão.
 
-As APIs para sessões existem em clientes de fila e assinatura. Há um modelo imperativo que controla quando as sessões e mensagens são recebidas e um modelo baseado em manipulador, semelhante ao _OnMessage *, que oculta a complexidade do gerenciamento do loop de recebimento.
+As APIs para sessões existem em clientes de fila e assinatura. Há um modelo imperativo que controla quando as sessões e mensagens são recebidas e um modelo baseado no manipulador, semelhante ao *OnMessage*, que oculta a complexidade do gerenciamento do loop de recebimento.
 
 ### <a name="session-features"></a>Recursos de sessão
 

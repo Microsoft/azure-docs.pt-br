@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 41eb15a38c97532951723f12d1ac74c90c838eb1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968189"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
@@ -107,7 +107,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
-### <a name="tags"></a>Marcações
+### <a name="tags"></a>Marcas
 
 As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
@@ -127,7 +127,7 @@ Por padrão, o PowerShell do DNS do Azure usa as Etags bloquear alterações sim
 
 No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeçalhos HTTP.  Seu comportamento é descrito na tabela a seguir:
 
-| Cabeçalho | Comportamento |
+| parâmetro | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
 | If-match \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |

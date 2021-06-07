@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 340b910319cabe3379bdb1bad1c09bc71c17f072
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95994937"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para gerenciar compartilhamentos na Matriz Virtual StorSimple
@@ -88,7 +88,7 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
 
    4. No campo **Capacidade** , especifique o tamanho do compartilhamento. Um compartilhamento em camadas deve ter entre 500 GB e 20 TB e um compartilhamento fixo local deve ter entre 50 GB e 2 GB.
 
-   5. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou o grupo de usuários no _john@contoso.com_ formato. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+   5. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no formato _john@contoso.com_ . É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
 3. Quando você tiver terminado de configurar o compartilhamento, clique em **Criar**. Um compartilhamento será criado com as configurações especificadas e você verá uma notificação. Por padrão, o backup estará habilitado para o compartilhamento.
 4. Para confirmar se o compartilhamento foi criado com êxito, vá para a página **Compartilhamentos** . Você deve ver o compartilhamento listado.
    

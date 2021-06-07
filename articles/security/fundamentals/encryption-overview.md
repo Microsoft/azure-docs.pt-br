@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879707"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure

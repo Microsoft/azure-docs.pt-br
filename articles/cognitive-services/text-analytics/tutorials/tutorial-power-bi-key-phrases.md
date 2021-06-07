@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369538"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599163"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -68,7 +68,7 @@ Talvez seja necessário transformar seus dados no Power BI Desktop antes que ele
 
 Os dados de exemplo contêm uma coluna `subject` e uma coluna `comment`. Com a função Mesclar colunas no Power BI Desktop, é possível extrair frases-chave dos dados em ambas as colunas, em vez de apenas da coluna `comment`.
 
-No Power BI Desktop, selecione a faixa de opções **Início**. No grupo **Dados externos** , clique em **Editar consultas**.
+No Power BI Desktop, selecione a faixa de opções **Início**. No grupo **Dados externos**, clique em **Editar consultas**.
 
 ![[O grupo Dados Externos na faixa de opções Página Inicial]](../media/tutorials/power-bi/edit-queries.png)
 
@@ -89,7 +89,7 @@ Você também pode considerar a filtragem de mensagens em branco usando o filtro
 ## <a name="understand-the-api"></a>Compreender a API
 <a name="UnderstandingAPI"></a>
 
-A [API de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) do serviço Análise de Texto pode processar até mil documentos de texto por solicitação HTTP. O Power BI prefere lidar com um registro por vez; portanto, neste tutorial, suas chamadas à API incluirão apenas um único documento cada. A API de Frases-chave requer os campos a seguir para cada documento que está sendo processado.
+A [API de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/operations/KeyPhrases) do serviço Análise de Texto pode processar até mil documentos de texto por solicitação HTTP. O Power BI prefere lidar com um registro por vez; portanto, neste tutorial, suas chamadas à API incluirão apenas um único documento cada. A API de Frases-chave requer os campos a seguir para cada documento que está sendo processado.
 
 | Campo | Descrição |
 | - | - |
@@ -105,13 +105,13 @@ Agora você está pronto para criar a função personalizada que integrará o Po
 > [!NOTE]
 > As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmula Power Query M](/powerquery-m/power-query-m-reference), ou sua forma abreviada "M”. M é uma linguagem de programação funcional com base em [F#](/dotnet/fsharp/). Você não precisa ser um programador para concluir este tutorial, pois o código necessário está incluído abaixo.
 
-No Power BI Desktop, certifique-se de ainda estar na janela do Editor de consultas. Se não estiver, selecione a faixa de opções **Início** e, no grupo **Dados externos** , clique em **Editar consultas**.
+No Power BI Desktop, certifique-se de ainda estar na janela do Editor de consultas. Se não estiver, selecione a faixa de opções **Início** e, no grupo **Dados externos**, clique em **Editar consultas**.
 
-Agora, na faixa de opções **Início** , no grupo **Nova Consulta** , abra o menu suspenso **Nova fonte** e selecione **Consulta em branco**. 
+Agora, na faixa de opções **Início**, no grupo **Nova Consulta**, abra o menu suspenso **Nova fonte** e selecione **Consulta em branco**. 
 
 Uma nova consulta, nomeada inicialmente como `Query1`, é exibida na lista de consultas. Clique duas vezes nessa entrada e nomeie-a `KeyPhrases`.
 
-Agora, na faixa de opções **Início** , no grupo **Consulta** , clique em **Editor Avançado** para abrir a janela do Editor Avançado. Exclua o código que já está nessa janela e cole o código a seguir. 
+Agora, na faixa de opções **Início**, no grupo **Consulta**, clique em **Editor Avançado** para abrir a janela do Editor Avançado. Exclua o código que já está nessa janela e cole o código a seguir. 
 
 > [!NOTE]
 > Substitua o ponto de extremidade do exemplo abaixo (que contém `<your-custom-subdomain>`) pelo ponto de extremidade gerado para seu recurso de Análise de Texto. É possível encontrar esse ponto de extremidade entrando no [portal do Azure](https://azure.microsoft.com/features/azure-portal/), selecionando a assinatura da Análise de Texto e selecionando `Quick start`.
@@ -139,11 +139,11 @@ Substitua `YOUR_API_KEY_HERE` pela chave de acesso da Análise de Texto. Também
 
 Agora é possível usar a função personalizada para extrair as frases-chave de cada um dos comentários de clientes e armazená-las em uma nova coluna na tabela. 
 
-No Power BI Desktop, na janela do Editor de Consultas, retorne para a consulta `FabrikamComments`. Selecione a faixa de opções **Adicionar coluna**. No grupo **Geral** , clique em **Invocar função personalizada**.
+No Power BI Desktop, na janela do Editor de Consultas, retorne para a consulta `FabrikamComments`. Selecione a faixa de opções **Adicionar coluna**. No grupo **Geral**, clique em **Invocar função personalizada**.
 
 ![[Botão Invocar Função Personalizada]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
-A caixa de diálogo Invocar função personalizada é exibida. No **Novo nome da coluna** , insira `keyphrases`. Na **Consulta de função** , selecione a função personalizada que você criou, `KeyPhrases`.
+A caixa de diálogo Invocar função personalizada é exibida. No **Novo nome da coluna**, insira `keyphrases`. Na **Consulta de função**, selecione a função personalizada que você criou, `KeyPhrases`.
 
 Um novo campo é exibido na caixa de diálogo **texto (opcional)** . Este campo está solicitando qual coluna queremos usar para fornecer valores para o parâmetro `text` da API de Frases-chave. (Lembre-se de que você já embutiu os valores em código para os parâmetros `language` e `id`.) Selecione `Merged` (a coluna que criamos [anteriormente](#PreparingData) mesclando os campos de assunto e mensagem) no menu suspenso.
 
@@ -160,7 +160,7 @@ Após fechar a caixa de diálogo Invocar função personalizada, uma faixa poder
 
 ![[faixa de credenciais]](../media/tutorials/power-bi/credentials-banner.png)
 
-Clique em **Editar credenciais** , certifique-se de que `Anonymous` está selecionado na caixa de diálogo e, em seguida, clique em **Conectar**. 
+Clique em **Editar credenciais**, certifique-se de que `Anonymous` está selecionado na caixa de diálogo e, em seguida, clique em **Conectar**. 
 
 > [!NOTE]
 > Você seleciona `Anonymous`, porque o serviço Análise de Texto faz a autenticação usando sua chave de acesso para que o Power BI não precise fornecer credenciais para a solicitação HTTP em si.
@@ -190,7 +190,7 @@ Agora você usará esta coluna para gerar uma nuvem de palavras. Para começar, 
 > [!NOTE]
 > Por que usar frases-chave extraídas para gerar uma nuvem de palavras em vez de usar o texto completo de cada comentário? As frases-chave nos fornecem as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras na nuvem gerada não é distorcido pelo uso frequente de uma palavra em um número relativamente pequeno de comentários.
 
-Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências ( **...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
+Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências ( **...** ) e escolha **Importar do Mercado**. Se a palavra "nuvem" não estiver entre as ferramentas de visualização exibidas na lista, você poderá pesquisar por "nuvem" e clicar no botão **Adicionar** ao lado do Visual de Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
 
 ![[adicionando um objeto visual personalizado]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Primeiro, clique no ícone da Nuvem de Palavras no painel Visualizações.
 
 Um novo relatório aparece no workspace. Arraste o campo `keyphrases` do painel Campos para o campo Categoria no painel Visualizações. A nuvem de palavras é exibida no relatório.
 
-Agora, alterne para a página Formato do painel Visualizações. Na categoria Palavras irrelevantes, ative **Palavras Irrelevantes Padrão** para eliminar palavras curtas e comuns como "de" da nuvem. 
+Agora, alterne para a página Formato do painel Visualizações. Na categoria Palavras irrelevantes, ative **Palavras Irrelevantes Padrão** para eliminar palavras curtas e comuns como "de" da nuvem. No entanto, como estamos visualizando frases-chave, elas talvez não contenham palavras de parada.
 
 ![[ativando palavras irrelevantes padrão]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ A função Análise de Sentimento abaixo retorna uma pontuação que indica o gr
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Aqui estão duas versões de uma função Detecção de Idioma. A primeira retorna o código de idioma ISO (por exemplo, `en` para inglês) e a segunda retorna o nome "amigável" (por exemplo, `English`). Você deve notar que a última linha do corpo é diferente entre as duas versões.
@@ -249,8 +248,7 @@ Aqui estão duas versões de uma função Detecção de Idioma. A primeira retor
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Por fim, aqui está uma variante da função Frases-chave já apresentada que retorna as frases como um objeto de lista, em vez de uma única cadeia de caracteres de frases separada por vírgulas. 

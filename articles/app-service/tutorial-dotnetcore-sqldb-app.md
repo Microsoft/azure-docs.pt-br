@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: bafebcc54e4cbde87e8deb776eff227fc99035cc
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 52a5b127312ef979791d17b27ca67b21a779e310
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623848"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765709"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo ASP.NET Core e do Banco de Dados SQL do Azure no Serviço de Aplicativo do Azure
 
@@ -95,7 +95,7 @@ Para o Banco de Dados SQL, este tutorial usa o [Banco de Dados SQL do Azure](/az
 
 ### <a name="create-a-sql-database-logical-server"></a>Criar um servidor lógico do Banco de Dados SQL
 
-No Cloud Shell, crie um servidor lógico do Banco de Dados SQL com o comando [`az sql server create`](/cli/azure/sql/server#az-sql-server-create).
+No Cloud Shell, crie um servidor lógico do Banco de Dados SQL com o comando [`az sql server create`](/cli/azure/sql/server#az_sql_server_create).
 
 Substitua o espaço reservado *\<server-name>* por um nome *exclusivo* do Banco de Dados SQL. Esse nome é usado como parte do ponto de extremidade do Banco de Dados SQL globalmente exclusivo, `<server-name>.database.windows.net`. Os caracteres válidos são `a`-`z`, `0`-`9`, `-`. Além disso, substitua *\<db-username>* e *\<db-password>* por um nome de usuário e uma senha de sua escolha. 
 
@@ -126,7 +126,7 @@ Quando o servidor lógico do Banco de Dados SQL é criado, a CLI do Azure mostra
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
 
-Crie uma [regra de firewall no nível de servidor do Banco de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) usando o comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
+Crie uma [regra de firewall no nível de servidor do Banco de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) usando o comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -144,7 +144,7 @@ az sql server firewall-rule create --name AllowLocalClient --server <server-name
 
 ### <a name="create-a-database"></a>Criar um banco de dados
 
-Crie um banco de dados com um [nível de desempenho S0](../azure-sql/database/service-tiers-dtu.md) no servidor usando o comando [`az sql db create`](/cli/azure/sql/db#az-sql-db-create).
+Crie um banco de dados com um [nível de desempenho S0](../azure-sql/database/service-tiers-dtu.md) no servidor usando o comando [`az sql db create`](/cli/azure/sql/db#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -152,7 +152,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Criar uma cadeia de conexão
 
-Obtenha a cadeia de conexão usando o comando [`az sql db show-connection-string`](/cli/azure/sql/db#az-sql-db-show-connection-string).
+Obtenha a cadeia de conexão usando o comando [`az sql db show-connection-string`](/cli/azure/sql/db#az_sql_db_show_connection_string).
 
 ```azurecli-interactive
 az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
@@ -263,7 +263,7 @@ Nesta etapa, você implantará seu aplicativo .NET Core conectado ao Banco de Da
 
 ### <a name="configure-connection-string"></a>Configurar a cadeia de conexão
 
-Para definir as cadeias de conexão para o aplicativo do Azure, use o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) no Cloud Shell. No comando a seguir, substitua *\<app-name>* pelo nome do aplicativo, bem como o parâmetro *\<connection-string>* pela cadeia de conexão criada anteriormente.
+Para definir as cadeias de conexão para o aplicativo do Azure, use o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) no Cloud Shell. No comando a seguir, substitua *\<app-name>* pelo nome do aplicativo, bem como o parâmetro *\<connection-string>* pela cadeia de conexão criada anteriormente.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
@@ -464,7 +464,7 @@ O projeto de exemplo já segue as diretrizes em [Registro do ASP.NET Core no Azu
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` em *DotNetCoreSqlDb.csproj*.
 - Chama `loggerFactory.AddAzureWebAppDiagnostics()` em *Program.cs*.
 
-Para definir o [nível de log](/aspnet/core/fundamentals/logging#log-level) do ASP.NET Core no Serviço de Aplicativo para `Information` do nível padrão `Error`, use o comando [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) no Cloud Shell.
+Para definir o [nível de log](/aspnet/core/fundamentals/logging#log-level) do ASP.NET Core no Serviço de Aplicativo para `Information` do nível padrão `Error`, use o comando [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -473,7 +473,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 > [!NOTE]
 > O nível de log do projeto já está definido como `Information` em *appsettings.json*.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) no Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

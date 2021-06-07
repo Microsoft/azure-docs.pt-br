@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 08b22af8743082bab1d547205e51917cb9d92a11
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "96780205"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101695763"
 ---
 # <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
@@ -30,8 +30,12 @@ O alcance dá suporte aos seguintes armazenamentos de dados. Clique em cada arma
 ||[Banco de Dados SQL do Azure](register-scan-azure-sql-database.md)|Sim| Sim| Não| Sim| Sim| Sim|
 ||[Instância Gerenciada do Banco de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|Sim| Sim| Não| Sim| Sim| Sim|
 ||[Azure Synapse Analytics (antigo SQL DW)](register-scan-azure-synapse-analytics.md)|Sim| Sim| Não| Sim| Sim| Sim|
-|Banco de dados|[SQL Server](register-scan-on-premises-sql-server.md)|Sim| Sim| Não| Sim| Sim| Sim|
+|Banco de dados|[Oracle DB](register-scan-oracle-source.md)|Sim| Sim| Não| Não| Não| Sim|
+||[SQL Server](register-scan-on-premises-sql-server.md)|Sim| Sim| Não| Sim| Sim| Sim|
+||[Teradata](register-scan-teradata-source.md)|Sim| Sim| Não| Não| Não| Sim|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Sim| Sim| Não| Não| Não| Sim|
+|Serviços e aplicativos|[SAP ECC](register-scan-sapecc-source.md)|Sim| Sim| Não| Sim| Sim| Sim|
+||[S4HANA SAP](register-scan-saps4hana-source.md)|Sim| Sim| Não| Sim| Sim| Sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 

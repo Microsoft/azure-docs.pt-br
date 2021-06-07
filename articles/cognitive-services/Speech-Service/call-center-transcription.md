@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95021959"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
@@ -70,7 +70,7 @@ Nossa latência de ponta a ponta é consideravelmente baixa para as várias tecn
 
 Nossas novas vozes também são praticamente idênticas às vozes humanas. Você pode usar nossas vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Search
 
 Outro ponto importante da análise é identificar as interações em que uma experiência ou um evento específico tenha ocorrido. Isso normalmente é feito com uma das duas abordagens; uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e, em seguida, cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... ". Muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de tendência dos comportamentos encontrados por algoritmos de consulta/pesquisa, e esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/directory/search/), sua solução de ponta a ponta pode ser consideravelmente aprimorada com funcionalidades de indexação e pesquisa.
 
@@ -121,7 +121,7 @@ Outro cenário é a integração direta com o SIP (Session Initiation Protocol).
 
  O serviço de fala funciona bem com modelos internos. No entanto, talvez você queira personalizar ainda mais e ajustar a experiência para seu produto ou ambiente. As opções de personalização vão do ajuste do modelo acústico a fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você pode usá-lo com qualquer um dos recursos do serviço de fala em modo em tempo real ou em lote.
 
-| Serviço de Fala | Modelar | Description |
+| Serviço de Fala | Modelo | Descrição |
 | -------------- | ----- | ----------- |
 | Conversão de fala em texto | [Modelo acústico](./how-to-custom-speech-train-model.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos usados em ambientes particulares, como um carro ou um chão de fábrica, cada um deles com condições específicas de gravação. Exemplos incluem fala com sotaque, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
 |                | [Modelo de linguagem](./how-to-custom-speech-train-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos de um setor, por exemplo, terminologia médica ou jargão de TI. |

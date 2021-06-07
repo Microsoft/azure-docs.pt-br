@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008563"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612093"
 ---
-# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e provisionar Azure IoT Edge para Linux em um dispositivo Windows (versão prévia)
+# <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e provisionar o Azure IoT Edge para Linux em um dispositivo Windows (versão prévia)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 O runtime do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos da classe PC para servidores industriais. Após um dispositivo ser configurado com o runtime do IoT Edge, você pode começar a implantar a lógica de negócios nele da nuvem. Para saber mais, confira [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
 
@@ -40,21 +42,19 @@ Este artigo lista as etapas para configurar o IoT Edge em um dispositivo Windows
 
   * Windows 10 versão 1809 ou posterior; Build 17763 ou posterior
   * Edições Professional, Enterprise ou Server
-  * RAM mínima: 4 GB (recomenda-se 8 GB)
-  * Armazenamento mínimo: 10 GB
+  * Memória livre mínima: 2 GB
+  * Mínimo de espaço livre em disco: 10 GB
+  * Se você estiver criando uma nova implantação usando o Windows 10, certifique-se de habilitar o Hyper-V. Para obter mais informações, consulte como [instalar o Hyper-V no Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
+  * Se você estiver criando uma nova implantação usando o Windows Server, certifique-se de instalar a função Hyper-V. Para obter mais informações, consulte como [instalar a função Hyper-V no Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Se você estiver criando uma nova implantação usando uma VM, certifique-se de configurar corretamente a virtualização aninhada. Para obter mais informações, consulte o guia de [virtualização aninhado](nested-virtualization.md) .
 
-* Acesso ao centro de administração do Windows Insider Build com a extensão Azure IoT Edge para o centro de administração do Windows instalado:  <!-- The link below needs the language localization to work; otherwise broken -->
-   1. Visite a [visualização do Windows Insider](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+* Acesso ao centro de administração do Windows com a extensão de Azure IoT Edge para o centro de administração do Windows instalada:
 
-   1. Na lista suspensa visualizações, selecione **versão prévia do centro de administração do Windows-Build 2012** e escolha **confirmar**.
+   1. Baixe o [instalador do centro de administração do Windows](https://aka.ms/wacdownload).
 
-      ![Escolha a versão prévia do centro de administração do Windows-Build 2012 no menu suspenso de visualizações disponíveis.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
+   1. Execute o instalador baixado e siga os prompts do assistente de instalação para instalar o centro de administração do Windows. 
 
-   1. Na lista suspensa **Selecionar idioma** , escolha **Inglês** e clique em **confirmar**.
-
-   1. Escolha **baixar agora** para baixar o *WindowsAdminCenterPreview2012.msi*.
-
-   1. Execute o *WindowsAdminCenterPreview2012.msi* e siga os prompts do assistente de instalação para instalar o centro de administração do Windows. Depois de instalado, abra o centro de administração do Windows.
+   1. Uma vez instalado, use um navegador com suporte para abrir o centro de administração do Windows. Os navegadores com suporte incluem o Microsoft Edge (Windows 10, versão 1709 ou posterior), Google Chrome e Microsoft Edge Insider.
 
    1. No primeiro uso do centro de administração do Windows, você será solicitado a selecionar um certificado a ser usado. Selecione o **cliente do centro de administração do Windows** como seu certificado.
 
@@ -63,12 +63,6 @@ Este artigo lista as etapas para configurar o IoT Edge em um dispositivo Windows
       ![Selecione o ícone de engrenagem no canto superior direito do painel para acessar as configurações.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. No menu **configurações** , em **Gateway**, selecione **extensões**.
-
-   1. Selecione a guia **Feeds** e **Adicionar**.
-
-   1. Insira https://aka.ms/wac-insiders-feed na caixa de texto e escolha **Adicionar**.
-
-   1. Depois que o feed for adicionado, procure a guia **Extensões disponíveis**. Pode levar alguns instantes para que a lista de extensões seja atualizada.
 
    1. Na guia **extensões disponíveis** , localize **Azure IOT Edge** na lista de extensões. Escolha-o e selecione o prompt de **instalação** acima da lista de extensões.
 
@@ -85,7 +79,7 @@ O Azure IoT Edge para Linux no Windows dá suporte aos seguintes métodos de pro
 
 O provisionamento manual é mais fácil de começar com alguns dispositivos. O serviço de provisionamento de dispositivos é útil para o provisionamento de vários dispositivos.
 
-Se você planeja usar um dos métodos de DPS para provisionar seu dispositivo ou dispositivos, siga as etapas no artigo apropriado vinculado acima para criar uma instância do DPS, vincule sua instância do DPS ao Hub IoT e crie um registro de DPS. Você pode criar um *registro individual* para um único dispositivo ou um *registro de grupo* para um grupo de dispositivos. Para obter mais informações sobre os tipos de registro, visite os [conceitos do serviço de provisionamento de dispositivos no Hub IOT do Azure](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment).
+Se você planeja usar um dos métodos de DPS para provisionar seu dispositivo ou dispositivos, siga as etapas no artigo apropriado vinculado acima para criar uma instância do DPS, vincule sua instância do DPS ao Hub IoT e crie um registro de DPS. Você pode criar um *registro individual* para um único dispositivo ou um *registro de grupo* para um grupo de dispositivos. Para obter mais informações sobre os tipos de registro, visite os [conceitos do serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/concepts-service.md#enrollment).
 
 ## <a name="create-a-new-deployment"></a>Criar uma nova implantação
 
@@ -97,7 +91,7 @@ Na página inicial do centro de administração do Windows, na lista de conexõe
 
 Você pode usar o centro de administração do Windows para fazer a instalação e o gerenciamento do Azure IoT Edge para Linux no Windows em seu dispositivo local ou em dispositivos remotos gerenciados. Neste guia, a conexão de host local funcionará como o dispositivo de destino para a implantação do Azure IoT Edge para Linux no Windows.
 
-Se você quiser implantar em um dispositivo de destino remoto em vez de no dispositivo local e não vir o dispositivo de destino desejado na lista, siga as [instruções para adicionar o dispositivo.](https://docs.microsoft.com/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
+Se você quiser implantar em um dispositivo de destino remoto em vez de no dispositivo local e não vir o dispositivo de destino desejado na lista, siga as [instruções para adicionar o dispositivo.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters)
 
    ![Painel inicial do centro de administração do Windows com o dispositivo de destino listado](./media/how-to-install-iot-edge-on-windows/windows-admin-center-initial-dashboard.png)
 
@@ -123,7 +117,16 @@ Se você quiser implantar em um dispositivo de destino remoto em vez de no dispo
 
    ![Selecione seu dispositivo para verificar se há suporte](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Aceite as configurações padrão na guia **configurações do 2,2** .
+1. Na guia **configurações do 2,2** , examine as definições de configuração de sua implantação. Quando estiver satisfeito com as configurações, selecione **Avançar**.
+
+   ![Examinar as definições de configuração de sua implantação](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >Se você estiver usando uma máquina virtual do Windows, é recomendável usar um comutador padrão em vez de um comutador externo para garantir que a máquina virtual Linux criada na implantação possa obter um endereço IP.
+   >
+   >Usar um comutador padrão atribui a máquina virtual Linux um endereço IP interno. Esse endereço IP interno não pode ser acessado de fora da máquina virtual do Windows, mas pode ser conectado localmente enquanto estiver conectado à máquina virtual do Windows.
+   >
+   >Se você estiver usando o Windows Server, observe que o Azure IoT Edge para Linux no Windows não oferece suporte automaticamente à opção padrão. Para uma máquina virtual local do Windows Server, verifique se a máquina virtual Linux pode obter um endereço IP por meio do comutador externo. Para uma máquina virtual do Windows Server no Azure, configure um comutador interno antes de implantar o IoT Edge para Linux no Windows.
 
 1. Na guia **implantação do 2,3** , você pode observar o progresso da implantação. O processo completo inclui baixar o Azure IoT Edge para Linux no pacote do Windows, instalar o pacote, configurar o dispositivo de host e configurar a máquina virtual Linux. Esse processo pode levar vários minutos para ser concluído. Uma implantação bem-sucedida está configurada abaixo.
 
@@ -136,14 +139,14 @@ Quando a implantação for concluída, você estará pronto para provisionar seu
 Instale IoT Edge para Linux no Windows no dispositivo de destino, se ainda não tiver feito isso.
 
 > [!NOTE]
-> O processo do PowerShell a seguir descreve como criar uma implantação de host local do Azure IoT Edge para Linux no Windows. Para criar uma implantação em um dispositivo de destino remoto usando o PowerShell, você pode usar o [PowerShell remoto](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_remote) para estabelecer uma conexão com um dispositivo remoto e executar esses comandos remotamente nesse dispositivo.
+> O processo do PowerShell a seguir descreve como criar uma implantação de host local do Azure IoT Edge para Linux no Windows. Para criar uma implantação em um dispositivo de destino remoto usando o PowerShell, você pode usar o [PowerShell remoto](/powershell/module/microsoft.powershell.core/about/about_remote) para estabelecer uma conexão com um dispositivo remoto e executar esses comandos remotamente nesse dispositivo.
 
 1. Em uma sessão do PowerShell com privilégios elevados, execute cada um dos comandos a seguir para baixar IoT Edge para Linux no Windows.
 
    ```azurepowershell-interactive
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Instale o IoT Edge para Linux no Windows em seu dispositivo.
@@ -173,9 +176,8 @@ Instale IoT Edge para Linux no Windows no dispositivo de destino, se ainda não 
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > Você pode executar esse comando sem parâmetros ou, opcionalmente, personalizar a implantação com parâmetros. Inspecione o módulo do PowerShell AzureEFLOW. psm1 para ver os parâmetros e seu significado (consulte em C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW).
+   > Você pode executar esse comando sem parâmetros ou, opcionalmente, personalizar a implantação com parâmetros. Você pode consultar [a referência de script do IOT Edge para Linux no Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver os significados de parâmetro e os valores padrão.
 
 1. Insira ' Y ' para aceitar os termos de licença.
 
@@ -319,7 +321,10 @@ Esta seção aborda o provisionamento automático de seu dispositivo usando cert
 
 Verifique se o IoT Edge para Linux no Windows foi instalado e configurado com êxito em seu dispositivo IoT Edge.
 
+# <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
+
 1. Selecione o dispositivo IoT Edge na lista de dispositivos conectados no centro de administração do Windows para se conectar a ele.
+
 1. A página Visão geral do dispositivo exibe algumas informações sobre o dispositivo:
 
     1. A seção lista de módulos de **IOT Edge** mostra módulos em execução no dispositivo. Quando o serviço de IoT Edge é iniciado pela primeira vez, você só deve ver o módulo **edgeAgent** em execução. O módulo edgeAgent é executado por padrão e ajuda a instalar e a iniciar quaisquer módulos adicionais que você implante em seu dispositivo.
@@ -339,6 +344,41 @@ Verifique se o IoT Edge para Linux no Windows foi instalado e configurado com ê
        sudo iotedge check
        ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+1. Faça logon em seu IoT Edge para Linux na máquina virtual do Windows usando o seguinte comando em sua sessão do PowerShell:
+
+   ```azurepowershell-interactive
+   Ssh-EflowVm
+   ```
+
+   >[!NOTE]
+   >A única conta permitida para o SSH para a máquina virtual é o usuário que a criou.
+
+1. Depois de fazer logon, você pode verificar a lista de módulos de IoT Edge em execução usando o seguinte comando do Linux:
+
+   ```bash
+   iotedge list
+   ```
+
+1. Se você precisar solucionar problemas do serviço de IoT Edge, use os comandos do Linux a seguir.
+
+    1. Se você precisar solucionar problemas do serviço, recupere os logs de serviço.
+
+       ```bash
+       journalctl -u iotedge
+       ```
+
+    2. Use a `check` ferramenta para verificar a configuração e o status de conexão do dispositivo.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue a [implantar módulos IOT Edge](how-to-deploy-modules-portal.md) para aprender a implantar módulos em seu dispositivo.
+* Continue a [implantar módulos IOT Edge](how-to-deploy-modules-portal.md) para aprender a implantar módulos em seu dispositivo.
+* Saiba como [gerenciar certificados em seu IOT Edge para Linux na máquina virtual do Windows](how-to-manage-device-certificates.md) e transferir arquivos do sistema operacional host para sua máquina virtual Linux.
+* Saiba como [configurar seus dispositivos IOT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md).

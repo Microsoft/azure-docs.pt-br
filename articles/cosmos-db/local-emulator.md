@@ -8,10 +8,10 @@ ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperf-fy21q1
 ms.openlocfilehash: 89e82e210dbf7c404ebd5978d87bf391d8565ee2
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033928"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Instalar e usar o emulador de Azure Cosmos DB para desenvolvimento e teste locais
@@ -333,7 +333,7 @@ Para habilitar o acesso à rede pela primeira vez, o usuário deve desligar o em
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticar conexões ao usar o emulador
 
-Assim como no Azure Cosmos DB na nuvem, cada solicitação feita no Emulador do Azure Cosmos DB deve ser autenticada. O emulador de Azure Cosmos DB dá suporte apenas à comunicação segura via TLS. O emulador de Azure Cosmos DB dá suporte a uma única conta fixa e uma chave de autenticação conhecida para autenticação de chave primária. Essa conta e a chave são as únicas credenciais permitidas para uso com o Emulador do Azure Cosmos DB. Elas são:
+Assim como no Azure Cosmos DB na nuvem, cada solicitação feita no Emulador do Azure Cosmos DB deve ser autenticada. O emulador de Azure Cosmos DB dá suporte apenas à comunicação segura via TLS. O emulador de Azure Cosmos DB dá suporte a uma única conta fixa e uma chave de autenticação conhecida para autenticação de chave primária. Essa conta e a chave são as únicas credenciais permitidas para uso com o Emulador do Azure Cosmos DB. São eles:
 
 ```bash
 Account name: localhost:<port>

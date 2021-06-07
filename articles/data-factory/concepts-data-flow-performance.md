@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/29/2021
-ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 03/15/2021
+ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222926"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561678"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -141,7 +141,7 @@ Se a maioria dos fluxos de dados for executada em paralelo, não é recomendáve
 > [!NOTE]
 > A vida útil não está disponível ao usar o tempo de execução de integração de resolução automática
 
-## <a name="optimizing-sources"></a>Otimizando fontes
+## <a name="optimizing-sources"></a>Otimização de fontes
 
 Para cada fonte, exceto o banco de dados SQL do Azure, é recomendável que você continue a **usar o particionamento atual** como o valor selecionado. Ao ler de todos os outros sistemas de origem, os fluxos de dados particionam automaticamente os dados uniformemente com base no tamanho dos dados. Uma nova partição é criada para aproximadamente a cada 128 MB de dados. À medida que o tamanho dos dados aumenta, aumenta o número de partições.
 
@@ -181,7 +181,7 @@ Se você estiver executando o mesmo fluxo de dados em um conjunto de arquivos, r
 
 Se possível, evite usar a atividade For-Each para executar fluxos de dados em um conjunto de arquivos. Isso fará com que cada iteração do para-cada para criar seu próprio cluster Spark, que geralmente não é necessário e pode ser caro. 
 
-## <a name="optimizing-sinks"></a>Otimizando coletores
+## <a name="optimizing-sinks"></a>Otimização de coletores
 
 Quando os fluxos de dados gravam em coletores, qualquer particionamento personalizado ocorrerá imediatamente antes da gravação. Como a origem, na maioria dos casos, é recomendável que você continue a **usar o particionamento atual** como a opção de partição selecionada. Os dados particionados serão gravados significativamente mais rapidamente do que os dados não particionados, até mesmo o destino não é particionado. Abaixo estão as considerações individuais para vários tipos de coletor. 
 
@@ -250,7 +250,7 @@ Ao gravar em CosmosDB, alterar a taxa de transferência e o tamanho do lote dura
 
 **Orçamento de taxa de transferência de gravação:** Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
 
-## <a name="optimizing-transformations"></a>Otimizando transformações
+## <a name="optimizing-transformations"></a>Otimização de transformações
 
 ### <a name="optimizing-joins-exists-and-lookups"></a>Otimizando junções, existentes e pesquisas
 
@@ -259,6 +259,8 @@ Ao gravar em CosmosDB, alterar a taxa de transferência e o tamanho do lote dura
 Em junções, pesquisas e transformações existentes, se um ou ambos os fluxos de dados forem pequenos o suficiente para caber na memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **transmissão**. A difusão é quando você envia quadros de dados pequenos para todos os nós no cluster. Isso permite que o mecanismo do Spark execute uma junção sem embaralhando os dados no fluxo grande. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não difundir um lado de uma junção. Se você estiver familiarizado com seus dados de entrada e souber que um fluxo será significativamente menor do que o outro, poderá selecionar a difusão **fixa** . A difusão fixa força o Spark a transmitir o fluxo selecionado. 
 
 Se o tamanho dos dados transmitidos for muito grande para o nó do Spark, você poderá receber um erro de memória insuficiente. Para evitar erros de memória insuficiente, use clusters com **otimização de memória** . Se você tiver tempos limite de difusão durante execuções de fluxo de dados, poderá desativar a otimização de difusão. No entanto, fará com que os fluxos de dados fiquem mais lentos.
+
+Ao trabalhar com fontes de dados que podem levar mais tempo para serem consultadas, como consultas de banco de dados grandes, é recomendável desativar a transmissão para junções. A origem com tempos de consulta longos pode causar tempos limite do Spark quando o cluster tenta difundir para nós de computação. Outra boa opção para desativar a difusão é quando você tem um fluxo em seu fluxo de dados que está agregando valores para uso em uma transformação pesquisa mais tarde. Esse padrão pode confundir o otimizador do Spark e causar tempos limite.
 
 ![Otimização da transformação de junção](media/data-flow/joinoptimize.png "Otimização de junção")
 

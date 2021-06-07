@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do Forescout
-titleSuffix: Azure Defender for IoT
 description: A integração do Azure defender para IoT com a plataforma Forescout fornece um novo nível de visibilidade centralizada, monitoramento e controle para a IoT e para o cenário.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 07e5187970d193502b95b49c5517a8e3824767be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557269"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784060"
 ---
 # <a name="about-the-forescout-integration"></a>Sobre a integração do Forescout
 
@@ -145,8 +140,8 @@ Para exibir os atributos de um dispositivo:
    | Autorizado pelo Azure defender para IoT | Um dispositivo detectado em sua rede pelo defender para IoT durante o período de aprendizado de rede. |
    | Firmware | Os detalhes do firmware do dispositivo. Por exemplo, modelo e detalhes da versão. |
    | Name | O nome do dispositivo. |
-   | Sistema operacional | O sistema operacional do dispositivo. |
-   | Tipo | O tipo de dispositivo. Por exemplo, uma PLC, Historian ou estação de engenharia. |
+   | Sistema Operacional | O sistema operacional do dispositivo. |
+   | Type | O tipo de dispositivo. Por exemplo, uma PLC, Historian ou estação de engenharia. |
    | Fornecedor | O fornecedor do dispositivo. Por exemplo, a automação do Rockwell. |
    | Nível de risco | O nível de risco calculado pelo defender para IoT. |
    | Protocolos | Os protocolos detectados no tráfego gerado pelo dispositivo. |

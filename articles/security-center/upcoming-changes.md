@@ -1,23 +1,18 @@
 ---
 title: Alterações importantes chegando à Central de Segurança do Azure
 description: Futuras alterações na Central de Segurança do Azure às quais você talvez precise estar atento e que podem exigir algum planejamento
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6204be2ff52b8aac89b93ac09337b1560255e11d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475583"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491875"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Futuras alterações importantes na Central de Segurança do Azure
 
@@ -31,63 +26,62 @@ Se você estiver procurando as notas sobre a versão mais recentes, poderá enco
 
 ## <a name="planned-changes"></a>Alterações planejadas
 
-- [As recomendações de proteção de cargas de trabalho do Kubernetes em breve serão lançadas em GA (disponibilidade geral)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
-- [Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
-- [Aprimoramentos na recomendação de classificação de dados SQL](#enhancements-to-sql-data-classification-recommendation)
+| Alteração planejada                                                                                                                                                        | Data estimada da alteração |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [Vinte e uma recomendações estão sendo transferidas entre controles de segurança](#21-recommendations-moving-between-security-controls)                                                           | Abril de 2021                |
+| [Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | Abril de 2021                |
+| [As recomendações da AWS serão lançadas em GA (disponibilidade geral)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | Abril de 2021                |
+| [Aprimoramentos na recomendação de classificação de dados SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | T2 de 2021                   |
+|                                                                                                                                                                       |                           |
 
 
-### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>As recomendações de proteção de cargas de trabalho do Kubernetes em breve serão lançadas em GA (disponibilidade geral)
+### <a name="21-recommendations-moving-between-security-controls"></a>Vinte e uma recomendações estão sendo transferidas entre controles de segurança 
 
-**Data estimada da alteração:** Fevereiro de 2021
+**Data estimada da alteração:** abril de 2021
 
-As recomendações de proteção de cargas de trabalho do Kubernetes descritas em [Proteger suas cargas de trabalho do Kubernetes](kubernetes-workload-protections.md) estão atualmente em versão prévia. Embora uma recomendação esteja em versão prévia, ela não torna um recurso não íntegro e é incluída nos cálculos da sua classificação de segurança.
+As recomendações a seguir estão sendo transferidas para um controle de segurança diferente. Os controles de segurança são grupos lógicos de recomendações de segurança relacionadas e refletem superfícies vulneráveis a ataques. Essa transferência garantirá que cada uma dessas recomendações esteja no controle mais apropriado para atender ao respectivo objetivo. 
 
-Essas recomendações serão lançadas em breve em GA (disponibilidade geral) e, portanto, *serão* incluídas no cálculo da classificação. Se você ainda não corrigiu, isso pode resultar em um pequeno impacto em sua classificação de segurança.
+Saiba quais recomendações estão em cada controle de segurança em Controles de segurança e suas recomendações.
 
-Corrija-os sempre que possível (saiba como em [Corrigir recomendações na Central de Segurança do Azure](security-center-remediate-recommendations.md)).
+|Recomendação |Alteração e respectivo impacto  |
+|---------|---------|
+|A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL<br>A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL<br>As vulnerabilidades encontradas nos bancos de dados SQL deverão ser corrigidas novamente<br>As vulnerabilidades nos seus bancos de dados SQL em VMs devem ser corrigidas     |Como executar uma transferência da opção Corrigir vulnerabilidades (vale seis pontos)<br>para Corrigir configurações de segurança (vale quatro pontos).<br>Essas recomendações terão um impacto reduzido em sua pontuação, dependendo do ambiente.|
+|Deve haver mais de um proprietário atribuído à sua assinatura<br>As variáveis da conta de automação devem ser criptografadas<br>Dispositivos IoT – O processo auditado parou de enviar eventos<br>Dispositivos IoT – Houve uma falha na validação de linha de base do sistema operacional<br>Dispositivos IoT – É preciso atualizar o pacote de criptografia do TLS<br>Dispositivos IoT – Abrir portas no dispositivo<br>Dispositivos IoT – Uma política de firewall permissiva foi encontrada em uma das cadeias<br>Dispositivos IoT – Uma regra de firewall permissiva foi encontrada na cadeia de entrada<br>Dispositivos IoT – Uma regra de firewall permissiva foi encontrada na cadeia de saída<br>Os logs de diagnóstico no Hub IoT devem ser habilitados<br>Dispositivos IoT – O agente está enviando mensagens subutilizadas<br>Dispositivos IoT – A política de filtro IP padrão deverá ser negada<br>Dispositivos IoT – A regra de filtro IP é maior do que o intervalo de IP<br>Dispositivos IoT – Os intervalos e o tamanho das mensagens do agente deverão ser ajustados<br>Dispositivos IoT – As credenciais de autenticação são idênticas<br>Dispositivos IoT – O processo auditado parou de enviar eventos<br>Dispositivos IoT – A configuração de linha de base do SO (sistema operacional) deverá ser corrigida|Como executar uma transferência para a opção **Implementar práticas recomendadas de segurança**.<br>Ao transferir uma recomendação para a opção Implementar o controle de segurança de práticas recomendadas de segurança, que não vale pontos, a recomendação não afetará mais sua classificação de segurança.|
+|||
 
-As recomendações da proteção de cargas de trabalho do Kubernetes são:
 
-- Um complemento do Azure Policy para Kubernetes deverá estar instalado e habilitado nos clusters
-- Deverão ser aplicados limites de memória e CPU ao contêiner
-- Os contêineres com privilégios deverão ser evitados
-- Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres
-- Os contêineres com elevação de privilégio deverão ser evitados
-- Executar contêineres como usuário raiz deverá ser evitado
-- Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados
-- Deverão ser aplicadas aos contêineres funcionalidades do Linux com privilégios mínimos
-- Usar montagens de volumes de HostPath do pod deverá ser restrito a uma lista conhecida
-- Os contêineres deverão escutar somente em portas permitidas
-- Os serviços deverão escutar somente em portas permitidas
-- Usar redes e portas do host deverá ser restrito
-- As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas
-- As imagens de contêiner devem ser implantadas apenas de registros confiáveis             
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido
 
-Saiba mais sobre essas recomendações em [Proteger suas cargas de trabalho do Kubernetes](kubernetes-workload-protections.md).
+**Data estimada da alteração:** abril de 2021
 
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido 
+As duas recomendações abaixo estão sendo preteridas:
 
-**Data estimada da alteração:** Fevereiro de 2021
+- **A versão do sistema operacional das funções de serviço de nuvem deverá ser atualizada** – Por padrão, o Azure atualiza de modo periódico o SO convidado para obter a imagem compatível mais recente dentro da família de sistemas operacionais especificada em sua configuração de serviço (.cscfg), como o Windows Server 2016.
+- **Os Serviços de Kubernetes deverão ser atualizados para uma versão do Kubernetes não vulnerável** – Esta avaliação da recomendação não é tão abrangente quanto gostaríamos. A versão atual dessa recomendação será substituída em algum momento por uma versão aprimorada e mais alinhada com as necessidades de segurança do nosso cliente.
 
-As duas seguintes recomendações estão agendadas para serem preteridas em fevereiro de 2021:
 
-- **Seus computadores devem ser reiniciados para que as atualizações do sistema sejam aplicadas**. Isso pode resultar em um impacto sutil na sua classificação de segurança.
-- **O agente de monitoramento deve ser instalado em seus computadores**. Essa recomendação está relacionada somente a computadores locais e um pouco da lógica dela será transferido para outra recomendação, **Problemas de integridade do agente do Log Analytics devem ser resolvidos em seus computadores**. Isso pode resultar em um impacto sutil na sua classificação de segurança.
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>As recomendações da AWS serão lançadas em GA (disponibilidade geral)
 
-É recomendável verificar suas configurações de exportação contínua e automação de fluxo de trabalho para ver se essas recomendações estão incluídas nelas. Além disso, painéis ou outras ferramentas de monitoramento que possam estar as usando devem ser atualizados de acordo.
+**Data estimada da alteração:** abril de 2021
 
-Saiba mais sobre cada uma dessas recomendações na [página de referência de recomendações de segurança](recommendations-reference.md).
+A Central de Segurança do Azure protege as cargas de trabalho no Azure, na AWS (Amazon Web Services) e no GCP (Google Cloud Platform).
+
+As recomendações provenientes do AWS Security Hub estão em versão prévia desde que os conectores de nuvem foram introduzidos. As recomendações sinalizadas como **Versão prévia** não estão incluídas nos cálculos da sua classificação de segurança, mas ainda devem ser corrigidas sempre que possível, de modo que, quando o período de versão prévia terminar, elas contribuam para a sua classificação.
+
+Com essa alteração, dois conjuntos de recomendações da AWS passarão para GA:
+
+- [Controles do PCI DSS do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Controles do CIS AWS Foundations Benchmark do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Quando eles passarem para GA e as avaliações forem executadas nos seus recursos da AWS, os resultados afetarão sua classificação de segurança combinada referente a todos os seus recursos de nuvem híbrida e multinuvem. 
+
 
 
 ### <a name="enhancements-to-sql-data-classification-recommendation"></a>Aprimoramentos na recomendação de classificação de dados SQL
 
 **Data estimada da alteração:** T2 de 2021
 
-A versão atual da recomendação **Os dados confidenciais nos seus bancos de dados SQL devem ser classificados** no controle de segurança **Aplicar classificação de dados** será substituída por uma nova versão que está mais bem alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
-
-- A recomendação não afetará mais sua classificação de segurança
-- O controle de segurança ("Aplicar classificação de dados") não afetará mais sua classificação de segurança
-- A ID da recomendação também será alterada (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59)
+A recomendação **Os dados confidenciais nos seus bancos de dados SQL devem ser classificados** no controle de segurança **Aplicar classificação de dados** será substituída por uma nova versão que está mais bem alinhada com a estratégia de classificação de dados da Microsoft. Como resultado, a ID da recomendação também será alterada (atualmente, b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 

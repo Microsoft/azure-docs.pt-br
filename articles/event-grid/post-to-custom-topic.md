@@ -4,10 +4,10 @@ description: Este artigo descreve como publicar um evento para um tópico person
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681593"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
@@ -16,7 +16,7 @@ Este artigo descreve como publicar um evento para um tópico personalizado. Ele 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 Ao enviar o HTTP POST para um tópico personalizado, use o formato URI: `https://<topic-endpoint>?api-version=2018-01-01`.
 
@@ -34,7 +34,7 @@ Para obter o ponto de extremidade para um tópico personalizado com Azure PowerS
 (Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Cabeçalho
+## <a name="header"></a>parâmetro
 
 Na solicitação, inclua um valor de cabeçalho chamado `aeg-sas-key` que contém uma chave para autenticação.
 

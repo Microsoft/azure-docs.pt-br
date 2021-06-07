@@ -2,22 +2,22 @@
 title: Tutorial – Configurar implantações canário para máquinas virtuais do Linux do Azure
 description: Neste tutorial, você aprenderá a configurar um pipeline de CD (implantação contínua). Esse pipeline atualiza um grupo de máquinas virtuais do Linux do Azure usando a estratégia de implantação azul-verde.
 author: moala
-manager: jpconnock
 tags: azure-devops-pipelines
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4545891cce926f049673cd2c2380a8309f2e71a1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961520"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102552579"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar a estratégia de implantação azul-verde para máquinas virtuais do Linux do Azure
 

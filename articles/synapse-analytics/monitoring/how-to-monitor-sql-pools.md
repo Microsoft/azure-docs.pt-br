@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 63b63526333435387c3ff5b5c9d5599ec851c1a8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96465989"
 ---
 # <a name="use-synapse-studio-to-monitor-your-sql-pools"></a>Use o Synapse Studio para monitorar seus pools SQL
@@ -48,7 +48,7 @@ Por exemplo, você pode filtrar a exibição para ver apenas os pools do SQL que
 
 Para exibir os detalhes sobre um de seus pools SQL, selecione o pool SQL para exibir os detalhes.
 
-![Detalhes do pool do SQL](./media/how-to-monitor-sql-pools/sql-pool-details.png)
+![Detalhes do pool de SQL](./media/how-to-monitor-sql-pools/sql-pool-details.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

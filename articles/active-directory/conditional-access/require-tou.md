@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93077890"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem
@@ -60,11 +60,11 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Na página **Azure Active Directory** , na seção **Segurança** , clique em **Acesso Condicional**.
+1. Na página **Azure Active Directory**, na seção **Segurança**, clique em **Acesso Condicional**.
 
    ![Acesso Condicional](./media/require-tou/03.png)
 
-1. Na seção **Gerenciar** , clique em **Termos de uso**.
+1. Na seção **Gerenciar**, clique em **Termos de uso**.
 
    :::image type="content" source="./media/require-tou/04.png" alt-text="Captura de tela da seção Gerenciar da página Azure Active Directory. O item Termos de uso está realçado." border="false":::
 
@@ -72,16 +72,16 @@ Esta seção fornece as etapas para criar um exemplo de termos de uso. Quando vo
 
    :::image type="content" source="./media/require-tou/05.png" alt-text="Captura de tela de um menu na página Azure Active Directory. O item Novos termos está realçado." border="false":::
 
-1. Na página **Novos termos de uso** :
+1. Na página **Novos termos de uso**:
 
    :::image type="content" source="./media/require-tou/112.png" alt-text="Captura de tela da página Novos termos de uso, com o nome, nome de exibição, documento, idioma, acesso condicional e a alternância de termos em expansão realçada." border="false":::
 
-   1. Na caixa de texto **Nome** , digite **Meus Termos de uso**.
-   1. Na caixa de texto **Exibir nome** , digite **Meus Termos de uso**.
+   1. Na caixa de texto **Nome**, digite **Meus Termos de uso**.
+   1. Na caixa de texto **Exibir nome**, digite **Meus Termos de uso**.
    1. Carregue seus termos de usar o arquivo de PDF.
-   1. Como **Linguagem** , selecione **Inglês**.
-   1. Para **Exigir que os usuários expandam os Termos de uso** , selecione **Ativado**.
-   1. Para **Impor com modelos da política de Acesso Condicional** , selecione **Políticas personalizadas**.
+   1. Como **Linguagem**, selecione **Inglês**.
+   1. Para **Exigir que os usuários expandam os Termos de uso**, selecione **Ativado**.
+   1. Para **Impor com modelos da política de Acesso Condicional**, selecione **Políticas personalizadas**.
    1. Clique em **Criar**.
 
 ## <a name="create-your-conditional-access-policy"></a>Criar sua política de acesso condicional
@@ -103,46 +103,46 @@ Em sua política, defina:
 
 **Para configurar sua política de acesso condicional:**
 
-1. Na página **Novo** , na caixa de texto **Nome** , digite **Exige Termos de uso para Isabella**.
+1. Na página **Novo**, na caixa de texto **Nome**, digite **Exige Termos de uso para Isabella**.
 
    ![Nome](./media/require-tou/71.png)
 
-1. Na seção **Atribuição** , clique em **Usuários e Grupos**.
+1. Na seção **Atribuição**, clique em **Usuários e Grupos**.
 
    :::image type="content" source="./media/require-tou/06.png" alt-text="Captura de tela da seção Atribuições de um painel do portal do Azure que define uma política. O item Usuários e grupos está visível, sem nenhum selecionado." border="false":::
 
-1. Na página **Usuários e grupos** :
+1. Na página **Usuários e grupos**:
 
    :::image type="content" source="./media/require-tou/24.png" alt-text="Captura de tela da guia Incluir da página Usuários e grupos. Selecionar usuários e grupos está selecionado, assim como Usuários e grupos. Selecionar está realçado." border="false":::
 
    1. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
    1. Clique em **Selecionar**.
-   1. Na página **Selecionar** , selecione **Isabella Simonsen** e depois clique em **Selecionar**.
-   1. Na página **Usuários e grupos** , clique em **Concluído**.
+   1. Na página **Selecionar**, selecione **Isabella Simonsen** e depois clique em **Selecionar**.
+   1. Na página **Usuários e grupos**, clique em **Concluído**.
 1. Clique em **Aplicativos de nuvem**.
 
    :::image type="content" source="./media/require-tou/08.png" alt-text="Captura de tela da seção Atribuições de um painel do portal do Azure que define uma política. O item Aplicativos de nuvem está visível, sem nada selecionado." border="false":::
 
-1. Na página de **aplicativos de nuvem** :
+1. Na página de **aplicativos de nuvem**:
 
    ![Selecionar aplicativos de nuvem](./media/require-tou/26.png)
 
    1. Clique em **Selecionar aplicativos**.
    1. Clique em **Selecionar**.
-   1. Na página **Selecionar** , selecione **Microsoft Azure** e clique em **Selecionar**.
-   1. Na página **Aplicativos de nuvem** , clique em **Concluído**.
-1. Na seção **Controles de acesso** , clique em **Conceder**.
+   1. Na página **Selecionar**, selecione **Microsoft Azure** e clique em **Selecionar**.
+   1. Na página **Aplicativos de nuvem**, clique em **Concluído**.
+1. Na seção **Controles de acesso**, clique em **Conceder**.
 
    ![Controles de acesso](./media/require-tou/10.png)
 
-1. Na página **Grant** :
+1. Na página **Grant**:
 
    ![Conceder](./media/require-tou/111.png)
 
    1. Selecione **Conceder acesso**.
    1. Selecione **Meus Termos de uso**.
    1. Clique em **Selecionar**.
-1. Na seção **Habilitar política** , clique em **Ativar**.
+1. Na seção **Habilitar política**, clique em **Ativar**.
 
    ![Habilitar política](./media/require-tou/18.png)
 
@@ -152,12 +152,12 @@ Em sua política, defina:
 
 Agora que você configurou a política de acesso condicional, provavelmente deseja saber se ela funciona conforme o esperado. Como primeira etapa, use a ferramenta de política What If do Acesso Condicional para simular uma entrada de seu usuário de teste. A simulação calcula o impacto que esse logon tem em suas políticas e gera um relatório de simulação.  
 
-Para inicializar a ferramenta de avaliação de política **What If** , defina:
+Para inicializar a ferramenta de avaliação de política **What If**, defina:
 
 - **Isabella Simonsen** como usuário
 - **Gerenciamento do Microsoft Azure** como aplicativo de nuvem
 
-Ao clicar em **What If** , é criado um relatório de simulação que mostra:
+Ao clicar em **What If**, é criado um relatório de simulação que mostra:
 
 - **Exigir termos de uso para Isabella** sob **políticas que se aplicam**
 - **Meus Termos de uso** como **Conceder Controles**.
@@ -170,7 +170,7 @@ Ao clicar em **What If** , é criado um relatório de simulação que mostra:
 
    ![What If](./media/require-tou/14.png)
 
-1. Clique **Usuários** , selecione **Isabella Simonsen** e depois clique em **Selecionar**.
+1. Clique **Usuários**, selecione **Isabella Simonsen** e depois clique em **Selecionar**.
 
    ![Usuário](./media/require-tou/15.png)
 
@@ -179,9 +179,9 @@ Ao clicar em **What If** , é criado um relatório de simulação que mostra:
    :::image type="content" source="./media/require-tou/16.png" alt-text="Captura de tela da seção Aplicativos de nuvem. O texto indica que um aplicativo está selecionado." border="false":::
 
    1. Clique em **Aplicativos de nuvem**.
-   1. Na **Página de aplicativos de nuvem** , clique em **Selecionar aplicativos**.
+   1. Na **Página de aplicativos de nuvem**, clique em **Selecionar aplicativos**.
    1. Clique em **Selecionar**.
-   1. Na página **Selecionar** , selecione **Microsoft Azure** e clique em **Selecionar**.
+   1. Na página **Selecionar**, selecione **Microsoft Azure** e clique em **Selecionar**.
    1. Na página de aplicativos de nuvem, clique em **Concluído**.
 1. Clique em **What If**.
 

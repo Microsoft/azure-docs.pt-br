@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073512"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (T-SQL)
@@ -37,23 +37,23 @@ DATE_BUCKET (datePart, number, date, origin)
 A parte da *data* que é usada com o parâmetro 'number'. Ex.: ano, mês, minuto, segundo etc.
 
 > [!NOTE]
-> `DATE_BUCKET` não aceita os equivalentes de variável definidos pelo usuário para os argumentos *datePart* .
+> `DATE_BUCKET` não aceita os equivalentes de variável definidos pelo usuário para os argumentos *datePart*.
   
 |*datePart*|Abreviações|  
 |---|---|
-|**day**|**dd** , **d**|  
-|**week**|**wk** , **ww**| 
-|**month**|**mm** , **m**|
-|**quarter**|**qq** , **q**|  
-|**year**|**yy** , **yyyy**|  
+|**day**|**dd**, **d**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
-|**minute**|**mi** , **n**|  
-|**second**|**ss** , **s**|  
+|**minute**|**mi**, **n**|  
+|**second**|**ss**, **s**|  
 |**millisecond**|**ms**|  
 
 *number*
 
-O número inteiro que decide a largura do bucket combinado com o argumento *datePart* . Isso representa a largura dos buckets de datePart da hora de origem. **`This argument cannot be a negative integer value`** . 
+O número inteiro que decide a largura do bucket combinado com o argumento *datePart*. Isso representa a largura dos buckets de datePart da hora de origem. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -66,7 +66,7 @@ Uma expressão que pode resolver um dos seguintes valores:
 + **smalldatetime**
 + **time**
 
-Para *date* , `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo usuário se elas resolverem para qualquer um dos tipos de dados mencionados acima.
+Para *date*, `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo usuário se elas resolverem para qualquer um dos tipos de dados mencionados acima.
 
 **Ter** 
 
@@ -125,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>Argumento datepart
 
-**dayofyear** , **day** e **weekday** retornam o mesmo valor. Cada *datepart* retorna o mesmo valor das abreviações dela.
+**dayofyear**, **day** e **weekday** retornam o mesmo valor. Cada *datepart* retorna o mesmo valor das abreviações dela.
   
 ## <a name="number-argument"></a>Argumento number
 
@@ -196,11 +196,11 @@ Seconds 2020-04-30 21:21:21.0000000
 
 ### <a name="b-using-expressions-as-arguments-for-the-number-and-date-parameters"></a>B. Usando expressões como argumentos para os parâmetros de número e data
 
-Estes exemplos usam diferentes tipos de expressões como argumentos para os parâmetros *number* e *date* . Esses exemplos são criados usando o banco de dados ' AdventureWorksDW2017 '.
+Estes exemplos usam diferentes tipos de expressões como argumentos para os parâmetros *number* e *date*. Esses exemplos são criados usando o banco de dados ' AdventureWorksDW2017 '.
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>Especificando variáveis definidas pelo usuário como número e data  
 
-Este exemplo especifica variáveis definidas pelo usuário como argumentos para *número* e *data* :
+Este exemplo especifica variáveis definidas pelo usuário como argumentos para *número* e *data*:
   
 ```sql
 DECLARE @days int = 365,
@@ -250,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>Especificando função de sistema escalar como data
 
-Este exemplo especifica `SYSDATETIME` para *data* . O valor exato retornado depende do dia e da hora da execução da instrução:
+Este exemplo especifica `SYSDATETIME` para *data*. O valor exato retornado depende do dia e da hora da execução da instrução:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -267,7 +267,7 @@ Este é o conjunto de resultados.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Especificando subconsultas e funções escalares como número e data
 
-Este exemplo usa subconsultas escalares, `MAX(OrderDate)`, como argumentos para *número* e *data* . `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` funciona como um argumento artificial do parâmetro de número que mostra como selecionar um argumento *number* em uma lista de valores.
+Este exemplo usa subconsultas escalares, `MAX(OrderDate)`, como argumentos para *número* e *data*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` funciona como um argumento artificial do parâmetro de número que mostra como selecionar um argumento *number* em uma lista de valores.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -284,7 +284,7 @@ SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Especificando uma função de janela de agregação como número
 
-Este exemplo usa uma função de janela de agregação como um argumento para *number* .
+Este exemplo usa uma função de janela de agregação como um argumento para *number*.
   
 ```sql
 Select 

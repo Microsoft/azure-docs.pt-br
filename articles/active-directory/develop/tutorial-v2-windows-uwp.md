@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232328"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100102641"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET usa métodos assíncronos para adquirir tokens ou manipular contas. Você precisa dar suporte a ações da interface do usuário no thread da IU. Esse é o motivo para a chamada `Dispatcher.RunAsync` e as precauções para chamar `ConfigureAwait(false)`.
+MSAL.NET usa métodos assíncronos para adquirir tokens ou manipular contas. Como tal, dê suporte a ações da interface do usuário no thread da IU. Esse é o motivo para a chamada `Dispatcher.RunAsync` e as precauções para chamar `ConfigureAwait(false)`.
 
 #### <a name="more-information-about-signing-out"></a>Mais informações sobre sair<a name="more-information-on-sign-out"></a>
 
@@ -343,9 +343,9 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-Agora, você precisa registrar seu aplicativo:
+Agora, registre o seu aplicativo:
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -356,8 +356,8 @@ Agora, você precisa registrar seu aplicativo:
 
 Configurar a autenticação para o aplicativo:
 
-1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
-1. Na seção **URIs de Redirecionamento**, verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>, em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
+1. Na seção **URIs de Redirecionamento**, insira `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Selecione **Configurar**.
 
 Configurar permissões da API para seu aplicativo:

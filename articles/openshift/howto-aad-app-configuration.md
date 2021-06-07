@@ -3,15 +3,15 @@ title: Integração do Azure Active Directory para o Azure Red Hat OpenShift
 description: Saiba como criar um grupo de segurança do Azure AD e um usuário para testar aplicativos em seu Microsoft Azure cluster Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ee8613d0300a941f80577c98be106173d5d3ced1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f0bf28d61d4c9ad95a485fb4b60e370c16ace16c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220696"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100633318"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para o Azure Red Hat OpenShift
 
@@ -29,7 +29,7 @@ Microsoft Azure o Red Hat OpenShift precisa de permissões para executar tarefas
 
 No [portal do Azure](https://portal.azure.com), verifique se seu locatário aparece sob seu nome de usuário no canto superior direito do portal:
 
-![Captura de tela do portal com locatário listado no canto superior direito ](./media/howto-create-tenant/tenant-callout.png) se o locatário errado for exibido, clique no seu nome de usuário no canto superior direito, clique em **alternar diretório**e selecione o locatário correto na lista **todos os diretórios** .
+![Captura de tela do portal com locatário listado no canto superior direito ](./media/howto-create-tenant/tenant-callout.png) se o locatário errado for exibido, clique no seu nome de usuário no canto superior direito, clique em **alternar diretório** e selecione o locatário correto na lista **todos os diretórios** .
 
 Crie um novo usuário do Azure Active Directory ' proprietário ' para entrar no cluster do Azure Red Hat OpenShift.
 
@@ -109,7 +109,7 @@ Para obter detalhes sobre como criar um novo aplicativo do Azure AD, consulte [r
 5. Expanda **diretório** na lista abaixo e habilite **Directory. ReadAll**.
 6. Clique em **adicionar permissões** para aceitar as alterações.
 7. O painel de permissões de API agora deve mostrar *User. Read* e *Directory. ReadAll*. Observe o aviso na coluna **obrigatório consentimento do administrador** ao lado de *Directory. ReadAll*.
-8. Se você for o *administrador da assinatura do Azure*, clique em **conceder consentimento do administrador para o *nome da assinatura* ** abaixo. Se você não for o *administrador da assinatura do Azure*, solicite o consentimento do seu administrador.
+8. Se você for o *administrador da assinatura do Azure*, clique em **conceder consentimento do administrador para o *nome da assinatura*** abaixo. Se você não for o *administrador da assinatura do Azure*, solicite o consentimento do seu administrador.
 
 ![Captura de tela do painel permissões de API. Permissões User. Read e Directory. ReadAll adicionadas, consentimento do administrador necessário para o diretório. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 

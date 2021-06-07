@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
 ms.openlocfilehash: f015718c59178b8094f535280edadd641d22a806
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741886"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configurar o Webroot Security Awareness Training para o provisionamento automático de usuário

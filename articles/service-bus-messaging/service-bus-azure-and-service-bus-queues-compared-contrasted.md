@@ -4,10 +4,10 @@ description: Analisa diferenças e semelhanças entre dois tipos de fila ofereci
 ms.topic: article
 ms.date: 11/04/2020
 ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928300"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
@@ -131,7 +131,7 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 | Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
 | TTL máxima da mensagem |**Infinito** (API-Version 2017-07-27 ou posterior) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10.000**<br/><br/>(por namespace do serviço) |
-| Número máximo de clientes simultâneos |**Ilimitado** |**5\.000** |
+| Número máximo de clientes simultâneos |**Ilimitado** |**5.000** |
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado ao criar uma fila. Pode ser entre 1 GB e 80 GB. Se o tamanho da fila atingir esse limite, as mensagens de entrada adicionais serão rejeitadas e o chamador receberá uma exceção. Para obter mais informações sobre cotas no Barramento de Serviço, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).
@@ -162,7 +162,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas filas do Arma
 * As filas do Armazenamento dão suporte a atributos arbitrários que podem ser aplicados à descrição da fila, na forma de pares de nome/valor.
 * As duas tecnologias oferecem a capacidade de inspecionar uma mensagem sem precisar bloqueá-la, o que pode ser útil ao implementar uma ferramenta de gerenciador/navegador de filas.
 * As APIs de mensagens orientadas .NET do Service Bus usam conexões TCP Full duplex para melhorar o desempenho em comparação com REST sobre HTTP e dão suporte ao protocolo padrão AMQP 1,0.
-* Os nomes das filas do Armazenamento podem ter de 3 a 63 caracteres e podem conter letras minúsculas, número e hifens. Para obter mais informações, confira [Nomeando filas e metadados](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata).
+* Os nomes das filas do Armazenamento podem ter de 3 a 63 caracteres e podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [nomeando filas e metadados](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata).
 * Os nomes de fila do Barramento de Serviço podem ter até 260 caracteres e têm menos regras restritivas de nomenclatura. Os nomes de fila do Barramento de Serviço podem conter letras, números, pontos, hifens e sublinhados.
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização

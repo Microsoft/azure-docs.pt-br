@@ -3,16 +3,16 @@ title: Esquema de recurso baseado em workspace do Azure Monitor Application Insi
 description: Saiba mais sobre a nova estrutura e o esquema de tabela para Azure Monitor Application Insights recursos baseados no espaço de trabalho.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385958"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100575601"
 ---
 # <a name="workspace-based-resource-changes"></a>Alterações de recursos com base no espaço de trabalho
 
-Antes da introdução dos [recursos de Application insights baseados em espaço de trabalho](create-workspace-resource.md), Application insights dados eram armazenados separados de outros dados de log no Azure monitor. Ambos são baseados no Azure Data Explorer e usam a mesma linguagem de consulta Kusto (KQL). Isso é descrito em [logs em Azure monitor](../platform/data-platform-logs.md).
+Antes da introdução dos [recursos de Application insights baseados em espaço de trabalho](create-workspace-resource.md), Application insights dados eram armazenados separados de outros dados de log no Azure monitor. Ambos são baseados no Azure Data Explorer e usam a mesma linguagem de consulta Kusto (KQL). Isso é descrito em [logs em Azure monitor](../logs/data-platform-logs.md).
 
 Com os dados de recursos Application Insights baseados em espaço de trabalho são armazenados em um espaço de trabalho Log Analytics com outros dados de monitoramento e dados de aplicativos. Isso simplifica sua configuração, permitindo que você analise dados com mais facilidade em várias soluções e aproveite os recursos dos espaços de trabalho.
 
@@ -41,7 +41,7 @@ A maioria das colunas tem o mesmo nome com maiúsculas e minúsculas diferentes.
 
 Tabela herdada: disponibilidade
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -76,7 +76,7 @@ Tabela herdada: disponibilidade
 |session_Id|string|SessionId|string|
 |tamanho|real|Tamanho|real|
 |sucesso|string|Êxito|Bool|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -85,7 +85,7 @@ Tabela herdada: disponibilidade
 
 Tabela herdada: browserTimings
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -118,7 +118,7 @@ Tabela herdada: browserTimings
 |sdkVersion|string|SdkVersion|string|
 |sendDuration|real|SendDurationMs|real|
 |session_Id|string|SessionId|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |totalDuration|real|TotalDurationMs|real|
 |url|string|Url|string|
 |user_AccountId|string|UserAccountId|string|
@@ -129,7 +129,7 @@ Tabela herdada: browserTimings
 
 Tabela herdada: dependências
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -164,8 +164,8 @@ Tabela herdada: dependências
 |session_Id|string|SessionId|string|
 |sucesso|string|Êxito|Bool|
 |destino|string|Destino|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
-|tipo|string|DependencyType|string|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
+|type|string|DependencyType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -174,7 +174,7 @@ Tabela herdada: dependências
 
 Tabela herdada: customEvents
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -202,7 +202,7 @@ Tabela herdada: customEvents
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -211,7 +211,7 @@ Tabela herdada: customEvents
 
 Tabela herdada: customMetrics
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -237,11 +237,11 @@ Tabela herdada: customMetrics
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|removido||
+|valor|real|removido||
 |valueCount|INT|ValueCount|INT|
 |valueMax|real|ValueMax|real|
 |valueMin|real|ValueMin|real|
@@ -252,7 +252,7 @@ Tabela herdada: customMetrics
 
 Tabela herdada: pageViews
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -283,7 +283,7 @@ Tabela herdada: pageViews
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |url|string|Url|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -293,7 +293,7 @@ Tabela herdada: pageViews
 
 Tabela herdada: performanceCounters
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -322,17 +322,17 @@ Tabela herdada: performanceCounters
 |operation_SyntheticSource|string|OperationSyntheticSource|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
-|value|real|Valor|real|
+|valor|real|Valor|real|
 
 ### <a name="apprequests"></a>AppRequests
 
 Tabela herdada: solicitações
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -366,7 +366,7 @@ Tabela herdada: solicitações
 |session_Id|string|SessionId|string|
 |source|string|Fonte|String|
 |sucesso|string|Êxito|Bool|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |url|string|Url|String|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -376,7 +376,7 @@ Tabela herdada: solicitações
 
 Tabela herdada: exceções
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -418,8 +418,8 @@ Tabela herdada: exceções
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |Nível|INT|SeverityLevel|INT|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
-|tipo|string|ExceptionType|string|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
+|type|string|ExceptionType|string|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
@@ -428,7 +428,7 @@ Tabela herdada: exceções
 
 Tabela herdada: rastreamentos
 
-|ApplicationInsights|Digite|LogAnalytics|Digite|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|string|\_ResourceGUID|string|
 |application_Version|string|AppVersion|string|
@@ -457,13 +457,13 @@ Tabela herdada: rastreamentos
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |Nível|INT|SeverityLevel|INT|
-|timestamp|DATETIME|TimeGenerated|DATETIME|
+| timestamp|DATETIME|TimeGenerated|DATETIME|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas do Analytics](../logs/log-query-overview.md)
 

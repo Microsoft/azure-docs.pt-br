@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169674"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579086"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
@@ -106,6 +106,8 @@ O controle Grant pode disparar a imposição de um ou mais controles.
 - Exigir um dispositivo ingressado no Azure AD Híbrido
 - Exigir um aplicativo cliente aprovado
 - Requer política de proteção do aplicativo
+- Exigir alteração de senha
+- Requerer termos de uso
 
 Os administradores podem optar por exigir um dos controles anteriores ou todos os controles selecionados usando as opções a seguir. O padrão para vários controles é exigir todos.
 
@@ -150,7 +152,7 @@ O artigo [políticas de acesso condicional comum](concept-conditional-access-pol
 
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
-[Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem](../authentication/howto-mfa-getstarted.md)
+[Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../authentication/howto-mfa-getstarted.md)
 
 [Gerenciando a conformidade do dispositivo com o Intune](/intune/device-compliance-get-started)
 

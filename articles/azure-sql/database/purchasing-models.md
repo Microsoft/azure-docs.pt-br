@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788818"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU – banco de dados SQL do Azure e SQL Instância Gerenciada
@@ -162,11 +162,11 @@ Clientes com cargas de trabalho que são sensíveis a alterações de hardware o
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Preciso colocar meu aplicativo offline para converter de uma camada de serviço baseada em DTU em uma camada de serviço baseada em vCore?
 
-Não. Você não precisa colocar o aplicativo offline. As novas camadas de serviço oferecem um método de conversão online simples que é semelhante ao processo existente de atualização de bancos de dados do padrão para a camada de serviço Premium e o contrário. Você pode iniciar essa conversão usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [gerenciar bancos de dados individuais](single-database-scale.md) e [Gerenciar Pools elásticos](elastic-pool-overview.md).
+Não. Você não precisa colocar o aplicativo offline. As novas camadas de serviço oferecem um método de conversão online simples que é semelhante ao processo existente de atualização de bancos de dados do padrão para a camada de serviço Premium e o contrário. Você pode iniciar essa conversão usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](single-database-scale.md) e [Gerenciar pools elásticos](elastic-pool-overview.md).
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>Posso converter um banco de dados de uma camada de serviço no modelo de compra baseado em vCore para uma camada de serviço no modelo de compra baseado em DTU?
 
-Sim, você pode facilmente converter seu banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [gerenciar bancos de dados individuais](single-database-scale.md) e [Gerenciar Pools elásticos](elastic-pool-overview.md).
+Sim, você pode facilmente converter seu banco de dados para qualquer objetivo de desempenho com suporte usando o portal do Azure, o PowerShell, o CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](single-database-scale.md) e [Gerenciar pools elásticos](elastic-pool-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

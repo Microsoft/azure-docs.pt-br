@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 4faa48a9edb5ea157fde67e4a4f3008864342075
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221121"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639762"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Entender o código Apache Spark para desenvolvedores do U-SQL
 
@@ -131,7 +131,7 @@ Para obter mais informações, consulte:
 - [org. Apache. Spark. Sql. Types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Tipos de SQL e de quadros de datapara Spark](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Tipos de valor escalares](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark. Sql. Types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [pyspark. Sql. Types](https://spark.apache.org/docs/2.3.1/api/python/_modules/pyspark/sql/types.html#module-pyspark.sql.types)
 
 ### <a name="treatment-of-null"></a>Tratamento de NULL
 

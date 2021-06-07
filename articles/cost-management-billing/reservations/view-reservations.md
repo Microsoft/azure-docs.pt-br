@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561097"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050334"
 ---
 # <a name="view-azure-reservations"></a>Exibir reservas do Azure
 
@@ -47,8 +47,15 @@ Para permitir que outras pessoas gerenciem reservas, você tem duas opções:
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>Como os administradores de cobrança veem ou gerenciam as reservas
 
-1. Acesse **Gerenciamento de Custos e Cobrança** e, no lado esquerdo da página, selecione **Transações de Reserva**.
-2. Se você tiver as permissões de cobrança necessárias, poderá ver e gerenciar as reservas. Caso não veja nenhuma reserva, verifique se está conectado usando o locatário do Azure AD em que as reservas foram criadas.
+Se você tiver acesso a reservas ou ordens de reserva com acesso do RBAC do Azure, você poderá ver apenas um subconjunto de transações de reserva ou nenhum quando navegar até Reservas. Use as etapas a seguir para exibir e gerenciar todas as reservas e transações de reserva.
+
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Gerenciamento de Custos e Cobrança**.
+    - Se você for um administrador de EA, no menu à esquerda, selecione **Escopos de cobrança** e, na lista de escopos de cobrança, selecione um.
+    - Se você for proprietário do perfil de cobrança do Contrato de Cliente da Microsoft, no menu à esquerda, selecione **Perfis de cobrança**. Na lista de perfis de cobrança, selecione um.
+1. No menu à esquerda, selecione **Transações de reserva**. A lista de transações de reserva é mostrada.
+1. Uma faixa na parte superior da página lê *Agora os administradores de cobrança podem gerenciar reservas. Clique aqui para gerenciar as reservas.* Selecione a faixa.
+1. A lista completa de reservas para seu registro ou perfil de cobrança do EA é mostrada.
+1. Se você quiser apropriar-se de uma reserva, selecione-a. Em seguida, na página Configurando permissões, selecione **Conceder acesso**. Você tem acesso de proprietário à ordem de reserva e à reserva.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Ver a reserva e a utilização no portal do Azure
 

@@ -4,15 +4,15 @@ description: Acesse um resumo do Marketplace Web Analytics no Partner Center, qu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9089fee7565633b198043efeed929fc7446437d5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458294"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953265"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Painel de Insights do Marketplace na análise do marketplace comercial
 
@@ -103,6 +103,21 @@ Esta tabela fornece uma exibição de lista das visitas à página e as chamadas
 
 > [!TIP]
 > Você pode usar o ícone de download no canto superior direito de qualquer widget para baixar os dados. Você pode fornecer comentários sobre cada um dos widgets clicando no ícone "polegar para cima" ou "polegar para baixo".
+
+| Nome da coluna em<br>interface do usuário | Nome do atributo | Definição | Nome da coluna em programação<br>relatórios do Access |
+| ------------ | ------------- | ------------- | ------------- |
+| Data | Data de visita | A data de visita da página e/ou CTA clique em geração de eventos na página da oferta no Azure Marketplace e/ou AppSource. | Data |
+| Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. | OfferName |
+| Domínio de referência | Domínio de referência | O nome do domínio de referência do qual a página foi visitada. Se não houver nenhum domínio de referência capturado para a página, a entrada correspondente será "domínio de referência não presente". |  ReferralDomain |
+| Nome do país | Nome do país | O nome do país de onde ocorreu a página de visita. | CountryName |
+| Visitas à página | Visitas à página | O número de visitas à página associadas ao nome da oferta para uma determinada data. | PageVisits |
+| Obtenha agora | Obtenha agora | O número de cliques para o CTA "obter agora" na página da oferta de uma determinada data. | GetItNow |
+| Entre em contato comigo | Entre em contato comigo | O número de cliques para o CTA "entre em contato comigo" na página da oferta de uma determinada data. | ContactMe |
+| Test drive | Test drive | O número de cliques para o CTA de "Test Drive" na página da oferta de uma determinada data. | TestDrive |
+| Avaliação gratuita | Avaliação gratuita | O número de cliques para o CTA de "avaliação gratuita" na página da oferta de uma determinada data. | FreeTrial |
+| Campanha | Nome da campanha | Capacidade de entender a telemetria da Web (visitas à página e cliques CTA) em relação ao nome da campanha. | Campanha |
+| N/D | Site | O nome da vitrine da qual ocorreu a página de visita ou CTA. Os valores possíveis são:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+|
 
 ## <a name="next-steps"></a>Próximas etapas
 

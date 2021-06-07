@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
 ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98625474"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integrar o SSO (logon único) do Azure AD ao NetSuite

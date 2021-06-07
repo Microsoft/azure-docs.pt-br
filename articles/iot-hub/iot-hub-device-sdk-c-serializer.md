@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152234"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
@@ -65,17 +65,17 @@ O que não é demonstrado neste exemplo são tipos de dados adicionais que são 
 
 Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do **serializador** :
 
-| Tipo | Description |
+| Tipo | Descrição |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
-| int |Inteiro de 32 bits |
+| INT |Inteiro de 32 bits |
 | FLOAT |número de ponto flutuante de precisão única |
 | long |inteiro longo |
 | int8\_t |inteiro de 8 bits |
 | int16\_t |inteiro de 16 bits |
 | int32\_t |Inteiro de 32 bits |
 | int64\_t |Inteiro de 64 bits |
-| bool |booleano |
+| bool |boolean |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |diferença de data e horário |
 | EDM\_GUID |GUID |
@@ -318,7 +318,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 Nesse caso, eliminamos as macros **Declare \_ struct** e estamos simplesmente definindo os itens de dados de nosso cenário usando tipos simples da linguagem de modelagem.
 
-Por enquanto, ignore o evento **Hora**. Além disso, aqui está o código para a **temperatura**de entrada:
+Por enquanto, ignore o evento **Hora**. Além disso, aqui está o código para a **temperatura** de entrada:
 
 ```C
 time_t now;

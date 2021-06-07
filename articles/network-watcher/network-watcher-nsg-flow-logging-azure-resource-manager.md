@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 06e70bd31e2045925c1fe7b4088e1a0b1d560b2f
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: MT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2cae673dd319e55670357ae468d21ff63e4f9c72
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104669433"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurar os logs do fluxo NSG a partir de um modelo do Azure Resource Manager
 
@@ -76,7 +77,7 @@ Para criar um recurso Microsoft.Network/networkWatchers/flowLogs, adicione o JSO
 
 Se você estiver usando modelos do Azure Resource Manager pela primeira vez, use os links abaixo para obter mais informações.
 
-* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -144,7 +145,7 @@ Abaixo temos dois exemplos de modelos completos para configurar os logs do fluxo
         },
         "format": {
           "type": "JSON",
-          "version": 2          
+          "version": 2
         }
       }
     }
@@ -159,7 +160,7 @@ Você pode salvar qualquer um dos modelos do exemplo acima localmente como `azur
 
 Para implantar o modelo, execute o seguinte comando no PowerShell.
 ```azurepowershell
-$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+$context = Get-AzSubscription -SubscriptionId <SubscriptionId>
 Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6a14b16e34faa827228594bf6d4f0bd9ed48cf72
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731913"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: integração do Active Directory do Azure ao Greenhouse
 
@@ -40,7 +40,7 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Greenhouse dá suporte ao SSO iniciado por **SP**
+* O Greenhouse dá suporte ao SSO iniciado por **SP e IdP**.
 
 ## <a name="adding-greenhouse-from-the-gallery"></a>Adicionando o Greenhouse por meio da galeria
 
@@ -73,18 +73,28 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No portal do Azure, na página de integração de aplicativos do **Greenhouse**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<COMPANYNAME>.greenhouse.io`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.greenhouse.io`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
+    
+    | URL de resposta|
+    | -------------- |
+    | `https://<COMPANYNAME>.greenhouse.io/users/saml/consume` |
+    | `https://app.greenhouse.io/<ENTITY ID>/users/saml/consume` |
+    |
+
+1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
+
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<COMPANYNAME>.greenhouse.io`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Greenhouse](https://www.greenhouse.io/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Greenhouse](https://www.greenhouse.io/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -127,7 +137,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![captura de tela da página de SSO](./media/greenhouse-tutorial/configure.png)
 
-1. Na página Logon único, execute as etapas a seguir.
+1. Execute as etapas a seguir na página **Logon Único**.
 
     ![captura de tela da página de configuração de SSO](./media/greenhouse-tutorial/sso-page.png)
 
@@ -146,7 +156,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     >[!NOTE]
     >Como alternativa, você também pode carregar o arquivo **XML de Metadados de Federação** clicando na opção **Escolher Arquivo**.
 
-### <a name="create-greenhouse-test-user"></a>Criar um usuário de teste do Greenhouse
+### <a name="create-greenhouse-test-user&quot;></a>Criar um usuário de teste do Greenhouse
 
 Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles devem ser provisionados no Greenhouse. No caso do Greenhouse, o provisionamento é uma tarefa manual.
 
@@ -159,7 +169,7 @@ Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles deve
 
 2. Acesse **Configurar > Usuários > Novos Usuários**
    
-    ![Usuários](./media/greenhouse-tutorial/create-user-1.png "Usuários")
+    ![Usuários](./media/greenhouse-tutorial/create-user-1.png &quot;Usuários")
 
 4. Na seção **Adicionar Novos Usuários**, execute as etapas a seguir:
    
@@ -172,15 +182,22 @@ Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles deve
       >[!NOTE]
       >O titular da conta do Active Directory do Azure recebe um email com um link para confirmar a conta antes que ela se torne ativa.
 
-### <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-* Clique em **Testar este aplicativo** no portal do Azure. Você será redirecionado para a URL de Entrada do Greenhouse, onde poderá iniciar o fluxo de logon. 
+#### <a name="sp-initiated"></a>Iniciado por SP:
+
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Greenhouse, na qual você poderá iniciar o fluxo de logon.  
 
 * Acesse a URL de Entrada do Greenhouse diretamente e inicie o fluxo de logon desse local.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando clicar no bloco do Greenhouse em Meus Aplicativos, você será redirecionado para a URL de Logon do Greenhouse. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="idp-initiated"></a>Iniciado por IdP:
+
+* Clique em **Testar este aplicativo** no portal do Azure e você entrará automaticamente no Greenhouse, para o qual configurou o SSO 
+
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco do Greenhouse em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IdP, você entrará automaticamente no Greenhouse, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

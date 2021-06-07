@@ -9,10 +9,10 @@ ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: a749de57a1c57c828332957def27d68a121318b1
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97691949"
 ---
 | Categoria | Armazenamento de dados |

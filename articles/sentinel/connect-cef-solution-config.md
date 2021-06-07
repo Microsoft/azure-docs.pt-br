@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 60ce503d4a89f245f28d5034924cb8c89c926b3f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559416"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771287"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ETAPA 2: configurar sua solução de segurança para enviar mensagens CEF
 
@@ -30,7 +30,9 @@ Nesta etapa, você executará as alterações de configuração necessárias na 
 Se sua solução de segurança já tiver um conector existente, use as instruções específicas do conector da seguinte maneira:
 
 - [Detecção de IA da Vectra](connect-ai-vectra-detect.md)
-- [Eventos de segurança da Akamai](connect-akamai-security-events.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -40,7 +42,7 @@ Se sua solução de segurança já tiver um conector existente, use as instruç�
 - [Produtos Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive redes AMS](connect-illusive-attack-management-system.md)
-- [Imperva WAF gateway](connect-imperva-waf-gateway.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Servidor secreto Thycotic](connect-thycotic-secret-server.md)
@@ -78,5 +80,7 @@ Se não existir um conector para sua solução de segurança específica, use as
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+
+- Saiba mais sobre o [mapeamento de campo CEF e CommonSecurityLog](cef-name-mapping.md).
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](./tutorial-detect-threats-built-in.md).

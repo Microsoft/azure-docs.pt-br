@@ -3,12 +3,12 @@ title: Recuperação de desastre em área geográfica do Barramento de Serviço 
 description: Como usar regiões geográficas para failover e recuperação de desastre no barramento de serviço do Azure
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384275"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102035387"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -47,11 +47,7 @@ Os seguintes termos são usados neste artigo:
 -  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. Usar um alias garante que a cadeia de caracteres de conexão fique inalterada quando o failover for disparado.
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
-
-    > [!IMPORTANT]
-    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários.
 -  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. As mensagens não são replicadas.
-
 -  *Failover*: o processo de ativação do namespace secundário.
 
 ## <a name="setup"></a>Instalação
@@ -63,13 +59,13 @@ A seção a seguir é uma visão geral para configurar o emparelhamento entre os
 Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
 
 1. Crie o namespace primário.
-1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal, mas em uma região diferente. Essa etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. Crie o namespace secundário em uma região diferente. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
 1. No portal do Azure, navegue até o namespace primário.
 1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
 1. Na página **Iniciar emparelhamento** , siga estas etapas:
-    1. Selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace primário. Neste exemplo, um namespace existente é usado como o namespace secundário.  
+    1. Selecione um namespace secundário existente ou crie um em uma região diferente. Neste exemplo, um namespace existente é usado como o namespace secundário.  
     1. Para **alias**, insira um alias para o emparelhamento de Dr geográfica. 
     1. Em seguida, selecione **Criar**. 
 

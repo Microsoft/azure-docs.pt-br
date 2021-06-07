@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
 ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904135"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definir e usar fluxos de trabalho de moderação

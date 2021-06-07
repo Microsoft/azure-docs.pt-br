@@ -4,14 +4,14 @@ description: Como editar destinos de armazenamento do cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654500"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772562"
 ---
 # <a name="edit-storage-targets"></a>Editar destinos de armazenamento
 
@@ -19,13 +19,16 @@ Você pode remover ou modificar destinos de armazenamento com o portal do Azure 
 
 Dependendo do tipo de armazenamento, você pode modificar esses valores de destino de armazenamento:
 
-* Para destinos de armazenamento de BLOBs, você pode alterar o caminho do namespace.
+* Para destinos de armazenamento de BLOBs, você pode alterar o caminho do namespace e a política de acesso.
 
 * Para destinos de armazenamento NFS, você pode alterar esses valores:
 
   * Caminhos de namespace
+  * Política de acesso
   * O subdiretório de exportação de armazenamento ou exportação associado a um caminho de namespace
   * Modelo de uso
+
+* Para destinos de armazenamento ADLS-NFS, você pode alterar o caminho do namespace, a política de acesso e o modelo de uso.
 
 Você não pode editar o nome, tipo ou sistema de armazenamento de back-end de um destino de armazenamento (contêiner de BLOB ou endereço IP/nome de host do NFS). Se você precisar alterar essas propriedades, exclua o destino de armazenamento e crie uma substituição com o novo valor.
 
@@ -73,7 +76,7 @@ Use a página de **namespace** para o cache do Azure HPC. A página namespace é
 
 Clique no nome do caminho que você deseja alterar e crie o novo caminho na janela de edição que aparece.
 
-![Captura de tela da página de namespace depois de clicar em um caminho de namespace de blob-os campos de edição aparecem em um painel à direita](media/edit-namespace-blob.png)
+![Captura de tela da página de namespace depois de clicar em um caminho de namespace de blob-os campos de edição aparecem em um painel à direita](media/update-namespace-blob.png)
 
 Depois de fazer alterações, clique em **OK** para atualizar o destino de armazenamento ou clique em **Cancelar** para descartar as alterações.
 
@@ -94,10 +97,13 @@ Para alterar o namespace de um destino de armazenamento de BLOBs com o CLI do Az
 
 Para destinos de armazenamento NFS, você pode alterar ou adicionar caminhos de namespace virtual, alterar os valores de exportação ou subdiretório NFS aos quais um caminho de namespace aponta e alterar o modelo de uso.
 
+Os destinos de armazenamento em caches com alguns tipos de configurações personalizadas de DNS também têm um controle para atualizar seus endereços IP. (Esse tipo de configuração é raro.)
+
 Os detalhes estão abaixo:
 
-* [Alterar valores de namespace agregados](#change-aggregated-namespace-values) (caminho do namespace virtual, exportar e exportar subdiretório)
+* [Alterar valores de namespace agregados](#change-aggregated-namespace-values) (caminho de namespace virtual, política de acesso, exportar e subdiretório de exportação)
 * [Alterar o modelo de uso](#change-the-usage-model)
+* [Atualizar DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Alterar valores de namespace agregados
 
@@ -112,7 +118,7 @@ Use a página de **namespace** para o cache do Azure HPC para atualizar valores 
 ![captura de tela da página namespace do portal com a página de atualização do NFS aberta à direita](media/update-namespace-nfs.png)
 
 1. Clique no nome do caminho que você deseja alterar.
-1. Use a janela Editar para digitar o novo caminho virtual, exportar ou valores de subdiretório.
+1. Use a janela Editar para digitar novos valores de caminho virtual, exportação ou subdiretório, ou para selecionar uma política de acesso diferente.
 1. Depois de fazer alterações, clique em **OK** para atualizar o destino de armazenamento ou em **Cancelar** para descartar as alterações.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -161,7 +167,7 @@ Use o seletor suspenso para escolher um novo modelo de uso. Clique em **OK** par
 
 [Configurar CLI do Azure para o cache do HPC do Azure](./az-cli-prerequisites.md).
 
-Use o comando [AZ HPC-cache NFS-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) .
+Use o comando [AZ HPC-cache NFS-Storage-Target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) .
 
 O comando Update é quase idêntico ao comando que você usa para adicionar um destino de armazenamento NFS. Consulte [criar um destino de armazenamento NFS](hpc-cache-add-storage.md#create-an-nfs-storage-target) para obter detalhes e exemplos.
 
@@ -174,6 +180,37 @@ Se você quiser verificar os nomes dos modelos de uso, use o comando [AZ HPC-cac
 Se o cache for interrompido ou não estiver em um estado íntegro, a atualização será aplicada depois que o cache estiver íntegro.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Atualizar endereço IP (somente configurações de DNS personalizadas)
+
+Se o seu cache usa uma configuração de DNS não padrão, é possível que o endereço IP do destino de armazenamento NFS seja alterado devido a alterações de DNS de back-end. Se o servidor DNS alterar o endereço IP do sistema de armazenamento de back-end, o cache HPC do Azure poderá perder o acesso ao sistema de armazenamento.
+
+O ideal é que você trabalhe com o gerente do sistema DNS personalizado do seu cache para planejar as atualizações, pois essas alterações tornam o armazenamento indisponível.
+
+Se você precisar atualizar o endereço IP fornecido pelo DNS de um destino de armazenamento, há um botão na lista de destinos de armazenamento. Clique em **Atualizar DNS** para consultar o servidor DNS personalizado em busca de um novo endereço IP.
+
+![Captura de tela da lista de destino de armazenamento. Para um destino de armazenamento, o "..." na coluna da extrema direita está aberta e duas opções são exibidas: excluir e atualizar o DNS.](media/refresh-dns.png)
+
+Se for bem-sucedido, a atualização deverá levar menos de dois minutos. Você só pode atualizar um destino de armazenamento de cada vez; Aguarde a conclusão da operação anterior antes de tentar outra.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>Atualizar um destino de armazenamento ADLS-NFS (visualização)
+
+Assim como os destinos NFS, você pode alterar o caminho do namespace e o modelo de uso para destinos de armazenamento ADLS-NFS.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>Alterar um caminho de namespace ADLS-NFS
+
+Use a página de **namespace** para o cache do Azure HPC para atualizar valores de namespace. Esta página é descrita mais detalhadamente no artigo [Configurar o namespace agregado](add-namespace-paths.md).
+
+![captura de tela da página de namespace do portal com uma página de atualização do ADS-NFS aberta à direita](media/update-namespace-adls.png)
+
+1. Clique no nome do caminho que você deseja alterar.
+1. Use a janela Editar para digitar o novo caminho virtual ou atualize a política de acesso.
+1. Depois de fazer alterações, clique em **OK** para atualizar o destino de armazenamento ou em **Cancelar** para descartar as alterações.
+
+### <a name="change-adls-nfs-usage-models"></a>Alterar modelos de uso ADLS-NFS
+
+A configuração para modelos de uso ADLS-NFS é idêntica à seleção de modelo de uso do NFS. Leia as instruções do portal em [alterar o modelo de uso](#change-the-usage-model) na seção de NFS acima. Ferramentas adicionais para atualizar os destinos de armazenamento ADLS-NFS estão em desenvolvimento.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339794"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101690644"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importar notebooks de um repositório do GitHub para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +45,7 @@ Você pode se conectar a seus próprios repositórios do GitHub ou a outros repo
 
 Após a integração com uma conta do GitHub, só você poderá ver a lista de repositórios e notebooks na sua conta do Azure Cosmos. Essa instrução é verdadeira mesmo que vários usuários façam logon na conta de Azure Cosmos DB e adicionem suas próprias contas. Em outras palavras, vários usuários podem usar a mesma conta do Azure Cosmos para conectar o espaço de trabalho do notebook ao GitHub. No entanto, os usuários veem apenas a lista de repositórios e notebooks que eles importaram. Os notebooks importados por outros não são visíveis para você.
 
-Para desconectar sua conta do GitHub do espaço de trabalho do notebook, abra a guia **Data Explorer** , selecione `…` ao lado de **Repositórios do GitHub** e selecione **Desconectar do GitHub**.
+Para desconectar sua conta do GitHub do espaço de trabalho do notebook, abra a guia **Data Explorer**, selecione `…` ao lado de **Repositórios do GitHub** e selecione **Desconectar do GitHub**.
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Edite um notebook e enviar por push alterações para o GitHub
 
@@ -57,7 +57,12 @@ No fluxo do GitHub regular, após confirmar as alterações, você normalmente e
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Editar notebooks e confirmar alterações no GitHub":::
 
+Depois de editar o bloco de anotações, você poderá [publicá-lo na Galeria de blocos de anotações](publish-notebook-gallery.md). 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre os benefícios dos [Notebooks do Jupyter do Azure Cosmos DB.](cosmosdb-jupyter-notebooks.md)
-
+* [Explorar galeria de exemplos de notebook](https://cosmos.azure.com/gallery.html)
+* [Publicar blocos de anotações na Galeria de notebooks Azure Cosmos DB](publish-notebook-gallery.md)
+* [Usar recursos e comandos de notebook Python](use-python-notebook-features-and-commands.md)
+* [Usar recursos e comandos de notebook C#](use-csharp-notebook-features-and-commands.md)

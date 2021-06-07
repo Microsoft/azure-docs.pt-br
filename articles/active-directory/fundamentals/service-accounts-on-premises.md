@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55de24975dadf27293f305611c6ba07522e8aa90
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101645609"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Introdução às contas de serviço Active Directory
 
@@ -34,7 +34,7 @@ Com base no seu caso de uso, você pode usar uma MSA (conta de serviço gerencia
 
 ### <a name="group-msa-accounts"></a>Contas do grupo MSA
 
-Use [contas de serviço gerenciado de grupo](service-accounts-group-managed.md) (gMSAs) sempre que possível para os serviços em execução no seu ambiente local. o gMSAs fornece uma solução de identidade única para um serviço em execução em um farm de servidores ou por trás de um balanceador de carga de rede. Eles também podem ser usados para um serviço em execução em um único servidor. [gMSAs têm requisitos específicos que devem ser atendidos](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+Use [contas de serviço gerenciado de grupo](service-accounts-group-managed.md) (gMSAs) sempre que possível para os serviços em execução no seu ambiente local. o gMSAs fornece uma solução de identidade única para um serviço em execução em um farm de servidores ou por trás de um balanceador de carga de rede. Eles também podem ser usados para um serviço em execução em um único servidor. [gMSAs têm requisitos específicos que devem ser atendidos](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### <a name="standalone-msa-accounts"></a>Contas autônomas do MSA
 
@@ -126,7 +126,7 @@ Depois de encontrar as contas de serviço no seu ambiente local, documente as in
 
 Consulte os artigos a seguir sobre como proteger contas de serviço
 
-* [Introdução às contas de serviço locais](service-accounts-on-premises.md)
+* [Introdução a contas de serviço locais](service-accounts-on-premises.md)
 
 * [Contas de serviço gerenciado de grupo seguro](service-accounts-group-managed.md)
 
@@ -136,6 +136,5 @@ Consulte os artigos a seguir sobre como proteger contas de serviço
 
 * [Proteger contas de usuário](service-accounts-user-on-premises.md)
 
-* [Controlar contas de serviço locais](service-accounts-govern-on-premises.md)
+* [Administrar contas de serviço locais](service-accounts-govern-on-premises.md)
 
- 

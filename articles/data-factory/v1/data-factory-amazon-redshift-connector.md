@@ -8,10 +8,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377543"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
@@ -69,7 +69,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
@@ -79,7 +79,7 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
@@ -88,7 +88,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
@@ -333,8 +333,8 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | BOOLEAN |String |
 | CHAR |String |
 | VARCHAR |String |
-| DATE |Datetime |
-| timestamp |Datetime |
+| DATE |DateTime |
+| timestamp |DateTime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor

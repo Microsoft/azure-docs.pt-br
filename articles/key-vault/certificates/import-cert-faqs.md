@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 78ec0af0acbb74436af16abba75d64de061d5268
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254352"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102202158"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Perguntas frequentes sobre importação de certificados Azure Key Vault
 
@@ -43,7 +43,7 @@ Não, não é possível executar operações de certificado usando um modelo de 
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>Quando importo um certificado por meio do portal do Azure, recebo um erro "algo deu errado". Como posso investigar ainda mais?
     
-Para exibir um erro mais descritivo, importe o arquivo de certificado usando [o CLI do Azure ou o](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Para exibir um erro mais descritivo, importe o arquivo de certificado usando [o CLI do Azure ou o](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Como posso resolver "tipo de erro: acesso negado ou o usuário não está autorizado a importar o certificado"?
     
@@ -87,4 +87,4 @@ Se você importou o certificado com êxito, você deve ser capaz de confirmá-lo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Azure Key Vault certificados](./about-certificates.md)
+- [Certificados do Azure Key Vault](./about-certificates.md)

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 7fff456b7ad6e980fc3c9bda36cfcab02e2ed863
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255824"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
@@ -86,7 +86,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
    f. **IS NOT NULL**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
-   (por exemplo, **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
+   g. **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **NOT REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
    

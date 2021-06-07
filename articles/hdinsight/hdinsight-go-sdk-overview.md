@@ -1,21 +1,21 @@
 ---
-title: SDK do Azure HDInsight para go
-description: Material de referência para usar o SDK do Azure HDInsight para clusters de Go e Apache Hadoop
+title: SDK do Azure HDInsight para Go
+description: Material de referência para usar o SDK do Azure HDInsight para clusters do Go e do Apache Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
-ms.translationtype: MT
+ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945992"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100582757"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para go (visualização)
+# <a name="hdinsight-sdk-for-go-preview"></a>SDK do HDInsight para Go (versão prévia)
 
 ## <a name="overview"></a>Visão geral
-O SDK do HDInsight para go fornece classes e funções que permitem que você gerencie seus clusters HDInsight. Inclui operações para criar, excluir, atualizar, listar, redimensionar, executar ações de script, monitorar, obter propriedades dos clusters HDInsight e muito mais.
+O SDK do HDInsight para Go oferece classes e funções que permitem gerenciar seus clusters do HDInsight. Inclui operações para criar, excluir, atualizar, listar, redimensionar, executar ações de script, monitorar, obter propriedades dos clusters HDInsight e muito mais.
 
 > [!NOTE]  
 >O material de referência do GoDoc para esse SDK também está [disponível aqui](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight).
@@ -24,8 +24,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [ `go get` ferramenta](https://github.com/golang/go/wiki/GoGetTools).
-* [Vá](https://golang.org/dl/).
+* Uma [ferramenta `go get`](https://github.com/golang/go/wiki/GoGetTools).
+* [Go](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>Instalação do SDK
 
@@ -33,14 +33,14 @@ Na sua localização do GOPATH, execute `go get github.com/Azure/azure-sdk-for-g
 
 ## <a name="authentication"></a>Autenticação
 
-O SDK precisa primeiro ser autenticado com a assinatura do Azure.  Siga o exemplo abaixo para criar uma entidade de serviço e use-a para a autenticação. Depois que isso for feito, você terá uma instância de a `ClustersClient` , que contém muitas funções (descritas nas seções abaixo) que podem ser usadas para executar operações de gerenciamento.
+O SDK precisa primeiro ser autenticado com a assinatura do Azure.  Siga o exemplo abaixo para criar uma entidade de serviço e use-a para a autenticação. Após isso ser feito, você terá uma instância de um `ClustersClient`, que contém muitas funções (descritas nas seções abaixo) que podem ser usadas para realizar operações de gerenciamento.
 
 > [!NOTE]  
 > Existem outras formas de autenticar além do exemplo abaixo que talvez sejam mais adequadas às suas necessidades. Todas as funções são descritas aqui: [Funções de autenticação no SDK do Azure para linguagem Go](/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Exemplo de autenticação usando uma entidade de serviço
 
-Primeiro, faça logon no [Azure Cloud Shell](https://shell.azure.com/bash). Verifique se você está usando atualmente a assinatura na qual deseja que a entidade de serviço seja criada.
+Primeiro, faça logon no [Azure Cloud Shell](https://shell.azure.com/bash). Verifique se você está usando atualmente a assinatura na qual deseja a entidade de serviço criada.
 
 ```azurecli-interactive
 az account show
@@ -70,7 +70,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> Se você ainda não registrou o provedor de recursos do HDInsight por outra função (por exemplo, criando um cluster HDInsight por meio do portal do Azure), você precisa fazer isso uma vez para poder autenticar. Isso também pode ser feito no [Azure Cloud Shell](https://shell.azure.com/bash) executando o seguinte comando:
+> Se ainda não tiver registrado o Provedor de Recursos do HDInsight por meio de outra função (tal como criando um cluster do HDInsight pelo portal do Azure), você precisará fazer isso uma vez para poder autenticar. Isso também pode ser feito no [Azure Cloud Shell](https://shell.azure.com/bash) executando o seguinte comando:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```
@@ -141,7 +141,7 @@ Um novo cluster pode ser criado chamando `client.Create()`.
 
 #### <a name="example"></a>Exemplo
 
-Este exemplo demonstra como criar um cluster [Apache Spark](https://spark.apache.org/) com dois nós de cabeçalho e um nó de trabalho.
+Este exemplo demonstra como criar um cluster do [Apache Spark](https://spark.apache.org/) com dois nós de cabeçalho e um nó de trabalho.
 
 > [!NOTE]  
 > Primeiro você precisa criar um grupo de recursos e uma conta de armazenamento, conforme explicado abaixo. Se você já os tiver criado, ignore as próximas etapas.
@@ -162,14 +162,14 @@ az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 az storage account create -n <Storage Account Name> -g <Existing Resource Group Name> -l <Region Name (i.e. eastus)> --sku <SKU i.e. Standard_LRS>
 ```
 
-Agora, execute o seguinte comando para obter a chave para sua conta de armazenamento (você precisará dela para criar um cluster):
+Agora execute o seguinte comando para obter a chave para a sua conta de armazenamento (você precisará dela para criar um cluster):
 
 ```azurecli-interactive
 az storage account keys list -n <Storage Account Name>
 ```
 
 ---
-O trecho de código go abaixo cria um cluster Spark com dois nós de cabeçalho e um nó de trabalho. Preencha as variáveis em branco conforme explicado nos comentários e fique à vontade para alterar outros parâmetros conforme as suas necessidades.
+O snippet do Go abaixo cria um cluster do Spark com dois nós principais e um nó de trabalho. Preencha as variáveis em branco conforme explicado nos comentários e fique à vontade para alterar outros parâmetros conforme as suas necessidades.
 
 ```golang
 // The name for the cluster you are creating
@@ -260,7 +260,7 @@ client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 
 #### <a name="example"></a>Exemplo
 
-Você pode usar `get` o para confirmar que criou com êxito o cluster.
+Você pode usar `get` para confirmar que criou com êxito o seu cluster.
 
 ```golang
 cluster, err := client.Get(context.Background(), resourceGroupName, clusterName)
@@ -349,7 +349,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 O SDK de gerenciamento do HDInsight também pode ser usado para gerenciar o monitoramento dos seus clusters através do Operations Management Suite (OMS).
 
-Da mesma forma que você criou `ClusterClient` para ser usado para as operações de gerenciamento, é necessário criar um `ExtensionClient` para ser usado para as operações de monitoramento. Depois de concluir a seção de autenticação acima, você pode criar uma da `ExtensionClient` seguinte maneira:
+Da mesma forma que você criou `ClusterClient` para ser usado para as operações de gerenciamento, é necessário criar um `ExtensionClient` para ser usado para as operações de monitoramento. Depois de concluir a seção Autenticação acima, você poderá criar um `ExtensionClient` da seguinte forma:
 
 ```golang
 extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
@@ -362,7 +362,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Habilitar o monitoramento de OMS
 
 > [!NOTE]  
-> Para habilitar o Monitoramento de OMS, você deve ter um espaço de trabalho do Log Analytics existente. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um espaço de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+> Para habilitar o Monitoramento de OMS, você deve ter um espaço de trabalho do Log Analytics existente. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um espaço de trabalho do Log Analytics no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 Para habilitar o Monitoramento de OMS no seu cluster:
 
@@ -402,7 +402,7 @@ var scriptAction1 = hdi.RuntimeScriptAction{Name: to.StringPtr("<Script Name>"),
 client.ExecuteScriptActions(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ExecuteScriptActionParameters{PersistOnSuccess: to.BoolPtr(true), ScriptActions: &[]hdi.RuntimeScriptAction{scriptAction1}}) //add more RuntimeScriptActions to the list to execute multiple scripts
 ```
 
-Para as operações “Excluir a ação de script” e “Listar ações de script persistentes”, você precisa criar um `ScriptActionsClient`, da mesma forma que criou `ClusterClient` para ser usado para operações de gerenciamento. Depois de concluir a seção de autenticação acima, você pode criar uma `ScriptActionsClient` desta forma:
+Para as operações “Excluir a ação de script” e “Listar ações de script persistentes”, você precisa criar um `ScriptActionsClient`, da mesma forma que criou `ClusterClient` para ser usado para operações de gerenciamento. Depois de concluir a seção Autenticação acima, você poderá criar um `ScriptActionsClient` da seguinte forma:
 
 ```golang
 scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
@@ -450,7 +450,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Listar o histórico de execução de todos os scripts
 
-Para esta operação, é necessário criar um `ScriptExecutionHistoryClient`, da mesma forma que criou `ClusterClient` para ser usado nas operações de gerenciamento. Depois de concluir a seção de autenticação acima, você pode criar uma `ScriptActionsClient` desta forma:
+Para esta operação, é necessário criar um `ScriptExecutionHistoryClient`, da mesma forma que criou `ClusterClient` para ser usado nas operações de gerenciamento. Depois de concluir a seção Autenticação acima, você poderá criar um `ScriptActionsClient` da seguinte forma:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

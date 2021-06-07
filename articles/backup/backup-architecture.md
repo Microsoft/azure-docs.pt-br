@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427727"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466400"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -22,11 +22,11 @@ O backup do Azure faz backup dos dados, do estado da máquina e das cargas de tr
 
 Você pode fazer backup de computadores e dados usando vários métodos:
 
-- **Fazer backup dos computadores locais** :
+- **Fazer backup dos computadores locais**:
   - Você pode fazer backup de computadores Windows no local diretamente no Azure usando o agente de Serviços de Recuperação do Microsoft Azure de backup do Azure (MARS). Computadores Linux não tem suporte.
   - Você pode fazer backup de computadores locais em um servidor de backup – o System Center Data Protection Manager (DPM) ou o Backup do Microsoft Azure Server (MABS). Em seguida, você pode fazer backup do servidor de backup em um cofre dos serviços de recuperação no Azure.
 
-- **Fazer backup de VMs do Azure** :
+- **Fazer backup de VMs do Azure**:
   - Você pode fazer backup de VMs do Azure diretamente. O backup do Azure instala uma extensão de backup para o agente de VM do Azure que está em execução na VM. Essa extensão faz backup de toda a VM.
   - Você pode fazer backup de arquivos e pastas específicos na VM do Azure executando o agente MARS.
   - Você pode fazer backup de VMs do Azure para o MABS em execução no Azure e, em seguida, fazer backup do MABS em um cofre dos serviços de recuperação.
@@ -43,9 +43,9 @@ Os cofres têm os seguintes recursos:
 - Você pode monitorar itens com backup em um cofre, incluindo VMs do Azure e computadores locais.
 - Você pode gerenciar o acesso ao cofre com o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md).
 - Você especifica como os dados no cofre são replicados para redundância:
-  - **LRS (armazenamento com redundância local)** : para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Armazenamento com redundância geográfica (GRS)** : para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS (armazenamento com redundância de zona)** : Replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **LRS (armazenamento com redundância local)**: para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento com redundância geográfica (GRS)**: para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (armazenamento com redundância de zona)**: Replica seus dados em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
 Os cofres dos serviços de recuperação têm os seguintes recursos adicionais:
@@ -69,7 +69,7 @@ A tabela a seguir explica os diferentes tipos de backups e quando eles são usad
 --- | --- | ---
 **Full** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado no backup inicial.
 **Diferencial** |  Um backup diferencial armazena os blocos que foram alterados desde o backup completo inicial. O usa uma quantidade menor de rede e armazenamento e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre os backups posteriores são transferidos e armazenados. | Não é usada pelo Backup do Azure.
-**Incremental** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
+**Lucrativ** | Um backup incremental armazena apenas os blocos de dados que foram alterados desde o backup anterior. Alto armazenamento e eficiência de rede. <br/><br/> Com o backup incremental, não é necessário complementar com backups completos. | Usado pelo MABS/DPM para backups em disco e usado em todos os backups no Azure. Não é usado para SQL Server Backup.
 
 ## <a name="sql-server-backup-types"></a>Tipos de backup do SQL Server
 
@@ -99,8 +99,8 @@ A tabela a seguir resume os recursos com suporte para os diferentes tipos de bac
 **Recurso** | **Backup direto de arquivos e pastas (usando o agente MARS)** | **Backup de VM do Azure** | **Computadores ou aplicativos com o DPM/MABS**
 --- | --- | --- | ---
 Fazer backup para o cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Yes][green]
-Compactar os dados enviados para backup | ![Yes][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Yes][green]
+Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Sim][green]
+Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green]
 Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
@@ -167,7 +167,7 @@ Você não precisa permitir explicitamente a conectividade com a Internet para f
 1. O agente MARS usa o VSS para fazer um instantâneo pontual dos volumes selecionados para backup.
     - O agente MARS usa apenas a operação de gravação do sistema Windows para capturar o instantâneo.
     - Como o agente não usa nenhum gravador VSS de aplicativo, ele não captura instantâneos consistentes com o aplicativo.
-1. Depois de tirar o instantâneo com o VSS, o agente MARS cria um VHD (disco rígido virtual) na pasta de cache que você especificou quando configurou o backup. O agente também armazena somas de verificação para cada bloco de dados.
+1. Depois de tirar o instantâneo com o VSS, o agente MARS cria um VHD (disco rígido virtual) na pasta de cache que você especificou quando configurou o backup. O agente também armazena somas de verificação para cada bloco de dados. Eles são usados posteriormente para detectar os blocos alterados para backups incrementais subsequentes.
 1. Os backups incrementais são executados de acordo com o agendamento que você especificar, a menos que você execute um backup sob demanda.
 1. Nos backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. O VHD é compactado e criptografado e é enviado para o cofre.
 1. Após a conclusão do backup incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial. Esse VHD mesclado fornece o estado mais recente a ser usado para comparação para o backup em andamento.
@@ -210,7 +210,7 @@ Para obter mais informações sobre o armazenamento em disco e os tipos de disco
 
 Você pode fazer backup de VMs do Azure usando o armazenamento Premium com o backup do Azure:
 
-- Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-* , na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
+- Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-*, na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
 - Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de página Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
 - O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/disks-types.md#billing).

@@ -5,10 +5,10 @@ ms.author: robinsh
 ms.topic: include
 ms.date: 05/20/2019
 ms.openlocfilehash: fbb4e53e0047b9768a70c01aecfb7f31ae213b3f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96025919"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT

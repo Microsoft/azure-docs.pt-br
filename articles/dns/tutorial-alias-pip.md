@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80985432"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure 
@@ -57,7 +57,7 @@ Instale o IIS em **Web-01**.
 1. Conecte-se à **Web-01** e entre.
 2. No painel **Gerenciador do Servidor**, escolha **Adicionar funções e recursos**.
 3. Marque **Avançar** três vezes. Na página **Funções do Servidor**, selecione **Servidor Web (IIS)** .
-4. Selecione **Adicionar Recursos**e selecione **Avançar**.
+4. Selecione **Adicionar Recursos** e selecione **Avançar**.
 5. Selecione **Avançar** quatro vezes e selecione **Instalar**. Esse procedimento leva alguns minutos para ser concluído.
 6. Depois que a instalação for concluída, selecione **Fechar**.
 7. Abra um navegador da Web. Navegue até **localhost** para verificar se a página da Web do IIS padrão é exibida.

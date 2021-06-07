@@ -2,18 +2,20 @@
 title: Criar e carregar um VHD Linux do Red Hat Enterprise para uso no Azure
 description: Saiba como criar e carregar um disco rígido virtual (VHD) do Microsoft Azure, que contém um sistema operacional Red Hat Linux.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 28f82b641216dcd77b650b066c72bef4c4470dd2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ff22010f12a7d76e60b629c4c1c4e24946d4af5a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098955"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102552959"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
 
@@ -274,8 +276,8 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
     ```
 
@@ -461,8 +463,8 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
     ```
 

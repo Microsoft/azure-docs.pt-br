@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216641"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022255"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para o Armazenamento do Azure
 
@@ -109,6 +109,8 @@ Nenhum registro em log centralizado está disponível para políticas de ponto d
   - Verifique se as contas não são **contas de armazenamento clássicas** com políticas de ponto de extremidade de serviço na sub-rede.
 - Um serviço gerenciado do Azure parou de funcionar após a aplicação de uma política de ponto de extremidade de serviço pela sub-rede
   - Não há suporte para serviços gerenciados com políticas de ponto de extremidade de serviço no momento. *Assista a este espaço para obter atualizações*.
+- O acesso a contas de armazenamento gerenciado parou de funcionar após a aplicação de uma política de ponto de extremidade de serviço pela sub-rede
+  - Não há suporte para contas de armazenamento gerenciadas com políticas de ponto de extremidade de serviço. Se configurado, as políticas negarão o acesso a todas as contas de armazenamento gerenciadas, por padrão. Se seu aplicativo precisar de acesso a contas de armazenamento gerenciadas, as políticas de ponto de extremidade não deverão ser usadas para esse tráfego.
 
 ## <a name="provisioning"></a>Provisionamento
 

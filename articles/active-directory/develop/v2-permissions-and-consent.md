@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102471"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
@@ -65,7 +65,7 @@ _As permissões efetivas_ são as permissões que seu aplicativo tem quando faz 
 
 - Para permissões delegadas, as _permissões efetivas_ de seu aplicativo são a interseção com privilégios mínimos das permissões delegadas que o aplicativo recebeu (por consentimento) e os privilégios do usuário conectado no momento. Seu aplicativo não pode ter mais privilégios que o usuário conectado. 
 
-   Nas organizações, os privilégios do usuário conectado podem ser determinados pela política ou por associação em uma ou mais funções de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [Permissões da função de administrador no Microsoft Azure Active Directory](../roles/permissions-reference.md).
+   Nas organizações, os privilégios do usuário conectado podem ser determinados pela política ou por associação em uma ou mais funções de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [permissões de função de administrador no Azure ad](../roles/permissions-reference.md).
 
    Por exemplo, suponha que seu aplicativo tenha recebido a permissão delegada _User.ReadWrite.All_. Essa permissão concede uma permissão ao seu aplicativo para ler e atualizar o perfil de todos os usuários em uma organização. Se o usuário conectado for um administrador global, seu aplicativo poderá atualizar o perfil de cada usuário na organização. No entanto, se o usuário conectado não tiver uma função de administrador, seu aplicativo poderá atualizar somente o perfil do usuário conectado. Ele não pode atualizar os perfis de outros usuários na organização porque o usuário com permissão para agir em nome de não tem esses privilégios.
 
@@ -91,7 +91,7 @@ A `email` declaração será incluída em um token somente se um endereço de em
 
 ### <a name="profile"></a>perfil
 
-O `profile` escopo pode ser usado com o `openid` escopo e qualquer outro escopo. Ele dá ao aplicativo acesso a uma grande quantidade de informações sobre o usuário. As informações que ele pode acessar incluem, mas não se limitam a, o nome do usuário, o sobrenome, o nome de usuário preferencial e a ID de objeto. 
+O `profile` escopo pode ser usado com o `openid` escopo e qualquer outro escopo. Ele dá ao aplicativo acesso a uma grande quantidade de informações sobre o usuário. As informações acessadas pelo aplicativo são, entre outras, o nome do usuário, o sobrenome, o nome de usuário preferencial e a ID de objeto. 
 
 Para obter uma lista completa das `profile` declarações disponíveis no `id_tokens` parâmetro para um usuário específico, consulte a [ `id_tokens` referência](id-tokens.md).
 
@@ -158,7 +158,7 @@ Se seu aplicativo requer escopos para permissões restritas ao administrador, o 
 
 Se o aplicativo solicitar permissões delegadas de alto privilégio e um administrador conceder essas permissões por meio do ponto de extremidade de consentimento do administrador, o consentimento será concedido para todos os usuários no locatário.
 
-Se o aplicativo solicitar permissões de aplicativo e um administrador conceder essas permissões por meio do ponto de extremidade de consentimento do administrador, essa concessão não será feita em nome de qualquer usuário específico. Na verdade, o aplicativo cliente recebe as permissões *diretamente*. Esses tipos de permissões são usados somente por serviços de daemon e outros aplicativos não interativos que são executados em segundo plano.
+Se o aplicativo solicitar permissões de aplicativo e um administrador conceder essas permissões por meio do ponto de extremidade de consentimento do administrador, essa concessão não será feita em nome de qualquer usuário específico. Em vez disso, o aplicativo cliente recebe permissões *diretamente*. Esses tipos de permissões são usados somente por serviços de daemon e outros aplicativos não interativos que são executados em segundo plano.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Usando o ponto de extremidade de consentimento do administrador
 
@@ -203,7 +203,7 @@ Para conectar o usuário, siga os [tutoriais do protocolo de plataforma de ident
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar permissões de um administrador de diretório
 
-Quando estiver pronto para solicitar permissões do administrador da sua organização, você poderá redirecionar o usuário para o ponto de extremidade de consentimento do administrador da plataforma de identidade da Microsoft.
+Quando você estiver pronto para solicitar permissões de administrador da empresa, redirecione o usuário para o ponto de extremidade de consentimento do administrador da plataforma de identidade da Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.

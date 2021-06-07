@@ -4,14 +4,14 @@ description: Saiba como copiar dados de uma nuvem ou fonte de HDFS local para ar
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367077"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588895"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiar dados do servidor HDFS usando Azure Data Factory
 
@@ -172,7 +172,7 @@ As propriedades a seguir têm suporte para HDFS em `storeSettings` configuraçõ
 | modifiedDatetimeEnd      | Mesmo que acima.  
 | enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Não                                            |
 | partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Não                                            |
-| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
+| maxConcurrentConnections | O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não                                            |
 | ***Configurações de DistCp*** |  | |
 | distcpSettings | O grupo de propriedades a ser usado ao usar o HDFS DistCp. | Não |
 | resourceManagerEndpoint | O ponto de extremidade YARN (ainda outro negociador de recursos) | Sim, se estiver usando DistCp |
@@ -533,7 +533,7 @@ Para obter informações sobre as propriedades de atividade de exclusão, consul
 | resourceManagerEndpoint | O ponto de extremidade do Gerenciador de recursos YARN | Sim, se estiver usando DistCp |
 | tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando Temp DistCp. O arquivo de script é gerado pelo Data Factory e será removido depois que o trabalho de cópia for concluído. | Sim, se estiver usando DistCp |
 | distcpOptions | Opções adicionais são fornecidas para o comando DistCp. | Não |
-| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não |
+| maxConcurrentConnections | O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo: origem do HDFS na atividade de cópia usando DistCp**
 

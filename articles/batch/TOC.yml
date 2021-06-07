@@ -158,9 +158,6 @@
           href: batch-sig-images.md
         - name: Criar um pool com um recurso de imagem gerenciada
           href: batch-custom-images.md
-        - name: Criar um pool em Zonas de Disponibilidade
-          displayName: 'region, zonal policy'
-          href: create-pool-availability-zones.md
         - name: Criar um pool com a criptografia de disco habilitada
           href: disk-encryption.md
         - name: Criar um pool em uma rede virtual
@@ -172,6 +169,9 @@
         - name: Criar um pool sem endereços IP públicos
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: Configurar identidades gerenciadas
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: Montar um sistema de arquivos virtual
           href: virtual-file-mount.md
         - name: Montar um compartilhamento de arquivos do Azure

@@ -8,20 +8,19 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef00f33040d30795ae5374b74d0d7a6e9b6e2156
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4eb7e64065e311dc18f33dffb169d5c27a34008d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957666"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101673035"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 

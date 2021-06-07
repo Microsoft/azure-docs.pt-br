@@ -4,10 +4,10 @@ description: Use o Servidor de Backup do Azure para fazer backup e restaurar seu
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89375390"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
@@ -60,9 +60,9 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
         * **EnableSharePointProtection** habilita a proteção do farm do SharePoint, habilita o gravador VSS e registra a identidade do aplicativo DCOM WssCmdletsWrapper para ser executado como um usuário, cujas credenciais são inseridas com essa opção. Essa conta deve ser um administrador de farm e também um administrador local no servidor Web front\-end.
 
-        * **EnableSPSearchProtection** habilita a proteção da pesquisa do WSS 3.0 SP usando a chave do registro SharePointSearchEnumerationEnabled em HKLM\\Software\\Microsoft\\ Microsoft Data Protection Manager\\Agent\\2.0\\ no servidor Web front\-end e registra a identidade do aplicativo DCOM WssCmdletsWrapper para ser executado como um usuário cujas credenciais são inseridas com essa opção. Essa conta deve ser um administrador de farm e também um administrador local no servidor Web front\-end.
+        * **EnableSPSearchProtection** habilita a proteção da pesquisa do WSS 3.0 SP usando a chave do registro SharePointSearchEnumerationEnabled em HKLM\\Software\\Microsoft\\ Microsoft Data Protection Manager\\Agent\\2.0\\ no servidor Web front\-end e registra a identidade do aplicativo DCOM WssCmdletsWrapper para execução como um usuário cujas credenciais são inseridas com esta opção. Esta conta deve ser uma administradora do farm e também uma administradora local no servidor Web front\-end.
 
-        * **ResolveAllSQLAliases** exibe todos os aliases relatados pelo gravador VSS do SharePoint e os resolve para o SQL Server correspondente. Ele também exibe os nomes de instância resolvidos. Se os servidores forem espelhados, ele também exibirá o servidor espelhado. Ele relata todos os aliases que não estão sendo resolvidos para um SQL Server.
+        * **ResolveAllSQLAliases** exibe todos os aliases relatados pelo gravador VSS do SharePoint e os resolve de acordo com o SQL Server correspondente. Também exibe os nomes de instância resolvidos. Se os servidores forem espelhados, ele também exibirá o servidor espelhado. Ele relata todos os aliases que não estão sendo resolvidos para um SQL Server.
 
         * **SetTempPath** define as variáveis de ambiente TEMP e TMP para o caminho especificado. A recuperação em nível de item falhará se um conjunto de site grande, site, lista ou item estiver sendo recuperado e não houver espaço suficiente na pasta temporária no administrador do farm. Esta opção permite alterar o caminho da pasta dos arquivos temporários para um volume que possua espaço suficiente para armazenar o site ou conjunto de sites que está sendo recuperado.
 
@@ -74,7 +74,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
         Depois de executar o ConfigureSharePoint.exe, você precisará executá-lo novamente se houver uma alteração nas credenciais de administrador do farm do SharePoint.
 
-1. Para criar um grupo de proteção, **Protection**selecione  >  **ações**  >  de proteção**Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** no console do mAbs.
+1. Para criar um grupo de proteção, selecione  >  **ações**  >  de proteção **Criar grupo de proteção** para abrir o assistente para **criar novo grupo de proteção** no console do mAbs.
 
 1. Em **Selecionar tipo de grupo de proteção**, selecione **Servidores**.
 
@@ -88,11 +88,11 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 1. Na página Rever alocação do disco, examine o espaço em disco do pool de armazenamento alocado para o grupo de proteção.
 
-    O **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado no MABS** é o espaço que o MABS recomenda para o grupo de proteção. O MABS escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **Detalhes de alocação do disco**. Para as cargas de trabalho, no menu suspenso, selecione o armazenamento preferido. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
+    O **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado no MABS** é o espaço que o MABS recomenda para o grupo de proteção. O MABS escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **Detalhes de alocação do disco**. Para as cargas de trabalho, selecione o armazenamento preferido no menu suspenso. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
 
 1. Em **Escolher método de criação de réplica**, selecione como você deseja controlar a replicação inicial de dados completo.  Se você optar por replicar pela rede, recomendamos que escolha um horário fora de pico. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere a possibilidade de replicar os dados offline usando mídia removível.
 
-1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Você pode habilitar uma verificação para ser somente executada quando os dados de réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção na área **Proteção** do console do MABS e selecionando **Executar Verificação de Consistência**.
+1. Em **Escolher opções de verificação de consistência**, selecione como você deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser somente executada quando os dados de réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção na área **Proteção** do console do MABS e selecionando **Executar Verificação de Consistência**.
 
 1. Se você optou por fazer backup na nuvem com o Backup do Azure, na página **Especificar dados de proteção online**, verifique se as cargas de trabalho das quais você deseja fazer backup no Azure estão selecionadas.
 
@@ -114,7 +114,7 @@ Após a criação do grupo de proteção, a replicação inicial ocorre e o MABS
 
 ### <a name="set-up-monitoring-notifications"></a>Configurar notificações de monitoramento
 
-1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >  **Action**  >  **Options**.
+1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >    >  .
 
 2. Selecione **servidor SMTP**, digite o nome do servidor, a porta e o endereço de email do qual as notificações serão enviadas. O endereço deve ser válido.
 
@@ -124,7 +124,7 @@ Após a criação do grupo de proteção, a replicação inicial ocorre e o MABS
 
 ### <a name="publish-operations-manager-alerts"></a>Publicar alertas do Operations Manager
 
-1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >  **Action**  >  **Options**  >  **publicação de alerta**  >  **publicar alertas ativos**
+1. Na console do administrador mAbs, selecione opções de ação de **monitoramento**  >    >    >  **publicação de alerta**  >  **publicar alertas ativos**
 
 2. Depois de habilitar **Publicação de alertas**, todos os alertas do MABS existentes que poderão exigir uma ação do usuário serão publicados no log de eventos **Alertas do MABS**. O agente de Operations Manager que está instalado no servidor MABS publica esses alertas no Operations Manager e continua a atualizar o console à medida que novos alertas são gerados.
 
@@ -170,7 +170,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
     MABS anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância de SQL Server temporária. Do banco de dados de conteúdo, ele recupera o item e o coloca no local do arquivo de preparo no MABS. O item recuperado no local de preparo agora precisa ser exportado para o local de preparo no farm do SharePoint.
 
     ![Local de Preparo2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Selecione **Avançar**.
+10. Selecione **Especificar opções de recuperação** e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Selecione **Avançar**.
 
     ![Opções de Recuperação](./media/backup-azure-backup-sharepoint/recovery-options.png)
 

@@ -8,19 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492239"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781272"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
+
+## <a name="jquery-version"></a>versão do jQuery
+
+Azure AD B2C layout de página usa a seguinte versão da [biblioteca jQuery](https://jquery.com/):
+
+|Da versão de layout da página  |versão do jQuery  |
+|---------|---------|
+|2.1.4 | 3.5.1 |
+|1.2.0 | 3.4.1 |
+|1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autodeclarada (selfasserted)
 
@@ -74,9 +84,12 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de inscrição de entrada unificada com link de redefinição de senha (unifiedssp)
 
+> [!TIP]
+> Se você localizar sua página para dar suporte a várias localidades ou idiomas em um fluxo de usuário. O artigo [IDs de localização](localization-string-ids.md) fornece a lista de IDs de localização que você pode usar para a versão de página selecionada.
+
 **2.1.2**
 - Correção do problema de codificação de localização para idiomas como espanhol e francês.
-- Permitir o link "esqueceu a senha" para usar como troca de declarações como IDP social.
+- Permitindo o link "esqueceu a senha" para usar como troca de declarações. Para obter mais informações, consulte [autoatendimento de redefinição de senha](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Adicionou um UXString `heading` além de `intro` ser exibido na página como um título. Isso fica oculto por padrão.

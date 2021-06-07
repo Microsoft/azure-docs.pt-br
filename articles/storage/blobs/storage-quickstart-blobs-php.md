@@ -1,18 +1,18 @@
 ---
 title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o PHP | Microsoft Docs
 description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP. Carregue, baixe e liste blobs de blocos em um contêiner no armazenamento de Blobs do Azure.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af35927abfa491891dffe2c2397d6daf8c1ccde2
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 400982b1cacd6ccd409559679376edcfc886ed5c
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543111"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280047"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 

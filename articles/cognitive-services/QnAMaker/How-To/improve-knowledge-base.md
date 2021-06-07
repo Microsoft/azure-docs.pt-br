@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 3fe6ee8336872c04e85b732713494adf0fefa28a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592017"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103011435"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
@@ -79,25 +79,24 @@ Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar i
 
 Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
-* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a `top` propriedade para obter várias respostas.
+1. O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a `top` propriedade para obter várias respostas.
 
-    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
-
-    Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas.
-
-    ```json
-    {
-        "question": "wi-fi",
-        "isTest": false,
-        "top": 3
-    }
-    ```
-
-* O bot determina os comentários explícitos:
+2. O bot determina os comentários explícitos:
     * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
     * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
-* O bot [envia a resposta selecionada de volta para QnA Maker](#bot-framework-sample-code) com a [API de treinamento](#train-api).
+3. O bot [envia a resposta selecionada de volta para QnA Maker](#bot-framework-sample-code) com a [API de treinamento](#train-api).
 
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
+
+Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas.
+
+```json
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
+```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade Score junto com a lógica de negócios para obter a lista de respostas para mostrar o usuário
 
@@ -171,7 +170,7 @@ O corpo JSON tem várias configurações:
 |--|--|--|--|
 |`feedbackRecords`|array|Lista de comentários.|
 |`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatório.|
+|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatórios.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:

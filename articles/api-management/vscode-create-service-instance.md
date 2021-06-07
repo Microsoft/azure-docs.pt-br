@@ -7,18 +7,18 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3105b6f34d7ece81e8145fdd9e89568e66360ddb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400396"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101649505"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>'Início Rápido: Criar uma instância de serviço do Gerenciamento de API do Azure usando o Visual Studio Code
 
 O APIM (Gerenciamento de API) do Azure ajuda as organizações a publicar APIs para parceiros externos e desenvolvedores internos a fim de liberar o potencial de seus dados e serviços. O Gerenciamento de API fornece as competências essenciais para garantir um programa de API de sucesso através do envolvimento do desenvolvedor, ideias de negócios, análises, segurança e proteção. O APIM permite que você crie e gerencie gateways de API modernos para serviços de back-end hospedados em qualquer lugar. Para obter mais informações, confira o tópico [Visão geral](api-management-key-concepts.md).
 
-Este guia de início rápido descreve as etapas para criar uma instância de Gerenciamento de API usando a *Versão prévia da Extensão do Gerenciamento de API do Azure* para Visual Studio Code. Você também pode usar a extensão para executar operações comuns de gerenciamento em sua instância de Gerenciamento de API.
+Este guia de início rápido descreve as etapas para criar uma instância do Gerenciamento de API usando a *Extensão do Gerenciamento de API do Azure* para Visual Studio Code. Você também pode usar a extensão para executar operações comuns de gerenciamento em sua instância de Gerenciamento de API.
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 
@@ -28,7 +28,7 @@ Além disso, verifique se você instalou o seguinte:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Extensão do Gerenciamento de API do Azure para Visual Studio Code (versão prévia)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- [Extensão do Gerenciamento de API do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

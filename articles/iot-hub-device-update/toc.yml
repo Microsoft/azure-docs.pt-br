@@ -1,0 +1,98 @@
+- name: Documentação da Atualização de dispositivo para o Hub IoT
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Atualização de dispositivo para o Hub IoT?
+      href: understand-device-update.md
+- name: Tutoriais
+  items:
+    - name: Atualização de imagem no Raspberry Pi
+      href: device-update-raspberry-pi.md
+    - name: Usar a atualização de dispositivo em um simulador
+      href: device-update-simulator.md
+    - name: Atualização de pacote no Ubuntu Server 18.04 x64
+      href: device-update-ubuntu-agent.md
+- name: Conceitos
+  items:
+    - name: Conta e instância da atualização de dispositivo
+      href: device-update-resources.md
+    - name: Acesso e funções de usuário da atualização de dispositivo
+      href: device-update-control-access.md
+    - name: Manifesto apt da atualização de dispositivo
+      href: device-update-apt-manifest.md
+    - name: Conformidade da atualização de dispositivo
+      href: device-update-compliance.md
+    - name: Grupos de atualização de dispositivo
+      href: device-update-groups.md
+    - name: Como a atualização de dispositivo usa Plug and Play
+      href: device-update-plug-and-play.md
+    - name: Requisitos de rede da atualização de dispositivo
+      href: device-update-networking.md
+    - name: Agente da atualização de dispositivo
+      href: device-update-agent-overview.md
+    - name: Arquivo de configuração da atualização de dispositivo
+      href: device-update-configuration-file.md
+    - name: Atualizar manifesto
+      href: update-manifest.md
+    - name: Como a atualização de dispositivo é protegida
+      href: device-update-security.md
+    - name: Suporte a dispositivos desconectados
+      href: connected-cache-disconnected-device-update.md
+    - name: Configurar o Cache Conectado da Microsoft para atualização de dispositivo no Hub IoT
+      href: connected-cache-configure.md
+    - name: Importação de atualização de dispositivo
+      href: import-concepts.md
+    - name: Esquema relacionado à importação
+      href: import-schema.md
+- name: Guias de instruções
+  items:
+    - name: Criar uma conta de atualização de dispositivo
+      href: create-device-update-account.md
+    - name: Provisionamento do agente da atualização de dispositivo
+      href: device-update-agent-provisioning.md
+    - name: Importar uma atualização
+      href: import-update.md
+    - name: Criar um grupo de atualização de dispositivo
+      href: create-update-group.md
+    - name: Implantar uma atualização de dispositivo
+      href: deploy-update.md
+    - name: Implantar uma atualização de dispositivo
+      href: deploy-update.md
+    - name: Cache Conectado da Microsoft em nível único
+      href: connected-cache-single-level.md
+    - name: Cache Conectado da Microsoft em nível aninhado
+      href: connected-cache-nested-level.md
+    - name: Cache Conectado da Microsoft para IIOT (IoT industrial)
+      href: connected-cache-industrial-iot-nested.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de atualizações de dispositivo
+          href: troubleshoot-device-update.md
+- name: Referência
+  items:
+    - name: Códigos de erro do cliente de atualização de dispositivo
+      href: device-update-error-codes.md
+- name: Recursos
+  items:
+    - name: Opções de Ajuda e suporte
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Serviços do Azure IoT
+      items:
+        - name: Hub IoT
+          href: ./index.yml
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: ../iot-dps/index.yml
+        - name: Central da IoT
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Aceleradores de solução do IoT
+          href: ../iot-accelerators/index.yml
+        - name: IoT Plug and Play
+          href: ../iot-pnp/index.yml
+        - name: Mapas do Azure
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Otimização de Entrega
+      href: 'https://github.com/microsoft/do-client'

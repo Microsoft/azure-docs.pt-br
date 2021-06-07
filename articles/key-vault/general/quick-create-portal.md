@@ -3,7 +3,6 @@ title: Guia de Início Rápido – Criar um Azure Key Vault com o portal do Azur
 description: Guia de início rápido que mostra como criar um Azure Key Vault usando o portal do Azure
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 729b6ccf1092679a71aa35f49be7d3199d4f4918
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936263"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749664"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Início Rápido: Criar um cofre de chaves usando o portal do Azure
 

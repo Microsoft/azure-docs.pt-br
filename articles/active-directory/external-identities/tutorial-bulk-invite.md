@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4e4892c01775b472cd8cdcf0f35b920d7e5e86
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906782"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055665"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Convidar usuários de colaboração B2B do Azure AD em massa
 
@@ -41,7 +41,7 @@ As linhas em um modelo CSV baixado são as seguintes:
 
 - **Número de versão**: A primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
 - **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName]&lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Email address to invite [inviteeEmail] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
-- **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas entradas.
+- **Linha de exemplos**: incluímos uma linha de exemplos de valores para cada coluna no modelo. Você deve remover a linha de exemplos e substituí-la por suas entradas.
 
 ### <a name="additional-guidance"></a>Diretriz adicional
 
@@ -56,18 +56,22 @@ As linhas em um modelo CSV baixado são as seguintes:
 
 ## <a name="invite-guest-users-in-bulk"></a>Convidar usuários convidados em massa
 
-1. Entre no portal do Azure com uma conta que seja um Administrador de usuários na organização.
+1. Entre no portal do Azure com a conta de um administrador global da organização.
 2. No painel de navegação, selecione **Azure Active Directory**.
-3. Em **Gerenciar**, selecione **Usuários** > **Convidar em massa**.
+3. Em **Gerenciar**, selecione **Todos os usuários**.
+4. Selecione **Operações em massa** > **Convite em massa**.
+
+    ![Botão de convite em massa](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. Na página **Convidar usuários em massa**, selecione **Baixar** para obter um modelo .csv válido com as propriedades do convite.
 
-    ![Botão Baixar em Convidar em massa](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Baixar o arquivo CSV](media/tutorial-bulk-invite/download-button.png)
 
-5. Abra o modelo .csv e adicione uma linha para cada usuário convidado. Os valores obrigatórios são:
+1. Abra o modelo .csv e adicione uma linha para cada usuário convidado. Os valores obrigatórios são:
 
    * **Endereço de email a ser convidado** – o usuário que receberá um convite
 
-   * **URL de redirecionamento** – a URL para a qual o usuário convidado é encaminhado depois de aceitar o convite
+   * **URL de redirecionamento** – a URL para a qual o usuário convidado é encaminhado depois de aceitar o convite. Caso queira encaminhar o usuário à página Meus Aplicativos, será necessário alterar esse valor para https://myapps.microsoft.com ou https://myapplications.microsoft.com.
 
     ![Exemplo de um arquivo CSV com os usuários convidados inseridos](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

@@ -2,19 +2,19 @@
 title: 'Início Rápido: Carregamento em massa de dados com um pool de SQL dedicado'
 description: Use o Synapse Studio para o carregamento em massa de dados em um pool de SQL dedicado no Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
 ms.date: 12/11/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53b6810b0042df382fd1f553bc4bd0fae61793b3
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 838138fb6ca6f64b4296b54a81bc2764c3f1399c
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672790"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567903"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-studio"></a>Início Rápido: Carregamento em massa com o Synapse Studio
 

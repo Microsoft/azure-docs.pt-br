@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890284"
 ---
 # <a name="select-columns-in-dataset-module"></a>Selecionar colunas no módulo DataSet
 
 Este artigo descreve um módulo no designer de Azure Machine Learning.
 
-Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção*de banco de dados.
+Use este módulo para escolher um subconjunto de colunas a ser usado em operações de downstream. O módulo não remove fisicamente as colunas do conjunto de fonte de origem; em vez disso, ele cria um subconjunto de colunas, assim como uma *exibição* ou *projeção* de banco de dados.
 
 Esse módulo é útil quando você precisa limitar as colunas disponíveis para uma operação downstream ou se deseja reduzir o tamanho do conjunto de um removendo colunas desnecessárias.
 
@@ -62,7 +62,7 @@ Há várias opções no módulo para escolher colunas por nome:
     Se seu conjunto de seus conjuntos de seus for amplo, pode ser mais fácil usar índices ou listas de nomes geradas, em vez de selecionar colunas individualmente. Supondo que você preparou a lista com antecedência:
 
     1. Clique na opção **com regras** . 
-    2. Selecione **nenhuma coluna**, selecione  **incluir**e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
+    2. Selecione **nenhuma coluna**, selecione  **incluir** e, em seguida, clique dentro da caixa de texto com o ponto de exclamação vermelho. 
     3. Cole ou digite uma lista separada por vírgulas de nomes de coluna validados anteriormente. Você não poderá salvar o módulo se alguma coluna tiver um nome inválido, portanto, certifique-se de verificar os nomes com antecedência.
     
     Você também pode usar esse método para especificar uma lista de colunas usando seus valores de índice. 

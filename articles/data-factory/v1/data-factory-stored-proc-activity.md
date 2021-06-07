@@ -8,10 +8,10 @@ author: nabhishek
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 05717352936bed888e108277d0163e43bc5a37af
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368754"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
@@ -81,7 +81,7 @@ A instrução a seguir usa a atividade de procedimento armazenado em um pipeline
    > [!IMPORTANT]
    > O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline ou da atividade. Na definição do procedimento armazenado, certifique-se de que **\@** é usado como um prefixo para o parâmetro.
 
-### <a name="create-a-data-factory"></a>Criar um data factory
+### <a name="create-a-data-factory"></a>Criar uma data factory
 1. Faça logon no [portal do Azure](https://portal.azure.com/).
 2. Clique em **NOVO** no menu à esquerda, clique em **Inteligência + Análise** e em **Data Factory**.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9ae06565039e53c0096ff0541f7b28a5b041d9e8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940469"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864543"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analise os logs de telemetria do Application Insights com o Apache Spark no HDInsight
 
@@ -36,7 +36,7 @@ Os recursos a seguir foram usados para desenvolvimento e testes deste documento:
 
 O diagrama a seguir ilustra a arquitetura de serviço deste exemplo:
 
-![Dados que fluem de Application Insights para o armazenamento de BLOBs, em seguida, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Dados que fluem de Application Insights para o armazenamento de BLOBs, em seguida, Spark" border="false":::
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 

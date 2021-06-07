@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 3200dc6ad7756f77dc0d74df83a33c7e89d4bedb
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792425"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044559"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory autenticação de passagem: início rápido
 
@@ -69,10 +69,11 @@ Verifique se os pré-requisitos a seguir estão em vigor.
      | --- | --- |
      | **80** | Baixa as listas de CRLs (certificados revogados) enquanto valida o certificado TLS/SSL |
      | **443** | Lida com toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas do usuário. |
+     | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas de usuário. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o firewall ou o proxy permitir que você adicione entradas DNS a uma permissão, adicione conexões a **\* . msappproxy.net** e **\* . ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
+   - Se você tiver um proxy HTTP de saída, verifique se essa URL, autologon.microsoftazuread-sso.com, está na lista de permissões. Você deve especificar essa URL explicitamente, pois o curinga pode não ser aceito. 
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
     - Para a validação de certificado, desbloqueie as seguintes URLs: **crl3.DigiCert.com:80**, **crl4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-Ca2-2009.OCSP.d-Trust.net:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** e **OCSP.msocsp.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
@@ -83,21 +84,21 @@ Depois de baixar a versão mais recente do agente, prossiga com as instruções 
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
-Habilite a Autenticação de passagem por meio do [Azure AD Connect](whatis-hybrid-identity.md).
+Habilite a autenticação de passagem por meio de [Azure ad Connect](whatis-hybrid-identity.md).
 
 >[!IMPORTANT]
 >É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É altamente recomendável habilitá-la do servidor primário. Se você estiver configurando um servidor de preparo do Azure AD Connect no futuro, você **devem** continuar para escolher a autenticação de passagem como a opção de entrada; escolhendo outra opção será **desabilitar** Autenticação de passagem no locatário e substituir a configuração no servidor primário.
 
-Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
+Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página de **entrada do usuário** , escolha autenticação de **passagem** como o método de **logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 
 ![Azure AD Connect: entrada do usuário](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expressa](how-to-connect-install-express.md) ou de [instalação personalizada](how-to-connect-install-custom.md), selecione a tarefa **Alterar entrada do usuário** no Azure AD Connect e selecione **Avançar**. Depois selecione **Autenticação de Passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
+Se você já tiver instalado o Azure AD Connect usando a [instalação expressa](how-to-connect-install-express.md) ou o caminho de [instalação personalizada](how-to-connect-install-custom.md) , selecione a tarefa **alterar entrada do usuário** em Azure ad Connect e, em seguida, selecione **Avançar**. Em seguida, selecione **autenticação de passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
 
 ![Azure AD Connect: alterar entrada do usuário](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso plano detalhado de implantação publicado [aqui](https://aka.ms/adfstoptadpdownload).
+>A Autenticação de Passagem é um recurso no nível do locatário. Ligá-lo afeta a entrada para usuários em _todos_ os domínios gerenciados em seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso plano detalhado de implantação publicado [aqui](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Etapa 3: testar o recurso
 
@@ -107,7 +108,7 @@ Siga estas instruções para verificar se você habilitou a Autenticação de pa
 2. Selecione **Azure Active Directory** no painel esquerdo.
 3. Selecione **Azure AD Connect**.
 4. Verifique se o recurso **Autenticação de passagem** aparece como **Habilitado**.
-5. Selecione **Autenticação de passagem**. Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
+5. Selecione **autenticação de passagem**. Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
 
 ![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 

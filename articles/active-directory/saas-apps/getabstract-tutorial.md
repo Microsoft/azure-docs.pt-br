@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 05138011822b15363b12f2c860f4f459972201a7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 04712429732bd710ea3a00071a53f035086a7054
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449720"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101651784"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Azure Active Directory ao Getabstract
 
@@ -55,11 +55,11 @@ Para configurar a integração do Getabstract ao Azure AD, é necessário adicio
 
 **Para adicionar o Getabstract da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -67,13 +67,13 @@ Para configurar a integração do Getabstract ao Azure AD, é necessário adicio
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Getabstract** , selecione **Getabstract** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Getabstract**, selecione **Getabstract** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Getabstract na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você vai configurar e testar o logon único do Azure AD com o Getabstract, com base em uma usuária de teste chamada **Brenda Fernandes** .
+Nesta seção, você vai configurar e testar o logon único do Azure AD com o Getabstract, com base em uma usuária de teste chamada **Brenda Fernandes**.
 Para que o logon único funcione, uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Getabstract precisa ser estabelecida.
 
 Para configurar e testar o logon único do Azure AD com o Getabstract, você precisa concluir os seguintes blocos de construção:
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com o Getabstract, você pre
 2. **[Configurar o logon único do Getabstract](#configure-getabstract-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Getabstract](#create-getabstract-test-user)** : para ter um equivalente de Brenda Fernandes no Getabstract que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar usuário de teste do Getabstract](#create-getabstract-test-user)**: para ter um equivalente de Brenda Fernandes no Getabstract que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -91,29 +91,29 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Getabstract, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Getabstract** , selecione **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Getabstract**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Configurar Logon Único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração Básica do SAML** .
+3. Na página **Configurar Logon Único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração Básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica do SAML** , execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
+4. Na seção **Configuração básica do SAML**, execute as etapas a seguir caso deseje configurar o aplicativo no modo **IDP** iniciado:
 
     ![Captura de tela que mostra a seção "Configuração Básica de SAML" com "Identificador" e "URL de Resposta" realçados e o botão "Salvar" selecionado.](common/idp-intiated.png)
 
-    a. Na caixa de texto **Identificador** , digite uma URL: 
+    a. Na caixa de texto **Identificador**, digite uma URL: 
 
     Para preparação/pre_production: `https://int.getabstract.com`
 
     Para produção: `https://www.getabstract.com`
 
-    b. Na caixa de texto **URL de Resposta** , digite uma URL:
+    b. Na caixa de texto **URL de Resposta**, digite uma URL:
     
     Para preparação/pre_production: `https://int.getabstract.com/ACS.do`
     
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o Getabstract, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Getabstract](common/metadata-upload-additional-signon.png)
     
-    Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: 
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: 
 
     Para preparação/pre_production: `https://int.getabstract.com/portal/<org_username>`
     
@@ -132,11 +132,11 @@ Para configurar o logon único do Azure AD com o Getabstract, execute as seguint
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Getabstract](https://www.getabstract.com/en/contact) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de autenticação SAML** , clique em **Baixar** para baixar o **XML de metadados de federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de autenticação SAML**, clique em **Baixar** para baixar o **XML de metadados de federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Getabstract** , copie as URLs apropriadas, de acordo com suas necessidades.
+6. Na seção **Configurar o Getabstract**, copie as URLs apropriadas, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -148,13 +148,13 @@ Para configurar o logon único do Azure AD com o Getabstract, execute as seguint
 
 ### <a name="configure-getabstract-single-sign-on"></a>Configurar o logon único do Getabstract
 
-Para configurar o logon único no lado do **Getabstract** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Getabstract](https://www.getabstract.com/en/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Getabstract**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Getabstract](https://www.getabstract.com/en/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -166,40 +166,40 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Getabstract.
 
-1. No portal do Azure, escolha **Aplicativos Empresariais** , escolha **Todos os aplicativos** e, em seguida, escolha **Getabstract** .
+1. No portal do Azure, escolha **Aplicativos Empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Getabstract**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Getabstract** .
+2. Na lista de aplicativos, selecione **Getabstract**.
 
     ![O link do Getabstract na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função de usuário apropriada para o usuário na lista e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função de usuário apropriada para o usuário na lista e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-getabstract-test-user"></a>Criar usuário de teste do Getabstract
 
@@ -220,4 +220,4 @@ Ao clicar no bloco do Getabstract no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](../conditional-access/overview.md)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

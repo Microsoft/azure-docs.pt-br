@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91303107"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contêiner para implantação nas Instâncias de Contêiner do Azure
@@ -40,11 +40,11 @@ Use o Git para clonar o repositório do aplicativo de exemplo:
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
-Também é possível [baixar o arquivo morto ZIP][aci-helloworld-zip] diretamente do GitHub.
+Também é possível [baixar o arquivo ZIP][aci-helloworld-zip] do GitHub diretamente.
 
 ## <a name="build-the-container-image"></a>Criar a imagem de contêiner
 
-O Dockerfile no aplicativo de exemplo mostra como o contêiner é criado. Ele é iniciado por meio de uma [imagem oficial do Node.js][docker-hub-nodeimage] com base no [Alpine Linux][alpine-linux], uma distribuição pequena que é adequada para uso com contêineres. Em seguida, ele copia os arquivos do aplicativo para o contêiner, instala dependências usando o Gerenciador de Pacotes do Node e inicia o aplicativo.
+O Dockerfile no aplicativo de exemplo mostra como o contêiner é criado. Ele inicia de uma [imagem oficial do Node.js][docker-hub-nodeimage] com base no [Alpine Linux][alpine-linux], uma distribuição pequena que é adequada para uso com contêineres. Em seguida, ele copia os arquivos do aplicativo para o contêiner, instala dependências usando o Gerenciador de Pacotes do Node e inicia o aplicativo.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -83,7 +83,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Use o comando [docker images][docker-images] para ver a imagem criada:
+Use o comando [docker images][docker-images] para ver a imagem interna:
 
 ```bash
 docker images
@@ -99,7 +99,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>Executar o contêiner localmente
 
-Antes de implantar o contêiner nas Instâncias de Contêiner do Azure, use [docker run][docker-run] para executá-lo localmente e confirmar se ele funciona. A opção `-d` permite que o contêiner seja executado em segundo plano, enquanto `-p` permite mapear uma porta aleatória em seu computador para a porta 80 no contêiner.
+Antes de tentar implantar o contêiner nas Instâncias de Contêiner do Azure, use [docker run][docker-run] para executá-lo localmente e confirmar se ele funciona. A opção `-d` permite que o contêiner seja executado em segundo plano, enquanto `-p` permite mapear uma porta aleatória em seu computador para a porta 80 no contêiner.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app

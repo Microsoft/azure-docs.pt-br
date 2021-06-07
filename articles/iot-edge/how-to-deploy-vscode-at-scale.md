@@ -9,14 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a20992ef26b74bcc37a7403e4ee77cacc0f8f66e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377509"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200286"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implantar módulos IoT Edge em escala usando Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Você pode criar uma **IOT Edge implantação automática** usando Visual Studio Code para gerenciar implantações em andamento para vários dispositivos de uma vez. As implantações automáticas para IoT Edge fazem parte do recurso [Gerenciamento automático de dispositivo](../iot-hub/iot-hub-automatic-device-management.md) do Hub IoT. As implantações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Você também pode acompanhar o status e a integridade dos módulos e fazer alterações quando necessário.
 

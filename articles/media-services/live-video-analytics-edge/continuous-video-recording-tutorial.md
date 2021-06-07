@@ -3,12 +3,12 @@ title: Tutorial de gravação contínua de vídeo na nuvem e reprodução com or
 description: Neste tutorial, você aprenderá a usar a Análise Dinâmica de Vídeo do Azure no Azure IoT Edge para gravar vídeo continuamente na nuvem e para transmitir qualquer parte desse vídeo usando os Serviços de Mídia do Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551053"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280336"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo baseada na nuvem e reprodução com origem na nuvem
 
@@ -108,8 +108,8 @@ Você precisará dos arquivos para estas etapas:
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/output"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"  
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
@@ -272,7 +272,7 @@ Quando a instância do grafo é ativada, o nó de origem RTSP tenta se conectar 
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 XXX.XX.XX.XX\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=XXXXXXXXXXXXXXXXXXXXXX\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "dataVersion": "1.0",
@@ -301,14 +301,14 @@ Quando o nó do coletor de ativos começa a gravar vídeo, ele emite esse evento
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAsset-CVRToAMSAsset-Sample-Graph-1"
+    "outputLocation&quot;: &quot;sampleAsset-CVRToAMSAsset-Sample-Graph-1"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
     "eventTime": "2020-04-09T09:42:38.1280000Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -326,14 +326,14 @@ Como o nome sugere, o evento RecordingStarted é enviado quando a gravação é 
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAsset-CVRToAMSAsset-Sample-Graph-1"
+    "outputLocation&quot;: &quot;sampleAsset-CVRToAMSAsset-Sample-Graph-1"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingAvailable",
     "eventTime": "2020-04-09T09:43:38.1280000Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -353,14 +353,14 @@ Quando você desativa a Instância do Grafo, o nó do coletor de ativos para de 
 {
   "body": {
     "outputType": "assetName",
-    "outputLocation": "sampleAsset-CVRToAMSAsset-Sample-Graph-1"
+    "outputLocation&quot;: &quot;sampleAsset-CVRToAMSAsset-Sample-Graph-1"
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{resource-group-name}/providers/microsoft.media/mediaservices/{ams-account-name}",
     "subject": "/graphInstances/Sample-Graph-1/sinks/assetSink",
     "eventType": "Microsoft.Media.Graph.Operational.RecordingStopped",
     "eventTime": "2020-04-10T11:33:31.051Z",
-    "dataVersion": "1.0"
+    "dataVersion&quot;: &quot;1.0"
   }
 }
 ```
@@ -389,7 +389,7 @@ Você pode examinar o ativo dos Serviços de Mídia criado pelo grafo de mídia 
 1. No assistente que é aberto, aceite as opções padrão e selecione **Adicionar**. Para obter mais informações, confira [Reprodução de vídeo](video-playback-concept.md).
 
     > [!TIP]
-    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/streaming-endpoint-concept.md).
+    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/stream-streaming-endpoint-concept.md).
 1. O player deve carregar o vídeo. Selecione **Reproduzir** para exibi-lo.
 
 > [!NOTE]

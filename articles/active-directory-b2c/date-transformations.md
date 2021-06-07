@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202544"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
@@ -31,8 +31,8 @@ Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracter
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
 | InputClaim | rightOperand | string | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
-| InputParameter | AssertIfEqualTo | booleano | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
-| InputParameter | AssertIfRightOperandIsNotPresent | booleano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
+| InputParameter | AssertIfEqualTo | boolean | Especifica se essa declaração deve passar se o operando esquerdo for igual ao operando direito. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | INT | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
 
 A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre executada a partir um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados **DateTimeGreaterThan** do perfil técnico autodeclarado controla a mensagem de erro que o perfil técnico apresenta ao usuário. A mensagem de erro pode ser [localizada](localization-string-ids.md#claims-transformations-error-messages).

@@ -1,5 +1,5 @@
 ---
-title: Executar ou redefinir indexadores
+title: Executar ou reiniciar indexadores
 titleSuffix: Azure Cognitive Search
 description: Redefinir um indexador, habilidades ou documentos individuais para atualizar todo ou parte do e do índice ou da loja de conhecimento.
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 06f9d336bb04aa26cea4ebcdae1cfd045e1c2a1b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bf8a4e51e23f438265af706914a6bc73ec30f64d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361240"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101667658"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Como executar ou redefinir indexadores, habilidades ou documentos
 
@@ -101,7 +101,7 @@ Se nenhuma habilidade for especificada, o concordador inteiro será executado e,
 > [!IMPORTANT] 
 > [Redefinir documentos](/rest/api/searchservice/preview-api/reset-documents) está em visualização pública, disponível somente por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A [API redefinir documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) aceita uma lista de chaves de documento para que você possa atualizar documentos específicos. Se especificado, os parâmetros de redefinição se tornarão o único determinante do que é processado, independentemente de outras alterações nos dados subjacentes. Por exemplo, se 20 BLOBs foram adicionados ou atualizados desde a última execução do indexador, mas você redefinir apenas um documento, apenas um documento será processado.
+A [API redefinir documentos](/rest/api/searchservice/preview-api/reset-documents) aceita uma lista de chaves de documento para que você possa atualizar documentos específicos. Se especificado, os parâmetros de redefinição se tornarão o único determinante do que é processado, independentemente de outras alterações nos dados subjacentes. Por exemplo, se 20 BLOBs foram adicionados ou atualizados desde a última execução do indexador, mas você redefinir apenas um documento, apenas um documento será processado.
 
 Em uma base por documento, todos os campos nesse documento de pesquisa são atualizados com valores da fonte de dados. Você não pode escolher quais campos atualizar. 
 

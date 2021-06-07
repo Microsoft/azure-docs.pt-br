@@ -6,14 +6,16 @@ author: JasonWHowell
 ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b48bc41e230ca5b9003675e2caab25741bcbfd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68950148"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674760"
 ---
 # <a name="azure-data-catalog-developer-samples"></a>Exemplos de desenvolvedor do Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Comece a desenvolver aplicativos do catálogo de dados do Azure usando a API REST do catálogo de dados. A API REST do Catálogo de Dados é uma API baseada em REST que fornece acesso programático aos recursos do Catálogo de Dados para registrar, anotar e pesquisar ativos de dados programaticamente.
 

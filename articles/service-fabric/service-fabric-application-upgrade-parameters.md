@@ -4,10 +4,10 @@ description: Descreve os parâmetros relacionados à atualização de um aplicat
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018470"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
@@ -33,7 +33,7 @@ Parâmetros atualização de aplicativo do Visual Studio Service Fabric são def
 ### <a name="required-parameters"></a>Parâmetros obrigatórios
 (PS=PowerShell, VS=Visual Studio)
 
-| Parâmetro | Aplica-se A | Description |
+| Parâmetro | Aplica-se A | Descrição |
 | --- | --- | --- |
 ApplicationName |PS| Nome do aplicativo que está sendo atualizado. Exemplos: fabric:/VisualObjects, fabric:/ClusterMonitor. |
 ApplicationTypeVersion|PS|Versão do tipo de aplicativo visado pela atualização. |
@@ -48,7 +48,7 @@ UnmonitoredManual | PS | Indica que o modo de atualização e não monitorado ma
 Os parâmetros de avaliação de integridade são opcionais. Se os critérios de avaliação de integridade não forem especificados ao iniciar uma atualização, o Service Fabric usará as políticas de integridade do aplicativo especificadas no ApplicationManifest.xml da instância do aplicativo.
 
 > [!div class="mx-tdBreakAll"]
-> | Parâmetro | Aplica-se A | Description |
+> | Parâmetro | Aplica-se A | Descrição |
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Especifica as substituições para os parâmetros do aplicativo.<br>Parâmetros de aplicativo do PowerShell são especificados como pares de nome/valor da tabela de hash. Por exemplo, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Os parâmetros de aplicativo do Visual Studio podem ser especificados na caixa de diálogo Publicar Aplicativo do Service Fabric no campo **Arquivo de Parâmetros do Aplicativo**.
 > | Confirmar |PS| Os valores permitidos são **true** e **false**. Solicita sua confirmação antes de executar o cmdlet. |
@@ -82,7 +82,7 @@ As atualizações de aplicativos do Service Fabric usando a CLI do Service Fabri
 | --- | --- |
 | application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for ' Fabric:/MyApp/App1 ', a identidade do aplicativo será ' MyApp \~ App1 ' em 6.0 + e ' MyApp/App1 ' nas versões anteriores.|
 application-version |Versão do tipo de aplicativo visado pela atualização.|
-parâmetros  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
+parameters  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 

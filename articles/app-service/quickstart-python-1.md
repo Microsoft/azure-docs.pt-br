@@ -3,15 +3,15 @@ title: 'Início Rápido: Criar um aplicativo Python no Linux'
 description: Comece a usar o Serviço de Aplicativo do Azure implantando um aplicativo Python em um contêiner do Linux no Serviço de Aplicativo.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: ea320938f3e4f3b2d257947f605bb3b3f6f0886a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 464583f9e20d55fa351a6ae0df31b608b18dc428
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786201"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379529"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -243,7 +243,7 @@ Depois que a implantação for concluída, volte para a janela do navegador aber
 
 Você pode acessar os logs do console gerados de dentro do aplicativo e do contêiner no qual ele é executado. Os logs incluem todas as saídas geradas usando instruções `print`.
 
-Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail):
+Para transmitir logs, execute o comando [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail):
 
 ```azurecli
 az webapp log tail

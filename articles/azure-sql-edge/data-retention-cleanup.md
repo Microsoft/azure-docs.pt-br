@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392360"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gerenciar dados históricos com a política de retenção
@@ -70,7 +70,7 @@ As operações de limpeza da política de retenção de dados podem ser monitora
 
 Os seis eventos estendidos a seguir ajudam a acompanhar o estado das operações de limpeza. 
 
-| Name | Descrição |
+| Nome | Descrição |
 |------| ------------|
 | data_retention_task_started  | Ocorre quando uma tarefa em segundo plano para limpeza de tabelas com a política de retenção é iniciada. |
 | data_retention_task_completed  | Ocorre quando a tarefa em segundo plano para limpeza de tabelas com política de retenção termina. |

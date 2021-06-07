@@ -6,10 +6,10 @@ ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 182f448ca852f114bb9564e04c1316119f2b6aa3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97506331"
 ---
 Esta tabela mostra as associações que são compatíveis com as versões principais do Azure Functions Runtime:

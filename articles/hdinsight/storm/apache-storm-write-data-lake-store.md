@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Apache Storm do HDInsight para armazenamento – Azure/Data Lake'
+title: 'Tutorial: Apache Storm do HDInsight para Armazenamento – Azure/Data Lake'
 description: Tutorial - Saiba como usar o Apache Storm para gravar no armazenamento compatível com o HDFS para Azure HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932560"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Gravar no HDFS do Apache Hadoop usando o Apache Storm no Azure HDInsight
@@ -97,11 +97,11 @@ bolts:
 
 Esse YAML define os seguintes itens:
 
-* `syncPolicy`: Define quando arquivos são sincronizados/liberados para o sistema de arquivos. Neste exemplo, a cada 1.000 tuplas.
-* `fileNameFormat`: Define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no runtime usando um filtro e a extensão de arquivo é `.txt`.
-* `recordFormat`: Define o formato interno dos arquivos gravados. Neste exemplo, os campos são delimitados pelo caractere `|`.
-* `rotationPolicy`: Define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
-* `hdfs-bolt`: Usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
+* `syncPolicy`: define quando arquivos são sincronizados/liberados para o sistema de arquivos. Neste exemplo, a cada 1.000 tuplas.
+* `fileNameFormat`: define o padrão de nome de arquivo e caminho a ser usado ao gravar os arquivos. Neste exemplo, o caminho é fornecido no runtime usando um filtro e a extensão de arquivo é `.txt`.
+* `recordFormat`: define o formato interno dos arquivos gravados. Neste exemplo, os campos são delimitados pelo caractere `|`.
+* `rotationPolicy`: define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
+* `hdfs-bolt`: usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
 
 Para obter mais informações sobre a estrutura do Flux, consulte [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
@@ -114,7 +114,7 @@ Por padrão, o Storm no HDInsight não inclui os componentes que o `HdfsBolt` us
 |Tipo de script |- Personalizado|
 |URI do script Bash |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Tipo(s) de nó |Nimbus, Supervisor|
-|parâmetros |Nenhum|
+|Parâmetros |Nenhum|
 
 Para obter informações sobre como usar esse script com o cluster, consulte o documento [Personalizar clusters do HDInsight usando ações de script](./../hdinsight-hadoop-customize-cluster-linux.md).
 

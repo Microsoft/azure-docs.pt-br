@@ -4,15 +4,15 @@ description: Go-To-Market Services – os recursos da Microsoft que os publicado
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246240"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631008"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -38,7 +38,7 @@ Você terá suporte para entender os recursos disponíveis para você e implemen
 
 Descrições detalhadas de todos os benefícios do programa podem ser encontradas nesta [apresentação do programa de recompensas do Marketplace](https://aka.ms/marketplacerewards).
 
-É fácil começar a usar:
+## <a name="getting-started-is-easy"></a>É fácil começar a usar:
 
 1. Publicar uma oferta no Microsoft AppSource ou no Azure Marketplace.
 2. Acesse as [recompensas do Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **registrar no programa de recompensas do Marketplace**.
@@ -49,19 +49,17 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
     1. Forneça o telefone de contato e o idioma preferencial para este contato de marketing. Depois de concluir a inserção dessas informações, selecione **Atribuir usuário**.
     1. Depois de atualizar o contato de marketing, selecione **Ativar** para obter o benefício que você deseja começar a usar. Depois de ativar um benefício, seu contato de marketing será contatado por um membro da equipe de recompensas dentro de uma semana.
 
-### <a name="technical-benefits"></a>Benefícios técnicos
-
-1. Você pode usar seus benefícios técnicos para solicitar assistência técnica durante as fases de pré-vendas, design, implantação e desenvolvimento de aplicativos de sua nuvem e soluções híbridas. Para solicitar assistência, preencha o formulário de solicitação e, em seguida, selecione **Enviar solicitação**.
-2. Como fazer uso dos benefícios de patrocínio do Azure, que será compartilhado por meio de um email à medida que você desbloquear esses benefícios.
-
->[!NOTE]
->Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas.<br><br>Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em [Ajuda e Suporte](https://aka.ms/marketplacepublishersupport).
+> [!NOTE]
+> Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas.<br><br>Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, gere um tíquete de suporte em [ajuda e suporte](https://aka.ms/marketplacepublishersupport).
 
 O escopo das atividades disponíveis se expande à medida que você cresce suas ofertas no mercado comercial. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Benefícios de lista, avaliação e consultoria
 
-Se você publicar uma prova de conceito, implementação ou workshop de avaliação ou consultoria, será atribuído um gerente de envolvimento por três meses, que ajudará você com orientações para elaborar um plano de entrada no mercado bem-sucedido. Você pode repetir esse contrato de três meses sempre que publicar uma nova oferta, para ajudar a obter cada uma de suas novas ofertas iniciadas com êxito.
+Toda vez que publicar no Microsoft AppSource ou no Azure Marketplace, você terá acesso a um novo conjunto de benefícios. Depois que sua oferta ficar ativa, vá para o [Partner Center](https://partner.microsoft.com/dashboard) para ativar seus benefícios técnicos, de marketing e vendas qualificados.
+
+> [!IMPORTANT]
+> Todos os benefícios de avaliação e consultoria expiram após três meses.
 
 A tabela a seguir resume os requisitos de qualificação para as ofertas de lista, avaliação e consultoria:
 
@@ -71,7 +69,7 @@ Descrições detalhadas de todos os esses benefícios podem ser encontradas no [
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros de transação
 
-Quando você entra em funcionamento com sua oferta do Microsoft AppSource ou do Azure Marketplace, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial.
+Quando você entra em funcionamento com sua oferta do Microsoft AppSource ou do Azure Marketplace, pode acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial.
 
 >[!NOTE]
 >O limite de estações vendidas só se aplica a aplicativos Microsoft 365 (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2021.
@@ -80,13 +78,19 @@ Esses benefícios foram criados para dar suporte a você com marketing, vendas e
 
 Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de envolvimento dedicado para escolher as atividades de maior valor para seu portfólio de ofertas do Marketplace comercial. Esse envolvimento dura pelo tempo da oferta, o que significa que você pode escolher suas atividades e o tempo de duração delas de acordo com a duração das estratégias de marketing e vendas mais amplas de sua empresa.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Benefícios de marketing para ofertas do Transact
+
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Benefícios de vendas para ofertas do Transact
 
 ![Benefícios de vendas](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Benefícios técnicos para ofertas do Transact
+
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2021.
+O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2021.
 
 Descrições detalhadas de todos os esses benefícios podem ser encontradas no [Conjunto do programa de Recompensas do Marketplace](https://aka.ms/marketplacerewards).
 

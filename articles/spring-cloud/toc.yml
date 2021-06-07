@@ -59,7 +59,7 @@
   items:
     - name: Desenvolver
       items:
-        - name: Preparar um aplicativo Spring Java para implantação
+        - name: Preparar um aplicativo para implantação
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configurar um Servidor de Configuração
           href: spring-cloud-tutorial-config-server.md
@@ -123,6 +123,8 @@
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
         - name: Criar funções e permissões
           href: spring-cloud-howto-permissions.md
+        - name: Acessar plano de dados com o RBAC do Azure AD
+          href: spring-cloud-howto-access-data-plane-azure-ad-rbac.md
     - name: Integração
       items:
         - name: Associar um aplicativo ao Azure CosmosDB
@@ -147,7 +149,9 @@
       items:
         - name: Autodiagnosticar e resolver problemas
           href: spring-cloud-howto-self-diagnose-solve.md
-        - name: Guia de solução de problemas
+        - name: Autodiagnóstico em execução na VNET
+          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
+        - name: Guia de Solução de Problemas
           href: spring-cloud-troubleshoot.md
     - name: Migrações
       items:
@@ -157,7 +161,11 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Implantação do DevOps
+- name: Arquitetura
+  items:
+    - name: Arquitetura de referência
+      href: spring-cloud-reference-architecture.md
+- name: Implantação de DevOps
   items:
     - name: CI/CD com o Azure DevOps
       href: spring-cloud-howto-cicd.md
@@ -167,7 +175,7 @@
       href: spring-cloud-github-actions-key-vault.md
 - name: Solucionar problemas
   items:
-    - name: Guia de solução de problemas
+    - name: Guia de Solução de Problemas
       href: spring-cloud-troubleshoot.md
 - name: Referência
   items:
@@ -184,3 +192,6 @@
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: What's New
+      displayName: What's New
+      href: 'https://azure.microsoft.com/updates/?query=spring'

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313374"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Achieve3000
@@ -141,7 +141,7 @@ Para configurar o logon único no lado do **Achieve3000**, é necessário enviar
 
 ### <a name="create-achieve3000-test-user"></a>Criar um usuário de teste do Achieve3000
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Achieve3000. Trabalhe com a  [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os usuários à plataforma do Achieve3000. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Achieve3000. Trabalhe com a [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os usuários à plataforma do Achieve3000. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 

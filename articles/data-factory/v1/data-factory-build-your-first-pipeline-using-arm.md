@@ -1,22 +1,18 @@
 ---
 title: Criar seu primeiro data factory (modelo do Resource Manager)
 description: Neste tutorial, você criará um pipeline de exemplo do Azure Data Factory usando um modelo do Azure Resource Manager.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e65039d39bea4063f717709f97b090e465c5e3c4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f4f5156870ec5119c71a0acc77786c71ab8b7e62
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508502"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783040"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar seu primeiro Azure data factory usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -32,7 +28,7 @@ ms.locfileid: "97508502"
 
 Neste artigo, você usa os modelos do Azure Resource Manager para criar seu primeiro data factory do Azure. Para fazer o tutorial usando outras ferramentas/SDKs, selecione uma das opções da lista suspensa.
 
-O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**. Esta atividade executa um script de hive em um cluster do HDInsight do Azure que transforma os dados de entrada para gerar dados de saída. O pipeline é agendado para ser executado uma vez por mês entre os horários de início e término especificados. 
+O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Esta atividade executa um script de hive em um cluster do HDInsight do Azure que transforma os dados de entrada para gerar dados de saída. O pipeline é agendado para ser executado uma vez por mês entre os horários de início e término especificados. 
 
 > [!NOTE]
 > O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Para ver um tutorial sobre como copiar dados usando o Azure Data Factory, consulte [Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

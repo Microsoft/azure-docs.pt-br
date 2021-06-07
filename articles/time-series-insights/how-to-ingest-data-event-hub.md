@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: f4b5d4915cd6520edd7a45af85a836c3360eee32
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696322"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103461126"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicionar uma origem de evento do hub de eventos ao seu ambiente de Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar o portal do Azure para adicionar uma origem do ev
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Crie um ambiente de Azure Time Series Insights conforme descrito em [criar um ambiente de Azure Time Series insights](./tutorials-set-up-tsi-environment.md).
+- Crie um ambiente de Azure Time Series Insights conforme descrito em [criar um ambiente de Azure Time Series insights](./tutorial-set-up-environment.md).
 - Crie um hub de eventos. Leia [criar um namespace de hubs de eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md).
 - O hub de eventos deve ter eventos de mensagem ativos enviados a ele. Saiba como [enviar eventos para os hubs de eventos do Azure usando o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Crie um grupo de consumidores dedicado no Hub de eventos do qual o ambiente de Azure Time Series Insights pode consumir. Cada fonte de evento de Azure Time Series Insights deve ter seu próprio grupo de consumidores dedicado que não é compartilhado com nenhum outro consumidor. Se vários leitores consomem eventos do mesmo grupo de consumidores, é provável que todos os leitores apresentem falhas. Há um limite de 20 grupos de consumidores por Hub de Eventos. Para obter detalhes, leia o [Guia de programação dos hubs de eventos](../event-hubs/event-hubs-programming-guide.md).
@@ -78,7 +78,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
        | Propriedade | Descrição |
        | --- | --- |
-       | Assinatura | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
+       | Subscription | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
        | Namespace do Hub de Eventos | O namespace do hub de eventos ao qual a instância do hub de eventos desejada pertence. |
        | Nome do Hub de Eventos | O nome da instância do hub de eventos desejada. |
        | Valor da política do hub de eventos | Selecione a política de acesso compartilhado desejada. Você pode criar a política de acesso compartilhado na guia **Configurar** o Hub de eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **leitura**. |

@@ -3,19 +3,18 @@ title: Sobre os certificados do Azure Key Vault – Azure Key Vault
 description: Visão geral da interface REST e dos certificados do Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 66f077028b9f9f7a7644a318d4447eeaaab19e98
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919923"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752526"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Sobre certificados do Azure Key Vault
 
@@ -91,7 +90,7 @@ Uma política de certificado contém informações sobre como criar e gerenciar 
 
 Quando um certificado do Key Vault é criado do zero, uma política precisa ser fornecida. A política especifica como criar esta versão do certificado do Key Vault ou a versão seguinte do certificado do Key Vault. Após o estabelecimento de uma política, não é necessária operações sucessivas para criar as próximas versões. Há apenas uma instância de uma política para todas as versões de um certificado de Key Vault.  
 
-Em um alto nível, uma política de certificação contém as seguintes informações (encontre as definições [aqui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+Em um alto nível, uma política de certificação contém as seguintes informações (encontre as definições [aqui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)):  
 
 -   Propriedades do Certificado X509: Contém o nome da entidade, os nomes alternativos da entidade e outras propriedades usadas para criar uma solicitação de certificado x509.  
 -   Propriedades de Chave: contém os campos de tipo de chave, tamanho da chave e exportáveis e ReuseKeyOnRenewal. Esses campos instruem o Cofre de Chaves sobre como gerar uma chave. 

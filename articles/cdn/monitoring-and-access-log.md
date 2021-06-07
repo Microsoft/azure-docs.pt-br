@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501383"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100575447"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Monitoramento em tempo real, métricas e logs de acesso para a CDN do Azure
 Com a CDN do Azure da Microsoft, você pode monitorar recursos das seguintes maneiras para ajudá-lo a solucionar problemas, rastrear e depurar questões. 
@@ -63,7 +63,7 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as configurações de log." border="true":::
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="configuration---azure-powershell"></a>Configuração-Azure PowerShell
 
@@ -215,7 +215,7 @@ As métricas são exibidas em gráficos e acessíveis por meio do PowerShell, da
 
 A CDN do Azure da Microsoft mede e envia suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no Portal. 
 
-Para obter mais informações, consulte [Azure monitor métricas](../azure-monitor/platform/data-platform-metrics.md).
+Para obter mais informações, consulte [Azure monitor métricas](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Métricas com suporte da CDN do Azure da Microsoft**
 
@@ -226,7 +226,7 @@ Para obter mais informações, consulte [Azure monitor métricas](../azure-monit
 | ResponseSize | O número de bytes enviados como respostas da borda CDN para os clientes. |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP. |
 | TotalLatency | O tempo total da solicitação do cliente recebida pela CDN **até que o último byte de resposta seja enviado da CDN para o cliente**. |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP. |
 
-**_Bytes atingido ração = (saída da borda-saída da origem)/egress do Edge_*
+***Bytes atingido ração = (saída da borda-saída da origem)/egress do Edge**
 
 Cenários excluídos no cálculo da taxa de acertos de bytes:
 
@@ -259,13 +259,13 @@ Cenários excluídos no cálculo da taxa de acertos de bytes:
 
 ### <a name="alerts"></a>Alertas
 
-Você pode configurar alertas na CDN da Microsoft selecionando alertas de **monitoramento**  >>  **Alerts**.
+Você pode configurar alertas na CDN da Microsoft selecionando alertas de **monitoramento**  >>  .
 
 Selecione **nova regra de alerta** para as métricas listadas na seção métricas:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alertas para o ponto de extremidade CDN." border="true":::
 
-O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](../azure-monitor/platform/alerts-overview.md).
+O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas adicionais
 Você pode habilitar métricas adicionais usando o Azure Log Analytics e logs brutos para obter um custo adicional.
@@ -299,4 +299,4 @@ Para obter mais informações sobre a CDN do Azure e os outros serviços do Azur
 
 * Saiba mais sobre o [Azure Monitor](../azure-monitor/overview.md).
 
-* Configurar o [Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configurar o [Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

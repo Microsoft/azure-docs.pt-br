@@ -4,10 +4,10 @@ description: Enviar eventos do Auth0 para os serviços do Azure com a Grade de E
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101282"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos de parceiros do Auth0

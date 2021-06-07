@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve os processos de depuração remota no serviço kubernetes do Azure com Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
 ms.openlocfilehash: 0487b80d23974a66bafe93ee1fbdf9b796d0ab53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91975035"
 ---
 # <a name="how-remote-debugging-your-code-with-azure-dev-spaces-works"></a>Como a depuração remota de seu código com Azure Dev Spaces funciona

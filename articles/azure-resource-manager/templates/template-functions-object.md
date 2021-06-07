@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920443"
 ---
 # <a name="object-functions-for-arm-templates"></a>Funções de objeto para modelos ARM
@@ -25,7 +25,7 @@ O Gerenciador de recursos fornece várias funções para trabalhar com objetos e
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>contém
 
 `contains(container, itemToFind)`
 
@@ -38,7 +38,7 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 **True** se o item for encontrado; caso contrário, **False**.
 
@@ -154,7 +154,7 @@ Cria um objeto com base nas chaves e valores. A `createObject` função não é 
 
 A função aceita apenas um número par de parâmetros. Cada chave deve ter um valor correspondente.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um objeto com cada par de chave e valor.
 
@@ -223,7 +223,7 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Retorna **True** se o valor é vazio; caso contrário, **False**.
 
@@ -306,7 +306,7 @@ Retorna uma única matriz ou objeto com os elementos comuns dos parâmetros.
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para localizar elementos comuns. |
 | argumentos adicionais |Não |objeto ou matriz |Os valores adicionais a serem usados para localizar elementos comuns. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto com os elementos comuns.
 
@@ -411,7 +411,7 @@ Converte uma cadeia de caracteres JSON válida em um tipo de dados JSON.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |string |O valor a ser convertido para JSON. A cadeia de caracteres deve ser uma cadeia de caracteres JSON formatada corretamente. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 O tipo de dados JSON da cadeia de caracteres especificada ou um valor vazio quando **NULL** é especificado.
 
@@ -526,7 +526,7 @@ A saída do exemplo anterior com os valores padrão é:
 | objectOutput | Objeto | {"a": "b"} |
 | stringOutput | String | test |
 | booleanOutput | Booliano | verdadeiro |
-| intOutput | Integer | 3 |
+| intOutput | Inteiro | 3 |
 | arrayOutput | Array | [ 1, 2, 3 ] |
 | concatObjectOutput | Objeto | {"a": "valor da demonstração"} |
 
@@ -542,7 +542,7 @@ Retorna o número de elementos em uma matriz, caracteres em uma cadeia de caract
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um inteiro.
 
@@ -644,7 +644,7 @@ Retorna um valor nulo. A `null` função não está disponível em bicep. `null`
 
 A função NULL não aceita nenhum parâmetro.
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Um valor que é sempre nulo.
 
@@ -696,7 +696,7 @@ Retorna uma única matriz ou objeto com todos os elementos dos parâmetros. Valo
 | arg2 |Sim |objeto ou matriz |O segundo valor a ser usado para unir elementos. |
 | argumentos adicionais |Não |objeto ou matriz |Valores adicionais a serem usados para unir elementos. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz ou objeto.
 

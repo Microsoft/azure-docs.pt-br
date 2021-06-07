@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, sensor, SDK, câmera de profundidade, TOF, princípios, desempenho, invalidação
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276347"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Câmera de profundidade do Azure Kinect-DK
@@ -44,7 +44,7 @@ As características técnicas da câmera de profundidade incluem:
 
 A câmera de profundidade transmite imagens de IR moduladas brutas para o PC host. No PC, o software do mecanismo de profundidade acelerada da GPU converte o sinal bruto em mapas de profundidade.A câmera de profundidade dá suporte a vários modos. Os modos **de campo de exibição estreito (FOV)** são ideais para cenas com extensões menores em dimensões X e Y, mas extensões maiores na dimensão Z. Se a cena tiver extensões X e Y grandes, mas intervalos Z menores, os **modos de FOV largos** serão mais adequados.
 
-A câmera de profundidade dá suporte a **modos de compartimentalização 2x2** para estender o intervalo Z em comparação com os **modos de unbinned**correspondentes. O compartimentalização é feito com o custo de reduzir a resolução da imagem. Todos os modos podem ser executados em até 30 quadros por segundo (FPS) com exceção do modo de 1 megapixel (MP) que é executado com uma taxa máxima de quadros de 15 fps. A câmera de profundidade também fornece um **modo ir passivo**. Nesse modo, os iluminadores da câmera não estão ativos e apenas a iluminação ambiental é observada.
+A câmera de profundidade dá suporte a **modos de compartimentalização 2x2** para estender o intervalo Z em comparação com os **modos de unbinned** correspondentes. O compartimentalização é feito com o custo de reduzir a resolução da imagem. Todos os modos podem ser executados em até 30 quadros por segundo (FPS) com exceção do modo de 1 megapixel (MP) que é executado com uma taxa máxima de quadros de 15 fps. A câmera de profundidade também fornece um **modo ir passivo**. Nesse modo, os iluminadores da câmera não estão ativos e apenas a iluminação ambiental é observada.
 
 ## <a name="camera-performance"></a>Desempenho da câmera
 
@@ -56,7 +56,7 @@ O erro sistemático é definido como a diferença entre a profundidade medida ap
 
 ![Erro sistemático de profundidade](./media/concepts/depth-camera-systematic-error.png)
 
-Onde *d<sub>t</sub> * denota a profundidade da medida no tempo *t*, *N* é o número de quadros usados no procedimento de média e *d<sub>gt</sub> * é a profundidade da verdade.
+Onde *d <sub>t</sub>* denota a profundidade da medida no tempo *t*, *N* é o número de quadros usados no procedimento de média e *d <sub>gt</sub>* é a profundidade da verdade.
 
 A especificação de erro sistemática da câmera de profundidade é a exclusão de MPI (interferência de vários caminhos). MPI é quando um pixel de sensor integra a luz refletida por mais de um objeto. A MPI é parcialmente mitigada em nossa câmera de profundidade usando frequências de modulação mais altas, juntamente com a invalidação de profundidade, que apresentaremos mais tarde.
 
@@ -66,7 +66,7 @@ Vamos supor que levamos 100 imagens do mesmo objeto sem mover a câmera. A profu
 
 ![Erro aleatório de profundidade](./media/concepts/depth-camera-random-error.png)
 
-Onde *N* denota o número de medidas de profundidade, *d<sub>t</sub> * representa a medida de profundidade no tempo *t* e *d* denota o valor médio calculado em todas as medidas de profundidade *d<sub>t</sub>*.
+Onde *N* denota o número de medidas de profundidade, *d <sub>t</sub>* representa a medida de profundidade no tempo *t* e *d* denota o valor médio calculado em todas as medidas de profundidade *d <sub>t</sub>*.
 
 ## <a name="invalidation"></a>Invalidação
 

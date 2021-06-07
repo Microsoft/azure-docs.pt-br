@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962036"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 

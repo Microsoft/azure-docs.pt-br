@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98660789"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Criar uma nova configuração para Azure AD Connect sincronização de nuvem

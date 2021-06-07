@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96488384"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
@@ -39,7 +39,7 @@ Todos os arquivos devem residir em um compartilhamento de arquivos, que é simpl
 
 As etapas a seguir ilustram como criar um compartilhamento de arquivos no Gerenciador de Armazenamento.
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento na qual você deseja criar o compartilhamento de arquivos
 
@@ -61,7 +61,7 @@ Compartilhamentos de arquivos contêm arquivos e pastas (que também podem conte
 
 As etapas a seguir ilustram como exibir o conteúdo de um compartilhamento de arquivos no Gerenciador de Armazenamento:+
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
@@ -81,7 +81,7 @@ Os compartilhamentos de arquivos podem ser criados e excluídos facilmente confo
 
 As etapas a seguir ilustram como excluir um compartilhamento de arquivos no Gerenciador de Armazenamento:
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja exibir.
 
@@ -101,7 +101,7 @@ O Gerenciador de Armazenamento permite que você copie um compartilhamento de ar
 
 As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma conta de armazenamento para outra.
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento contendo o compartilhamento de arquivos que você deseja copiar.
 
@@ -121,7 +121,7 @@ Uma [SAS (assinatura de acesso compartilhado)](./storage/common/storage-sas-over
 
 As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arquivos:+
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos para o qual você deseja obter uma SAS.
 
@@ -147,7 +147,7 @@ As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arqui
 
 As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de acesso de um compartilhamento de arquivos:+. As políticas de acesso são usadas para criar URLs de SAS que podem ser usadas para acessar o recurso Arquivo de Armazenamento durante um período de tempo definido.
 
-1. Abra o Explorer do Armazenamento.
+1. Abra o Gerenciador de Armazenamento.
 
 1. No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos cujas políticas de acesso você deseja gerenciar.
 
@@ -181,7 +181,7 @@ Depois de criar um compartilhamento de arquivos, você pode carregar um arquivo 
 
 As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um compartilhamento de arquivos.
 
-1.  Abra o Explorer do Armazenamento.
+1.  Abra o Gerenciador de Armazenamento.
 
 1.  No painel esquerdo, expanda a conta de armazenamento que contém o compartilhamento de arquivos que você deseja gerenciar.
 

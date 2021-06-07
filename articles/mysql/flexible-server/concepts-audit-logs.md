@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542211"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101718736"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhar atividade do banco de dados com logs de auditoria no banco de dados do Azure para MySQL servidor flexível
 
@@ -46,11 +46,11 @@ Outros parâmetros que você pode ajustar para controlar o comportamento do log 
 | `DCL` | Consultas como "conceder permissão" |
 | `ADMIN` | Consultas como "mostrar STATUS" |
 | `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador |
-| `TABLE_ACCESS` | -Disponível somente para MySQL 5,7 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
+| `TABLE_ACCESS` | -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 
-Os logs de auditoria são integrados às configurações de diagnóstico Azure Monitor. Depois de habilitar os logs de auditoria no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Os logs de auditoria são integrados às configurações de diagnóstico Azure Monitor. Depois de habilitar os logs de auditoria no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
 As seções a seguir descrevem a saída dos logs de auditoria do MySQL com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
@@ -72,7 +72,7 @@ As seções a seguir descrevem a saída dos logs de auditoria do MySQL com base 
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (disponível somente para MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | ID de conexão exclusiva gerada pelo MySQL |
 | `host_s` | Em branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MySQL |
@@ -116,7 +116,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 ### <a name="table-access"></a>Acesso à tabela
 
 > [!NOTE]
-> Os logs de acesso à tabela são apenas saídas para MySQL 5,7.<br>Para `sql_text_s` , o log será truncado se exceder 2048 caracteres.
+> Para `sql_text_s` , o log será truncado se exceder 2048 caracteres.
 
 | **Propriedade** | **Descrição** |
 |---|---|

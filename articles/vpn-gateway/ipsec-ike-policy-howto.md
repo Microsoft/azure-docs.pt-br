@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878537"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet: portal do Azure
@@ -28,8 +28,10 @@ Este artigo fornece instruções para criar e configurar uma política de IPsec/
 ### <a name="considerations"></a>Considerações
 
 * A política de IPsec/IKE só funciona nas seguintes SKUs de gateway:
-  * ***VpnGw1 ~ 5 e VpnGw1AZ ~ 5AZ** _ _ ***Standard** _ e _*_HighPerformance_*_ _ você só pode especificar uma combinação de política ***uma** _ para uma determinada conexão.
-  _ Você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
+  * ***VpnGw1 ~ 5 e VpnGw1AZ ~ 5AZ***
+  * ***Standard** _ e _ *_HighPerformance_**
+* Você só pode especificar ***uma*** combinação de políticas para uma determinada conexão.
+* Você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
 * Consulte as especificações do fornecedor do dispositivo VPN para garantir que a política tem suporte em seus dispositivos VPN local. S2S ou conexões VNet para VNet não podem estabelecer se as políticas são incompatíveis.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Fluxo de trabalho
@@ -122,7 +124,7 @@ Crie os recursos a seguir, conforme mostrado nas capturas de tela abaixo. Para o
 
 * **Rede virtual:**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Virtual":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="VNET":::
 
 * **Gateway de VPN:** VNet1GW
 

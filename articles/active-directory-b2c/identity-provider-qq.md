@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8bc2cddf4d0380e5dc22e8250b6ee26f4d005b8a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952420"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488662"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Dire
 1. Acesse [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Selecione **应用管理**(gerenciamento de aplicativos).
 1. Selecione **创建应用** (criar aplicativo) e insira as informações necessárias.
-1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno de chamada). Por exemplo, se `tenant_name` for contoso, defina a URL para ser `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Para o **授权回调域** (URL de retorno de chamada), digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
 1. Selecione **创建应用** (criar aplicativo).
 1. Na página de confirmação, selecione **应用管理**(gerenciamento de aplicativos) para retornar à página de gerenciamento de aplicativos.
 1. Selecione **查看** (exibir) ao lado do aplicativo que você criou.
@@ -64,17 +64,21 @@ Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Dire
 1. Insira um **Nome**. Por exemplo, *QQ*.
 1. Para a **ID do cliente**, insira a ID do aplicativo QQ que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade QQ a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade QQ.
 1. Em **provedores de identidade social**, selecione **QQ**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
+1. Selecione o botão **executar fluxo de usuário** .
+1. Na página inscrever-se ou entrar, selecione **QQ** para entrar com a conta do QQ.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
+
 
 ::: zone-end
 
@@ -170,6 +174,13 @@ Você pode definir uma conta QQ como um provedor de declarações adicionando-a 
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Testar sua política personalizada
+
+1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
+1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **QQ** para entrar com a conta do QQ.
+
+Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 
 ::: zone-end

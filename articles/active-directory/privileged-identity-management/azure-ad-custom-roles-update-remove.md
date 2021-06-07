@@ -1,5 +1,5 @@
 ---
-title: Atualizar ou remover Privileged Identity Management de função personalizada do Azure AD (PIM)
+title: Atualizar ou remover função personalizada do Microsoft Azure AD no PIM (Privileged Identity Management)
 description: Como atualizar ou remover uma atribuição de função personalizada do Azure AD no PIM (Privileged Identity Management)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a35442dd8af1cd4acf22de453c8d10460e1e39f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92371521"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Atualizar ou remover uma função personalizada do Azure AD atribuída no Privileged Identity Management
@@ -31,7 +31,7 @@ Este artigo informa como usar o PIM (Privileged Identity Management) para atuali
 - Se você ainda não usou o Privileged Identity Management, obtenha mais informações em [Começar a usar o Privileged Identity Management](pim-getting-started.md).
 
 > [!NOTE]
-> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-add-role-to-user.md) e este artigo não se aplicará:
+> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você observar a faixa a seguir, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-add-role-to-user.md) e este artigo não é aplicável:
 >
 > [![Selecione Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 

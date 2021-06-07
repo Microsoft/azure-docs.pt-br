@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 06be168ff9dfd55a56578b3afcdab8d984416756
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078003"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell
@@ -30,7 +30,7 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo requer que você esteja executando a versão mais recente do Azure PowerShell. Se você precisar instalar ou atualizar, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+Este artigo requer que você esteja executando a versão mais recente do Azure PowerShell. Se você precisa instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, recuperar, sensor, câmera, SDK, profundidade, RGB, imagens, cor, captura, resolução, buffer
 ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87538907"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Recuperar dados de imagem do Azure Kinect

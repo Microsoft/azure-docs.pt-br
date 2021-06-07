@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575883"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo de serviços confiáveis do .NET no Service Fabric
@@ -28,7 +28,7 @@ Com esse aplicativo, você aprenderá a:
 * Expandir o aplicativo para vários nós
 * Executar um upgrade sem interrupção do aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -127,9 +127,9 @@ Para ver o que acontece no código, conclua as seguintes etapas:
 
      ![Adicionar Serviço de Front-end de Voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Primeiro, construa a URL para o ReverseProxy para nosso serviço de back-end **(1)** .
+   * Primeiro, construa a URL para o ReverseProxy para nosso serviço de back-end **(1)**.
    * Em seguida, envie a solicitação PUT HTTP para o ReverseProxy **(2)** .
-   * Por fim, retorne a resposta do serviço de back-end para o cliente **(3)** .
+   * Por fim, retorne a resposta do serviço de back-end para o cliente **(3)**.
 
 4. Pressione **F5** para continuar
    - Se solicitado pelo navegador, conceda ao grupo ServiceFabricAllowedUsers permissões de leitura e execução para o modo de depuração.
@@ -137,9 +137,9 @@ Para ver o que acontece no código, conclua as seguintes etapas:
 
      ![Adicionar Serviço de Back-End de Voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-   - Na primeira linha no método **(1)** , o `StateManager` obtém ou adiciona um dicionário confiável chamado `counts`.
+   - Na primeira linha no método **(1)**, o `StateManager` obtém ou adiciona um dicionário confiável chamado `counts`.
    - Todas as interações com valores em um dicionário confiável exigem uma transação e, portanto, o uso da instrução **(2)** cria essa transação.
-   - Na transação, atualize o valor da chave relevante para a opção de votação e confirme a operação **(3)** . Depois que o método de confirmação for retornado, os dados serão atualizados no dicionário e replicados em outros nós no cluster. Os dados agora estão armazenados com segurança no cluster e o serviço de back-end pode fazer failover para outros nós, ainda tendo os dados disponíveis.
+   - Na transação, atualize o valor da chave relevante para a opção de votação e confirme a operação **(3)**. Depois que o método de confirmação for retornado, os dados serão atualizados no dicionário e replicados em outros nós no cluster. Os dados agora estão armazenados com segurança no cluster e o serviço de back-end pode fazer failover para outros nós, ainda tendo os dados disponíveis.
 5. Pressione **F5** para continuar
 
 Para interromper a sessão de depuração, pressione **Shift + F5**.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872006"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço NSG para o Azure HDInsight
 
@@ -40,7 +40,7 @@ A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsi
 
 1. Na lista suspensa **marca de serviço de origem** , selecione **HDInsight**.
 
-    ![Adicionar uma marca de serviço do portal do Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Adicionar uma marca de serviço do portal do Azure":::
 
 Essa marca contém os endereços IP dos serviços de integridade e gerenciamento para todas as regiões em que o HDInsight está disponível. A marca garantirá que o cluster possa se comunicar com os serviços de integridade e gerenciamento necessários, independentemente de onde eles forem criados.
 

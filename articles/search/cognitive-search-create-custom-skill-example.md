@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020177"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
@@ -34,7 +34,7 @@ Embora este exemplo use uma função do Azure para hospedar uma API da Web, ele 
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-1. No Visual Studio, selecione **novo**  >  **projeto** no menu arquivo.
+1. No Visual Studio, selecione **Novo** > **Projeto** no menu Arquivo.
 
 1. Na caixa de diálogo Novo Projeto, selecione **Instalado**, expanda **Visual C#** > **Nuvem**, selecione **Azure Functions**, digite um Nome para seu projeto e selecione **OK**. O nome do aplicativo de funções deve ser válido como um namespace C#, portanto, não use sublinhados, hifens ou quaisquer outros caracteres não alfanuméricos.
 
@@ -378,7 +378,7 @@ Quando estiver satisfeito com o comportamento da função, você poderá public�
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Publicar**. Escolha **criar nova**  >  **publicação**.
 
-1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**
+1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta....**
 
 1. Siga os prompts na tela. Você será solicitado a especificar um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma conta de armazenamento se ainda não tiver nenhuma dessas opções. Quando terminar, selecione **criar**
 

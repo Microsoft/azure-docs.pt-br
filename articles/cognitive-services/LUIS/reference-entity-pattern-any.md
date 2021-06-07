@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542199"
 ---
 # <a name="patternany-entity"></a>Entidade pattern.any
@@ -43,7 +43,7 @@ Na tabela a seguir, cada linha tem duas versões do enunciado. A principal expre
 
 ## <a name="example-json"></a>JSON de exemplo
 
-Considere a consulta a seguir.
+Considere a consulta a seguir:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: b-juche
 ms.openlocfilehash: 0f431015caf5bb3364fe5628a599f760c6318c47
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91932491"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios do uso do Azure NetApp Files com o Oracle Database

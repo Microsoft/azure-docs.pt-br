@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 5e899f28cf5b3c11ae5f935d7bc273c566214225
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606769"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com o Armazenamento de Data Lake do Azure Gen1 como armazenamento padrão usando o PowerShell
@@ -127,7 +127,7 @@ Esta seção ilustra como conceder a um serviço de aplicativo, como o HDInsight
 
 Para configurar a autenticação do Active Directory para o Data Lake Storage Gen1, execute as tarefas nas duas seções a seguir.
 
-### <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está instalado antes de continuar com as etapas nesta seção. Também é necessário ter criado um diretório, como *C:\mycertdir*, no qual o certificado é criado.
 
 1. Na janela do PowerShell, acesse a localização em que você instalou o SDK do Windows (normalmente, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos:
@@ -140,7 +140,7 @@ Verifique se o [SDK do Windows](https://dev.windows.com/en-us/downloads) está i
     ```
 
     Você receberá uma solicitação para inserir a senha da chave privada. Após a execução bem-sucedida do comando, você deverá ver **CertFile.cer** e **mykey.pvk** no diretório de certificado especificado.
-2. Use o utilitário [Pvk2Pfx][pvk2pfx] para converter os arquivos .pvk e .cer criados pelo MakeCert em um arquivo .pfx. Execute o seguinte comando:
+2. Use o utilitário [Pvk2Pfx][pvk2pfx] para converter os arquivos .pvk e .cer criados pelo MakeCert em um arquivo .pfx. Execute o comando a seguir:
 
     ```azurepowershell
     pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Também é possível usar o comando `hdfs dfs -put` para carregar alguns arquivos no Data Lake Storage Gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal do Azure: criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

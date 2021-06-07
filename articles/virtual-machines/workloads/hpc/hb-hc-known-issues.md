@@ -3,37 +3,58 @@ title: Solucionando problemas conhecidos com VMs do HPC e de GPU-máquinas virtu
 description: Saiba como solucionar problemas conhecidos com tamanhos de VM HPC e de GPU no Azure.
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598309"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604831"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos com VMs da série H e da série N
 
-Este artigo fornece os problemas e soluções mais comuns ao usar as VMs da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) e do HPC e da GPU.
+Este artigo tenta listar problemas comuns recentes e suas soluções ao usar as VMs da [série H](../../sizes-hpc.md) e do HPC e da [série N](../../sizes-gpu.md) .
+
+## <a name="mofed-installation-on-ubuntu"></a>Instalação do MOFED no Ubuntu
+No Ubuntu-18, 4, o adaptador Mellanox OFED mostrou incompatibilidade com a versão de kernels `5.4.0-1039-azure #42` e mais recente, o que causa um aumento no tempo de inicialização da VM para cerca de 30 minutos. Isso foi relatado para as versões do Mellanox OFED 5.2-1.0.4.0 e 5.2-2.2.0.0.
+A solução temporária é usar a imagem **canônica: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace ou mais antiga e não para atualizar o kernel.
+Esse problema deve ser resolvido com um MOFED mais recente (TBD).
+
+## <a name="mpi-qp-creation-errors"></a>Erros de criação de MPI QP
+Se, no meio da execução de qualquer carga de trabalho MPI, erros de criação de InfiniBand QP, como mostrado abaixo, são apresentados, sugerimos reinicializar a VM e tentar novamente a carga de trabalho. Esse problema será corrigido no futuro.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+Você pode verificar os valores do número máximo de pares de fila quando o problema é observado da seguinte maneira.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rede acelerada em HB, HC, HBv2 e NDv2
 
-A [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) agora está disponível nos tamanhos de VM habilitados para RDMA e de Sr-IOV compatíveis com [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) e [NDv2](../../ndv2-series.md). Esse recurso agora permite a melhoria em todo o período (até 30 Gbps) e latências na rede Ethernet do Azure. Embora isso seja separado dos recursos RDMA na rede InfiniBand, algumas alterações de plataforma para esse recurso podem afetar o comportamento de determinadas implementações de MPI ao executando trabalhos sobre InfiniBand. Especificamente, a interface InfiniBand em algumas VMs pode ter um nome ligeiramente diferente (mlx5_1 em oposição ao mlx5_0 anterior) e isso pode exigir o ajuste das linhas de comando MPI, especialmente ao usar a interface UCX (normalmente com OpenMP e HPC-X).
-Mais detalhes sobre isso estão disponíveis neste [artigo de blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) com instruções sobre como resolver problemas observados.
+A [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) agora está disponível nos tamanhos de VM habilitados para RDMA e de Sr-IOV compatíveis com [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)e [NDv2](../../ndv2-series.md). Esse recurso agora permite a melhoria em todo o período (até 30 Gbps) e latências na rede Ethernet do Azure. Embora isso seja separado dos recursos RDMA na rede InfiniBand, algumas alterações de plataforma para esse recurso podem afetar o comportamento de determinadas implementações de MPI ao executar trabalhos por InfiniBand. Especificamente, a interface InfiniBand em algumas VMs pode ter um nome ligeiramente diferente (mlx5_1 em oposição ao mlx5_0 anterior) e isso pode exigir o ajuste das linhas de comando MPI, especialmente ao usar a interface UCX (normalmente com OpenMP e HPC-X). A solução mais simples no momento pode ser usar o HPC-X mais recente nas imagens de VM CentOS-HPC ou desabilitar a rede acelerada, se não for necessário.
+Mais detalhes sobre isso estão disponíveis neste [artigo do TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) com instruções sobre como resolver problemas observados.
 
-## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalação do driver InfiniBand em VMs da série N
+## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>Instalação do driver InfiniBand em VMs que não são do SR-IOV
 
-NC24r_v3 e ND40r_v2 são habilitados para SR-IOV enquanto NC24r e NC24r_v2 não são habilitados para SR-IOV. Alguns detalhes sobre o bifurcação [aqui](../../sizes-hpc.md#rdma-capable-instances).
-A InfiniBand (IB) pode ser configurada em tamanhos de VM habilitados para SR-IOV com os drivers OFED, enquanto os tamanhos de VM não SR-IOV exigem drivers ND. Esse suporte do IB está disponível adequadamente no [CentOS-HPC VMIs](configure.md). Para o Ubuntu, consulte a [instrução aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para instalar os drivers ofed e nd, conforme descrito nos [documentos](enable-infiniband.md#vm-images-with-infiniband-drivers).
+Atualmente, H16r, H16mr e NC24r não são habilitados para SR-IOV. Alguns detalhes sobre o bifurcação da pilha InfiniBand estão [aqui](../../sizes-hpc.md#rdma-capable-instances).
+A InfiniBand pode ser configurada em tamanhos de VM habilitados para SR-IOV com os drivers OFED, enquanto os tamanhos de VM que não são de SR-IOV exigem drivers ND. Esse suporte do IB está disponível adequadamente para [CentOS, RHEL e Ubuntu](configure.md).
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicar o MAC com Cloud-init com Ubuntu nas VMs da série H e da série N
 
-Há um problema conhecido com Cloud-init em imagens de VM Ubuntu, pois ele tenta abrir a interface IB. Isso pode ocorrer na reinicialização da VM ou ao tentar criar uma imagem de VM após a generalização. Os logs de inicialização da VM podem mostrar um erro como este: "Iniciando serviço de rede... RuntimeError: Mac duplicado encontrado! "eth1" e "ib0" têm Mac ".
+Há um problema conhecido com Cloud-init em imagens de VM Ubuntu, pois ele tenta abrir a interface IB. Isso pode ocorrer na reinicialização da VM ou ao tentar criar uma imagem de VM após a generalização. Os logs de inicialização da VM podem mostrar um erro como este:
+```console
+“Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
+```
 
-Esse "duplicar MAC com Cloud-init no Ubuntu" é um problema conhecido. A solução alternativa é:
+Esse "duplicar MAC com Cloud-init no Ubuntu" é um problema conhecido. Isso será resolvido nos kernels mais recentes. Se o problema for encontrado, a solução alternativa é:
 1) Implantar a imagem de VM do Marketplace (Ubuntu 18, 4)
 2) Instalar os pacotes de software necessários para habilitar o IB ([instrução aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
 3) Edite waagent. conf para alterar EnableRDMA = y
@@ -52,17 +73,13 @@ Esse "duplicar MAC com Cloud-init no Ubuntu" é um problema conhecido. A soluç�
     EOF
     ```
 
-## <a name="dram-on-hb-series"></a>DRAM na série HB
-
-As VMs da série HB podem expor apenas 228 GB de RAM para VMs convidadas no momento. Isso ocorre devido a uma limitação conhecida do hipervisor do Azure para impedir que as páginas sejam atribuídas ao DRAM local do AMD CCX (domínios NUMA) reservado para a VM convidada.
-
-## <a name="accelerated-networking"></a>Rede Acelerada
-
-A rede acelerada do Azure em VMs HPC e de GPU habilitadas para IB não está habilitada no momento. Notificaremos os clientes quando esse recurso for suportado.
-
 ## <a name="qp0-access-restriction"></a>Restrição de acesso qp0
 
 Para evitar o acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o par de filas 0 não é acessível para VMs convidadas. Isso só deve afetar as ações normalmente associadas à administração da NIC ConnectX-5 e a execução de alguns diagnósticos InfiniBand como ibdiagnet, mas não os aplicativos do usuário final.
+
+## <a name="dram-on-hb-series-vms"></a>DRAM em VMs da série HB
+
+As VMs da série HB podem expor apenas 228 GB de RAM para VMs convidadas no momento. Da mesma forma, 458 GB em HBv2 e 448 GB em VMs HBv3. Isso ocorre devido a uma limitação conhecida do hipervisor do Azure para impedir que as páginas sejam atribuídas ao DRAM local do AMD CCX (domínios NUMA) reservado para a VM convidada.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 
@@ -114,5 +131,5 @@ Você pode ignorar as seguintes mensagens de aviso do kernel ao inicializar uma 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Examine a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md) para saber mais sobre como configurar de maneira ideal as cargas de trabalho para desempenho e escalabilidade.
-- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para uma exibição arquitetônica de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).

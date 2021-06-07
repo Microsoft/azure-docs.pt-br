@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: d9c2bec575f2c7a948f3eb6e65be6a735a3c03e8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 809ac72977b670faff984ad39effb1c70767e141
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733800"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120939"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Tutorial: Introdução ao Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure
 
@@ -71,40 +71,45 @@ Confira [Baixar o SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-se
 A versão mínima necessária do SSMS é 18.8.
 
 
-## <a name="step-1-create-a-server-and-a-dc-series-database"></a>Etapa 1: Criar um servidor e um banco de dados da série DC
+## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>Etapa 1: criar e configurar um servidor e um banco de dados da série DC
 
- Nesta etapa, você criará um servidor lógico do Banco de Dados SQL do Azure e um banco de dados usando a configuração de hardware da série DC. O Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure usa enclaves Intel SGX, que são compatíveis com a configuração de hardware da série DC. Para obter mais informações, confira [Série DC](service-tiers-vcore.md#dc-series).
+Nesta etapa, você criará um servidor lógico do Banco de Dados SQL do Azure e um banco de dados usando a geração de hardware da série DC, necessário para Always Encrypted com enclaves seguros. Para obter mais informações, confira [Série DC](service-tiers-vcore.md#dc-series).
 
-1. Abra um console do PowerShell e entre no Azure. Se necessário, [alterne para a assinatura](/powershell/azure/manage-subscriptions-azureps) que você está usando neste tutorial.
+1. Abra um console do PowerShell e importe a versão necessária do AZ.
+
+  ```PowerShell
+  Import-Module "Az" -MinimumVersion "4.5.0"
+  ```
+  
+2. Entre no Azure. Se necessário, [alterne para a assinatura](/powershell/azure/manage-subscriptions-azureps) que você está usando neste tutorial.
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = <your subscription ID>
-  Set-AzContext -Subscription $serverSubscriptionId
+  $subscriptionId = "<your subscription ID>"
+  Set-AzContext -Subscription $subscriptionId
   ```
 
-2. Crie um grupo de recursos para conter o servidor de banco de dados. 
-
-  ```powershell
-  $serverResourceGroupName = "<server resource group name>"
-  $serverLocation = "<Azure region that supports DC-series in SQL Database>"
-  New-AzResourceGroup -Name $serverResourceGroupName -Location $serverLocation 
-  ```
+3. Criar um grupo de recursos. 
 
   > [!IMPORTANT]
-  > Você precisará criar o grupo de recursos em uma região que dê suporte à configuração de hardware da série DC. Para obter a lista de regiões atualmente compatíveis, confira [Disponibilidade da série DC](service-tiers-vcore.md#dc-series-1).
-
-3. Criar um servidor de banco de dados. Quando solicitado, insira o nome do administrador do servidor e uma senha.
+  > Você precisa criar seu grupo de recursos em uma região (local) que dá suporte à geração de hardware da série DC e ao Atestado do Microsoft Azure. Para obter a lista de regiões que dão suporte à série CD, confira [Disponibilidade da série DC](service-tiers-vcore.md#dc-series-1). [Aqui](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) está a disponibilidade regional do Atestado do Microsoft Azure.
 
   ```powershell
-  $serverName = "<server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -Location $serverLocation
+  $resourceGroupName = "<your new resource group name>"
+  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+  New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
-4. Criar uma regra de firewall de servidor que permita o acesso por meio do intervalo de IP especificado
+4. Crie um servidor lógico do SQL do Azure. Quando solicitado, insira o nome do administrador do servidor e uma senha. Lembre o nome do administrador e a senha – você precisará deles mais tarde para se conectar ao servidor.
+
+  ```powershell
+  $serverName = "<your server name>" 
+  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+  ```
+
+5. Crie uma regra de firewall do servidor que permita o acesso por meio do intervalo de IP especificado.
   
   ```powershell
-  # The ip address range that you want to allow to access your server
   $startIp = "<start of IP range>"
   $endIp = "<end of IP range>"
   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
@@ -112,21 +117,11 @@ A versão mínima necessária do SSMS é 18.8.
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-5. Atribua uma identidade do sistema gerenciada ao servidor. Você precisará dela mais tarde para permitir acesso de servidor ao Atestado do Microsoft Azure.
-
-  ```powershell
-  Set-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -AssignIdentity 
-  ```
-
-6. Recupere uma ID de objeto da identidade atribuída ao servidor. Salve a ID de objeto resultante. Você precisará da ID em uma seção posterior.
-
-  > [!NOTE]
-  > Poderá levar alguns segundos para que a identidade do sistema gerenciada recém-atribuída seja propagada no Azure Active Directory. Se o script abaixo retornar um resultado vazio, tente novamente.
+6. Atribua uma identidade do sistema gerenciada ao servidor. 
 
   ```PowerShell
-  $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
   $serverObjectId = $server.Identity.PrincipalId
-  $serverObjectId
   ```
 
 7. Crie um banco de dados da série DC.
@@ -136,12 +131,26 @@ A versão mínima necessária do SSMS é 18.8.
   $edition = "GeneralPurpose"
   $vCore = 2
   $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $serverResourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $edition -Vcore $vCore -ComputeGeneration $generation
+  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
+    -Edition $edition `
+    -Vcore $vCore `
+    -ComputeGeneration $generation
   ```
 
-## <a name="step-2-configure-an-attestation-provider"></a>Etapa 2: Configurar um provedor de atestado
+8. Recupere e salve as informações sobre o servidor e o banco de dados. Nas seções posteriores, você precisará dessas informações, bem como do nome do administrador e da senha da etapa 4 desta seção.
 
-Nesta etapa, você vai criar e configurar um provedor de atestado no Atestado do Microsoft Azure. Isso é necessário para atestar o enclave seguro no servidor de banco de dados.
+  ```powershell
+  Write-Host 
+  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
+  Write-Host "Server Object Id: $serverObjectId"
+  Write-Host "Database name: $databaseName"
+  ```
+  
+## <a name="step-2-configure-an-attestation-provider"></a>Etapa 2: Configurar um provedor de atestado 
+
+Nesta etapa, você vai criar e configurar um provedor de atestado no Atestado do Microsoft Azure. Isso é necessário para atestar o enclave seguro que seu banco de dados usa.
 
 1. Copie a política de atestado abaixo e salve-a em um arquivo de texto (txt). Para obter informações sobre a política abaixo, confira [Criar e configurar um provedor de atestado](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
@@ -157,60 +166,60 @@ Nesta etapa, você vai criar e configurar um provedor de atestado no Atestado do
   };
   ```
 
-2. Importe as versões necessárias de `Az.Accounts` e `Az.Attestation`.  
+2. Importe a versão necessária de `Az.Attestation`.  
 
   ```powershell
-  Import-Module "Az.Accounts" -MinimumVersion "1.9.2"
   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
   ```
-
-3. Crie um grupo de recursos para o provedor de atestado.
-
-  ```powershell
-  $attestationLocation = $serverLocation
-  $attestationResourceGroupName = "<attestation provider resource group name>"
-  New-AzResourceGroup -Name $attestationResourceGroupName -Location $location  
-  ```
-
-4. Crie um provedor de atestado. 
+  
+3. Crie um provedor de atestado. 
 
   ```powershell
-  $attestationProviderName = "<attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Location $attestationLocation
+  $attestationProviderName = "<your attestation provider name>" 
+  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
-5. Configure a política de atestado.
+4. Configure a política de atestado.
   
   ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section>"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Tee $teeType -Policy $policy -PolicyFormat  $policyFormat
+  Set-AzAttestationPolicy -Name $attestationProviderName `
+    -ResourceGroupName $resourceGroupName `
+    -Tee $teeType `
+    -Policy $policy `
+    -PolicyFormat  $policyFormat
   ```
 
-6. Permita o acesso do provedor de atestado ao servidor lógico do SQL do Azure. Nesta etapa, usaremos a ID de objeto da identidade de serviço gerenciada que você atribuiu ao servidor anteriormente.
+5. Permita o acesso do provedor de atestado ao servidor lógico do SQL do Azure. Nesta etapa, você usará a ID de objeto da identidade do serviço gerenciado que você atribuiu ao servidor anteriormente.
 
   ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
+  New-AzRoleAssignment -ObjectId $serverObjectId `
+    -RoleDefinitionName "Attestation Reader" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName  
   ```
 
-7. Recupere a URL de atestado.
+6. Recupere a URL de atestado que aponta para uma política de atestado configurada para o enclave SGX. Salve a URL, pois você precisará dela mais tarde.
 
   ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
+  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
   $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host "Your attestation URL is: " $attestationUrl 
+  Write-Host
+  Write-Host "Your attestation URL is: $attestationUrl"
   ```
-
-8.  Salve a URL de atestado resultante que aponta para uma política de atestado configurada para o enclave SGX. Você precisará dela mais tarde. A URL de atestado terá a seguinte aparência: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+  
+  A URL de atestado terá a seguinte aparência: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## <a name="step-3-populate-your-database"></a>Etapa 3: Preencher seu banco de dados
 
 Nesta etapa, você criará uma tabela e a preencherá com alguns dados que posteriormente criptografará e consultará.
 
 1. Abra o SSMS e conecte-se ao banco de dados **ContosoHR** no servidor lógico do SQL do Azure que você criou **sem** o Always Encrypted habilitado na conexão de banco de dados.
-    1. Na caixa de diálogo **Conectar-se ao servidor**, especifique o nome do servidor (por exemplo, *myserver123.database.windows.net*) e insira o nome de usuário e a senha configurados anteriormente.
+    1. Na caixa de diálogo **Conectar ao servidor**, especifique o nome totalmente qualificado do seu servidor (por exemplo, *myserver123.database.windows.net*) e insira o nome de usuário do administrador e a senha que você especificou quando criou o servidor.
     2. Clique em **Opções >>** e selecione a guia **Propriedades de Conexão**. Lembre-se de escolher o banco de dados **ContosoHR** (não o padrão, o banco de dados mestre). 
     3. Selecione a guia **Always Encrypted**.
     4. Verifique se a caixa de seleção **Habilitar o Always Encrypted (criptografia de coluna)** **não** está selecionada.
@@ -292,7 +301,7 @@ Nesta etapa, você criptografará os dados armazenados nas colunas **SSN** e **S
 
 1. Abra uma nova instância do SSMS e conecte-se ao seu banco de dados **com** o Always Encrypted habilitado para a conexão de banco de dados.
     1. Inicie uma nova instância do SSMS.
-    2. Na caixa de diálogo **Conectar ao servidor**, especifique o nome do servidor, selecione um método de autenticação e especifique suas credenciais.
+    2. Na caixa de diálogo **Conectar ao servidor**, especifique o nome totalmente qualificado do seu servidor (por exemplo, *myserver123.database.windows.net*) e insira o nome de usuário do administrador e a senha que você especificou quando criou o servidor.
     3. Clique em **Opções >>** e selecione a guia **Propriedades de Conexão**. Lembre-se de escolher o banco de dados **ContosoHR** (não o padrão, o banco de dados mestre). 
     4. Selecione a guia **Always Encrypted**.
     5. Verifique se a caixa de seleção **Habilitar o Always Encrypted (criptografia de coluna)** está marcada.

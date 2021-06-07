@@ -4,16 +4,16 @@ description: Saiba como habilitar a exclusão reversível nos compartilhamentos 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 22e4d0998cde14d4461141a53f05cbc19d1ab671
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 13e6668337b82ea4be86eadcbc6f7797a72771c6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878962"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023462"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitar exclusão reversível nos compartilhamentos de arquivo do Azure
 
@@ -26,12 +26,12 @@ As seguintes seções mostram como habilitar e usar a exclusão reversível para
 ## <a name="getting-started"></a>Introdução
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-1. Navegue até sua conta de armazenamento e selecione **Exclusão reversível** em **Serviço de arquivo**.
-1. Selecione **Habilitado** para **exclusão reversível de compartilhamento de arquivo**.
+1. Navegue até sua conta de armazenamento e selecione **compartilhamentos de arquivos** em **serviço de arquivo**.
+1. Selecione **habilitado** para **exclusão reversível para todos os compartilhamentos de arquivos**.
 1. Selecione **Período de retenção do compartilhamento de arquivo em dias** e insira um número de sua escolha.
 1. Selecione **Salvar** para confirmar suas configurações de retenção de dados.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de tela do painel de configurações de exclusão reversível da conta de armazenamento. Realçando a seção compartilhamentos de arquivo, habilite a alternância, defina um período de retenção e salve. Isso habilitará a exclusão reversível para todos os compartilhamentos de arquivos em sua conta de armazenamento.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Captura de tela do painel de configurações de exclusão reversível da conta de armazenamento. Realçar a seção de exclusão reversível de compartilhamentos de arquivos, habilitar alternância, definir um período de retenção e salvar. Isso habilitará a exclusão reversível para todos os compartilhamentos de arquivos em sua conta de armazenamento.":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Desabilitar exclusão reversível
 
-Se você quiser parar de usar a exclusão reversível ou excluir permanentemente um compartilhamento de arquivo, siga estas instruções:
+Se você quiser parar de usar a exclusão reversível, siga estas instruções. Para excluir permanentemente um compartilhamento de arquivos que foi excluído de forma reversível, você deve removê-lo, desabilitar a exclusão reversível e, em seguida, excluí-lo novamente. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Navegue até sua conta de armazenamento e selecione **Exclusão reversível** em **Configurações**.
-1. Em **Compartilhamentos de arquivo**, selecione **Desabilitado** para **Exclusão reversível para compartilhamentos de arquivo**.
+1. Navegue até sua conta de armazenamento e selecione **compartilhamentos de arquivos** em **serviço de arquivo**.
+1. Selecione **desabilitado** para **exclusão reversível para todos os compartilhamentos de arquivos**.
 1. Selecione **Salvar** para confirmar suas configurações de retenção de dados.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Desabilitar a exclusão reversível permitirá que você exclua imediatamente e permanentemente todos os compartilhamentos de arquivo em sua conta de armazenamento sempre que quiser.":::

@@ -3,12 +3,12 @@ title: Criar políticas para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição do Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220738"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721606"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criar políticas para propriedades de matriz em recursos do Azure
 
@@ -448,7 +448,8 @@ O fato de que a `where` expressão é avaliada em relação a **todo** o conteú
       "field": "tags.env",
       "equals": "prod"
     }
-  }
+  },
+  "equals": 0
 }
 ```
 
@@ -457,40 +458,60 @@ O fato de que a `where` expressão é avaliada em relação a **todo** o conteú
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-As expressões de contagem aninhadas também são permitidas:
+Expressões de contagem aninhadas podem ser usadas para aplicar condições a campos de matriz aninhada. Por exemplo, a condição a seguir verifica se a `objectArray[*]` matriz tem exatamente dois membros com `nestedArray[*]` que contém 1 ou mais membros:
 
 ```json
 {
   "count": {
     "field": "Microsoft.Test/resourceType/objectArray[*]",
     "where": {
-      "allOf": [
-        {
-          "field": "Microsoft.Test/resourceType/objectArray[*].property",
-          "equals": "value2"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-            "where": {
-              "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-              "equals": 3
-            },
-            "greater": 0
-          }
-        }
-      ]
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]"
+      },
+      "greaterOrEquals": 1
     }
-  }
+  },
+  "equals": 2
 }
 ```
- 
-| Iteração de loop externo | Valores selecionados | Iteração de loop interno | Valores selecionados |
-|:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
+
+| Iteração | Valores selecionados | Resultado da avaliação de contagem aninhada |
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` tem 2 Membros => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` tem 2 Membros => `true` |
+
+Como ambos os membros de `objectArray[*]` têm uma matriz filho `nestedArray[*]` com dois membros, a expressão de contagem externa retorna `2` .
+
+Exemplo mais complexo: Verifique se a `objectArray[*]` matriz tem exatamente dois membros com `nestedArray[*]` com todos os membros iguais a `2` ou `3` :
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+        "where": {
+            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+            "in": [ 2, 3 ]
+        }
+      },
+      "greaterOrEquals": 1
+    }
+  },
+  "equals": 2
+}
+```
+
+| Iteração | Valores selecionados | Resultado da avaliação de contagem aninhada
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` terá `2` => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` terá `3` => `true` |
+
+Como ambos os membros de `objectArray[*]` têm uma matriz filho `nestedArray[*]` que contém `2` ou `3` , retorna a expressão de contagem externa `2` .
+
+> [!NOTE]
+> Expressões de contagem de campos aninhadas só podem fazer referência a matrizes aninhadas. Por exemplo, a expressão de contagem que faz referência a `Microsoft.Test/resourceType/objectArray[*]` pode ter uma contagem aninhada direcionada para a matriz aninhada `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` , mas não pode ter um direcionamento de expressão de contagem aninhada `Microsoft.Test/resourceType/stringArray[*]` .
 
 #### <a name="accessing-current-array-member-with-template-functions"></a>Acessando o membro da matriz atual com funções de modelo
 

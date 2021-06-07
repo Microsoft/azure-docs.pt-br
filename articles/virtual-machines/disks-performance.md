@@ -7,12 +7,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5e9f6ecc733eccf317e3013752ee2f5b0586ea78
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d3a89e7733cc033792056b8de5232232b8327025
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540487"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100580386"
 ---
 # <a name="virtual-machine-and-disk-performance"></a>Desempenho de máquina virtual e disco
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance.md)]
@@ -22,6 +22,3 @@ As máquinas virtuais habilitadas para armazenamento Premium e cache de armazena
 
 [!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-2.md)]
 
-Vamos executar um teste de benchmark nessa máquina virtual e na combinação de disco que cria a atividade de e/s. Para saber como avaliar o parâmetro de e/s de armazenamento no Azure, confira [avaliar seu aplicativo no armazenamento em disco do Azure](disks-benchmarks.md). Na ferramenta de benchmarking, você pode ver que a combinação de VM e disco pode atingir 22.800 IOPS:
-
-[!INCLUDE [VM and Disk Performance](../../includes/virtual-machine-disk-performance-3.md)]

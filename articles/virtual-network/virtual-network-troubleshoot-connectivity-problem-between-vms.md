@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219191"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042859"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solucionar problemas de conectividade entre VMs do Azure
 
@@ -49,7 +49,7 @@ Execute estas etapas para solucionar o problema. Depois de concluir cada etapa, 
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Etapa 1: verificar se o NIC está configurado incorretamente
 
-Execute as etapas em [Como redefinir o adaptador de rede para uma VM Windows do Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
+Execute as etapas em [Como redefinir o adaptador de rede para uma VM Windows do Azure](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 Se o problema ocorrer após você modificar o NIC (adaptador de rede), execute estas etapas:
 
@@ -62,8 +62,8 @@ Para saber mais, confira [Adicionar ou remover adaptadores de rede de máquinas 
 
 **VM com NIC único** 
 
-- [Reimplantar VM do Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Reimplantar VM Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Reimplantar VM do Windows](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Reimplantar VM Linux](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Etapa 2: verificar se o tráfego de rede está bloqueado por NSG ou UDR
 
@@ -107,7 +107,7 @@ Todas as VMs criadas no Azure usando o modelo de implantação clássico podem s
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Etapa 8: tentar se conectar a um compartilhamento de rede de VM
 
-Se você não puder se conectar a um compartilhamento de rede de VM, o problema pode ser causado por NICs não disponíveis na VM. Para excluir as NICs não disponíveis, consulte [Como excluir as NICs não disponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Se você não puder se conectar a um compartilhamento de rede de VM, o problema pode ser causado por NICs não disponíveis na VM. Para excluir as NICs não disponíveis, consulte [Como excluir as NICs não disponíveis](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Etapa 9: verificar a conectividade entre VNets
 

@@ -5,47 +5,47 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: MT
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890774"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100579732"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
 Este artigo aborda os problemas que você pode encontrar ao implantar o recurso de Gerenciamento de Atualizações em seus computadores. Existe uma solução de problemas de um agente para o agente do Hybrid Runbook Worker determinar o problema subjacente. Para saber mais sobre a solução de problemas, consulte [Solucionar problemas do Windows Update Agent](update-agent-issues.md) e [solucionar problemas do agente de atualização do Linux](update-agent-issues-linux.md). Para outros problemas de implantação de recursos, consulte [Solucionar problemas de implantação de recursos](onboarding.md).
 
 >[!NOTE]
->Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>Se você tiver problemas ao implantar Gerenciamento de Atualizações em um computador Windows, abra o Visualizador de Eventos do Windows e verifique o log de eventos do **Operations Manager** em **Logs de Aplicativos e Serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Cenário: atualizações do Linux mostradas como pendentes e as instaladas variam
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Cenário: as atualizações do Linux mostradas como pendentes e as instaladas variam
 
 ### <a name="issue"></a>Problema
 
-Para seu computador Linux, Gerenciamento de Atualizações mostra atualizações específicas disponíveis em **segurança** de classificação e **outras**. Mas quando um agendamento de atualização é executado no computador, por exemplo, para instalar somente as atualizações que correspondem à classificação de **segurança** , as atualizações instaladas são diferentes de ou um subconjunto das atualizações mostradas anteriormente correspondentes a essa classificação.
+Para seu computador Linux, o Gerenciamento de Atualizações mostra atualizações específicas disponíveis sob a classificação **Segurança** e **Outros**. Porém, quando uma agenda de atualização é executada no computador, por exemplo, para instalar somente as atualizações que correspondem à classificação **Segurança**, as atualizações instaladas são diferentes ou um subconjunto das atualizações mostradas anteriormente correspondentes a essa classificação.
 
 ### <a name="cause"></a>Causa
 
-Quando uma avaliação das atualizações do sistema operacional pendentes para seu computador Linux é feita, os arquivos de [linguagem oval e de vulnerabilidades](https://oval.mitre.org/) fornecidas pelo fornecedor do Linux distribuição são usados pelo gerenciamento de atualizações para classificação. A categorização é feita para atualizações do Linux como **segurança** ou **outras**, com base nos arquivos ovais que afirmam atualizações que abordam problemas de segurança ou vulnerabilidades. Mas quando o agendamento de atualização é executado, ele é executado no computador Linux usando o Gerenciador de pacotes apropriado, como YUM, APT ou ZYPPER para instalá-los. O Gerenciador de pacotes para o distribuição do Linux pode ter um mecanismo diferente para classificar atualizações, onde os resultados podem diferir daqueles obtidos dos arquivos OVAL por Gerenciamento de Atualizações.
+Quando uma avaliação das atualizações do SO pendentes para seu computador Linux é feita, os arquivos OVAL [(Linguagem Aberta de Avaliação e Vulnerabilidades)](https://oval.mitre.org/) fornecidos pelo fornecedor de distribuição Linux são usados pelo Gerenciamento de Atualizações para classificação. A categorização é feita para atualizações do Linux como **Segurança** ou **Outros**, com base nos arquivos OVAL que afirmam atualizações de estados que abordam problemas de segurança ou vulnerabilidades. Mas, quando a agenda de atualização é executada, ela é executada no computador Linux usando o gerenciador de pacotes apropriado, como YUM, APT ou ZYPPER, para instalá-lo. O gerenciador de pacotes para a distribuição do Linux pode ter um mecanismo diferente para classificar atualizações, no qual os resultados podem diferir daqueles obtidos dos arquivos OVAL pelo Gerenciamento de Atualizações.
 
 ### <a name="resolution"></a>Resolução
 
-Você pode verificar manualmente o computador Linux, as atualizações aplicáveis e sua classificação de acordo com o Gerenciador de pacotes do distribuição. Para entender quais atualizações são classificadas como **segurança** pelo Gerenciador de pacotes, execute os comandos a seguir.
+Você pode verificar manualmente o computador Linux, as atualizações aplicáveis e a classificação de acordo com o gerenciador de pacotes de distribuição. Para entender quais atualizações são classificadas como **Segurança** pelo gerenciador de pacotes, execute os comandos a seguir.
 
-Para YUM, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pela Red Hat. Observe que no caso do CentOS, ele sempre retorna uma lista vazia e nenhuma classificação de segurança ocorre.
+Para YUM, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **Segurança** pela Red Hat. Observe que, no caso do CentOS, ele sempre retorna uma lista vazia e nenhuma classificação de segurança ocorre.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Para ZYPPER, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** pelo SuSE.
+Para ZYPPER, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **Segurança** pelo SUSE.
 
 ```bash
 sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
 ```
 
-Para APT, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **segurança** por Canonical para Ubuntu Linux distribuições.
+Para APT, o comando a seguir retorna uma lista diferente de zero de atualizações categorizadas como **Segurança** pelas distribuições Canonical e Ubuntu Linux.
 
 ```bash
 sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
@@ -79,7 +79,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 * Visite [Planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ter permissão para que Gerenciamento de Atualizações funcione.  
 
-* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se o seu computador estiver aparecendo no seu workspace, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remova a configuração de trabalho seguindo as etapas em [Remover o Hybrid Runbook Worker de um computador local com Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [Remover o Hybrid Runbook Worker de um computador Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker).
 
@@ -91,23 +91,23 @@ Atualizações antigas são exibidas como ausentes em uma conta de automação, 
 
 ### <a name="cause"></a>Causa
 
-As atualizações substituídas não são recusadas no Windows Server Update Services (WSUS) para que elas possam ser consideradas não aplicáveis.
+As atualizações substituídas não são recusadas no WSUS (Windows Server Update Services) para que elas possam ser consideradas não aplicáveis.
 
 ### <a name="resolution"></a>Resolução
 
-Quando uma atualização substituída se tornar 100 por cento não aplicável, você deverá alterar o estado de aprovação dessa atualização para `Declined` no WSUS. Para alterar o estado de aprovação de todas as suas atualizações:
+Quando uma atualização substituída se tornar totalmente não aplicável, você deverá alterar o estado de aprovação dessa atualização para `Declined` no WSUS. Para alterar o estado de aprovação de todas as suas atualizações:
 
 1. Na sua conta de Automação, selecione **Gerenciamento de Atualizações** para exibir o status dos computadores. Consulte [Exibir as avaliações de atualização](../update-management/view-update-assessments.md).
 
 2. Verifique a atualização substituída para certificar-se de que é 100% não aplicável.
 
-3. No servidor WSUS, os computadores reportam para, [recusam a atualização](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
+3. [Recuse a atualização](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates) no servidor WSUS ao qual os computadores reportam.
 
-4. Selecione **Computadores** e, na coluna **Conformidade**, force uma nova verificação de conformidade. Consulte [gerenciar atualizações para VMs](../update-management/manage-updates-for-vm.md).
+4. Selecione **Computadores** e, na coluna **Conformidade**, force uma nova verificação de conformidade. Confira [Gerenciar atualizações para VMs](../update-management/manage-updates-for-vm.md).
 
 5. Repita as etapas acima para outras atualizações substituídas.
 
-6. Para Windows Server Update Services (WSUS), limpe todas as atualizações substituídas para atualizar a infraestrutura usando o [Assistente de limpeza do servidor](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)do WSUS.
+6. Para os WSUS (Windows Server Update Services), limpe manualmente todas as atualizações substituídas para atualizar a infraestrutura usando o [Assistente de limpeza do servidor](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard) do WSUS.
 
 7. Repita esse procedimento regularmente para corrigir o problema de exibição e minimizar a quantidade de espaço em disco usada para o gerenciamento de atualizações.
 
@@ -135,7 +135,7 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
 
 1. Execute a solução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline), dependendo do sistema operacional.
 
-2. Verificar se seu computador envia relatórios para o espaço de trabalho correto. Para obter orientação sobre como verificar esse aspecto, consulte [verificar a conectividade do agente para Azure monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Verifique também se esse espaço de trabalho está vinculado à sua conta de automação do Azure. Para confirmar, acesse sua conta de automação e selecione **Espaço de trabalho vinculado** em **Recursos relacionados**.
+2. Verificar se seu computador envia relatórios para o espaço de trabalho correto. Para obter diretrizes sobre como verificar esse aspecto, confira [Verificar a conectividade do agente para o Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Verifique também se esse espaço de trabalho está vinculado à sua conta de automação do Azure. Para confirmar, acesse sua conta de automação e selecione **Espaço de trabalho vinculado** em **Recursos relacionados**.
 
 3. Verifique se as máquinas aparecem no espaço de trabalho Log Analytics vinculado à sua conta de automação. Execute a consulta a seguir do espaço de trabalho do Log Analytics.
 
@@ -144,9 +144,9 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | summarize by Computer, Solutions
    ```
 
-    Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-    Se o computador estiver listado nos resultados da consulta, verifique na propriedade **soluções** que **atualizações** está listada. Isso verifica se ele está registrado com Gerenciamento de Atualizações. Se não estiver, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Para configurar a configuração de escopo para o computador de destino, consulte [habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+    Se o computador estiver listado nos resultados da consulta, verifique na propriedade **Soluções** se as **atualizações** estão listadas. Isso verifica se ele está registrado com Gerenciamento de Atualizações. Se não estiver, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Para definir a configuração de escopo para o computador de destino, confira [Habilitar computadores no workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 4. Em seu espaço de trabalho, execute esta consulta.
 
@@ -256,7 +256,7 @@ As possíveis causas para esse problema incluem:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto nos escopos selecionados
 
-O portal do Azure só exibe computadores para os quais você tem acesso de gravação em um determinado escopo. Se você não tiver o acesso correto para um escopo, consulte [tutorial: conceder a um usuário acesso aos recursos do Azure usando o portal do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+O portal do Azure só exibe computadores para os quais você tem acesso de gravação em um determinado escopo. Se você não tiver o acesso correto para um escopo, confira [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>A consulta de ARG não recupera os computadores esperados
 
@@ -355,7 +355,7 @@ Se você estiver usando uma imagem clonada, diferentes nomes de computador terã
 
 3. Executar `Restart-Service HealthService` para reiniciar o serviço de integridade. Esta operação recria a chave e gera um novo UUID.
 
-4. Se essa abordagem não funcionar, execute o Sysprep na imagem primeiro e, em seguida, instale o agente de Log Analytics para Windows.
+4. Se essa abordagem não funcionar, execute o sysprep na imagem primeiro e instale o agente do Log Analytics para Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Cenário: Você recebe um erro de assinatura vinculado ao criar uma implantação de atualização para computadores em outro locatário do Azure
 
@@ -416,8 +416,8 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 * O computador não existe mais.
 * O computador está desligado e inacessível.
 * O computador tem um problema de conectividade de rede e, portanto, o Hybrid Worker no computador está inacessível.
-* Houve uma atualização para o agente de Log Analytics que alterou a ID do computador de origem.
-* A execução de atualização foi limitada se você atingiu o limite de 200 trabalhos simultâneos em uma conta de automação. Cada implantação é considerada um trabalho e cada computador em uma implantação de atualização conta como um trabalho. Qualquer outro trabalho de automação ou implantação de atualização em execução no momento em sua conta de automação conta para o limite de trabalhos simultâneos.
+* Houve uma atualização no agente do Log Analytics que alterou a ID do computador de origem.
+* Se você tiver atingido o limite de 200 trabalhos simultâneos em uma conta de Automação, a execução de atualização foi limitada. Cada implantação é considerada um trabalho e cada computador em uma implantação de atualização conta como um trabalho. Qualquer outro trabalho de automação ou implantação de atualização em execução no momento em sua conta de automação conta para o limite de trabalhos simultâneos.
 
 ### <a name="resolution"></a>Resolução
 
@@ -519,7 +519,7 @@ A janela de manutenção padrão para atualizações é de 120 minutos. Você po
 
 ### <a name="resolution"></a>Resolução
 
-Para entender por que isso ocorreu durante uma execução de atualização depois que ela é iniciada com êxito, [Verifique a saída do trabalho](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) do computador afetado na execução. Você pode encontrar mensagens de erro específicas de sua máquina sobre as quais você pode pesquisar e realizar ações.  
+Para entender por que isso ocorreu durante uma atualização após a inicialização bem-sucedida, [verifique a saída do trabalho](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) do computador afetado na execução. Você pode encontrar mensagens de erro específicas de sua máquina sobre as quais você pode pesquisar e realizar ações.  
 
 Edite todas as implantações de atualização agendadas com falha e aumente a janela de manutenção.
 

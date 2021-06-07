@@ -2,19 +2,21 @@
 title: Eventos Agendados para VMs do Windows no Azure
 description: Eventos agendados usando o serviço de metadados do Azure para suas máquinas virtuais do Windows.
 author: EricRadzikowskiMSFT
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: scheduled-events
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 3a388ade2b44260bfa21e22866d85a46e482bc97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231864"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102499944"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -135,7 +137,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A máquina virtual está agendada para ser colocada em pausa por alguns segundos. A conectividade de CPU e rede pode ser suspensa, mas não há nenhum impacto na memória ou arquivos abertos.<li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina virtual spot está sendo excluída (discos efêmeros são perdidos). <li> `Terminate`: a máquina virtual está agendada para ser excluída. |
 | ResourceType | O tipo de recurso que esse evento afeta. <br><br> Valores: <ul><li>`VirtualMachine`|
-| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](../manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Recursos| A lista de recursos que esse evento afeta. É garantido que a lista contém máquinas de no máximo um [domínio de atualização](../availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento está agendado para ser iniciado após o tempo especificado na propriedade `NotBefore`.<li>`Started`: Esse evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante é fornecido em nenhum momento. O evento não é mais retornado quando é concluído.
 | NotBefore| Tempo após o qual esse evento pode começar. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de setembro de 2016 18:29:47 GMT  |
 | Descrição | A descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor host está passando por manutenção. |

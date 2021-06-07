@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d61dac0e76fc7b7006fa36f1cb96965ccee3d863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e381310db5a21e532b262063ee33de3a23edeb2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494121"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766727"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Criar um tópico personalizado da Grade de Eventos com a CLI do Azure
 
@@ -30,7 +30,7 @@ Este script usa o seguinte comando para criar o tópico personalizado. Cada coma
 
 | Comando | Observações |
 |---|---|
-| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Este script cria um tópico personalizado da Grade de Eventos. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create) | Este script cria um tópico personalizado da Grade de Eventos. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

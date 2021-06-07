@@ -4,12 +4,12 @@ description: Neste tutorial, você configura logs do Azure Monitor para monitora
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840669"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100588237"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Monitorar os contêineres do Windows no Service Fabric usando logs do Azure Monitor
 
@@ -230,6 +230,6 @@ Neste tutorial, você aprendeu a:
 Agora que você configurou o monitoramento para seu aplicativo em contêineres, experimente:
 
 * Configurar os logs do Azure Monitor para um cluster do Linux, seguindo etapas semelhantes que as deste tutorial. Referencie [este modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para fazer alterações no seu modelo do Resource Manager.
-* Configure os logs do Azure Monitor para definir [alertas automatizados](../azure-monitor/platform/alerts-overview.md) para auxiliar na detecção e no diagnóstico.
+* Configure os logs do Azure Monitor para definir [alertas automatizados](../azure-monitor/alerts/alerts-overview.md) para auxiliar na detecção e no diagnóstico.
 * Explorar a lista de [contadores de desempenho recomendados](service-fabric-diagnostics-event-generation-perf.md) do Service Fabric a serem configurados para seus clusters.
-* Familiarize-se com os recursos de [pesquisa e consulta de logs](../azure-monitor/log-query/log-query-overview.md) oferecidos como parte dos logs do Azure Monitor.
+* Familiarize-se com os recursos de [pesquisa e consulta de logs](../azure-monitor/logs/log-query-overview.md) oferecidos como parte dos logs do Azure Monitor.

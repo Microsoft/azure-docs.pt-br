@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 87505557653e70aab7f1392aeea8dbdf505327e0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3152fe0bf77b73e593ac61efb5f386827bdc96ef
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962749"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643717"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrar um banco de dados SQL Server para o banco de dados SQL do Azure usando Azure PowerShell
 
@@ -42,7 +42,7 @@ Para concluir essas etapas, você precisa:
 * [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
 * Para ter criado um Rede Virtual do Microsoft Azure usando o modelo de implantação Azure Resource Manager, que fornece o serviço de migração de banco de dados do Azure com conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](../expressroute/expressroute-introduction.md) ou [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * Para concluir a avaliação de seu banco de dados local e a migração de esquema usando Assistente de Migração de Dados, conforme descrito no artigo [executando uma avaliação de migração de SQL Server](/sql/dma/dma-assesssqlonprem)
-* Para baixar e instalar o módulo AZ. datamigration por meio do Galeria do PowerShell usando o [cmdlet Install-Module PowerShell](/powershell/module/powershellget/Install-Module?view=powershell-5.1); Certifique-se de abrir a janela de comando do PowerShell usando executar como administrador.
+* Para baixar e instalar o módulo AZ. datamigration por meio do Galeria do PowerShell usando o [cmdlet Install-Module PowerShell](/powershell/module/powershellget/Install-Module); Certifique-se de abrir a janela de comando do PowerShell usando executar como administrador.
 * Para garantir que as credenciais usadas para conectar a instância do SQL Server de origem tenham a permissão [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql).
 * Para garantir que as credenciais usadas para conectar A instância do Azure SQL DB de destino tenham a permissão CONTROL DATABASE nos bancos de dados do Banco de Dados SQL do Azure de destino.
 * Uma assinatura do Azure. Se você não tiver uma, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -151,7 +151,7 @@ Por fim, crie e inicie a tarefa de Migração de Banco de Dados do Azure. A tare
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Criar parâmetros de credenciais para a origem e o destino
 
-As credenciais de segurança da conexão podem ser criadas como o objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0).
+As credenciais de segurança da conexão podem ser criadas como o objeto [PSCredential](/dotnet/api/system.management.automation.pscredential).
 
 O exemplo a seguir mostra a criação de objetos *PSCredential* para fornecer para as conexões de origem e destino fornecendo senhas como variáveis de cadeia de caracteres *$sourcePassword* e *$ targetPassword*.
 
@@ -195,8 +195,8 @@ Use o cmdlet `New-AzDataMigrationTask` para criar e iniciar uma tarefa de migra�
 * *Nome_Tarefa*. Nome da tarefa a ser criada. 
 * *SourceConnection*. Objeto AzDmsConnInfo que representa a conexão SQL Server de origem.
 * *TargetConnection*. Objeto AzDmsConnInfo que representa a conexão de banco de dados SQL do Azure de destino.
-* *SourceCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para se conectar ao servidor de origem.
-* *TargetCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) para se conectar ao servidor de destino.
+* *SourceCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential) para se conectar ao servidor de origem.
+* *TargetCred*. Objeto [PSCredential](/dotnet/api/system.management.automation.pscredential) para se conectar ao servidor de destino.
 * *SelectedDatabase*. Objeto AzDataMigrationSelectedDB que representa o mapeamento de banco de dados de origem e destino.
 * *SchemaValidation*. (opcional, parâmetro de opção) Após a migração, o executa uma comparação das informações de esquema entre a origem e o destino.
 * *DataIntegrityValidation*. (opcional, parâmetro de opção) Após a migração, o executa uma validação de integridade de dados baseada em soma de verificação entre a origem e o destino.

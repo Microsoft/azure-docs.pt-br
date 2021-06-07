@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 51d1b3dcf66c124d113d63c3c5a46d5f41fd531d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873953"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615288"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -26,7 +26,7 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 **Diretrizes**: Habilite as configurações de diagnóstico do Log de Atividades do Azure e envie os logs para um workspace do Log Analytics, um hub de eventos do Azure ou uma conta de armazenamento do Azure para arquivar. Os logs de atividade fornecem informações sobre as operações que foram executadas nos planos de proteção contra DDoS do Azure no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para suas instâncias de proteção contra DDoS do Azure.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -40,7 +40,7 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 - [Exibir e configurar o log de diagnóstico de DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -50,7 +50,7 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 **Diretrizes**: em Azure monitor, defina o período de retenção de log para log Analytics espaços de trabalho associados aos planos de proteção contra DDoS do Azure de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de log](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -62,9 +62,9 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 - [Informações sobre como acessar telemetria, logs e análise de ataque para o serviço Standard de proteção contra DDoS](../../ddos-protection/telemetry.md)
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../../azure-monitor/essentials/activity-log.md)
 
-- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -80,7 +80,7 @@ Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -98,9 +98,9 @@ Além disso, Azure Active Directory (AD) tem funções internas que devem ser ex
 
 - [Entender as permissões na proteção contra DDoS do Azure](../../ddos-protection/manage-permissions.md)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -276,7 +276,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem em planos de proteção contra DDoS do Azure, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -294,7 +294,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -386,7 +386,7 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para a proteção contra DDoS do Azure com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de seus cofres dos serviços de recuperação.
 
-- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -410,9 +410,9 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

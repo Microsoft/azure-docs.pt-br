@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 7b4b697b3d27b57212fc59396e1f8111e297d6cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514954"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Use a folha de resumo do serviço do dispositivo StorSimple 8000 series
@@ -39,11 +39,11 @@ Na folha de resumo do serviço StorSimple, é possível ver as opções para ger
 Use essas opções para executar várias operações como adicionar volumes ou compartilhamentos ou para monitorar os vários trabalhos em execução nos dispositivos StorSimple.
 
 
-## <a name="essentials"></a>Conceitos básicos
+## <a name="essentials"></a>Essentials
 
 A área de informações gerais captura algumas das propriedades importantes, como o grupo de recursos, a localização e a assinatura em que o StorSimple Device Manager foi criado.
 
-![Conceitos básicos](./media/storsimple-8000-service-dashboard/service-summary3.png)
+![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
 ## <a name="storsimple-device-manager-service-summary"></a>Resumo do serviço do StorSimple Device Manager
 

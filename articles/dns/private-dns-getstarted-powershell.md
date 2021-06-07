@@ -3,16 +3,18 @@ title: Início Rápido – Criar uma zona DNS privada do Azure usando o Azure Po
 description: Neste guia de início rápido, você aprenderá a criar e gerenciar sua primeira zona e registro DNS privados usando o Azure PowerShell.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: ee6dde6b34cccd415f9bf2052f65dcbe940715c1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-api
+ms.openlocfilehash: 321cd9c9f85b7f1dc2540992d9db0aaefa1b9b62
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424385"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535478"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Início Rápido: Criar uma zona DNS privada do Azure usando o Azure PowerShell
 
@@ -42,7 +44,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 Uma zona DNS é criada usando o cmdlet `New-AzPrivateDnsZone` .
 
-O seguinte exemplo cria uma rede virtual chamada **myAzureVNet**. Em seguida, ele cria uma zona DNS chamada **private.contoso.com** no grupo de recursos **MyAzureResourceGroup** , vincula a zona DNS à rede virtual **MyAzureVnet** e habilita o registro automático.
+O seguinte exemplo cria uma rede virtual chamada **myAzureVNet**. Em seguida, ele cria uma zona DNS chamada **private.contoso.com** no grupo de recursos **MyAzureResourceGroup**, vincula a zona DNS à rede virtual **MyAzureVnet** e habilita o registro automático.
 
 ```azurepowershell
 Install-Module -Name Az.PrivateDns -force

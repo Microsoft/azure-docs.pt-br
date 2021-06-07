@@ -3,12 +3,12 @@ title: Proteger suas VMs de solução do Azure VMware com a integração da cent
 description: Proteja suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure no painel da central de segurança do Azure.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516355"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100578255"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 
@@ -50,7 +50,7 @@ Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel p
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
-Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/logs/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implantar a central de segurança e configurar VMs da solução Azure VMware
 
@@ -81,8 +81,8 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 4. Na guia **pré-requisitos** , selecione **Avançar**.
 
 5. Na guia **detalhes do recurso** , preencha os seguintes detalhes: 
-    - Assinatura
-    - Grupo de recursos
+    - Subscription
+    - Resource group
     - Região 
     - Sistema operacional
     - Detalhes do servidor proxy
@@ -243,5 +243,5 @@ Você pode criar consultas ou usar a consulta predefinida disponível no Azure S
 Agora que você já abordou como proteger suas VMs de solução do Azure VMware, talvez queira saber mais sobre:
 
 - Usando o [painel do Azure defender](../security-center/azure-defender-dashboard.md).
-- [Detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
 - [Gerenciamento do ciclo de vida de VMs de solução do Azure VMware](lifecycle-management-of-azure-vmware-solution-vms.md).

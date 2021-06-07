@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55951f288314d92cf5057e7d5c1e988f65cb3e14
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87095688"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102040372"
 ---
 # <a name="versions-in-azure-api-management"></a>Versões no gerenciamento de API do Azure
 
@@ -42,7 +42,7 @@ Quando o esquema de controle de versão do caminho é usado, o identificador de 
 
 Por exemplo, `https://apis.contoso.com/products/v1` e `https://apis.contoso.com/products/v2` pode se referir à mesma `products` API, mas às versões `v1` e, `v2` respectivamente.
 
-O formato de uma URL de solicitação de API ao usar o controle de versão baseado em cabeçalho é: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
+O formato de uma URL de solicitação de API ao usar o controle de versão baseado em caminho é: `https://{yourDomain}/{apiName}/{versionIdentifier}/{operationId}` .
 
 ### <a name="header-based-versioning"></a>Controle de versão baseado em cabeçalho
 
@@ -64,9 +64,13 @@ Se você adicionar uma versão a uma API sem controle de versão, uma `Original`
 
 ## <a name="how-versions-are-represented"></a>Como as versões são representadas
 
-O gerenciamento de API do Azure mantém um recurso chamado um *conjunto*de versões, que representa um conjunto de versões para uma única API lógica. Ao usar o portal do Azure para gerenciar versões, você não vê o conjunto de versões, mas se você interage com o serviço de gerenciamento de API usando o PowerShell, modelos do Resource Manager ou a API Azure Resource Manager, você pode exibir e gerenciar diretamente os conjuntos de versões. Um conjunto de versões contém o nome de exibição da API com versão, bem como o [esquema de controle de versão usado](#versioning-schemes) para direcionar solicitações para versões especificadas.
+O gerenciamento de API do Azure mantém um recurso chamado um *conjunto* de versões, que representa um conjunto de versões para uma única API lógica. Um conjunto de versões contém o nome de exibição da API com versão e o [esquema de controle de versão usados](#versioning-schemes) para direcionar solicitações para versões especificadas.
 
-Cada versão de uma API é mantida como seu próprio recurso de API, que é então associado a um conjunto de versões. Um conjunto de versões pode conter APIs com operações ou políticas muito diferentes, o que reflete o fato de que você pode fazer alterações significativas entre as versões de sua API.
+Cada versão de uma API é mantida como seu próprio recurso de API, que é então associado a um conjunto de versões. Um conjunto de versões pode conter APIs com operações ou políticas diferentes. Você pode fazer alterações significativas entre as versões em um conjunto.
+
+O portal do Azure cria conjuntos de versão para você. Você pode modificar o nome e a descrição de um conjunto de versões no portal do Azure.
+
+Você pode exibir e gerenciar conjuntos de versão diretamente usando [CLI do Azure](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [modelos do Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets)ou a [API do Azure Resource Manager](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migrando uma API sem controle de versão para uma API com versão
 

@@ -1,17 +1,15 @@
 ---
 title: Simular falhas nos microserviços do Azure
 description: Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure.
-author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022166"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100595014"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.

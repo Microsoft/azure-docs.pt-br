@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844447"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607884"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -91,6 +91,8 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
+O sistema enviará os comentários quando o lote chegar a 64 mensagens ou em 15 segundos desde o último envio, o que vier primeiro. 
+
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
 | Propriedade           | Descrição |
@@ -147,7 +149,7 @@ Você pode definir as opções de configuração de uma das seguintes maneiras:
 
     ![Definir opções de configuração para mensagens da nuvem para o dispositivo no portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **CLI do Azure**: Use o comando [AZ IOT Hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **CLI do Azure**: Use o comando [AZ IOT Hub Update](/cli/azure/iot/hub#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

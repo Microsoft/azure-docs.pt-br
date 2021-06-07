@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880467"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102218274"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Usar GitHub Actions com o Azure Machine Learning
 
@@ -55,7 +55,7 @@ Crie um novo repositório fora das [operações do ml com ações do GitHub e Az
 
 ## <a name="generate-deployment-credentials"></a>Gerar as credenciais de implantação
 
-Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
+Crie uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). Execute esse comando com o [Azure Cloud Shell](https://shell.azure.com/) no portal do Azure ou selecionando o botão **Experimentar**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \

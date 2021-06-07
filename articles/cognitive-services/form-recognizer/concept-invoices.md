@@ -1,115 +1,128 @@
 ---
-title: Notas fiscais – reconhecedor de formulário
+title: Faturas – Reconhecimento de Formulários
 titleSuffix: Azure Cognitive Services
-description: Aprenda conceitos relacionados à análise de faturas com a API do reconhecedor de formulário-uso e limites.
+description: Aprenda conceitos relacionados à análise de faturas usando uma API do Reconhecimento de Formulários – Uso e limites.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
-ms.translationtype: MT
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585068"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285324"
 ---
-# <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
+# <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo predefinido de faturas do Reconhecimento de Formulários
 
-O reconhecedor de formulários do Azure pode analisar e extrair informações de faturas de vendas usando seus modelos de fatura pré-criados. A API de fatura permite que os clientes façam faturas em uma variedade de formatos e retornem dados estruturados para automatizar o processamento da fatura. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](../computer-vision/concept-recognizing-text.md) com a nota fiscal que entende os modelos de aprendizado profundo para extrair informações importantes das faturas em inglês. Ele extrai o texto, as tabelas e as informações como Customer, Vendor, ID da nota fiscal, data de vencimento da fatura, total, valor da nota fiscal devido, valor do imposto, enviar para, faturar e muito mais. A API de fatura predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1.
+O Reconhecimento de Formulários do Azure pode analisar e extrair informações de faturas de vendas usando modelos predefinidos de faturas. Uma API de Fatura permite que os clientes recebam faturas em diversos formatos e retornem dados estruturados para automatizar o processamento delas. Ela combina nossas funcionalidades avançadas de [OCR (Reconhecimento Óptico de Caracteres)](../computer-vision/overview-ocr.md) com modelos de aprendizado profundo de reconhecimento de faturas para extrair informações importantes de faturas em inglês. Ela extrai textos, tabelas e informações, incluindo: nome do cliente, nome do fornecedor, ID da fatura, data de vencimento da fatura, valor total, valor devido da fatura, valor do imposto, endereço de entrega, endereço de cobrança, itens de linha e muito mais. Uma API predefinida de Fatura está disponível de modo público na versão prévia do Reconhecimento de Formulários v2.1.
 
-## <a name="what-does-the-invoice-service-do"></a>O que o serviço de fatura faz?
+## <a name="what-does-the-invoice-service-do"></a>Qual é a função do serviço de Fatura?
 
-A API de nota fiscal extrai campos de chave de faturas e os retorna em uma resposta JSON estruturada organizada. As notas fiscais podem ser de uma variedade de formatos e qualidade, incluindo imagens capturadas por telefone, documentos digitalizados e PDFs digitais. A API de fatura extrairá a saída estruturada de todas essas notas fiscais. 
+Uma API de Fatura extrai campos de chave e itens de linha de faturas e os retorna em uma resposta JSON estruturada e organizada. As faturas podem ter uma variedade de formatos e qualidade, incluindo: imagens capturadas por telefone, documentos digitalizados e arquivos PDF digitais. Uma API de Fatura extrairá saídas estruturadas de todas essas faturas. 
 
-![Exemplo de fatura da contoso](./media/invoice-example.jpg)
+![Exemplo de fatura da Contoso](./media/invoice-example-new.jpg)
 
 ## <a name="try-it-out"></a>Experimente
 
-Para experimentar o serviço de fatura do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
+Acesse a Ferramenta de Interface do Usuário de Exemplo disponível online para experimentar o Serviço de Fatura do Reconhecimento de Formulários:
 
 > [!div class="nextstepaction"]
 > [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
 
-Você precisará de uma assinatura do Azure ([crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto de extremidade de [recurso do reconhecedor de formulário](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e uma chave para experimentar o serviço de fatura do reconhecedor de formulário. 
+Será preciso obter uma assinatura do Azure ([crie uma sem custos](https://azure.microsoft.com/free/cognitive-services)), bem como um ponto de extremidade e uma chave do [Recurso de Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) para experimentar o Serviço de Fatura do Reconhecimento de Formulários. 
 
-![Exemplo de fatura analisada](./media/analyze-invoice.png)
+:::image type="content" source="media/analyze-invoice-new.png" alt-text="Exemplo de fatura analisada" lightbox="media/analyze-invoice-new.png":::
 
+### <a name="input-requirements"></a>Requisitos de entrada
 
-### <a name="input-requirements"></a>Requisitos de entrada 
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+## <a name="the-analyze-invoice-operation"></a>A operação de Análise de Fatura
 
-## <a name="the-analyze-invoice-operation"></a>A operação de análise de fatura
+A operação de [Análise de Fatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291) usa uma imagem ou um arquivo PDF de uma fatura como entrada e extrai os valores de seu interesse. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location`. O valor `Operation-Location` é uma URL que contém a ID do Resultado a ser usada na próxima etapa.
 
-A operação [analisar fatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291) usa uma imagem ou um PDF de uma fatura como entrada e extrai os valores de interesse. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
-
-|Cabeçalho de resposta| URL do resultado |
+|Cabeçalho de resposta| URL do Resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/invoice/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="the-get-analyze-invoice-result-operation"></a>A operação obter resultado da fatura analisar
+## <a name="the-get-analyze-invoice-result-operation"></a>A operação Obter Resultado da Análise de Fatura
 
-A segunda etapa é chamar a operação [obter resultado da fatura de obtenção](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de fatura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+A segunda etapa será executar uma chamada à operação [Obter Resultado da Análise de Fatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9acb78c40a2533aee83). Essa operação usa como entrada a ID do Resultado criada pela operação de Análise de Fatura. Ela retorna uma resposta JSON que contém um campo de **status** com os valores possíveis a seguir. Execute uma chamada a essa operação de modo iterativo até que ela retorne o valor **succeeded**. Use um intervalo de três a cinco segundos para evitar que a taxa de RPS (solicitações por segundo) seja excedida.
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
+|status | string | notStarted: a operação de análise não foi iniciada.<br /><br />running: a operação de análise está em andamento.<br /><br />failed: falha na operação de análise.<br /><br />succeeded: a operação de análise foi executada com êxito.|
 
-Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá os resultados de compreensão da nota fiscal, tabelas extraídas e resultados de reconhecimento de texto opcionais, se solicitado. O resultado de compreensão da nota fiscal é organizado como um dicionário de valores de campo nomeado, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
+Quando o campo de **status** exibir o valor **succeeded**, a resposta JSON incluirá: os resultados de reconhecimento da fatura, as tabelas extraídas e os resultados opcionais de reconhecimento de texto, caso seja solicitado. O resultado do reconhecimento da fatura é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos de palavras correspondentes. Ele também incluirá itens de linha extraídos. Neles, cada item de linha contém o valor, a descrição, o unitPrice, a quantidade etc. Além disso, o resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações do texto, da caixa delimitadora e de confiança.
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
-A resposta à operação get analisar resultado da fatura será a representação estruturada da fatura com todas as informações extraídas. Consulte aqui para obter um [arquivo de nota fiscal de exemplo](./media/sample-invoice.jpg) e sua saída de [nota fiscal de exemplo](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice-output.json)de saída estruturada.
+A resposta à operação Obter Resultado da Análise de Fatura será a representação estruturada da fatura com todas as informações extraídas. Confira este artigo para obter um [arquivo da fatura de exemplo](media/sample-invoice.jpg) e a respectiva saída estruturada da [saída da fatura de exemplo](media/invoice-example-new.jpg).
 
-A saída JSON tem três partes: 
-* `"readResults"` o nó contém todas as marcas de texto e seleção reconhecidas. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. 
-* `"pageResults"` o nó contém as tabelas e células extraídas com suas caixas delimitadoras, confiança e uma referência às linhas e palavras em "readResults".
-* `"documentResults"` o nó contém os valores específicos da fatura que o modelo descobriu. É aqui que você encontrará todos os campos da fatura, como ID da fatura, enviar para, faturar, cliente, total e muito mais.
+A saída JSON é composta por três partes: 
+* O nó `"readResults"` contém todas as marcas de texto e seleção reconhecidas. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. 
+* O nó `"pageResults"` contém tabelas e células extraídas com as caixas delimitadoras, a confiança e uma referência às linhas e palavras em "readResults".
+* O nó `"documentResults"` contém valores específicos da fatura e os itens de linha que o modelo descobriu. Você encontrará aqui todos os campos da fatura, como ID da fatura, endereço de envio, endereço de cobrança, nome do cliente, valor total, itens de linha e muito mais.
 
 ## <a name="example-output"></a>Saída de exemplo
 
-O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir estão os campos extraídos de uma nota fiscal na resposta de saída JSON (a saída abaixo usa este [exemplo de fatura](./media/sample-invoice.jpg))  
+O Serviço de Fatura extrairá o texto, as tabelas e 26 campos da fatura. A seguir serão mostrados os campos extraídos de uma fatura na resposta de saída JSON (a saída abaixo usará esta [fatura de exemplo](media/sample-invoice.jpg)).
 
 |Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
-| CustomerName | string | Cliente sendo faturado | Microsoft Corp |  |
-| CustomerId | string | ID de referência para o cliente | CID-12345 |  |
-| PurchaseOrder | string | Um número de referência de ordem de compra | PO-3333 | |  |
-| InvoiceId | string | ID para esta fatura específica (geralmente "número da nota fiscal") | INV-100 | |  |
-| InvoiceDate | date | Data em que a nota fiscal foi emitida | 15/11/2019 | 
-| DueDate | date | O pagamento de data para esta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
-| Nome_do_Fornecedor | string | Fornecedor que criou esta fatura | CONTOSO LTD. | |
-| VendorAddress | string | Endereço para correspondência do fornecedor | 123 456th St Nova York, NY, 10001 | |
-| VendorAddressRecipient | string | Nome associado ao VendorAddress | Sede da contoso | |
+| CustomerName | string | O cliente recebendo a fatura | Microsoft Corp. |  |
+| CustomerId | string | A ID de referência do cliente | CID-12345 |  |
+| PurchaseOrder | string | Um número de referência da ordem de compra | PO-3333 | | 
+| InvoiceId | string | A ID desta fatura específica (geralmente exibida como "Número da Fatura") | INV-100 | | 
+| InvoiceDate | date | A data em que a fatura foi emitida | 15/11/2019 | 15-11-2019 | 
+| DueDate | date | A data de vencimento do pagamento desta fatura | 15/12/2019 | 15-12-2019 |
+| VendorName | string | O fornecedor que criou esta fatura | Contoso Ltd. | |
+| VendorAddress | string | O endereço para correspondência do fornecedor | 123 456th St New York, NY, 10001 | |
+| VendorAddressRecipient | string | Nome associado ao VendorAddress | Sede da Contoso | |
 | CustomerAddress | string | Endereço para correspondência do cliente | 123 Other St, Redmond WA, 98052 | |
-| CustomerAddressRecipient | string | Nome associado ao CustomerAddress | Microsoft Corp | |
-| BillingAddress | string | Endereço de cobrança explícito para o cliente | 123 Bill St, Redmond WA, 98052 | |
-| BillingAddressRecipient | string | Nome associado ao BillingAddress | Serviços da Microsoft | |
-| ShippingAddress | string | Endereço de envio explícito para o cliente | 123 navio St, Redmond, WA, 98052 | |
+| CustomerAddressRecipient | string | Nome associado ao CustomerAddress | Microsoft Corp. | |
+| BillingAddress | string | Endereço explícito para cobrança do cliente | 123 Bill St, Redmond WA, 98052 | |
+| BillingAddressRecipient | string | Nome associado ao BillingAddress | Serviços Microsoft | |
+| ShippingAddress | string | Endereço explícito para entrega do cliente | 123 Ship St, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Nome associado ao ShippingAddress | Entrega da Microsoft | |
-| SubTotal | número | Campo de subtotal identificado nesta fatura | $100 | 100 | 
-| TotalTax | número | Campo de imposto total identificado nesta fatura | US$ 10,00 | 10 |
-| InvoiceTotal | número | Total de novos encargos associados a esta fatura | $110 | 110 |
-| AmountDue |  número | Valor total devido ao fornecedor | $610 | 610 |
-| Endereço de email | string | Endereço de serviço explícito ou endereço de Propriedade do cliente | 123 serviço St, Redmond, WA, 98052 | |
-| ServiceAddressRecipient | string | Nome associado ao catálogo de endereços | Serviços da Microsoft | |
-| RemittanceAddress | string | Remessa explícita ou endereço de pagamento para o cliente | 123 remeter St Nova York, NY, 10001 |  |
-| RemittanceAddressRecipient | string | Nome associado ao RemittanceAddress | Cobrança da contoso |  |
-| Userstartdate | date | Primeira data para o período de serviço (por exemplo, um período de serviço de lista de utilitários) | 14/10/2019 | 2019-10-14 |
-| Fileenddate | date | Data de término do período de serviço (por exemplo, um período de serviço de lista de utilitários) | 11/14/2019 | 2019-11-14 |
-| PreviousUnpaidBalance | número | Saldo explícito anteriormente não pago | US$ 500,00 | 500 |
+| SubTotal | número | Campo do subtotal identificado nesta fatura | US$ 100,00 | 100 | 
+| TotalTax | número | Campo do imposto total identificado nesta fatura | US$ 10,00 | 10 |
+| InvoiceTotal | número | Total de novos encargos associados a esta fatura | US$ 110,00 | 110 |
+| AmountDue |  número | Valor total devido ao fornecedor | US$ 610,00 | 610 |
+| ServiceAddress | string | Endereço de serviço ou endereço de propriedade explícito do cliente | 123 Service St, Redmond WA, 98052 | |
+| ServiceAddressRecipient | string | Nome associado ao ServiceAddress | Serviços Microsoft | |
+| RemittanceAddress | string | Remessa explícita ou endereço para pagamento do cliente | 123 Remit St New York, NY, 10001 |  |
+| RemittanceAddressRecipient | string | Nome associado ao RemittanceAddress | Cobrança da Contoso |  |
+| ServiceStartDate | date | Primeira data do período de serviço (por exemplo, um período da fatura serviços públicos essenciais) | 14/10/2019 | 14-10-2019 |
+| ServiceEndDate | date | Data de término do período de serviço (por exemplo, um período da fatura serviços públicos essenciais) | 14/11/2019 | 14-11-2019 |
+| PreviousUnpaidBalance | número | Saldo explícito não pago anteriormente | US$ 500,00 | 500 |
+
+Abaixo serão mostrados os itens de linha extraídos de uma fatura na resposta de saída JSON (a saída abaixo usará esta [fatura de exemplo](./media/sample-invoice.jpg))  
+
+|Nome| Tipo | Descrição | Texto (item de linha nº 1) | Valor (saída padronizada) |
+|:-----|:----|:----|:----| :----|
+| Itens | string | Linha de texto de uma cadeia de caracteres completa do item de linha | 04/03/2021 A123 Serviços de Consultoria 2 horas US$ 30,00 10% US$ 60,00 | |
+| Valor | número | O valor do item de linha | US$ 60,00 | 100 |
+| Descrição | string | A descrição de texto do item de linha da fatura | Serviço de consultoria | Serviço de consultoria |
+| Quantidade | número | O valor deste item de linha da fatura | 2 | 2 |
+| UnitPrice | número | O preço líquido ou bruto (de acordo com a configuração da fatura bruta) de uma unidade deste item | US$ 30,00 | 30 |
+| ProductCode | string| O código do produto, o número do produto ou o SKU associado a um item de linha específico | A123 | |
+| Unidade | string| A unidade do item de linha, por exemplo: kg, lb etc. | horas | |
+| Data | data| A data correspondente a cada item de linha. Com frequência, essa será a data em que o item de linha foi enviado | 04/03/2021| 04-03-2021 |
+| Imposto | número | Imposto associado a cada item de linha. Os valores possíveis incluem: valor do imposto, percentual do imposto e imposto S/N | 10% | |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Experimente suas próprias faturas e exemplos na [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/).
-- Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de faturas com o reconhecedor de formulário na linguagem de desenvolvimento de sua escolha.
+- Experimente usar faturas e exemplos próprios na [Interface do Usuário de Exemplo do Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/).
+- Conclua o [Guia de início rápido do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de faturas usando o Reconhecimento de Formulários na linguagem de desenvolvimento de sua preferência.
 
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)
-* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9843c2794cbb1a96291)
+* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)

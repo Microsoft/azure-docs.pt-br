@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/31/2021
 ms.author: glenga
 ms.openlocfilehash: 9a5c143927f549124cb6e69a4c8eb4829709a9e9
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99493424"
 ---
 + Um [grupo de recursos](../articles/azure-resource-manager/management/overview.md), que é um contêiner lógico para recursos relacionados.

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944042"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864781"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Criar clusters do Azure HDInsight com a Automação do Azure
 
@@ -38,16 +38,16 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Digite **AzureRM.Profile** na caixa e pressione Enter para pesquisar. Selecione o resultado da pesquisa disponível.
 1. Na tela **AzureRM.Profile**, selecione **Importar**. Marque a caixa para atualizar os módulos do Azure e, em seguida, selecione **OK**.
 
-    ![importar módulo do AzureRM.profile](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="importar módulo do AzureRM.profile" border="false":::
 
 1. Retorne à galeria de módulos selecionando **Galeria de Módulos** em **Recursos Compartilhados**.
 1. Digite **HDInsight**. Selecione **AzureRM.HDInsight**.
 
-    ![procurar módulos do HDInsight](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="procurar módulos do HDInsight" border="true":::
 
 1. No painel **AzureRM.HDInsight**, selecione **Importar** e **OK**.
 
-    ![importar módulo do AzureRM.HDInsight](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="importar módulo do AzureRM.HDInsight" border="true":::
 
 ## <a name="create-credentials"></a>Criar credenciais
 
@@ -65,7 +65,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Selecione **Criar**.
 1. Repita o mesmo processo para uma nova credencial `ssh-password` com o nome de usuário `sshuser` e uma senha de sua escolha. Selecione **Criar**. Essa credencial é para armazenar a senha SSH para o cluster.
 
-    ![criar credencial](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="criar credencial" border="true":::
 
 ## <a name="create-a-runbook-to-create-a-cluster"></a>Criar um runbook para criar um cluster
 
@@ -74,11 +74,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. No painel **Criar um runbook**, insira um nome para o runbook, como `hdinsight-cluster-create`. Selecione **PowerShell** na lista suspensa **Tipo de runbook**.
 1. Selecione **Criar**.
 
-    ![criar runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="criar runbook" border="true":::
 
 1. Insira o código a seguir na tela **Editar Runbook do PowerShell** e selecione **Publicar**:
 
-    ![publicar runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="publicar runbook" border="true":::
 
     ```powershell
     Param
@@ -154,13 +154,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Selecione **Iniciar** para executar o runbook imediatamente. Você também pode agendar runbooks para serem executados periodicamente. Confira [Como agendar um runbook na Automação do Azure](../automation/shared-resources/schedules.md)
 1. Insira os parâmetros necessários para o script e selecione **OK**. Isso criará um novo cluster do HDInsight com o nome que você especificou no parâmetro **CLUSTERNAME**.
 
-    ![execute criar runbook do cluster](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="execute criar runbook do cluster" border="true":::
 
 ### <a name="delete-a-cluster"></a>Excluir um cluster
 
 Exclua o cluster selecionando o runbook `hdinsight-cluster-delete` que você criou. Selecione **Iniciar**, insira o parâmetro **CLUSTERNAME** e selecione **OK**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando ela não for mais necessária, exclua a conta de Automação do Azure criada para evitar encargos indesejados. Para fazer isso, navegue até a portal do Azure, selecione o grupo de recursos em que você criou a Conta de Automação do Azure, selecione a Conta de Automação e selecione **Excluir**.
 

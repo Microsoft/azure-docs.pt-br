@@ -1,26 +1,22 @@
 ---
 title: Copiar dados de maneira incremental usando o Controle de Alterações usando o portal do Azure
 description: Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta com base em informações de controle de alterações no banco de dados de origem do Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/12/2018
-ms.openlocfilehash: 3ea231258f7a60ce90ec119803b5abc8b6e525fe
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 02/18/2021
+ms.openlocfilehash: c79d96e016459732ce71019511fa429d62d91f9d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510610"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101740130"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregar dados de maneira incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações usando o portal do Azure
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você criará um Azure Data Factory com um pipeline que carrega dados delta com base em informações de **controle de alterações** no banco de dados de origem do Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.  
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243198"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590986"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gerenciar a recuperação de desastre usando a replicação entre regiões 
 
@@ -38,10 +38,10 @@ Quando você precisar ativar o volume de destino (por exemplo, quando desejar fa
 1. Para interromper o emparelhamento de replicação, selecione o volume de destino. Clique em **replicação** em serviço de armazenamento.  
 
 2.  Verifique os campos a seguir antes de continuar:  
-    * Verifique se o estado do espelho mostra ***espelhado** _.   
-        Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar _Uninitialized *.
-    * Verifique se o status da relação mostra ***Idle** _.   
-        Não tente interromper o emparelhamento de replicação se o status da relação mostrar _Transferring *.   
+    * Verifique se o estado do espelho mostra ***espelhado***.   
+        Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar não *inicializado*.
+    * Verifique se o status da relação mostra ***ocioso***.   
+        Não tente interromper o emparelhamento de replicação se o status da relação mostrar *transferência*.   
 
     Consulte [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Após a conclusão da operação de ressincronização do destino para a origem,
 1. Interromper o emparelhamento de replicação:  
     a. Selecione o volume de *destino* . Clique em **replicação** em serviço de armazenamento.  
     b. Verifique os campos a seguir antes de continuar:   
-    * Verifique se o estado do espelho mostra ***espelhado** _.   
-    Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar _uninitialized *.  
-    * Verifique se o status da relação mostra ***Idle** _.   
-    Não tente interromper o emparelhamento de replicação se o status da relação mostrar _transferring *.    
+    * Verifique se o estado do espelho mostra ***espelhado***.   
+    Não tente interromper o emparelhamento de replicação se o estado do espelho mostrar não *inicializado*.  
+    * Verifique se o status da relação mostra ***ocioso***.   
+    Não tente interromper o emparelhamento de replicação se o status da relação mostrar *transferência*.    
 
         Consulte [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md). 
 
@@ -102,6 +102,7 @@ Após a conclusão da operação de ressincronização do destino para a origem,
 * [Replicação entre regiões](cross-region-replication-introduction.md)
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
 * [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
+* [Redimensionar um volume de destino de replicação entre regiões](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
 * [Excluir volumes ou replicações de volume](cross-region-replication-delete.md)
 * [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)

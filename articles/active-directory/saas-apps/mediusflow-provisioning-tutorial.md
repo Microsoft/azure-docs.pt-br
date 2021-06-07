@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98661993"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configurar o MediusFlow para provisionamento automático de usuário
@@ -35,13 +35,13 @@ Este tutorial descreve as etapas que você precisa executar tanto no MediusFlow 
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma assinatura do MediusFlow ativa com garantia de qualidade ou um locatário de produção.
 * Uma conta de usuário no MediusFlow com direitos de acesso de administrador para poder realizar a configuração no MediusFlow.
 * As empresas adicionadas no locatário MediusFlow para o qual os usuários devem ser provisionados.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação de provisionamento
+## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje a implantação do provisionamento
 1. Saiba mais sobre [como funciona o serviço de provisionamento](../app-provisioning/user-provisioning.md).
 2. Determine quem estará no [escopo de provisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determine quais dados serão [mapeados entre o Azure AD e o ServiceNow](../app-provisioning/customize-application-attributes.md). 

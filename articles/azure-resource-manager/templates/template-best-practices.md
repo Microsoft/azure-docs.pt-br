@@ -4,10 +4,10 @@ description: Descreve as abordagens recomendadas para a criação de modelos de 
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99257990"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM

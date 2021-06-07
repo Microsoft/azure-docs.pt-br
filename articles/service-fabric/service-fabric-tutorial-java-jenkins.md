@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91531965"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar a CI/CD para um aplicativo Java no Service Fabric
@@ -77,7 +77,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
 1. Crie um **novo item** no painel do Jenkins. em ``http://<HOST-IP>:8080``.
 
-1. Insira um nome de item (por exemplo, **MyJob**). Selecione **projeto em estilo livre**e clique em **OK**.
+1. Insira um nome de item (por exemplo, **MyJob**). Selecione **projeto em estilo livre** e clique em **OK**.
 
 1. Acesse a página do trabalho e clique em **Configurar**.
 

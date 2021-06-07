@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 10/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 6e1d9b8a53eaf69c2294ab42dc0718863e6c1837
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d905dd1e6acab8f9f6d3885c882dd9c32133cb4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804930"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100596429"
 ---
 # <a name="using-azure-sentinel-with-azure-web-application-firewall"></a>Usando o Azure Sentinel com o Firewall do aplicativo Web do Azure
 
@@ -62,7 +62,7 @@ Para habilitar o log Analytics para cada recurso, vá para o recurso individual 
       1. Gateway de aplicativo: ' ApplicationGatewayAccessLog ' e ' ApplicationGatewayFirewallLog '
       1. Porta frontal do Azure: ' FrontDoorAccessLog ' e ' FrontDoorFirewallLog '
       1. CDN: ' AzureCdnAccessLog '
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Configuração de diagnóstico":::
 
@@ -82,4 +82,4 @@ Para habilitar o log Analytics para cada recurso, vá para o recurso individual 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre o Azure Sentinel](../sentinel/overview.md)
-- [Saiba mais sobre pastas de trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md)
+- [Saiba mais sobre pastas de trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md)

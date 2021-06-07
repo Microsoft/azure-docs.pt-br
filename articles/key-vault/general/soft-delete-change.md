@@ -2,19 +2,18 @@
 title: Habilitar a exclusão reversível em todos os objetos de cofre de chaves – Azure Key Vault | Microsoft Docs
 description: Use este documento para adotar a exclusão reversível para todos os cofres de chaves e fazer alterações de aplicativo e administrativas para evitar erros de conflito.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.author: sudbalas
-ms.openlocfilehash: b96f2ca4f925846bd252e5cfd35088d832f5c216
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 7e1b2ee95864affa6e5e72e1f8354767dc95bdb1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572860"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107753318"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A exclusão reversível será habilitada em todos os cofres de chaves
 

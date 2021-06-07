@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544302"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Solucionar problemas de conectividade do Link Privado do Azure
 
 Este artigo fornece orientações passo a passo para validar e diagnosticar a conectividade para a configuração do link privado do Azure.
 
-Com o link privado do Azure, você pode acessar serviços de PaaS (plataforma como serviço) do Azure, como armazenamento do Azure, Azure Cosmos DB e banco de dados SQL do Azure e serviços hospedados de cliente ou parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, o que elimina a exposição da Internet pública. Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual e fornecê-lo de forma privada aos seus clientes.
+Com o link privado do Azure, você pode acessar serviços de PaaS (plataforma como serviço) do Azure, como armazenamento do Azure, Azure Cosmos DB e banco de dados SQL do Azure e serviços hospedados de cliente ou parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, o que elimina a exposição da Internet pública. Você também pode criar seu serviço de link privado na rede virtual e fornecê-lo de maneira privada aos clientes.
 
 Você pode habilitar o serviço que é executado atrás da camada Standard de Azure Load Balancer para acesso de link privado. Os consumidores do seu serviço podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço para acessá-lo de forma privada.
 

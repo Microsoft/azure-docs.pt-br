@@ -4,12 +4,12 @@ description: Obtenha respostas para perguntas comuns sobre como trabalhar com o 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0cd2571276992812327e286ba9b935fcbf6fbbaf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931414"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871802"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
@@ -31,27 +31,27 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 
 1. Selecione o ícone **Exibições do Ambari** e então selecione o padrão de grade. Em seguida, selecione **Gerenciador de Filas do YARN**.
 
-    ![Gerenciador de filas do YARN do Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Gerenciador de filas do YARN do Apache Ambari" border="false":::
 2. Selecione a fila **padrão**.
 
-    ![Apache Ambari YARN selecionar fila padrão](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN selecionar fila padrão" border="false":::
 3. Para a fila **padrão** , altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr**, altere a **capacidade** para 25%.
 
-    ![Alterar a capacidade para 25% para as filas padrão e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Alterar a capacidade para 25% para as filas padrão e thriftsvr" border="false":::
 4. Para criar uma nova fila, selecione **Adicionar Fila**.
 
-    ![Adicionar fila do painel do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Adicionar fila do painel do Apache Ambari YARN" border="false":::
 
 5. Dê um nome à nova fila.
 
-    ![Fila de nome do painel do Ambari YARN do Apache](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Fila de nome do painel do Ambari YARN do Apache" border="false":::  
 
 6. Deixe os valores de **capacidade** em 50% e então selecione o botão **Ações**.
 
-    ![Ação de seleção do Apache Ambari YARN](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Ação de seleção do Apache Ambari YARN" border="false":::  
 7. Escolha **Salvar e Atualizar Filas**.
 
-    ![Escolha Salvar e Atualizar Filas](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Selecionar salvar e atualizar filas" border="false":::  
 
 Essas alterações estarão visíveis imediatamente na interface do usuário do Agendador do YARN.
 

@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
 ms.openlocfilehash: fab52fcea03a2f65c868cfac27f8a8cef115b2be
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94917640"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
@@ -60,7 +60,7 @@ A lista a seguir contém recomendações para melhorar o desempenho durante o pr
 - Desabilitar autostatistics durante a migração
 - Índices e tabelas de partição
 - Descartar exibições indexadas e recriá-las após a conclusão
-- Remova os dados históricos raramente consultados para outro banco e migre esses dados históricos para um banco de dado separado no banco de dados SQL do Azure. Em seguida, você pode consultar esses dados históricos usando [consultas elásticas](elastic-query-overview.md).
+- Remova os dados históricos raramente consultados para outro banco e migre esses dados históricos para um banco de dado separado no banco de dados SQL do Azure. Você pode consultar esses dados históricos usando [consultas elásticas](elastic-query-overview.md).
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Otimizar o desempenho após a migração ser concluída
 

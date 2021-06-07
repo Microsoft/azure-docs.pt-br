@@ -8,10 +8,10 @@ ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6ff3d985bb24ec852bb5c6cfaedf295fd79a8247
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98120352"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Solucionar problemas de conectividade do Synapse Studio com o PowerShell

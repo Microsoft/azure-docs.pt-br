@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.openlocfilehash: ca4aa9244fdaf57927caf86f82b1a26d5678b8ca
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576865"
 ---
 # <a name="create-custom-intune-profiles-to-deploy-user-vpn-client-profiles"></a>Criar perfis do Intune personalizados para implantar perfis de cliente VPN de usuário

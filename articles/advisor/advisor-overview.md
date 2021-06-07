@@ -4,10 +4,10 @@ description: Use o Azure Advisor para otimizar as implantações do Azure.
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91405200"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
@@ -51,7 +51,7 @@ Você também pode exibir as recomendações do Assistente por meio interface de
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>De quais permissões preciso para acessar o Advisor?
  
-Você pode acessar as recomendações do Advisor como *proprietário*, *colaborador*ou *leitor* de uma assinatura, grupo de recursos ou recurso.
+Você pode acessar as recomendações do Advisor como *proprietário*, *colaborador* ou *leitor* de uma assinatura, grupo de recursos ou recurso.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 

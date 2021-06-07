@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
 ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96184477"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para planejamento de rede do Azure NetApp Files

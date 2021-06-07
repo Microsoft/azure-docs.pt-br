@@ -5,15 +5,15 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/15/2019
+ms.date: 04/01/2021
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: MT
+ms.openlocfilehash: 5d4e461b25a25ecdf0d4d89ee7f1c82b9d4a0737
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339828"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220157"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usar o avaliador do feed de alterações
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Este artigo descreve como você pode monitorar o progresso das instâncias do [p
 
 ## <a name="why-is-monitoring-progress-important"></a>Por que o progresso do monitoramento é importante?
 
-O processador do feed de alterações funciona como um ponteiro que avança no [feed de alterações](./change-feed.md) e entrega as alterações a uma implementação de representante. 
+O processador do feed de alterações funciona como um ponteiro que avança no [feed de alterações](./change-feed.md) e entrega as alterações a uma implementação de representante.
 
 A implantação do processador do feed de alterações pode processar alterações a uma taxa específica com base em seus recursos disponíveis, como CPU, memória, rede e assim por diante.
 
@@ -32,7 +32,9 @@ A identificação desse cenário ajuda a entender se precisamos dimensionar noss
 
 ## <a name="implement-the-change-feed-estimator"></a>Implementar o avaliador do feed de alterações
 
-Assim como o [processador do feed de alterações](./change-feed-processor.md), o avaliador do feed de alterações funciona como um modelo de push. O avaliador medirá a diferença entre o último item processado (definido pelo estado do contêiner de concessões) e a alteração mais recente no contêiner e efetuará push desse valor a um representante. O intervalo no qual a medição é feita também pode ser personalizado com um valor padrão de 5 segundos.
+### <a name="as-a-push-model-for-automatic-notifications"></a>Como um modelo de push para notificações automáticas
+
+Assim como o [processador do feed de alterações](./change-feed-processor.md), o avaliador do feed de alterações pode funcionar como um modelo de push. O avaliador medirá a diferença entre o último item processado (definido pelo estado do contêiner de concessões) e a alteração mais recente no contêiner e efetuará push desse valor a um representante. O intervalo no qual a medição é feita também pode ser personalizado com um valor padrão de 5 segundos.
 
 Por exemplo, se o processador do feed de alterações for definido assim:
 
@@ -52,8 +54,29 @@ Um exemplo de um representante que recebe a estimativa é:
 
 Envie essa estimativa para sua solução de monitoramento e use-a para entender como o progresso está se comportando ao longo do tempo.
 
+### <a name="as-an-on-demand-detailed-estimation"></a>Como uma estimativa detalhada sob demanda
+
+Em contraste com o modelo de push, há uma alternativa que permite obter a estimativa sob demanda. Esse modelo também fornece informações mais detalhadas:
+
+* O retardo estimado por concessão.
+* A instância proprietária de cada concessão e que as processa, de modo que você possa identificar se há um problema em uma instância.
+
+Se o processador do feed de alterações for definido assim:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimatorDetailed)]
+
+Você poderá criar o avaliador com a mesma configuração de concessão:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimatorDetailed)]
+
+Além disso, sempre que quiser, com a frequência necessária, você poderá obter a estimativa detalhada:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=GetIteratorEstimatorDetailed)]
+
+Cada `ChangeFeedProcessorState` conterá as informações de concessão e retardo, além de indicar a instância atual que é proprietária dela. 
+
 > [!NOTE]
-> O avaliador do feed de alterações não precisa ser implantado como parte do processador do feed de alterações, nem fazer parte do mesmo projeto. Ele pode ser independente e ser executado em uma instância completamente diferente. Ele só precisa usar o mesmo nome e a mesma configuração de concessão.
+> O avaliador do feed de alterações não precisa ser implantado como parte do processador do feed de alterações, nem fazer parte do mesmo projeto. Ele pode ser independente e ser executado em uma instância completamente diferente, o que é recomendado. Ele só precisa usar o mesmo nome e a mesma configuração de concessão.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

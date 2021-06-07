@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376047"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102212103"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
 
@@ -56,7 +56,7 @@ Para entrar no Azure usando a CLI, você pode digitar:
 az login
 ```
 
-Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a CLI do Azure](/cli/azure/authenticate-azure-cli)
 
 ## <a name="supported-hsms"></a>HSMs compatíveis
 
@@ -70,7 +70,7 @@ Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a C
 |Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Confira o [site da StorMagic para obter detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
-|Utimaco|Fabricante,<br/>HSM como serviço|s. âncora de confiança, CryptoServer|[Guia de integração e ferramenta do Utimaco BYOK](https://support.hsm.utimaco.com/support/downloads/byok)|
+|Utimaco|Fabricante,<br/>HSM como serviço|Âncora u.trust, CryptoServer|[Ferramenta BYOK e Guia de integração da Ultimaco](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
@@ -105,7 +105,7 @@ A KEK precisa ser:
 > [!NOTE]
 > A KEK precisa ter 'import' como a única operação de chave permitida. 'import' é mutuamente exclusiva em relação a todas as outras operações de chave.
 
-Use o comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) para criar uma KEK que tenha operações de chave definidas como `import`. Registre o identificador de chave (`kid`) que é retornado do comando a seguir. (Você usará o valor `kid` na [Etapa 3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Use o comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) para criar uma KEK que tenha operações de chave definidas como `import`. Registre o identificador de chave (`kid`) que é retornado do comando a seguir. (Você usará o valor `kid` na [Etapa 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli-interactive
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
@@ -115,7 +115,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Etapa 2: Baixar a chave pública KEK
 
-Use [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) para baixar a chave pública KEK para um arquivo .pem. A chave de destino que você importa é criptografada com a chave pública KEK.
+Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download) para baixar a chave pública KEK para um arquivo .pem. A chave de destino que você importa é criptografada com a chave pública KEK.
 
 ```azurecli-interactive
 az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -137,7 +137,7 @@ Transfira o arquivo BYOK para o computador conectado.
 
 ### <a name="step-4-transfer-your-key-to-managed-hsm"></a>Etapa 4: transferir sua chave para HSM gerenciado
 
-Para concluir a importação da chave, transfira o pacote de transferência de chave (um arquivo BYOK) do computador desconectado para o computador conectado à Internet. Use o comando [AZ keyvault Key Import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) para carregar o arquivo BYOK no HSM gerenciado.
+Para concluir a importação da chave, transfira o pacote de transferência de chave (um arquivo BYOK) do computador desconectado para o computador conectado à Internet. Use o comando [AZ keyvault Key Import](/cli/azure/keyvault/key#az-keyvault-key-import) para carregar o arquivo BYOK no HSM gerenciado.
 
 ```azurecli-interactive
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok

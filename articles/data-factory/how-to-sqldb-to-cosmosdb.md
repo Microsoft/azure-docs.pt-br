@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383935"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar um esquema de banco de dados normalizado do Banco de Dados SQL do Azure para um contêiner desnormalizado do Azure CosmosDB
@@ -68,7 +68,7 @@ O contêiner CosmosDB resultante incorporará a consulta interna em um único do
 
 10. Clique na guia Visualização de dados na nova junção que você adicionou para que você possa ver seus resultados até este ponto. Você deve ver todas as linhas de cabeçalho Unidas com as linhas de detalhes. Esse é o resultado da junção que está sendo formada a partir do ```SalesOrderID``` . Em seguida, combinaremos os detalhes das linhas comuns na estrutura de detalhes e agregaremos as linhas comuns.
 
-![Join](media/data-flow/cosmosb4.png)
+![Ingressar](media/data-flow/cosmosb4.png)
 
 11. Antes que possamos criar as matrizes para desnormalizar essas linhas, primeiro precisamos remover colunas indesejadas e verificar se os valores de dados corresponderão aos tipos de dados CosmosDB.
 

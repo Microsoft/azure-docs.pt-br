@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92744162"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configurar um aplicativo ASP.NET para o serviço Azure App
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *web.config* , o valor do serviço de aplicativo terá precedência sobre o valor de *web.config* . O valor *web.config* local permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
+Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *web.config*, o valor do serviço de aplicativo terá precedência sobre o valor de *web.config* . O valor *web.config* local permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
 
 ## <a name="deploy-multi-project-solutions"></a>Implantar soluções de vários projetos
 

@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879774"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691936"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 
@@ -102,8 +102,8 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
         Cabeçalhos da coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, serão ignoradas no conjunto de registros.| Nenhum
 
-    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Neste exemplo, não fazemos nenhuma seleção. Selecione **Avançar**.
-
+    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Neste exemplo, selecione o botão de alternância **day_of_week** para que ele não seja incluído. Selecione **Avançar**.
+         ![Formulário de esquema](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. No formulário **Confirmar detalhes**, verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas, Seleção de armazenamento de dados e arquivo** e **Configurações e visualização**.
     
     1. Selecione **Criar** para concluir a criação do conjunto de dados.
@@ -170,12 +170,6 @@ Depois de carregar e configurar seus dados, você poderá configurar seu experim
         
         Clique em **Salvar**.
     
-    1. Selecione **Exibir configurações de definição de recursos**. Neste exemplo, selecione o botão de alternância do recurso **day_of_week** para não o incluir na definição de recursos neste experimento.
-
-        ![Seleção da definição de recursos](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Clique em **Salvar**.
-
 1. Selecione **Concluir** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** na parte superior à medida que a preparação do experimento é iniciada. Esse status é atualizado conforme o progresso do experimento. Também aparecem notificações no canto superior direito do estúdio para informar você sobre o status do experimento.
 
 >[!IMPORTANT]
@@ -192,6 +186,30 @@ Enquanto você aguarda a conclusão de todos os modelos de experimento, selecion
 O exemplo a seguir navega pelas guias **Detalhes** e **Métricas** para exibir as propriedades, as métricas e os gráficos de desempenho do modelo selecionado. 
 
 ![Detalhes da iteração de execução](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+
+## <a name="model-explanations"></a>Explicações de modelo
+
+Enquanto aguarda a conclusão dos modelos, você também pode dar uma olhada nas explicações de modelo e ver quais recursos de dados (brutos ou com engenharia) influenciaram as previsões de um modelo específico. 
+
+Essas explicações de modelo podem ser geradas sob demanda e estão resumidas no painel de explicações do modelo que faz parte da guia **Explicações (versão prévia)** .
+
+Para gerar explicações de modelo: 
+ 
+1. Selecione **Executar 1** na parte superior para voltar para a tela **Modelos**. 
+1. Selecione a guia **Modelo**.
+1. Para esse tutorial, selecione o primeiro modelo **MaxAbsScaler, LightGBM**.
+1. Selecione o botão **Explicar modelo** na parte superior. À direita, o painel **Explicar modelo** é exibido. 
+1. Selecione o **automl-compute** que você criou anteriormente. Esse cluster de cálculo inicia uma execução filha para gerar as explicações de modelo.
+1. Selecione **Criar** na parte inferior. Uma mensagem de êxito em verde é exibida na parte superior da tela. 
+    >[!NOTE]
+    > A execução da explicação leva cerca de 2 a 5 minutos para ser concluída.
+1. Selecione o botão **Explicações (versão prévia)** . Essa guia será preenchida assim que a execução da explicação for concluída.
+1. No lado esquerdo, expanda o painel e selecione a linha que diz **bruto** em **Recursos**. 
+1. Selecione a guia **Importância do recurso agregado** à direita. Esse gráfico mostra quais recursos de dados influenciaram as previsões do modelo selecionado. 
+
+    Nesse exemplo, a *duração* parece ter mais influência sobre as previsões desse modelo.
+    
+    ![Painel de explicação de modelo](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
 
 ## <a name="deploy-the-best-model"></a>Implantar o melhor modelo
 

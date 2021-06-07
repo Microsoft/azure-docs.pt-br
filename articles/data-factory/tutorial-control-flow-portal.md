@@ -1,22 +1,19 @@
 ---
 title: Como ramificar e encadear atividades em um pipeline usando portal do Azure
 description: Saiba como controlar o fluxo de dados no pipeline do Azure Data Factory no portal do Azure.
-services: data-factory
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: dc82cfdc4e5a063e7c5cb833b617da58023d1ba6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 034b0400190cadd750e7420ab37800783afa050c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497428"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783414"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Como ramificar e encadear atividades em um pipeline do Azure Data Factory usando o portal do Azure
 

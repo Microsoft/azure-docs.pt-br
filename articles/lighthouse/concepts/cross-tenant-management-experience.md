@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 02/08/2021
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981078"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559903"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -33,7 +33,7 @@ O Azure Lighthouse permite maior flexibilidade para gerenciar recursos para vár
 
 Você pode executar tarefas de gerenciamento em recursos delegados diretamente no portal ou usando APIs e ferramentas de gerenciamento (como a CLI do Azure e o Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados, desde que a funcionalidade seja compatível com o gerenciamento entre diferentes locatários e que o usuário tenha as permissões apropriadas.
 
-O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` `ManagedByTenantIds` atributos e para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence a um locatário gerenciado ou ao seu locatário de gerenciamento.
+O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostrará o `TenantId` para o locatário de gerenciamento por padrão. Você pode usar os `HomeTenantId` `ManagedByTenantIds` atributos e para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence a um locatário gerenciado ou ao seu locatário de gerenciamento.
 
 Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e. Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
 
@@ -56,8 +56,8 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
   - Garantir que o mesmo conjunto de políticas seja aplicado nos ambientes híbridos dos clientes
   - Usar a central de segurança do Azure para monitorar a conformidade entre os ambientes híbridos dos clientes
 - Gerenciar clusters kubernetes híbridos em escala – [kubernetes habilitado para Arc do Azure (versão prévia)](../../azure-arc/kubernetes/overview.md):
-  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
-  - [Usar o GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
+  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
+  - [Usar o GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) para clusters conectados
   - Impor políticas entre clusters conectados
 
 [Automação do Azure](../../automation/index.yml):
@@ -67,6 +67,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 [Backup do Azure](../../backup/index.yml):
 
 - Fazer backup e restaurar dados [do cliente de cargas de trabalho locais, VMS do Azure, compartilhamentos de arquivos do Azure e muito mais](../..//backup/backup-overview.md#what-can-i-back-up)
+- Exibir dados de todos os recursos de cliente delegados no [centro de backup](../../backup/backup-center-overview.md)
 - Use o [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) para ajudar a ver informações operacionais de itens de backup (incluindo recursos do Azure ainda não configurados para backup) e informações de monitoramento (trabalhos e alertas) para assinaturas delegadas. O Backup Explorer está disponível no momento apenas para dados de VM do Azure.
 - Use [Relatórios de Backup](../../backup/configure-reports.md) entre assinaturas delegadas para acompanhar tendências históricas, analisar o consumo de armazenamento de backup e auditar backups e restaurações.
 
@@ -97,10 +98,10 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Exibir alertas para assinaturas delegadas, com a capacidade de exibir e atualizar alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
-- [Log Analytics](../../azure-monitor/platform/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
-- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) em locatários do cliente
+- [Log Analytics](../../azure-monitor/logs/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
+- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/alerts/alerts-activity-log.md) em locatários do cliente
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no gerenciamento de locatário por meio de WebHooks
-- Criar [configurações de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
+- Criar [configurações de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
 - Para cargas de trabalho do SAP, [monitore as métricas de soluções SAP com uma exibição agregada entre locatários do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede do Azure](../../networking/networking-overview.md):
@@ -113,9 +114,11 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 [Azure Policy](../../governance/policy/index.yml):
 
 - Criar e Editar definições de política em assinaturas delegadas
+- Implantar definições de política e atribuições de política em vários locatários
 - Atribuir definições de política definidas pelo cliente em assinaturas delegadas
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
 - Pode [corrigir deployIfNotExists ou modificar atribuições dentro do locatário gerenciado](../how-to/deploy-policy-remediation.md)
+- Observe que não há suporte atualmente para a exibição de detalhes de conformidade para recursos sem conformidade em locatários do cliente
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 

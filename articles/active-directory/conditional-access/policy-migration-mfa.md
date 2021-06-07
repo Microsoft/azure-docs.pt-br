@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87027386"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal do Azure
@@ -32,7 +32,7 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="open-a-classic-policy"></a>Abrir uma política clássica
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança.
+1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >    >  **acesso condicional** de segurança.
 1. Selecione **as políticas clássicas**.
 
    ![Exibição de políticas clássicas](./media/policy-migration-mfa/12.png)
@@ -41,7 +41,7 @@ O processo de migração consiste nas seguintes etapas:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de Acesso Condicional
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >  **Security**  >  **acesso condicional**de segurança.
+1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**  >    >  **acesso condicional** de segurança.
 1. Para criar uma nova política de acesso condicional, selecione **nova política**.
 1. Na página **Novo**, na caixa de texto **Nome**, digite um nome para a política.
 1. Na seção **Atribuições**, clique em **Usuários e grupos**.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954062"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
@@ -418,7 +418,7 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
 | Nome                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
-| Modelar                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
+| Modelo                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo vem configurado de fábrica e possui 15 caracteres. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 – É o modelo do dispositivo.<br>SHX – É o local de produção.<br> 0991003 - É um produto específico. <br> G44HT- os últimos cinco dígitos são incrementados para criar números de série exclusivos. Pode ser um conjunto não sequencial de números.|
 | TimeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador ao qual você está conectado por meio da interface do Windows PowerShell do seu dispositivo StorSimple.|

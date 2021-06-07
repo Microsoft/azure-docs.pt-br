@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452421"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639476"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar acesso ao Banco de Dados SQL, à Instância Gerenciada de SQL e ao Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ Neste ponto, o servidor ou a instância gerenciada só é configurada para acess
 
   - Crie um logon do SQL adicional no banco de dados mestre.
   - Adicione o logon à [função de servidor fixa sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) usando a instrução [ALTERAR FUNÇÃO DE SERVIDOR](/sql/t-sql/statements/alter-server-role-transact-sql). Este logon terá permissões administrativas totais.
-  - Crie um [logon do Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando a sintaxe [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) como alternativa.
+  - Crie um [logon do Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) usando a sintaxe [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) como alternativa.
 
 - **No banco de dados SQL, crie logons do SQL com permissões administrativas limitadas**
 
@@ -122,9 +122,9 @@ Você pode criar contas para usuários não administradores usando um dos dois m
 
 Para obter exemplos de criar logons e usuários, consulte:
 
-- [Criar logon para o banco de dados SQL do Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Criar logon para o Azure SQL Instância Gerenciada](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Criar logon para o Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Criar logon para o banco de dados SQL do Azure](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Criar logon para o Azure SQL Instância Gerenciada](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Criar logon para o Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Criar usuário](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Criando usuários independentes do Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
@@ -142,7 +142,7 @@ Após criar uma conta de usuário em um banco de dados, seja com base em um logo
   - Para adicionar um usuário a uma função de banco de dados fixa:
 
     - No Banco de Dados SQL do Azure, use a instrução [ALTERAR FUNÇÃO](/sql/t-sql/statements/alter-role-transact-sql). Para obter exemplos, consulte [Exemplos de ALTERAR FUNÇÃO](/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse, use a instrução [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) . Para obter exemplos, consulte [Exemplos de sp_addrolemember](/sql/t-sql/statements/alter-role-transact-sql).
+    - Azure Synapse, use a instrução [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) . Para obter exemplos, consulte [Exemplos de sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples).
 
 - **Função de banco de dados personalizada**
 

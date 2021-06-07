@@ -7,17 +7,17 @@ ms.service: app-service
 ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: c020ac1f8f148766641a869b75c5b047cf62872f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 337b6a23691e9fd533009ea5553e4b8765eb91bc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012180"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767306"
 ---
 Crie um [aplicativo Web](../articles/app-service/overview.md#app-service-on-linux) no plano do Serviço de Aplicativo `myAppServicePlan`. 
 
-No Cloud Shell, é possível usar o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest). No exemplo a seguir, substitua `<app-name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `NODE|6.9`. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+No Cloud Shell, é possível usar o comando [`az webapp create`](/cli/azure/webapp). No exemplo a seguir, substitua `<app-name>` por um nome do aplicativo exclusivo globalmente (os caracteres válidos são `a-z`, `0-9` e `-`). A execução é predefinida para `NODE|6.9`. Para ver todos os runtimes com suporte, execute [`az webapp list-runtimes`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 # Bash

@@ -10,10 +10,10 @@ ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 513af71384fd1fa5d38ee3ec367a42892a662444
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93096930"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo de API de Tabela com o SDK do .NET e o Azure Cosmos DB 
@@ -73,7 +73,7 @@ Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de con
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Abrir o aplicativo de exemplo no Visual Studio
 
-1. No Visual Studio, do menu **Arquivo** , escolha **Abrir** e, em seguida, escolha **Projeto/Solução**. 
+1. No Visual Studio, do menu **Arquivo**, escolha **Abrir** e, em seguida, escolha **Projeto/Solução**. 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Abrir a solução"::: 
 
@@ -141,7 +141,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
     
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Saída do console":::
 
-   Quando atingir o primeiro ponto de interrupção, volte para o Data Explorer no Portal do Azure. Clique no botão **Atualizar** , expanda a tabela demonstração* e clique em **Entidades**. A guia **Entidades** à direita mostra a nova entidade que foi adicionada para Walter Harp. Observe que o número de telefone para a nova entidade é 425-555-0101.
+   Quando atingir o primeiro ponto de interrupção, volte para o Data Explorer no Portal do Azure. Clique no botão **Atualizar**, expanda a tabela demonstração* e clique em **Entidades**. A guia **Entidades** à direita mostra a nova entidade que foi adicionada para Walter Harp. Observe que o número de telefone para a nova entidade é 425-555-0101.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Nova entidade":::
     

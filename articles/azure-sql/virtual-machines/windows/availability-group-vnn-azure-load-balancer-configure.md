@@ -16,10 +16,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2d89759438cb625a0e220af10ab6b287096f6390
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359873"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurar o balanceador de carga para o ouvinte do AG VNN

@@ -10,10 +10,10 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: b0536a152797d17cba0930b3a142a7fb92eaf5ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98685150"
 ---
 # <a name="supported-data-types"></a>Tipos de dados com suporte

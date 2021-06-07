@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401093"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557659"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -74,7 +74,7 @@ Um nó de origem RTSP permite que você ingerir a mídia de um servidor [RTSP](h
 
 #### <a name="iot-hub-message-source"></a>Origem da mensagem do Hub IoT 
 
-Assim como outros [módulos de IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), a análise de vídeo ao vivo no módulo IOT Edge pode receber mensagens por meio do hub de [IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Essas mensagens podem ser enviadas de outros módulos ou de aplicativos em execução no dispositivo de borda ou da nuvem. Essas mensagens são entregues (roteadas) a uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de origem de mensagem do Hub IoT permite que essas mensagens alcancem um grafo de mídia. Essas mensagens ou sinais podem ser usados internamente no grafo de mídia, normalmente para ativar as Gates de sinais (consulte [sinais de sinal](#signal-gate-processor) abaixo). 
+Assim como outros [módulos de IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), a análise de vídeo ao vivo no módulo IOT Edge pode receber mensagens por meio do hub de [IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Essas mensagens podem ser enviadas de outros módulos ou de aplicativos em execução no dispositivo de borda ou da nuvem. Essas mensagens são entregues (roteadas) a uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de origem de mensagem do Hub IoT permite que essas mensagens alcancem um grafo de mídia. Essas mensagens ou sinais podem ser usados internamente no grafo de mídia, normalmente para ativar as Gates de sinais (consulte [sinais de sinal](#signal-gate-processor) abaixo). 
 
 Por exemplo, você pode ter um módulo IoT Edge que gera uma mensagem quando uma porta é aberta. A mensagem desse módulo pode ser roteada para IoT Edge Hub, de onde ele pode ser roteado para a origem da mensagem do Hub IoT de um grafo de mídia. Dentro do grafo de mídia, a origem da mensagem do Hub IoT pode passar o evento para um processador de porta de sinal, que pode então ativar a gravação do vídeo de uma fonte RTSP em um arquivo. 
 
@@ -92,11 +92,11 @@ O nó do processador de filtro de taxa de quadros permite que você exemplo de q
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O nó processador de extensão HTTP permite que você conecte seu próprio módulo IoT Edge a um grafo de mídia. Esse nó usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade HTTP REST exposto pelo seu módulo. Esse nó tem a capacidade de se autenticar com o ponto de extremidade REST, se necessário. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade REST. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, PNG ou BMP. Saiba mais sobre o processador [aqui](media-graph-extension-concept.md#http-extension-processor).
+O nó processador de extensão HTTP permite que você conecte seu próprio módulo IoT Edge a um grafo de mídia. Esse nó usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade HTTP REST exposto pelo seu módulo. Esse nó tem a capacidade de se autenticar com o ponto de extremidade REST, se necessário. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade REST. O escalonador tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou alongada. O codificador de imagem dá suporte aos formatos JPEG, PNG ou BMP. Saiba mais sobre o processador [aqui](media-graph-extension-concept.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Processador de extensão gRPC
 
-O nó do processador de extensão gRPC usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade [gRPC](terminology.md#grpc) exposto pelo seu módulo. O nó dá suporte à transferência de dados usando [memória compartilhada](https://en.wikipedia.org/wiki/Shared_memory) ou incorporando diretamente o conteúdo no corpo de mensagens gRPC. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade gRPC. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp. Saiba mais sobre o processador [aqui](media-graph-extension-concept.md#grpc-extension-processor).
+O nó do processador de extensão gRPC usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade [gRPC](terminology.md#grpc) exposto pelo seu módulo. O nó dá suporte à transferência de dados usando [memória compartilhada](https://en.wikipedia.org/wiki/Shared_memory) ou inserindo diretamente o conteúdo no corpo de mensagens gRPC. Além disso, o nó tem um formatador de imagem interno para dimensionar e codificar os quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade gRPC. O escalonador tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou alongada. O codificador de imagem dá suporte aos formatos JPEG, png e bmp. Saiba mais sobre o processador [aqui](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Processador da porta do sinal  
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 77464ccfb5b80c84f091d8e6bc491908baed6486
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1fc21b6338accef8e22b2e41ad2017d24ab8bd38
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954996"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101710457"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizado de máquina
 
@@ -24,7 +24,7 @@ Os [Serviços cognitivas](./what-are-cognitive-services.md) são um grupo de ser
 |--|--|
 |[Decisão](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicativos que apresentam recomendações para tomada de decisão eficiente e informada.|
 |[Idioma](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que os aplicativos processem idioma natural com scripts pré-criados, avaliem sentimentos e saibam como reconhecer o que os usuários desejam.|
-|[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing a seus aplicativos e aproveite a capacidade de vasculhar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.|
+|[Pesquisar](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs de Pesquisa do Bing a seus aplicativos e aproveite a capacidade de vasculhar bilhões de páginas da Web, imagens, vídeos e notícias com uma única chamada à API.|
 |[Fala](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta fala em texto e texto em fala de som natural. Traduza de um idioma para outro e habilite o reconhecimento e a verificação do locutor.|
 |[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere suas imagens, vídeos e conteúdo de tinta digital.|
 ||||
@@ -97,7 +97,7 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
 |[Detecção Facial](./Face/Overview.md)|x|x||
 |[Reconhecimento de Formulários](./form-recognizer/overview.md)||x||
 |[Leitura Avançada](./immersive-reader/overview.md)|x|||
-|[Reconhecimento de Tinta Digital](./Ink-recognizer/overview.md)|x|x||
+|[Reconhecimento de Tinta Digital](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Reconhecimento Vocal (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[O QnA Maker](./QnAMaker/Overview/overview.md)||x||
@@ -127,7 +127,7 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 
 |Serviço cognitiva|Informações do modelo|
 |--|--|
-|[Visão Personalizada](./custom-vision-service/overview.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
+|[Visão Personalizada](./custom-vision-service/overview.md)|[Exportar](./custom-vision-service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
 ## <a name="learn-more"></a>Saiba mais
 

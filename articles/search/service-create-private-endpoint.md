@@ -3,17 +3,17 @@ title: Criar um ponto de extremidade privado para uma conexão segura
 titleSuffix: Azure Cognitive Search
 description: Configure um ponto de extremidade privado em uma rede virtual para uma conexão segura com um serviço de Pesquisa Cognitiva do Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779933"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100545523"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva
 
@@ -21,8 +21,10 @@ Neste artigo, você usará o portal do Azure para criar uma nova instância do s
 
 Pontos de extremidade privados são fornecidos pelo [link privado do Azure](../private-link/private-link-overview.md), como um serviço separado. Para obter mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/).
 
-> [!Important]
-> O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva pode ser configurado usando o portal do Azure ou a [API REST de gerenciamento versão 2020-03-13](/rest/api/searchmanagement/). Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as informações de nível de serviço, mas o acesso ao portal para indexar dados e os vários componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança. Como alternativa ao portal, você pode usar a [extensão vs Code](https://aka.ms/vscode-search) para interagir com os vários componentes no serviço.
+Você pode criar um ponto de extremidade privado no portal do Azure, conforme descrito neste artigo. Como alternativa, você pode usar a [API REST de gerenciamento versão 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)ou [CLI do Azure](/cli/azure/search).
+
+> [!NOTE]
+> Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você pode exibir e gerenciar informações de nível de serviço, mas as informações de índice, indexador e de qualificações ficam ocultas por motivos de segurança. Como alternativa ao portal, você pode usar a [extensão vs Code](https://aka.ms/vscode-search) para interagir com os vários componentes no serviço.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Por que usar um ponto de extremidade privado para acesso seguro?
 
@@ -38,7 +40,7 @@ Pontos de extremidade privados para o serviço de pesquisa permitem que você:
 
 Nesta seção, você criará uma rede virtual e uma sub-rede para hospedar a VM que será usada para acessar o ponto de extremidade privado do serviço de pesquisa.
 
-1. Na guia portal do Azure página inicial, selecione **criar um recurso**  >  **Networking**  >  **rede redes virtuais**.
+1. Na guia portal do Azure página inicial, selecione **criar um recurso**  >    >  **rede redes virtuais**.
 
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
@@ -67,7 +69,7 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | URL | Insira um nome exclusivo. |
-    | Localização | Selecione a região desejada. |
+    | Location | Selecione a região desejada. |
     | Tipo de preço | Selecione **alterar tipo de preço** e escolha a camada de serviço desejada. (Sem suporte na camada **gratuita** . Deve ser **básico** ou superior.) |
     |||
   
@@ -85,7 +87,7 @@ Nesta seção, você criará um novo serviço de Pesquisa Cognitiva do Azure com
     | ------- | ----- |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | Localização | Selecione **Oeste dos EUA**.|
+    | Location | Selecione **Oeste dos EUA**.|
     | Nome | Insira *myPrivateEndpoint*.  |
     | Sub-recurso de destino | Deixe o **searchService** padrão. |
     | **REDE** |  |

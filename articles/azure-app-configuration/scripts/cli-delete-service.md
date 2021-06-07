@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49d6a85faa55de5dbf50377998dbe2fc829d9f6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 07c4ac3234dc67978f16f6c0c7e0702924bf2bb5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929779"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768877"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Excluir um repositório de configurações de aplicativo do Azure
 
@@ -44,7 +44,7 @@ Esse script usa os comandos a seguir para excluir um repositório de Configuraç
 
 | Comando | Observações |
 |---|---|
-| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Exclui um recurso do repositório de Configuração de Aplicativos. |
+| [az appconfig delete](/cli/azure/appconfig#az_appconfig_delete) | Exclui um recurso do repositório de Configuração de Aplicativos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

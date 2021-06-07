@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c20cfb96b5cd6e1d05e332fa7157fe6e0cde8656
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613009"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Instalar o agente de provisionamento do Azure AD Connect usando cmdlets do PowerShell 
@@ -108,4 +108,4 @@ Agora que você instalou o agente, você pode aplicar permissões mais granulare
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [Azure AD Connect cmdlets do PowerShell gMSA do agente de provisionamento de nuvem](how-to-gmsa-cmdlets.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)

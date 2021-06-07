@@ -7,12 +7,12 @@ description: Revisar e testar alterações de uma solicitação pull diretamente
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 37ad621609f5a5631b498e55483e5d16e8ac4472
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591558"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102202103"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -177,10 +177,10 @@ Saiba mais sobre como funciona o Azure Dev Spaces.
 > [!div class="nextstepaction"]
 > [Como o Azure Dev Spaces funciona](../how-dev-spaces-works.md)
 
-[azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-installed]: /cli/azure/install-azure-cli
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-acr-show]: /cli/azure/acr#az-acr-show
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [bikes-server-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L232-L233
 [bike-sharing-gh]: https://github.com/Azure/dev-spaces/

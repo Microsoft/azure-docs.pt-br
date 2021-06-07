@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2edc6fb98359c5360836bc369e5ae1928464df92
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861023"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Excluir um novo locatário no Azure Active Directory
@@ -54,7 +54,7 @@ Você poderá apenas excluir uma organização do Azure Active Directory depois 
 
 Quando você configurou sua organização do Azure AD, você também pode ter ativado assinaturas baseadas em licença para sua organização, como Azure AD Premium P2, Microsoft 365 Business Standard ou Enterprise Mobility + Security e5. Para evitar a perda acidental de dados, não é possível excluir uma organização até que as assinaturas sejam totalmente excluídas. As assinaturas precisam estar em um estado **Desprovisionado** para permitir a exclusão da organização. Uma assinatura **Expirada** ou **Cancelada** passa para o estado **Desabilitado** e a fase final é o estado **Desprovisionado**.
 
-Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Contrato Enterprise ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Estado da assinatura | Dados | Acesso a dados
 ----- | ----- | -----
@@ -108,7 +108,7 @@ Quando você inicia a exclusão do produto de inscrição para autoatendimento, 
 
 Para obter mais informações sobre produtos e serviços de inscrição para autoatendimento disponíveis no momento, consulte [Programas de autoatendimento disponíveis](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
-Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
+Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Contrato Enterprise ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires).
 
 Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------

@@ -10,10 +10,10 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 938f55ae0ba911ea3a97cd49e6424bf8aaefdc76
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381674"
 ---
 ### <a name="default"></a>Padrão
@@ -39,7 +39,7 @@ Associação para `string` ou `Byte[]` só é recomendada se o tamanho do blob f
 
 ### <a name="additional-types"></a>Tipos adicionais
 
-Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher) também podem usar tipos do [SDK do Azure para .net](/dotnet/api/overview/azure/storage.blobs-readme). Essa versão descarta o suporte para os `CloudBlobContainer` tipos herdado,, `CloudBlobDirectory` ,, `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` e `CloudAppendBlob` em favor dos seguintes tipos:
+Os aplicativos que usam a [versão 5.0.0 ou posterior da extensão de Armazenamento](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher) também poderão usar tipos do [SDK do Azure para .NET](/dotnet/api/overview/azure/storage.blobs-readme). Essa versão descarta o suporte para os `CloudBlobContainer` tipos herdado,, `CloudBlobDirectory` ,, `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` e `CloudAppendBlob` em favor dos seguintes tipos:
 
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient)
 - [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>
@@ -50,4 +50,4 @@ Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamen
 
 <sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 
-Para obter exemplos de como usar esses tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples).
+Para obter exemplos de como usar esses tipos, confira [o repositório GitHub da extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples).

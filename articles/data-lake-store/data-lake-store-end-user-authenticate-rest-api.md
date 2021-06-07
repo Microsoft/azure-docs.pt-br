@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103740"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de usuário final com o Azure Data Lake Storage Gen1 usando a API REST
@@ -18,7 +18,7 @@ ms.locfileid: "92103740"
 > * [Usando Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Usando o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Usando Python](data-lake-store-end-user-authenticate-python.md)
-> * [Usando a API REST](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Usar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 

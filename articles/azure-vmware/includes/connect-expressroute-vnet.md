@@ -3,12 +3,12 @@ title: Conectar o ExpressRoute ao gateway de rede virtual
 description: Etapas para conectar o ExpressRoute ao gateway de rede virtual.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 5f9a565a7662041dbd85e61388129496fa376962
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861503"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103494335"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "96861503"
 
 1. Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione **+ Solicitar uma chave de autorização**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::.
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Copie a chave de autorização. Se não houver uma chave de autorização, você precisará criar uma: selecione + Solicitar uma chave de autorização" border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::.
 
 1. Navegue até o Gateway de Rede Virtual criado na etapa anterior e, em **Configurações**, selecione **Conexões**. Na página **Conexões**, selecione **+ Adicionar**.
 
@@ -31,6 +31,8 @@ ms.locfileid: "96861503"
    | **Chave de autorização**  | Copie e cole a chave de autorização da guia ExpressRoute do seu Grupo de recursos. |
    | **URI de circuito de par**  | Copie e cole a ID do ExpressRoute da guia ExpressRoute do seu Grupo de recursos.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="Na página Adicionar conexão, forneça valores para os campos e selecione OK." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Captura de tela da página Adicionar conexão para conectar o ExpressRoute ao gateway de rede virtual.":::
 
 A conexão entre o circuito do ExpressRoute e sua Rede Virtual é criada.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Captura de tela das conexões do gateway de rede virtual.":::

@@ -5,16 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.subservice: linux
+ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 52e0e50d3c0c68b57181645c3eb695308fdac65a
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: eaebaa958da558b207775d2f535c825d49384c7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703816"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932311"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Resource Manager
 

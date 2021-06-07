@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 205136437fa1a2a33b3b337f5cc9f2dde283faef
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 6116ab543d6dfc886e44206c2a60e4456b39fbc9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491933"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102558178"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com acesso condicional
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com Acesso Condicional
 
-Em implantações complexas, as organizações podem ter a necessidade de restringir as sessões de autenticação. Alguns cenários podem incluir:
+Em implantações complexas, talvez as organizações precisem restringir as sessões de autenticação. Alguns cenários podem incluir:
 
 * Acesso a recursos de um dispositivo não gerenciado ou compartilhado
 * Acesso a informações confidenciais de uma rede externa
 * Usuários com alto impacto
 * Aplicativos de negócios críticos
 
-Os controles de acesso condicional permitem que você crie políticas que se destinam a casos de uso específicos em sua organização sem afetar todos os usuários.
+Os controles de Acesso condicional permitem criar políticas direcionadas a casos de uso específicos na organização, sem afetar todos os usuários.
 
-Antes de mergulhar em detalhes sobre como configurar a política, vamos examinar a configuração padrão.
+Antes de analisar detalhadamente como configurar a política, vamos examinar a configuração padrão.
 
 ## <a name="user-sign-in-frequency"></a>Frequência de entrada do usuário
 
@@ -37,17 +37,17 @@ A frequência de entrada define o período de tempo antes que um usuário seja s
 
 A configuração padrão do Azure Active Directory (Azure AD) para a frequência de entrada do usuário é uma janela sem interrupção de 90 dias. Solicitar aos usuários que as credenciais geralmente pareça uma coisa sensata a ser feita, mas pode ser revelado: os usuários treinados para inserir suas credenciais sem pensar podem fornecê-las involuntariamente a um prompt de credencial mal-intencionado.
 
-Pode parecer que o alarme não pede que um usuário entre novamente, na realidade, qualquer violação das políticas de ti revogará a sessão. Alguns exemplos incluem (mas não estão limitados a) uma alteração de senha, um dispositivo incompatível ou uma conta desabilitada. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). A configuração padrão do Azure AD é "não pedir que os usuários forneçam suas credenciais se a postura de segurança de suas sessões não tiver mudado".
+Pode parecer que o alarme não pede que um usuário entre novamente, na realidade, qualquer violação das políticas de ti revogará a sessão. Alguns exemplos incluem (mas não estão limitados a) uma alteração de senha, um dispositivo incompatível ou uma conta desabilitada. Você também pode [revogar explicitamente as sessões de usuários usando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A configuração padrão do Azure AD é "não pedir que os usuários forneçam suas credenciais se a postura de segurança de suas sessões não tiver mudado".
 
-A configuração frequência de entrada funciona com aplicativos que implementaram protocolos OAUTH2 ou OIDC de acordo com os padrões. A maioria dos aplicativos nativos da Microsoft para Windows, Mac e Mobile, incluindo os seguintes aplicativos Web, estão em conformidade com a configuração.
+A configuração da frequência de entrada funciona com aplicativos que tenham implementado protocolos OAUTH2 ou OIDC de acordo com os padrões. A maioria dos aplicativos nativos da Microsoft para Windows, Mac e Mobile, incluindo os seguintes aplicativos Web, estão em conformidade com a configuração.
 
-- Word, Excel, PowerPoint online
-- OneNote online
+- Word, Excel, PowerPoint Online
+- OneNote Online
 - Office.com
 - Portal de administração do Microsoft 365
 - Exchange Online
 - SharePoint e OneDrive
-- Cliente Web de equipes
+- Cliente Web do Teams
 - Dynamics CRM Online
 - Portal do Azure
 
@@ -55,32 +55,32 @@ A configuração frequência de entrada também funciona com aplicativos SAML, d
 
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Frequência de entrada do usuário e autenticação multifator
 
-Frequência de entrada aplicada anteriormente somente à autenticação de primeiro fator em dispositivos que eram ingressados no Azure AD, ingressado no Azure AD híbrido e registro do Azure AD. Não havia uma maneira fácil para nossos clientes reimporem a MFA (autenticação multifator) nesses dispositivos. Com base nos comentários dos clientes, a frequência de entrada também se aplicará ao MFA.
+Frequência de entrada aplicada anteriormente somente à autenticação de primeiro fator em dispositivos que eram ingressados no Azure AD, ingressado no Azure AD híbrido e registro do Azure AD. Não havia uma maneira fácil para nossos clientes reimporem a MFA (autenticação multifator) nesses dispositivos. Com base nos comentários dos clientes, a frequência de entrada também se aplicará à MFA.
 
 [![Frequência de entrada e MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Frequência de entrada do usuário e identidades do dispositivo
 
-Se você tiver ingressado no Azure AD, ingressado no Azure AD híbrido ou dispositivos registrados no Azure AD, quando um usuário desbloquear seu dispositivo ou entrar de forma interativa, esse evento também atenderá à política de frequência de entrada. Nos dois exemplos a seguir, a frequência de entrada do usuário é definida como 1 hora:
+Caso você tenha dispositivos ingressados no Azure AD, ingressados no Azure AD híbrido ou registrados no Azure AD, quando um usuário desbloquear o dispositivo ou entrar de modo interativo, esse evento também atenderá à política de frequência de entrada. Nos dois exemplos a seguir, a frequência de entrada do usuário é definida como 1 hora:
 
 Exemplo 1:
 
-- Em 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
-- O usuário continua trabalhando no mesmo documento em seu dispositivo por uma hora.
-- Em 01:00, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada na política de acesso condicional configurada pelo administrador.
+- À 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
+- O usuário continua trabalhando no mesmo documento em seu próprio dispositivo por uma hora.
+- À 01:00, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada na política de Acesso condicional configurada pelo administrador.
 
 Exemplo 2:
 
-- Em 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
+- À 00:00, um usuário entra em seu dispositivo ingressado no Azure AD do Windows 10 e inicia o trabalho em um documento armazenado no SharePoint Online.
 - Às 00:30, o usuário Obtém e faz um bloqueio de interrupção de seu dispositivo.
-- Em 00:45, o usuário retorna de sua quebra e desbloqueia o dispositivo.
-- Em 01:45, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada na política de acesso condicional configurada pelo administrador desde que a última entrada ocorreu às 00:45.
+- À 00:45, o usuário retorna do intervalo e desbloqueia o dispositivo.
+- À 01:45, o usuário é solicitado a entrar novamente com base no requisito de frequência de entrada da política de Acesso condicional configurada pelo administrador, uma vez que a última entrada ocorreu à 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistência de sessões de navegação
 
-Uma sessão persistente do navegador permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
+Uma sessão persistente do navegador permite que os usuários permaneçam conectados depois de fechar e reabrir a janela do navegador.
 
-O padrão do Azure AD para persistência de sessão de navegador permite que os usuários em dispositivos pessoais escolham se deseja manter a sessão mostrando uma "permanecer conectado?" avisar após a autenticação bem-sucedida. Se a persistência do navegador estiver configurada no AD FS usando as diretrizes no artigo [AD FS configurações de Sign-On único](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+O padrão do Azure AD para persistência de sessão de navegador permite que os usuários em dispositivos pessoais escolham se desejam manter a sessão mostrando a solicitação “Permanecer conectado?” após a autenticação bem-sucedida. Se a persistência do navegador estiver configurada no AD FS usando as diretrizes no artigo [AD FS configurações de Sign-On único](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), vamos obedecer a essa política e persistir a sessão do Azure ad também. Você também pode configurar se os usuários em seu locatário veem o "permanecer conectado?" Solicite a alteração da configuração apropriada no painel de identidade visual da empresa em portal do Azure usando as diretrizes no artigo [personalizar sua página de entrada do Azure ad](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Configurando controles de sessão de autenticação
@@ -128,9 +128,9 @@ No Azure AD, os dispositivos registrados do Windows entram no dispositivo é con
 
 ## <a name="validation"></a>Validação
 
-Use a ferramenta What-If para simular um logon do usuário para o aplicativo de destino e outras condições com base em como você configurou sua política. Os controles de gerenciamento de sessão de autenticação aparecem no resultado da ferramenta.
+Use a ferramenta What If para simular um logon do usuário para o aplicativo de destino e outras condições com base na forma como você configurou sua política. Os controles de gerenciamento de sessão de autenticação aparecem nos resultados da ferramenta.
 
-![Resultados da ferramenta de What If de acesso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultados da ferramenta What If de Acesso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Implantação de política
 

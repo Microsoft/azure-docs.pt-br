@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401535"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103419925"
 ---
 # <a name="what-is-azure-purview"></a>O que é o Azure Purview?
 
@@ -69,6 +69,9 @@ Após registrar uma fonte de dados, você pode enriquecer seus metadados. O usu�
 Descobrir e entender fontes de dados e seu uso é o principal objetivo de registrar as fontes. Usuários corporativos podem precisar de dados de business intelligence, desenvolvimento de aplicativos, ciência de dados ou outra tarefa em que os dados certos são necessários. Eles usam a experiência de descoberta do catálogo de dados para localizar rapidamente dados que correspondam às suas necessidades, compreender os dados para avaliar sua adequação à finalidade e consumir os dados ao abrir a fonte de dados na sua ferramenta de escolha.
 
 Ao mesmo tempo, os usuários podem contribuir para o catálogo marcando, documentando e anotando as fontes de dados que já foram registradas. Eles também podem registrar novas fontes de dados, que são descobertas, entendidas e consumidas pela comunidade de usuários do catálogo.
+
+## <a name="in-region-data-residency"></a>Residência de dados na região
+O Azure Purview não transfere nem armazena dados do cliente fora da região em que está implantado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310028"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloquear conexões criadas por conectores em aplicativos lógicos do Azure

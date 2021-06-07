@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917793"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628366"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -60,6 +60,26 @@ Se você tiver resolvido todos os bloqueadores de migração identificados e est
 
 O SQL Instância Gerenciada garante 99,99% de disponibilidade mesmo em cenários críticos, portanto, a sobrecarga causada por esses recursos não pode ser desabilitada. Para obter mais informações, consulte [as causas raiz que podem causar um desempenho diferente no SQL Server e no instância gerenciada do SQL do Azure](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
 
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabelas com otimização de memória)
+
+O SQL Server fornece In-Memory recurso OLTP que permite o uso de tabelas com otimização de memória, tipos de tabela com otimização de memória e módulos do SQL compilados nativamente para executar cargas de trabalho que têm requisitos de processamento transacional de alta taxa de transferência e baixa latência. 
+
+> [!IMPORTANT]
+> In-Memory OLTP só tem suporte na camada de Comercialmente Crítico no Azure SQL Instância Gerenciada (e sem suporte na camada Uso Geral).
+
+Se você tiver tabelas com otimização de memória ou tipos de tabela com otimização de memória em sua SQL Server local e estiver procurando migrar para o SQL do Azure Instância Gerenciada, você deve:
+
+- Escolha Comercialmente Crítico camada para o Instância Gerenciada de destino do Azure SQL que dá suporte ao OLTP In-Memory ou
+- Se você quiser migrar para Uso Geral camada no Instância Gerenciada SQL do Azure, remova tabelas com otimização de memória, tipos de tabela com otimização de memória e módulos SQL compilados nativamente que interagem com objetos com otimização de memória antes de migrar seus bancos de dados. A seguinte consulta T-SQL pode ser usada para identificar todos os objetos que precisam ser removidos antes da migração para Uso Geral camada:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Para saber mais sobre as tecnologias na memória, consulte [otimizar o desempenho usando tecnologias na memória no banco de dados SQL do Azure e Azure sql instância gerenciada](../in-memory-oltp-overview.md)
+
 ### <a name="create-a-performance-baseline"></a>Criar uma linha de base de desempenho
 
 Se você precisar comparar o desempenho de sua carga de trabalho em uma instância gerenciada com sua carga de trabalho original em execução no SQL Server, será necessário criar uma linha de base de desempenho que será usada para comparação.
@@ -69,7 +89,7 @@ A linha de base de desempenho é um conjunto de parâmetros como o uso médio/m�
 Alguns dos parâmetros que você precisa medir em sua instância de SQL Server são:
 
 - [Monitore o uso da CPU em sua instância do SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registre o uso médio e máximo da CPU.
-- [Monitore o uso de memória em sua instância do SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
+- [Monitore o uso de memória em sua instância do SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
 - Monitore o uso de e/s de disco na instância de SQL Server de origem usando [Sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) exibição ou [contadores de desempenho](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando de uma versão do SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução na instância gerenciada.
 
@@ -80,7 +100,7 @@ Como resultado dessa atividade, você deve ter os valores de média e de pico do
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implantar em uma instância gerenciada de tamanho ideal
 
-O SQL Instância Gerenciada é adaptado para cargas de trabalho locais que estão planejando migrar para a nuvem. Ele apresenta um [novo modelo de compra](../database/service-tiers-vcore.md) que fornece maior flexibilidade na seleção do nível certo de recursos para suas cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos e largura de banda de E/S. O modelo de compra para a instância gerenciada baseia-se em núcleos virtuais, ou “vCores”, com armazenamento adicional e E/S disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem. Algumas diretrizes gerais que podem ajudá-lo a escolher a camada de serviço e as características certas são descritas aqui:
+O SQL Instância Gerenciada é adaptado para cargas de trabalho locais que estão planejando migrar para a nuvem. Ele apresenta um [novo modelo de compra](../database/service-tiers-vcore.md) que fornece maior flexibilidade na seleção do nível certo de recursos para suas cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos e largura de banda de E/S. O modelo de compra para a instância gerenciada é baseado em núcleos virtuais, ou "vCores", com armazenamento adicional e e/s disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem. Algumas diretrizes gerais que podem ajudá-lo a escolher a camada de serviço e as características certas são descritas aqui:
 
 - Com base no uso da CPU de linha de base, você pode provisionar uma instância gerenciada que corresponda ao número de núcleos que você está usando em SQL Server, tendo em mente que as características da CPU talvez precisem ser dimensionadas para corresponder às [características da VM em que a instância gerenciada está instalada](resource-limits.md#hardware-generation-characteristics).
 - Com base no uso de memória de linha de base, escolha [a camada de serviço que tem memória correspondente](resource-limits.md#hardware-generation-characteristics). A quantidade de memória não pode ser escolhida diretamente, portanto, você precisaria selecionar a instância gerenciada com a quantidade de vCores que tem memória correspondente (por exemplo, 5,1 GB/vCore em Gen5).
@@ -114,7 +134,7 @@ O SQL Instância Gerenciada dá suporte às seguintes opções de migração de 
 
 ### <a name="azure-database-migration-service"></a>Serviço de Migração de Banco de Dados do Azure
 
-O [serviço de migração de banco de dados do Azure](../../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. O serviço de migração de banco de dados é o método recomendado de migração para suas cargas de trabalho corporativas.
+O [serviço de migração de banco de dados do Azure](../../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados existentes de terceiros e do SQL Server para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. O serviço de migração de banco de dados é o método recomendado de migração para suas cargas de trabalho corporativas.
 
 Se você usar SQL Server Integration Services (SSIS) no SQL Server local, o serviço de migração de banco de dados ainda não oferecerá suporte à migração do catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas você pode provisionar Azure-SSIS Integration Runtime (IR) no Azure Data Factory, que criará um novo SSISDB em uma instância gerenciada para que você possa reimplantar os pacotes nele. Consulte [criar Azure-SSIS ir em Azure data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 

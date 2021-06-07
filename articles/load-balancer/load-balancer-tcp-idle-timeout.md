@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747227"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configurar a redefinição de TCP e o tempo limite de ociosidade para Azure Load Balancer
@@ -39,25 +39,25 @@ Para definir o tempo limite de ociosidade e a redefinição de TCP para um balan
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. No menu à esquerda, selecione grupos de **recursos** .
+2. No menu à esquerda, selecione grupos de **recursos**.
 
 3. Selecione o grupo de recursos para o balanceador de carga. Neste exemplo, o grupo de recursos é denominado **MyResource** Group.
 
-4. Selecione seu balanceador de carga. Neste exemplo, o balanceador de carga é denominado **myLoadBalancer** .
+4. Selecione seu balanceador de carga. Neste exemplo, o balanceador de carga é denominado **myLoadBalancer**.
 
-5. Em **configurações** , selecione **regras de balanceamento de carga** .
+5. Em **configurações**, selecione **regras de balanceamento de carga**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edite as regras do balanceador de carga." border="true":::
 
-6. Selecione sua regra de balanceamento de carga. Neste exemplo, a regra de balanceamento de carga é denominada **myLBrule** .
+6. Selecione sua regra de balanceamento de carga. Neste exemplo, a regra de balanceamento de carga é denominada **myLBrule**.
 
 7. Na regra de balanceamento de carga, mova o controle deslizante no **tempo limite de ociosidade (minutos)** para o valor de tempo limite.  
 
-8. Em **redefinição de TCP** , selecione **habilitado** .
+8. Em **redefinição de TCP**, selecione **habilitado**.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Edite as regras do balanceador de carga." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Defina o tempo limite de ociosidade e a redefinição de TCP." border="true":::
 
-9. Clique em **Salvar** .
+9. Clique em **Salvar**.
 
 # <a name="powershell"></a>[**PowerShell**](#tab/tcp-reset-idle-powershell)
 

@@ -4,10 +4,10 @@ description: Este artigo mostra como exibir o tópico do sistema existente, cria
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115104"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Criar, exibir e gerenciar tópicos do sistema de grade de eventos no portal do Azure
@@ -20,7 +20,7 @@ Você pode criar um tópico do sistema para um recurso do Azure (conta de armaze
 - Usando a página de **Tópicos do sistema de grade de eventos** . As etapas a seguir são para a criação de um tópico do sistema usando a página **Tópicos do sistema de grade de eventos** . 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na caixa de pesquisa na parte superior, digite **Tópicos do sistema de grade de eventos**e pressione **Enter**. 
+2. Na caixa de pesquisa na parte superior, digite **Tópicos do sistema de grade de eventos** e pressione **Enter**. 
 
     ![Pesquisar tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Na página **Tópicos do sistema de grade de eventos** , selecione **+ Adicionar** na barra de ferramentas.
@@ -50,7 +50,7 @@ Você pode criar um tópico do sistema para um recurso do Azure (conta de armaze
 Siga estas etapas para exibir todos os tópicos existentes do sistema de grade de eventos. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na caixa de pesquisa na parte superior, digite **Tópicos do sistema de grade de eventos**e pressione **Enter**. 
+2. Na caixa de pesquisa na parte superior, digite **Tópicos do sistema de grade de eventos** e pressione **Enter**. 
 
     ![Pesquisar tópicos do sistema](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Na página **Tópicos do sistema de grade de eventos** , você verá todos os tópicos do sistema. 
@@ -83,7 +83,7 @@ Siga estas etapas para exibir todos os tópicos existentes do sistema de grade d
 2. Na página do **tópico sistema de grade de eventos** , selecione **+ assinatura de evento** na barra de ferramentas. 
 
     ![Tópico do sistema – botão Adicionar assinatura de evento](./media/create-view-manage-system-topics/add-event-subscription-button.png)
-3. Confirme se o **tipo de tópico**, o **recurso de origem**e o **nome do tópico** são preenchidos automaticamente. Insira um nome, selecione um **tipo de ponto de extremidade**e especifique o **ponto de extremidade**. Em seguida, selecione **criar** para criar a assinatura de evento. 
+3. Confirme se o **tipo de tópico**, o **recurso de origem** e o **nome do tópico** são preenchidos automaticamente. Insira um nome, selecione um **tipo de ponto de extremidade** e especifique o **ponto de extremidade**. Em seguida, selecione **criar** para criar a assinatura de evento. 
 
     ![Tópico do sistema – criar assinatura de evento](./media/create-view-manage-system-topics/create-event-subscription.png)
 

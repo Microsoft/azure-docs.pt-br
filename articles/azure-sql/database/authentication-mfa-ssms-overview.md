@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
 ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841105"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Usando a autenticação de Azure Active Directory multifator
@@ -45,7 +45,7 @@ O método interativo que também dá suporte à MFA (autenticação multifator) 
 
 - `Azure Active Directory - Universal with MFA`
 
-O Azure AD MFA ajuda a proteger o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
+A MFA do Azure AD ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo em que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. O MFA interativo com o Azure AD pode resultar em uma caixa de diálogo pop-up para validação.
 
 Para obter uma descrição da autenticação multifator do Azure AD, consulte [autenticação multifator](../../active-directory/authentication/concept-mfa-howitworks.md).
 Para etapas de configuração, consulte [Configurar Autenticação Multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777734"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034751"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Failover em vários pontos de extremidade com o Gerenciador de tráfego do Azure
 
@@ -62,20 +62,20 @@ Crie um perfil do Gerenciador de tráfego do Azure e configure o balanceamento d
 
 1. Crie um perfil do Gerenciador de Tráfego do Azure seguindo as etapas em [Criar um perfil do Gerenciador de Tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md). 
 
-    * **Método de roteamento** , selecione **prioridade** .
+    * **Método de roteamento**, selecione **prioridade**.
 
 2. Adicione seus pontos de extremidade CDN em seu perfil do Gerenciador de Tráfego seguindo as etapas em [Incluir pontos de extremidade do Gerenciador de Tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints)
 
-    * **Digite** , selecione **pontos de extremidade externos** .
-    * **Prioridade** , insira um número.
+    * **Digite**, selecione **pontos de extremidade externos**.
+    * **Prioridade**, insira um número.
 
-    Por exemplo, crie **cdndemo101akamai.azureedge.net** com uma prioridade **1** e **cdndemo101verizon.azureedge.net** com uma prioridade **2** .
+    Por exemplo, crie **cdndemo101akamai.azureedge.net** com uma prioridade **1** e **cdndemo101verizon.azureedge.net** com uma prioridade **2**.
 
    ![Pontos de extremidade do Gerenciador de Tráfego da CDN](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## <a name="configure-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Configurar o domínio personalizado na CDN do Azure e no Gerenciador de tráfego do Azure
-Depois de configurar os perfis CDN e Gerenciador de tráfego, siga estas etapas para adicionar o mapeamento de DNS e registrar o domínio personalizado nos pontos de extremidade da CDN. Neste exemplo, o nome de domínio personalizado é **cdndemo101.dustydogpetcare.online** .
+Depois de configurar os perfis CDN e Gerenciador de tráfego, siga estas etapas para adicionar o mapeamento de DNS e registrar o domínio personalizado nos pontos de extremidade da CDN. Neste exemplo, o nome de domínio personalizado é **cdndemo101.dustydogpetcare.online**.
 
 1. Vá para o site do provedor de domínio de seu domínio personalizado, como o GoDaddy, e crie duas entradas CNAME de DNS. 
 
@@ -94,9 +94,12 @@ Depois de configurar os perfis CDN e Gerenciador de tráfego, siga estas etapas 
     > [!NOTE]
     > Se o domínio está atualmente ativo e não pode ser interrompido, siga esta etapa pela última vez. Verifique se os pontos de extremidade do CDN e os domínios do gerenciador de tráfego estão ativos antes de atualizar o DNS do seu domínio personalizado para o Gerenciador de Tráfego.
     >
+   
+    > [!NOTE]
+    > Para implemeting, esse failover scenerio ambos os pontos de extremidade precisam estar em perfis diferentes, e os perfis diferentes devem ser por um provedor de CDN diferente para evitar conflitos de nome de domínio.
+    > 
 
-
-2.  Do seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade do CDN (Akamai). Selecione **Adicionar domínio personalizado** e insira **cdndemo101. dustydogpetcare. online** . Verifique se a marca de seleção para validar o domínio personalizado está verde. 
+2.  Do seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade do CDN (Akamai). Selecione **Adicionar domínio personalizado** e entrada **cdndemo101.dustydogpetcare.online**. Verifique se a marca de seleção para validar o domínio personalizado está verde. 
 
     A CDN do Azure usa o subdomínio **cdnverify** para validar o mapeamento de DNS para concluir este processo de registro. Para obter mais informações, consulte [criar um registro DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Esta etapa permite que a CDN do Azure reconheça o domínio personalizado para que ele possa responder a suas solicitações.
     
@@ -110,7 +113,7 @@ Depois de configurar os perfis CDN e Gerenciador de tráfego, siga estas etapas 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Seu perfil de CDN do Azure, selecione o segundo ponto de extremidade do CDN (Verizon) e repita a etapa 2. Selecione **Adicionar domínio personalizado** e digite **cdndemo101. dustydogpetcare. online** .
+4. Seu perfil de CDN do Azure, selecione o segundo ponto de extremidade do CDN (Verizon) e repita a etapa 2. Selecione **Adicionar domínio personalizado** e digite **cdndemo101.dustydogpetcare.online**.
  
 Depois de concluir essas etapas, o serviço de várias CDN com recursos de failover será configurado com o Gerenciador de tráfego do Azure. 
 

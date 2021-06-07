@@ -2,18 +2,19 @@
 title: Início Rápido – Criar uma VM Windows no portal do Azure
 description: Neste início rápido, você aprende a usar o portal do Azure para criar uma máquina virtual Windows
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/05/2019
+ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0ba28d003f359af12de6242c6d2444fb8adab0d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "87494512"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103562732"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no Portal do Azure
 
@@ -29,12 +30,12 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 1. Digite **máquinas virtuais** na pesquisa.
 1. Em **Serviços**, selecione **Máquinas virtuais**.
-1. Na página **Máquinas Virtuais**, selecione **Adicionar**. 
+1. Na página **Máquinas virtuais**, selecione **Adicionar** e **Máquina virtual**. 
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myResourceGroup* para o nome. 
 
     ![Captura de tela da seção Detalhes do projeto mostrando onde você seleciona a assinatura do Azure e o grupo de recursos da máquina virtual](./media/quick-create-portal/project-details.png)
 
-1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para a **Região** e, em seguida, escolha *Windows Server 2019 Datacenter* para **Imagem**. Deixe os outros padrões.
+1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para **Região**. Escolha *Datacenter do Windows Server 2019* como a **Imagem** e *Standard_DS1_v2* como **Tamanho**. Deixe os outros padrões.
 
     ![Captura de tela da seção Detalhes da instância, onde você fornece um nome para a máquina virtual e seleciona sua região, sua imagem e seu tamanho](./media/quick-create-portal/instance-details.png)
 
@@ -50,20 +51,25 @@ Entre no Portal do Azure em https://portal.azure.com.
 
     ![Captura de tela mostrando o botão Examinar e criar na parte inferior da página](./media/quick-create-portal/review-create.png)
 
+1. Após a execução da validação, selecione o botão **Criar** na parte inferior da página.
+
+1. Após a conclusão da implantação, selecione **Ir para o recurso**.
+
+    ![Captura de tela mostrando a próxima etapa de ir para o recurso](./media/quick-create-portal/next-steps.png)
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Inicie uma conexão da área de trabalho remota para a máquina virtual. Estas instruções ensinam a se conectar aàsua VM de um computador com Windows. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) da Mac App Store.
 
-1. Selecione o botão **Conectar** na página de visão geral de sua máquina virtual. 
+1. Na página de visão geral da máquina virtual, selecione o botão **Conectar** e selecione **RDP**. 
 
     ![Captura de tela da página de visão geral da máquina virtual mostrando o local do botão conectar](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por endereço IP pela porta 3389 e clique em **Baixar arquivo RDP**.
+2. Na página **Conectar-se ao RDP**, mantenha as opções padrão para se conectar por endereço IP pela porta 3389 e clique em **Baixar arquivo RDP**.
 
 2. Abra o arquivo RDP baixado e clique em **Conectar** quando solicitado. 
 
-3. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite o nome do usuário como **localhost**\\*nomedeusuário*, insira a senha que você criou para a máquina virtual e, sem seguida, clique em **OK**.
+3. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite o nome de usuário como **localhost**\\*nome de usuário*, insira a senha que você criou para a máquina virtual e clique em **OK**.
 
 4. Você pode receber um aviso do certificado durante o processo de logon. Clique em **Sim** ou em **Continuar** para criar a conexão.
 
@@ -80,7 +86,7 @@ Quando terminar, feche a conexão RDP com a VM.
 
 ## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
 
-No portal, selecione a VM e na visão geral da VM, use o botão **Clique para copiar** à direita do endereço IP para copiá-lo e colá-lo em uma guia do navegador. A página de boas-vinda do IIS padrão será aberta e deve ter esta aparência:
+No portal, selecione a VM e, na visão geral da VM, passe o mouse sobre o endereço IP para mostrar **Copiar para área de transferência**. Copie o endereço IP e cole-o em uma guia do navegador. A página de boas-vinda do IIS padrão será aberta e deve ter esta aparência:
 
 ![Captura de tela do site padrão do IIS em um navegador](./media/quick-create-powershell/default-iis-website.png)
 
@@ -88,7 +94,7 @@ No portal, selecione a VM e na visão geral da VM, use o botão **Clique para co
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. 
 
-Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
+Vá para o grupo de recursos da máquina virtual e selecione **Excluir grupo de recursos**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

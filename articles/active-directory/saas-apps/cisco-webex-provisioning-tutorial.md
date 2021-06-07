@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: bc05e83ac6c7f0f7c5e9a571c1fa7397af858f44
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96179989"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cisco Webex para provisionamento automático de usuários

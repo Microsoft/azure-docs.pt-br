@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005054"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: reagir a eventos de armazenamento de BLOBs em IoT Edge (versão prévia)
@@ -55,7 +55,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
 
    * **Nome**: eventgridmodule
    * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Opções de Criação de Contêiner**:
+   * **Opções de criação de contêiner**:
 
     ```json
         {
@@ -110,7 +110,7 @@ Esta seção mostra como implantar o módulo de armazenamento de BLOBs do Azure,
 
    * **Nome**: azureblobstorageoniotedge
    * **URI da imagem**: MCR.Microsoft.com/Azure-Blob-Storage:Latest
-   * **Opções de Criação de Contêiner**:
+   * **Opções de criação de contêiner**:
 
    ```json
        {
@@ -324,7 +324,7 @@ Parabéns! Você concluiu o tutorial. As seções a seguir fornecem detalhes sob
 
 Aqui está a lista de propriedades de eventos com suporte e seus tipos e descrições. 
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -337,7 +337,7 @@ Aqui está a lista de propriedades de eventos com suporte e seus tipos e descri�
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | api | string | A operação que disparou o evento. Pode ser um dos seguintes valores: <ul><li>BlobCreated-os valores permitidos são: `PutBlob` e `PutBlockList`</li><li>BlobDeleted-os valores permitidos `DeleteBlob` são `DeleteAfterUpload` e `AutoDelete` . <p>O `DeleteAfterUpload` evento é gerado quando o blob é excluído automaticamente porque a propriedade desejada deleteAfterUpload está definida como true. </p><p>`AutoDelete` o evento é gerado quando o blob é excluído automaticamente porque o valor da propriedade desejada deleteAfterMinutes expirou.</p></li></ul>|
 | clientRequestId | string | uma ID de solicitação fornecida pelo cliente para a operação da API de armazenamento. Essa ID pode ser usada para correlacionar os logs de diagnóstico do armazenamento do Azure usando o campo "Client-Request-ID" nos logs e pode ser fornecida em solicitações de cliente usando o cabeçalho "x-MS-Client-Request-ID". Para obter detalhes, consulte [formato de log](/rest/api/storageservices/storage-analytics-log-format). |

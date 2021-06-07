@@ -13,17 +13,17 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548455"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>Verificar o serviço do Hub IoT e o Resource Health
 
 O Hub IoT do Azure integra-se ao [serviço de integridade do serviço do Azure](../service-health/overview.md) para fornecer a capacidade de monitorar a integridade de nível de serviço do serviço do Hub IOT e dos hubs IOT individuais. Você também pode configurar alertas para serem notificados quando o status do serviço Hub IoT ou um hub IoT for alterado. O serviço de integridade do serviço do Azure é uma combinação de três serviços menores: Azure Resource Health, integridade do serviço do Azure e a página de status do Azure. As seções neste artigo descrevem cada serviço e sua relação com o Hub IoT em mais detalhes.
 
-O serviço de integridade do serviço do Azure ajuda a monitorar eventos de nível de serviço, como interrupções e atualizações que podem afetar a disponibilidade do serviço Hub IoT e seus hubs IoT individuais. O Hub IoT também se integra com Azure Monitor para fornecer métricas de plataforma do Hub IoT e logs de recursos do Hub IoT que você pode usar para monitorar erros operacionais e condições que ocorrem em um hub IoT específico. Para saber mais, consulte [monitorar o Hub IOT](monitor-iot-hub.md).
+O serviço de integridade do serviço do Azure ajuda a monitorar eventos de nível de serviço, como interrupções e atualizações que podem afetar a disponibilidade do serviço Hub IoT e seus hubs IoT individuais. O Hub IoT também se integra com Azure Monitor para fornecer métricas de plataforma do Hub IoT e logs de recursos do Hub IoT que você pode usar para monitorar erros operacionais e condições que ocorrem em um hub IoT específico. Para saber mais, confira [Monitorar o Hub IoT](monitor-iot-hub.md).
 
 ## <a name="check-health-of-an-iot-hub-with-azure-resource-health"></a>Verificar a integridade de um hub IoT com Azure Resource Health
 
@@ -33,7 +33,7 @@ Para ver o status e o histórico de status do seu hub IoT usando o portal, siga 
 
 1. Em [portal do Azure](https://portal.azure.com), vá para o Hub IoT em portal do Azure.
 
-1. No painel esquerdo, em **suporte + solução de problemas** , selecione **Resource Health** .
+1. No painel esquerdo, em **suporte + solução de problemas**, selecione **Resource Health**.
 
     :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="Página de integridade de recursos para um hub IoT":::
 

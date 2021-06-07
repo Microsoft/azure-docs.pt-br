@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3c7efca5e052c2d0680aa7ca3e1b6d27bfdd7d11
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96862472"
 ---
 # <a name="tutorial-configure-playvox-for-automatic-user-provisioning"></a>Tutorial: configurar o Playvox para o provisionamento automático de usuário
@@ -40,7 +40,7 @@ O cenário neste tutorial pressupõe que você já tenha os seguintes pré-requi
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento. Por exemplo, uma conta pode ter o administrador do aplicativo, o administrador do aplicativo de nuvem, o proprietário do aplicativo ou a função de administrador global.
 * Uma conta de usuário no [Playvox](https://www.playvox.com) com permissões de superadministrador.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1: planejar sua implantação de provisionamento
+## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1: Planeje a implantação do provisionamento
 
 1. Saiba [como o serviço de provisionamento funciona](../app-provisioning/user-provisioning.md).
 
@@ -72,7 +72,7 @@ Para começar a gerenciar o provisionamento para o Playvox, adicione o Playvox a
 
 Se você tiver configurado anteriormente o Playvox para SSO (logon único), poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo separado ao testar a integração inicialmente.
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4: definir quem estará no escopo para provisionamento
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4: Defina quem estará no escopo de provisionamento
 
 Você usa o serviço de provisionamento do Azure AD para o escopo que será provisionado, com base na atribuição para o aplicativo ou em atributos do usuário ou grupo. Para definir o escopo que será provisionado em seu aplicativo com base na atribuição, consulte [gerenciar a atribuição de usuário para um aplicativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) para saber como atribuir usuários ou grupos ao aplicativo. Para o escopo que será provisionado com base apenas em atributos do usuário ou grupo, use um filtro de escopo conforme descrito em [provisionamento de aplicativo baseado em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,9 +149,9 @@ Para configurar o provisionamento automático de usuário para Playvox no Azure 
 
 Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que os ciclos posteriores. Os ciclos posteriores ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução.
 
-## <a name="step-6-monitor-your-deployment"></a>Etapa 6: monitorar sua implantação
+## <a name="step-6-monitor-your-deployment"></a>Etapa 6: Monitorar a implantação
 
-Depois de configurar o provisionamento, use os seguintes recursos para monitorar sua implantação:
+Após configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 * Use os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais usuários foram provisionados com êxito ou não.
 * Confira a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir.

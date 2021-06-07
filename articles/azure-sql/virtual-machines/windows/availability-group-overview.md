@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131892"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102504160"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidade Always On no SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ O seguinte diagrama ilustra um grupo de disponibilidade para SQL Server em VMs d
 
 ## <a name="vm-redundancy"></a>Redundância de VM 
 
-Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) ou em [zonas de disponibilidade](../../../availability-zones/az-overview.md) diferentes.
+Para aumentar a redundância e a alta disponibilidade, as VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade](../../../virtual-machines/availability-set-overview.md) ou em [zonas de disponibilidade](../../../availability-zones/az-overview.md) diferentes.
 
 Colocar um conjunto de VMs no mesmo conjunto de disponibilidade oferece proteção contra interrupções em um datacenter causadas por uma falha no equipamento (as VMs em um Conjunto de Disponibilidade não compartilham recursos) ou contra atualizações (as VMs em um Conjunto de Disponibilidade não são atualizadas ao mesmo tempo). As Zonas de Disponibilidade oferecem proteção contra a falha de um datacenter inteiro, com cada zona representando um conjunto de datacenters dentro de uma região.  Com a garantia de que os recursos serão colocados em diferentes Zonas de Disponibilidade, nenhuma interrupção no nível do datacenter poderá colocar todas as suas VMs offline.
 
@@ -51,6 +51,7 @@ Em uma implantação local tradicional, os clientes se conectam ao ouvinte do gr
 
 Com o SQL Server em VMs do Azure, configure um [balanceador de carga](availability-group-vnn-azure-load-balancer-configure.md) para rotear o tráfego para o ouvinte do grupo de disponibilidade ou, se estiver no SQL Server 2019 CU8 e posterior, você poderá configurar um [ouvinte DNN (nome de rede distribuída)](availability-group-distributed-network-name-dnn-listener-configure.md) para substituir o ouvinte do grupo de disponibilidade de VNN tradicional. 
 
+Para obter mais detalhes sobre as opções de conectividade de cluster, confira [Rotear conexões HADR para o SQL Server em VMs do Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ### <a name="vnn-listener"></a>Ouvinte VNN 
 

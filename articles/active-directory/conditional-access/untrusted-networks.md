@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077669"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
@@ -58,7 +58,7 @@ Em vez de tentar definir quais são todos os locais confiáveis ou não confiáv
 
 - Excluir todos os locais confiáveis 
 
-   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Captura de tela do painel de locais de D do Azure, com configurar definido como Sim, a guia incluir visível e a opção qualquer local selecionada e realçada." border="false":::
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Captura de tela do painel de locais de D do Azure, com configurar definido como Sim, a guia excluir visível e a opção todos os locais confiáveis selecionados." border="false":::
 
 ## <a name="policy-deployment"></a>Implantação de política
 

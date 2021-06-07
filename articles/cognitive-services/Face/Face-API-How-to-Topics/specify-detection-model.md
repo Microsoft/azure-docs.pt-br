@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a70b10f7d22c9cc04427bdfbb44243fad457ba0
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913476"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102425763"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificar um modelo de detecção facial
 
@@ -43,6 +43,7 @@ Ao usar a API de [detecção de face] , você pode atribuir a versão do modelo 
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 Uma URL de solicitação para a API REST de [detecção facial] terá a seguinte aparência:
 
@@ -52,7 +53,7 @@ Se você estiver usando a biblioteca de cliente, poderá atribuir o valor para `
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Adicionar face à pessoa com o modelo especificado
@@ -62,17 +63,17 @@ O serviço de face pode extrair dados de face de uma imagem e associá-los a um 
 Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-Esse código cria um **Person** com ID `mypersongroupid` e adiciona uma **pessoa** a ele. Em seguida, ele adiciona uma face a essa **pessoa** usando o `detection_02` modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01` .
+Esse código cria um **Person** com ID `mypersongroupid` e adiciona uma **pessoa** a ele. Em seguida, ele adiciona uma face a essa **pessoa** usando o `detection_03` modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01` .
 
 > [!NOTE]
 > Você não precisa usar o mesmo modelo de detecção para todas as faces em um objeto **Person** e não precisa usar o mesmo modelo de detecção ao detectar novas faces para comparar com um objeto **Person** (na API de [identificação facial] , por exemplo).
@@ -82,13 +83,13 @@ Esse código cria um **Person** com ID `mypersongroupid` e adiciona uma **pessoa
 Você também pode especificar um modelo de detecção ao adicionar uma face a um objeto de **facelist** existente. Consulte o exemplo de código a seguir para a biblioteca de cliente .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-Esse código cria uma **facelist** chamada `My face collection` e adiciona uma face a ela com o `detection_02` modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01` .
+Esse código cria uma **facelist** chamada `My face collection` e adiciona uma face a ela com o `detection_03` modelo. Se você não especificar o parâmetro *detectionModel* , a API usará o modelo padrão, `detection_01` .
 
 > [!NOTE]
 > Você não precisa usar o mesmo modelo de detecção para todas as faces em um objeto de **facelist** e não precisa usar o mesmo modelo de detecção ao detectar novas faces para comparar com um objeto de **facelist** .
@@ -97,14 +98,14 @@ Esse código cria uma **facelist** chamada `My face collection` e adiciona uma f
 
 Os diferentes modelos de detecção facial são otimizados para tarefas diferentes. Consulte a tabela a seguir para obter uma visão geral das diferenças.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Opção padrão para todas as operações de detecção de face. | Lançado em maio de 2019 e disponível opcionalmente em todas as operações de detecção de face.
-|Não otimizado para faces pequenas, rápidas ou borradas.  | Precisão aprimorada em faces pequenas, de exibição lateral e borradas. |
-|Retorna os atributos de face (pose de cabeçalho, idade, emoção e assim por diante) se eles forem especificados na chamada de detecção. |  Não retorna atributos de face.     |
-|Retorna os pontos de referência de face se eles forem especificados na chamada de detecção.   | Não retorna pontos de referência de face.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Opção padrão para todas as operações de detecção de face. | Lançado em maio de 2019 e disponível opcionalmente em todas as operações de detecção de face. |  Lançado em fevereiro de 2021 e disponível opcionalmente em todas as operações de detecção de face.
+|Não otimizado para faces pequenas, rápidas ou borradas.  | Precisão aprimorada em faces pequenas, de exibição lateral e borradas. | Maior precisão melhorada, incluindo em rostos menores (64 x 64 pixels) e orientações de face giradas.
+|Retorna os atributos de face principal (pose de cabeçalho, idade, emoção e assim por diante) se eles forem especificados na chamada de detecção. |  Não retorna atributos de face.     | Retorna os atributos "faceMask" e "noseAndMouthCovered" se eles forem especificados na chamada Detect.
+|Retorna os pontos de referência de face se eles forem especificados na chamada de detecção.   | Não retorna pontos de referência de face.  | Não retorna pontos de referência de face.
 
-A melhor maneira de comparar o desempenho dos `detection_01` modelos e `detection_02` é usá-los em um conjunto de exemplo. É recomendável chamar a API de [detecção facial] em uma variedade de imagens, especialmente imagens de muitas faces ou de faces que são difíceis de ver, usando cada modelo de detecção. Preste atenção ao número de faces que cada modelo retorna.
+A melhor maneira de comparar o desempenho dos modelos de detecção é usá-los em um conjunto de exemplo. É recomendável chamar a API de [detecção facial] em uma variedade de imagens, especialmente imagens de muitas faces ou de faces que são difíceis de ver, usando cada modelo de detecção. Preste atenção ao número de faces que cada modelo retorna.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010955"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar registros de dispositivo com o portal do Azure
@@ -68,7 +68,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
         | :--- | :--- |
         | **Mecanismo** | Selecione **X. 509**, **TPM** ou **chave simétrica** para o mecanismo de atestado usar dependendo do método de atestado que seus dispositivos usarão. |
         | Configurações de atestado | Para obter instruções detalhadas sobre como criar e usar registros individuais com chaves simétricas ou certificados X. 509, consulte um dos guias [provisionar um dispositivo simétrico](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) ou [provisionar um dispositivo de certificado x. 509](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) .<br><br>Para obter instruções detalhadas sobre como criar e usar registros individuais usando o atestado do TPM, consulte um dos exemplos [provisionar um dispositivo TPM simulado](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) .|
-        | **ID do dispositivo do Hub IoT** |  Essa ID representará seu dispositivo. Ele deve seguir as regras para uma ID de dispositivo. Para obter mais informações, consulte [Propriedades de identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>Ao usar certificados X. 509, esse texto deve ser o nome da entidade no certificado do dispositivo que você carrega para o registro. Esse nome de assunto deve estar em conformidade com as regras para uma ID de dispositivo.|
+        | **ID do dispositivo do Hub IoT** |  Essa ID representará seu dispositivo. Ele precisa seguir as regras de uma identificação do dispositivo. Para obter mais informações, confira [Propriedades da identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>Ao usar certificados X. 509, esse texto deve ser o nome da entidade no certificado do dispositivo que você carrega para o registro. Esse nome de assunto deve estar em conformidade com as regras para uma ID de dispositivo.|
             
 
 

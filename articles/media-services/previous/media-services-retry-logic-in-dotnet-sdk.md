@@ -1,7 +1,7 @@
 ---
 title: Lógica de repetição no SDK dos Serviços de Mídia para .NET | Microsoft Docs
 description: Este tópico fornece uma visão geral da lógica de repetição no SDK dos Serviços de Mídia para .NET.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 144db6a5ceaf56a35d3ce11dd54e1dfb4c97d7e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: fe37c9f7727535a292b029c342aa0e85ce0a86ec
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264106"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644108"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de Serviços de Mídia para .NET
 
@@ -52,7 +52,7 @@ A tabela a seguir descreve as exceções que o SDK dos Serviços de Mídia para 
 | IOException |Não |Sim |Não |Não |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Códigos de status WebException
-A tabela a seguir mostra para quais códigos de erro WebException a lógica de repetição é implementada. A enumeração [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) define os códigos de status.  
+A tabela a seguir mostra para quais códigos de erro WebException a lógica de repetição é implementada. A enumeração [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus) define os códigos de status.  
 
 | Status | Solicitação da Web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |

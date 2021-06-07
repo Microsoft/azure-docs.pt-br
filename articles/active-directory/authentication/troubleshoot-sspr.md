@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741109"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103600855"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solucionar problemas de redefinição de senha de autoatendimento no Azure Active Directory
 
 Azure Active Directory (Azure AD) autoatendimento de redefinição de senha (SSPR) permite que os usuários redefinam suas senhas na nuvem.
 
-Se você tiver problemas com o SSPR, as seguintes etapas de solução de problemas e erros comuns podem ajudar. Se você não conseguir encontrar a resposta para o problema, [nossas equipes de suporte estarão sempre disponíveis](#contact-microsoft-support) para ajudá-lo.
+Se você tiver problemas com o SSPR, as seguintes etapas de solução de problemas e erros comuns podem ajudar. Você também pode assistir a esse breve vídeo sobre [como ele resolve as seis mensagens de erro de usuário final SSPR mais comuns](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Se você não conseguir encontrar a resposta para o problema, [nossas equipes de suporte estarão sempre disponíveis](#contact-microsoft-support) para ajudá-lo.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Configuração do SSPR no portal do Azure
 

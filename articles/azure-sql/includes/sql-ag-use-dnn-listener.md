@@ -6,10 +6,10 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b4ea8428ae23537cde584bf6944732f65ebd2f26
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92167978"
 ---
 > [!NOTE]

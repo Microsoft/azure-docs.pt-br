@@ -3,14 +3,14 @@ title: Serviço de Aplicativo do Azure como origem da Grade de Eventos
 description: Este artigo descreve como usar o Serviço de Aplicativo do Azure como uma origem do evento da Grade de Eventos. Ele fornece o esquema e os links para os artigos do tutorial e de instruções.
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/06/2021
 ms.author: jafreebe
-ms.openlocfilehash: 224cb44ef7293f47855b5b418830a7fc4bf5ecd1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 404fac634a628da49dee72b10b52785820fe1bf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366646"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102443770"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Serviço de Aplicativo do Azure como uma origem da Grade de Eventos
 
@@ -60,7 +60,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento. Cada ev
 Quando um evento é disparado, o serviço de Grade de Eventos envia dados sobre esse evento para o ponto de extremidade de assinatura.
 Esta seção mostra um exemplo de como os dados seriam para cada evento. Cada evento tem os seguintes dados de nível superior:
 
-|     Propriedade          |     Tipo     |     Descrição                                                                                                                                |
+|     Propriedade          |     Type     |     Descrição                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    `source`              |    string    |    Caminho de recurso completo para a origem do evento. Este campo não é gravável. A Grade de Eventos fornece esse valor.                                      |
 |    `subject`            |    string    |    Caminho definido pelo fornecedor para o assunto do evento.                                                                                              |
@@ -89,7 +89,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento. Cada ev
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -113,7 +113,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento. Cada ev
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -128,7 +128,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento. Cada ev
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Type      |    Descrição                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe da ação no aplicativo                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -154,7 +154,7 @@ O objeto de dados contém as seguintes propriedades:
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -179,7 +179,7 @@ O objeto de dados contém as seguintes propriedades:
         "appEventTypeDetail": {
             "action": "Started"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "None",
         "correlationRequestId": "None",
         "requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -194,7 +194,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Type      |    Descrição                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe da ação no aplicativo                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -218,7 +218,7 @@ O objeto de dados contém as seguintes propriedades:
     "eventTime": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -243,7 +243,7 @@ O objeto de dados contém as seguintes propriedades:
     "time": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -260,7 +260,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Type      |    Descrição                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe da ação no aplicativo                                                                                       |
 |    `action`                 |    string    |    Tipo de ação da operação                                                                                   |
@@ -285,7 +285,7 @@ O objeto de dados contém as seguintes propriedades:
     "eventTime": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -310,7 +310,7 @@ O objeto de dados contém as seguintes propriedades:
     "time": "2020-01-28T18:26:51.7194887Z",
     "data": {
         "appEventTypeDetail": null,
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
         "correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
         "requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -327,7 +327,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados contém as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Type      |    Descrição                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe da ação no aplicativo                                                                                       |
 |    `action`                 |    string    |    Tipo de ação da operação                                                                                   |
@@ -353,7 +353,7 @@ O objeto de dados contém as seguintes propriedades:
         "appEventTypeDetail": {
             "action": "Stopped"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
         "correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
         "requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
@@ -378,7 +378,7 @@ O objeto de dados contém as seguintes propriedades:
         "appEventTypeDetail": {
             "action": "Stopped"
         },
-        "siteName": "<site-name>",
+        "name": "<site-name>",
         "clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
         "correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
         "requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
@@ -393,7 +393,7 @@ O objeto de dados contém as seguintes propriedades:
 
 O objeto de dados tem as seguintes propriedades:
 
-|    Propriedade                |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                |    Type      |    Descrição                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appEventTypeDetail`      |    objeto    |    Detalhe da ação no aplicativo                                                                                       |
 |    `action`                  |    string    |    Tipo de ação da operação                                                                                   |
@@ -477,7 +477,7 @@ O objeto de dados tem as seguintes propriedades:
 
 O objeto de dados tem as seguintes propriedades:
 
-|    Propriedade                         |    Tipo      |    Descrição                                                                                                       |
+|    Propriedade                         |    Type      |    Descrição                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    `appServicePlanEventTypeDetail`    |    objeto    |    Detalhe da ação no plano do serviço de aplicativo                                                                          |
 |    `stampKind`                        |    string    |    Tipo de ambiente em que está o plano do serviço de aplicativo                                                                     |

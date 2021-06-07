@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025986"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de um texto do enunciado com intenções e entidades
@@ -70,7 +70,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Objeto de dados|Tipo de dados|Local dos dados|Valor|
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|
 |Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -132,7 +132,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
-|Objeto de dados|Tipo de dados|Local dos dados|Valor|Pontuação|
+|Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
 |--|--|--|--|:--|
 |Intencional|String|intents[0].intent|"GetStoreInfo"|0,984749258|
 |Intencional|String|intents[1].intent|"None"|0,0168218873|
@@ -193,7 +193,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-|Domain|Objeto de dados|Tipo de dados|Local dos dados|Valor|
+|Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|--|
 |Utilitários|Intencional|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |Comunicação|Intencional|String|intents[1].intent|<b>Communication</b>.StartOver"|

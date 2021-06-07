@@ -4,10 +4,10 @@ description: Saiba como trabalhar com suas definições de plano gráfico como c
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: a5b1adda0b02e2e2490441c5958ca9334febc24c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919979"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importar e exportar definições de Blueprint com o PowerShell

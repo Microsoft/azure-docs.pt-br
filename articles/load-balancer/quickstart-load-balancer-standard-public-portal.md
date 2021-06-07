@@ -6,21 +6,20 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7c19c4963ad8c378e1282180800fd839e20edfdd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511834"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056327"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
@@ -49,26 +48,29 @@ Nesta seção, você criará um balanceador de carga que faz o balanceamento da 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
-
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, digite **Balanceador de carga**. Selecione **Balanceador de carga** nos resultados da pesquisa.
+3. Na página **Balanceador de carga**, clique em **Criar**.
+4. Na página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar novo** e insira **CreatePubLBQS-rg** na caixa de texto.|
     | Nome                   | Insira **myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Região         | Selecione **(Europa) Oeste da Europa**.                                        |
     | Type          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** |
+    | SKU           | Deixe o padrão **Standard**. |
+    | Camada          | Deixe o padrão **Regional**. |
     | Endereço IP público | Selecione **Criar novo**. Se você tiver um IP público existente que deseja usar, selecione **Usar existente**. |
     | Nome do endereço IP público | Digite **myPublicIP** na caixa de texto.|
     | Zona de disponibilidade | Selecione **Com redundância de zona** para criar uma balanceador de carga resiliente. Para criar um balanceador de carga zonal, selecione uma zona específica de 1, 2 ou 3 |
     | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](../virtual-network/ipv6-overview.md)  |
+    | Preferência de roteamento | Deixe o padrão da **rede da Microsoft**. </br> Para obter mais informações sobre preferências de roteamento, confira [O que é uma preferência de roteamento (versão prévia)?](../virtual-network/routing-preference-overview.md). |
 
-3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
+5. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
-4. Na guia **Examinar + criar**, selecione **Criar**.   
+6. Na guia **Examinar + criar**, selecione **Criar**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Criar um balanceador de carga padrão" border="true":::
  
@@ -334,9 +336,10 @@ Nesta seção, você criará um balanceador de carga que faz o balanceamento da 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
 
-1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
-
-2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, digite **Balanceador de carga**. Selecione **Balanceador de carga** nos resultados da pesquisa.
+3. Na página **Balanceador de carga**, clique em **Criar**.
+4. Na página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
@@ -351,9 +354,9 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
     | Atribuição | Selecione **Dinâmico** |
     | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e o balanceador de carga, confira [O que é o IPv6 da Rede Virtual do Azure?](../virtual-network/ipv6-overview.md)  |
 
-3. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
+5. Aceite os padrões para as demais configurações e selecione **Examinar + criar**.
 
-4. Na guia **Examinar + criar**, selecione **Criar**.   
+6. Na guia **Examinar + criar**, selecione **Criar**.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um balanceador de carga básico" border="true":::
 

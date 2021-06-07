@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa de política são usadas para agrupar definições de política para implantação em recursos do Azure em sua organização.
-ms.date: 10/07/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876168"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587212"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição da iniciativa Azure Policy
 
@@ -250,7 +250,7 @@ Aqui está um exemplo de `policyDefinitions` que tem duas definições de polít
 
 ## <a name="policy-definition-groups"></a>Grupos de definição de política
 
-As definições de política em uma definição de iniciativa podem ser agrupadas e categorizadas. O recurso de [conformidade regulatória](./regulatory-compliance.md) do Azure Policy (versão prévia) usa essa propriedade para agrupar definições em **domínios de conformidade**e **controles** . Essas informações são definidas na propriedade de `policyDefinitionGroups` _matriz_ . Detalhes adicionais de Agrupamento podem ser encontrados em um objeto **policyMetadata** criado pela Microsoft. Para obter informações, consulte [objetos de metadados](#metadata-objects).
+As definições de política em uma definição de iniciativa podem ser agrupadas e categorizadas. O recurso de [conformidade regulatória](./regulatory-compliance.md) do Azure Policy (versão prévia) usa essa propriedade para agrupar definições em **domínios de conformidade** e **controles** . Essas informações são definidas na propriedade de `policyDefinitionGroups` _matriz_ . Detalhes adicionais de Agrupamento podem ser encontrados em um objeto **policyMetadata** criado pela Microsoft. Para obter informações, consulte [objetos de metadados](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parâmetros de grupos de definição de política
 
@@ -282,7 +282,7 @@ Os internos de conformidade regulatória criados pela Microsoft têm informaçõ
 Essas informações são:
 
 - Exibido no portal do Azure na visão geral de um **controle** sobre uma iniciativa de conformidade regulatória.
-- Disponível por meio da API REST. Consulte o `Microsoft.PolicyInsights` provedor de recursos e o [grupo de operações policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
+- Disponível por meio da API REST. Consulte o `Microsoft.PolicyInsights` provedor de recursos e o [grupo de operações policyMetadata](/rest/api/policy/policymetadata/getresource).
 - Disponível por meio de CLI do Azure. Consulte o comando [AZ Policy Metadata](/cli/azure/policy/metadata) .
 
 > [!IMPORTANT]

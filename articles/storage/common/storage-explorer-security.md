@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783752"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Gerenciador de Armazenamento do Azure
@@ -52,7 +52,7 @@ O Gerenciador de Armazenamento dá suporte ao acesso RBAC do Azure a contas de a
 
 As [ACLs (listas de controle de acesso)](../blobs/data-lake-storage-access-control.md) permitem controlar o acesso ao nível de arquivo e pasta em ADLS Gen2 contêineres de BLOB. Você pode gerenciar suas ACLs usando Gerenciador de Armazenamento.
 
-### <a name="shared-access-signatures-sas"></a>SAS (assinaturas de acesso compartilhado)
+### <a name="shared-access-signatures-sas"></a>SAS (Assinaturas de Acesso Compartilhado)
 
 Se você não puder usar a autenticação do Azure AD, recomendamos o uso de assinaturas de acesso compartilhado. Com as assinaturas de acesso compartilhado, você pode:
 
@@ -81,7 +81,7 @@ As chaves de conta de armazenamento concedem acesso irrestrito aos serviços e r
 
 Algumas funções do Azure concedem permissão para recuperar chaves de conta de armazenamento. Indivíduos com essas funções podem efetivamente evitar permissões concedidas ou negadas pelo RBAC do Azure. Recomendamos não conceder essa permissão a menos que seja necessário.
 
-Gerenciador de Armazenamento tentará usar chaves de conta de armazenamento, se disponível, para autenticar solicitações. Você pode desabilitar esse recurso em configurações ( **serviços > contas de armazenamento > desabilitar o uso de chaves** ). Alguns recursos não dão suporte ao RBAC do Azure, como trabalhar com contas de armazenamento clássicas. Esses recursos ainda exigem chaves e não são afetados por essa configuração.
+Gerenciador de Armazenamento tentará usar chaves de conta de armazenamento, se disponível, para autenticar solicitações. Você pode desabilitar esse recurso em configurações (**serviços > contas de armazenamento > desabilitar o uso de chaves**). Alguns recursos não dão suporte ao RBAC do Azure, como trabalhar com contas de armazenamento clássicas. Esses recursos ainda exigem chaves e não são afetados por essa configuração.
 
 Se você precisar usar chaves para acessar seus recursos de armazenamento, recomendamos as seguintes diretrizes:
 

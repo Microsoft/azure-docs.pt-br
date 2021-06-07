@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/19/2021
 ms.author: curtand
 ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096065"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Exibir e pesquisar sua atividade de entrada recente na página minhas entradas

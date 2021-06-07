@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735103"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101715523"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Tutorial: Criar e modificar o emparelhamento de um circuito do ExpressRoute usando a CLI
 
@@ -243,8 +243,10 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 1. Configure o emparelhamento privado do Azure para o circuito. Verifique se você tem os seguintes itens antes de prosseguir para as próximas etapas:
 
-   * Uma sub-rede /30 para o link principal. A sub-rede não deve fazer parte de nenhum espaço de endereçamento reservado para redes virtuais.
-   * Uma sub-rede /30 para o link secundário. A sub-rede não deve fazer parte de nenhum espaço de endereçamento reservado para redes virtuais.
+   * Um par de sub-redes que não fazem parte de nenhum espaço de endereço reservado para redes virtuais. Uma sub-rede será usada para o link principal enquanto a outra será usada para o link secundário. De cada uma dessas sub-redes, você atribuirá o primeiro endereço IP utilizável ao seu roteador, já que a Microsoft usa o segundo IP utilizável para o roteador dela. Você tem três opções para este par de sub-redes:
+       * IPv4: duas sub-redes /30.
+       * IPv6: duas sub-redes /126.
+       * Ambas: duas sub-redes /30 e duas sub-redes /126.
    * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
    * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você pode usar um número de AS privado para esse emparelhamento. Verifique se você não está usando 65515.
    * **Opcional –** Um hash MD5 se você optar por usar um.

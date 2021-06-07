@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral das APIs de Retransmissão do 
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 391bd74f2bce8721b6d6359f3990af494277aa45
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935714"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312987"
 ---
 # <a name="available-relay-apis"></a>APIs de Retransmissão disponíveis
 
@@ -49,4 +49,4 @@ Detalhes sobre esses módulos podem ser encontrados no repositório GitHub [azur
 
 Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
-* [Perguntas frequentes sobre retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre retransmissão](relay-faq.yml)

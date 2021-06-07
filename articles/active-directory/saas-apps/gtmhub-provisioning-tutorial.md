@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0e160def31a43bc94e4f6151b46efe72e585e953
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735700"
 ---
 # <a name="tutorial-configure-gtmhub-for-automatic-user-provisioning"></a>Tutorial: configurar o Gtmhub para o provisionamento automático de usuário

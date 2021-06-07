@@ -1,24 +1,14 @@
 ---
 title: Configurar agentes de segurança
 description: Saiba como configurar o defender para agentes de segurança de IoT para uso com o serviço de segurança do defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5ac9a5cdb4cc13ed91c0e5e29447b9cdbe71bcce
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090838"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784400"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: configurar agentes de segurança
 
@@ -88,7 +78,7 @@ Para usar um valor de propriedade padrão, remova a propriedade do objeto de con
 
 1. Clique em **identidade do módulo**...
 
-1. Edite as propriedades que você deseja alterar no módulo de segurança.
+1. Edite as propriedades que você deseja alterar no defender-IoT-micro-Agent.
 
    Por exemplo, para configurar eventos de conexão como prioridade alta e coletar eventos de alta prioridade a cada 7 minutos, use a configuração a seguir.
 
@@ -105,7 +95,7 @@ Para usar um valor de propriedade padrão, remova a propriedade do objeto de con
     }
     ```
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="using-a-default-value"></a>Usando um valor padrão
 

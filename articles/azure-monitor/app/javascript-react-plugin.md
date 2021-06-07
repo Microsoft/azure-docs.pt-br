@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4c6d8fabbd236a2653fff8168ad73c0b45f09d64
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027835"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102199332"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Plug-in de reagir para Application Insights SDK do JavaScript
 
@@ -161,7 +161,11 @@ Ele funcionará como o componente de ordem superior, mas responderá a conectar 
 
 ### `useTrackEvent`
 
-O `useTrackEvent` gancho é usado para rastrear qualquer evento personalizado que um aplicativo possa precisar controlar, como um clique de botão ou outra chamada à API. Ele usa dois argumentos, o primeiro é a Application Insights instância (que pode ser obtida do `useAppInsightsContext` gancho) e um nome para o evento.
+O `useTrackEvent` gancho é usado para rastrear qualquer evento personalizado que um aplicativo possa precisar controlar, como um clique de botão ou outra chamada à API. São necessários quatro argumentos:
+-   Application Insights instância (que pode ser obtida do `useAppInsightsContext` gancho).
+-   Nome do evento.
+-   Objeto de dados de evento que encapsula as alterações que têm que ser rastreadas.
+-   sinalizador skipFirstRun (opcional) para ignorar a `trackEvent` chamada na inicialização. O valor padrão é definido como `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";
@@ -226,4 +230,4 @@ Confira a [demonstração reagir Application insights](https://github.com/Azure-
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o SDK do JavaScript, consulte a [documentação do SDK do Application insights JavaScript](javascript.md).
-- Para saber mais sobre a linguagem de consulta Kusto e consultar dados em Log Analytics, consulte a [visão geral de consulta de log](../../azure-monitor/log-query/log-query-overview.md).
+- Para saber mais sobre a linguagem de consulta Kusto e consultar dados em Log Analytics, consulte a [visão geral de consulta de log](../../azure-monitor/logs/log-query-overview.md).

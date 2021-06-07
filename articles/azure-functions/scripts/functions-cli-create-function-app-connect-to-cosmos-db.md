@@ -4,12 +4,12 @@ description: Exemplo de script da CLI do Azure – Criar uma Função do Azure q
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ec4d3cb9d47608aa98075ba98aacfde51f341cd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 261ede1493b93ccd3cfed19125bbabc3be871698
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934417"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786276"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure
 
@@ -35,20 +35,16 @@ Este script usa os seguintes comandos: Cada comando da tabela é vinculado à do
 
 | Comando | Observações |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Criar um grupo de recursos com local |
-| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Criar uma conta de armazenamento |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções no [Plano de consumo](../consumption-plan.md) sem servidor. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Crie um banco de dados do Azure Cosmos DB. |
-| [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Obtém a conexão da conta do banco de dados. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Obtém as chaves para o banco de dados. |
-| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Define a cadeia de conexão como uma configuração de aplicativo no aplicativo de funções. |
+| [az group create](/cli/azure/group#az_group_create) | Criar um grupo de recursos com local |
+| [az storage accounts create](/cli/azure/storage/account#az_storage_account_create) | Criar uma conta de armazenamento |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Cria um aplicativo de funções no [Plano de consumo](../consumption-plan.md) sem servidor. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crie um banco de dados do Azure Cosmos DB. |
+| [az cosmosdb show](/cli/azure/cosmosdb#az_cosmosdb_show)| Obtém a conexão da conta do banco de dados. |
+| [az cosmosdb list-keys](/cli/azure/cosmosdb#az_cosmosdb_list_keys)| Obtém as chaves para o banco de dados. |
+| [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) | Define a cadeia de conexão como uma configuração de aplicativo no aplicativo de funções. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).
-
-
-
-

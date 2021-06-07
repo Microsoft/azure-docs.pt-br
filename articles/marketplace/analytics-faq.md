@@ -8,10 +8,10 @@ ms.date: 11/10/2020
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: 1b98948100c06868cd14f636f2049ca515fec18d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94564797"
 ---
 # <a name="commercial-marketplace-analytics-common-questions"></a>Perguntas comuns sobre análise do Marketplace comercial
@@ -30,7 +30,7 @@ Por que você pode estar vendo esta mensagem:
 
 - No momento, não existem aquisições para suas ofertas publicadas no Marketplace comercial. Isso pode significar que suas ofertas estão ativas no Marketplace comercial e os clientes estão exibindo suas páginas de listagem de produtos, mas os clientes ainda não tomaram medidas para comprá-las e implantá-las.
 - Sua oferta pode estar em processo de publicação, mas ainda não está ao vivo. Somente as ofertas ativas podem ser adquiridas pelos clientes. Para verificar o status das suas ofertas, consulte a página **Resumo** no [painel analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obter mais informações, consulte [painel de resumo na análise do Marketplace comercial](summary-dashboard.md).
-- Suas ofertas podem estar listadas como **contato comigo** , que são ofertas somente de lista e não podem ser adquiridas por clientes no mercado comercial. Embora essas ofertas gerem leads e sejam compartilhadas com você, não é possível fazer pedidos, pois elas não podem ser adquiridas. Para verificar o tipo de listagem de oferta, vá para a página de instalação da sua oferta.
+- Suas ofertas podem estar listadas como **contato comigo**, que são ofertas somente de lista e não podem ser adquiridas por clientes no mercado comercial. Embora essas ofertas gerem leads e sejam compartilhadas com você, não é possível fazer pedidos, pois elas não podem ser adquiridas. Para verificar o tipo de listagem de oferta, vá para a página de instalação da sua oferta.
 
 ### <a name="i-know-i-have-analytics-data-so-why-does-the-no-analytics-available-message-appear"></a>Sei que tenho dados de análise, então por que a mensagem nenhuma análise disponível é exibida?
 

@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/26/2020
-ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.date: 04/02/2021
+ms.openlocfilehash: e518ea83608472753d3463a980aae169b291d4de
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796237"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221289"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treinar e implantar um modelo da CLI
 
@@ -39,7 +39,7 @@ Saiba como executar as seguintes ações:
 
 * Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](/cli/azure/install-azure-cli).
 
     Se você usar o [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), a CLI será acessada por meio do navegador e residirá na nuvem.
 
@@ -85,20 +85,6 @@ Se a CLI pode abrir seu navegador padrão, ela irá fazê-lo e carregar uma pág
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-## <a name="install-the-machine-learning-extension"></a>Instalar a extensão de machine learning
-
-Para instalar a extensão de machine learning, use o seguinte comando:
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-Se você receber uma mensagem informando que a extensão já está instalada, use o seguinte comando para atualizar para a versão mais recente:
-
-```azurecli-interactive
-az extension update -n azure-cli-ml
-```
-
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos é um contêiner de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
@@ -128,7 +114,7 @@ A resposta desse comando é semelhante ao JSON a seguir:
 }
 ```
 
-Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
+Para obter mais informações sobre como trabalhar com grupos de recursos, confira [az group](/cli/azure/group).
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 

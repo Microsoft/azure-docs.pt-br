@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627358"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584492"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como o Azure Cosmos DB fornece alta disponibilidade
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,18 +69,20 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 
 * Durante uma interrupção da região de gravação, a conta do Azure Cosmos promoverá automaticamente uma região secundária para ser a nova região de gravação primária quando **habilitar o failover automático** for configurado na conta do Azure Cosmos. Quando habilitado, o failover ocorrerá em outra região na ordem de prioridade de região que você especificou.
 
+* Observe que o failover manual não deve ser disparado e não terá sucesso na presença de uma interrupção da região de origem ou de destino. Isso ocorre devido a uma verificação de consistência exigida pelo procedimento de failover que requer conectividade entre as regiões.
+
 * Quando a região afetada anteriormente estiver novamente online, todos os dados de gravação que não foram replicados quando a região falharem serão disponibilizados por meio do [feed de conflitos](how-to-manage-conflicts.md#read-from-conflict-feed). Os aplicativos podem ler o feed de conflitos, resolver os conflitos com base na lógica específica do aplicativo e gravar os dados atualizados de volta no contêiner Cosmos do Azure, conforme apropriado.
 
 * Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. Você pode alternar de volta para a região recuperada como a região de gravação. Você pode alternar as regiões usando o [PowerShell, CLI do Azure ou portal do Azure](how-to-manage-database-account.md#manual-failover). Não há **perda de dados ou disponibilidade** antes, durante ou depois que você alterna a região de gravação e seu aplicativo continua a ser altamente disponível.
 
 > [!IMPORTANT]
-> É altamente recomendável que você configure as contas do Azure Cosmos usadas para cargas de trabalho de produção para **habilitar o failover automático**. O failover manual requer conectividade entre a região de gravação secundária e primária para concluir uma verificação de consistência para garantir que não haja perda de dados durante o failover. Se a região primária não estiver disponível, essa verificação de consistência não poderá ser concluída e o failover manual não terá sucesso, resultando em perda de disponibilidade de gravação durante a interrupção regional.
+> É altamente recomendável que você configure as contas do Azure Cosmos usadas para cargas de trabalho de produção para **habilitar o failover automático**. Isso permite que Cosmos DB fazer failover dos bancos de dados da conta para regiões disponível automaticamente. Na ausência dessa configuração, a conta passará por perda de disponibilidade de gravação para toda a duração da interrupção da região de gravação, pois o failover manual não terá sucesso devido à falta de conectividade de região.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Contas de várias regiões com uma região de gravação única (interrupção da região de leitura)
 
 * Durante uma interrupção da região de leitura, as contas do Azure Cosmos usando qualquer nível de consistência ou consistência forte com três ou mais regiões de leitura permanecerão altamente disponíveis para leituras e gravações.
 
-* As contas do Azure Cosmos usando consistência forte com três ou menos regiões totais (uma gravação, duas leituras) perderão a disponibilidade de gravação durante uma interrupção da região de leitura. No entanto, os clientes com quatro ou mais regiões no total podem optar por usar quorums de leitura dinâmica enviando um tíquete de suporte. As contas que mantêm pelo menos duas regiões de leitura nessa configuração manterão a disponibilidade de gravação.
+* As contas do Azure Cosmos usando uma consistência forte com três regiões (uma gravação, duas lidas) manterão a disponibilidade de gravação durante uma interrupção da região de leitura. Para contas com duas regiões e failover automático habilitado, a conta deixará de aceitar gravações até que a região seja marcada como falha e failover automático ocorra.
 
 * A região afetada é desconectada automaticamente e será marcada como offline. Os [SDKs de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferenciais.
 
@@ -110,7 +112,7 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |SLA de leitura de disponibilidade  | 99,99% | 99,995% | 99,995% | 99,999% |
 |Falhas de zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados | Sem perda de dados |
 |Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
-|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](consistency-levels-tradeoffs.md) para obter mais informações. | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](consistency-levels-tradeoffs.md) para obter mais informações.
+|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](./consistency-levels.md) para obter mais informações. | Dependente do nível de consistência. Consulte [compensações de consistência, disponibilidade e desempenho](./consistency-levels.md) para obter mais informações.
 |Interrupção regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Nenhuma perda de disponibilidade para a falha de região de leitura, temporária para falha de região de gravação | Sem perda de disponibilidade |
 |Preço (***1** _) | N/D | Taxa de RU/s 1,25 x provisionada | Taxa de RU/s x 1,25 provisionada (_ *_2_* *) | Taxa de gravação de várias regiões |
 
@@ -138,7 +140,22 @@ Zonas de Disponibilidade pode ser habilitado por meio de:
 
 * Mesmo que sua conta do Azure Cosmos esteja altamente disponível, seu aplicativo pode não ter sido projetado corretamente para permanecer altamente disponível. Para testar a alta disponibilidade de ponta a ponta de seu aplicativo, como parte de seus testes de aplicativo ou de recuperação de desastre (DR), desabilitar temporariamente o failover automático para a conta, invocar o [failover manual usando o PowerShell, CLI do Azure ou portal do Azure](how-to-manage-database-account.md#manual-failover), em seguida, monitorar o failover do aplicativo. Uma vez concluído, você pode fazer failover para a região primária e restaurar o failover automático para a conta.
 
+> [!IMPORTANT]
+> Não invoque o failover manual durante uma interrupção de Cosmos DB nas regiões de origem ou de destino, pois requer conectividade de regiões para manter a consistência dos dados e ele não terá sucesso.
+
 * Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação). Para ver o RTO e o RPO do Azure Cosmos DB, confira [Níveis de consistência e durabilidade dos dados](./consistency-levels.md#rto)
+
+## <a name="what-to-expect-during-a-region-outage"></a>O que esperar durante uma interrupção da região
+
+Para contas de região única, os clientes sofrerão perda de disponibilidade de leitura e gravação.
+
+As contas de várias regiões passarão por comportamentos diferentes dependendo da tabela a seguir.
+
+| Regiões de gravação | failover automático | O que esperar | O que fazer |
+| -- | -- | -- | -- |
+| Região de gravação única | não ativado | No caso de interrupção em uma região de leitura, todos os clientes serão redirecionados para outras regiões. Nenhuma perda de disponibilidade de leitura ou gravação. Sem perda de dados. <p/> No caso de uma interrupção na região de gravação, os clientes sofrerão perda de disponibilidade de gravação. A perda de dados será dependente do nível de constistency selecionado. <p/> Cosmos DB irá restaurar a disponibilidade de gravação automaticamente quando a interrupção terminar. | Durante a interrupção, verifique se há capacidade suficiente provisionada nas regiões restantes para dar suporte ao tráfego de leitura. <p/> Não *dispare um* failover manual durante a interrupção, pois ele não terá sucesso. <p/> Quando a interrupção terminar, ajuste novamente a capacidade provisionada conforme apropriado. |
+| Região de gravação única | habilitado | No caso de interrupção em uma região de leitura, todos os clientes serão redirecionados para outras regiões. Nenhuma perda de disponibilidade de leitura ou gravação. Sem perda de dados. <p/> No caso de uma interrupção na região de gravação, os clientes sofrerão perda de disponibilidade de gravação até que Cosmos DB elege automaticamente uma nova região como a nova região de gravação de acordo com suas preferências. A perda de dados será dependente do nível de constistency selecionado. | Durante a interrupção, verifique se há capacidade suficiente provisionada nas regiões restantes para dar suporte ao tráfego de leitura. <p/> Não *dispare um* failover manual durante a interrupção, pois ele não terá sucesso. <p/> Quando a interrupção terminar, você poderá recuperar os dados não replicados na região com falha de seu feed de [conflitos](how-to-manage-conflicts.md#read-from-conflict-feed), mover a região de gravação de volta para a região original e ajustar novamente a capacidade provisionada conforme apropriado. |
+| Várias regiões de gravação | Não aplicável | Nenhuma perda de disponibilidade de leitura ou gravação. <p/> Perda de dados de acordo com o nível de consistência selecionado. | Durante a interrupção, verifique se há capacidade suficiente provisionada nas regiões restantes para dar suporte a tráfego adicional. <p/> Quando a interrupção terminar, você poderá recuperar os dados não replicados na região com falha de seu feed de [conflitos](how-to-manage-conflicts.md#read-from-conflict-feed) e ajustar novamente a capacidade provisionada conforme apropriado. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

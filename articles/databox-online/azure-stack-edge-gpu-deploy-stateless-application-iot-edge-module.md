@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eda6eaf69fad6f8600651660ae4ac6223fe8f8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899515"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102438056"
 ---
 # <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Usar IoT Edge módulo para executar um aplicativo sem monitoração de estado kubernetes em seu dispositivo de GPU pro Azure Stack Edge
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como você pode usar um módulo IoT Edge para implantar um aplicativo sem estado em seu dispositivo Azure Stack Edge pro.
 

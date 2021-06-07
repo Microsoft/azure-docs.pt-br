@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Definições de política de grupo com iniciativas'
 description: Este padrão do Azure Policy fornece um exemplo de como agrupar definições de política em uma iniciativa.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: aa09cafe636a4665dba6a2e746c13b95ff304895
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7bbb2efdd27ead942fa0ef48f7785eec8bce9378
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072910"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092850"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Padrão do Azure Policy: definições de política de grupo
 

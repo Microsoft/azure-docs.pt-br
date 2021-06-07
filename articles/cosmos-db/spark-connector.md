@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
 ms.openlocfilehash: 06498a27b95a72148497efd2d1e600d802414359
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359550"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector do Apache Spark para o Azure Cosmos DB
@@ -35,7 +35,7 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 > [!IMPORTANT]
 > O conector do Azure Cosmos DB Spark não tem suporte atualmente em contas sem [servidor](serverless.md) . Isso será abordado, pois a oferta sem servidor fica disponível para o público geral.
 
-## <a name="quickstart"></a>Início Rápido
+## <a name="quickstart"></a>Guia de Início Rápido
 
 * Siga as etapas em Introdução ao [SDK do Java](./create-sql-api-java.md) para configurar uma conta de Cosmos DB e preencha alguns dados.
 * Siga as etapas em [Azure Databricks introdução](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) para configurar um Azure Databricks espaço de trabalho e cluster.

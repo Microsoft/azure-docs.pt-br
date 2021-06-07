@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
 ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94656983"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitorar a integridade de seus conectores de dados com esta pasta de trabalho do Azure Sentinel

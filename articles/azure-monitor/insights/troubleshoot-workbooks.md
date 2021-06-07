@@ -6,12 +6,12 @@ ms.author: lagayhar
 author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a823b5e2ae31e62ff6d876f0b3468953c0ed9c35
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208515"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100587148"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Solucionando problemas de informações baseadas em pasta de trabalho
 
@@ -72,4 +72,4 @@ Para alterar o nome de uma etapa na pasta de trabalho salva, selecione Editar na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os cenários em que as pastas de trabalho foram projetadas para dar suporte, como criar novos e personalizar relatórios existentes e muito mais examinando a [criação de relatórios interativos com pastas de trabalho do Azure monitor](../platform/workbooks-overview.md).
+Saiba mais sobre os cenários em que as pastas de trabalho foram projetadas para dar suporte, como criar novos e personalizar relatórios existentes e muito mais examinando a [criação de relatórios interativos com pastas de trabalho do Azure monitor](../visualize/workbooks-overview.md).

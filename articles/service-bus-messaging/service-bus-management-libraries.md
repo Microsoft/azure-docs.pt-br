@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539872"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Provisionar dinamicamente namespaces e entidades do barramento de serviço 
 As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisionar dinamicamente namespaces e entidades do Barramento de Serviço. Isso permite implantações e cenários de mensagens complexos e possibilita determinar de forma programática quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="overview"></a>Visão geral
-Há três bibliotecas de gerenciamento disponíveis para você criar e gerenciar entidades do barramento de serviço. Elas são:
+Há três bibliotecas de gerenciamento disponíveis para você criar e gerenciar entidades do barramento de serviço. São eles:
 
 - [Azure. Messaging. ServiceBus. Administration](#azuremessagingservicebusadministration)
 - [Microsoft. Azure. ServiceBus. Management](#microsoftazureservicebusmanagement)

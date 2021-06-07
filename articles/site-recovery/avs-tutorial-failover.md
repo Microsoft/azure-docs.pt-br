@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 60c268ba837540eda86a4cbaf6e0ab1c425d90b4
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91814160"
 ---
 # <a name="fail-over--azure-vmware-solution-vms"></a>Fazer failover de VMs da Solução VMware no Azure

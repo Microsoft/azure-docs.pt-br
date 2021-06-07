@@ -6,19 +6,18 @@ documentationcenter: ''
 author: rdeltcheva
 manager: juergent
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: radeltch
-ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259195"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599911"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux
 
@@ -91,7 +90,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
     - [Instale o SAP HANA no Red Hat Enterprise Linux para uso no Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Configurar a replicação do sistema de expansão SAP HANA do cluster pacemaker quando os sistemas de arquivos do HANA estiverem em compartilhamentos NFS](https://access.redhat.com/solutions/5156571)
 - [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
-- [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+- [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)
 
 ## <a name="overview"></a>Visão geral
 
@@ -601,6 +600,15 @@ Neste exemplo, cada nó de cluster tem seus próprios sistemas de filenfs do HAN
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
 
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurar a replicação de sistema habilitada para leitura/ativo do HANA no cluster pacemaker
+
+Começando com o SAP HANA 2,0 SPS 01, o SAP permite as configurações ativas/de leitura habilitadas para replicação de sistema SAP HANA, em que os sistemas secundários de replicação de sistema SAP HANA podem ser usados ativamente para cargas de trabalho com uso intenso de leitura. Para dar suporte a essa configuração em um cluster, um segundo endereço IP virtual é necessário, o que permite que os clientes acessem o banco de dados de SAP HANA habilitado para leitura secundário. Para garantir que o site de replicação secundária ainda possa ser acessado depois que um tomada tiver ocorrido, o cluster precisará mover o endereço IP virtual com o secundário do recurso SAPHana.
+
+A configuração adicional, necessária para gerenciar a replicação de sistema habilitada para o HANA ativo/leitura em um cluster de alta disponibilidade do Red Hat com o segundo IP virtual, é descrita em [Configurar a replicação de sistema do Hana active/Read Enabled no cluster pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster).  
+
+Antes de continuar, verifique se você configurou totalmente o cluster de alta disponibilidade do Red Hat, gerenciando SAP HANA banco de dados, conforme descrito nos segmentos acima da documentação.    
+
+
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
 Esta seção descreve como é possível testar a configuração. 
@@ -701,4 +709,4 @@ Esta seção descreve como é possível testar a configuração.
 * [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
 * [Implantação do DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
-* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](./hana-vm-operations-netapp.md)

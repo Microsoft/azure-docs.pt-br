@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375095"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
@@ -22,7 +22,7 @@ ms.locfileid: "100375095"
 ## <a name="introduction"></a>Introdução
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para proteger seus dados. Os recursos de gerenciamento do Azure Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
-Em uma solução de Data Factory, você cria um ou mais [pipelines](data-factory-create-pipelines.md)de dados. Um pipeline é um agrupamento lógico de atividades que, juntas, executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
+Em uma solução de Data Factory, você cria um ou mais [pipelines](data-factory-create-pipelines.md)de dados. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
 
 Embora o Data Factory esteja disponível somente nas regiões **Oeste dos EUA**, **Leste dos EUA** e **Norte da Europa**, o serviço de movimentação de dados está disponível [globalmente em várias regiões](data-factory-data-movement-activities.md#global). O serviço Data Factory garante que os dados não saem de uma área geográfica/região, a menos que você explicitamente instrua o serviço a usar uma região alternativa caso o serviço de movimentação de dados ainda não tenha sido implantado nessa região. 
 

@@ -16,10 +16,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142360"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens de nuvem para seu dispositivo com o Hub IoT (.NET)
@@ -167,7 +167,7 @@ Nesta seção, você cria um aplicativo de console .NET que envia mensagens da n
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**.
 
-1. Em **Propriedades comuns**  >  **projeto de inicialização**, selecione **vários projetos de inicialização**e, em seguida, selecione a ação **Iniciar** para **SimulatedDevice** e **SendCloudToDevice**. Selecione **OK** para salvar suas alterações.
+1. Em **Propriedades comuns**  >  **projeto de inicialização**, selecione **vários projetos de inicialização** e, em seguida, selecione a ação **Iniciar** para **SimulatedDevice** e **SendCloudToDevice**. Selecione **OK** para salvar suas alterações.
 
 1. Pressione **F5**. Ambos os aplicativos devem ser iniciados. Selecione a janela **SendCloudToDevice** e pressione **Enter**. Você deve ver a mensagem que está sendo recebida pelo aplicativo do dispositivo.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7234a8c45c20c64dddb43a52a099aa92f2d297d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93321124"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive.
@@ -28,7 +28,7 @@ Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.m
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)
-* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight. Se você precisar de instruções, consulte [Personalizar clusters Azure HDInsight Hadoop para análise avançada](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Personalizar os clusters do Hadoop do Azure HDInsight para análise avançada](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções em [Criar e carregar dados para tabelas Hive](move-hive-tables.md) para carregar dados para tabelas Hive primeiro.
 * Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Se você precisar de instruções sobre como enviar consultas do Hive, consulte [Como enviar consultas do Hive](move-hive-tables.md#submit)

@@ -1,27 +1,30 @@
 ---
 title: Criar um tópico de namespace do Barramento de Serviço do Azure usando um modelo
-description: 'Início Rápido: Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager'
+description: 'Guia de início rápido: criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager com um tópico e uma assinatura'
 documentationcenter: .net
 author: spelluru
+ms.author: spelluru
+ms.date: 06/23/2020
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/23/2020
-ms.author: spelluru
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 706432c039bc38e9799828ae752d6ad0c92ffde3
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.custom:
+- devx-track-azurecli
+- devx-track-azurepowershell
+- mode-arm
+ms.openlocfilehash: 9c235f8e056bf185267aa0bb493b71b897f3c510
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704598"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534926"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Guia de início rápido: criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager com um tópico e uma assinatura
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço com tópico e assinatura nesse namespace. O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Serviço com tópico e assinatura][Service Bus namespace with topic and subscription] no GitHub.
+Para ver o modelo completo, confira o modelo [Namespace do Barramento de Serviço com tópico e assinatura][Service Bus namespace with topic and subscription].
 
 > [!NOTE]
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
@@ -43,7 +46,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-and-subscription%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Defina um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação é realizada. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 

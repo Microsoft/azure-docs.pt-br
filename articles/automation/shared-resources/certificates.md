@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: cbf9eb6c97dcceeca5e86e8bef47a39fb685792f
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734803"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gerenciar certificados na Automação do Azure

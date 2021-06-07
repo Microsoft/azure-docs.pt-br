@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c4ad270b989e0e212c1d362ae4bfafc91fe07f3e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943538"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058945"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -158,7 +158,9 @@ Conceda à CDN do Azure permissão para acessar os certificados (segredos) em su
 
 5. Selecione **Adicionar**. 
 
-    A CDN do Azure pode acessar este cofre de chaves e os certificados (segredos) que estão armazenados nesse cofre.
+> [!NOTE]
+> A CDN do Azure pode acessar este cofre de chaves e os certificados (segredos) que estão armazenados nesse cofre. Qualquer instância CDN criada nessa assinatura terá acesso aos certificados nesse cofre de chaves. 
+
  
 ### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Selecionar o certificado para a CDN do Azure implantar
  
@@ -170,15 +172,18 @@ Conceda à CDN do Azure permissão para acessar os certificados (segredos) em su
 
 3. Em Tipo de gerenciamento de certificado, selecione **Usar meu próprio certificado**. 
 
-    ![Configurar seu certificado](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Captura de tela de como configurar o certificado para o ponto de extremidade da CDN.":::
 
-4. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
+4. Selecione um cofre de chaves, um certificado/um segredo e a versão do certificado/do segredo.
 
     A CDN do Azure lista as seguintes informações: 
     - As contas do Key Vault para sua ID de assinatura. 
-    - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões de certificado disponíveis. 
+    - Os certificados/os segredos no cofre de chaves selecionado. 
+    - As versões disponíveis do certificado/do segredo.
  
+    > [!NOTE]
+    > Para que o certificado seja alternado automaticamente para a última versão quando uma versão mais recente do certificado estiver disponível no Key Vault, defina a versão do certificado/do segredo como 'Última'. Se uma versão específica for selecionada, você precisará selecionar novamente a nova versão manualmente para a rotação do certificado. Leva até 24 horas para que a nova versão do certificado/do segredo seja implantada. 
+   
 5. Selecione **Ativado** para habilitar HTTPS.
   
 6. Quando você usa seu certificado, a validação de domínio não é necessária. Prossiga para [Aguardar a propagação](#wait-for-propagation).
@@ -232,7 +237,7 @@ O DigiCert envia um email de verificação para os seguintes endereços de email
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-Você deverá receber um email em poucos minutos solicitando que você aprove a solicitação. Se você estiver usando um filtro de spam, adicione verification@digicert.com à respectiva lista de permitidos. Se você não receber um email em até 24 horas, contate o suporte da Microsoft.
+Você deverá receber um email em poucos minutos solicitando que você aprove a solicitação. Caso você esteja usando um filtro de spam, adicione verification@digicert.com à lista de permitidos. Se você não receber um email em até 24 horas, contate o suporte da Microsoft.
     
 ![Email de validação de domínio](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -354,6 +359,11 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 7. *Como funcionam as renovações de certificado com o modelo Traga Seu Próprio Certificado?*
 
     Para garantir que um certificado mais recente seja implantado na infraestrutura do PoP, carregue seu novo certificado no Azure Key Vault. Em suas configurações de TLS na CDN do Azure, escolha a versão mais recente do certificado e selecione salvar. Em seguida, a CDN do Azure propagará o novo certificado atualizado. 
+
+8. *É necessário reabilitar o HTTPS após a reinicialização do ponto de extremidade?*
+
+    Sim. Se você está usando a **CDN do Azure da Akamai**, se o ponto de extremidade parar e reiniciar, você deve reabilitar a configuração HTTPS se a configuração estava ativa antes.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

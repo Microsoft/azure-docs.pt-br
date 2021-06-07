@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 024de5acfbc4e6c4aaa510de84c0bceb6bde2b3d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92672966"
 ---
 # <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Tutorial: Integrar o SecureW2 JoinNow Connector ao Azure Active Directory
@@ -53,7 +53,7 @@ Para configurar a integração do SecureW2 JoinNow Connector com o Azure AD, voc
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **SecureW2 JoinNow Connector** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **SecureW2 JoinNow Connector** na caixa de pesquisa.
 1. Selecione **SecureW2 JoinNow Connector** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -74,41 +74,41 @@ Para configurar e testar o SSO do Azure AD com o SecureW2 JoinNow Connector, con
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SecureW2 JoinNow Connector** , localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Escolher um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SecureW2 JoinNow Connector**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do SecureW2 JoinNow Connector](mailto:support@securew2.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Assinatura SAML** , localize **XML de Metadados** e selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Assinatura SAML**, localize **XML de Metadados** e selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o SecureW2 JoinNow Connector** , copie as URLs apropriadas com base em seu requisito.
+1. Na seção **Configurar o SecureW2 JoinNow Connector**, copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="configure-securew2-joinnow-connector-sso"></a>Configurar SSO do SecureW2 JoinNow Connector
 
-Para configurar o logon único no lado do **SecureW2 JoinNow Connector** , é necessário enviar o **XML de metadados** baixado e as URLs adequadas copiadas do portal do Azure para a [equipe de suporte do SecureW2 JoinNow Connector](mailto:support@securew2.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **SecureW2 JoinNow Connector**, é necessário enviar o **XML de metadados** baixado e as URLs adequadas copiadas do portal do Azure para a [equipe de suporte do SecureW2 JoinNow Connector](mailto:support@securew2.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -126,9 +126,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-securew2-joinnow-connector-test-user"></a>Criar usuário de teste do SecureW2 JoinNow Connector
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500293"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101709250"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação com suporte
 
@@ -21,14 +21,14 @@ Neste artigo, daremos uma breve visão geral de quais tipos de autenticação vo
 
 ## <a name="session-host-authentication"></a>Autenticação de host de sessão
 
-A área de trabalho virtual do Windows dá suporte ao NTLM (NT LAN Manager) e ao Kerberos para autenticação de host de sessão. No entanto, para usar o Kerberos, o cliente precisa obter tíquetes de segurança Kerberos de um serviço centro de distribuição de chaves (KDC) em execução em um controlador de domínio. Para obter tíquetes, o cliente precisa de uma linha de visão direta para o controlador de domínio. Você pode obter uma linha de visão direta usando sua rede corporativa. Você também pode usar uma conexão VPN para sua rede corporativa.
+A área de trabalho virtual do Windows dá suporte ao NTLM (NT LAN Manager) e ao Kerberos para autenticação de host de sessão. No entanto, para usar o Kerberos, o cliente precisa obter tíquetes de segurança Kerberos de um serviço centro de distribuição de chaves (KDC) em execução em um controlador de domínio. Para obter tíquetes, o cliente precisa de uma linha de visão direta para o controlador de domínio. Você pode obter uma linha de visão direta usando sua rede corporativa. Você também pode usar uma conexão VPN para sua rede corporativa ou configurar um [servidor proxy KDC](key-distribution-center-proxy.md).
 
 Estes são os métodos de entrada com suporte no momento:
 
 - Cliente de Área de Trabalho do Windows
     - Nome de usuário e senha
     - Smartcard
-    - Windows Hello
+    - Windows Hello para empresas (somente certificado confiável)
 - Cliente para Microsoft Store
     - Nome de usuário e senha
 - Cliente Web
@@ -41,7 +41,7 @@ Estes são os métodos de entrada com suporte no momento:
     - Nome de usuário e senha
 
 >[!NOTE]
->O cartão inteligente e o Windows Hello só podem usar o Kerberos para entrar. Entrar com o Kerberos requer a linha de visão para o controlador de domínio.
+>O cartão inteligente e o Windows Hello para empresas só podem usar o Kerberos para entrar. Entrar com o Kerberos requer a linha de visão para o controlador de domínio ou um [servidor proxy KDC](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Identidade híbrida
 

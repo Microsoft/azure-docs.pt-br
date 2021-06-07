@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86218231"
 ---
 1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
@@ -49,7 +49,7 @@ ms.locfileid: "86218231"
     |-----------|-------------|
     | FriendlyName                   | O nome amigável do dispositivo, conforme configurado por meio da interface do usuário da Web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |
     | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |
-    | Modelar                          | O modelo para seu Azure Stack borda ou dispositivo de Gateway do Data Box. O modelo é físico para Azure Stack borda e virtual para Gateway do Data Box.                   |
+    | Modelo                          | O modelo para seu Azure Stack borda ou dispositivo de Gateway do Data Box. O modelo é físico para Azure Stack borda e virtual para Gateway do Data Box.                   |
     | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para um sistema executando a visualização, a versão de software amigável seria Data Box Edge 1902. |
     | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao Data Box Edge 1902 é 1.4.771.324.            |
     | LocalCapacityInMb              | A capacidade local total do dispositivo em megabits.                                                                                                        |

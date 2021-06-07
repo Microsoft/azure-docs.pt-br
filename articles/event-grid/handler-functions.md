@@ -2,13 +2,13 @@
 title: Usar uma função no Azure como um manipulador de eventos para eventos da grade de eventos do Azure
 description: Descreve como você pode usar funções criadas no e hospedadas pelo Azure Functions como manipuladores de eventos para eventos de grade de eventos.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632505"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496534"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usar uma função como um manipulador de eventos para eventos de grade de eventos
 
@@ -79,6 +79,9 @@ Você pode usar o comando [AZ eventgrid Event-Subscription Create](/cli/azure/ev
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Você pode usar o cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .
+
+> [!NOTE]
+> Quando você usa o gatilho de grade de eventos, o serviço de grade de eventos busca o segredo do cliente para a função de destino do Azure e o usa para entregar eventos para a função do Azure. Se você proteger sua função do Azure com um aplicativo Azure Active Directory, precisará usar a abordagem de gancho da Web genérica e utilizar o gatilho HTTP.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis.

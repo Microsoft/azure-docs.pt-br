@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96763377"
 ---
 O aplicativo de exemplo inclui dois dispositivos simulados e um gateway do IoT Edge. Os seguintes tutoriais mostram duas abordagens para experimentar e entender as funcionalidades do gateway:

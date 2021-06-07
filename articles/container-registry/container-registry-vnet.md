@@ -3,12 +3,12 @@ title: Restringir acesso usando um ponto de extremidade de serviço
 description: Restrinja o acesso a um registro de contêiner do Azure usando um ponto de extremidade de serviço em uma rede virtual do Azure. O acesso ao ponto de extremidade de serviço é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026217"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773888"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registro de contêiner usando um ponto de extremidade de serviço em uma rede virtual do Azure
 
@@ -26,7 +26,6 @@ A configuração de um ponto de extremidade de serviço de registro está dispon
 * O desenvolvimento futuro de pontos de extremidade de serviço para o Registro de Contêiner do Azure não está planejado no momento. Recomendamos o uso de [pontos de extremidade privados](container-registry-private-link.md).
 * Você não pode usar o portal do Azure para configurar pontos de extremidade de serviço em um registro.
 * Somente um cluster do [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md) ou a [máquina virtual](../virtual-machines/linux/overview.md) do Azure pode ser usado como host para acessar um registro de contêiner usando um ponto de extremidade de serviço. *Não há suporte para outros serviços do Azure, incluindo Instâncias de Contêiner do Azure.*
-* Cada registro oferece suporte ao máximo de 100 regras de acesso à rede.
 * Não há suporte para pontos de extremidade de serviço para o registro de contêiner do Azure na nuvem do Azure no governo dos EUA ou na nuvem do Azure China.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
@@ -53,7 +52,7 @@ Nesta seção, configure o registro de contêiner para permitir o acesso de uma 
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Habilitar um ponto de extremidade de serviço para uma sub-rede
 
-Ao criar uma VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se o nome da máquina virtual for *myDockerVM* , o nome padrão da rede virtual será *myDockerVMVNET* e o da sub-rede será *myDockerVMSubnet* . Verifique isso usando o comando [AZ Network vnet List][az-network-vnet-list] :
+Ao criar uma VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se o nome da máquina virtual for *myDockerVM*, o nome padrão da rede virtual será *myDockerVMVNET* e o da sub-rede será *myDockerVMSubnet*. Verifique isso usando o comando [AZ Network vnet List][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \

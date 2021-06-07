@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786937"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
@@ -42,7 +42,7 @@ A criação é a capacidade de criar, gerenciar e implantar um aplicativo LUIS, 
 
 A [chave de criação](luis-how-to-azure-subscription.md) é usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-limits.md#key-limits).
 
-### <a name="authoring-resource"></a>Recurso de criação
+### <a name="authoring-resource"></a>Recurso de Criação
 
 O [recurso de criação](luis-how-to-azure-subscription.md#azure-resources-for-luis) do Luis é um item gerenciável que está disponível por meio do Azure. O recurso é seu acesso às capacidades de criação, treinamento e publicação associadas do serviço do Azure. O recurso inclui autenticação, autorização e informações de segurança de que você precisa para acessar o serviço do Azure associado.
 
@@ -114,7 +114,7 @@ Um descritor é o termo usado anteriormente para um [recurso](#features)de apren
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 ### <a name="authoring-endpoint"></a>Ponto de extremidade de criação
 
@@ -276,7 +276,7 @@ A Análise de sentimento fornece valores positivos ou negativos das declaraçõe
 
 A desobstrução de fala melhora o reconhecimento de palavras faladas e frases que são comumente usadas em seu cenário com os [serviços de fala](../speech-service/overview.md). Para aplicativos habilitados para estornar a fala, todos os exemplos de LUIS rotulados são usados para melhorar a precisão do reconhecimento de fala criando um modelo de fala personalizado para esse aplicativo específico. Por exemplo, em um jogo de xadrez, você deseja certificar-se de que quando o usuário disser "mover Knight", ele não será interpretado como "movimento noturno". O aplicativo LUIS deve incluir exemplos em que "cavalo" é rotulado como uma entidade.
 
-## <a name="starter-key"></a>Chave de início
+## <a name="starter-key"></a>Chave inicial
 
 Uma chave gratuita a ser usada ao iniciar pela primeira vez usando LUIS.
 
@@ -315,7 +315,7 @@ Para o **Inglês**, um token é um intervalo contínuo (sem espaços ou pontuaç
 |`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único token, portanto,  `425-555-5555` seria 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="train"></a>Train
+## <a name="train"></a>Treinar
 
 O [treinamento](luis-how-to-train.md) é o processo de ensinar Luis sobre quaisquer alterações na versão ativa desde o último treinamento.
 

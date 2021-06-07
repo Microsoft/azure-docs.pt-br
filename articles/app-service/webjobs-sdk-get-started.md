@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91652033"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
@@ -272,7 +272,7 @@ Nesta seção, você compila e executa o projeto localmente e dispara a função
 
    ![Captura de tela que realça o ícone Adicionar mensagem.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. Na caixa de diálogo **Adicionar Mensagem**, digite *Olá, Mundo!* como o **Texto da mensagem**e, em seguida, selecione **OK**. Agora há uma mensagem na fila.
+1. Na caixa de diálogo **Adicionar Mensagem**, digite *Olá, Mundo!* como o **Texto da mensagem** e, em seguida, selecione **OK**. Agora há uma mensagem na fila.
 
    ![Criar fila](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -313,7 +313,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 1. Se você ainda não tiver um aplicativo Serviço de Aplicativo que você possa usar, [crie um](quickstart-dotnet-framework.md). Ao criar seu aplicativo, você também pode criar um recurso do Application Insights conectado. Ao fazer isso, o `APPINSIGHTS_INSTRUMENTATIONKEY` será definido para você em seu aplicativo.
 
-1. Se você ainda não tiver um aplicativo Serviço de Aplicativo que você possa usar, [crie um](../azure-monitor/app/create-new-resource.md ). Defina **Tipo de Aplicativo** como **Geral**e ignore as seções após **Copiar a chave de instrumentação**.
+1. Se você ainda não tiver um aplicativo Serviço de Aplicativo que você possa usar, [crie um](../azure-monitor/app/create-new-resource.md ). Defina **Tipo de Aplicativo** como **Geral** e ignore as seções após **Copiar a chave de instrumentação**.
 
 1. Se você já tiver um recurso do Application Insights que deseja usar, [copie a chave de instrumentação](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
@@ -482,7 +482,7 @@ As associações de entrada simplificam o código que lê dados. Neste exemplo, 
 
 1. Crie um contêiner de blob em sua conta de armazenamento.
 
-   a. No **Gerenciador de Servidores** no Visual Studio, expanda o nó para sua conta de armazenamento, clique com botão direito **Blobs**e, em seguida, selecione **criar contêiner de Blob**.
+   a. No **Gerenciador de Servidores** no Visual Studio, expanda o nó para sua conta de armazenamento, clique com botão direito **Blobs** e, em seguida, selecione **criar contêiner de Blob**.
 
    b. Na caixa de diálogo **Criar Contêiner de Blob**, digite *container* como o nome do contêiner e clique em **OK**.
 

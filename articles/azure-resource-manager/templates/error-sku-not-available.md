@@ -4,10 +4,10 @@ description: Descreve como solucionar o erro SKU não disponível ao implantar r
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737143"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolva erros de SKU não disponível

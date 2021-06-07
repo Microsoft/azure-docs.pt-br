@@ -7,10 +7,10 @@ ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
 ms.openlocfilehash: cc356b307a752b10ba6f1c1a7151381c5644ca1e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762726"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
@@ -26,7 +26,7 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 | Seção | Tarefas |
 | ------- | ----- |
 | **Autenticação** | Baixar um perfil de publicação.<br/>Crie um segredo do GitHub.|
-| **Build** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
+| **Compilar** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
 | **Implantar** | Implante o aplicativo de funções.|
 
 ## <a name="prerequisites"></a>Pré-requisitos

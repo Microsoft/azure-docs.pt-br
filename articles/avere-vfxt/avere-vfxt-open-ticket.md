@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008422"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
@@ -43,7 +43,7 @@ Siga estas etapas para garantir que o tíquete de suporte seja marcado com um re
 
     ![captura de tela de uma nova exibição de solicitação de suporte no portal do Azure. A guia noções básicas está selecionada. Os itens da tela incluem tipo de problema, assinatura, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-   Clique em **Próximo** para continuar.
+   Clique em **Avançar** para continuar.
 
 1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na descrição resumida. Clique no botão **Avançar** na parte inferior se você ainda precisar criar um tíquete de suporte.
 

@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cefb0105a0a95d26aadea2a98fc4d3cec68ccc03
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6daec7658c6db6c18bd198b9aff0b8993f27ac22
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787344"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102177240"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
 
@@ -144,4 +144,4 @@ Assim que o fluxo de trabalho for concluído, será possível exibir os arquivos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você carregou os dados de entrada de exemplo no armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre outros tipos de arquivo de entrada que podem ser usados com o serviço do Microsoft Genomics, confira as páginas a seguir: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Vários FASTQ ou BAM](quickstart-input-multiple.md). Explore também este tutorial que usa nosso [exemplo do Azure Notebooks](https://aka.ms/genomicsnotebook) baixando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de notebook como o [Jupyter](https://notebooks.azure.com) para abrir o arquivo e executá-lo.
+Neste artigo, você carregou os dados de entrada de exemplo no armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre outros tipos de arquivo de entrada que podem ser usados com o serviço do Microsoft Genomics, confira as páginas a seguir: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Vários FASTQ ou BAM](quickstart-input-multiple.md). 

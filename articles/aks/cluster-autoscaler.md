@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9caf56545efc6aefae525e28614d39705c00c21e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373242"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101742561"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -288,7 +288,7 @@ Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. V
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
-[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
+[aks-view-master-logs]: ./view-control-plane-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show

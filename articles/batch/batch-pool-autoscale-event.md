@@ -4,13 +4,13 @@ description: Referência para o evento de dimensionamento automático do pool do
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: e548ed484e5f683a8f79434ce4095ac66900f01a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91852089"
 ---
-# <a name="pool-autoscale-event"></a>Evento de dimensionamento automático do pool
+# <a name="pool-autoscale-event"></a>Evento de dimensionamento automático de pool
 
  Esse evento é emitido quando um dimensionamento automático de pool é executado. O conteúdo do log irá expor a fórmula de autoescala e os resultados de avaliação para o pool.
 

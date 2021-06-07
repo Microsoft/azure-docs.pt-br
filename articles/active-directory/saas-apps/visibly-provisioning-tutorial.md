@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: c2feae18c4b32e1a1a87d153219aff0bfee3b756
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182182"
 ---
 # <a name="tutorial-configure-visibly-for-automatic-user-provisioning"></a>Tutorial: configurar visivelmente para o provisionamento automático de usuário
@@ -39,7 +39,7 @@ Este tutorial descreve as etapas que você precisa executar tanto de forma visiv
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Um locatário [visivelmente](https://www.visibly.io/)
 

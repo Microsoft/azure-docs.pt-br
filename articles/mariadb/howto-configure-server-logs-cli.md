@@ -3,16 +3,16 @@ title: Acessar logs de consulta lentos-CLI do Azure-banco de dados do Azure para
 description: Este artigo descreve como acessar os logs lentos no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9c8f69f00ed4314fbe8b3fd1958b52c82ce55d99
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cea1571a48afe00350dde247c3c10e222a446247
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662382"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-by-using-azure-cli"></a>Configurar e acessar logs de consultas lentas do banco de dados do Azure para Maria DB usando CLI do Azure

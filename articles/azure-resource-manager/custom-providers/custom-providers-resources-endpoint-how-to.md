@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650520"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Adicionando recursos personalizados à API REST do Azure
@@ -131,7 +131,7 @@ id | *Ok* | A ID de recurso referente ao recurso personalizado. Isso deve existi
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 > [!NOTE]
-> Os recursos exigem que a resposta contenha um `id` , `name` e `type` do **ponto de extremidade**apropriado.
+> Os recursos exigem que a resposta contenha um `id` , `name` e `type` do **ponto de extremidade** apropriado.
 
 Os modelos de Azure Resource Manager exigem que `id` , `name` e `type` sejam retornados corretamente do ponto de extremidade downstream. Uma resposta de recurso retornada deve estar no formato:
 

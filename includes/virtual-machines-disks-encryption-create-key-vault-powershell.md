@@ -9,10 +9,10 @@ ms.date: 06/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ebeca5ec1e3a478fdf1a62e2478cad9754c6ccd2
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99808536"
 ---
 1. Verifique se você instalou a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps) e se está conectado a uma conta do Azure com Connect-AzAccount

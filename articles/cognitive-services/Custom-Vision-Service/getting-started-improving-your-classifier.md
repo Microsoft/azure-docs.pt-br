@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096524"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101731078"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Como melhorar seu modelo de Visão Personalizada
 
-Neste guia, você aprenderá a melhorar a qualidade do seu modelo de Serviço de Visão Personalizada. A qualidade do [classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ou do [detector de objeto](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) depende da quantidade, da qualidade e da variedade dos dados rotulados que você forneceu e de quão equilibrada o conjunto geral é. Um bom modelo tem um conjunto de um DataSet de treinamento balanceado que representa o que será enviado a ele. O processo de criação desse modelo é iterativo; é comum levar algumas rodadas de treinamento para alcançar os resultados esperados.
+Neste guia, você aprenderá a melhorar a qualidade do seu modelo de Serviço de Visão Personalizada. A qualidade do [classificador](./getting-started-build-a-classifier.md) ou do [detector de objeto](./get-started-build-detector.md) depende da quantidade, da qualidade e da variedade dos dados rotulados que você forneceu e de quão equilibrada o conjunto geral é. Um bom modelo tem um conjunto de um DataSet de treinamento balanceado que representa o que será enviado a ele. O processo de criação desse modelo é iterativo; é comum levar algumas rodadas de treinamento para alcançar os resultados esperados.
 
 Veja a seguir um padrão geral para ajudá-lo a treinar um modelo mais preciso:
 

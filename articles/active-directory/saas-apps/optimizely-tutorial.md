@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c10681a053631a338bd0b9a7d19c5625151a9a5a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92515790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory ao Optimizely
@@ -49,11 +49,11 @@ Para configurar a integração do Optimizely ao Azure AD, você precisa adiciona
 
 **Para adicionar o Optimizely da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory** .
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos** .
+2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Optimizely ao Azure AD, você precisa adiciona
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Optimizely** , selecione **Optimizely** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Optimizely**, selecione **Optimizely** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Optimizely na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você vai configurar e testar o logon único do Microsoft Azure Active Directory com o Optimizely, com base em um usuário de teste chamado **Brenda Fernandes** .
+Nesta seção, você vai configurar e testar o logon único do Microsoft Azure Active Directory com o Optimizely, com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure Active Directory e o usuário relacionado do Optimizely.
 
 Para configurar e testar o logon único do Azure AD com o Optimizely, você precisa concluir os seguintes blocos de construção:
@@ -85,40 +85,40 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure Active Directory com o Optimizely, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Optimizely** , clique em **Logon único** .
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Optimizely**, clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único** , selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML** .
+3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-4. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
     ![Domínio Optimizely e informações de logon único das URLs](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://app.optimizely.net/<instance name>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.optimizely.net/<instance name>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > Esses não são os valores reais. Você atualizará o valor com a URL de logon real e o identificador, o que é explicado no tutorial posteriormente. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Seu aplicativo Optimizely espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
+5. Seu aplicativo Optimizely espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
     ![Uma captura de tela que mostra a caixa de diálogo "Atributos de Usuário" com o ícone "Editar" no canto superior direito selecionado.](common/edit-attribute.png)
 
-6. Além do indicado acima, o aplicativo Optimizely espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+6. Além do indicado acima, o aplicativo Optimizely espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome | Atributo de Origem |
     | ---------------| --------------- |
     | email | user.mail |
     
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários** .
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![Uma captura de tela que mostra a caixa de diálogo "Declarações de Usuário" com as ações "Adicionar nova declaração" e "Salvar" realçadas.](common/new-save-attribute.png)
 
@@ -128,19 +128,19 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
     c. Deixe o **Namespace** em branco.
 
-    d. Escolha Origem como **Atributo** .
+    d. Escolha Origem como **Atributo**.
 
-    e. Na lista **Atributo de origem** , digite o valor do atributo mostrado para essa linha.
+    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
     f. Clique em **Ok**
 
     g. Clique em **Save** (Salvar).
 
-4. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o Optimizely** , copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Optimizely**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 ### <a name="configure-optimizely-single-sign-on"></a>Configurar o logon único do Optimizely
 
-1. Para configurar o logon único no lado do **Optimizely** , entre em contato com seu gerente de conta do Optimizely e forneça o **Certificado (Base64)** baixado e as URLs adequadas copiadas.
+1. Para configurar o logon único no lado do **Optimizely**, entre em contato com seu gerente de conta do Optimizely e forneça o **Certificado (Base64)** baixado e as URLs adequadas copiadas.
 
 2. Em resposta ao seu email, o Optimizely fornece a URL de Entrada (SSO iniciado pelo SP) e os valores do Identificador (ID de Entidade de Provedor de Serviços).
 
@@ -162,11 +162,11 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 3. Em uma janela diferente do navegador, faça logon no aplicativo Optimizely.
 
-4. Clique no nome da sua conta no canto superior direito e em **Configurações da Conta** .
+4. Clique no nome da sua conta no canto superior direito e em **Configurações da Conta**.
 
     ![Uma captura de tela que mostra o nome da conta selecionado no canto superior direito com a opção "Configurações da Conta" selecionada no menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
-5. Na guia Conta, marque a caixa **Habilitar SSO** em Logon Único na seção **Visão geral** .
+5. Na guia Conta, marque a caixa **Habilitar SSO** em Logon Único na seção **Visão geral**.
   
     ![Logon Único do AD do Azure](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
@@ -176,7 +176,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory** , selecione **Usuários** e, em seguida, **Todos os usuários** .
+1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
 
@@ -188,52 +188,52 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome** , insira **BrendaFernandes** .
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Optimizely.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais** , **Todos os aplicativos** e, em seguida, **Optimizely** .
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Optimizely**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escolha **Optimizely** .
+2. Na lista de aplicativos, escolha **Optimizely**.
 
     ![O link do Optimizely na lista de Aplicativos](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos** .
+3. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos** , escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função** , escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
+6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-optimizely-test-user"></a>Criar usuário de teste do Optimizely
 
 Nesta seção, você cria um usuário chamado Brenda Fernandes no Optimizely.
 
-1. Na página inicial, escolha a guia **Colaboradores** .
+1. Na página inicial, escolha a guia **Colaboradores**.
 
 2. Clique em **Novo Colaborador** para adicionar um novo colaborador ao projeto.
    
     ![Uma captura de tela que mostra a home page do Optimizely com a guia "Colaboradores" e o botão "Novo Colaborador" selecionados.](./media/optimizely-tutorial/create_aaduser_10.png)
 
-3. Preencha o endereço de email e atribua a ele uma função. Clique em **Convidar** .
+3. Preencha o endereço de email e atribua a ele uma função. Clique em **Convidar**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/optimizely-tutorial/create_aaduser_11.png)
 

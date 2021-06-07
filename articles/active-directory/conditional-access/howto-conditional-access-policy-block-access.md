@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366183"
 ---
 # <a name="conditional-access-block-access"></a>Acesso condicional: bloquear acesso
 
-Para organizações com uma abordagem de migração de nuvem conservadora, a política bloquear tudo é uma opção que pode ser usada. 
+Para organizações com uma abordagem de migração de nuvem conservadora, a política de bloquear tudo é uma opção que pode ser usada. 
 
 > [!CAUTION]
-> A configuração incorreta de uma política de bloqueio pode levar as organizações sendo bloqueadas na portal do Azure.
+> A configuração incorreta de uma política de bloqueio pode fazer com que as organizações fiquem bloqueadas fora do portal do Azure.
 
 Políticas como essas podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes da habilitação. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
@@ -38,9 +38,9 @@ As políticas de Acesso Condicional são ferramentas avançadas, recomendamos ex
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
+As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores acreditarem que as políticas se aplicam conforme o pretendido, eles podem alterná-las para **Ativado**.
 
-A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos Microsoft 365 se não estiver em um local confiável.
+A primeira política bloqueia o acesso a todos os aplicativos (exceto aos aplicativos Microsoft 365), caso não estejam em um local confiável.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
@@ -50,17 +50,17 @@ A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplic
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**, selecione as seguintes opções:
-   1. Em **incluir**, selecione **todos os aplicativos de nuvem**.
-   1. Em **excluir**, selecione **Office 365**, selecione **selecionar**e **concluído**.
+1. Em **Aplicativos de nuvem ou ações**, selecione as seguintes opções:
+   1. Em **Incluir**, selecione **Todos os aplicativos de nuvem**.
+   1. Em **Excluir**, selecione **Office 365**, depois **Selecionar** e **Concluído**.
 1. Em **Condições**:
    1. Em **Condições** > **Localização**.
       1. Defina **Configurar** como **Sim**
-      1. Em **incluir**, selecione **qualquer local**.
-      1. Em **excluir**, selecione **todos os locais confiáveis**.
+      1. Em **Incluir**, selecione **Qualquer local**.
+      1. Em **Excluir**, selecione **Todos os locais confiáveis**.
       1. Selecione **Concluído**.
-   1. Em **aplicativos cliente (versão prévia)**, defina **Configurar** como **Sim**e selecione **concluído**e, em seguida, **concluído**.
-1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **bloquear acesso**e selecione **selecionar**.
+   1. Em **Aplicativos clientes (versão prévia)**, defina **Configurar** como **Sim**, selecione **Concluído** e depois **Concluído**.
+1. Em **Controles de acesso** > **Conceder**, selecione **Bloquear acesso** e depois **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** com **Somente relatório**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
@@ -72,10 +72,10 @@ Uma segunda política é criada abaixo para exigir a autenticação multifator o
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**, **escolha Office 365**e selecione **selecionar**e, em seguida, **concluído**.
-1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**.
-   1. Selecione **exigir autenticação multifator** e **exigir que o dispositivo seja marcado como em conformidade** selecione **selecionar**.
-   1. Certifique-se **de que exigir que todos os controles selecionados** esteja selecionado.
+1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Selecionar aplicativos**, escolha **Office 365**, depois selecione **Selecionar** e **Concluído**.
+1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**.
+   1. Selecione **Exigir autenticação multifator** e **Exigir que o dispositivo seja marcado como em conformidade**, depois selecione **Selecionar**.
+   1. Verifique se **Exigir todos os controles selecionados** está selecionado.
    1. Selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** com **Somente relatório**.
 1. Selecione **Criar** para criar e habilitar sua política.

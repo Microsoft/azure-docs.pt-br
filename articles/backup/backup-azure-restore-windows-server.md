@@ -4,10 +4,10 @@ description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em 
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91813246"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
@@ -75,7 +75,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
     ![Captura de tela da página procurar e recuperar arquivos do assistente de dados (restaurar para o mesmo computador)-confirmar desmontagem do volume de recuperação](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se você não selecionar **desmontar**, o volume de recuperação permanecerá montado por 6 horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
+    > Se você não selecionar **Desmontar**, o volume de recuperação permanecerá montado por seis horas a contar do momento em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
     >
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Usar a Restauração Instantânea para restaurar dados em um computador alternativo
@@ -138,7 +138,7 @@ Essas etapas incluem a seguinte terminologia:
     ![Desmontar o volume (restaurar para o computador alternativo)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Se você não selecionar **desmontar**, o volume de recuperação permanecerá montado por 6 horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
+    > Se você não selecionar **Desmontar**, o volume de recuperação permanecerá montado por seis horas a contar do momento em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
     >
 
 ## <a name="next-steps"></a>Próximas etapas

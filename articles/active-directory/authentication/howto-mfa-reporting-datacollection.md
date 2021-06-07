@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742786"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Coleta de dados do usuário da autenticação multifator do Azure AD
@@ -58,14 +58,14 @@ Tentativas de autenticação (usadas para relatórios e solução de problemas):
 - Resultado geral
 - Resultados
 - Autenticada
-- Result
+- Resultado
 - Iniciar endereço IP
 - Dispositivos
 - Token de dispositivo
 - Tipo de dispositivo
 - Versão do aplicativo móvel
 - Versão do SO
-- Result
+- Resultado
 - Verificar notificação usada
 
 Ativações (tentativas de ativar uma conta no aplicativo móvel Microsoft Authenticator):
@@ -98,7 +98,7 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 - Bloqueio de conta
 - Alerta de fraude
 - Alerta de fraude não bloqueado
-- Linguagem
+- Idioma
 
 Bypass (usado para relatórios):
 

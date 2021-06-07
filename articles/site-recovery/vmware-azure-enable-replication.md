@@ -7,10 +7,10 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 19a98b5786f35839d84e1e969c29e45e2b5e8dea
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98573387"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware

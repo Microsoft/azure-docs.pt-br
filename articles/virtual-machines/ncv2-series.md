@@ -3,16 +3,16 @@ title: Série NCv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série NCv2.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: abe3fbb9fb48021be7c44ddded436460633807ce
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9d057afc130b75bdd62031e6d2b9372bc9a37615
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094768"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615016"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
@@ -26,7 +26,7 @@ A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transfer
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 Interconexão NVIDIA NVLink: sem suporte
 
 > [!IMPORTANT]

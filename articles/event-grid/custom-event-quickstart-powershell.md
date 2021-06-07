@@ -1,17 +1,17 @@
 ---
-title: 'Início Rápido: Enviar eventos personalizados para o ponto de extremidade Web – Grade de Eventos, PowerShell'
-description: 'Início Rápido: Use o PowerShell e a Grade de Eventos do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.'
+title: 'Guia de início rápido: enviar eventos personalizados a um ponto de extremidade da Web – Grade de Eventos e PowerShell'
+description: 'Guia de início rápido: usar a Grade de Eventos do Azure e o PowerShell para publicar um tópico personalizado e assinar eventos para ele. Os eventos são tratados por um aplicativo Web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89075606"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o ponto de extremidade da Web com o PowerShell e com a Grade de Eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guia de início rápido: encaminhar eventos personalizados a um ponto de extremidade da Web usando o PowerShell e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o Azure PowerShell para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 

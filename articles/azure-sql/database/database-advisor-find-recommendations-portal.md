@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500879"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -43,7 +43,7 @@ As recomendações são classificadas de acordo com seu impacto em potencial no 
 |:--- |:--- |
 | Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
 | Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
-| Baixa |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
+| Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
 > [!NOTE]
 > O Banco de Dados SQL do Azure precisa monitorar as atividades de pelo menos um dia para identificar algumas recomendações. O Banco de Dados SQL do Azure pode otimizar com mais facilidade os padrões de consulta consistentes do que intermitências aleatórias e irregulares de atividade. Se não houver recomendações disponíveis no momento, a página **Recomendação de desempenho** apresentará uma mensagem explicando o motivo.

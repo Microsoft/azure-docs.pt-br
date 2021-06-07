@@ -11,13 +11,13 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 03/17/2021
+ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693483"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257408"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artigos sobre a conexão ao Banco de Dados SQL do Azure e à Instância Gerenciada de SQL do Azure e a consulta deles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,6 @@ O documento a seguir inclui links para exemplos do Azure que mostram como se con
 |[PHP](connect-query-php.md)|Este guia de início rápido demonstra como usar não só o PHP para criar um programa e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|
 |[Python](connect-query-python.md)|Este guia de início rápido demonstra como usar não só o Python para se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados. |
 |[Ruby](connect-query-ruby.md)|Este guia de início rápido demonstra como usar não só o Ruby para criar um programa e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|
-|[R](connect-query-r.md)|Este guia de início rápido demonstra como usar não só o R com os Serviços de Machine Learning do Banco de Dados SQL do Azure para criar um programa e se conectar a um banco de dados no Banco de Dados SQL do Azure, mas também as instruções T-SQL para consultar dados.|
 |||
 
 ## <a name="get-server-connection-information"></a>Obter informações de conexão do servidor
@@ -88,7 +87,7 @@ A tabela a seguir lista as bibliotecas de conectividade ou *drivers* que os apli
 | Linguagem | Plataforma | Recursos adicionais | Baixar | Introdução |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Driver do SQL de PHP para SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Download](/sql/connect/php/download-drivers-php-sql-server) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Driver Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalar](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Driver Python SQL](/sql/connect/python/python-driver-for-sql-server/) | Opções de instalação: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
@@ -118,6 +117,7 @@ A tabela a seguir lista exemplos de estruturas de ORM (mapeamento relacional de 
   - [Conectar e consultar usando o Java](connect-query-java.md)
   - [Conectar e consultar usando o Python](connect-query-python.md)
   - [Conectar e consultar usando o Ruby](connect-query-ruby.md)
+  - [Instalar as ferramentas sqlcmd e bcp de linha de comando do SQL Server no Linux](/sql/linux/sql-server-linux-setup-tools) – Para usuários do Linux: tente se conectar ao Banco de Dados SQL do Azure ou à Instância Gerenciada de SQL do Azure usando o [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Exemplos de código de lógica de repetição:
   - [Conectar-se de maneira resiliente com o ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Conectar-se de maneira resiliente com o PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

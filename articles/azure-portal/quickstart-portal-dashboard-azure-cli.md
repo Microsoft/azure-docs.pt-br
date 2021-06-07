@@ -2,18 +2,20 @@
 title: Criar um painel do portal do Azure com a CLI do Azure
 description: 'Início Rápido: Saiba como criar um painel no portal do Azure usando a CLI do Azure. Um painel é uma exibição concentrada e organizada dos seus recursos da nuvem.'
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d951c692c7d3c282ae68c5f9b53e9cda5407df10
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745648"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481014"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Início Rápido: Criar um painel do portal do Azure com a CLI do Azure
 
-Um painel no portal do Azure é uma exibição concentrada e organizada dos seus recursos da nuvem.
+Um painel no portal do Azure é uma exibição concentrada e organizada dos seus recursos da nuvem. O foco deste artigo é o processo de usar a CLI do Azure para criar um painel.
+O painel mostra o desempenho de uma VM (máquina virtual), bem como algumas informações e links estáticos.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -103,19 +105,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Verifique se você pode ver dados sobre a máquina virtual de dentro do portal do Azure.
-
-1. No portal do Azure, selecione **Painel**.
-
-   ![Navegação do portal do Azure até o painel](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Na página do painel, selecione **Painel de VM Simples**.
-
-   ![Navegar até o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Examine o painel. Você pode ver que parte do conteúdo é estático, mas também há gráficos que mostram o desempenho da VM.
-
-   ![Examinar o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

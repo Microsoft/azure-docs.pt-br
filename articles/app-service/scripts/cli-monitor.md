@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 3d8442179ecec72d47e770d823bbfd5795f5c4dc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005776"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787668"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorar um aplicativo do Serviço de Aplicativo com logs do servidor Web usando a CLI do Azure
 
@@ -38,11 +38,11 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um aplicat
 
 | Comando | Observações |
 |---|---|
-| [`az group create`](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
-| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
-| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | Configura quais logs são persistidos por um aplicativo do Serviço de Aplicativo. |
-| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | Baixa os logs de um aplicativo do Serviço de Aplicativo no computador local. |
+| [`az group create`](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um Plano do Serviço de Aplicativo. |
+| [`az webapp create`](/cli/azure/webapp#az_webapp_create) | Cria um aplicativo do Serviço de Aplicativo. |
+| [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) | Configura quais logs são persistidos por um aplicativo do Serviço de Aplicativo. |
+| [`az webapp log download`](/cli/azure/webapp/log#az_webapp_log_download) | Baixa os logs de um aplicativo do Serviço de Aplicativo no computador local. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

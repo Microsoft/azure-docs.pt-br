@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e6c3987e2de7f9592a1f7f6086657592e1bf0c16
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305110"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101676603"
 ---
 # <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ajuste de desempenho com exibições materializadas usando o pool SQL dedicado no Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Uma exibição padrão calcula os dados sempre que a exibição é usada.  Não 
 
 Uma exibição materializada computa previamente, armazena e mantém seus dados no pool SQL dedicado, assim como uma tabela.  A recomputação não é necessária sempre que uma exibição materializada é usada.  É por isso que as consultas que usam todos ou um subconjunto dos dados em exibições materializadas podem obter desempenho mais rápido.  Melhor ainda, as consultas podem usar uma exibição materializada sem fazer referência direta a ela. Portanto, não há necessidade de alterar o código do aplicativo.  
 
-A maioria dos requisitos de exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+A maioria dos requisitos de exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 | Comparação                     | Visualizar                                         | Exibição Materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Uma exibição materializada projetada adequadamente fornece os seguintes benef�
 Em comparação com outros provedores de data warehouse, as exibições materializadas implementadas no pool SQL dedicado também fornecem os seguintes benefícios adicionais:
 
 - Atualização automática e síncrona de dados com alterações de dados nas tabelas base. Não é necessária nenhuma ação do usuário.
-- Amplo suporte à função de agregação. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
-- O suporte para recomendação de exibição materializada específica de consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Amplo suporte à função de agregação. Consulte [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+- O suporte para recomendação de exibição materializada específica de consulta.  Consulte [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -147,7 +147,7 @@ O otimizador de data warehouse pode usar automaticamente as exibições material
 
 Uma exibição materializada é armazenada no data warehouse assim como uma tabela com o CCI (índice columnstore clusterizado).  A leitura de dados de uma exibição materializada inclui a verificação do índice e a aplicação de alterações no armazenamento delta.  Quando o número de linhas no armazenamento delta é muito alto, resolver uma consulta de uma exibição materializada pode levar mais tempo do que consultar diretamente as tabelas base.  
 
-Para evitar a degradação do desempenho da consulta, recomenda-se executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para monitorar o overhead_ratio da exibição (total_rows/base_view_row).  Se a overhead_ratio for muito alta, considere recompilar a exibição materializada para que todas as linhas no armazenamento delta sejam movidas para o índice columnstore.  
+Para evitar a degradação do desempenho da consulta, recomenda-se executar [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest&preserve-view=true) para monitorar o overhead_ratio da exibição (total_rows/base_view_row).  Se a overhead_ratio for muito alta, considere recompilar a exibição materializada para que todas as linhas no armazenamento delta sejam movidas para o índice columnstore.  
 
 **Cache de exibição materializada e conjunto de resultados**
 

@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85608119"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
@@ -37,7 +37,7 @@ Além disso, o relatório de logins também pode ajudar você a solucionar falha
 Você precisa de:
 
 * Um locatário do Microsoft Azure Active Directory com uma licença premium (P1/P2). Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory.
-* Um usuário, que está na função **administrador global**, **administrador de segurança**, **leitor de segurança**ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
+* Um usuário, que está na função **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** para o locatário. Além disso, qualquer usuário pode acessar suas próprias entradas. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Solucionar problemas de erros de entrada usando o relatório de entradas
 
@@ -45,7 +45,7 @@ Você precisa de:
 2. Selecione **Azure Active Directory** e selecione **Entradas** na seção **Monitoramento**. 
 3. Use os filtros fornecidos para restringir a falha, seja pelo nome de usuário ou identificador de objeto, nome do aplicativo ou data. Além disso, selecione **falha** na lista suspensa **status** para exibir somente as entradas com falha. 
 
-    ![Resultados do filtro](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![Filtrar resultados](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. Identifique a entrada com falha que você deseja investigar. Selecione-o para abrir a janela detalhes adicionais com mais informações sobre a entrada com falha. Anote o **código de erro de login** e **motivo de falha**. 
 

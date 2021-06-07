@@ -1,17 +1,17 @@
 ---
 title: Parâmetros do servidor – banco de dados do Azure para MySQL-servidor flexível
 description: Este tópico fornece diretrizes para configurar parâmetros de servidor no banco de dados do Azure para MySQL-servidor flexível.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 58978f120578afeca129b0d8928713835def8418
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496471"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106761"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parâmetros de servidor no banco de dados do Azure para MySQL – servidor flexível
 
@@ -71,7 +71,7 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/inn
 
 O MySQL armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O [espaço de tabela do sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
 
-O servidor flexível do banco de dados do Azure para MySQL oferece suporte a, no máximo, **4 TB** , em um único arquivo de dados. Se o tamanho do seu banco de dados for maior do que 4 TB, você deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. Se você tiver um tamanho de tabela único maior que 4 TB, deverá usar a tabela de partição.
+O servidor flexível do banco de dados do Azure para MySQL oferece suporte a, no máximo, **4 TB**, em um único arquivo de dados. Se o tamanho do seu banco de dados for maior do que 4 TB, você deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. Se você tiver um tamanho de tabela único maior que 4 TB, deverá usar a tabela de partição.
 
 ### <a name="max_connections"></a>max_connections
 

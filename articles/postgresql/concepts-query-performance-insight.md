@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710253"
 ---
 # <a name="query-performance-insight"></a>Análise de Desempenho de Consultas 
@@ -40,7 +40,7 @@ A tabela abaixo do gráfico contém mais detalhes sobre as consultas de execuç�
 
 Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de esperas de Análise de Desempenho de Consultas":::
 
 ## <a name="considerations"></a>Considerações
 * Análise de Desempenho de Consultas não está disponível para [réplicas de leitura](concepts-read-replicas.md).

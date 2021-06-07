@@ -3,7 +3,7 @@ title: Cotas e limitações dos Serviços de Mídia | Microsoft Docs
 description: Este tópico descreve as cotas e as limitações associadas aos Serviços de Mídia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
-ms.author: juliako
-ms.openlocfilehash: a2e80fa8eaec1dbf4137ba72662dfb178b6c9b1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 89c8cae9a13225ec76b0a26954b6063332d76495
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329646"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103009463"
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 

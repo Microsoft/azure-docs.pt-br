@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 30ac866aa42861299ed6bac0f0af7522824234e6
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930540"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062855"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no Azure HDInsight
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 O aplicativo usa os dados de **HVAC.csv** de exemplo que estão disponíveis em todos os clusters por padrão. O arquivo está localizado em `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Os dados mostram a temperatura de destino e a temperatura real de algumas compilações com sistemas de HVAC instalados. A coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio. Você pode prever se um prédio será mais quente ou mais frio com base na meta de temperatura, na ID do sistema específico e na idade do sistema.
 
-![Instantâneo dos dados usados para o exemplo de aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Instantâneo dos dados usados para o exemplo de aprendizado de máquina do Spark")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Instantâneo dos dados usados para o exemplo de aprendizado de máquina do Spark" border="true":::
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Desenvolver um aplicativo de aprendizado de máquina do Spark usando o MLlib Spark
 
@@ -138,7 +138,7 @@ Esse aplicativo usa um pipeline do [pipeline de ML](https://spark.apache.org/doc
 
     Comparando a saída em relação ao arquivo CSV bruto. Por exemplo, a primeira linha do arquivo CSV tem esses dados:
 
-    ![Instantâneo de dados de saída para o exemplo de aprendizado de máquina do Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Instantâneo de dados de saída para o exemplo de aprendizado de máquina do Spark")
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Instantâneo de dados de saída para o exemplo de aprendizado de máquina do Spark" border="true":::
 
     Observe como a temperatura real é menor que a temperatura de destino sugerindo que o prédio está frio. O valor para o **rótulo** na primeira linha é **0,0**, o que significa que o prédio não está quente.
 
@@ -199,7 +199,7 @@ Se não for continuar a usar este aplicativo, exclua o cluster que criou seguind
 
 1. Selecione **Excluir**. Selecione **Sim** na barra superior.
 
-![O portal do Azure exclui um cluster do HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="O portal do Azure exclui um cluster do HDInsight" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

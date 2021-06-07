@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747874"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99625376"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: Dimensionar um aplicativo em execução na Malha do Service Fabric
+
+> [!IMPORTANT]
+> A versão prévia da Malha do Azure Service Fabric foi desativada. Não serão mais permitidas novas implantações por meio da API da Malha do Service Fabric. O suporte para as implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, confira [Desativação da versão prévia da Malha do Azure Service Fabric](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Este tutorial é a parte dois de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de um aplicativo que foi [implantado anteriormente na Malha do Service Fabric](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, você terá um serviço de front-end com três instâncias em execução e um serviço de dados com duas instâncias em execução.
 
@@ -32,7 +37,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -56,7 +61,7 @@ Para exibir o número de réplicas em execução para o serviço ToDoService, ex
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-No modelo de implantação para o recurso de aplicativo, cada serviço tem uma propriedade *replicaCount* que pode ser usada para definir o número de vezes que você deseja que esse serviço seja implantado. Um aplicativo pode consistir em vários serviços, cada um deles com um número exclusivo de *replicaCount* , que são implantados e gerenciados em conjunto. Para dimensionar o número de réplicas de serviço, modifique o valor *replicaCount* para cada serviço que você deseja reduzir horizontalmente no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
+No modelo de implantação para o recurso de aplicativo, cada serviço tem uma propriedade *replicaCount* que pode ser usada para definir o número de vezes que você deseja que esse serviço seja implantado. Um aplicativo pode consistir em vários serviços, cada um deles com um número exclusivo de *replicaCount*, que são implantados e gerenciados em conjunto. Para dimensionar o número de réplicas de serviço, modifique o valor *replicaCount* para cada serviço que você deseja reduzir horizontalmente no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize o aplicativo.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implantação
 
@@ -88,7 +93,7 @@ Salve suas alterações no arquivo de parâmetros.  Os parâmetros *frontEndRepl
     }
 ```
 
-A propriedade do serviço WebFrontEnd *replicaCount* referencia o parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService referencia o parâmetro *serviceReplicaCount* :
+A propriedade do serviço WebFrontEnd *replicaCount* referencia o parâmetro *frontEndReplicaCount* e a propriedade *replicaCount* do serviço ToDoService referencia o parâmetro *serviceReplicaCount*:
 
 ```json
     "services": [

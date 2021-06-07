@@ -4,10 +4,10 @@ description: Mapeamento de controle da amostra de blueprint de carga de trabalho
 ms.date: 02/05/2021
 ms.topic: sample
 ms.openlocfilehash: f4bd340e67547ee22a558a63b56619171a1749c7
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99627460"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint de carga de trabalho do ASE/SQL ISO 27001

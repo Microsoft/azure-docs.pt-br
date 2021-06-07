@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215528"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
@@ -156,7 +156,7 @@ Estes são os argumentos opcionais para **run**:
 |-ScopeCEPTempPath|temp|Caminho temporário a ser usado para transmissão de dados|
 |-OptFlags| |Lista separada por vírgula de sinalizadores do otimizador|
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 `LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose`
 

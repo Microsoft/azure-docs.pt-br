@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88797659"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurar a chave de segurança como seu método de verificação
@@ -65,7 +65,7 @@ Você deve criar sua chave de segurança e atribuir a ela um PIN exclusivo antes
 
 1. Acesse a página **Meu Perfil** em https://myaccount.microsoft.com e entre se você ainda não fez isso.
 
-2. Selecione **Informações de Segurança**, **Adicionar método**e, em seguida, selecione **Chave de Segurança** na lista suspensa **Adicionar um método**.
+2. Selecione **Informações de Segurança**, **Adicionar método** e, em seguida, selecione **Chave de Segurança** na lista suspensa **Adicionar um método**.
 
     ![Adicionar caixa de método com a chave de segurança selecionada](media/security-info/security-info-security-key-add-method.png)
 

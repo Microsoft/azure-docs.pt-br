@@ -10,10 +10,10 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/14/2020
 ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223067"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integração de código-fonte aberto com projetos Azure Machine Learning

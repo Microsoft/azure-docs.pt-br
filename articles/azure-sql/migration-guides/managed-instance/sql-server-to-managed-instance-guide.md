@@ -1,6 +1,6 @@
 ---
-title: 'SQL Server Instância Gerenciada SQL: guia de migração'
-description: Siga este guia para migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
+title: 'SQL Server para o SQL Instância Gerenciada do Azure: guia de migração'
+description: Este guia ensina a migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358887"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025298"
 ---
-# <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
+# <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guia de migração: SQL Server para SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Este guia ajuda você a migrar sua instância do SQL Server para o SQL Instância Gerenciada do Azure. 
@@ -30,7 +30,7 @@ Você pode migrar SQL Server em execução no local ou em:
 - Mecanismo de computação (Google Cloud Platform-GCP)  
 - SQL de nuvem para SQL Server (Google Cloud Platform – GCP) 
 
-Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-managed-instance-overview.md). Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/).
+Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-managed-instance-overview.md). Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Fluxo do processo de migração":::
 
@@ -40,6 +40,8 @@ Para migrar seu SQL Server para o SQL Instância Gerenciada do Azure, certifique
 
 - Escolha um [método de migração](sql-server-to-managed-instance-overview.md#compare-migration-options) e as ferramentas correspondentes necessárias para o método escolhido
 - Instale o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) em um computador que possa se conectar ao seu SQL Server de origem
+- Conectividade e as permissões adequadas para acessar a origem e o destino. 
+
 
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -57,6 +59,8 @@ Como alternativa, use o [Kit de ferramentas de avaliação e planejamento da M
 Para obter mais informações sobre as ferramentas disponíveis para uso na fase de descoberta, consulte [serviços e ferramentas disponíveis para cenários de migração de dados](../../../dms/dms-tools-matrix.md). 
 
 ### <a name="assess"></a>Avaliar 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 Depois que as fontes de dados forem descobertas, avalie qualquer instância de SQL Server local que possa ser migrada para o SQL do Azure Instância Gerenciada para identificar os bloqueios de migração ou os problemas de compatibilidade. 
 
@@ -102,7 +106,7 @@ Se você precisar comparar o desempenho de sua carga de trabalho em um Instânci
 Com base nas informações na fase de descoberta e avaliação, crie um Instância Gerenciada de destino do SQL de tamanho adequado. Você pode fazer isso usando o [portal do Azure](../../managed-instance/instance-create-quickstart.md), o [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [modelo de Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 
@@ -181,7 +185,7 @@ Depois de verificar se os dados são os mesmos na origem e no destino, você pod
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho. 
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho. 
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos 
 
@@ -195,10 +199,6 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 

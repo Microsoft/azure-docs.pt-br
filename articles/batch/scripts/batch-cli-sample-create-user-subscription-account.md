@@ -4,12 +4,12 @@ description: O script cria uma conta de Lote do Azure no modo de assinatura do u
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9b8ba2ef782dcdc99cb18698175b8b53a53f0dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9bd7b7ac3dbb52ebafa00499e64ec3cff0969a13
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076768"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768320"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemplo da CLI: criar uma conta de Lote no modo de assinatura do usuário
 
@@ -38,12 +38,12 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 | Comando | Observações |
 |---|---|
 | [az role assignment create](/cli/azure/role) | Crie uma nova atribuição de função para um usuário, grupo ou entidade de serviço. |
-| [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Cria um cofre de chave. |
-| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Atualize a política de segurança do cofre de chaves especificado. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Cria a conta do Lote.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az keyvault create](/cli/azure/keyvault#az_keyvault_create) | Cria um cofre de chave. |
+| [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) | Atualize a política de segurança do cofre de chaves especificado. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Cria a conta do Lote.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

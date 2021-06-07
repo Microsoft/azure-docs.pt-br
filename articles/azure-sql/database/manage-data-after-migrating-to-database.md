@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446125"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gerenciando o banco de dados SQL do Azure após a migração
@@ -65,7 +65,7 @@ Você não cria backups no banco de dados SQL do Azure e isso ocorre porque voc�
 
 |Camada de serviço|Período de retenção em dias|
 |---|:---:|
-|Básico|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -172,9 +172,9 @@ Para proteger dados confidenciais em trânsito e em repouso, o Banco de Dados SQ
 |**Características**|**Always Encrypted**|**Criptografia de Dados Transparente**|
 |---|---|---|
 |**Expansão de criptografia**|Ponta a ponta|Dados em repouso|
-|**O servidor pode acessar dados confidenciais**|No|Sim, desde que a criptografia seja para os dados em repouso|
+|**O servidor pode acessar dados confidenciais**|Não|Sim, desde que a criptografia seja para os dados em repouso|
 |**Operações de T-SQL permitidas**|Comparação de igualdade|Toda a área de superfície do T-SQL está disponível|
-|**Alterações de aplicativo necessárias para usar o recurso**|Mínimo|Muito Mínimo|
+|**Alterações de aplicativo necessárias para usar o recurso**|Minimal|Muito Mínimo|
 |**Granularidade de criptografia**|Nível de coluna|Nível de banco de dados|
 ||||
 
@@ -190,7 +190,7 @@ A [segurança em nível de linha](/sql/relational-databases/security/row-level-s
 
 Há opções de gerenciamento de chaves para Always Encrypted (criptografia no lado do cliente) e Transparent Data Encryption (criptografia em repouso). É recomendável que você regularmente gire as chaves de criptografia. A frequência de rotação deve ser alinhada com os regulamentos internos da organização e requisitos de conformidade.
 
-#### <a name="transparent-data-encryption-tde"></a>Criptografia de Dados Transparente (TDE)
+#### <a name="transparent-data-encryption-tde"></a>TDE (Transparent Data Encryption)
 
 Há uma hierarquia de duas chaves na TDE – os dados em cada banco de dados do usuário são criptografados por uma DEK (chave de criptografia de banco de dados) exclusiva do banco de dados AES-256 simétrica que, por sua vez, é criptografada por uma chave mestra assimétrica RSA 2048 exclusiva do servidor. A chave mestra pode ser gerenciada:
 

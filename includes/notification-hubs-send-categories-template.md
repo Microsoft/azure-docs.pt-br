@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: bfd5d42d83046c9c5b0bc3a78fabec08da5da646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96028196"
 ---
 Nesta seção, você envia as últimas notícias como notificações de modelo marcadas, de um aplicativo de console do .NET.
@@ -29,7 +29,7 @@ Nesta seção, você envia as últimas notícias como notificações de modelo m
    Install-Package Microsoft.Azure.NotificationHubs
    ```
 
-   Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o pacote [Microsoft.Azure.NotificationHubs].
+   Essa ação adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o pacote [NuGet Microsoft.Azure.NotificationHubs].
 
 1. Abra o arquivo *Program.cs* e adicione a seguinte instrução `using`:
 

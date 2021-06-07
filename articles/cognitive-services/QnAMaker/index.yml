@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do QnA Maker
   description: O QnA Maker é um serviço de API baseado em nuvem que cria uma camada de perguntas e respostas em formato de conversação sobre seus dados. O QnA Maker permite ter um serviço avançado de perguntas e respostas a partir de um conteúdo semiestruturado, como documentos de perguntas frequentes ou URLs e manuais de produtos. O serviço QnA Maker responde a perguntas em idioma natural dos seus usuários combinando-as com a melhor resposta possível das perguntas e respostas em sua base de dados de conhecimento.
-  ms.openlocfilehash: 6bc5587612a953f2e0bb43765f579adb56fab336
-  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+  ms.openlocfilehash: 05ea6890e9b02c82bfca563108c92ed00e0f759b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98703387"
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107766871"
 landingContent:
 - title: Sobre o QnA Maker
   linkLists:
@@ -91,7 +91,7 @@ landingContent:
     - text: 'Power Apps: Criar um bot da plataforma QnA Maker'
       url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - text: 'Bot Framework: Expedir entre os aplicativos LUIS e QnA Maker'
-      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
+      url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
     - text: Outros exemplos de bot
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 - title: Referência
@@ -105,11 +105,11 @@ landingContent:
     - text: Gerar APIs de resposta
       url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
     - text: Documentação de referência do SDK do .NET
-      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
     - text: Azure PowerShell
-      url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI (interface de linha de comando) do Azure
-      url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az_cognitiveservices_list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

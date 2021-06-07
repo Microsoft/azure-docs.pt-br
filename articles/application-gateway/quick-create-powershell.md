@@ -4,17 +4,19 @@ titleSuffix: Azure Application Gateway
 description: Neste guia de início rápido, você aprenderá como usar o Azure PowerShell para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
-ms.service: application-gateway
-ms.topic: quickstart
-ms.date: 01/19/2021
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 8073d1e18b08a6deb0175f8eaf18de382e93e299
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 01/19/2021
+ms.topic: quickstart
+ms.service: application-gateway
+ms.custom:
+- mvc
+- mode-api
+ms.openlocfilehash: a4aa16ba4334e5f1e035face9549f4c03ad3a14f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601848"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538563"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure usando o Azure PowerShell
 
@@ -254,4 +256,3 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 > [!div class="nextstepaction"]
 > [Gerenciar o tráfego da web com um gateway de aplicativo usando o Azure PowerShell](./tutorial-manage-web-traffic-powershell.md)
-

@@ -4,15 +4,15 @@ description: Saiba mais sobre os recursos de rede no serviço Azure App e saiba 
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593122"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889137"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -129,11 +129,15 @@ Alguns casos de uso para esse recurso:
 ![Diagrama que ilustra o uso de pontos de extremidade de serviço com o gateway de aplicativo.](media/networking-features/service-endpoints-appgw.png)
 
 Para saber mais sobre como configurar pontos de extremidade de serviço com seu aplicativo, consulte [Azure app restrições de acesso de serviço][serviceendpoints].
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Regras de restrição de acesso baseadas em marcas de serviço (versão prévia)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>Regras de restrição de acesso baseadas em marcas de serviço
+
 As [marcas de serviço do Azure][servicetags] são conjuntos bem definidos de endereços IP para os serviços do Azure. As marcas de serviço agrupam os intervalos de IP usados em vários serviços do Azure e, muitas vezes, também estão no escopo de regiões específicas. Isso permite que você filtre o tráfego de *entrada* de serviços específicos do Azure. 
 
 Para obter uma lista completa de marcas e mais informações, visite o link de marca de serviço acima. Para saber como habilitar esse recurso, consulte [Configurando restrições de acesso][iprestrictions].
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtragem de cabeçalho HTTP para regras de restrição de acesso (versão prévia)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>Filtragem de cabeçalho HTTP para regras de restrição de acesso
+
 Para cada regra de restrição de acesso, você pode adicionar filtragem de cabeçalho http adicional. Isso permite inspecionar ainda mais a solicitação e o filtro de entrada com base em valores de cabeçalho HTTP específicos. Cada cabeçalho pode ter até 8 valores por regra. Atualmente, há suporte para a seguinte lista de cabeçalhos http: 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -143,6 +147,7 @@ Para cada regra de restrição de acesso, você pode adicionar filtragem de cabe
 Alguns casos de uso para filtragem de cabeçalho HTTP são:
 * Restringir o acesso ao tráfego de servidores proxy encaminhando o nome do host
 * Restringir o acesso a uma instância específica do Azure front door com uma regra de marca de serviço e a restrição de cabeçalho X-Azure-FDID
+
 ### <a name="private-endpoint"></a>Ponto de extremidade privado
 
 O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura ao seu aplicativo Web pelo link privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua rede virtual, colocando efetivamente o aplicativo Web em sua rede virtual. Esse recurso é apenas para fluxos de *entrada* para seu aplicativo Web.

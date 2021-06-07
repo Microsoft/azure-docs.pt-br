@@ -8,17 +8,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.openlocfilehash: 5c2de10f5fbacd689a9ae92eb1f7295cccea3fb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87279254"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Banco de dados do Azure para os parceiros de migração do PostgreSQL
 Para oferecer suporte amplo à sua solução do Banco de Dados do Azure para PostgreSQL, escolha entre uma ampla variedade de parceiros e ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de migração que dão suporte ao Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="migration-partners"></a>Parceiros de migração
-| Partner (parceiro) | Descrição | Links | vídeos |
+| Partner (parceiro) | Descrição | Links | Vídeos |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>A SNP Technologies é uma provedora de serviços somente na nuvem, criando soluções seguras e confiáveis para os negócios do futuro. A empresa acredita na geração de valor real para o seu negócio. Do pensamento à execução, a SNP Technologies compartilha um objetivo comum com os clientes, para transformar seu investimento em uma vantagem.|[Site][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>A DB Best ajuda os clientes a obterem a maior parte do serviço de banco de dados do Azure. A empresa oferece várias maneiras para começar, incluindo [Projeto arquitetônico de estado futuro ](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [ Otimização de gerenciamento de dados para o Microsoft Data Platform ](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Serviços de Planejamento de Implantação do Microsoft Azure ](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services) e [ Treinamento de Preparação para Plataforma de Dados do Azure ](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Site][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |

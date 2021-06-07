@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480676"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102035094"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso da redundância geográfica para criar aplicativos altamente disponíveis
 
@@ -72,7 +72,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados eventualmente consistentes e a Hora da Última Sincronização
 
-* Testes
+* Testando
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
@@ -148,6 +148,12 @@ Você tem três opções principais para monitorar a frequência de novas tentat
 
 * Adicionar um manipulador para o evento [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) do objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que você passa para solicitações de armazenamento. Esse é o método apresentado neste artigo e usado no exemplo que o acompanha. Esses eventos são acionados sempre que o cliente tenta novamente uma solicitação, permitindo que você controle com que frequência o cliente encontra erros com nova tentativa em um ponto de extremidade primário.
 
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
+
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
@@ -156,8 +162,15 @@ Você tem três opções principais para monitorar a frequência de novas tentat
             ...
     };
     ```
+    ---
 
 * No método [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) em uma política de repetição personalizada, você pode executar código personalizado sempre que uma repetição ocorre. Além de gravação quando uma repetição ocorre, isso também lhe dá a oportunidade de modificar o comportamento de repetição.
+
+    # <a name="net-v12"></a>[.NET v12](#tab/current)
+
+    No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+    # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -184,6 +197,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
         return info;
     }
     ```
+    ---
 
 * A terceira abordagem é implementar um componente de monitoramento personalizado no aplicativo que continuamente executa ping no ponto de extremidade de armazenamento primário com solicitações de leitura fictícias (como ler um blob pequeno) para determinar sua integridade. Isso deve exigir alguns recursos, mas não uma quantidade significativa. Quando é descoberto um problema que atinge o limite você executa a mudança para **SecondaryOnly** e o modo somente leitura.
 
@@ -213,11 +227,18 @@ Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode 
 
 Para saber como verificar a hora da última sincronização, consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testando
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
 Você pode usar o [Fiddler](https://www.telerik.com/fiddler) para interceptar e modificar respostas HTTP em um script. Esse script pode identificar as respostas que vêm do ponto de extremidade primário e alterar o código de status HTTP de forma que a Biblioteca de Cliente de Armazenamento o reconheça como um erros com nova tentativa. Este snippet de código mostra um exemplo simples de um script do Fiddler que intercepta as respostas para ler as solicitações em relação à tabela **employeedata** para retornar um status 502:
+
+
+# <a name="java-v12"></a>[Java V12](#tab/current)
+
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+
+# <a name="java-v11"></a>[V11 Java](#tab/legacy)
 
 ```java
 static function OnBeforeResponse(oSession: Session) {

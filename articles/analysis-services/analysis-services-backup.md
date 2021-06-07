@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012996"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e restauração de banco de dados Analysis Services
@@ -59,7 +59,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 1. No SSMS, clique com o botão direito do mouse em um banco de dados > **Backup**.
 
-2. Em arquivo de backup do **banco de dados de backup**  >  **Backup file**, clique em **procurar**.
+2. Em arquivo de backup do **banco de dados de backup**  >  , clique em **procurar**.
 
 3. Na caixa de diálogo **Salvar arquivo como** verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 

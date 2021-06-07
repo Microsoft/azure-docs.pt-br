@@ -3,14 +3,15 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como Azure Policy usa o cliente de configuração de convidado para auditar as configurações nas máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: a18f230c1b7b1eb2c953542e276127f4f47cbb39
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104800"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802515"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
+
 
 Azure Policy pode auditar as configurações dentro de um computador, tanto para computadores em execução no Azure quanto em [computadores conectados ao Arc](../../../azure-arc/servers/overview.md). A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
 
@@ -20,13 +21,15 @@ Azure Policy pode auditar as configurações dentro de um computador, tanto para
 
 Neste momento, a maioria Azure Policy definições de política de configuração de convidado apenas configurações de auditoria dentro do computador. Elas não aplicam as configurações. A exceção é uma política interna [referenciada abaixo](#applying-configurations-using-guest-configuration).
 
+[Um passo a passo de vídeo sobre este documento está disponível](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Habilitar configuração de convidado
 
 Para auditar o estado de computadores em seu ambiente, incluindo computadores no Azure e em computadores conectados ao Arc, examine os detalhes a seguir.
 
 ## <a name="resource-provider"></a>Provedor de recursos
 
-Antes de usar a Configuração de Convidado, você precisa registrar o provedor de recursos. O provedor de recursos será registrado automaticamente se a atribuição de uma política de Configuração de Convidado for feita por meio do portal. Você pode registrar manualmente por meio do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), do [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou da [CLI do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Antes de usar a Configuração de Convidado, você precisa registrar o provedor de recursos. Se a atribuição de uma política de configuração de convidado for feita por meio do portal ou se a assinatura estiver inscrita na central de segurança do Azure, o provedor de recursos será registrado automaticamente. Você pode registrar manualmente por meio do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), do [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou da [CLI do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Requisitos de implantação para máquinas virtuais do Azure
 
@@ -54,7 +57,7 @@ A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos. Depois que uma atribuição de convidado for recebida, as definições para essa configuração serão verificadas repetidamente em um intervalo de 15 minutos. Os resultados são enviados ao provedor de recursos de configuração do convidado quando a auditoria é concluída. Quando ocorre um [gatilho de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado do computador é gravado no provedor de recursos de Configuração do Convidado. Essa atualização faz com que o Azure Policy avalie as propriedades do Azure Resource Manager. Uma avaliação do Azure Policy sob demanda recupera o valor mais recente do provedor de recursos de Configuração do Convidado. No entanto, ela não dispara uma nova auditoria da configuração dentro do computador.
+O cliente de configuração de convidado verifica se há atribuições de convidado novas ou alteradas a cada 5 minutos. Depois que uma atribuição de convidado for recebida, as definições para essa configuração serão verificadas repetidamente em um intervalo de 15 minutos. Os resultados são enviados ao provedor de recursos de configuração do convidado quando a auditoria é concluída. Quando ocorre um [gatilho de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado do computador é gravado no provedor de recursos de Configuração do Convidado. Essa atualização faz com que o Azure Policy avalie as propriedades do Azure Resource Manager. Uma avaliação do Azure Policy sob demanda recupera o valor mais recente do provedor de recursos de Configuração do Convidado. No entanto, ela não dispara uma nova auditoria da configuração dentro do computador. O status é gravado simultaneamente no grafo de recursos do Azure.
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
@@ -62,13 +65,13 @@ As definições de política de configuração de convidado são inclusivas de n
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canônico|Ubuntu Server|14, 4-18, 4|
-|Credativ|Debian|8 e posterior|
-|Microsoft|Windows Server|2012 e posterior|
+|Canônico|Ubuntu Server|14, 4-20, 4|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012-2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 e posterior|
-|Red Hat|Red Hat Enterprise Linux|7,4-7,8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7,3-8|
+|Red Hat|Red Hat Enterprise Linux|7,4-8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 As definições de política de configuração de convidado dão suporte a imagens de máquina virtual personalizadas, desde que sejam um dos sistemas operacionais na tabela acima.
 
@@ -114,9 +117,26 @@ Definições de política de configuração de convidado usam o efeito **AuditIf
 As definições de política **AuditIfNotExists** não retornarão resultados de conformidade até que todos os requisitos sejam atendidos no computador. Os requisitos são descritos na seção [implantar requisitos para máquinas virtuais do Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e intiaitives são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar. Para obter informações, consulte a postagem no blog: [alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e iniciativas são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar. Para obter informações, consulte a postagem no blog: [alteração importante liberada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy usa a propriedade **complianceStatus** do provedor de recursos de configuração do convidado para relatar a conformidade no nó **conformidade** . Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>O que é uma atribuição de convidado?
+
+Quando um Azure Policy é atribuído, se estiver na categoria "configuração de convidado", há metadados incluídos para descrever uma atribuição de convidado.
+Você pode considerar uma atribuição de convidado como um link entre um computador e um cenário de Azure Policy.
+Por exemplo, o trecho abaixo associa a configuração de linha de base do Windows do Azure com a versão mínima `1.0.0` a qualquer computador no escopo da política. Por padrão, a atribuição de convidado executará apenas uma auditoria da máquina.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+As atribuições de convidado são criadas automaticamente por computador pelo serviço de configuração do convidado. O tipo de recurso é `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy usa a propriedade **complianceStatus** do recurso de atribuição de convidado para relatar o status de conformidade. Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditar configurações do sistema operacional seguindo as linhas de base do setor
 
@@ -201,6 +221,12 @@ Os exemplos de política interna de Configuração de Convidado estão disponív
 - [Definições de política interna – Configuração de Convidado](../samples/built-in-policies.md#guest-configuration)
 - [Iniciativas internas – Configuração de Convidado](../samples/built-in-initiatives.md#guest-configuration)
 - [Repositório do GitHub de exemplos do Azure Policy](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Visão geral em vídeo
+
+A visão geral a seguir de Azure Policy configuração de convidado é de ITOps comunica 2021.
+
+[Controlando linhas de base em ambientes de servidor híbrido usando a configuração de convidado Azure Policy](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Próximas etapas
 

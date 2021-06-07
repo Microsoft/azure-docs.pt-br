@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 8e829d149e96cf658c7a5aaf37291e84def2061e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570092"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602648"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -40,7 +40,7 @@ Aqui estão os vários cenários em que o Azure Stack Edge Pro pode ser usado pa
 
 O Azure Stack Edge Pro tem as seguintes funcionalidades:
 
-|Funcionalidade |Descrição  |
+|Recurso |Descrição  |
 |---------|---------|
 |Inferência de IA acelerada| Habilitada pela GPU interna (uma ou duas, dependendo do modelo).|
 |Computação de borda      |Dá suporte a VMs e cargas de trabalho em contêineres para permitir a análise, o processamento e a filtragem de dados. |
@@ -76,6 +76,8 @@ O dispositivo físico Azure Stack Edge Pro, o recurso do Microsoft Azure e a con
 - **Disponibilidade do dispositivo**: para obter uma lista de todos os países e as regiões em que o dispositivo Azure Stack Edge Pro está disponível, acesse a seção **Disponibilidade** na guia **Azure Stack Edge Pro** de [Preço do Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Contas de Armazenamento de destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. Para obter o desempenho ideal, as regiões em que as contas de armazenamento armazenam dados do Azure Stack Edge Pro devem estar próximas de onde o dispositivo está localizado. Uma conta de armazenamento localizada longe do dispositivo resulta em longas latências de desempenho mais lentos.
+
+O serviço Azure Stack Edge é um serviço não regional. Para obter mais informações, confira [Regiões e Zonas de Disponibilidade no Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). O serviço Azure Stack Edge não tem dependência de nenhuma região específica do Azure, tornando-o resiliente a interrupções em todas as zonas e regiões.
 
 ## <a name="next-steps"></a>Próximas etapas
 

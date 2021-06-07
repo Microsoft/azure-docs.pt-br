@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: 78a3c3c2936bfcaf58ea9e46bd3d6a610cdfe436
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341488"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Enviar solicitações de pesquisa para a API de Pesquisa de Vídeo do Bing
@@ -51,7 +51,7 @@ A solicitação precisa especificar o parâmetro de consulta [q](/rest/api/cogni
   
 A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
   
--   [User-Agent](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#useragent)  
+-   [Agente do usuário](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#clientip)  
 -   [Localização de pesquisa X](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#location)  

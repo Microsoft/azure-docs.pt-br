@@ -3,12 +3,12 @@ title: Sintaxe de filtro SQL da regra de assinatura do barramento de serviço do
 description: Este artigo fornece detalhes sobre a gramática do filtro SQL. Um filtro SQL dá suporte a um subconjunto do padrão SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100652934"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintaxe de filtro SQL de regra de assinatura
 
@@ -269,8 +269,8 @@ Considere a seguinte semântica de [SqlFilter](/dotnet/api/microsoft.servicebus.
   
 -   Operadores aritméticos, como `+`, `-`, `*`, `/` e `%` seguem a mesma semântica que a associação do operador do C# em promoções de tipo de dados e conversões implícitas.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemplos
+Para obter exemplos, consulte [exemplos de filtro do barramento de serviço](service-bus-filter-examples.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,13 +6,13 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 16dda6fc4637f052514a0e78a0804bf4702ed20b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85336655"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Início Rápido: Como usar filas do Barramento de Serviço com Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Guia de início rápido: como usar filas do Barramento de Serviço com o Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá a criar aplicativos Ruby para enviar mensagens 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
-O objeto**Azure::ServiceBusService** permite que você trabalhe com filas. Para criar uma fila, use o método `create_queue()`. O exemplo a seguir cria uma fila ou imprime os erros, se houver algum.
+O objeto **Azure::ServiceBusService** permite que você trabalhe com filas. Para criar uma fila, use o método `create_queue()`. O exemplo a seguir cria uma fila ou imprime os erros, se houver algum.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})

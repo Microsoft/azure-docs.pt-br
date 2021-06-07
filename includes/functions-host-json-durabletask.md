@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013710"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607075"
 ---
 Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -100,15 +100,15 @@ Definições de configuração para [Funções Duráveis](../articles/azure-func
 Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, o nome do hub de tarefas padrão de um aplicativo de funções será **DurableFunctionsHub**. Para obter mais informações, consulte [Hubs de tarefas](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Propriedade  |Padrão | Descrição |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](../articles/azure-functions/durable/durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos de Funções Duráveis uns dos outros, mesmo se eles estiverem usando o mesmo back-end de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens para efetuar pull da fila de controle por vez.|
-|controlQueueBufferThreshold|256|O número de mensagens de fila de controle que podem ser armazenadas em buffer na memória por vez. Nesse ponto, o dispatcher aguardará antes de retirar da fila qualquer mensagem adicional.|
+|controlQueueBufferThreshold| **Plano de consumo**: 32 <br> **Plano Dedicado/Premium**: 256 |O número de mensagens de fila de controle que podem ser armazenadas em buffer na memória por vez. Nesse ponto, o dispatcher aguardará antes de retirar da fila qualquer mensagem adicional.|
 |partitionCount |4|A contagem de partição para a fila de controle. Pode ser um número inteiro positivo entre 1 e 16.|
 |controlQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de controle.|
 |workItemQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de item de trabalho.|
-|maxConcurrentActivityFunctions |10 vezes o número de processadores no computador atual|O número máximo de funções de atividade que podem ser processadas simultaneamente em uma única instância de host.|
-|maxConcurrentOrchestratorFunctions |10 vezes o número de processadores no computador atual|O número máximo de funções do orquestrador que podem ser processadas simultaneamente em uma única instância do host.|
+|maxConcurrentActivityFunctions | **Plano de Consumo**: 10 <br> **Plano Dedicado/Premium**: dez vezes o número de processadores do computador atual|O número máximo de funções de atividade que podem ser processadas simultaneamente em uma única instância de host.|
+|maxConcurrentOrchestratorFunctions | **Plano de Consumo**: 5 <br> **Plano Dedicado/Premium**: dez vezes o número de processadores do computador atual |O número máximo de funções do orquestrador que podem ser processadas simultaneamente em uma única instância do host.|
 |maxQueuePollingInterval|30 segundos|O intervalo de sondagem da fila de item de trabalho e de controle máximo no formato *hh:mm:ss*. Valores mais altos podem resultar em latências de processamento de mensagens mais altas. Valores mais baixos podem resultar em custos de armazenamento maiores devido a um maior número de transações de armazenamento.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|O nome da configuração de aplicativo que tem a cadeia de conexão do Armazenamento do Azure usada para gerenciar os recursos subjacentes do Armazenamento do Azure.|
 |trackingStoreConnectionStringName||O nome de uma cadeia de conexão a ser usada para as tabelas Histórico e Instâncias. Se não for especificado, a conexão `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) será usada.|
@@ -121,7 +121,7 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |eventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Uma lista de tipos de eventos a serem publicados na Grade de Eventos. Se não for especificada, todos os tipos de evento serão publicados. Os valores permitidos incluem `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|Quando configurado como `true`, os aplicativos exigirão adquirir uma concessão de blob de nível de aplicativo antes de processar mensagens do hub de tarefas. Para obter mais informações, consulte a documentação [recuperação de desastre e distribuição geográfica](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md). Disponível a partir da v2.3.0.
-|useLegacyPartitionManagement|true|Quando definido como `false`, ele usa um algoritmo de gerenciamento de partição que reduz a possibilidade de execução de função duplicada ao expandir.  Disponível a partir da v2.3.0. O padrão será alterado para `false` em uma versão futura.|
+|useLegacyPartitionManagement|false|Quando definido como `false`, ele usa um algoritmo de gerenciamento de partição que reduz a possibilidade de execução de função duplicada ao expandir.  Disponível a partir da v2.3.0.|
 |useGracefulShutdown|false|(Versão Prévia) Habilite o desligamento normal para reduzir a chance de desligamentos de host falharem em execuções de função em processo.|
 
 Muitas dessas configurações servem para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

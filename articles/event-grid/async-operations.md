@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011677"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Acompanhar operações assíncronas do Azure na grade de eventos
@@ -72,8 +72,8 @@ Somente `status` é retornado para todas as respostas. O objeto de erro é retor
 
 Operações que criam, atualizam ou excluem (PUT, PATCH, DELETE) um recurso geralmente retornam um valor `provisioningState`. Quando uma operação for concluída, um dos três valores a seguir será retornado: 
 
-* Êxito
-* Failed (Falha)
+* Com sucesso
+* Com falha
 * Canceled
 
 Todos os outros valores indicam que a operação ainda está em execução. O provedor de recursos pode retornar um valor personalizado que indica o estado. Por exemplo, você pode receber **Aceito** quando a solicitação é recebida e está em execução.

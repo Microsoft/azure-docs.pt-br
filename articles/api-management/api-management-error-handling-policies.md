@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92070938"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
@@ -82,7 +82,7 @@ Quando ocorre um erro e o controle salta para a `on-error` seção de política,
 
 | Nome       | Tipo   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | cadeia de caracteres | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
+| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
 | `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
 | `Message`  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
 | `Scope`    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |

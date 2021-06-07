@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936423"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100594025"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
@@ -57,7 +57,7 @@ Ao criar um aplicativo no serviço de aplicativo, ele é colocado em um plano do
 
 Dessa forma, o plano de serviço de aplicativo é a unidade de escala dos aplicativos do serviço de aplicativo. Se o plano estiver configurado para executar cinco instâncias da máquina virtual, todos os aplicativos no plano serão executados em todas as cinco instâncias. Se o plano estiver configurado para dimensionamento automático, todos os aplicativos no plano são dimensionados juntos com base nas configurações de dimensionamento automático.
 
-Para obter informações sobre o dimensionamento de um aplicativo, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md).
+Para obter informações sobre o dimensionamento de um aplicativo, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="cost"></a>
 

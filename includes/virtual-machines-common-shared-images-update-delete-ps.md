@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 32978257c3e209dc78a29c6e8ae0d1c4ae016a5b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95560105"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
@@ -76,7 +76,7 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest:$false
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Ao excluir recursos, você precisa começar com o último item nos recursos aninhados-a versão da imagem. Depois que as versões forem excluídas, você poderá excluir a definição da imagem. Você não pode excluir a galeria até que todos os recursos abaixo dele tenham sido excluídos.
 

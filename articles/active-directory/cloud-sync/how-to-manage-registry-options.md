@@ -17,10 +17,10 @@ ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678214"
 ---
 # <a name="manage-agent-registry-options"></a>Gerenciar opções de registro do agente

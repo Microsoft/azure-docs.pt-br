@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832038"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101721456"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificar e criar os módulos de gateway da Análise Dinâmica de Vídeo
 
@@ -25,11 +25,13 @@ Os tutoriais anteriores usam imagens predefinidas dos módulos.
 
 Para concluir as etapas deste tutorial, você precisará do seguinte:
 
-* [Node.js](https://nodejs.org/en/download/) v10 ou posterior
-* [Visual Studio Code](https://code.visualstudio.com/Download) com a extensão do [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada
-* Mecanismo do [Docker](https://www.docker.com/products/docker-desktop)
-* Um [Registro de Contêiner do Azure](../../container-registry/index.yml) para hospedar suas versões dos módulos.
-* Uma conta dos [Serviços de Mídia do Azure](../../media-services/index.yml). Se você concluiu os tutoriais anteriores, reutilize aquele que criou anteriormente.
+
+> [!div class="checklist"]
+> * [Node.js](https://nodejs.org/en/download/) v10 ou posterior
+> * [Visual Studio Code](https://code.visualstudio.com/Download) com a extensão do [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) instalada
+> * Mecanismo do [Docker](https://www.docker.com/products/docker-desktop)
+> * Um [Registro de Contêiner do Azure](../../container-registry/index.yml) para hospedar suas versões dos módulos.
+> * Uma conta dos [Serviços de Mídia do Azure](../../media-services/index.yml). Se você concluiu os tutoriais anteriores, reutilize aquele que criou anteriormente.
 
 ## <a name="clone-the-repository"></a>Clonar o repositório
 

@@ -4,10 +4,10 @@ description: Uma visão geral dos cofres de backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091280"
 ---
 # <a name="backup-vaults-overview"></a>Visão geral dos cofres de backup

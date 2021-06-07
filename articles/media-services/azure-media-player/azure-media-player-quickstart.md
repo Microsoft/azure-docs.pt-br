@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 04/20/2020
-ms.openlocfilehash: 1634731381be6ebbb8750746f88b8ff9e761025d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 04/05/2021
+ms.openlocfilehash: a6fd603318a25e15d1d4dcc1e3eaf75f96fc5ade
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879183"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448620"
 ---
 # <a name="azure-media-player-quickstart"></a>Início rápido do Player de Mídia do Azure
 O Player de Mídia do Azure é fácil de configurar. São necessários apenas alguns minutos para obter a reprodução básica de conteúdo de mídia de sua conta dos Serviços de Mídia do Azure. Esta seção mostra as etapas básicas sem entrar em detalhes. As seções a seguir oferecem informações específicas sobre como instalar e configurar o Player de Mídia do Azure.  Basta adicionar as seguintes inclusões ao `<head>` de seu documento:
@@ -22,7 +22,7 @@ O Player de Mídia do Azure é fácil de configurar. São necessários apenas al
 ```
 
 > [!IMPORTANT]
-> Você **NÃO** deve usar a versão `latest` na produção, pois ela está sujeita a alterações sob demanda. Substitua `latest` por uma versão do Player de Mídia do Azure, por exemplo, substitua `latest` por `1.0.0`. As versões do Player de Mídia do Azure podem ser consultadas [aqui](azure-media-player-changelog.md).
+> Você **NÃO** deve usar a versão `latest` na produção, pois ela está sujeita a alterações sob demanda. Substitua `latest` por uma versão do Player de Mídia do Azure, por exemplo, substitua `latest` por `1.0.0`. As versões do Player de Mídia do Azure podem ser consultadas [aqui](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 ## <a name="use-the-video-element"></a>Usar o elemento de vídeo
 
@@ -39,7 +39,7 @@ Em seguida, basta usar o elemento `<video>` como você faria normalmente, mas co
 
 Se você não quiser usar a instalação automática, poderá omitir o atributo `data-setup` e inicializar um elemento de vídeo manualmente.
 
-```html
+```javascript
     var myPlayer = amp('vid1', { /* Options */
             "nativeControlsForTouch": false,
             autoplay: false,
@@ -52,7 +52,7 @@ Se você não quiser usar a instalação automática, poderá omitir o atributo 
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{

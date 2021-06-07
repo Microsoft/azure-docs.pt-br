@@ -39,28 +39,30 @@
           href: migrate-v2-to-v3.md
         - name: Avaliar pronúncia
           href: how-to-pronunciation-assessment.md
+        - name: Personalização
+          items:
+            - name: O que é a Fala Personalizada?
+              href: custom-speech-overview.md
+            - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
+              href: quickstarts/speech-studio-test-model.md
+            - name: Preparar dados para Fala Personalizada
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspecionar dados da Fala Personalizada
+              href: how-to-custom-speech-inspect-data.md
+            - name: Avaliar e aprimorar a precisão da Fala Personalizada
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Treinar e implantar um modelo de Fala Personalizada
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD para Fala Personalizada
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Criar transcrições rotuladas por humanos
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Ciclo de vida de modelo e de ponto de extremidade
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Tutoriais
       items:
         - name: Melhorar a precisão com modelos de locatário
           href: tutorial-tenant-model.md
-    - name: Personalização
-      items:
-        - name: O que é a Fala Personalizada?
-          href: custom-speech-overview.md
-        - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
-          href: quickstarts/speech-studio-test-model.md
-        - name: Preparar dados para Fala Personalizada
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspecionar dados da Fala Personalizada
-          href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar e aprimorar a precisão da Fala Personalizada
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Treinar e implantar um modelo de Fala Personalizada
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD para Fala Personalizada
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Criar transcrições rotuladas por humanos
-          href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Referência
       items:
         - name: C++
@@ -69,6 +71,9 @@
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: Go
+          displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
+          href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -109,25 +114,27 @@
           href: speech-synthesis-markup.md
         - name: Sintetizar uma fala com a API de Áudio Longo
           href: long-audio-api.md
-    - name: Personalização
-      items:
-        - name: Portal da Voz Personalizada
+        - name: Obter eventos de pose facial para a sincronização labial
+          href: how-to-speech-synthesis-viseme.md
+        - name: Personalização
           items:
-            - name: O que é a Sintetização de Voz Personalizada?
-              href: custom-neural-voice.md
-            - name: Introdução à Voz Personalizada
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Preparar dados
-              href: how-to-custom-voice-prepare-data.md
-            - name: Criar e usar modelos de Voz Personalizada
-              href: how-to-custom-voice-create-voice.md
-            - name: Amostras de memorando de voz
-              href: record-custom-voice-samples.md
-        - name: Criação de Conteúdo de Áudio
-          items:
+            - name: Portal da Voz Personalizada
+              items:
+                - name: O que é a Sintetização de Voz Personalizada?
+                  href: custom-neural-voice.md
+                - name: Introdução à Voz Personalizada
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Preparar dados
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Criar e usar modelos de Voz Personalizada
+                  href: how-to-custom-voice-create-voice.md
+                - name: Amostras de memorando de voz
+                  href: record-custom-voice-samples.md
             - name: Criação de Conteúdo de Áudio
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Criação de Conteúdo de Áudio
+                  href: how-to-audio-content-creation.md
     - name: Uso responsável da IA
       items:
         - name: Sintetização de Voz Personalizada
@@ -181,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: Recursos
       items:
-        - name: Suporte de voz Standard
-          href: language-support.md#standard-voices
         - name: Suporte de voz neural
           href: language-support.md#neural-voices
         - name: Suporte de regiões
@@ -242,7 +247,7 @@
     - name: Visão geral do reconhecimento de intenção
       href: intent-recognition.md
     - name: Início rápido do reconhecimento de intenção
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: Guias de instruções
       items:
         - name: 'Reconhecer intenções de Fala com o LUIS, C#'
@@ -449,7 +454,92 @@
                   href: windows-voice-assistants-best-practices.md
                 - name: Exemplos e perguntas frequentes
                   href: windows-voice-assistants-faq.md
-- name: Ferramentas
+- name: Guias de instruções
+  items:
+    - name: Habilitar o registro em log
+      href: how-to-use-logging.md
+    - name: Acompanhar o uso de memória
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Habilitar ponto de extremidade privado
+      href: speech-services-private-link.md
+    - name: Habilitar ponto de extremidade de serviço da VNet
+      href: speech-service-vnet-service-endpoint.md
+    - name: Configurar o OpenSSL para Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Configurar o RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Usar contêineres
+      items:
+        - name: Instalar e executar contêineres de Fala
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: Configurar contêineres de fala
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: Processamento em lotes com contêineres de fala
+          href: speech-container-batch-processing.md
+        - name: Contêineres de Fala com o Kubernetes e o Helm
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Contêineres de Fala em instâncias de contêiner do Azure
+          displayName: 'ACI,azure container instances,container instances,containers'
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Perguntas frequentes sobre contêineres
+          href: speech-container-faq.md
+        - name: Documentação sobre contêineres dos Serviços Cognitivos
+          href: ../containers/index.yml
+    - name: Migração
+      items:
+        - name: Da Fala do Bing
+          href: how-to-migrate-from-bing-speech.md
+        - name: Da API de Tradução de Fala
+          href: how-to-migrate-from-translator-speech-api.md
+    - name: Preparação corporativa
+      items:
+        - name: Configuração de redes virtuais
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        - name: Usar chaves gerenciadas pelo cliente
+          href: speech-encryption-of-data-at-rest.md
+- name: Dispositivos
+  items:
+    - name: Documentação dos dispositivos de fala
+      href: index-devices.yml
+    - name: Visão geral
+      items:
+        - name: O que é o SDK dos dispositivos de Fala?
+          href: speech-devices-sdk.md
+        - name: Obter o SDK dos dispositivos de Fala
+          href: get-speech-devices-sdk.md
+        - name: Amostras do SDK de dispositivos de Fala (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: Hardware
+      items:
+        - name: Recomendações de matriz de microfone
+          href: speech-devices-sdk-microphone.md
+        - name: Detalhes do Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Detalhes do Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
+    - name: Guias de instruções
+      items:
+        - name: Como configurar uma Matriz de Microfone
+          href: how-to-devices-microphone-array-configuration.md
+    - name: Guia de Início Rápido
+      items:
+        - name: Usar o SDK dos dispositivos de Fala
+          href: speech-devices-sdk-quickstart.md
+    - name: Recursos
+      items:
+        - name: Solução de problemas do SDK de dispositivos de Fala
+          href: speech-devices-sdk-troubleshooting.md
+    - name: Referência
+      items:
+        - name: Notas sobre a versão do SDK de dispositivos de Fala
+          href: devices-sdk-release-notes.md
+- name: Recursos
   items:
     - name: SDK de fala
       items:
@@ -498,83 +588,12 @@
           href: 'https://speech.microsoft.com'
         - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
           href: ./quickstart-custom-commands-application.md
-- name: Implantar
-  items:
-    - name: Habilitar o registro em log
-      href: how-to-use-logging.md
-    - name: Acompanhar o uso de memória
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: Habilitar ponto de extremidade privado
-      href: speech-services-private-link.md
-    - name: Configurar o OpenSSL para Linux
-      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-      href: how-to-configure-openssl-linux.md
-    - name: Configurar o RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Contêineres
+    - name: Preparação corporativa
       items:
-        - name: Instalar e executar contêineres de Fala
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Configurar contêineres de fala
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: Processamento em lotes com contêineres de fala
-          href: speech-container-batch-processing.md
-        - name: Contêineres de Fala com o Kubernetes e o Helm
-          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: Contêineres de Fala em instâncias de contêiner do Azure
-          displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Documentação sobre contêineres dos Serviços Cognitivos
-          href: ../containers/index.yml
-- name: Dispositivos
-  items:
-    - name: Documentação dos dispositivos de fala
-      href: index-devices.yml
-    - name: Visão geral
-      items:
-        - name: O que é o SDK dos dispositivos de Fala?
-          href: speech-devices-sdk.md
-        - name: Obter o SDK dos dispositivos de Fala
-          href: get-speech-devices-sdk.md
-        - name: Amostras do SDK de dispositivos de Fala (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: Hardware
-      items:
-        - name: Recomendações de matriz de microfone
-          href: speech-devices-sdk-microphone.md
-        - name: Detalhes do Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Detalhes do Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-    - name: Guias de instruções
-      items:
-        - name: Como configurar uma Matriz de Microfone
-          href: how-to-devices-microphone-array-configuration.md
-    - name: Guia de Início Rápido
-      items:
-        - name: Usar o SDK dos dispositivos de Fala
-          href: speech-devices-sdk-quickstart.md
-    - name: Recursos
-      items:
-        - name: Solução de problemas do SDK de dispositivos de Fala
-          href: speech-devices-sdk-troubleshooting.md
-    - name: Referência
-      items:
-        - name: Notas sobre a versão do SDK de dispositivos de Fala
-          href: devices-sdk-release-notes.md
-- name: Migração
-  items:
-    - name: Da Fala do Bing
-      href: how-to-migrate-from-bing-speech.md
-    - name: Da API de Tradução de Fala
-      href: how-to-migrate-from-translator-speech-api.md
-- name: Recursos
-  items:
+        - name: Suporte de regiões
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade e certificação
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentação do Swagger
@@ -584,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Conformidade
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Criptografia
-      href: speech-encryption-of-data-at-rest.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidade e cookies

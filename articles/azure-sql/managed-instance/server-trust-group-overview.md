@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790722"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Usar grupos de confiança do servidor para configurar e gerenciar a confiança entre instâncias gerenciadas do SQL
@@ -42,28 +42,28 @@ A seção a seguir descreve a instalação do grupo de confiança do servidor.
 
 4. Na página configuração do grupo de confiabilidade do servidor, selecione o ícone **novo grupo** .
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Grupos de confiança do servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Novo Grupo":::
 
-5. Na folha criar **grupo de confiabilidade do SQL** , defina o nome do **grupo** . Ele precisa ser exclusivo em todas as regiões em que os membros do grupo residem. O **escopo de confiança** define o tipo de cenário de instância cruzada que é habilitado com o grupo de confiança do servidor. Na visualização, o único escopo de confiança aplicável é **transações distribuídas** , portanto, ele é preselecionado e não pode ser alterado. Todos os **membros do grupo** devem pertencer à mesma **assinatura** , mas podem estar em grupos de recursos diferentes. Selecione o **grupo de recursos** e **SQL Server/instância** para escolher o instância gerenciada SQL do Azure que será membro do grupo.
+5. Na folha criar **grupo de confiabilidade do SQL** , defina o nome do **grupo**. Ele precisa ser exclusivo em todas as regiões em que os membros do grupo residem. O **escopo de confiança** define o tipo de cenário de instância cruzada que é habilitado com o grupo de confiança do servidor. Na visualização, o único escopo de confiança aplicável é **transações distribuídas**, portanto, ele é preselecionado e não pode ser alterado. Todos os **membros do grupo** devem pertencer à mesma **assinatura** , mas podem estar em grupos de recursos diferentes. Selecione o **grupo de recursos** e **SQL Server/instância** para escolher o instância gerenciada SQL do Azure que será membro do grupo.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Grupos de confiança do servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Folha de criação de grupo de confiança do servidor":::
 
-6. Depois que todos os campos obrigatórios forem preenchidos, clique em **salvar** .
+6. Depois que todos os campos obrigatórios forem preenchidos, clique em **salvar**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Manutenção e exclusão do grupo de confiança do servidor
 
 O grupo de confiança do servidor não pode ser editado. Para remover um Instância Gerenciada de um grupo, você precisa excluir o grupo e criar um novo.
 
 A seção a seguir descreve o processo de exclusão de grupos de confiança do servidor. 
-1. Vá para o portal do Azure.
+1. Acesse o portal do Azure.
 2. Navegue até um Instância Gerenciada que pertence ao grupo de confiança.
 3. Nas configurações de **segurança** , selecione a guia **grupos de confiabilidade do SQL** .
 4. Selecione o grupo de confiança que você deseja excluir.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Grupos de confiança do servidor":::
-5. Clique em **excluir grupo** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Grupos de confiança do servidor":::
-6. Digite o nome do grupo de confiança do servidor para confirmar a exclusão e clique em **excluir** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Grupos de confiança do servidor":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Selecionar grupo de confiança do servidor":::
+5. Clique em **excluir grupo**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Excluir grupo de confiança do servidor":::
+6. Digite o nome do grupo de confiança do servidor para confirmar a exclusão e clique em **excluir**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirmar exclusão do grupo de confiabilidade do servidor":::
 
 > [!NOTE]
 > Excluir o grupo de confiança do servidor pode não remover imediatamente a relação de confiança entre as duas instâncias gerenciadas. A remoção de confiança pode ser imposta invocando um [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) de instâncias gerenciadas. Verifique os [problemas conhecidos](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) para as atualizações mais recentes sobre isso.

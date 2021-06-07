@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94408066"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger bancos de dados de PaaS no Azure
@@ -30,7 +30,7 @@ O banco de dados SQL do Azure e o Azure Synapse Analytics fornecem um serviço d
 
 - Autenticação do Azure Active Directory (em vez da autenticação do SQL Server)
 - Firewall do SQL do Azure
-- Criptografia de Dados Transparente (TDE)
+- TDE (Transparent Data Encryption)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usar um repositório de identidades centralizado
 

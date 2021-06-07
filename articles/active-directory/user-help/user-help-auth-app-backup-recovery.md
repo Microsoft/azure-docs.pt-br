@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530894"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer backup e recuperar credenciais de conta usando o aplicativo Microsoft Authenticator
@@ -87,17 +87,17 @@ Para contas pessoais da Microsoft, você pode provar sua identidade inserindo a 
 
 1. Toque no bloco da conta que você está recuperando e, em seguida, toque na opção para entrar para recuperar. Insira sua senha e confirme seu endereço de email ou número de telefone como verificação adicional.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Captura de tela que mostra o aplicativo Microsoft Authenticator com os blocos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Captura de tela que mostra o Microsoft Authenticator código de senha de uso único." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Para fornecer mais verificação para contas corporativas ou de estudante
 
 1. Na tela **contas** do aplicativo Microsoft Authenticator, toque na conta que você deseja recuperar para abrir a exibição de tela inteira da conta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Captura de tela que mostra o aplicativo Microsoft Authenticator com os blocos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Microsoft Authenticator aplicativo, mostrando os blocos de conta disponíveis" border="true":::
 
 1. Na exibição de tela inteira, toque na opção para digitalizar um código QR para se recuperar totalmente.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Captura de tela que mostra o aplicativo Microsoft Authenticator com os blocos de conta disponíveis." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="O autenticador apresenta uma senha de uso único como um código de verificação" border="true":::
 
 >[!NOTE]
 >Para mais informações sobre códigos QR e como obtê-los, confira [Começar a usar o aplicativo Microsoft Authenticator](./user-help-auth-app-download-install.md) ou [Configurar informações de segurança para usar um aplicativo de autenticação](./security-info-setup-auth-app.md), dependendo de o administrador ter ativado ou não as informações de segurança.

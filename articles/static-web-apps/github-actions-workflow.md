@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593936"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544410"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Fluxos de trabalho do GitHub Actions para Aplicativos Web Estáticos do Azure – Visualização
 
@@ -136,11 +136,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| Propriedade | Descrição | Obrigatório |
-|---|---|---|
-| `app_location` | Local do código do aplicativo.<br><br>Por exemplo, digite `/` se o código-fonte do aplicativo estiver na raiz do repositório ou `/app` se o código do aplicativo estiver em um diretório chamado `app`. | Sim |
-| `api_location` | Local do seu código de Azure Functions.<br><br>Por exemplo, digite `/api` se o código do aplicativo estiver em uma pasta chamada `api`. Se nenhum aplicativo de Azure Functions for detectado na pasta, a compilação não falhará, o fluxo de trabalho pressupõe que você não deseja uma API. | Não |
-| `output_location` | Local do diretório de saída de compilação relativo ao `app_location`.<br><br>Por exemplo, se o código-fonte do aplicativo estiver localizado em `/app`, e o script de compilação gerar arquivos para a pasta `/app/build`, defina `build` como o valor `output_location`. | Não |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 Os valores `repo_token`, `action` e `azure_static_web_apps_api_token` são definidos para você pelos Aplicativos Web Estáticos do Azure e não devem ser alterados manualmente.
 
@@ -152,7 +148,7 @@ A implantação sempre chama `npm install` antes de qualquer comando personaliza
 
 | Comando            | Descrição |
 |---------------------|-------------|
-| `app_build_command` | Define um comando personalizado a ser executado durante a implantação do aplicativo de conteúdo estático.<br><br>Por exemplo, para configurar uma compilação de produção para um aplicativo angular, crie um script NPM chamado `build-prod` para executar `ng build --prod` e insira `npm run build-prod` como o comando personalizado. Se for deixado em branco, o fluxo de trabalho tentará executar os comandos `npm run build` ou `npm run build:Azure`.  |
+| `app_build_command` | Define um comando personalizado a ser executado durante a implantação do aplicativo de conteúdo estático.<br><br>Por exemplo, para configurar uma compilação de produção para um aplicativo angular, crie um script NPM chamado `build-prod` para executar `ng build --prod` e insira `npm run build-prod` como o comando personalizado. Se for deixado em branco, o fluxo de trabalho tentará executar os comandos `npm run build` ou `npm run build:azure`.  |
 | `api_build_command` | Define um comando personalizado a ser executado durante a implantação do aplicativo da API do Azure Functions. |
 
 ## <a name="route-file-location"></a>Local do arquivo de rota

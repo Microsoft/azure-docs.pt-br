@@ -2,17 +2,19 @@
 title: Usar o azure/service-bus JavaScript de versão prévia com tópicos e assinaturas
 description: Saiba como escrever um programa JavaScript que usa a última versão prévia do pacote @azure/service-bus para enviar mensagens a um tópico do Barramento de Serviço e receber mensagens de uma assinatura para o tópico.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179989"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537255"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Início Rápido: Tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure/service-bus de versão prévia
 Neste tutorial, você aprenderá a usar o pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) em um programa JavaScript para enviar mensagens a um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço para esse tópico.

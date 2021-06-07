@@ -1,26 +1,19 @@
 ---
 title: Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows
 description: Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 02/14/2017
-ms.author: mimckitt
-ms.openlocfilehash: 813fc7db2a028590797bef1c54fff20b231c3d7d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d336a39714712e5436086e22ad24fc942a7d850a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965894"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102563533"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
@@ -69,7 +62,7 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | editor | Microsoft.Azure.NetworkWatcher |
-| tipo | NetworkWatcherAgentWindows |
+| type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
 

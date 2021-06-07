@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320571"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
@@ -33,7 +33,7 @@ Métrica representando os contadores de processo e de sistema:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabalho em andamento... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo médio de execução de solicitações
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em andamento... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de solicitações aguardando processamento em uma fila
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome da métrica que você gostaria de ver na interface do usuário e no portal do Application Insights. 
 
@@ -45,11 +45,11 @@ Valor único para medida. Soma de medidas individuais para a agregação.
 
 Peso da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="min"></a>Mín
+## <a name="min"></a>Min
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>Max
+## <a name="max"></a>Máx
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 

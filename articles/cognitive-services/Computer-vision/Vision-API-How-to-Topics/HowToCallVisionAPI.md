@@ -1,7 +1,7 @@
 ---
-title: Chamar a API da Pesquisa Visual Computacional
+title: Chamar a API da Análise de Imagens
 titleSuffix: Azure Cognitive Services
-description: Saiba como chamar a API da Pesquisa Visual Computacional usando a API REST nos Serviços Cognitivos do Azure.
+description: Saiba como chamar a API de Análise de Imagem usando a API REST nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965889"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286429"
 ---
-# <a name="call-the-computer-vision-api"></a>Chamar a API da Pesquisa Visual Computacional
+# <a name="call-the-image-analysis-api"></a>Chamar a API da Análise de Imagens
 
-Este artigo demonstra como chamar a API da Pesquisa Visual Computacional usando a API REST. Os exemplos são escritos em C# usando a biblioteca de clientes da API da Pesquisa Visual Computacional e como chamadas HTTP POST ou GET. O artigo se concentra em:
+Este artigo demonstra como chamar a API de Análise de Imagem usando a API REST. Os exemplos foram escritos em C# com a biblioteca de clientes da API de Análise de Imagem e como chamadas HTTP POST ou GET. O artigo se concentra em:
 
 - Como obter marcas, uma descrição e categorias
 - Como obter informações específicas do domínio ou "celebridades"
@@ -38,7 +38,7 @@ Os recursos oferecem as seguintes opções:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+* Depois de obter sua assinatura do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Crie um recurso da Pesquisa Visual Computacional"  target="_blank">crie um recurso da Pesquisa Visual Computacional </a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo ao serviço de Pesquisa Visual Computacional. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 * Uma URL de imagem ou um caminho para uma imagem armazenada localmente
@@ -49,11 +49,11 @@ Os recursos oferecem as seguintes opções:
   
 ## <a name="authorize-the-api-call"></a>Autorizar a chamada à API
 
-Toda chamada à API da Pesquisa Visual Computacional requer uma chave de assinatura. Essa chave deve ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
+Cada chamada à API de Análise de Imagem exige uma chave de assinatura. Essa chave deve ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
 
 Você pode passar a chave de assinatura seguindo qualquer um destes procedimentos:
 
-* Passe-a por uma cadeia de consulta, como neste exemplo de API da Pesquisa Visual Computacional:
+* Transmita-a por uma cadeia de consulta, como neste exemplo:
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -74,9 +74,9 @@ Você pode passar a chave de assinatura seguindo qualquer um destes procedimento
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Fazer upload de uma imagem no serviço de API da Pesquisa Visual Computacional
+## <a name="upload-an-image-to-the-image-analysis-service"></a>Carregar uma imagem no serviço de Análise de Imagem
 
-A maneira básica de executar a chamada à API da Pesquisa Visual Computacional é fazer upload de uma imagem diretamente para retornar tags, uma descrição e celebridades. Você faz isso enviando uma solicitação "POST" com a imagem binária no corpo HTTP junto com os dados lidos da imagem. O método de upload é o mesmo para todas as chamadas à API da Pesquisa Visual Computacional. A única diferença são os parâmetros de consulta que você especifica. 
+A maneira básica de executar a chamada à API de Análise de Imagem é carregando uma imagem diretamente para retornar marcas, uma descrição e celebridades. Você faz isso enviando uma solicitação "POST" com a imagem binária no corpo HTTP junto com os dados lidos da imagem. O método de upload é o mesmo para todas as chamadas à API de Análise de Imagem. A única diferença são os parâmetros de consulta que você especifica. 
 
 Para uma imagem especificada, obtenha marcas e uma descrição usando uma das seguintes opções:
 
@@ -254,4 +254,4 @@ Esses erros são idênticos aos de vision.analyze, com o erro adicional NotSuppo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para usar a API REST, acesse [Referência da API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).
+Para usar a API REST, acesse a [Referência da API de Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

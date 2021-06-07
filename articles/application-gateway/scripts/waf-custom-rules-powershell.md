@@ -8,10 +8,10 @@ ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93396984"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Criar funções personalizadas do WAF (Firewall do Aplicativo Web) com o Azure PowerShell

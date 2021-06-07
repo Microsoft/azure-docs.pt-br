@@ -6,14 +6,15 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 38b85748ad810002dc9cfd456ef6c138e8732ece
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543142"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605477"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 O performance_schema do MySQL, disponível primeiramente no MySQL 5.5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados e etc. No entanto, o performance_schema contém mais de 80 tabelas e, obter as informações necessárias muitas vezes requer junção de tabelas dentro do performance_schema, assim como tabelas do information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
 
@@ -83,4 +84,4 @@ Os índices são excelentes ferramentas para melhorar o desempenho de leitura, m
 Em resumo, o sys_schema é uma ótima ferramenta para ajuste de desempenho e manutenção de banco de dados. Aproveitar esse recurso no seu Banco de Dados do Azure para MySQL. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para encontrar respostas de pares para suas perguntas mais preocupantes ou postar uma nova pergunta/resposta, visite a[página de perguntas frequentes da Microsoft](/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para encontrar respostas de pares para suas perguntas mais interessadas ou postar uma nova pergunta/resposta, visite [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

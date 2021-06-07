@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396848"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Criar um gateway de aplicativo e reescrever cabeçalhos HTTP
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure os novos objetos necessários para reescrever os cabeçalhos HTTP:
 
-- **RequestHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ResponseHeaderConfiguration** : este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
-- **ActionSet** : este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
-- **RewriteRule** : este objeto contém todos os *actionSets* especificados acima. 
-- **RewriteRuleSet** - este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
+- **RequestHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de solicitação que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ResponseHeaderConfiguration**: este objeto é usado para especificar os campos de cabeçalho de resposta que você pretende reescrever e o novo valor que deve ser reescrito nos cabeçalhos originais.
+- **ActionSet**: este objeto contém as configurações dos cabeçalhos de solicitação e de resposta especificados acima. 
+- **RewriteRule**: este objeto contém todos os *actionSets* especificados acima. 
+- **RewriteRuleSet**- este objeto contém todos os *rewriteRules* e deverá ser anexado a uma regra de roteamento de solicitação - básica ou com base no caminho.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

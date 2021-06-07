@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896080"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registrar e verificar Data Explorer do Azure
@@ -61,7 +61,7 @@ Para usar a autenticação de entidade de serviço para verificações, você po
 
 #### <a name="granting-the-service-principal-access-to-your-azure-data-explorer-instance"></a>Concedendo acesso à entidade de serviço à instância do Gerenciador de dados do Azure
 
-1. Navegue até o Portal do Azure. Em seguida, navegue até a instância do Gerenciador de dados do Azure.
+1. Navegue até o portal do Azure. Em seguida, navegue até a instância do Gerenciador de dados do Azure.
 
 1. Adicione a entidade de serviço à função **AllDatabasesViewer** na guia **permissões** , conforme mostrado na captura de tela a seguir.
 

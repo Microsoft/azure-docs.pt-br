@@ -2,18 +2,19 @@
 title: Início Rápido – Criar uma VM Linux com o Azure PowerShell
 description: Neste início rápido, você aprenderá a usar o Azure PowerShell para criar uma máquina virtual do Linux
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2cef611fe79ca04303840076b09b4cf6344b7e7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87513444"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102616223"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
 
@@ -33,7 +34,7 @@ Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) para criar um par de chaves SS
 
 
 ```azurepowershell-interactive
-ssh-keygen -m PEM -t rsa -b 4096
+ssh-keygen -t rsa -b 4096
 ```
 
 Você será solicitado a fornecer um nome de arquivo para o par de chaves ou poderá pressionar **Enter** para usar o local padrão de `/home/<username>/.ssh/id_rsa`. Você também poderá criar uma senha para as chaves, se desejar.

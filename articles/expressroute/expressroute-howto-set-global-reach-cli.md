@@ -9,10 +9,10 @@ ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 55f1e4c030dc0e7c8d0011dcff0cc1c9f8fec06e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99260224"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurar Alcance Global do ExpressRoute usando o CLI do Azure
@@ -54,7 +54,7 @@ Você pode habilitar o ExpressRoute Alcance Global entre dois circuitos do Expre
 
 Ao executar o comando para habilitar a conectividade, observe os seguintes requisitos para valores de parâmetro:
 
-* *peer-circuit* deve ser a ID de recurso completo. Por exemplo: 
+* *peer-circuit* deve ser a ID de recurso completo. Por exemplo:
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 

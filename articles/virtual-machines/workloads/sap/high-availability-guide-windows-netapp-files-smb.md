@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 02/18/2021
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a4c4631a0a1263e5a5398c44a8570f92571102e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958941"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102045829"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure no Windows com Azure NetApp Files (SMB) para aplicativos SAP
 
@@ -81,8 +80,11 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * [Arquitetura e Cenários de Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Adicionar porta de investigação na configuração do cluster ASCS](sap-high-availability-installation-wsfc-file-share.md)
 * [Instalação de uma instância do (A) SCS em um cluster de failover](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Criar um volume SMB para o Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Criar um volume SMB para o Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files][anf-sap-applications-azure]
+
+> [!IMPORTANT]
+> Cuidado: Lembre-se de que a instalação de um sistema SAP com SWPM no compartilhamento SMB, hospedado no volume SMB [Azure NetApp files][anf-azure-doc] , pode falhar com erro de instalação para permissões insuficientes como "warningPerm não está definido". Para evitar o erro, o usuário no qual SWPM de contexto é executado, precisa de privilégio elevado "administrador de domínio" durante a instalação do sistema SAP.  
 
 ## <a name="overview"></a>Visão geral
 
@@ -114,9 +116,9 @@ Execute as etapas a seguir, como preparação para usar Azure NetApp Files.
 4. Azure NetApp Files recursos devem residir em uma sub-rede delegada. Siga as instruções em [delegar uma sub-rede para Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) para criar uma sub-rede delegada.  
 
    > [!IMPORTANT]
-   > Você precisa criar conexões do Active Directory antes de criar um volume SMB. Examine os [requisitos de conexões de Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > Você precisa criar conexões do Active Directory antes de criar um volume SMB. Examine os [requisitos de conexões de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
 
-5. Crie Active Directory conexão, conforme descrito em [criar uma conexão de Active Directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+5. Crie Active Directory conexão, conforme descrito em [criar uma conexão de Active Directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Crie um volume SMB Azure NetApp Files SMB, seguindo as instruções em [Adicionar um volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Monte o volume SMB em sua máquina virtual do Windows.
 

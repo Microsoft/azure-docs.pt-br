@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
 ms.openlocfilehash: 8de2c27ce03c871e60b6437656ad630fc8de8408
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91963696"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Como o Azure Dev Spaces funciona
@@ -24,7 +24,7 @@ Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplica
 
 Azure Dev Spaces reduz o esforço para desenvolver, testar e iterar seu aplicativo kubernetes no contexto do cluster AKS. Essa redução no esforço permite que os desenvolvedores se concentrem na lógica de negócios de seus aplicativos e não Configurando seus serviços para serem executados no kubernetes.
 
-### <a name="bridge-to-kubernetes"></a>Bridge to Kubernetes
+### <a name="bridge-to-kubernetes"></a>Ponte para Kubernetes
 
 Com o Bridge para kubernetes, você pode conectar seu computador de desenvolvimento ao cluster kubernetes, permitindo que você execute e depure o código no seu computador de desenvolvimento como se ele estivesse em execução no cluster. A ponte para o kubernetes redireciona o tráfego entre o cluster conectado executando um pod no cluster que atua como um agente remoto para redirecionar o tráfego entre o computador de desenvolvimento e o cluster. Esse redirecionamento de tráfego permite que o código em seu computador de desenvolvimento e serviços em execução no cluster se comuniquem como se estivessem no mesmo cluster. Para obter mais informações sobre como conectar seu computador de desenvolvimento a um cluster kubernetes, consulte [como a ponte para o kubernetes funciona][how-it-works-bridge-to-kubernetes].
 

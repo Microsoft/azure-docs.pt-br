@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 03/22/2021
+ms.openlocfilehash: fbbdaeb796dfa23906c8010a54af14eff6df0b97
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517120"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026633"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gerenciando o acesso à rede pública para o Hub IoT
 
@@ -29,6 +29,10 @@ Para restringir o acesso somente ao [ponto de extremidade privado para o Hub IOT
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagem mostrando portal do Azure onde desativar o acesso à rede pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
 Para ativar o acesso à rede pública, selecione **todas as redes** e, em seguida, **salvar**.
+
+## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Acessando o Hub IoT depois de desabilitar o acesso à rede pública
+
+Depois que o acesso à rede pública é desabilitado, o Hub IoT só é acessível por meio [de seu ponto de extremidade privado de VNet usando o link privado do Azure](virtual-network-support.md). Essa restrição inclui o acesso por meio de portal do Azure, porque as chamadas à API para o serviço do Hub IoT são feitas diretamente usando seu navegador com suas credenciais.
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Ponto de extremidade do Hub IoT, endereço IP e portas depois de desabilitar o acesso à rede pública
 

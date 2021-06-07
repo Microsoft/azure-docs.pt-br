@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222914"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implantar o plug-in do adaptador de rede de contêiner da Rede Virtual do Azure
@@ -29,7 +29,7 @@ O plug-in de CNI (adaptador de rede de contêiner) de Rede Virtual do Azure é i
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>Implantar o plug-in para o cluster do Kubernetes do Mecanismo de ACS
 
-O mecanismo de ACS implanta um cluster de Kubernetes com um modelo do Azure Resource Manager. A configuração do cluster é especificada em um arquivo JSON que é passado para a ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de configurações de cluster compatíveis e suas descrições, consulte [Mecanismo do Serviço de Contêiner do Microsoft Azure – definição de cluster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). O plug-in é o plug-in de rede padrão para clusters criados usando o Mecanismo de ACS. As definições de configuração de rede a seguir são importantes ao configurar o plug-in:
+O mecanismo de ACS implanta um cluster de Kubernetes com um modelo do Azure Resource Manager. A configuração do cluster é especificada em um arquivo JSON que é passado para a ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de configurações de cluster com suporte e suas descrições, consulte [Microsoft Azure mecanismo de serviço de contêiner-definição de cluster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md). O plug-in é o plug-in de rede padrão para clusters criados usando o Mecanismo de ACS. As definições de configuração de rede a seguir são importantes ao configurar o plug-in:
 
   | Configuração                              | Descrição                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
@@ -158,11 +158,11 @@ O arquivo de configuração de rede CNI é descrito no formato JSON. Ele está, 
 #### <a name="settings-explanation"></a>Explicação das configurações
 
 - **cniVersion**: os plug-ins de CNI da Rede Virtual do Azure são compatíveis com as versões 0.3.0 e 0.3.1 da [especificação de CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
-- **nome**: Nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
-- **type**: Nome do plug-in de rede. Definido como *azure-vnet*.
-- **mode**: Modo operacional. Esse campo é opcional. O único modo compatível é "bridge". Para saber obter mais informações, consulte os [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **bridge**: Nome da ponte que será usada para conectar contêineres a uma rede virtual. Esse campo é opcional. Se omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface mestre.
-- **ipam type**: Nome do plug-in de IPAM. Sempre definido como *azure-vnet-ipam*.
+- **name**: nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
+- **type**: nome do plug-in de rede. Definido como *azure-vnet*.
+- **mode**: modo operacional. Esse campo é opcional. O único modo compatível é "bridge". Para saber obter mais informações, consulte os [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **bridge**: nome da ponte que será usada para conectar contêineres a uma rede virtual. Esse campo é opcional. Se omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface mestre.
+- **ipam type**: nome do plug-in de IPAM. Sempre definido como *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Baixar e instalar o plug-in
 

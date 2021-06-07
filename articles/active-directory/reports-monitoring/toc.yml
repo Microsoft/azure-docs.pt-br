@@ -98,9 +98,9 @@
     - name: Cmdlets do PowerShell do Azure AD para relatórios
       href: reference-powershell-reporting.md
     - name: Referência da API de logs de auditoria
-      href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
+      href: /graph/api/resources/directoryaudit
     - name: Referência da API de logs de entrada
-      href: /graph/api/resources/signin?view=graph-rest-1.0
+      href: /graph/api/resources/signin
     - name: Atividades de auditoria
       href: reference-audit-activities.md
     - name: Políticas de retenção de dados

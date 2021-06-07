@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 97faf5eff7187bbabe23bbcab60514eef4acc063
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: d75f184a324a9d418b0af2e3cf5790205af0fa42
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633780"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200711"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>Registrar um dispositivo de IoT Edge no Hub IoT
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Este artigo fornece as etapas para registrar um novo dispositivo IoT Edge no Hub IoT.
 

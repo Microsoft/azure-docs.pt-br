@@ -9,10 +9,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 11/09/2020
 ms.openlocfilehash: cbabfc1ae0c54c4ef20d3c689506e486bf4b6a66
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94386532"
 ---
 Este início rápido baseado em cURL fornece uma orientação para obtenção de uma resposta de base de dados de conhecimento.

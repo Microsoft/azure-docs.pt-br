@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fa1b542c54fc962f8c12a2142884c677afb259
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081229"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674641"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Como anotar fontes de dados no Catálogo de Dados do Azure
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>Introdução
 
@@ -21,7 +23,7 @@ ms.locfileid: "87081229"
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotação e crowdsourcing
 Todo mundo tem uma opinião. E isso é bom.
-O Catálogo de Dados reconhece que diferentes usuários têm diferentes perspectivas em fontes de dados empresariais e cada uma dessas perspectivas pode ser valiosa. Considere o cenário a seguir.
+O Catálogo de Dados reconhece que diferentes usuários têm diferentes perspectivas em fontes de dados empresariais e cada uma dessas perspectivas pode ser valiosa. Considere o seguinte cenário:
 
 * O administrador do sistema conhece o contrato de nível de serviço para os servidores ou serviços que hospedam a fonte de dados.
 * O administrador de banco de dados conhece a agenda de backup de cada banco de dados e as janelas de processamento de ETL permitidas.
@@ -60,5 +62,5 @@ Assim como os metadados extraídos da fonte de dados durante o registro são adi
 ## <a name="summary"></a>Resumo
 O registro de uma fonte de dados no Catálogo de Dados torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do Catálogo de Dados.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.

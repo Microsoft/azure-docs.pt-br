@@ -1,19 +1,19 @@
 ---
 title: Gerenciar regras de firewall-CLI do Azure-banco de dados do Azure para MySQL-servidor flexível
 description: Criar e gerenciar regras de firewall para o banco de dados do Azure para MySQL-servidor flexível usando CLI do Azure linha de comando.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4c699b00ebbecdbee985babe47c036cce6e0cb4b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545065"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109957"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Criar e gerenciar o banco de dados do Azure para MySQL – regras de firewall de servidor flexíveis usando o CLI do Azure
 
@@ -25,7 +25,7 @@ O servidor flexível do banco de dados do Azure para MySQL é compatível com ti
 - Acesso público (endereços IP permitidos)
 - Acesso privado (Integração VNet)
 
-Neste artigo, nos concentraremos na criação do servidor MySQL com **acesso público (endereços IP permitidos)** usando CLI do Azure e fornecerão uma visão geral sobre CLI do Azure comandos que podem ser usados para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP permitidos)* , as conexões com o servidor MySQL são restritas somente a endereços IP permitidos. Os endereços IP do cliente precisam ser permitidos em regras de firewall. Para saber mais sobre isso, consulte [acesso público (endereços IP permitidos)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas posteriormente.
+Neste artigo, nos concentraremos na criação do servidor MySQL com **acesso público (endereços IP permitidos)** usando CLI do Azure e fornecerão uma visão geral sobre CLI do Azure comandos que podem ser usados para criar, atualizar, excluir, listar e mostrar regras de firewall após a criação do servidor. Com *acesso público (endereços IP permitidos)*, as conexões com o servidor MySQL são restritas somente a endereços IP permitidos. Os endereços IP do cliente precisam ser permitidos em regras de firewall. Para saber mais sobre isso, consulte [acesso público (endereços IP permitidos)](./concepts-networking.md#public-access-allowed-ip-addresses). As regras de firewall podem ser definidas no momento da criação do servidor (recomendado), mas também podem ser adicionadas posteriormente.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -89,11 +89,11 @@ Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do 
 O comando **AZ MySQL flexível-Server firewall-Rule** é usado no CLI do Azure para criar, excluir, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar** : Crie uma regra de firewall de servidor flexível.
-- **lista** : lista as regras de firewall de servidor flexíveis.
-- **atualização** : Atualize uma regra de firewall de servidor flexível.
-- **Mostrar** : Mostre os detalhes de uma regra de firewall de servidor flexível.
-- **excluir** : excluir uma regra de firewall de servidor flexível.
+- **criar**: Crie uma regra de firewall de servidor flexível.
+- **lista**: lista as regras de firewall de servidor flexíveis.
+- **atualização**: Atualize uma regra de firewall de servidor flexível.
+- **Mostrar**: Mostre os detalhes de uma regra de firewall de servidor flexível.
+- **excluir**: excluir uma regra de firewall de servidor flexível.
 
 Consulte a documentação de [referência](/cli/azure/mysql/flexible-server) do CLI do Azure para obter a lista completa de parâmetros da CLI configuráveis. Por exemplo, nos comandos abaixo, você pode opcionalmente especificar o grupo de recursos.
 

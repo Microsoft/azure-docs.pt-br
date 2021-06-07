@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335409"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
@@ -23,11 +23,11 @@ Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure 
 
 A tabela a seguir mostra o resultado de comparações de igualdade na API do SQL entre dois tipos JSON quaisquer.
 
-| **Parar** | **Indefinido** | **Nulo** | **Booliano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
+| **Parar** | **Indefinido** | **Nulo** | **Boolean** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
 |---|---|---|---|---|---|---|---|
 | **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Nulo** | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
-| **Booliano** | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Boolean** | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Número** | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido |
 | **Cadeia de caracteres** | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido |
 | **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido |
@@ -55,9 +55,9 @@ Retorna `true` quando uma das condições é `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |True |True |verdadeiro |
-| **Falso** |verdadeiro |False |Indefinido |
-| **Indefinido** |verdadeiro |Indefinido |Indefinido |
+| **True** |True |True |True |
+| **Falso** |Verdadeiro |Falso |Indefinido |
+| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
 
 **Operador AND**
 
@@ -65,9 +65,9 @@ Retorna `true` quando ambas as expressões são `true` .
 
 |  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **Verdadeiro** |verdadeiro |False |Indefinido |
-| **Falso** |False |False |False |
-| **Indefinido** |Indefinido |False |Indefinido |
+| **True** |Verdadeiro |Falso |Indefinido |
+| **Falso** |Falso |Falso |Falso |
+| **Indefinido** |Indefinido |Falso |Indefinido |
 
 **Operador NOT**
 
@@ -75,8 +75,8 @@ Reverte o valor de qualquer expressão booleana.
 
 |  | **NOT** |
 | --- | --- |
-| **Verdadeiro** |False |
-| **Falso** |verdadeiro |
+| **True** |Falso |
+| **Falso** |Verdadeiro |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**

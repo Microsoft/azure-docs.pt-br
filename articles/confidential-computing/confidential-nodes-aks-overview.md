@@ -1,59 +1,55 @@
 ---
-title: Visualização pública dos nós de computação confidencial no AKS (Serviço de Kubernetes do Azure)
+title: Nós de computação confidencial no AKS (Serviço de Kubernetes do Azure)
 description: Nós de computação confidencial no AKS
 services: virtual-machines
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/08/2021
 ms.author: amgowda
-ms.openlocfilehash: 1b945ac9f656a227bcc3335cb0ec995626f98f77
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 203185d9f6def2204906b8722f1969b14eee8787
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564167"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933144"
 ---
-# <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nós de computação confidencial no Serviço de Kubernetes do Azure (visualização pública)
+# <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Nós de computação confidencial no Serviço de Kubernetes do Azure
 
-A [computação confidencial do Azure](overview.md) permite que você proteja seus dados confidenciais enquanto eles estão sendo usados. As infraestruturas subjacentes protegem esses dados de outros aplicativos, administradores e provedores de nuvem usando ambientes de contêiner de execução confiável com suporte de hardware.
+A [computação confidencial do Azure](overview.md) permite que você proteja seus dados confidenciais enquanto eles estão sendo usados. A infraestrutura subjacente da computação confidencial protegerá esses dados de outros aplicativos, administradores e provedores de nuvem usando ambientes de contêiner de execução confiável com suporte de hardware. Adicionar nós de computação confidencial permite direcionar o aplicativo contêiner para ser executado em um ambiente isolado, atestado e protegido por hardware.
 
 ## <a name="overview"></a>Visão geral
 
-O AKS (Serviço de Kubernetes do Azure) dá suporte à adição de [nós de computação confidencial DCsv2](confidential-computing-enclaves.md) desenvolvidos pelo Intel SGX. Esses nós podem executar cargas de trabalho confidenciais em um TEE (ambiente de execução confiável) baseado em hardware, permitindo que o código no nível do usuário seja alocado a regiões de memória privada. Essas regiões de memória privada são chamadas de enclaves. Os enclaves têm a finalidade de proteger o código e os dados contra processos em execução com privilégios mais elevados. O modelo de execução SGX remove as camadas intermediárias do SO convidado, do sistema operacional do host e do hipervisor. O modelo de *execução isolada por contêiner baseado em hardware* permite que os aplicativos sejam executados diretamente com a CPU, mantendo o bloco especial de memória criptografado. Os nós de computação confidencial ajudam com a postura geral de segurança dos aplicativos de contêiner no AKS e é uma excelente adição à estratégia de contêiner de defesa em profundidade. 
+O AKS (Serviço de Kubernetes do Azure) dá suporte à adição de [nós de computação confidencial DCsv2](confidential-computing-enclaves.md) desenvolvidos pelo Intel SGX. Esses nós permitem executar cargas de trabalho confidenciais em um TEE (ambiente de execução confiável) baseado em hardware. Os TEEs permitem que um código em nível de usuário de contêineres aloque regiões privadas de memória para executar o código diretamente na CPU. Essas regiões de memória privada que são executadas diretamente na CPU são chamadas de enclaves. Os enclaves ajudam a proteger a integridade e a confidencialidade dos dados, bem como a integridade do código de outros processos em execução nos mesmos nós. O modelo de execução do Intel SGX também remove camadas intermediárias do SO Convidado, do SO Host e do Hipervisor, reduzindo a área da superfície de ataque. O modelo de *execução isolada por contêiner baseado em hardware* em um nó permite que aplicativos sejam executados diretamente na CPU, mantendo um bloco especial de memória criptografada por contêiner. Nós de computação confidencial com contêineres confidenciais são um excelente complemento para executar um planejamento de segurança de confiança zero e uma estratégia de contêiner de defesa completa.
 
 ![Visão geral do nó SGX](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
 ## <a name="aks-confidential-nodes-features"></a>Recursos dos Nós Confidenciais do AKS
 
-- Isolamento de contêineres no nível do processo e baseado em hardware por meio de um TEE (ambiente de execução confiável) SGX 
+- Isolamento de contêiner em nível de processo e baseado em hardware por meio do TEE (ambiente de execução confiável) do Intel SGX 
 - Clusters de pools de nós heterogêneos (mistura de pools de nós confidenciais e não confidenciais)
-- Agendamento de pod baseado em memória EPC (Cache de Página Criptografada)
-- Driver SGX DCAP pré-instalado
-- Patch Intel FSGS pré-instalado
-- Dá suporte ao dimensionamento automático de pod horizontal baseado em consumo e ao dimensionamento automático de cluster
-- Auxiliar de atestado fora do proc por meio do DaemonSet do AKS
+- Agendamento de pod baseado em memória EPC (Cache de Página Criptografada) – requer um complemento
+- Driver Intel SGX DCAP pré-instalado
+- Dimensionamento automático de pod horizontal e dimensionamento automático de cluster baseado no consumo da CPU
 - Suporte para Contêineres Linux por meio dos nós de trabalho de VM do Ubuntu 18.04 Gen 2
 
-## <a name="aks-provided-daemon-sets-addon"></a>Conjuntos de daemon fornecidos pelo AKS (complemento)
+## <a name="confidential-computing-add-on-for-aks"></a>Complemento de computação confidencial para o AKS
+O recurso complementar permite obter uma funcionalidade adicional no AKS durante a execução de pools de nós de computação confidencial no cluster. Esse complemento habilitará os recursos abaixo.
 
-#### <a name="sgx-device-plugin"></a>Plug-in de dispositivo SGX <a id="sgx-plugin"></a>
+#### <a name="azure-device-plugin-for-intel-sgx"></a>Plug-in de dispositivo do Azure para o Intel SGX <a id="sgx-plugin"></a>
 
-O Plug-in de dispositivo SGX implementa a interface de plug-in de dispositivo do Kubernetes para a memória EPC. Efetivamente, esse plug-in faz da memória EPC um tipo de recurso adicional no Kubernetes. Os usuários podem especificar limites para esse recurso, assim como ocorre com outros recursos. Além da função de agendamento, o plug-in do dispositivo ajuda a atribuir permissões do driver do dispositivo SGX aos contêineres de carga de trabalho confidenciais. Veja um exemplo de implementação da amostra de implantação baseada em memória EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) [aqui](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
+O plug-in do dispositivo implementa uma interface de plug-in do dispositivo do Kubernetes para a memória EPC (Cache de Página Criptografada) e expõe os drivers de dispositivo dos nós. De modo efetivo, esse plug-in transforma a memória EPC em um outro tipo de recurso no Kubernetes. Os usuários podem especificar limites para esse recurso, assim como ocorre com outros recursos. Além da função de agendamento, o plug-in do dispositivo ajudará você a atribuir permissões de driver de dispositivo SGX aos contêineres confidenciais de cargas de trabalho. Com esse plugin, os desenvolvedores poderão evitar a montagem de volumes do driver Intel SGX nos arquivos de implantação. Veja um exemplo de implementação da amostra de implantação baseada em memória EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) [aqui](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
-#### <a name="sgx-quote-helper-service"></a>Serviço de auxiliar de cotação do SGX <a id="sgx-quote"></a>
 
-Os aplicativos de enclave que executam o atestado remoto precisam gerar uma COTAÇÃO. A COTAÇÃO fornece uma prova criptográfica da identidade e do estado do aplicativo, bem como o ambiente no qual o enclave está sendo executado. A geração da COTAÇÃO depende de determinados componentes de software confiáveis da Intel, que fazem parte dos Componentes de software da plataforma SGX (PSW/DCAP). Esse PSW é empacotado como um DaemonSet que é executado por nó. Ele pode ser usado ao solicitar uma COTAÇÃO de atestado dos aplicativos de enclave. O uso do serviço fornecido pelo AKS ajudará a manter melhor a compatibilidade entre o PSW e os outros componentes de SW no host. [Leia mais](confidential-nodes-out-of-proc-attestation.md) sobre os detalhes de seu uso e seus recursos.
-
-## <a name="programming--application-models"></a>Programação e modelos de aplicativo
+## <a name="programming-models"></a>Modelos de programação
 
 ### <a name="confidential-containers"></a>Contêineres confidenciais
 
-Os [contêineres confidenciais](confidential-containers.md) executam programas existentes e a maioria dos runtimes de **linguagens de programação comuns** (Python, Node, Java etc.), bem como suas dependências de bibliotecas existentes, sem nenhuma modificação nem recompilação do código-fonte. Esse é o modelo de confidencialidade mais rápido habilitado por meio de Projetos de software livre e de Parceiros do Azure. As imagens de contêiner criadas e prontas para serem executadas nos enclaves seguros são chamadas de contêineres confidenciais.
+Os [contêineres confidenciais](confidential-containers.md) ajudarão você a executar aplicativos contêiner não modificados e existentes dos runtimes de **linguagens de programação mais comuns** (Python, Node, Java etc.) de modo confidencial. Esse modelo de empacotamento não precisa de nenhuma modificação ou recompilação de código-fonte. Esse é o método mais rápido de obter confidencialidade que poderá ser alcançado empacotando contêineres padrão do Docker com Projetos de Software Livre ou Soluções de Parceiros do Azure. Neste modelo de empacotamento e execução, todas as partes do aplicativo contêiner serão carregadas em um limite confiável (enclave). Esse modelo funciona de modo adequado para aplicativos contêiner prontos para uso e disponíveis no mercado ou aplicativos personalizados que estão atualmente em execução em nós de uso geral.
 
 ### <a name="enclave-aware-containers"></a>Contêineres com reconhecimento de enclave
-
-O AKS dá suporte a aplicativos programados para serem executados em nós confidenciais e utilizam **conjuntos de instruções especiais** disponibilizados por meio de SDKs e estruturas. Esse modelo de aplicativo fornece o maior controle para seus aplicativos com a menor TCB (Base de computação confiável). [Leia mais](enclave-aware-containers.md) sobre os contêineres com reconhecimento de enclave.
+Os nós de computação confidencial no AKS também são compatíveis com contêineres programados para serem executados em um enclave a fim de usar um **conjunto de instruções especiais** disponível na CPU. Esse modelo de programação permite obter um controle mais rígido do fluxo de execução e requer o uso de SDKs e estruturas especiais. Esse modelo de programação fornece maior controle do fluxo de aplicativo com a menor TCB (Base de Computação Confiável). O desenvolvimento de contêineres com reconhecimento de enclave envolve partes confiáveis e não confiáveis para o aplicativo contêiner, permitindo gerenciar a memória regular e a memória EPC (Cache de Página Criptografada) em que o enclave será executado. [Leia mais](enclave-aware-containers.md) sobre os contêineres com reconhecimento de enclave.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -62,6 +58,8 @@ O AKS dá suporte a aplicativos programados para serem executados em nós confid
 [Exemplos de contêiner confidencial para início rápido](https://github.com/Azure-Samples/confidential-container-samples)
 
 [Lista de SKUs do DCsv2](../virtual-machines/dcv2-series.md)
+
+[Sessão de webinar de defesa completa usando contêineres confidenciais](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 
 <!-- LINKS - external -->
 [Azure Attestation]: ../attestation/index.yml

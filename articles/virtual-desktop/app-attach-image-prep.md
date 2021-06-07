@@ -7,10 +7,10 @@ ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 204cc9a05d62caf62179100fa3496be422a3ec0c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97425714"
 ---
 # <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Preparar uma imagem do MSIX para a área de trabalho virtual do Windows

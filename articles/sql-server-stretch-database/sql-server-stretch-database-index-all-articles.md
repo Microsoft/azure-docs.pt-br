@@ -14,10 +14,10 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 15b4a90a4e082cbe8fc0f2da1a87b6860cfb66a4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95024204"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos do serviço SQL Server Stretch Database do Azure
@@ -28,7 +28,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 |:--- |:--- |
 |[Identificar bancos de dados e tabelas para o Stretch Database executando o supervisor do Stretch Database](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor) |Saiba como identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch. |
 |[Limitações do Stretch Database](/sql/sql-server/stretch-database/limitations-for-stretch-database) |Saiba mais sobre as limitações do Stretch Database. |
-|[Visão geral de Stretch Database](/sql/sql-server/stretch-database/stretch-database) |Saiba como o Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure. |
+|[Visão geral do Stretch Database](/sql/sql-server/stretch-database/stretch-database) |Saiba como o Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure. |
 |[Comece executando o Assistente para Habilitar o Banco de Dados para Alongamento](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard) |Saiba como configurar um banco de dados para o Stretch Database executando assistente Habilitar Banco de Dados para Stretch. |
 
 ## <a name="enable"></a>Habilitar
@@ -52,7 +52,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 |[Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure](sql-server-stretch-database-encryption-tde.md) |Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure |
 |[Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) |Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL |
 
-## <a name="backup-and-recovery"></a>Backup e recuperação
+## <a name="backup-and-recovery"></a>Backup e descoberta
 | Título | Descrição |
 |:--- |:--- |
 |[Fazer backup de bancos de dados habilitados para Stretch](/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database) |\-Saiba como fazer backup de bancos de dados habilitados para Stretch. |

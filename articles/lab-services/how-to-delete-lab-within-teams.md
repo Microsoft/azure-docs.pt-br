@@ -4,10 +4,10 @@ description: Saiba como excluir um laboratório de Azure Lab Services das equipe
 ms.topic: article
 ms.date: 10/12/2020
 ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433947"
 ---
 # <a name="delete-labs-within-teams"></a>Excluir laboratórios dentro de equipes

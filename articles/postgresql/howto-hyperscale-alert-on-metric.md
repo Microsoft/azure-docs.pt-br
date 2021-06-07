@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026447"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100577081"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usar o portal do Azure para configurar alertas em métricas para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -26,8 +26,8 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 * Chamar um webhook.
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
@@ -109,5 +109,5 @@ O monitoramento e o alerta são importantes para cada grupo de servidores de Cit
 O monitoramento do uso da CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, você pode notar que o uso da CPU geralmente está em cerca de 40-60%. Se o uso da CPU começar a focalizar em cerca de 95%, você poderá reconhecer uma anomalia. O uso da CPU pode refletir o crescimento orgânica, mas também pode revelar uma consulta isolada. Ao criar um alerta de CPU, defina uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral da coleção de métricas](../azure-monitor/platform/data-platform.md) para verificar se o serviço está disponível e responsivo.
+* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/alerts/alerts-webhooks.md).
+* Tenha uma [visão geral da coleção de métricas](../azure-monitor/data-platform.md) para verificar se o serviço está disponível e responsivo.

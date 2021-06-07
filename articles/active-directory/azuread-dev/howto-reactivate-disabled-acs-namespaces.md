@@ -1,6 +1,6 @@
 ---
-title: Reativar os namespaces do serviço de controle de acesso (ACS) do Azure desabilitados
-description: Localize e habilite seus namespaces do ACS (serviço de controle de acesso) do Azure e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
+title: Reativar espaços de nomes desabilitados do Azure Access Control Service (ACS)
+description: Encontrar e habilitar os namespaces do Serviço de Controle de Acesso do Azure (ACS) e solicitar uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85383710"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
@@ -26,7 +26,7 @@ ms.locfileid: "85383710"
 
 Em novembro de 2017, anunciamos que o Serviço de Coleta de Auditoria (ACS), um Serviço do Microsoft Azure Active Directory (Azure AD), está sendo desativado em 7 de novembro de 2018.
 
-Desde então, enviamos emails para o email de administrador de assinaturas do ACS sobre a desativação do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de desativação de 7 de novembro de 2018.
+Desde então, enviamos emails para o email de administrador das assinaturas do ACS sobre a desativação do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de desativação de 7 de novembro 2018.
 
 Em 3 de outubro de 2018, anunciamos (por e-mail e [uma postagem no blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) uma oferta de extensão a clientes que não podem concluir sua migração antes de 7 de novembro de 2018. O anúncio também continha instruções para solicitar a extensão.
 
@@ -69,7 +69,7 @@ Você pode usar o ACS PowerShell para listar todos os namespaces do ACS e reativ
 1. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace**.
 1. Confirme se os namespaces estão desabilitados confirmando que `State` é `Disabled`.
 
-    [![Confirmar se os namespaces estão desabilitados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![Confirme se os namespaces estão desativados](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
     Você também pode usar `nslookup {your-namespace}.accesscontrol.windows.net` para confirmar se o domínio ainda estiver ativo.
 
@@ -89,7 +89,7 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
 
 ### <a name="to-request-an-extension"></a>Para solicitar uma extensão
 
-1. Entre no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
+1. Conecte-se no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
 1. Preencha o novo formulário de solicitação de suporte, conforme mostrado no exemplo a seguir.
 
     | Campo de solicitação de suporte | Valor |
@@ -99,9 +99,9 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
     | **Serviço** | `All services` |
     | **Recurso** | `General question/Resource not available` |
     | **Tipo de problema** | `ACS to SAS Migration` |
-    | **Assunto** | Descreva o problema |
+    | **Entidade** | Descreva o problema |
 
-   ![Mostra um exemplo de uma nova solicitação de suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Mostra um exemplo de uma nova solicitação do suporte técnico](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

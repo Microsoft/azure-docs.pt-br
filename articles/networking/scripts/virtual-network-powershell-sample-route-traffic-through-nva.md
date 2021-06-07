@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8435cf074448a611df73e12c7d152ded82f1a05f
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234028"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Rotear o tráfego por meio de uma solução de virtualização de rede

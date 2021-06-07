@@ -4,18 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como começar a usar o portal da Web do Assistente de Métricas.
 services: cognitive-services
 author: mrbullwinkle
+ms.author: mbullwin
 manager: nitinme
+ms.date: 09/30/2020
+ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
-ms.topic: quickstart
-ms.date: 09/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: 5dbf98d363429e6d22a0b7719cdc669deebd21a0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom:
+- mode-portal
+ms.openlocfilehash: aaeaf92df140019db32c326199c9614fd8f5ae37
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348629"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531805"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Início Rápido: Monitore sua primeira métrica usando o portal da Web
 
@@ -30,7 +32,7 @@ Quando provisiona uma instância do Assistente de Métricas, você pode usar as 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* Depois que tiver sua assinatura do Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Criar um recurso do Assistente de Métricas"  target="_blank"> crie um recurso do Assistente de Métricas <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para implantar sua instância do Assistente de Métricas.  
+* Depois que tiver sua assinatura do Azure, <a href="https://go.microsoft.com/fwlink/?linkid=2142156"  title="Criar um recurso do Assistente de Métricas"  target="_blank"> crie um recurso do Assistente de Métricas </a> no portal do Azure para implantar sua instância do Assistente de Métricas.  
 
     
 > [!TIP]

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ae1d72c30fb7c45c92f24ec5132859a45c6ae953
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95543367"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo de blob no .NET
@@ -25,7 +25,7 @@ Para obter mais informações sobre instantâneos de blob no armazenamento do Az
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para criar um instantâneo de um blob de blocos usando a versão 12. x da biblioteca de cliente de armazenamento do Azure para .NET, use um dos seguintes métodos:
 
@@ -78,7 +78,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para criar um instantâneo de um blob de blocos usando a versão 11. x da biblioteca de cliente de armazenamento do Azure para .NET, use um dos seguintes métodos:
 
@@ -127,11 +127,11 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Para excluir um blob, você deve primeiro excluir todos os instantâneos desse blob. Você pode excluir um instantâneo individualmente ou especificar que todos os instantâneos sejam excluídos quando o blob de origem for excluído. Se você tentar excluir um blob que ainda possua instantâneos, um erro será gerado.
 
-# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 Para excluir um blob e seus instantâneos usando a versão 12. x da biblioteca de cliente de armazenamento do Azure para .NET, use um dos seguintes métodos e inclua a enumeração [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) :
 
-- [Delete (excluir)](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
+- [Excluir](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
@@ -142,11 +142,11 @@ O exemplo de código a seguir mostra como excluir um blob e seus instantâneos n
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Para excluir um blob e seus instantâneos usando a versão 11. x da biblioteca de cliente de armazenamento do Azure para .NET, use um dos seguintes métodos de exclusão de BLOB e inclua a enumeração [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) :
 
-- [Delete (excluir)](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Excluir](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)

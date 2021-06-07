@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a0089d246169ad4215075662500794e7143940e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90601802"
 ---
 # <a name="conditional-access-session"></a>Acesso condicional: sessão
@@ -54,13 +54,13 @@ A frequência de entrada define o período de tempo antes que um usuário seja s
 
 A configuração frequência de entrada funciona com aplicativos que implementaram protocolos OAUTH2 ou OIDC de acordo com os padrões. A maioria dos aplicativos nativos da Microsoft para Windows, Mac e Mobile, incluindo os seguintes aplicativos Web, estão em conformidade com a configuração.
 
-- Word, Excel, PowerPoint online
-- OneNote online
+- Word, Excel, PowerPoint Online
+- OneNote Online
 - Office.com
 - Portal de administração do Microsoft 365
 - Exchange Online
 - SharePoint e OneDrive
-- Cliente Web de equipes
+- Cliente Web do Teams
 - Dynamics CRM Online
 - Portal do Azure
 
@@ -68,7 +68,7 @@ Para obter mais informações, consulte o artigo [Configurar o gerenciamento de 
 
 ## <a name="persistent-browser-session"></a>Sessão persistente do navegador
 
-Uma sessão persistente do navegador permite que os usuários permaneçam conectados após fechar e reabrir a janela do navegador.
+Uma sessão persistente do navegador permite que os usuários permaneçam conectados depois de fechar e reabrir a janela do navegador.
 
 Para obter mais informações, consulte o artigo [Configurar o gerenciamento de sessão de autenticação com acesso condicional](howto-conditional-access-session-lifetime.md#persistence-of-browsing-sessions).
 

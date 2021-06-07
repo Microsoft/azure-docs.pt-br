@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99987877"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva

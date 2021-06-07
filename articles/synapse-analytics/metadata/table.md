@@ -10,19 +10,19 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a8080720480beaeb7bc8692f2dcddddad5da0e3c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209620"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102548454"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
 
 O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas compatíveis com Parquet entre os pools do Apache Spark e o pool de SQL sem servidor.
 
-Depois que um banco de dados for criado por um trabalho do Spark, você poderá criar tabelas nele com o Spark que usam Parquet como o formato de armazenamento. Essas tabelas ficarão imediatamente disponíveis para consulta por qualquer um dos pools do Spark do workspace do Azure Synapse. Elas também podem ser usadas em qualquer um dos trabalhos do Spark sujeitos a permissões.
+Depois que um banco de dados for criado por um trabalho do Spark, você poderá criar tabelas nele com o Spark que usam Parquet como o formato de armazenamento. Os nomes das tabelas serão convertidos em letras minúsculas e precisarão ser consultados usando um nome com letras minúsculas. Essas tabelas ficarão imediatamente disponíveis para consulta por qualquer um dos pools do Spark do workspace do Azure Synapse. Elas também podem ser usadas em qualquer um dos trabalhos do Spark sujeitos a permissões.
 
 As tabelas criadas, gerenciadas e externas do Spark também são disponibilizadas como tabelas externas com o mesmo nome no banco de dados sincronizado correspondente no pool de SQL sem servidor. [Como expor uma tabela do Spark no SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
 
@@ -101,17 +101,17 @@ Nesse cenário, você tem um banco de dados do Spark chamado `mytestdb`. Confira
 Crie uma tabela gerenciada do Spark com o SparkSQL executando o seguinte comando:
 
 ```sql
-    CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
+    CREATE TABLE mytestdb.myparquettable(id int, name string, birthdate date) USING Parquet
 ```
 
-Esse comando cria a tabela `myParquetTable` no banco de dados `mytestdb`. Após um pequeno atraso, você poderá ver a tabela no pool de SQL sem servidor. Por exemplo, execute a instrução a seguir no pool de SQL sem servidor.
+Esse comando cria a tabela `myparquettable` no banco de dados `mytestdb`. Os nomes das tabelas serão convertidos em letras minúsculas. Após um pequeno atraso, você poderá ver a tabela no pool de SQL sem servidor. Por exemplo, execute a instrução a seguir no pool de SQL sem servidor.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Verifique se `myParquetTable` está incluída nos resultados.
+Verifique se `myparquettable` está incluída nos resultados.
 
 >[!NOTE]
 >Uma tabela que não esteja usando Parquet como o formato de armazenamento não será sincronizada.
@@ -136,13 +136,13 @@ var schema = new StructType
     );
 
 var df = spark.CreateDataFrame(data, schema);
-df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
+df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 ```
 
 Agora você pode ler os dados no pool de SQL sem servidor da seguinte maneira:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
 ```
 
 Você deverá obter a seguinte linha como resultado:
@@ -160,26 +160,26 @@ Neste exemplo, crie uma tabela externa do Spark com base nos arquivos de dados d
 Por exemplo, com o SparkSQL, execute:
 
 ```sql
-CREATE TABLE mytestdb.myExternalParquetTable
+CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Substitua o espaço reservado `<fs>` pelo nome do sistema de arquivos que é o sistema de arquivos padrão do workspace e o espaço reservado `<synapse_ws>` pelo nome do workspace do Synapse que você está usando para executar este exemplo.
 
-O exemplo anterior cria a tabela `myExtneralParquetTable` no banco de dados `mytestdb`. Após um pequeno atraso, você poderá ver a tabela no pool de SQL sem servidor. Por exemplo, execute a instrução a seguir no pool de SQL sem servidor.
+O exemplo anterior cria a tabela `myextneralparquettable` no banco de dados `mytestdb`. Após um pequeno atraso, você poderá ver a tabela no pool de SQL sem servidor. Por exemplo, execute a instrução a seguir no pool de SQL sem servidor.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Verifique se `myExternalParquetTable` está incluída nos resultados.
+Verifique se `myexternalparquettable` está incluída nos resultados.
 
 Agora você pode ler os dados no pool de SQL sem servidor da seguinte maneira:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';
+SELECT * FROM mytestdb.dbo.myexternalparquettable WHERE name = 'Alice';
 ```
 
 Você deverá obter a seguinte linha como resultado:

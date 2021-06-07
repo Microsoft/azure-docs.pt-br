@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724046"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
@@ -158,7 +158,7 @@ Content-Type: application/json
 
 Tipo de conteúdo: `application/json`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |Erro |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
 
@@ -166,7 +166,7 @@ Tipo de conteúdo: `application/json`
 
 Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |InvocationId |string | Uma cadeia de caracteres opcional que representa uma mensagem de invocação. Encontre detalhes em [invocações](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destino |string | O mesmo que o evento e o mesmo que o destino em uma [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |

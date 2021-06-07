@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359808"
 ---
 # <a name="deploy-a-configuration-server"></a>Implante um servidor de configuração
@@ -49,7 +49,7 @@ Você deve ter um usuário com uma das seguintes permissões definidas no Azure 
       ![AD_application_permission do Azure](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> *Não há suporte para*serviços de Federação do Active Directory (AD FS). Use uma conta gerenciada por meio de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
+> *Não há suporte para* serviços de Federação do Active Directory (AD FS). Use uma conta gerenciada por meio de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="download-the-template"></a>Baixe o modelo
 
@@ -119,12 +119,12 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
     > Após o registro, não há flexibilidade para alterar o cofre dos serviços de recuperação.
     > A alteração de um cofre dos serviços de recuperação requer a desassociação do servidor de configuração do cofre atual e a replicação de todas as máquinas virtuais protegidas no servidor de configuração é interrompida. Para saber mais, consulte [gerenciar o servidor de configuração para recuperação de desastre de VM VMware](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
-4. Em **instalar software de**terceiros:
+4. Em **instalar software de** terceiros:
 
     |Cenário   |Etapas a serem executadas  |
     |---------|---------|
-    |Posso baixar e instalar o MySQL manualmente?     |  Sim. Baixe o aplicativo MySQL, coloque-o na pasta **C:\Temp\ASRSetup**e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **baixar e instalar**, o portal diz *já instalado*. Você pode prosseguir para a próxima etapa.       |
-    |Posso evitar o download do MySQL online?     |   Sim. Coloque o aplicativo instalador do MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **baixar e instalar**e o portal usará o instalador adicionado para instalar o aplicativo. Após a conclusão da instalação, vá para a próxima etapa.    |
+    |Posso baixar e instalar o MySQL manualmente?     |  Sim. Baixe o aplicativo MySQL, coloque-o na pasta **C:\Temp\ASRSetup** e, em seguida, instale manualmente. Depois de aceitar os termos e selecionar **baixar e instalar**, o portal diz *já instalado*. Você pode prosseguir para a próxima etapa.       |
+    |Posso evitar o download do MySQL online?     |   Sim. Coloque o aplicativo instalador do MySQL na pasta **C:\Temp\ASRSetup**. Aceite os termos, selecione **baixar e instalar** e o portal usará o instalador adicionado para instalar o aplicativo. Após a conclusão da instalação, vá para a próxima etapa.    |
     |Quero baixar e instalar o MySQL por meio do Azure Site Recovery.    |  Aceite o contrato de licença e selecione **baixar e instalar**. Após a conclusão da instalação, vá para a próxima etapa.       |
 
 5. Em **validar configuração do dispositivo**, os pré-requisitos são verificados antes de continuar.
@@ -175,7 +175,7 @@ Consulte nosso [artigo de solução de problemas](vmware-azure-troubleshoot-conf
     Não. Não altere a frase secreta do servidor de configuração. Uma alteração na frase secreta interrompe a replicação de computadores protegidos e leva a um estado de integridade crítico.
 * Em que local posso baixar as chaves de registro do cofre?
 
-    Em **cofre dos serviços de recuperação**, selecione **gerenciar**  >  **site Recovery**  >  **servidores de configuração**de infraestrutura. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
+    Em **cofre dos serviços de recuperação**, selecione **gerenciar**  >  **site Recovery**  >  **servidores de configuração** de infraestrutura. Em **Servidores**, selecione **Baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
 * Posso clonar um servidor de configuração existente e usá-lo para a orquestração de replicação?
 
     Não. Não há suporte para o uso de um componente de servidor de configuração clonado. A clonagem de um servidor de processo de expansão também é um cenário sem suporte. A clonagem de Site Recovery componentes afeta as replicações contínuas.

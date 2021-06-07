@@ -5,10 +5,10 @@ ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-azurecli
 ms.openlocfilehash: 085849386fce929ceaec4536844cf31b94fe7539
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033044"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Habilitar logs de execução de streaming no Azure Functions

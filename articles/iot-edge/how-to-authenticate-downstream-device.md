@@ -8,14 +8,16 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c799e38092c5983b4ad0e3daea6aae99934c7302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391976"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200894"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo downstream no Hub IoT do Azure
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Em um cenário de gateway transparente, dispositivos downstream (às vezes chamados de dispositivos folha ou dispositivos filho) precisam de identidades no Hub IoT como qualquer outro dispositivo. Este artigo percorre as opções de autenticação de um dispositivo downstream no Hub IoT e demonstra como declarar a conexão de gateway.
 
@@ -35,7 +37,7 @@ Conclua as etapas em [Configurar um dispositivo de IoT Edge para atuar como um g
 
 Se você estiver usando a autenticação X. 509, gerará certificados para o dispositivo downstream. Tenha o mesmo certificado de autoridade de certificação raiz e o script que gera o certificado que você usou para o artigo de gateway transparente disponível para uso novamente.
 
-Este artigo refere-se ao *nome do host do gateway* em vários pontos. O nome do host do gateway é declarado no parâmetro **hostname** do arquivo config.yaml no dispositivo de gateway de IoT Edge. Ele é mencionado na cadeia de conexão do dispositivo downstream. O nome do host do gateway precisa ser resolvido para um endereço IP, usando DNS ou uma entrada de arquivo de host no dispositivo downstream.
+Este artigo refere-se ao *nome do host do gateway* em vários pontos. O nome do host do gateway é declarado no parâmetro **hostname** do arquivo de configuração no dispositivo IOT Edge gateway. Ele é mencionado na cadeia de conexão do dispositivo downstream. O nome do host do gateway precisa ser resolvido para um endereço IP, usando DNS ou uma entrada de arquivo de host no dispositivo downstream.
 
 ## <a name="register-device-with-iot-hub"></a>Registrar dispositivo com o Hub IoT
 
@@ -192,7 +194,7 @@ As cadeias de conexão para dispositivos downstream precisam dos seguintes compo
 * O método de autenticação, se os certificados de chave simétrica ou X. 509
   * Se estiver usando a autenticação de chave simétrica, forneça a chave primária ou secundária: `SharedAccessKey={key}`
   * Se estiver usando a autenticação de certificado X. 509, forneça um sinalizador: `x509=true`
-* O dispositivo de gateway ao qual o dispositivo se conecta. Forneça o valor do **nome de host** do arquivo config.yaml do dispositivo de gateway IoT Edge: `GatewayHostName={gateway hostname}`
+* O dispositivo de gateway ao qual o dispositivo se conecta. Forneça o valor do **nome do host** do arquivo de configuração do dispositivo IOT Edge gateway: `GatewayHostName={gateway hostname}`
 
 Uma cadeia de conexão completa é semelhante a:
 

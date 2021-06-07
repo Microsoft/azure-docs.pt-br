@@ -1,27 +1,25 @@
 ---
 title: Power BI e pool de SQL sem servidor para analisar Azure Cosmos DB dados com o link Synapse
 description: Saiba como criar um banco de dados do pool SQL sem servidor e exibições sobre o link do Synapse para Azure Cosmos DB, consultar os contêineres de Azure Cosmos DB e criar um modelo com Power BI sobre essas exibições.
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.author: acomet
-ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.author: rosouz
+ms.custom: synapse-cosmos-db
+ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247005"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626241"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use Power BI e o pool de SQL Synapse sem servidor (visualização) para analisar Azure Cosmos DB dados com o link do Synapse 
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use Power BI e o pool de SQL Synapse sem servidor para analisar Azure Cosmos DB dados com o link do Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Neste artigo, você aprende a criar um banco de dados do pool SQL sem servidor e exibições sobre o link do Synapse para Azure Cosmos DB. Você consultará os contêineres de Azure Cosmos DB e criará um modelo com Power BI sobre essas exibições para refletir essa consulta.
 
 Nesse cenário, você usará dados fictícios sobre as vendas de produtos de superfície em uma loja de varejo de parceiro. Você analisará a receita por loja com base na proximidade com grandes residências e o impacto de publicidade para uma semana específica. Neste artigo, você cria duas exibições chamadas **RetailSales** e **StoreDemographics** e uma consulta entre elas. Você pode obter os dados do produto de exemplo deste repositório [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) .
-
-> [!IMPORTANT]
-> O suporte do pool SQL sem servidor Synapse para o link Synapse do Azure para Azure Cosmos DB está atualmente em versão prévia. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte os [Termos de uso complementares de versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

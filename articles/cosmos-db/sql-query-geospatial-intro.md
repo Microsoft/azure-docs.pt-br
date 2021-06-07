@@ -5,23 +5,23 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/25/2021
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a2e4e14927932575c9da42392329eea279f922fe
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b20c72ae3ed8a8fffa02fc3a2c86f9f73ba2663b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336139"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101692123"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados geoespaciais e de localização geojson em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Este artigo é uma introdução à funcionalidade geoespacial no Azure Cosmos DB. Atualmente, o armazenamento e o acesso a dados geoespaciais têm suporte apenas Azure Cosmos DB contas da API do SQL. Depois de ler nossa documentação sobre indexação geoespacial, você poderá responder às seguintes perguntas:
+Este artigo é uma introdução à funcionalidade geoespacial no Azure Cosmos DB. Depois de ler nossa documentação sobre indexação geoespacial, você poderá responder às seguintes perguntas:
 
 * Como fazer para armazenar dados espaciais no Azure Cosmos DB?
-* Como fazer para consultar dados geoespaciais no Azure Cosmos DB, no SQL e no LINQ?
+* Como posso consultar dados espaciais em Azure Cosmos DB em SQL e LINQ?
 * Como fazer para habilitar ou desabilitar a indexação espacial no Azure Cosmos DB?
 
 ## <a name="spatial-data-use-cases"></a>Casos de uso de dados espaciais
@@ -121,9 +121,9 @@ Um **Polígono** é um limite de pontos conectados que formam uma LineString fec
     "type":"Polygon",
     "coordinates":[ [
         [ 31.8, -5 ],
-        [ 31.8, -4.7 ],
-        [ 32, -4.7 ],
         [ 32, -5 ],
+        [ 32, -4.7 ],
+        [ 31.8, -4.7 ],
         [ 31.8, -5 ]
     ] ]
 }

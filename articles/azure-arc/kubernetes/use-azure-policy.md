@@ -1,36 +1,32 @@
 ---
-title: Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
+title: Use o Azure Policy para aplicar configurações de cluster em escala
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/10/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Use o Azure Policy para aplicar configurações de cluster em escala
 keywords: Kubernetes, Arc, Azure, K8s, containers
-ms.openlocfilehash: ce9ba75e200a02654cac4c50303cc90fd0c1a5fd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390905"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102121449"
 ---
-# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Use o Azure Policy para aplicar configurações de cluster em escala (versão prévia)
+# <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Use o Azure Policy para aplicar configurações de cluster em escala
 
-## <a name="overview"></a>Visão geral
-
-Você pode usar Azure Policy para impor qualquer um dos seguintes recursos para que sejam `Microsoft.KubernetesConfiguration/sourceControlConfigurations` aplicados específicos:
-*  `Microsoft.Kubernetes/connectedclusters` Kit.
-* Recurso habilitado para GitOps `Microsoft.ContainerService/managedClusters` . 
+Você pode usar Azure Policy para aplicar configurações ( `Microsoft.KubernetesConfiguration/sourceControlConfigurations` tipo de recurso) em escala em clusters kubernetes habilitados para Arc do Azure ( `Microsoft.Kubernetes/connectedclusters` ).
 
 Para usar Azure Policy, selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política:
 1. Defina o escopo da atribuição.
     * O escopo será um grupo de recursos do Azure ou uma assinatura. 
-2. Defina os parâmetros para o `sourceControlConfiguration` que será criado. 
+2. Defina os parâmetros para a configuração que será criada. 
 
-Depois que a atribuição é criada, o mecanismo de Azure Policy identifica todos os `connectedCluster` `managedCluster` recursos localizados dentro do escopo e aplica-se a `sourceControlConfiguration` cada um deles.
+Depois que a atribuição é criada, Azure Policy mecanismo identifica todos os clusters kubernetes habilitados para o Azure Arc localizados no escopo e aplica a configuração a cada cluster.
 
-Você pode habilitar vários repositórios git como as fontes de verdade para cada cluster usando várias atribuições de política. Cada atribuição de política seria configurada para usar um repositório git diferente; por exemplo, um repositório para o operador central de ti/cluster e outros repositórios para equipes de aplicativos.
+Você pode criar várias configurações, cada uma apontando para um repositório git diferente, usando várias atribuições de política. Por exemplo, um repositório para o operador central de ti/cluster e outros repositórios para equipes de aplicativos.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -54,24 +50,21 @@ Verifique se você tem `Microsoft.Authorization/policyAssignments/write` permiss
     * Para obter mais informações, consulte o guia de [início rápido criar uma atribuição de política](../../governance/policy/assign-policy-portal.md) e [corrigir recursos não compatíveis com Azure Policy artigo](../../governance/policy/how-to/remediate-resources.md).
 1. Selecione **Examinar + criar**.
 
-Depois de criar a atribuição de política, o `sourceControlConfiguration` será aplicado a qualquer um dos seguintes recursos localizados dentro do escopo da atribuição:
-* Novos `connectedCluster` recursos.
-* Novos `managedCluster` recursos com os agentes do GitOps instalados. 
+Depois de criar a atribuição de política, a configuração é aplicada a novos clusters kubernetes habilitados para Arc do Azure criados dentro do escopo de atribuição de política.
 
-Para clusters existentes, será necessário executar manualmente uma tarefa de correção. Essa tarefa normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
+Para os clusters existentes, você precisará executar manualmente uma tarefa de correção. Essa tarefa normalmente leva de 10 a 20 minutos para que a atribuição de política entre em vigor.
 
 ## <a name="verify-a-policy-assignment"></a>Verificar uma atribuição de política
 
-1. No portal do Azure, navegue até um dos seus `connectedCluster` recursos.
+1. No portal do Azure, navegue até um dos seus clusters kubernetes habilitados para o Azure Arc.
 1. Na seção **configurações** da barra lateral, selecione **políticas**. 
-    * A UX do cluster AKS ainda não está implementada.
     * Na lista de políticas, você deve ver a atribuição de política que você criou anteriormente com o **estado de conformidade** definido como *compatível*.
 1. Na seção **Configurações** da barra lateral, selecione **Configurações**.
-    * Na lista configurações, você deve ver o `sourceControlConfiguration` que a atribuição de política criou.
+    * Na lista configurações, você deve ver a configuração criada pela atribuição de política.
 1. Use `kubectl` para interrogar o cluster. 
-    * Você deve ver o namespace e os artefatos que foram criados pelo `sourceControlConfiguration` .
-    * Em 5 minutos, você deve ver no cluster os artefatos descritos nos manifestos no repositório Git configurado.
+    * Você deve ver o namespace e os artefatos que foram criados pelos recursos de configuração.
+    * Em 5 minutos (supondo que o cluster tenha conectividade de rede com o Azure), você deve ver os objetos descritos pelos manifestos no repositório git, sendo criados no cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar o Azure Monitor para Contêineres com clusters Kubernetes habilitados para Arc](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+[Configure Azure monitor para contêineres com clusters kubernetes habilitados para o Azure Arc](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

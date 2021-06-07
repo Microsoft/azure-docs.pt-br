@@ -1,31 +1,31 @@
 ---
-title: Descobrir instâncias de VMs do GCP com a Avaliação de Servidor das Migrações para Azure
-description: Saiba como descobrir instâncias de VMs do GCP com a Avaliação de Servidor das Migrações para Azure.
+title: 'Descobrir servidores em instâncias da GCP com a ferramenta Migrações para Azure: descoberta e avaliação'
+description: 'Saiba como descobrir servidores na GCP com a ferramenta Migrações para Azure: descoberta e avaliação.'
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 079f176a741fa3423081cb96503691f0f2e2e7b2
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: c5d57705ca0d49db1fb1d67e20beb609f21b1d5b
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541420"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771423"
 ---
-# <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutorial: Descobrir instâncias do GCP (Google Cloud Platform) com a Avaliação de Servidor
+# <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descobrir instâncias da GCP (Google Cloud Platform) com a ferramenta Migrações para Azure: descoberta e avaliação
 
 Como parte de sua jornada de migração para o Azure, descubra servidores de avaliação e migração.
 
-Este tutorial mostra como descobrir instâncias do GCP (Google Cloud Platform) com as Migrações para Azure: usando a ferramenta de Avaliação de Servidor e um dispositivo leve das Migrações para Azure. Implante o dispositivo como uma instância de VM do GCP para descobrir continuamente metadados de desempenho e do computador.
+Este tutorial mostra como descobrir instâncias da GCP (Google Cloud Platform) com a ferramenta Migrações para Azure: descoberta e avaliação usando um dispositivo leve de Migrações para Azure. O dispositivo é implantado em um servidor na GCP para descobrir continuamente metadados de desempenho e do computador.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar uma conta do Azure.
-> * Preparar instâncias de VM do GCP para descoberta.
-> * Criar um projeto do Migrações para Azure.
+> * Preparar o servidor na GCP para descoberta.
+> * Criar um projeto.
 > * Configurar o dispositivo das Migrações para Azure.
 > * Iniciar a descoberta contínua.
 
@@ -40,15 +40,16 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 **Requisito** | **Detalhes**
 --- | ---
-**Dispositivo** | Você precisa de uma instância de VM do GCP no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado.<br/> _Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019_.<br/><br/> – 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, de modo direto ou por meio de um proxy.
-**Instância de VM Windows** | Permite conexões de entrada na porta WinRM 5985 (HTTP) para que o dispositivo possa extrair metadados de configuração e desempenho.
-**Instâncias de VM Linux** | Permite conexões de entrada na porta 22 (TCP).
+**Dispositivo** | Você precisará ter um servidor na GCP no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado.<br/> _Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019_.<br/><br/> – 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, de modo direto ou por meio de um proxy.
+**Instâncias de servidor Windows** | Permite conexões de entrada na porta WinRM 5985 (HTTP) para que o dispositivo possa extrair metadados de configuração e desempenho.
+**Instâncias de servidor Linux** | Permite conexões de entrada na porta 22 (TCP).
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de usuário do Azure
 
-Para criar um projeto das Migrações para Azure e registrar o dispositivo de Migrações para Azure, você precisa de uma conta com:
-- Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
-- Permissões para registrar aplicativos do AAD (Azure Active Directory).
+Para criar um projeto e registrar o dispositivo de Migrações para Azure, você precisará ter uma conta com:
+
+* Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
+* Permissões para registrar aplicativos do AAD (Azure Active Directory).
 
 Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura. Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir as permissões da seguinte maneira:
 
@@ -56,7 +57,7 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Caixa de pesquisa para pesquisar a assinatura do Azure](./media/tutorial-discover-gcp/search-subscription.png)
 
-2. Na página **Assinaturas**, selecione a assinatura na qual você deseja criar um projeto das Migrações para Azure. 
+2. Na página **Assinaturas**, selecione a assinatura na qual deseja criar um projeto.
 3. Na assinatura, selecione **Controle de acesso (IAM)**  > **Verificar o acesso**.
 4. Em **Verificar o acesso**, procure a conta de usuário relevante.
 5. Em **Adicionar uma atribuição de função**, clique em **Adicionar**.
@@ -77,21 +78,21 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
 ## <a name="prepare-gcp-instances"></a>Preparar instâncias do GCP
 
-Configure uma conta que o dispositivo possa usar para acessar as instâncias de VM do GCP.
+Configure uma conta que o dispositivo possa usar para acessar os servidores na GCP.
 
-- Para **servidores Windows**:
-    - Configure uma conta de usuário local em computadores não ingressados no domínio, bem como uma conta de domínio em computadores não ingressados no domínio que você deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: 
-        - Usuários do gerenciamento remoto
-        - Usuários do monitor de desempenho
-        - Usuários do Log de Desempenho.
-- Para **servidores Linux**:
-    - Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. Se não for possível fornecer uma conta raiz, confira as instruções na [matriz de suporte](migrate-support-matrix-physical.md#physical-server-requirements) para obter uma alternativa.
-    - As Migrações para Azure usam a autenticação de senha ao descobrir instâncias da AWS. As instâncias da AWS não dão suporte para a autenticação de senha por padrão. Para descobrir a instância, habilite a autenticação de senha.
+* Para **servidores Windows**:
+    * Configure uma conta de usuário local em servidores não conectados ao domínio e uma conta de domínio em servidores conectados ao domínio que você deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: 
+        * Usuários do gerenciamento remoto
+        * Usuários do monitor de desempenho
+        * Usuários do Log de Desempenho.
+* Para **servidores Linux**:
+    * Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. Se não for possível fornecer uma conta raiz, confira as instruções na [matriz de suporte](migrate-support-matrix-physical.md#physical-server-requirements) para obter uma alternativa.
+    * As Migrações para Azure usam a autenticação de senha ao descobrir instâncias da AWS. As instâncias da AWS não dão suporte para a autenticação de senha por padrão. Para descobrir a instância, habilite a autenticação de senha.
         1. Entre em cada computador Linux.
         2. Abra o arquivo sshd_config: vi /etc/ssh/sshd_config
         3. No arquivo, localize a linha **PasswordAuthentication** e altere o valor para **yes**.
         4. Salve o arquivo e feche-o. Reinicie o serviço ssh.
-    - Se você estiver usando um usuário raiz para descobrir suas VMs do Linux, verifique se o logon raiz é permitido nas VMs.
+    * Se estiver usando um usuário raiz para descobrir os servidores Linux, verifique se o logon raiz é permitido nos servidores.
         1. Entrar em cada computador Linux
         2. Abra o arquivo sshd_config: vi /etc/ssh/sshd_config
         3. No arquivo, localize a linha **PermitRootLogin** e altere o valor para **yes**.
@@ -99,18 +100,18 @@ Configure uma conta que o dispositivo possa usar para acessar as instâncias de 
 
 ## <a name="set-up-a-project"></a>Configurar um projeto
 
-Configure um novo projeto das Migrações para Azure.
+Configure um novo projeto.
 
 1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
 2. Em **Serviços**, selecione **Migrações para Azure**.
 3. Em **Visão geral**, selecione **Criar projeto**.
-5. Em **Criar projeto**, selecione sua assinatura do Azure e o grupo de recursos. Crie um grupo de recursos, caso ainda não tenha um.
-6. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criá-lo. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
+4. Em **Criar projeto**, selecione sua assinatura do Azure e o grupo de recursos. Crie um grupo de recursos, caso ainda não tenha um.
+5. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criá-lo. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Caixas para nome e região do projeto](./media/tutorial-discover-gcp/new-project.png)
 
-7. Selecione **Criar**.
-8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
+6. Selecione **Criar**.
+7. Aguarde alguns minutos até que o projeto seja implantado. A ferramenta **Migrações para Azure: descoberta e avaliação** é adicionada por padrão ao novo projeto.
 
 ![Página mostrando a ferramenta de Avaliação de Servidor adicionada por padrão](./media/tutorial-discover-gcp/added-tool.png)
 
@@ -119,27 +120,28 @@ Configure um novo projeto das Migrações para Azure.
 
 ## <a name="set-up-the-appliance"></a>Configurar o dispositivo
 
-O dispositivo das Migrações para Azure é um dispositivo leve, usado pela Avaliação de Servidor das Migrações para Azure com o objetivo de fazer o seguinte:
+O dispositivo de Migrações para Azure é um dispositivo leve, usado pela ferramenta Migrações para Azure: descoberta e avaliação para fazer o seguinte:
 
-- Descobrir servidores locais.
-- Enviar metadados e dados de desempenho para servidores descobertos para a Avaliação de Servidor das Migrações para Azure.
+* Descobrir servidores locais.
+* Enviar metadados e dados de desempenho dos servidores descobertos para a ferramenta Migrações para Azure: descoberta e avaliação.
 
 [Saiba mais](migrate-appliance.md) sobre o dispositivo das Migrações para Azure.
 
 Para configurar o dispositivo:
-1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+
+1. Forneça um nome de dispositivo e gere uma chave do projeto no portal.
 1. Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
 1. Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
 1. Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-1. Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+1. Configure o dispositivo pela primeira vez e registre-o no projeto usando a chave do projeto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
+### <a name="1-generate-the-project-key"></a>1. Gerar a chave do projeto
 
-1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
-2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
-3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta de seus servidores virtuais do GCP. O nome deve ser alfanumérico com 14 caracteres ou menos.
-4. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir computadores durante a criação de recursos.
-5. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Em **Metas de Migração** > **Windows, Linux e SQL Server** > **Migrações para Azure: descoberta e avaliação**, selecione **Descobrir**.
+2. Em **Descobrir servidores** > **Os servidores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
+3. Em **1: Gerar chave do projeto**, forneça um nome para o dispositivo de Migrações para Azure que você vai configurar para a descoberta dos servidores virtuais da GCP. O nome deve ser alfanumérico com 14 caracteres ou menos.
+4. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir servidores durante a criação de recursos.
+5. Após a criação bem-sucedida dos recursos do Azure, uma **chave do projeto** será gerada.
 6. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
 ### <a name="2-download-the-installer-script"></a>2. Baixe o script do instalador.
@@ -200,7 +202,7 @@ Se você encontrar algum problema, poderá acessar os logs do script em C:\Progr
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
+Verifique se o dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
@@ -212,22 +214,22 @@ Configure o dispositivo pela primeira vez.
 2. Aceite os **termos de licença** e leia as informações de terceiros.
 1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
     - **Conectividade**: O aplicativo verifica se o servidor tem acesso à Internet. Se o servidor usar um proxy:
-        - Clique em **Configurar proxy** e especifique o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta.
+        - Clique em **Configurar proxy** e especifique o endereço do proxy (no formato http://ProxyIPAddress ou http://ProxyFQDN) ) e a porta de escuta.
         - Especifique as credenciais caso o proxy exija autenticação.
         - Há suporte apenas para o proxy HTTP.
         - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
     - **Sincronização do horário**: o horário é verificado. O horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta do servidor funcione corretamente.
-    - **Instalar as atualizações**: A avaliação do servidor das Migrações para Azure verifica se o dispositivo tem as últimas atualizações instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
+    - **Instalar as atualizações**: a ferramenta Migrações para Azure: descoberta e avaliação verifica se o dispositivo tem as atualizações mais recentes instaladas. Após a conclusão da verificação, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
+1. Cole a **chave do projeto** copiada do portal. Se você não tiver a chave, acesse **Migrações para Azure: descoberta e avaliação > Descobrir > Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
 1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
 
     ![Janela restrita mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
 
 1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
+1. Na nova guia, cole o código do dispositivo e conecte-se usando seu nome de usuário do Azure e a senha.
    
    Não há suporte para a entrada com um PIN.
 3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
@@ -240,8 +242,8 @@ Configure o dispositivo pela primeira vez.
 Agora, conecte-se do dispositivo aos servidores do GCP a serem descobertos e inicie a descoberta.
 
 1. Na **Etapa 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux** e clique em **Adicionar credenciais**.
-1. Para o Windows Server, selecione o tipo de origem como **Windows Server**, especifique um nome amigável para as credenciais, adicione o nome de usuário e a senha. Clique em **Salvar**.
-1. Se você estiver usando a autenticação baseada em senha para o servidor Linux, selecione o tipo de origem como **Servidor Linux (Baseado em senha)** , especifique um nome amigável para as credenciais, adicione o nome de usuário e a senha. Clique em **Salvar**.
+1. Para o servidor Windows, selecione o tipo de origem como **Windows Server**, especifique um nome amigável para as credenciais e adicione o nome de usuário e a senha. Clique em **Save**.
+1. Se estiver usando a autenticação baseada em senha para o servidor Linux, selecione o tipo de origem como **Servidor Linux (Baseado em senha)** , especifique um nome amigável para as credenciais e adicione o nome de usuário e a senha. Clique em **Save**.
 1. Se estiver usando a autenticação baseada em chave SSH para o servidor Linux, você poderá selecionar o tipo de origem como **Servidor Linux (Baseado em chave SSH)** , especificar um nome amigável para as credenciais, adicionar o nome de usuário, procurar e selecionar o arquivo de chave privada SSH. Clique em **Save**.
 
     - As Migrações para Azure dão suporte à chave privada SSH gerada pelo comando ssh-keygen usando os algoritmos RSA, DSA, ECDSA e ed25519.
@@ -257,7 +259,7 @@ Agora, conecte-se do dispositivo aos servidores do GCP a serem descobertos e ini
 4. Você pode **Adicionar um item** de cada vez ou **Adicionar vários itens** em um só lugar. Também há uma opção de fornecer detalhes do servidor por meio de **Importar CSV**.
 
     - Se você escolher **Adicionar um item**, poderá escolher o tipo de sistema operacional, especificar o nome amigável para as credenciais, adicionar **endereço IP/FQDN** do servidor e clicar em **Salvar**.
-    - Se você escolher **Adicionar vários itens**, poderá adicionar vários registros de uma vez especificando o **endereço IP/FQDN** do servidor com o nome amigável para as credenciais na caixa de texto. **Verifique** os registros adicionados e clique em **Salvar**.
+    - Se você escolher **Adicionar vários itens**, adicione vários registros de uma vez especificando o **endereço IP/FQDN** do servidor com o nome amigável para as credenciais na caixa de texto. Verifique** os registros adicionados e clique em **Salvar**.
     - Se você escolher **Importar CSV** _(selecionado por padrão)_ , poderá baixar um arquivo de modelo CSV, preencher o arquivo com o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais. Em seguida, importe o arquivo para o dispositivo, **verifique** os registros no arquivo e clique em **Salvar**.
 
 5. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com os servidores adicionados e mostrará o **Status de validação** na tabela em cada servidor.
@@ -274,9 +276,9 @@ Isso iniciará a descoberta. São necessários aproximadamente 2 minutos por ser
 Após a conclusão da descoberta, você poderá verificar se os servidores são exibidos no portal.
 
 1. Abra o painel das Migrações para Azure.
-2. Na página **Migrações para Azure – Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no ícone que exibe a contagem de **Servidores descobertos**.
+2. Na página **Migrações para Azure – Windows, Linux e SQL Server** > **Migrações para Azure: descoberta e avaliação**, clique no ícone que exibe a contagem de **Servidores descobertos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Avaliar os servidores do GCP](tutorial-assess-gcp.md) para migrar para VMs do Azure.
-- [Examinar os dados](migrate-appliance.md#collected-data---physical) que o dispositivo coleta durante a descoberta.
+* [Avaliar os servidores do GCP](tutorial-assess-gcp.md) para migrar para VMs do Azure.
+* [Examinar os dados](migrate-appliance.md#collected-data---physical) que o dispositivo coleta durante a descoberta.

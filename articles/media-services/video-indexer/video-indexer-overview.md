@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783794"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100530222"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Mídia do Azure?
 
@@ -84,7 +84,7 @@ A lista a seguir mostra os insights que você pode recuperar dos vídeos usando 
 * **Enumeração de alto-falante**: Mapeia e entende qual locutor disse quais palavras e quando. Dezesseis alto-falantes podem ser detectados em um único arquivo de áudio.
 * **Estatísticas de alto-falante**: Fornece estatísticas das taxas de fala dos alto-falantes.
 * **Moderação de conteúdo visual**: Detecta texto explícito na transcrição de áudio.
-* **Efeitos de áudio**: Identifica efeitos de áudio, como palmas, fala e silêncio.
+* **Efeitos de áudio** (visualização pública): detecta os seguintes efeitos de áudio nos segmentos de não fala do conteúdo: gunshot, cortar de vidro, alarme, Siren, explosão, cachorro latido, incontestável, risadas, reações de torcida (com muita paz, Clapping e booing) e silêncio. Observação: o conjunto completo de eventos está disponível somente ao escolher ' análise de áudio avançada ' na predefinição de carregamento; caso contrário, apenas ' silêncio ' e ' reação a '
 * **Detecção de emoções**: Identifica emoções com base na fala (o que está sendo dito) e no tom de voz (como está sendo dito). A emoção pode ser alegria, tristeza, raiva ou medo.
 * **Tradução**: Cria traduções da transcrição de áudio em 54 idiomas diferentes.
 

@@ -1,18 +1,18 @@
 ---
 title: Reiniciar o servidor-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo descreve como você pode reiniciar um banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e812b7872dd4d41d9a6cb87d75403524106c5981
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: af870c495ae707dd8319645eca979f0906234b4f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706857"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608367"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Reiniciar o banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 Este tópico descreve como você pode reiniciar um servidor do Banco de Dados do Azure para PostgreSQL. Você talvez precise reiniciar o servidor por razões de manutenção, o que causa uma breve interrupção, conforme o servidor executa a operação.
@@ -30,7 +30,7 @@ Para concluir este guia de instruções:
 
 - Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="restart-the-server"></a>Reiniciar o servidor
+## <a name="restart-the-server"></a>Reinicie o servidor
 
 Reinicie o servidor com o seguinte comando:
 

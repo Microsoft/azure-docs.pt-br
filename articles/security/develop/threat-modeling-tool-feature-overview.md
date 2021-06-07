@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90980668"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
@@ -39,7 +39,7 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Rotular                               | Detalhes      |
+| Label                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
@@ -54,7 +54,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | --------------------------------------- | ------------ |
 | **Abrir** | Abre um novo arquivo. |
 | **Salvar** | Salva o arquivo atual. |
-| **Design** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
+| **Projetar** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
 | **Analisar** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante às novas guias no Excel). |
 | **Excluir Diagrama** | Exclui o diagrama atual. |
@@ -63,7 +63,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | **Ampliar/Reduzir** | Amplia e reduz o diagrama para uma exibição melhor. |
 | **Comentários** | Abre o Fórum do MSDN. |
 
-### <a name="canvas"></a>Canvas
+### <a name="canvas"></a>Tela
 
 A tela é o espaço onde você arrasta e solta elementos. Arrastar e soltar é a maneira mais rápida e eficiente de criar modelos. Você também pode clicar com o botão direito e selecionar itens do menu para adicionar versões genéricas de elementos, conforme mostrado:
 
@@ -150,9 +150,9 @@ Você pode conectar elementos de duas maneiras:
 
 ![Antes](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Depois
+#### <a name="after"></a>After (após)
 
-![Depois](./media/threat-modeling-tool-feature-overview/properties2.png)
+![After (após)](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Mensagens
 
@@ -174,7 +174,7 @@ Depois de criar seu diagrama, selecione o símbolo de **Análise** (lupa) na bar
 
 Quando você seleciona uma ameaça, você pode usar três funções diferentes:
 
-| Recurso                               | Informações      |
+| Recurso                               | Informações do      |
 | --------------------------------------- | ------------ |
 | **Indicador de leitura** | <p>A ameaça é marcada como leitura, o que ajuda a acompanhar os itens que você leu.</p><p>![Indicador de lido/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |

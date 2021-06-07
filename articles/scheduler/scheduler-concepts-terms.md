@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368155"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
@@ -85,11 +85,11 @@ O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execu�
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**Action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
+| [**action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes para a ação secundária que é executada se a ação principal falha |
 | [**Recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes repetir uma ação | 
-| [**status**](#state) | Sim | Os detalhes do estado atual do trabalho |
+| [**state**](#state) | Sim | Os detalhes do estado atual do trabalho |
 | [**Estado**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
 ||||
 
@@ -252,7 +252,7 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 | **intervalo** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
 | **agendamento** | Não | Varia | Os detalhes de agendamentos mais avançados e complexos. Veja **hours**, **minutes**, **weekDays**, **months** e **monthDays** | 
 | **duração** | Não | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
-| **alguns** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
+| **minutes** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
 | **months** | Não | 1 a 12 | Uma matriz com os meses para quando executar o trabalho | 
 | **monthDays** | Não | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
 | **Dias da semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 

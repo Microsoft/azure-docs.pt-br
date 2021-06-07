@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8dbf3b5de4b908eb831158b73b2b17472bc4895e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9aa394cda245bd3a457a16c19660bfe08553d14d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020956"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058877"
 ---
 # <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Quais são as comparações entre os recursos de produto da CDN do Azure?
 
@@ -57,7 +57,7 @@ A tabela a seguir compara os recursos disponíveis em cada produto.
 | [Autenticação de token](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [Proteção DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Traga o seu próprio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** |  | **&#x2713;** | **&#x2713;** |
-| Versões do TLS com suporte | TLS 1.2, TLS 1.0/1.1 – [Configurável](/rest/api/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
+| Versões do TLS com suporte | TLS 1.2, TLS 1.0/1.1 – [Configurável](/rest/api/cdn/cdn/customdomains/enablecustomhttps#usermanagedhttpsparameters) | TLS 1.2 | TLS 1.2 | TLS 1.2 |
 ||||
 | **Análise e relatórios** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
 | [Logs de diagnóstico do Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -71,7 +71,7 @@ A tabela a seguir compara os recursos disponíveis em cada produto.
 | **Facilidade de uso** | **Microsoft Standard** | **Akamai Standard** | **Verizon Standard** | **Verizon Premium** | 
 | Fácil integração com serviços do Azure como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Aplicativos Web](cdn-add-to-web-app.md) e [Serviços de Mídia](../media-services/previous/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Gerenciamento via [API REST](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) ou [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Tipos de MIME de compactação](./cdn-improve-performance.md)  |Somente padrão |Configurável |Configurável  |Configurável  |
+| [Tipos de MIME de compactação](./cdn-improve-performance.md)  |Configurável |Configurável |Configurável  |Configurável  |
 | Codificações de compactação  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## <a name="migration"></a>Migração

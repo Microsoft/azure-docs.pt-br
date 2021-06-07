@@ -4,18 +4,18 @@ description: Neste artigo, mostramos uma arquitetura para executar um ambiente I
 author: njray
 manager: edprice
 editor: edprice
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 711c1ba49ad0f347d30f2c8c40352ed95c1fd057
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 4ab0dfabc5fc4773413e7009bb8a16e6b77d5c09
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221530"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950188"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
 
@@ -96,9 +96,9 @@ Um grande cluster DB2 pureScale pode exigir 200 TB (terabytes) ou mais de armaze
 
 A IBM recomenda a rede InfiniBand para todos os membros em um cluster DB2 pureScale. O DB2 pureScale também usa RDMA (acesso remoto direto à memória), quando disponível, para os CFs.
 
-Durante a instalação, você cria um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) do Azure para conter todas as máquinas virtuais. Em geral, os recursos são agrupados com base no tempo de vida e em quem vai gerenciá-los. As máquinas virtuais nessa arquitetura exigem [rede acelerada](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). É um recurso do Azure que fornece latência de rede consistente e ultrabaixa por meio de SR-IOV (virtualização de E/S de raiz única) para uma máquina virtual.
+Durante a instalação, você cria um [grupo de recursos](../../../../azure-resource-manager/management/overview.md) do Azure para conter todas as máquinas virtuais. Em geral, os recursos são agrupados com base no tempo de vida e em quem vai gerenciá-los. As máquinas virtuais nessa arquitetura exigem [rede acelerada](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). É um recurso do Azure que fornece latência de rede consistente e ultrabaixa por meio de SR-IOV (virtualização de E/S de raiz única) para uma máquina virtual.
 
-Cada máquina virtual do Azure é implantada em uma rede virtual que tem sub-redes: main, front-end Gluster FS (gfsfe), back-end Gluster FS (bfsbe), DB2 pureScale (db2be) e front-end dB2 purescale (db2fe). O script de instalação também cria as [NICs](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics) primárias nas máquinas virtuais na sub-rede principal.
+Cada máquina virtual do Azure é implantada em uma rede virtual que tem sub-redes: main, front-end Gluster FS (gfsfe), back-end Gluster FS (bfsbe), DB2 pureScale (db2be) e front-end dB2 purescale (db2fe). O script de instalação também cria as [NICs](../../../windows/multiple-nics.md) primárias nas máquinas virtuais na sub-rede principal.
 
 Use [grupos de segurança de rede](../../../../virtual-network/virtual-network-vnet-plan-design-arm.md) para restringir o tráfego de rede dentro da rede virtual e para isolar as sub-redes.
 

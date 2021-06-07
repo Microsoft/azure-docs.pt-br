@@ -3,14 +3,14 @@ title: Integração de item de trabalho (versão prévia)-Application Insights
 description: Saiba como criar itens de trabalho no GitHub ou no Azure DevOps com dados Application Insights inseridos neles.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101122"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101731911"
 ---
-# <a name="work-item-integration-preview"></a>Integração de item de trabalho (versão prévia)
+# <a name="work-item-integration-preview"></a>Integração do item de trabalho (versão prévia)
 
 A funcionalidade de integração de itens de trabalho permite que você crie facilmente itens de trabalho no GitHub ou no Azure DevOps que têm dados relevantes Application Insights inseridos neles.
 
@@ -53,7 +53,7 @@ Para editar o modelo, vá para a guia **itens de trabalho** em *Configurar* e se
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Captura de tela da guia item de trabalho com o ícone Editar lápis selecionado.":::
 
-Selecione Editar ![ ícone de edição ](./media/work-item-integration/edit-icon.png) na parte superior para começar a editar o modelo. Os modelos de item de trabalho são baseados em [pastas de trabalho do Azure monitor](../platform/workbooks-overview.md). As informações do item de trabalho são geradas usando a linguagem de consulta de palavra-chave. Você pode modificar as consultas para adicionar mais contexto essencial à sua equipe. Quando terminar de editar, salve a pasta de trabalho selecionando o ícone salvar ícone ![ Salvar ](./media/work-item-integration/save-icon.png) na barra de ferramentas superior.
+Selecione Editar ![ ícone de edição ](./media/work-item-integration/edit-icon.png) na parte superior para começar a editar o modelo. Os modelos de item de trabalho são baseados em [pastas de trabalho do Azure monitor](../visualize/workbooks-overview.md). As informações do item de trabalho são geradas usando a linguagem de consulta de palavra-chave. Você pode modificar as consultas para adicionar mais contexto essencial à sua equipe. Quando terminar de editar, salve a pasta de trabalho selecionando o ícone salvar ícone ![ Salvar ](./media/work-item-integration/save-icon.png) na barra de ferramentas superior.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Captura de tela da pasta de trabalho do modelo de item de trabalho no modo de edição." lightbox="./media/work-item-integration/edit-workbook.png":::
 

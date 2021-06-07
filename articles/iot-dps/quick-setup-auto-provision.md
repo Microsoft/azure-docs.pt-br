@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 644635d1ab7b0a43c8df3e10bbbd02d1ea67a94a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e1bd521e9798b09f7930b43ab95c7cd7ef9e693d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297225"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101737912"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Início Rápido: Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure
 
@@ -25,8 +25,9 @@ Neste início rápido, você aprenderá a configurar o Serviço de Provisionamen
 * Usar o Portal do Azure para criar um Serviço de Provisionamento de Dispositivos no Hub IoT e obter o escopo da ID
 * Vincular o Hub IoT ao Serviço de Provisionamento de Dispositivos
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Você precisará de uma assinatura do Azure para começar a usar este artigo. Você pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), se ainda não tiver uma.
 
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT

@@ -10,10 +10,10 @@ ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93098647"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo de console do Node.js com o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
@@ -119,12 +119,12 @@ O SDK do JavaScript usa os termos genéricos *contêiner* e *item*. Um contêine
 
 ## <a name="connect-to-the-azure-cosmos-account"></a>Conectar-se a uma conta do Azure Cosmos
 
-No arquivo *app.js* , copie e cole o código a seguir para usar o ponto de extremidade e a chave salvos anteriormente para criar um objeto CosmosClient.
+No arquivo *app.js*, copie e cole o código a seguir para usar o ponto de extremidade e a chave salvos anteriormente para criar um objeto CosmosClient.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Caso esteja se conectando ao **Emulador do Cosmos DB** , desabilite a verificação de TLS para o processo do nó:
+> Caso esteja se conectando ao **Emulador do Cosmos DB**, desabilite a verificação de TLS para o processo do nó:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -158,7 +158,7 @@ O Azure Cosmos DB é compatível com a substituição de conteúdo dos itens. Co
 
 ## <a name="delete-an-item"></a><a id="DeleteItem"></a>Excluir um item
 
-O Azure Cosmos DB é compatível com a exclusão de itens JSON. O código a seguir mostra como obter um item por sua ID e excluí-lo. Copie e cole o código a seguir no arquivo *app.js* :
+O Azure Cosmos DB é compatível com a exclusão de itens JSON. O código a seguir mostra como obter um item por sua ID e excluí-lo. Copie e cole o código a seguir no arquivo *app.js*:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="DeleteItem":::
 

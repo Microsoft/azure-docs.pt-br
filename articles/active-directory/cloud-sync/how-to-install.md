@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613022"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalar o agente de provisionamento do Azure AD Connect
@@ -55,7 +55,7 @@ Para instalar o agente, siga estas etapas.
    ![Tela Pacote do agente de provisionamento do Microsoft Azure AD Connect](media/how-to-install/install-1.png)</br>
  9. Após a conclusão desta operação, o assistente de configuração é iniciado. Entre com sua conta de administrador global do Azure AD.
  10. Na **tela configurar conta de serviço** , selecione **criar gMSA** ou **usar o gMSA personalizado**.  Se você permitir que o agente crie a conta, ele será nomeado provAgentgMSA $. Se você especificar **usar gMSA personalizado** , será solicitado a fornecer essa conta.
- 11. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Avançar**.  
+ 11. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Próximo**.  
    ![Criar gMSA](media/how-to-install/install-12.png)</br>
  12. Na tela **Active Directory Connect**, selecione **Adicionar diretório**. Em seguida, entre com sua conta de administrador do Active Directory. Esta operação adiciona seu diretório local. 
  13. Opcionalmente, você pode gerenciar a preferência de controladores de domínio que o agente usará selecionando **selecionar prioridade do controlador de domínio** e ordenando a lista de controladores de domínio.   Clique em **OK**.
@@ -107,6 +107,6 @@ Para verificar se o agente está em execução, siga estas etapas.
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)
 - [Crie uma nova configuração para Azure ad Connect sincronização de nuvem](how-to-configure.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5ef40b048fbc50174afb662aecd3335d97eb0106
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: bec5cafaf7d506d9ab25228c680d00af91dbf3d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095965"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102200131"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Linha de base de segurança do Azure para o Gerenciador de firewall do Azure
 
@@ -226,7 +226,7 @@ Use funções internas para alocar a permissão e somente crie uma função pers
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) 
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -338,7 +338,7 @@ Aplique marcas aos recursos, grupos de recursos e assinaturas do Azure para orga
 
 **Diretrizes**: Remova os recursos do Gerenciador de firewall do Azure quando eles não forem mais necessários para minimizar a superfície de ataque. Os usuários podem gerenciar seus recursos do Gerenciador de firewall do Azure por meio das APIs portal do Azure, CLI ou REST.
 
-- [CLI de política de firewall do Azure](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [CLI de política de firewall do Azure](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [CLI de rede do Azure](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -403,9 +403,9 @@ Atualmente, as ações que envolvem grupos de coleta de regras de política de f
 
 Atualmente, as ações que envolvem grupos de coleta de regras de política de firewall não são suportadas pelo log de atividades, esse é um problema conhecido e está sendo abordado em atualizações futuras.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -421,7 +421,7 @@ Além disso, habilite e integre seus dados de log para o Azure Sentinel ou um SI
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -435,9 +435,9 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de espaço de trabalho do armazenamento do Azure, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivamento.
 
-- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -557,7 +557,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 - [Referência de modelo de política de firewall do Azure](/azure/templates/microsoft.network/firewallpolicies)
 
-- [CLI de política de firewall do Azure](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [CLI de política de firewall do Azure](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Ilustração da implementação de guardrails na zona de aterrissagem de escala empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

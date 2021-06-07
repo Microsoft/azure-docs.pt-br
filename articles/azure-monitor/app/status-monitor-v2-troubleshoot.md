@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a6fc27321fa924b7ef8f9bd39b5824bb6fe3c72
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2641218fa9ddef65c45f2f1a9c9ce807cef35048
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732571"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642738"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solucionando problemas do agente de Application Insights (anteriormente denominado Status Monitor v2)
 
@@ -55,7 +55,7 @@ Você pode usar ferramentas de solução de problemas para ver o comportamento d
 ### <a name="powershell-versions"></a>Versões do PowerShell
 Este produto foi escrito e testado usando o PowerShell v 5.1.
 Este módulo não é compatível com o PowerShell versões 6 ou 7.
-É recomendável usar o PowerShell v 5.1 juntamente com as versões mais recentes. Para obter mais informações, consulte [usando o PowerShell 7 lado a lado com o powershell 5,1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
+É recomendável usar o PowerShell v 5.1 juntamente com as versões mais recentes. Para obter mais informações, consulte [usando o PowerShell 7 lado a lado com o powershell 5,1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflito com a configuração compartilhada do IIS
 
@@ -153,7 +153,15 @@ Examine a [referência da API](status-monitor-v2-api-reference.md) para obter um
 4. Tente navegar até seu aplicativo.
 5. Depois que o aplicativo for carregado, retorne para PerfView e selecione **parar coleta**.
 
+### <a name="how-to-capture-full-sql-command-text"></a>Como capturar texto completo do comando SQL
 
+Para capturar o texto do comando SQL completo, você precisa modificar o arquivo de applicationinsights.config com o seguinte:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

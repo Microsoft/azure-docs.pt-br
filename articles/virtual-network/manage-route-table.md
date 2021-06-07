@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220585"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100574127"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -85,7 +85,7 @@ Acesse o [portal do Azure](https://portal.azure.com) para gerenciar sua rede vir
 
 Para saber mais sobre configurações comuns do Azure, veja as seguintes informações:
 
-- [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
+- [Log de atividades](../azure-monitor/essentials/platform-logs-overview.md)
 - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
 - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -333,7 +333,7 @@ Após uma breve espera, o Azure informa o tipo do próximo salto e a ID da rota 
 
 Para realizar tarefas em tabelas de rota e rotas, sua conta deve ser atribuída à [função de colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                          |   Name                                                  |
+| Ação                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar tabela de rotas                        |

@@ -8,95 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575933"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286127"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço de Pesquisa Visual Computacional do Azure fornece acesso a algoritmos avançados que processam imagens e retornam informações com base nos recursos visuais de seu interesse. Por exemplo, a Pesquisa Visual Computacional pode determinar se uma imagem apresenta conteúdo para adulto, localizar marcas ou objetos específicos ou encontrar rostos humanos.
+O serviço de Pesquisa Visual Computacional do Azure fornece acesso a algoritmos avançados que processam imagens e retornam informações com base nos recursos visuais de seu interesse. 
 
-Você pode criar aplicativos da Pesquisa Visual Computacional por meio de um [SDK da biblioteca de clientes](./quickstarts-sdk/client-library.md) ou chamando a [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) diretamente. Esta página cobre amplamente o que você pode fazer com a Pesquisa Visual Computacional.
-
-## <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
-
-A Pesquisa Visual Computacional inclui funcionalidades de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md). Você pode usar a nova API de leitura para extrair texto impresso e manuscrito de imagens e documentos. Ela usa os modelos baseados em aprendizado profundo e trabalha com texto em uma variedade de superfícies e telas de fundo. Eles incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
+| Serviço|Descrição|
+|---|---|
+|[OCR (reconhecimento óptico de caracteres)](overview-ocr.md)|O serviço de OCR (reconhecimento óptico de caracteres) extrai textos de imagens. Use a nova API de Leitura para extrair um texto impresso e manuscrito de imagens e documentos. Ela usa os modelos baseados em aprendizado profundo e trabalha com textos em uma variedade de superfícies e telas de fundo. Eles incluem documentos comerciais, faturas, recibos, cartazes, cartões de visita, cartas e quadros de comunicação. As APIs de OCR dão suporte à extração de textos impressos em [vários idiomas](./language-support.md). Siga o [guia de início rápido do OCR](quickstarts-sdk/client-library.md) para obter uma introdução.|
+|[Análise de imagens](overview-image-analysis.md)| O serviço de Análise de Imagem extrai muitos recursos visuais de imagens, como objetos, rostos, conteúdo para adulto e descrições de texto geradas automaticamente. Siga o [guia de início rápido da Análise de Imagem](quickstarts-sdk/image-analysis-client-library.md) para obter uma introdução.|
+| [Análise Espacial](intro-to-spatial-analysis-public-preview.md)| O serviço de Análise Espacial analisa a presença e o movimento de pessoas em um feed de vídeo e produz eventos aos quais outros sistemas podem responder. Instale o [contêiner de Análise Espacial](spatial-analysis-container.md) para obter uma introdução.|
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Pesquisa Visual Computacional para gerenciamento de ativo digital
 
 A Pesquisa Visual Computacional pode viabilizar muitos cenários de gerenciamento de ativos digitais (DAM). O DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar permissões e direitos digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos visíveis, rostos, objetos, cores e assim por diante. Ou é possível que você queira [gerar legendas para imagens](./Tutorials/storage-lab-tutorial.md) automaticamente e vincular palavras-chave que possam ser pesquisadas. Para ter uma solução completa de DAM usando os Serviços Cognitivos, a Pesquisa Cognitiva do Azure e os relatórios inteligentes, confira o [Guia do Acelerador de Solução de Mineração de Conhecimento](https://github.com/Azure-Samples/azure-search-knowledge-mining) no GitHub. Para ter outros exemplos de DAM, confira o repositório [Modelos de Solução de Pesquisa Visual Computacional](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
-
-## <a name="analyze-images-for-insight"></a>Analisar imagens quanto a insights
-
-Analise imagens para fornecer insights sobre os recursos visuais e as características. Todos os recursos na tabela a seguir são fornecidos pela API [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Siga nosso [início rápido](./quickstarts-sdk/client-library.md) para começar.
-
-
-### <a name="tag-visual-features"></a>Marcar recursos visuais
-
-Identificar e marcar recursos visuais em uma imagem, de um conjunto de milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as marcas forem ambíguas ou não pertencerem a um conhecimento comum, a resposta da API fornecerá dicas para esclarecer o contexto da tag. A marcação não está limitada ao assunto principal, como uma pessoa em primeiro plano, mas também inclui cenário (interno ou externo), móveis, ferramentas, plantas, animais, acessórios, gadgets e outros. [Marcar recursos visuais](concept-tagging-images.md)
-
-### <a name="detect-objects"></a>Detectar objetos
-
-A detecção de objetos é semelhante à marcação, mas a API retorna as coordenadas da caixa delimitadora para cada tag aplicada. Por exemplo, se uma imagem contiver um cachorro, um gato e uma pessoa, a operação Detect listará esses objetos junto com as coordenadas na imagem. Você pode usar essa funcionalidade para processar ainda mais as relações entre os objetos em uma imagem. Também permite que você saiba quando há várias instâncias da mesma tag em uma imagem. [Detectar objetos](concept-object-detection.md)
-
-### <a name="detect-brands"></a>Detectar marcas
-
-Identifique as marcas comerciais em imagens ou vídeos de um banco de dados de milhares de logotipos globais. Você pode usar esse recurso, por exemplo, para descobrir quais marcas são mais populares em mídia social ou mais predominantes no posicionamento de produto de mídia. [Detectar marcas](concept-brand-detection.md)
-
-### <a name="categorize-an-image"></a>Categorizar uma imagem
-
-Identifique e categorize uma imagem inteira usando uma [taxonomia de categoria](Category-Taxonomy.md) com hierarquias hereditárias de pai/filho. As categorias podem ser usadas autonomamente ou com nossos novos modelos de marcação.<br/>Atualmente, o inglês é o único idioma com suporte para a marcação e categorização de imagens. [Categorizar uma imagem](concept-categorizing-images.md)
-
-### <a name="describe-an-image"></a>Descrever uma imagem
-
-Gere uma descrição de uma imagem inteira em linguagem compreendida por humanos, usando frases completas. Os algoritmos da Pesquisa Visual Computacional geram várias descrições baseadas nos objetos identificados na imagem. Cada uma das descrições é avaliada e uma pontuação de confiança é gerada. Uma lista é então retornada, ordenada pela pontuação de confiança mais alta à mais baixa. [Descrever uma imagem](concept-describing-images.md)
-
-### <a name="detect-faces"></a>Detectar faces
-
-Detecte rostos em uma imagem e forneça informações sobre cada rosto detectado. A Pesquisa Visual Computacional retorna as coordenadas, o retângulo, o sexo e a idade de cada rosto detectado.<br/>A Pesquisa Visual Computacional fornece um subconjunto da funcionalidade do serviço [Detecção Facial](../face/index.yml). Você pode usar o serviço de Detecção Facial para uma análise mais detalhada, como identificação facial e detecção de pose. [Detectar faces](concept-detecting-faces.md)
-
-### <a name="detect-image-types"></a>Detectar tipos de imagem
-
-Detecte características sobre uma imagem, por exemplo, se uma imagem é um desenho de linha se é, possivelmente, um clip-art. [Detectar tipos de imagem](concept-detecting-image-types.md)
-
-### <a name="detect-domain-specific-content"></a>Detectar conteúdo específico de um domínio
-
-Use modelos de domínio para detectar e identificar conteúdo específico de um assunto em uma imagem, como celebridades e pontos turísticos. Por exemplo, se uma imagem contiver pessoas, a Pesquisa Visual Computacional poderá usar um modelo de domínio para celebridades a fim de determinar se as pessoas detectadas na imagem são celebridades conhecidas. [Detectar conteúdo específico de um domínio](concept-detecting-domain-content.md)
-
-### <a name="detect-the-color-scheme"></a>Detectar o esquema de cores
-
-Analise o uso de cores em uma imagem. A Pesquisa Visual Computacional pode determinar se uma imagem está em preto e branco ou em cores e, para imagens com cores, identificar as cores dominantes e de detalhes. [Detectar o esquema de cores](concept-detecting-color-schemes.md)
-
-### <a name="generate-a-thumbnail"></a>Gerar uma miniatura
-
-Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Pesquisa Visual Computacional primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. A Pesquisa Visual Computacional corta a imagem para atender aos requisitos da área de interesse. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original, dependendo de suas necessidades. [Gerar uma miniatura](concept-generating-thumbnails.md)
-
-### <a name="get-the-area-of-interest"></a>Obter a área de interesse
-
-Analise o conteúdo de uma imagem para retornar as coordenadas da *área de interesse*. Em vez de cortar a imagem e gerar uma miniatura, a Pesquisa Visual Computacional retorna as coordenadas da caixa delimitadora da região, de modo que o aplicativo de chamada possa modificar a imagem original conforme desejado. [Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)
-
-## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
-
-Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto](concept-detecting-adult-content.md) em uma imagem e retornar pontuações de confiança para diferentes classificações. O limite para a sinalização de conteúdo pode ser definido em uma escala deslizante para acomodar suas preferências.
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
-
-Use os contêineres da Pesquisa Visual Computacional para implantar recursos de API no local. Esses contêineres do Docker permitem que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. A Pesquisa Visual Computacional oferece os seguintes contêineres:
-
-* O [contêiner de OCR de leitura da Pesquisa Visual Computacional (versão prévia)](computer-vision-how-to-install-containers.md) permite que você reconheça textos impressos e manuscritos em imagens.
-* O [contêiner de análise espacial da Pesquisa Visual Computacional (versão prévia)](spatial-analysis-container.md) permite que você analise vídeos de streaming em tempo real para entender as relações espaciais existentes entre as pessoas e a movimentação delas nos ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 
@@ -113,6 +53,8 @@ Assim como ocorre com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Comece a usar a Pesquisa Visual Computacional seguindo o guia de início rápido na linguagem de desenvolvimento de sua preferência:
+Siga um guia de início rápido para implementar e executar um serviço na linguagem de desenvolvimento de sua preferência.
 
-- [Início Rápido: Bibliotecas de clientes ou API REST da Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md)
+* [Guia de início rápido: OCR (reconhecimento óptico de caracteres)](quickstarts-sdk/client-library.md)
+* [Guia de início rápido: Análise de Imagem](quickstarts-sdk/image-analysis-client-library.md)
+* [Guia de início rápido: Contêiner de Análise Espacial](spatial-analysis-container.md)

@@ -1,35 +1,27 @@
 ---
 title: Implantar e configurar a Solução VMware no Azure
-description: Saiba como usar as informações coletadas na fase de planejamento para implantar a nuvem privada da Solução VMware no Azure.
+description: Saiba como usar as informações coletadas na fase de planejamento para implantar e configurar a nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760887"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103462449"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
-Neste artigo, você usará as informações da [seção de planejamento](production-ready-deployment-steps.md) para implantar a Solução VMware no Azure. 
+Neste artigo, você usará as informações da [seção de planejamento](production-ready-deployment-steps.md) para implantar e configurar a Solução VMware no Azure. 
 
 >[!IMPORTANT]
 >Se você ainda não tiver definido as informações, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
 
-## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Criar uma nuvem privada da Solução VMware no Azure
 
-
-## <a name="deploy-azure-vmware-solution"></a>Implantar a Solução VMware no Azure
-
-Use as informações coletadas no artigo [Planejando a implantação da Solução VMware no Azure](production-ready-deployment-steps.md):
-
->[!NOTE]
->Para implantar a Solução VMware no Azure, você precisa ter, no mínimo, o nível de colaborador na assinatura.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Siga os pré-requisitos e as etapas do tutorial [Criar uma nuvem privada da Solução VMware no Azure](tutorial-create-private-cloud.md). Você pode criar uma nuvem privada da Solução VMware no Azure usando o [portal do Azure](tutorial-create-private-cloud.md#azure-portal) ou a [CLI do Azure](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Para obter uma visão geral de ponta a ponta desta etapa, assista ao vídeo [Solução VMware no Azure: implantação](https://www.youtube.com/embed/gng7JjxgayI).
@@ -43,7 +35,7 @@ Depois de implantar a Solução VMware no Azure, você criará o jumpbox da rede
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Criar o jumpbox da Solução VMware no Azure" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Para criar uma VM (máquina virtual) na rede virtual que você [identificou ou criou como parte do processo de implantação](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), siga estas instruções: 
+Para criar uma VM (máquina virtual) na rede virtual que você [identificou ou criou como parte do processo de implantação](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), siga estas instruções: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -60,7 +52,7 @@ Se você não tiver definido uma rede virtual na etapa de implantação e sua in
 
 O jumpbox está na rede virtual na qual a Solução VMware no Azure se conecta por meio do circuito ExpressRoute dela.  No Azure, acesse o adaptador de rede do jumpbox e [veja as rotas em vigor](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Na lista de rotas em vigor, serão exibidas as redes criadas como parte da implantação da Solução VMware no Azure. Você verá várias redes que foram derivadas da rede [`/22` que você definiu](production-ready-deployment-steps.md#ip-address-segment) durante a [etapa de implantação](#deploy-azure-vmware-solution) anteriormente neste artigo.
+Na lista de rotas em vigor, serão exibidas as redes criadas como parte da implantação da Solução VMware no Azure. Você verá várias redes que foram derivadas da [`/22` rede que você definiu](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) ao [criar uma nuvem privada](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verificar as rotas de rede anunciadas da Solução VMware no Azure para a Rede Virtual do Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -68,13 +60,20 @@ Neste exemplo, a rede 10.74.72.0/22 foi inserida durante a implantação, deriva
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Conectar-se e entrar no vCenter e no NSX-T
 
-Faça logon no jumpbox que você criou na etapa anterior. Depois de fazer logon, abra um navegador da Web, navegue para o console de administração do vCenter e do NSX-T e entre nele.  
+Faça logon no jumpbox que você criou na etapa anterior. Depois de fazer logon, abra um navegador da Web, navegue para o vCenter e o NSX-T Manager e entre neles.  
 
-Você pode identificar os endereços IP e as credenciais do console de administração do vCenter-T e do NSX-T no portal do Azure.  Selecione sua nuvem privada e, na exibição **Visão geral**, selecione **Identidade > Padrão**. 
+Você pode identificar os endereços IP e as credenciais do console do vCenter-T e do NSX-T Manager no portal do Azure.  Selecione sua nuvem privada e selecione **Gerenciar** > **Identidade**.
+
+>[!TIP]
+>Selecione **Gerar uma nova senha** para gerar novas senhas do vCenter e do NSX-T.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exibir URLs e credenciais da nuvem privada do vCenter e do NSX Manager." border="true":::
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware no Azure
 
-O NSX-T é usado para criar segmentos de rede no ambiente da Solução VMware no Azure.  Você definiu as redes que deseja criar na [seção de planejamento](production-ready-deployment-steps.md).  Se você não as tiver definido, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
+Use o NSX-T Manager para criar segmentos de rede no ambiente da Solução VMware no Azure.  Você definiu as redes que deseja criar na [seção de planejamento](production-ready-deployment-steps.md).  Se você não as tiver definido, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
 
 >[!IMPORTANT]
 >Verifique se o bloco de endereço de rede CIDR que você definiu não se sobrepõe a nada nos ambientes do Azure ou locais.  

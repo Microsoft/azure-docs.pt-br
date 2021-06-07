@@ -1,6 +1,6 @@
 ---
-title: Disco do Azure Data Box solucionar problemas de cópia de dados | Microsoft Docs
-description: Descreve como solucionar problemas vistos durante a cópia de dados no Disco do Azure Data Box usando logs.
+title: Solucionar problemas de cópia de dados do Azure Data Box Disk | Microsoft Docs
+description: Descreve como solucionar problemas encontrados durante a cópia de dados no Azure Data Box Disk usando logs.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,20 +9,20 @@ ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85849183"
 ---
-# <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Solucionar problemas de cópia de dados no Disco do Azure Data Box
+# <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Solucionar problemas de cópia de dados no Azure Data Box Disk
 
-Este artigo se aplica a Microsoft Azure Disco do Data Box e descreve como solucionar quaisquer problemas que você veja ao copiar os dados para os discos. O artigo também aborda problemas ao usar a ferramenta de cópia de divisão.
+Este artigo se aplica ao Microsoft Azure Data Box Disk e descreve como solucionar problemas encontrados ao copiar os dados nos discos. O artigo também aborda problemas ao usar a ferramenta de cópia dividida.
 
 
 ## <a name="data-copy-issues-when-using-a-linux-system"></a>Problemas de cópia de dados ao usar um sistema Linux
 
-Esta seção detalha alguns dos principais problemas enfrentados ao usar um cliente Linux para copiar dados em discos.
+Esta seção detalha alguns dos principais problemas enfrentados ao usar um cliente Linux para copiar dados nos discos.
 
 ### <a name="issue-drive-getting-mounted-as-read-only"></a>Problema: unidade sendo montada como somente leitura
  
@@ -40,16 +40,16 @@ Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
 
 **Resolução**
 
-Execute as seguintes etapas em seu sistema Linux:
+Execute as seguintes etapas no seu sistema Linux:
 
-1. Instale o `ntfsprogs` pacote para o utilitário ntfsfix.
-2. Desmonte os pontos de montagem fornecidos para a unidade pela ferramenta de desbloqueio. O número de pontos de montagem irá variar para unidades.
+1. Instale o pacote `ntfsprogs` para o utilitário ntfsfix.
+2. Desmonte os pontos de montagem fornecidos para a unidade pela ferramenta de desbloqueio. O número de pontos de montagem varia de acordo com as unidades.
 
     ```
     unmount /mnt/DataBoxDisk/mountVol1
     ```
 
-3. Executar `ntfsfix` no caminho correspondente. O número realçado deve ser o mesmo que a etapa 2.
+3. Execute `ntfsfix` no caminho correspondente. O número realçado deve ser o mesmo que a Etapa 2.
 
     ```
     ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
@@ -68,11 +68,11 @@ Execute as seguintes etapas em seu sistema Linux:
     ```
 
 6. Faça um desbloqueio e montagem limpos.
-7. Teste o ponto de montagem escrevendo um arquivo.
+7. Teste o ponto de montagem gravando um arquivo.
 8. Desmonte e remonte para validar a persistência do arquivo.
 9. Continue com a cópia de dados.
  
-### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: erro com os dados não persistentes após a cópia
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: erro de dados não persistentes após a cópia
  
 **Causa** 
 
@@ -87,13 +87,13 @@ Se esse não for o caso, copie os logs da pasta que tem a ferramenta de desbloqu
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Erros da ferramenta de cópia de divisão do Data Box Disk
 
-Os problemas vistos ao usar uma ferramenta de cópia dividida para dividir os dados em vários discos são resumidos na tabela a seguir.
+Os problemas encontrados ao usar uma ferramenta de cópia dividida para dividir os dados em vários discos são resumidos na tabela a seguir.
 
 |Mensagem de erro/avisos |Recomendações |
 |---------|---------|
-|Detalhes Recuperando a senha do BitLocker para o volume: m <br>Ao Exceção detectada ao recuperar a chave do BitLocker para o volume m:<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
+|[Informações] Recuperação de senha do BitLocker para o volume: m <br>[Erro] Exceção detectada ao recuperar a chave do BitLocker para o volume m:<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
 |[Erro] Exceção gerada: falha na operação do WMI:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = o formato da senha de recuperação fornecida é inválido. <br>As senhas de recuperação do BitLocker têm 48 dígitos. <br>Verifique se a senha de recuperação está no formato correto e, em seguida, tente novamente.|Use a ferramenta de desbloqueio do Data Box Disk para desbloquear os discos e repita o comando. Para obter mais informações, acesse <li> [Desbloquear Data Box Disk para clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloquear Data Box Disk para clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Erro] Exceção gerada: existe um arquivo DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir os dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua o *DriveManifest.xml* na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
+|[Erro] Exceção gerada: existe um arquivo DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua *DriveManifest.xml* na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
 |[Erro] Exceção gerada: CopySessionId importdata-sept-test-1 se refere a uma sessão de cópia anterior e não pode ser reutilizado para uma nova sessão de cópia.|Esse erro é relatado ao tentar usar o mesmo nome de um trabalho anterior concluído com êxito para um novo trabalho.<br> Atribua um nome exclusivo para seu trabalho.|
 |[Informações] O nome do arquivo ou diretório de destino ultrapassa o limite de comprimento NTFS. |Esta mensagem é relatada quando o arquivo de destino foi renomeado devido a um caminho de arquivo longo.<br> Modifique a opção de descarte no arquivo `config.json` para controlar esse comportamento.|
 |[Erro] Exceção gerada: sequência de escape JSON inválida. |Esta mensagem é relatada quando o config.json tem formato que não é válido. <br> Validar sua `config.json` usando [JSONlint](https://jsonlint.com/) antes de salvar o arquivo.|

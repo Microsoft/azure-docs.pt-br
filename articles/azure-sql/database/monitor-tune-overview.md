@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/17/2021
+ms.openlocfilehash: 4c9edaea75215bc4b471cd2e0ac50c4e69546bb0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490560"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592125"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,6 +35,10 @@ No portal do Azure, o banco de dados SQL do Azure e o SQL Azure Instância Geren
 
 > [!NOTE]
 > Os bancos de dados com uso extremamente baixo podem ser mostrados no portal com uso menor que o real. Devido à maneira como a telemetria é emitida ao converter um valor duplo para o inteiro mais próximo, determinados valores de uso menores que 0,5 serão arredondados para 0, o que causa uma perda na granularidade da telemetria emitida. Para obter detalhes, consulte [baixo banco de dados e métricas de pool elástico arredondando para zero](#low-database-and-elastic-pool-metrics-rounding-to-zero).
+
+### <a name="monitor-with-sql-insights"></a>Monitorar com o SQL insights
+
+[Azure monitor insights do SQL](../../azure-monitor/insights/sql-insights-overview.md) é uma ferramenta para monitorar instâncias gerenciadas do Azure SQL, bancos de dados SQL do Azure e instâncias de SQL Server em VMs do Azure SQL. Esse serviço usa um agente remoto para capturar dados de DMVs (exibições de gerenciamento dinâmico) e roteia os dados para o Azure Log Analytics, onde podem ser monitorados e analisados. Você pode exibir esses dados de [Azure monitor](../../azure-monitor/overview.md) nos modos de exibição fornecidos ou acessar os dados de log diretamente para executar consultas e analisar tendências. Para começar a usar o Azure Monitor o SQL insights, consulte [habilitar insights do SQL](../../azure-monitor/insights/sql-insights-enable.md).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Monitoramento de recursos do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada
 
@@ -99,11 +103,11 @@ Você define as configurações de diagnóstico para as categorias de fluxo de m
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics espaço de trabalho no Azure Monitor
 
-Você pode transmitir métricas e logs de recursos para um [espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Os dados transmitidos aqui podem ser consumidos pela [análise do SQL](../../azure-monitor/insights/azure-sql.md), que é uma solução de monitoramento somente na nuvem que fornece monitoramento inteligente de seus bancos de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitoramento coletados e também permitem que você aproveite outros recursos do Azure Monitor, como alertas e visualizações.
+Você pode transmitir métricas e logs de recursos para um [espaço de trabalho log Analytics no Azure monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Os dados transmitidos aqui podem ser consumidos pela [análise do SQL](../../azure-monitor/insights/azure-sql.md), que é uma solução de monitoramento somente na nuvem que fornece monitoramento inteligente de seus bancos de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitoramento coletados e também permitem que você aproveite outros recursos do Azure Monitor, como alertas e visualizações.
 
 ### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
 
-Você pode transmitir métricas e logs de recursos para os [hubs de eventos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Streaming de telemetria de diagnóstico para hubs de eventos para fornecer a seguinte funcionalidade:
+Você pode transmitir métricas e logs de recursos para os [hubs de eventos do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Streaming de telemetria de diagnóstico para hubs de eventos para fornecer a seguinte funcionalidade:
 
 - **Transmitir logs para registros de terceiros e sistemas de telemetria**
 
@@ -117,7 +121,7 @@ Você pode transmitir métricas e logs de recursos para os [hubs de eventos do A
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-Transmita métricas e logs de recursos para o [armazenamento do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Use o armazenamento do Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
+Transmita métricas e logs de recursos para o [armazenamento do Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Use o armazenamento do Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
 
 ## <a name="use-extended-events"></a>Usar eventos estendidos 
 

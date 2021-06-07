@@ -4,10 +4,10 @@ description: Saiba como habilitar uma imagem licenciada no Azure DevTest Labs us
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91276349"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
@@ -19,7 +19,7 @@ A primeira etapa para permitir que os usuários criem VMs a partir de uma imagem
 
 1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+1. Selecione **todos os serviços** e, em seguida, selecione **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 

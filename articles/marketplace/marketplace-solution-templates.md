@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
 ms.openlocfilehash: c7074981c8491460d6f2a8e7d40d086f261dfeb3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879336"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Guia de publicação para aplicativos do Azure ofertas de modelo de solução
@@ -27,7 +27,7 @@ A opção de listagem que um cliente vê para esse tipo de oferta é *obtê-la a
 
 ## <a name="requirements-for-solution-template-offers"></a>Requisitos para ofertas de modelo de solução
 
-| **Requirements** | **Detalhes**  |
+| **Requisitos** | **Detalhes**  |
 | ---------------  | -----------  |
 |Cobrança e medição    |  As ofertas de modelo de solução não são ofertas de transações, mas podem ser usadas para implantar ofertas de VM pagas que são cobradas pelo Microsoft Commercial Marketplace. Os recursos que o modelo ARM da solução implanta são configurados na assinatura do Azure do cliente. As máquinas virtuais pagas conforme o uso são transacionadas com o cliente pela Microsoft e cobradas por meio da assinatura do Azure do cliente.<br/> Para cobrança de BYOL (traga sua própria licença), embora a Microsoft Bille os custos de infraestrutura incorridos na assinatura do cliente, você leva suas tarifas de licenciamento de software com o cliente diretamente.   |
 |VHD (disco rígido virtual) compatível com Azure  |   As VMs devem ser criadas em Windows ou Linux. Para obter mais informações, consulte: <ul> <li>[Criar uma oferta de aplicativo do Azure](./create-new-azure-apps-offer.md) (para VHDs do Windows).</li><li>[Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md) (para VHDs do Linux).</li></ul> |

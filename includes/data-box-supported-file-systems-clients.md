@@ -3,16 +3,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 586f02b47ad00625a865dcacef1f39b7c9acffa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d2bae6c2228af969f1ac5ea4d32b42a89fd881
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767866"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611916"
 ---
 | **Protocolo** | **Versões** |
 | --- | --- |
 | SMB | 3,0 e 2,0 |
-| NFS | Todas as versões até e incluindo a 4.1|
+| NFS | Todas as versões até e incluindo a 4.1<br>Para compartilhamentos de NFS, não há suporte para a cópia de dados em Data Box de um host avançado do AIX (Advanced Interactive Executive) usando a ferramenta de exportação do IBM Database 2 (DB2).|

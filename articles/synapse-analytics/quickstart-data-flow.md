@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
 ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98218715"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Início rápido: transformar dados usando mapeamento de fluxos de dados

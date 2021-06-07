@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102692"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103600939"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -71,7 +71,7 @@ Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Voc
 |------|-------------|
 | Email | Endereço de email do usuário |
 | userprincipalName | O nome UPN do usuário |
-| onpremisessamaccount | Nome da conta SAM sincronizada do Azure AD local |
+| onpremisessamaccountname | Nome da conta SAM sincronizada do Azure AD local |
 | objectid | O objectid do usuário no Azure AD |
 | employeeid | A ID de funcionário do usuário |
 | Extensões de diretório | Extensões de diretório [sincronizadas do Active Directory local usando a Sincronização do Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |

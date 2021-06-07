@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: 141abea0c0946c98b6dfe627f32f01682a18be44
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581016"
 ---
 # <a name="bring-your-own-key-specification"></a>Especificação de Bring Your Own Key
@@ -134,7 +134,7 @@ Para importar uma chave RSA, use este comando:
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
-Para importar uma chave do EC, você deve especificar o tipo de chave e o nome da curva.
+Para importar uma chave de curva elíptica, você precisa especificar o tipo de chave e o nome da curva.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify

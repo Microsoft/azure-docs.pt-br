@@ -1,24 +1,14 @@
 ---
 title: Linhas de base e verificações personalizadas
 description: Saiba mais sobre o conceito de Azure defender para a linha de base do IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/07/2019
-ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1b8b9d62918e40262da6b3df48d0fece842e050f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102233"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779351"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure defender para IoT Baseline e verificações personalizadas
 
@@ -42,7 +32,7 @@ As verificações personalizadas de linha de base estabelecem uma lista personal
 
 1. Carregue o arquivo de **verificações personalizadas de linha de base** no dispositivo.
 
-1. Adicione Propriedades de linha de base ao módulo de segurança e clique em **salvar**.
+1. Adicione Propriedades de linha de base ao defender-IoT-micro-Agent e clique em **salvar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemplo de arquivo de verificação personalizada de linha de base
 
@@ -66,7 +56,7 @@ Para configurar verificações personalizadas de linha de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
-| Name| Status | Valores válidos| Valores padrão| Descrição |
+| Nome| Status | Valores válidos| Valores padrão| Descrição |
 |------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
 |baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|

@@ -7,21 +7,21 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92314851"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando os escopos nos Aplicativos Lógicos do Azure
 
 Para executar ações somente após um outro grupo de ações ter êxito ou falhar, agrupe essas ações em um *escopo*. Essa estrutura é útil quando deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo concluem a execução, o escopo também obtém seu próprio status. Por exemplo, é possível usar escopos quando você quiser implementar [tratamento de erro e exceção](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Para verificar o status de um escopo, você pode usar os mesmos critérios usados para determinar o status de execução de um aplicativo lógico, como com **êxito**, **falha**, **cancelado**e assim por diante. Por padrão, quando todas as ações do escopo forem bem-sucedidas, o status do escopo será marcado como **bem-sucedido**. Mas quando qualquer ação no escopo falha ou é cancelada, o status do escopo é marcado como **falha**. Para limites nos escopos, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
+Para verificar o status de um escopo, é possível usar os mesmos critérios utilizados para determinar um status de execução de aplicativos lógicos, como  **Bem-sucedido**, **Com falha**, **Cancelado**, e assim por diante. Por padrão, quando todas as ações do escopo são bem-sucedidas, o status do escopo é marcado como **Bem-sucedido**. Mas, quando qualquer ação no escopo apresenta falha ou é cancelada, o status do escopo é marcado como **Com falha**. Para limites nos escopos, consulte [Limites e configurações](../logic-apps/logic-apps-limits-and-config.md). 
 
-Por exemplo, aqui é um aplicativo lógico de alto nível que usa um escopo para executar ações específicas e uma condição para verificar o status do escopo. Se alguma ação no escopo falhar ou terminar inesperadamente, o escopo será marcado como **com falha** ou **anulado** respectivamente, e o aplicativo lógico enviará uma mensagem "falha no escopo". Se todas as ações de escopo tiverem êxito, o aplicativo lógico envia uma mensagem "Escopo com êxito".
+Por exemplo, aqui é um aplicativo lógico de alto nível que usa um escopo para executar ações específicas e uma condição para verificar o status do escopo. Se uma ação no escopo falhar ou for encerrada inesperadamente, o escopo é marcado como **Com falha** ou **Anulado**, respectivamente, e o aplicativo lógico envia uma mensagem "Falha de escopo". Se todas as ações de escopo tiverem êxito, o aplicativo lógico envia uma mensagem "Escopo com êxito".
 
-![O diagrama mostra o fluxo de escopo do aplicativo lógico com exemplos de "escopo com falha" e "escopo bem-sucedido".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![O diagrama mostra o fluxo de escopo do aplicativo lógico com exemplos de "Falha de escopo" e de "Escopo bem-sucedido".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -192,7 +192,7 @@ Em seguida, adicione um escopo para que seja possível agrupar ações específi
    
       `result('Scope')[0]['status']`
 
-      ![Captura de tela que mostra a caixa "expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Captura de tela que mostra a opção "Expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Para ambas as linhas, selecione **é igual a** como o operador. 
    

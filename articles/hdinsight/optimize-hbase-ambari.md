@@ -4,12 +4,12 @@ description: Use a interface do usuário da Web do Apache amAmbari para configur
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 7e54b1347e4c67b99ba87b15c2c15d9d28244ce7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428193"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864764"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Otimizar o Apache HBase com o Apache Ambari no Azure HDInsight
 
@@ -28,7 +28,7 @@ O tamanho do heap do HBase especifica a quantidade máxima do heap a ser usada, 
 
 1. Altere o valor padrão para 5.000 MB.
 
-    !["Apache Ambari HBase Memory heapsize"](./media/optimize-hbase-ambari/ambari-hbase-heapsize.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/ambari-hbase-heapsize.png" alt-text="&quot;Apache Ambari HBase Memory heapsize&quot;" border="true":::
 
 ## <a name="optimize-read-heavy-workloads"></a>Otimizar cargas de trabalho com uso intenso de leitura
 
@@ -40,7 +40,7 @@ O cache do bloco é o cache de leitura. Seu tamanho é controlado pelo parâmetr
 
 1. Para modificar esse parâmetro, navegue até a guia **Configurações** na guia **Configurações** do HBase e, em seguida, localize **% do RegionServer Alocada para Buffers de Leitura**.
 
-    ![Tamanho do cache do bloco de memória do Apache HBase](./media/optimize-hbase-ambari/hbase-block-cache-size.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/hbase-block-cache-size.png" alt-text="Tamanho do cache do bloco de memória do Apache HBase" border="true":::
 
 1. Para alterar o valor, selecione o ícone **Editar**.
 
@@ -58,7 +58,7 @@ Para otimizar leituras aleatórias, você pode reduzir os limites superior e inf
 
 A configuração `hbase.client.scanner.caching` define o número de linhas lidas do disco quando o método `next` é chamado em um scanner.  O valor padrão é 100. Quanto maior o número, menos chamadas remotas serão feitas do cliente para o servidor de região, resultando em verificações mais rápidas. No entanto, essa configuração também aumentará a pressão de memória no cliente.
 
-![Número de linhas do Apache HBase buscadas](./media/optimize-hbase-ambari/hbase-num-rows-fetched.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-num-rows-fetched.png" alt-text="Número de linhas do Apache HBase buscadas" border="true":::
 
 > [!IMPORTANT]  
 > Não defina o valor de modo que o tempo entre a invocação do método seguinte em um scanner seja maior que o tempo limite do scanner. A duração do tempo limite do scanner é definida pela propriedade `hbase.regionserver.lease.period`.
@@ -71,7 +71,7 @@ As configurações a seguir são importantes para melhorar o desempenho de carga
 
 O HBase armazena dados em um formato de arquivo interno, chamado *HFile*. A propriedade `hbase.hregion.max.filesize` define o tamanho de um único HFile para uma região.  Uma região será dividida em duas regiões se a soma de todos os HFiles nela for maior do que essa configuração.
 
-![' O tamanho máximo do Apache HBase HRegion '](./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png" alt-text="' O tamanho máximo do Apache HBase HRegion '" border="true":::
 
 Quanto maior o tamanho do arquivo de região, menor o número de divisões. É possível aumentar o tamanho do arquivo para determinar um valor que resulta no desempenho máximo de gravação.
 
@@ -85,7 +85,7 @@ Quanto maior o tamanho do arquivo de região, menor o número de divisões. É p
 
     Com os valores padrão de tamanho de liberação e multiplicador de bloco, as atualizações serão bloqueadas quando o Memstore tiver 128 * 4 = 512 MB. Para reduzir o número de blocos de atualização, aumente o valor de `hbase.hregion.memstore.block.multiplier`.
 
-![Multiplicador de bloco de região do Apache HBase](./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png" alt-text="Multiplicador de bloco de região do Apache HBase" border="true":::
 
 ## <a name="define-memstore-size"></a>Definir tamanho do Memstore
 
@@ -95,7 +95,7 @@ O tamanho do Memstore é definido pelos parâmetros `hbase.regionserver.global.m
 
 O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), essa configuração impede a fragmentação de heap durante uma operação de gravação pesada. O valor padrão é true.
 
-![hbase.hregion.memstore.mslab.enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png" alt-text="hbase.hregion.memstore.mslab.enabled" border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

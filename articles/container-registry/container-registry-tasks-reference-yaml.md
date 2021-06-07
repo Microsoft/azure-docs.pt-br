@@ -4,10 +4,10 @@ description: Referência para definir tarefas na YAML para tarefas do ACR, inclu
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067576"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
@@ -392,14 +392,14 @@ Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo.
 | `ignoreErrors` | bool | Sim | Indica se a etapa será marcada como bem-sucedida, independentemente de ocorrer um erro durante a execução do contêiner. | `false` |
 | `isolation` | string | Sim | O nível de isolamento do contêiner. | `default` |
 | `keep` | bool | Sim | Se o contêiner da etapa deve ser mantido após a execução. | `false` |
-| `network` | objeto | Sim | Identifica uma rede na qual o contêiner é executado. | Nenhum |
+| `network` | object | Sim | Identifica uma rede na qual o contêiner é executado. | Nenhum |
 | `ports` | [string, string, ...] | Sim | Matriz de portas que são publicadas do contêiner para o host. |  Nenhum |
 | `pull` | bool | Sim | Se deve forçar um pull do contêiner antes de executá-lo para evitar qualquer comportamento de cache. | `false` |
 | `privileged` | bool | Sim | Se o contêiner deve ser executado no modo privilegiado. | `false` |
 | `repeat` | INT | Sim | O número de tentativas para repetir a execução de um contêiner. | 0 |
 | `retries` | INT | Sim | O número de tentativas para tentar se um contêiner falhar na sua execução. Uma nova tentativa só será tentada se o código de saída de um contêiner for diferente de zero. | 0 |
 | `retryDelay` | int (segundos) | Sim | O atraso em segundos entre as tentativas da execução de um contêiner. | 0 |
-| `secret` | objeto | Sim | Identifica um segredo Azure Key Vault ou [identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). | Nenhum |
+| `secret` | object | Sim | Identifica um segredo Azure Key Vault ou [identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). | Nenhum |
 | `startDelay` | int (segundos) | Sim | Número de segundos para atrasar a execução de um contêiner. | 0 |
 | `timeout` | int (segundos) | Sim | Número máximo de segundos em que uma etapa poderá ser executada antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sim | Configura a dependência de uma etapa em relação a uma ou mais etapas diferentes dentro da tarefa. | Nenhum |

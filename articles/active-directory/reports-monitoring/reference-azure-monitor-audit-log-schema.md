@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4d32e0b939731d64f3ef2495ab606b5dc0780e4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231088"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100592282"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Microsoft Azure Active Directory no Azure Monitor (visualização)
 
@@ -179,5 +179,5 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Logs de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Logs de diagnóstico do Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 * [Perguntas frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

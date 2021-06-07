@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a52ed05e03176bcb9b2fde9f2da1c746cedd6d49
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 88b2a87fe0f01d3b14a1119dadea6f782d2be5af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475025"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102438925"
 ---
 # <a name="vm-sizes-and-types-for-azure-stack-edge-pro"></a>Tamanhos e tipos de VM para Azure Stack Edge pro 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve os tamanhos com suporte para as máquinas virtuais em execução em seus dispositivos Azure Stack Edge pro. Use este artigo antes de implantar máquinas virtuais em seus dispositivos Azure Stack Edge pro.
 

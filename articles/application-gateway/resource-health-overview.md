@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Aplicativo Azure gateway Resource Health
+title: Visão geral do Resource Health do Gateway de Aplicativo do Azure
 description: Este artigo é uma visão geral do recurso de integridade de recursos para Aplicativo Azure gateway
 services: application-gateway
 author: vhorne
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397165"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Visão geral do Aplicativo Azure gateway Resource Health
+# <a name="azure-application-gateway-resource-health-overview"></a>Visão geral do Resource Health do Gateway de Aplicativo do Azure
 
 O [Azure Resource Health](../service-health/resource-health-overview.md) ajuda a diagnosticar e obter suporte quando um problema de serviço do Azure afeta seus recursos. Ele informa sobre a integridade atual e anterior dos seus recursos. E fornece suporte técnico para ajudá-lo a mitigar os problemas.
 
@@ -43,7 +43,7 @@ O Resource Health fornece detalhes adicionais sobre o evento e o processo de rec
 
 ![Status indisponível](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Desconhecido
+## <a name="unknown"></a>Unknown
 
 O status de integridade **desconhecido** indica Resource Health não recebeu informações sobre o gateway por mais de 10 minutos. Esse status não é uma indicação definitiva do estado do gateway. Mas é um ponto de dados importante no processo de solução de problemas.
 

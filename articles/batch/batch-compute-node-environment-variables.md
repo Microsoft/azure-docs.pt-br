@@ -3,12 +3,12 @@ title: Variável de ambiente do runtime de tarefas
 description: Orientações e referência de variável de ambiente do runtime de tarefa para Análise do Lote do Azure.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830880"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669977"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente do runtime do Lote do Azure
 
@@ -61,6 +61,8 @@ As linhas de comando executadas por tarefas em nós de computação não são ex
 | AZ_BATCH_TASK_ID                | A ID da tarefa atual. | Todas as tarefas exceto a tarefa de inicialização. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Um caminho de diretório idêntico na tarefa principal e em cada subtarefa de uma [tarefa de várias instâncias](batch-mpi.md). O caminho existe em cada nó em que a tarefa de várias instâncias é executada e é acessível para leitura/gravação para os comandos de tarefa em execução nesse nó (o [comando de coordenação](batch-mpi.md#coordination-command) e o comando do [aplicativo](batch-mpi.md#application-command). As subtarefas ou uma tarefa principal executada em outros nós não tem acesso remoto a esse diretório (não é um diretório de rede "compartilhado"). | Várias instâncias principais e subtarefas. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho da tarefa](files-and-directories.md) no nó. A tarefa em execução no momento tem acesso de leitura/gravação a esse diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho da tarefa](files-and-directories.md) no nó. A tarefa em execução no momento tem acesso de leitura/gravação a esse diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | O limite atual para o espaço em disco no qual a VM será marcada `DiskFull` . | Todas as tarefas. | 1.000.000 |
 | CCP_NODES                       | A lista de nós e o número de núcleos por nó alocados a uma [tarefa de várias instâncias](batch-mpi.md). Nós e núcleos são listados no formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, em que o número de nós é seguido por um ou mais endereços IP de nó e o número de núcleos de cada um. |  Várias instâncias principais e subtarefas. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,18 +3,21 @@ title: Criar e recuperar atributos de uma chave gerenciada no Azure Key Vault �
 description: Guia de Início Rápido que mostra como definir e recuperar uma chave gerenciada do Azure Key Vault usando o Azure PowerShell
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
+ms.author: mbaldwin
+ms.date: 01/26/2021
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: quickstart
-ms.date: 01/26/2021
-ms.author: mbaldwin
-ms.openlocfilehash: 943555e9f7a26530a075aee27dd310d96974e652
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+tags:
+- azure-resource-manager
+ms.custom:
+- mode-api
+ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072783"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534669"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Início rápido: Definir e recuperar uma chave gerenciada do Azure Key Vault usando o PowerShell
 

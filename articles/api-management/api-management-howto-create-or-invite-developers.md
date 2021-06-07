@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 92e032eb104835788f515cc7800fe5dacfa8adaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88566124"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerenciar contas de usuário no Gerenciamento de API do Azure
@@ -42,7 +42,7 @@ Para adicionar um novo usuário, siga as etapas desta seção:
 
     ![Adicionar um novo usuário](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-Por padrão, as contas de desenvolvedor recém-criadas estão **ativas**e associadas ao grupo de **desenvolvedores** . As contas de desenvolvedor que estão em um estado **ativo** podem ser usadas para acessar todas as APIs para as quais elas têm assinaturas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
+Por padrão, as contas de desenvolvedor recém-criadas estão **ativas** e associadas ao grupo de **desenvolvedores** . As contas de desenvolvedor que estão em um estado **ativo** podem ser usadas para acessar todas as APIs para as quais elas têm assinaturas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
 
 ## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Convidar um desenvolvedor
 Para convidar um desenvolvedor, siga as etapas desta seção:
@@ -56,7 +56,7 @@ Quando um desenvolvedor é convidado, um email é enviado a ele. O email é gera
 
 Após o convite ser aceito, a conta se torna ativa.
 
-## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Desativar ou reativar uma conta de desenvolvedor
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"></a> Desativar ou reativar uma conta de desenvolvedor
 
 Por padrão, as contas de desenvolvedor criadas ou convidadas recentemente têm o estado **Ativa**. Para desativar uma conta de desenvolvedor, clique em **Bloquear**. Para reativar uma conta de desenvolvedor bloqueada, clique em **Ativar**. Uma conta de desenvolvedor bloqueada não pode acessar o portal do desenvolvedor nem chamar APIs. Para excluir uma conta de usuário, clique em **Excluir**.
 
@@ -71,7 +71,7 @@ Para bloquear um usuário, siga as seguintes etapas.
 Para trabalhar de forma programática com contas de usuário, consulte a documentação da entidade de usuário na referência da [API REST do gerenciamento de API](/rest/api/apimanagement/) . Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
 
 ## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
-Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, consulte [Como criar e utilizar grupos][How to create and use groups].
+Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, consulte [como criar e usar grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png

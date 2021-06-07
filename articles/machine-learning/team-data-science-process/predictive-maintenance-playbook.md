@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 1e939b86eeadfee276378488cfcb40c07f28684d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880651"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
@@ -231,7 +231,7 @@ As especificações técnicas do equipamento, como data de fabricação, número
 
 Os esforços de preparação de dados discutidos até aqui devem gerar os dados sendo organizados conforme mostrado abaixo. Dados de treinamento, teste e validação devem ter esse esquema lógico (este exemplo mostra o tempo em unidades de dias).
 
-| ID do ativo | Hora | \<Feature Columns> | Rotular |
+| ID do ativo | Hora | \<Feature Columns> | Label |
 | ---- | ---- | --- | --- |
 | A123 |Dia 1 | . . . | . |
 | A123 |Dia 2 | . . . | . |

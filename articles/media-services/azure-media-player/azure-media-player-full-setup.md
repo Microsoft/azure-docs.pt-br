@@ -7,12 +7,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797461"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956070"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Player de Mídia do Azure #
 
@@ -93,7 +93,7 @@ Se sua página da Web ou aplicativo carregar a marca de vídeo dinamicamente (AJ
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{

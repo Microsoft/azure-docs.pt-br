@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: c29d131948be42a53bf568aa4048fe4e7d61c36e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98684302"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Criar uma conta do Azure Cosmos DB com o firewall de IP

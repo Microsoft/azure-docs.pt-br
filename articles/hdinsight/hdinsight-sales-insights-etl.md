@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 140709a0ddb548c126ceca208fdeef2db77616bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932052"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761791"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas no Azure HDInsight
 
@@ -18,7 +18,7 @@ Neste tutorial, você criará um pipeline de dados ponta a ponta, que executa op
 
 Esse pipeline de dados combina os dados de vários repositórios, remove os dados indesejados, acrescenta novos dados e carrega tudo isso novamente no armazenamento para visualizar insights empresariais. Leia mais sobre pipelines de ETL [(extração, transformação e carregamento) em escala](./hadoop/apache-hadoop-etl-at-scale.md).
 
-![Arquitetura de ETL](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="Arquitetura de ETL" border="false":::
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -90,7 +90,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](/cli/azure/account#az-account-list-locations).
+    Se você não tiver certeza de qual região especificar, poderá recuperar uma lista de regiões compatíveis com a assinatura com o comando [az account list-locations](/cli/azure/account#az_account_list_locations).
 
     O comando exibirá os seguintes recursos:
 

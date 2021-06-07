@@ -2,17 +2,18 @@
 title: Anexação de um disco de dados a uma VM do Linux
 description: Utilize o portal para anexar disco de dados novo ou existente a uma VM Linux.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 647564a9b9ca909d2f45ae66673d8beac168a4aa
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.collection: linux
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575967"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601816"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
 Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md). 
@@ -80,7 +81,7 @@ Neste exemplo, o disco que adicionei é `sdc` . É um LUN 0 e 4 GB.
 
 Para obter um exemplo mais complexo, veja a aparência de vários discos de dados no Portal:
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Examine as configurações de disco.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Captura de tela de vários discos mostrados no Portal.":::
 
 Na imagem, você pode ver que há três discos de dados: 4 GB no LUN 0, 16 GB no LUN 1 e 32G no LUN 2.
 
@@ -226,6 +227,6 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações e para ajudar a solucionar problemas de disco, consulte [solucionar problemas de nome do dispositivo VM Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+Para obter mais informações e para ajudar a solucionar problemas de disco, consulte [solucionar problemas de nome do dispositivo VM Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 Você também pode [anexar um disco de dados](add-disk.md) utilizando a CLI do Azure.

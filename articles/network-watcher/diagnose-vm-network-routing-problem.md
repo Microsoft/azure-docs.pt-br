@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diagnosticar um problema de roteiros de rede de VMs – portal do Azure'
+title: 'Tutorial: Diagnosticar um problema de roteamento de rede de VMs – portal do Azure'
 titleSuffix: Azure Network Watcher
 description: Neste tutorial, você aprenderá a diagnosticar um problema de roteamento da rede de máquina virtual com a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
@@ -7,7 +7,6 @@ documentationcenter: network-watcher
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: bfcf9568f37a26f234a417a86eebf1b0bde67ab0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5cd9c5d7f4a14a9a93e6984a8ef7367e5cbafc4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014494"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055086"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de roteamento de rede de máquina virtual usando o portal do Azure
 
@@ -86,7 +85,7 @@ O Azure cria automaticamente as rotas para destinos padrão. Você pode criar ro
     |Configuração                  |Valor                                                   |
     |---------                |---------                                               |
     | Resource group          | Selecionar myResourceGroup                                 |
-    | Máquina virtual         | Selecionar myVm                                            |
+    | Máquina virtual         | Selecione myVm                                            |
     | interface de rede       | myvm – o nome do adaptador de rede pode ser diferente.   |
     | Endereço IP de origem       | 10.0.0.4                                               |
     | Endereço IP de destino  | 13.107.21.200 – Um dos endereços para <www.bing.com>. |

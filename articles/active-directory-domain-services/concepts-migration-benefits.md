@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: justinha
 ms.openlocfilehash: 8cc5f5ebf389d35df02474d0561dc7827cde4d0b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620079"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Benefícios da migração do modelo de implantação clássico para o Gerenciador de recursos no Azure Active Directory Domain Services
@@ -36,7 +36,7 @@ Após a migração, o Azure AD DS fornece muitos recursos que estão disponívei
 
 * Suporte refinado [à política de senha][password-policy].
 * Velocidades de sincronização mais rápidas entre o Azure AD e o Azure AD Domain Services.
-* Dois novos [atributos que são sincronizados do Gerenciador do Azure ad][attributes]  -  *manager* e *EmployeeID*.
+* Dois novos [atributos que são sincronizados do Gerenciador do Azure ad][attributes]  -   e *EmployeeID*.
 * Acesso a controladores de domínio com maior capacidade ao [atualizar a SKU][skus].
 * Proteção de bloqueio de conta do AD.
 * [Notificações por email para alertas em seu domínio gerenciado][email-alerts].

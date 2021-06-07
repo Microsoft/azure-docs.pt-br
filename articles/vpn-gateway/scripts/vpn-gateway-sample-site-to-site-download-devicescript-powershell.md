@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 01/09/2020
 ms.author: yushwang
 ms.openlocfilehash: 283ddb12e497c242f1843840fe1f1ff208712626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88031686"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Baixar o modelo de dispositivo VPN usando o PowerShell

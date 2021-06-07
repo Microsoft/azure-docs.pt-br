@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256704"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
@@ -73,7 +73,7 @@ Essa funcionalidade de provisionamento de TI controlada por RH oferece os seguin
 - **Abordar a conformidade e a governança:** o Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
 - **Gerenciar o custo:** o provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas ao longo do tempo usando plataformas herdadas e desatualizadas.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 Para configurar o aplicativo de RH na nuvem para a integração de provisionamento de usuário do Azure AD, você precisa de uma [licença de Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para o aplicativo de RH de nuvem, como workday ou SuccessFactors.
 

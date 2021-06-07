@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: victorh
 ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87084663"
 ---
 # <a name="azure-firewall-central-management"></a>Gerenciamento central do firewall do Azure
@@ -29,7 +29,7 @@ O Gerenciador de firewall do Azure é um serviço de gerenciamento de segurança
 
 Uma política de firewall é um recurso do Azure que contém coleções de regra de aplicativo, rede e NAT e as configurações de inteligência de ameaça. É um recurso global que pode ser usado em várias instâncias do firewall do Azure em hubs virtuais e *redes virtuais* *protegidas* . Políticas podem ser criadas do zero ou herdadas de políticas existentes. A herança permite que o DevOps crie políticas de firewall locais sobre a política base obrigatória da organização. As políticas funcionam em regiões e assinaturas diferentes.
  
-Você pode criar uma política de firewall e associações com o Gerenciador de firewall do Azure. No entanto, você também pode criar e gerenciar uma política usando a API REST, os modelos, Azure PowerShell e a CLI. Depois de criar uma política, você pode associá-la a um firewall em um hub de WAN virtual, tornando-o um *Hub virtual seguro* e/ou um firewall em uma rede virtual que torne a *rede virtual do Hub*de ti.
+Você pode criar uma política de firewall e associações com o Gerenciador de firewall do Azure. No entanto, você também pode criar e gerenciar uma política usando a API REST, os modelos, Azure PowerShell e a CLI. Depois de criar uma política, você pode associá-la a um firewall em um hub de WAN virtual, tornando-o um *Hub virtual seguro* e/ou um firewall em uma rede virtual que torne a *rede virtual do Hub* de ti.
 
 ### <a name="pricing"></a>Preços
 

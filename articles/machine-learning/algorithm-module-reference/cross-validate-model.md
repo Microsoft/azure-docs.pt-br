@@ -10,17 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421338"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
 Este artigo descreve como usar o módulo modelo de validação cruzada no designer de Azure Machine Learning. A *validação cruzada* é uma técnica usada com frequência no aprendizado de máquina para avaliar a variabilidade de um conjunto de dados e a confiabilidade de qualquer modelo treinado por meio desse dado.  
 
-O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos ( *dobras* ), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
+O módulo modelo de validação cruzada usa como entrada um conjunto de dados rotulado, junto com um modelo de classificação ou regressão não treinado. Ele divide o conjunto de valores em alguns subconjuntos (*dobras*), cria um modelo em cada dobra e retorna um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, você pode interpretar a qualidade do conjunto de dados. Em seguida, você pode entender se o modelo é suscetível a variações nos dados.  
 
 O modelo de validação cruzada também retorna resultados previstos e probabilidades para o conjunto de os, para que você possa avaliar a confiabilidade das previsões.  
 
@@ -109,9 +109,9 @@ Para exibir os resultados, no pipeline, clique com o botão direito do mouse no 
 
 O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que você está avaliando: 
 
-+ **Modelos de classificação** : precisão, recall, F-score, AUC, precisão  
++ **Modelos de classificação**: precisão, recall, F-score, AUC, precisão  
 
-+ **Modelos de regressão** : erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo e coeficiente de determinação
++ **Modelos de regressão**: erro absoluto médio, erro de raiz quadrada média, erro absoluto relativo, erro de quadrado relativo e coeficiente de determinação
 
 
 ## <a name="technical-notes"></a>Observações técnicas  

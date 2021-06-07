@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359825"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
@@ -37,7 +37,7 @@ Aqui está a legenda para imagens neste artigo:
 | “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/legendsync2.png) |
 | GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
 | Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/legendsync4.png) |
-| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/legendunsupported.png) |
 
 
@@ -60,7 +60,7 @@ Não há suporte para vários servidores de sincronização do Azure AD Connect 
 
 Muitas organizações têm ambientes com várias florestas do Active Directory local. Há vários motivos para ter mais de uma floresta do Active Directory local. Exemplos típicos são designs com florestas de conta-recurso e o resultado de uma fusão ou aquisição.
 
-Quando você tem várias florestas, todas elas devem ser acessíveis por um único servidor de sincronização do Azure AD Connect. O servidor deve ser ingressado em um domínio. Se necessário, para acessar todas as florestas, você pode colocar o servidor em uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada e sub-rede selecionada).
+Quando você tem várias florestas, todas elas devem ser acessíveis por um único servidor de sincronização do Azure AD Connect. O servidor deve ser unido a um domínio. Se necessário, para acessar todas as florestas, você pode colocar o servidor em uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada e sub-rede selecionada).
 
 O assistente de instalação do Azure AD Connect oferece várias opções para consolidar os usuários representados em várias florestas. O objetivo é que um usuário seja representado somente uma vez no Azure AD. Há algumas topologias comuns que você pode configurar o caminho de instalação personalizada do assistente de instalação. Na página **Identificando exclusivamente seus usuários**, selecione a opção correspondente que representa sua topologia. A consolidação está configurada somente para os usuários. Grupos duplicados não são consolidados com a configuração padrão.
 
@@ -130,7 +130,7 @@ Se você for uma organização maior, considere usar o recurso de [Microsoft 365
 ## <a name="staging-server"></a>Servidor de preparo
 ![Servidor de preparo em uma topologia](./media/plan-connect-topologies/multiforeststaging.png)
 
-O Azure AD Connect dá suporte à instalação de um segundo servidor no *modo de preparo*. Um servidor nesse modo lê dados de todos os diretórios conectados, mas não grava nada em diretórios conectados. Ele usa o ciclo de sincronização normal e, portanto, tem uma cópia atualizada dos dados de identidade.
+O Azure AD Connect dá suporte a um segundo servidor em *modo de preparo*. Um servidor nesse modo lê dados de todos os diretórios conectados, mas não grava nada em diretórios conectados. Ele usa o ciclo de sincronização normal e, portanto, tem uma cópia atualizada dos dados de identidade.
 
 Em um desastre em que o servidor primário falha, você pode fazer failover para o servidor de preparo. Você pode fazer isso no Assistente do Azure AD Connect. Esse segundo servidor pode estar localizado em um datacenter diferente, pois nenhuma infraestrutura é compartilhada com o servidor primário. É necessário copiar manualmente qualquer alteração de configuração feita no servidor principal para o segundo servidor.
 

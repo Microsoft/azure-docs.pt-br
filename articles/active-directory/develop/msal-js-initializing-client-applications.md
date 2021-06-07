@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-js
 ms.openlocfilehash: a6d7b760ffd1931fa5dcdb3a67dd02f2798957a9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100365830"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando MSAL.js
@@ -34,9 +34,9 @@ Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo com o p
 
 Depois de registrar seu aplicativo, você precisará de alguns ou de todos os valores a seguir que possam ser encontrados no portal do Azure.
 
-| Valor | Necessária | Descrição |
+| Valor | Obrigatório | Descrição |
 |:----- | :------: | :---------- |
-| ID do aplicativo (cliente) | Necessária | Um GUID que identifica exclusivamente seu aplicativo na plataforma de identidade da Microsoft. |
+| ID do aplicativo (cliente) | Obrigatório | Um GUID que identifica exclusivamente seu aplicativo na plataforma de identidade da Microsoft. |
 | Authority | Opcional | A URL do provedor de identidade (a *instância*) e o *público-alvo de entrada* para seu aplicativo. A instância e o público de entrada, quando concatenados, compõem a *autoridade*. |
 | ID do diretório (locatário) | Opcional | Especifique isso se você estiver criando um aplicativo de linha de negócios somente para sua organização, geralmente chamado de *aplicativo de locatário único*. |
 | URI de redirecionamento | Opcional | Se você estiver criando um aplicativo Web, o `redirectUri` especifica onde o provedor de identidade (a plataforma de identidade da Microsoft) deve retornar os tokens de segurança que ele emitiu. |

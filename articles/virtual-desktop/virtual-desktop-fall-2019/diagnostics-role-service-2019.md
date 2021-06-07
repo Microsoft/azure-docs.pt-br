@@ -1,19 +1,19 @@
 ---
-title: Problemas de diagnóstico da área de trabalho virtual do Windows (clássico)-Azure
-description: Como usar o recurso de diagnóstico da área de trabalho virtual (clássica) do Windows para diagnosticar problemas.
+title: Problemas de diagnóstico da Área de Trabalho Virtual do Windows (clássica) – Azure
+description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows (clássica) para diagnosticar problemas.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: e23a1e9a2a0118402df0d9b8869f170762a52284
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009334"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444948"
 ---
-# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas na área de trabalho virtual do Windows (clássico)
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas na Área de Trabalho Virtual do Windows (clássica)
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../diagnostics-role-service.md).
@@ -159,7 +159,7 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 
 |Código numérico|Código do erro|Solução sugerida|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|O usuário não é membro de Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|O usuário não é membro do Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|O host da sessão não entrou corretamente no Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|As conexões falharam porque o host da sessão não está disponível. Verifique a integridade do host da sessão.|
 |-2146233088|ConnectionFailedClientDisconnect|Se você observar esse erro com frequência, verifique se o computador do usuário está conectado à rede.|
@@ -170,7 +170,7 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 |8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor caiu. Nenhuma ação necessária, a menos que isso ocorra inesperadamente.|
 |14|UnexpectedNetworkDisconnect|A conexão com a rede caiu. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
-|1322|ConnectionFailedNoMappingOfSIDinAD|O usuário não é membro de Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|O usuário não é membro do Active Directory. Siga as instruções no [Centro Administrativo do Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) para adicioná-lo.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6dd2c7fcef6860cb5a2eaf88d141f8567955ed25
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706180"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102181820"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -79,7 +79,7 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
 >
 > Para remessas do exterior (fora do data center país/região), compartilhe uma conta da operadora internacional.
 
- ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
+ ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/import-job.png)
 
 Para obter instruções passo a passo sobre importar dados, vá para:
 
@@ -108,7 +108,7 @@ Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 >
 > Para remessas do exterior (fora do data center país/região), compartilhe uma conta da operadora internacional.
   
- ![Figura 2: Exportar o fluxo de trabalho](./media/storage-import-export-service/exportjob.png)
+ ![Figura 2: Exportar o fluxo de trabalho](./media/storage-import-export-service/export-job.png)
 
 Para obter instruções passo a passo sobre exportação de dados, vá para [exportar dados de Blobs do Azure](storage-import-export-data-from-blobs.md).
 
@@ -130,7 +130,7 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
 |Oeste da África do Sul   |  Norte da África do Sul |
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Os dados na unidade são criptografados usando o AES 256-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 

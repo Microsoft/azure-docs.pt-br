@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Banco de Dados SQL do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Banco de Dados SQL do Azure e a Instância Gerenciada de SQL. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 03/24/2021
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: dbe40c0cc4a098becd78b99bbfcca6aee7c5e64b
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 058105eee2aa15baa6deb44986f7f8d68842eb81
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098259"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035704"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições internas do Azure Policy para o Banco de Dados SQL do Azure e a Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

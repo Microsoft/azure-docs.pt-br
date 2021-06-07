@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 46766a7439185714648572f3f1b9d51ef96abba6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94357463"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar o Netskope User Authentication para provisionamento automático de usuário

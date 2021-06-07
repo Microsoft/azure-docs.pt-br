@@ -9,10 +9,10 @@ ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 47d899534de535b5cd6a7c3fb2df78cdadbe11f2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93338026"
 ---
 # <a name="stringequals-azure-cosmos-db"></a>STRINGEQUALS (Azure Cosmos DB)
@@ -67,5 +67,5 @@ Essa função do sistema se beneficiará de um [índice de intervalo](index-poli
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de cadeia de caracteres do Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema do Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de sistema do Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

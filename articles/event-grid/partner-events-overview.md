@@ -4,10 +4,10 @@ description: Envie eventos de parceiros de PaaS e SaaS da Grade de Eventos de te
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506134"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de parceiro na grade de eventos do Azure (visualização)
@@ -82,12 +82,12 @@ A imagem a seguir mostra o fluxo de operações do plano de controle.
 
 1. O Publicador cria um **registro de parceiro**. Os registros de parceiros são globais. Ou seja, eles não estão associados a uma região específica do Azure. Esta etapa é opcional.
 1. O editor cria um **namespace de parceiro** em uma região específica.
-1. Quando o assinante 1 tenta criar um tópico de parceiro, um **canal de evento** , canal de evento 1, é criado na assinatura do Azure do Publicador primeiro.
-1. Em seguida, um **tópico de parceiro** , tópico de parceiro 1, é criado na assinatura do Azure do Assinante. O assinante precisa ativar o tópico parceiro. 
+1. Quando o assinante 1 tenta criar um tópico de parceiro, um **canal de evento**, canal de evento 1, é criado na assinatura do Azure do Publicador primeiro.
+1. Em seguida, um **tópico de parceiro**, tópico de parceiro 1, é criado na assinatura do Azure do Assinante. O assinante precisa ativar o tópico parceiro. 
 1. O assinante 1 cria uma **assinatura dos aplicativos lógicos do Azure** para o tópico 1 do parceiro.
 1. O assinante 1 cria uma **assinatura de armazenamento de BLOBs do Azure** para o tópico de parceiro 1. 
-1. Quando o assinante 2 tenta criar um tópico de parceiro, outro **canal de evento** , canal de evento 2, é criado na assinatura do Azure do Publicador primeiro. 
-1. Em seguida, o **tópico de parceiro** , o tópico de parceiro 2, é criado na assinatura do Azure do segundo assinante. O assinante precisa ativar o tópico parceiro. 
+1. Quando o assinante 2 tenta criar um tópico de parceiro, outro **canal de evento**, canal de evento 2, é criado na assinatura do Azure do Publicador primeiro. 
+1. Em seguida, o **tópico de parceiro**, o tópico de parceiro 2, é criado na assinatura do Azure do segundo assinante. O assinante precisa ativar o tópico parceiro. 
 1. O assinante 2 cria uma **assinatura Azure Functions** para o tópico do parceiro 2. 
 
 ## <a name="pricing"></a>Preços

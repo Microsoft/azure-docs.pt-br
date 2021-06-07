@@ -3,15 +3,15 @@ title: Dimensionar hosts da sessão com a Automação do Azure – Azure
 description: Como dimensionar automaticamente os hosts da sessão da Área de Trabalho Virtual do Windows com a Automação do Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078547"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613112"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts da sessão usando a Automação do Azure
 
@@ -41,7 +41,7 @@ Durante o tempo de uso fora do horário de pico, o trabalho determina quantas VM
 >[!NOTE]
 >Se você definir manualmente a VM do host da sessão para o modo de descarga, o trabalho não gerenciará a VM do host da sessão. Se a VM host de sessão estiver em execução e definida como modo de descarga, ela será tratada como indisponível, o que fará com que o trabalho inicie VMs adicionais para lidar com a carga. Recomendamos que você marque todas as VMs do Azure antes de defini-las manualmente para o modo de descarga. Você pode nomear a marca com o parâmetro *MaintenanceTagName* ao criar o Agendador de aplicativos lógicos do Azure mais tarde. As marcas ajudarão você a distinguir essas VMs das gerenciadas pela ferramenta de dimensionamento. Definir a marca de manutenção também impede que a ferramenta de dimensionamento faça alterações na VM até que você remova a marca.
 
-Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para políticas de **configuração do computador**  >  **Policies**  >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM de host da sessão, o trabalho deixará a VM de host da sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
+Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para políticas de **configuração do computador**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM de host da sessão, o trabalho deixará a VM de host da sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
 
 Durante qualquer momento, o trabalho também usa o *MaxSessionLimit* do pool de hosts em conta para determinar se o número atual de sessões é mais de 90% da capacidade máxima. Se for, o trabalho iniciará VMs de host de sessão adicionais.
 
@@ -52,6 +52,9 @@ No entanto, a ferramenta também tem as seguintes limitações:
 - Essa solução se aplica somente a VMs de host de sessão de várias sessões em pool.
 - Essa solução gerencia as VMs em qualquer região, mas só pode ser usada na mesma assinatura que a sua conta de automação do Azure e o aplicativo lógico do Azure.
 - O tempo de execução máximo de um trabalho no runbook é de 3 horas. Se iniciar ou parar as VMs no pool de hosts demorar mais do que isso, o trabalho falhará. Para obter mais detalhes, consulte [recursos compartilhados](../automation/automation-runbook-execution.md#fair-share).
+- Pelo menos um host de sessão ou VM precisa ser ativado para que o algoritmo de dimensionamento funcione corretamente.
+- A ferramenta de dimensionamento não dá suporte ao dimensionamento com base na CPU ou na memória.
+- O dimensionamento funciona apenas com hosts existentes no pool de hosts. A ferramenta de dimensionamento não dá suporte ao dimensionamento de novos hosts de sessão.
 
 >[!NOTE]
 >A ferramenta de dimensionamento controla o modo de balanceamento de carga do pool de hosts que está sendo dimensionado no momento. A ferramenta usa o modo de balanceamento de carga em primeiro lugar para os horários de pico e fora do horário de pico.

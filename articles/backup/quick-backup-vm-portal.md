@@ -1,16 +1,18 @@
 ---
 title: Início Rápido – Fazer backup de uma VM com o portal do Azure
 description: Neste guia de Início Rápido, saiba como criar um cofre dos Serviços de Recuperação, habilitar a proteção na VM do Azure, e fazer backup da VM com o portal do Azure.
-ms.devlang: azurecli
-ms.topic: quickstart
 ms.date: 05/12/2020
-ms.custom: mvc
-ms.openlocfilehash: cd0d4928d5cd0eb15f4f1372a0a3417fc85d13bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.topic: quickstart
+ms.devlang: azurecli
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 9779f84e6ddf1958ee234a96267171869a33e4e0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328761"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535052"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 

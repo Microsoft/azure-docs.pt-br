@@ -9,10 +9,10 @@ ms.date: 01/15/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82506399"
 ---
 Se você pretende continuar para o próximo artigo recomendado, mantenha e reutilize os recursos já criados.
@@ -29,7 +29,7 @@ Para excluir um grupo de recursos por nome:
 
 1. Na caixa **Filtrar por nome**, insira o nome do grupo de recursos que contém o hub IoT.
 
-1. Na lista de resultados, à direita do grupo de recursos, selecione as reticências ( **...** ) e, em seguida, selecione **Excluir grupo de recursos**.
+1. Na lista de resultados, à direita do grupo de recursos, selecione as reticências (**...**) e, em seguida, selecione **Excluir grupo de recursos**.
 
     ![O botão "Excluir grupo de recursos"](./media/iot-hub-quickstarts-clean-up-resources-device-streams/iot-hub-delete-resource-group.png)
 

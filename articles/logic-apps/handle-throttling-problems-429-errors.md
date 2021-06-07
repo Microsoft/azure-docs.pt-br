@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366042"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de limitação (429-erros de "excesso de solicitações") nos aplicativos lógicos do Azure
@@ -35,9 +35,9 @@ Para localizar eventos de limitação neste nível, verifique o painel de **mét
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. No menu do aplicativo lógico, em **monitoramento** , selecione **métricas**.
+1. No menu do aplicativo lógico, em **monitoramento**, selecione **métricas**.
 
-1. Em **título do gráfico** , selecione **Adicionar métrica** para adicionar outra métrica ao existente.
+1. Em **título do gráfico**, selecione **Adicionar métrica** para adicionar outra métrica ao existente.
 
 1. Na primeira barra de métricas, na lista **métrica** , selecione **eventos com restrição de ação**. Na segunda barra de métricas, na lista **métrica** , selecione **disparar eventos restringidos**.
 

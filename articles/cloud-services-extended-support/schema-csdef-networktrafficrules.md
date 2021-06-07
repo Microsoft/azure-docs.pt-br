@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 0064794701e87419da086c458673f7ccee4f37dd
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744180"
 ---
 # <a name="azure-cloud-services-extended-support-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição de serviços de nuvem do Azure (suporte estendido)
@@ -94,7 +94,7 @@ O elemento `FromRole` especifica as funções que podem se comunicar com os pont
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatórios. O nome da função da qual permitir a comunicação.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Esquema de definição do serviço de nuvem (suporte estendido)](schema-csdef-file.md).
 
 

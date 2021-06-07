@@ -1,19 +1,18 @@
 ---
 title: Série NVv4
 description: Especificações para as VMs da série NVv4.
-services: virtual-machines
-ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: c751f67e9f442669ff3f6828de0a5b350d1706fa
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 152e25fec4ee7b6181e2da58a9a4b0562a918151
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097700"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609185"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -28,7 +27,7 @@ As máquinas virtuais da série NVv4 são alimentadas por GPUs [AMD Radeon insti
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Número máximo de NICs/largura de banda de rede esperada (MBps) |

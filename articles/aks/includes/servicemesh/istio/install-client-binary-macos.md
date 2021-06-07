@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/02/2020
 ms.author: pabouwer
 ms.openlocfilehash: 5dc9686e4a9994a085cc9f4a4631e66b05d7949d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91666683"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl

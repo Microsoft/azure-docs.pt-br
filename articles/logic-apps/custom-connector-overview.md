@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018
 ms.openlocfilehash: 3305524a4e2e06f1e3433c018124495a4cd82f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87090358"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Conectores Personalizados nos Aplicativos Lógicos

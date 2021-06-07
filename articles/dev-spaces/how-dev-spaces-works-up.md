@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descreve os processos de execução do seu código no serviço kubernetes do Azure com Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014424"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Como executar o código com Azure Dev Spaces funciona

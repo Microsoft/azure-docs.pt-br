@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988912"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
@@ -89,7 +89,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, implemente pelo
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
+| Recurso| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |

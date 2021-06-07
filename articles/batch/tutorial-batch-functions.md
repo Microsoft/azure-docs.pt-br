@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97106375"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Disparar um trabalho em lotes usando o Azure Functions

@@ -13,15 +13,15 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152125"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
-O Hub IoT do Azure se integra à Grade de Eventos do Azure para que você possa enviar notificações de eventos para outros serviços e disparar processos downstream. Configure seus aplicativos de negócios para escutar eventos do Hub IoT para que você possa reagir a eventos críticos de maneira confiável, escalonável e segura.Por exemplo, crie um aplicativo que atualiza um banco de dados, cria um tíquete de trabalho e entrega uma notificação por email toda vez que um novo dispositivo IoT é registrado no Hub IoT.
+O Hub IoT do Azure se integra à Grade de Eventos do Azure para que você possa enviar notificações de eventos para outros serviços e disparar processos downstream. Configure seus aplicativos de negócios para escutar eventos do Hub IoT para que você possa reagir a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, crie um aplicativo que atualiza um banco de dados, cria um tíquete de trabalho e entrega uma notificação por email toda vez que um novo dispositivo IoT é registrado no Hub IoT.
 
 [Grade de Eventos do Azure](../event-grid/overview.md) é um serviço de roteamento de eventos totalmente gerenciado que usa um modelo de publicação/assinatura. Grade de eventos tem suporte interno para os serviços do Azure como [Azure Functions](../azure-functions/functions-overview.md) e [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md)e pode fornecer alertas de eventos para os serviços do Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](../event-grid/overview.md).
 

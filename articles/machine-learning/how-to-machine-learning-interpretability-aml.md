@@ -12,10 +12,10 @@ ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
 ms.openlocfilehash: fda1bc2ef0a112a8a32ba7c4caebf29028c8cdd7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222744"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usar o pacote de interpretação para explicar os modelos de ML & previsões no Python (versão prévia)
@@ -340,7 +340,7 @@ Explore os principais recursos importantes que afetam as previsões gerais do mo
 
 A quarta guia da guia explicação permite que você faça drill-through de um DataPoint individual e suas importâncias de recursos individuais. Você pode carregar o gráfico de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais no gráfico de dispersão principal ou selecionando um DataPoint específico no assistente de painel à direita.
 
-|Plotar|Description|
+|Plotar|Descrição|
 |----|-----------|
 |Importância de recurso individual|Mostra os principais recursos importantes para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente em um ponto de dados específico.|
 |Análise de What-If|Permite alterações nos valores de recursos do ponto de dados real selecionado e observa as alterações resultantes no valor de previsão, gerando um DataPoint hipotético com os novos valores de recurso.|

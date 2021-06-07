@@ -4,12 +4,12 @@ description: 'Tutorial: Use a Grade de Eventos do Azure e a CLI do Azure para pu
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 7fcbc76f3ab58aac6beca3e142eba3a9b62c28a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566819"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770391"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhe eventos personalizados para as Conexões Híbridas de Retransmissão do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -27,7 +27,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Conexões H�
 
 Os tópicos de Grade de Eventos são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O grupo de recursos do Azure é uma coleção lógica na qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). 
 
 O exemplo a seguir cria um grupo de recursos chamado *gridResourceGroup* no local *westus2*.
 

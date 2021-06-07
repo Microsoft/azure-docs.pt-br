@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: juliako
 ms.openlocfilehash: 890f8c159c3e8e8d0b4164cf218f320551ea63ec
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97628908"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizar um modelo de Pessoa com o site do Video Indexer

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
 ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856663"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
@@ -22,14 +22,14 @@ ms.locfileid: "91856663"
 
 Para trabalhar com mensagens AS2 em aplicativos lógicos do Azure, você pode usar o conector do AS2, que fornece gatilhos e ações que dão suporte e gerenciam a comunicação AS2 (versão 1,2). Por exemplo, para estabelecer a segurança e a confiabilidade ao transmitir mensagens, você pode usar estas ações:
 
-* [Ação de **codificação AS2** ](#encode) para fornecer criptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN), que ajudam a dar suporte a não-repúdio. Por exemplo, essa ação aplica cabeçalhos AS2/HTTP e executa essas tarefas quando configurado:
+* [Ação de **codificação AS2**](#encode) para fornecer criptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN), que ajudam a dar suporte a não-repúdio. Por exemplo, essa ação aplica cabeçalhos AS2/HTTP e executa essas tarefas quando configurado:
 
   * Assina mensagens de saída.
   * Criptografa mensagens de saída.
   * Compacta a mensagem.
   * Transmite o nome do arquivo no cabeçalho MIME.
 
-* [Ação de **decodificação AS2** ](#decode) para fornecer descriptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN). Por exemplo, essa ação executa estas tarefas:
+* [Ação de **decodificação AS2**](#decode) para fornecer descriptografia, assinatura digital e confirmações por meio de notificações de disposição de mensagem (MDN). Por exemplo, essa ação executa estas tarefas:
 
   * Processa cabeçalhos AS2/HTTP.
   * Reconcilia o MDNs recebido com as mensagens de saída originais.
@@ -63,7 +63,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 * Se você usar [Azure Key Vault](../key-vault/general/overview.md) para o gerenciamento de certificados, verifique se as chaves do cofre permitem as operações **criptografar** e **descriptografar** . Caso contrário, as ações de codificação e decodificação falharão.
 
-  Na portal do Azure, vá para a chave no cofre de chaves, examine as **operações permitidas**da chave e confirme se as operações **criptografar** e **descriptografar** estão selecionadas, por exemplo:
+  Na portal do Azure, vá para a chave no cofre de chaves, examine as **operações permitidas** da chave e confirme se as operações **criptografar** e **descriptografar** estão selecionadas, por exemplo:
 
   ![Verificar operações de chave do cofre](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 

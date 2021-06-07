@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6ef255d78d3dd3ff6fcc5eba7aad522018185299
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593145"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio dos protocolos de sistema de arquivos SMB e NFS. Este artigo discute as metas de escalabilidade e desempenho dos arquivos do Azure e do Azure File Sync.
@@ -126,10 +126,21 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Taxa de transferência de download de namespace | 400 objetos por segundo |
 
 ### <a name="initial-one-time-provisioning"></a>Provisionamento inicial de uso único
+
 **Enumeração de alteração de nuvem inicial**: quando um novo grupo de sincronização é criado, a enumeração de alteração de nuvem inicial é a primeira etapa que será executada. Nesse processo, o sistema irá enumerar todos os itens no compartilhamento de arquivos do Azure. Durante esse processo, não haverá nenhuma atividade de sincronização, ou seja, nenhum item será baixado do ponto de extremidade de nuvem para o ponto de extremidade do servidor e nenhum item será carregado do ponto de extremidade do servidor para o ponto de extremidade da nuvem. A atividade de sincronização será retomada após a conclusão da enumeração de alteração de nuvem inicial.
 A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o tempo necessário para concluir a enumeração inicial de alteração na nuvem determinando o número de itens no compartilhamento de nuvem e usando a fórmula a seguir para obter o tempo em dias. 
 
    **Tempo (em dias) para a enumeração de nuvem inicial = (número de objetos no ponto de extremidade de nuvem)/(20 * 60 * 60 * 24)**
+
+**Sincronização inicial de dados do Windows Server para o compartilhamento de arquivos do Azure**: muitas implantações sincronização de arquivos do Azure começam com um compartilhamento de arquivos do Azure vazio porque todos os dados estão no Windows Server. Nesses casos, a enumeração inicial de alteração de nuvem é rápida e a maior parte do tempo será gasta na sincronização de alterações do Windows Server para os compartilhamentos de arquivos do Azure. 
+
+Embora a sincronização carregue dados no compartilhamento de arquivos do Azure, não há nenhum tempo de inatividade no servidor de arquivos local, e os administradores podem [configurar limites de rede](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) para restringir a quantidade de largura de banda usada para carregamento de dados em segundo plano.
+
+A sincronização inicial normalmente é limitada pela taxa de carregamento inicial de 20 arquivos por segundo por grupo de sincronização. Os clientes podem estimar o tempo para carregar todos os seus dados no Azure usando a fórmula a seguir para obter tempo em dias:  
+
+   **Tempo (em dias) para carregar arquivos em um grupo de sincronização = (número de objetos no ponto de extremidade do servidor)/(20 * 60 * 60 * 24)**
+
+Dividir seus dados em vários pontos de extremidade de servidor e grupos de sincronização pode acelerar esse carregamento de dados inicial, pois o upload pode ser feito em paralelo para vários grupos de sincronização a uma taxa de 20 itens por segundo. Portanto, dois grupos de sincronização seriam executados em uma taxa combinada de 40 itens por segundo. O tempo total a ser concluído seria a estimativa de tempo para o grupo de sincronização com a maioria dos arquivos a serem sincronizados.
 
 **Taxa de transferência de download de namespace** Quando um novo ponto de extremidade do servidor é adicionado a um grupo de sincronização existente, o agente de Sincronização de Arquivos do Azure não baixa nenhum conteúdo do arquivo do ponto de extremidade da nuvem. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
 
@@ -151,6 +162,6 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 - A taxa de transferência do objeto é dimensionado aproximadamente proporcionalmente ao número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização em um servidor resulta em melhor taxa de transferência, que também é limitada pelo servidor e rede.
 - A taxa de transferência do objeto é inversamente proporcional à MiB por segundo taxa de transferência. Para os arquivos menores, você terá maior taxa de transferência em termos de número de objetos processados por segundo, mas inferior MiB por segundo taxa de transferência. Por outro lado, para arquivos maiores, você terá menos objetos processados por segundo, mas superior MiB por segundo taxa de transferência. A MiB por segundo taxa de transferência é limitada pelos destinos de escala de arquivos do Azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 - [Como planejar uma implantação de Arquivos do Azure](storage-files-planning.md)
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
